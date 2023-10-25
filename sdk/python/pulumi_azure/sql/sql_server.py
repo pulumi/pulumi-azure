@@ -55,27 +55,35 @@ class SqlServerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             administrator_login: pulumi.Input[str],
-             administrator_login_password: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             version: pulumi.Input[str],
+             administrator_login: Optional[pulumi.Input[str]] = None,
+             administrator_login_password: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
              connection_policy: Optional[pulumi.Input[str]] = None,
              identity: Optional[pulumi.Input['SqlServerIdentityArgs']] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              threat_detection_policy: Optional[pulumi.Input['SqlServerThreatDetectionPolicyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'administratorLogin' in kwargs:
+        if administrator_login is None and 'administratorLogin' in kwargs:
             administrator_login = kwargs['administratorLogin']
-        if 'administratorLoginPassword' in kwargs:
+        if administrator_login is None:
+            raise TypeError("Missing 'administrator_login' argument")
+        if administrator_login_password is None and 'administratorLoginPassword' in kwargs:
             administrator_login_password = kwargs['administratorLoginPassword']
-        if 'resourceGroupName' in kwargs:
+        if administrator_login_password is None:
+            raise TypeError("Missing 'administrator_login_password' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'connectionPolicy' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+        if connection_policy is None and 'connectionPolicy' in kwargs:
             connection_policy = kwargs['connectionPolicy']
-        if 'threatDetectionPolicy' in kwargs:
+        if threat_detection_policy is None and 'threatDetectionPolicy' in kwargs:
             threat_detection_policy = kwargs['threatDetectionPolicy']
 
         _setter("administrator_login", administrator_login)
@@ -272,19 +280,19 @@ class _SqlServerState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              threat_detection_policy: Optional[pulumi.Input['SqlServerThreatDetectionPolicyArgs']] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'administratorLogin' in kwargs:
+        if administrator_login is None and 'administratorLogin' in kwargs:
             administrator_login = kwargs['administratorLogin']
-        if 'administratorLoginPassword' in kwargs:
+        if administrator_login_password is None and 'administratorLoginPassword' in kwargs:
             administrator_login_password = kwargs['administratorLoginPassword']
-        if 'connectionPolicy' in kwargs:
+        if connection_policy is None and 'connectionPolicy' in kwargs:
             connection_policy = kwargs['connectionPolicy']
-        if 'fullyQualifiedDomainName' in kwargs:
+        if fully_qualified_domain_name is None and 'fullyQualifiedDomainName' in kwargs:
             fully_qualified_domain_name = kwargs['fullyQualifiedDomainName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'threatDetectionPolicy' in kwargs:
+        if threat_detection_policy is None and 'threatDetectionPolicy' in kwargs:
             threat_detection_policy = kwargs['threatDetectionPolicy']
 
         if administrator_login is not None:
@@ -462,29 +470,6 @@ class SqlServer(pulumi.CustomResource):
         """
         Manages a Microsoft SQL Azure Database Server.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_sql_server = azure.sql.SqlServer("exampleSqlServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            version="12.0",
-            administrator_login="mradministrator",
-            administrator_login_password="thisIsDog11",
-            tags={
-                "environment": "production",
-            })
-        ```
-
         ## Import
 
         SQL Servers can be imported using the `resource id`, e.g.
@@ -514,29 +499,6 @@ class SqlServer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Microsoft SQL Azure Database Server.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_sql_server = azure.sql.SqlServer("exampleSqlServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            version="12.0",
-            administrator_login="mradministrator",
-            administrator_login_password="thisIsDog11",
-            tags={
-                "environment": "production",
-            })
-        ```
 
         ## Import
 
@@ -591,11 +553,7 @@ class SqlServer(pulumi.CustomResource):
                 raise TypeError("Missing required property 'administrator_login_password'")
             __props__.__dict__["administrator_login_password"] = None if administrator_login_password is None else pulumi.Output.secret(administrator_login_password)
             __props__.__dict__["connection_policy"] = connection_policy
-            if identity is not None and not isinstance(identity, SqlServerIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                SqlServerIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, SqlServerIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -603,11 +561,7 @@ class SqlServer(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
-            if threat_detection_policy is not None and not isinstance(threat_detection_policy, SqlServerThreatDetectionPolicyArgs):
-                threat_detection_policy = threat_detection_policy or {}
-                def _setter(key, value):
-                    threat_detection_policy[key] = value
-                SqlServerThreatDetectionPolicyArgs._configure(_setter, **threat_detection_policy)
+            threat_detection_policy = _utilities.configure(threat_detection_policy, SqlServerThreatDetectionPolicyArgs, True)
             __props__.__dict__["threat_detection_policy"] = threat_detection_policy
             if version is None and not opts.urn:
                 raise TypeError("Missing required property 'version'")

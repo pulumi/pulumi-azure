@@ -85,10 +85,10 @@ class StandardArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_service_plan_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             storage_account_access_key: pulumi.Input[str],
-             storage_account_name: pulumi.Input[str],
+             app_service_plan_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             storage_account_access_key: Optional[pulumi.Input[str]] = None,
+             storage_account_name: Optional[pulumi.Input[str]] = None,
              app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              bundle_version: Optional[pulumi.Input[str]] = None,
              client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
@@ -105,35 +105,43 @@ class StandardArgs:
              use_extension_bundle: Optional[pulumi.Input[bool]] = None,
              version: Optional[pulumi.Input[str]] = None,
              virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'appServicePlanId' in kwargs:
+        if app_service_plan_id is None and 'appServicePlanId' in kwargs:
             app_service_plan_id = kwargs['appServicePlanId']
-        if 'resourceGroupName' in kwargs:
+        if app_service_plan_id is None:
+            raise TypeError("Missing 'app_service_plan_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'storageAccountAccessKey' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if storage_account_access_key is None and 'storageAccountAccessKey' in kwargs:
             storage_account_access_key = kwargs['storageAccountAccessKey']
-        if 'storageAccountName' in kwargs:
+        if storage_account_access_key is None:
+            raise TypeError("Missing 'storage_account_access_key' argument")
+        if storage_account_name is None and 'storageAccountName' in kwargs:
             storage_account_name = kwargs['storageAccountName']
-        if 'appSettings' in kwargs:
+        if storage_account_name is None:
+            raise TypeError("Missing 'storage_account_name' argument")
+        if app_settings is None and 'appSettings' in kwargs:
             app_settings = kwargs['appSettings']
-        if 'bundleVersion' in kwargs:
+        if bundle_version is None and 'bundleVersion' in kwargs:
             bundle_version = kwargs['bundleVersion']
-        if 'clientAffinityEnabled' in kwargs:
+        if client_affinity_enabled is None and 'clientAffinityEnabled' in kwargs:
             client_affinity_enabled = kwargs['clientAffinityEnabled']
-        if 'clientCertificateMode' in kwargs:
+        if client_certificate_mode is None and 'clientCertificateMode' in kwargs:
             client_certificate_mode = kwargs['clientCertificateMode']
-        if 'connectionStrings' in kwargs:
+        if connection_strings is None and 'connectionStrings' in kwargs:
             connection_strings = kwargs['connectionStrings']
-        if 'httpsOnly' in kwargs:
+        if https_only is None and 'httpsOnly' in kwargs:
             https_only = kwargs['httpsOnly']
-        if 'siteConfig' in kwargs:
+        if site_config is None and 'siteConfig' in kwargs:
             site_config = kwargs['siteConfig']
-        if 'storageAccountShareName' in kwargs:
+        if storage_account_share_name is None and 'storageAccountShareName' in kwargs:
             storage_account_share_name = kwargs['storageAccountShareName']
-        if 'useExtensionBundle' in kwargs:
+        if use_extension_bundle is None and 'useExtensionBundle' in kwargs:
             use_extension_bundle = kwargs['useExtensionBundle']
-        if 'virtualNetworkSubnetId' in kwargs:
+        if virtual_network_subnet_id is None and 'virtualNetworkSubnetId' in kwargs:
             virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
 
         _setter("app_service_plan_id", app_service_plan_id)
@@ -526,45 +534,45 @@ class _StandardState:
              use_extension_bundle: Optional[pulumi.Input[bool]] = None,
              version: Optional[pulumi.Input[str]] = None,
              virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'appServicePlanId' in kwargs:
+        if app_service_plan_id is None and 'appServicePlanId' in kwargs:
             app_service_plan_id = kwargs['appServicePlanId']
-        if 'appSettings' in kwargs:
+        if app_settings is None and 'appSettings' in kwargs:
             app_settings = kwargs['appSettings']
-        if 'bundleVersion' in kwargs:
+        if bundle_version is None and 'bundleVersion' in kwargs:
             bundle_version = kwargs['bundleVersion']
-        if 'clientAffinityEnabled' in kwargs:
+        if client_affinity_enabled is None and 'clientAffinityEnabled' in kwargs:
             client_affinity_enabled = kwargs['clientAffinityEnabled']
-        if 'clientCertificateMode' in kwargs:
+        if client_certificate_mode is None and 'clientCertificateMode' in kwargs:
             client_certificate_mode = kwargs['clientCertificateMode']
-        if 'connectionStrings' in kwargs:
+        if connection_strings is None and 'connectionStrings' in kwargs:
             connection_strings = kwargs['connectionStrings']
-        if 'customDomainVerificationId' in kwargs:
+        if custom_domain_verification_id is None and 'customDomainVerificationId' in kwargs:
             custom_domain_verification_id = kwargs['customDomainVerificationId']
-        if 'defaultHostname' in kwargs:
+        if default_hostname is None and 'defaultHostname' in kwargs:
             default_hostname = kwargs['defaultHostname']
-        if 'httpsOnly' in kwargs:
+        if https_only is None and 'httpsOnly' in kwargs:
             https_only = kwargs['httpsOnly']
-        if 'outboundIpAddresses' in kwargs:
+        if outbound_ip_addresses is None and 'outboundIpAddresses' in kwargs:
             outbound_ip_addresses = kwargs['outboundIpAddresses']
-        if 'possibleOutboundIpAddresses' in kwargs:
+        if possible_outbound_ip_addresses is None and 'possibleOutboundIpAddresses' in kwargs:
             possible_outbound_ip_addresses = kwargs['possibleOutboundIpAddresses']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'siteConfig' in kwargs:
+        if site_config is None and 'siteConfig' in kwargs:
             site_config = kwargs['siteConfig']
-        if 'siteCredentials' in kwargs:
+        if site_credentials is None and 'siteCredentials' in kwargs:
             site_credentials = kwargs['siteCredentials']
-        if 'storageAccountAccessKey' in kwargs:
+        if storage_account_access_key is None and 'storageAccountAccessKey' in kwargs:
             storage_account_access_key = kwargs['storageAccountAccessKey']
-        if 'storageAccountName' in kwargs:
+        if storage_account_name is None and 'storageAccountName' in kwargs:
             storage_account_name = kwargs['storageAccountName']
-        if 'storageAccountShareName' in kwargs:
+        if storage_account_share_name is None and 'storageAccountShareName' in kwargs:
             storage_account_share_name = kwargs['storageAccountShareName']
-        if 'useExtensionBundle' in kwargs:
+        if use_extension_bundle is None and 'useExtensionBundle' in kwargs:
             use_extension_bundle = kwargs['useExtensionBundle']
-        if 'virtualNetworkSubnetId' in kwargs:
+        if virtual_network_subnet_id is None and 'virtualNetworkSubnetId' in kwargs:
             virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
 
         if app_service_plan_id is not None:
@@ -959,75 +967,6 @@ class Standard(pulumi.CustomResource):
         Manages a Logic App (Standard / Single Tenant)
 
         ## Example Usage
-        ### With App Service Plan)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_plan = azure.appservice.Plan("examplePlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            kind="elastic",
-            sku=azure.appservice.PlanSkuArgs(
-                tier="WorkflowStandard",
-                size="WS1",
-            ))
-        example_standard = azure.logicapps.Standard("exampleStandard",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            app_service_plan_id=example_plan.id,
-            storage_account_name=example_account.name,
-            storage_account_access_key=example_account.primary_access_key,
-            app_settings={
-                "FUNCTIONS_WORKER_RUNTIME": "node",
-                "WEBSITE_NODE_DEFAULT_VERSION": "~18",
-            })
-        ```
-        ### For Container Mode)
-
-        > **Note:** You must set `appservice.Plan` `kind` to `Linux` and `reserved` to `true` when used with `linux_fx_version`
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_plan = azure.appservice.Plan("examplePlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            kind="Linux",
-            reserved=True,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="WorkflowStandard",
-                size="WS1",
-            ))
-        example_standard = azure.logicapps.Standard("exampleStandard",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            app_service_plan_id=example_plan.id,
-            storage_account_name=example_account.name,
-            storage_account_access_key=example_account.primary_access_key,
-            site_config=azure.logicapps.StandardSiteConfigArgs(
-                linux_fx_version="DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice",
-            ),
-            app_settings={
-                "DOCKER_REGISTRY_SERVER_URL": "https://<server-name>.azurecr.io",
-                "DOCKER_REGISTRY_SERVER_USERNAME": "username",
-                "DOCKER_REGISTRY_SERVER_PASSWORD": "password",
-            })
-        ```
 
         ## Import
 
@@ -1070,75 +1009,6 @@ class Standard(pulumi.CustomResource):
         Manages a Logic App (Standard / Single Tenant)
 
         ## Example Usage
-        ### With App Service Plan)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_plan = azure.appservice.Plan("examplePlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            kind="elastic",
-            sku=azure.appservice.PlanSkuArgs(
-                tier="WorkflowStandard",
-                size="WS1",
-            ))
-        example_standard = azure.logicapps.Standard("exampleStandard",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            app_service_plan_id=example_plan.id,
-            storage_account_name=example_account.name,
-            storage_account_access_key=example_account.primary_access_key,
-            app_settings={
-                "FUNCTIONS_WORKER_RUNTIME": "node",
-                "WEBSITE_NODE_DEFAULT_VERSION": "~18",
-            })
-        ```
-        ### For Container Mode)
-
-        > **Note:** You must set `appservice.Plan` `kind` to `Linux` and `reserved` to `true` when used with `linux_fx_version`
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_plan = azure.appservice.Plan("examplePlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            kind="Linux",
-            reserved=True,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="WorkflowStandard",
-                size="WS1",
-            ))
-        example_standard = azure.logicapps.Standard("exampleStandard",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            app_service_plan_id=example_plan.id,
-            storage_account_name=example_account.name,
-            storage_account_access_key=example_account.primary_access_key,
-            site_config=azure.logicapps.StandardSiteConfigArgs(
-                linux_fx_version="DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice",
-            ),
-            app_settings={
-                "DOCKER_REGISTRY_SERVER_URL": "https://<server-name>.azurecr.io",
-                "DOCKER_REGISTRY_SERVER_USERNAME": "username",
-                "DOCKER_REGISTRY_SERVER_PASSWORD": "password",
-            })
-        ```
 
         ## Import
 
@@ -1206,22 +1076,14 @@ class Standard(pulumi.CustomResource):
             __props__.__dict__["connection_strings"] = connection_strings
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["https_only"] = https_only
-            if identity is not None and not isinstance(identity, StandardIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                StandardIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, StandardIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if site_config is not None and not isinstance(site_config, StandardSiteConfigArgs):
-                site_config = site_config or {}
-                def _setter(key, value):
-                    site_config[key] = value
-                StandardSiteConfigArgs._configure(_setter, **site_config)
+            site_config = _utilities.configure(site_config, StandardSiteConfigArgs, True)
             __props__.__dict__["site_config"] = site_config
             if storage_account_access_key is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_access_key'")

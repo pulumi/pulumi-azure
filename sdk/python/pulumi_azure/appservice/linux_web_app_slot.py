@@ -94,8 +94,8 @@ class LinuxWebAppSlotArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_service_id: pulumi.Input[str],
-             site_config: pulumi.Input['LinuxWebAppSlotSiteConfigArgs'],
+             app_service_id: Optional[pulumi.Input[str]] = None,
+             site_config: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigArgs']] = None,
              app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              auth_settings: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsArgs']] = None,
              auth_settings_v2: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2Args']] = None,
@@ -117,41 +117,45 @@ class LinuxWebAppSlotArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
              zip_deploy_file: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'appServiceId' in kwargs:
+        if app_service_id is None and 'appServiceId' in kwargs:
             app_service_id = kwargs['appServiceId']
-        if 'siteConfig' in kwargs:
+        if app_service_id is None:
+            raise TypeError("Missing 'app_service_id' argument")
+        if site_config is None and 'siteConfig' in kwargs:
             site_config = kwargs['siteConfig']
-        if 'appSettings' in kwargs:
+        if site_config is None:
+            raise TypeError("Missing 'site_config' argument")
+        if app_settings is None and 'appSettings' in kwargs:
             app_settings = kwargs['appSettings']
-        if 'authSettings' in kwargs:
+        if auth_settings is None and 'authSettings' in kwargs:
             auth_settings = kwargs['authSettings']
-        if 'authSettingsV2' in kwargs:
+        if auth_settings_v2 is None and 'authSettingsV2' in kwargs:
             auth_settings_v2 = kwargs['authSettingsV2']
-        if 'clientAffinityEnabled' in kwargs:
+        if client_affinity_enabled is None and 'clientAffinityEnabled' in kwargs:
             client_affinity_enabled = kwargs['clientAffinityEnabled']
-        if 'clientCertificateEnabled' in kwargs:
+        if client_certificate_enabled is None and 'clientCertificateEnabled' in kwargs:
             client_certificate_enabled = kwargs['clientCertificateEnabled']
-        if 'clientCertificateExclusionPaths' in kwargs:
+        if client_certificate_exclusion_paths is None and 'clientCertificateExclusionPaths' in kwargs:
             client_certificate_exclusion_paths = kwargs['clientCertificateExclusionPaths']
-        if 'clientCertificateMode' in kwargs:
+        if client_certificate_mode is None and 'clientCertificateMode' in kwargs:
             client_certificate_mode = kwargs['clientCertificateMode']
-        if 'connectionStrings' in kwargs:
+        if connection_strings is None and 'connectionStrings' in kwargs:
             connection_strings = kwargs['connectionStrings']
-        if 'httpsOnly' in kwargs:
+        if https_only is None and 'httpsOnly' in kwargs:
             https_only = kwargs['httpsOnly']
-        if 'keyVaultReferenceIdentityId' in kwargs:
+        if key_vault_reference_identity_id is None and 'keyVaultReferenceIdentityId' in kwargs:
             key_vault_reference_identity_id = kwargs['keyVaultReferenceIdentityId']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'servicePlanId' in kwargs:
+        if service_plan_id is None and 'servicePlanId' in kwargs:
             service_plan_id = kwargs['servicePlanId']
-        if 'storageAccounts' in kwargs:
+        if storage_accounts is None and 'storageAccounts' in kwargs:
             storage_accounts = kwargs['storageAccounts']
-        if 'virtualNetworkSubnetId' in kwargs:
+        if virtual_network_subnet_id is None and 'virtualNetworkSubnetId' in kwargs:
             virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
-        if 'zipDeployFile' in kwargs:
+        if zip_deploy_file is None and 'zipDeployFile' in kwargs:
             zip_deploy_file = kwargs['zipDeployFile']
 
         _setter("app_service_id", app_service_id)
@@ -616,59 +620,59 @@ class _LinuxWebAppSlotState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
              zip_deploy_file: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'appMetadata' in kwargs:
+        if app_metadata is None and 'appMetadata' in kwargs:
             app_metadata = kwargs['appMetadata']
-        if 'appServiceId' in kwargs:
+        if app_service_id is None and 'appServiceId' in kwargs:
             app_service_id = kwargs['appServiceId']
-        if 'appSettings' in kwargs:
+        if app_settings is None and 'appSettings' in kwargs:
             app_settings = kwargs['appSettings']
-        if 'authSettings' in kwargs:
+        if auth_settings is None and 'authSettings' in kwargs:
             auth_settings = kwargs['authSettings']
-        if 'authSettingsV2' in kwargs:
+        if auth_settings_v2 is None and 'authSettingsV2' in kwargs:
             auth_settings_v2 = kwargs['authSettingsV2']
-        if 'clientAffinityEnabled' in kwargs:
+        if client_affinity_enabled is None and 'clientAffinityEnabled' in kwargs:
             client_affinity_enabled = kwargs['clientAffinityEnabled']
-        if 'clientCertificateEnabled' in kwargs:
+        if client_certificate_enabled is None and 'clientCertificateEnabled' in kwargs:
             client_certificate_enabled = kwargs['clientCertificateEnabled']
-        if 'clientCertificateExclusionPaths' in kwargs:
+        if client_certificate_exclusion_paths is None and 'clientCertificateExclusionPaths' in kwargs:
             client_certificate_exclusion_paths = kwargs['clientCertificateExclusionPaths']
-        if 'clientCertificateMode' in kwargs:
+        if client_certificate_mode is None and 'clientCertificateMode' in kwargs:
             client_certificate_mode = kwargs['clientCertificateMode']
-        if 'connectionStrings' in kwargs:
+        if connection_strings is None and 'connectionStrings' in kwargs:
             connection_strings = kwargs['connectionStrings']
-        if 'customDomainVerificationId' in kwargs:
+        if custom_domain_verification_id is None and 'customDomainVerificationId' in kwargs:
             custom_domain_verification_id = kwargs['customDomainVerificationId']
-        if 'defaultHostname' in kwargs:
+        if default_hostname is None and 'defaultHostname' in kwargs:
             default_hostname = kwargs['defaultHostname']
-        if 'hostingEnvironmentId' in kwargs:
+        if hosting_environment_id is None and 'hostingEnvironmentId' in kwargs:
             hosting_environment_id = kwargs['hostingEnvironmentId']
-        if 'httpsOnly' in kwargs:
+        if https_only is None and 'httpsOnly' in kwargs:
             https_only = kwargs['httpsOnly']
-        if 'keyVaultReferenceIdentityId' in kwargs:
+        if key_vault_reference_identity_id is None and 'keyVaultReferenceIdentityId' in kwargs:
             key_vault_reference_identity_id = kwargs['keyVaultReferenceIdentityId']
-        if 'outboundIpAddressLists' in kwargs:
+        if outbound_ip_address_lists is None and 'outboundIpAddressLists' in kwargs:
             outbound_ip_address_lists = kwargs['outboundIpAddressLists']
-        if 'outboundIpAddresses' in kwargs:
+        if outbound_ip_addresses is None and 'outboundIpAddresses' in kwargs:
             outbound_ip_addresses = kwargs['outboundIpAddresses']
-        if 'possibleOutboundIpAddressLists' in kwargs:
+        if possible_outbound_ip_address_lists is None and 'possibleOutboundIpAddressLists' in kwargs:
             possible_outbound_ip_address_lists = kwargs['possibleOutboundIpAddressLists']
-        if 'possibleOutboundIpAddresses' in kwargs:
+        if possible_outbound_ip_addresses is None and 'possibleOutboundIpAddresses' in kwargs:
             possible_outbound_ip_addresses = kwargs['possibleOutboundIpAddresses']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'servicePlanId' in kwargs:
+        if service_plan_id is None and 'servicePlanId' in kwargs:
             service_plan_id = kwargs['servicePlanId']
-        if 'siteConfig' in kwargs:
+        if site_config is None and 'siteConfig' in kwargs:
             site_config = kwargs['siteConfig']
-        if 'siteCredentials' in kwargs:
+        if site_credentials is None and 'siteCredentials' in kwargs:
             site_credentials = kwargs['siteCredentials']
-        if 'storageAccounts' in kwargs:
+        if storage_accounts is None and 'storageAccounts' in kwargs:
             storage_accounts = kwargs['storageAccounts']
-        if 'virtualNetworkSubnetId' in kwargs:
+        if virtual_network_subnet_id is None and 'virtualNetworkSubnetId' in kwargs:
             virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
-        if 'zipDeployFile' in kwargs:
+        if zip_deploy_file is None and 'zipDeployFile' in kwargs:
             zip_deploy_file = kwargs['zipDeployFile']
 
         if app_metadata is not None:
@@ -1163,28 +1167,6 @@ class LinuxWebAppSlot(pulumi.CustomResource):
         """
         Manages a Linux Web App Slot.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            os_type="Linux",
-            sku_name="P1v2")
-        example_linux_web_app = azure.appservice.LinuxWebApp("exampleLinuxWebApp",
-            resource_group_name=example_resource_group.name,
-            location=example_service_plan.location,
-            service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.LinuxWebAppSiteConfigArgs())
-        example_linux_web_app_slot = azure.appservice.LinuxWebAppSlot("exampleLinuxWebAppSlot",
-            app_service_id=example_linux_web_app.id,
-            site_config=azure.appservice.LinuxWebAppSlotSiteConfigArgs())
-        ```
-
         ## Import
 
         Linux Web Apps can be imported using the `resource id`, e.g.
@@ -1227,28 +1209,6 @@ class LinuxWebAppSlot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Linux Web App Slot.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            os_type="Linux",
-            sku_name="P1v2")
-        example_linux_web_app = azure.appservice.LinuxWebApp("exampleLinuxWebApp",
-            resource_group_name=example_resource_group.name,
-            location=example_service_plan.location,
-            service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.LinuxWebAppSiteConfigArgs())
-        example_linux_web_app_slot = azure.appservice.LinuxWebAppSlot("exampleLinuxWebAppSlot",
-            app_service_id=example_linux_web_app.id,
-            site_config=azure.appservice.LinuxWebAppSlotSiteConfigArgs())
-        ```
 
         ## Import
 
@@ -1313,23 +1273,11 @@ class LinuxWebAppSlot(pulumi.CustomResource):
                 raise TypeError("Missing required property 'app_service_id'")
             __props__.__dict__["app_service_id"] = app_service_id
             __props__.__dict__["app_settings"] = app_settings
-            if auth_settings is not None and not isinstance(auth_settings, LinuxWebAppSlotAuthSettingsArgs):
-                auth_settings = auth_settings or {}
-                def _setter(key, value):
-                    auth_settings[key] = value
-                LinuxWebAppSlotAuthSettingsArgs._configure(_setter, **auth_settings)
+            auth_settings = _utilities.configure(auth_settings, LinuxWebAppSlotAuthSettingsArgs, True)
             __props__.__dict__["auth_settings"] = auth_settings
-            if auth_settings_v2 is not None and not isinstance(auth_settings_v2, LinuxWebAppSlotAuthSettingsV2Args):
-                auth_settings_v2 = auth_settings_v2 or {}
-                def _setter(key, value):
-                    auth_settings_v2[key] = value
-                LinuxWebAppSlotAuthSettingsV2Args._configure(_setter, **auth_settings_v2)
+            auth_settings_v2 = _utilities.configure(auth_settings_v2, LinuxWebAppSlotAuthSettingsV2Args, True)
             __props__.__dict__["auth_settings_v2"] = auth_settings_v2
-            if backup is not None and not isinstance(backup, LinuxWebAppSlotBackupArgs):
-                backup = backup or {}
-                def _setter(key, value):
-                    backup[key] = value
-                LinuxWebAppSlotBackupArgs._configure(_setter, **backup)
+            backup = _utilities.configure(backup, LinuxWebAppSlotBackupArgs, True)
             __props__.__dict__["backup"] = backup
             __props__.__dict__["client_affinity_enabled"] = client_affinity_enabled
             __props__.__dict__["client_certificate_enabled"] = client_certificate_enabled
@@ -1338,27 +1286,15 @@ class LinuxWebAppSlot(pulumi.CustomResource):
             __props__.__dict__["connection_strings"] = connection_strings
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["https_only"] = https_only
-            if identity is not None and not isinstance(identity, LinuxWebAppSlotIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                LinuxWebAppSlotIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, LinuxWebAppSlotIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["key_vault_reference_identity_id"] = key_vault_reference_identity_id
-            if logs is not None and not isinstance(logs, LinuxWebAppSlotLogsArgs):
-                logs = logs or {}
-                def _setter(key, value):
-                    logs[key] = value
-                LinuxWebAppSlotLogsArgs._configure(_setter, **logs)
+            logs = _utilities.configure(logs, LinuxWebAppSlotLogsArgs, True)
             __props__.__dict__["logs"] = logs
             __props__.__dict__["name"] = name
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             __props__.__dict__["service_plan_id"] = service_plan_id
-            if site_config is not None and not isinstance(site_config, LinuxWebAppSlotSiteConfigArgs):
-                site_config = site_config or {}
-                def _setter(key, value):
-                    site_config[key] = value
-                LinuxWebAppSlotSiteConfigArgs._configure(_setter, **site_config)
+            site_config = _utilities.configure(site_config, LinuxWebAppSlotSiteConfigArgs, True)
             if site_config is None and not opts.urn:
                 raise TypeError("Missing required property 'site_config'")
             __props__.__dict__["site_config"] = site_config

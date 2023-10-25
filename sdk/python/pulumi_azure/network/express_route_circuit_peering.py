@@ -65,10 +65,10 @@ class ExpressRouteCircuitPeeringArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             express_route_circuit_name: pulumi.Input[str],
-             peering_type: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             vlan_id: pulumi.Input[int],
+             express_route_circuit_name: Optional[pulumi.Input[str]] = None,
+             peering_type: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             vlan_id: Optional[pulumi.Input[int]] = None,
              ipv4_enabled: Optional[pulumi.Input[bool]] = None,
              ipv6: Optional[pulumi.Input['ExpressRouteCircuitPeeringIpv6Args']] = None,
              microsoft_peering_config: Optional[pulumi.Input['ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs']] = None,
@@ -77,29 +77,37 @@ class ExpressRouteCircuitPeeringArgs:
              route_filter_id: Optional[pulumi.Input[str]] = None,
              secondary_peer_address_prefix: Optional[pulumi.Input[str]] = None,
              shared_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'expressRouteCircuitName' in kwargs:
+        if express_route_circuit_name is None and 'expressRouteCircuitName' in kwargs:
             express_route_circuit_name = kwargs['expressRouteCircuitName']
-        if 'peeringType' in kwargs:
+        if express_route_circuit_name is None:
+            raise TypeError("Missing 'express_route_circuit_name' argument")
+        if peering_type is None and 'peeringType' in kwargs:
             peering_type = kwargs['peeringType']
-        if 'resourceGroupName' in kwargs:
+        if peering_type is None:
+            raise TypeError("Missing 'peering_type' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'vlanId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if vlan_id is None and 'vlanId' in kwargs:
             vlan_id = kwargs['vlanId']
-        if 'ipv4Enabled' in kwargs:
+        if vlan_id is None:
+            raise TypeError("Missing 'vlan_id' argument")
+        if ipv4_enabled is None and 'ipv4Enabled' in kwargs:
             ipv4_enabled = kwargs['ipv4Enabled']
-        if 'microsoftPeeringConfig' in kwargs:
+        if microsoft_peering_config is None and 'microsoftPeeringConfig' in kwargs:
             microsoft_peering_config = kwargs['microsoftPeeringConfig']
-        if 'peerAsn' in kwargs:
+        if peer_asn is None and 'peerAsn' in kwargs:
             peer_asn = kwargs['peerAsn']
-        if 'primaryPeerAddressPrefix' in kwargs:
+        if primary_peer_address_prefix is None and 'primaryPeerAddressPrefix' in kwargs:
             primary_peer_address_prefix = kwargs['primaryPeerAddressPrefix']
-        if 'routeFilterId' in kwargs:
+        if route_filter_id is None and 'routeFilterId' in kwargs:
             route_filter_id = kwargs['routeFilterId']
-        if 'secondaryPeerAddressPrefix' in kwargs:
+        if secondary_peer_address_prefix is None and 'secondaryPeerAddressPrefix' in kwargs:
             secondary_peer_address_prefix = kwargs['secondaryPeerAddressPrefix']
-        if 'sharedKey' in kwargs:
+        if shared_key is None and 'sharedKey' in kwargs:
             shared_key = kwargs['sharedKey']
 
         _setter("express_route_circuit_name", express_route_circuit_name)
@@ -351,37 +359,37 @@ class _ExpressRouteCircuitPeeringState:
              secondary_peer_address_prefix: Optional[pulumi.Input[str]] = None,
              shared_key: Optional[pulumi.Input[str]] = None,
              vlan_id: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'azureAsn' in kwargs:
+        if azure_asn is None and 'azureAsn' in kwargs:
             azure_asn = kwargs['azureAsn']
-        if 'expressRouteCircuitName' in kwargs:
+        if express_route_circuit_name is None and 'expressRouteCircuitName' in kwargs:
             express_route_circuit_name = kwargs['expressRouteCircuitName']
-        if 'gatewayManagerEtag' in kwargs:
+        if gateway_manager_etag is None and 'gatewayManagerEtag' in kwargs:
             gateway_manager_etag = kwargs['gatewayManagerEtag']
-        if 'ipv4Enabled' in kwargs:
+        if ipv4_enabled is None and 'ipv4Enabled' in kwargs:
             ipv4_enabled = kwargs['ipv4Enabled']
-        if 'microsoftPeeringConfig' in kwargs:
+        if microsoft_peering_config is None and 'microsoftPeeringConfig' in kwargs:
             microsoft_peering_config = kwargs['microsoftPeeringConfig']
-        if 'peerAsn' in kwargs:
+        if peer_asn is None and 'peerAsn' in kwargs:
             peer_asn = kwargs['peerAsn']
-        if 'peeringType' in kwargs:
+        if peering_type is None and 'peeringType' in kwargs:
             peering_type = kwargs['peeringType']
-        if 'primaryAzurePort' in kwargs:
+        if primary_azure_port is None and 'primaryAzurePort' in kwargs:
             primary_azure_port = kwargs['primaryAzurePort']
-        if 'primaryPeerAddressPrefix' in kwargs:
+        if primary_peer_address_prefix is None and 'primaryPeerAddressPrefix' in kwargs:
             primary_peer_address_prefix = kwargs['primaryPeerAddressPrefix']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'routeFilterId' in kwargs:
+        if route_filter_id is None and 'routeFilterId' in kwargs:
             route_filter_id = kwargs['routeFilterId']
-        if 'secondaryAzurePort' in kwargs:
+        if secondary_azure_port is None and 'secondaryAzurePort' in kwargs:
             secondary_azure_port = kwargs['secondaryAzurePort']
-        if 'secondaryPeerAddressPrefix' in kwargs:
+        if secondary_peer_address_prefix is None and 'secondaryPeerAddressPrefix' in kwargs:
             secondary_peer_address_prefix = kwargs['secondaryPeerAddressPrefix']
-        if 'sharedKey' in kwargs:
+        if shared_key is None and 'sharedKey' in kwargs:
             shared_key = kwargs['sharedKey']
-        if 'vlanId' in kwargs:
+        if vlan_id is None and 'vlanId' in kwargs:
             vlan_id = kwargs['vlanId']
 
         if azure_asn is not None:
@@ -633,84 +641,6 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         Manages an ExpressRoute Circuit Peering.
 
         ## Example Usage
-        ### Creating A Microsoft Peering)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_express_route_circuit = azure.network.ExpressRouteCircuit("exampleExpressRouteCircuit",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            service_provider_name="Equinix",
-            peering_location="Silicon Valley",
-            bandwidth_in_mbps=50,
-            sku=azure.network.ExpressRouteCircuitSkuArgs(
-                tier="Standard",
-                family="MeteredData",
-            ),
-            allow_classic_operations=False,
-            tags={
-                "environment": "Production",
-            })
-        example_express_route_circuit_peering = azure.network.ExpressRouteCircuitPeering("exampleExpressRouteCircuitPeering",
-            peering_type="MicrosoftPeering",
-            express_route_circuit_name=example_express_route_circuit.name,
-            resource_group_name=example_resource_group.name,
-            peer_asn=100,
-            primary_peer_address_prefix="123.0.0.0/30",
-            secondary_peer_address_prefix="123.0.0.4/30",
-            ipv4_enabled=True,
-            vlan_id=300,
-            microsoft_peering_config=azure.network.ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs(
-                advertised_public_prefixes=["123.1.0.0/24"],
-            ),
-            ipv6=azure.network.ExpressRouteCircuitPeeringIpv6Args(
-                primary_peer_address_prefix="2002:db01::/126",
-                secondary_peer_address_prefix="2003:db01::/126",
-                enabled=True,
-                microsoft_peering=azure.network.ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs(
-                    advertised_public_prefixes=["2002:db01::/126"],
-                ),
-            ))
-        ```
-        ### Creating Azure Private Peering)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_express_route_circuit = azure.network.ExpressRouteCircuit("exampleExpressRouteCircuit",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            service_provider_name="Equinix",
-            peering_location="Silicon Valley",
-            bandwidth_in_mbps=50,
-            sku=azure.network.ExpressRouteCircuitSkuArgs(
-                tier="Standard",
-                family="MeteredData",
-            ),
-            allow_classic_operations=False,
-            tags={
-                "environment": "Production",
-            })
-        example_express_route_circuit_peering = azure.network.ExpressRouteCircuitPeering("exampleExpressRouteCircuitPeering",
-            peering_type="AzurePrivatePeering",
-            express_route_circuit_name=example_express_route_circuit.name,
-            resource_group_name=example_resource_group.name,
-            peer_asn=100,
-            primary_peer_address_prefix="123.0.0.0/30",
-            secondary_peer_address_prefix="123.0.0.4/30",
-            ipv4_enabled=True,
-            vlan_id=300,
-            ipv6=azure.network.ExpressRouteCircuitPeeringIpv6Args(
-                primary_peer_address_prefix="2002:db01::/126",
-                secondary_peer_address_prefix="2003:db01::/126",
-                enabled=True,
-            ))
-        ```
 
         ## Import
 
@@ -749,84 +679,6 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         Manages an ExpressRoute Circuit Peering.
 
         ## Example Usage
-        ### Creating A Microsoft Peering)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_express_route_circuit = azure.network.ExpressRouteCircuit("exampleExpressRouteCircuit",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            service_provider_name="Equinix",
-            peering_location="Silicon Valley",
-            bandwidth_in_mbps=50,
-            sku=azure.network.ExpressRouteCircuitSkuArgs(
-                tier="Standard",
-                family="MeteredData",
-            ),
-            allow_classic_operations=False,
-            tags={
-                "environment": "Production",
-            })
-        example_express_route_circuit_peering = azure.network.ExpressRouteCircuitPeering("exampleExpressRouteCircuitPeering",
-            peering_type="MicrosoftPeering",
-            express_route_circuit_name=example_express_route_circuit.name,
-            resource_group_name=example_resource_group.name,
-            peer_asn=100,
-            primary_peer_address_prefix="123.0.0.0/30",
-            secondary_peer_address_prefix="123.0.0.4/30",
-            ipv4_enabled=True,
-            vlan_id=300,
-            microsoft_peering_config=azure.network.ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs(
-                advertised_public_prefixes=["123.1.0.0/24"],
-            ),
-            ipv6=azure.network.ExpressRouteCircuitPeeringIpv6Args(
-                primary_peer_address_prefix="2002:db01::/126",
-                secondary_peer_address_prefix="2003:db01::/126",
-                enabled=True,
-                microsoft_peering=azure.network.ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs(
-                    advertised_public_prefixes=["2002:db01::/126"],
-                ),
-            ))
-        ```
-        ### Creating Azure Private Peering)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_express_route_circuit = azure.network.ExpressRouteCircuit("exampleExpressRouteCircuit",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            service_provider_name="Equinix",
-            peering_location="Silicon Valley",
-            bandwidth_in_mbps=50,
-            sku=azure.network.ExpressRouteCircuitSkuArgs(
-                tier="Standard",
-                family="MeteredData",
-            ),
-            allow_classic_operations=False,
-            tags={
-                "environment": "Production",
-            })
-        example_express_route_circuit_peering = azure.network.ExpressRouteCircuitPeering("exampleExpressRouteCircuitPeering",
-            peering_type="AzurePrivatePeering",
-            express_route_circuit_name=example_express_route_circuit.name,
-            resource_group_name=example_resource_group.name,
-            peer_asn=100,
-            primary_peer_address_prefix="123.0.0.0/30",
-            secondary_peer_address_prefix="123.0.0.4/30",
-            ipv4_enabled=True,
-            vlan_id=300,
-            ipv6=azure.network.ExpressRouteCircuitPeeringIpv6Args(
-                primary_peer_address_prefix="2002:db01::/126",
-                secondary_peer_address_prefix="2003:db01::/126",
-                enabled=True,
-            ))
-        ```
 
         ## Import
 
@@ -880,17 +732,9 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
                 raise TypeError("Missing required property 'express_route_circuit_name'")
             __props__.__dict__["express_route_circuit_name"] = express_route_circuit_name
             __props__.__dict__["ipv4_enabled"] = ipv4_enabled
-            if ipv6 is not None and not isinstance(ipv6, ExpressRouteCircuitPeeringIpv6Args):
-                ipv6 = ipv6 or {}
-                def _setter(key, value):
-                    ipv6[key] = value
-                ExpressRouteCircuitPeeringIpv6Args._configure(_setter, **ipv6)
+            ipv6 = _utilities.configure(ipv6, ExpressRouteCircuitPeeringIpv6Args, True)
             __props__.__dict__["ipv6"] = ipv6
-            if microsoft_peering_config is not None and not isinstance(microsoft_peering_config, ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs):
-                microsoft_peering_config = microsoft_peering_config or {}
-                def _setter(key, value):
-                    microsoft_peering_config[key] = value
-                ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs._configure(_setter, **microsoft_peering_config)
+            microsoft_peering_config = _utilities.configure(microsoft_peering_config, ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs, True)
             __props__.__dict__["microsoft_peering_config"] = microsoft_peering_config
             __props__.__dict__["peer_asn"] = peer_asn
             if peering_type is None and not opts.urn:

@@ -8,19 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing App Configuration.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.appconfiguration.getConfigurationStore({
- *     name: "existing",
- *     resourceGroupName: "existing",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getConfigurationStore(args: GetConfigurationStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationStoreResult> {
 
@@ -119,19 +106,6 @@ export interface GetConfigurationStoreResult {
 }
 /**
  * Use this data source to access information about an existing App Configuration.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.appconfiguration.getConfigurationStore({
- *     name: "existing",
- *     resourceGroupName: "existing",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getConfigurationStoreOutput(args: GetConfigurationStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationStoreResult> {
     return pulumi.output(args).apply((a: any) => getConfigurationStore(a, opts))

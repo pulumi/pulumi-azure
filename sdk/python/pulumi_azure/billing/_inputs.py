@@ -31,12 +31,16 @@ class AccountCostManagementExportExportDataOptionsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             time_frame: pulumi.Input[str],
-             type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             time_frame: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'timeFrame' in kwargs:
+        if time_frame is None and 'timeFrame' in kwargs:
             time_frame = kwargs['timeFrame']
+        if time_frame is None:
+            raise TypeError("Missing 'time_frame' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("time_frame", time_frame)
         _setter("type", type)
@@ -85,14 +89,18 @@ class AccountCostManagementExportExportDataStorageLocationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             container_id: pulumi.Input[str],
-             root_folder_path: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             container_id: Optional[pulumi.Input[str]] = None,
+             root_folder_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'containerId' in kwargs:
+        if container_id is None and 'containerId' in kwargs:
             container_id = kwargs['containerId']
-        if 'rootFolderPath' in kwargs:
+        if container_id is None:
+            raise TypeError("Missing 'container_id' argument")
+        if root_folder_path is None and 'rootFolderPath' in kwargs:
             root_folder_path = kwargs['rootFolderPath']
+        if root_folder_path is None:
+            raise TypeError("Missing 'root_folder_path' argument")
 
         _setter("container_id", container_id)
         _setter("root_folder_path", root_folder_path)

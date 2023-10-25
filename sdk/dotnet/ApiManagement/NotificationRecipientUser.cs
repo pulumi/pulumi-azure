@@ -12,51 +12,6 @@ namespace Pulumi.Azure.ApiManagement
     /// <summary>
     /// Manages a API Management Notification Recipient User.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         PublisherName = "My Company",
-    ///         PublisherEmail = "company@terraform.io",
-    ///         SkuName = "Developer_1",
-    ///     });
-    /// 
-    ///     var exampleUser = new Azure.ApiManagement.User("exampleUser", new()
-    ///     {
-    ///         UserId = "123",
-    ///         ApiManagementName = exampleService.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         FirstName = "Example",
-    ///         LastName = "User",
-    ///         Email = "foo@bar.com",
-    ///         State = "active",
-    ///     });
-    /// 
-    ///     var exampleNotificationRecipientUser = new Azure.ApiManagement.NotificationRecipientUser("exampleNotificationRecipientUser", new()
-    ///     {
-    ///         ApiManagementId = exampleService.Id,
-    ///         NotificationType = "AccountClosedPublisher",
-    ///         UserId = exampleUser.UserId,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// API Management Notification Recipient Users can be imported using the `resource id`, e.g.

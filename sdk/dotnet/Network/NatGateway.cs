@@ -12,38 +12,6 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages an Azure NAT Gateway.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleNatGateway = new Azure.Network.NatGateway("exampleNatGateway", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         SkuName = "Standard",
-    ///         IdleTimeoutInMinutes = 10,
-    ///         Zones = new[]
-    ///         {
-    ///             "1",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// For more complete examples, please see the azure.network.NatGatewayPublicIpAssociation and azure.network.NatGatewayPublicIpPrefixAssociation resources.
-    /// 
     /// ## Import
     /// 
     /// NAT Gateway can be imported using the `resource id`, e.g.

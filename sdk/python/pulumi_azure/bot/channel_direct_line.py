@@ -37,16 +37,22 @@ class ChannelDirectLineArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bot_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             sites: pulumi.Input[Sequence[pulumi.Input['ChannelDirectLineSiteArgs']]],
+             bot_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sites: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelDirectLineSiteArgs']]]] = None,
              location: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'botName' in kwargs:
+        if bot_name is None and 'botName' in kwargs:
             bot_name = kwargs['botName']
-        if 'resourceGroupName' in kwargs:
+        if bot_name is None:
+            raise TypeError("Missing 'bot_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sites is None:
+            raise TypeError("Missing 'sites' argument")
 
         _setter("bot_name", bot_name)
         _setter("resource_group_name", resource_group_name)
@@ -131,11 +137,11 @@ class _ChannelDirectLineState:
              location: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              sites: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelDirectLineSiteArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'botName' in kwargs:
+        if bot_name is None and 'botName' in kwargs:
             bot_name = kwargs['botName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if bot_name is not None:
@@ -209,29 +215,6 @@ class ChannelDirectLine(pulumi.CustomResource):
         """
         Manages a Directline integration for a Bot Channel
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_channels_registration = azure.bot.ChannelsRegistration("exampleChannelsRegistration",
-            location="global",
-            resource_group_name=example_resource_group.name,
-            sku="F0",
-            microsoft_app_id=current.client_id)
-        example_channel_direct_line = azure.bot.ChannelDirectLine("exampleChannelDirectLine",
-            bot_name=example_channels_registration.name,
-            location=example_channels_registration.location,
-            resource_group_name=example_resource_group.name,
-            sites=[azure.bot.ChannelDirectLineSiteArgs(
-                name="default",
-                enabled=True,
-            )])
-        ```
-
         ## Import
 
         The Directline Channel for a Bot can be imported using the `resource id`, e.g.
@@ -255,29 +238,6 @@ class ChannelDirectLine(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Directline integration for a Bot Channel
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_channels_registration = azure.bot.ChannelsRegistration("exampleChannelsRegistration",
-            location="global",
-            resource_group_name=example_resource_group.name,
-            sku="F0",
-            microsoft_app_id=current.client_id)
-        example_channel_direct_line = azure.bot.ChannelDirectLine("exampleChannelDirectLine",
-            bot_name=example_channels_registration.name,
-            location=example_channels_registration.location,
-            resource_group_name=example_resource_group.name,
-            sites=[azure.bot.ChannelDirectLineSiteArgs(
-                name="default",
-                enabled=True,
-            )])
-        ```
 
         ## Import
 

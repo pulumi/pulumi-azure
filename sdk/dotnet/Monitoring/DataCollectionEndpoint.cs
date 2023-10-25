@@ -12,37 +12,6 @@ namespace Pulumi.Azure.Monitoring
     /// <summary>
     /// Manages a Data Collection Endpoint.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleDataCollectionEndpoint = new Azure.Monitoring.DataCollectionEndpoint("exampleDataCollectionEndpoint", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         Kind = "Windows",
-    ///         PublicNetworkAccessEnabled = true,
-    ///         Description = "monitor_data_collection_endpoint example",
-    ///         Tags = 
-    ///         {
-    ///             { "foo", "bar" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Data Collection Endpoints can be imported using the `resource id`, e.g.

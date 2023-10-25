@@ -38,22 +38,28 @@ class ClusterCustomerManagedKeyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cluster_id: pulumi.Input[str],
-             key_name: pulumi.Input[str],
-             key_vault_id: pulumi.Input[str],
+             cluster_id: Optional[pulumi.Input[str]] = None,
+             key_name: Optional[pulumi.Input[str]] = None,
+             key_vault_id: Optional[pulumi.Input[str]] = None,
              key_version: Optional[pulumi.Input[str]] = None,
              user_identity: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'clusterId' in kwargs:
+        if cluster_id is None and 'clusterId' in kwargs:
             cluster_id = kwargs['clusterId']
-        if 'keyName' in kwargs:
+        if cluster_id is None:
+            raise TypeError("Missing 'cluster_id' argument")
+        if key_name is None and 'keyName' in kwargs:
             key_name = kwargs['keyName']
-        if 'keyVaultId' in kwargs:
+        if key_name is None:
+            raise TypeError("Missing 'key_name' argument")
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
-        if 'keyVersion' in kwargs:
+        if key_vault_id is None:
+            raise TypeError("Missing 'key_vault_id' argument")
+        if key_version is None and 'keyVersion' in kwargs:
             key_version = kwargs['keyVersion']
-        if 'userIdentity' in kwargs:
+        if user_identity is None and 'userIdentity' in kwargs:
             user_identity = kwargs['userIdentity']
 
         _setter("cluster_id", cluster_id)
@@ -157,17 +163,17 @@ class _ClusterCustomerManagedKeyState:
              key_vault_id: Optional[pulumi.Input[str]] = None,
              key_version: Optional[pulumi.Input[str]] = None,
              user_identity: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'clusterId' in kwargs:
+        if cluster_id is None and 'clusterId' in kwargs:
             cluster_id = kwargs['clusterId']
-        if 'keyName' in kwargs:
+        if key_name is None and 'keyName' in kwargs:
             key_name = kwargs['keyName']
-        if 'keyVaultId' in kwargs:
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
-        if 'keyVersion' in kwargs:
+        if key_version is None and 'keyVersion' in kwargs:
             key_version = kwargs['keyVersion']
-        if 'userIdentity' in kwargs:
+        if user_identity is None and 'userIdentity' in kwargs:
             user_identity = kwargs['userIdentity']
 
         if cluster_id is not None:
@@ -256,74 +262,6 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
         """
         Manages a Customer Managed Key for a Kusto Cluster.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="standard",
-            purge_protection_enabled=True)
-        example_cluster = azure.kusto.Cluster("exampleCluster",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Standard_D13_v2",
-                capacity=2,
-            ),
-            identity=azure.kusto.ClusterIdentityArgs(
-                type="SystemAssigned",
-            ))
-        cluster = azure.keyvault.AccessPolicy("cluster",
-            key_vault_id=example_key_vault.id,
-            tenant_id=current.tenant_id,
-            object_id=example_cluster.identity.principal_id,
-            key_permissions=[
-                "Get",
-                "UnwrapKey",
-                "WrapKey",
-            ])
-        client = azure.keyvault.AccessPolicy("client",
-            key_vault_id=example_key_vault.id,
-            tenant_id=current.tenant_id,
-            object_id=current.object_id,
-            key_permissions=[
-                "Get",
-                "List",
-                "Create",
-                "Delete",
-                "Recover",
-                "GetRotationPolicy",
-            ])
-        example_key = azure.keyvault.Key("exampleKey",
-            key_vault_id=example_key_vault.id,
-            key_type="RSA",
-            key_size=2048,
-            key_opts=[
-                "decrypt",
-                "encrypt",
-                "sign",
-                "unwrapKey",
-                "verify",
-                "wrapKey",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    client,
-                    cluster,
-                ]))
-        example_cluster_customer_managed_key = azure.kusto.ClusterCustomerManagedKey("exampleClusterCustomerManagedKey",
-            cluster_id=example_cluster.id,
-            key_vault_id=example_key_vault.id,
-            key_name=example_key.name,
-            key_version=example_key.version)
-        ```
-
         ## Import
 
         Customer Managed Keys for a Kusto Cluster can be imported using the `resource id`, e.g.
@@ -348,74 +286,6 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Customer Managed Key for a Kusto Cluster.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="standard",
-            purge_protection_enabled=True)
-        example_cluster = azure.kusto.Cluster("exampleCluster",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Standard_D13_v2",
-                capacity=2,
-            ),
-            identity=azure.kusto.ClusterIdentityArgs(
-                type="SystemAssigned",
-            ))
-        cluster = azure.keyvault.AccessPolicy("cluster",
-            key_vault_id=example_key_vault.id,
-            tenant_id=current.tenant_id,
-            object_id=example_cluster.identity.principal_id,
-            key_permissions=[
-                "Get",
-                "UnwrapKey",
-                "WrapKey",
-            ])
-        client = azure.keyvault.AccessPolicy("client",
-            key_vault_id=example_key_vault.id,
-            tenant_id=current.tenant_id,
-            object_id=current.object_id,
-            key_permissions=[
-                "Get",
-                "List",
-                "Create",
-                "Delete",
-                "Recover",
-                "GetRotationPolicy",
-            ])
-        example_key = azure.keyvault.Key("exampleKey",
-            key_vault_id=example_key_vault.id,
-            key_type="RSA",
-            key_size=2048,
-            key_opts=[
-                "decrypt",
-                "encrypt",
-                "sign",
-                "unwrapKey",
-                "verify",
-                "wrapKey",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    client,
-                    cluster,
-                ]))
-        example_cluster_customer_managed_key = azure.kusto.ClusterCustomerManagedKey("exampleClusterCustomerManagedKey",
-            cluster_id=example_cluster.id,
-            key_vault_id=example_key_vault.id,
-            key_name=example_key.name,
-            key_version=example_key.version)
-        ```
 
         ## Import
 

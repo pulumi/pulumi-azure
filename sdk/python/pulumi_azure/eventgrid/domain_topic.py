@@ -32,15 +32,19 @@ class DomainTopicArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             domain_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             domain_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'domainName' in kwargs:
+        if domain_name is None and 'domainName' in kwargs:
             domain_name = kwargs['domainName']
-        if 'resourceGroupName' in kwargs:
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("domain_name", domain_name)
         _setter("resource_group_name", resource_group_name)
@@ -108,11 +112,11 @@ class _DomainTopicState:
              domain_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'domainName' in kwargs:
+        if domain_name is None and 'domainName' in kwargs:
             domain_name = kwargs['domainName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if domain_name is not None:
@@ -171,24 +175,6 @@ class DomainTopic(pulumi.CustomResource):
         """
         Manages an EventGrid Domain Topic
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_domain = azure.eventgrid.Domain("exampleDomain",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tags={
-                "environment": "Production",
-            })
-        example_domain_topic = azure.eventgrid.DomainTopic("exampleDomainTopic",
-            domain_name=example_domain.name,
-            resource_group_name=example_resource_group.name)
-        ```
-
         ## Import
 
         EventGrid Domain Topics can be imported using the `resource id`, e.g.
@@ -211,24 +197,6 @@ class DomainTopic(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an EventGrid Domain Topic
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_domain = azure.eventgrid.Domain("exampleDomain",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tags={
-                "environment": "Production",
-            })
-        example_domain_topic = azure.eventgrid.DomainTopic("exampleDomainTopic",
-            domain_name=example_domain.name,
-            resource_group_name=example_resource_group.name)
-        ```
 
         ## Import
 

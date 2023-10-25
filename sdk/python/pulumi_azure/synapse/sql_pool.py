@@ -58,8 +58,8 @@ class SqlPoolArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             sku_name: pulumi.Input[str],
-             synapse_workspace_id: pulumi.Input[str],
+             sku_name: Optional[pulumi.Input[str]] = None,
+             synapse_workspace_id: Optional[pulumi.Input[str]] = None,
              collation: Optional[pulumi.Input[str]] = None,
              create_mode: Optional[pulumi.Input[str]] = None,
              data_encrypted: Optional[pulumi.Input[bool]] = None,
@@ -69,21 +69,25 @@ class SqlPoolArgs:
              restore: Optional[pulumi.Input['SqlPoolRestoreArgs']] = None,
              storage_account_type: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'synapseWorkspaceId' in kwargs:
+        if sku_name is None:
+            raise TypeError("Missing 'sku_name' argument")
+        if synapse_workspace_id is None and 'synapseWorkspaceId' in kwargs:
             synapse_workspace_id = kwargs['synapseWorkspaceId']
-        if 'createMode' in kwargs:
+        if synapse_workspace_id is None:
+            raise TypeError("Missing 'synapse_workspace_id' argument")
+        if create_mode is None and 'createMode' in kwargs:
             create_mode = kwargs['createMode']
-        if 'dataEncrypted' in kwargs:
+        if data_encrypted is None and 'dataEncrypted' in kwargs:
             data_encrypted = kwargs['dataEncrypted']
-        if 'geoBackupPolicyEnabled' in kwargs:
+        if geo_backup_policy_enabled is None and 'geoBackupPolicyEnabled' in kwargs:
             geo_backup_policy_enabled = kwargs['geoBackupPolicyEnabled']
-        if 'recoveryDatabaseId' in kwargs:
+        if recovery_database_id is None and 'recoveryDatabaseId' in kwargs:
             recovery_database_id = kwargs['recoveryDatabaseId']
-        if 'storageAccountType' in kwargs:
+        if storage_account_type is None and 'storageAccountType' in kwargs:
             storage_account_type = kwargs['storageAccountType']
 
         _setter("sku_name", sku_name)
@@ -296,21 +300,21 @@ class _SqlPoolState:
              storage_account_type: Optional[pulumi.Input[str]] = None,
              synapse_workspace_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'createMode' in kwargs:
+        if create_mode is None and 'createMode' in kwargs:
             create_mode = kwargs['createMode']
-        if 'dataEncrypted' in kwargs:
+        if data_encrypted is None and 'dataEncrypted' in kwargs:
             data_encrypted = kwargs['dataEncrypted']
-        if 'geoBackupPolicyEnabled' in kwargs:
+        if geo_backup_policy_enabled is None and 'geoBackupPolicyEnabled' in kwargs:
             geo_backup_policy_enabled = kwargs['geoBackupPolicyEnabled']
-        if 'recoveryDatabaseId' in kwargs:
+        if recovery_database_id is None and 'recoveryDatabaseId' in kwargs:
             recovery_database_id = kwargs['recoveryDatabaseId']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'storageAccountType' in kwargs:
+        if storage_account_type is None and 'storageAccountType' in kwargs:
             storage_account_type = kwargs['storageAccountType']
-        if 'synapseWorkspaceId' in kwargs:
+        if synapse_workspace_id is None and 'synapseWorkspaceId' in kwargs:
             synapse_workspace_id = kwargs['synapseWorkspaceId']
 
         if collation is not None:
@@ -489,36 +493,6 @@ class SqlPool(pulumi.CustomResource):
         """
         Manages a Synapse SQL Pool.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            account_kind="BlobStorage")
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
-        example_workspace = azure.synapse.Workspace("exampleWorkspace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
-            sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!",
-            identity=azure.synapse.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_sql_pool = azure.synapse.SqlPool("exampleSqlPool",
-            synapse_workspace_id=example_workspace.id,
-            sku_name="DW100c",
-            create_mode="Default",
-            storage_account_type="GRS")
-        ```
-
         ## Import
 
         Synapse SQL Pool can be imported using the `resource id`, e.g.
@@ -549,36 +523,6 @@ class SqlPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Synapse SQL Pool.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            account_kind="BlobStorage")
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
-        example_workspace = azure.synapse.Workspace("exampleWorkspace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
-            sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!",
-            identity=azure.synapse.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_sql_pool = azure.synapse.SqlPool("exampleSqlPool",
-            synapse_workspace_id=example_workspace.id,
-            sku_name="DW100c",
-            create_mode="Default",
-            storage_account_type="GRS")
-        ```
 
         ## Import
 
@@ -633,11 +577,7 @@ class SqlPool(pulumi.CustomResource):
             __props__.__dict__["geo_backup_policy_enabled"] = geo_backup_policy_enabled
             __props__.__dict__["name"] = name
             __props__.__dict__["recovery_database_id"] = recovery_database_id
-            if restore is not None and not isinstance(restore, SqlPoolRestoreArgs):
-                restore = restore or {}
-                def _setter(key, value):
-                    restore[key] = value
-                SqlPoolRestoreArgs._configure(_setter, **restore)
+            restore = _utilities.configure(restore, SqlPoolRestoreArgs, True)
             __props__.__dict__["restore"] = restore
             if sku_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sku_name'")

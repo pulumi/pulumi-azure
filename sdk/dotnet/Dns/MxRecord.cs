@@ -10,53 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Dns
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleZone = new Azure.Dns.Zone("exampleZone", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///     });
-    /// 
-    ///     var exampleMxRecord = new Azure.Dns.MxRecord("exampleMxRecord", new()
-    ///     {
-    ///         ZoneName = exampleZone.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Ttl = 300,
-    ///         Records = new[]
-    ///         {
-    ///             new Azure.Dns.Inputs.MxRecordRecordArgs
-    ///             {
-    ///                 Preference = "10",
-    ///                 Exchange = "mail1.contoso.com",
-    ///             },
-    ///             new Azure.Dns.Inputs.MxRecordRecordArgs
-    ///             {
-    ///                 Preference = "20",
-    ///                 Exchange = "mail2.contoso.com",
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Environment", "Production" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// MX records can be imported using the `resource id`, e.g.

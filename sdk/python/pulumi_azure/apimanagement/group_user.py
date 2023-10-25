@@ -35,20 +35,28 @@ class GroupUserArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_management_name: pulumi.Input[str],
-             group_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             user_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             group_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             user_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'groupName' in kwargs:
+        if api_management_name is None:
+            raise TypeError("Missing 'api_management_name' argument")
+        if group_name is None and 'groupName' in kwargs:
             group_name = kwargs['groupName']
-        if 'resourceGroupName' in kwargs:
+        if group_name is None:
+            raise TypeError("Missing 'group_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'userId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if user_id is None and 'userId' in kwargs:
             user_id = kwargs['userId']
+        if user_id is None:
+            raise TypeError("Missing 'user_id' argument")
 
         _setter("api_management_name", api_management_name)
         _setter("group_name", group_name)
@@ -132,15 +140,15 @@ class _GroupUserState:
              group_name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              user_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'groupName' in kwargs:
+        if group_name is None and 'groupName' in kwargs:
             group_name = kwargs['groupName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'userId' in kwargs:
+        if user_id is None and 'userId' in kwargs:
             user_id = kwargs['userId']
 
         if api_management_name is not None:
@@ -214,22 +222,6 @@ class GroupUser(pulumi.CustomResource):
         """
         Manages an API Management User Assignment to a Group.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_user = azure.apimanagement.get_user(user_id="my-user",
-            api_management_name="example-apim",
-            resource_group_name="search-service")
-        example_group_user = azure.apimanagement.GroupUser("exampleGroupUser",
-            user_id=example_user.id,
-            group_name="example-group",
-            resource_group_name=example_user.resource_group_name,
-            api_management_name=example_user.api_management_name)
-        ```
-
         ## Import
 
         API Management Group Users can be imported using the `resource id`, e.g.
@@ -253,22 +245,6 @@ class GroupUser(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an API Management User Assignment to a Group.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_user = azure.apimanagement.get_user(user_id="my-user",
-            api_management_name="example-apim",
-            resource_group_name="search-service")
-        example_group_user = azure.apimanagement.GroupUser("exampleGroupUser",
-            user_id=example_user.id,
-            group_name="example-group",
-            resource_group_name=example_user.resource_group_name,
-            api_management_name=example_user.api_management_name)
-        ```
 
         ## Import
 

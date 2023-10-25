@@ -41,13 +41,13 @@ class GroupArgs:
              name: Optional[pulumi.Input[str]] = None,
              parent_management_group_id: Optional[pulumi.Input[str]] = None,
              subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'parentManagementGroupId' in kwargs:
+        if parent_management_group_id is None and 'parentManagementGroupId' in kwargs:
             parent_management_group_id = kwargs['parentManagementGroupId']
-        if 'subscriptionIds' in kwargs:
+        if subscription_ids is None and 'subscriptionIds' in kwargs:
             subscription_ids = kwargs['subscriptionIds']
 
         if display_name is not None:
@@ -140,13 +140,13 @@ class _GroupState:
              name: Optional[pulumi.Input[str]] = None,
              parent_management_group_id: Optional[pulumi.Input[str]] = None,
              subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'parentManagementGroupId' in kwargs:
+        if parent_management_group_id is None and 'parentManagementGroupId' in kwargs:
             parent_management_group_id = kwargs['parentManagementGroupId']
-        if 'subscriptionIds' in kwargs:
+        if subscription_ids is None and 'subscriptionIds' in kwargs:
             subscription_ids = kwargs['subscriptionIds']
 
         if display_name is not None:
@@ -224,23 +224,6 @@ class Group(pulumi.CustomResource):
 
         !> **Note:** Configuring `subscription_ids` is not supported when using the `management.GroupSubscriptionAssociation` resource, results will be unpredictable.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_subscription()
-        example_parent = azure.management.Group("exampleParent",
-            display_name="ParentGroup",
-            subscription_ids=[current.subscription_id])
-        example_child = azure.management.Group("exampleChild",
-            display_name="ChildGroup",
-            parent_management_group_id=example_parent.id,
-            subscription_ids=[current.subscription_id])
-        # other subscription IDs can go here
-        ```
-
         ## Import
 
         Management Groups can be imported using the `management group resource id`, e.g.
@@ -268,23 +251,6 @@ class Group(pulumi.CustomResource):
         Manages a Management Group.
 
         !> **Note:** Configuring `subscription_ids` is not supported when using the `management.GroupSubscriptionAssociation` resource, results will be unpredictable.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_subscription()
-        example_parent = azure.management.Group("exampleParent",
-            display_name="ParentGroup",
-            subscription_ids=[current.subscription_id])
-        example_child = azure.management.Group("exampleChild",
-            display_name="ChildGroup",
-            parent_management_group_id=example_parent.id,
-            subscription_ids=[current.subscription_id])
-        # other subscription IDs can go here
-        ```
 
         ## Import
 

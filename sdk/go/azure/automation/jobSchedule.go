@@ -15,41 +15,6 @@ import (
 
 // Links an Automation Runbook and Schedule.
 //
-// ## Example Usage
-//
-// This is an example of just the Job Schedule.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := automation.NewJobSchedule(ctx, "example", &automation.JobScheduleArgs{
-//				AutomationAccountName: pulumi.String("tf-automation-account"),
-//				Parameters: pulumi.StringMap{
-//					"resourcegroup": pulumi.String("tf-rgr-vm"),
-//					"vmname":        pulumi.String("TF-VM-01"),
-//				},
-//				ResourceGroupName: pulumi.String("tf-rgr-automation"),
-//				RunbookName:       pulumi.String("Get-VirtualMachine"),
-//				ScheduleName:      pulumi.String("hour"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Automation Job Schedules can be imported using the `resource id`, e.g.

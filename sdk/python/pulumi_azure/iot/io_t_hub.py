@@ -81,8 +81,8 @@ class IoTHubArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             sku: pulumi.Input['IoTHubSkuArgs'],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['IoTHubSkuArgs']] = None,
              cloud_to_device: Optional[pulumi.Input['IoTHubCloudToDeviceArgs']] = None,
              endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubEndpointArgs']]]] = None,
              enrichments: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubEnrichmentArgs']]]] = None,
@@ -99,27 +99,31 @@ class IoTHubArgs:
              public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
              routes: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubRouteArgs']]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'cloudToDevice' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if cloud_to_device is None and 'cloudToDevice' in kwargs:
             cloud_to_device = kwargs['cloudToDevice']
-        if 'eventHubPartitionCount' in kwargs:
+        if event_hub_partition_count is None and 'eventHubPartitionCount' in kwargs:
             event_hub_partition_count = kwargs['eventHubPartitionCount']
-        if 'eventHubRetentionInDays' in kwargs:
+        if event_hub_retention_in_days is None and 'eventHubRetentionInDays' in kwargs:
             event_hub_retention_in_days = kwargs['eventHubRetentionInDays']
-        if 'fallbackRoute' in kwargs:
+        if fallback_route is None and 'fallbackRoute' in kwargs:
             fallback_route = kwargs['fallbackRoute']
-        if 'fileUpload' in kwargs:
+        if file_upload is None and 'fileUpload' in kwargs:
             file_upload = kwargs['fileUpload']
-        if 'localAuthenticationEnabled' in kwargs:
+        if local_authentication_enabled is None and 'localAuthenticationEnabled' in kwargs:
             local_authentication_enabled = kwargs['localAuthenticationEnabled']
-        if 'minTlsVersion' in kwargs:
+        if min_tls_version is None and 'minTlsVersion' in kwargs:
             min_tls_version = kwargs['minTlsVersion']
-        if 'networkRuleSets' in kwargs:
+        if network_rule_sets is None and 'networkRuleSets' in kwargs:
             network_rule_sets = kwargs['networkRuleSets']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
 
         _setter("resource_group_name", resource_group_name)
@@ -494,39 +498,39 @@ class _IoTHubState:
              sku: Optional[pulumi.Input['IoTHubSkuArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'cloudToDevice' in kwargs:
+        if cloud_to_device is None and 'cloudToDevice' in kwargs:
             cloud_to_device = kwargs['cloudToDevice']
-        if 'eventHubEventsEndpoint' in kwargs:
+        if event_hub_events_endpoint is None and 'eventHubEventsEndpoint' in kwargs:
             event_hub_events_endpoint = kwargs['eventHubEventsEndpoint']
-        if 'eventHubEventsNamespace' in kwargs:
+        if event_hub_events_namespace is None and 'eventHubEventsNamespace' in kwargs:
             event_hub_events_namespace = kwargs['eventHubEventsNamespace']
-        if 'eventHubEventsPath' in kwargs:
+        if event_hub_events_path is None and 'eventHubEventsPath' in kwargs:
             event_hub_events_path = kwargs['eventHubEventsPath']
-        if 'eventHubOperationsEndpoint' in kwargs:
+        if event_hub_operations_endpoint is None and 'eventHubOperationsEndpoint' in kwargs:
             event_hub_operations_endpoint = kwargs['eventHubOperationsEndpoint']
-        if 'eventHubOperationsPath' in kwargs:
+        if event_hub_operations_path is None and 'eventHubOperationsPath' in kwargs:
             event_hub_operations_path = kwargs['eventHubOperationsPath']
-        if 'eventHubPartitionCount' in kwargs:
+        if event_hub_partition_count is None and 'eventHubPartitionCount' in kwargs:
             event_hub_partition_count = kwargs['eventHubPartitionCount']
-        if 'eventHubRetentionInDays' in kwargs:
+        if event_hub_retention_in_days is None and 'eventHubRetentionInDays' in kwargs:
             event_hub_retention_in_days = kwargs['eventHubRetentionInDays']
-        if 'fallbackRoute' in kwargs:
+        if fallback_route is None and 'fallbackRoute' in kwargs:
             fallback_route = kwargs['fallbackRoute']
-        if 'fileUpload' in kwargs:
+        if file_upload is None and 'fileUpload' in kwargs:
             file_upload = kwargs['fileUpload']
-        if 'localAuthenticationEnabled' in kwargs:
+        if local_authentication_enabled is None and 'localAuthenticationEnabled' in kwargs:
             local_authentication_enabled = kwargs['localAuthenticationEnabled']
-        if 'minTlsVersion' in kwargs:
+        if min_tls_version is None and 'minTlsVersion' in kwargs:
             min_tls_version = kwargs['minTlsVersion']
-        if 'networkRuleSets' in kwargs:
+        if network_rule_sets is None and 'networkRuleSets' in kwargs:
             network_rule_sets = kwargs['networkRuleSets']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'sharedAccessPolicies' in kwargs:
+        if shared_access_policies is None and 'sharedAccessPolicies' in kwargs:
             shared_access_policies = kwargs['sharedAccessPolicies']
 
         if cloud_to_device is not None:
@@ -934,98 +938,6 @@ class IoTHub(pulumi.CustomResource):
 
         > **NOTE:** File upload can be defined either directly on the `iot.IoTHub` resource, or using the `iot.FileUpload` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("exampleContainer",
-            storage_account_name=example_account.name,
-            container_access_type="private")
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku="Basic")
-        example_event_hub = azure.eventhub.EventHub("exampleEventHub",
-            resource_group_name=example_resource_group.name,
-            namespace_name=example_event_hub_namespace.name,
-            partition_count=2,
-            message_retention=1)
-        example_authorization_rule = azure.eventhub.AuthorizationRule("exampleAuthorizationRule",
-            resource_group_name=example_resource_group.name,
-            namespace_name=example_event_hub_namespace.name,
-            eventhub_name=example_event_hub.name,
-            send=True)
-        example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            local_authentication_enabled=False,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="S1",
-                capacity=1,
-            ),
-            endpoints=[
-                azure.iot.IoTHubEndpointArgs(
-                    type="AzureIotHub.StorageContainer",
-                    connection_string=example_account.primary_blob_connection_string,
-                    name="export",
-                    batch_frequency_in_seconds=60,
-                    max_chunk_size_in_bytes=10485760,
-                    container_name=example_container.name,
-                    encoding="Avro",
-                    file_name_format="{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}",
-                ),
-                azure.iot.IoTHubEndpointArgs(
-                    type="AzureIotHub.EventHub",
-                    connection_string=example_authorization_rule.primary_connection_string,
-                    name="export2",
-                ),
-            ],
-            routes=[
-                azure.iot.IoTHubRouteArgs(
-                    name="export",
-                    source="DeviceMessages",
-                    condition="true",
-                    endpoint_names=["export"],
-                    enabled=True,
-                ),
-                azure.iot.IoTHubRouteArgs(
-                    name="export2",
-                    source="DeviceMessages",
-                    condition="true",
-                    endpoint_names=["export2"],
-                    enabled=True,
-                ),
-            ],
-            enrichments=[azure.iot.IoTHubEnrichmentArgs(
-                key="tenant",
-                value="$twin.tags.Tenant",
-                endpoint_names=[
-                    "export",
-                    "export2",
-                ],
-            )],
-            cloud_to_device=azure.iot.IoTHubCloudToDeviceArgs(
-                max_delivery_count=30,
-                default_ttl="PT1H",
-                feedbacks=[azure.iot.IoTHubCloudToDeviceFeedbackArgs(
-                    time_to_live="PT1H10M",
-                    max_delivery_count=15,
-                    lock_duration="PT30S",
-                )],
-            ),
-            tags={
-                "purpose": "testing",
-            })
-        ```
-
         ## Import
 
         IoTHubs can be imported using the `resource id`, e.g.
@@ -1075,98 +987,6 @@ class IoTHub(pulumi.CustomResource):
         > **NOTE:** Fallback route can be defined either directly on the `iot.IoTHub` resource, or using the `iot.FallbackRoute` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
 
         > **NOTE:** File upload can be defined either directly on the `iot.IoTHub` resource, or using the `iot.FileUpload` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("exampleContainer",
-            storage_account_name=example_account.name,
-            container_access_type="private")
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku="Basic")
-        example_event_hub = azure.eventhub.EventHub("exampleEventHub",
-            resource_group_name=example_resource_group.name,
-            namespace_name=example_event_hub_namespace.name,
-            partition_count=2,
-            message_retention=1)
-        example_authorization_rule = azure.eventhub.AuthorizationRule("exampleAuthorizationRule",
-            resource_group_name=example_resource_group.name,
-            namespace_name=example_event_hub_namespace.name,
-            eventhub_name=example_event_hub.name,
-            send=True)
-        example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            local_authentication_enabled=False,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="S1",
-                capacity=1,
-            ),
-            endpoints=[
-                azure.iot.IoTHubEndpointArgs(
-                    type="AzureIotHub.StorageContainer",
-                    connection_string=example_account.primary_blob_connection_string,
-                    name="export",
-                    batch_frequency_in_seconds=60,
-                    max_chunk_size_in_bytes=10485760,
-                    container_name=example_container.name,
-                    encoding="Avro",
-                    file_name_format="{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}",
-                ),
-                azure.iot.IoTHubEndpointArgs(
-                    type="AzureIotHub.EventHub",
-                    connection_string=example_authorization_rule.primary_connection_string,
-                    name="export2",
-                ),
-            ],
-            routes=[
-                azure.iot.IoTHubRouteArgs(
-                    name="export",
-                    source="DeviceMessages",
-                    condition="true",
-                    endpoint_names=["export"],
-                    enabled=True,
-                ),
-                azure.iot.IoTHubRouteArgs(
-                    name="export2",
-                    source="DeviceMessages",
-                    condition="true",
-                    endpoint_names=["export2"],
-                    enabled=True,
-                ),
-            ],
-            enrichments=[azure.iot.IoTHubEnrichmentArgs(
-                key="tenant",
-                value="$twin.tags.Tenant",
-                endpoint_names=[
-                    "export",
-                    "export2",
-                ],
-            )],
-            cloud_to_device=azure.iot.IoTHubCloudToDeviceArgs(
-                max_delivery_count=30,
-                default_ttl="PT1H",
-                feedbacks=[azure.iot.IoTHubCloudToDeviceFeedbackArgs(
-                    time_to_live="PT1H10M",
-                    max_delivery_count=15,
-                    lock_duration="PT30S",
-                )],
-            ),
-            tags={
-                "purpose": "testing",
-            })
-        ```
 
         ## Import
 
@@ -1222,33 +1042,17 @@ class IoTHub(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IoTHubArgs.__new__(IoTHubArgs)
 
-            if cloud_to_device is not None and not isinstance(cloud_to_device, IoTHubCloudToDeviceArgs):
-                cloud_to_device = cloud_to_device or {}
-                def _setter(key, value):
-                    cloud_to_device[key] = value
-                IoTHubCloudToDeviceArgs._configure(_setter, **cloud_to_device)
+            cloud_to_device = _utilities.configure(cloud_to_device, IoTHubCloudToDeviceArgs, True)
             __props__.__dict__["cloud_to_device"] = cloud_to_device
             __props__.__dict__["endpoints"] = endpoints
             __props__.__dict__["enrichments"] = enrichments
             __props__.__dict__["event_hub_partition_count"] = event_hub_partition_count
             __props__.__dict__["event_hub_retention_in_days"] = event_hub_retention_in_days
-            if fallback_route is not None and not isinstance(fallback_route, IoTHubFallbackRouteArgs):
-                fallback_route = fallback_route or {}
-                def _setter(key, value):
-                    fallback_route[key] = value
-                IoTHubFallbackRouteArgs._configure(_setter, **fallback_route)
+            fallback_route = _utilities.configure(fallback_route, IoTHubFallbackRouteArgs, True)
             __props__.__dict__["fallback_route"] = fallback_route
-            if file_upload is not None and not isinstance(file_upload, IoTHubFileUploadArgs):
-                file_upload = file_upload or {}
-                def _setter(key, value):
-                    file_upload[key] = value
-                IoTHubFileUploadArgs._configure(_setter, **file_upload)
+            file_upload = _utilities.configure(file_upload, IoTHubFileUploadArgs, True)
             __props__.__dict__["file_upload"] = file_upload
-            if identity is not None and not isinstance(identity, IoTHubIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                IoTHubIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, IoTHubIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["local_authentication_enabled"] = local_authentication_enabled
             __props__.__dict__["location"] = location
@@ -1260,11 +1064,7 @@ class IoTHub(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["routes"] = routes
-            if sku is not None and not isinstance(sku, IoTHubSkuArgs):
-                sku = sku or {}
-                def _setter(key, value):
-                    sku[key] = value
-                IoTHubSkuArgs._configure(_setter, **sku)
+            sku = _utilities.configure(sku, IoTHubSkuArgs, True)
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku

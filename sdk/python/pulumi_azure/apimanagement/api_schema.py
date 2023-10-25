@@ -47,26 +47,36 @@ class ApiSchemaArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_management_name: pulumi.Input[str],
-             api_name: pulumi.Input[str],
-             content_type: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             schema_id: pulumi.Input[str],
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             api_name: Optional[pulumi.Input[str]] = None,
+             content_type: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             schema_id: Optional[pulumi.Input[str]] = None,
              components: Optional[pulumi.Input[str]] = None,
              definitions: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'apiName' in kwargs:
+        if api_management_name is None:
+            raise TypeError("Missing 'api_management_name' argument")
+        if api_name is None and 'apiName' in kwargs:
             api_name = kwargs['apiName']
-        if 'contentType' in kwargs:
+        if api_name is None:
+            raise TypeError("Missing 'api_name' argument")
+        if content_type is None and 'contentType' in kwargs:
             content_type = kwargs['contentType']
-        if 'resourceGroupName' in kwargs:
+        if content_type is None:
+            raise TypeError("Missing 'content_type' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'schemaId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if schema_id is None and 'schemaId' in kwargs:
             schema_id = kwargs['schemaId']
+        if schema_id is None:
+            raise TypeError("Missing 'schema_id' argument")
 
         _setter("api_management_name", api_management_name)
         _setter("api_name", api_name)
@@ -221,17 +231,17 @@ class _ApiSchemaState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              schema_id: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'apiName' in kwargs:
+        if api_name is None and 'apiName' in kwargs:
             api_name = kwargs['apiName']
-        if 'contentType' in kwargs:
+        if content_type is None and 'contentType' in kwargs:
             content_type = kwargs['contentType']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'schemaId' in kwargs:
+        if schema_id is None and 'schemaId' in kwargs:
             schema_id = kwargs['schemaId']
 
         if api_management_name is not None:
@@ -365,25 +375,6 @@ class ApiSchema(pulumi.CustomResource):
         """
         Manages an API Schema within an API Management Service.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_api = azure.apimanagement.get_api(name="search-api",
-            api_management_name="search-api-management",
-            resource_group_name="search-service",
-            revision="2")
-        example_api_schema = azure.apimanagement.ApiSchema("exampleApiSchema",
-            api_name=example_api.name,
-            api_management_name=example_api.api_management_name,
-            resource_group_name=example_api.resource_group_name,
-            schema_id="example-schema",
-            content_type="application/vnd.ms-azure-apim.xsd+xml",
-            value=(lambda path: open(path).read())("api_management_api_schema.xml"))
-        ```
-
         ## Import
 
         API Management API Schema's can be imported using the `resource id`, e.g.
@@ -411,25 +402,6 @@ class ApiSchema(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an API Schema within an API Management Service.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_api = azure.apimanagement.get_api(name="search-api",
-            api_management_name="search-api-management",
-            resource_group_name="search-service",
-            revision="2")
-        example_api_schema = azure.apimanagement.ApiSchema("exampleApiSchema",
-            api_name=example_api.name,
-            api_management_name=example_api.api_management_name,
-            resource_group_name=example_api.resource_group_name,
-            schema_id="example-schema",
-            content_type="application/vnd.ms-azure-apim.xsd+xml",
-            value=(lambda path: open(path).read())("api_management_api_schema.xml"))
-        ```
 
         ## Import
 

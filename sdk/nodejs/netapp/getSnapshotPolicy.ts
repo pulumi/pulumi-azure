@@ -8,26 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Uses this data source to access information about an existing NetApp Snapshot Policy.
- *
- * ## NetApp Snapshot Policy Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.netapp.getSnapshotPolicy({
- *     resourceGroupName: "acctestRG",
- *     accountName: "acctestnetappaccount",
- *     name: "example-snapshot-policy",
- * });
- * export const id = example.then(example => example.id);
- * export const name = example.then(example => example.name);
- * export const enabled = example.then(example => example.enabled);
- * export const hourlySchedule = example.then(example => example.hourlySchedules);
- * export const dailySchedule = example.then(example => example.dailySchedules);
- * export const weeklySchedule = example.then(example => example.weeklySchedules);
- * export const monthlySchedule = example.then(example => example.monthlySchedules);
- * ```
  */
 export function getSnapshotPolicy(args: GetSnapshotPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotPolicyResult> {
 
@@ -105,26 +85,6 @@ export interface GetSnapshotPolicyResult {
 }
 /**
  * Uses this data source to access information about an existing NetApp Snapshot Policy.
- *
- * ## NetApp Snapshot Policy Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.netapp.getSnapshotPolicy({
- *     resourceGroupName: "acctestRG",
- *     accountName: "acctestnetappaccount",
- *     name: "example-snapshot-policy",
- * });
- * export const id = example.then(example => example.id);
- * export const name = example.then(example => example.name);
- * export const enabled = example.then(example => example.enabled);
- * export const hourlySchedule = example.then(example => example.hourlySchedules);
- * export const dailySchedule = example.then(example => example.dailySchedules);
- * export const weeklySchedule = example.then(example => example.weeklySchedules);
- * export const monthlySchedule = example.then(example => example.monthlySchedules);
- * ```
  */
 export function getSnapshotPolicyOutput(args: GetSnapshotPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotPolicyResult> {
     return pulumi.output(args).apply((a: any) => getSnapshotPolicy(a, opts))

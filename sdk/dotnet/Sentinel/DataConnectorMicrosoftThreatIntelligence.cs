@@ -12,42 +12,6 @@ namespace Pulumi.Azure.Sentinel
     /// <summary>
     /// Manages a Microsoft Threat Intelligence Data Connector.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "east us",
-    ///     });
-    /// 
-    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Sku = "PerGB2018",
-    ///     });
-    /// 
-    ///     var exampleLogAnalyticsWorkspaceOnboarding = new Azure.Sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", new()
-    ///     {
-    ///         WorkspaceId = exampleAnalyticsWorkspace.Id,
-    ///     });
-    /// 
-    ///     var exampleDataConnectorMicrosoftThreatIntelligence = new Azure.Sentinel.DataConnectorMicrosoftThreatIntelligence("exampleDataConnectorMicrosoftThreatIntelligence", new()
-    ///     {
-    ///         LogAnalyticsWorkspaceId = exampleLogAnalyticsWorkspaceOnboarding.WorkspaceId,
-    ///         MicrosoftEmergingThreatFeedLookbackDate = "1970-01-01T00:00:00Z",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// sentinels can be imported using the `resource id`, e.g.

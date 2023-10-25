@@ -40,20 +40,22 @@ class AssetFilterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             asset_id: pulumi.Input[str],
+             asset_id: Optional[pulumi.Input[str]] = None,
              first_quality_bitrate: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
              presentation_time_range: Optional[pulumi.Input['AssetFilterPresentationTimeRangeArgs']] = None,
              track_selections: Optional[pulumi.Input[Sequence[pulumi.Input['AssetFilterTrackSelectionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'assetId' in kwargs:
+        if asset_id is None and 'assetId' in kwargs:
             asset_id = kwargs['assetId']
-        if 'firstQualityBitrate' in kwargs:
+        if asset_id is None:
+            raise TypeError("Missing 'asset_id' argument")
+        if first_quality_bitrate is None and 'firstQualityBitrate' in kwargs:
             first_quality_bitrate = kwargs['firstQualityBitrate']
-        if 'presentationTimeRange' in kwargs:
+        if presentation_time_range is None and 'presentationTimeRange' in kwargs:
             presentation_time_range = kwargs['presentationTimeRange']
-        if 'trackSelections' in kwargs:
+        if track_selections is None and 'trackSelections' in kwargs:
             track_selections = kwargs['trackSelections']
 
         _setter("asset_id", asset_id)
@@ -159,15 +161,15 @@ class _AssetFilterState:
              name: Optional[pulumi.Input[str]] = None,
              presentation_time_range: Optional[pulumi.Input['AssetFilterPresentationTimeRangeArgs']] = None,
              track_selections: Optional[pulumi.Input[Sequence[pulumi.Input['AssetFilterTrackSelectionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'assetId' in kwargs:
+        if asset_id is None and 'assetId' in kwargs:
             asset_id = kwargs['assetId']
-        if 'firstQualityBitrate' in kwargs:
+        if first_quality_bitrate is None and 'firstQualityBitrate' in kwargs:
             first_quality_bitrate = kwargs['firstQualityBitrate']
-        if 'presentationTimeRange' in kwargs:
+        if presentation_time_range is None and 'presentationTimeRange' in kwargs:
             presentation_time_range = kwargs['presentationTimeRange']
-        if 'trackSelections' in kwargs:
+        if track_selections is None and 'trackSelections' in kwargs:
             track_selections = kwargs['trackSelections']
 
         if asset_id is not None:
@@ -256,77 +258,6 @@ class AssetFilter(pulumi.CustomResource):
         """
         Manages an Azure Media Asset Filter.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
-                id=example_account.id,
-                is_primary=True,
-            )])
-        example_asset = azure.media.Asset("exampleAsset",
-            resource_group_name=example_resource_group.name,
-            media_services_account_name=example_service_account.name,
-            description="Asset description")
-        example_asset_filter = azure.media.AssetFilter("exampleAssetFilter",
-            asset_id=example_asset.id,
-            first_quality_bitrate=128000,
-            presentation_time_range=azure.media.AssetFilterPresentationTimeRangeArgs(
-                start_in_units=0,
-                end_in_units=15,
-                presentation_window_in_units=90,
-                live_backoff_in_units=0,
-                unit_timescale_in_miliseconds=1000,
-                force_end=False,
-            ),
-            track_selections=[
-                azure.media.AssetFilterTrackSelectionArgs(
-                    conditions=[
-                        azure.media.AssetFilterTrackSelectionConditionArgs(
-                            property="Type",
-                            operation="Equal",
-                            value="Audio",
-                        ),
-                        azure.media.AssetFilterTrackSelectionConditionArgs(
-                            property="Language",
-                            operation="NotEqual",
-                            value="en",
-                        ),
-                        azure.media.AssetFilterTrackSelectionConditionArgs(
-                            property="FourCC",
-                            operation="NotEqual",
-                            value="EC-3",
-                        ),
-                    ],
-                ),
-                azure.media.AssetFilterTrackSelectionArgs(
-                    conditions=[
-                        azure.media.AssetFilterTrackSelectionConditionArgs(
-                            property="Type",
-                            operation="Equal",
-                            value="Video",
-                        ),
-                        azure.media.AssetFilterTrackSelectionConditionArgs(
-                            property="Bitrate",
-                            operation="Equal",
-                            value="3000000-5000000",
-                        ),
-                    ],
-                ),
-            ])
-        ```
-
         ## Import
 
         Asset Filters can be imported using the `resource id`, e.g.
@@ -351,77 +282,6 @@ class AssetFilter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Media Asset Filter.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
-                id=example_account.id,
-                is_primary=True,
-            )])
-        example_asset = azure.media.Asset("exampleAsset",
-            resource_group_name=example_resource_group.name,
-            media_services_account_name=example_service_account.name,
-            description="Asset description")
-        example_asset_filter = azure.media.AssetFilter("exampleAssetFilter",
-            asset_id=example_asset.id,
-            first_quality_bitrate=128000,
-            presentation_time_range=azure.media.AssetFilterPresentationTimeRangeArgs(
-                start_in_units=0,
-                end_in_units=15,
-                presentation_window_in_units=90,
-                live_backoff_in_units=0,
-                unit_timescale_in_miliseconds=1000,
-                force_end=False,
-            ),
-            track_selections=[
-                azure.media.AssetFilterTrackSelectionArgs(
-                    conditions=[
-                        azure.media.AssetFilterTrackSelectionConditionArgs(
-                            property="Type",
-                            operation="Equal",
-                            value="Audio",
-                        ),
-                        azure.media.AssetFilterTrackSelectionConditionArgs(
-                            property="Language",
-                            operation="NotEqual",
-                            value="en",
-                        ),
-                        azure.media.AssetFilterTrackSelectionConditionArgs(
-                            property="FourCC",
-                            operation="NotEqual",
-                            value="EC-3",
-                        ),
-                    ],
-                ),
-                azure.media.AssetFilterTrackSelectionArgs(
-                    conditions=[
-                        azure.media.AssetFilterTrackSelectionConditionArgs(
-                            property="Type",
-                            operation="Equal",
-                            value="Video",
-                        ),
-                        azure.media.AssetFilterTrackSelectionConditionArgs(
-                            property="Bitrate",
-                            operation="Equal",
-                            value="3000000-5000000",
-                        ),
-                    ],
-                ),
-            ])
-        ```
 
         ## Import
 
@@ -469,11 +329,7 @@ class AssetFilter(pulumi.CustomResource):
             __props__.__dict__["asset_id"] = asset_id
             __props__.__dict__["first_quality_bitrate"] = first_quality_bitrate
             __props__.__dict__["name"] = name
-            if presentation_time_range is not None and not isinstance(presentation_time_range, AssetFilterPresentationTimeRangeArgs):
-                presentation_time_range = presentation_time_range or {}
-                def _setter(key, value):
-                    presentation_time_range[key] = value
-                AssetFilterPresentationTimeRangeArgs._configure(_setter, **presentation_time_range)
+            presentation_time_range = _utilities.configure(presentation_time_range, AssetFilterPresentationTimeRangeArgs, True)
             __props__.__dict__["presentation_time_range"] = presentation_time_range
             __props__.__dict__["track_selections"] = track_selections
         super(AssetFilter, __self__).__init__(

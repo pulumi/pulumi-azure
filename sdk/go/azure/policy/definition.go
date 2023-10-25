@@ -17,62 +17,6 @@ import (
 //
 // Policy definitions do not take effect until they are assigned to a scope using a Policy Assignment.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/policy"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := policy.NewDefinition(ctx, "policy", &policy.DefinitionArgs{
-//				DisplayName: pulumi.String("acceptance test policy definition"),
-//				Metadata:    pulumi.String("    {\n    \"category\": \"General\"\n    }\n\n\n"),
-//				Mode:        pulumi.String("Indexed"),
-//				Parameters: pulumi.String(` {
-//	    "allowedLocations": {
-//	      "type": "Array",
-//	      "metadata": {
-//	        "description": "The list of allowed locations for resources.",
-//	        "displayName": "Allowed locations",
-//	        "strongType": "location"
-//	      }
-//	    }
-//	  }
-//
-// `),
-//
-//				PolicyRule: pulumi.String(` {
-//	    "if": {
-//	      "not": {
-//	        "field": "location",
-//	        "in": "[parameters('allowedLocations')]"
-//	      }
-//	    },
-//	    "then": {
-//	      "effect": "audit"
-//	    }
-//	  }
-//
-// `),
-//
-//				PolicyType: pulumi.String("Custom"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Policy Definitions can be imported using the `policy name`, e.g.

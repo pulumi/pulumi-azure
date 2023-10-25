@@ -12,69 +12,6 @@ namespace Pulumi.Azure.SignalR
     /// <summary>
     /// Manages an Azure SignalR service.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West US",
-    ///     });
-    /// 
-    ///     var exampleService = new Azure.SignalR.Service("exampleService", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Sku = new Azure.SignalR.Inputs.ServiceSkuArgs
-    ///         {
-    ///             Name = "Free_F1",
-    ///             Capacity = 1,
-    ///         },
-    ///         Cors = new[]
-    ///         {
-    ///             new Azure.SignalR.Inputs.ServiceCorArgs
-    ///             {
-    ///                 AllowedOrigins = new[]
-    ///                 {
-    ///                     "http://www.example.com",
-    ///                 },
-    ///             },
-    ///         },
-    ///         PublicNetworkAccessEnabled = false,
-    ///         ConnectivityLogsEnabled = true,
-    ///         MessagingLogsEnabled = true,
-    ///         ServiceMode = "Default",
-    ///         UpstreamEndpoints = new[]
-    ///         {
-    ///             new Azure.SignalR.Inputs.ServiceUpstreamEndpointArgs
-    ///             {
-    ///                 CategoryPatterns = new[]
-    ///                 {
-    ///                     "connections",
-    ///                     "messages",
-    ///                 },
-    ///                 EventPatterns = new[]
-    ///                 {
-    ///                     "*",
-    ///                 },
-    ///                 HubPatterns = new[]
-    ///                 {
-    ///                     "hub1",
-    ///                 },
-    ///                 UrlTemplate = "http://foo.com",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// SignalR services can be imported using the `resource id`, e.g.

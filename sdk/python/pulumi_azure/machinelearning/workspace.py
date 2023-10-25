@@ -88,11 +88,11 @@ class WorkspaceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_insights_id: pulumi.Input[str],
-             identity: pulumi.Input['WorkspaceIdentityArgs'],
-             key_vault_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             storage_account_id: pulumi.Input[str],
+             application_insights_id: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['WorkspaceIdentityArgs']] = None,
+             key_vault_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             storage_account_id: Optional[pulumi.Input[str]] = None,
              container_registry_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              encryption: Optional[pulumi.Input['WorkspaceEncryptionArgs']] = None,
@@ -107,33 +107,43 @@ class WorkspaceArgs:
              sku_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              v1_legacy_mode_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'applicationInsightsId' in kwargs:
+        if application_insights_id is None and 'applicationInsightsId' in kwargs:
             application_insights_id = kwargs['applicationInsightsId']
-        if 'keyVaultId' in kwargs:
+        if application_insights_id is None:
+            raise TypeError("Missing 'application_insights_id' argument")
+        if identity is None:
+            raise TypeError("Missing 'identity' argument")
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
-        if 'resourceGroupName' in kwargs:
+        if key_vault_id is None:
+            raise TypeError("Missing 'key_vault_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'storageAccountId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'containerRegistryId' in kwargs:
+        if storage_account_id is None:
+            raise TypeError("Missing 'storage_account_id' argument")
+        if container_registry_id is None and 'containerRegistryId' in kwargs:
             container_registry_id = kwargs['containerRegistryId']
-        if 'friendlyName' in kwargs:
+        if friendly_name is None and 'friendlyName' in kwargs:
             friendly_name = kwargs['friendlyName']
-        if 'highBusinessImpact' in kwargs:
+        if high_business_impact is None and 'highBusinessImpact' in kwargs:
             high_business_impact = kwargs['highBusinessImpact']
-        if 'imageBuildComputeName' in kwargs:
+        if image_build_compute_name is None and 'imageBuildComputeName' in kwargs:
             image_build_compute_name = kwargs['imageBuildComputeName']
-        if 'primaryUserAssignedIdentity' in kwargs:
+        if primary_user_assigned_identity is None and 'primaryUserAssignedIdentity' in kwargs:
             primary_user_assigned_identity = kwargs['primaryUserAssignedIdentity']
-        if 'publicAccessBehindVirtualNetworkEnabled' in kwargs:
+        if public_access_behind_virtual_network_enabled is None and 'publicAccessBehindVirtualNetworkEnabled' in kwargs:
             public_access_behind_virtual_network_enabled = kwargs['publicAccessBehindVirtualNetworkEnabled']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'v1LegacyModeEnabled' in kwargs:
+        if v1_legacy_mode_enabled is None and 'v1LegacyModeEnabled' in kwargs:
             v1_legacy_mode_enabled = kwargs['v1LegacyModeEnabled']
 
         _setter("application_insights_id", application_insights_id)
@@ -513,37 +523,37 @@ class _WorkspaceState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              v1_legacy_mode_enabled: Optional[pulumi.Input[bool]] = None,
              workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'applicationInsightsId' in kwargs:
+        if application_insights_id is None and 'applicationInsightsId' in kwargs:
             application_insights_id = kwargs['applicationInsightsId']
-        if 'containerRegistryId' in kwargs:
+        if container_registry_id is None and 'containerRegistryId' in kwargs:
             container_registry_id = kwargs['containerRegistryId']
-        if 'discoveryUrl' in kwargs:
+        if discovery_url is None and 'discoveryUrl' in kwargs:
             discovery_url = kwargs['discoveryUrl']
-        if 'friendlyName' in kwargs:
+        if friendly_name is None and 'friendlyName' in kwargs:
             friendly_name = kwargs['friendlyName']
-        if 'highBusinessImpact' in kwargs:
+        if high_business_impact is None and 'highBusinessImpact' in kwargs:
             high_business_impact = kwargs['highBusinessImpact']
-        if 'imageBuildComputeName' in kwargs:
+        if image_build_compute_name is None and 'imageBuildComputeName' in kwargs:
             image_build_compute_name = kwargs['imageBuildComputeName']
-        if 'keyVaultId' in kwargs:
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
-        if 'primaryUserAssignedIdentity' in kwargs:
+        if primary_user_assigned_identity is None and 'primaryUserAssignedIdentity' in kwargs:
             primary_user_assigned_identity = kwargs['primaryUserAssignedIdentity']
-        if 'publicAccessBehindVirtualNetworkEnabled' in kwargs:
+        if public_access_behind_virtual_network_enabled is None and 'publicAccessBehindVirtualNetworkEnabled' in kwargs:
             public_access_behind_virtual_network_enabled = kwargs['publicAccessBehindVirtualNetworkEnabled']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'v1LegacyModeEnabled' in kwargs:
+        if v1_legacy_mode_enabled is None and 'v1LegacyModeEnabled' in kwargs:
             v1_legacy_mode_enabled = kwargs['v1LegacyModeEnabled']
-        if 'workspaceId' in kwargs:
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
 
         if application_insights_id is not None:
@@ -880,237 +890,6 @@ class Workspace(pulumi.CustomResource):
                  v1_legacy_mode_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="web")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="premium")
-        example_account = azure.storage.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_workspace = azure.machinelearning.Workspace("exampleWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_insights_id=example_insights.id,
-            key_vault_id=example_key_vault.id,
-            storage_account_id=example_account.id,
-            identity=azure.machinelearning.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        ```
-        ### With Data Encryption
-
-        > **NOTE:** The Key Vault must enable purge protection.
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="web")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="premium",
-            purge_protection_enabled=True)
-        example_access_policy = azure.keyvault.AccessPolicy("exampleAccessPolicy",
-            key_vault_id=example_key_vault.id,
-            tenant_id=current.tenant_id,
-            object_id=current.object_id,
-            key_permissions=[
-                "Create",
-                "Get",
-                "Delete",
-                "Purge",
-                "GetRotationPolicy",
-            ])
-        example_account = azure.storage.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_key = azure.keyvault.Key("exampleKey",
-            key_vault_id=example_key_vault.id,
-            key_type="RSA",
-            key_size=2048,
-            key_opts=[
-                "decrypt",
-                "encrypt",
-                "sign",
-                "unwrapKey",
-                "verify",
-                "wrapKey",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example_key_vault,
-                    example_access_policy,
-                ]))
-        example_workspace = azure.machinelearning.Workspace("exampleWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_insights_id=example_insights.id,
-            key_vault_id=example_key_vault.id,
-            storage_account_id=example_account.id,
-            identity=azure.machinelearning.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ),
-            encryption=azure.machinelearning.WorkspaceEncryptionArgs(
-                key_vault_id=example_key_vault.id,
-                key_id=example_key.id,
-            ))
-        ```
-        ### With User Assigned Identity And Data Encryption
-
-        > **NOTE:** The Key Vault must enable purge protection.
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_azuread as azuread
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="web")
-        example_account = azure.storage.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="premium",
-            purge_protection_enabled=True)
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_identity = azure.keyvault.AccessPolicy("example-identity",
-            key_vault_id=example_key_vault.id,
-            tenant_id=current.tenant_id,
-            object_id=example_user_assigned_identity.principal_id,
-            key_permissions=[
-                "WrapKey",
-                "UnwrapKey",
-                "Get",
-                "Recover",
-            ],
-            secret_permissions=[
-                "Get",
-                "List",
-                "Set",
-                "Delete",
-                "Recover",
-                "Backup",
-                "Restore",
-            ])
-        example_sp = azure.keyvault.AccessPolicy("example-sp",
-            key_vault_id=example_key_vault.id,
-            tenant_id=current.tenant_id,
-            object_id=current.object_id,
-            key_permissions=[
-                "Get",
-                "Create",
-                "Recover",
-                "Delete",
-                "Purge",
-                "GetRotationPolicy",
-            ])
-        test = azuread.get_service_principal(display_name="Azure Cosmos DB")
-        example_cosmosdb = azure.keyvault.AccessPolicy("example-cosmosdb",
-            key_vault_id=example_key_vault.id,
-            tenant_id=current.tenant_id,
-            object_id=test.object_id,
-            key_permissions=[
-                "Get",
-                "Recover",
-                "UnwrapKey",
-                "WrapKey",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    test,
-                    current,
-                ]))
-        example_key = azure.keyvault.Key("exampleKey",
-            key_vault_id=example_key_vault.id,
-            key_type="RSA",
-            key_size=2048,
-            key_opts=[
-                "decrypt",
-                "encrypt",
-                "sign",
-                "unwrapKey",
-                "verify",
-                "wrapKey",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example_key_vault,
-                    example_sp,
-                ]))
-        example_role1 = azure.authorization.Assignment("example-role1",
-            scope=example_key_vault.id,
-            role_definition_name="Contributor",
-            principal_id=example_user_assigned_identity.principal_id)
-        example_role2 = azure.authorization.Assignment("example-role2",
-            scope=example_account.id,
-            role_definition_name="Storage Blob Data Contributor",
-            principal_id=example_user_assigned_identity.principal_id)
-        example_role3 = azure.authorization.Assignment("example-role3",
-            scope=example_account.id,
-            role_definition_name="Contributor",
-            principal_id=example_user_assigned_identity.principal_id)
-        example_role4 = azure.authorization.Assignment("example-role4",
-            scope=example_insights.id,
-            role_definition_name="Contributor",
-            principal_id=example_user_assigned_identity.principal_id)
-        example_workspace = azure.machinelearning.Workspace("exampleWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_insights_id=example_insights.id,
-            key_vault_id=example_key_vault.id,
-            storage_account_id=example_account.id,
-            high_business_impact=True,
-            primary_user_assigned_identity=example_user_assigned_identity.id,
-            identity=azure.machinelearning.WorkspaceIdentityArgs(
-                type="UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ),
-            encryption=azure.machinelearning.WorkspaceEncryptionArgs(
-                user_assigned_identity_id=example_user_assigned_identity.id,
-                key_vault_id=example_key_vault.id,
-                key_id=example_key.id,
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example_role1,
-                    example_role2,
-                    example_role3,
-                    example_role4,
-                    example_cosmosdb,
-                ]))
-        ```
-
         ## Import
 
         Machine Learning Workspace can be imported using the `resource id`, e.g.
@@ -1154,237 +933,6 @@ class Workspace(pulumi.CustomResource):
                  args: WorkspaceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="web")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="premium")
-        example_account = azure.storage.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_workspace = azure.machinelearning.Workspace("exampleWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_insights_id=example_insights.id,
-            key_vault_id=example_key_vault.id,
-            storage_account_id=example_account.id,
-            identity=azure.machinelearning.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        ```
-        ### With Data Encryption
-
-        > **NOTE:** The Key Vault must enable purge protection.
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="web")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="premium",
-            purge_protection_enabled=True)
-        example_access_policy = azure.keyvault.AccessPolicy("exampleAccessPolicy",
-            key_vault_id=example_key_vault.id,
-            tenant_id=current.tenant_id,
-            object_id=current.object_id,
-            key_permissions=[
-                "Create",
-                "Get",
-                "Delete",
-                "Purge",
-                "GetRotationPolicy",
-            ])
-        example_account = azure.storage.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_key = azure.keyvault.Key("exampleKey",
-            key_vault_id=example_key_vault.id,
-            key_type="RSA",
-            key_size=2048,
-            key_opts=[
-                "decrypt",
-                "encrypt",
-                "sign",
-                "unwrapKey",
-                "verify",
-                "wrapKey",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example_key_vault,
-                    example_access_policy,
-                ]))
-        example_workspace = azure.machinelearning.Workspace("exampleWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_insights_id=example_insights.id,
-            key_vault_id=example_key_vault.id,
-            storage_account_id=example_account.id,
-            identity=azure.machinelearning.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ),
-            encryption=azure.machinelearning.WorkspaceEncryptionArgs(
-                key_vault_id=example_key_vault.id,
-                key_id=example_key.id,
-            ))
-        ```
-        ### With User Assigned Identity And Data Encryption
-
-        > **NOTE:** The Key Vault must enable purge protection.
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_azuread as azuread
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="web")
-        example_account = azure.storage.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="premium",
-            purge_protection_enabled=True)
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_identity = azure.keyvault.AccessPolicy("example-identity",
-            key_vault_id=example_key_vault.id,
-            tenant_id=current.tenant_id,
-            object_id=example_user_assigned_identity.principal_id,
-            key_permissions=[
-                "WrapKey",
-                "UnwrapKey",
-                "Get",
-                "Recover",
-            ],
-            secret_permissions=[
-                "Get",
-                "List",
-                "Set",
-                "Delete",
-                "Recover",
-                "Backup",
-                "Restore",
-            ])
-        example_sp = azure.keyvault.AccessPolicy("example-sp",
-            key_vault_id=example_key_vault.id,
-            tenant_id=current.tenant_id,
-            object_id=current.object_id,
-            key_permissions=[
-                "Get",
-                "Create",
-                "Recover",
-                "Delete",
-                "Purge",
-                "GetRotationPolicy",
-            ])
-        test = azuread.get_service_principal(display_name="Azure Cosmos DB")
-        example_cosmosdb = azure.keyvault.AccessPolicy("example-cosmosdb",
-            key_vault_id=example_key_vault.id,
-            tenant_id=current.tenant_id,
-            object_id=test.object_id,
-            key_permissions=[
-                "Get",
-                "Recover",
-                "UnwrapKey",
-                "WrapKey",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    test,
-                    current,
-                ]))
-        example_key = azure.keyvault.Key("exampleKey",
-            key_vault_id=example_key_vault.id,
-            key_type="RSA",
-            key_size=2048,
-            key_opts=[
-                "decrypt",
-                "encrypt",
-                "sign",
-                "unwrapKey",
-                "verify",
-                "wrapKey",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example_key_vault,
-                    example_sp,
-                ]))
-        example_role1 = azure.authorization.Assignment("example-role1",
-            scope=example_key_vault.id,
-            role_definition_name="Contributor",
-            principal_id=example_user_assigned_identity.principal_id)
-        example_role2 = azure.authorization.Assignment("example-role2",
-            scope=example_account.id,
-            role_definition_name="Storage Blob Data Contributor",
-            principal_id=example_user_assigned_identity.principal_id)
-        example_role3 = azure.authorization.Assignment("example-role3",
-            scope=example_account.id,
-            role_definition_name="Contributor",
-            principal_id=example_user_assigned_identity.principal_id)
-        example_role4 = azure.authorization.Assignment("example-role4",
-            scope=example_insights.id,
-            role_definition_name="Contributor",
-            principal_id=example_user_assigned_identity.principal_id)
-        example_workspace = azure.machinelearning.Workspace("exampleWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_insights_id=example_insights.id,
-            key_vault_id=example_key_vault.id,
-            storage_account_id=example_account.id,
-            high_business_impact=True,
-            primary_user_assigned_identity=example_user_assigned_identity.id,
-            identity=azure.machinelearning.WorkspaceIdentityArgs(
-                type="UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ),
-            encryption=azure.machinelearning.WorkspaceEncryptionArgs(
-                user_assigned_identity_id=example_user_assigned_identity.id,
-                key_vault_id=example_key_vault.id,
-                key_id=example_key.id,
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example_role1,
-                    example_role2,
-                    example_role3,
-                    example_role4,
-                    example_cosmosdb,
-                ]))
-        ```
-
         ## Import
 
         Machine Learning Workspace can be imported using the `resource id`, e.g.
@@ -1445,19 +993,11 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["application_insights_id"] = application_insights_id
             __props__.__dict__["container_registry_id"] = container_registry_id
             __props__.__dict__["description"] = description
-            if encryption is not None and not isinstance(encryption, WorkspaceEncryptionArgs):
-                encryption = encryption or {}
-                def _setter(key, value):
-                    encryption[key] = value
-                WorkspaceEncryptionArgs._configure(_setter, **encryption)
+            encryption = _utilities.configure(encryption, WorkspaceEncryptionArgs, True)
             __props__.__dict__["encryption"] = encryption
             __props__.__dict__["friendly_name"] = friendly_name
             __props__.__dict__["high_business_impact"] = high_business_impact
-            if identity is not None and not isinstance(identity, WorkspaceIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                WorkspaceIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, WorkspaceIdentityArgs, True)
             if identity is None and not opts.urn:
                 raise TypeError("Missing required property 'identity'")
             __props__.__dict__["identity"] = identity

@@ -83,8 +83,8 @@ class MetricAlertArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             scopes: pulumi.Input[Sequence[pulumi.Input[str]]],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              actions: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertActionArgs']]]] = None,
              application_insights_web_test_location_availability_criteria: Optional[pulumi.Input['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs']] = None,
              auto_mitigate: Optional[pulumi.Input[bool]] = None,
@@ -99,21 +99,25 @@ class MetricAlertArgs:
              target_resource_location: Optional[pulumi.Input[str]] = None,
              target_resource_type: Optional[pulumi.Input[str]] = None,
              window_size: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'applicationInsightsWebTestLocationAvailabilityCriteria' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if scopes is None:
+            raise TypeError("Missing 'scopes' argument")
+        if application_insights_web_test_location_availability_criteria is None and 'applicationInsightsWebTestLocationAvailabilityCriteria' in kwargs:
             application_insights_web_test_location_availability_criteria = kwargs['applicationInsightsWebTestLocationAvailabilityCriteria']
-        if 'autoMitigate' in kwargs:
+        if auto_mitigate is None and 'autoMitigate' in kwargs:
             auto_mitigate = kwargs['autoMitigate']
-        if 'dynamicCriteria' in kwargs:
+        if dynamic_criteria is None and 'dynamicCriteria' in kwargs:
             dynamic_criteria = kwargs['dynamicCriteria']
-        if 'targetResourceLocation' in kwargs:
+        if target_resource_location is None and 'targetResourceLocation' in kwargs:
             target_resource_location = kwargs['targetResourceLocation']
-        if 'targetResourceType' in kwargs:
+        if target_resource_type is None and 'targetResourceType' in kwargs:
             target_resource_type = kwargs['targetResourceType']
-        if 'windowSize' in kwargs:
+        if window_size is None and 'windowSize' in kwargs:
             window_size = kwargs['windowSize']
 
         _setter("resource_group_name", resource_group_name)
@@ -436,21 +440,21 @@ class _MetricAlertState:
              target_resource_location: Optional[pulumi.Input[str]] = None,
              target_resource_type: Optional[pulumi.Input[str]] = None,
              window_size: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'applicationInsightsWebTestLocationAvailabilityCriteria' in kwargs:
+        if application_insights_web_test_location_availability_criteria is None and 'applicationInsightsWebTestLocationAvailabilityCriteria' in kwargs:
             application_insights_web_test_location_availability_criteria = kwargs['applicationInsightsWebTestLocationAvailabilityCriteria']
-        if 'autoMitigate' in kwargs:
+        if auto_mitigate is None and 'autoMitigate' in kwargs:
             auto_mitigate = kwargs['autoMitigate']
-        if 'dynamicCriteria' in kwargs:
+        if dynamic_criteria is None and 'dynamicCriteria' in kwargs:
             dynamic_criteria = kwargs['dynamicCriteria']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'targetResourceLocation' in kwargs:
+        if target_resource_location is None and 'targetResourceLocation' in kwargs:
             target_resource_location = kwargs['targetResourceLocation']
-        if 'targetResourceType' in kwargs:
+        if target_resource_type is None and 'targetResourceType' in kwargs:
             target_resource_type = kwargs['targetResourceType']
-        if 'windowSize' in kwargs:
+        if window_size is None and 'windowSize' in kwargs:
             window_size = kwargs['windowSize']
 
         if actions is not None:
@@ -714,46 +718,6 @@ class MetricAlert(pulumi.CustomResource):
         """
         Manages a Metric Alert within Azure Monitor.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        to_monitor = azure.storage.Account("toMonitor",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        main = azure.monitoring.ActionGroup("main",
-            resource_group_name=example_resource_group.name,
-            short_name="exampleact",
-            webhook_receivers=[azure.monitoring.ActionGroupWebhookReceiverArgs(
-                name="callmyapi",
-                service_uri="http://example.com/alert",
-            )])
-        example_metric_alert = azure.monitoring.MetricAlert("exampleMetricAlert",
-            resource_group_name=example_resource_group.name,
-            scopes=[to_monitor.id],
-            description="Action will be triggered when Transactions count is greater than 50.",
-            criterias=[azure.monitoring.MetricAlertCriteriaArgs(
-                metric_namespace="Microsoft.Storage/storageAccounts",
-                metric_name="Transactions",
-                aggregation="Total",
-                operator="GreaterThan",
-                threshold=50,
-                dimensions=[azure.monitoring.MetricAlertCriteriaDimensionArgs(
-                    name="ApiName",
-                    operator="Include",
-                    values=["*"],
-                )],
-            )],
-            actions=[azure.monitoring.MetricAlertActionArgs(
-                action_group_id=main.id,
-            )])
-        ```
-
         ## Import
 
         Metric Alerts can be imported using the `resource id`, e.g.
@@ -799,46 +763,6 @@ class MetricAlert(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Metric Alert within Azure Monitor.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        to_monitor = azure.storage.Account("toMonitor",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        main = azure.monitoring.ActionGroup("main",
-            resource_group_name=example_resource_group.name,
-            short_name="exampleact",
-            webhook_receivers=[azure.monitoring.ActionGroupWebhookReceiverArgs(
-                name="callmyapi",
-                service_uri="http://example.com/alert",
-            )])
-        example_metric_alert = azure.monitoring.MetricAlert("exampleMetricAlert",
-            resource_group_name=example_resource_group.name,
-            scopes=[to_monitor.id],
-            description="Action will be triggered when Transactions count is greater than 50.",
-            criterias=[azure.monitoring.MetricAlertCriteriaArgs(
-                metric_namespace="Microsoft.Storage/storageAccounts",
-                metric_name="Transactions",
-                aggregation="Total",
-                operator="GreaterThan",
-                threshold=50,
-                dimensions=[azure.monitoring.MetricAlertCriteriaDimensionArgs(
-                    name="ApiName",
-                    operator="Include",
-                    values=["*"],
-                )],
-            )],
-            actions=[azure.monitoring.MetricAlertActionArgs(
-                action_group_id=main.id,
-            )])
-        ```
 
         ## Import
 
@@ -893,20 +817,12 @@ class MetricAlert(pulumi.CustomResource):
             __props__ = MetricAlertArgs.__new__(MetricAlertArgs)
 
             __props__.__dict__["actions"] = actions
-            if application_insights_web_test_location_availability_criteria is not None and not isinstance(application_insights_web_test_location_availability_criteria, MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs):
-                application_insights_web_test_location_availability_criteria = application_insights_web_test_location_availability_criteria or {}
-                def _setter(key, value):
-                    application_insights_web_test_location_availability_criteria[key] = value
-                MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs._configure(_setter, **application_insights_web_test_location_availability_criteria)
+            application_insights_web_test_location_availability_criteria = _utilities.configure(application_insights_web_test_location_availability_criteria, MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs, True)
             __props__.__dict__["application_insights_web_test_location_availability_criteria"] = application_insights_web_test_location_availability_criteria
             __props__.__dict__["auto_mitigate"] = auto_mitigate
             __props__.__dict__["criterias"] = criterias
             __props__.__dict__["description"] = description
-            if dynamic_criteria is not None and not isinstance(dynamic_criteria, MetricAlertDynamicCriteriaArgs):
-                dynamic_criteria = dynamic_criteria or {}
-                def _setter(key, value):
-                    dynamic_criteria[key] = value
-                MetricAlertDynamicCriteriaArgs._configure(_setter, **dynamic_criteria)
+            dynamic_criteria = _utilities.configure(dynamic_criteria, MetricAlertDynamicCriteriaArgs, True)
             __props__.__dict__["dynamic_criteria"] = dynamic_criteria
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["frequency"] = frequency

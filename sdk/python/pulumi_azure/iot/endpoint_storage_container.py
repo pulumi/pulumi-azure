@@ -61,9 +61,9 @@ class EndpointStorageContainerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             container_name: pulumi.Input[str],
-             iothub_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             container_name: Optional[pulumi.Input[str]] = None,
+             iothub_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              authentication_type: Optional[pulumi.Input[str]] = None,
              batch_frequency_in_seconds: Optional[pulumi.Input[int]] = None,
              connection_string: Optional[pulumi.Input[str]] = None,
@@ -73,27 +73,33 @@ class EndpointStorageContainerArgs:
              identity_id: Optional[pulumi.Input[str]] = None,
              max_chunk_size_in_bytes: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'containerName' in kwargs:
+        if container_name is None and 'containerName' in kwargs:
             container_name = kwargs['containerName']
-        if 'iothubId' in kwargs:
+        if container_name is None:
+            raise TypeError("Missing 'container_name' argument")
+        if iothub_id is None and 'iothubId' in kwargs:
             iothub_id = kwargs['iothubId']
-        if 'resourceGroupName' in kwargs:
+        if iothub_id is None:
+            raise TypeError("Missing 'iothub_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'authenticationType' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if authentication_type is None and 'authenticationType' in kwargs:
             authentication_type = kwargs['authenticationType']
-        if 'batchFrequencyInSeconds' in kwargs:
+        if batch_frequency_in_seconds is None and 'batchFrequencyInSeconds' in kwargs:
             batch_frequency_in_seconds = kwargs['batchFrequencyInSeconds']
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
-        if 'endpointUri' in kwargs:
+        if endpoint_uri is None and 'endpointUri' in kwargs:
             endpoint_uri = kwargs['endpointUri']
-        if 'fileNameFormat' in kwargs:
+        if file_name_format is None and 'fileNameFormat' in kwargs:
             file_name_format = kwargs['fileNameFormat']
-        if 'identityId' in kwargs:
+        if identity_id is None and 'identityId' in kwargs:
             identity_id = kwargs['identityId']
-        if 'maxChunkSizeInBytes' in kwargs:
+        if max_chunk_size_in_bytes is None and 'maxChunkSizeInBytes' in kwargs:
             max_chunk_size_in_bytes = kwargs['maxChunkSizeInBytes']
 
         _setter("container_name", container_name)
@@ -327,27 +333,27 @@ class _EndpointStorageContainerState:
              max_chunk_size_in_bytes: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'authenticationType' in kwargs:
+        if authentication_type is None and 'authenticationType' in kwargs:
             authentication_type = kwargs['authenticationType']
-        if 'batchFrequencyInSeconds' in kwargs:
+        if batch_frequency_in_seconds is None and 'batchFrequencyInSeconds' in kwargs:
             batch_frequency_in_seconds = kwargs['batchFrequencyInSeconds']
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
-        if 'containerName' in kwargs:
+        if container_name is None and 'containerName' in kwargs:
             container_name = kwargs['containerName']
-        if 'endpointUri' in kwargs:
+        if endpoint_uri is None and 'endpointUri' in kwargs:
             endpoint_uri = kwargs['endpointUri']
-        if 'fileNameFormat' in kwargs:
+        if file_name_format is None and 'fileNameFormat' in kwargs:
             file_name_format = kwargs['fileNameFormat']
-        if 'identityId' in kwargs:
+        if identity_id is None and 'identityId' in kwargs:
             identity_id = kwargs['identityId']
-        if 'iothubId' in kwargs:
+        if iothub_id is None and 'iothubId' in kwargs:
             iothub_id = kwargs['iothubId']
-        if 'maxChunkSizeInBytes' in kwargs:
+        if max_chunk_size_in_bytes is None and 'maxChunkSizeInBytes' in kwargs:
             max_chunk_size_in_bytes = kwargs['maxChunkSizeInBytes']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if authentication_type is not None:
@@ -545,39 +551,6 @@ class EndpointStorageContainer(pulumi.CustomResource):
 
         > **NOTE:** Endpoints can be defined either directly on the `iot.IoTHub` resource, or using the `azurerm_iothub_endpoint_*` resources - but the two ways of defining the endpoints cannot be used together. If both are used against the same IoTHub, spurious changes will occur. Also, defining a `azurerm_iothub_endpoint_*` resource and another endpoint of a different type directly on the `iot.IoTHub` resource is not supported.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("exampleContainer",
-            storage_account_name=example_account.name,
-            container_access_type="private")
-        example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="S1",
-                capacity=1,
-            ))
-        example_endpoint_storage_container = azure.iot.EndpointStorageContainer("exampleEndpointStorageContainer",
-            resource_group_name=example_resource_group.name,
-            iothub_id=example_io_t_hub.id,
-            container_name="acctestcont",
-            connection_string=example_account.primary_blob_connection_string,
-            file_name_format="{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}",
-            batch_frequency_in_seconds=60,
-            max_chunk_size_in_bytes=10485760,
-            encoding="JSON")
-        ```
-
         ## Import
 
         IoTHub Storage Container Endpoint can be imported using the `resource id`, e.g.
@@ -613,39 +586,6 @@ class EndpointStorageContainer(pulumi.CustomResource):
         Manages an IotHub Storage Container Endpoint
 
         > **NOTE:** Endpoints can be defined either directly on the `iot.IoTHub` resource, or using the `azurerm_iothub_endpoint_*` resources - but the two ways of defining the endpoints cannot be used together. If both are used against the same IoTHub, spurious changes will occur. Also, defining a `azurerm_iothub_endpoint_*` resource and another endpoint of a different type directly on the `iot.IoTHub` resource is not supported.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("exampleContainer",
-            storage_account_name=example_account.name,
-            container_access_type="private")
-        example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="S1",
-                capacity=1,
-            ))
-        example_endpoint_storage_container = azure.iot.EndpointStorageContainer("exampleEndpointStorageContainer",
-            resource_group_name=example_resource_group.name,
-            iothub_id=example_io_t_hub.id,
-            container_name="acctestcont",
-            connection_string=example_account.primary_blob_connection_string,
-            file_name_format="{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}",
-            batch_frequency_in_seconds=60,
-            max_chunk_size_in_bytes=10485760,
-            encoding="JSON")
-        ```
 
         ## Import
 

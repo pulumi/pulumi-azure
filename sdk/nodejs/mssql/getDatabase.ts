@@ -6,27 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing SQL database.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleServer = new azure.mssql.Server("exampleServer", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     version: "12.0",
- *     administratorLogin: "4dm1n157r470r",
- *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
- * });
- * const exampleDatabase = azure.mssql.getDatabaseOutput({
- *     name: "example-mssql-db",
- *     serverId: exampleServer.id,
- * });
- * export const databaseId = exampleDatabase.apply(exampleDatabase => exampleDatabase.id);
- * ```
  */
 export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> {
 
@@ -104,27 +83,6 @@ export interface GetDatabaseResult {
 }
 /**
  * Use this data source to access information about an existing SQL database.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleServer = new azure.mssql.Server("exampleServer", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     version: "12.0",
- *     administratorLogin: "4dm1n157r470r",
- *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
- * });
- * const exampleDatabase = azure.mssql.getDatabaseOutput({
- *     name: "example-mssql-db",
- *     serverId: exampleServer.id,
- * });
- * export const databaseId = exampleDatabase.apply(exampleDatabase => exampleDatabase.id);
- * ```
  */
 export function getDatabaseOutput(args: GetDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseResult> {
     return pulumi.output(args).apply((a: any) => getDatabase(a, opts))

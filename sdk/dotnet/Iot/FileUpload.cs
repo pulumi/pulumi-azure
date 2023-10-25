@@ -14,56 +14,6 @@ namespace Pulumi.Azure.Iot
     /// 
     /// &gt; **NOTE:** File upload can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azure.iot.FileUpload` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         AccountTier = "Standard",
-    ///         AccountReplicationType = "LRS",
-    ///     });
-    /// 
-    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
-    ///     {
-    ///         StorageAccountName = exampleAccount.Name,
-    ///         ContainerAccessType = "private",
-    ///     });
-    /// 
-    ///     var exampleIoTHub = new Azure.Iot.IoTHub("exampleIoTHub", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         Sku = new Azure.Iot.Inputs.IoTHubSkuArgs
-    ///         {
-    ///             Name = "S1",
-    ///             Capacity = 1,
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleFileUpload = new Azure.Iot.FileUpload("exampleFileUpload", new()
-    ///     {
-    ///         IothubId = exampleIoTHub.Id,
-    ///         ConnectionString = exampleAccount.PrimaryBlobConnectionString,
-    ///         ContainerName = exampleContainer.Name,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// IoT Hub File Uploads can be imported using the `resource id`, e.g.

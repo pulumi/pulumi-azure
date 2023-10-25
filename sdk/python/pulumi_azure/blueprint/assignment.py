@@ -59,9 +59,9 @@ class AssignmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             identity: pulumi.Input['AssignmentIdentityArgs'],
-             target_subscription_id: pulumi.Input[str],
-             version_id: pulumi.Input[str],
+             identity: Optional[pulumi.Input['AssignmentIdentityArgs']] = None,
+             target_subscription_id: Optional[pulumi.Input[str]] = None,
+             version_id: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              lock_exclude_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              lock_exclude_principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -69,21 +69,27 @@ class AssignmentArgs:
              name: Optional[pulumi.Input[str]] = None,
              parameter_values: Optional[pulumi.Input[str]] = None,
              resource_groups: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'targetSubscriptionId' in kwargs:
+        if identity is None:
+            raise TypeError("Missing 'identity' argument")
+        if target_subscription_id is None and 'targetSubscriptionId' in kwargs:
             target_subscription_id = kwargs['targetSubscriptionId']
-        if 'versionId' in kwargs:
+        if target_subscription_id is None:
+            raise TypeError("Missing 'target_subscription_id' argument")
+        if version_id is None and 'versionId' in kwargs:
             version_id = kwargs['versionId']
-        if 'lockExcludeActions' in kwargs:
+        if version_id is None:
+            raise TypeError("Missing 'version_id' argument")
+        if lock_exclude_actions is None and 'lockExcludeActions' in kwargs:
             lock_exclude_actions = kwargs['lockExcludeActions']
-        if 'lockExcludePrincipals' in kwargs:
+        if lock_exclude_principals is None and 'lockExcludePrincipals' in kwargs:
             lock_exclude_principals = kwargs['lockExcludePrincipals']
-        if 'lockMode' in kwargs:
+        if lock_mode is None and 'lockMode' in kwargs:
             lock_mode = kwargs['lockMode']
-        if 'parameterValues' in kwargs:
+        if parameter_values is None and 'parameterValues' in kwargs:
             parameter_values = kwargs['parameterValues']
-        if 'resourceGroups' in kwargs:
+        if resource_groups is None and 'resourceGroups' in kwargs:
             resource_groups = kwargs['resourceGroups']
 
         _setter("identity", identity)
@@ -301,25 +307,25 @@ class _AssignmentState:
              target_subscription_id: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
              version_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'blueprintName' in kwargs:
+        if blueprint_name is None and 'blueprintName' in kwargs:
             blueprint_name = kwargs['blueprintName']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'lockExcludeActions' in kwargs:
+        if lock_exclude_actions is None and 'lockExcludeActions' in kwargs:
             lock_exclude_actions = kwargs['lockExcludeActions']
-        if 'lockExcludePrincipals' in kwargs:
+        if lock_exclude_principals is None and 'lockExcludePrincipals' in kwargs:
             lock_exclude_principals = kwargs['lockExcludePrincipals']
-        if 'lockMode' in kwargs:
+        if lock_mode is None and 'lockMode' in kwargs:
             lock_mode = kwargs['lockMode']
-        if 'parameterValues' in kwargs:
+        if parameter_values is None and 'parameterValues' in kwargs:
             parameter_values = kwargs['parameterValues']
-        if 'resourceGroups' in kwargs:
+        if resource_groups is None and 'resourceGroups' in kwargs:
             resource_groups = kwargs['resourceGroups']
-        if 'targetSubscriptionId' in kwargs:
+        if target_subscription_id is None and 'targetSubscriptionId' in kwargs:
             target_subscription_id = kwargs['targetSubscriptionId']
-        if 'versionId' in kwargs:
+        if version_id is None and 'versionId' in kwargs:
             version_id = kwargs['versionId']
 
         if blueprint_name is not None:
@@ -547,63 +553,6 @@ class Assignment(pulumi.CustomResource):
 
         > **NOTE:** Azure Blueprint Assignments can only be applied to Subscriptions.  Assignments to Management Groups is not currently supported by the service or by this provider.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_subscription = azure.core.get_subscription()
-        example_definition = azure.blueprint.get_definition(name="exampleBlueprint",
-            scope_id=example_subscription.id)
-        example_published_version = azure.blueprint.get_published_version(scope_id=example_definition.scope_id,
-            blueprint_name=example_definition.name,
-            version="v1.0.0")
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup",
-            location="West Europe",
-            tags={
-                "Environment": "example",
-            })
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        operator = azure.authorization.Assignment("operator",
-            scope=example_subscription.id,
-            role_definition_name="Blueprint Operator",
-            principal_id=example_user_assigned_identity.principal_id)
-        owner = azure.authorization.Assignment("owner",
-            scope=example_subscription.id,
-            role_definition_name="Owner",
-            principal_id=example_user_assigned_identity.principal_id)
-        example_assignment = azure.blueprint.Assignment("exampleAssignment",
-            target_subscription_id=example_subscription.id,
-            version_id=example_published_version.id,
-            location=example_resource_group.location,
-            lock_mode="AllResourcesDoNotDelete",
-            lock_exclude_principals=[current.object_id],
-            identity=azure.blueprint.AssignmentIdentityArgs(
-                type="UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ),
-            resource_groups=\"\"\"    {
-              "ResourceGroup": {
-                "name": "exampleRG-bp"
-              }
-            }
-        \"\"\",
-            parameter_values=\"\"\"    {
-              "allowedlocationsforresourcegroups_listOfAllowedLocations": {
-                "value": ["westus", "westus2", "eastus", "centralus", "centraluseuap", "southcentralus", "northcentralus", "westcentralus", "eastus2", "eastus2euap", "brazilsouth", "brazilus", "northeurope", "westeurope", "eastasia", "southeastasia", "japanwest", "japaneast", "koreacentral", "koreasouth", "indiasouth", "indiawest", "indiacentral", "australiaeast", "australiasoutheast", "canadacentral", "canadaeast", "uknorth", "uksouth2", "uksouth", "ukwest", "francecentral", "francesouth", "australiacentral", "australiacentral2", "uaecentral", "uaenorth", "southafricanorth", "southafricawest", "switzerlandnorth", "switzerlandwest", "germanynorth", "germanywestcentral", "norwayeast", "norwaywest"]
-              }
-            }
-        \"\"\",
-            opts=pulumi.ResourceOptions(depends_on=[
-                    operator,
-                    owner,
-                ]))
-        ```
-
         ## Import
 
         Azure Blueprint Assignments can be imported using the `resource id`, e.g.
@@ -641,63 +590,6 @@ class Assignment(pulumi.CustomResource):
         > **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
 
         > **NOTE:** Azure Blueprint Assignments can only be applied to Subscriptions.  Assignments to Management Groups is not currently supported by the service or by this provider.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_subscription = azure.core.get_subscription()
-        example_definition = azure.blueprint.get_definition(name="exampleBlueprint",
-            scope_id=example_subscription.id)
-        example_published_version = azure.blueprint.get_published_version(scope_id=example_definition.scope_id,
-            blueprint_name=example_definition.name,
-            version="v1.0.0")
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup",
-            location="West Europe",
-            tags={
-                "Environment": "example",
-            })
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        operator = azure.authorization.Assignment("operator",
-            scope=example_subscription.id,
-            role_definition_name="Blueprint Operator",
-            principal_id=example_user_assigned_identity.principal_id)
-        owner = azure.authorization.Assignment("owner",
-            scope=example_subscription.id,
-            role_definition_name="Owner",
-            principal_id=example_user_assigned_identity.principal_id)
-        example_assignment = azure.blueprint.Assignment("exampleAssignment",
-            target_subscription_id=example_subscription.id,
-            version_id=example_published_version.id,
-            location=example_resource_group.location,
-            lock_mode="AllResourcesDoNotDelete",
-            lock_exclude_principals=[current.object_id],
-            identity=azure.blueprint.AssignmentIdentityArgs(
-                type="UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ),
-            resource_groups=\"\"\"    {
-              "ResourceGroup": {
-                "name": "exampleRG-bp"
-              }
-            }
-        \"\"\",
-            parameter_values=\"\"\"    {
-              "allowedlocationsforresourcegroups_listOfAllowedLocations": {
-                "value": ["westus", "westus2", "eastus", "centralus", "centraluseuap", "southcentralus", "northcentralus", "westcentralus", "eastus2", "eastus2euap", "brazilsouth", "brazilus", "northeurope", "westeurope", "eastasia", "southeastasia", "japanwest", "japaneast", "koreacentral", "koreasouth", "indiasouth", "indiawest", "indiacentral", "australiaeast", "australiasoutheast", "canadacentral", "canadaeast", "uknorth", "uksouth2", "uksouth", "ukwest", "francecentral", "francesouth", "australiacentral", "australiacentral2", "uaecentral", "uaenorth", "southafricanorth", "southafricawest", "switzerlandnorth", "switzerlandwest", "germanynorth", "germanywestcentral", "norwayeast", "norwaywest"]
-              }
-            }
-        \"\"\",
-            opts=pulumi.ResourceOptions(depends_on=[
-                    operator,
-                    owner,
-                ]))
-        ```
 
         ## Import
 
@@ -745,11 +637,7 @@ class Assignment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AssignmentArgs.__new__(AssignmentArgs)
 
-            if identity is not None and not isinstance(identity, AssignmentIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                AssignmentIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, AssignmentIdentityArgs, True)
             if identity is None and not opts.urn:
                 raise TypeError("Missing required property 'identity'")
             __props__.__dict__["identity"] = identity

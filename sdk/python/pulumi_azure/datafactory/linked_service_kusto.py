@@ -68,9 +68,9 @@ class LinkedServiceKustoArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_factory_id: pulumi.Input[str],
-             kusto_database_name: pulumi.Input[str],
-             kusto_endpoint: pulumi.Input[str],
+             data_factory_id: Optional[pulumi.Input[str]] = None,
+             kusto_database_name: Optional[pulumi.Input[str]] = None,
+             kusto_endpoint: Optional[pulumi.Input[str]] = None,
              additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -81,23 +81,29 @@ class LinkedServiceKustoArgs:
              service_principal_key: Optional[pulumi.Input[str]] = None,
              tenant: Optional[pulumi.Input[str]] = None,
              use_managed_identity: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'kustoDatabaseName' in kwargs:
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if kusto_database_name is None and 'kustoDatabaseName' in kwargs:
             kusto_database_name = kwargs['kustoDatabaseName']
-        if 'kustoEndpoint' in kwargs:
+        if kusto_database_name is None:
+            raise TypeError("Missing 'kusto_database_name' argument")
+        if kusto_endpoint is None and 'kustoEndpoint' in kwargs:
             kusto_endpoint = kwargs['kustoEndpoint']
-        if 'additionalProperties' in kwargs:
+        if kusto_endpoint is None:
+            raise TypeError("Missing 'kusto_endpoint' argument")
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'integrationRuntimeName' in kwargs:
+        if integration_runtime_name is None and 'integrationRuntimeName' in kwargs:
             integration_runtime_name = kwargs['integrationRuntimeName']
-        if 'servicePrincipalId' in kwargs:
+        if service_principal_id is None and 'servicePrincipalId' in kwargs:
             service_principal_id = kwargs['servicePrincipalId']
-        if 'servicePrincipalKey' in kwargs:
+        if service_principal_key is None and 'servicePrincipalKey' in kwargs:
             service_principal_key = kwargs['servicePrincipalKey']
-        if 'useManagedIdentity' in kwargs:
+        if use_managed_identity is None and 'useManagedIdentity' in kwargs:
             use_managed_identity = kwargs['useManagedIdentity']
 
         _setter("data_factory_id", data_factory_id)
@@ -357,23 +363,23 @@ class _LinkedServiceKustoState:
              service_principal_key: Optional[pulumi.Input[str]] = None,
              tenant: Optional[pulumi.Input[str]] = None,
              use_managed_identity: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'additionalProperties' in kwargs:
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'integrationRuntimeName' in kwargs:
+        if integration_runtime_name is None and 'integrationRuntimeName' in kwargs:
             integration_runtime_name = kwargs['integrationRuntimeName']
-        if 'kustoDatabaseName' in kwargs:
+        if kusto_database_name is None and 'kustoDatabaseName' in kwargs:
             kusto_database_name = kwargs['kustoDatabaseName']
-        if 'kustoEndpoint' in kwargs:
+        if kusto_endpoint is None and 'kustoEndpoint' in kwargs:
             kusto_endpoint = kwargs['kustoEndpoint']
-        if 'servicePrincipalId' in kwargs:
+        if service_principal_id is None and 'servicePrincipalId' in kwargs:
             service_principal_id = kwargs['servicePrincipalId']
-        if 'servicePrincipalKey' in kwargs:
+        if service_principal_key is None and 'servicePrincipalKey' in kwargs:
             service_principal_key = kwargs['servicePrincipalKey']
-        if 'useManagedIdentity' in kwargs:
+        if use_managed_identity is None and 'useManagedIdentity' in kwargs:
             use_managed_identity = kwargs['useManagedIdentity']
 
         if additional_properties is not None:
@@ -588,45 +594,6 @@ class LinkedServiceKusto(pulumi.CustomResource):
         """
         Manages a Linked Service (connection) between a Kusto Cluster and Azure Data Factory.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            identity=azure.datafactory.FactoryIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_cluster = azure.kusto.Cluster("exampleCluster",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Standard_D13_v2",
-                capacity=2,
-            ))
-        example_database = azure.kusto.Database("exampleDatabase",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            cluster_name=example_cluster.name)
-        example_linked_service_kusto = azure.datafactory.LinkedServiceKusto("exampleLinkedServiceKusto",
-            data_factory_id=example_factory.id,
-            kusto_endpoint=example_cluster.uri,
-            kusto_database_name=example_database.name,
-            use_managed_identity=True)
-        example_database_principal_assignment = azure.kusto.DatabasePrincipalAssignment("exampleDatabasePrincipalAssignment",
-            resource_group_name=example_resource_group.name,
-            cluster_name=example_cluster.name,
-            database_name=example_database.name,
-            tenant_id=example_factory.identity.tenant_id,
-            principal_id=example_factory.identity.principal_id,
-            principal_type="App",
-            role="Viewer")
-        ```
-
         ## Import
 
         Data Factory Linked Service's can be imported using the `resource id`, e.g.
@@ -665,45 +632,6 @@ class LinkedServiceKusto(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Linked Service (connection) between a Kusto Cluster and Azure Data Factory.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            identity=azure.datafactory.FactoryIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_cluster = azure.kusto.Cluster("exampleCluster",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Standard_D13_v2",
-                capacity=2,
-            ))
-        example_database = azure.kusto.Database("exampleDatabase",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            cluster_name=example_cluster.name)
-        example_linked_service_kusto = azure.datafactory.LinkedServiceKusto("exampleLinkedServiceKusto",
-            data_factory_id=example_factory.id,
-            kusto_endpoint=example_cluster.uri,
-            kusto_database_name=example_database.name,
-            use_managed_identity=True)
-        example_database_principal_assignment = azure.kusto.DatabasePrincipalAssignment("exampleDatabasePrincipalAssignment",
-            resource_group_name=example_resource_group.name,
-            cluster_name=example_cluster.name,
-            database_name=example_database.name,
-            tenant_id=example_factory.identity.tenant_id,
-            principal_id=example_factory.identity.principal_id,
-            principal_type="App",
-            role="Viewer")
-        ```
 
         ## Import
 

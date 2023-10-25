@@ -64,8 +64,8 @@ class ComputeInstanceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             machine_learning_workspace_id: pulumi.Input[str],
-             virtual_machine_size: pulumi.Input[str],
+             machine_learning_workspace_id: Optional[pulumi.Input[str]] = None,
+             virtual_machine_size: Optional[pulumi.Input[str]] = None,
              assign_to_user: Optional[pulumi.Input['ComputeInstanceAssignToUserArgs']] = None,
              authorization_type: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -77,21 +77,25 @@ class ComputeInstanceArgs:
              ssh: Optional[pulumi.Input['ComputeInstanceSshArgs']] = None,
              subnet_resource_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'machineLearningWorkspaceId' in kwargs:
+        if machine_learning_workspace_id is None and 'machineLearningWorkspaceId' in kwargs:
             machine_learning_workspace_id = kwargs['machineLearningWorkspaceId']
-        if 'virtualMachineSize' in kwargs:
+        if machine_learning_workspace_id is None:
+            raise TypeError("Missing 'machine_learning_workspace_id' argument")
+        if virtual_machine_size is None and 'virtualMachineSize' in kwargs:
             virtual_machine_size = kwargs['virtualMachineSize']
-        if 'assignToUser' in kwargs:
+        if virtual_machine_size is None:
+            raise TypeError("Missing 'virtual_machine_size' argument")
+        if assign_to_user is None and 'assignToUser' in kwargs:
             assign_to_user = kwargs['assignToUser']
-        if 'authorizationType' in kwargs:
+        if authorization_type is None and 'authorizationType' in kwargs:
             authorization_type = kwargs['authorizationType']
-        if 'localAuthEnabled' in kwargs:
+        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
             local_auth_enabled = kwargs['localAuthEnabled']
-        if 'nodePublicIpEnabled' in kwargs:
+        if node_public_ip_enabled is None and 'nodePublicIpEnabled' in kwargs:
             node_public_ip_enabled = kwargs['nodePublicIpEnabled']
-        if 'subnetResourceId' in kwargs:
+        if subnet_resource_id is None and 'subnetResourceId' in kwargs:
             subnet_resource_id = kwargs['subnetResourceId']
 
         _setter("machine_learning_workspace_id", machine_learning_workspace_id)
@@ -340,21 +344,21 @@ class _ComputeInstanceState:
              subnet_resource_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              virtual_machine_size: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'assignToUser' in kwargs:
+        if assign_to_user is None and 'assignToUser' in kwargs:
             assign_to_user = kwargs['assignToUser']
-        if 'authorizationType' in kwargs:
+        if authorization_type is None and 'authorizationType' in kwargs:
             authorization_type = kwargs['authorizationType']
-        if 'localAuthEnabled' in kwargs:
+        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
             local_auth_enabled = kwargs['localAuthEnabled']
-        if 'machineLearningWorkspaceId' in kwargs:
+        if machine_learning_workspace_id is None and 'machineLearningWorkspaceId' in kwargs:
             machine_learning_workspace_id = kwargs['machineLearningWorkspaceId']
-        if 'nodePublicIpEnabled' in kwargs:
+        if node_public_ip_enabled is None and 'nodePublicIpEnabled' in kwargs:
             node_public_ip_enabled = kwargs['nodePublicIpEnabled']
-        if 'subnetResourceId' in kwargs:
+        if subnet_resource_id is None and 'subnetResourceId' in kwargs:
             subnet_resource_id = kwargs['subnetResourceId']
-        if 'virtualMachineSize' in kwargs:
+        if virtual_machine_size is None and 'virtualMachineSize' in kwargs:
             virtual_machine_size = kwargs['virtualMachineSize']
 
         if assign_to_user is not None:
@@ -563,69 +567,6 @@ class ComputeInstance(pulumi.CustomResource):
         """
         Manages a Machine Learning Compute Instance.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup",
-            location="west europe",
-            tags={
-                "stage": "example",
-            })
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="web")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="standard",
-            purge_protection_enabled=True)
-        example_account = azure.storage.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_workspace = azure.machinelearning.Workspace("exampleWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_insights_id=example_insights.id,
-            key_vault_id=example_key_vault.id,
-            storage_account_id=example_account.id,
-            identity=azure.machinelearning.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.1.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.1.0.0/24"])
-        config = pulumi.Config()
-        ssh_key = config.get("sshKey")
-        if ssh_key is None:
-            ssh_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCqaZoyiz1qbdOQ8xEf6uEu1cCwYowo5FHtsBhqLoDnnp7KUTEBN+L2NxRIfQ781rxV6Iq5jSav6b2Q8z5KiseOlvKA/RF2wqU0UPYqQviQhLmW6THTpmrv/YkUCuzxDpsH7DUDhZcwySLKVVe0Qm3+5N2Ta6UYH3lsDf9R9wTP2K/+vAnflKebuypNlmocIvakFWoZda18FOmsOoIVXQ8HWFNCuw9ZCunMSN62QGamCe3dL5cXlkgHYv7ekJE15IA9aOJcM7e90oeTqo+7HTcWfdu0qQqPWY5ujyMw/llas8tsXY85LFqRnr3gJ02bAscjc477+X+j/gkpFoN1QEmt terraform@demo.tld"
-        example_compute_instance = azure.machinelearning.ComputeInstance("exampleComputeInstance",
-            location=example_resource_group.location,
-            machine_learning_workspace_id=example_workspace.id,
-            virtual_machine_size="STANDARD_DS2_V2",
-            authorization_type="personal",
-            ssh=azure.machinelearning.ComputeInstanceSshArgs(
-                public_key=ssh_key,
-            ),
-            subnet_resource_id=example_subnet.id,
-            description="foo",
-            tags={
-                "foo": "bar",
-            })
-        ```
-
         ## Import
 
         Machine Learning Compute Instances can be imported using the `resource id`, e.g.
@@ -658,69 +599,6 @@ class ComputeInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Machine Learning Compute Instance.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup",
-            location="west europe",
-            tags={
-                "stage": "example",
-            })
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="web")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="standard",
-            purge_protection_enabled=True)
-        example_account = azure.storage.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_workspace = azure.machinelearning.Workspace("exampleWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_insights_id=example_insights.id,
-            key_vault_id=example_key_vault.id,
-            storage_account_id=example_account.id,
-            identity=azure.machinelearning.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.1.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.1.0.0/24"])
-        config = pulumi.Config()
-        ssh_key = config.get("sshKey")
-        if ssh_key is None:
-            ssh_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCqaZoyiz1qbdOQ8xEf6uEu1cCwYowo5FHtsBhqLoDnnp7KUTEBN+L2NxRIfQ781rxV6Iq5jSav6b2Q8z5KiseOlvKA/RF2wqU0UPYqQviQhLmW6THTpmrv/YkUCuzxDpsH7DUDhZcwySLKVVe0Qm3+5N2Ta6UYH3lsDf9R9wTP2K/+vAnflKebuypNlmocIvakFWoZda18FOmsOoIVXQ8HWFNCuw9ZCunMSN62QGamCe3dL5cXlkgHYv7ekJE15IA9aOJcM7e90oeTqo+7HTcWfdu0qQqPWY5ujyMw/llas8tsXY85LFqRnr3gJ02bAscjc477+X+j/gkpFoN1QEmt terraform@demo.tld"
-        example_compute_instance = azure.machinelearning.ComputeInstance("exampleComputeInstance",
-            location=example_resource_group.location,
-            machine_learning_workspace_id=example_workspace.id,
-            virtual_machine_size="STANDARD_DS2_V2",
-            authorization_type="personal",
-            ssh=azure.machinelearning.ComputeInstanceSshArgs(
-                public_key=ssh_key,
-            ),
-            subnet_resource_id=example_subnet.id,
-            description="foo",
-            tags={
-                "foo": "bar",
-            })
-        ```
 
         ## Import
 
@@ -771,19 +649,11 @@ class ComputeInstance(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ComputeInstanceArgs.__new__(ComputeInstanceArgs)
 
-            if assign_to_user is not None and not isinstance(assign_to_user, ComputeInstanceAssignToUserArgs):
-                assign_to_user = assign_to_user or {}
-                def _setter(key, value):
-                    assign_to_user[key] = value
-                ComputeInstanceAssignToUserArgs._configure(_setter, **assign_to_user)
+            assign_to_user = _utilities.configure(assign_to_user, ComputeInstanceAssignToUserArgs, True)
             __props__.__dict__["assign_to_user"] = assign_to_user
             __props__.__dict__["authorization_type"] = authorization_type
             __props__.__dict__["description"] = description
-            if identity is not None and not isinstance(identity, ComputeInstanceIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                ComputeInstanceIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, ComputeInstanceIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["local_auth_enabled"] = local_auth_enabled
             __props__.__dict__["location"] = location
@@ -792,11 +662,7 @@ class ComputeInstance(pulumi.CustomResource):
             __props__.__dict__["machine_learning_workspace_id"] = machine_learning_workspace_id
             __props__.__dict__["name"] = name
             __props__.__dict__["node_public_ip_enabled"] = node_public_ip_enabled
-            if ssh is not None and not isinstance(ssh, ComputeInstanceSshArgs):
-                ssh = ssh or {}
-                def _setter(key, value):
-                    ssh[key] = value
-                ComputeInstanceSshArgs._configure(_setter, **ssh)
+            ssh = _utilities.configure(ssh, ComputeInstanceSshArgs, True)
             __props__.__dict__["ssh"] = ssh
             __props__.__dict__["subnet_resource_id"] = subnet_resource_id
             __props__.__dict__["tags"] = tags

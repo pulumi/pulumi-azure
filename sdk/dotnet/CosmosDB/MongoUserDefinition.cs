@@ -12,68 +12,6 @@ namespace Pulumi.Azure.CosmosDB
     /// <summary>
     /// Manages a Cosmos DB Mongo User Definition.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleAccount = new Azure.CosmosDB.Account("exampleAccount", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         OfferType = "Standard",
-    ///         Kind = "MongoDB",
-    ///         Capabilities = new[]
-    ///         {
-    ///             new Azure.CosmosDB.Inputs.AccountCapabilityArgs
-    ///             {
-    ///                 Name = "EnableMongo",
-    ///             },
-    ///             new Azure.CosmosDB.Inputs.AccountCapabilityArgs
-    ///             {
-    ///                 Name = "EnableMongoRoleBasedAccessControl",
-    ///             },
-    ///         },
-    ///         ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
-    ///         {
-    ///             ConsistencyLevel = "Strong",
-    ///         },
-    ///         GeoLocations = new[]
-    ///         {
-    ///             new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
-    ///             {
-    ///                 Location = exampleResourceGroup.Location,
-    ///                 FailoverPriority = 0,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleMongoDatabase = new Azure.CosmosDB.MongoDatabase("exampleMongoDatabase", new()
-    ///     {
-    ///         ResourceGroupName = exampleAccount.ResourceGroupName,
-    ///         AccountName = exampleAccount.Name,
-    ///     });
-    /// 
-    ///     var exampleMongoUserDefinition = new Azure.CosmosDB.MongoUserDefinition("exampleMongoUserDefinition", new()
-    ///     {
-    ///         CosmosMongoDatabaseId = exampleMongoDatabase.Id,
-    ///         Username = "myUserName",
-    ///         Password = "myPassword",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Cosmos DB Mongo User Definitions can be imported using the `resource id`, e.g.

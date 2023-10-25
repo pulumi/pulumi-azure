@@ -37,16 +37,22 @@ class SpringCloudBuilderArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             build_pack_groups: pulumi.Input[Sequence[pulumi.Input['SpringCloudBuilderBuildPackGroupArgs']]],
-             spring_cloud_service_id: pulumi.Input[str],
-             stack: pulumi.Input['SpringCloudBuilderStackArgs'],
+             build_pack_groups: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudBuilderBuildPackGroupArgs']]]] = None,
+             spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
+             stack: Optional[pulumi.Input['SpringCloudBuilderStackArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'buildPackGroups' in kwargs:
+        if build_pack_groups is None and 'buildPackGroups' in kwargs:
             build_pack_groups = kwargs['buildPackGroups']
-        if 'springCloudServiceId' in kwargs:
+        if build_pack_groups is None:
+            raise TypeError("Missing 'build_pack_groups' argument")
+        if spring_cloud_service_id is None and 'springCloudServiceId' in kwargs:
             spring_cloud_service_id = kwargs['springCloudServiceId']
+        if spring_cloud_service_id is None:
+            raise TypeError("Missing 'spring_cloud_service_id' argument")
+        if stack is None:
+            raise TypeError("Missing 'stack' argument")
 
         _setter("build_pack_groups", build_pack_groups)
         _setter("spring_cloud_service_id", spring_cloud_service_id)
@@ -131,11 +137,11 @@ class _SpringCloudBuilderState:
              name: Optional[pulumi.Input[str]] = None,
              spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
              stack: Optional[pulumi.Input['SpringCloudBuilderStackArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'buildPackGroups' in kwargs:
+        if build_pack_groups is None and 'buildPackGroups' in kwargs:
             build_pack_groups = kwargs['buildPackGroups']
-        if 'springCloudServiceId' in kwargs:
+        if spring_cloud_service_id is None and 'springCloudServiceId' in kwargs:
             spring_cloud_service_id = kwargs['springCloudServiceId']
 
         if build_pack_groups is not None:
@@ -211,29 +217,6 @@ class SpringCloudBuilder(pulumi.CustomResource):
 
         > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku_name="E0")
-        example_spring_cloud_builder = azure.appplatform.SpringCloudBuilder("exampleSpringCloudBuilder",
-            spring_cloud_service_id=example_spring_cloud_service.id,
-            build_pack_groups=[azure.appplatform.SpringCloudBuilderBuildPackGroupArgs(
-                name="mix",
-                build_pack_ids=["tanzu-buildpacks/java-azure"],
-            )],
-            stack=azure.appplatform.SpringCloudBuilderStackArgs(
-                id="io.buildpacks.stacks.bionic",
-                version="base",
-            ))
-        ```
-
         ## Import
 
         Spring Cloud Builders can be imported using the `resource id`, e.g.
@@ -259,29 +242,6 @@ class SpringCloudBuilder(pulumi.CustomResource):
         Manages a Spring Cloud Builder.
 
         > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku_name="E0")
-        example_spring_cloud_builder = azure.appplatform.SpringCloudBuilder("exampleSpringCloudBuilder",
-            spring_cloud_service_id=example_spring_cloud_service.id,
-            build_pack_groups=[azure.appplatform.SpringCloudBuilderBuildPackGroupArgs(
-                name="mix",
-                build_pack_ids=["tanzu-buildpacks/java-azure"],
-            )],
-            stack=azure.appplatform.SpringCloudBuilderStackArgs(
-                id="io.buildpacks.stacks.bionic",
-                version="base",
-            ))
-        ```
 
         ## Import
 
@@ -330,11 +290,7 @@ class SpringCloudBuilder(pulumi.CustomResource):
             if spring_cloud_service_id is None and not opts.urn:
                 raise TypeError("Missing required property 'spring_cloud_service_id'")
             __props__.__dict__["spring_cloud_service_id"] = spring_cloud_service_id
-            if stack is not None and not isinstance(stack, SpringCloudBuilderStackArgs):
-                stack = stack or {}
-                def _setter(key, value):
-                    stack[key] = value
-                SpringCloudBuilderStackArgs._configure(_setter, **stack)
+            stack = _utilities.configure(stack, SpringCloudBuilderStackArgs, True)
             if stack is None and not opts.urn:
                 raise TypeError("Missing required property 'stack'")
             __props__.__dict__["stack"] = stack

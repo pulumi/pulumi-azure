@@ -12,47 +12,6 @@ namespace Pulumi.Azure.ContainerService
     /// <summary>
     /// Manages a Kubernetes Cluster Extension.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleKubernetesCluster = new Azure.ContainerService.KubernetesCluster("exampleKubernetesCluster", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         DnsPrefix = "example-aks",
-    ///         DefaultNodePool = new Azure.ContainerService.Inputs.KubernetesClusterDefaultNodePoolArgs
-    ///         {
-    ///             Name = "default",
-    ///             NodeCount = 1,
-    ///             VmSize = "Standard_DS2_v2",
-    ///         },
-    ///         Identity = new Azure.ContainerService.Inputs.KubernetesClusterIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleKubernetesClusterExtension = new Azure.ContainerService.KubernetesClusterExtension("exampleKubernetesClusterExtension", new()
-    ///     {
-    ///         ClusterId = exampleKubernetesCluster.Id,
-    ///         ExtensionType = "microsoft.flux",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Kubernetes Cluster Extension can be imported using the `resource id` for different `cluster_resource_name`, e.g.

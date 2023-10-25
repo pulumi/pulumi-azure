@@ -31,12 +31,16 @@ class AnalyzerIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
+        if identity_ids is None:
+            raise TypeError("Missing 'identity_ids' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("identity_ids", identity_ids)
         _setter("type", type)
@@ -83,12 +87,16 @@ class AnalyzerStorageAccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             id: pulumi.Input[str],
-             user_assigned_identity_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             id: Optional[pulumi.Input[str]] = None,
+             user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'userAssignedIdentityId' in kwargs:
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if user_assigned_identity_id is None and 'userAssignedIdentityId' in kwargs:
             user_assigned_identity_id = kwargs['userAssignedIdentityId']
+        if user_assigned_identity_id is None:
+            raise TypeError("Missing 'user_assigned_identity_id' argument")
 
         _setter("id", id)
         _setter("user_assigned_identity_id", user_assigned_identity_id)

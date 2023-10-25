@@ -72,8 +72,8 @@ class SubscriptionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             max_delivery_count: pulumi.Input[int],
-             topic_id: pulumi.Input[str],
+             max_delivery_count: Optional[pulumi.Input[int]] = None,
+             topic_id: Optional[pulumi.Input[str]] = None,
              auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
              client_scoped_subscription: Optional[pulumi.Input['SubscriptionClientScopedSubscriptionArgs']] = None,
              client_scoped_subscription_enabled: Optional[pulumi.Input[bool]] = None,
@@ -87,33 +87,37 @@ class SubscriptionArgs:
              name: Optional[pulumi.Input[str]] = None,
              requires_session: Optional[pulumi.Input[bool]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'maxDeliveryCount' in kwargs:
+        if max_delivery_count is None and 'maxDeliveryCount' in kwargs:
             max_delivery_count = kwargs['maxDeliveryCount']
-        if 'topicId' in kwargs:
+        if max_delivery_count is None:
+            raise TypeError("Missing 'max_delivery_count' argument")
+        if topic_id is None and 'topicId' in kwargs:
             topic_id = kwargs['topicId']
-        if 'autoDeleteOnIdle' in kwargs:
+        if topic_id is None:
+            raise TypeError("Missing 'topic_id' argument")
+        if auto_delete_on_idle is None and 'autoDeleteOnIdle' in kwargs:
             auto_delete_on_idle = kwargs['autoDeleteOnIdle']
-        if 'clientScopedSubscription' in kwargs:
+        if client_scoped_subscription is None and 'clientScopedSubscription' in kwargs:
             client_scoped_subscription = kwargs['clientScopedSubscription']
-        if 'clientScopedSubscriptionEnabled' in kwargs:
+        if client_scoped_subscription_enabled is None and 'clientScopedSubscriptionEnabled' in kwargs:
             client_scoped_subscription_enabled = kwargs['clientScopedSubscriptionEnabled']
-        if 'deadLetteringOnFilterEvaluationError' in kwargs:
+        if dead_lettering_on_filter_evaluation_error is None and 'deadLetteringOnFilterEvaluationError' in kwargs:
             dead_lettering_on_filter_evaluation_error = kwargs['deadLetteringOnFilterEvaluationError']
-        if 'deadLetteringOnMessageExpiration' in kwargs:
+        if dead_lettering_on_message_expiration is None and 'deadLetteringOnMessageExpiration' in kwargs:
             dead_lettering_on_message_expiration = kwargs['deadLetteringOnMessageExpiration']
-        if 'defaultMessageTtl' in kwargs:
+        if default_message_ttl is None and 'defaultMessageTtl' in kwargs:
             default_message_ttl = kwargs['defaultMessageTtl']
-        if 'enableBatchedOperations' in kwargs:
+        if enable_batched_operations is None and 'enableBatchedOperations' in kwargs:
             enable_batched_operations = kwargs['enableBatchedOperations']
-        if 'forwardDeadLetteredMessagesTo' in kwargs:
+        if forward_dead_lettered_messages_to is None and 'forwardDeadLetteredMessagesTo' in kwargs:
             forward_dead_lettered_messages_to = kwargs['forwardDeadLetteredMessagesTo']
-        if 'forwardTo' in kwargs:
+        if forward_to is None and 'forwardTo' in kwargs:
             forward_to = kwargs['forwardTo']
-        if 'lockDuration' in kwargs:
+        if lock_duration is None and 'lockDuration' in kwargs:
             lock_duration = kwargs['lockDuration']
-        if 'requiresSession' in kwargs:
+        if requires_session is None and 'requiresSession' in kwargs:
             requires_session = kwargs['requiresSession']
 
         _setter("max_delivery_count", max_delivery_count)
@@ -402,33 +406,33 @@ class _SubscriptionState:
              requires_session: Optional[pulumi.Input[bool]] = None,
              status: Optional[pulumi.Input[str]] = None,
              topic_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'autoDeleteOnIdle' in kwargs:
+        if auto_delete_on_idle is None and 'autoDeleteOnIdle' in kwargs:
             auto_delete_on_idle = kwargs['autoDeleteOnIdle']
-        if 'clientScopedSubscription' in kwargs:
+        if client_scoped_subscription is None and 'clientScopedSubscription' in kwargs:
             client_scoped_subscription = kwargs['clientScopedSubscription']
-        if 'clientScopedSubscriptionEnabled' in kwargs:
+        if client_scoped_subscription_enabled is None and 'clientScopedSubscriptionEnabled' in kwargs:
             client_scoped_subscription_enabled = kwargs['clientScopedSubscriptionEnabled']
-        if 'deadLetteringOnFilterEvaluationError' in kwargs:
+        if dead_lettering_on_filter_evaluation_error is None and 'deadLetteringOnFilterEvaluationError' in kwargs:
             dead_lettering_on_filter_evaluation_error = kwargs['deadLetteringOnFilterEvaluationError']
-        if 'deadLetteringOnMessageExpiration' in kwargs:
+        if dead_lettering_on_message_expiration is None and 'deadLetteringOnMessageExpiration' in kwargs:
             dead_lettering_on_message_expiration = kwargs['deadLetteringOnMessageExpiration']
-        if 'defaultMessageTtl' in kwargs:
+        if default_message_ttl is None and 'defaultMessageTtl' in kwargs:
             default_message_ttl = kwargs['defaultMessageTtl']
-        if 'enableBatchedOperations' in kwargs:
+        if enable_batched_operations is None and 'enableBatchedOperations' in kwargs:
             enable_batched_operations = kwargs['enableBatchedOperations']
-        if 'forwardDeadLetteredMessagesTo' in kwargs:
+        if forward_dead_lettered_messages_to is None and 'forwardDeadLetteredMessagesTo' in kwargs:
             forward_dead_lettered_messages_to = kwargs['forwardDeadLetteredMessagesTo']
-        if 'forwardTo' in kwargs:
+        if forward_to is None and 'forwardTo' in kwargs:
             forward_to = kwargs['forwardTo']
-        if 'lockDuration' in kwargs:
+        if lock_duration is None and 'lockDuration' in kwargs:
             lock_duration = kwargs['lockDuration']
-        if 'maxDeliveryCount' in kwargs:
+        if max_delivery_count is None and 'maxDeliveryCount' in kwargs:
             max_delivery_count = kwargs['maxDeliveryCount']
-        if 'requiresSession' in kwargs:
+        if requires_session is None and 'requiresSession' in kwargs:
             requires_session = kwargs['requiresSession']
-        if 'topicId' in kwargs:
+        if topic_id is None and 'topicId' in kwargs:
             topic_id = kwargs['topicId']
 
         if auto_delete_on_idle is not None:
@@ -669,28 +673,6 @@ class Subscription(pulumi.CustomResource):
         """
         Manages a ServiceBus Subscription.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_namespace = azure.servicebus.Namespace("exampleNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard",
-            tags={
-                "source": "example",
-            })
-        example_topic = azure.servicebus.Topic("exampleTopic",
-            namespace_id=example_namespace.id,
-            enable_partitioning=True)
-        example_subscription = azure.servicebus.Subscription("exampleSubscription",
-            topic_id=example_topic.id,
-            max_delivery_count=1)
-        ```
-
         ## Import
 
         Service Bus Subscriptions can be imported using the `resource id`, e.g.
@@ -727,28 +709,6 @@ class Subscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a ServiceBus Subscription.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_namespace = azure.servicebus.Namespace("exampleNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard",
-            tags={
-                "source": "example",
-            })
-        example_topic = azure.servicebus.Topic("exampleTopic",
-            namespace_id=example_namespace.id,
-            enable_partitioning=True)
-        example_subscription = azure.servicebus.Subscription("exampleSubscription",
-            topic_id=example_topic.id,
-            max_delivery_count=1)
-        ```
 
         ## Import
 
@@ -802,11 +762,7 @@ class Subscription(pulumi.CustomResource):
             __props__ = SubscriptionArgs.__new__(SubscriptionArgs)
 
             __props__.__dict__["auto_delete_on_idle"] = auto_delete_on_idle
-            if client_scoped_subscription is not None and not isinstance(client_scoped_subscription, SubscriptionClientScopedSubscriptionArgs):
-                client_scoped_subscription = client_scoped_subscription or {}
-                def _setter(key, value):
-                    client_scoped_subscription[key] = value
-                SubscriptionClientScopedSubscriptionArgs._configure(_setter, **client_scoped_subscription)
+            client_scoped_subscription = _utilities.configure(client_scoped_subscription, SubscriptionClientScopedSubscriptionArgs, True)
             __props__.__dict__["client_scoped_subscription"] = client_scoped_subscription
             __props__.__dict__["client_scoped_subscription_enabled"] = client_scoped_subscription_enabled
             __props__.__dict__["dead_lettering_on_filter_evaluation_error"] = dead_lettering_on_filter_evaluation_error

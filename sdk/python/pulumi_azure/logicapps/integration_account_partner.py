@@ -40,19 +40,25 @@ class IntegrationAccountPartnerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             business_identities: pulumi.Input[Sequence[pulumi.Input['IntegrationAccountPartnerBusinessIdentityArgs']]],
-             integration_account_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             business_identities: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationAccountPartnerBusinessIdentityArgs']]]] = None,
+             integration_account_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              metadata: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'businessIdentities' in kwargs:
+        if business_identities is None and 'businessIdentities' in kwargs:
             business_identities = kwargs['businessIdentities']
-        if 'integrationAccountName' in kwargs:
+        if business_identities is None:
+            raise TypeError("Missing 'business_identities' argument")
+        if integration_account_name is None and 'integrationAccountName' in kwargs:
             integration_account_name = kwargs['integrationAccountName']
-        if 'resourceGroupName' in kwargs:
+        if integration_account_name is None:
+            raise TypeError("Missing 'integration_account_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("business_identities", business_identities)
         _setter("integration_account_name", integration_account_name)
@@ -155,13 +161,13 @@ class _IntegrationAccountPartnerState:
              metadata: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'businessIdentities' in kwargs:
+        if business_identities is None and 'businessIdentities' in kwargs:
             business_identities = kwargs['businessIdentities']
-        if 'integrationAccountName' in kwargs:
+        if integration_account_name is None and 'integrationAccountName' in kwargs:
             integration_account_name = kwargs['integrationAccountName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if business_identities is not None:
@@ -250,26 +256,6 @@ class IntegrationAccountPartner(pulumi.CustomResource):
         """
         Manages a Logic App Integration Account Partner.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_integration_account = azure.logicapps.IntegrationAccount("exampleIntegrationAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Standard")
-        example_integration_account_partner = azure.logicapps.IntegrationAccountPartner("exampleIntegrationAccountPartner",
-            resource_group_name=example_resource_group.name,
-            integration_account_name=example_integration_account.name,
-            business_identities=[azure.logicapps.IntegrationAccountPartnerBusinessIdentityArgs(
-                qualifier="ZZ",
-                value="AA",
-            )])
-        ```
-
         ## Import
 
         Logic App Integration Account Partners can be imported using the `resource id`, e.g.
@@ -294,26 +280,6 @@ class IntegrationAccountPartner(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Logic App Integration Account Partner.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_integration_account = azure.logicapps.IntegrationAccount("exampleIntegrationAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Standard")
-        example_integration_account_partner = azure.logicapps.IntegrationAccountPartner("exampleIntegrationAccountPartner",
-            resource_group_name=example_resource_group.name,
-            integration_account_name=example_integration_account.name,
-            business_identities=[azure.logicapps.IntegrationAccountPartnerBusinessIdentityArgs(
-                qualifier="ZZ",
-                value="AA",
-            )])
-        ```
 
         ## Import
 

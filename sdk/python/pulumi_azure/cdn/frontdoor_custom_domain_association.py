@@ -31,14 +31,18 @@ class FrontdoorCustomDomainAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cdn_frontdoor_custom_domain_id: pulumi.Input[str],
-             cdn_frontdoor_route_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             cdn_frontdoor_custom_domain_id: Optional[pulumi.Input[str]] = None,
+             cdn_frontdoor_route_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'cdnFrontdoorCustomDomainId' in kwargs:
+        if cdn_frontdoor_custom_domain_id is None and 'cdnFrontdoorCustomDomainId' in kwargs:
             cdn_frontdoor_custom_domain_id = kwargs['cdnFrontdoorCustomDomainId']
-        if 'cdnFrontdoorRouteIds' in kwargs:
+        if cdn_frontdoor_custom_domain_id is None:
+            raise TypeError("Missing 'cdn_frontdoor_custom_domain_id' argument")
+        if cdn_frontdoor_route_ids is None and 'cdnFrontdoorRouteIds' in kwargs:
             cdn_frontdoor_route_ids = kwargs['cdnFrontdoorRouteIds']
+        if cdn_frontdoor_route_ids is None:
+            raise TypeError("Missing 'cdn_frontdoor_route_ids' argument")
 
         _setter("cdn_frontdoor_custom_domain_id", cdn_frontdoor_custom_domain_id)
         _setter("cdn_frontdoor_route_ids", cdn_frontdoor_route_ids)
@@ -92,11 +96,11 @@ class _FrontdoorCustomDomainAssociationState:
              _setter: Callable[[Any, Any], None],
              cdn_frontdoor_custom_domain_id: Optional[pulumi.Input[str]] = None,
              cdn_frontdoor_route_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'cdnFrontdoorCustomDomainId' in kwargs:
+        if cdn_frontdoor_custom_domain_id is None and 'cdnFrontdoorCustomDomainId' in kwargs:
             cdn_frontdoor_custom_domain_id = kwargs['cdnFrontdoorCustomDomainId']
-        if 'cdnFrontdoorRouteIds' in kwargs:
+        if cdn_frontdoor_route_ids is None and 'cdnFrontdoorRouteIds' in kwargs:
             cdn_frontdoor_route_ids = kwargs['cdnFrontdoorRouteIds']
 
         if cdn_frontdoor_custom_domain_id is not None:

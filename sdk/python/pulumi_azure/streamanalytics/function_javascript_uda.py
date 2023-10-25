@@ -40,15 +40,23 @@ class FunctionJavascriptUdaArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             inputs: pulumi.Input[Sequence[pulumi.Input['FunctionJavascriptUdaInputArgs']]],
-             output: pulumi.Input['FunctionJavascriptUdaOutputArgs'],
-             script: pulumi.Input[str],
-             stream_analytics_job_id: pulumi.Input[str],
+             inputs: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionJavascriptUdaInputArgs']]]] = None,
+             output: Optional[pulumi.Input['FunctionJavascriptUdaOutputArgs']] = None,
+             script: Optional[pulumi.Input[str]] = None,
+             stream_analytics_job_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'streamAnalyticsJobId' in kwargs:
+        if inputs is None:
+            raise TypeError("Missing 'inputs' argument")
+        if output is None:
+            raise TypeError("Missing 'output' argument")
+        if script is None:
+            raise TypeError("Missing 'script' argument")
+        if stream_analytics_job_id is None and 'streamAnalyticsJobId' in kwargs:
             stream_analytics_job_id = kwargs['streamAnalyticsJobId']
+        if stream_analytics_job_id is None:
+            raise TypeError("Missing 'stream_analytics_job_id' argument")
 
         _setter("inputs", inputs)
         _setter("output", output)
@@ -150,9 +158,9 @@ class _FunctionJavascriptUdaState:
              output: Optional[pulumi.Input['FunctionJavascriptUdaOutputArgs']] = None,
              script: Optional[pulumi.Input[str]] = None,
              stream_analytics_job_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'streamAnalyticsJobId' in kwargs:
+        if stream_analytics_job_id is None and 'streamAnalyticsJobId' in kwargs:
             stream_analytics_job_id = kwargs['streamAnalyticsJobId']
 
         if inputs is not None:
@@ -241,39 +249,6 @@ class FunctionJavascriptUda(pulumi.CustomResource):
         """
         Manages a JavaScript UDA Function within a Stream Analytics Streaming Job.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.get_resource_group(name="example-resources")
-        example_job = azure.streamanalytics.get_job(name="example-job",
-            resource_group_name=example_resource_group.name)
-        example_function_javascript_uda = azure.streamanalytics.FunctionJavascriptUda("exampleFunctionJavascriptUda",
-            stream_analytics_job_id=example_job.id,
-            script=\"\"\"function main() {
-            this.init = function () {
-                this.state = 0;
-            }
-
-            this.accumulate = function (value, timestamp) {
-                this.state += value;
-            }
-
-            this.computeResult = function () {
-                return this.state;
-            }
-        }
-        \"\"\",
-            inputs=[azure.streamanalytics.FunctionJavascriptUdaInputArgs(
-                type="bigint",
-            )],
-            output=azure.streamanalytics.FunctionJavascriptUdaOutputArgs(
-                type="bigint",
-            ))
-        ```
-
         ## Import
 
         Stream Analytics JavaScript UDA Functions can be imported using the `resource id`, e.g.
@@ -298,39 +273,6 @@ class FunctionJavascriptUda(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a JavaScript UDA Function within a Stream Analytics Streaming Job.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.get_resource_group(name="example-resources")
-        example_job = azure.streamanalytics.get_job(name="example-job",
-            resource_group_name=example_resource_group.name)
-        example_function_javascript_uda = azure.streamanalytics.FunctionJavascriptUda("exampleFunctionJavascriptUda",
-            stream_analytics_job_id=example_job.id,
-            script=\"\"\"function main() {
-            this.init = function () {
-                this.state = 0;
-            }
-
-            this.accumulate = function (value, timestamp) {
-                this.state += value;
-            }
-
-            this.computeResult = function () {
-                return this.state;
-            }
-        }
-        \"\"\",
-            inputs=[azure.streamanalytics.FunctionJavascriptUdaInputArgs(
-                type="bigint",
-            )],
-            output=azure.streamanalytics.FunctionJavascriptUdaOutputArgs(
-                type="bigint",
-            ))
-        ```
 
         ## Import
 
@@ -377,11 +319,7 @@ class FunctionJavascriptUda(pulumi.CustomResource):
                 raise TypeError("Missing required property 'inputs'")
             __props__.__dict__["inputs"] = inputs
             __props__.__dict__["name"] = name
-            if output is not None and not isinstance(output, FunctionJavascriptUdaOutputArgs):
-                output = output or {}
-                def _setter(key, value):
-                    output[key] = value
-                FunctionJavascriptUdaOutputArgs._configure(_setter, **output)
+            output = _utilities.configure(output, FunctionJavascriptUdaOutputArgs, True)
             if output is None and not opts.urn:
                 raise TypeError("Missing required property 'output'")
             __props__.__dict__["output"] = output

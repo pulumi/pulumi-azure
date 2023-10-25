@@ -12,56 +12,6 @@ namespace Pulumi.Azure.AppService
     /// <summary>
     /// Manages a Hostname Binding within an App Service Slot.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var examplePlan = new Azure.AppService.Plan("examplePlan", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
-    ///         {
-    ///             Tier = "Standard",
-    ///             Size = "S1",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleAppService = new Azure.AppService.AppService("exampleAppService", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         AppServicePlanId = examplePlan.Id,
-    ///     });
-    /// 
-    ///     var exampleSlot = new Azure.AppService.Slot("exampleSlot", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         AppServiceName = exampleAppService.Name,
-    ///         AppServicePlanId = examplePlan.Id,
-    ///     });
-    /// 
-    ///     var exampleSlotCustomHostnameBinding = new Azure.AppService.SlotCustomHostnameBinding("exampleSlotCustomHostnameBinding", new()
-    ///     {
-    ///         AppServiceSlotId = exampleSlot.Id,
-    ///         Hostname = "www.mywebsite.com",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// App Service Custom Hostname Bindings can be imported using the `resource id`, e.g.

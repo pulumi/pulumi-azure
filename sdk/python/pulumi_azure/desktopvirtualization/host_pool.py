@@ -75,9 +75,9 @@ class HostPoolArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             load_balancer_type: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             type: pulumi.Input[str],
+             load_balancer_type: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              custom_rdp_properties: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              friendly_name: Optional[pulumi.Input[str]] = None,
@@ -90,27 +90,33 @@ class HostPoolArgs:
              start_vm_on_connect: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              validate_environment: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'loadBalancerType' in kwargs:
+        if load_balancer_type is None and 'loadBalancerType' in kwargs:
             load_balancer_type = kwargs['loadBalancerType']
-        if 'resourceGroupName' in kwargs:
+        if load_balancer_type is None:
+            raise TypeError("Missing 'load_balancer_type' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'customRdpProperties' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if custom_rdp_properties is None and 'customRdpProperties' in kwargs:
             custom_rdp_properties = kwargs['customRdpProperties']
-        if 'friendlyName' in kwargs:
+        if friendly_name is None and 'friendlyName' in kwargs:
             friendly_name = kwargs['friendlyName']
-        if 'maximumSessionsAllowed' in kwargs:
+        if maximum_sessions_allowed is None and 'maximumSessionsAllowed' in kwargs:
             maximum_sessions_allowed = kwargs['maximumSessionsAllowed']
-        if 'personalDesktopAssignmentType' in kwargs:
+        if personal_desktop_assignment_type is None and 'personalDesktopAssignmentType' in kwargs:
             personal_desktop_assignment_type = kwargs['personalDesktopAssignmentType']
-        if 'preferredAppGroupType' in kwargs:
+        if preferred_app_group_type is None and 'preferredAppGroupType' in kwargs:
             preferred_app_group_type = kwargs['preferredAppGroupType']
-        if 'scheduledAgentUpdates' in kwargs:
+        if scheduled_agent_updates is None and 'scheduledAgentUpdates' in kwargs:
             scheduled_agent_updates = kwargs['scheduledAgentUpdates']
-        if 'startVmOnConnect' in kwargs:
+        if start_vm_on_connect is None and 'startVmOnConnect' in kwargs:
             start_vm_on_connect = kwargs['startVmOnConnect']
-        if 'validateEnvironment' in kwargs:
+        if validate_environment is None and 'validateEnvironment' in kwargs:
             validate_environment = kwargs['validateEnvironment']
 
         _setter("load_balancer_type", load_balancer_type)
@@ -404,27 +410,27 @@ class _HostPoolState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              type: Optional[pulumi.Input[str]] = None,
              validate_environment: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'customRdpProperties' in kwargs:
+        if custom_rdp_properties is None and 'customRdpProperties' in kwargs:
             custom_rdp_properties = kwargs['customRdpProperties']
-        if 'friendlyName' in kwargs:
+        if friendly_name is None and 'friendlyName' in kwargs:
             friendly_name = kwargs['friendlyName']
-        if 'loadBalancerType' in kwargs:
+        if load_balancer_type is None and 'loadBalancerType' in kwargs:
             load_balancer_type = kwargs['loadBalancerType']
-        if 'maximumSessionsAllowed' in kwargs:
+        if maximum_sessions_allowed is None and 'maximumSessionsAllowed' in kwargs:
             maximum_sessions_allowed = kwargs['maximumSessionsAllowed']
-        if 'personalDesktopAssignmentType' in kwargs:
+        if personal_desktop_assignment_type is None and 'personalDesktopAssignmentType' in kwargs:
             personal_desktop_assignment_type = kwargs['personalDesktopAssignmentType']
-        if 'preferredAppGroupType' in kwargs:
+        if preferred_app_group_type is None and 'preferredAppGroupType' in kwargs:
             preferred_app_group_type = kwargs['preferredAppGroupType']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'scheduledAgentUpdates' in kwargs:
+        if scheduled_agent_updates is None and 'scheduledAgentUpdates' in kwargs:
             scheduled_agent_updates = kwargs['scheduledAgentUpdates']
-        if 'startVmOnConnect' in kwargs:
+        if start_vm_on_connect is None and 'startVmOnConnect' in kwargs:
             start_vm_on_connect = kwargs['startVmOnConnect']
-        if 'validateEnvironment' in kwargs:
+        if validate_environment is None and 'validateEnvironment' in kwargs:
             validate_environment = kwargs['validateEnvironment']
 
         if custom_rdp_properties is not None:
@@ -668,33 +674,6 @@ class HostPool(pulumi.CustomResource):
         """
         Manages a Virtual Desktop Host Pool.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_host_pool = azure.desktopvirtualization.HostPool("exampleHostPool",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            friendly_name="pooleddepthfirst",
-            validate_environment=True,
-            start_vm_on_connect=True,
-            custom_rdp_properties="audiocapturemode:i:1;audiomode:i:0;",
-            description="Acceptance Test: A pooled host pool - pooleddepthfirst",
-            type="Pooled",
-            maximum_sessions_allowed=50,
-            load_balancer_type="DepthFirst",
-            scheduled_agent_updates=azure.desktopvirtualization.HostPoolScheduledAgentUpdatesArgs(
-                enabled=True,
-                schedules=[azure.desktopvirtualization.HostPoolScheduledAgentUpdatesScheduleArgs(
-                    day_of_week="Saturday",
-                    hour_of_day=2,
-                )],
-            ))
-        ```
-
         ## Import
 
         Virtual Desktop Host Pools can be imported using the `resource id`, e.g. text
@@ -734,33 +713,6 @@ class HostPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Virtual Desktop Host Pool.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_host_pool = azure.desktopvirtualization.HostPool("exampleHostPool",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            friendly_name="pooleddepthfirst",
-            validate_environment=True,
-            start_vm_on_connect=True,
-            custom_rdp_properties="audiocapturemode:i:1;audiomode:i:0;",
-            description="Acceptance Test: A pooled host pool - pooleddepthfirst",
-            type="Pooled",
-            maximum_sessions_allowed=50,
-            load_balancer_type="DepthFirst",
-            scheduled_agent_updates=azure.desktopvirtualization.HostPoolScheduledAgentUpdatesArgs(
-                enabled=True,
-                schedules=[azure.desktopvirtualization.HostPoolScheduledAgentUpdatesScheduleArgs(
-                    day_of_week="Saturday",
-                    hour_of_day=2,
-                )],
-            ))
-        ```
 
         ## Import
 
@@ -827,11 +779,7 @@ class HostPool(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if scheduled_agent_updates is not None and not isinstance(scheduled_agent_updates, HostPoolScheduledAgentUpdatesArgs):
-                scheduled_agent_updates = scheduled_agent_updates or {}
-                def _setter(key, value):
-                    scheduled_agent_updates[key] = value
-                HostPoolScheduledAgentUpdatesArgs._configure(_setter, **scheduled_agent_updates)
+            scheduled_agent_updates = _utilities.configure(scheduled_agent_updates, HostPoolScheduledAgentUpdatesArgs, True)
             __props__.__dict__["scheduled_agent_updates"] = scheduled_agent_updates
             __props__.__dict__["start_vm_on_connect"] = start_vm_on_connect
             __props__.__dict__["tags"] = tags

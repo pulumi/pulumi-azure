@@ -13,66 +13,12 @@ namespace Pulumi.Azure.ContainerService
     {
         /// <summary>
         /// Use this data source to access information about an existing Container Registry.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.ContainerService.GetRegistry.Invoke(new()
-        ///     {
-        ///         Name = "testacr",
-        ///         ResourceGroupName = "test",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["loginServer"] = example.Apply(getRegistryResult =&gt; getRegistryResult.LoginServer),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRegistryResult> InvokeAsync(GetRegistryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegistryResult>("azure:containerservice/getRegistry:getRegistry", args ?? new GetRegistryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Container Registry.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.ContainerService.GetRegistry.Invoke(new()
-        ///     {
-        ///         Name = "testacr",
-        ///         ResourceGroupName = "test",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["loginServer"] = example.Apply(getRegistryResult =&gt; getRegistryResult.LoginServer),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetRegistryResult> Invoke(GetRegistryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistryResult>("azure:containerservice/getRegistry:getRegistry", args ?? new GetRegistryInvokeArgs(), options.WithDefaults());

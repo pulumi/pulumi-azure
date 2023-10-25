@@ -6,19 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Volume Quota Rule.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.netapp.getVolumeQuotaRule({
- *     name: "exampleQuotaRule",
- *     volumeId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/vol1",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getVolumeQuotaRule(args: GetVolumeQuotaRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeQuotaRuleResult> {
 
@@ -72,19 +59,6 @@ export interface GetVolumeQuotaRuleResult {
 }
 /**
  * Use this data source to access information about an existing Volume Quota Rule.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.netapp.getVolumeQuotaRule({
- *     name: "exampleQuotaRule",
- *     volumeId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/vol1",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getVolumeQuotaRuleOutput(args: GetVolumeQuotaRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeQuotaRuleResult> {
     return pulumi.output(args).apply((a: any) => getVolumeQuotaRule(a, opts))

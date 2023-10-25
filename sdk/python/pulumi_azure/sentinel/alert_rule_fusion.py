@@ -40,17 +40,21 @@ class AlertRuleFusionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             alert_rule_template_guid: pulumi.Input[str],
-             log_analytics_workspace_id: pulumi.Input[str],
+             alert_rule_template_guid: Optional[pulumi.Input[str]] = None,
+             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              sources: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleFusionSourceArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'alertRuleTemplateGuid' in kwargs:
+        if alert_rule_template_guid is None and 'alertRuleTemplateGuid' in kwargs:
             alert_rule_template_guid = kwargs['alertRuleTemplateGuid']
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if alert_rule_template_guid is None:
+            raise TypeError("Missing 'alert_rule_template_guid' argument")
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if log_analytics_workspace_id is None:
+            raise TypeError("Missing 'log_analytics_workspace_id' argument")
 
         _setter("alert_rule_template_guid", alert_rule_template_guid)
         _setter("log_analytics_workspace_id", log_analytics_workspace_id)
@@ -154,11 +158,11 @@ class _AlertRuleFusionState:
              log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              sources: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleFusionSourceArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'alertRuleTemplateGuid' in kwargs:
+        if alert_rule_template_guid is None and 'alertRuleTemplateGuid' in kwargs:
             alert_rule_template_guid = kwargs['alertRuleTemplateGuid']
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
 
         if alert_rule_template_guid is not None:
@@ -247,32 +251,6 @@ class AlertRuleFusion(pulumi.CustomResource):
         """
         Manages a Sentinel Fusion Alert Rule.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018")
-        example_analytics_solution = azure.operationalinsights.AnalyticsSolution("exampleAnalyticsSolution",
-            solution_name="SecurityInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            workspace_resource_id=example_analytics_workspace.id,
-            workspace_name=example_analytics_workspace.name,
-            plan=azure.operationalinsights.AnalyticsSolutionPlanArgs(
-                publisher="Microsoft",
-                product="OMSGallery/SecurityInsights",
-            ))
-        example_alert_rule_fusion = azure.sentinel.AlertRuleFusion("exampleAlertRuleFusion",
-            log_analytics_workspace_id=example_analytics_solution.workspace_resource_id,
-            alert_rule_template_guid="f71aba3d-28fb-450b-b192-4e76a83015c8")
-        ```
-
         ## Import
 
         Sentinel Fusion Alert Rules can be imported using the `resource id`, e.g.
@@ -297,32 +275,6 @@ class AlertRuleFusion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Sentinel Fusion Alert Rule.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018")
-        example_analytics_solution = azure.operationalinsights.AnalyticsSolution("exampleAnalyticsSolution",
-            solution_name="SecurityInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            workspace_resource_id=example_analytics_workspace.id,
-            workspace_name=example_analytics_workspace.name,
-            plan=azure.operationalinsights.AnalyticsSolutionPlanArgs(
-                publisher="Microsoft",
-                product="OMSGallery/SecurityInsights",
-            ))
-        example_alert_rule_fusion = azure.sentinel.AlertRuleFusion("exampleAlertRuleFusion",
-            log_analytics_workspace_id=example_analytics_solution.workspace_resource_id,
-            alert_rule_template_guid="f71aba3d-28fb-450b-b192-4e76a83015c8")
-        ```
 
         ## Import
 

@@ -9,44 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Backup Policy Disk.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleBackupVault = new azure.dataprotection.BackupVault("exampleBackupVault", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     datastoreType: "VaultStore",
- *     redundancy: "LocallyRedundant",
- * });
- * const exampleBackupPolicyDisk = new azure.dataprotection.BackupPolicyDisk("exampleBackupPolicyDisk", {
- *     vaultId: exampleBackupVault.id,
- *     backupRepeatingTimeIntervals: ["R/2021-05-19T06:33:16+00:00/PT4H"],
- *     defaultRetentionDuration: "P7D",
- *     retentionRules: [
- *         {
- *             name: "Daily",
- *             duration: "P7D",
- *             priority: 25,
- *             criteria: {
- *                 absoluteCriteria: "FirstOfDay",
- *             },
- *         },
- *         {
- *             name: "Weekly",
- *             duration: "P7D",
- *             priority: 20,
- *             criteria: {
- *                 absoluteCriteria: "FirstOfWeek",
- *             },
- *         },
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * Backup Policy Disks can be imported using the `resource id`, e.g.

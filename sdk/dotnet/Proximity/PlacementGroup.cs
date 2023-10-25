@@ -12,34 +12,6 @@ namespace Pulumi.Azure.Proximity
     /// <summary>
     /// Manages a proximity placement group for virtual machines, virtual machine scale sets and availability sets.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var examplePlacementGroup = new Azure.Proximity.PlacementGroup("examplePlacementGroup", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Tags = 
-    ///         {
-    ///             { "environment", "Production" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Proximity Placement Groups can be imported using the `resource id`, e.g.

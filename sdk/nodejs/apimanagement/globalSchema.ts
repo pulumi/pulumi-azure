@@ -7,30 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Global Schema within an API Management Service.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as fs from "fs";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleService = new azure.apimanagement.Service("exampleService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     publisherName: "pub1",
- *     publisherEmail: "pub1@email.com",
- *     skuName: "Consumption_0",
- * });
- * const exampleGlobalSchema = new azure.apimanagement.GlobalSchema("exampleGlobalSchema", {
- *     schemaId: "example-schema1",
- *     apiManagementName: exampleService.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     type: "xml",
- *     value: fs.readFileSync("api_management_api_schema.xml"),
- * });
- * ```
- *
  * ## Import
  *
  * API Management API Schema's can be imported using the `resource id`, e.g.

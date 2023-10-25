@@ -9,34 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Mongo Collection within a Cosmos DB Account.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleAccount = azure.cosmosdb.getAccount({
- *     name: "tfex-cosmosdb-account",
- *     resourceGroupName: "tfex-cosmosdb-account-rg",
- * });
- * const exampleMongoDatabase = new azure.cosmosdb.MongoDatabase("exampleMongoDatabase", {
- *     resourceGroupName: exampleAccount.then(exampleAccount => exampleAccount.resourceGroupName),
- *     accountName: exampleAccount.then(exampleAccount => exampleAccount.name),
- * });
- * const exampleMongoCollection = new azure.cosmosdb.MongoCollection("exampleMongoCollection", {
- *     resourceGroupName: exampleAccount.then(exampleAccount => exampleAccount.resourceGroupName),
- *     accountName: exampleAccount.then(exampleAccount => exampleAccount.name),
- *     databaseName: exampleMongoDatabase.name,
- *     defaultTtlSeconds: 777,
- *     shardKey: "uniqueKey",
- *     throughput: 400,
- *     indices: [{
- *         keys: ["_id"],
- *         unique: true,
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * CosmosDB Mongo Collection can be imported using the `resource id`, e.g.

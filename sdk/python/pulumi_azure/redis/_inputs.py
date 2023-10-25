@@ -39,17 +39,19 @@ class CacheIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -127,16 +129,18 @@ class CachePatchScheduleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             day_of_week: pulumi.Input[str],
+             day_of_week: Optional[pulumi.Input[str]] = None,
              maintenance_window: Optional[pulumi.Input[str]] = None,
              start_hour_utc: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dayOfWeek' in kwargs:
+        if day_of_week is None and 'dayOfWeek' in kwargs:
             day_of_week = kwargs['dayOfWeek']
-        if 'maintenanceWindow' in kwargs:
+        if day_of_week is None:
+            raise TypeError("Missing 'day_of_week' argument")
+        if maintenance_window is None and 'maintenanceWindow' in kwargs:
             maintenance_window = kwargs['maintenanceWindow']
-        if 'startHourUtc' in kwargs:
+        if start_hour_utc is None and 'startHourUtc' in kwargs:
             start_hour_utc = kwargs['startHourUtc']
 
         _setter("day_of_week", day_of_week)
@@ -209,10 +213,6 @@ class CacheRedisConfigurationArgs:
         :param pulumi.Input[str] aof_storage_connection_string1: Second Storage Account connection string for AOF persistence.
                
                Example usage:
-               
-               ```python
-               import pulumi
-               ```
         :param pulumi.Input[bool] enable_authentication: If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
                
                > **NOTE:** `enable_authentication` can only be set to `false` if a `subnet_id` is specified; and only works if there aren't existing instances within the subnet with `enable_authentication` set to `true`.
@@ -222,10 +222,6 @@ class CacheRedisConfigurationArgs:
         :param pulumi.Input[str] maxmemory_policy: How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below. Defaults to `volatile-lru`.
         :param pulumi.Input[int] maxmemory_reserved: Value in megabytes reserved for non-cache usage e.g. failover. Defaults are shown below.
         :param pulumi.Input[str] notify_keyspace_events: Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
-               
-               ```python
-               import pulumi
-               ```
         :param pulumi.Input[bool] rdb_backup_enabled: Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
                
                > **NOTE:** If `rdb_backup_enabled` set to `true`, `rdb_storage_connection_string` must also be set.
@@ -269,33 +265,33 @@ class CacheRedisConfigurationArgs:
              rdb_backup_frequency: Optional[pulumi.Input[int]] = None,
              rdb_backup_max_snapshot_count: Optional[pulumi.Input[int]] = None,
              rdb_storage_connection_string: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'aofBackupEnabled' in kwargs:
+        if aof_backup_enabled is None and 'aofBackupEnabled' in kwargs:
             aof_backup_enabled = kwargs['aofBackupEnabled']
-        if 'aofStorageConnectionString0' in kwargs:
+        if aof_storage_connection_string0 is None and 'aofStorageConnectionString0' in kwargs:
             aof_storage_connection_string0 = kwargs['aofStorageConnectionString0']
-        if 'aofStorageConnectionString1' in kwargs:
+        if aof_storage_connection_string1 is None and 'aofStorageConnectionString1' in kwargs:
             aof_storage_connection_string1 = kwargs['aofStorageConnectionString1']
-        if 'enableAuthentication' in kwargs:
+        if enable_authentication is None and 'enableAuthentication' in kwargs:
             enable_authentication = kwargs['enableAuthentication']
-        if 'maxfragmentationmemoryReserved' in kwargs:
+        if maxfragmentationmemory_reserved is None and 'maxfragmentationmemoryReserved' in kwargs:
             maxfragmentationmemory_reserved = kwargs['maxfragmentationmemoryReserved']
-        if 'maxmemoryDelta' in kwargs:
+        if maxmemory_delta is None and 'maxmemoryDelta' in kwargs:
             maxmemory_delta = kwargs['maxmemoryDelta']
-        if 'maxmemoryPolicy' in kwargs:
+        if maxmemory_policy is None and 'maxmemoryPolicy' in kwargs:
             maxmemory_policy = kwargs['maxmemoryPolicy']
-        if 'maxmemoryReserved' in kwargs:
+        if maxmemory_reserved is None and 'maxmemoryReserved' in kwargs:
             maxmemory_reserved = kwargs['maxmemoryReserved']
-        if 'notifyKeyspaceEvents' in kwargs:
+        if notify_keyspace_events is None and 'notifyKeyspaceEvents' in kwargs:
             notify_keyspace_events = kwargs['notifyKeyspaceEvents']
-        if 'rdbBackupEnabled' in kwargs:
+        if rdb_backup_enabled is None and 'rdbBackupEnabled' in kwargs:
             rdb_backup_enabled = kwargs['rdbBackupEnabled']
-        if 'rdbBackupFrequency' in kwargs:
+        if rdb_backup_frequency is None and 'rdbBackupFrequency' in kwargs:
             rdb_backup_frequency = kwargs['rdbBackupFrequency']
-        if 'rdbBackupMaxSnapshotCount' in kwargs:
+        if rdb_backup_max_snapshot_count is None and 'rdbBackupMaxSnapshotCount' in kwargs:
             rdb_backup_max_snapshot_count = kwargs['rdbBackupMaxSnapshotCount']
-        if 'rdbStorageConnectionString' in kwargs:
+        if rdb_storage_connection_string is None and 'rdbStorageConnectionString' in kwargs:
             rdb_storage_connection_string = kwargs['rdbStorageConnectionString']
 
         if aof_backup_enabled is not None:
@@ -360,10 +356,6 @@ class CacheRedisConfigurationArgs:
         Second Storage Account connection string for AOF persistence.
 
         Example usage:
-
-        ```python
-        import pulumi
-        ```
         """
         return pulumi.get(self, "aof_storage_connection_string1")
 
@@ -450,10 +442,6 @@ class CacheRedisConfigurationArgs:
     def notify_keyspace_events(self) -> Optional[pulumi.Input[str]]:
         """
         Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
-
-        ```python
-        import pulumi
-        ```
         """
         return pulumi.get(self, "notify_keyspace_events")
 
@@ -533,11 +521,13 @@ class EnterpriseDatabaseModuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              args: Optional[pulumi.Input[str]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
         if args is not None:

@@ -7,33 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a SQL Dedicated Gateway within a Cosmos DB Account.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.cosmosdb.Account("exampleAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     offerType: "Standard",
- *     kind: "GlobalDocumentDB",
- *     consistencyPolicy: {
- *         consistencyLevel: "BoundedStaleness",
- *     },
- *     geoLocations: [{
- *         location: exampleResourceGroup.location,
- *         failoverPriority: 0,
- *     }],
- * });
- * const exampleSqlDedicatedGateway = new azure.cosmosdb.SqlDedicatedGateway("exampleSqlDedicatedGateway", {
- *     cosmosdbAccountId: exampleAccount.id,
- *     instanceCount: 1,
- *     instanceSize: "Cosmos.D4s",
- * });
- * ```
- *
  * ## Import
  *
  * CosmosDB SQL Dedicated Gateways can be imported using the `resource id`, e.g.

@@ -55,9 +55,9 @@ class ClusterExtensionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cluster_id: pulumi.Input[str],
-             extension_type: pulumi.Input[str],
-             identity: pulumi.Input['ClusterExtensionIdentityArgs'],
+             cluster_id: Optional[pulumi.Input[str]] = None,
+             extension_type: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ClusterExtensionIdentityArgs']] = None,
              configuration_protected_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              configuration_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
@@ -65,21 +65,27 @@ class ClusterExtensionArgs:
              release_train: Optional[pulumi.Input[str]] = None,
              target_namespace: Optional[pulumi.Input[str]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'clusterId' in kwargs:
+        if cluster_id is None and 'clusterId' in kwargs:
             cluster_id = kwargs['clusterId']
-        if 'extensionType' in kwargs:
+        if cluster_id is None:
+            raise TypeError("Missing 'cluster_id' argument")
+        if extension_type is None and 'extensionType' in kwargs:
             extension_type = kwargs['extensionType']
-        if 'configurationProtectedSettings' in kwargs:
+        if extension_type is None:
+            raise TypeError("Missing 'extension_type' argument")
+        if identity is None:
+            raise TypeError("Missing 'identity' argument")
+        if configuration_protected_settings is None and 'configurationProtectedSettings' in kwargs:
             configuration_protected_settings = kwargs['configurationProtectedSettings']
-        if 'configurationSettings' in kwargs:
+        if configuration_settings is None and 'configurationSettings' in kwargs:
             configuration_settings = kwargs['configurationSettings']
-        if 'releaseNamespace' in kwargs:
+        if release_namespace is None and 'releaseNamespace' in kwargs:
             release_namespace = kwargs['releaseNamespace']
-        if 'releaseTrain' in kwargs:
+        if release_train is None and 'releaseTrain' in kwargs:
             release_train = kwargs['releaseTrain']
-        if 'targetNamespace' in kwargs:
+        if target_namespace is None and 'targetNamespace' in kwargs:
             target_namespace = kwargs['targetNamespace']
 
         _setter("cluster_id", cluster_id)
@@ -277,23 +283,23 @@ class _ClusterExtensionState:
              release_train: Optional[pulumi.Input[str]] = None,
              target_namespace: Optional[pulumi.Input[str]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'clusterId' in kwargs:
+        if cluster_id is None and 'clusterId' in kwargs:
             cluster_id = kwargs['clusterId']
-        if 'configurationProtectedSettings' in kwargs:
+        if configuration_protected_settings is None and 'configurationProtectedSettings' in kwargs:
             configuration_protected_settings = kwargs['configurationProtectedSettings']
-        if 'configurationSettings' in kwargs:
+        if configuration_settings is None and 'configurationSettings' in kwargs:
             configuration_settings = kwargs['configurationSettings']
-        if 'currentVersion' in kwargs:
+        if current_version is None and 'currentVersion' in kwargs:
             current_version = kwargs['currentVersion']
-        if 'extensionType' in kwargs:
+        if extension_type is None and 'extensionType' in kwargs:
             extension_type = kwargs['extensionType']
-        if 'releaseNamespace' in kwargs:
+        if release_namespace is None and 'releaseNamespace' in kwargs:
             release_namespace = kwargs['releaseNamespace']
-        if 'releaseTrain' in kwargs:
+        if release_train is None and 'releaseTrain' in kwargs:
             release_train = kwargs['releaseTrain']
-        if 'targetNamespace' in kwargs:
+        if target_namespace is None and 'targetNamespace' in kwargs:
             target_namespace = kwargs['targetNamespace']
 
         if cluster_id is not None:
@@ -471,29 +477,6 @@ class ClusterExtension(pulumi.CustomResource):
         """
         Manages an Arc Kubernetes Cluster Extension.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import base64
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_cluster = azure.arckubernetes.Cluster("exampleCluster",
-            resource_group_name=example_resource_group.name,
-            location="West Europe",
-            agent_public_key_certificate=(lambda path: base64.b64encode(open(path).read().encode()).decode())("testdata/public.cer"),
-            identity=azure.arckubernetes.ClusterIdentityArgs(
-                type="SystemAssigned",
-            ),
-            tags={
-                "ENV": "Test",
-            })
-        example_cluster_extension = azure.arckubernetes.ClusterExtension("exampleClusterExtension",
-            cluster_id=example_cluster.id,
-            extension_type="microsoft.flux")
-        ```
-
         ## Import
 
         Arc Kubernetes Cluster Extension can be imported using the `resource id` for different `cluster_resource_name`, e.g.
@@ -523,29 +506,6 @@ class ClusterExtension(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Arc Kubernetes Cluster Extension.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import base64
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_cluster = azure.arckubernetes.Cluster("exampleCluster",
-            resource_group_name=example_resource_group.name,
-            location="West Europe",
-            agent_public_key_certificate=(lambda path: base64.b64encode(open(path).read().encode()).decode())("testdata/public.cer"),
-            identity=azure.arckubernetes.ClusterIdentityArgs(
-                type="SystemAssigned",
-            ),
-            tags={
-                "ENV": "Test",
-            })
-        example_cluster_extension = azure.arckubernetes.ClusterExtension("exampleClusterExtension",
-            cluster_id=example_cluster.id,
-            extension_type="microsoft.flux")
-        ```
 
         ## Import
 
@@ -601,11 +561,7 @@ class ClusterExtension(pulumi.CustomResource):
             if extension_type is None and not opts.urn:
                 raise TypeError("Missing required property 'extension_type'")
             __props__.__dict__["extension_type"] = extension_type
-            if identity is not None and not isinstance(identity, ClusterExtensionIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                ClusterExtensionIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, ClusterExtensionIdentityArgs, True)
             if identity is None and not opts.urn:
                 raise TypeError("Missing required property 'identity'")
             __props__.__dict__["identity"] = identity

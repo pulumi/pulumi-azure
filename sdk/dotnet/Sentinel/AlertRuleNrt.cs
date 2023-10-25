@@ -12,48 +12,6 @@ namespace Pulumi.Azure.Sentinel
     /// <summary>
     /// Manages a Sentinel NRT Alert Rule.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Sku = "pergb2018",
-    ///     });
-    /// 
-    ///     var exampleLogAnalyticsWorkspaceOnboarding = new Azure.Sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", new()
-    ///     {
-    ///         WorkspaceId = exampleAnalyticsWorkspace.Id,
-    ///     });
-    /// 
-    ///     var exampleAlertRuleNrt = new Azure.Sentinel.AlertRuleNrt("exampleAlertRuleNrt", new()
-    ///     {
-    ///         LogAnalyticsWorkspaceId = exampleLogAnalyticsWorkspaceOnboarding.WorkspaceId,
-    ///         DisplayName = "example",
-    ///         Severity = "High",
-    ///         Query = @"AzureActivity |
-    ///   where OperationName == ""Create or Update Virtual Machine"" or OperationName ==""Create Deployment"" |
-    ///   where ActivityStatus == ""Succeeded"" |
-    ///   make-series dcount(ResourceId) default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
-    /// ",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Sentinel NRT Alert Rules can be imported using the `resource id`, e.g.

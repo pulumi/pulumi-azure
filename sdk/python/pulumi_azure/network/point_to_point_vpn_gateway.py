@@ -55,31 +55,41 @@ class PointToPointVpnGatewayArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             connection_configuration: pulumi.Input['PointToPointVpnGatewayConnectionConfigurationArgs'],
-             resource_group_name: pulumi.Input[str],
-             scale_unit: pulumi.Input[int],
-             virtual_hub_id: pulumi.Input[str],
-             vpn_server_configuration_id: pulumi.Input[str],
+             connection_configuration: Optional[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             scale_unit: Optional[pulumi.Input[int]] = None,
+             virtual_hub_id: Optional[pulumi.Input[str]] = None,
+             vpn_server_configuration_id: Optional[pulumi.Input[str]] = None,
              dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              routing_preference_internet_enabled: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'connectionConfiguration' in kwargs:
+        if connection_configuration is None and 'connectionConfiguration' in kwargs:
             connection_configuration = kwargs['connectionConfiguration']
-        if 'resourceGroupName' in kwargs:
+        if connection_configuration is None:
+            raise TypeError("Missing 'connection_configuration' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'scaleUnit' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if scale_unit is None and 'scaleUnit' in kwargs:
             scale_unit = kwargs['scaleUnit']
-        if 'virtualHubId' in kwargs:
+        if scale_unit is None:
+            raise TypeError("Missing 'scale_unit' argument")
+        if virtual_hub_id is None and 'virtualHubId' in kwargs:
             virtual_hub_id = kwargs['virtualHubId']
-        if 'vpnServerConfigurationId' in kwargs:
+        if virtual_hub_id is None:
+            raise TypeError("Missing 'virtual_hub_id' argument")
+        if vpn_server_configuration_id is None and 'vpnServerConfigurationId' in kwargs:
             vpn_server_configuration_id = kwargs['vpnServerConfigurationId']
-        if 'dnsServers' in kwargs:
+        if vpn_server_configuration_id is None:
+            raise TypeError("Missing 'vpn_server_configuration_id' argument")
+        if dns_servers is None and 'dnsServers' in kwargs:
             dns_servers = kwargs['dnsServers']
-        if 'routingPreferenceInternetEnabled' in kwargs:
+        if routing_preference_internet_enabled is None and 'routingPreferenceInternetEnabled' in kwargs:
             routing_preference_internet_enabled = kwargs['routingPreferenceInternetEnabled']
 
         _setter("connection_configuration", connection_configuration)
@@ -271,21 +281,21 @@ class _PointToPointVpnGatewayState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              virtual_hub_id: Optional[pulumi.Input[str]] = None,
              vpn_server_configuration_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'connectionConfiguration' in kwargs:
+        if connection_configuration is None and 'connectionConfiguration' in kwargs:
             connection_configuration = kwargs['connectionConfiguration']
-        if 'dnsServers' in kwargs:
+        if dns_servers is None and 'dnsServers' in kwargs:
             dns_servers = kwargs['dnsServers']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'routingPreferenceInternetEnabled' in kwargs:
+        if routing_preference_internet_enabled is None and 'routingPreferenceInternetEnabled' in kwargs:
             routing_preference_internet_enabled = kwargs['routingPreferenceInternetEnabled']
-        if 'scaleUnit' in kwargs:
+        if scale_unit is None and 'scaleUnit' in kwargs:
             scale_unit = kwargs['scaleUnit']
-        if 'virtualHubId' in kwargs:
+        if virtual_hub_id is None and 'virtualHubId' in kwargs:
             virtual_hub_id = kwargs['virtualHubId']
-        if 'vpnServerConfigurationId' in kwargs:
+        if vpn_server_configuration_id is None and 'vpnServerConfigurationId' in kwargs:
             vpn_server_configuration_id = kwargs['vpnServerConfigurationId']
 
         if connection_configuration is not None:
@@ -449,63 +459,6 @@ class PointToPointVpnGateway(pulumi.CustomResource):
         """
         Manages a Point-to-Site VPN Gateway.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_wan = azure.network.VirtualWan("exampleVirtualWan",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_virtual_hub = azure.network.VirtualHub("exampleVirtualHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            virtual_wan_id=example_virtual_wan.id,
-            address_prefix="10.0.0.0/23")
-        example_vpn_server_configuration = azure.network.VpnServerConfiguration("exampleVpnServerConfiguration",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            vpn_authentication_types=["Certificate"],
-            client_root_certificates=[azure.network.VpnServerConfigurationClientRootCertificateArgs(
-                name="DigiCert-Federated-ID-Root-CA",
-                public_cert_data=\"\"\"MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
-        MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
-        d3cuZGlnaWNlcnQuY29tMSYwJAYDVQQDEx1EaWdpQ2VydCBGZWRlcmF0ZWQgSUQg
-        Um9vdCBDQTAeFw0xMzAxMTUxMjAwMDBaFw0zMzAxMTUxMjAwMDBaMGcxCzAJBgNV
-        BAYTAlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdp
-        Y2VydC5jb20xJjAkBgNVBAMTHURpZ2lDZXJ0IEZlZGVyYXRlZCBJRCBSb290IENB
-        MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvAEB4pcCqnNNOWE6Ur5j
-        QPUH+1y1F9KdHTRSza6k5iDlXq1kGS1qAkuKtw9JsiNRrjltmFnzMZRBbX8Tlfl8
-        zAhBmb6dDduDGED01kBsTkgywYPxXVTKec0WxYEEF0oMn4wSYNl0lt2eJAKHXjNf
-        GTwiibdP8CUR2ghSM2sUTI8Nt1Omfc4SMHhGhYD64uJMbX98THQ/4LMGuYegou+d
-        GTiahfHtjn7AboSEknwAMJHCh5RlYZZ6B1O4QbKJ+34Q0eKgnI3X6Vc9u0zf6DH8
-        Dk+4zQDYRRTqTnVO3VT8jzqDlCRuNtq6YvryOWN74/dq8LQhUnXHvFyrsdMaE1X2
-        DwIDAQABo2MwYTAPBgNVHRMBAf8EBTADAQH/MA4GA1UdDwEB/wQEAwIBhjAdBgNV
-        HQ4EFgQUGRdkFnbGt1EWjKwbUne+5OaZvRYwHwYDVR0jBBgwFoAUGRdkFnbGt1EW
-        jKwbUne+5OaZvRYwDQYJKoZIhvcNAQELBQADggEBAHcqsHkrjpESqfuVTRiptJfP
-        9JbdtWqRTmOf6uJi2c8YVqI6XlKXsD8C1dUUaaHKLUJzvKiazibVuBwMIT84AyqR
-        QELn3e0BtgEymEygMU569b01ZPxoFSnNXc7qDZBDef8WfqAV/sxkTi8L9BkmFYfL
-        uGLOhRJOFprPdoDIUBB+tmCl3oDcBy3vnUeOEioz8zAkprcb3GHwHAK+vHmmfgcn
-        WsfMLH4JCLa/tRYL+Rw/N3ybCkDp00s0WUZ+AoDywSl0Q/ZEnNY0MsFiw6LyIdbq
-        M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
-        \"\"\",
-            )])
-        example_point_to_point_vpn_gateway = azure.network.PointToPointVpnGateway("examplePointToPointVpnGateway",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            virtual_hub_id=example_virtual_hub.id,
-            vpn_server_configuration_id=example_vpn_server_configuration.id,
-            scale_unit=1,
-            connection_configuration=azure.network.PointToPointVpnGatewayConnectionConfigurationArgs(
-                name="example-gateway-config",
-                vpn_client_address_pool=azure.network.PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs(
-                    address_prefixes=["10.0.2.0/24"],
-                ),
-            ))
-        ```
-
         ## Import
 
         Point-to-Site VPN Gateway's can be imported using the `resource id`, e.g.
@@ -535,63 +488,6 @@ class PointToPointVpnGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Point-to-Site VPN Gateway.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_wan = azure.network.VirtualWan("exampleVirtualWan",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_virtual_hub = azure.network.VirtualHub("exampleVirtualHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            virtual_wan_id=example_virtual_wan.id,
-            address_prefix="10.0.0.0/23")
-        example_vpn_server_configuration = azure.network.VpnServerConfiguration("exampleVpnServerConfiguration",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            vpn_authentication_types=["Certificate"],
-            client_root_certificates=[azure.network.VpnServerConfigurationClientRootCertificateArgs(
-                name="DigiCert-Federated-ID-Root-CA",
-                public_cert_data=\"\"\"MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
-        MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
-        d3cuZGlnaWNlcnQuY29tMSYwJAYDVQQDEx1EaWdpQ2VydCBGZWRlcmF0ZWQgSUQg
-        Um9vdCBDQTAeFw0xMzAxMTUxMjAwMDBaFw0zMzAxMTUxMjAwMDBaMGcxCzAJBgNV
-        BAYTAlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdp
-        Y2VydC5jb20xJjAkBgNVBAMTHURpZ2lDZXJ0IEZlZGVyYXRlZCBJRCBSb290IENB
-        MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvAEB4pcCqnNNOWE6Ur5j
-        QPUH+1y1F9KdHTRSza6k5iDlXq1kGS1qAkuKtw9JsiNRrjltmFnzMZRBbX8Tlfl8
-        zAhBmb6dDduDGED01kBsTkgywYPxXVTKec0WxYEEF0oMn4wSYNl0lt2eJAKHXjNf
-        GTwiibdP8CUR2ghSM2sUTI8Nt1Omfc4SMHhGhYD64uJMbX98THQ/4LMGuYegou+d
-        GTiahfHtjn7AboSEknwAMJHCh5RlYZZ6B1O4QbKJ+34Q0eKgnI3X6Vc9u0zf6DH8
-        Dk+4zQDYRRTqTnVO3VT8jzqDlCRuNtq6YvryOWN74/dq8LQhUnXHvFyrsdMaE1X2
-        DwIDAQABo2MwYTAPBgNVHRMBAf8EBTADAQH/MA4GA1UdDwEB/wQEAwIBhjAdBgNV
-        HQ4EFgQUGRdkFnbGt1EWjKwbUne+5OaZvRYwHwYDVR0jBBgwFoAUGRdkFnbGt1EW
-        jKwbUne+5OaZvRYwDQYJKoZIhvcNAQELBQADggEBAHcqsHkrjpESqfuVTRiptJfP
-        9JbdtWqRTmOf6uJi2c8YVqI6XlKXsD8C1dUUaaHKLUJzvKiazibVuBwMIT84AyqR
-        QELn3e0BtgEymEygMU569b01ZPxoFSnNXc7qDZBDef8WfqAV/sxkTi8L9BkmFYfL
-        uGLOhRJOFprPdoDIUBB+tmCl3oDcBy3vnUeOEioz8zAkprcb3GHwHAK+vHmmfgcn
-        WsfMLH4JCLa/tRYL+Rw/N3ybCkDp00s0WUZ+AoDywSl0Q/ZEnNY0MsFiw6LyIdbq
-        M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
-        \"\"\",
-            )])
-        example_point_to_point_vpn_gateway = azure.network.PointToPointVpnGateway("examplePointToPointVpnGateway",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            virtual_hub_id=example_virtual_hub.id,
-            vpn_server_configuration_id=example_vpn_server_configuration.id,
-            scale_unit=1,
-            connection_configuration=azure.network.PointToPointVpnGatewayConnectionConfigurationArgs(
-                name="example-gateway-config",
-                vpn_client_address_pool=azure.network.PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs(
-                    address_prefixes=["10.0.2.0/24"],
-                ),
-            ))
-        ```
 
         ## Import
 
@@ -639,11 +535,7 @@ class PointToPointVpnGateway(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PointToPointVpnGatewayArgs.__new__(PointToPointVpnGatewayArgs)
 
-            if connection_configuration is not None and not isinstance(connection_configuration, PointToPointVpnGatewayConnectionConfigurationArgs):
-                connection_configuration = connection_configuration or {}
-                def _setter(key, value):
-                    connection_configuration[key] = value
-                PointToPointVpnGatewayConnectionConfigurationArgs._configure(_setter, **connection_configuration)
+            connection_configuration = _utilities.configure(connection_configuration, PointToPointVpnGatewayConnectionConfigurationArgs, True)
             if connection_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_configuration'")
             __props__.__dict__["connection_configuration"] = connection_configuration

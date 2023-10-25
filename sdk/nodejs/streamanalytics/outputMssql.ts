@@ -7,44 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Stream Analytics Output to Microsoft SQL Server Database.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleJob = azure.streamanalytics.getJobOutput({
- *     name: "example-job",
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleSqlServer = new azure.sql.SqlServer("exampleSqlServer", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     version: "12.0",
- *     administratorLogin: "dbadmin",
- *     administratorLoginPassword: "example-password",
- * });
- * const exampleDatabase = new azure.sql.Database("exampleDatabase", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     serverName: exampleSqlServer.name,
- *     requestedServiceObjectiveName: "S0",
- *     collation: "SQL_LATIN1_GENERAL_CP1_CI_AS",
- *     maxSizeBytes: "268435456000",
- *     createMode: "Default",
- * });
- * const exampleOutputMssql = new azure.streamanalytics.OutputMssql("exampleOutputMssql", {
- *     streamAnalyticsJobName: exampleJob.apply(exampleJob => exampleJob.name),
- *     resourceGroupName: exampleJob.apply(exampleJob => exampleJob.resourceGroupName),
- *     server: exampleSqlServer.fullyQualifiedDomainName,
- *     user: exampleSqlServer.administratorLogin,
- *     password: exampleSqlServer.administratorLoginPassword,
- *     database: exampleDatabase.name,
- *     table: "ExampleTable",
- * });
- * ```
- *
  * ## Import
  *
  * Stream Analytics Outputs to Microsoft SQL Server Database can be imported using the `resource id`, e.g.

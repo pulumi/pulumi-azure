@@ -6,33 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Runs a Container Registry Task Schedule.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleRegistry = new azure.containerservice.Registry("exampleRegistry", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     sku: "Basic",
- * });
- * const exampleRegistryTask = new azure.containerservice.RegistryTask("exampleRegistryTask", {
- *     containerRegistryId: exampleRegistry.id,
- *     platform: {
- *         os: "Linux",
- *     },
- *     dockerStep: {
- *         dockerfilePath: "Dockerfile",
- *         contextPath: "https://github.com/<user name>/acr-build-helloworld-node#main",
- *         contextAccessToken: "<github personal access token>",
- *         imageNames: ["helloworld:{{.Run.ID}}"],
- *     },
- * });
- * const exampleRegistryTaskScheduleRunNow = new azure.containerservice.RegistryTaskScheduleRunNow("exampleRegistryTaskScheduleRunNow", {containerRegistryTaskId: exampleRegistryTask.id});
- * ```
  */
 export class RegistryTaskScheduleRunNow extends pulumi.CustomResource {
     /**

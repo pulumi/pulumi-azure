@@ -43,18 +43,22 @@ class NetworkSliceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mobile_network_id: pulumi.Input[str],
-             single_network_slice_selection_assistance_information: pulumi.Input['NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs'],
+             mobile_network_id: Optional[pulumi.Input[str]] = None,
+             single_network_slice_selection_assistance_information: Optional[pulumi.Input['NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'mobileNetworkId' in kwargs:
+        if mobile_network_id is None and 'mobileNetworkId' in kwargs:
             mobile_network_id = kwargs['mobileNetworkId']
-        if 'singleNetworkSliceSelectionAssistanceInformation' in kwargs:
+        if mobile_network_id is None:
+            raise TypeError("Missing 'mobile_network_id' argument")
+        if single_network_slice_selection_assistance_information is None and 'singleNetworkSliceSelectionAssistanceInformation' in kwargs:
             single_network_slice_selection_assistance_information = kwargs['singleNetworkSliceSelectionAssistanceInformation']
+        if single_network_slice_selection_assistance_information is None:
+            raise TypeError("Missing 'single_network_slice_selection_assistance_information' argument")
 
         _setter("mobile_network_id", mobile_network_id)
         _setter("single_network_slice_selection_assistance_information", single_network_slice_selection_assistance_information)
@@ -176,11 +180,11 @@ class _NetworkSliceState:
              name: Optional[pulumi.Input[str]] = None,
              single_network_slice_selection_assistance_information: Optional[pulumi.Input['NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'mobileNetworkId' in kwargs:
+        if mobile_network_id is None and 'mobileNetworkId' in kwargs:
             mobile_network_id = kwargs['mobileNetworkId']
-        if 'singleNetworkSliceSelectionAssistanceInformation' in kwargs:
+        if single_network_slice_selection_assistance_information is None and 'singleNetworkSliceSelectionAssistanceInformation' in kwargs:
             single_network_slice_selection_assistance_information = kwargs['singleNetworkSliceSelectionAssistanceInformation']
 
         if description is not None:
@@ -284,30 +288,6 @@ class NetworkSlice(pulumi.CustomResource):
         """
         Manages a Mobile Network Slice.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_network = azure.mobile.Network("exampleNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            mobile_country_code="001",
-            mobile_network_code="01")
-        example_network_slice = azure.mobile.NetworkSlice("exampleNetworkSlice",
-            mobile_network_id=example_network.id,
-            location=example_resource_group.location,
-            description="an example slice",
-            single_network_slice_selection_assistance_information=azure.mobile.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs(
-                slice_service_type=1,
-            ),
-            tags={
-                "key": "value",
-            })
-        ```
-
         ## Import
 
         Mobile Network Slice can be imported using the `resource id`, e.g.
@@ -333,30 +313,6 @@ class NetworkSlice(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Mobile Network Slice.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_network = azure.mobile.Network("exampleNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            mobile_country_code="001",
-            mobile_network_code="01")
-        example_network_slice = azure.mobile.NetworkSlice("exampleNetworkSlice",
-            mobile_network_id=example_network.id,
-            location=example_resource_group.location,
-            description="an example slice",
-            single_network_slice_selection_assistance_information=azure.mobile.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs(
-                slice_service_type=1,
-            ),
-            tags={
-                "key": "value",
-            })
-        ```
 
         ## Import
 
@@ -406,11 +362,7 @@ class NetworkSlice(pulumi.CustomResource):
                 raise TypeError("Missing required property 'mobile_network_id'")
             __props__.__dict__["mobile_network_id"] = mobile_network_id
             __props__.__dict__["name"] = name
-            if single_network_slice_selection_assistance_information is not None and not isinstance(single_network_slice_selection_assistance_information, NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs):
-                single_network_slice_selection_assistance_information = single_network_slice_selection_assistance_information or {}
-                def _setter(key, value):
-                    single_network_slice_selection_assistance_information[key] = value
-                NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs._configure(_setter, **single_network_slice_selection_assistance_information)
+            single_network_slice_selection_assistance_information = _utilities.configure(single_network_slice_selection_assistance_information, NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs, True)
             if single_network_slice_selection_assistance_information is None and not opts.urn:
                 raise TypeError("Missing required property 'single_network_slice_selection_assistance_information'")
             __props__.__dict__["single_network_slice_selection_assistance_information"] = single_network_slice_selection_assistance_information

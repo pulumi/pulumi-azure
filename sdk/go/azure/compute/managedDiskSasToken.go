@@ -21,51 +21,6 @@ import (
 //
 // With the help of this resource, data from the disk can be copied from managed disk to a storage blob or to some other system without the need of azcopy.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testResourceGroup, err := core.NewResourceGroup(ctx, "testResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testManagedDisk, err := compute.NewManagedDisk(ctx, "testManagedDisk", &compute.ManagedDiskArgs{
-//				Location:           testResourceGroup.Location,
-//				ResourceGroupName:  testResourceGroup.Name,
-//				StorageAccountType: pulumi.String("Standard_LRS"),
-//				CreateOption:       pulumi.String("Empty"),
-//				DiskSizeGb:         pulumi.Int(1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = compute.NewManagedDiskSasToken(ctx, "testManagedDiskSasToken", &compute.ManagedDiskSasTokenArgs{
-//				ManagedDiskId:     testManagedDisk.ID(),
-//				DurationInSeconds: pulumi.Int(300),
-//				AccessLevel:       pulumi.String("Read"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Disk SAS Token can be imported using the `resource id`, e.g.

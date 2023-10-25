@@ -38,22 +38,28 @@ class ProductPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_management_name: pulumi.Input[str],
-             product_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             product_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              xml_content: Optional[pulumi.Input[str]] = None,
              xml_link: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'productId' in kwargs:
+        if api_management_name is None:
+            raise TypeError("Missing 'api_management_name' argument")
+        if product_id is None and 'productId' in kwargs:
             product_id = kwargs['productId']
-        if 'resourceGroupName' in kwargs:
+        if product_id is None:
+            raise TypeError("Missing 'product_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'xmlContent' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if xml_content is None and 'xmlContent' in kwargs:
             xml_content = kwargs['xmlContent']
-        if 'xmlLink' in kwargs:
+        if xml_link is None and 'xmlLink' in kwargs:
             xml_link = kwargs['xmlLink']
 
         _setter("api_management_name", api_management_name)
@@ -157,17 +163,17 @@ class _ProductPolicyState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              xml_content: Optional[pulumi.Input[str]] = None,
              xml_link: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'productId' in kwargs:
+        if product_id is None and 'productId' in kwargs:
             product_id = kwargs['productId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'xmlContent' in kwargs:
+        if xml_content is None and 'xmlContent' in kwargs:
             xml_content = kwargs['xmlContent']
-        if 'xmlLink' in kwargs:
+        if xml_link is None and 'xmlLink' in kwargs:
             xml_link = kwargs['xmlLink']
 
         if api_management_name is not None:
@@ -256,27 +262,6 @@ class ProductPolicy(pulumi.CustomResource):
         """
         Manages an API Management Product Policy
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_product = azure.apimanagement.get_product(product_id="my-product",
-            api_management_name="example-apim",
-            resource_group_name="search-service")
-        example_product_policy = azure.apimanagement.ProductPolicy("exampleProductPolicy",
-            product_id=example_product.product_id,
-            api_management_name=example_product.api_management_name,
-            resource_group_name=example_product.resource_group_name,
-            xml_content=\"\"\"<policies>
-          <inbound>
-            <find-and-replace from="xyz" to="abc" />
-          </inbound>
-        </policies>
-        \"\"\")
-        ```
-
         ## Import
 
         API Management Product Policy can be imported using the `resource id`, e.g.
@@ -301,27 +286,6 @@ class ProductPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an API Management Product Policy
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_product = azure.apimanagement.get_product(product_id="my-product",
-            api_management_name="example-apim",
-            resource_group_name="search-service")
-        example_product_policy = azure.apimanagement.ProductPolicy("exampleProductPolicy",
-            product_id=example_product.product_id,
-            api_management_name=example_product.api_management_name,
-            resource_group_name=example_product.resource_group_name,
-            xml_content=\"\"\"<policies>
-          <inbound>
-            <find-and-replace from="xyz" to="abc" />
-          </inbound>
-        </policies>
-        \"\"\")
-        ```
 
         ## Import
 

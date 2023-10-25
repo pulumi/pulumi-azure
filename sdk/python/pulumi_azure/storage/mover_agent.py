@@ -38,19 +38,25 @@ class MoverAgentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             arc_virtual_machine_id: pulumi.Input[str],
-             arc_virtual_machine_uuid: pulumi.Input[str],
-             storage_mover_id: pulumi.Input[str],
+             arc_virtual_machine_id: Optional[pulumi.Input[str]] = None,
+             arc_virtual_machine_uuid: Optional[pulumi.Input[str]] = None,
+             storage_mover_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'arcVirtualMachineId' in kwargs:
+        if arc_virtual_machine_id is None and 'arcVirtualMachineId' in kwargs:
             arc_virtual_machine_id = kwargs['arcVirtualMachineId']
-        if 'arcVirtualMachineUuid' in kwargs:
+        if arc_virtual_machine_id is None:
+            raise TypeError("Missing 'arc_virtual_machine_id' argument")
+        if arc_virtual_machine_uuid is None and 'arcVirtualMachineUuid' in kwargs:
             arc_virtual_machine_uuid = kwargs['arcVirtualMachineUuid']
-        if 'storageMoverId' in kwargs:
+        if arc_virtual_machine_uuid is None:
+            raise TypeError("Missing 'arc_virtual_machine_uuid' argument")
+        if storage_mover_id is None and 'storageMoverId' in kwargs:
             storage_mover_id = kwargs['storageMoverId']
+        if storage_mover_id is None:
+            raise TypeError("Missing 'storage_mover_id' argument")
 
         _setter("arc_virtual_machine_id", arc_virtual_machine_id)
         _setter("arc_virtual_machine_uuid", arc_virtual_machine_uuid)
@@ -153,13 +159,13 @@ class _MoverAgentState:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              storage_mover_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'arcVirtualMachineId' in kwargs:
+        if arc_virtual_machine_id is None and 'arcVirtualMachineId' in kwargs:
             arc_virtual_machine_id = kwargs['arcVirtualMachineId']
-        if 'arcVirtualMachineUuid' in kwargs:
+        if arc_virtual_machine_uuid is None and 'arcVirtualMachineUuid' in kwargs:
             arc_virtual_machine_uuid = kwargs['arcVirtualMachineUuid']
-        if 'storageMoverId' in kwargs:
+        if storage_mover_id is None and 'storageMoverId' in kwargs:
             storage_mover_id = kwargs['storageMoverId']
 
         if arc_virtual_machine_id is not None:
@@ -248,21 +254,6 @@ class MoverAgent(pulumi.CustomResource):
         """
         Manages a Storage Mover Agent.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="East US")
-        example_mover = azure.storage.Mover("exampleMover", resource_group_name=example_resource_group.name)
-        example_mover_agent = azure.storage.MoverAgent("exampleMoverAgent",
-            storage_mover_id=example_mover.id,
-            arc_virtual_machine_id=example_resource_group.id.apply(lambda id: f"{id}/providers/Microsoft.HybridCompute/machines/examples-hybridComputeName"),
-            arc_virtual_machine_uuid="3bb2c024-eba9-4d18-9e7a-1d772fcc5fe9",
-            description="Example Agent Description")
-        ```
-
         ## Import
 
         Storage Mover Agent can be imported using the `resource id`, e.g.
@@ -287,21 +278,6 @@ class MoverAgent(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Storage Mover Agent.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="East US")
-        example_mover = azure.storage.Mover("exampleMover", resource_group_name=example_resource_group.name)
-        example_mover_agent = azure.storage.MoverAgent("exampleMoverAgent",
-            storage_mover_id=example_mover.id,
-            arc_virtual_machine_id=example_resource_group.id.apply(lambda id: f"{id}/providers/Microsoft.HybridCompute/machines/examples-hybridComputeName"),
-            arc_virtual_machine_uuid="3bb2c024-eba9-4d18-9e7a-1d772fcc5fe9",
-            description="Example Agent Description")
-        ```
 
         ## Import
 

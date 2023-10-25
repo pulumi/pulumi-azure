@@ -44,25 +44,35 @@ class ConnectionClassicCertificateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             automation_account_name: pulumi.Input[str],
-             certificate_asset_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             subscription_id: pulumi.Input[str],
-             subscription_name: pulumi.Input[str],
+             automation_account_name: Optional[pulumi.Input[str]] = None,
+             certificate_asset_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             subscription_name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'automationAccountName' in kwargs:
+        if automation_account_name is None and 'automationAccountName' in kwargs:
             automation_account_name = kwargs['automationAccountName']
-        if 'certificateAssetName' in kwargs:
+        if automation_account_name is None:
+            raise TypeError("Missing 'automation_account_name' argument")
+        if certificate_asset_name is None and 'certificateAssetName' in kwargs:
             certificate_asset_name = kwargs['certificateAssetName']
-        if 'resourceGroupName' in kwargs:
+        if certificate_asset_name is None:
+            raise TypeError("Missing 'certificate_asset_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'subscriptionId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if subscription_id is None and 'subscriptionId' in kwargs:
             subscription_id = kwargs['subscriptionId']
-        if 'subscriptionName' in kwargs:
+        if subscription_id is None:
+            raise TypeError("Missing 'subscription_id' argument")
+        if subscription_name is None and 'subscriptionName' in kwargs:
             subscription_name = kwargs['subscriptionName']
+        if subscription_name is None:
+            raise TypeError("Missing 'subscription_name' argument")
 
         _setter("automation_account_name", automation_account_name)
         _setter("certificate_asset_name", certificate_asset_name)
@@ -199,17 +209,17 @@ class _ConnectionClassicCertificateState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              subscription_id: Optional[pulumi.Input[str]] = None,
              subscription_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'automationAccountName' in kwargs:
+        if automation_account_name is None and 'automationAccountName' in kwargs:
             automation_account_name = kwargs['automationAccountName']
-        if 'certificateAssetName' in kwargs:
+        if certificate_asset_name is None and 'certificateAssetName' in kwargs:
             certificate_asset_name = kwargs['certificateAssetName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'subscriptionId' in kwargs:
+        if subscription_id is None and 'subscriptionId' in kwargs:
             subscription_id = kwargs['subscriptionId']
-        if 'subscriptionName' in kwargs:
+        if subscription_name is None and 'subscriptionName' in kwargs:
             subscription_name = kwargs['subscriptionName']
 
         if automation_account_name is not None:
@@ -328,26 +338,6 @@ class ConnectionClassicCertificate(pulumi.CustomResource):
         """
         Manages an Automation Connection with type `AzureClassicCertificate`.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_client_config = azure.core.get_client_config()
-        example_account = azure.automation.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Basic")
-        example_connection_classic_certificate = azure.automation.ConnectionClassicCertificate("exampleConnectionClassicCertificate",
-            resource_group_name=example_resource_group.name,
-            automation_account_name=example_account.name,
-            certificate_asset_name="cert1",
-            subscription_name="subs1",
-            subscription_id=example_client_config.subscription_id)
-        ```
-
         ## Import
 
         Automation Connection can be imported using the `resource id`, e.g.
@@ -374,26 +364,6 @@ class ConnectionClassicCertificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Automation Connection with type `AzureClassicCertificate`.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_client_config = azure.core.get_client_config()
-        example_account = azure.automation.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Basic")
-        example_connection_classic_certificate = azure.automation.ConnectionClassicCertificate("exampleConnectionClassicCertificate",
-            resource_group_name=example_resource_group.name,
-            automation_account_name=example_account.name,
-            certificate_asset_name="cert1",
-            subscription_name="subs1",
-            subscription_id=example_client_config.subscription_id)
-        ```
 
         ## Import
 

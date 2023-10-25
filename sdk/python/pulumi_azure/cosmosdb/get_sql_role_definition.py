@@ -127,17 +127,6 @@ def get_sql_role_definition(account_name: Optional[str] = None,
     """
     Use this data source to access information about an existing Cosmos DB SQL Role Definition.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.cosmosdb.get_sql_role_definition(account_name="tfex-cosmosdb-sql-role-definition-account-name",
-        resource_group_name="tfex-cosmosdb-sql-role-definition-rg",
-        role_definition_id="00000000-0000-0000-0000-000000000000")
-    ```
-
 
     :param str account_name: The name of the Cosmos DB Account.
     :param str resource_group_name: The name of the Resource Group in which the Cosmos DB SQL Role Definition is created.
@@ -168,17 +157,6 @@ def get_sql_role_definition_output(account_name: Optional[pulumi.Input[str]] = N
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlRoleDefinitionResult]:
     """
     Use this data source to access information about an existing Cosmos DB SQL Role Definition.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.cosmosdb.get_sql_role_definition(account_name="tfex-cosmosdb-sql-role-definition-account-name",
-        resource_group_name="tfex-cosmosdb-sql-role-definition-rg",
-        role_definition_id="00000000-0000-0000-0000-000000000000")
-    ```
 
 
     :param str account_name: The name of the Cosmos DB Account.

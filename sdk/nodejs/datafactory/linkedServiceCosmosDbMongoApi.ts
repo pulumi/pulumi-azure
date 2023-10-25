@@ -9,24 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **Note:** All arguments including the client secret will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleLinkedServiceCosmosDbMongoApi = new azure.datafactory.LinkedServiceCosmosDbMongoApi("exampleLinkedServiceCosmosDbMongoApi", {
- *     dataFactoryId: exampleFactory.id,
- *     connectionString: "mongodb://testinstance:testkey@testinstance.documents.azure.com:10255/?ssl=true",
- *     database: "foo",
- * });
- * ```
- *
  * ## Import
  *
  * Data Factory Linked Service's can be imported using the `resource id`, e.g.

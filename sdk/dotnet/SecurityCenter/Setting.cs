@@ -16,25 +16,6 @@ namespace Pulumi.Azure.SecurityCenter
     /// 
     /// &gt; **NOTE:** Deletion of this resource disables the setting.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.SecurityCenter.Setting("example", new()
-    ///     {
-    ///         Enabled = true,
-    ///         SettingName = "MCAS",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// The setting can be imported using the `resource id`, e.g.

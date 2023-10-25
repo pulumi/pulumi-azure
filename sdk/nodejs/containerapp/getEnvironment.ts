@@ -6,18 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Container App Environment.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.containerapp.getEnvironment({
- *     name: "example-environment",
- *     resourceGroupName: "example-resources",
- * });
- * ```
  */
 export function getEnvironment(args: GetEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentResult> {
 
@@ -95,18 +83,6 @@ export interface GetEnvironmentResult {
 }
 /**
  * Use this data source to access information about an existing Container App Environment.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.containerapp.getEnvironment({
- *     name: "example-environment",
- *     resourceGroupName: "example-resources",
- * });
- * ```
  */
 export function getEnvironmentOutput(args: GetEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentResult> {
     return pulumi.output(args).apply((a: any) => getEnvironment(a, opts))

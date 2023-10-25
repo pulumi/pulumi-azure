@@ -7,29 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Sets a Node Configuration value on Azure Cosmos DB for PostgreSQL Cluster.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const examplePostgresqlCluster = new azure.cosmosdb.PostgresqlCluster("examplePostgresqlCluster", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     administratorLoginPassword: "H@Sh1CoR3!",
- *     coordinatorStorageQuotaInMb: 131072,
- *     coordinatorVcoreCount: 2,
- *     nodeCount: 2,
- *     nodeStorageQuotaInMb: 131072,
- *     nodeVcores: 2,
- * });
- * const examplePostgresqlNodeConfiguration = new azure.cosmosdb.PostgresqlNodeConfiguration("examplePostgresqlNodeConfiguration", {
- *     clusterId: examplePostgresqlCluster.id,
- *     value: "on",
- * });
- * ```
- *
  * ## Import
  *
  * Node Configurations on Azure Cosmos DB for PostgreSQL Clusters can be imported using the `resource id`, e.g.

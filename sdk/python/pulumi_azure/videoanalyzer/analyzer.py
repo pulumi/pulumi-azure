@@ -43,18 +43,24 @@ class AnalyzerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             identity: pulumi.Input['AnalyzerIdentityArgs'],
-             resource_group_name: pulumi.Input[str],
-             storage_account: pulumi.Input['AnalyzerStorageAccountArgs'],
+             identity: Optional[pulumi.Input['AnalyzerIdentityArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             storage_account: Optional[pulumi.Input['AnalyzerStorageAccountArgs']] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if identity is None:
+            raise TypeError("Missing 'identity' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'storageAccount' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if storage_account is None and 'storageAccount' in kwargs:
             storage_account = kwargs['storageAccount']
+        if storage_account is None:
+            raise TypeError("Missing 'storage_account' argument")
 
         _setter("identity", identity)
         _setter("resource_group_name", resource_group_name)
@@ -175,11 +181,11 @@ class _AnalyzerState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              storage_account: Optional[pulumi.Input['AnalyzerStorageAccountArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'storageAccount' in kwargs:
+        if storage_account is None and 'storageAccount' in kwargs:
             storage_account = kwargs['storageAccount']
 
         if identity is not None:
@@ -285,49 +291,6 @@ class Analyzer(pulumi.CustomResource):
 
         !> Video Analyzer (Preview) is now Deprecated and will be Retired on 2022-11-30 - as such the `videoanalyzer.Analyzer` resource is deprecated and will be removed in v4.0 of the AzureRM Provider.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        contributor = azure.authorization.Assignment("contributor",
-            scope=example_account.id,
-            role_definition_name="Storage Blob Data Contributor",
-            principal_id=example_user_assigned_identity.principal_id)
-        reader = azure.authorization.Assignment("reader",
-            scope=example_account.id,
-            role_definition_name="Reader",
-            principal_id=example_user_assigned_identity.principal_id)
-        example_analyzer = azure.videoanalyzer.Analyzer("exampleAnalyzer",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            storage_account=azure.videoanalyzer.AnalyzerStorageAccountArgs(
-                id=example_account.id,
-                user_assigned_identity_id=example_user_assigned_identity.id,
-            ),
-            identity=azure.videoanalyzer.AnalyzerIdentityArgs(
-                type="UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ),
-            tags={
-                "environment": "staging",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[
-                    contributor,
-                    reader,
-                ]))
-        ```
-
         ## Import
 
         Video Analyzer can be imported using the `resource id`, e.g.
@@ -355,49 +318,6 @@ class Analyzer(pulumi.CustomResource):
         Manages a Video Analyzer.
 
         !> Video Analyzer (Preview) is now Deprecated and will be Retired on 2022-11-30 - as such the `videoanalyzer.Analyzer` resource is deprecated and will be removed in v4.0 of the AzureRM Provider.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        contributor = azure.authorization.Assignment("contributor",
-            scope=example_account.id,
-            role_definition_name="Storage Blob Data Contributor",
-            principal_id=example_user_assigned_identity.principal_id)
-        reader = azure.authorization.Assignment("reader",
-            scope=example_account.id,
-            role_definition_name="Reader",
-            principal_id=example_user_assigned_identity.principal_id)
-        example_analyzer = azure.videoanalyzer.Analyzer("exampleAnalyzer",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            storage_account=azure.videoanalyzer.AnalyzerStorageAccountArgs(
-                id=example_account.id,
-                user_assigned_identity_id=example_user_assigned_identity.id,
-            ),
-            identity=azure.videoanalyzer.AnalyzerIdentityArgs(
-                type="UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ),
-            tags={
-                "environment": "staging",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[
-                    contributor,
-                    reader,
-                ]))
-        ```
 
         ## Import
 
@@ -441,11 +361,7 @@ class Analyzer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AnalyzerArgs.__new__(AnalyzerArgs)
 
-            if identity is not None and not isinstance(identity, AnalyzerIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                AnalyzerIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, AnalyzerIdentityArgs, True)
             if identity is None and not opts.urn:
                 raise TypeError("Missing required property 'identity'")
             __props__.__dict__["identity"] = identity
@@ -454,11 +370,7 @@ class Analyzer(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if storage_account is not None and not isinstance(storage_account, AnalyzerStorageAccountArgs):
-                storage_account = storage_account or {}
-                def _setter(key, value):
-                    storage_account[key] = value
-                AnalyzerStorageAccountArgs._configure(_setter, **storage_account)
+            storage_account = _utilities.configure(storage_account, AnalyzerStorageAccountArgs, True)
             if storage_account is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account'")
             __props__.__dict__["storage_account"] = storage_account

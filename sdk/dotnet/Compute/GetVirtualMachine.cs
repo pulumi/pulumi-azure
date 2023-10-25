@@ -13,66 +13,12 @@ namespace Pulumi.Azure.Compute
     {
         /// <summary>
         /// Use this data source to access information about an existing Virtual Machine.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Compute.GetVirtualMachine.Invoke(new()
-        ///     {
-        ///         Name = "production",
-        ///         ResourceGroupName = "networking",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["virtualMachineId"] = example.Apply(getVirtualMachineResult =&gt; getVirtualMachineResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetVirtualMachineResult> InvokeAsync(GetVirtualMachineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineResult>("azure:compute/getVirtualMachine:getVirtualMachine", args ?? new GetVirtualMachineArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Virtual Machine.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Compute.GetVirtualMachine.Invoke(new()
-        ///     {
-        ///         Name = "production",
-        ///         ResourceGroupName = "networking",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["virtualMachineId"] = example.Apply(getVirtualMachineResult =&gt; getVirtualMachineResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetVirtualMachineResult> Invoke(GetVirtualMachineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineResult>("azure:compute/getVirtualMachine:getVirtualMachine", args ?? new GetVirtualMachineInvokeArgs(), options.WithDefaults());

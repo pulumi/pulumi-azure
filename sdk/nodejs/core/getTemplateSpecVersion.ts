@@ -6,20 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Template Spec Version.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.core.getTemplateSpecVersion({
- *     name: "exampleTemplateSpec",
- *     resourceGroupName: "MyResourceGroup",
- *     version: "v1.0.4",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getTemplateSpecVersion(args: GetTemplateSpecVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetTemplateSpecVersionResult> {
 
@@ -71,20 +57,6 @@ export interface GetTemplateSpecVersionResult {
 }
 /**
  * Use this data source to access information about an existing Template Spec Version.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.core.getTemplateSpecVersion({
- *     name: "exampleTemplateSpec",
- *     resourceGroupName: "MyResourceGroup",
- *     version: "v1.0.4",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getTemplateSpecVersionOutput(args: GetTemplateSpecVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTemplateSpecVersionResult> {
     return pulumi.output(args).apply((a: any) => getTemplateSpecVersion(a, opts))

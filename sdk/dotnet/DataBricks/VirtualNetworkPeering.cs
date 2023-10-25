@@ -12,58 +12,6 @@ namespace Pulumi.Azure.DataBricks
     /// <summary>
     /// Manages a Databricks Virtual Network Peering
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var remoteVirtualNetwork = new Azure.Network.VirtualNetwork("remoteVirtualNetwork", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         AddressSpaces = new[]
-    ///         {
-    ///             "10.0.1.0/24",
-    ///         },
-    ///         Location = exampleResourceGroup.Location,
-    ///     });
-    /// 
-    ///     var exampleWorkspace = new Azure.DataBricks.Workspace("exampleWorkspace", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         Sku = "standard",
-    ///     });
-    /// 
-    ///     var exampleVirtualNetworkPeering = new Azure.DataBricks.VirtualNetworkPeering("exampleVirtualNetworkPeering", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         WorkspaceId = exampleWorkspace.Id,
-    ///         RemoteAddressSpacePrefixes = remoteVirtualNetwork.AddressSpaces,
-    ///         RemoteVirtualNetworkId = remoteVirtualNetwork.Id,
-    ///         AllowVirtualNetworkAccess = true,
-    ///     });
-    /// 
-    ///     var remoteVirtualNetworkPeering = new Azure.Network.VirtualNetworkPeering("remoteVirtualNetworkPeering", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         VirtualNetworkName = remoteVirtualNetwork.Name,
-    ///         RemoteVirtualNetworkId = exampleVirtualNetworkPeering.VirtualNetworkId,
-    ///         AllowVirtualNetworkAccess = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Databrick Virtual Network Peerings can be imported using the `resource id`, e.g.

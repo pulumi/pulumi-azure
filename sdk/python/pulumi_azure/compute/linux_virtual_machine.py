@@ -194,11 +194,11 @@ class LinuxVirtualMachineArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             admin_username: pulumi.Input[str],
-             network_interface_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             os_disk: pulumi.Input['LinuxVirtualMachineOsDiskArgs'],
-             resource_group_name: pulumi.Input[str],
-             size: pulumi.Input[str],
+             admin_username: Optional[pulumi.Input[str]] = None,
+             network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             os_disk: Optional[pulumi.Input['LinuxVirtualMachineOsDiskArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             size: Optional[pulumi.Input[str]] = None,
              additional_capabilities: Optional[pulumi.Input['LinuxVirtualMachineAdditionalCapabilitiesArgs']] = None,
              admin_password: Optional[pulumi.Input[str]] = None,
              admin_ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineAdminSshKeyArgs']]]] = None,
@@ -240,81 +240,91 @@ class LinuxVirtualMachineArgs:
              virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
              vtpm_enabled: Optional[pulumi.Input[bool]] = None,
              zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'adminUsername' in kwargs:
+        if admin_username is None and 'adminUsername' in kwargs:
             admin_username = kwargs['adminUsername']
-        if 'networkInterfaceIds' in kwargs:
+        if admin_username is None:
+            raise TypeError("Missing 'admin_username' argument")
+        if network_interface_ids is None and 'networkInterfaceIds' in kwargs:
             network_interface_ids = kwargs['networkInterfaceIds']
-        if 'osDisk' in kwargs:
+        if network_interface_ids is None:
+            raise TypeError("Missing 'network_interface_ids' argument")
+        if os_disk is None and 'osDisk' in kwargs:
             os_disk = kwargs['osDisk']
-        if 'resourceGroupName' in kwargs:
+        if os_disk is None:
+            raise TypeError("Missing 'os_disk' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'additionalCapabilities' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if size is None:
+            raise TypeError("Missing 'size' argument")
+        if additional_capabilities is None and 'additionalCapabilities' in kwargs:
             additional_capabilities = kwargs['additionalCapabilities']
-        if 'adminPassword' in kwargs:
+        if admin_password is None and 'adminPassword' in kwargs:
             admin_password = kwargs['adminPassword']
-        if 'adminSshKeys' in kwargs:
+        if admin_ssh_keys is None and 'adminSshKeys' in kwargs:
             admin_ssh_keys = kwargs['adminSshKeys']
-        if 'allowExtensionOperations' in kwargs:
+        if allow_extension_operations is None and 'allowExtensionOperations' in kwargs:
             allow_extension_operations = kwargs['allowExtensionOperations']
-        if 'availabilitySetId' in kwargs:
+        if availability_set_id is None and 'availabilitySetId' in kwargs:
             availability_set_id = kwargs['availabilitySetId']
-        if 'bootDiagnostics' in kwargs:
+        if boot_diagnostics is None and 'bootDiagnostics' in kwargs:
             boot_diagnostics = kwargs['bootDiagnostics']
-        if 'bypassPlatformSafetyChecksOnUserScheduleEnabled' in kwargs:
+        if bypass_platform_safety_checks_on_user_schedule_enabled is None and 'bypassPlatformSafetyChecksOnUserScheduleEnabled' in kwargs:
             bypass_platform_safety_checks_on_user_schedule_enabled = kwargs['bypassPlatformSafetyChecksOnUserScheduleEnabled']
-        if 'capacityReservationGroupId' in kwargs:
+        if capacity_reservation_group_id is None and 'capacityReservationGroupId' in kwargs:
             capacity_reservation_group_id = kwargs['capacityReservationGroupId']
-        if 'computerName' in kwargs:
+        if computer_name is None and 'computerName' in kwargs:
             computer_name = kwargs['computerName']
-        if 'customData' in kwargs:
+        if custom_data is None and 'customData' in kwargs:
             custom_data = kwargs['customData']
-        if 'dedicatedHostGroupId' in kwargs:
+        if dedicated_host_group_id is None and 'dedicatedHostGroupId' in kwargs:
             dedicated_host_group_id = kwargs['dedicatedHostGroupId']
-        if 'dedicatedHostId' in kwargs:
+        if dedicated_host_id is None and 'dedicatedHostId' in kwargs:
             dedicated_host_id = kwargs['dedicatedHostId']
-        if 'disablePasswordAuthentication' in kwargs:
+        if disable_password_authentication is None and 'disablePasswordAuthentication' in kwargs:
             disable_password_authentication = kwargs['disablePasswordAuthentication']
-        if 'edgeZone' in kwargs:
+        if edge_zone is None and 'edgeZone' in kwargs:
             edge_zone = kwargs['edgeZone']
-        if 'encryptionAtHostEnabled' in kwargs:
+        if encryption_at_host_enabled is None and 'encryptionAtHostEnabled' in kwargs:
             encryption_at_host_enabled = kwargs['encryptionAtHostEnabled']
-        if 'evictionPolicy' in kwargs:
+        if eviction_policy is None and 'evictionPolicy' in kwargs:
             eviction_policy = kwargs['evictionPolicy']
-        if 'extensionsTimeBudget' in kwargs:
+        if extensions_time_budget is None and 'extensionsTimeBudget' in kwargs:
             extensions_time_budget = kwargs['extensionsTimeBudget']
-        if 'galleryApplications' in kwargs:
+        if gallery_applications is None and 'galleryApplications' in kwargs:
             gallery_applications = kwargs['galleryApplications']
-        if 'licenseType' in kwargs:
+        if license_type is None and 'licenseType' in kwargs:
             license_type = kwargs['licenseType']
-        if 'maxBidPrice' in kwargs:
+        if max_bid_price is None and 'maxBidPrice' in kwargs:
             max_bid_price = kwargs['maxBidPrice']
-        if 'patchAssessmentMode' in kwargs:
+        if patch_assessment_mode is None and 'patchAssessmentMode' in kwargs:
             patch_assessment_mode = kwargs['patchAssessmentMode']
-        if 'patchMode' in kwargs:
+        if patch_mode is None and 'patchMode' in kwargs:
             patch_mode = kwargs['patchMode']
-        if 'platformFaultDomain' in kwargs:
+        if platform_fault_domain is None and 'platformFaultDomain' in kwargs:
             platform_fault_domain = kwargs['platformFaultDomain']
-        if 'provisionVmAgent' in kwargs:
+        if provision_vm_agent is None and 'provisionVmAgent' in kwargs:
             provision_vm_agent = kwargs['provisionVmAgent']
-        if 'proximityPlacementGroupId' in kwargs:
+        if proximity_placement_group_id is None and 'proximityPlacementGroupId' in kwargs:
             proximity_placement_group_id = kwargs['proximityPlacementGroupId']
-        if 'rebootSetting' in kwargs:
+        if reboot_setting is None and 'rebootSetting' in kwargs:
             reboot_setting = kwargs['rebootSetting']
-        if 'secureBootEnabled' in kwargs:
+        if secure_boot_enabled is None and 'secureBootEnabled' in kwargs:
             secure_boot_enabled = kwargs['secureBootEnabled']
-        if 'sourceImageId' in kwargs:
+        if source_image_id is None and 'sourceImageId' in kwargs:
             source_image_id = kwargs['sourceImageId']
-        if 'sourceImageReference' in kwargs:
+        if source_image_reference is None and 'sourceImageReference' in kwargs:
             source_image_reference = kwargs['sourceImageReference']
-        if 'terminationNotification' in kwargs:
+        if termination_notification is None and 'terminationNotification' in kwargs:
             termination_notification = kwargs['terminationNotification']
-        if 'userData' in kwargs:
+        if user_data is None and 'userData' in kwargs:
             user_data = kwargs['userData']
-        if 'virtualMachineScaleSetId' in kwargs:
+        if virtual_machine_scale_set_id is None and 'virtualMachineScaleSetId' in kwargs:
             virtual_machine_scale_set_id = kwargs['virtualMachineScaleSetId']
-        if 'vtpmEnabled' in kwargs:
+        if vtpm_enabled is None and 'vtpmEnabled' in kwargs:
             vtpm_enabled = kwargs['vtpmEnabled']
 
         _setter("admin_username", admin_username)
@@ -1236,91 +1246,91 @@ class _LinuxVirtualMachineState:
              virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
              vtpm_enabled: Optional[pulumi.Input[bool]] = None,
              zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'additionalCapabilities' in kwargs:
+        if additional_capabilities is None and 'additionalCapabilities' in kwargs:
             additional_capabilities = kwargs['additionalCapabilities']
-        if 'adminPassword' in kwargs:
+        if admin_password is None and 'adminPassword' in kwargs:
             admin_password = kwargs['adminPassword']
-        if 'adminSshKeys' in kwargs:
+        if admin_ssh_keys is None and 'adminSshKeys' in kwargs:
             admin_ssh_keys = kwargs['adminSshKeys']
-        if 'adminUsername' in kwargs:
+        if admin_username is None and 'adminUsername' in kwargs:
             admin_username = kwargs['adminUsername']
-        if 'allowExtensionOperations' in kwargs:
+        if allow_extension_operations is None and 'allowExtensionOperations' in kwargs:
             allow_extension_operations = kwargs['allowExtensionOperations']
-        if 'availabilitySetId' in kwargs:
+        if availability_set_id is None and 'availabilitySetId' in kwargs:
             availability_set_id = kwargs['availabilitySetId']
-        if 'bootDiagnostics' in kwargs:
+        if boot_diagnostics is None and 'bootDiagnostics' in kwargs:
             boot_diagnostics = kwargs['bootDiagnostics']
-        if 'bypassPlatformSafetyChecksOnUserScheduleEnabled' in kwargs:
+        if bypass_platform_safety_checks_on_user_schedule_enabled is None and 'bypassPlatformSafetyChecksOnUserScheduleEnabled' in kwargs:
             bypass_platform_safety_checks_on_user_schedule_enabled = kwargs['bypassPlatformSafetyChecksOnUserScheduleEnabled']
-        if 'capacityReservationGroupId' in kwargs:
+        if capacity_reservation_group_id is None and 'capacityReservationGroupId' in kwargs:
             capacity_reservation_group_id = kwargs['capacityReservationGroupId']
-        if 'computerName' in kwargs:
+        if computer_name is None and 'computerName' in kwargs:
             computer_name = kwargs['computerName']
-        if 'customData' in kwargs:
+        if custom_data is None and 'customData' in kwargs:
             custom_data = kwargs['customData']
-        if 'dedicatedHostGroupId' in kwargs:
+        if dedicated_host_group_id is None and 'dedicatedHostGroupId' in kwargs:
             dedicated_host_group_id = kwargs['dedicatedHostGroupId']
-        if 'dedicatedHostId' in kwargs:
+        if dedicated_host_id is None and 'dedicatedHostId' in kwargs:
             dedicated_host_id = kwargs['dedicatedHostId']
-        if 'disablePasswordAuthentication' in kwargs:
+        if disable_password_authentication is None and 'disablePasswordAuthentication' in kwargs:
             disable_password_authentication = kwargs['disablePasswordAuthentication']
-        if 'edgeZone' in kwargs:
+        if edge_zone is None and 'edgeZone' in kwargs:
             edge_zone = kwargs['edgeZone']
-        if 'encryptionAtHostEnabled' in kwargs:
+        if encryption_at_host_enabled is None and 'encryptionAtHostEnabled' in kwargs:
             encryption_at_host_enabled = kwargs['encryptionAtHostEnabled']
-        if 'evictionPolicy' in kwargs:
+        if eviction_policy is None and 'evictionPolicy' in kwargs:
             eviction_policy = kwargs['evictionPolicy']
-        if 'extensionsTimeBudget' in kwargs:
+        if extensions_time_budget is None and 'extensionsTimeBudget' in kwargs:
             extensions_time_budget = kwargs['extensionsTimeBudget']
-        if 'galleryApplications' in kwargs:
+        if gallery_applications is None and 'galleryApplications' in kwargs:
             gallery_applications = kwargs['galleryApplications']
-        if 'licenseType' in kwargs:
+        if license_type is None and 'licenseType' in kwargs:
             license_type = kwargs['licenseType']
-        if 'maxBidPrice' in kwargs:
+        if max_bid_price is None and 'maxBidPrice' in kwargs:
             max_bid_price = kwargs['maxBidPrice']
-        if 'networkInterfaceIds' in kwargs:
+        if network_interface_ids is None and 'networkInterfaceIds' in kwargs:
             network_interface_ids = kwargs['networkInterfaceIds']
-        if 'osDisk' in kwargs:
+        if os_disk is None and 'osDisk' in kwargs:
             os_disk = kwargs['osDisk']
-        if 'patchAssessmentMode' in kwargs:
+        if patch_assessment_mode is None and 'patchAssessmentMode' in kwargs:
             patch_assessment_mode = kwargs['patchAssessmentMode']
-        if 'patchMode' in kwargs:
+        if patch_mode is None and 'patchMode' in kwargs:
             patch_mode = kwargs['patchMode']
-        if 'platformFaultDomain' in kwargs:
+        if platform_fault_domain is None and 'platformFaultDomain' in kwargs:
             platform_fault_domain = kwargs['platformFaultDomain']
-        if 'privateIpAddress' in kwargs:
+        if private_ip_address is None and 'privateIpAddress' in kwargs:
             private_ip_address = kwargs['privateIpAddress']
-        if 'privateIpAddresses' in kwargs:
+        if private_ip_addresses is None and 'privateIpAddresses' in kwargs:
             private_ip_addresses = kwargs['privateIpAddresses']
-        if 'provisionVmAgent' in kwargs:
+        if provision_vm_agent is None and 'provisionVmAgent' in kwargs:
             provision_vm_agent = kwargs['provisionVmAgent']
-        if 'proximityPlacementGroupId' in kwargs:
+        if proximity_placement_group_id is None and 'proximityPlacementGroupId' in kwargs:
             proximity_placement_group_id = kwargs['proximityPlacementGroupId']
-        if 'publicIpAddress' in kwargs:
+        if public_ip_address is None and 'publicIpAddress' in kwargs:
             public_ip_address = kwargs['publicIpAddress']
-        if 'publicIpAddresses' in kwargs:
+        if public_ip_addresses is None and 'publicIpAddresses' in kwargs:
             public_ip_addresses = kwargs['publicIpAddresses']
-        if 'rebootSetting' in kwargs:
+        if reboot_setting is None and 'rebootSetting' in kwargs:
             reboot_setting = kwargs['rebootSetting']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'secureBootEnabled' in kwargs:
+        if secure_boot_enabled is None and 'secureBootEnabled' in kwargs:
             secure_boot_enabled = kwargs['secureBootEnabled']
-        if 'sourceImageId' in kwargs:
+        if source_image_id is None and 'sourceImageId' in kwargs:
             source_image_id = kwargs['sourceImageId']
-        if 'sourceImageReference' in kwargs:
+        if source_image_reference is None and 'sourceImageReference' in kwargs:
             source_image_reference = kwargs['sourceImageReference']
-        if 'terminationNotification' in kwargs:
+        if termination_notification is None and 'terminationNotification' in kwargs:
             termination_notification = kwargs['terminationNotification']
-        if 'userData' in kwargs:
+        if user_data is None and 'userData' in kwargs:
             user_data = kwargs['userData']
-        if 'virtualMachineId' in kwargs:
+        if virtual_machine_id is None and 'virtualMachineId' in kwargs:
             virtual_machine_id = kwargs['virtualMachineId']
-        if 'virtualMachineScaleSetId' in kwargs:
+        if virtual_machine_scale_set_id is None and 'virtualMachineScaleSetId' in kwargs:
             virtual_machine_scale_set_id = kwargs['virtualMachineScaleSetId']
-        if 'vtpmEnabled' in kwargs:
+        if vtpm_enabled is None and 'vtpmEnabled' in kwargs:
             vtpm_enabled = kwargs['vtpmEnabled']
 
         if additional_capabilities is not None:
@@ -2137,53 +2147,6 @@ class LinuxVirtualMachine(pulumi.CustomResource):
 
         > In this release there's a known issue where the `public_ip_address` and `public_ip_addresses` fields may not be fully populated for Dynamic Public IP's.
 
-        ## Example Usage
-
-        This example provisions a basic Linux Virtual Machine on an internal network.
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="internal",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
-        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("exampleLinuxVirtualMachine",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            size="Standard_F2",
-            admin_username="adminuser",
-            network_interface_ids=[example_network_interface.id],
-            admin_ssh_keys=[azure.compute.LinuxVirtualMachineAdminSshKeyArgs(
-                username="adminuser",
-                public_key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"),
-            )],
-            os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
-                caching="ReadWrite",
-                storage_account_type="Standard_LRS",
-            ),
-            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-focal",
-                sku="20_04-lts",
-                version="latest",
-            ))
-        ```
-
         ## Import
 
         Linux Virtual Machines can be imported using the `resource id`, e.g.
@@ -2293,53 +2256,6 @@ class LinuxVirtualMachine(pulumi.CustomResource):
 
         > In this release there's a known issue where the `public_ip_address` and `public_ip_addresses` fields may not be fully populated for Dynamic Public IP's.
 
-        ## Example Usage
-
-        This example provisions a basic Linux Virtual Machine on an internal network.
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="internal",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
-        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("exampleLinuxVirtualMachine",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            size="Standard_F2",
-            admin_username="adminuser",
-            network_interface_ids=[example_network_interface.id],
-            admin_ssh_keys=[azure.compute.LinuxVirtualMachineAdminSshKeyArgs(
-                username="adminuser",
-                public_key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"),
-            )],
-            os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
-                caching="ReadWrite",
-                storage_account_type="Standard_LRS",
-            ),
-            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-focal",
-                sku="20_04-lts",
-                version="latest",
-            ))
-        ```
-
         ## Import
 
         Linux Virtual Machines can be imported using the `resource id`, e.g.
@@ -2422,11 +2338,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LinuxVirtualMachineArgs.__new__(LinuxVirtualMachineArgs)
 
-            if additional_capabilities is not None and not isinstance(additional_capabilities, LinuxVirtualMachineAdditionalCapabilitiesArgs):
-                additional_capabilities = additional_capabilities or {}
-                def _setter(key, value):
-                    additional_capabilities[key] = value
-                LinuxVirtualMachineAdditionalCapabilitiesArgs._configure(_setter, **additional_capabilities)
+            additional_capabilities = _utilities.configure(additional_capabilities, LinuxVirtualMachineAdditionalCapabilitiesArgs, True)
             __props__.__dict__["additional_capabilities"] = additional_capabilities
             __props__.__dict__["admin_password"] = None if admin_password is None else pulumi.Output.secret(admin_password)
             __props__.__dict__["admin_ssh_keys"] = admin_ssh_keys
@@ -2435,11 +2347,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             __props__.__dict__["admin_username"] = admin_username
             __props__.__dict__["allow_extension_operations"] = allow_extension_operations
             __props__.__dict__["availability_set_id"] = availability_set_id
-            if boot_diagnostics is not None and not isinstance(boot_diagnostics, LinuxVirtualMachineBootDiagnosticsArgs):
-                boot_diagnostics = boot_diagnostics or {}
-                def _setter(key, value):
-                    boot_diagnostics[key] = value
-                LinuxVirtualMachineBootDiagnosticsArgs._configure(_setter, **boot_diagnostics)
+            boot_diagnostics = _utilities.configure(boot_diagnostics, LinuxVirtualMachineBootDiagnosticsArgs, True)
             __props__.__dict__["boot_diagnostics"] = boot_diagnostics
             __props__.__dict__["bypass_platform_safety_checks_on_user_schedule_enabled"] = bypass_platform_safety_checks_on_user_schedule_enabled
             __props__.__dict__["capacity_reservation_group_id"] = capacity_reservation_group_id
@@ -2453,11 +2361,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             __props__.__dict__["eviction_policy"] = eviction_policy
             __props__.__dict__["extensions_time_budget"] = extensions_time_budget
             __props__.__dict__["gallery_applications"] = gallery_applications
-            if identity is not None and not isinstance(identity, LinuxVirtualMachineIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                LinuxVirtualMachineIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, LinuxVirtualMachineIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["license_type"] = license_type
             __props__.__dict__["location"] = location
@@ -2466,21 +2370,13 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             if network_interface_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'network_interface_ids'")
             __props__.__dict__["network_interface_ids"] = network_interface_ids
-            if os_disk is not None and not isinstance(os_disk, LinuxVirtualMachineOsDiskArgs):
-                os_disk = os_disk or {}
-                def _setter(key, value):
-                    os_disk[key] = value
-                LinuxVirtualMachineOsDiskArgs._configure(_setter, **os_disk)
+            os_disk = _utilities.configure(os_disk, LinuxVirtualMachineOsDiskArgs, True)
             if os_disk is None and not opts.urn:
                 raise TypeError("Missing required property 'os_disk'")
             __props__.__dict__["os_disk"] = os_disk
             __props__.__dict__["patch_assessment_mode"] = patch_assessment_mode
             __props__.__dict__["patch_mode"] = patch_mode
-            if plan is not None and not isinstance(plan, LinuxVirtualMachinePlanArgs):
-                plan = plan or {}
-                def _setter(key, value):
-                    plan[key] = value
-                LinuxVirtualMachinePlanArgs._configure(_setter, **plan)
+            plan = _utilities.configure(plan, LinuxVirtualMachinePlanArgs, True)
             __props__.__dict__["plan"] = plan
             __props__.__dict__["platform_fault_domain"] = platform_fault_domain
             __props__.__dict__["priority"] = priority
@@ -2496,18 +2392,10 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                 raise TypeError("Missing required property 'size'")
             __props__.__dict__["size"] = size
             __props__.__dict__["source_image_id"] = source_image_id
-            if source_image_reference is not None and not isinstance(source_image_reference, LinuxVirtualMachineSourceImageReferenceArgs):
-                source_image_reference = source_image_reference or {}
-                def _setter(key, value):
-                    source_image_reference[key] = value
-                LinuxVirtualMachineSourceImageReferenceArgs._configure(_setter, **source_image_reference)
+            source_image_reference = _utilities.configure(source_image_reference, LinuxVirtualMachineSourceImageReferenceArgs, True)
             __props__.__dict__["source_image_reference"] = source_image_reference
             __props__.__dict__["tags"] = tags
-            if termination_notification is not None and not isinstance(termination_notification, LinuxVirtualMachineTerminationNotificationArgs):
-                termination_notification = termination_notification or {}
-                def _setter(key, value):
-                    termination_notification[key] = value
-                LinuxVirtualMachineTerminationNotificationArgs._configure(_setter, **termination_notification)
+            termination_notification = _utilities.configure(termination_notification, LinuxVirtualMachineTerminationNotificationArgs, True)
             __props__.__dict__["termination_notification"] = termination_notification
             __props__.__dict__["user_data"] = user_data
             __props__.__dict__["virtual_machine_scale_set_id"] = virtual_machine_scale_set_id

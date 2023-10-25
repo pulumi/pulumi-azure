@@ -38,18 +38,22 @@ class LocalRulestackPrefixListArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             prefix_lists: pulumi.Input[Sequence[pulumi.Input[str]]],
-             rulestack_id: pulumi.Input[str],
+             prefix_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             rulestack_id: Optional[pulumi.Input[str]] = None,
              audit_comment: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'prefixLists' in kwargs:
+        if prefix_lists is None and 'prefixLists' in kwargs:
             prefix_lists = kwargs['prefixLists']
-        if 'rulestackId' in kwargs:
+        if prefix_lists is None:
+            raise TypeError("Missing 'prefix_lists' argument")
+        if rulestack_id is None and 'rulestackId' in kwargs:
             rulestack_id = kwargs['rulestackId']
-        if 'auditComment' in kwargs:
+        if rulestack_id is None:
+            raise TypeError("Missing 'rulestack_id' argument")
+        if audit_comment is None and 'auditComment' in kwargs:
             audit_comment = kwargs['auditComment']
 
         _setter("prefix_lists", prefix_lists)
@@ -154,13 +158,13 @@ class _LocalRulestackPrefixListState:
              name: Optional[pulumi.Input[str]] = None,
              prefix_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              rulestack_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'auditComment' in kwargs:
+        if audit_comment is None and 'auditComment' in kwargs:
             audit_comment = kwargs['auditComment']
-        if 'prefixLists' in kwargs:
+        if prefix_lists is None and 'prefixLists' in kwargs:
             prefix_lists = kwargs['prefixLists']
-        if 'rulestackId' in kwargs:
+        if rulestack_id is None and 'rulestackId' in kwargs:
             rulestack_id = kwargs['rulestackId']
 
         if audit_comment is not None:
@@ -249,21 +253,6 @@ class LocalRulestackPrefixList(pulumi.CustomResource):
         """
         Manages a Palo Alto Local Rulestack Prefix List.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_local_rulestack = azure.paloalto.LocalRulestack("exampleLocalRulestack",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_local_rulestack_prefix_list = azure.paloalto.LocalRulestackPrefixList("exampleLocalRulestackPrefixList",
-            rulestack_id=example_local_rulestack.id,
-            prefix_lists=["10.0.1.0/24"])
-        ```
-
         ## Import
 
         Palo Alto Local Rulestack Prefix Lists can be imported using the `resource id`, e.g.
@@ -288,21 +277,6 @@ class LocalRulestackPrefixList(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Palo Alto Local Rulestack Prefix List.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_local_rulestack = azure.paloalto.LocalRulestack("exampleLocalRulestack",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_local_rulestack_prefix_list = azure.paloalto.LocalRulestackPrefixList("exampleLocalRulestackPrefixList",
-            rulestack_id=example_local_rulestack.id,
-            prefix_lists=["10.0.1.0/24"])
-        ```
 
         ## Import
 

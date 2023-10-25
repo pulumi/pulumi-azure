@@ -29,12 +29,16 @@ class AdvancedThreatProtectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
-             target_resource_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'targetResourceId' in kwargs:
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
+        if target_resource_id is None:
+            raise TypeError("Missing 'target_resource_id' argument")
 
         _setter("enabled", enabled)
         _setter("target_resource_id", target_resource_id)
@@ -84,9 +88,9 @@ class _AdvancedThreatProtectionState:
              _setter: Callable[[Any, Any], None],
              enabled: Optional[pulumi.Input[bool]] = None,
              target_resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'targetResourceId' in kwargs:
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
 
         if enabled is not None:
@@ -130,26 +134,6 @@ class AdvancedThreatProtection(pulumi.CustomResource):
         """
         Manages a resources Advanced Threat Protection setting.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            tags={
-                "environment": "example",
-            })
-        example_advanced_threat_protection = azure.securitycenter.AdvancedThreatProtection("exampleAdvancedThreatProtection",
-            target_resource_id=example_account.id,
-            enabled=True)
-        ```
-
         ## Import
 
         Advanced Threat Protection can be imported using the `resource id`, e.g.
@@ -171,26 +155,6 @@ class AdvancedThreatProtection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a resources Advanced Threat Protection setting.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            tags={
-                "environment": "example",
-            })
-        example_advanced_threat_protection = azure.securitycenter.AdvancedThreatProtection("exampleAdvancedThreatProtection",
-            target_resource_id=example_account.id,
-            enabled=True)
-        ```
 
         ## Import
 

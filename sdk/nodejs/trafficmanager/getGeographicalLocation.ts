@@ -8,17 +8,6 @@ import * as utilities from "../utilities";
  * Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
  *
  * ## Example Usage
- * ### World)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.network.getTrafficManager({
- *     name: "World",
- * });
- * export const locationCode = example.then(example => example.id);
- * ```
  */
 /** @deprecated azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager */
 export function getGeographicalLocation(args: GetGeographicalLocationArgs, opts?: pulumi.InvokeOptions): Promise<GetGeographicalLocationResult> {
@@ -54,17 +43,6 @@ export interface GetGeographicalLocationResult {
  * Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
  *
  * ## Example Usage
- * ### World)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.network.getTrafficManager({
- *     name: "World",
- * });
- * export const locationCode = example.then(example => example.id);
- * ```
  */
 /** @deprecated azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager */
 export function getGeographicalLocationOutput(args: GetGeographicalLocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGeographicalLocationResult> {

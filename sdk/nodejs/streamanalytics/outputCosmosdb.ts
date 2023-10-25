@@ -7,52 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Stream Analytics Output to CosmosDB.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleJob = azure.streamanalytics.getJobOutput({
- *     name: "example-job",
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleAccount = new azure.cosmosdb.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     offerType: "Standard",
- *     kind: "GlobalDocumentDB",
- *     consistencyPolicy: {
- *         consistencyLevel: "BoundedStaleness",
- *         maxIntervalInSeconds: 10,
- *         maxStalenessPrefix: 200,
- *     },
- *     geoLocations: [{
- *         location: exampleResourceGroup.location,
- *         failoverPriority: 0,
- *     }],
- * });
- * const exampleSqlDatabase = new azure.cosmosdb.SqlDatabase("exampleSqlDatabase", {
- *     resourceGroupName: exampleAccount.resourceGroupName,
- *     accountName: exampleAccount.name,
- *     throughput: 400,
- * });
- * const exampleSqlContainer = new azure.cosmosdb.SqlContainer("exampleSqlContainer", {
- *     resourceGroupName: exampleAccount.resourceGroupName,
- *     accountName: exampleAccount.name,
- *     databaseName: exampleSqlDatabase.name,
- *     partitionKeyPath: "foo",
- * });
- * const exampleOutputCosmosdb = new azure.streamanalytics.OutputCosmosdb("exampleOutputCosmosdb", {
- *     streamAnalyticsJobId: exampleJob.apply(exampleJob => exampleJob.id),
- *     cosmosdbAccountKey: exampleAccount.primaryKey,
- *     cosmosdbSqlDatabaseId: exampleSqlDatabase.id,
- *     containerName: exampleSqlContainer.name,
- *     documentId: "exampledocumentid",
- * });
- * ```
- *
  * ## Import
  *
  * Stream Analytics Outputs for CosmosDB can be imported using the `resource id`, e.g.

@@ -13,66 +13,12 @@ namespace Pulumi.Azure.KeyVault
     {
         /// <summary>
         /// Use this data source to access information about an existing Key Vault Secret.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.KeyVault.GetSecret.Invoke(new()
-        ///     {
-        ///         Name = "secret-sauce",
-        ///         KeyVaultId = data.Azurerm_key_vault.Existing.Id,
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["secretValue"] = example.Apply(getSecretResult =&gt; getSecretResult.Value),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetSecretResult> InvokeAsync(GetSecretArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("azure:keyvault/getSecret:getSecret", args ?? new GetSecretArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Key Vault Secret.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.KeyVault.GetSecret.Invoke(new()
-        ///     {
-        ///         Name = "secret-sauce",
-        ///         KeyVaultId = data.Azurerm_key_vault.Existing.Id,
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["secretValue"] = example.Apply(getSecretResult =&gt; getSecretResult.Value),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetSecretResult> Invoke(GetSecretInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecretResult>("azure:keyvault/getSecret:getSecret", args ?? new GetSecretInvokeArgs(), options.WithDefaults());

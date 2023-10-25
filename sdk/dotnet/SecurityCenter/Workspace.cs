@@ -14,37 +14,6 @@ namespace Pulumi.Azure.SecurityCenter
     /// 
     /// &gt; **NOTE:** Owner access permission is required.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Sku = "PerGB2018",
-    ///     });
-    /// 
-    ///     var exampleWorkspace = new Azure.SecurityCenter.Workspace("exampleWorkspace", new()
-    ///     {
-    ///         Scope = "/subscriptions/00000000-0000-0000-0000-000000000000",
-    ///         WorkspaceId = exampleAnalyticsWorkspace.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// The contact can be imported using the `resource id`, e.g.

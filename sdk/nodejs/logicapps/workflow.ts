@@ -9,19 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Logic App Workflow.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleWorkflow = new azure.logicapps.Workflow("exampleWorkflow", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * ```
- *
  * ## Import
  *
  * Logic App Workflows can be imported using the `resource id`, e.g.

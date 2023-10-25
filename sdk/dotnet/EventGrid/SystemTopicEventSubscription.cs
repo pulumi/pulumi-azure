@@ -12,60 +12,6 @@ namespace Pulumi.Azure.EventGrid
     /// <summary>
     /// Manages an EventGrid System Topic Event Subscription.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         AccountTier = "Standard",
-    ///         AccountReplicationType = "LRS",
-    ///         Tags = 
-    ///         {
-    ///             { "environment", "staging" },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleQueue = new Azure.Storage.Queue("exampleQueue", new()
-    ///     {
-    ///         StorageAccountName = exampleAccount.Name,
-    ///     });
-    /// 
-    ///     var exampleSystemTopic = new Azure.EventGrid.SystemTopic("exampleSystemTopic", new()
-    ///     {
-    ///         Location = "Global",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         SourceArmResourceId = exampleResourceGroup.Id,
-    ///         TopicType = "Microsoft.Resources.ResourceGroups",
-    ///     });
-    /// 
-    ///     var exampleSystemTopicEventSubscription = new Azure.EventGrid.SystemTopicEventSubscription("exampleSystemTopicEventSubscription", new()
-    ///     {
-    ///         SystemTopic = exampleSystemTopic.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         StorageQueueEndpoint = new Azure.EventGrid.Inputs.SystemTopicEventSubscriptionStorageQueueEndpointArgs
-    ///         {
-    ///             StorageAccountId = exampleAccount.Id,
-    ///             QueueName = exampleQueue.Name,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// EventGrid System Topic Event Subscriptions can be imported using the `resource id`, e.g.

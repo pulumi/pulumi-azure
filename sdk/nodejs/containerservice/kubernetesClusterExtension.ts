@@ -9,32 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Kubernetes Cluster Extension.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleKubernetesCluster = new azure.containerservice.KubernetesCluster("exampleKubernetesCluster", {
- *     location: "West Europe",
- *     resourceGroupName: exampleResourceGroup.name,
- *     dnsPrefix: "example-aks",
- *     defaultNodePool: {
- *         name: "default",
- *         nodeCount: 1,
- *         vmSize: "Standard_DS2_v2",
- *     },
- *     identity: {
- *         type: "SystemAssigned",
- *     },
- * });
- * const exampleKubernetesClusterExtension = new azure.containerservice.KubernetesClusterExtension("exampleKubernetesClusterExtension", {
- *     clusterId: exampleKubernetesCluster.id,
- *     extensionType: "microsoft.flux",
- * });
- * ```
- *
  * ## Import
  *
  * Kubernetes Cluster Extension can be imported using the `resource id` for different `cluster_resource_name`, e.g.

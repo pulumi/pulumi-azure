@@ -11,67 +11,9 @@ namespace Pulumi.Azure.Dns
 {
     public static class GetARecord
     {
-        /// <summary>
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Dns.GetARecord.Invoke(new()
-        ///     {
-        ///         Name = "test",
-        ///         ZoneName = "test-zone",
-        ///         ResourceGroupName = "test-rg",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["dnsARecordId"] = example.Apply(getARecordResult =&gt; getARecordResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetARecordResult> InvokeAsync(GetARecordArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetARecordResult>("azure:dns/getARecord:getARecord", args ?? new GetARecordArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Dns.GetARecord.Invoke(new()
-        ///     {
-        ///         Name = "test",
-        ///         ZoneName = "test-zone",
-        ///         ResourceGroupName = "test-rg",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["dnsARecordId"] = example.Apply(getARecordResult =&gt; getARecordResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetARecordResult> Invoke(GetARecordInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetARecordResult>("azure:dns/getARecord:getARecord", args ?? new GetARecordInvokeArgs(), options.WithDefaults());
     }

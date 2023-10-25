@@ -13,68 +13,12 @@ namespace Pulumi.Azure.DataProtection
     {
         /// <summary>
         /// Use this data source to access information about an existing Backup Vault.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.DataProtection.GetBackupVault.Invoke(new()
-        ///     {
-        ///         Name = "existing-backup-vault",
-        ///         ResourceGroupName = "existing-resource-group",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["azurermDataProtectionBackupVaultId"] = data.Azurerm_vpn_gateway.Example.Id,
-        ///         ["azurermDataProtectionBackupVaultPrincipalId"] = example.Apply(getBackupVaultResult =&gt; getBackupVaultResult.Identities[0]?.PrincipalId),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetBackupVaultResult> InvokeAsync(GetBackupVaultArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBackupVaultResult>("azure:dataprotection/getBackupVault:getBackupVault", args ?? new GetBackupVaultArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Backup Vault.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.DataProtection.GetBackupVault.Invoke(new()
-        ///     {
-        ///         Name = "existing-backup-vault",
-        ///         ResourceGroupName = "existing-resource-group",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["azurermDataProtectionBackupVaultId"] = data.Azurerm_vpn_gateway.Example.Id,
-        ///         ["azurermDataProtectionBackupVaultPrincipalId"] = example.Apply(getBackupVaultResult =&gt; getBackupVaultResult.Identities[0]?.PrincipalId),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetBackupVaultResult> Invoke(GetBackupVaultInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBackupVaultResult>("azure:dataprotection/getBackupVault:getBackupVault", args ?? new GetBackupVaultInvokeArgs(), options.WithDefaults());

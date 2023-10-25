@@ -6,18 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Get information about an Azure Mobile Network.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.mobile.getNetwork({
- *     name: "example-mn",
- *     resourceGroupName: azurerm_resource_group.example.name,
- * });
- * ```
  */
 export function getNetwork(args: GetNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkResult> {
 
@@ -75,18 +63,6 @@ export interface GetNetworkResult {
 }
 /**
  * Get information about an Azure Mobile Network.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.mobile.getNetwork({
- *     name: "example-mn",
- *     resourceGroupName: azurerm_resource_group.example.name,
- * });
- * ```
  */
 export function getNetworkOutput(args: GetNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkResult> {
     return pulumi.output(args).apply((a: any) => getNetwork(a, opts))

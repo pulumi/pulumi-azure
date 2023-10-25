@@ -15,55 +15,6 @@ import (
 
 // Manages an iot security solution.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleIoTHub, err := iot.NewIoTHub(ctx, "exampleIoTHub", &iot.IoTHubArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
-//				Sku: &iot.IoTHubSkuArgs{
-//					Name:     pulumi.String("S1"),
-//					Capacity: pulumi.Int(1),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iot.NewSecuritySolution(ctx, "exampleSecuritySolution", &iot.SecuritySolutionArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
-//				DisplayName:       pulumi.String("Iot Security Solution"),
-//				IothubIds: pulumi.StringArray{
-//					exampleIoTHub.ID(),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Iot Security Solution can be imported using the `resource id`, e.g.

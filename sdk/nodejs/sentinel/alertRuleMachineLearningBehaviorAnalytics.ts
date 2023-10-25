@@ -7,25 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Sentinel Machine Learning Behavior Analytics Alert Rule.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "PerGB2018",
- * });
- * const exampleLogAnalyticsWorkspaceOnboarding = new azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", {workspaceId: exampleAnalyticsWorkspace.id});
- * const exampleAlertRuleMachineLearningBehaviorAnalytics = new azure.sentinel.AlertRuleMachineLearningBehaviorAnalytics("exampleAlertRuleMachineLearningBehaviorAnalytics", {
- *     logAnalyticsWorkspaceId: exampleAnalyticsWorkspace.id,
- *     alertRuleTemplateGuid: "737a2ce1-70a3-4968-9e90-3e6aca836abf",
- * });
- * ```
- *
  * ## Import
  *
  * Sentinel Machine Learning Behavior Analytics Rules can be imported using the `resource id`, e.g.

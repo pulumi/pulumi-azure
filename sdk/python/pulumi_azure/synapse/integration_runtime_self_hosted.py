@@ -32,13 +32,15 @@ class IntegrationRuntimeSelfHostedArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             synapse_workspace_id: pulumi.Input[str],
+             synapse_workspace_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'synapseWorkspaceId' in kwargs:
+        if synapse_workspace_id is None and 'synapseWorkspaceId' in kwargs:
             synapse_workspace_id = kwargs['synapseWorkspaceId']
+        if synapse_workspace_id is None:
+            raise TypeError("Missing 'synapse_workspace_id' argument")
 
         _setter("synapse_workspace_id", synapse_workspace_id)
         if description is not None:
@@ -115,13 +117,13 @@ class _IntegrationRuntimeSelfHostedState:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              synapse_workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'authorizationKeyPrimary' in kwargs:
+        if authorization_key_primary is None and 'authorizationKeyPrimary' in kwargs:
             authorization_key_primary = kwargs['authorizationKeyPrimary']
-        if 'authorizationKeySecondary' in kwargs:
+        if authorization_key_secondary is None and 'authorizationKeySecondary' in kwargs:
             authorization_key_secondary = kwargs['authorizationKeySecondary']
-        if 'synapseWorkspaceId' in kwargs:
+        if synapse_workspace_id is None and 'synapseWorkspaceId' in kwargs:
             synapse_workspace_id = kwargs['synapseWorkspaceId']
 
         if authorization_key_primary is not None:
@@ -208,39 +210,6 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
         """
         Manages a Synapse Self-hosted Integration Runtime.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("exampleContainer",
-            storage_account_name=example_account.name,
-            container_access_type="private")
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
-        example_workspace = azure.synapse.Workspace("exampleWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
-            sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!",
-            managed_virtual_network_enabled=True,
-            identity=azure.synapse.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_firewall_rule = azure.synapse.FirewallRule("exampleFirewallRule",
-            synapse_workspace_id=example_workspace.id,
-            start_ip_address="0.0.0.0",
-            end_ip_address="255.255.255.255")
-        example_integration_runtime_self_hosted = azure.synapse.IntegrationRuntimeSelfHosted("exampleIntegrationRuntimeSelfHosted", synapse_workspace_id=example_workspace.id)
-        ```
-
         ## Import
 
         Synapse Self-hosted Integration Runtimes can be imported using the `resource id`, e.g.
@@ -263,39 +232,6 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Synapse Self-hosted Integration Runtime.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("exampleContainer",
-            storage_account_name=example_account.name,
-            container_access_type="private")
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
-        example_workspace = azure.synapse.Workspace("exampleWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
-            sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!",
-            managed_virtual_network_enabled=True,
-            identity=azure.synapse.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_firewall_rule = azure.synapse.FirewallRule("exampleFirewallRule",
-            synapse_workspace_id=example_workspace.id,
-            start_ip_address="0.0.0.0",
-            end_ip_address="255.255.255.255")
-        example_integration_runtime_self_hosted = azure.synapse.IntegrationRuntimeSelfHosted("exampleIntegrationRuntimeSelfHosted", synapse_workspace_id=example_workspace.id)
-        ```
 
         ## Import
 

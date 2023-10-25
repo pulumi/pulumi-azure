@@ -13,33 +13,6 @@ import (
 )
 
 // Use this data source to access information about a Built-In Policy Definition. Retrieves Policy Definitions from your current subscription by default.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/policy"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := policy.GetPolicyDefintionBuiltIn(ctx, &policy.GetPolicyDefintionBuiltInArgs{
-//				DisplayName: pulumi.StringRef("Allowed resource types"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("id", example.Id)
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetPolicyDefintionBuiltIn(ctx *pulumi.Context, args *GetPolicyDefintionBuiltInArgs, opts ...pulumi.InvokeOption) (*GetPolicyDefintionBuiltInResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPolicyDefintionBuiltInResult

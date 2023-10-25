@@ -12,65 +12,6 @@ namespace Pulumi.Azure.ApiManagement
     /// <summary>
     /// Manages an API Management API Operation Policy
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         PublisherName = "My Company",
-    ///         PublisherEmail = "company@terraform.io",
-    ///         SkuName = "Developer_1",
-    ///     });
-    /// 
-    ///     var exampleApi = new Azure.ApiManagement.Api("exampleApi", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         ApiManagementName = exampleService.Name,
-    ///         Revision = "1",
-    ///     });
-    /// 
-    ///     var exampleApiOperation = new Azure.ApiManagement.ApiOperation("exampleApiOperation", new()
-    ///     {
-    ///         OperationId = "acctest-operation",
-    ///         ApiName = exampleApi.Name,
-    ///         ApiManagementName = exampleService.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         DisplayName = "DELETE Resource",
-    ///         Method = "DELETE",
-    ///         UrlTemplate = "/resource",
-    ///     });
-    /// 
-    ///     var exampleApiOperationPolicy = new Azure.ApiManagement.ApiOperationPolicy("exampleApiOperationPolicy", new()
-    ///     {
-    ///         ApiName = exampleApiOperation.ApiName,
-    ///         ApiManagementName = exampleApiOperation.ApiManagementName,
-    ///         ResourceGroupName = exampleApiOperation.ResourceGroupName,
-    ///         OperationId = exampleApiOperation.OperationId,
-    ///         XmlContent = @"&lt;policies&gt;
-    ///   &lt;inbound&gt;
-    ///     &lt;find-and-replace from=""xyz"" to=""abc"" /&gt;
-    ///   &lt;/inbound&gt;
-    /// &lt;/policies&gt;
-    /// ",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// API Management API Operation Policy can be imported using the `resource id`, e.g.

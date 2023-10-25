@@ -15,52 +15,6 @@ import (
 
 // Manages a MySQL Server.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mysql"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mysql.NewServer(ctx, "exampleServer", &mysql.ServerArgs{
-//				Location:                        exampleResourceGroup.Location,
-//				ResourceGroupName:               exampleResourceGroup.Name,
-//				AdministratorLogin:              pulumi.String("mysqladminun"),
-//				AdministratorLoginPassword:      pulumi.String("H@Sh1CoR3!"),
-//				SkuName:                         pulumi.String("B_Gen5_2"),
-//				StorageMb:                       pulumi.Int(5120),
-//				Version:                         pulumi.String("5.7"),
-//				AutoGrowEnabled:                 pulumi.Bool(true),
-//				BackupRetentionDays:             pulumi.Int(7),
-//				GeoRedundantBackupEnabled:       pulumi.Bool(false),
-//				InfrastructureEncryptionEnabled: pulumi.Bool(false),
-//				PublicNetworkAccessEnabled:      pulumi.Bool(true),
-//				SslEnforcementEnabled:           pulumi.Bool(true),
-//				SslMinimalTlsVersionEnforced:    pulumi.String("TLS1_2"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // MySQL Server's can be imported using the `resource id`, e.g.

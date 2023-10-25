@@ -12,40 +12,6 @@ namespace Pulumi.Azure.PrivateDns
     /// <summary>
     /// Enables you to manage DNS A Records within Azure Private DNS.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleZone = new Azure.PrivateDns.Zone("exampleZone", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///     });
-    /// 
-    ///     var exampleARecord = new Azure.PrivateDns.ARecord("exampleARecord", new()
-    ///     {
-    ///         ZoneName = exampleZone.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Ttl = 300,
-    ///         Records = new[]
-    ///         {
-    ///             "10.0.180.17",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Private DNS A Records can be imported using the `resource id`, e.g.

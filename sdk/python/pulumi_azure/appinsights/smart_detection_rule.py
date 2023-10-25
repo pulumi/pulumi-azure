@@ -40,18 +40,20 @@ class SmartDetectionRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_insights_id: pulumi.Input[str],
+             application_insights_id: Optional[pulumi.Input[str]] = None,
              additional_email_recipients: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              send_emails_to_subscription_owners: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'applicationInsightsId' in kwargs:
+        if application_insights_id is None and 'applicationInsightsId' in kwargs:
             application_insights_id = kwargs['applicationInsightsId']
-        if 'additionalEmailRecipients' in kwargs:
+        if application_insights_id is None:
+            raise TypeError("Missing 'application_insights_id' argument")
+        if additional_email_recipients is None and 'additionalEmailRecipients' in kwargs:
             additional_email_recipients = kwargs['additionalEmailRecipients']
-        if 'sendEmailsToSubscriptionOwners' in kwargs:
+        if send_emails_to_subscription_owners is None and 'sendEmailsToSubscriptionOwners' in kwargs:
             send_emails_to_subscription_owners = kwargs['sendEmailsToSubscriptionOwners']
 
         _setter("application_insights_id", application_insights_id)
@@ -161,13 +163,13 @@ class _SmartDetectionRuleState:
              enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              send_emails_to_subscription_owners: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'additionalEmailRecipients' in kwargs:
+        if additional_email_recipients is None and 'additionalEmailRecipients' in kwargs:
             additional_email_recipients = kwargs['additionalEmailRecipients']
-        if 'applicationInsightsId' in kwargs:
+        if application_insights_id is None and 'applicationInsightsId' in kwargs:
             application_insights_id = kwargs['applicationInsightsId']
-        if 'sendEmailsToSubscriptionOwners' in kwargs:
+        if send_emails_to_subscription_owners is None and 'sendEmailsToSubscriptionOwners' in kwargs:
             send_emails_to_subscription_owners = kwargs['sendEmailsToSubscriptionOwners']
 
         if additional_email_recipients is not None:
@@ -258,22 +260,6 @@ class SmartDetectionRule(pulumi.CustomResource):
         """
         Manages an Application Insights Smart Detection Rule.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="web")
-        example_smart_detection_rule = azure.appinsights.SmartDetectionRule("exampleSmartDetectionRule",
-            application_insights_id=example_insights.id,
-            enabled=False)
-        ```
-
         ## Import
 
         Application Insights Smart Detection Rules can be imported using the `resource id`, e.g.
@@ -300,22 +286,6 @@ class SmartDetectionRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Application Insights Smart Detection Rule.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="web")
-        example_smart_detection_rule = azure.appinsights.SmartDetectionRule("exampleSmartDetectionRule",
-            application_insights_id=example_insights.id,
-            enabled=False)
-        ```
 
         ## Import
 

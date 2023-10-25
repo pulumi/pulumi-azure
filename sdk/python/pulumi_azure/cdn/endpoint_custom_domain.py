@@ -42,20 +42,24 @@ class EndpointCustomDomainArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cdn_endpoint_id: pulumi.Input[str],
-             host_name: pulumi.Input[str],
+             cdn_endpoint_id: Optional[pulumi.Input[str]] = None,
+             host_name: Optional[pulumi.Input[str]] = None,
              cdn_managed_https: Optional[pulumi.Input['EndpointCustomDomainCdnManagedHttpsArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              user_managed_https: Optional[pulumi.Input['EndpointCustomDomainUserManagedHttpsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'cdnEndpointId' in kwargs:
+        if cdn_endpoint_id is None and 'cdnEndpointId' in kwargs:
             cdn_endpoint_id = kwargs['cdnEndpointId']
-        if 'hostName' in kwargs:
+        if cdn_endpoint_id is None:
+            raise TypeError("Missing 'cdn_endpoint_id' argument")
+        if host_name is None and 'hostName' in kwargs:
             host_name = kwargs['hostName']
-        if 'cdnManagedHttps' in kwargs:
+        if host_name is None:
+            raise TypeError("Missing 'host_name' argument")
+        if cdn_managed_https is None and 'cdnManagedHttps' in kwargs:
             cdn_managed_https = kwargs['cdnManagedHttps']
-        if 'userManagedHttps' in kwargs:
+        if user_managed_https is None and 'userManagedHttps' in kwargs:
             user_managed_https = kwargs['userManagedHttps']
 
         _setter("cdn_endpoint_id", cdn_endpoint_id)
@@ -164,15 +168,15 @@ class _EndpointCustomDomainState:
              host_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              user_managed_https: Optional[pulumi.Input['EndpointCustomDomainUserManagedHttpsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'cdnEndpointId' in kwargs:
+        if cdn_endpoint_id is None and 'cdnEndpointId' in kwargs:
             cdn_endpoint_id = kwargs['cdnEndpointId']
-        if 'cdnManagedHttps' in kwargs:
+        if cdn_managed_https is None and 'cdnManagedHttps' in kwargs:
             cdn_managed_https = kwargs['cdnManagedHttps']
-        if 'hostName' in kwargs:
+        if host_name is None and 'hostName' in kwargs:
             host_name = kwargs['hostName']
-        if 'userManagedHttps' in kwargs:
+        if user_managed_https is None and 'userManagedHttps' in kwargs:
             user_managed_https = kwargs['userManagedHttps']
 
         if cdn_endpoint_id is not None:
@@ -263,42 +267,6 @@ class EndpointCustomDomain(pulumi.CustomResource):
         """
         Manages a Custom Domain for a CDN Endpoint.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="west europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_profile = azure.cdn.Profile("exampleProfile",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard_Verizon")
-        example_endpoint = azure.cdn.Endpoint("exampleEndpoint",
-            profile_name=example_profile.name,
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            origins=[azure.cdn.EndpointOriginArgs(
-                name="example",
-                host_name=example_account.primary_blob_host,
-            )])
-        example_zone = azure.dns.get_zone(name="example-domain.com",
-            resource_group_name="domain-rg")
-        example_c_name_record = azure.dns.CNameRecord("exampleCNameRecord",
-            zone_name=example_zone.name,
-            resource_group_name=example_zone.resource_group_name,
-            ttl=3600,
-            target_resource_id=example_endpoint.id)
-        example_endpoint_custom_domain = azure.cdn.EndpointCustomDomain("exampleEndpointCustomDomain",
-            cdn_endpoint_id=example_endpoint.id,
-            host_name=example_c_name_record.name.apply(lambda name: f"{name}.{example_zone.name}"))
-        ```
-
         ## Import
 
         CDN Endpoint Custom Domains can be imported using the `resource id`, e.g.
@@ -325,42 +293,6 @@ class EndpointCustomDomain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Custom Domain for a CDN Endpoint.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="west europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_profile = azure.cdn.Profile("exampleProfile",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard_Verizon")
-        example_endpoint = azure.cdn.Endpoint("exampleEndpoint",
-            profile_name=example_profile.name,
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            origins=[azure.cdn.EndpointOriginArgs(
-                name="example",
-                host_name=example_account.primary_blob_host,
-            )])
-        example_zone = azure.dns.get_zone(name="example-domain.com",
-            resource_group_name="domain-rg")
-        example_c_name_record = azure.dns.CNameRecord("exampleCNameRecord",
-            zone_name=example_zone.name,
-            resource_group_name=example_zone.resource_group_name,
-            ttl=3600,
-            target_resource_id=example_endpoint.id)
-        example_endpoint_custom_domain = azure.cdn.EndpointCustomDomain("exampleEndpointCustomDomain",
-            cdn_endpoint_id=example_endpoint.id,
-            host_name=example_c_name_record.name.apply(lambda name: f"{name}.{example_zone.name}"))
-        ```
 
         ## Import
 
@@ -406,21 +338,13 @@ class EndpointCustomDomain(pulumi.CustomResource):
             if cdn_endpoint_id is None and not opts.urn:
                 raise TypeError("Missing required property 'cdn_endpoint_id'")
             __props__.__dict__["cdn_endpoint_id"] = cdn_endpoint_id
-            if cdn_managed_https is not None and not isinstance(cdn_managed_https, EndpointCustomDomainCdnManagedHttpsArgs):
-                cdn_managed_https = cdn_managed_https or {}
-                def _setter(key, value):
-                    cdn_managed_https[key] = value
-                EndpointCustomDomainCdnManagedHttpsArgs._configure(_setter, **cdn_managed_https)
+            cdn_managed_https = _utilities.configure(cdn_managed_https, EndpointCustomDomainCdnManagedHttpsArgs, True)
             __props__.__dict__["cdn_managed_https"] = cdn_managed_https
             if host_name is None and not opts.urn:
                 raise TypeError("Missing required property 'host_name'")
             __props__.__dict__["host_name"] = host_name
             __props__.__dict__["name"] = name
-            if user_managed_https is not None and not isinstance(user_managed_https, EndpointCustomDomainUserManagedHttpsArgs):
-                user_managed_https = user_managed_https or {}
-                def _setter(key, value):
-                    user_managed_https[key] = value
-                EndpointCustomDomainUserManagedHttpsArgs._configure(_setter, **user_managed_https)
+            user_managed_https = _utilities.configure(user_managed_https, EndpointCustomDomainUserManagedHttpsArgs, True)
             __props__.__dict__["user_managed_https"] = user_managed_https
         super(EndpointCustomDomain, __self__).__init__(
             'azure:cdn/endpointCustomDomain:EndpointCustomDomain',

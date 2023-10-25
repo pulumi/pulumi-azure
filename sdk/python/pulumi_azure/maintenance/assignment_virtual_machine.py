@@ -32,15 +32,19 @@ class AssignmentVirtualMachineArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             maintenance_configuration_id: pulumi.Input[str],
-             virtual_machine_id: pulumi.Input[str],
+             maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
+             virtual_machine_id: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'maintenanceConfigurationId' in kwargs:
+        if maintenance_configuration_id is None and 'maintenanceConfigurationId' in kwargs:
             maintenance_configuration_id = kwargs['maintenanceConfigurationId']
-        if 'virtualMachineId' in kwargs:
+        if maintenance_configuration_id is None:
+            raise TypeError("Missing 'maintenance_configuration_id' argument")
+        if virtual_machine_id is None and 'virtualMachineId' in kwargs:
             virtual_machine_id = kwargs['virtualMachineId']
+        if virtual_machine_id is None:
+            raise TypeError("Missing 'virtual_machine_id' argument")
 
         _setter("maintenance_configuration_id", maintenance_configuration_id)
         _setter("virtual_machine_id", virtual_machine_id)
@@ -108,11 +112,11 @@ class _AssignmentVirtualMachineState:
              location: Optional[pulumi.Input[str]] = None,
              maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
              virtual_machine_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'maintenanceConfigurationId' in kwargs:
+        if maintenance_configuration_id is None and 'maintenanceConfigurationId' in kwargs:
             maintenance_configuration_id = kwargs['maintenanceConfigurationId']
-        if 'virtualMachineId' in kwargs:
+        if virtual_machine_id is None and 'virtualMachineId' in kwargs:
             virtual_machine_id = kwargs['virtualMachineId']
 
         if location is not None:
@@ -171,59 +175,6 @@ class AssignmentVirtualMachine(pulumi.CustomResource):
         """
         Manages a maintenance assignment to virtual machine.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="internal",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
-        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("exampleLinuxVirtualMachine",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            size="Standard_F2",
-            admin_username="adminuser",
-            network_interface_ids=[example_network_interface.id],
-            admin_ssh_keys=[azure.compute.LinuxVirtualMachineAdminSshKeyArgs(
-                username="adminuser",
-                public_key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"),
-            )],
-            os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
-                caching="ReadWrite",
-                storage_account_type="Standard_LRS",
-            ),
-            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-focal",
-                sku="20_04-lts",
-                version="latest",
-            ))
-        example_configuration = azure.maintenance.Configuration("exampleConfiguration",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            scope="All")
-        example_assignment_virtual_machine = azure.maintenance.AssignmentVirtualMachine("exampleAssignmentVirtualMachine",
-            location=example_resource_group.location,
-            maintenance_configuration_id=example_configuration.id,
-            virtual_machine_id=example_linux_virtual_machine.id)
-        ```
-
         ## Import
 
         Maintenance Assignment can be imported using the `resource id`, e.g.
@@ -246,59 +197,6 @@ class AssignmentVirtualMachine(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a maintenance assignment to virtual machine.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="internal",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
-        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("exampleLinuxVirtualMachine",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            size="Standard_F2",
-            admin_username="adminuser",
-            network_interface_ids=[example_network_interface.id],
-            admin_ssh_keys=[azure.compute.LinuxVirtualMachineAdminSshKeyArgs(
-                username="adminuser",
-                public_key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"),
-            )],
-            os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
-                caching="ReadWrite",
-                storage_account_type="Standard_LRS",
-            ),
-            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-focal",
-                sku="20_04-lts",
-                version="latest",
-            ))
-        example_configuration = azure.maintenance.Configuration("exampleConfiguration",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            scope="All")
-        example_assignment_virtual_machine = azure.maintenance.AssignmentVirtualMachine("exampleAssignmentVirtualMachine",
-            location=example_resource_group.location,
-            maintenance_configuration_id=example_configuration.id,
-            virtual_machine_id=example_linux_virtual_machine.id)
-        ```
 
         ## Import
 

@@ -12,35 +12,6 @@ namespace Pulumi.Azure.Maps
     /// <summary>
     /// Manages an Azure Maps Account.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleAccount = new Azure.Maps.Account("exampleAccount", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         SkuName = "S1",
-    ///         LocalAuthenticationEnabled = true,
-    ///         Tags = 
-    ///         {
-    ///             { "environment", "Test" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// A Maps Account can be imported using the `resource id`, e.g.

@@ -7,30 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a ServiceBus Topic authorization Rule within a ServiceBus Topic.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleNamespace = new azure.servicebus.Namespace("exampleNamespace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "Standard",
- *     tags: {
- *         source: "example",
- *     },
- * });
- * const exampleTopic = new azure.servicebus.Topic("exampleTopic", {namespaceId: exampleNamespace.id});
- * const exampleTopicAuthorizationRule = new azure.servicebus.TopicAuthorizationRule("exampleTopicAuthorizationRule", {
- *     topicId: exampleTopic.id,
- *     listen: true,
- *     send: false,
- *     manage: false,
- * });
- * ```
- *
  * ## Import
  *
  * ServiceBus Topic authorization rules can be imported using the `resource id`, e.g.

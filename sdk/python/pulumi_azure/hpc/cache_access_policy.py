@@ -34,15 +34,19 @@ class CacheAccessPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             access_rules: pulumi.Input[Sequence[pulumi.Input['CacheAccessPolicyAccessRuleArgs']]],
-             hpc_cache_id: pulumi.Input[str],
+             access_rules: Optional[pulumi.Input[Sequence[pulumi.Input['CacheAccessPolicyAccessRuleArgs']]]] = None,
+             hpc_cache_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accessRules' in kwargs:
+        if access_rules is None and 'accessRules' in kwargs:
             access_rules = kwargs['accessRules']
-        if 'hpcCacheId' in kwargs:
+        if access_rules is None:
+            raise TypeError("Missing 'access_rules' argument")
+        if hpc_cache_id is None and 'hpcCacheId' in kwargs:
             hpc_cache_id = kwargs['hpcCacheId']
+        if hpc_cache_id is None:
+            raise TypeError("Missing 'hpc_cache_id' argument")
 
         _setter("access_rules", access_rules)
         _setter("hpc_cache_id", hpc_cache_id)
@@ -110,11 +114,11 @@ class _CacheAccessPolicyState:
              access_rules: Optional[pulumi.Input[Sequence[pulumi.Input['CacheAccessPolicyAccessRuleArgs']]]] = None,
              hpc_cache_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accessRules' in kwargs:
+        if access_rules is None and 'accessRules' in kwargs:
             access_rules = kwargs['accessRules']
-        if 'hpcCacheId' in kwargs:
+        if hpc_cache_id is None and 'hpcCacheId' in kwargs:
             hpc_cache_id = kwargs['hpcCacheId']
 
         if access_rules is not None:
@@ -173,35 +177,6 @@ class CacheAccessPolicy(pulumi.CustomResource):
         """
         Manages a HPC Cache Access Policy.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"])
-        example_cache = azure.hpc.Cache("exampleCache",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            cache_size_in_gb=3072,
-            subnet_id=example_subnet.id,
-            sku_name="Standard_2G")
-        example_cache_access_policy = azure.hpc.CacheAccessPolicy("exampleCacheAccessPolicy",
-            hpc_cache_id=example_cache.id,
-            access_rules=[azure.hpc.CacheAccessPolicyAccessRuleArgs(
-                scope="default",
-                access="rw",
-            )])
-        ```
-
         ## Import
 
         HPC Cache Access Policies can be imported using the `resource id`, e.g.
@@ -224,35 +199,6 @@ class CacheAccessPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a HPC Cache Access Policy.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"])
-        example_cache = azure.hpc.Cache("exampleCache",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            cache_size_in_gb=3072,
-            subnet_id=example_subnet.id,
-            sku_name="Standard_2G")
-        example_cache_access_policy = azure.hpc.CacheAccessPolicy("exampleCacheAccessPolicy",
-            hpc_cache_id=example_cache.id,
-            access_rules=[azure.hpc.CacheAccessPolicyAccessRuleArgs(
-                scope="default",
-                access="rw",
-            )])
-        ```
 
         ## Import
 

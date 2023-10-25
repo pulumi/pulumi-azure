@@ -163,9 +163,9 @@ class ManagedDiskArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             create_option: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             storage_account_type: pulumi.Input[str],
+             create_option: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             storage_account_type: Optional[pulumi.Input[str]] = None,
              disk_access_id: Optional[pulumi.Input[str]] = None,
              disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
              disk_iops_read_only: Optional[pulumi.Input[int]] = None,
@@ -198,67 +198,73 @@ class ManagedDiskArgs:
              trusted_launch_enabled: Optional[pulumi.Input[bool]] = None,
              upload_size_bytes: Optional[pulumi.Input[int]] = None,
              zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'createOption' in kwargs:
+        if create_option is None and 'createOption' in kwargs:
             create_option = kwargs['createOption']
-        if 'resourceGroupName' in kwargs:
+        if create_option is None:
+            raise TypeError("Missing 'create_option' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'storageAccountType' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if storage_account_type is None and 'storageAccountType' in kwargs:
             storage_account_type = kwargs['storageAccountType']
-        if 'diskAccessId' in kwargs:
+        if storage_account_type is None:
+            raise TypeError("Missing 'storage_account_type' argument")
+        if disk_access_id is None and 'diskAccessId' in kwargs:
             disk_access_id = kwargs['diskAccessId']
-        if 'diskEncryptionSetId' in kwargs:
+        if disk_encryption_set_id is None and 'diskEncryptionSetId' in kwargs:
             disk_encryption_set_id = kwargs['diskEncryptionSetId']
-        if 'diskIopsReadOnly' in kwargs:
+        if disk_iops_read_only is None and 'diskIopsReadOnly' in kwargs:
             disk_iops_read_only = kwargs['diskIopsReadOnly']
-        if 'diskIopsReadWrite' in kwargs:
+        if disk_iops_read_write is None and 'diskIopsReadWrite' in kwargs:
             disk_iops_read_write = kwargs['diskIopsReadWrite']
-        if 'diskMbpsReadOnly' in kwargs:
+        if disk_mbps_read_only is None and 'diskMbpsReadOnly' in kwargs:
             disk_mbps_read_only = kwargs['diskMbpsReadOnly']
-        if 'diskMbpsReadWrite' in kwargs:
+        if disk_mbps_read_write is None and 'diskMbpsReadWrite' in kwargs:
             disk_mbps_read_write = kwargs['diskMbpsReadWrite']
-        if 'diskSizeGb' in kwargs:
+        if disk_size_gb is None and 'diskSizeGb' in kwargs:
             disk_size_gb = kwargs['diskSizeGb']
-        if 'edgeZone' in kwargs:
+        if edge_zone is None and 'edgeZone' in kwargs:
             edge_zone = kwargs['edgeZone']
-        if 'encryptionSettings' in kwargs:
+        if encryption_settings is None and 'encryptionSettings' in kwargs:
             encryption_settings = kwargs['encryptionSettings']
-        if 'galleryImageReferenceId' in kwargs:
+        if gallery_image_reference_id is None and 'galleryImageReferenceId' in kwargs:
             gallery_image_reference_id = kwargs['galleryImageReferenceId']
-        if 'hyperVGeneration' in kwargs:
+        if hyper_v_generation is None and 'hyperVGeneration' in kwargs:
             hyper_v_generation = kwargs['hyperVGeneration']
-        if 'imageReferenceId' in kwargs:
+        if image_reference_id is None and 'imageReferenceId' in kwargs:
             image_reference_id = kwargs['imageReferenceId']
-        if 'logicalSectorSize' in kwargs:
+        if logical_sector_size is None and 'logicalSectorSize' in kwargs:
             logical_sector_size = kwargs['logicalSectorSize']
-        if 'maxShares' in kwargs:
+        if max_shares is None and 'maxShares' in kwargs:
             max_shares = kwargs['maxShares']
-        if 'networkAccessPolicy' in kwargs:
+        if network_access_policy is None and 'networkAccessPolicy' in kwargs:
             network_access_policy = kwargs['networkAccessPolicy']
-        if 'onDemandBurstingEnabled' in kwargs:
+        if on_demand_bursting_enabled is None and 'onDemandBurstingEnabled' in kwargs:
             on_demand_bursting_enabled = kwargs['onDemandBurstingEnabled']
-        if 'optimizedFrequentAttachEnabled' in kwargs:
+        if optimized_frequent_attach_enabled is None and 'optimizedFrequentAttachEnabled' in kwargs:
             optimized_frequent_attach_enabled = kwargs['optimizedFrequentAttachEnabled']
-        if 'osType' in kwargs:
+        if os_type is None and 'osType' in kwargs:
             os_type = kwargs['osType']
-        if 'performancePlusEnabled' in kwargs:
+        if performance_plus_enabled is None and 'performancePlusEnabled' in kwargs:
             performance_plus_enabled = kwargs['performancePlusEnabled']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'secureVmDiskEncryptionSetId' in kwargs:
+        if secure_vm_disk_encryption_set_id is None and 'secureVmDiskEncryptionSetId' in kwargs:
             secure_vm_disk_encryption_set_id = kwargs['secureVmDiskEncryptionSetId']
-        if 'securityType' in kwargs:
+        if security_type is None and 'securityType' in kwargs:
             security_type = kwargs['securityType']
-        if 'sourceResourceId' in kwargs:
+        if source_resource_id is None and 'sourceResourceId' in kwargs:
             source_resource_id = kwargs['sourceResourceId']
-        if 'sourceUri' in kwargs:
+        if source_uri is None and 'sourceUri' in kwargs:
             source_uri = kwargs['sourceUri']
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'trustedLaunchEnabled' in kwargs:
+        if trusted_launch_enabled is None and 'trustedLaunchEnabled' in kwargs:
             trusted_launch_enabled = kwargs['trustedLaunchEnabled']
-        if 'uploadSizeBytes' in kwargs:
+        if upload_size_bytes is None and 'uploadSizeBytes' in kwargs:
             upload_size_bytes = kwargs['uploadSizeBytes']
 
         _setter("create_option", create_option)
@@ -964,67 +970,67 @@ class _ManagedDiskState:
              trusted_launch_enabled: Optional[pulumi.Input[bool]] = None,
              upload_size_bytes: Optional[pulumi.Input[int]] = None,
              zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'createOption' in kwargs:
+        if create_option is None and 'createOption' in kwargs:
             create_option = kwargs['createOption']
-        if 'diskAccessId' in kwargs:
+        if disk_access_id is None and 'diskAccessId' in kwargs:
             disk_access_id = kwargs['diskAccessId']
-        if 'diskEncryptionSetId' in kwargs:
+        if disk_encryption_set_id is None and 'diskEncryptionSetId' in kwargs:
             disk_encryption_set_id = kwargs['diskEncryptionSetId']
-        if 'diskIopsReadOnly' in kwargs:
+        if disk_iops_read_only is None and 'diskIopsReadOnly' in kwargs:
             disk_iops_read_only = kwargs['diskIopsReadOnly']
-        if 'diskIopsReadWrite' in kwargs:
+        if disk_iops_read_write is None and 'diskIopsReadWrite' in kwargs:
             disk_iops_read_write = kwargs['diskIopsReadWrite']
-        if 'diskMbpsReadOnly' in kwargs:
+        if disk_mbps_read_only is None and 'diskMbpsReadOnly' in kwargs:
             disk_mbps_read_only = kwargs['diskMbpsReadOnly']
-        if 'diskMbpsReadWrite' in kwargs:
+        if disk_mbps_read_write is None and 'diskMbpsReadWrite' in kwargs:
             disk_mbps_read_write = kwargs['diskMbpsReadWrite']
-        if 'diskSizeGb' in kwargs:
+        if disk_size_gb is None and 'diskSizeGb' in kwargs:
             disk_size_gb = kwargs['diskSizeGb']
-        if 'edgeZone' in kwargs:
+        if edge_zone is None and 'edgeZone' in kwargs:
             edge_zone = kwargs['edgeZone']
-        if 'encryptionSettings' in kwargs:
+        if encryption_settings is None and 'encryptionSettings' in kwargs:
             encryption_settings = kwargs['encryptionSettings']
-        if 'galleryImageReferenceId' in kwargs:
+        if gallery_image_reference_id is None and 'galleryImageReferenceId' in kwargs:
             gallery_image_reference_id = kwargs['galleryImageReferenceId']
-        if 'hyperVGeneration' in kwargs:
+        if hyper_v_generation is None and 'hyperVGeneration' in kwargs:
             hyper_v_generation = kwargs['hyperVGeneration']
-        if 'imageReferenceId' in kwargs:
+        if image_reference_id is None and 'imageReferenceId' in kwargs:
             image_reference_id = kwargs['imageReferenceId']
-        if 'logicalSectorSize' in kwargs:
+        if logical_sector_size is None and 'logicalSectorSize' in kwargs:
             logical_sector_size = kwargs['logicalSectorSize']
-        if 'maxShares' in kwargs:
+        if max_shares is None and 'maxShares' in kwargs:
             max_shares = kwargs['maxShares']
-        if 'networkAccessPolicy' in kwargs:
+        if network_access_policy is None and 'networkAccessPolicy' in kwargs:
             network_access_policy = kwargs['networkAccessPolicy']
-        if 'onDemandBurstingEnabled' in kwargs:
+        if on_demand_bursting_enabled is None and 'onDemandBurstingEnabled' in kwargs:
             on_demand_bursting_enabled = kwargs['onDemandBurstingEnabled']
-        if 'optimizedFrequentAttachEnabled' in kwargs:
+        if optimized_frequent_attach_enabled is None and 'optimizedFrequentAttachEnabled' in kwargs:
             optimized_frequent_attach_enabled = kwargs['optimizedFrequentAttachEnabled']
-        if 'osType' in kwargs:
+        if os_type is None and 'osType' in kwargs:
             os_type = kwargs['osType']
-        if 'performancePlusEnabled' in kwargs:
+        if performance_plus_enabled is None and 'performancePlusEnabled' in kwargs:
             performance_plus_enabled = kwargs['performancePlusEnabled']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'secureVmDiskEncryptionSetId' in kwargs:
+        if secure_vm_disk_encryption_set_id is None and 'secureVmDiskEncryptionSetId' in kwargs:
             secure_vm_disk_encryption_set_id = kwargs['secureVmDiskEncryptionSetId']
-        if 'securityType' in kwargs:
+        if security_type is None and 'securityType' in kwargs:
             security_type = kwargs['securityType']
-        if 'sourceResourceId' in kwargs:
+        if source_resource_id is None and 'sourceResourceId' in kwargs:
             source_resource_id = kwargs['sourceResourceId']
-        if 'sourceUri' in kwargs:
+        if source_uri is None and 'sourceUri' in kwargs:
             source_uri = kwargs['sourceUri']
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'storageAccountType' in kwargs:
+        if storage_account_type is None and 'storageAccountType' in kwargs:
             storage_account_type = kwargs['storageAccountType']
-        if 'trustedLaunchEnabled' in kwargs:
+        if trusted_launch_enabled is None and 'trustedLaunchEnabled' in kwargs:
             trusted_launch_enabled = kwargs['trustedLaunchEnabled']
-        if 'uploadSizeBytes' in kwargs:
+        if upload_size_bytes is None and 'uploadSizeBytes' in kwargs:
             upload_size_bytes = kwargs['uploadSizeBytes']
 
         if create_option is not None:
@@ -1593,50 +1599,6 @@ class ManagedDisk(pulumi.CustomResource):
         Manages a managed disk.
 
         ## Example Usage
-        ### With Create Empty
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_managed_disk = azure.compute.ManagedDisk("exampleManagedDisk",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            storage_account_type="Standard_LRS",
-            create_option="Empty",
-            disk_size_gb=1,
-            tags={
-                "environment": "staging",
-            })
-        ```
-        ### With Create Copy
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        source = azure.compute.ManagedDisk("source",
-            location=example.location,
-            resource_group_name=example.name,
-            storage_account_type="Standard_LRS",
-            create_option="Empty",
-            disk_size_gb=1,
-            tags={
-                "environment": "staging",
-            })
-        copy = azure.compute.ManagedDisk("copy",
-            location=example.location,
-            resource_group_name=example.name,
-            storage_account_type="Standard_LRS",
-            create_option="Copy",
-            source_resource_id=source.id,
-            disk_size_gb=1,
-            tags={
-                "environment": "staging",
-            })
-        ```
 
         ## Import
 
@@ -1727,50 +1689,6 @@ class ManagedDisk(pulumi.CustomResource):
         Manages a managed disk.
 
         ## Example Usage
-        ### With Create Empty
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_managed_disk = azure.compute.ManagedDisk("exampleManagedDisk",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            storage_account_type="Standard_LRS",
-            create_option="Empty",
-            disk_size_gb=1,
-            tags={
-                "environment": "staging",
-            })
-        ```
-        ### With Create Copy
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        source = azure.compute.ManagedDisk("source",
-            location=example.location,
-            resource_group_name=example.name,
-            storage_account_type="Standard_LRS",
-            create_option="Empty",
-            disk_size_gb=1,
-            tags={
-                "environment": "staging",
-            })
-        copy = azure.compute.ManagedDisk("copy",
-            location=example.location,
-            resource_group_name=example.name,
-            storage_account_type="Standard_LRS",
-            create_option="Copy",
-            source_resource_id=source.id,
-            disk_size_gb=1,
-            tags={
-                "environment": "staging",
-            })
-        ```
 
         ## Import
 
@@ -1854,11 +1772,7 @@ class ManagedDisk(pulumi.CustomResource):
             __props__.__dict__["disk_mbps_read_write"] = disk_mbps_read_write
             __props__.__dict__["disk_size_gb"] = disk_size_gb
             __props__.__dict__["edge_zone"] = edge_zone
-            if encryption_settings is not None and not isinstance(encryption_settings, ManagedDiskEncryptionSettingsArgs):
-                encryption_settings = encryption_settings or {}
-                def _setter(key, value):
-                    encryption_settings[key] = value
-                ManagedDiskEncryptionSettingsArgs._configure(_setter, **encryption_settings)
+            encryption_settings = _utilities.configure(encryption_settings, ManagedDiskEncryptionSettingsArgs, True)
             __props__.__dict__["encryption_settings"] = encryption_settings
             __props__.__dict__["gallery_image_reference_id"] = gallery_image_reference_id
             __props__.__dict__["hyper_v_generation"] = hyper_v_generation

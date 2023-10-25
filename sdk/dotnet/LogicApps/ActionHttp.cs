@@ -12,37 +12,6 @@ namespace Pulumi.Azure.LogicApps
     /// <summary>
     /// Manages an HTTP Action within a Logic App Workflow
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleWorkflow = new Azure.LogicApps.Workflow("exampleWorkflow", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///     });
-    /// 
-    ///     var exampleActionHttp = new Azure.LogicApps.ActionHttp("exampleActionHttp", new()
-    ///     {
-    ///         LogicAppId = exampleWorkflow.Id,
-    ///         Method = "GET",
-    ///         Uri = "http://example.com/some-webhook",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Logic App HTTP Actions can be imported using the `resource id`, e.g.

@@ -15,57 +15,6 @@ import (
 
 // Manages a Policy within a Dev Test Policy Set.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/devtest"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleLab, err := devtest.NewLab(ctx, "exampleLab", &devtest.LabArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Tags: pulumi.StringMap{
-//					"Sydney": pulumi.String("Australia"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = devtest.NewPolicy(ctx, "examplePolicy", &devtest.PolicyArgs{
-//				PolicySetName:     pulumi.String("default"),
-//				LabName:           exampleLab.Name,
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				FactData:          pulumi.String(""),
-//				Threshold:         pulumi.String("999"),
-//				EvaluatorType:     pulumi.String("MaxValuePolicy"),
-//				Tags: pulumi.StringMap{
-//					"Acceptance": pulumi.String("Test"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Dev Test Policies can be imported using the `resource id`, e.g.

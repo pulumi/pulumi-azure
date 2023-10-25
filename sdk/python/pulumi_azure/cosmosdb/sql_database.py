@@ -41,18 +41,22 @@ class SqlDatabaseArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             account_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             account_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              autoscale_settings: Optional[pulumi.Input['SqlDatabaseAutoscaleSettingsArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              throughput: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accountName' in kwargs:
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'resourceGroupName' in kwargs:
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'autoscaleSettings' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if autoscale_settings is None and 'autoscaleSettings' in kwargs:
             autoscale_settings = kwargs['autoscaleSettings']
 
         _setter("account_name", account_name)
@@ -157,13 +161,13 @@ class _SqlDatabaseState:
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              throughput: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accountName' in kwargs:
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'autoscaleSettings' in kwargs:
+        if autoscale_settings is None and 'autoscaleSettings' in kwargs:
             autoscale_settings = kwargs['autoscaleSettings']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if account_name is not None:
@@ -251,20 +255,6 @@ class SqlDatabase(pulumi.CustomResource):
         """
         Manages a SQL Database within a Cosmos DB Account.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_account = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
-            resource_group_name="tfex-cosmosdb-account-rg")
-        example_sql_database = azure.cosmosdb.SqlDatabase("exampleSqlDatabase",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name,
-            throughput=400)
-        ```
-
         ## Import
 
         Cosmos SQL Database can be imported using the `resource id`, e.g.
@@ -290,20 +280,6 @@ class SqlDatabase(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a SQL Database within a Cosmos DB Account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_account = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
-            resource_group_name="tfex-cosmosdb-account-rg")
-        example_sql_database = azure.cosmosdb.SqlDatabase("exampleSqlDatabase",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name,
-            throughput=400)
-        ```
 
         ## Import
 
@@ -349,11 +325,7 @@ class SqlDatabase(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
-            if autoscale_settings is not None and not isinstance(autoscale_settings, SqlDatabaseAutoscaleSettingsArgs):
-                autoscale_settings = autoscale_settings or {}
-                def _setter(key, value):
-                    autoscale_settings[key] = value
-                SqlDatabaseAutoscaleSettingsArgs._configure(_setter, **autoscale_settings)
+            autoscale_settings = _utilities.configure(autoscale_settings, SqlDatabaseAutoscaleSettingsArgs, True)
             __props__.__dict__["autoscale_settings"] = autoscale_settings
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:

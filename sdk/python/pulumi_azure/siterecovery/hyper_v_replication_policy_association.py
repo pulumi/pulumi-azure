@@ -32,15 +32,19 @@ class HyperVReplicationPolicyAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             hyperv_site_id: pulumi.Input[str],
-             policy_id: pulumi.Input[str],
+             hyperv_site_id: Optional[pulumi.Input[str]] = None,
+             policy_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'hypervSiteId' in kwargs:
+        if hyperv_site_id is None and 'hypervSiteId' in kwargs:
             hyperv_site_id = kwargs['hypervSiteId']
-        if 'policyId' in kwargs:
+        if hyperv_site_id is None:
+            raise TypeError("Missing 'hyperv_site_id' argument")
+        if policy_id is None and 'policyId' in kwargs:
             policy_id = kwargs['policyId']
+        if policy_id is None:
+            raise TypeError("Missing 'policy_id' argument")
 
         _setter("hyperv_site_id", hyperv_site_id)
         _setter("policy_id", policy_id)
@@ -108,11 +112,11 @@ class _HyperVReplicationPolicyAssociationState:
              hyperv_site_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              policy_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'hypervSiteId' in kwargs:
+        if hyperv_site_id is None and 'hypervSiteId' in kwargs:
             hyperv_site_id = kwargs['hypervSiteId']
-        if 'policyId' in kwargs:
+        if policy_id is None and 'policyId' in kwargs:
             policy_id = kwargs['policyId']
 
         if hyperv_site_id is not None:
@@ -171,28 +175,6 @@ class HyperVReplicationPolicyAssociation(pulumi.CustomResource):
         """
         Manages an Azure Site Recovery replication policy for HyperV within a Recovery Vault.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="East US")
-        example_vault = azure.recoveryservices.Vault("exampleVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard")
-        example_hyper_v_site = azure.siterecovery.HyperVSite("exampleHyperVSite", recovery_vault_id=example_vault.id)
-        example_hyper_v_replication_policy = azure.siterecovery.HyperVReplicationPolicy("exampleHyperVReplicationPolicy",
-            recovery_vault_id=example_vault.id,
-            recovery_point_retention_in_hours=2,
-            application_consistent_snapshot_frequency_in_hours=1,
-            replication_interval_in_seconds=300)
-        example_hyper_v_replication_policy_association = azure.siterecovery.HyperVReplicationPolicyAssociation("exampleHyperVReplicationPolicyAssociation",
-            hyperv_site_id=example_hyper_v_site.id,
-            policy_id=example_hyper_v_replication_policy.id)
-        ```
-
         ## Import
 
         Site Recovery Replication Policies can be imported using the `resource id`, e.g.
@@ -215,28 +197,6 @@ class HyperVReplicationPolicyAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Site Recovery replication policy for HyperV within a Recovery Vault.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="East US")
-        example_vault = azure.recoveryservices.Vault("exampleVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard")
-        example_hyper_v_site = azure.siterecovery.HyperVSite("exampleHyperVSite", recovery_vault_id=example_vault.id)
-        example_hyper_v_replication_policy = azure.siterecovery.HyperVReplicationPolicy("exampleHyperVReplicationPolicy",
-            recovery_vault_id=example_vault.id,
-            recovery_point_retention_in_hours=2,
-            application_consistent_snapshot_frequency_in_hours=1,
-            replication_interval_in_seconds=300)
-        example_hyper_v_replication_policy_association = azure.siterecovery.HyperVReplicationPolicyAssociation("exampleHyperVReplicationPolicyAssociation",
-            hyperv_site_id=example_hyper_v_site.id,
-            policy_id=example_hyper_v_replication_policy.id)
-        ```
 
         ## Import
 

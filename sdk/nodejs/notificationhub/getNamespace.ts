@@ -8,19 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Notification Hub Namespace.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.notificationhub.getNamespace({
- *     name: "my-namespace",
- *     resourceGroupName: "my-resource-group",
- * });
- * export const servicebusEndpoint = example.then(example => example.servicebusEndpoint);
- * ```
  */
 export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceResult> {
 
@@ -82,19 +69,6 @@ export interface GetNamespaceResult {
 }
 /**
  * Use this data source to access information about an existing Notification Hub Namespace.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.notificationhub.getNamespace({
- *     name: "my-namespace",
- *     resourceGroupName: "my-resource-group",
- * });
- * export const servicebusEndpoint = example.then(example => example.servicebusEndpoint);
- * ```
  */
 export function getNamespaceOutput(args: GetNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceResult> {
     return pulumi.output(args).apply((a: any) => getNamespace(a, opts))

@@ -12,49 +12,6 @@ namespace Pulumi.Azure.Mobile
     /// <summary>
     /// Manages a Mobile Network Site.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleDevice = new Azure.DataboxEdge.Device("exampleDevice", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         SkuName = "EdgeP_Base-Standard",
-    ///     });
-    /// 
-    ///     var exampleNetwork = new Azure.Mobile.Network("exampleNetwork", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         MobileCountryCode = "001",
-    ///         MobileNetworkCode = "01",
-    ///     });
-    /// 
-    ///     var exampleNetworkSite = new Azure.Mobile.NetworkSite("exampleNetworkSite", new()
-    ///     {
-    ///         MobileNetworkId = exampleNetwork.Id,
-    ///         Location = exampleResourceGroup.Location,
-    ///         Tags = 
-    ///         {
-    ///             { "key", "value" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Mobile Network Site can be imported using the `resource id`, e.g.

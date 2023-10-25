@@ -49,25 +49,33 @@ class AttachedDatabaseConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cluster_name: pulumi.Input[str],
-             cluster_resource_id: pulumi.Input[str],
-             database_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             cluster_resource_id: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              default_principal_modification_kind: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              sharing: Optional[pulumi.Input['AttachedDatabaseConfigurationSharingArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'clusterName' in kwargs:
+        if cluster_name is None and 'clusterName' in kwargs:
             cluster_name = kwargs['clusterName']
-        if 'clusterResourceId' in kwargs:
+        if cluster_name is None:
+            raise TypeError("Missing 'cluster_name' argument")
+        if cluster_resource_id is None and 'clusterResourceId' in kwargs:
             cluster_resource_id = kwargs['clusterResourceId']
-        if 'databaseName' in kwargs:
+        if cluster_resource_id is None:
+            raise TypeError("Missing 'cluster_resource_id' argument")
+        if database_name is None and 'databaseName' in kwargs:
             database_name = kwargs['databaseName']
-        if 'resourceGroupName' in kwargs:
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'defaultPrincipalModificationKind' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if default_principal_modification_kind is None and 'defaultPrincipalModificationKind' in kwargs:
             default_principal_modification_kind = kwargs['defaultPrincipalModificationKind']
 
         _setter("cluster_name", cluster_name)
@@ -228,19 +236,19 @@ class _AttachedDatabaseConfigurationState:
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              sharing: Optional[pulumi.Input['AttachedDatabaseConfigurationSharingArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'attachedDatabaseNames' in kwargs:
+        if attached_database_names is None and 'attachedDatabaseNames' in kwargs:
             attached_database_names = kwargs['attachedDatabaseNames']
-        if 'clusterName' in kwargs:
+        if cluster_name is None and 'clusterName' in kwargs:
             cluster_name = kwargs['clusterName']
-        if 'clusterResourceId' in kwargs:
+        if cluster_resource_id is None and 'clusterResourceId' in kwargs:
             cluster_resource_id = kwargs['clusterResourceId']
-        if 'databaseName' in kwargs:
+        if database_name is None and 'databaseName' in kwargs:
             database_name = kwargs['databaseName']
-        if 'defaultPrincipalModificationKind' in kwargs:
+        if default_principal_modification_kind is None and 'defaultPrincipalModificationKind' in kwargs:
             default_principal_modification_kind = kwargs['defaultPrincipalModificationKind']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if attached_database_names is not None:
@@ -388,51 +396,6 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
         """
         Manages a Kusto (also known as Azure Data Explorer) Attached Database Configuration
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        follower_cluster = azure.kusto.Cluster("followerCluster",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Dev(No SLA)_Standard_D11_v2",
-                capacity=1,
-            ))
-        followed_cluster = azure.kusto.Cluster("followedCluster",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Dev(No SLA)_Standard_D11_v2",
-                capacity=1,
-            ))
-        followed_database = azure.kusto.Database("followedDatabase",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            cluster_name=follower_cluster.name)
-        example_database = azure.kusto.Database("exampleDatabase",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            cluster_name=follower_cluster.name)
-        example_attached_database_configuration = azure.kusto.AttachedDatabaseConfiguration("exampleAttachedDatabaseConfiguration",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            cluster_name=follower_cluster.name,
-            cluster_resource_id=followed_cluster.id,
-            database_name=example_database.name,
-            sharing=azure.kusto.AttachedDatabaseConfigurationSharingArgs(
-                external_tables_to_excludes=["ExternalTable2"],
-                external_tables_to_includes=["ExternalTable1"],
-                materialized_views_to_excludes=["MaterializedViewTable2"],
-                materialized_views_to_includes=["MaterializedViewTable1"],
-                tables_to_excludes=["Table2"],
-                tables_to_includes=["Table1"],
-            ))
-        ```
-
         ## Import
 
         Kusto Attached Database Configurations can be imported using the `resource id`, e.g.
@@ -460,51 +423,6 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Kusto (also known as Azure Data Explorer) Attached Database Configuration
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        follower_cluster = azure.kusto.Cluster("followerCluster",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Dev(No SLA)_Standard_D11_v2",
-                capacity=1,
-            ))
-        followed_cluster = azure.kusto.Cluster("followedCluster",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Dev(No SLA)_Standard_D11_v2",
-                capacity=1,
-            ))
-        followed_database = azure.kusto.Database("followedDatabase",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            cluster_name=follower_cluster.name)
-        example_database = azure.kusto.Database("exampleDatabase",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            cluster_name=follower_cluster.name)
-        example_attached_database_configuration = azure.kusto.AttachedDatabaseConfiguration("exampleAttachedDatabaseConfiguration",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            cluster_name=follower_cluster.name,
-            cluster_resource_id=followed_cluster.id,
-            database_name=example_database.name,
-            sharing=azure.kusto.AttachedDatabaseConfigurationSharingArgs(
-                external_tables_to_excludes=["ExternalTable2"],
-                external_tables_to_includes=["ExternalTable1"],
-                materialized_views_to_excludes=["MaterializedViewTable2"],
-                materialized_views_to_includes=["MaterializedViewTable1"],
-                tables_to_excludes=["Table2"],
-                tables_to_includes=["Table1"],
-            ))
-        ```
 
         ## Import
 
@@ -565,11 +483,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if sharing is not None and not isinstance(sharing, AttachedDatabaseConfigurationSharingArgs):
-                sharing = sharing or {}
-                def _setter(key, value):
-                    sharing[key] = value
-                AttachedDatabaseConfigurationSharingArgs._configure(_setter, **sharing)
+            sharing = _utilities.configure(sharing, AttachedDatabaseConfigurationSharingArgs, True)
             __props__.__dict__["sharing"] = sharing
             __props__.__dict__["attached_database_names"] = None
         super(AttachedDatabaseConfiguration, __self__).__init__(

@@ -7,27 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a VMWare Replication Policy.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "eastus"});
- * const exampleVault = new azure.recoveryservices.Vault("exampleVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "Standard",
- *     classicVmwareReplicationEnabled: true,
- *     softDeleteEnabled: false,
- * });
- * const exampleVMWareReplicationPolicy = new azure.siterecovery.VMWareReplicationPolicy("exampleVMWareReplicationPolicy", {
- *     recoveryVaultId: exampleVault.id,
- *     recoveryPointRetentionInMinutes: 1440,
- *     applicationConsistentSnapshotFrequencyInMinutes: 240,
- * });
- * ```
- *
  * ## Import
  *
  * VMWare Replication Policy can be imported using the `resource id`, e.g.

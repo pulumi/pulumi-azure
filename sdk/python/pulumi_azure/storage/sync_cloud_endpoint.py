@@ -38,20 +38,26 @@ class SyncCloudEndpointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             file_share_name: pulumi.Input[str],
-             storage_account_id: pulumi.Input[str],
-             storage_sync_group_id: pulumi.Input[str],
+             file_share_name: Optional[pulumi.Input[str]] = None,
+             storage_account_id: Optional[pulumi.Input[str]] = None,
+             storage_sync_group_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              storage_account_tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'fileShareName' in kwargs:
+        if file_share_name is None and 'fileShareName' in kwargs:
             file_share_name = kwargs['fileShareName']
-        if 'storageAccountId' in kwargs:
+        if file_share_name is None:
+            raise TypeError("Missing 'file_share_name' argument")
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'storageSyncGroupId' in kwargs:
+        if storage_account_id is None:
+            raise TypeError("Missing 'storage_account_id' argument")
+        if storage_sync_group_id is None and 'storageSyncGroupId' in kwargs:
             storage_sync_group_id = kwargs['storageSyncGroupId']
-        if 'storageAccountTenantId' in kwargs:
+        if storage_sync_group_id is None:
+            raise TypeError("Missing 'storage_sync_group_id' argument")
+        if storage_account_tenant_id is None and 'storageAccountTenantId' in kwargs:
             storage_account_tenant_id = kwargs['storageAccountTenantId']
 
         _setter("file_share_name", file_share_name)
@@ -155,15 +161,15 @@ class _SyncCloudEndpointState:
              storage_account_id: Optional[pulumi.Input[str]] = None,
              storage_account_tenant_id: Optional[pulumi.Input[str]] = None,
              storage_sync_group_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'fileShareName' in kwargs:
+        if file_share_name is None and 'fileShareName' in kwargs:
             file_share_name = kwargs['fileShareName']
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'storageAccountTenantId' in kwargs:
+        if storage_account_tenant_id is None and 'storageAccountTenantId' in kwargs:
             storage_account_tenant_id = kwargs['storageAccountTenantId']
-        if 'storageSyncGroupId' in kwargs:
+        if storage_sync_group_id is None and 'storageSyncGroupId' in kwargs:
             storage_sync_group_id = kwargs['storageSyncGroupId']
 
         if file_share_name is not None:
@@ -254,37 +260,6 @@ class SyncCloudEndpoint(pulumi.CustomResource):
 
         > **NOTE:** Please ensure Azure File Sync has access to the storage account in your subscription, which indicates that `Microsoft.StorageSync` is assigned role `Reader and Data Access` ( refer to details [here](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-troubleshooting-steps)).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_sync = azure.storage.Sync("exampleSync",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_sync_group = azure.storage.SyncGroup("exampleSyncGroup", storage_sync_id=example_sync.id)
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_share = azure.storage.Share("exampleShare",
-            storage_account_name=example_account.name,
-            quota=50,
-            acls=[azure.storage.ShareAclArgs(
-                id="GhostedRecall",
-                access_policies=[azure.storage.ShareAclAccessPolicyArgs(
-                    permissions="r",
-                )],
-            )])
-        example_sync_cloud_endpoint = azure.storage.SyncCloudEndpoint("exampleSyncCloudEndpoint",
-            storage_sync_group_id=example_sync_group.id,
-            file_share_name=example_share.name,
-            storage_account_id=example_account.id)
-        ```
-
         ## Import
 
         Storage Sync Cloud Endpoints can be imported using the `resource id`, e.g.
@@ -311,37 +286,6 @@ class SyncCloudEndpoint(pulumi.CustomResource):
         Manages a Storage Sync Cloud Endpoint.
 
         > **NOTE:** Please ensure Azure File Sync has access to the storage account in your subscription, which indicates that `Microsoft.StorageSync` is assigned role `Reader and Data Access` ( refer to details [here](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-troubleshooting-steps)).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_sync = azure.storage.Sync("exampleSync",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_sync_group = azure.storage.SyncGroup("exampleSyncGroup", storage_sync_id=example_sync.id)
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_share = azure.storage.Share("exampleShare",
-            storage_account_name=example_account.name,
-            quota=50,
-            acls=[azure.storage.ShareAclArgs(
-                id="GhostedRecall",
-                access_policies=[azure.storage.ShareAclAccessPolicyArgs(
-                    permissions="r",
-                )],
-            )])
-        example_sync_cloud_endpoint = azure.storage.SyncCloudEndpoint("exampleSyncCloudEndpoint",
-            storage_sync_group_id=example_sync_group.id,
-            file_share_name=example_share.name,
-            storage_account_id=example_account.id)
-        ```
 
         ## Import
 

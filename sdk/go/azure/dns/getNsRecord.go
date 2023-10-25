@@ -12,33 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dns"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := dns.NewNsRecord(ctx, "example", &dns.NsRecordArgs{
-//				ZoneName:          pulumi.String("test-zone"),
-//				ResourceGroupName: pulumi.String("test-rg"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("dnsNsRecordId", example.ID())
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupNsRecord(ctx *pulumi.Context, args *LookupNsRecordArgs, opts ...pulumi.InvokeOption) (*LookupNsRecordResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNsRecordResult

@@ -12,46 +12,6 @@ namespace Pulumi.Azure.MediaServices
     /// <summary>
     /// Manages a Media Services Account.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         AccountTier = "Standard",
-    ///         AccountReplicationType = "GRS",
-    ///     });
-    /// 
-    ///     var exampleServiceAccount = new Azure.Media.ServiceAccount("exampleServiceAccount", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         StorageAccounts = new[]
-    ///         {
-    ///             new Azure.Media.Inputs.ServiceAccountStorageAccountArgs
-    ///             {
-    ///                 Id = exampleAccount.Id,
-    ///                 IsPrimary = true,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Media Services Accounts can be imported using the `resource id`, e.g.

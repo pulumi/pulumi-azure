@@ -32,16 +32,18 @@ class PolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_management_id: pulumi.Input[str],
+             api_management_id: Optional[pulumi.Input[str]] = None,
              xml_content: Optional[pulumi.Input[str]] = None,
              xml_link: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementId' in kwargs:
+        if api_management_id is None and 'apiManagementId' in kwargs:
             api_management_id = kwargs['apiManagementId']
-        if 'xmlContent' in kwargs:
+        if api_management_id is None:
+            raise TypeError("Missing 'api_management_id' argument")
+        if xml_content is None and 'xmlContent' in kwargs:
             xml_content = kwargs['xmlContent']
-        if 'xmlLink' in kwargs:
+        if xml_link is None and 'xmlLink' in kwargs:
             xml_link = kwargs['xmlLink']
 
         _setter("api_management_id", api_management_id)
@@ -111,13 +113,13 @@ class _PolicyState:
              api_management_id: Optional[pulumi.Input[str]] = None,
              xml_content: Optional[pulumi.Input[str]] = None,
              xml_link: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementId' in kwargs:
+        if api_management_id is None and 'apiManagementId' in kwargs:
             api_management_id = kwargs['apiManagementId']
-        if 'xmlContent' in kwargs:
+        if xml_content is None and 'xmlContent' in kwargs:
             xml_content = kwargs['xmlContent']
-        if 'xmlLink' in kwargs:
+        if xml_link is None and 'xmlLink' in kwargs:
             xml_link = kwargs['xmlLink']
 
         if api_management_id is not None:
@@ -178,29 +180,6 @@ class Policy(pulumi.CustomResource):
 
         > **NOTE:** This resource will, upon creation, **overwrite any existing policy in the API Management service**, as there is no feasible way to test whether the policy has been modified from the default. Similarly, when this resource is destroyed, the API Management service will revert to its default policy.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            publisher_name="pub1",
-            publisher_email="pub1@email.com",
-            sku_name="Developer_1")
-        example_named_value = azure.apimanagement.NamedValue("exampleNamedValue",
-            resource_group_name=example_resource_group.name,
-            api_management_name=example_service.name,
-            display_name="ExampleProperty",
-            value="Example Value")
-        example_policy = azure.apimanagement.Policy("examplePolicy",
-            api_management_id=example_service.id,
-            xml_content=(lambda path: open(path).read())("example.xml"))
-        ```
-
         ## Import
 
         API Management service Policys can be imported using the `resource id`, e.g.
@@ -225,29 +204,6 @@ class Policy(pulumi.CustomResource):
         Manages a API Management service Policy.
 
         > **NOTE:** This resource will, upon creation, **overwrite any existing policy in the API Management service**, as there is no feasible way to test whether the policy has been modified from the default. Similarly, when this resource is destroyed, the API Management service will revert to its default policy.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            publisher_name="pub1",
-            publisher_email="pub1@email.com",
-            sku_name="Developer_1")
-        example_named_value = azure.apimanagement.NamedValue("exampleNamedValue",
-            resource_group_name=example_resource_group.name,
-            api_management_name=example_service.name,
-            display_name="ExampleProperty",
-            value="Example Value")
-        example_policy = azure.apimanagement.Policy("examplePolicy",
-            api_management_id=example_service.id,
-            xml_content=(lambda path: open(path).read())("example.xml"))
-        ```
 
         ## Import
 

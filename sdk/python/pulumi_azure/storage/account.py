@@ -154,9 +154,9 @@ class AccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             account_replication_type: pulumi.Input[str],
-             account_tier: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             account_replication_type: Optional[pulumi.Input[str]] = None,
+             account_tier: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              access_tier: Optional[pulumi.Input[str]] = None,
              account_kind: Optional[pulumi.Input[str]] = None,
              allow_nested_items_to_be_public: Optional[pulumi.Input[bool]] = None,
@@ -190,69 +190,75 @@ class AccountArgs:
              static_website: Optional[pulumi.Input['AccountStaticWebsiteArgs']] = None,
              table_encryption_key_type: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accountReplicationType' in kwargs:
+        if account_replication_type is None and 'accountReplicationType' in kwargs:
             account_replication_type = kwargs['accountReplicationType']
-        if 'accountTier' in kwargs:
+        if account_replication_type is None:
+            raise TypeError("Missing 'account_replication_type' argument")
+        if account_tier is None and 'accountTier' in kwargs:
             account_tier = kwargs['accountTier']
-        if 'resourceGroupName' in kwargs:
+        if account_tier is None:
+            raise TypeError("Missing 'account_tier' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'accessTier' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if access_tier is None and 'accessTier' in kwargs:
             access_tier = kwargs['accessTier']
-        if 'accountKind' in kwargs:
+        if account_kind is None and 'accountKind' in kwargs:
             account_kind = kwargs['accountKind']
-        if 'allowNestedItemsToBePublic' in kwargs:
+        if allow_nested_items_to_be_public is None and 'allowNestedItemsToBePublic' in kwargs:
             allow_nested_items_to_be_public = kwargs['allowNestedItemsToBePublic']
-        if 'allowedCopyScope' in kwargs:
+        if allowed_copy_scope is None and 'allowedCopyScope' in kwargs:
             allowed_copy_scope = kwargs['allowedCopyScope']
-        if 'azureFilesAuthentication' in kwargs:
+        if azure_files_authentication is None and 'azureFilesAuthentication' in kwargs:
             azure_files_authentication = kwargs['azureFilesAuthentication']
-        if 'blobProperties' in kwargs:
+        if blob_properties is None and 'blobProperties' in kwargs:
             blob_properties = kwargs['blobProperties']
-        if 'crossTenantReplicationEnabled' in kwargs:
+        if cross_tenant_replication_enabled is None and 'crossTenantReplicationEnabled' in kwargs:
             cross_tenant_replication_enabled = kwargs['crossTenantReplicationEnabled']
-        if 'customDomain' in kwargs:
+        if custom_domain is None and 'customDomain' in kwargs:
             custom_domain = kwargs['customDomain']
-        if 'customerManagedKey' in kwargs:
+        if customer_managed_key is None and 'customerManagedKey' in kwargs:
             customer_managed_key = kwargs['customerManagedKey']
-        if 'defaultToOauthAuthentication' in kwargs:
+        if default_to_oauth_authentication is None and 'defaultToOauthAuthentication' in kwargs:
             default_to_oauth_authentication = kwargs['defaultToOauthAuthentication']
-        if 'edgeZone' in kwargs:
+        if edge_zone is None and 'edgeZone' in kwargs:
             edge_zone = kwargs['edgeZone']
-        if 'enableHttpsTrafficOnly' in kwargs:
+        if enable_https_traffic_only is None and 'enableHttpsTrafficOnly' in kwargs:
             enable_https_traffic_only = kwargs['enableHttpsTrafficOnly']
-        if 'immutabilityPolicy' in kwargs:
+        if immutability_policy is None and 'immutabilityPolicy' in kwargs:
             immutability_policy = kwargs['immutabilityPolicy']
-        if 'infrastructureEncryptionEnabled' in kwargs:
+        if infrastructure_encryption_enabled is None and 'infrastructureEncryptionEnabled' in kwargs:
             infrastructure_encryption_enabled = kwargs['infrastructureEncryptionEnabled']
-        if 'isHnsEnabled' in kwargs:
+        if is_hns_enabled is None and 'isHnsEnabled' in kwargs:
             is_hns_enabled = kwargs['isHnsEnabled']
-        if 'largeFileShareEnabled' in kwargs:
+        if large_file_share_enabled is None and 'largeFileShareEnabled' in kwargs:
             large_file_share_enabled = kwargs['largeFileShareEnabled']
-        if 'minTlsVersion' in kwargs:
+        if min_tls_version is None and 'minTlsVersion' in kwargs:
             min_tls_version = kwargs['minTlsVersion']
-        if 'networkRules' in kwargs:
+        if network_rules is None and 'networkRules' in kwargs:
             network_rules = kwargs['networkRules']
-        if 'nfsv3Enabled' in kwargs:
+        if nfsv3_enabled is None and 'nfsv3Enabled' in kwargs:
             nfsv3_enabled = kwargs['nfsv3Enabled']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'queueEncryptionKeyType' in kwargs:
+        if queue_encryption_key_type is None and 'queueEncryptionKeyType' in kwargs:
             queue_encryption_key_type = kwargs['queueEncryptionKeyType']
-        if 'queueProperties' in kwargs:
+        if queue_properties is None and 'queueProperties' in kwargs:
             queue_properties = kwargs['queueProperties']
-        if 'sasPolicy' in kwargs:
+        if sas_policy is None and 'sasPolicy' in kwargs:
             sas_policy = kwargs['sasPolicy']
-        if 'sftpEnabled' in kwargs:
+        if sftp_enabled is None and 'sftpEnabled' in kwargs:
             sftp_enabled = kwargs['sftpEnabled']
-        if 'shareProperties' in kwargs:
+        if share_properties is None and 'shareProperties' in kwargs:
             share_properties = kwargs['shareProperties']
-        if 'sharedAccessKeyEnabled' in kwargs:
+        if shared_access_key_enabled is None and 'sharedAccessKeyEnabled' in kwargs:
             shared_access_key_enabled = kwargs['sharedAccessKeyEnabled']
-        if 'staticWebsite' in kwargs:
+        if static_website is None and 'staticWebsite' in kwargs:
             static_website = kwargs['staticWebsite']
-        if 'tableEncryptionKeyType' in kwargs:
+        if table_encryption_key_type is None and 'tableEncryptionKeyType' in kwargs:
             table_encryption_key_type = kwargs['tableEncryptionKeyType']
 
         _setter("account_replication_type", account_replication_type)
@@ -1082,133 +1088,133 @@ class _AccountState:
              static_website: Optional[pulumi.Input['AccountStaticWebsiteArgs']] = None,
              table_encryption_key_type: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accessTier' in kwargs:
+        if access_tier is None and 'accessTier' in kwargs:
             access_tier = kwargs['accessTier']
-        if 'accountKind' in kwargs:
+        if account_kind is None and 'accountKind' in kwargs:
             account_kind = kwargs['accountKind']
-        if 'accountReplicationType' in kwargs:
+        if account_replication_type is None and 'accountReplicationType' in kwargs:
             account_replication_type = kwargs['accountReplicationType']
-        if 'accountTier' in kwargs:
+        if account_tier is None and 'accountTier' in kwargs:
             account_tier = kwargs['accountTier']
-        if 'allowNestedItemsToBePublic' in kwargs:
+        if allow_nested_items_to_be_public is None and 'allowNestedItemsToBePublic' in kwargs:
             allow_nested_items_to_be_public = kwargs['allowNestedItemsToBePublic']
-        if 'allowedCopyScope' in kwargs:
+        if allowed_copy_scope is None and 'allowedCopyScope' in kwargs:
             allowed_copy_scope = kwargs['allowedCopyScope']
-        if 'azureFilesAuthentication' in kwargs:
+        if azure_files_authentication is None and 'azureFilesAuthentication' in kwargs:
             azure_files_authentication = kwargs['azureFilesAuthentication']
-        if 'blobProperties' in kwargs:
+        if blob_properties is None and 'blobProperties' in kwargs:
             blob_properties = kwargs['blobProperties']
-        if 'crossTenantReplicationEnabled' in kwargs:
+        if cross_tenant_replication_enabled is None and 'crossTenantReplicationEnabled' in kwargs:
             cross_tenant_replication_enabled = kwargs['crossTenantReplicationEnabled']
-        if 'customDomain' in kwargs:
+        if custom_domain is None and 'customDomain' in kwargs:
             custom_domain = kwargs['customDomain']
-        if 'customerManagedKey' in kwargs:
+        if customer_managed_key is None and 'customerManagedKey' in kwargs:
             customer_managed_key = kwargs['customerManagedKey']
-        if 'defaultToOauthAuthentication' in kwargs:
+        if default_to_oauth_authentication is None and 'defaultToOauthAuthentication' in kwargs:
             default_to_oauth_authentication = kwargs['defaultToOauthAuthentication']
-        if 'edgeZone' in kwargs:
+        if edge_zone is None and 'edgeZone' in kwargs:
             edge_zone = kwargs['edgeZone']
-        if 'enableHttpsTrafficOnly' in kwargs:
+        if enable_https_traffic_only is None and 'enableHttpsTrafficOnly' in kwargs:
             enable_https_traffic_only = kwargs['enableHttpsTrafficOnly']
-        if 'immutabilityPolicy' in kwargs:
+        if immutability_policy is None and 'immutabilityPolicy' in kwargs:
             immutability_policy = kwargs['immutabilityPolicy']
-        if 'infrastructureEncryptionEnabled' in kwargs:
+        if infrastructure_encryption_enabled is None and 'infrastructureEncryptionEnabled' in kwargs:
             infrastructure_encryption_enabled = kwargs['infrastructureEncryptionEnabled']
-        if 'isHnsEnabled' in kwargs:
+        if is_hns_enabled is None and 'isHnsEnabled' in kwargs:
             is_hns_enabled = kwargs['isHnsEnabled']
-        if 'largeFileShareEnabled' in kwargs:
+        if large_file_share_enabled is None and 'largeFileShareEnabled' in kwargs:
             large_file_share_enabled = kwargs['largeFileShareEnabled']
-        if 'minTlsVersion' in kwargs:
+        if min_tls_version is None and 'minTlsVersion' in kwargs:
             min_tls_version = kwargs['minTlsVersion']
-        if 'networkRules' in kwargs:
+        if network_rules is None and 'networkRules' in kwargs:
             network_rules = kwargs['networkRules']
-        if 'nfsv3Enabled' in kwargs:
+        if nfsv3_enabled is None and 'nfsv3Enabled' in kwargs:
             nfsv3_enabled = kwargs['nfsv3Enabled']
-        if 'primaryAccessKey' in kwargs:
+        if primary_access_key is None and 'primaryAccessKey' in kwargs:
             primary_access_key = kwargs['primaryAccessKey']
-        if 'primaryBlobConnectionString' in kwargs:
+        if primary_blob_connection_string is None and 'primaryBlobConnectionString' in kwargs:
             primary_blob_connection_string = kwargs['primaryBlobConnectionString']
-        if 'primaryBlobEndpoint' in kwargs:
+        if primary_blob_endpoint is None and 'primaryBlobEndpoint' in kwargs:
             primary_blob_endpoint = kwargs['primaryBlobEndpoint']
-        if 'primaryBlobHost' in kwargs:
+        if primary_blob_host is None and 'primaryBlobHost' in kwargs:
             primary_blob_host = kwargs['primaryBlobHost']
-        if 'primaryConnectionString' in kwargs:
+        if primary_connection_string is None and 'primaryConnectionString' in kwargs:
             primary_connection_string = kwargs['primaryConnectionString']
-        if 'primaryDfsEndpoint' in kwargs:
+        if primary_dfs_endpoint is None and 'primaryDfsEndpoint' in kwargs:
             primary_dfs_endpoint = kwargs['primaryDfsEndpoint']
-        if 'primaryDfsHost' in kwargs:
+        if primary_dfs_host is None and 'primaryDfsHost' in kwargs:
             primary_dfs_host = kwargs['primaryDfsHost']
-        if 'primaryFileEndpoint' in kwargs:
+        if primary_file_endpoint is None and 'primaryFileEndpoint' in kwargs:
             primary_file_endpoint = kwargs['primaryFileEndpoint']
-        if 'primaryFileHost' in kwargs:
+        if primary_file_host is None and 'primaryFileHost' in kwargs:
             primary_file_host = kwargs['primaryFileHost']
-        if 'primaryLocation' in kwargs:
+        if primary_location is None and 'primaryLocation' in kwargs:
             primary_location = kwargs['primaryLocation']
-        if 'primaryQueueEndpoint' in kwargs:
+        if primary_queue_endpoint is None and 'primaryQueueEndpoint' in kwargs:
             primary_queue_endpoint = kwargs['primaryQueueEndpoint']
-        if 'primaryQueueHost' in kwargs:
+        if primary_queue_host is None and 'primaryQueueHost' in kwargs:
             primary_queue_host = kwargs['primaryQueueHost']
-        if 'primaryTableEndpoint' in kwargs:
+        if primary_table_endpoint is None and 'primaryTableEndpoint' in kwargs:
             primary_table_endpoint = kwargs['primaryTableEndpoint']
-        if 'primaryTableHost' in kwargs:
+        if primary_table_host is None and 'primaryTableHost' in kwargs:
             primary_table_host = kwargs['primaryTableHost']
-        if 'primaryWebEndpoint' in kwargs:
+        if primary_web_endpoint is None and 'primaryWebEndpoint' in kwargs:
             primary_web_endpoint = kwargs['primaryWebEndpoint']
-        if 'primaryWebHost' in kwargs:
+        if primary_web_host is None and 'primaryWebHost' in kwargs:
             primary_web_host = kwargs['primaryWebHost']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'queueEncryptionKeyType' in kwargs:
+        if queue_encryption_key_type is None and 'queueEncryptionKeyType' in kwargs:
             queue_encryption_key_type = kwargs['queueEncryptionKeyType']
-        if 'queueProperties' in kwargs:
+        if queue_properties is None and 'queueProperties' in kwargs:
             queue_properties = kwargs['queueProperties']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'sasPolicy' in kwargs:
+        if sas_policy is None and 'sasPolicy' in kwargs:
             sas_policy = kwargs['sasPolicy']
-        if 'secondaryAccessKey' in kwargs:
+        if secondary_access_key is None and 'secondaryAccessKey' in kwargs:
             secondary_access_key = kwargs['secondaryAccessKey']
-        if 'secondaryBlobConnectionString' in kwargs:
+        if secondary_blob_connection_string is None and 'secondaryBlobConnectionString' in kwargs:
             secondary_blob_connection_string = kwargs['secondaryBlobConnectionString']
-        if 'secondaryBlobEndpoint' in kwargs:
+        if secondary_blob_endpoint is None and 'secondaryBlobEndpoint' in kwargs:
             secondary_blob_endpoint = kwargs['secondaryBlobEndpoint']
-        if 'secondaryBlobHost' in kwargs:
+        if secondary_blob_host is None and 'secondaryBlobHost' in kwargs:
             secondary_blob_host = kwargs['secondaryBlobHost']
-        if 'secondaryConnectionString' in kwargs:
+        if secondary_connection_string is None and 'secondaryConnectionString' in kwargs:
             secondary_connection_string = kwargs['secondaryConnectionString']
-        if 'secondaryDfsEndpoint' in kwargs:
+        if secondary_dfs_endpoint is None and 'secondaryDfsEndpoint' in kwargs:
             secondary_dfs_endpoint = kwargs['secondaryDfsEndpoint']
-        if 'secondaryDfsHost' in kwargs:
+        if secondary_dfs_host is None and 'secondaryDfsHost' in kwargs:
             secondary_dfs_host = kwargs['secondaryDfsHost']
-        if 'secondaryFileEndpoint' in kwargs:
+        if secondary_file_endpoint is None and 'secondaryFileEndpoint' in kwargs:
             secondary_file_endpoint = kwargs['secondaryFileEndpoint']
-        if 'secondaryFileHost' in kwargs:
+        if secondary_file_host is None and 'secondaryFileHost' in kwargs:
             secondary_file_host = kwargs['secondaryFileHost']
-        if 'secondaryLocation' in kwargs:
+        if secondary_location is None and 'secondaryLocation' in kwargs:
             secondary_location = kwargs['secondaryLocation']
-        if 'secondaryQueueEndpoint' in kwargs:
+        if secondary_queue_endpoint is None and 'secondaryQueueEndpoint' in kwargs:
             secondary_queue_endpoint = kwargs['secondaryQueueEndpoint']
-        if 'secondaryQueueHost' in kwargs:
+        if secondary_queue_host is None and 'secondaryQueueHost' in kwargs:
             secondary_queue_host = kwargs['secondaryQueueHost']
-        if 'secondaryTableEndpoint' in kwargs:
+        if secondary_table_endpoint is None and 'secondaryTableEndpoint' in kwargs:
             secondary_table_endpoint = kwargs['secondaryTableEndpoint']
-        if 'secondaryTableHost' in kwargs:
+        if secondary_table_host is None and 'secondaryTableHost' in kwargs:
             secondary_table_host = kwargs['secondaryTableHost']
-        if 'secondaryWebEndpoint' in kwargs:
+        if secondary_web_endpoint is None and 'secondaryWebEndpoint' in kwargs:
             secondary_web_endpoint = kwargs['secondaryWebEndpoint']
-        if 'secondaryWebHost' in kwargs:
+        if secondary_web_host is None and 'secondaryWebHost' in kwargs:
             secondary_web_host = kwargs['secondaryWebHost']
-        if 'sftpEnabled' in kwargs:
+        if sftp_enabled is None and 'sftpEnabled' in kwargs:
             sftp_enabled = kwargs['sftpEnabled']
-        if 'shareProperties' in kwargs:
+        if share_properties is None and 'shareProperties' in kwargs:
             share_properties = kwargs['shareProperties']
-        if 'sharedAccessKeyEnabled' in kwargs:
+        if shared_access_key_enabled is None and 'sharedAccessKeyEnabled' in kwargs:
             shared_access_key_enabled = kwargs['sharedAccessKeyEnabled']
-        if 'staticWebsite' in kwargs:
+        if static_website is None and 'staticWebsite' in kwargs:
             static_website = kwargs['staticWebsite']
-        if 'tableEncryptionKeyType' in kwargs:
+        if table_encryption_key_type is None and 'tableEncryptionKeyType' in kwargs:
             table_encryption_key_type = kwargs['tableEncryptionKeyType']
 
         if access_tier is not None:
@@ -2229,56 +2235,6 @@ class Account(pulumi.CustomResource):
         """
         Manages an Azure Storage Account.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="GRS",
-            tags={
-                "environment": "staging",
-            })
-        ```
-        ### With Network Rules
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"],
-            service_endpoints=[
-                "Microsoft.Sql",
-                "Microsoft.Storage",
-            ])
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            network_rules=azure.storage.AccountNetworkRulesArgs(
-                default_action="Deny",
-                ip_rules=["100.0.0.1"],
-                virtual_network_subnet_ids=[example_subnet.id],
-            ),
-            tags={
-                "environment": "staging",
-            })
-        ```
-
         ## Import
 
         Storage Accounts can be imported using the `resource id`, e.g.
@@ -2355,56 +2311,6 @@ class Account(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Storage Account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="GRS",
-            tags={
-                "environment": "staging",
-            })
-        ```
-        ### With Network Rules
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"],
-            service_endpoints=[
-                "Microsoft.Sql",
-                "Microsoft.Storage",
-            ])
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            network_rules=azure.storage.AccountNetworkRulesArgs(
-                default_action="Deny",
-                ip_rules=["100.0.0.1"],
-                virtual_network_subnet_ids=[example_subnet.id],
-            ),
-            tags={
-                "environment": "staging",
-            })
-        ```
 
         ## Import
 
@@ -2488,45 +2394,21 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["account_tier"] = account_tier
             __props__.__dict__["allow_nested_items_to_be_public"] = allow_nested_items_to_be_public
             __props__.__dict__["allowed_copy_scope"] = allowed_copy_scope
-            if azure_files_authentication is not None and not isinstance(azure_files_authentication, AccountAzureFilesAuthenticationArgs):
-                azure_files_authentication = azure_files_authentication or {}
-                def _setter(key, value):
-                    azure_files_authentication[key] = value
-                AccountAzureFilesAuthenticationArgs._configure(_setter, **azure_files_authentication)
+            azure_files_authentication = _utilities.configure(azure_files_authentication, AccountAzureFilesAuthenticationArgs, True)
             __props__.__dict__["azure_files_authentication"] = azure_files_authentication
-            if blob_properties is not None and not isinstance(blob_properties, AccountBlobPropertiesArgs):
-                blob_properties = blob_properties or {}
-                def _setter(key, value):
-                    blob_properties[key] = value
-                AccountBlobPropertiesArgs._configure(_setter, **blob_properties)
+            blob_properties = _utilities.configure(blob_properties, AccountBlobPropertiesArgs, True)
             __props__.__dict__["blob_properties"] = blob_properties
             __props__.__dict__["cross_tenant_replication_enabled"] = cross_tenant_replication_enabled
-            if custom_domain is not None and not isinstance(custom_domain, AccountCustomDomainArgs):
-                custom_domain = custom_domain or {}
-                def _setter(key, value):
-                    custom_domain[key] = value
-                AccountCustomDomainArgs._configure(_setter, **custom_domain)
+            custom_domain = _utilities.configure(custom_domain, AccountCustomDomainArgs, True)
             __props__.__dict__["custom_domain"] = custom_domain
-            if customer_managed_key is not None and not isinstance(customer_managed_key, AccountCustomerManagedKeyArgs):
-                customer_managed_key = customer_managed_key or {}
-                def _setter(key, value):
-                    customer_managed_key[key] = value
-                AccountCustomerManagedKeyArgs._configure(_setter, **customer_managed_key)
+            customer_managed_key = _utilities.configure(customer_managed_key, AccountCustomerManagedKeyArgs, True)
             __props__.__dict__["customer_managed_key"] = customer_managed_key
             __props__.__dict__["default_to_oauth_authentication"] = default_to_oauth_authentication
             __props__.__dict__["edge_zone"] = edge_zone
             __props__.__dict__["enable_https_traffic_only"] = enable_https_traffic_only
-            if identity is not None and not isinstance(identity, AccountIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                AccountIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, AccountIdentityArgs, True)
             __props__.__dict__["identity"] = identity
-            if immutability_policy is not None and not isinstance(immutability_policy, AccountImmutabilityPolicyArgs):
-                immutability_policy = immutability_policy or {}
-                def _setter(key, value):
-                    immutability_policy[key] = value
-                AccountImmutabilityPolicyArgs._configure(_setter, **immutability_policy)
+            immutability_policy = _utilities.configure(immutability_policy, AccountImmutabilityPolicyArgs, True)
             __props__.__dict__["immutability_policy"] = immutability_policy
             __props__.__dict__["infrastructure_encryption_enabled"] = infrastructure_encryption_enabled
             __props__.__dict__["is_hns_enabled"] = is_hns_enabled
@@ -2534,49 +2416,25 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["min_tls_version"] = min_tls_version
             __props__.__dict__["name"] = name
-            if network_rules is not None and not isinstance(network_rules, AccountNetworkRulesArgs):
-                network_rules = network_rules or {}
-                def _setter(key, value):
-                    network_rules[key] = value
-                AccountNetworkRulesArgs._configure(_setter, **network_rules)
+            network_rules = _utilities.configure(network_rules, AccountNetworkRulesArgs, True)
             __props__.__dict__["network_rules"] = network_rules
             __props__.__dict__["nfsv3_enabled"] = nfsv3_enabled
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             __props__.__dict__["queue_encryption_key_type"] = queue_encryption_key_type
-            if queue_properties is not None and not isinstance(queue_properties, AccountQueuePropertiesArgs):
-                queue_properties = queue_properties or {}
-                def _setter(key, value):
-                    queue_properties[key] = value
-                AccountQueuePropertiesArgs._configure(_setter, **queue_properties)
+            queue_properties = _utilities.configure(queue_properties, AccountQueuePropertiesArgs, True)
             __props__.__dict__["queue_properties"] = queue_properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if routing is not None and not isinstance(routing, AccountRoutingArgs):
-                routing = routing or {}
-                def _setter(key, value):
-                    routing[key] = value
-                AccountRoutingArgs._configure(_setter, **routing)
+            routing = _utilities.configure(routing, AccountRoutingArgs, True)
             __props__.__dict__["routing"] = routing
-            if sas_policy is not None and not isinstance(sas_policy, AccountSasPolicyArgs):
-                sas_policy = sas_policy or {}
-                def _setter(key, value):
-                    sas_policy[key] = value
-                AccountSasPolicyArgs._configure(_setter, **sas_policy)
+            sas_policy = _utilities.configure(sas_policy, AccountSasPolicyArgs, True)
             __props__.__dict__["sas_policy"] = sas_policy
             __props__.__dict__["sftp_enabled"] = sftp_enabled
-            if share_properties is not None and not isinstance(share_properties, AccountSharePropertiesArgs):
-                share_properties = share_properties or {}
-                def _setter(key, value):
-                    share_properties[key] = value
-                AccountSharePropertiesArgs._configure(_setter, **share_properties)
+            share_properties = _utilities.configure(share_properties, AccountSharePropertiesArgs, True)
             __props__.__dict__["share_properties"] = share_properties
             __props__.__dict__["shared_access_key_enabled"] = shared_access_key_enabled
-            if static_website is not None and not isinstance(static_website, AccountStaticWebsiteArgs):
-                static_website = static_website or {}
-                def _setter(key, value):
-                    static_website[key] = value
-                AccountStaticWebsiteArgs._configure(_setter, **static_website)
+            static_website = _utilities.configure(static_website, AccountStaticWebsiteArgs, True)
             __props__.__dict__["static_website"] = static_website
             __props__.__dict__["table_encryption_key_type"] = table_encryption_key_type
             __props__.__dict__["tags"] = tags

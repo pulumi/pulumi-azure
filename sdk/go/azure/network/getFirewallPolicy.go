@@ -13,34 +13,6 @@ import (
 )
 
 // Use this data source to access information about an existing Firewall Policy.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := network.LookupFirewallPolicy(ctx, &network.LookupFirewallPolicyArgs{
-//				Name:              "existing",
-//				ResourceGroupName: "existing",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("id", example.Id)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupFirewallPolicy(ctx *pulumi.Context, args *LookupFirewallPolicyArgs, opts ...pulumi.InvokeOption) (*LookupFirewallPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFirewallPolicyResult

@@ -7,39 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a API Management Email Template.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleService = new azure.apimanagement.Service("exampleService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     publisherName: "My Company",
- *     publisherEmail: "company@terraform.io",
- *     skuName: "Developer_1",
- * });
- * const exampleEmailTemplate = new azure.apimanagement.EmailTemplate("exampleEmailTemplate", {
- *     templateName: "ConfirmSignUpIdentityDefault",
- *     resourceGroupName: exampleResourceGroup.name,
- *     apiManagementName: exampleService.name,
- *     subject: "Customized confirmation email for your new $OrganizationName API account",
- *     body: `<!DOCTYPE html >
- * <html>
- * <head>
- *   <meta charset="UTF-8" />
- *   <title>Customized Letter Title</title>
- * </head>
- * <body>
- *   <p style="font-size:12pt;font-family:'Segoe UI'">Dear $DevFirstName $DevLastName,</p>
- * </body>
- * </html>
- * `,
- * });
- * ```
- *
  * ## Import
  *
  * API Management Email Templates can be imported using the `resource id`, e.g.

@@ -52,26 +52,34 @@ class NetworkSimPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             default_slice_id: pulumi.Input[str],
-             mobile_network_id: pulumi.Input[str],
-             slices: pulumi.Input[Sequence[pulumi.Input['NetworkSimPolicySliceArgs']]],
-             user_equipment_aggregate_maximum_bit_rate: pulumi.Input['NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs'],
+             default_slice_id: Optional[pulumi.Input[str]] = None,
+             mobile_network_id: Optional[pulumi.Input[str]] = None,
+             slices: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSimPolicySliceArgs']]]] = None,
+             user_equipment_aggregate_maximum_bit_rate: Optional[pulumi.Input['NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs']] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              rat_frequency_selection_priority_index: Optional[pulumi.Input[int]] = None,
              registration_timer_in_seconds: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'defaultSliceId' in kwargs:
+        if default_slice_id is None and 'defaultSliceId' in kwargs:
             default_slice_id = kwargs['defaultSliceId']
-        if 'mobileNetworkId' in kwargs:
+        if default_slice_id is None:
+            raise TypeError("Missing 'default_slice_id' argument")
+        if mobile_network_id is None and 'mobileNetworkId' in kwargs:
             mobile_network_id = kwargs['mobileNetworkId']
-        if 'userEquipmentAggregateMaximumBitRate' in kwargs:
+        if mobile_network_id is None:
+            raise TypeError("Missing 'mobile_network_id' argument")
+        if slices is None:
+            raise TypeError("Missing 'slices' argument")
+        if user_equipment_aggregate_maximum_bit_rate is None and 'userEquipmentAggregateMaximumBitRate' in kwargs:
             user_equipment_aggregate_maximum_bit_rate = kwargs['userEquipmentAggregateMaximumBitRate']
-        if 'ratFrequencySelectionPriorityIndex' in kwargs:
+        if user_equipment_aggregate_maximum_bit_rate is None:
+            raise TypeError("Missing 'user_equipment_aggregate_maximum_bit_rate' argument")
+        if rat_frequency_selection_priority_index is None and 'ratFrequencySelectionPriorityIndex' in kwargs:
             rat_frequency_selection_priority_index = kwargs['ratFrequencySelectionPriorityIndex']
-        if 'registrationTimerInSeconds' in kwargs:
+        if registration_timer_in_seconds is None and 'registrationTimerInSeconds' in kwargs:
             registration_timer_in_seconds = kwargs['registrationTimerInSeconds']
 
         _setter("default_slice_id", default_slice_id)
@@ -246,17 +254,17 @@ class _NetworkSimPolicyState:
              slices: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSimPolicySliceArgs']]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              user_equipment_aggregate_maximum_bit_rate: Optional[pulumi.Input['NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'defaultSliceId' in kwargs:
+        if default_slice_id is None and 'defaultSliceId' in kwargs:
             default_slice_id = kwargs['defaultSliceId']
-        if 'mobileNetworkId' in kwargs:
+        if mobile_network_id is None and 'mobileNetworkId' in kwargs:
             mobile_network_id = kwargs['mobileNetworkId']
-        if 'ratFrequencySelectionPriorityIndex' in kwargs:
+        if rat_frequency_selection_priority_index is None and 'ratFrequencySelectionPriorityIndex' in kwargs:
             rat_frequency_selection_priority_index = kwargs['ratFrequencySelectionPriorityIndex']
-        if 'registrationTimerInSeconds' in kwargs:
+        if registration_timer_in_seconds is None and 'registrationTimerInSeconds' in kwargs:
             registration_timer_in_seconds = kwargs['registrationTimerInSeconds']
-        if 'userEquipmentAggregateMaximumBitRate' in kwargs:
+        if user_equipment_aggregate_maximum_bit_rate is None and 'userEquipmentAggregateMaximumBitRate' in kwargs:
             user_equipment_aggregate_maximum_bit_rate = kwargs['userEquipmentAggregateMaximumBitRate']
 
         if default_slice_id is not None:
@@ -405,74 +413,6 @@ class NetworkSimPolicy(pulumi.CustomResource):
         """
         Manages a Mobile Network Sim Policy.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_network = azure.mobile.Network("exampleNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            mobile_country_code="001",
-            mobile_network_code="01")
-        example_network_data_network = azure.mobile.NetworkDataNetwork("exampleNetworkDataNetwork",
-            mobile_network_id=example_network.id,
-            location=example_resource_group.location)
-        example_network_service = azure.mobile.NetworkService("exampleNetworkService",
-            mobile_network_id=example_network.id,
-            location=example_resource_group.location,
-            service_precedence=0,
-            pcc_rules=[azure.mobile.NetworkServicePccRuleArgs(
-                name="default-rule",
-                precedence=1,
-                traffic_control_enabled=True,
-                service_data_flow_templates=[azure.mobile.NetworkServicePccRuleServiceDataFlowTemplateArgs(
-                    direction="Uplink",
-                    name="IP-to-server",
-                    ports=[],
-                    protocols=["ip"],
-                    remote_ip_lists=["10.3.4.0/24"],
-                )],
-            )])
-        example_network_slice = azure.mobile.NetworkSlice("exampleNetworkSlice",
-            mobile_network_id=example_network.id,
-            location=example_resource_group.location,
-            single_network_slice_selection_assistance_information=azure.mobile.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs(
-                slice_service_type=1,
-            ))
-        example_network_sim_policy = azure.mobile.NetworkSimPolicy("exampleNetworkSimPolicy",
-            mobile_network_id=example_network.id,
-            location=example_resource_group.location,
-            registration_timer_in_seconds=3240,
-            default_slice_id=example_network_slice.id,
-            slices=[azure.mobile.NetworkSimPolicySliceArgs(
-                default_data_network_id=example_network_data_network.id,
-                slice_id=example_network_slice.id,
-                data_networks=[azure.mobile.NetworkSimPolicySliceDataNetworkArgs(
-                    data_network_id=example_network_data_network.id,
-                    allocation_and_retention_priority_level=9,
-                    default_session_type="IPv4",
-                    qos_indicator=9,
-                    preemption_capability="NotPreempt",
-                    preemption_vulnerability="Preemptable",
-                    allowed_services_ids=[example_network_service.id],
-                    session_aggregate_maximum_bit_rate=azure.mobile.NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs(
-                        downlink="1 Gbps",
-                        uplink="500 Mbps",
-                    ),
-                )],
-            )],
-            user_equipment_aggregate_maximum_bit_rate=azure.mobile.NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs(
-                downlink="1 Gbps",
-                uplink="500 Mbps",
-            ),
-            tags={
-                "key": "value",
-            })
-        ```
-
         ## Import
 
         Mobile Network Sim Policies can be imported using the `resource id`, e.g.
@@ -501,74 +441,6 @@ class NetworkSimPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Mobile Network Sim Policy.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_network = azure.mobile.Network("exampleNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            mobile_country_code="001",
-            mobile_network_code="01")
-        example_network_data_network = azure.mobile.NetworkDataNetwork("exampleNetworkDataNetwork",
-            mobile_network_id=example_network.id,
-            location=example_resource_group.location)
-        example_network_service = azure.mobile.NetworkService("exampleNetworkService",
-            mobile_network_id=example_network.id,
-            location=example_resource_group.location,
-            service_precedence=0,
-            pcc_rules=[azure.mobile.NetworkServicePccRuleArgs(
-                name="default-rule",
-                precedence=1,
-                traffic_control_enabled=True,
-                service_data_flow_templates=[azure.mobile.NetworkServicePccRuleServiceDataFlowTemplateArgs(
-                    direction="Uplink",
-                    name="IP-to-server",
-                    ports=[],
-                    protocols=["ip"],
-                    remote_ip_lists=["10.3.4.0/24"],
-                )],
-            )])
-        example_network_slice = azure.mobile.NetworkSlice("exampleNetworkSlice",
-            mobile_network_id=example_network.id,
-            location=example_resource_group.location,
-            single_network_slice_selection_assistance_information=azure.mobile.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs(
-                slice_service_type=1,
-            ))
-        example_network_sim_policy = azure.mobile.NetworkSimPolicy("exampleNetworkSimPolicy",
-            mobile_network_id=example_network.id,
-            location=example_resource_group.location,
-            registration_timer_in_seconds=3240,
-            default_slice_id=example_network_slice.id,
-            slices=[azure.mobile.NetworkSimPolicySliceArgs(
-                default_data_network_id=example_network_data_network.id,
-                slice_id=example_network_slice.id,
-                data_networks=[azure.mobile.NetworkSimPolicySliceDataNetworkArgs(
-                    data_network_id=example_network_data_network.id,
-                    allocation_and_retention_priority_level=9,
-                    default_session_type="IPv4",
-                    qos_indicator=9,
-                    preemption_capability="NotPreempt",
-                    preemption_vulnerability="Preemptable",
-                    allowed_services_ids=[example_network_service.id],
-                    session_aggregate_maximum_bit_rate=azure.mobile.NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs(
-                        downlink="1 Gbps",
-                        uplink="500 Mbps",
-                    ),
-                )],
-            )],
-            user_equipment_aggregate_maximum_bit_rate=azure.mobile.NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs(
-                downlink="1 Gbps",
-                uplink="500 Mbps",
-            ),
-            tags={
-                "key": "value",
-            })
-        ```
 
         ## Import
 
@@ -629,11 +501,7 @@ class NetworkSimPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'slices'")
             __props__.__dict__["slices"] = slices
             __props__.__dict__["tags"] = tags
-            if user_equipment_aggregate_maximum_bit_rate is not None and not isinstance(user_equipment_aggregate_maximum_bit_rate, NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs):
-                user_equipment_aggregate_maximum_bit_rate = user_equipment_aggregate_maximum_bit_rate or {}
-                def _setter(key, value):
-                    user_equipment_aggregate_maximum_bit_rate[key] = value
-                NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs._configure(_setter, **user_equipment_aggregate_maximum_bit_rate)
+            user_equipment_aggregate_maximum_bit_rate = _utilities.configure(user_equipment_aggregate_maximum_bit_rate, NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs, True)
             if user_equipment_aggregate_maximum_bit_rate is None and not opts.urn:
                 raise TypeError("Missing required property 'user_equipment_aggregate_maximum_bit_rate'")
             __props__.__dict__["user_equipment_aggregate_maximum_bit_rate"] = user_equipment_aggregate_maximum_bit_rate

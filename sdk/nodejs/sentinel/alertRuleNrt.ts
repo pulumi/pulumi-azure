@@ -9,31 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Sentinel NRT Alert Rule.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "pergb2018",
- * });
- * const exampleLogAnalyticsWorkspaceOnboarding = new azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", {workspaceId: exampleAnalyticsWorkspace.id});
- * const exampleAlertRuleNrt = new azure.sentinel.AlertRuleNrt("exampleAlertRuleNrt", {
- *     logAnalyticsWorkspaceId: exampleLogAnalyticsWorkspaceOnboarding.workspaceId,
- *     displayName: "example",
- *     severity: "High",
- *     query: `AzureActivity |
- *   where OperationName == "Create or Update Virtual Machine" or OperationName =="Create Deployment" |
- *   where ActivityStatus == "Succeeded" |
- *   make-series dcount(ResourceId) default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
- * `,
- * });
- * ```
- *
  * ## Import
  *
  * Sentinel NRT Alert Rules can be imported using the `resource id`, e.g.

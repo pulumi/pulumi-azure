@@ -6,21 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about Service Tags.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.network.getServiceTags({
- *     location: "westcentralus",
- *     service: "AzureKeyVault",
- *     locationFilter: "northeurope",
- * });
- * export const addressPrefixes = example.then(example => example.addressPrefixes);
- * export const ipv4Cidrs = example.then(example => example.ipv4Cidrs);
- * ```
  */
 export function getServiceTags(args: GetServiceTagsArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceTagsResult> {
 
@@ -80,21 +65,6 @@ export interface GetServiceTagsResult {
 }
 /**
  * Use this data source to access information about Service Tags.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.network.getServiceTags({
- *     location: "westcentralus",
- *     service: "AzureKeyVault",
- *     locationFilter: "northeurope",
- * });
- * export const addressPrefixes = example.then(example => example.addressPrefixes);
- * export const ipv4Cidrs = example.then(example => example.ipv4Cidrs);
- * ```
  */
 export function getServiceTagsOutput(args: GetServiceTagsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceTagsResult> {
     return pulumi.output(args).apply((a: any) => getServiceTags(a, opts))

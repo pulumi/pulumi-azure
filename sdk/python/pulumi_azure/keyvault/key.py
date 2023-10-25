@@ -55,9 +55,9 @@ class KeyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_opts: pulumi.Input[Sequence[pulumi.Input[str]]],
-             key_type: pulumi.Input[str],
-             key_vault_id: pulumi.Input[str],
+             key_opts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             key_type: Optional[pulumi.Input[str]] = None,
+             key_vault_id: Optional[pulumi.Input[str]] = None,
              curve: Optional[pulumi.Input[str]] = None,
              expiration_date: Optional[pulumi.Input[str]] = None,
              key_size: Optional[pulumi.Input[int]] = None,
@@ -65,21 +65,27 @@ class KeyArgs:
              not_before_date: Optional[pulumi.Input[str]] = None,
              rotation_policy: Optional[pulumi.Input['KeyRotationPolicyArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'keyOpts' in kwargs:
+        if key_opts is None and 'keyOpts' in kwargs:
             key_opts = kwargs['keyOpts']
-        if 'keyType' in kwargs:
+        if key_opts is None:
+            raise TypeError("Missing 'key_opts' argument")
+        if key_type is None and 'keyType' in kwargs:
             key_type = kwargs['keyType']
-        if 'keyVaultId' in kwargs:
+        if key_type is None:
+            raise TypeError("Missing 'key_type' argument")
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
-        if 'expirationDate' in kwargs:
+        if key_vault_id is None:
+            raise TypeError("Missing 'key_vault_id' argument")
+        if expiration_date is None and 'expirationDate' in kwargs:
             expiration_date = kwargs['expirationDate']
-        if 'keySize' in kwargs:
+        if key_size is None and 'keySize' in kwargs:
             key_size = kwargs['keySize']
-        if 'notBeforeDate' in kwargs:
+        if not_before_date is None and 'notBeforeDate' in kwargs:
             not_before_date = kwargs['notBeforeDate']
-        if 'rotationPolicy' in kwargs:
+        if rotation_policy is None and 'rotationPolicy' in kwargs:
             rotation_policy = kwargs['rotationPolicy']
 
         _setter("key_opts", key_opts)
@@ -313,31 +319,31 @@ class _KeyState:
              versionless_id: Optional[pulumi.Input[str]] = None,
              x: Optional[pulumi.Input[str]] = None,
              y: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'expirationDate' in kwargs:
+        if expiration_date is None and 'expirationDate' in kwargs:
             expiration_date = kwargs['expirationDate']
-        if 'keyOpts' in kwargs:
+        if key_opts is None and 'keyOpts' in kwargs:
             key_opts = kwargs['keyOpts']
-        if 'keySize' in kwargs:
+        if key_size is None and 'keySize' in kwargs:
             key_size = kwargs['keySize']
-        if 'keyType' in kwargs:
+        if key_type is None and 'keyType' in kwargs:
             key_type = kwargs['keyType']
-        if 'keyVaultId' in kwargs:
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
-        if 'notBeforeDate' in kwargs:
+        if not_before_date is None and 'notBeforeDate' in kwargs:
             not_before_date = kwargs['notBeforeDate']
-        if 'publicKeyOpenssh' in kwargs:
+        if public_key_openssh is None and 'publicKeyOpenssh' in kwargs:
             public_key_openssh = kwargs['publicKeyOpenssh']
-        if 'publicKeyPem' in kwargs:
+        if public_key_pem is None and 'publicKeyPem' in kwargs:
             public_key_pem = kwargs['publicKeyPem']
-        if 'resourceId' in kwargs:
+        if resource_id is None and 'resourceId' in kwargs:
             resource_id = kwargs['resourceId']
-        if 'resourceVersionlessId' in kwargs:
+        if resource_versionless_id is None and 'resourceVersionlessId' in kwargs:
             resource_versionless_id = kwargs['resourceVersionlessId']
-        if 'rotationPolicy' in kwargs:
+        if rotation_policy is None and 'rotationPolicy' in kwargs:
             rotation_policy = kwargs['rotationPolicy']
-        if 'versionlessId' in kwargs:
+        if versionless_id is None and 'versionlessId' in kwargs:
             versionless_id = kwargs['versionlessId']
 
         if curve is not None:
@@ -646,55 +652,6 @@ class Key(pulumi.CustomResource):
         > **Note:** To use this resource, your client should have RBAC roles with permissions like `Key Vault Crypto Officer` or `Key Vault Administrator` or an assigned Key Vault Access Policy with permissions `Create`,`Delete`,`Get`,`Purge`,`Recover`,`Update` and `GetRotationPolicy` for keys without Rotation Policy. Include `SetRotationPolicy` for keys with Rotation Policy.
 
         > **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Key resource on destroy, rather than the default soft-delete. See `purge_soft_deleted_keys_on_destroy` for more information.
-        ### Additional Examples
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="premium",
-            soft_delete_retention_days=7,
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
-                tenant_id=current.tenant_id,
-                object_id=current.object_id,
-                key_permissions=[
-                    "Create",
-                    "Delete",
-                    "Get",
-                    "Purge",
-                    "Recover",
-                    "Update",
-                    "GetRotationPolicy",
-                    "SetRotationPolicy",
-                ],
-                secret_permissions=["Set"],
-            )])
-        generated = azure.keyvault.Key("generated",
-            key_vault_id=example_key_vault.id,
-            key_type="RSA",
-            key_size=2048,
-            key_opts=[
-                "decrypt",
-                "encrypt",
-                "sign",
-                "unwrapKey",
-                "verify",
-                "wrapKey",
-            ],
-            rotation_policy=azure.keyvault.KeyRotationPolicyArgs(
-                automatic=azure.keyvault.KeyRotationPolicyAutomaticArgs(
-                    time_before_expiry="P30D",
-                ),
-                expire_after="P90D",
-                notify_before_expiry="P29D",
-            ))
-        ```
 
         ## Import
 
@@ -731,55 +688,6 @@ class Key(pulumi.CustomResource):
         > **Note:** To use this resource, your client should have RBAC roles with permissions like `Key Vault Crypto Officer` or `Key Vault Administrator` or an assigned Key Vault Access Policy with permissions `Create`,`Delete`,`Get`,`Purge`,`Recover`,`Update` and `GetRotationPolicy` for keys without Rotation Policy. Include `SetRotationPolicy` for keys with Rotation Policy.
 
         > **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Key resource on destroy, rather than the default soft-delete. See `purge_soft_deleted_keys_on_destroy` for more information.
-        ### Additional Examples
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="premium",
-            soft_delete_retention_days=7,
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
-                tenant_id=current.tenant_id,
-                object_id=current.object_id,
-                key_permissions=[
-                    "Create",
-                    "Delete",
-                    "Get",
-                    "Purge",
-                    "Recover",
-                    "Update",
-                    "GetRotationPolicy",
-                    "SetRotationPolicy",
-                ],
-                secret_permissions=["Set"],
-            )])
-        generated = azure.keyvault.Key("generated",
-            key_vault_id=example_key_vault.id,
-            key_type="RSA",
-            key_size=2048,
-            key_opts=[
-                "decrypt",
-                "encrypt",
-                "sign",
-                "unwrapKey",
-                "verify",
-                "wrapKey",
-            ],
-            rotation_policy=azure.keyvault.KeyRotationPolicyArgs(
-                automatic=azure.keyvault.KeyRotationPolicyAutomaticArgs(
-                    time_before_expiry="P30D",
-                ),
-                expire_after="P90D",
-                notify_before_expiry="P29D",
-            ))
-        ```
 
         ## Import
 
@@ -841,11 +749,7 @@ class Key(pulumi.CustomResource):
             __props__.__dict__["key_vault_id"] = key_vault_id
             __props__.__dict__["name"] = name
             __props__.__dict__["not_before_date"] = not_before_date
-            if rotation_policy is not None and not isinstance(rotation_policy, KeyRotationPolicyArgs):
-                rotation_policy = rotation_policy or {}
-                def _setter(key, value):
-                    rotation_policy[key] = value
-                KeyRotationPolicyArgs._configure(_setter, **rotation_policy)
+            rotation_policy = _utilities.configure(rotation_policy, KeyRotationPolicyArgs, True)
             __props__.__dict__["rotation_policy"] = rotation_policy
             __props__.__dict__["tags"] = tags
             __props__.__dict__["e"] = None

@@ -40,12 +40,20 @@ class BackupPolicyDiskRetentionRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             criteria: pulumi.Input['BackupPolicyDiskRetentionRuleCriteriaArgs'],
-             duration: pulumi.Input[str],
-             name: pulumi.Input[str],
-             priority: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             criteria: Optional[pulumi.Input['BackupPolicyDiskRetentionRuleCriteriaArgs']] = None,
+             duration: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if criteria is None:
+            raise TypeError("Missing 'criteria' argument")
+        if duration is None:
+            raise TypeError("Missing 'duration' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if priority is None:
+            raise TypeError("Missing 'priority' argument")
 
         _setter("criteria", criteria)
         _setter("duration", duration)
@@ -116,9 +124,9 @@ class BackupPolicyDiskRetentionRuleCriteriaArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              absolute_criteria: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'absoluteCriteria' in kwargs:
+        if absolute_criteria is None and 'absoluteCriteria' in kwargs:
             absolute_criteria = kwargs['absoluteCriteria']
 
         if absolute_criteria is not None:
@@ -160,12 +168,20 @@ class BackupPolicyPostgresqlRetentionRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             criteria: pulumi.Input['BackupPolicyPostgresqlRetentionRuleCriteriaArgs'],
-             duration: pulumi.Input[str],
-             name: pulumi.Input[str],
-             priority: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             criteria: Optional[pulumi.Input['BackupPolicyPostgresqlRetentionRuleCriteriaArgs']] = None,
+             duration: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if criteria is None:
+            raise TypeError("Missing 'criteria' argument")
+        if duration is None:
+            raise TypeError("Missing 'duration' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if priority is None:
+            raise TypeError("Missing 'priority' argument")
 
         _setter("criteria", criteria)
         _setter("duration", duration)
@@ -252,17 +268,17 @@ class BackupPolicyPostgresqlRetentionRuleCriteriaArgs:
              months_of_years: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              scheduled_backup_times: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              weeks_of_months: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'absoluteCriteria' in kwargs:
+        if absolute_criteria is None and 'absoluteCriteria' in kwargs:
             absolute_criteria = kwargs['absoluteCriteria']
-        if 'daysOfWeeks' in kwargs:
+        if days_of_weeks is None and 'daysOfWeeks' in kwargs:
             days_of_weeks = kwargs['daysOfWeeks']
-        if 'monthsOfYears' in kwargs:
+        if months_of_years is None and 'monthsOfYears' in kwargs:
             months_of_years = kwargs['monthsOfYears']
-        if 'scheduledBackupTimes' in kwargs:
+        if scheduled_backup_times is None and 'scheduledBackupTimes' in kwargs:
             scheduled_backup_times = kwargs['scheduledBackupTimes']
-        if 'weeksOfMonths' in kwargs:
+        if weeks_of_months is None and 'weeksOfMonths' in kwargs:
             weeks_of_months = kwargs['weeksOfMonths']
 
         if absolute_criteria is not None:
@@ -357,14 +373,16 @@ class BackupVaultIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'principalId' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)

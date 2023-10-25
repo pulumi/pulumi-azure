@@ -11,31 +11,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("exampleSpringCloudService", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     skuName: "E0",
- * });
- * const exampleSpringCloudBuilder = new azure.appplatform.SpringCloudBuilder("exampleSpringCloudBuilder", {
- *     springCloudServiceId: exampleSpringCloudService.id,
- *     buildPackGroups: [{
- *         name: "mix",
- *         buildPackIds: ["tanzu-buildpacks/java-azure"],
- *     }],
- *     stack: {
- *         id: "io.buildpacks.stacks.bionic",
- *         version: "base",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Spring Cloud Builders can be imported using the `resource id`, e.g.

@@ -51,15 +51,15 @@ class TenantTemplateDeploymentArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              template_content: Optional[pulumi.Input[str]] = None,
              template_spec_version_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'debugLevel' in kwargs:
+        if debug_level is None and 'debugLevel' in kwargs:
             debug_level = kwargs['debugLevel']
-        if 'parametersContent' in kwargs:
+        if parameters_content is None and 'parametersContent' in kwargs:
             parameters_content = kwargs['parametersContent']
-        if 'templateContent' in kwargs:
+        if template_content is None and 'templateContent' in kwargs:
             template_content = kwargs['templateContent']
-        if 'templateSpecVersionId' in kwargs:
+        if template_spec_version_id is None and 'templateSpecVersionId' in kwargs:
             template_spec_version_id = kwargs['templateSpecVersionId']
 
         if debug_level is not None:
@@ -206,17 +206,17 @@ class _TenantTemplateDeploymentState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              template_content: Optional[pulumi.Input[str]] = None,
              template_spec_version_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'debugLevel' in kwargs:
+        if debug_level is None and 'debugLevel' in kwargs:
             debug_level = kwargs['debugLevel']
-        if 'outputContent' in kwargs:
+        if output_content is None and 'outputContent' in kwargs:
             output_content = kwargs['outputContent']
-        if 'parametersContent' in kwargs:
+        if parameters_content is None and 'parametersContent' in kwargs:
             parameters_content = kwargs['parametersContent']
-        if 'templateContent' in kwargs:
+        if template_content is None and 'templateContent' in kwargs:
             template_content = kwargs['templateContent']
-        if 'templateSpecVersionId' in kwargs:
+        if template_spec_version_id is None and 'templateSpecVersionId' in kwargs:
             template_spec_version_id = kwargs['templateSpecVersionId']
 
         if debug_level is not None:
@@ -347,20 +347,6 @@ class TenantTemplateDeployment(pulumi.CustomResource):
                  template_spec_version_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_template_spec_version = azure.core.get_template_spec_version(name="myTemplateForTenant",
-            resource_group_name="myResourceGroup",
-            version="v0.1")
-        example_tenant_template_deployment = azure.core.TenantTemplateDeployment("exampleTenantTemplateDeployment",
-            location="West Europe",
-            template_spec_version_id=example_template_spec_version.id)
-        ```
-
         ## Import
 
         Tenant Template Deployments can be imported using the `resource id`, e.g.
@@ -386,20 +372,6 @@ class TenantTemplateDeployment(pulumi.CustomResource):
                  args: Optional[TenantTemplateDeploymentArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_template_spec_version = azure.core.get_template_spec_version(name="myTemplateForTenant",
-            resource_group_name="myResourceGroup",
-            version="v0.1")
-        example_tenant_template_deployment = azure.core.TenantTemplateDeployment("exampleTenantTemplateDeployment",
-            location="West Europe",
-            template_spec_version_id=example_template_spec_version.id)
-        ```
-
         ## Import
 
         Tenant Template Deployments can be imported using the `resource id`, e.g.

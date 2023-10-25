@@ -132,17 +132,6 @@ def get_budget_resource_group(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Consumption Budget for a specific resource group.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.consumption.get_budget_resource_group(name="existing",
-        resource_group_id=azurerm_resource_group["example"]["id"])
-    pulumi.export("id", example.id)
-    ```
-
 
     :param str name: The name of this Consumption Budget.
     :param str resource_group_id: The ID of the subscription.
@@ -170,17 +159,6 @@ def get_budget_resource_group_output(name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBudgetResourceGroupResult]:
     """
     Use this data source to access information about an existing Consumption Budget for a specific resource group.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.consumption.get_budget_resource_group(name="existing",
-        resource_group_id=azurerm_resource_group["example"]["id"])
-    pulumi.export("id", example.id)
-    ```
 
 
     :param str name: The name of this Consumption Budget.

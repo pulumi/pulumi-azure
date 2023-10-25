@@ -45,13 +45,13 @@ class AccountEncryptionArgs:
              key_vault_key_identifier: Optional[pulumi.Input[str]] = None,
              managed_identity: Optional[pulumi.Input['AccountEncryptionManagedIdentityArgs']] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'currentKeyIdentifier' in kwargs:
+        if current_key_identifier is None and 'currentKeyIdentifier' in kwargs:
             current_key_identifier = kwargs['currentKeyIdentifier']
-        if 'keyVaultKeyIdentifier' in kwargs:
+        if key_vault_key_identifier is None and 'keyVaultKeyIdentifier' in kwargs:
             key_vault_key_identifier = kwargs['keyVaultKeyIdentifier']
-        if 'managedIdentity' in kwargs:
+        if managed_identity is None and 'managedIdentity' in kwargs:
             managed_identity = kwargs['managedIdentity']
 
         if current_key_identifier is not None:
@@ -131,11 +131,11 @@ class AccountEncryptionManagedIdentityArgs:
              _setter: Callable[[Any, Any], None],
              use_system_assigned_identity: Optional[pulumi.Input[bool]] = None,
              user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'useSystemAssignedIdentity' in kwargs:
+        if use_system_assigned_identity is None and 'useSystemAssignedIdentity' in kwargs:
             use_system_assigned_identity = kwargs['useSystemAssignedIdentity']
-        if 'userAssignedIdentityId' in kwargs:
+        if user_assigned_identity_id is None and 'userAssignedIdentityId' in kwargs:
             user_assigned_identity_id = kwargs['userAssignedIdentityId']
 
         if use_system_assigned_identity is not None:
@@ -191,17 +191,19 @@ class AccountIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -280,11 +282,11 @@ class AccountKeyDeliveryAccessControlArgs:
              _setter: Callable[[Any, Any], None],
              default_action: Optional[pulumi.Input[str]] = None,
              ip_allow_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'defaultAction' in kwargs:
+        if default_action is None and 'defaultAction' in kwargs:
             default_action = kwargs['defaultAction']
-        if 'ipAllowLists' in kwargs:
+        if ip_allow_lists is None and 'ipAllowLists' in kwargs:
             ip_allow_lists = kwargs['ipAllowLists']
 
         if default_action is not None:
@@ -339,14 +341,16 @@ class AccountStorageAccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             id: pulumi.Input[str],
+             id: Optional[pulumi.Input[str]] = None,
              is_primary: Optional[pulumi.Input[bool]] = None,
              managed_identity: Optional[pulumi.Input['AccountStorageAccountManagedIdentityArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'isPrimary' in kwargs:
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if is_primary is None and 'isPrimary' in kwargs:
             is_primary = kwargs['isPrimary']
-        if 'managedIdentity' in kwargs:
+        if managed_identity is None and 'managedIdentity' in kwargs:
             managed_identity = kwargs['managedIdentity']
 
         _setter("id", id)
@@ -413,11 +417,11 @@ class AccountStorageAccountManagedIdentityArgs:
              _setter: Callable[[Any, Any], None],
              use_system_assigned_identity: Optional[pulumi.Input[bool]] = None,
              user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'useSystemAssignedIdentity' in kwargs:
+        if use_system_assigned_identity is None and 'useSystemAssignedIdentity' in kwargs:
             use_system_assigned_identity = kwargs['useSystemAssignedIdentity']
-        if 'userAssignedIdentityId' in kwargs:
+        if user_assigned_identity_id is None and 'userAssignedIdentityId' in kwargs:
             user_assigned_identity_id = kwargs['userAssignedIdentityId']
 
         if use_system_assigned_identity is not None:

@@ -12,50 +12,6 @@ namespace Pulumi.Azure.Management
     /// <summary>
     /// Manages a Policy Assignment to a Management Group.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleGroup = new Azure.Management.Group("exampleGroup", new()
-    ///     {
-    ///         DisplayName = "Some Management Group",
-    ///     });
-    /// 
-    ///     var exampleDefinition = new Azure.Policy.Definition("exampleDefinition", new()
-    ///     {
-    ///         PolicyType = "Custom",
-    ///         Mode = "All",
-    ///         DisplayName = "my-policy-definition",
-    ///         ManagementGroupId = exampleGroup.Id,
-    ///         PolicyRule = @" {
-    ///     ""if"": {
-    ///       ""not"": {
-    ///         ""field"": ""location"",
-    ///         ""equals"": ""westeurope""
-    ///       }
-    ///     },
-    ///     ""then"": {
-    ///       ""effect"": ""Deny""
-    ///     }
-    ///   }
-    /// ",
-    ///     });
-    /// 
-    ///     var exampleGroupPolicyAssignment = new Azure.Management.GroupPolicyAssignment("exampleGroupPolicyAssignment", new()
-    ///     {
-    ///         PolicyDefinitionId = exampleDefinition.Id,
-    ///         ManagementGroupId = exampleGroup.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Management Group Policy Assignments can be imported using the `resource id`, e.g.

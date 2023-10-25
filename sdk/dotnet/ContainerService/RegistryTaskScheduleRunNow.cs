@@ -11,55 +11,6 @@ namespace Pulumi.Azure.ContainerService
 {
     /// <summary>
     /// Runs a Container Registry Task Schedule.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleRegistry = new Azure.ContainerService.Registry("exampleRegistry", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         Sku = "Basic",
-    ///     });
-    /// 
-    ///     var exampleRegistryTask = new Azure.ContainerService.RegistryTask("exampleRegistryTask", new()
-    ///     {
-    ///         ContainerRegistryId = exampleRegistry.Id,
-    ///         Platform = new Azure.ContainerService.Inputs.RegistryTaskPlatformArgs
-    ///         {
-    ///             Os = "Linux",
-    ///         },
-    ///         DockerStep = new Azure.ContainerService.Inputs.RegistryTaskDockerStepArgs
-    ///         {
-    ///             DockerfilePath = "Dockerfile",
-    ///             ContextPath = "https://github.com/&lt;user name&gt;/acr-build-helloworld-node#main",
-    ///             ContextAccessToken = "&lt;github personal access token&gt;",
-    ///             ImageNames = new[]
-    ///             {
-    ///                 "helloworld:{{.Run.ID}}",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleRegistryTaskScheduleRunNow = new Azure.ContainerService.RegistryTaskScheduleRunNow("exampleRegistryTaskScheduleRunNow", new()
-    ///     {
-    ///         ContainerRegistryTaskId = exampleRegistryTask.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AzureResourceType("azure:containerservice/registryTaskScheduleRunNow:RegistryTaskScheduleRunNow")]
     public partial class RegistryTaskScheduleRunNow : global::Pulumi.CustomResource

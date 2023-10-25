@@ -53,8 +53,8 @@ class DatastoreDatalakeGen2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             storage_container_id: pulumi.Input[str],
-             workspace_id: pulumi.Input[str],
+             storage_container_id: Optional[pulumi.Input[str]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
              authority_url: Optional[pulumi.Input[str]] = None,
              client_id: Optional[pulumi.Input[str]] = None,
              client_secret: Optional[pulumi.Input[str]] = None,
@@ -63,21 +63,25 @@ class DatastoreDatalakeGen2Args:
              service_data_identity: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'storageContainerId' in kwargs:
+        if storage_container_id is None and 'storageContainerId' in kwargs:
             storage_container_id = kwargs['storageContainerId']
-        if 'workspaceId' in kwargs:
+        if storage_container_id is None:
+            raise TypeError("Missing 'storage_container_id' argument")
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
-        if 'authorityUrl' in kwargs:
+        if workspace_id is None:
+            raise TypeError("Missing 'workspace_id' argument")
+        if authority_url is None and 'authorityUrl' in kwargs:
             authority_url = kwargs['authorityUrl']
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecret' in kwargs:
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'serviceDataIdentity' in kwargs:
+        if service_data_identity is None and 'serviceDataIdentity' in kwargs:
             service_data_identity = kwargs['serviceDataIdentity']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("storage_container_id", storage_container_id)
@@ -276,23 +280,23 @@ class _DatastoreDatalakeGen2State:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'authorityUrl' in kwargs:
+        if authority_url is None and 'authorityUrl' in kwargs:
             authority_url = kwargs['authorityUrl']
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecret' in kwargs:
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'isDefault' in kwargs:
+        if is_default is None and 'isDefault' in kwargs:
             is_default = kwargs['isDefault']
-        if 'serviceDataIdentity' in kwargs:
+        if service_data_identity is None and 'serviceDataIdentity' in kwargs:
             service_data_identity = kwargs['serviceDataIdentity']
-        if 'storageContainerId' in kwargs:
+        if storage_container_id is None and 'storageContainerId' in kwargs:
             storage_container_id = kwargs['storageContainerId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
-        if 'workspaceId' in kwargs:
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
 
         if authority_url is not None:
@@ -470,45 +474,6 @@ class DatastoreDatalakeGen2(pulumi.CustomResource):
         """
         Manages a Machine Learning Data Lake Gen2 DataStore.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="web")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="premium")
-        example_account = azure.storage.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_workspace = azure.machinelearning.Workspace("exampleWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_insights_id=example_insights.id,
-            key_vault_id=example_key_vault.id,
-            storage_account_id=example_account.id,
-            identity=azure.machinelearning.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_container = azure.storage.Container("exampleContainer",
-            storage_account_name=example_account.name,
-            container_access_type="private")
-        example_datastore_datalake_gen2 = azure.machinelearning.DatastoreDatalakeGen2("exampleDatastoreDatalakeGen2",
-            workspace_id=example_workspace.id,
-            storage_container_id=example_container.resource_manager_id)
-        ```
-
         ## Import
 
         Machine Learning DataStores can be imported using the `resource id`, e.g.
@@ -538,45 +503,6 @@ class DatastoreDatalakeGen2(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Machine Learning Data Lake Gen2 DataStore.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="web")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="premium")
-        example_account = azure.storage.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_workspace = azure.machinelearning.Workspace("exampleWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_insights_id=example_insights.id,
-            key_vault_id=example_key_vault.id,
-            storage_account_id=example_account.id,
-            identity=azure.machinelearning.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_container = azure.storage.Container("exampleContainer",
-            storage_account_name=example_account.name,
-            container_access_type="private")
-        example_datastore_datalake_gen2 = azure.machinelearning.DatastoreDatalakeGen2("exampleDatastoreDatalakeGen2",
-            workspace_id=example_workspace.id,
-            storage_container_id=example_container.resource_manager_id)
-        ```
 
         ## Import
 

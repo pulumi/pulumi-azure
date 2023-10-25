@@ -9,27 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **Note** A bot can only have a single MS Teams Channel associated with it.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleChannelsRegistration = new azure.bot.ChannelsRegistration("exampleChannelsRegistration", {
- *     location: "global",
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "F0",
- *     microsoftAppId: current.then(current => current.clientId),
- * });
- * const exampleChannelTeams = new azure.bot.ChannelTeams("exampleChannelTeams", {
- *     botName: exampleChannelsRegistration.name,
- *     location: exampleChannelsRegistration.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * ```
- *
  * ## Import
  *
  * The Microsoft Teams Integration for a Bot Channel can be imported using the `resource id`, e.g.

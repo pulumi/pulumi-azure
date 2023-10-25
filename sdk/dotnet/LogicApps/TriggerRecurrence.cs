@@ -12,37 +12,6 @@ namespace Pulumi.Azure.LogicApps
     /// <summary>
     /// Manages a Recurrence Trigger within a Logic App Workflow
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleWorkflow = new Azure.LogicApps.Workflow("exampleWorkflow", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///     });
-    /// 
-    ///     var exampleTriggerRecurrence = new Azure.LogicApps.TriggerRecurrence("exampleTriggerRecurrence", new()
-    ///     {
-    ///         LogicAppId = exampleWorkflow.Id,
-    ///         Frequency = "Day",
-    ///         Interval = 1,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Logic App Recurrence Triggers can be imported using the `resource id`, e.g.

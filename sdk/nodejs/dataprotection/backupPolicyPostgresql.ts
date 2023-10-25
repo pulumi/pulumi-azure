@@ -9,59 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Backup Policy to back up PostgreSQL.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleBackupVault = new azure.dataprotection.BackupVault("exampleBackupVault", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     datastoreType: "VaultStore",
- *     redundancy: "LocallyRedundant",
- * });
- * const exampleBackupPolicyPostgresql = new azure.dataprotection.BackupPolicyPostgresql("exampleBackupPolicyPostgresql", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     vaultName: exampleBackupVault.name,
- *     backupRepeatingTimeIntervals: ["R/2021-05-23T02:30:00+00:00/P1W"],
- *     defaultRetentionDuration: "P4M",
- *     retentionRules: [
- *         {
- *             name: "weekly",
- *             duration: "P6M",
- *             priority: 20,
- *             criteria: {
- *                 absoluteCriteria: "FirstOfWeek",
- *             },
- *         },
- *         {
- *             name: "thursday",
- *             duration: "P1W",
- *             priority: 25,
- *             criteria: {
- *                 daysOfWeeks: ["Thursday"],
- *                 scheduledBackupTimes: ["2021-05-23T02:30:00Z"],
- *             },
- *         },
- *         {
- *             name: "monthly",
- *             duration: "P1D",
- *             priority: 15,
- *             criteria: {
- *                 weeksOfMonths: [
- *                     "First",
- *                     "Last",
- *                 ],
- *                 daysOfWeeks: ["Tuesday"],
- *                 scheduledBackupTimes: ["2021-05-23T02:30:00Z"],
- *             },
- *         },
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * Backup Policy PostgreSQL's can be imported using the `resource id`, e.g.

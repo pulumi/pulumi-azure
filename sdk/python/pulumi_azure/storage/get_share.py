@@ -117,17 +117,6 @@ def get_share(acls: Optional[Sequence[pulumi.InputType['GetShareAclArgs']]] = No
     """
     Use this data source to access information about an existing File Share.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.storage.get_share(name="existing",
-        storage_account_name="existing")
-    pulumi.export("id", example.id)
-    ```
-
 
     :param Sequence[pulumi.InputType['GetShareAclArgs']] acls: One or more acl blocks as defined below.
     :param Mapping[str, str] metadata: A map of custom file share metadata.
@@ -160,17 +149,6 @@ def get_share_output(acls: Optional[pulumi.Input[Optional[Sequence[pulumi.InputT
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetShareResult]:
     """
     Use this data source to access information about an existing File Share.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.storage.get_share(name="existing",
-        storage_account_name="existing")
-    pulumi.export("id", example.id)
-    ```
 
 
     :param Sequence[pulumi.InputType['GetShareAclArgs']] acls: One or more acl blocks as defined below.

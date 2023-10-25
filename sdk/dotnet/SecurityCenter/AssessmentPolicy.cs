@@ -12,26 +12,6 @@ namespace Pulumi.Azure.SecurityCenter
     /// <summary>
     /// Manages the Security Center Assessment Metadata for Azure Security Center.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.SecurityCenter.AssessmentPolicy("example", new()
-    ///     {
-    ///         Description = "Test Description",
-    ///         DisplayName = "Test Display Name",
-    ///         Severity = "Medium",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Security Assessments Policy can be imported using the `resource id`, e.g.

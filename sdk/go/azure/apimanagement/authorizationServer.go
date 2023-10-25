@@ -15,50 +15,6 @@ import (
 
 // Manages an Authorization Server within an API Management Service.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleService, err := apimanagement.LookupService(ctx, &apimanagement.LookupServiceArgs{
-//				Name:              "search-api",
-//				ResourceGroupName: "search-service",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = apimanagement.NewAuthorizationServer(ctx, "exampleAuthorizationServer", &apimanagement.AuthorizationServerArgs{
-//				ApiManagementName:          *pulumi.String(exampleService.Name),
-//				ResourceGroupName:          *pulumi.String(exampleService.ResourceGroupName),
-//				DisplayName:                pulumi.String("Test Server"),
-//				AuthorizationEndpoint:      pulumi.String("https://example.mydomain.com/client/authorize"),
-//				ClientId:                   pulumi.String("42424242-4242-4242-4242-424242424242"),
-//				ClientRegistrationEndpoint: pulumi.String("https://example.mydomain.com/client/register"),
-//				GrantTypes: pulumi.StringArray{
-//					pulumi.String("authorizationCode"),
-//				},
-//				AuthorizationMethods: pulumi.StringArray{
-//					pulumi.String("GET"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // API Management Authorization Servers can be imported using the `resource id`, e.g.

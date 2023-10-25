@@ -6,19 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Front Door (standard/premium) Endpoint.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.cdn.getFrontdoorEndpoint({
- *     name: "existing-endpoint",
- *     profileName: "existing-cdn-profile",
- *     resourceGroupName: "existing-resources",
- * });
- * ```
  */
 export function getFrontdoorEndpoint(args: GetFrontdoorEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetFrontdoorEndpointResult> {
 
@@ -74,19 +61,6 @@ export interface GetFrontdoorEndpointResult {
 }
 /**
  * Use this data source to access information about an existing Front Door (standard/premium) Endpoint.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.cdn.getFrontdoorEndpoint({
- *     name: "existing-endpoint",
- *     profileName: "existing-cdn-profile",
- *     resourceGroupName: "existing-resources",
- * });
- * ```
  */
 export function getFrontdoorEndpointOutput(args: GetFrontdoorEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrontdoorEndpointResult> {
     return pulumi.output(args).apply((a: any) => getFrontdoorEndpoint(a, opts))

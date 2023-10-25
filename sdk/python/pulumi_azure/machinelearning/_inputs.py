@@ -48,17 +48,19 @@ class ComputeClusterIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -140,17 +142,23 @@ class ComputeClusterScaleSettingsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             max_node_count: pulumi.Input[int],
-             min_node_count: pulumi.Input[int],
-             scale_down_nodes_after_idle_duration: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             max_node_count: Optional[pulumi.Input[int]] = None,
+             min_node_count: Optional[pulumi.Input[int]] = None,
+             scale_down_nodes_after_idle_duration: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'maxNodeCount' in kwargs:
+        if max_node_count is None and 'maxNodeCount' in kwargs:
             max_node_count = kwargs['maxNodeCount']
-        if 'minNodeCount' in kwargs:
+        if max_node_count is None:
+            raise TypeError("Missing 'max_node_count' argument")
+        if min_node_count is None and 'minNodeCount' in kwargs:
             min_node_count = kwargs['minNodeCount']
-        if 'scaleDownNodesAfterIdleDuration' in kwargs:
+        if min_node_count is None:
+            raise TypeError("Missing 'min_node_count' argument")
+        if scale_down_nodes_after_idle_duration is None and 'scaleDownNodesAfterIdleDuration' in kwargs:
             scale_down_nodes_after_idle_duration = kwargs['scaleDownNodesAfterIdleDuration']
+        if scale_down_nodes_after_idle_duration is None:
+            raise TypeError("Missing 'scale_down_nodes_after_idle_duration' argument")
 
         _setter("max_node_count", max_node_count)
         _setter("min_node_count", min_node_count)
@@ -215,16 +223,18 @@ class ComputeClusterSshArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             admin_username: pulumi.Input[str],
+             admin_username: Optional[pulumi.Input[str]] = None,
              admin_password: Optional[pulumi.Input[str]] = None,
              key_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'adminUsername' in kwargs:
+        if admin_username is None and 'adminUsername' in kwargs:
             admin_username = kwargs['adminUsername']
-        if 'adminPassword' in kwargs:
+        if admin_username is None:
+            raise TypeError("Missing 'admin_username' argument")
+        if admin_password is None and 'adminPassword' in kwargs:
             admin_password = kwargs['adminPassword']
-        if 'keyValue' in kwargs:
+        if key_value is None and 'keyValue' in kwargs:
             key_value = kwargs['keyValue']
 
         _setter("admin_username", admin_username)
@@ -291,11 +301,11 @@ class ComputeInstanceAssignToUserArgs:
              _setter: Callable[[Any, Any], None],
              object_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'objectId' in kwargs:
+        if object_id is None and 'objectId' in kwargs:
             object_id = kwargs['objectId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         if object_id is not None:
@@ -353,17 +363,19 @@ class ComputeInstanceIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -445,13 +457,15 @@ class ComputeInstanceSshArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             public_key: pulumi.Input[str],
+             public_key: Optional[pulumi.Input[str]] = None,
              port: Optional[pulumi.Input[int]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'publicKey' in kwargs:
+        if public_key is None and 'publicKey' in kwargs:
             public_key = kwargs['publicKey']
+        if public_key is None:
+            raise TypeError("Missing 'public_key' argument")
 
         _setter("public_key", public_key)
         if port is not None:
@@ -521,17 +535,19 @@ class InferenceClusterIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -624,11 +640,11 @@ class InferenceClusterSslArgs:
              key: Optional[pulumi.Input[str]] = None,
              leaf_domain_label: Optional[pulumi.Input[str]] = None,
              overwrite_existing_domain: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'leafDomainLabel' in kwargs:
+        if leaf_domain_label is None and 'leafDomainLabel' in kwargs:
             leaf_domain_label = kwargs['leafDomainLabel']
-        if 'overwriteExistingDomain' in kwargs:
+        if overwrite_existing_domain is None and 'overwriteExistingDomain' in kwargs:
             overwrite_existing_domain = kwargs['overwriteExistingDomain']
 
         if cert is not None:
@@ -728,17 +744,19 @@ class SynapseSparkIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -822,16 +840,20 @@ class WorkspaceEncryptionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_id: pulumi.Input[str],
-             key_vault_id: pulumi.Input[str],
+             key_id: Optional[pulumi.Input[str]] = None,
+             key_vault_id: Optional[pulumi.Input[str]] = None,
              user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'keyId' in kwargs:
+        if key_id is None and 'keyId' in kwargs:
             key_id = kwargs['keyId']
-        if 'keyVaultId' in kwargs:
+        if key_id is None:
+            raise TypeError("Missing 'key_id' argument")
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
-        if 'userAssignedIdentityId' in kwargs:
+        if key_vault_id is None:
+            raise TypeError("Missing 'key_vault_id' argument")
+        if user_assigned_identity_id is None and 'userAssignedIdentityId' in kwargs:
             user_assigned_identity_id = kwargs['userAssignedIdentityId']
 
         _setter("key_id", key_id)
@@ -903,17 +925,19 @@ class WorkspaceIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)

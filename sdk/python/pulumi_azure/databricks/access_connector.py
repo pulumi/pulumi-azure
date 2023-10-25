@@ -40,15 +40,17 @@ class AccessConnectorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              identity: Optional[pulumi.Input['AccessConnectorIdentityArgs']] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("resource_group_name", resource_group_name)
         if identity is not None:
@@ -153,9 +155,9 @@ class _AccessConnectorState:
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if identity is not None:
@@ -244,24 +246,6 @@ class AccessConnector(pulumi.CustomResource):
         """
         Manages a Databricks Access Connector
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_access_connector = azure.databricks.AccessConnector("exampleAccessConnector",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            identity=azure.databricks.AccessConnectorIdentityArgs(
-                type="SystemAssigned",
-            ),
-            tags={
-                "Environment": "Production",
-            })
-        ```
-
         ## Import
 
         Databricks Access Connectors can be imported using the `resource id`, e.g.
@@ -286,24 +270,6 @@ class AccessConnector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Databricks Access Connector
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_access_connector = azure.databricks.AccessConnector("exampleAccessConnector",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            identity=azure.databricks.AccessConnectorIdentityArgs(
-                type="SystemAssigned",
-            ),
-            tags={
-                "Environment": "Production",
-            })
-        ```
 
         ## Import
 
@@ -346,11 +312,7 @@ class AccessConnector(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AccessConnectorArgs.__new__(AccessConnectorArgs)
 
-            if identity is not None and not isinstance(identity, AccessConnectorIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                AccessConnectorIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, AccessConnectorIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name

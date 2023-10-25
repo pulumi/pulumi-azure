@@ -37,18 +37,24 @@ class ServiceCustomDomainArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             domain_name: pulumi.Input[str],
-             signalr_custom_certificate_id: pulumi.Input[str],
-             signalr_service_id: pulumi.Input[str],
+             domain_name: Optional[pulumi.Input[str]] = None,
+             signalr_custom_certificate_id: Optional[pulumi.Input[str]] = None,
+             signalr_service_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'domainName' in kwargs:
+        if domain_name is None and 'domainName' in kwargs:
             domain_name = kwargs['domainName']
-        if 'signalrCustomCertificateId' in kwargs:
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+        if signalr_custom_certificate_id is None and 'signalrCustomCertificateId' in kwargs:
             signalr_custom_certificate_id = kwargs['signalrCustomCertificateId']
-        if 'signalrServiceId' in kwargs:
+        if signalr_custom_certificate_id is None:
+            raise TypeError("Missing 'signalr_custom_certificate_id' argument")
+        if signalr_service_id is None and 'signalrServiceId' in kwargs:
             signalr_service_id = kwargs['signalrServiceId']
+        if signalr_service_id is None:
+            raise TypeError("Missing 'signalr_service_id' argument")
 
         _setter("domain_name", domain_name)
         _setter("signalr_custom_certificate_id", signalr_custom_certificate_id)
@@ -137,13 +143,13 @@ class _ServiceCustomDomainState:
              name: Optional[pulumi.Input[str]] = None,
              signalr_custom_certificate_id: Optional[pulumi.Input[str]] = None,
              signalr_service_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'domainName' in kwargs:
+        if domain_name is None and 'domainName' in kwargs:
             domain_name = kwargs['domainName']
-        if 'signalrCustomCertificateId' in kwargs:
+        if signalr_custom_certificate_id is None and 'signalrCustomCertificateId' in kwargs:
             signalr_custom_certificate_id = kwargs['signalrCustomCertificateId']
-        if 'signalrServiceId' in kwargs:
+        if signalr_service_id is None and 'signalrServiceId' in kwargs:
             signalr_service_id = kwargs['signalrServiceId']
 
         if domain_name is not None:
@@ -219,74 +225,6 @@ class ServiceCustomDomain(pulumi.CustomResource):
         """
         Manages an Azure SignalR Custom Domain.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import base64
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.signalr.Service("exampleService",
-            location=azurerm_resource_group["test"]["location"],
-            resource_group_name=azurerm_resource_group["test"]["name"],
-            sku=azure.signalr.ServiceSkuArgs(
-                name="Premium_P1",
-                capacity=1,
-            ),
-            identity=azure.signalr.ServiceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="premium",
-            access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=current.tenant_id,
-                    object_id=current.object_id,
-                    certificate_permissions=[
-                        "Create",
-                        "Get",
-                        "List",
-                    ],
-                    secret_permissions=[
-                        "Get",
-                        "List",
-                    ],
-                ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=current.tenant_id,
-                    object_id=azurerm_signalr_service["test"]["identity"][0]["principal_id"],
-                    certificate_permissions=[
-                        "Create",
-                        "Get",
-                        "List",
-                    ],
-                    secret_permissions=[
-                        "Get",
-                        "List",
-                    ],
-                ),
-            ])
-        example_certificate = azure.keyvault.Certificate("exampleCertificate",
-            key_vault_id=example_key_vault.id,
-            certificate=azure.keyvault.CertificateCertificateArgs(
-                contents=(lambda path: base64.b64encode(open(path).read().encode()).decode())("certificate-to-import.pfx"),
-                password="",
-            ))
-        test_service_custom_certificate = azure.signalr.ServiceCustomCertificate("testServiceCustomCertificate",
-            signalr_service_id=example_service.id,
-            custom_certificate_id=example_certificate.id,
-            opts=pulumi.ResourceOptions(depends_on=[azurerm_key_vault_access_policy["example"]]))
-        test_service_custom_domain = azure.signalr.ServiceCustomDomain("testServiceCustomDomain",
-            signalr_service_id=azurerm_signalr_service["test"]["id"],
-            domain_name="tftest.com",
-            signalr_custom_certificate_id=test_service_custom_certificate.id)
-        ```
-
         ## Import
 
         Custom Domain for a SignalR service can be imported using the `resource id`, e.g.
@@ -312,74 +250,6 @@ class ServiceCustomDomain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure SignalR Custom Domain.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import base64
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.signalr.Service("exampleService",
-            location=azurerm_resource_group["test"]["location"],
-            resource_group_name=azurerm_resource_group["test"]["name"],
-            sku=azure.signalr.ServiceSkuArgs(
-                name="Premium_P1",
-                capacity=1,
-            ),
-            identity=azure.signalr.ServiceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="premium",
-            access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=current.tenant_id,
-                    object_id=current.object_id,
-                    certificate_permissions=[
-                        "Create",
-                        "Get",
-                        "List",
-                    ],
-                    secret_permissions=[
-                        "Get",
-                        "List",
-                    ],
-                ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=current.tenant_id,
-                    object_id=azurerm_signalr_service["test"]["identity"][0]["principal_id"],
-                    certificate_permissions=[
-                        "Create",
-                        "Get",
-                        "List",
-                    ],
-                    secret_permissions=[
-                        "Get",
-                        "List",
-                    ],
-                ),
-            ])
-        example_certificate = azure.keyvault.Certificate("exampleCertificate",
-            key_vault_id=example_key_vault.id,
-            certificate=azure.keyvault.CertificateCertificateArgs(
-                contents=(lambda path: base64.b64encode(open(path).read().encode()).decode())("certificate-to-import.pfx"),
-                password="",
-            ))
-        test_service_custom_certificate = azure.signalr.ServiceCustomCertificate("testServiceCustomCertificate",
-            signalr_service_id=example_service.id,
-            custom_certificate_id=example_certificate.id,
-            opts=pulumi.ResourceOptions(depends_on=[azurerm_key_vault_access_policy["example"]]))
-        test_service_custom_domain = azure.signalr.ServiceCustomDomain("testServiceCustomDomain",
-            signalr_service_id=azurerm_signalr_service["test"]["id"],
-            domain_name="tftest.com",
-            signalr_custom_certificate_id=test_service_custom_certificate.id)
-        ```
 
         ## Import
 

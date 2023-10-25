@@ -7,19 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Log Analytics Query Pack.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleQueryPack = new azure.loganalytics.QueryPack("exampleQueryPack", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- * });
- * ```
- *
  * ## Import
  *
  * Log Analytics Query Packs can be imported using the `resource id`, e.g.

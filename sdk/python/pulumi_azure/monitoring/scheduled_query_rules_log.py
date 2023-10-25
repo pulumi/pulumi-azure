@@ -52,22 +52,28 @@ class ScheduledQueryRulesLogArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             criteria: pulumi.Input['ScheduledQueryRulesLogCriteriaArgs'],
-             data_source_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             criteria: Optional[pulumi.Input['ScheduledQueryRulesLogCriteriaArgs']] = None,
+             data_source_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              authorized_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dataSourceId' in kwargs:
+        if criteria is None:
+            raise TypeError("Missing 'criteria' argument")
+        if data_source_id is None and 'dataSourceId' in kwargs:
             data_source_id = kwargs['dataSourceId']
-        if 'resourceGroupName' in kwargs:
+        if data_source_id is None:
+            raise TypeError("Missing 'data_source_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'authorizedResourceIds' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if authorized_resource_ids is None and 'authorizedResourceIds' in kwargs:
             authorized_resource_ids = kwargs['authorizedResourceIds']
 
         _setter("criteria", criteria)
@@ -243,13 +249,13 @@ class _ScheduledQueryRulesLogState:
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'authorizedResourceIds' in kwargs:
+        if authorized_resource_ids is None and 'authorizedResourceIds' in kwargs:
             authorized_resource_ids = kwargs['authorizedResourceIds']
-        if 'dataSourceId' in kwargs:
+        if data_source_id is None and 'dataSourceId' in kwargs:
             data_source_id = kwargs['dataSourceId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if authorized_resource_ids is not None:
@@ -398,62 +404,6 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
         """
         Manages a LogToMetricAction Scheduled Query Rules resource within Azure Monitor.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018",
-            retention_in_days=30)
-        example_action_group = azure.monitoring.ActionGroup("exampleActionGroup",
-            resource_group_name=example_resource_group.name,
-            short_name="exampleact",
-            webhook_receivers=[azure.monitoring.ActionGroupWebhookReceiverArgs(
-                name="callmyapi",
-                service_uri="http://example.com/alert",
-            )])
-        # Example: Creates alert using the new Scheduled Query Rules metric
-        example_metric_alert = azure.monitoring.MetricAlert("exampleMetricAlert",
-            resource_group_name=example_resource_group.name,
-            scopes=[example_analytics_workspace.id],
-            description="Action will be triggered when Average_% Idle Time metric is less than 10.",
-            frequency="PT1M",
-            window_size="PT5M",
-            criterias=[azure.monitoring.MetricAlertCriteriaArgs(
-                metric_namespace="Microsoft.OperationalInsights/workspaces",
-                metric_name="UsedCapacity",
-                aggregation="Average",
-                operator="LessThan",
-                threshold=10,
-            )],
-            actions=[azure.monitoring.MetricAlertActionArgs(
-                action_group_id=example_action_group.id,
-            )])
-        # Example: LogToMetric Action for the named Computer
-        example_scheduled_query_rules_log = azure.monitoring.ScheduledQueryRulesLog("exampleScheduledQueryRulesLog",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            criteria=azure.monitoring.ScheduledQueryRulesLogCriteriaArgs(
-                metric_name="Average_% Idle Time",
-                dimensions=[azure.monitoring.ScheduledQueryRulesLogCriteriaDimensionArgs(
-                    name="Computer",
-                    operator="Include",
-                    values=["targetVM"],
-                )],
-            ),
-            data_source_id=example_analytics_workspace.id,
-            description="Scheduled query rule LogToMetric example",
-            enabled=True,
-            tags={
-                "foo": "bar",
-            })
-        ```
-
         ## Import
 
         Scheduled Query Rule Log can be imported using the `resource id`, e.g.
@@ -482,62 +432,6 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a LogToMetricAction Scheduled Query Rules resource within Azure Monitor.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018",
-            retention_in_days=30)
-        example_action_group = azure.monitoring.ActionGroup("exampleActionGroup",
-            resource_group_name=example_resource_group.name,
-            short_name="exampleact",
-            webhook_receivers=[azure.monitoring.ActionGroupWebhookReceiverArgs(
-                name="callmyapi",
-                service_uri="http://example.com/alert",
-            )])
-        # Example: Creates alert using the new Scheduled Query Rules metric
-        example_metric_alert = azure.monitoring.MetricAlert("exampleMetricAlert",
-            resource_group_name=example_resource_group.name,
-            scopes=[example_analytics_workspace.id],
-            description="Action will be triggered when Average_% Idle Time metric is less than 10.",
-            frequency="PT1M",
-            window_size="PT5M",
-            criterias=[azure.monitoring.MetricAlertCriteriaArgs(
-                metric_namespace="Microsoft.OperationalInsights/workspaces",
-                metric_name="UsedCapacity",
-                aggregation="Average",
-                operator="LessThan",
-                threshold=10,
-            )],
-            actions=[azure.monitoring.MetricAlertActionArgs(
-                action_group_id=example_action_group.id,
-            )])
-        # Example: LogToMetric Action for the named Computer
-        example_scheduled_query_rules_log = azure.monitoring.ScheduledQueryRulesLog("exampleScheduledQueryRulesLog",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            criteria=azure.monitoring.ScheduledQueryRulesLogCriteriaArgs(
-                metric_name="Average_% Idle Time",
-                dimensions=[azure.monitoring.ScheduledQueryRulesLogCriteriaDimensionArgs(
-                    name="Computer",
-                    operator="Include",
-                    values=["targetVM"],
-                )],
-            ),
-            data_source_id=example_analytics_workspace.id,
-            description="Scheduled query rule LogToMetric example",
-            enabled=True,
-            tags={
-                "foo": "bar",
-            })
-        ```
 
         ## Import
 
@@ -585,11 +479,7 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
             __props__ = ScheduledQueryRulesLogArgs.__new__(ScheduledQueryRulesLogArgs)
 
             __props__.__dict__["authorized_resource_ids"] = authorized_resource_ids
-            if criteria is not None and not isinstance(criteria, ScheduledQueryRulesLogCriteriaArgs):
-                criteria = criteria or {}
-                def _setter(key, value):
-                    criteria[key] = value
-                ScheduledQueryRulesLogCriteriaArgs._configure(_setter, **criteria)
+            criteria = _utilities.configure(criteria, ScheduledQueryRulesLogCriteriaArgs, True)
             if criteria is None and not opts.urn:
                 raise TypeError("Missing required property 'criteria'")
             __props__.__dict__["criteria"] = criteria

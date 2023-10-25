@@ -14,34 +14,6 @@ namespace Pulumi.Azure.LogAnalytics
     /// 
     /// Manages a Log Analytics Cluster.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleCluster = new Azure.LogAnalytics.Cluster("exampleCluster", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         Identity = new Azure.LogAnalytics.Inputs.ClusterIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Log Analytics Clusters can be imported using the `resource id`, e.g.

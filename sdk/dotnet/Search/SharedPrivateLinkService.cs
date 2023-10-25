@@ -12,47 +12,6 @@ namespace Pulumi.Azure.Search
     /// <summary>
     /// Manages the Shared Private Link Service for an Azure Search Service.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testResourceGroup = new Azure.Core.ResourceGroup("testResourceGroup", new()
-    ///     {
-    ///         Location = "east us",
-    ///     });
-    /// 
-    ///     var testService = new Azure.Search.Service("testService", new()
-    ///     {
-    ///         ResourceGroupName = testResourceGroup.Name,
-    ///         Location = testResourceGroup.Location,
-    ///         Sku = "standard",
-    ///     });
-    /// 
-    ///     var testAccount = new Azure.Storage.Account("testAccount", new()
-    ///     {
-    ///         ResourceGroupName = testResourceGroup.Name,
-    ///         Location = testResourceGroup.Location,
-    ///         AccountTier = "Standard",
-    ///         AccountReplicationType = "LRS",
-    ///     });
-    /// 
-    ///     var testSharedPrivateLinkService = new Azure.Search.SharedPrivateLinkService("testSharedPrivateLinkService", new()
-    ///     {
-    ///         SearchServiceId = testService.Id,
-    ///         SubresourceName = "blob",
-    ///         TargetResourceId = testAccount.Id,
-    ///         RequestMessage = "please approve",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Azure Search Shared Private Link Resource can be imported using the `resource id`, e.g.

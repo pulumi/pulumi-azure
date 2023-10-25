@@ -15,56 +15,6 @@ import (
 
 // Manages a Kubernetes Cluster Extension.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleKubernetesCluster, err := containerservice.NewKubernetesCluster(ctx, "exampleKubernetesCluster", &containerservice.KubernetesClusterArgs{
-//				Location:          pulumi.String("West Europe"),
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				DnsPrefix:         pulumi.String("example-aks"),
-//				DefaultNodePool: &containerservice.KubernetesClusterDefaultNodePoolArgs{
-//					Name:      pulumi.String("default"),
-//					NodeCount: pulumi.Int(1),
-//					VmSize:    pulumi.String("Standard_DS2_v2"),
-//				},
-//				Identity: &containerservice.KubernetesClusterIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = containerservice.NewKubernetesClusterExtension(ctx, "exampleKubernetesClusterExtension", &containerservice.KubernetesClusterExtensionArgs{
-//				ClusterId:     exampleKubernetesCluster.ID(),
-//				ExtensionType: pulumi.String("microsoft.flux"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Kubernetes Cluster Extension can be imported using the `resource id` for different `cluster_resource_name`, e.g.

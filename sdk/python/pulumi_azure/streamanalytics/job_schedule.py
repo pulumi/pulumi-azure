@@ -34,16 +34,20 @@ class JobScheduleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             start_mode: pulumi.Input[str],
-             stream_analytics_job_id: pulumi.Input[str],
+             start_mode: Optional[pulumi.Input[str]] = None,
+             stream_analytics_job_id: Optional[pulumi.Input[str]] = None,
              start_time: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'startMode' in kwargs:
+        if start_mode is None and 'startMode' in kwargs:
             start_mode = kwargs['startMode']
-        if 'streamAnalyticsJobId' in kwargs:
+        if start_mode is None:
+            raise TypeError("Missing 'start_mode' argument")
+        if stream_analytics_job_id is None and 'streamAnalyticsJobId' in kwargs:
             stream_analytics_job_id = kwargs['streamAnalyticsJobId']
-        if 'startTime' in kwargs:
+        if stream_analytics_job_id is None:
+            raise TypeError("Missing 'stream_analytics_job_id' argument")
+        if start_time is None and 'startTime' in kwargs:
             start_time = kwargs['startTime']
 
         _setter("start_mode", start_mode)
@@ -120,15 +124,15 @@ class _JobScheduleState:
              start_mode: Optional[pulumi.Input[str]] = None,
              start_time: Optional[pulumi.Input[str]] = None,
              stream_analytics_job_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'lastOutputTime' in kwargs:
+        if last_output_time is None and 'lastOutputTime' in kwargs:
             last_output_time = kwargs['lastOutputTime']
-        if 'startMode' in kwargs:
+        if start_mode is None and 'startMode' in kwargs:
             start_mode = kwargs['startMode']
-        if 'startTime' in kwargs:
+        if start_time is None and 'startTime' in kwargs:
             start_time = kwargs['startTime']
-        if 'streamAnalyticsJobId' in kwargs:
+        if stream_analytics_job_id is None and 'streamAnalyticsJobId' in kwargs:
             stream_analytics_job_id = kwargs['streamAnalyticsJobId']
 
         if last_output_time is not None:
@@ -203,80 +207,6 @@ class JobSchedule(pulumi.CustomResource):
         """
         Manages a Stream Analytics Job Schedule.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("exampleContainer",
-            storage_account_name=example_account.name,
-            container_access_type="private")
-        example_blob = azure.storage.Blob("exampleBlob",
-            storage_account_name=example_account.name,
-            storage_container_name=example_container.name,
-            type="Block",
-            source=pulumi.FileAsset("example.csv"))
-        example_job = azure.streamanalytics.Job("exampleJob",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            compatibility_level="1.2",
-            data_locale="en-GB",
-            events_late_arrival_max_delay_in_seconds=60,
-            events_out_of_order_max_delay_in_seconds=50,
-            events_out_of_order_policy="Adjust",
-            output_error_policy="Drop",
-            streaming_units=3,
-            tags={
-                "environment": "Example",
-            },
-            transformation_query=\"\"\"    SELECT *
-            INTO [exampleoutput]
-            FROM [exampleinput]
-        \"\"\")
-        example_stream_input_blob = azure.streamanalytics.StreamInputBlob("exampleStreamInputBlob",
-            stream_analytics_job_name=example_job.name,
-            resource_group_name=example_job.resource_group_name,
-            storage_account_name=example_account.name,
-            storage_account_key=example_account.primary_access_key,
-            storage_container_name=example_container.name,
-            path_pattern="",
-            date_format="yyyy/MM/dd",
-            time_format="HH",
-            serialization=azure.streamanalytics.StreamInputBlobSerializationArgs(
-                type="Csv",
-                encoding="UTF8",
-                field_delimiter=",",
-            ))
-        example_output_blob = azure.streamanalytics.OutputBlob("exampleOutputBlob",
-            stream_analytics_job_name=example_job.name,
-            resource_group_name=example_job.resource_group_name,
-            storage_account_name=example_account.name,
-            storage_account_key=example_account.primary_access_key,
-            storage_container_name=example_container.name,
-            path_pattern="example-{date}-{time}",
-            date_format="yyyy-MM-dd",
-            time_format="HH",
-            serialization=azure.streamanalytics.OutputBlobSerializationArgs(
-                type="Avro",
-            ))
-        example_job_schedule = azure.streamanalytics.JobSchedule("exampleJobSchedule",
-            stream_analytics_job_id=example_job.id,
-            start_mode="CustomTime",
-            start_time="2022-09-21T00:00:00Z",
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example_job,
-                    example_stream_input_blob,
-                    example_output_blob,
-                ]))
-        ```
-
         ## Import
 
         Stream Analytics Job's can be imported using the `resource id`, e.g.
@@ -301,80 +231,6 @@ class JobSchedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Stream Analytics Job Schedule.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("exampleContainer",
-            storage_account_name=example_account.name,
-            container_access_type="private")
-        example_blob = azure.storage.Blob("exampleBlob",
-            storage_account_name=example_account.name,
-            storage_container_name=example_container.name,
-            type="Block",
-            source=pulumi.FileAsset("example.csv"))
-        example_job = azure.streamanalytics.Job("exampleJob",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            compatibility_level="1.2",
-            data_locale="en-GB",
-            events_late_arrival_max_delay_in_seconds=60,
-            events_out_of_order_max_delay_in_seconds=50,
-            events_out_of_order_policy="Adjust",
-            output_error_policy="Drop",
-            streaming_units=3,
-            tags={
-                "environment": "Example",
-            },
-            transformation_query=\"\"\"    SELECT *
-            INTO [exampleoutput]
-            FROM [exampleinput]
-        \"\"\")
-        example_stream_input_blob = azure.streamanalytics.StreamInputBlob("exampleStreamInputBlob",
-            stream_analytics_job_name=example_job.name,
-            resource_group_name=example_job.resource_group_name,
-            storage_account_name=example_account.name,
-            storage_account_key=example_account.primary_access_key,
-            storage_container_name=example_container.name,
-            path_pattern="",
-            date_format="yyyy/MM/dd",
-            time_format="HH",
-            serialization=azure.streamanalytics.StreamInputBlobSerializationArgs(
-                type="Csv",
-                encoding="UTF8",
-                field_delimiter=",",
-            ))
-        example_output_blob = azure.streamanalytics.OutputBlob("exampleOutputBlob",
-            stream_analytics_job_name=example_job.name,
-            resource_group_name=example_job.resource_group_name,
-            storage_account_name=example_account.name,
-            storage_account_key=example_account.primary_access_key,
-            storage_container_name=example_container.name,
-            path_pattern="example-{date}-{time}",
-            date_format="yyyy-MM-dd",
-            time_format="HH",
-            serialization=azure.streamanalytics.OutputBlobSerializationArgs(
-                type="Avro",
-            ))
-        example_job_schedule = azure.streamanalytics.JobSchedule("exampleJobSchedule",
-            stream_analytics_job_id=example_job.id,
-            start_mode="CustomTime",
-            start_time="2022-09-21T00:00:00Z",
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example_job,
-                    example_stream_input_blob,
-                    example_output_blob,
-                ]))
-        ```
 
         ## Import
 

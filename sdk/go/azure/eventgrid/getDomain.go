@@ -13,34 +13,6 @@ import (
 )
 
 // Use this data source to access information about an existing EventGrid Domain
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventgrid"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := eventgrid.LookupDomain(ctx, &eventgrid.LookupDomainArgs{
-//				Name:              "my-eventgrid-domain",
-//				ResourceGroupName: "example-resources",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("eventgridDomainMappingTopic", example.InputMappingFields[0].Topic)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupDomain(ctx *pulumi.Context, args *LookupDomainArgs, opts ...pulumi.InvokeOption) (*LookupDomainResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDomainResult

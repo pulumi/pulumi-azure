@@ -40,17 +40,21 @@ class PortalDashboardArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             dashboard_properties: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             dashboard_properties: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dashboardProperties' in kwargs:
+        if dashboard_properties is None and 'dashboardProperties' in kwargs:
             dashboard_properties = kwargs['dashboardProperties']
-        if 'resourceGroupName' in kwargs:
+        if dashboard_properties is None:
+            raise TypeError("Missing 'dashboard_properties' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("dashboard_properties", dashboard_properties)
         _setter("resource_group_name", resource_group_name)
@@ -158,11 +162,11 @@ class _PortalDashboardState:
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dashboardProperties' in kwargs:
+        if dashboard_properties is None and 'dashboardProperties' in kwargs:
             dashboard_properties = kwargs['dashboardProperties']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if dashboard_properties is not None:

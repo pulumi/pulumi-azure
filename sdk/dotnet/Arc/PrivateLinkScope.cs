@@ -12,30 +12,6 @@ namespace Pulumi.Azure.Arc
     /// <summary>
     /// Manages an Azure Arc Private Link Scope.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "west europe",
-    ///     });
-    /// 
-    ///     var examplePrivateLinkScope = new Azure.Arc.PrivateLinkScope("examplePrivateLinkScope", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Azure Arc Private Link Scope can be imported using the `resource id`, e.g.

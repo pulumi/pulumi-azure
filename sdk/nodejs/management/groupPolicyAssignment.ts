@@ -9,37 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Policy Assignment to a Management Group.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleGroup = new azure.management.Group("exampleGroup", {displayName: "Some Management Group"});
- * const exampleDefinition = new azure.policy.Definition("exampleDefinition", {
- *     policyType: "Custom",
- *     mode: "All",
- *     displayName: "my-policy-definition",
- *     managementGroupId: exampleGroup.id,
- *     policyRule: ` {
- *     "if": {
- *       "not": {
- *         "field": "location",
- *         "equals": "westeurope"
- *       }
- *     },
- *     "then": {
- *       "effect": "Deny"
- *     }
- *   }
- * `,
- * });
- * const exampleGroupPolicyAssignment = new azure.management.GroupPolicyAssignment("exampleGroupPolicyAssignment", {
- *     policyDefinitionId: exampleDefinition.id,
- *     managementGroupId: exampleGroup.id,
- * });
- * ```
- *
  * ## Import
  *
  * Management Group Policy Assignments can be imported using the `resource id`, e.g.

@@ -227,17 +227,6 @@ def get_subscription(name: Optional[str] = None,
     """
     Use this data source to access information about an existing ServiceBus Subscription.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.servicebus.get_subscription(name="examplesubscription",
-        topic_id="exampletopic")
-    pulumi.export("servicebusSubscription", data["azurerm_servicebus_namespace"]["example"])
-    ```
-
 
     :param str name: Specifies the name of the ServiceBus Subscription.
     :param str namespace_name: The name of the ServiceBus Namespace.
@@ -284,17 +273,6 @@ def get_subscription_output(name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscriptionResult]:
     """
     Use this data source to access information about an existing ServiceBus Subscription.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.servicebus.get_subscription(name="examplesubscription",
-        topic_id="exampletopic")
-    pulumi.export("servicebusSubscription", data["azurerm_servicebus_namespace"]["example"])
-    ```
 
 
     :param str name: Specifies the name of the ServiceBus Subscription.

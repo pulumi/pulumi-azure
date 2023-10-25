@@ -13,33 +13,6 @@ import (
 )
 
 // Use this data source to access information about an existing IotHub Device Provisioning Service.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iot.GetDps(ctx, &iot.GetDpsArgs{
-//				Name:              "iot_hub_dps_test",
-//				ResourceGroupName: "iothub_dps_rg",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetDps(ctx *pulumi.Context, args *GetDpsArgs, opts ...pulumi.InvokeOption) (*GetDpsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDpsResult

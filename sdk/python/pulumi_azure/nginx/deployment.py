@@ -69,8 +69,8 @@ class DeploymentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             sku: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
              capacity: Optional[pulumi.Input[int]] = None,
              diagnose_support_enabled: Optional[pulumi.Input[bool]] = None,
              email: Optional[pulumi.Input[str]] = None,
@@ -83,21 +83,25 @@ class DeploymentArgs:
              name: Optional[pulumi.Input[str]] = None,
              network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentNetworkInterfaceArgs']]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'diagnoseSupportEnabled' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if diagnose_support_enabled is None and 'diagnoseSupportEnabled' in kwargs:
             diagnose_support_enabled = kwargs['diagnoseSupportEnabled']
-        if 'frontendPrivates' in kwargs:
+        if frontend_privates is None and 'frontendPrivates' in kwargs:
             frontend_privates = kwargs['frontendPrivates']
-        if 'frontendPublic' in kwargs:
+        if frontend_public is None and 'frontendPublic' in kwargs:
             frontend_public = kwargs['frontendPublic']
-        if 'loggingStorageAccounts' in kwargs:
+        if logging_storage_accounts is None and 'loggingStorageAccounts' in kwargs:
             logging_storage_accounts = kwargs['loggingStorageAccounts']
-        if 'managedResourceGroup' in kwargs:
+        if managed_resource_group is None and 'managedResourceGroup' in kwargs:
             managed_resource_group = kwargs['managedResourceGroup']
-        if 'networkInterfaces' in kwargs:
+        if network_interfaces is None and 'networkInterfaces' in kwargs:
             network_interfaces = kwargs['networkInterfaces']
 
         _setter("resource_group_name", resource_group_name)
@@ -376,25 +380,25 @@ class _DeploymentState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              sku: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'diagnoseSupportEnabled' in kwargs:
+        if diagnose_support_enabled is None and 'diagnoseSupportEnabled' in kwargs:
             diagnose_support_enabled = kwargs['diagnoseSupportEnabled']
-        if 'frontendPrivates' in kwargs:
+        if frontend_privates is None and 'frontendPrivates' in kwargs:
             frontend_privates = kwargs['frontendPrivates']
-        if 'frontendPublic' in kwargs:
+        if frontend_public is None and 'frontendPublic' in kwargs:
             frontend_public = kwargs['frontendPublic']
-        if 'ipAddress' in kwargs:
+        if ip_address is None and 'ipAddress' in kwargs:
             ip_address = kwargs['ipAddress']
-        if 'loggingStorageAccounts' in kwargs:
+        if logging_storage_accounts is None and 'loggingStorageAccounts' in kwargs:
             logging_storage_accounts = kwargs['loggingStorageAccounts']
-        if 'managedResourceGroup' in kwargs:
+        if managed_resource_group is None and 'managedResourceGroup' in kwargs:
             managed_resource_group = kwargs['managedResourceGroup']
-        if 'networkInterfaces' in kwargs:
+        if network_interfaces is None and 'networkInterfaces' in kwargs:
             network_interfaces = kwargs['networkInterfaces']
-        if 'nginxVersion' in kwargs:
+        if nginx_version is None and 'nginxVersion' in kwargs:
             nginx_version = kwargs['nginxVersion']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if capacity is not None:
@@ -648,52 +652,6 @@ class Deployment(pulumi.CustomResource):
         """
         Manages a Nginx Deployment.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            allocation_method="Static",
-            sku="Standard",
-            tags={
-                "environment": "Production",
-            })
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="delegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="NGINX.NGINXPLUS/nginxDeployments",
-                    actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
-                ),
-            )])
-        example_deployment = azure.nginx.Deployment("exampleDeployment",
-            resource_group_name=example_resource_group.name,
-            sku="publicpreview_Monthly_gmz7xq9ge3py",
-            location=example_resource_group.location,
-            managed_resource_group="example",
-            diagnose_support_enabled=True,
-            frontend_public=azure.nginx.DeploymentFrontendPublicArgs(
-                ip_addresses=[example_public_ip.id],
-            ),
-            network_interfaces=[azure.nginx.DeploymentNetworkInterfaceArgs(
-                subnet_id=example_subnet.id,
-            )],
-            capacity=20,
-            email="user@test.com")
-        ```
-
         ## Import
 
         Nginx Deployments can be imported using the `resource id`, e.g.
@@ -729,52 +687,6 @@ class Deployment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Nginx Deployment.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            allocation_method="Static",
-            sku="Standard",
-            tags={
-                "environment": "Production",
-            })
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="delegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="NGINX.NGINXPLUS/nginxDeployments",
-                    actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
-                ),
-            )])
-        example_deployment = azure.nginx.Deployment("exampleDeployment",
-            resource_group_name=example_resource_group.name,
-            sku="publicpreview_Monthly_gmz7xq9ge3py",
-            location=example_resource_group.location,
-            managed_resource_group="example",
-            diagnose_support_enabled=True,
-            frontend_public=azure.nginx.DeploymentFrontendPublicArgs(
-                ip_addresses=[example_public_ip.id],
-            ),
-            network_interfaces=[azure.nginx.DeploymentNetworkInterfaceArgs(
-                subnet_id=example_subnet.id,
-            )],
-            capacity=20,
-            email="user@test.com")
-        ```
 
         ## Import
 
@@ -830,17 +742,9 @@ class Deployment(pulumi.CustomResource):
             __props__.__dict__["diagnose_support_enabled"] = diagnose_support_enabled
             __props__.__dict__["email"] = email
             __props__.__dict__["frontend_privates"] = frontend_privates
-            if frontend_public is not None and not isinstance(frontend_public, DeploymentFrontendPublicArgs):
-                frontend_public = frontend_public or {}
-                def _setter(key, value):
-                    frontend_public[key] = value
-                DeploymentFrontendPublicArgs._configure(_setter, **frontend_public)
+            frontend_public = _utilities.configure(frontend_public, DeploymentFrontendPublicArgs, True)
             __props__.__dict__["frontend_public"] = frontend_public
-            if identity is not None and not isinstance(identity, DeploymentIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                DeploymentIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, DeploymentIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["logging_storage_accounts"] = logging_storage_accounts

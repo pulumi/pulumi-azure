@@ -47,20 +47,34 @@ class OutputSynapseArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database: pulumi.Input[str],
-             password: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             server: pulumi.Input[str],
-             stream_analytics_job_name: pulumi.Input[str],
-             table: pulumi.Input[str],
-             user: pulumi.Input[str],
+             database: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             server: Optional[pulumi.Input[str]] = None,
+             stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
+             table: Optional[pulumi.Input[str]] = None,
+             user: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if database is None:
+            raise TypeError("Missing 'database' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'streamAnalyticsJobName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if server is None:
+            raise TypeError("Missing 'server' argument")
+        if stream_analytics_job_name is None and 'streamAnalyticsJobName' in kwargs:
             stream_analytics_job_name = kwargs['streamAnalyticsJobName']
+        if stream_analytics_job_name is None:
+            raise TypeError("Missing 'stream_analytics_job_name' argument")
+        if table is None:
+            raise TypeError("Missing 'table' argument")
+        if user is None:
+            raise TypeError("Missing 'user' argument")
 
         _setter("database", database)
         _setter("password", password)
@@ -213,11 +227,11 @@ class _OutputSynapseState:
              stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
              table: Optional[pulumi.Input[str]] = None,
              user: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'streamAnalyticsJobName' in kwargs:
+        if stream_analytics_job_name is None and 'streamAnalyticsJobName' in kwargs:
             stream_analytics_job_name = kwargs['streamAnalyticsJobName']
 
         if database is not None:
@@ -351,42 +365,6 @@ class OutputSynapse(pulumi.CustomResource):
         """
         Manages a Stream Analytics Output to an Azure Synapse Analytics Workspace.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_job = azure.streamanalytics.get_job_output(name="example-job",
-            resource_group_name=example_resource_group.name)
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            account_kind="StorageV2",
-            is_hns_enabled=True)
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
-        example_workspace = azure.synapse.Workspace("exampleWorkspace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
-            sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!",
-            identity=azure.synapse.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_output_synapse = azure.streamanalytics.OutputSynapse("exampleOutputSynapse",
-            stream_analytics_job_name=example_job.name,
-            resource_group_name=example_job.resource_group_name,
-            server=example_workspace.connectivity_endpoints["sqlOnDemand"],
-            user=example_workspace.sql_administrator_login,
-            password=example_workspace.sql_administrator_login_password,
-            database="master",
-            table="ExampleTable")
-        ```
-
         ## Import
 
         A Stream Analytics Output to an Azure Synapse Analytics Workspace can be imported using the `resource id`, e.g.
@@ -414,42 +392,6 @@ class OutputSynapse(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Stream Analytics Output to an Azure Synapse Analytics Workspace.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_job = azure.streamanalytics.get_job_output(name="example-job",
-            resource_group_name=example_resource_group.name)
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            account_kind="StorageV2",
-            is_hns_enabled=True)
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
-        example_workspace = azure.synapse.Workspace("exampleWorkspace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
-            sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!",
-            identity=azure.synapse.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_output_synapse = azure.streamanalytics.OutputSynapse("exampleOutputSynapse",
-            stream_analytics_job_name=example_job.name,
-            resource_group_name=example_job.resource_group_name,
-            server=example_workspace.connectivity_endpoints["sqlOnDemand"],
-            user=example_workspace.sql_administrator_login,
-            password=example_workspace.sql_administrator_login_password,
-            database="master",
-            table="ExampleTable")
-        ```
 
         ## Import
 

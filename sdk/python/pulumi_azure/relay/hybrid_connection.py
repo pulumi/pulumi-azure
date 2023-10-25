@@ -38,20 +38,24 @@ class HybridConnectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             relay_namespace_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             relay_namespace_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              requires_client_authorization: Optional[pulumi.Input[bool]] = None,
              user_metadata: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'relayNamespaceName' in kwargs:
+        if relay_namespace_name is None and 'relayNamespaceName' in kwargs:
             relay_namespace_name = kwargs['relayNamespaceName']
-        if 'resourceGroupName' in kwargs:
+        if relay_namespace_name is None:
+            raise TypeError("Missing 'relay_namespace_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'requiresClientAuthorization' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if requires_client_authorization is None and 'requiresClientAuthorization' in kwargs:
             requires_client_authorization = kwargs['requiresClientAuthorization']
-        if 'userMetadata' in kwargs:
+        if user_metadata is None and 'userMetadata' in kwargs:
             user_metadata = kwargs['userMetadata']
 
         _setter("relay_namespace_name", relay_namespace_name)
@@ -156,15 +160,15 @@ class _HybridConnectionState:
              requires_client_authorization: Optional[pulumi.Input[bool]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              user_metadata: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'relayNamespaceName' in kwargs:
+        if relay_namespace_name is None and 'relayNamespaceName' in kwargs:
             relay_namespace_name = kwargs['relayNamespaceName']
-        if 'requiresClientAuthorization' in kwargs:
+        if requires_client_authorization is None and 'requiresClientAuthorization' in kwargs:
             requires_client_authorization = kwargs['requiresClientAuthorization']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'userMetadata' in kwargs:
+        if user_metadata is None and 'userMetadata' in kwargs:
             user_metadata = kwargs['userMetadata']
 
         if name is not None:
@@ -253,27 +257,6 @@ class HybridConnection(pulumi.CustomResource):
         """
         Manages an Azure Relay Hybrid Connection.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_namespace = azure.relay.Namespace("exampleNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Standard",
-            tags={
-                "source": "managed",
-            })
-        example_hybrid_connection = azure.relay.HybridConnection("exampleHybridConnection",
-            resource_group_name=example_resource_group.name,
-            relay_namespace_name=example_namespace.name,
-            requires_client_authorization=False,
-            user_metadata="testmetadata")
-        ```
-
         ## Import
 
         Relay Hybrid Connection's can be imported using the `resource id`, e.g.
@@ -298,27 +281,6 @@ class HybridConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Relay Hybrid Connection.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_namespace = azure.relay.Namespace("exampleNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Standard",
-            tags={
-                "source": "managed",
-            })
-        example_hybrid_connection = azure.relay.HybridConnection("exampleHybridConnection",
-            resource_group_name=example_resource_group.name,
-            relay_namespace_name=example_namespace.name,
-            requires_client_authorization=False,
-            user_metadata="testmetadata")
-        ```
 
         ## Import
 

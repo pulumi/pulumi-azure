@@ -35,19 +35,25 @@ class GatewayCertificateAuthorityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_management_id: pulumi.Input[str],
-             certificate_name: pulumi.Input[str],
-             gateway_name: pulumi.Input[str],
+             api_management_id: Optional[pulumi.Input[str]] = None,
+             certificate_name: Optional[pulumi.Input[str]] = None,
+             gateway_name: Optional[pulumi.Input[str]] = None,
              is_trusted: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementId' in kwargs:
+        if api_management_id is None and 'apiManagementId' in kwargs:
             api_management_id = kwargs['apiManagementId']
-        if 'certificateName' in kwargs:
+        if api_management_id is None:
+            raise TypeError("Missing 'api_management_id' argument")
+        if certificate_name is None and 'certificateName' in kwargs:
             certificate_name = kwargs['certificateName']
-        if 'gatewayName' in kwargs:
+        if certificate_name is None:
+            raise TypeError("Missing 'certificate_name' argument")
+        if gateway_name is None and 'gatewayName' in kwargs:
             gateway_name = kwargs['gatewayName']
-        if 'isTrusted' in kwargs:
+        if gateway_name is None:
+            raise TypeError("Missing 'gateway_name' argument")
+        if is_trusted is None and 'isTrusted' in kwargs:
             is_trusted = kwargs['isTrusted']
 
         _setter("api_management_id", api_management_id)
@@ -133,15 +139,15 @@ class _GatewayCertificateAuthorityState:
              certificate_name: Optional[pulumi.Input[str]] = None,
              gateway_name: Optional[pulumi.Input[str]] = None,
              is_trusted: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementId' in kwargs:
+        if api_management_id is None and 'apiManagementId' in kwargs:
             api_management_id = kwargs['apiManagementId']
-        if 'certificateName' in kwargs:
+        if certificate_name is None and 'certificateName' in kwargs:
             certificate_name = kwargs['certificateName']
-        if 'gatewayName' in kwargs:
+        if gateway_name is None and 'gatewayName' in kwargs:
             gateway_name = kwargs['gatewayName']
-        if 'isTrusted' in kwargs:
+        if is_trusted is None and 'isTrusted' in kwargs:
             is_trusted = kwargs['isTrusted']
 
         if api_management_id is not None:
@@ -215,40 +221,6 @@ class GatewayCertificateAuthority(pulumi.CustomResource):
         """
         Manages an API Management Gateway Certificate Authority.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import base64
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            publisher_name="pub1",
-            publisher_email="pub1@email.com",
-            sku_name="Consumption_0")
-        example_gateway = azure.apimanagement.Gateway("exampleGateway",
-            api_management_id=example_service.id,
-            description="Example API Management gateway",
-            location_data=azure.apimanagement.GatewayLocationDataArgs(
-                name="example name",
-                city="example city",
-                district="example district",
-                region="example region",
-            ))
-        example_certificate = azure.apimanagement.Certificate("exampleCertificate",
-            api_management_name=example_service.name,
-            resource_group_name=example_resource_group.name,
-            data=(lambda path: base64.b64encode(open(path).read().encode()).decode())("example.pfx"))
-        example_gateway_certificate_authority = azure.apimanagement.GatewayCertificateAuthority("exampleGatewayCertificateAuthority",
-            api_management_id=example_service.id,
-            certificate_name=example_certificate.name,
-            gateway_name=example_gateway.name,
-            is_trusted=True)
-        ```
-
         ## Import
 
         API Management Gateway Certificate Authority can be imported using the `resource id`, e.g.
@@ -272,40 +244,6 @@ class GatewayCertificateAuthority(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an API Management Gateway Certificate Authority.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import base64
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            publisher_name="pub1",
-            publisher_email="pub1@email.com",
-            sku_name="Consumption_0")
-        example_gateway = azure.apimanagement.Gateway("exampleGateway",
-            api_management_id=example_service.id,
-            description="Example API Management gateway",
-            location_data=azure.apimanagement.GatewayLocationDataArgs(
-                name="example name",
-                city="example city",
-                district="example district",
-                region="example region",
-            ))
-        example_certificate = azure.apimanagement.Certificate("exampleCertificate",
-            api_management_name=example_service.name,
-            resource_group_name=example_resource_group.name,
-            data=(lambda path: base64.b64encode(open(path).read().encode()).decode())("example.pfx"))
-        example_gateway_certificate_authority = azure.apimanagement.GatewayCertificateAuthority("exampleGatewayCertificateAuthority",
-            api_management_id=example_service.id,
-            certificate_name=example_certificate.name,
-            gateway_name=example_gateway.name,
-            is_trusted=True)
-        ```
 
         ## Import
 

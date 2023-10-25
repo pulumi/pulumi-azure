@@ -9,42 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Bastion Host.
  *
- * ## Example Usage
- *
- * This example deploys an Azure Bastion Host Instance to a target virtual network.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     addressSpaces: ["192.168.1.0/24"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["192.168.1.224/27"],
- * });
- * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     allocationMethod: "Static",
- *     sku: "Standard",
- * });
- * const exampleBastionHost = new azure.compute.BastionHost("exampleBastionHost", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     ipConfiguration: {
- *         name: "configuration",
- *         subnetId: exampleSubnet.id,
- *         publicIpAddressId: examplePublicIp.id,
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Bastion Hosts can be imported using the `resource id`, e.g.

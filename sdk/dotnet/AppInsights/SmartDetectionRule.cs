@@ -12,37 +12,6 @@ namespace Pulumi.Azure.AppInsights
     /// <summary>
     /// Manages an Application Insights Smart Detection Rule.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         ApplicationType = "web",
-    ///     });
-    /// 
-    ///     var exampleSmartDetectionRule = new Azure.AppInsights.SmartDetectionRule("exampleSmartDetectionRule", new()
-    ///     {
-    ///         ApplicationInsightsId = exampleInsights.Id,
-    ///         Enabled = false,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Application Insights Smart Detection Rules can be imported using the `resource id`, e.g.

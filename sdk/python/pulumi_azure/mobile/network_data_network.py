@@ -38,15 +38,17 @@ class NetworkDataNetworkArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mobile_network_id: pulumi.Input[str],
+             mobile_network_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'mobileNetworkId' in kwargs:
+        if mobile_network_id is None and 'mobileNetworkId' in kwargs:
             mobile_network_id = kwargs['mobileNetworkId']
+        if mobile_network_id is None:
+            raise TypeError("Missing 'mobile_network_id' argument")
 
         _setter("mobile_network_id", mobile_network_id)
         if description is not None:
@@ -151,9 +153,9 @@ class _NetworkDataNetworkState:
              mobile_network_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'mobileNetworkId' in kwargs:
+        if mobile_network_id is None and 'mobileNetworkId' in kwargs:
             mobile_network_id = kwargs['mobileNetworkId']
 
         if description is not None:
@@ -242,27 +244,6 @@ class NetworkDataNetwork(pulumi.CustomResource):
         """
         Manages a Mobile Network Data Network.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="East Us")
-        example_network = azure.mobile.Network("exampleNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            mobile_country_code="001",
-            mobile_network_code="01")
-        example_network_data_network = azure.mobile.NetworkDataNetwork("exampleNetworkDataNetwork",
-            mobile_network_id=example_network.id,
-            location=example_resource_group.location,
-            description="example description",
-            tags={
-                "key": "value",
-            })
-        ```
-
         ## Import
 
         Mobile Network Data Network can be imported using the `resource id`, e.g.
@@ -287,27 +268,6 @@ class NetworkDataNetwork(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Mobile Network Data Network.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="East Us")
-        example_network = azure.mobile.Network("exampleNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            mobile_country_code="001",
-            mobile_network_code="01")
-        example_network_data_network = azure.mobile.NetworkDataNetwork("exampleNetworkDataNetwork",
-            mobile_network_id=example_network.id,
-            location=example_resource_group.location,
-            description="example description",
-            tags={
-                "key": "value",
-            })
-        ```
 
         ## Import
 

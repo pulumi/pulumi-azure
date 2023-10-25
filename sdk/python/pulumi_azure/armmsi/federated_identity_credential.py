@@ -41,18 +41,28 @@ class FederatedIdentityCredentialArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             audience: pulumi.Input[str],
-             issuer: pulumi.Input[str],
-             parent_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             subject: pulumi.Input[str],
+             audience: Optional[pulumi.Input[str]] = None,
+             issuer: Optional[pulumi.Input[str]] = None,
+             parent_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             subject: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'parentId' in kwargs:
+        if audience is None:
+            raise TypeError("Missing 'audience' argument")
+        if issuer is None:
+            raise TypeError("Missing 'issuer' argument")
+        if parent_id is None and 'parentId' in kwargs:
             parent_id = kwargs['parentId']
-        if 'resourceGroupName' in kwargs:
+        if parent_id is None:
+            raise TypeError("Missing 'parent_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if subject is None:
+            raise TypeError("Missing 'subject' argument")
 
         _setter("audience", audience)
         _setter("issuer", issuer)
@@ -171,11 +181,11 @@ class _FederatedIdentityCredentialState:
              parent_id: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              subject: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'parentId' in kwargs:
+        if parent_id is None and 'parentId' in kwargs:
             parent_id = kwargs['parentId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if audience is not None:

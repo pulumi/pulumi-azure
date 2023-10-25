@@ -54,26 +54,32 @@ class ModuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             network_profile: pulumi.Input['ModuleNetworkProfileArgs'],
-             resource_group_name: pulumi.Input[str],
-             sku_name: pulumi.Input[str],
+             network_profile: Optional[pulumi.Input['ModuleNetworkProfileArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              management_network_profile: Optional[pulumi.Input['ModuleManagementNetworkProfileArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              stamp_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'networkProfile' in kwargs:
+        if network_profile is None and 'networkProfile' in kwargs:
             network_profile = kwargs['networkProfile']
-        if 'resourceGroupName' in kwargs:
+        if network_profile is None:
+            raise TypeError("Missing 'network_profile' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'managementNetworkProfile' in kwargs:
+        if sku_name is None:
+            raise TypeError("Missing 'sku_name' argument")
+        if management_network_profile is None and 'managementNetworkProfile' in kwargs:
             management_network_profile = kwargs['managementNetworkProfile']
-        if 'stampId' in kwargs:
+        if stamp_id is None and 'stampId' in kwargs:
             stamp_id = kwargs['stampId']
 
         _setter("network_profile", network_profile)
@@ -253,17 +259,17 @@ class _ModuleState:
              stamp_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'managementNetworkProfile' in kwargs:
+        if management_network_profile is None and 'managementNetworkProfile' in kwargs:
             management_network_profile = kwargs['managementNetworkProfile']
-        if 'networkProfile' in kwargs:
+        if network_profile is None and 'networkProfile' in kwargs:
             network_profile = kwargs['networkProfile']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'stampId' in kwargs:
+        if stamp_id is None and 'stampId' in kwargs:
             stamp_id = kwargs['stampId']
 
         if location is not None:
@@ -418,73 +424,6 @@ class Module(pulumi.CustomResource):
 
         > **Note:** If the quota is not enough in some region, please submit the quota request to service team.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.2.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.2.0.0/24"])
-        example2 = azure.network.Subnet("example2",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.2.1.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="first",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.HardwareSecurityModules/dedicatedHSMs",
-                    actions=[
-                        "Microsoft.Network/networkinterfaces/*",
-                        "Microsoft.Network/virtualNetworks/subnets/join/action",
-                    ],
-                ),
-            )])
-        example3 = azure.network.Subnet("example3",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.2.255.0/26"])
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            allocation_method="Dynamic")
-        example_virtual_network_gateway = azure.network.VirtualNetworkGateway("exampleVirtualNetworkGateway",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            type="ExpressRoute",
-            vpn_type="PolicyBased",
-            sku="Standard",
-            ip_configurations=[azure.network.VirtualNetworkGatewayIpConfigurationArgs(
-                public_ip_address_id=example_public_ip.id,
-                private_ip_address_allocation="Dynamic",
-                subnet_id=example3.id,
-            )])
-        example_module = azure.hsm.Module("exampleModule",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="payShield10K_LMK1_CPS60",
-            management_network_profile=azure.hsm.ModuleManagementNetworkProfileArgs(
-                network_interface_private_ip_addresses=["10.2.1.7"],
-                subnet_id=example2.id,
-            ),
-            network_profile=azure.hsm.ModuleNetworkProfileArgs(
-                network_interface_private_ip_addresses=["10.2.1.8"],
-                subnet_id=example2.id,
-            ),
-            stamp_id="stamp2",
-            tags={
-                "env": "Test",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[example_virtual_network_gateway]))
-        ```
-
         ## Import
 
         Dedicated Hardware Security Module can be imported using the `resource id`, e.g.
@@ -519,73 +458,6 @@ class Module(pulumi.CustomResource):
         > **Note:** Before using this resource, it's required to submit the request of registering the providers and features with Azure CLI `az provider register --namespace Microsoft.HardwareSecurityModules && az feature register --namespace Microsoft.HardwareSecurityModules --name AzureDedicatedHSM && az provider register --namespace Microsoft.Network && az feature register --namespace Microsoft.Network --name AllowBaremetalServers` and ask service team (hsmrequest@microsoft.com) to approve. See more details from <https://docs.microsoft.com/azure/dedicated-hsm/tutorial-deploy-hsm-cli#prerequisites>.
 
         > **Note:** If the quota is not enough in some region, please submit the quota request to service team.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.2.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.2.0.0/24"])
-        example2 = azure.network.Subnet("example2",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.2.1.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="first",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.HardwareSecurityModules/dedicatedHSMs",
-                    actions=[
-                        "Microsoft.Network/networkinterfaces/*",
-                        "Microsoft.Network/virtualNetworks/subnets/join/action",
-                    ],
-                ),
-            )])
-        example3 = azure.network.Subnet("example3",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.2.255.0/26"])
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            allocation_method="Dynamic")
-        example_virtual_network_gateway = azure.network.VirtualNetworkGateway("exampleVirtualNetworkGateway",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            type="ExpressRoute",
-            vpn_type="PolicyBased",
-            sku="Standard",
-            ip_configurations=[azure.network.VirtualNetworkGatewayIpConfigurationArgs(
-                public_ip_address_id=example_public_ip.id,
-                private_ip_address_allocation="Dynamic",
-                subnet_id=example3.id,
-            )])
-        example_module = azure.hsm.Module("exampleModule",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="payShield10K_LMK1_CPS60",
-            management_network_profile=azure.hsm.ModuleManagementNetworkProfileArgs(
-                network_interface_private_ip_addresses=["10.2.1.7"],
-                subnet_id=example2.id,
-            ),
-            network_profile=azure.hsm.ModuleNetworkProfileArgs(
-                network_interface_private_ip_addresses=["10.2.1.8"],
-                subnet_id=example2.id,
-            ),
-            stamp_id="stamp2",
-            tags={
-                "env": "Test",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[example_virtual_network_gateway]))
-        ```
 
         ## Import
 
@@ -633,18 +505,10 @@ class Module(pulumi.CustomResource):
             __props__ = ModuleArgs.__new__(ModuleArgs)
 
             __props__.__dict__["location"] = location
-            if management_network_profile is not None and not isinstance(management_network_profile, ModuleManagementNetworkProfileArgs):
-                management_network_profile = management_network_profile or {}
-                def _setter(key, value):
-                    management_network_profile[key] = value
-                ModuleManagementNetworkProfileArgs._configure(_setter, **management_network_profile)
+            management_network_profile = _utilities.configure(management_network_profile, ModuleManagementNetworkProfileArgs, True)
             __props__.__dict__["management_network_profile"] = management_network_profile
             __props__.__dict__["name"] = name
-            if network_profile is not None and not isinstance(network_profile, ModuleNetworkProfileArgs):
-                network_profile = network_profile or {}
-                def _setter(key, value):
-                    network_profile[key] = value
-                ModuleNetworkProfileArgs._configure(_setter, **network_profile)
+            network_profile = _utilities.configure(network_profile, ModuleNetworkProfileArgs, True)
             if network_profile is None and not opts.urn:
                 raise TypeError("Missing required property 'network_profile'")
             __props__.__dict__["network_profile"] = network_profile

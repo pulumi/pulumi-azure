@@ -15,64 +15,6 @@ import (
 
 // Manages a Batch Job.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/batch"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("west europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := batch.NewAccount(ctx, "exampleAccount", &batch.AccountArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			examplePool, err := batch.NewPool(ctx, "examplePool", &batch.PoolArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				AccountName:       exampleAccount.Name,
-//				NodeAgentSkuId:    pulumi.String("batch.node.ubuntu 16.04"),
-//				VmSize:            pulumi.String("Standard_A1"),
-//				FixedScale: &batch.PoolFixedScaleArgs{
-//					TargetDedicatedNodes: pulumi.Int(1),
-//				},
-//				StorageImageReference: &batch.PoolStorageImageReferenceArgs{
-//					Publisher: pulumi.String("Canonical"),
-//					Offer:     pulumi.String("UbuntuServer"),
-//					Sku:       pulumi.String("16.04.0-LTS"),
-//					Version:   pulumi.String("latest"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = batch.NewJob(ctx, "exampleJob", &batch.JobArgs{
-//				BatchPoolId: examplePool.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Batch Jobs can be imported using the `resource id`, e.g.

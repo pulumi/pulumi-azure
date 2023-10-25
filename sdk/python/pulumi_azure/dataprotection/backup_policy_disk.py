@@ -40,20 +40,26 @@ class BackupPolicyDiskArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             backup_repeating_time_intervals: pulumi.Input[Sequence[pulumi.Input[str]]],
-             default_retention_duration: pulumi.Input[str],
-             vault_id: pulumi.Input[str],
+             backup_repeating_time_intervals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             default_retention_duration: Optional[pulumi.Input[str]] = None,
+             vault_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPolicyDiskRetentionRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'backupRepeatingTimeIntervals' in kwargs:
+        if backup_repeating_time_intervals is None and 'backupRepeatingTimeIntervals' in kwargs:
             backup_repeating_time_intervals = kwargs['backupRepeatingTimeIntervals']
-        if 'defaultRetentionDuration' in kwargs:
+        if backup_repeating_time_intervals is None:
+            raise TypeError("Missing 'backup_repeating_time_intervals' argument")
+        if default_retention_duration is None and 'defaultRetentionDuration' in kwargs:
             default_retention_duration = kwargs['defaultRetentionDuration']
-        if 'vaultId' in kwargs:
+        if default_retention_duration is None:
+            raise TypeError("Missing 'default_retention_duration' argument")
+        if vault_id is None and 'vaultId' in kwargs:
             vault_id = kwargs['vaultId']
-        if 'retentionRules' in kwargs:
+        if vault_id is None:
+            raise TypeError("Missing 'vault_id' argument")
+        if retention_rules is None and 'retentionRules' in kwargs:
             retention_rules = kwargs['retentionRules']
 
         _setter("backup_repeating_time_intervals", backup_repeating_time_intervals)
@@ -157,15 +163,15 @@ class _BackupPolicyDiskState:
              name: Optional[pulumi.Input[str]] = None,
              retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPolicyDiskRetentionRuleArgs']]]] = None,
              vault_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'backupRepeatingTimeIntervals' in kwargs:
+        if backup_repeating_time_intervals is None and 'backupRepeatingTimeIntervals' in kwargs:
             backup_repeating_time_intervals = kwargs['backupRepeatingTimeIntervals']
-        if 'defaultRetentionDuration' in kwargs:
+        if default_retention_duration is None and 'defaultRetentionDuration' in kwargs:
             default_retention_duration = kwargs['defaultRetentionDuration']
-        if 'retentionRules' in kwargs:
+        if retention_rules is None and 'retentionRules' in kwargs:
             retention_rules = kwargs['retentionRules']
-        if 'vaultId' in kwargs:
+        if vault_id is None and 'vaultId' in kwargs:
             vault_id = kwargs['vaultId']
 
         if backup_repeating_time_intervals is not None:
@@ -254,42 +260,6 @@ class BackupPolicyDisk(pulumi.CustomResource):
         """
         Manages a Backup Policy Disk.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_backup_vault = azure.dataprotection.BackupVault("exampleBackupVault",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            datastore_type="VaultStore",
-            redundancy="LocallyRedundant")
-        example_backup_policy_disk = azure.dataprotection.BackupPolicyDisk("exampleBackupPolicyDisk",
-            vault_id=example_backup_vault.id,
-            backup_repeating_time_intervals=["R/2021-05-19T06:33:16+00:00/PT4H"],
-            default_retention_duration="P7D",
-            retention_rules=[
-                azure.dataprotection.BackupPolicyDiskRetentionRuleArgs(
-                    name="Daily",
-                    duration="P7D",
-                    priority=25,
-                    criteria=azure.dataprotection.BackupPolicyDiskRetentionRuleCriteriaArgs(
-                        absolute_criteria="FirstOfDay",
-                    ),
-                ),
-                azure.dataprotection.BackupPolicyDiskRetentionRuleArgs(
-                    name="Weekly",
-                    duration="P7D",
-                    priority=20,
-                    criteria=azure.dataprotection.BackupPolicyDiskRetentionRuleCriteriaArgs(
-                        absolute_criteria="FirstOfWeek",
-                    ),
-                ),
-            ])
-        ```
-
         ## Import
 
         Backup Policy Disks can be imported using the `resource id`, e.g.
@@ -314,42 +284,6 @@ class BackupPolicyDisk(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Backup Policy Disk.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_backup_vault = azure.dataprotection.BackupVault("exampleBackupVault",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            datastore_type="VaultStore",
-            redundancy="LocallyRedundant")
-        example_backup_policy_disk = azure.dataprotection.BackupPolicyDisk("exampleBackupPolicyDisk",
-            vault_id=example_backup_vault.id,
-            backup_repeating_time_intervals=["R/2021-05-19T06:33:16+00:00/PT4H"],
-            default_retention_duration="P7D",
-            retention_rules=[
-                azure.dataprotection.BackupPolicyDiskRetentionRuleArgs(
-                    name="Daily",
-                    duration="P7D",
-                    priority=25,
-                    criteria=azure.dataprotection.BackupPolicyDiskRetentionRuleCriteriaArgs(
-                        absolute_criteria="FirstOfDay",
-                    ),
-                ),
-                azure.dataprotection.BackupPolicyDiskRetentionRuleArgs(
-                    name="Weekly",
-                    duration="P7D",
-                    priority=20,
-                    criteria=azure.dataprotection.BackupPolicyDiskRetentionRuleCriteriaArgs(
-                        absolute_criteria="FirstOfWeek",
-                    ),
-                ),
-            ])
-        ```
 
         ## Import
 

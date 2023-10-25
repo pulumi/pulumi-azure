@@ -31,12 +31,16 @@ class BlobInventoryPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             rules: pulumi.Input[Sequence[pulumi.Input['BlobInventoryPolicyRuleArgs']]],
-             storage_account_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             rules: Optional[pulumi.Input[Sequence[pulumi.Input['BlobInventoryPolicyRuleArgs']]]] = None,
+             storage_account_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'storageAccountId' in kwargs:
+        if rules is None:
+            raise TypeError("Missing 'rules' argument")
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
+        if storage_account_id is None:
+            raise TypeError("Missing 'storage_account_id' argument")
 
         _setter("rules", rules)
         _setter("storage_account_id", storage_account_id)
@@ -86,9 +90,9 @@ class _BlobInventoryPolicyState:
              _setter: Callable[[Any, Any], None],
              rules: Optional[pulumi.Input[Sequence[pulumi.Input['BlobInventoryPolicyRuleArgs']]]] = None,
              storage_account_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
 
         if rules is not None:
@@ -132,39 +136,6 @@ class BlobInventoryPolicy(pulumi.CustomResource):
         """
         Manages a Storage Blob Inventory Policy.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            blob_properties=azure.storage.AccountBlobPropertiesArgs(
-                versioning_enabled=True,
-            ))
-        example_container = azure.storage.Container("exampleContainer",
-            storage_account_name=example_account.name,
-            container_access_type="private")
-        example_blob_inventory_policy = azure.storage.BlobInventoryPolicy("exampleBlobInventoryPolicy",
-            storage_account_id=example_account.id,
-            rules=[azure.storage.BlobInventoryPolicyRuleArgs(
-                name="rule1",
-                storage_container_name=example_container.name,
-                format="Csv",
-                schedule="Daily",
-                scope="Container",
-                schema_fields=[
-                    "Name",
-                    "Last-Modified",
-                ],
-            )])
-        ```
-
         ## Import
 
         Storage Blob Inventory Policies can be imported using the `resource id`, e.g.
@@ -186,39 +157,6 @@ class BlobInventoryPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Storage Blob Inventory Policy.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            blob_properties=azure.storage.AccountBlobPropertiesArgs(
-                versioning_enabled=True,
-            ))
-        example_container = azure.storage.Container("exampleContainer",
-            storage_account_name=example_account.name,
-            container_access_type="private")
-        example_blob_inventory_policy = azure.storage.BlobInventoryPolicy("exampleBlobInventoryPolicy",
-            storage_account_id=example_account.id,
-            rules=[azure.storage.BlobInventoryPolicyRuleArgs(
-                name="rule1",
-                storage_container_name=example_container.name,
-                format="Csv",
-                schedule="Daily",
-                scope="Container",
-                schema_fields=[
-                    "Name",
-                    "Last-Modified",
-                ],
-            )])
-        ```
 
         ## Import
 

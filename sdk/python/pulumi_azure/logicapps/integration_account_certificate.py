@@ -43,21 +43,25 @@ class IntegrationAccountCertificateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             integration_account_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             integration_account_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              key_vault_key: Optional[pulumi.Input['IntegrationAccountCertificateKeyVaultKeyArgs']] = None,
              metadata: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              public_certificate: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'integrationAccountName' in kwargs:
+        if integration_account_name is None and 'integrationAccountName' in kwargs:
             integration_account_name = kwargs['integrationAccountName']
-        if 'resourceGroupName' in kwargs:
+        if integration_account_name is None:
+            raise TypeError("Missing 'integration_account_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'keyVaultKey' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if key_vault_key is None and 'keyVaultKey' in kwargs:
             key_vault_key = kwargs['keyVaultKey']
-        if 'publicCertificate' in kwargs:
+        if public_certificate is None and 'publicCertificate' in kwargs:
             public_certificate = kwargs['publicCertificate']
 
         _setter("integration_account_name", integration_account_name)
@@ -180,15 +184,15 @@ class _IntegrationAccountCertificateState:
              name: Optional[pulumi.Input[str]] = None,
              public_certificate: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'integrationAccountName' in kwargs:
+        if integration_account_name is None and 'integrationAccountName' in kwargs:
             integration_account_name = kwargs['integrationAccountName']
-        if 'keyVaultKey' in kwargs:
+        if key_vault_key is None and 'keyVaultKey' in kwargs:
             key_vault_key = kwargs['keyVaultKey']
-        if 'publicCertificate' in kwargs:
+        if public_certificate is None and 'publicCertificate' in kwargs:
             public_certificate = kwargs['publicCertificate']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if integration_account_name is not None:
@@ -292,23 +296,6 @@ class IntegrationAccountCertificate(pulumi.CustomResource):
         """
         Manages a Logic App Integration Account Certificate.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_integration_account = azure.logicapps.IntegrationAccount("exampleIntegrationAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Standard")
-        example_integration_account_certificate = azure.logicapps.IntegrationAccountCertificate("exampleIntegrationAccountCertificate",
-            resource_group_name=example_resource_group.name,
-            integration_account_name=example_integration_account.name,
-            public_certificate="MIIDbzCCAlegAwIBAgIJAIzjRD36sIbbMA0GCSqGSIb3DQEBCwUAME0xCzAJBgNVBAYTAlVTMRMwEQYDVQQIDApTb21lLVN0YXRlMRIwEAYDVQQKDAl0ZXJyYWZvcm0xFTATBgNVBAMMDHRlcnJhZm9ybS5pbzAgFw0xNzA0MjEyMDA1MjdaGA8yMTE3MDMyODIwMDUyN1owTTELMAkGA1UEBhMCVVMxEzARBgNVBAgMClNvbWUtU3RhdGUxEjAQBgNVBAoMCXRlcnJhZm9ybTEVMBMGA1UEAwwMdGVycmFmb3JtLmlvMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3L9L5szT4+FLykTFNyyPjy/k3BQTYAfRQzP2dhnsuUKm3cdPC0NyZ+wEXIUGhoDO2YG6EYChOl8fsDqDOjloSUGKqYw++nlpHIuUgJx8IxxG2XkALCjFU7EmF+w7kn76d0ezpEIYxnLP+KG2DVornoEt1aLhv1MLmpgEZZPhDbMSLhSYWeTVRMayXLwqtfgnDumQSB+8d/1JuJqrSI4pD12JozVThzb6hsjfb6RMX4epPmrGn0PbTPEEA6awmsxBCXB0s13nNQt/O0hLM2agwvAyozilQV+s616Ckgk6DJoUkqZhDy7vPYMIRSr98fBws6zkrV6tTLjmD8xAvobePQIDAQABo1AwTjAdBgNVHQ4EFgQUXIqO421zMMmbcRRX9wctZFCQuPIwHwYDVR0jBBgwFoAUXIqO421zMMmbcRRX9wctZFCQuPIwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAQEAr82NeT3BYJOKLlUL6Om5LjUF66ewcJjG9ltdvyQwVneMcq7t5UAPxgChzqNRVk4da8PzkXpjBJyWezHupdJNX3XqeUk2kSxqQ6/gmhqvfI3y7djrwoO6jvMEY26WqtkTNORWDP3THJJVimC3zV+KMU5UBVrEzhOVhHSU709lBP75o0BBn3xGsPqSq9k8IotIFfyAc6a+XP3+ZMpvh7wqAUml7vWa5wlcXExCx39h1balfDSLGNC4swWPCp9AMnQR0p+vMay9hNP1Eh+9QYUai14d5KS3cFV+KxE1cJR5HD/iLltnnOEbpMsB0eVOZWkFvE7Y5lW0oVSAfin5TwTJMQ==")
-        ```
-
         ## Import
 
         Logic App Integration Account Certificates can be imported using the `resource id`, e.g.
@@ -334,23 +321,6 @@ class IntegrationAccountCertificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Logic App Integration Account Certificate.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_integration_account = azure.logicapps.IntegrationAccount("exampleIntegrationAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Standard")
-        example_integration_account_certificate = azure.logicapps.IntegrationAccountCertificate("exampleIntegrationAccountCertificate",
-            resource_group_name=example_resource_group.name,
-            integration_account_name=example_integration_account.name,
-            public_certificate="MIIDbzCCAlegAwIBAgIJAIzjRD36sIbbMA0GCSqGSIb3DQEBCwUAME0xCzAJBgNVBAYTAlVTMRMwEQYDVQQIDApTb21lLVN0YXRlMRIwEAYDVQQKDAl0ZXJyYWZvcm0xFTATBgNVBAMMDHRlcnJhZm9ybS5pbzAgFw0xNzA0MjEyMDA1MjdaGA8yMTE3MDMyODIwMDUyN1owTTELMAkGA1UEBhMCVVMxEzARBgNVBAgMClNvbWUtU3RhdGUxEjAQBgNVBAoMCXRlcnJhZm9ybTEVMBMGA1UEAwwMdGVycmFmb3JtLmlvMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3L9L5szT4+FLykTFNyyPjy/k3BQTYAfRQzP2dhnsuUKm3cdPC0NyZ+wEXIUGhoDO2YG6EYChOl8fsDqDOjloSUGKqYw++nlpHIuUgJx8IxxG2XkALCjFU7EmF+w7kn76d0ezpEIYxnLP+KG2DVornoEt1aLhv1MLmpgEZZPhDbMSLhSYWeTVRMayXLwqtfgnDumQSB+8d/1JuJqrSI4pD12JozVThzb6hsjfb6RMX4epPmrGn0PbTPEEA6awmsxBCXB0s13nNQt/O0hLM2agwvAyozilQV+s616Ckgk6DJoUkqZhDy7vPYMIRSr98fBws6zkrV6tTLjmD8xAvobePQIDAQABo1AwTjAdBgNVHQ4EFgQUXIqO421zMMmbcRRX9wctZFCQuPIwHwYDVR0jBBgwFoAUXIqO421zMMmbcRRX9wctZFCQuPIwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAQEAr82NeT3BYJOKLlUL6Om5LjUF66ewcJjG9ltdvyQwVneMcq7t5UAPxgChzqNRVk4da8PzkXpjBJyWezHupdJNX3XqeUk2kSxqQ6/gmhqvfI3y7djrwoO6jvMEY26WqtkTNORWDP3THJJVimC3zV+KMU5UBVrEzhOVhHSU709lBP75o0BBn3xGsPqSq9k8IotIFfyAc6a+XP3+ZMpvh7wqAUml7vWa5wlcXExCx39h1balfDSLGNC4swWPCp9AMnQR0p+vMay9hNP1Eh+9QYUai14d5KS3cFV+KxE1cJR5HD/iLltnnOEbpMsB0eVOZWkFvE7Y5lW0oVSAfin5TwTJMQ==")
-        ```
 
         ## Import
 
@@ -397,11 +367,7 @@ class IntegrationAccountCertificate(pulumi.CustomResource):
             if integration_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'integration_account_name'")
             __props__.__dict__["integration_account_name"] = integration_account_name
-            if key_vault_key is not None and not isinstance(key_vault_key, IntegrationAccountCertificateKeyVaultKeyArgs):
-                key_vault_key = key_vault_key or {}
-                def _setter(key, value):
-                    key_vault_key[key] = value
-                IntegrationAccountCertificateKeyVaultKeyArgs._configure(_setter, **key_vault_key)
+            key_vault_key = _utilities.configure(key_vault_key, IntegrationAccountCertificateKeyVaultKeyArgs, True)
             __props__.__dict__["key_vault_key"] = key_vault_key
             __props__.__dict__["metadata"] = metadata
             __props__.__dict__["name"] = name

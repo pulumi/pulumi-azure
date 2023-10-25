@@ -12,42 +12,6 @@ namespace Pulumi.Azure.CosmosDB
     /// <summary>
     /// Sets a Coordinator Configuration value on Azure Cosmos DB for PostgreSQL Cluster.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Azure.Core.ResourceGroup("test", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var examplePostgresqlCluster = new Azure.CosmosDB.PostgresqlCluster("examplePostgresqlCluster", new()
-    ///     {
-    ///         ResourceGroupName = azurerm_resource_group.Example.Name,
-    ///         Location = azurerm_resource_group.Example.Location,
-    ///         AdministratorLoginPassword = "H@Sh1CoR3!",
-    ///         CoordinatorStorageQuotaInMb = 131072,
-    ///         CoordinatorVcoreCount = 2,
-    ///         NodeCount = 2,
-    ///         NodeStorageQuotaInMb = 131072,
-    ///         NodeVcores = 2,
-    ///     });
-    /// 
-    ///     var examplePostgresqlCoordinatorConfiguration = new Azure.CosmosDB.PostgresqlCoordinatorConfiguration("examplePostgresqlCoordinatorConfiguration", new()
-    ///     {
-    ///         ClusterId = examplePostgresqlCluster.Id,
-    ///         Value = "on",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Coordinator Configurations on Azure Cosmos DB for PostgreSQL Clusters can be imported using the `resource id`, e.g.

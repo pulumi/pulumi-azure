@@ -15,57 +15,6 @@ import (
 
 // Manages a Digital Twins Event Grid Endpoint.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/digitaltwins"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventgrid"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleInstance, err := digitaltwins.NewInstance(ctx, "exampleInstance", &digitaltwins.InstanceArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleTopic, err := eventgrid.NewTopic(ctx, "exampleTopic", &eventgrid.TopicArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = digitaltwins.NewEndpointEventGrid(ctx, "exampleEndpointEventGrid", &digitaltwins.EndpointEventGridArgs{
-//				DigitalTwinsId:                   exampleInstance.ID(),
-//				EventgridTopicEndpoint:           exampleTopic.Endpoint,
-//				EventgridTopicPrimaryAccessKey:   exampleTopic.PrimaryAccessKey,
-//				EventgridTopicSecondaryAccessKey: exampleTopic.SecondaryAccessKey,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Digital Twins Eventgrid Endpoints can be imported using the `resource id`, e.g.

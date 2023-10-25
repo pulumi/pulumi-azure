@@ -38,23 +38,33 @@ class LinkedServerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             linked_redis_cache_id: pulumi.Input[str],
-             linked_redis_cache_location: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             server_role: pulumi.Input[str],
-             target_redis_cache_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             linked_redis_cache_id: Optional[pulumi.Input[str]] = None,
+             linked_redis_cache_location: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             server_role: Optional[pulumi.Input[str]] = None,
+             target_redis_cache_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'linkedRedisCacheId' in kwargs:
+        if linked_redis_cache_id is None and 'linkedRedisCacheId' in kwargs:
             linked_redis_cache_id = kwargs['linkedRedisCacheId']
-        if 'linkedRedisCacheLocation' in kwargs:
+        if linked_redis_cache_id is None:
+            raise TypeError("Missing 'linked_redis_cache_id' argument")
+        if linked_redis_cache_location is None and 'linkedRedisCacheLocation' in kwargs:
             linked_redis_cache_location = kwargs['linkedRedisCacheLocation']
-        if 'resourceGroupName' in kwargs:
+        if linked_redis_cache_location is None:
+            raise TypeError("Missing 'linked_redis_cache_location' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serverRole' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if server_role is None and 'serverRole' in kwargs:
             server_role = kwargs['serverRole']
-        if 'targetRedisCacheName' in kwargs:
+        if server_role is None:
+            raise TypeError("Missing 'server_role' argument")
+        if target_redis_cache_name is None and 'targetRedisCacheName' in kwargs:
             target_redis_cache_name = kwargs['targetRedisCacheName']
+        if target_redis_cache_name is None:
+            raise TypeError("Missing 'target_redis_cache_name' argument")
 
         _setter("linked_redis_cache_id", linked_redis_cache_id)
         _setter("linked_redis_cache_location", linked_redis_cache_location)
@@ -159,17 +169,17 @@ class _LinkedServerState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              server_role: Optional[pulumi.Input[str]] = None,
              target_redis_cache_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'linkedRedisCacheId' in kwargs:
+        if linked_redis_cache_id is None and 'linkedRedisCacheId' in kwargs:
             linked_redis_cache_id = kwargs['linkedRedisCacheId']
-        if 'linkedRedisCacheLocation' in kwargs:
+        if linked_redis_cache_location is None and 'linkedRedisCacheLocation' in kwargs:
             linked_redis_cache_location = kwargs['linkedRedisCacheLocation']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serverRole' in kwargs:
+        if server_role is None and 'serverRole' in kwargs:
             server_role = kwargs['serverRole']
-        if 'targetRedisCacheName' in kwargs:
+        if target_redis_cache_name is None and 'targetRedisCacheName' in kwargs:
             target_redis_cache_name = kwargs['targetRedisCacheName']
 
         if linked_redis_cache_id is not None:
@@ -272,46 +282,6 @@ class LinkedServer(pulumi.CustomResource):
         """
         Manages a Redis Linked Server (ie Geo Location)
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_primary_resource_group = azure.core.ResourceGroup("example-primaryResourceGroup", location="East US")
-        example_primary_cache = azure.redis.Cache("example-primaryCache",
-            location=example_primary_resource_group.location,
-            resource_group_name=example_primary_resource_group.name,
-            capacity=1,
-            family="P",
-            sku_name="Premium",
-            enable_non_ssl_port=False,
-            redis_configuration=azure.redis.CacheRedisConfigurationArgs(
-                maxmemory_reserved=2,
-                maxmemory_delta=2,
-                maxmemory_policy="allkeys-lru",
-            ))
-        example_secondary_resource_group = azure.core.ResourceGroup("example-secondaryResourceGroup", location="West US")
-        example_secondary_cache = azure.redis.Cache("example-secondaryCache",
-            location=example_secondary_resource_group.location,
-            resource_group_name=example_secondary_resource_group.name,
-            capacity=1,
-            family="P",
-            sku_name="Premium",
-            enable_non_ssl_port=False,
-            redis_configuration=azure.redis.CacheRedisConfigurationArgs(
-                maxmemory_reserved=2,
-                maxmemory_delta=2,
-                maxmemory_policy="allkeys-lru",
-            ))
-        example_link = azure.redis.LinkedServer("example-link",
-            target_redis_cache_name=example_primary_cache.name,
-            resource_group_name=example_primary_cache.resource_group_name,
-            linked_redis_cache_id=example_secondary_cache.id,
-            linked_redis_cache_location=example_secondary_cache.location,
-            server_role="Secondary")
-        ```
-
         ## Import
 
         Redis can be imported using the `resource id`, e.g.
@@ -336,46 +306,6 @@ class LinkedServer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Redis Linked Server (ie Geo Location)
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_primary_resource_group = azure.core.ResourceGroup("example-primaryResourceGroup", location="East US")
-        example_primary_cache = azure.redis.Cache("example-primaryCache",
-            location=example_primary_resource_group.location,
-            resource_group_name=example_primary_resource_group.name,
-            capacity=1,
-            family="P",
-            sku_name="Premium",
-            enable_non_ssl_port=False,
-            redis_configuration=azure.redis.CacheRedisConfigurationArgs(
-                maxmemory_reserved=2,
-                maxmemory_delta=2,
-                maxmemory_policy="allkeys-lru",
-            ))
-        example_secondary_resource_group = azure.core.ResourceGroup("example-secondaryResourceGroup", location="West US")
-        example_secondary_cache = azure.redis.Cache("example-secondaryCache",
-            location=example_secondary_resource_group.location,
-            resource_group_name=example_secondary_resource_group.name,
-            capacity=1,
-            family="P",
-            sku_name="Premium",
-            enable_non_ssl_port=False,
-            redis_configuration=azure.redis.CacheRedisConfigurationArgs(
-                maxmemory_reserved=2,
-                maxmemory_delta=2,
-                maxmemory_policy="allkeys-lru",
-            ))
-        example_link = azure.redis.LinkedServer("example-link",
-            target_redis_cache_name=example_primary_cache.name,
-            resource_group_name=example_primary_cache.resource_group_name,
-            linked_redis_cache_id=example_secondary_cache.id,
-            linked_redis_cache_location=example_secondary_cache.location,
-            server_role="Secondary")
-        ```
 
         ## Import
 

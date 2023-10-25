@@ -49,29 +49,41 @@ class ProtectionContainerMappingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             recovery_fabric_name: pulumi.Input[str],
-             recovery_replication_policy_id: pulumi.Input[str],
-             recovery_source_protection_container_name: pulumi.Input[str],
-             recovery_target_protection_container_id: pulumi.Input[str],
-             recovery_vault_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             recovery_fabric_name: Optional[pulumi.Input[str]] = None,
+             recovery_replication_policy_id: Optional[pulumi.Input[str]] = None,
+             recovery_source_protection_container_name: Optional[pulumi.Input[str]] = None,
+             recovery_target_protection_container_id: Optional[pulumi.Input[str]] = None,
+             recovery_vault_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              automatic_update: Optional[pulumi.Input['ProtectionContainerMappingAutomaticUpdateArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'recoveryFabricName' in kwargs:
+        if recovery_fabric_name is None and 'recoveryFabricName' in kwargs:
             recovery_fabric_name = kwargs['recoveryFabricName']
-        if 'recoveryReplicationPolicyId' in kwargs:
+        if recovery_fabric_name is None:
+            raise TypeError("Missing 'recovery_fabric_name' argument")
+        if recovery_replication_policy_id is None and 'recoveryReplicationPolicyId' in kwargs:
             recovery_replication_policy_id = kwargs['recoveryReplicationPolicyId']
-        if 'recoverySourceProtectionContainerName' in kwargs:
+        if recovery_replication_policy_id is None:
+            raise TypeError("Missing 'recovery_replication_policy_id' argument")
+        if recovery_source_protection_container_name is None and 'recoverySourceProtectionContainerName' in kwargs:
             recovery_source_protection_container_name = kwargs['recoverySourceProtectionContainerName']
-        if 'recoveryTargetProtectionContainerId' in kwargs:
+        if recovery_source_protection_container_name is None:
+            raise TypeError("Missing 'recovery_source_protection_container_name' argument")
+        if recovery_target_protection_container_id is None and 'recoveryTargetProtectionContainerId' in kwargs:
             recovery_target_protection_container_id = kwargs['recoveryTargetProtectionContainerId']
-        if 'recoveryVaultName' in kwargs:
+        if recovery_target_protection_container_id is None:
+            raise TypeError("Missing 'recovery_target_protection_container_id' argument")
+        if recovery_vault_name is None and 'recoveryVaultName' in kwargs:
             recovery_vault_name = kwargs['recoveryVaultName']
-        if 'resourceGroupName' in kwargs:
+        if recovery_vault_name is None:
+            raise TypeError("Missing 'recovery_vault_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'automaticUpdate' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if automatic_update is None and 'automaticUpdate' in kwargs:
             automatic_update = kwargs['automaticUpdate']
 
         _setter("recovery_fabric_name", recovery_fabric_name)
@@ -226,21 +238,21 @@ class _ProtectionContainerMappingState:
              recovery_target_protection_container_id: Optional[pulumi.Input[str]] = None,
              recovery_vault_name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'automaticUpdate' in kwargs:
+        if automatic_update is None and 'automaticUpdate' in kwargs:
             automatic_update = kwargs['automaticUpdate']
-        if 'recoveryFabricName' in kwargs:
+        if recovery_fabric_name is None and 'recoveryFabricName' in kwargs:
             recovery_fabric_name = kwargs['recoveryFabricName']
-        if 'recoveryReplicationPolicyId' in kwargs:
+        if recovery_replication_policy_id is None and 'recoveryReplicationPolicyId' in kwargs:
             recovery_replication_policy_id = kwargs['recoveryReplicationPolicyId']
-        if 'recoverySourceProtectionContainerName' in kwargs:
+        if recovery_source_protection_container_name is None and 'recoverySourceProtectionContainerName' in kwargs:
             recovery_source_protection_container_name = kwargs['recoverySourceProtectionContainerName']
-        if 'recoveryTargetProtectionContainerId' in kwargs:
+        if recovery_target_protection_container_id is None and 'recoveryTargetProtectionContainerId' in kwargs:
             recovery_target_protection_container_id = kwargs['recoveryTargetProtectionContainerId']
-        if 'recoveryVaultName' in kwargs:
+        if recovery_vault_name is None and 'recoveryVaultName' in kwargs:
             recovery_vault_name = kwargs['recoveryVaultName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if automatic_update is not None:
@@ -374,48 +386,6 @@ class ProtectionContainerMapping(pulumi.CustomResource):
         """
         Manages a Azure recovery vault protection container mapping. A protection container mapping decides how to translate the protection container when a VM is migrated from one region to another.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        primary_resource_group = azure.core.ResourceGroup("primaryResourceGroup", location="West US")
-        secondary_resource_group = azure.core.ResourceGroup("secondaryResourceGroup", location="East US")
-        vault = azure.recoveryservices.Vault("vault",
-            location=secondary_resource_group.location,
-            resource_group_name=secondary_resource_group.name,
-            sku="Standard")
-        primary_fabric = azure.siterecovery.Fabric("primaryFabric",
-            resource_group_name=secondary_resource_group.name,
-            recovery_vault_name=vault.name,
-            location=primary_resource_group.location)
-        secondary_fabric = azure.siterecovery.Fabric("secondaryFabric",
-            resource_group_name=secondary_resource_group.name,
-            recovery_vault_name=vault.name,
-            location=secondary_resource_group.location)
-        primary_protection_container = azure.siterecovery.ProtectionContainer("primaryProtectionContainer",
-            resource_group_name=secondary_resource_group.name,
-            recovery_vault_name=vault.name,
-            recovery_fabric_name=primary_fabric.name)
-        secondary_protection_container = azure.siterecovery.ProtectionContainer("secondaryProtectionContainer",
-            resource_group_name=secondary_resource_group.name,
-            recovery_vault_name=vault.name,
-            recovery_fabric_name=secondary_fabric.name)
-        policy = azure.siterecovery.ReplicationPolicy("policy",
-            resource_group_name=secondary_resource_group.name,
-            recovery_vault_name=vault.name,
-            recovery_point_retention_in_minutes=24 * 60,
-            application_consistent_snapshot_frequency_in_minutes=4 * 60)
-        container_mapping = azure.siterecovery.ProtectionContainerMapping("container-mapping",
-            resource_group_name=secondary_resource_group.name,
-            recovery_vault_name=vault.name,
-            recovery_fabric_name=primary_fabric.name,
-            recovery_source_protection_container_name=primary_protection_container.name,
-            recovery_target_protection_container_id=secondary_protection_container.id,
-            recovery_replication_policy_id=policy.id)
-        ```
-
         ## Import
 
         Site Recovery Protection Container Mappings can be imported using the `resource id`, e.g.
@@ -443,48 +413,6 @@ class ProtectionContainerMapping(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Azure recovery vault protection container mapping. A protection container mapping decides how to translate the protection container when a VM is migrated from one region to another.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        primary_resource_group = azure.core.ResourceGroup("primaryResourceGroup", location="West US")
-        secondary_resource_group = azure.core.ResourceGroup("secondaryResourceGroup", location="East US")
-        vault = azure.recoveryservices.Vault("vault",
-            location=secondary_resource_group.location,
-            resource_group_name=secondary_resource_group.name,
-            sku="Standard")
-        primary_fabric = azure.siterecovery.Fabric("primaryFabric",
-            resource_group_name=secondary_resource_group.name,
-            recovery_vault_name=vault.name,
-            location=primary_resource_group.location)
-        secondary_fabric = azure.siterecovery.Fabric("secondaryFabric",
-            resource_group_name=secondary_resource_group.name,
-            recovery_vault_name=vault.name,
-            location=secondary_resource_group.location)
-        primary_protection_container = azure.siterecovery.ProtectionContainer("primaryProtectionContainer",
-            resource_group_name=secondary_resource_group.name,
-            recovery_vault_name=vault.name,
-            recovery_fabric_name=primary_fabric.name)
-        secondary_protection_container = azure.siterecovery.ProtectionContainer("secondaryProtectionContainer",
-            resource_group_name=secondary_resource_group.name,
-            recovery_vault_name=vault.name,
-            recovery_fabric_name=secondary_fabric.name)
-        policy = azure.siterecovery.ReplicationPolicy("policy",
-            resource_group_name=secondary_resource_group.name,
-            recovery_vault_name=vault.name,
-            recovery_point_retention_in_minutes=24 * 60,
-            application_consistent_snapshot_frequency_in_minutes=4 * 60)
-        container_mapping = azure.siterecovery.ProtectionContainerMapping("container-mapping",
-            resource_group_name=secondary_resource_group.name,
-            recovery_vault_name=vault.name,
-            recovery_fabric_name=primary_fabric.name,
-            recovery_source_protection_container_name=primary_protection_container.name,
-            recovery_target_protection_container_id=secondary_protection_container.id,
-            recovery_replication_policy_id=policy.id)
-        ```
 
         ## Import
 
@@ -530,11 +458,7 @@ class ProtectionContainerMapping(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProtectionContainerMappingArgs.__new__(ProtectionContainerMappingArgs)
 
-            if automatic_update is not None and not isinstance(automatic_update, ProtectionContainerMappingAutomaticUpdateArgs):
-                automatic_update = automatic_update or {}
-                def _setter(key, value):
-                    automatic_update[key] = value
-                ProtectionContainerMappingAutomaticUpdateArgs._configure(_setter, **automatic_update)
+            automatic_update = _utilities.configure(automatic_update, ProtectionContainerMappingAutomaticUpdateArgs, True)
             __props__.__dict__["automatic_update"] = automatic_update
             __props__.__dict__["name"] = name
             if recovery_fabric_name is None and not opts.urn:

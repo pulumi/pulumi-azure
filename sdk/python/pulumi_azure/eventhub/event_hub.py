@@ -52,24 +52,32 @@ class EventHubArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             message_retention: pulumi.Input[int],
-             namespace_name: pulumi.Input[str],
-             partition_count: pulumi.Input[int],
-             resource_group_name: pulumi.Input[str],
+             message_retention: Optional[pulumi.Input[int]] = None,
+             namespace_name: Optional[pulumi.Input[str]] = None,
+             partition_count: Optional[pulumi.Input[int]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              capture_description: Optional[pulumi.Input['EventHubCaptureDescriptionArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'messageRetention' in kwargs:
+        if message_retention is None and 'messageRetention' in kwargs:
             message_retention = kwargs['messageRetention']
-        if 'namespaceName' in kwargs:
+        if message_retention is None:
+            raise TypeError("Missing 'message_retention' argument")
+        if namespace_name is None and 'namespaceName' in kwargs:
             namespace_name = kwargs['namespaceName']
-        if 'partitionCount' in kwargs:
+        if namespace_name is None:
+            raise TypeError("Missing 'namespace_name' argument")
+        if partition_count is None and 'partitionCount' in kwargs:
             partition_count = kwargs['partitionCount']
-        if 'resourceGroupName' in kwargs:
+        if partition_count is None:
+            raise TypeError("Missing 'partition_count' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'captureDescription' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if capture_description is None and 'captureDescription' in kwargs:
             capture_description = kwargs['captureDescription']
 
         _setter("message_retention", message_retention)
@@ -224,19 +232,19 @@ class _EventHubState:
              partition_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'captureDescription' in kwargs:
+        if capture_description is None and 'captureDescription' in kwargs:
             capture_description = kwargs['captureDescription']
-        if 'messageRetention' in kwargs:
+        if message_retention is None and 'messageRetention' in kwargs:
             message_retention = kwargs['messageRetention']
-        if 'namespaceName' in kwargs:
+        if namespace_name is None and 'namespaceName' in kwargs:
             namespace_name = kwargs['namespaceName']
-        if 'partitionCount' in kwargs:
+        if partition_count is None and 'partitionCount' in kwargs:
             partition_count = kwargs['partitionCount']
-        if 'partitionIds' in kwargs:
+        if partition_ids is None and 'partitionIds' in kwargs:
             partition_ids = kwargs['partitionIds']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if capture_description is not None:
@@ -375,28 +383,6 @@ class EventHub(pulumi.CustomResource):
         """
         Manages a Event Hubs as a nested resource within a Event Hubs namespace.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard",
-            capacity=1,
-            tags={
-                "environment": "Production",
-            })
-        example_event_hub = azure.eventhub.EventHub("exampleEventHub",
-            namespace_name=example_event_hub_namespace.name,
-            resource_group_name=example_resource_group.name,
-            partition_count=2,
-            message_retention=1)
-        ```
-
         ## Import
 
         EventHubs can be imported using the `resource id`, e.g.
@@ -429,28 +415,6 @@ class EventHub(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Event Hubs as a nested resource within a Event Hubs namespace.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard",
-            capacity=1,
-            tags={
-                "environment": "Production",
-            })
-        example_event_hub = azure.eventhub.EventHub("exampleEventHub",
-            namespace_name=example_event_hub_namespace.name,
-            resource_group_name=example_resource_group.name,
-            partition_count=2,
-            message_retention=1)
-        ```
 
         ## Import
 
@@ -495,11 +459,7 @@ class EventHub(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EventHubArgs.__new__(EventHubArgs)
 
-            if capture_description is not None and not isinstance(capture_description, EventHubCaptureDescriptionArgs):
-                capture_description = capture_description or {}
-                def _setter(key, value):
-                    capture_description[key] = value
-                EventHubCaptureDescriptionArgs._configure(_setter, **capture_description)
+            capture_description = _utilities.configure(capture_description, EventHubCaptureDescriptionArgs, True)
             __props__.__dict__["capture_description"] = capture_description
             if message_retention is None and not opts.urn:
                 raise TypeError("Missing required property 'message_retention'")

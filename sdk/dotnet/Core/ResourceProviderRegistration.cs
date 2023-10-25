@@ -18,45 +18,6 @@ namespace Pulumi.Azure.Core
     /// 
     /// &gt; **Note:** Adding or Removing a Preview Feature will re-register the Resource Provider.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.Core.ResourceProviderRegistration("example");
-    /// 
-    /// });
-    /// ```
-    /// ### Registering A Preview Feature)
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.Core.ResourceProviderRegistration("example", new()
-    ///     {
-    ///         Features = new[]
-    ///         {
-    ///             new Azure.Core.Inputs.ResourceProviderRegistrationFeatureArgs
-    ///             {
-    ///                 Name = "AKS-DataPlaneAutoApprove",
-    ///                 Registered = true,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Resource Provider Registrations can be imported using the `resource id`, e.g.

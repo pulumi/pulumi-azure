@@ -49,21 +49,27 @@ class DefinitionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             authorizations: pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArgs']]],
-             managing_tenant_id: pulumi.Input[str],
-             scope: pulumi.Input[str],
+             authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArgs']]]] = None,
+             managing_tenant_id: Optional[pulumi.Input[str]] = None,
+             scope: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              eligible_authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionEligibleAuthorizationArgs']]]] = None,
              lighthouse_definition_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              plan: Optional[pulumi.Input['DefinitionPlanArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'managingTenantId' in kwargs:
+        if authorizations is None:
+            raise TypeError("Missing 'authorizations' argument")
+        if managing_tenant_id is None and 'managingTenantId' in kwargs:
             managing_tenant_id = kwargs['managingTenantId']
-        if 'eligibleAuthorizations' in kwargs:
+        if managing_tenant_id is None:
+            raise TypeError("Missing 'managing_tenant_id' argument")
+        if scope is None:
+            raise TypeError("Missing 'scope' argument")
+        if eligible_authorizations is None and 'eligibleAuthorizations' in kwargs:
             eligible_authorizations = kwargs['eligibleAuthorizations']
-        if 'lighthouseDefinitionId' in kwargs:
+        if lighthouse_definition_id is None and 'lighthouseDefinitionId' in kwargs:
             lighthouse_definition_id = kwargs['lighthouseDefinitionId']
 
         _setter("authorizations", authorizations)
@@ -221,13 +227,13 @@ class _DefinitionState:
              name: Optional[pulumi.Input[str]] = None,
              plan: Optional[pulumi.Input['DefinitionPlanArgs']] = None,
              scope: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'eligibleAuthorizations' in kwargs:
+        if eligible_authorizations is None and 'eligibleAuthorizations' in kwargs:
             eligible_authorizations = kwargs['eligibleAuthorizations']
-        if 'lighthouseDefinitionId' in kwargs:
+        if lighthouse_definition_id is None and 'lighthouseDefinitionId' in kwargs:
             lighthouse_definition_id = kwargs['lighthouseDefinitionId']
-        if 'managingTenantId' in kwargs:
+        if managing_tenant_id is None and 'managingTenantId' in kwargs:
             managing_tenant_id = kwargs['managingTenantId']
 
         if authorizations is not None:
@@ -361,24 +367,6 @@ class Definition(pulumi.CustomResource):
         """
         Manages a [Lighthouse](https://docs.microsoft.com/azure/lighthouse) Definition.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        contributor = azure.authorization.get_role_definition(role_definition_id="b24988ac-6180-42a0-ab88-20f7382dd24c")
-        example = azure.lighthouse.Definition("example",
-            description="This is a lighthouse definition created IaC",
-            managing_tenant_id="00000000-0000-0000-0000-000000000000",
-            scope="/subscriptions/00000000-0000-0000-0000-000000000000",
-            authorizations=[azure.lighthouse.DefinitionAuthorizationArgs(
-                principal_id="00000000-0000-0000-0000-000000000000",
-                role_definition_id=contributor.role_definition_id,
-                principal_display_name="Tier 1 Support",
-            )])
-        ```
-
         ## Import
 
         Lighthouse Definitions can be imported using the `resource id`, e.g.
@@ -406,24 +394,6 @@ class Definition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a [Lighthouse](https://docs.microsoft.com/azure/lighthouse) Definition.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        contributor = azure.authorization.get_role_definition(role_definition_id="b24988ac-6180-42a0-ab88-20f7382dd24c")
-        example = azure.lighthouse.Definition("example",
-            description="This is a lighthouse definition created IaC",
-            managing_tenant_id="00000000-0000-0000-0000-000000000000",
-            scope="/subscriptions/00000000-0000-0000-0000-000000000000",
-            authorizations=[azure.lighthouse.DefinitionAuthorizationArgs(
-                principal_id="00000000-0000-0000-0000-000000000000",
-                role_definition_id=contributor.role_definition_id,
-                principal_display_name="Tier 1 Support",
-            )])
-        ```
 
         ## Import
 
@@ -479,11 +449,7 @@ class Definition(pulumi.CustomResource):
                 raise TypeError("Missing required property 'managing_tenant_id'")
             __props__.__dict__["managing_tenant_id"] = managing_tenant_id
             __props__.__dict__["name"] = name
-            if plan is not None and not isinstance(plan, DefinitionPlanArgs):
-                plan = plan or {}
-                def _setter(key, value):
-                    plan[key] = value
-                DefinitionPlanArgs._configure(_setter, **plan)
+            plan = _utilities.configure(plan, DefinitionPlanArgs, True)
             __props__.__dict__["plan"] = plan
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")

@@ -45,17 +45,19 @@ class NetworkSimGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mobile_network_id: pulumi.Input[str],
+             mobile_network_id: Optional[pulumi.Input[str]] = None,
              encryption_key_url: Optional[pulumi.Input[str]] = None,
              identity: Optional[pulumi.Input['NetworkSimGroupIdentityArgs']] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'mobileNetworkId' in kwargs:
+        if mobile_network_id is None and 'mobileNetworkId' in kwargs:
             mobile_network_id = kwargs['mobileNetworkId']
-        if 'encryptionKeyUrl' in kwargs:
+        if mobile_network_id is None:
+            raise TypeError("Missing 'mobile_network_id' argument")
+        if encryption_key_url is None and 'encryptionKeyUrl' in kwargs:
             encryption_key_url = kwargs['encryptionKeyUrl']
 
         _setter("mobile_network_id", mobile_network_id)
@@ -183,11 +185,11 @@ class _NetworkSimGroupState:
              mobile_network_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'encryptionKeyUrl' in kwargs:
+        if encryption_key_url is None and 'encryptionKeyUrl' in kwargs:
             encryption_key_url = kwargs['encryptionKeyUrl']
-        if 'mobileNetworkId' in kwargs:
+        if mobile_network_id is None and 'mobileNetworkId' in kwargs:
             mobile_network_id = kwargs['mobileNetworkId']
 
         if encryption_key_url is not None:
@@ -293,37 +295,6 @@ class NetworkSimGroup(pulumi.CustomResource):
         """
         Manages a Mobile Network Sim Group.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_network = azure.mobile.Network("exampleNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            mobile_country_code="001",
-            mobile_network_code="01")
-        example_user_assigned_identity = azure.authorization.get_user_assigned_identity(name="name_of_user_assigned_identity",
-            resource_group_name="name_of_resource_group")
-        example_key_vault = azure.keyvault.get_key_vault(name="example-kv",
-            resource_group_name="some-resource-group")
-        example_key = azure.keyvault.get_key(name="example-key",
-            key_vault_id=example_key_vault.id)
-        example_network_sim_group = azure.mobile.NetworkSimGroup("exampleNetworkSimGroup",
-            location=example_resource_group.location,
-            mobile_network_id=example_network.id,
-            encryption_key_url=example_key.id,
-            identity=azure.mobile.NetworkSimGroupIdentityArgs(
-                type="SystemAssigned, UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ),
-            tags={
-                "key": "value",
-            })
-        ```
-
         ## Import
 
         Mobile Network Sim Groups can be imported using the `resource id`, e.g.
@@ -351,37 +322,6 @@ class NetworkSimGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Mobile Network Sim Group.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_network = azure.mobile.Network("exampleNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            mobile_country_code="001",
-            mobile_network_code="01")
-        example_user_assigned_identity = azure.authorization.get_user_assigned_identity(name="name_of_user_assigned_identity",
-            resource_group_name="name_of_resource_group")
-        example_key_vault = azure.keyvault.get_key_vault(name="example-kv",
-            resource_group_name="some-resource-group")
-        example_key = azure.keyvault.get_key(name="example-key",
-            key_vault_id=example_key_vault.id)
-        example_network_sim_group = azure.mobile.NetworkSimGroup("exampleNetworkSimGroup",
-            location=example_resource_group.location,
-            mobile_network_id=example_network.id,
-            encryption_key_url=example_key.id,
-            identity=azure.mobile.NetworkSimGroupIdentityArgs(
-                type="SystemAssigned, UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ),
-            tags={
-                "key": "value",
-            })
-        ```
 
         ## Import
 
@@ -426,11 +366,7 @@ class NetworkSimGroup(pulumi.CustomResource):
             __props__ = NetworkSimGroupArgs.__new__(NetworkSimGroupArgs)
 
             __props__.__dict__["encryption_key_url"] = encryption_key_url
-            if identity is not None and not isinstance(identity, NetworkSimGroupIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                NetworkSimGroupIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, NetworkSimGroupIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             if mobile_network_id is None and not opts.urn:

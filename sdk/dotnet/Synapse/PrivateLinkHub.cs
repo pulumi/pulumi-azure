@@ -12,25 +12,6 @@ namespace Pulumi.Azure.Synapse
     /// <summary>
     /// Manages a Synapse Private Link Hub.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.Synapse.PrivateLinkHub("example", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///         ResourceGroupName = "example-rg",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Synapse Private Link Hub can be imported using the `resource id`, e.g.

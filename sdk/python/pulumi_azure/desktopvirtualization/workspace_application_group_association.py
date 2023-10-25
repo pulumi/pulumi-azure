@@ -29,14 +29,18 @@ class WorkspaceApplicationGroupAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_group_id: pulumi.Input[str],
-             workspace_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             application_group_id: Optional[pulumi.Input[str]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'applicationGroupId' in kwargs:
+        if application_group_id is None and 'applicationGroupId' in kwargs:
             application_group_id = kwargs['applicationGroupId']
-        if 'workspaceId' in kwargs:
+        if application_group_id is None:
+            raise TypeError("Missing 'application_group_id' argument")
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
+        if workspace_id is None:
+            raise TypeError("Missing 'workspace_id' argument")
 
         _setter("application_group_id", application_group_id)
         _setter("workspace_id", workspace_id)
@@ -86,11 +90,11 @@ class _WorkspaceApplicationGroupAssociationState:
              _setter: Callable[[Any, Any], None],
              application_group_id: Optional[pulumi.Input[str]] = None,
              workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'applicationGroupId' in kwargs:
+        if application_group_id is None and 'applicationGroupId' in kwargs:
             application_group_id = kwargs['applicationGroupId']
-        if 'workspaceId' in kwargs:
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
 
         if application_group_id is not None:
@@ -134,31 +138,6 @@ class WorkspaceApplicationGroupAssociation(pulumi.CustomResource):
         """
         Manages a Virtual Desktop Workspace Application Group Association.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        pooledbreadthfirst = azure.desktopvirtualization.HostPool("pooledbreadthfirst",
-            location=example.location,
-            resource_group_name=example.name,
-            type="Pooled",
-            load_balancer_type="BreadthFirst")
-        remoteapp = azure.desktopvirtualization.ApplicationGroup("remoteapp",
-            location=example.location,
-            resource_group_name=example.name,
-            type="RemoteApp",
-            host_pool_id=pooledbreadthfirst.id)
-        workspace = azure.desktopvirtualization.Workspace("workspace",
-            location=example.location,
-            resource_group_name=example.name)
-        workspaceremoteapp = azure.desktopvirtualization.WorkspaceApplicationGroupAssociation("workspaceremoteapp",
-            workspace_id=workspace.id,
-            application_group_id=remoteapp.id)
-        ```
-
         ## Import
 
         Associations between Virtual Desktop Workspaces and Virtual Desktop Application Groups can be imported using the `resource id`, e.g.
@@ -180,31 +159,6 @@ class WorkspaceApplicationGroupAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Virtual Desktop Workspace Application Group Association.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        pooledbreadthfirst = azure.desktopvirtualization.HostPool("pooledbreadthfirst",
-            location=example.location,
-            resource_group_name=example.name,
-            type="Pooled",
-            load_balancer_type="BreadthFirst")
-        remoteapp = azure.desktopvirtualization.ApplicationGroup("remoteapp",
-            location=example.location,
-            resource_group_name=example.name,
-            type="RemoteApp",
-            host_pool_id=pooledbreadthfirst.id)
-        workspace = azure.desktopvirtualization.Workspace("workspace",
-            location=example.location,
-            resource_group_name=example.name)
-        workspaceremoteapp = azure.desktopvirtualization.WorkspaceApplicationGroupAssociation("workspaceremoteapp",
-            workspace_id=workspace.id,
-            application_group_id=remoteapp.id)
-        ```
 
         ## Import
 

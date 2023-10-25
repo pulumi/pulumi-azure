@@ -46,28 +46,30 @@ class TagRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             monitor_id: pulumi.Input[str],
+             monitor_id: Optional[pulumi.Input[str]] = None,
              activity_log_enabled: Optional[pulumi.Input[bool]] = None,
              azure_active_directory_log_enabled: Optional[pulumi.Input[bool]] = None,
              log_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['TagRuleLogTagFilterArgs']]]] = None,
              metric_enabled: Optional[pulumi.Input[bool]] = None,
              metric_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['TagRuleMetricTagFilterArgs']]]] = None,
              subscription_log_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'monitorId' in kwargs:
+        if monitor_id is None and 'monitorId' in kwargs:
             monitor_id = kwargs['monitorId']
-        if 'activityLogEnabled' in kwargs:
+        if monitor_id is None:
+            raise TypeError("Missing 'monitor_id' argument")
+        if activity_log_enabled is None and 'activityLogEnabled' in kwargs:
             activity_log_enabled = kwargs['activityLogEnabled']
-        if 'azureActiveDirectoryLogEnabled' in kwargs:
+        if azure_active_directory_log_enabled is None and 'azureActiveDirectoryLogEnabled' in kwargs:
             azure_active_directory_log_enabled = kwargs['azureActiveDirectoryLogEnabled']
-        if 'logTagFilters' in kwargs:
+        if log_tag_filters is None and 'logTagFilters' in kwargs:
             log_tag_filters = kwargs['logTagFilters']
-        if 'metricEnabled' in kwargs:
+        if metric_enabled is None and 'metricEnabled' in kwargs:
             metric_enabled = kwargs['metricEnabled']
-        if 'metricTagFilters' in kwargs:
+        if metric_tag_filters is None and 'metricTagFilters' in kwargs:
             metric_tag_filters = kwargs['metricTagFilters']
-        if 'subscriptionLogEnabled' in kwargs:
+        if subscription_log_enabled is None and 'subscriptionLogEnabled' in kwargs:
             subscription_log_enabled = kwargs['subscriptionLogEnabled']
 
         _setter("monitor_id", monitor_id)
@@ -209,21 +211,21 @@ class _TagRuleState:
              metric_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['TagRuleMetricTagFilterArgs']]]] = None,
              monitor_id: Optional[pulumi.Input[str]] = None,
              subscription_log_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'activityLogEnabled' in kwargs:
+        if activity_log_enabled is None and 'activityLogEnabled' in kwargs:
             activity_log_enabled = kwargs['activityLogEnabled']
-        if 'azureActiveDirectoryLogEnabled' in kwargs:
+        if azure_active_directory_log_enabled is None and 'azureActiveDirectoryLogEnabled' in kwargs:
             azure_active_directory_log_enabled = kwargs['azureActiveDirectoryLogEnabled']
-        if 'logTagFilters' in kwargs:
+        if log_tag_filters is None and 'logTagFilters' in kwargs:
             log_tag_filters = kwargs['logTagFilters']
-        if 'metricEnabled' in kwargs:
+        if metric_enabled is None and 'metricEnabled' in kwargs:
             metric_enabled = kwargs['metricEnabled']
-        if 'metricTagFilters' in kwargs:
+        if metric_tag_filters is None and 'metricTagFilters' in kwargs:
             metric_tag_filters = kwargs['metricTagFilters']
-        if 'monitorId' in kwargs:
+        if monitor_id is None and 'monitorId' in kwargs:
             monitor_id = kwargs['monitorId']
-        if 'subscriptionLogEnabled' in kwargs:
+        if subscription_log_enabled is None and 'subscriptionLogEnabled' in kwargs:
             subscription_log_enabled = kwargs['subscriptionLogEnabled']
 
         if activity_log_enabled is not None:
@@ -342,43 +344,6 @@ class TagRule(pulumi.CustomResource):
         """
         Manages an Azure Native New Relic Tag Rule.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="East US")
-        example_monitor = azure.newrelic.Monitor("exampleMonitor",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            plan=azure.newrelic.MonitorPlanArgs(
-                effective_date="2023-06-06T00:00:00Z",
-            ),
-            user=azure.newrelic.MonitorUserArgs(
-                email="user@example.com",
-                first_name="Example",
-                last_name="User",
-                phone_number="+12313803556",
-            ))
-        example_tag_rule = azure.newrelic.TagRule("exampleTagRule",
-            monitor_id=example_monitor.id,
-            azure_active_directory_log_enabled=True,
-            activity_log_enabled=True,
-            metric_enabled=True,
-            subscription_log_enabled=True,
-            log_tag_filters=[azure.newrelic.TagRuleLogTagFilterArgs(
-                name="key",
-                action="Include",
-                value="value",
-            )],
-            metric_tag_filters=[azure.newrelic.TagRuleMetricTagFilterArgs(
-                name="key",
-                action="Exclude",
-                value="value",
-            )])
-        ```
-
         ## Import
 
         Azure Native New Relic Tag Rule can be imported using the `resource id`, e.g.
@@ -405,43 +370,6 @@ class TagRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Native New Relic Tag Rule.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="East US")
-        example_monitor = azure.newrelic.Monitor("exampleMonitor",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            plan=azure.newrelic.MonitorPlanArgs(
-                effective_date="2023-06-06T00:00:00Z",
-            ),
-            user=azure.newrelic.MonitorUserArgs(
-                email="user@example.com",
-                first_name="Example",
-                last_name="User",
-                phone_number="+12313803556",
-            ))
-        example_tag_rule = azure.newrelic.TagRule("exampleTagRule",
-            monitor_id=example_monitor.id,
-            azure_active_directory_log_enabled=True,
-            activity_log_enabled=True,
-            metric_enabled=True,
-            subscription_log_enabled=True,
-            log_tag_filters=[azure.newrelic.TagRuleLogTagFilterArgs(
-                name="key",
-                action="Include",
-                value="value",
-            )],
-            metric_tag_filters=[azure.newrelic.TagRuleMetricTagFilterArgs(
-                name="key",
-                action="Exclude",
-                value="value",
-            )])
-        ```
 
         ## Import
 

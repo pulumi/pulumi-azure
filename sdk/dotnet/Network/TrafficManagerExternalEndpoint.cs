@@ -12,55 +12,6 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages an External Endpoint within a Traffic Manager Profile.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleTrafficManagerProfile = new Azure.Network.TrafficManagerProfile("exampleTrafficManagerProfile", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         TrafficRoutingMethod = "Weighted",
-    ///         DnsConfig = new Azure.Network.Inputs.TrafficManagerProfileDnsConfigArgs
-    ///         {
-    ///             RelativeName = "example-profile",
-    ///             Ttl = 100,
-    ///         },
-    ///         MonitorConfig = new Azure.Network.Inputs.TrafficManagerProfileMonitorConfigArgs
-    ///         {
-    ///             Protocol = "HTTP",
-    ///             Port = 80,
-    ///             Path = "/",
-    ///             IntervalInSeconds = 30,
-    ///             TimeoutInSeconds = 9,
-    ///             ToleratedNumberOfFailures = 3,
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "environment", "Production" },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleTrafficManagerExternalEndpoint = new Azure.Network.TrafficManagerExternalEndpoint("exampleTrafficManagerExternalEndpoint", new()
-    ///     {
-    ///         ProfileId = exampleTrafficManagerProfile.Id,
-    ///         Weight = 100,
-    ///         Target = "www.example.com",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// External Endpoints can be imported using the `resource id`, e.g.

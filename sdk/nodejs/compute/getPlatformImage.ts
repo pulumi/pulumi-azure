@@ -6,21 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about a Platform Image.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.compute.getPlatformImage({
- *     location: "West Europe",
- *     publisher: "Canonical",
- *     offer: "0001-com-ubuntu-server-focal",
- *     sku: "20_04-lts",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getPlatformImage(args: GetPlatformImageArgs, opts?: pulumi.InvokeOptions): Promise<GetPlatformImageResult> {
 
@@ -76,21 +61,6 @@ export interface GetPlatformImageResult {
 }
 /**
  * Use this data source to access information about a Platform Image.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.compute.getPlatformImage({
- *     location: "West Europe",
- *     publisher: "Canonical",
- *     offer: "0001-com-ubuntu-server-focal",
- *     sku: "20_04-lts",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getPlatformImageOutput(args: GetPlatformImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlatformImageResult> {
     return pulumi.output(args).apply((a: any) => getPlatformImage(a, opts))

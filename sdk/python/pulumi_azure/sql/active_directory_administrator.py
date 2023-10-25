@@ -41,23 +41,33 @@ class ActiveDirectoryAdministratorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             login: pulumi.Input[str],
-             object_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             server_name: pulumi.Input[str],
-             tenant_id: pulumi.Input[str],
+             login: Optional[pulumi.Input[str]] = None,
+             object_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
              azuread_authentication_only: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'objectId' in kwargs:
+        if login is None:
+            raise TypeError("Missing 'login' argument")
+        if object_id is None and 'objectId' in kwargs:
             object_id = kwargs['objectId']
-        if 'resourceGroupName' in kwargs:
+        if object_id is None:
+            raise TypeError("Missing 'object_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serverName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if server_name is None and 'serverName' in kwargs:
             server_name = kwargs['serverName']
-        if 'tenantId' in kwargs:
+        if server_name is None:
+            raise TypeError("Missing 'server_name' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
-        if 'azureadAuthenticationOnly' in kwargs:
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if azuread_authentication_only is None and 'azureadAuthenticationOnly' in kwargs:
             azuread_authentication_only = kwargs['azureadAuthenticationOnly']
 
         _setter("login", login)
@@ -177,17 +187,17 @@ class _ActiveDirectoryAdministratorState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              server_name: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'azureadAuthenticationOnly' in kwargs:
+        if azuread_authentication_only is None and 'azureadAuthenticationOnly' in kwargs:
             azuread_authentication_only = kwargs['azureadAuthenticationOnly']
-        if 'objectId' in kwargs:
+        if object_id is None and 'objectId' in kwargs:
             object_id = kwargs['objectId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serverName' in kwargs:
+        if server_name is None and 'serverName' in kwargs:
             server_name = kwargs['serverName']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         if azuread_authentication_only is not None:
@@ -293,28 +303,6 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
 
         > **Note:** The `sql.ActiveDirectoryAdministrator` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azuread_administrator` block of the `mssql.Server` resource instead.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_sql_server = azure.sql.SqlServer("exampleSqlServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            version="12.0",
-            administrator_login="4dm1n157r470r",
-            administrator_login_password="4-v3ry-53cr37-p455w0rd")
-        example_active_directory_administrator = azure.sql.ActiveDirectoryAdministrator("exampleActiveDirectoryAdministrator",
-            server_name=example_sql_server.name,
-            resource_group_name=example_resource_group.name,
-            login="sqladmin",
-            tenant_id=current.tenant_id,
-            object_id=current.object_id)
-        ```
-
         ## Import
 
         A SQL Active Directory Administrator can be imported using the `resource id`, e.g.
@@ -342,28 +330,6 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
         Allows you to set a user or group as the AD administrator for an Azure SQL server.
 
         > **Note:** The `sql.ActiveDirectoryAdministrator` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azuread_administrator` block of the `mssql.Server` resource instead.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_sql_server = azure.sql.SqlServer("exampleSqlServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            version="12.0",
-            administrator_login="4dm1n157r470r",
-            administrator_login_password="4-v3ry-53cr37-p455w0rd")
-        example_active_directory_administrator = azure.sql.ActiveDirectoryAdministrator("exampleActiveDirectoryAdministrator",
-            server_name=example_sql_server.name,
-            resource_group_name=example_resource_group.name,
-            login="sqladmin",
-            tenant_id=current.tenant_id,
-            object_id=current.object_id)
-        ```
 
         ## Import
 

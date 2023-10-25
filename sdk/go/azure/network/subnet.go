@@ -19,65 +19,6 @@ import (
 // provides both a standalone Subnet resource, and allows for Subnets to be defined in-line within the Virtual Network resource.
 // At this time you cannot use a Virtual Network with in-line Subnets in conjunction with any Subnet resources. Doing so will cause a conflict of Subnet configurations and will overwrite Subnets.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/16"),
-//				},
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.1.0/24"),
-//				},
-//				Delegations: network.SubnetDelegationArray{
-//					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("delegation"),
-//						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
-//							Name: pulumi.String("Microsoft.ContainerInstance/containerGroups"),
-//							Actions: pulumi.StringArray{
-//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
-//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Subnets can be imported using the `resource id`, e.g.

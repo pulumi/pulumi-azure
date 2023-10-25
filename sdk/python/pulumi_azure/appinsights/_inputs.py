@@ -47,19 +47,21 @@ class StandardWebTestRequestArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             url: pulumi.Input[str],
+             url: Optional[pulumi.Input[str]] = None,
              body: Optional[pulumi.Input[str]] = None,
              follow_redirects_enabled: Optional[pulumi.Input[bool]] = None,
              headers: Optional[pulumi.Input[Sequence[pulumi.Input['StandardWebTestRequestHeaderArgs']]]] = None,
              http_verb: Optional[pulumi.Input[str]] = None,
              parse_dependent_requests_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'followRedirectsEnabled' in kwargs:
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+        if follow_redirects_enabled is None and 'followRedirectsEnabled' in kwargs:
             follow_redirects_enabled = kwargs['followRedirectsEnabled']
-        if 'httpVerb' in kwargs:
+        if http_verb is None and 'httpVerb' in kwargs:
             http_verb = kwargs['httpVerb']
-        if 'parseDependentRequestsEnabled' in kwargs:
+        if parse_dependent_requests_enabled is None and 'parseDependentRequestsEnabled' in kwargs:
             parse_dependent_requests_enabled = kwargs['parseDependentRequestsEnabled']
 
         _setter("url", url)
@@ -164,10 +166,14 @@ class StandardWebTestRequestHeaderArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("name", name)
         _setter("value", value)
@@ -224,13 +230,13 @@ class StandardWebTestValidationRulesArgs:
              expected_status_code: Optional[pulumi.Input[int]] = None,
              ssl_cert_remaining_lifetime: Optional[pulumi.Input[int]] = None,
              ssl_check_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'expectedStatusCode' in kwargs:
+        if expected_status_code is None and 'expectedStatusCode' in kwargs:
             expected_status_code = kwargs['expectedStatusCode']
-        if 'sslCertRemainingLifetime' in kwargs:
+        if ssl_cert_remaining_lifetime is None and 'sslCertRemainingLifetime' in kwargs:
             ssl_cert_remaining_lifetime = kwargs['sslCertRemainingLifetime']
-        if 'sslCheckEnabled' in kwargs:
+        if ssl_check_enabled is None and 'sslCheckEnabled' in kwargs:
             ssl_check_enabled = kwargs['sslCheckEnabled']
 
         if content is not None:
@@ -311,16 +317,18 @@ class StandardWebTestValidationRulesContentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             content_match: pulumi.Input[str],
+             content_match: Optional[pulumi.Input[str]] = None,
              ignore_case: Optional[pulumi.Input[bool]] = None,
              pass_if_text_found: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'contentMatch' in kwargs:
+        if content_match is None and 'contentMatch' in kwargs:
             content_match = kwargs['contentMatch']
-        if 'ignoreCase' in kwargs:
+        if content_match is None:
+            raise TypeError("Missing 'content_match' argument")
+        if ignore_case is None and 'ignoreCase' in kwargs:
             ignore_case = kwargs['ignoreCase']
-        if 'passIfTextFound' in kwargs:
+        if pass_if_text_found is None and 'passIfTextFound' in kwargs:
             pass_if_text_found = kwargs['passIfTextFound']
 
         _setter("content_match", content_match)
@@ -389,17 +397,19 @@ class WorkbookIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -487,14 +497,18 @@ class WorkbookTemplateGalleryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             category: pulumi.Input[str],
-             name: pulumi.Input[str],
+             category: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
              order: Optional[pulumi.Input[int]] = None,
              resource_type: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceType' in kwargs:
+        if category is None:
+            raise TypeError("Missing 'category' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if resource_type is None and 'resourceType' in kwargs:
             resource_type = kwargs['resourceType']
 
         _setter("category", category)

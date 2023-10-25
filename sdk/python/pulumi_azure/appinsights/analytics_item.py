@@ -41,17 +41,25 @@ class AnalyticsItemArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_insights_id: pulumi.Input[str],
-             content: pulumi.Input[str],
-             scope: pulumi.Input[str],
-             type: pulumi.Input[str],
+             application_insights_id: Optional[pulumi.Input[str]] = None,
+             content: Optional[pulumi.Input[str]] = None,
+             scope: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              function_alias: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'applicationInsightsId' in kwargs:
+        if application_insights_id is None and 'applicationInsightsId' in kwargs:
             application_insights_id = kwargs['applicationInsightsId']
-        if 'functionAlias' in kwargs:
+        if application_insights_id is None:
+            raise TypeError("Missing 'application_insights_id' argument")
+        if content is None:
+            raise TypeError("Missing 'content' argument")
+        if scope is None:
+            raise TypeError("Missing 'scope' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if function_alias is None and 'functionAlias' in kwargs:
             function_alias = kwargs['functionAlias']
 
         _setter("application_insights_id", application_insights_id)
@@ -184,15 +192,15 @@ class _AnalyticsItemState:
              time_modified: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'applicationInsightsId' in kwargs:
+        if application_insights_id is None and 'applicationInsightsId' in kwargs:
             application_insights_id = kwargs['applicationInsightsId']
-        if 'functionAlias' in kwargs:
+        if function_alias is None and 'functionAlias' in kwargs:
             function_alias = kwargs['functionAlias']
-        if 'timeCreated' in kwargs:
+        if time_created is None and 'timeCreated' in kwargs:
             time_created = kwargs['timeCreated']
-        if 'timeModified' in kwargs:
+        if time_modified is None and 'timeModified' in kwargs:
             time_modified = kwargs['timeModified']
 
         if application_insights_id is not None:
@@ -338,24 +346,6 @@ class AnalyticsItem(pulumi.CustomResource):
         """
         Manages an Application Insights Analytics Item component.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="web")
-        example_analytics_item = azure.appinsights.AnalyticsItem("exampleAnalyticsItem",
-            application_insights_id=example_insights.id,
-            content="requests //simple example query",
-            scope="shared",
-            type="query")
-        ```
-
         ## Import
 
         Application Insights Analytics Items can be imported using the `resource id`, e.g.
@@ -383,24 +373,6 @@ class AnalyticsItem(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Application Insights Analytics Item component.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="web")
-        example_analytics_item = azure.appinsights.AnalyticsItem("exampleAnalyticsItem",
-            application_insights_id=example_insights.id,
-            content="requests //simple example query",
-            scope="shared",
-            type="query")
-        ```
 
         ## Import
 

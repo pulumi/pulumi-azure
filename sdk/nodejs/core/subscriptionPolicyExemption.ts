@@ -7,31 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Subscription Policy Exemption.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleSubscription = azure.core.getSubscription({});
- * const examplePolicySetDefinition = azure.policy.getPolicySetDefinition({
- *     displayName: "Audit machines with insecure password security settings",
- * });
- * const exampleSubscriptionPolicyAssignment = new azure.core.SubscriptionPolicyAssignment("exampleSubscriptionPolicyAssignment", {
- *     subscriptionId: exampleSubscription.then(exampleSubscription => exampleSubscription.id),
- *     policyDefinitionId: examplePolicySetDefinition.then(examplePolicySetDefinition => examplePolicySetDefinition.id),
- *     location: "westus",
- *     identity: {
- *         type: "SystemAssigned",
- *     },
- * });
- * const exampleSubscriptionPolicyExemption = new azure.core.SubscriptionPolicyExemption("exampleSubscriptionPolicyExemption", {
- *     subscriptionId: exampleSubscription.then(exampleSubscription => exampleSubscription.id),
- *     policyAssignmentId: exampleSubscriptionPolicyAssignment.id,
- *     exemptionCategory: "Mitigated",
- * });
- * ```
- *
  * ## Import
  *
  * Policy Exemptions can be imported using the `resource id`, e.g.

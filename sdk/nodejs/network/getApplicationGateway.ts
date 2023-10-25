@@ -8,19 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Application Gateway.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.network.getApplicationGateway({
- *     name: "existing-app-gateway",
- *     resourceGroupName: "existing-resources",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getApplicationGateway(args: GetApplicationGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationGatewayResult> {
 
@@ -186,19 +173,6 @@ export interface GetApplicationGatewayResult {
 }
 /**
  * Use this data source to access information about an existing Application Gateway.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.network.getApplicationGateway({
- *     name: "existing-app-gateway",
- *     resourceGroupName: "existing-resources",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getApplicationGatewayOutput(args: GetApplicationGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationGatewayResult> {
     return pulumi.output(args).apply((a: any) => getApplicationGateway(a, opts))

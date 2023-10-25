@@ -44,10 +44,12 @@ class LinkedServiceIntegrationRuntimeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
         if parameters is not None:
@@ -92,11 +94,13 @@ class SparkPoolAutoPauseArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             delay_in_minutes: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             delay_in_minutes: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'delayInMinutes' in kwargs:
+        if delay_in_minutes is None and 'delayInMinutes' in kwargs:
             delay_in_minutes = kwargs['delayInMinutes']
+        if delay_in_minutes is None:
+            raise TypeError("Missing 'delay_in_minutes' argument")
 
         _setter("delay_in_minutes", delay_in_minutes)
 
@@ -130,14 +134,18 @@ class SparkPoolAutoScaleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             max_node_count: pulumi.Input[int],
-             min_node_count: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             max_node_count: Optional[pulumi.Input[int]] = None,
+             min_node_count: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'maxNodeCount' in kwargs:
+        if max_node_count is None and 'maxNodeCount' in kwargs:
             max_node_count = kwargs['maxNodeCount']
-        if 'minNodeCount' in kwargs:
+        if max_node_count is None:
+            raise TypeError("Missing 'max_node_count' argument")
+        if min_node_count is None and 'minNodeCount' in kwargs:
             min_node_count = kwargs['minNodeCount']
+        if min_node_count is None:
+            raise TypeError("Missing 'min_node_count' argument")
 
         _setter("max_node_count", max_node_count)
         _setter("min_node_count", min_node_count)
@@ -184,10 +192,14 @@ class SparkPoolLibraryRequirementArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             content: pulumi.Input[str],
-             filename: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             content: Optional[pulumi.Input[str]] = None,
+             filename: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if content is None:
+            raise TypeError("Missing 'content' argument")
+        if filename is None:
+            raise TypeError("Missing 'filename' argument")
 
         _setter("content", content)
         _setter("filename", filename)
@@ -234,10 +246,14 @@ class SparkPoolSparkConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             content: pulumi.Input[str],
-             filename: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             content: Optional[pulumi.Input[str]] = None,
+             filename: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if content is None:
+            raise TypeError("Missing 'content' argument")
+        if filename is None:
+            raise TypeError("Missing 'filename' argument")
 
         _setter("content", content)
         _setter("filename", filename)
@@ -284,14 +300,18 @@ class SqlPoolRestoreArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             point_in_time: pulumi.Input[str],
-             source_database_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             point_in_time: Optional[pulumi.Input[str]] = None,
+             source_database_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'pointInTime' in kwargs:
+        if point_in_time is None and 'pointInTime' in kwargs:
             point_in_time = kwargs['pointInTime']
-        if 'sourceDatabaseId' in kwargs:
+        if point_in_time is None:
+            raise TypeError("Missing 'point_in_time' argument")
+        if source_database_id is None and 'sourceDatabaseId' in kwargs:
             source_database_id = kwargs['sourceDatabaseId']
+        if source_database_id is None:
+            raise TypeError("Missing 'source_database_id' argument")
 
         _setter("point_in_time", point_in_time)
         _setter("source_database_id", source_database_id)
@@ -335,9 +355,11 @@ class SqlPoolVulnerabilityAssessmentBaselineBaselineArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             results: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             results: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if results is None:
+            raise TypeError("Missing 'results' argument")
 
         _setter("results", results)
 
@@ -377,9 +399,9 @@ class SqlPoolVulnerabilityAssessmentRecurringScansArgs:
              email_subscription_admins_enabled: Optional[pulumi.Input[bool]] = None,
              emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'emailSubscriptionAdminsEnabled' in kwargs:
+        if email_subscription_admins_enabled is None and 'emailSubscriptionAdminsEnabled' in kwargs:
             email_subscription_admins_enabled = kwargs['emailSubscriptionAdminsEnabled']
 
         if email_subscription_admins_enabled is not None:
@@ -446,15 +468,21 @@ class WorkspaceAadAdminArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             login: pulumi.Input[str],
-             object_id: pulumi.Input[str],
-             tenant_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             login: Optional[pulumi.Input[str]] = None,
+             object_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'objectId' in kwargs:
+        if login is None:
+            raise TypeError("Missing 'login' argument")
+        if object_id is None and 'objectId' in kwargs:
             object_id = kwargs['objectId']
-        if 'tenantId' in kwargs:
+        if object_id is None:
+            raise TypeError("Missing 'object_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
 
         _setter("login", login)
         _setter("object_id", object_id)
@@ -529,28 +557,38 @@ class WorkspaceAzureDevopsRepoArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             account_name: pulumi.Input[str],
-             branch_name: pulumi.Input[str],
-             project_name: pulumi.Input[str],
-             repository_name: pulumi.Input[str],
-             root_folder: pulumi.Input[str],
+             account_name: Optional[pulumi.Input[str]] = None,
+             branch_name: Optional[pulumi.Input[str]] = None,
+             project_name: Optional[pulumi.Input[str]] = None,
+             repository_name: Optional[pulumi.Input[str]] = None,
+             root_folder: Optional[pulumi.Input[str]] = None,
              last_commit_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accountName' in kwargs:
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'branchName' in kwargs:
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if branch_name is None and 'branchName' in kwargs:
             branch_name = kwargs['branchName']
-        if 'projectName' in kwargs:
+        if branch_name is None:
+            raise TypeError("Missing 'branch_name' argument")
+        if project_name is None and 'projectName' in kwargs:
             project_name = kwargs['projectName']
-        if 'repositoryName' in kwargs:
+        if project_name is None:
+            raise TypeError("Missing 'project_name' argument")
+        if repository_name is None and 'repositoryName' in kwargs:
             repository_name = kwargs['repositoryName']
-        if 'rootFolder' in kwargs:
+        if repository_name is None:
+            raise TypeError("Missing 'repository_name' argument")
+        if root_folder is None and 'rootFolder' in kwargs:
             root_folder = kwargs['rootFolder']
-        if 'lastCommitId' in kwargs:
+        if root_folder is None:
+            raise TypeError("Missing 'root_folder' argument")
+        if last_commit_id is None and 'lastCommitId' in kwargs:
             last_commit_id = kwargs['lastCommitId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("account_name", account_name)
@@ -665,13 +703,15 @@ class WorkspaceCustomerManagedKeyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_versionless_id: pulumi.Input[str],
+             key_versionless_id: Optional[pulumi.Input[str]] = None,
              key_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'keyVersionlessId' in kwargs:
+        if key_versionless_id is None and 'keyVersionlessId' in kwargs:
             key_versionless_id = kwargs['keyVersionlessId']
-        if 'keyName' in kwargs:
+        if key_versionless_id is None:
+            raise TypeError("Missing 'key_versionless_id' argument")
+        if key_name is None and 'keyName' in kwargs:
             key_name = kwargs['keyName']
 
         _setter("key_versionless_id", key_versionless_id)
@@ -734,25 +774,33 @@ class WorkspaceGithubRepoArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             account_name: pulumi.Input[str],
-             branch_name: pulumi.Input[str],
-             repository_name: pulumi.Input[str],
-             root_folder: pulumi.Input[str],
+             account_name: Optional[pulumi.Input[str]] = None,
+             branch_name: Optional[pulumi.Input[str]] = None,
+             repository_name: Optional[pulumi.Input[str]] = None,
+             root_folder: Optional[pulumi.Input[str]] = None,
              git_url: Optional[pulumi.Input[str]] = None,
              last_commit_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accountName' in kwargs:
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'branchName' in kwargs:
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if branch_name is None and 'branchName' in kwargs:
             branch_name = kwargs['branchName']
-        if 'repositoryName' in kwargs:
+        if branch_name is None:
+            raise TypeError("Missing 'branch_name' argument")
+        if repository_name is None and 'repositoryName' in kwargs:
             repository_name = kwargs['repositoryName']
-        if 'rootFolder' in kwargs:
+        if repository_name is None:
+            raise TypeError("Missing 'repository_name' argument")
+        if root_folder is None and 'rootFolder' in kwargs:
             root_folder = kwargs['rootFolder']
-        if 'gitUrl' in kwargs:
+        if root_folder is None:
+            raise TypeError("Missing 'root_folder' argument")
+        if git_url is None and 'gitUrl' in kwargs:
             git_url = kwargs['gitUrl']
-        if 'lastCommitId' in kwargs:
+        if last_commit_id is None and 'lastCommitId' in kwargs:
             last_commit_id = kwargs['lastCommitId']
 
         _setter("account_name", account_name)
@@ -864,17 +912,19 @@ class WorkspaceIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -956,15 +1006,21 @@ class WorkspaceSqlAadAdminArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             login: pulumi.Input[str],
-             object_id: pulumi.Input[str],
-             tenant_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             login: Optional[pulumi.Input[str]] = None,
+             object_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'objectId' in kwargs:
+        if login is None:
+            raise TypeError("Missing 'login' argument")
+        if object_id is None and 'objectId' in kwargs:
             object_id = kwargs['objectId']
-        if 'tenantId' in kwargs:
+        if object_id is None:
+            raise TypeError("Missing 'object_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
 
         _setter("login", login)
         _setter("object_id", object_id)
@@ -1030,9 +1086,9 @@ class WorkspaceVulnerabilityAssessmentRecurringScansArgs:
              email_subscription_admins_enabled: Optional[pulumi.Input[bool]] = None,
              emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'emailSubscriptionAdminsEnabled' in kwargs:
+        if email_subscription_admins_enabled is None and 'emailSubscriptionAdminsEnabled' in kwargs:
             email_subscription_admins_enabled = kwargs['emailSubscriptionAdminsEnabled']
 
         if email_subscription_admins_enabled is not None:

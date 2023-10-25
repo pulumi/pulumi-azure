@@ -39,18 +39,24 @@ class FirewallRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             end_ip_address: pulumi.Input[str],
-             start_ip_address: pulumi.Input[str],
-             synapse_workspace_id: pulumi.Input[str],
+             end_ip_address: Optional[pulumi.Input[str]] = None,
+             start_ip_address: Optional[pulumi.Input[str]] = None,
+             synapse_workspace_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'endIpAddress' in kwargs:
+        if end_ip_address is None and 'endIpAddress' in kwargs:
             end_ip_address = kwargs['endIpAddress']
-        if 'startIpAddress' in kwargs:
+        if end_ip_address is None:
+            raise TypeError("Missing 'end_ip_address' argument")
+        if start_ip_address is None and 'startIpAddress' in kwargs:
             start_ip_address = kwargs['startIpAddress']
-        if 'synapseWorkspaceId' in kwargs:
+        if start_ip_address is None:
+            raise TypeError("Missing 'start_ip_address' argument")
+        if synapse_workspace_id is None and 'synapseWorkspaceId' in kwargs:
             synapse_workspace_id = kwargs['synapseWorkspaceId']
+        if synapse_workspace_id is None:
+            raise TypeError("Missing 'synapse_workspace_id' argument")
 
         _setter("end_ip_address", end_ip_address)
         _setter("start_ip_address", start_ip_address)
@@ -143,13 +149,13 @@ class _FirewallRuleState:
              name: Optional[pulumi.Input[str]] = None,
              start_ip_address: Optional[pulumi.Input[str]] = None,
              synapse_workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'endIpAddress' in kwargs:
+        if end_ip_address is None and 'endIpAddress' in kwargs:
             end_ip_address = kwargs['endIpAddress']
-        if 'startIpAddress' in kwargs:
+        if start_ip_address is None and 'startIpAddress' in kwargs:
             start_ip_address = kwargs['startIpAddress']
-        if 'synapseWorkspaceId' in kwargs:
+        if synapse_workspace_id is None and 'synapseWorkspaceId' in kwargs:
             synapse_workspace_id = kwargs['synapseWorkspaceId']
 
         if end_ip_address is not None:
@@ -227,36 +233,6 @@ class FirewallRule(pulumi.CustomResource):
         """
         Allows you to Manages a Synapse Firewall Rule.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            account_kind="StorageV2",
-            is_hns_enabled=True)
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
-        example_workspace = azure.synapse.Workspace("exampleWorkspace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
-            sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!",
-            identity=azure.synapse.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_firewall_rule = azure.synapse.FirewallRule("exampleFirewallRule",
-            synapse_workspace_id=example_workspace.id,
-            start_ip_address="0.0.0.0",
-            end_ip_address="255.255.255.255")
-        ```
-
         ## Import
 
         Synapse Firewall Rule can be imported using the `resource id`, e.g.
@@ -284,36 +260,6 @@ class FirewallRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Allows you to Manages a Synapse Firewall Rule.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            account_kind="StorageV2",
-            is_hns_enabled=True)
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
-        example_workspace = azure.synapse.Workspace("exampleWorkspace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
-            sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!",
-            identity=azure.synapse.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_firewall_rule = azure.synapse.FirewallRule("exampleFirewallRule",
-            synapse_workspace_id=example_workspace.id,
-            start_ip_address="0.0.0.0",
-            end_ip_address="255.255.255.255")
-        ```
 
         ## Import
 

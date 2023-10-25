@@ -294,17 +294,6 @@ def get_standard(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Logic App Standard instance.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.logicapps.get_standard(name="logicappstd",
-        resource_group_name="example-rg")
-    pulumi.export("id", example.id)
-    ```
-
 
     :param str name: The name of this Logic App.
     :param str resource_group_name: The name of the Resource Group where the Logic App exists.
@@ -355,17 +344,6 @@ def get_standard_output(name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStandardResult]:
     """
     Use this data source to access information about an existing Logic App Standard instance.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.logicapps.get_standard(name="logicappstd",
-        resource_group_name="example-rg")
-    pulumi.export("id", example.id)
-    ```
 
 
     :param str name: The name of this Logic App.

@@ -35,18 +35,24 @@ class EventhubNamespaceDisasterRecoveryConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             namespace_name: pulumi.Input[str],
-             partner_namespace_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             namespace_name: Optional[pulumi.Input[str]] = None,
+             partner_namespace_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'namespaceName' in kwargs:
+        if namespace_name is None and 'namespaceName' in kwargs:
             namespace_name = kwargs['namespaceName']
-        if 'partnerNamespaceId' in kwargs:
+        if namespace_name is None:
+            raise TypeError("Missing 'namespace_name' argument")
+        if partner_namespace_id is None and 'partnerNamespaceId' in kwargs:
             partner_namespace_id = kwargs['partnerNamespaceId']
-        if 'resourceGroupName' in kwargs:
+        if partner_namespace_id is None:
+            raise TypeError("Missing 'partner_namespace_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("namespace_name", namespace_name)
         _setter("partner_namespace_id", partner_namespace_id)
@@ -131,13 +137,13 @@ class _EventhubNamespaceDisasterRecoveryConfigState:
              namespace_name: Optional[pulumi.Input[str]] = None,
              partner_namespace_id: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'namespaceName' in kwargs:
+        if namespace_name is None and 'namespaceName' in kwargs:
             namespace_name = kwargs['namespaceName']
-        if 'partnerNamespaceId' in kwargs:
+        if partner_namespace_id is None and 'partnerNamespaceId' in kwargs:
             partner_namespace_id = kwargs['partnerNamespaceId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if name is not None:
@@ -211,27 +217,6 @@ class EventhubNamespaceDisasterRecoveryConfig(pulumi.CustomResource):
         """
         Manages an Disaster Recovery Config for an Event Hub Namespace.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        primary = azure.eventhub.EventHubNamespace("primary",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard")
-        secondary = azure.eventhub.EventHubNamespace("secondary",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard")
-        example_eventhub_namespace_disaster_recovery_config = azure.eventhub.EventhubNamespaceDisasterRecoveryConfig("exampleEventhubNamespaceDisasterRecoveryConfig",
-            resource_group_name=example_resource_group.name,
-            namespace_name=primary.name,
-            partner_namespace_id=secondary.id)
-        ```
-
         ## Import
 
         EventHubs can be imported using the `resource id`, e.g.
@@ -255,27 +240,6 @@ class EventhubNamespaceDisasterRecoveryConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Disaster Recovery Config for an Event Hub Namespace.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        primary = azure.eventhub.EventHubNamespace("primary",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard")
-        secondary = azure.eventhub.EventHubNamespace("secondary",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard")
-        example_eventhub_namespace_disaster_recovery_config = azure.eventhub.EventhubNamespaceDisasterRecoveryConfig("exampleEventhubNamespaceDisasterRecoveryConfig",
-            resource_group_name=example_resource_group.name,
-            namespace_name=primary.name,
-            partner_namespace_id=secondary.id)
-        ```
 
         ## Import
 

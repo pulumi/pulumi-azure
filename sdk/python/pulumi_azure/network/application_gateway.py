@@ -126,15 +126,15 @@ class ApplicationGatewayArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             backend_address_pools: pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendAddressPoolArgs']]],
-             backend_http_settings: pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingArgs']]],
-             frontend_ip_configurations: pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayFrontendIpConfigurationArgs']]],
-             frontend_ports: pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayFrontendPortArgs']]],
-             gateway_ip_configurations: pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayGatewayIpConfigurationArgs']]],
-             http_listeners: pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayHttpListenerArgs']]],
-             request_routing_rules: pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRequestRoutingRuleArgs']]],
-             resource_group_name: pulumi.Input[str],
-             sku: pulumi.Input['ApplicationGatewaySkuArgs'],
+             backend_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendAddressPoolArgs']]]] = None,
+             backend_http_settings: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingArgs']]]] = None,
+             frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayFrontendIpConfigurationArgs']]]] = None,
+             frontend_ports: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayFrontendPortArgs']]]] = None,
+             gateway_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayGatewayIpConfigurationArgs']]]] = None,
+             http_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayHttpListenerArgs']]]] = None,
+             request_routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRequestRoutingRuleArgs']]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['ApplicationGatewaySkuArgs']] = None,
              authentication_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayAuthenticationCertificateArgs']]]] = None,
              autoscale_configuration: Optional[pulumi.Input['ApplicationGatewayAutoscaleConfigurationArgs']] = None,
              custom_error_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayCustomErrorConfigurationArgs']]]] = None,
@@ -159,59 +159,77 @@ class ApplicationGatewayArgs:
              url_path_maps: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayUrlPathMapArgs']]]] = None,
              waf_configuration: Optional[pulumi.Input['ApplicationGatewayWafConfigurationArgs']] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'backendAddressPools' in kwargs:
+        if backend_address_pools is None and 'backendAddressPools' in kwargs:
             backend_address_pools = kwargs['backendAddressPools']
-        if 'backendHttpSettings' in kwargs:
+        if backend_address_pools is None:
+            raise TypeError("Missing 'backend_address_pools' argument")
+        if backend_http_settings is None and 'backendHttpSettings' in kwargs:
             backend_http_settings = kwargs['backendHttpSettings']
-        if 'frontendIpConfigurations' in kwargs:
+        if backend_http_settings is None:
+            raise TypeError("Missing 'backend_http_settings' argument")
+        if frontend_ip_configurations is None and 'frontendIpConfigurations' in kwargs:
             frontend_ip_configurations = kwargs['frontendIpConfigurations']
-        if 'frontendPorts' in kwargs:
+        if frontend_ip_configurations is None:
+            raise TypeError("Missing 'frontend_ip_configurations' argument")
+        if frontend_ports is None and 'frontendPorts' in kwargs:
             frontend_ports = kwargs['frontendPorts']
-        if 'gatewayIpConfigurations' in kwargs:
+        if frontend_ports is None:
+            raise TypeError("Missing 'frontend_ports' argument")
+        if gateway_ip_configurations is None and 'gatewayIpConfigurations' in kwargs:
             gateway_ip_configurations = kwargs['gatewayIpConfigurations']
-        if 'httpListeners' in kwargs:
+        if gateway_ip_configurations is None:
+            raise TypeError("Missing 'gateway_ip_configurations' argument")
+        if http_listeners is None and 'httpListeners' in kwargs:
             http_listeners = kwargs['httpListeners']
-        if 'requestRoutingRules' in kwargs:
+        if http_listeners is None:
+            raise TypeError("Missing 'http_listeners' argument")
+        if request_routing_rules is None and 'requestRoutingRules' in kwargs:
             request_routing_rules = kwargs['requestRoutingRules']
-        if 'resourceGroupName' in kwargs:
+        if request_routing_rules is None:
+            raise TypeError("Missing 'request_routing_rules' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'authenticationCertificates' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if authentication_certificates is None and 'authenticationCertificates' in kwargs:
             authentication_certificates = kwargs['authenticationCertificates']
-        if 'autoscaleConfiguration' in kwargs:
+        if autoscale_configuration is None and 'autoscaleConfiguration' in kwargs:
             autoscale_configuration = kwargs['autoscaleConfiguration']
-        if 'customErrorConfigurations' in kwargs:
+        if custom_error_configurations is None and 'customErrorConfigurations' in kwargs:
             custom_error_configurations = kwargs['customErrorConfigurations']
-        if 'enableHttp2' in kwargs:
+        if enable_http2 is None and 'enableHttp2' in kwargs:
             enable_http2 = kwargs['enableHttp2']
-        if 'fipsEnabled' in kwargs:
+        if fips_enabled is None and 'fipsEnabled' in kwargs:
             fips_enabled = kwargs['fipsEnabled']
-        if 'firewallPolicyId' in kwargs:
+        if firewall_policy_id is None and 'firewallPolicyId' in kwargs:
             firewall_policy_id = kwargs['firewallPolicyId']
-        if 'forceFirewallPolicyAssociation' in kwargs:
+        if force_firewall_policy_association is None and 'forceFirewallPolicyAssociation' in kwargs:
             force_firewall_policy_association = kwargs['forceFirewallPolicyAssociation']
-        if 'global' in kwargs:
+        if global_ is None and 'global' in kwargs:
             global_ = kwargs['global']
-        if 'privateLinkConfigurations' in kwargs:
+        if private_link_configurations is None and 'privateLinkConfigurations' in kwargs:
             private_link_configurations = kwargs['privateLinkConfigurations']
-        if 'redirectConfigurations' in kwargs:
+        if redirect_configurations is None and 'redirectConfigurations' in kwargs:
             redirect_configurations = kwargs['redirectConfigurations']
-        if 'rewriteRuleSets' in kwargs:
+        if rewrite_rule_sets is None and 'rewriteRuleSets' in kwargs:
             rewrite_rule_sets = kwargs['rewriteRuleSets']
-        if 'sslCertificates' in kwargs:
+        if ssl_certificates is None and 'sslCertificates' in kwargs:
             ssl_certificates = kwargs['sslCertificates']
-        if 'sslPolicy' in kwargs:
+        if ssl_policy is None and 'sslPolicy' in kwargs:
             ssl_policy = kwargs['sslPolicy']
-        if 'sslProfiles' in kwargs:
+        if ssl_profiles is None and 'sslProfiles' in kwargs:
             ssl_profiles = kwargs['sslProfiles']
-        if 'trustedClientCertificates' in kwargs:
+        if trusted_client_certificates is None and 'trustedClientCertificates' in kwargs:
             trusted_client_certificates = kwargs['trustedClientCertificates']
-        if 'trustedRootCertificates' in kwargs:
+        if trusted_root_certificates is None and 'trustedRootCertificates' in kwargs:
             trusted_root_certificates = kwargs['trustedRootCertificates']
-        if 'urlPathMaps' in kwargs:
+        if url_path_maps is None and 'urlPathMaps' in kwargs:
             url_path_maps = kwargs['urlPathMaps']
-        if 'wafConfiguration' in kwargs:
+        if waf_configuration is None and 'wafConfiguration' in kwargs:
             waf_configuration = kwargs['wafConfiguration']
 
         _setter("backend_address_pools", backend_address_pools)
@@ -821,61 +839,61 @@ class _ApplicationGatewayState:
              url_path_maps: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayUrlPathMapArgs']]]] = None,
              waf_configuration: Optional[pulumi.Input['ApplicationGatewayWafConfigurationArgs']] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'authenticationCertificates' in kwargs:
+        if authentication_certificates is None and 'authenticationCertificates' in kwargs:
             authentication_certificates = kwargs['authenticationCertificates']
-        if 'autoscaleConfiguration' in kwargs:
+        if autoscale_configuration is None and 'autoscaleConfiguration' in kwargs:
             autoscale_configuration = kwargs['autoscaleConfiguration']
-        if 'backendAddressPools' in kwargs:
+        if backend_address_pools is None and 'backendAddressPools' in kwargs:
             backend_address_pools = kwargs['backendAddressPools']
-        if 'backendHttpSettings' in kwargs:
+        if backend_http_settings is None and 'backendHttpSettings' in kwargs:
             backend_http_settings = kwargs['backendHttpSettings']
-        if 'customErrorConfigurations' in kwargs:
+        if custom_error_configurations is None and 'customErrorConfigurations' in kwargs:
             custom_error_configurations = kwargs['customErrorConfigurations']
-        if 'enableHttp2' in kwargs:
+        if enable_http2 is None and 'enableHttp2' in kwargs:
             enable_http2 = kwargs['enableHttp2']
-        if 'fipsEnabled' in kwargs:
+        if fips_enabled is None and 'fipsEnabled' in kwargs:
             fips_enabled = kwargs['fipsEnabled']
-        if 'firewallPolicyId' in kwargs:
+        if firewall_policy_id is None and 'firewallPolicyId' in kwargs:
             firewall_policy_id = kwargs['firewallPolicyId']
-        if 'forceFirewallPolicyAssociation' in kwargs:
+        if force_firewall_policy_association is None and 'forceFirewallPolicyAssociation' in kwargs:
             force_firewall_policy_association = kwargs['forceFirewallPolicyAssociation']
-        if 'frontendIpConfigurations' in kwargs:
+        if frontend_ip_configurations is None and 'frontendIpConfigurations' in kwargs:
             frontend_ip_configurations = kwargs['frontendIpConfigurations']
-        if 'frontendPorts' in kwargs:
+        if frontend_ports is None and 'frontendPorts' in kwargs:
             frontend_ports = kwargs['frontendPorts']
-        if 'gatewayIpConfigurations' in kwargs:
+        if gateway_ip_configurations is None and 'gatewayIpConfigurations' in kwargs:
             gateway_ip_configurations = kwargs['gatewayIpConfigurations']
-        if 'global' in kwargs:
+        if global_ is None and 'global' in kwargs:
             global_ = kwargs['global']
-        if 'httpListeners' in kwargs:
+        if http_listeners is None and 'httpListeners' in kwargs:
             http_listeners = kwargs['httpListeners']
-        if 'privateEndpointConnections' in kwargs:
+        if private_endpoint_connections is None and 'privateEndpointConnections' in kwargs:
             private_endpoint_connections = kwargs['privateEndpointConnections']
-        if 'privateLinkConfigurations' in kwargs:
+        if private_link_configurations is None and 'privateLinkConfigurations' in kwargs:
             private_link_configurations = kwargs['privateLinkConfigurations']
-        if 'redirectConfigurations' in kwargs:
+        if redirect_configurations is None and 'redirectConfigurations' in kwargs:
             redirect_configurations = kwargs['redirectConfigurations']
-        if 'requestRoutingRules' in kwargs:
+        if request_routing_rules is None and 'requestRoutingRules' in kwargs:
             request_routing_rules = kwargs['requestRoutingRules']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'rewriteRuleSets' in kwargs:
+        if rewrite_rule_sets is None and 'rewriteRuleSets' in kwargs:
             rewrite_rule_sets = kwargs['rewriteRuleSets']
-        if 'sslCertificates' in kwargs:
+        if ssl_certificates is None and 'sslCertificates' in kwargs:
             ssl_certificates = kwargs['sslCertificates']
-        if 'sslPolicy' in kwargs:
+        if ssl_policy is None and 'sslPolicy' in kwargs:
             ssl_policy = kwargs['sslPolicy']
-        if 'sslProfiles' in kwargs:
+        if ssl_profiles is None and 'sslProfiles' in kwargs:
             ssl_profiles = kwargs['sslProfiles']
-        if 'trustedClientCertificates' in kwargs:
+        if trusted_client_certificates is None and 'trustedClientCertificates' in kwargs:
             trusted_client_certificates = kwargs['trustedClientCertificates']
-        if 'trustedRootCertificates' in kwargs:
+        if trusted_root_certificates is None and 'trustedRootCertificates' in kwargs:
             trusted_root_certificates = kwargs['trustedRootCertificates']
-        if 'urlPathMaps' in kwargs:
+        if url_path_maps is None and 'urlPathMaps' in kwargs:
             url_path_maps = kwargs['urlPathMaps']
-        if 'wafConfiguration' in kwargs:
+        if waf_configuration is None and 'wafConfiguration' in kwargs:
             waf_configuration = kwargs['wafConfiguration']
 
         if authentication_certificates is not None:
@@ -1400,83 +1418,6 @@ class ApplicationGateway(pulumi.CustomResource):
         """
         Manages an Application Gateway.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            address_spaces=["10.254.0.0/16"])
-        frontend = azure.network.Subnet("frontend",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.254.0.0/24"])
-        backend = azure.network.Subnet("backend",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.254.2.0/24"])
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            allocation_method="Dynamic")
-        backend_address_pool_name = example_virtual_network.name.apply(lambda name: f"{name}-beap")
-        frontend_port_name = example_virtual_network.name.apply(lambda name: f"{name}-feport")
-        frontend_ip_configuration_name = example_virtual_network.name.apply(lambda name: f"{name}-feip")
-        http_setting_name = example_virtual_network.name.apply(lambda name: f"{name}-be-htst")
-        listener_name = example_virtual_network.name.apply(lambda name: f"{name}-httplstn")
-        request_routing_rule_name = example_virtual_network.name.apply(lambda name: f"{name}-rqrt")
-        redirect_configuration_name = example_virtual_network.name.apply(lambda name: f"{name}-rdrcfg")
-        network = azure.network.ApplicationGateway("network",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku=azure.network.ApplicationGatewaySkuArgs(
-                name="Standard_v2",
-                tier="Standard_v2",
-                capacity=2,
-            ),
-            gateway_ip_configurations=[azure.network.ApplicationGatewayGatewayIpConfigurationArgs(
-                name="my-gateway-ip-configuration",
-                subnet_id=frontend.id,
-            )],
-            frontend_ports=[azure.network.ApplicationGatewayFrontendPortArgs(
-                name=frontend_port_name,
-                port=80,
-            )],
-            frontend_ip_configurations=[azure.network.ApplicationGatewayFrontendIpConfigurationArgs(
-                name=frontend_ip_configuration_name,
-                public_ip_address_id=example_public_ip.id,
-            )],
-            backend_address_pools=[azure.network.ApplicationGatewayBackendAddressPoolArgs(
-                name=backend_address_pool_name,
-            )],
-            backend_http_settings=[azure.network.ApplicationGatewayBackendHttpSettingArgs(
-                name=http_setting_name,
-                cookie_based_affinity="Disabled",
-                path="/path1/",
-                port=80,
-                protocol="Http",
-                request_timeout=60,
-            )],
-            http_listeners=[azure.network.ApplicationGatewayHttpListenerArgs(
-                name=listener_name,
-                frontend_ip_configuration_name=frontend_ip_configuration_name,
-                frontend_port_name=frontend_port_name,
-                protocol="Http",
-            )],
-            request_routing_rules=[azure.network.ApplicationGatewayRequestRoutingRuleArgs(
-                name=request_routing_rule_name,
-                priority=9,
-                rule_type="Basic",
-                http_listener_name=listener_name,
-                backend_address_pool_name=backend_address_pool_name,
-                backend_http_settings_name=http_setting_name,
-            )])
-        ```
-
         ## Import
 
         Application Gateway's can be imported using the `resource id`, e.g.
@@ -1531,83 +1472,6 @@ class ApplicationGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Application Gateway.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            address_spaces=["10.254.0.0/16"])
-        frontend = azure.network.Subnet("frontend",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.254.0.0/24"])
-        backend = azure.network.Subnet("backend",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.254.2.0/24"])
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            allocation_method="Dynamic")
-        backend_address_pool_name = example_virtual_network.name.apply(lambda name: f"{name}-beap")
-        frontend_port_name = example_virtual_network.name.apply(lambda name: f"{name}-feport")
-        frontend_ip_configuration_name = example_virtual_network.name.apply(lambda name: f"{name}-feip")
-        http_setting_name = example_virtual_network.name.apply(lambda name: f"{name}-be-htst")
-        listener_name = example_virtual_network.name.apply(lambda name: f"{name}-httplstn")
-        request_routing_rule_name = example_virtual_network.name.apply(lambda name: f"{name}-rqrt")
-        redirect_configuration_name = example_virtual_network.name.apply(lambda name: f"{name}-rdrcfg")
-        network = azure.network.ApplicationGateway("network",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku=azure.network.ApplicationGatewaySkuArgs(
-                name="Standard_v2",
-                tier="Standard_v2",
-                capacity=2,
-            ),
-            gateway_ip_configurations=[azure.network.ApplicationGatewayGatewayIpConfigurationArgs(
-                name="my-gateway-ip-configuration",
-                subnet_id=frontend.id,
-            )],
-            frontend_ports=[azure.network.ApplicationGatewayFrontendPortArgs(
-                name=frontend_port_name,
-                port=80,
-            )],
-            frontend_ip_configurations=[azure.network.ApplicationGatewayFrontendIpConfigurationArgs(
-                name=frontend_ip_configuration_name,
-                public_ip_address_id=example_public_ip.id,
-            )],
-            backend_address_pools=[azure.network.ApplicationGatewayBackendAddressPoolArgs(
-                name=backend_address_pool_name,
-            )],
-            backend_http_settings=[azure.network.ApplicationGatewayBackendHttpSettingArgs(
-                name=http_setting_name,
-                cookie_based_affinity="Disabled",
-                path="/path1/",
-                port=80,
-                protocol="Http",
-                request_timeout=60,
-            )],
-            http_listeners=[azure.network.ApplicationGatewayHttpListenerArgs(
-                name=listener_name,
-                frontend_ip_configuration_name=frontend_ip_configuration_name,
-                frontend_port_name=frontend_port_name,
-                protocol="Http",
-            )],
-            request_routing_rules=[azure.network.ApplicationGatewayRequestRoutingRuleArgs(
-                name=request_routing_rule_name,
-                priority=9,
-                rule_type="Basic",
-                http_listener_name=listener_name,
-                backend_address_pool_name=backend_address_pool_name,
-                backend_http_settings_name=http_setting_name,
-            )])
-        ```
 
         ## Import
 
@@ -1679,11 +1543,7 @@ class ApplicationGateway(pulumi.CustomResource):
             __props__ = ApplicationGatewayArgs.__new__(ApplicationGatewayArgs)
 
             __props__.__dict__["authentication_certificates"] = authentication_certificates
-            if autoscale_configuration is not None and not isinstance(autoscale_configuration, ApplicationGatewayAutoscaleConfigurationArgs):
-                autoscale_configuration = autoscale_configuration or {}
-                def _setter(key, value):
-                    autoscale_configuration[key] = value
-                ApplicationGatewayAutoscaleConfigurationArgs._configure(_setter, **autoscale_configuration)
+            autoscale_configuration = _utilities.configure(autoscale_configuration, ApplicationGatewayAutoscaleConfigurationArgs, True)
             __props__.__dict__["autoscale_configuration"] = autoscale_configuration
             if backend_address_pools is None and not opts.urn:
                 raise TypeError("Missing required property 'backend_address_pools'")
@@ -1705,20 +1565,12 @@ class ApplicationGateway(pulumi.CustomResource):
             if gateway_ip_configurations is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway_ip_configurations'")
             __props__.__dict__["gateway_ip_configurations"] = gateway_ip_configurations
-            if global_ is not None and not isinstance(global_, ApplicationGatewayGlobalArgs):
-                global_ = global_ or {}
-                def _setter(key, value):
-                    global_[key] = value
-                ApplicationGatewayGlobalArgs._configure(_setter, **global_)
+            global_ = _utilities.configure(global_, ApplicationGatewayGlobalArgs, True)
             __props__.__dict__["global_"] = global_
             if http_listeners is None and not opts.urn:
                 raise TypeError("Missing required property 'http_listeners'")
             __props__.__dict__["http_listeners"] = http_listeners
-            if identity is not None and not isinstance(identity, ApplicationGatewayIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                ApplicationGatewayIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, ApplicationGatewayIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -1732,31 +1584,19 @@ class ApplicationGateway(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["rewrite_rule_sets"] = rewrite_rule_sets
-            if sku is not None and not isinstance(sku, ApplicationGatewaySkuArgs):
-                sku = sku or {}
-                def _setter(key, value):
-                    sku[key] = value
-                ApplicationGatewaySkuArgs._configure(_setter, **sku)
+            sku = _utilities.configure(sku, ApplicationGatewaySkuArgs, True)
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
             __props__.__dict__["ssl_certificates"] = ssl_certificates
-            if ssl_policy is not None and not isinstance(ssl_policy, ApplicationGatewaySslPolicyArgs):
-                ssl_policy = ssl_policy or {}
-                def _setter(key, value):
-                    ssl_policy[key] = value
-                ApplicationGatewaySslPolicyArgs._configure(_setter, **ssl_policy)
+            ssl_policy = _utilities.configure(ssl_policy, ApplicationGatewaySslPolicyArgs, True)
             __props__.__dict__["ssl_policy"] = ssl_policy
             __props__.__dict__["ssl_profiles"] = ssl_profiles
             __props__.__dict__["tags"] = tags
             __props__.__dict__["trusted_client_certificates"] = trusted_client_certificates
             __props__.__dict__["trusted_root_certificates"] = trusted_root_certificates
             __props__.__dict__["url_path_maps"] = url_path_maps
-            if waf_configuration is not None and not isinstance(waf_configuration, ApplicationGatewayWafConfigurationArgs):
-                waf_configuration = waf_configuration or {}
-                def _setter(key, value):
-                    waf_configuration[key] = value
-                ApplicationGatewayWafConfigurationArgs._configure(_setter, **waf_configuration)
+            waf_configuration = _utilities.configure(waf_configuration, ApplicationGatewayWafConfigurationArgs, True)
             __props__.__dict__["waf_configuration"] = waf_configuration
             __props__.__dict__["zones"] = zones
             __props__.__dict__["private_endpoint_connections"] = None

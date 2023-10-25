@@ -139,7 +139,7 @@ class ApiContact(dict):
              email: Optional[str] = None,
              name: Optional[str] = None,
              url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
 
         if email is not None:
@@ -218,13 +218,13 @@ class ApiDiagnosticBackendRequest(dict):
              body_bytes: Optional[int] = None,
              data_masking: Optional['outputs.ApiDiagnosticBackendRequestDataMasking'] = None,
              headers_to_logs: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'bodyBytes' in kwargs:
+        if body_bytes is None and 'bodyBytes' in kwargs:
             body_bytes = kwargs['bodyBytes']
-        if 'dataMasking' in kwargs:
+        if data_masking is None and 'dataMasking' in kwargs:
             data_masking = kwargs['dataMasking']
-        if 'headersToLogs' in kwargs:
+        if headers_to_logs is None and 'headersToLogs' in kwargs:
             headers_to_logs = kwargs['headersToLogs']
 
         if body_bytes is not None:
@@ -295,9 +295,9 @@ class ApiDiagnosticBackendRequestDataMasking(dict):
              _setter: Callable[[Any, Any], None],
              headers: Optional[Sequence['outputs.ApiDiagnosticBackendRequestDataMaskingHeader']] = None,
              query_params: Optional[Sequence['outputs.ApiDiagnosticBackendRequestDataMaskingQueryParam']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'queryParams' in kwargs:
+        if query_params is None and 'queryParams' in kwargs:
             query_params = kwargs['queryParams']
 
         if headers is not None:
@@ -339,10 +339,14 @@ class ApiDiagnosticBackendRequestDataMaskingHeader(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mode: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             mode: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if mode is None:
+            raise TypeError("Missing 'mode' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("mode", mode)
         _setter("value", value)
@@ -381,10 +385,14 @@ class ApiDiagnosticBackendRequestDataMaskingQueryParam(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mode: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             mode: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if mode is None:
+            raise TypeError("Missing 'mode' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("mode", mode)
         _setter("value", value)
@@ -450,13 +458,13 @@ class ApiDiagnosticBackendResponse(dict):
              body_bytes: Optional[int] = None,
              data_masking: Optional['outputs.ApiDiagnosticBackendResponseDataMasking'] = None,
              headers_to_logs: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'bodyBytes' in kwargs:
+        if body_bytes is None and 'bodyBytes' in kwargs:
             body_bytes = kwargs['bodyBytes']
-        if 'dataMasking' in kwargs:
+        if data_masking is None and 'dataMasking' in kwargs:
             data_masking = kwargs['dataMasking']
-        if 'headersToLogs' in kwargs:
+        if headers_to_logs is None and 'headersToLogs' in kwargs:
             headers_to_logs = kwargs['headersToLogs']
 
         if body_bytes is not None:
@@ -527,9 +535,9 @@ class ApiDiagnosticBackendResponseDataMasking(dict):
              _setter: Callable[[Any, Any], None],
              headers: Optional[Sequence['outputs.ApiDiagnosticBackendResponseDataMaskingHeader']] = None,
              query_params: Optional[Sequence['outputs.ApiDiagnosticBackendResponseDataMaskingQueryParam']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'queryParams' in kwargs:
+        if query_params is None and 'queryParams' in kwargs:
             query_params = kwargs['queryParams']
 
         if headers is not None:
@@ -571,10 +579,14 @@ class ApiDiagnosticBackendResponseDataMaskingHeader(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mode: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             mode: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if mode is None:
+            raise TypeError("Missing 'mode' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("mode", mode)
         _setter("value", value)
@@ -613,10 +625,14 @@ class ApiDiagnosticBackendResponseDataMaskingQueryParam(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mode: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             mode: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if mode is None:
+            raise TypeError("Missing 'mode' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("mode", mode)
         _setter("value", value)
@@ -682,13 +698,13 @@ class ApiDiagnosticFrontendRequest(dict):
              body_bytes: Optional[int] = None,
              data_masking: Optional['outputs.ApiDiagnosticFrontendRequestDataMasking'] = None,
              headers_to_logs: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'bodyBytes' in kwargs:
+        if body_bytes is None and 'bodyBytes' in kwargs:
             body_bytes = kwargs['bodyBytes']
-        if 'dataMasking' in kwargs:
+        if data_masking is None and 'dataMasking' in kwargs:
             data_masking = kwargs['dataMasking']
-        if 'headersToLogs' in kwargs:
+        if headers_to_logs is None and 'headersToLogs' in kwargs:
             headers_to_logs = kwargs['headersToLogs']
 
         if body_bytes is not None:
@@ -759,9 +775,9 @@ class ApiDiagnosticFrontendRequestDataMasking(dict):
              _setter: Callable[[Any, Any], None],
              headers: Optional[Sequence['outputs.ApiDiagnosticFrontendRequestDataMaskingHeader']] = None,
              query_params: Optional[Sequence['outputs.ApiDiagnosticFrontendRequestDataMaskingQueryParam']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'queryParams' in kwargs:
+        if query_params is None and 'queryParams' in kwargs:
             query_params = kwargs['queryParams']
 
         if headers is not None:
@@ -803,10 +819,14 @@ class ApiDiagnosticFrontendRequestDataMaskingHeader(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mode: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             mode: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if mode is None:
+            raise TypeError("Missing 'mode' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("mode", mode)
         _setter("value", value)
@@ -845,10 +865,14 @@ class ApiDiagnosticFrontendRequestDataMaskingQueryParam(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mode: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             mode: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if mode is None:
+            raise TypeError("Missing 'mode' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("mode", mode)
         _setter("value", value)
@@ -914,13 +938,13 @@ class ApiDiagnosticFrontendResponse(dict):
              body_bytes: Optional[int] = None,
              data_masking: Optional['outputs.ApiDiagnosticFrontendResponseDataMasking'] = None,
              headers_to_logs: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'bodyBytes' in kwargs:
+        if body_bytes is None and 'bodyBytes' in kwargs:
             body_bytes = kwargs['bodyBytes']
-        if 'dataMasking' in kwargs:
+        if data_masking is None and 'dataMasking' in kwargs:
             data_masking = kwargs['dataMasking']
-        if 'headersToLogs' in kwargs:
+        if headers_to_logs is None and 'headersToLogs' in kwargs:
             headers_to_logs = kwargs['headersToLogs']
 
         if body_bytes is not None:
@@ -991,9 +1015,9 @@ class ApiDiagnosticFrontendResponseDataMasking(dict):
              _setter: Callable[[Any, Any], None],
              headers: Optional[Sequence['outputs.ApiDiagnosticFrontendResponseDataMaskingHeader']] = None,
              query_params: Optional[Sequence['outputs.ApiDiagnosticFrontendResponseDataMaskingQueryParam']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'queryParams' in kwargs:
+        if query_params is None and 'queryParams' in kwargs:
             query_params = kwargs['queryParams']
 
         if headers is not None:
@@ -1035,10 +1059,14 @@ class ApiDiagnosticFrontendResponseDataMaskingHeader(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mode: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             mode: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if mode is None:
+            raise TypeError("Missing 'mode' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("mode", mode)
         _setter("value", value)
@@ -1077,10 +1105,14 @@ class ApiDiagnosticFrontendResponseDataMaskingQueryParam(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mode: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             mode: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if mode is None:
+            raise TypeError("Missing 'mode' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("mode", mode)
         _setter("value", value)
@@ -1143,16 +1175,20 @@ class ApiImport(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             content_format: str,
-             content_value: str,
+             content_format: Optional[str] = None,
+             content_value: Optional[str] = None,
              wsdl_selector: Optional['outputs.ApiImportWsdlSelector'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'contentFormat' in kwargs:
+        if content_format is None and 'contentFormat' in kwargs:
             content_format = kwargs['contentFormat']
-        if 'contentValue' in kwargs:
+        if content_format is None:
+            raise TypeError("Missing 'content_format' argument")
+        if content_value is None and 'contentValue' in kwargs:
             content_value = kwargs['contentValue']
-        if 'wsdlSelector' in kwargs:
+        if content_value is None:
+            raise TypeError("Missing 'content_value' argument")
+        if wsdl_selector is None and 'wsdlSelector' in kwargs:
             wsdl_selector = kwargs['wsdlSelector']
 
         _setter("content_format", content_format)
@@ -1221,14 +1257,18 @@ class ApiImportWsdlSelector(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             endpoint_name: str,
-             service_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             endpoint_name: Optional[str] = None,
+             service_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'endpointName' in kwargs:
+        if endpoint_name is None and 'endpointName' in kwargs:
             endpoint_name = kwargs['endpointName']
-        if 'serviceName' in kwargs:
+        if endpoint_name is None:
+            raise TypeError("Missing 'endpoint_name' argument")
+        if service_name is None and 'serviceName' in kwargs:
             service_name = kwargs['serviceName']
+        if service_name is None:
+            raise TypeError("Missing 'service_name' argument")
 
         _setter("endpoint_name", endpoint_name)
         _setter("service_name", service_name)
@@ -1269,7 +1309,7 @@ class ApiLicense(dict):
              _setter: Callable[[Any, Any], None],
              name: Optional[str] = None,
              url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
 
         if name is not None:
@@ -1328,12 +1368,14 @@ class ApiOauth2Authorization(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             authorization_server_name: str,
+             authorization_server_name: Optional[str] = None,
              scope: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'authorizationServerName' in kwargs:
+        if authorization_server_name is None and 'authorizationServerName' in kwargs:
             authorization_server_name = kwargs['authorizationServerName']
+        if authorization_server_name is None:
+            raise TypeError("Missing 'authorization_server_name' argument")
 
         _setter("authorization_server_name", authorization_server_name)
         if scope is not None:
@@ -1392,13 +1434,15 @@ class ApiOpenidAuthentication(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             openid_provider_name: str,
+             openid_provider_name: Optional[str] = None,
              bearer_token_sending_methods: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'openidProviderName' in kwargs:
+        if openid_provider_name is None and 'openidProviderName' in kwargs:
             openid_provider_name = kwargs['openidProviderName']
-        if 'bearerTokenSendingMethods' in kwargs:
+        if openid_provider_name is None:
+            raise TypeError("Missing 'openid_provider_name' argument")
+        if bearer_token_sending_methods is None and 'bearerTokenSendingMethods' in kwargs:
             bearer_token_sending_methods = kwargs['bearerTokenSendingMethods']
 
         _setter("openid_provider_name", openid_provider_name)
@@ -1466,9 +1510,9 @@ class ApiOperationRequest(dict):
              headers: Optional[Sequence['outputs.ApiOperationRequestHeader']] = None,
              query_parameters: Optional[Sequence['outputs.ApiOperationRequestQueryParameter']] = None,
              representations: Optional[Sequence['outputs.ApiOperationRequestRepresentation']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'queryParameters' in kwargs:
+        if query_parameters is None and 'queryParameters' in kwargs:
             query_parameters = kwargs['queryParameters']
 
         if description is not None:
@@ -1572,22 +1616,28 @@ class ApiOperationRequestHeader(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             required: bool,
-             type: str,
+             name: Optional[str] = None,
+             required: Optional[bool] = None,
+             type: Optional[str] = None,
              default_value: Optional[str] = None,
              description: Optional[str] = None,
              examples: Optional[Sequence['outputs.ApiOperationRequestHeaderExample']] = None,
              schema_id: Optional[str] = None,
              type_name: Optional[str] = None,
              values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'defaultValue' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if required is None:
+            raise TypeError("Missing 'required' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if default_value is None and 'defaultValue' in kwargs:
             default_value = kwargs['defaultValue']
-        if 'schemaId' in kwargs:
+        if schema_id is None and 'schemaId' in kwargs:
             schema_id = kwargs['schemaId']
-        if 'typeName' in kwargs:
+        if type_name is None and 'typeName' in kwargs:
             type_name = kwargs['typeName']
 
         _setter("name", name)
@@ -1722,14 +1772,16 @@ class ApiOperationRequestHeaderExample(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              description: Optional[str] = None,
              external_value: Optional[str] = None,
              summary: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'externalValue' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if external_value is None and 'externalValue' in kwargs:
             external_value = kwargs['externalValue']
 
         _setter("name", name)
@@ -1842,22 +1894,28 @@ class ApiOperationRequestQueryParameter(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             required: bool,
-             type: str,
+             name: Optional[str] = None,
+             required: Optional[bool] = None,
+             type: Optional[str] = None,
              default_value: Optional[str] = None,
              description: Optional[str] = None,
              examples: Optional[Sequence['outputs.ApiOperationRequestQueryParameterExample']] = None,
              schema_id: Optional[str] = None,
              type_name: Optional[str] = None,
              values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'defaultValue' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if required is None:
+            raise TypeError("Missing 'required' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if default_value is None and 'defaultValue' in kwargs:
             default_value = kwargs['defaultValue']
-        if 'schemaId' in kwargs:
+        if schema_id is None and 'schemaId' in kwargs:
             schema_id = kwargs['schemaId']
-        if 'typeName' in kwargs:
+        if type_name is None and 'typeName' in kwargs:
             type_name = kwargs['typeName']
 
         _setter("name", name)
@@ -1992,14 +2050,16 @@ class ApiOperationRequestQueryParameterExample(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              description: Optional[str] = None,
              external_value: Optional[str] = None,
              summary: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'externalValue' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if external_value is None and 'externalValue' in kwargs:
             external_value = kwargs['externalValue']
 
         _setter("name", name)
@@ -2108,20 +2168,22 @@ class ApiOperationRequestRepresentation(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             content_type: str,
+             content_type: Optional[str] = None,
              examples: Optional[Sequence['outputs.ApiOperationRequestRepresentationExample']] = None,
              form_parameters: Optional[Sequence['outputs.ApiOperationRequestRepresentationFormParameter']] = None,
              schema_id: Optional[str] = None,
              type_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'contentType' in kwargs:
+        if content_type is None and 'contentType' in kwargs:
             content_type = kwargs['contentType']
-        if 'formParameters' in kwargs:
+        if content_type is None:
+            raise TypeError("Missing 'content_type' argument")
+        if form_parameters is None and 'formParameters' in kwargs:
             form_parameters = kwargs['formParameters']
-        if 'schemaId' in kwargs:
+        if schema_id is None and 'schemaId' in kwargs:
             schema_id = kwargs['schemaId']
-        if 'typeName' in kwargs:
+        if type_name is None and 'typeName' in kwargs:
             type_name = kwargs['typeName']
 
         _setter("content_type", content_type)
@@ -2224,14 +2286,16 @@ class ApiOperationRequestRepresentationExample(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              description: Optional[str] = None,
              external_value: Optional[str] = None,
              summary: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'externalValue' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if external_value is None and 'externalValue' in kwargs:
             external_value = kwargs['externalValue']
 
         _setter("name", name)
@@ -2344,22 +2408,28 @@ class ApiOperationRequestRepresentationFormParameter(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             required: bool,
-             type: str,
+             name: Optional[str] = None,
+             required: Optional[bool] = None,
+             type: Optional[str] = None,
              default_value: Optional[str] = None,
              description: Optional[str] = None,
              examples: Optional[Sequence['outputs.ApiOperationRequestRepresentationFormParameterExample']] = None,
              schema_id: Optional[str] = None,
              type_name: Optional[str] = None,
              values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'defaultValue' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if required is None:
+            raise TypeError("Missing 'required' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if default_value is None and 'defaultValue' in kwargs:
             default_value = kwargs['defaultValue']
-        if 'schemaId' in kwargs:
+        if schema_id is None and 'schemaId' in kwargs:
             schema_id = kwargs['schemaId']
-        if 'typeName' in kwargs:
+        if type_name is None and 'typeName' in kwargs:
             type_name = kwargs['typeName']
 
         _setter("name", name)
@@ -2494,14 +2564,16 @@ class ApiOperationRequestRepresentationFormParameterExample(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              description: Optional[str] = None,
              external_value: Optional[str] = None,
              summary: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'externalValue' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if external_value is None and 'externalValue' in kwargs:
             external_value = kwargs['externalValue']
 
         _setter("name", name)
@@ -2595,14 +2667,16 @@ class ApiOperationResponse(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             status_code: int,
+             status_code: Optional[int] = None,
              description: Optional[str] = None,
              headers: Optional[Sequence['outputs.ApiOperationResponseHeader']] = None,
              representations: Optional[Sequence['outputs.ApiOperationResponseRepresentation']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'statusCode' in kwargs:
+        if status_code is None and 'statusCode' in kwargs:
             status_code = kwargs['statusCode']
+        if status_code is None:
+            raise TypeError("Missing 'status_code' argument")
 
         _setter("status_code", status_code)
         if description is not None:
@@ -2704,22 +2778,28 @@ class ApiOperationResponseHeader(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             required: bool,
-             type: str,
+             name: Optional[str] = None,
+             required: Optional[bool] = None,
+             type: Optional[str] = None,
              default_value: Optional[str] = None,
              description: Optional[str] = None,
              examples: Optional[Sequence['outputs.ApiOperationResponseHeaderExample']] = None,
              schema_id: Optional[str] = None,
              type_name: Optional[str] = None,
              values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'defaultValue' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if required is None:
+            raise TypeError("Missing 'required' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if default_value is None and 'defaultValue' in kwargs:
             default_value = kwargs['defaultValue']
-        if 'schemaId' in kwargs:
+        if schema_id is None and 'schemaId' in kwargs:
             schema_id = kwargs['schemaId']
-        if 'typeName' in kwargs:
+        if type_name is None and 'typeName' in kwargs:
             type_name = kwargs['typeName']
 
         _setter("name", name)
@@ -2854,14 +2934,16 @@ class ApiOperationResponseHeaderExample(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              description: Optional[str] = None,
              external_value: Optional[str] = None,
              summary: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'externalValue' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if external_value is None and 'externalValue' in kwargs:
             external_value = kwargs['externalValue']
 
         _setter("name", name)
@@ -2970,20 +3052,22 @@ class ApiOperationResponseRepresentation(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             content_type: str,
+             content_type: Optional[str] = None,
              examples: Optional[Sequence['outputs.ApiOperationResponseRepresentationExample']] = None,
              form_parameters: Optional[Sequence['outputs.ApiOperationResponseRepresentationFormParameter']] = None,
              schema_id: Optional[str] = None,
              type_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'contentType' in kwargs:
+        if content_type is None and 'contentType' in kwargs:
             content_type = kwargs['contentType']
-        if 'formParameters' in kwargs:
+        if content_type is None:
+            raise TypeError("Missing 'content_type' argument")
+        if form_parameters is None and 'formParameters' in kwargs:
             form_parameters = kwargs['formParameters']
-        if 'schemaId' in kwargs:
+        if schema_id is None and 'schemaId' in kwargs:
             schema_id = kwargs['schemaId']
-        if 'typeName' in kwargs:
+        if type_name is None and 'typeName' in kwargs:
             type_name = kwargs['typeName']
 
         _setter("content_type", content_type)
@@ -3086,14 +3170,16 @@ class ApiOperationResponseRepresentationExample(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              description: Optional[str] = None,
              external_value: Optional[str] = None,
              summary: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'externalValue' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if external_value is None and 'externalValue' in kwargs:
             external_value = kwargs['externalValue']
 
         _setter("name", name)
@@ -3206,22 +3292,28 @@ class ApiOperationResponseRepresentationFormParameter(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             required: bool,
-             type: str,
+             name: Optional[str] = None,
+             required: Optional[bool] = None,
+             type: Optional[str] = None,
              default_value: Optional[str] = None,
              description: Optional[str] = None,
              examples: Optional[Sequence['outputs.ApiOperationResponseRepresentationFormParameterExample']] = None,
              schema_id: Optional[str] = None,
              type_name: Optional[str] = None,
              values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'defaultValue' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if required is None:
+            raise TypeError("Missing 'required' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if default_value is None and 'defaultValue' in kwargs:
             default_value = kwargs['defaultValue']
-        if 'schemaId' in kwargs:
+        if schema_id is None and 'schemaId' in kwargs:
             schema_id = kwargs['schemaId']
-        if 'typeName' in kwargs:
+        if type_name is None and 'typeName' in kwargs:
             type_name = kwargs['typeName']
 
         _setter("name", name)
@@ -3356,14 +3448,16 @@ class ApiOperationResponseRepresentationFormParameterExample(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              description: Optional[str] = None,
              external_value: Optional[str] = None,
              summary: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'externalValue' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if external_value is None and 'externalValue' in kwargs:
             external_value = kwargs['externalValue']
 
         _setter("name", name)
@@ -3476,22 +3570,28 @@ class ApiOperationTemplateParameter(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             required: bool,
-             type: str,
+             name: Optional[str] = None,
+             required: Optional[bool] = None,
+             type: Optional[str] = None,
              default_value: Optional[str] = None,
              description: Optional[str] = None,
              examples: Optional[Sequence['outputs.ApiOperationTemplateParameterExample']] = None,
              schema_id: Optional[str] = None,
              type_name: Optional[str] = None,
              values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'defaultValue' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if required is None:
+            raise TypeError("Missing 'required' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if default_value is None and 'defaultValue' in kwargs:
             default_value = kwargs['defaultValue']
-        if 'schemaId' in kwargs:
+        if schema_id is None and 'schemaId' in kwargs:
             schema_id = kwargs['schemaId']
-        if 'typeName' in kwargs:
+        if type_name is None and 'typeName' in kwargs:
             type_name = kwargs['typeName']
 
         _setter("name", name)
@@ -3626,14 +3726,16 @@ class ApiOperationTemplateParameterExample(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              description: Optional[str] = None,
              external_value: Optional[str] = None,
              summary: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'externalValue' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if external_value is None and 'externalValue' in kwargs:
             external_value = kwargs['externalValue']
 
         _setter("name", name)
@@ -3704,10 +3806,14 @@ class ApiSubscriptionKeyParameterNames(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             header: str,
-             query: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             header: Optional[str] = None,
+             query: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if header is None:
+            raise TypeError("Missing 'header' argument")
+        if query is None:
+            raise TypeError("Missing 'query' argument")
 
         _setter("header", header)
         _setter("query", query)
@@ -3746,10 +3852,14 @@ class AuthorizationServerTokenBodyParameter(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("name", name)
         _setter("value", value)
@@ -3798,7 +3908,7 @@ class BackendCredentials(dict):
              certificates: Optional[Sequence[str]] = None,
              header: Optional[Mapping[str, str]] = None,
              query: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
 
         if authorization is not None:
@@ -3862,7 +3972,7 @@ class BackendCredentialsAuthorization(dict):
              _setter: Callable[[Any, Any], None],
              parameter: Optional[str] = None,
              scheme: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
 
         if parameter is not None:
@@ -3907,11 +4017,15 @@ class BackendProxy(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             url: str,
-             username: str,
+             url: Optional[str] = None,
+             username: Optional[str] = None,
              password: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
 
         _setter("url", url)
         _setter("username", username)
@@ -4002,25 +4116,29 @@ class BackendServiceFabricCluster(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             management_endpoints: Sequence[str],
-             max_partition_resolution_retries: int,
+             management_endpoints: Optional[Sequence[str]] = None,
+             max_partition_resolution_retries: Optional[int] = None,
              client_certificate_id: Optional[str] = None,
              client_certificate_thumbprint: Optional[str] = None,
              server_certificate_thumbprints: Optional[Sequence[str]] = None,
              server_x509_names: Optional[Sequence['outputs.BackendServiceFabricClusterServerX509Name']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'managementEndpoints' in kwargs:
+        if management_endpoints is None and 'managementEndpoints' in kwargs:
             management_endpoints = kwargs['managementEndpoints']
-        if 'maxPartitionResolutionRetries' in kwargs:
+        if management_endpoints is None:
+            raise TypeError("Missing 'management_endpoints' argument")
+        if max_partition_resolution_retries is None and 'maxPartitionResolutionRetries' in kwargs:
             max_partition_resolution_retries = kwargs['maxPartitionResolutionRetries']
-        if 'clientCertificateId' in kwargs:
+        if max_partition_resolution_retries is None:
+            raise TypeError("Missing 'max_partition_resolution_retries' argument")
+        if client_certificate_id is None and 'clientCertificateId' in kwargs:
             client_certificate_id = kwargs['clientCertificateId']
-        if 'clientCertificateThumbprint' in kwargs:
+        if client_certificate_thumbprint is None and 'clientCertificateThumbprint' in kwargs:
             client_certificate_thumbprint = kwargs['clientCertificateThumbprint']
-        if 'serverCertificateThumbprints' in kwargs:
+        if server_certificate_thumbprints is None and 'serverCertificateThumbprints' in kwargs:
             server_certificate_thumbprints = kwargs['serverCertificateThumbprints']
-        if 'serverX509Names' in kwargs:
+        if server_x509_names is None and 'serverX509Names' in kwargs:
             server_x509_names = kwargs['serverX509Names']
 
         _setter("management_endpoints", management_endpoints)
@@ -4120,12 +4238,16 @@ class BackendServiceFabricClusterServerX509Name(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             issuer_certificate_thumbprint: str,
-             name: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             issuer_certificate_thumbprint: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'issuerCertificateThumbprint' in kwargs:
+        if issuer_certificate_thumbprint is None and 'issuerCertificateThumbprint' in kwargs:
             issuer_certificate_thumbprint = kwargs['issuerCertificateThumbprint']
+        if issuer_certificate_thumbprint is None:
+            raise TypeError("Missing 'issuer_certificate_thumbprint' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("issuer_certificate_thumbprint", issuer_certificate_thumbprint)
         _setter("name", name)
@@ -4185,11 +4307,11 @@ class BackendTls(dict):
              _setter: Callable[[Any, Any], None],
              validate_certificate_chain: Optional[bool] = None,
              validate_certificate_name: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'validateCertificateChain' in kwargs:
+        if validate_certificate_chain is None and 'validateCertificateChain' in kwargs:
             validate_certificate_chain = kwargs['validateCertificateChain']
-        if 'validateCertificateName' in kwargs:
+        if validate_certificate_name is None and 'validateCertificateName' in kwargs:
             validate_certificate_name = kwargs['validateCertificateName']
 
         if validate_certificate_chain is not None:
@@ -4284,7 +4406,7 @@ class CustomDomainDeveloperPortal(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             host_name: str,
+             host_name: Optional[str] = None,
              certificate: Optional[str] = None,
              certificate_password: Optional[str] = None,
              certificate_source: Optional[str] = None,
@@ -4295,21 +4417,23 @@ class CustomDomainDeveloperPortal(dict):
              ssl_keyvault_identity_client_id: Optional[str] = None,
              subject: Optional[str] = None,
              thumbprint: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'hostName' in kwargs:
+        if host_name is None and 'hostName' in kwargs:
             host_name = kwargs['hostName']
-        if 'certificatePassword' in kwargs:
+        if host_name is None:
+            raise TypeError("Missing 'host_name' argument")
+        if certificate_password is None and 'certificatePassword' in kwargs:
             certificate_password = kwargs['certificatePassword']
-        if 'certificateSource' in kwargs:
+        if certificate_source is None and 'certificateSource' in kwargs:
             certificate_source = kwargs['certificateSource']
-        if 'certificateStatus' in kwargs:
+        if certificate_status is None and 'certificateStatus' in kwargs:
             certificate_status = kwargs['certificateStatus']
-        if 'keyVaultId' in kwargs:
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
-        if 'negotiateClientCertificate' in kwargs:
+        if negotiate_client_certificate is None and 'negotiateClientCertificate' in kwargs:
             negotiate_client_certificate = kwargs['negotiateClientCertificate']
-        if 'sslKeyvaultIdentityClientId' in kwargs:
+        if ssl_keyvault_identity_client_id is None and 'sslKeyvaultIdentityClientId' in kwargs:
             ssl_keyvault_identity_client_id = kwargs['sslKeyvaultIdentityClientId']
 
         _setter("host_name", host_name)
@@ -4485,7 +4609,7 @@ class CustomDomainGateway(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             host_name: str,
+             host_name: Optional[str] = None,
              certificate: Optional[str] = None,
              certificate_password: Optional[str] = None,
              certificate_source: Optional[str] = None,
@@ -4497,23 +4621,25 @@ class CustomDomainGateway(dict):
              ssl_keyvault_identity_client_id: Optional[str] = None,
              subject: Optional[str] = None,
              thumbprint: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'hostName' in kwargs:
+        if host_name is None and 'hostName' in kwargs:
             host_name = kwargs['hostName']
-        if 'certificatePassword' in kwargs:
+        if host_name is None:
+            raise TypeError("Missing 'host_name' argument")
+        if certificate_password is None and 'certificatePassword' in kwargs:
             certificate_password = kwargs['certificatePassword']
-        if 'certificateSource' in kwargs:
+        if certificate_source is None and 'certificateSource' in kwargs:
             certificate_source = kwargs['certificateSource']
-        if 'certificateStatus' in kwargs:
+        if certificate_status is None and 'certificateStatus' in kwargs:
             certificate_status = kwargs['certificateStatus']
-        if 'defaultSslBinding' in kwargs:
+        if default_ssl_binding is None and 'defaultSslBinding' in kwargs:
             default_ssl_binding = kwargs['defaultSslBinding']
-        if 'keyVaultId' in kwargs:
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
-        if 'negotiateClientCertificate' in kwargs:
+        if negotiate_client_certificate is None and 'negotiateClientCertificate' in kwargs:
             negotiate_client_certificate = kwargs['negotiateClientCertificate']
-        if 'sslKeyvaultIdentityClientId' in kwargs:
+        if ssl_keyvault_identity_client_id is None and 'sslKeyvaultIdentityClientId' in kwargs:
             ssl_keyvault_identity_client_id = kwargs['sslKeyvaultIdentityClientId']
 
         _setter("host_name", host_name)
@@ -4694,7 +4820,7 @@ class CustomDomainManagement(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             host_name: str,
+             host_name: Optional[str] = None,
              certificate: Optional[str] = None,
              certificate_password: Optional[str] = None,
              certificate_source: Optional[str] = None,
@@ -4705,21 +4831,23 @@ class CustomDomainManagement(dict):
              ssl_keyvault_identity_client_id: Optional[str] = None,
              subject: Optional[str] = None,
              thumbprint: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'hostName' in kwargs:
+        if host_name is None and 'hostName' in kwargs:
             host_name = kwargs['hostName']
-        if 'certificatePassword' in kwargs:
+        if host_name is None:
+            raise TypeError("Missing 'host_name' argument")
+        if certificate_password is None and 'certificatePassword' in kwargs:
             certificate_password = kwargs['certificatePassword']
-        if 'certificateSource' in kwargs:
+        if certificate_source is None and 'certificateSource' in kwargs:
             certificate_source = kwargs['certificateSource']
-        if 'certificateStatus' in kwargs:
+        if certificate_status is None and 'certificateStatus' in kwargs:
             certificate_status = kwargs['certificateStatus']
-        if 'keyVaultId' in kwargs:
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
-        if 'negotiateClientCertificate' in kwargs:
+        if negotiate_client_certificate is None and 'negotiateClientCertificate' in kwargs:
             negotiate_client_certificate = kwargs['negotiateClientCertificate']
-        if 'sslKeyvaultIdentityClientId' in kwargs:
+        if ssl_keyvault_identity_client_id is None and 'sslKeyvaultIdentityClientId' in kwargs:
             ssl_keyvault_identity_client_id = kwargs['sslKeyvaultIdentityClientId']
 
         _setter("host_name", host_name)
@@ -4890,7 +5018,7 @@ class CustomDomainPortal(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             host_name: str,
+             host_name: Optional[str] = None,
              certificate: Optional[str] = None,
              certificate_password: Optional[str] = None,
              certificate_source: Optional[str] = None,
@@ -4901,21 +5029,23 @@ class CustomDomainPortal(dict):
              ssl_keyvault_identity_client_id: Optional[str] = None,
              subject: Optional[str] = None,
              thumbprint: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'hostName' in kwargs:
+        if host_name is None and 'hostName' in kwargs:
             host_name = kwargs['hostName']
-        if 'certificatePassword' in kwargs:
+        if host_name is None:
+            raise TypeError("Missing 'host_name' argument")
+        if certificate_password is None and 'certificatePassword' in kwargs:
             certificate_password = kwargs['certificatePassword']
-        if 'certificateSource' in kwargs:
+        if certificate_source is None and 'certificateSource' in kwargs:
             certificate_source = kwargs['certificateSource']
-        if 'certificateStatus' in kwargs:
+        if certificate_status is None and 'certificateStatus' in kwargs:
             certificate_status = kwargs['certificateStatus']
-        if 'keyVaultId' in kwargs:
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
-        if 'negotiateClientCertificate' in kwargs:
+        if negotiate_client_certificate is None and 'negotiateClientCertificate' in kwargs:
             negotiate_client_certificate = kwargs['negotiateClientCertificate']
-        if 'sslKeyvaultIdentityClientId' in kwargs:
+        if ssl_keyvault_identity_client_id is None and 'sslKeyvaultIdentityClientId' in kwargs:
             ssl_keyvault_identity_client_id = kwargs['sslKeyvaultIdentityClientId']
 
         _setter("host_name", host_name)
@@ -5086,7 +5216,7 @@ class CustomDomainScm(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             host_name: str,
+             host_name: Optional[str] = None,
              certificate: Optional[str] = None,
              certificate_password: Optional[str] = None,
              certificate_source: Optional[str] = None,
@@ -5097,21 +5227,23 @@ class CustomDomainScm(dict):
              ssl_keyvault_identity_client_id: Optional[str] = None,
              subject: Optional[str] = None,
              thumbprint: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'hostName' in kwargs:
+        if host_name is None and 'hostName' in kwargs:
             host_name = kwargs['hostName']
-        if 'certificatePassword' in kwargs:
+        if host_name is None:
+            raise TypeError("Missing 'host_name' argument")
+        if certificate_password is None and 'certificatePassword' in kwargs:
             certificate_password = kwargs['certificatePassword']
-        if 'certificateSource' in kwargs:
+        if certificate_source is None and 'certificateSource' in kwargs:
             certificate_source = kwargs['certificateSource']
-        if 'certificateStatus' in kwargs:
+        if certificate_status is None and 'certificateStatus' in kwargs:
             certificate_status = kwargs['certificateStatus']
-        if 'keyVaultId' in kwargs:
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
-        if 'negotiateClientCertificate' in kwargs:
+        if negotiate_client_certificate is None and 'negotiateClientCertificate' in kwargs:
             negotiate_client_certificate = kwargs['negotiateClientCertificate']
-        if 'sslKeyvaultIdentityClientId' in kwargs:
+        if ssl_keyvault_identity_client_id is None and 'sslKeyvaultIdentityClientId' in kwargs:
             ssl_keyvault_identity_client_id = kwargs['sslKeyvaultIdentityClientId']
 
         _setter("host_name", host_name)
@@ -5256,13 +5388,13 @@ class DiagnosticBackendRequest(dict):
              body_bytes: Optional[int] = None,
              data_masking: Optional['outputs.DiagnosticBackendRequestDataMasking'] = None,
              headers_to_logs: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'bodyBytes' in kwargs:
+        if body_bytes is None and 'bodyBytes' in kwargs:
             body_bytes = kwargs['bodyBytes']
-        if 'dataMasking' in kwargs:
+        if data_masking is None and 'dataMasking' in kwargs:
             data_masking = kwargs['dataMasking']
-        if 'headersToLogs' in kwargs:
+        if headers_to_logs is None and 'headersToLogs' in kwargs:
             headers_to_logs = kwargs['headersToLogs']
 
         if body_bytes is not None:
@@ -5333,9 +5465,9 @@ class DiagnosticBackendRequestDataMasking(dict):
              _setter: Callable[[Any, Any], None],
              headers: Optional[Sequence['outputs.DiagnosticBackendRequestDataMaskingHeader']] = None,
              query_params: Optional[Sequence['outputs.DiagnosticBackendRequestDataMaskingQueryParam']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'queryParams' in kwargs:
+        if query_params is None and 'queryParams' in kwargs:
             query_params = kwargs['queryParams']
 
         if headers is not None:
@@ -5377,10 +5509,14 @@ class DiagnosticBackendRequestDataMaskingHeader(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mode: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             mode: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if mode is None:
+            raise TypeError("Missing 'mode' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("mode", mode)
         _setter("value", value)
@@ -5419,10 +5555,14 @@ class DiagnosticBackendRequestDataMaskingQueryParam(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mode: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             mode: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if mode is None:
+            raise TypeError("Missing 'mode' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("mode", mode)
         _setter("value", value)
@@ -5488,13 +5628,13 @@ class DiagnosticBackendResponse(dict):
              body_bytes: Optional[int] = None,
              data_masking: Optional['outputs.DiagnosticBackendResponseDataMasking'] = None,
              headers_to_logs: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'bodyBytes' in kwargs:
+        if body_bytes is None and 'bodyBytes' in kwargs:
             body_bytes = kwargs['bodyBytes']
-        if 'dataMasking' in kwargs:
+        if data_masking is None and 'dataMasking' in kwargs:
             data_masking = kwargs['dataMasking']
-        if 'headersToLogs' in kwargs:
+        if headers_to_logs is None and 'headersToLogs' in kwargs:
             headers_to_logs = kwargs['headersToLogs']
 
         if body_bytes is not None:
@@ -5565,9 +5705,9 @@ class DiagnosticBackendResponseDataMasking(dict):
              _setter: Callable[[Any, Any], None],
              headers: Optional[Sequence['outputs.DiagnosticBackendResponseDataMaskingHeader']] = None,
              query_params: Optional[Sequence['outputs.DiagnosticBackendResponseDataMaskingQueryParam']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'queryParams' in kwargs:
+        if query_params is None and 'queryParams' in kwargs:
             query_params = kwargs['queryParams']
 
         if headers is not None:
@@ -5609,10 +5749,14 @@ class DiagnosticBackendResponseDataMaskingHeader(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mode: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             mode: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if mode is None:
+            raise TypeError("Missing 'mode' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("mode", mode)
         _setter("value", value)
@@ -5651,10 +5795,14 @@ class DiagnosticBackendResponseDataMaskingQueryParam(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mode: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             mode: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if mode is None:
+            raise TypeError("Missing 'mode' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("mode", mode)
         _setter("value", value)
@@ -5720,13 +5868,13 @@ class DiagnosticFrontendRequest(dict):
              body_bytes: Optional[int] = None,
              data_masking: Optional['outputs.DiagnosticFrontendRequestDataMasking'] = None,
              headers_to_logs: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'bodyBytes' in kwargs:
+        if body_bytes is None and 'bodyBytes' in kwargs:
             body_bytes = kwargs['bodyBytes']
-        if 'dataMasking' in kwargs:
+        if data_masking is None and 'dataMasking' in kwargs:
             data_masking = kwargs['dataMasking']
-        if 'headersToLogs' in kwargs:
+        if headers_to_logs is None and 'headersToLogs' in kwargs:
             headers_to_logs = kwargs['headersToLogs']
 
         if body_bytes is not None:
@@ -5797,9 +5945,9 @@ class DiagnosticFrontendRequestDataMasking(dict):
              _setter: Callable[[Any, Any], None],
              headers: Optional[Sequence['outputs.DiagnosticFrontendRequestDataMaskingHeader']] = None,
              query_params: Optional[Sequence['outputs.DiagnosticFrontendRequestDataMaskingQueryParam']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'queryParams' in kwargs:
+        if query_params is None and 'queryParams' in kwargs:
             query_params = kwargs['queryParams']
 
         if headers is not None:
@@ -5841,10 +5989,14 @@ class DiagnosticFrontendRequestDataMaskingHeader(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mode: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             mode: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if mode is None:
+            raise TypeError("Missing 'mode' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("mode", mode)
         _setter("value", value)
@@ -5883,10 +6035,14 @@ class DiagnosticFrontendRequestDataMaskingQueryParam(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mode: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             mode: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if mode is None:
+            raise TypeError("Missing 'mode' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("mode", mode)
         _setter("value", value)
@@ -5952,13 +6108,13 @@ class DiagnosticFrontendResponse(dict):
              body_bytes: Optional[int] = None,
              data_masking: Optional['outputs.DiagnosticFrontendResponseDataMasking'] = None,
              headers_to_logs: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'bodyBytes' in kwargs:
+        if body_bytes is None and 'bodyBytes' in kwargs:
             body_bytes = kwargs['bodyBytes']
-        if 'dataMasking' in kwargs:
+        if data_masking is None and 'dataMasking' in kwargs:
             data_masking = kwargs['dataMasking']
-        if 'headersToLogs' in kwargs:
+        if headers_to_logs is None and 'headersToLogs' in kwargs:
             headers_to_logs = kwargs['headersToLogs']
 
         if body_bytes is not None:
@@ -6029,9 +6185,9 @@ class DiagnosticFrontendResponseDataMasking(dict):
              _setter: Callable[[Any, Any], None],
              headers: Optional[Sequence['outputs.DiagnosticFrontendResponseDataMaskingHeader']] = None,
              query_params: Optional[Sequence['outputs.DiagnosticFrontendResponseDataMaskingQueryParam']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'queryParams' in kwargs:
+        if query_params is None and 'queryParams' in kwargs:
             query_params = kwargs['queryParams']
 
         if headers is not None:
@@ -6073,10 +6229,14 @@ class DiagnosticFrontendResponseDataMaskingHeader(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mode: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             mode: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if mode is None:
+            raise TypeError("Missing 'mode' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("mode", mode)
         _setter("value", value)
@@ -6115,10 +6275,14 @@ class DiagnosticFrontendResponseDataMaskingQueryParam(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mode: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             mode: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if mode is None:
+            raise TypeError("Missing 'mode' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("mode", mode)
         _setter("value", value)
@@ -6163,12 +6327,14 @@ class GatewayLocationData(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              city: Optional[str] = None,
              district: Optional[str] = None,
              region: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
         if city is not None:
@@ -6242,11 +6408,13 @@ class LoggerApplicationInsights(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             instrumentation_key: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             instrumentation_key: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'instrumentationKey' in kwargs:
+        if instrumentation_key is None and 'instrumentationKey' in kwargs:
             instrumentation_key = kwargs['instrumentationKey']
+        if instrumentation_key is None:
+            raise TypeError("Missing 'instrumentation_key' argument")
 
         _setter("instrumentation_key", instrumentation_key)
 
@@ -6293,12 +6461,16 @@ class LoggerEventhub(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             connection_string: str,
-             name: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             connection_string: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
+        if connection_string is None:
+            raise TypeError("Missing 'connection_string' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("connection_string", connection_string)
         _setter("name", name)
@@ -6356,13 +6528,15 @@ class NamedValueValueFromKeyVault(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             secret_id: str,
+             secret_id: Optional[str] = None,
              identity_client_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'secretId' in kwargs:
+        if secret_id is None and 'secretId' in kwargs:
             secret_id = kwargs['secretId']
-        if 'identityClientId' in kwargs:
+        if secret_id is None:
+            raise TypeError("Missing 'secret_id' argument")
+        if identity_client_id is None and 'identityClientId' in kwargs:
             identity_client_id = kwargs['identityClientId']
 
         _setter("secret_id", secret_id)
@@ -6453,7 +6627,7 @@ class ServiceAdditionalLocation(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             location: str,
+             location: Optional[str] = None,
              capacity: Optional[int] = None,
              gateway_disabled: Optional[bool] = None,
              gateway_regional_url: Optional[str] = None,
@@ -6462,19 +6636,21 @@ class ServiceAdditionalLocation(dict):
              public_ip_addresses: Optional[Sequence[str]] = None,
              virtual_network_configuration: Optional['outputs.ServiceAdditionalLocationVirtualNetworkConfiguration'] = None,
              zones: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'gatewayDisabled' in kwargs:
+        if location is None:
+            raise TypeError("Missing 'location' argument")
+        if gateway_disabled is None and 'gatewayDisabled' in kwargs:
             gateway_disabled = kwargs['gatewayDisabled']
-        if 'gatewayRegionalUrl' in kwargs:
+        if gateway_regional_url is None and 'gatewayRegionalUrl' in kwargs:
             gateway_regional_url = kwargs['gatewayRegionalUrl']
-        if 'privateIpAddresses' in kwargs:
+        if private_ip_addresses is None and 'privateIpAddresses' in kwargs:
             private_ip_addresses = kwargs['privateIpAddresses']
-        if 'publicIpAddressId' in kwargs:
+        if public_ip_address_id is None and 'publicIpAddressId' in kwargs:
             public_ip_address_id = kwargs['publicIpAddressId']
-        if 'publicIpAddresses' in kwargs:
+        if public_ip_addresses is None and 'publicIpAddresses' in kwargs:
             public_ip_addresses = kwargs['publicIpAddresses']
-        if 'virtualNetworkConfiguration' in kwargs:
+        if virtual_network_configuration is None and 'virtualNetworkConfiguration' in kwargs:
             virtual_network_configuration = kwargs['virtualNetworkConfiguration']
 
         _setter("location", location)
@@ -6601,11 +6777,13 @@ class ServiceAdditionalLocationVirtualNetworkConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             subnet_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             subnet_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
 
         _setter("subnet_id", subnet_id)
 
@@ -6668,19 +6846,23 @@ class ServiceCertificate(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             encoded_certificate: str,
-             store_name: str,
+             encoded_certificate: Optional[str] = None,
+             store_name: Optional[str] = None,
              certificate_password: Optional[str] = None,
              expiry: Optional[str] = None,
              subject: Optional[str] = None,
              thumbprint: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'encodedCertificate' in kwargs:
+        if encoded_certificate is None and 'encodedCertificate' in kwargs:
             encoded_certificate = kwargs['encodedCertificate']
-        if 'storeName' in kwargs:
+        if encoded_certificate is None:
+            raise TypeError("Missing 'encoded_certificate' argument")
+        if store_name is None and 'storeName' in kwargs:
             store_name = kwargs['storeName']
-        if 'certificatePassword' in kwargs:
+        if store_name is None:
+            raise TypeError("Missing 'store_name' argument")
+        if certificate_password is None and 'certificatePassword' in kwargs:
             certificate_password = kwargs['certificatePassword']
 
         _setter("encoded_certificate", encoded_certificate)
@@ -6791,13 +6973,13 @@ class ServiceDelegation(dict):
              url: Optional[str] = None,
              user_registration_enabled: Optional[bool] = None,
              validation_key: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'subscriptionsEnabled' in kwargs:
+        if subscriptions_enabled is None and 'subscriptionsEnabled' in kwargs:
             subscriptions_enabled = kwargs['subscriptionsEnabled']
-        if 'userRegistrationEnabled' in kwargs:
+        if user_registration_enabled is None and 'userRegistrationEnabled' in kwargs:
             user_registration_enabled = kwargs['userRegistrationEnabled']
-        if 'validationKey' in kwargs:
+        if validation_key is None and 'validationKey' in kwargs:
             validation_key = kwargs['validationKey']
 
         if subscriptions_enabled is not None:
@@ -6890,9 +7072,9 @@ class ServiceHostnameConfiguration(dict):
              portals: Optional[Sequence['outputs.ServiceHostnameConfigurationPortal']] = None,
              proxies: Optional[Sequence['outputs.ServiceHostnameConfigurationProxy']] = None,
              scms: Optional[Sequence['outputs.ServiceHostnameConfigurationScm']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'developerPortals' in kwargs:
+        if developer_portals is None and 'developerPortals' in kwargs:
             developer_portals = kwargs['developerPortals']
 
         if developer_portals is not None:
@@ -7024,7 +7206,7 @@ class ServiceHostnameConfigurationDeveloperPortal(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             host_name: str,
+             host_name: Optional[str] = None,
              certificate: Optional[str] = None,
              certificate_password: Optional[str] = None,
              certificate_source: Optional[str] = None,
@@ -7035,21 +7217,23 @@ class ServiceHostnameConfigurationDeveloperPortal(dict):
              ssl_keyvault_identity_client_id: Optional[str] = None,
              subject: Optional[str] = None,
              thumbprint: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'hostName' in kwargs:
+        if host_name is None and 'hostName' in kwargs:
             host_name = kwargs['hostName']
-        if 'certificatePassword' in kwargs:
+        if host_name is None:
+            raise TypeError("Missing 'host_name' argument")
+        if certificate_password is None and 'certificatePassword' in kwargs:
             certificate_password = kwargs['certificatePassword']
-        if 'certificateSource' in kwargs:
+        if certificate_source is None and 'certificateSource' in kwargs:
             certificate_source = kwargs['certificateSource']
-        if 'certificateStatus' in kwargs:
+        if certificate_status is None and 'certificateStatus' in kwargs:
             certificate_status = kwargs['certificateStatus']
-        if 'keyVaultId' in kwargs:
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
-        if 'negotiateClientCertificate' in kwargs:
+        if negotiate_client_certificate is None and 'negotiateClientCertificate' in kwargs:
             negotiate_client_certificate = kwargs['negotiateClientCertificate']
-        if 'sslKeyvaultIdentityClientId' in kwargs:
+        if ssl_keyvault_identity_client_id is None and 'sslKeyvaultIdentityClientId' in kwargs:
             ssl_keyvault_identity_client_id = kwargs['sslKeyvaultIdentityClientId']
 
         _setter("host_name", host_name)
@@ -7246,7 +7430,7 @@ class ServiceHostnameConfigurationManagement(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             host_name: str,
+             host_name: Optional[str] = None,
              certificate: Optional[str] = None,
              certificate_password: Optional[str] = None,
              certificate_source: Optional[str] = None,
@@ -7257,21 +7441,23 @@ class ServiceHostnameConfigurationManagement(dict):
              ssl_keyvault_identity_client_id: Optional[str] = None,
              subject: Optional[str] = None,
              thumbprint: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'hostName' in kwargs:
+        if host_name is None and 'hostName' in kwargs:
             host_name = kwargs['hostName']
-        if 'certificatePassword' in kwargs:
+        if host_name is None:
+            raise TypeError("Missing 'host_name' argument")
+        if certificate_password is None and 'certificatePassword' in kwargs:
             certificate_password = kwargs['certificatePassword']
-        if 'certificateSource' in kwargs:
+        if certificate_source is None and 'certificateSource' in kwargs:
             certificate_source = kwargs['certificateSource']
-        if 'certificateStatus' in kwargs:
+        if certificate_status is None and 'certificateStatus' in kwargs:
             certificate_status = kwargs['certificateStatus']
-        if 'keyVaultId' in kwargs:
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
-        if 'negotiateClientCertificate' in kwargs:
+        if negotiate_client_certificate is None and 'negotiateClientCertificate' in kwargs:
             negotiate_client_certificate = kwargs['negotiateClientCertificate']
-        if 'sslKeyvaultIdentityClientId' in kwargs:
+        if ssl_keyvault_identity_client_id is None and 'sslKeyvaultIdentityClientId' in kwargs:
             ssl_keyvault_identity_client_id = kwargs['sslKeyvaultIdentityClientId']
 
         _setter("host_name", host_name)
@@ -7468,7 +7654,7 @@ class ServiceHostnameConfigurationPortal(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             host_name: str,
+             host_name: Optional[str] = None,
              certificate: Optional[str] = None,
              certificate_password: Optional[str] = None,
              certificate_source: Optional[str] = None,
@@ -7479,21 +7665,23 @@ class ServiceHostnameConfigurationPortal(dict):
              ssl_keyvault_identity_client_id: Optional[str] = None,
              subject: Optional[str] = None,
              thumbprint: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'hostName' in kwargs:
+        if host_name is None and 'hostName' in kwargs:
             host_name = kwargs['hostName']
-        if 'certificatePassword' in kwargs:
+        if host_name is None:
+            raise TypeError("Missing 'host_name' argument")
+        if certificate_password is None and 'certificatePassword' in kwargs:
             certificate_password = kwargs['certificatePassword']
-        if 'certificateSource' in kwargs:
+        if certificate_source is None and 'certificateSource' in kwargs:
             certificate_source = kwargs['certificateSource']
-        if 'certificateStatus' in kwargs:
+        if certificate_status is None and 'certificateStatus' in kwargs:
             certificate_status = kwargs['certificateStatus']
-        if 'keyVaultId' in kwargs:
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
-        if 'negotiateClientCertificate' in kwargs:
+        if negotiate_client_certificate is None and 'negotiateClientCertificate' in kwargs:
             negotiate_client_certificate = kwargs['negotiateClientCertificate']
-        if 'sslKeyvaultIdentityClientId' in kwargs:
+        if ssl_keyvault_identity_client_id is None and 'sslKeyvaultIdentityClientId' in kwargs:
             ssl_keyvault_identity_client_id = kwargs['sslKeyvaultIdentityClientId']
 
         _setter("host_name", host_name)
@@ -7693,7 +7881,7 @@ class ServiceHostnameConfigurationProxy(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             host_name: str,
+             host_name: Optional[str] = None,
              certificate: Optional[str] = None,
              certificate_password: Optional[str] = None,
              certificate_source: Optional[str] = None,
@@ -7705,23 +7893,25 @@ class ServiceHostnameConfigurationProxy(dict):
              ssl_keyvault_identity_client_id: Optional[str] = None,
              subject: Optional[str] = None,
              thumbprint: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'hostName' in kwargs:
+        if host_name is None and 'hostName' in kwargs:
             host_name = kwargs['hostName']
-        if 'certificatePassword' in kwargs:
+        if host_name is None:
+            raise TypeError("Missing 'host_name' argument")
+        if certificate_password is None and 'certificatePassword' in kwargs:
             certificate_password = kwargs['certificatePassword']
-        if 'certificateSource' in kwargs:
+        if certificate_source is None and 'certificateSource' in kwargs:
             certificate_source = kwargs['certificateSource']
-        if 'certificateStatus' in kwargs:
+        if certificate_status is None and 'certificateStatus' in kwargs:
             certificate_status = kwargs['certificateStatus']
-        if 'defaultSslBinding' in kwargs:
+        if default_ssl_binding is None and 'defaultSslBinding' in kwargs:
             default_ssl_binding = kwargs['defaultSslBinding']
-        if 'keyVaultId' in kwargs:
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
-        if 'negotiateClientCertificate' in kwargs:
+        if negotiate_client_certificate is None and 'negotiateClientCertificate' in kwargs:
             negotiate_client_certificate = kwargs['negotiateClientCertificate']
-        if 'sslKeyvaultIdentityClientId' in kwargs:
+        if ssl_keyvault_identity_client_id is None and 'sslKeyvaultIdentityClientId' in kwargs:
             ssl_keyvault_identity_client_id = kwargs['sslKeyvaultIdentityClientId']
 
         _setter("host_name", host_name)
@@ -7926,7 +8116,7 @@ class ServiceHostnameConfigurationScm(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             host_name: str,
+             host_name: Optional[str] = None,
              certificate: Optional[str] = None,
              certificate_password: Optional[str] = None,
              certificate_source: Optional[str] = None,
@@ -7937,21 +8127,23 @@ class ServiceHostnameConfigurationScm(dict):
              ssl_keyvault_identity_client_id: Optional[str] = None,
              subject: Optional[str] = None,
              thumbprint: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'hostName' in kwargs:
+        if host_name is None and 'hostName' in kwargs:
             host_name = kwargs['hostName']
-        if 'certificatePassword' in kwargs:
+        if host_name is None:
+            raise TypeError("Missing 'host_name' argument")
+        if certificate_password is None and 'certificatePassword' in kwargs:
             certificate_password = kwargs['certificatePassword']
-        if 'certificateSource' in kwargs:
+        if certificate_source is None and 'certificateSource' in kwargs:
             certificate_source = kwargs['certificateSource']
-        if 'certificateStatus' in kwargs:
+        if certificate_status is None and 'certificateStatus' in kwargs:
             certificate_status = kwargs['certificateStatus']
-        if 'keyVaultId' in kwargs:
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
-        if 'negotiateClientCertificate' in kwargs:
+        if negotiate_client_certificate is None and 'negotiateClientCertificate' in kwargs:
             negotiate_client_certificate = kwargs['negotiateClientCertificate']
-        if 'sslKeyvaultIdentityClientId' in kwargs:
+        if ssl_keyvault_identity_client_id is None and 'sslKeyvaultIdentityClientId' in kwargs:
             ssl_keyvault_identity_client_id = kwargs['sslKeyvaultIdentityClientId']
 
         _setter("host_name", host_name)
@@ -8115,17 +8307,19 @@ class ServiceIdentity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -8209,11 +8403,11 @@ class ServicePolicy(dict):
              _setter: Callable[[Any, Any], None],
              xml_content: Optional[str] = None,
              xml_link: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'xmlContent' in kwargs:
+        if xml_content is None and 'xmlContent' in kwargs:
             xml_content = kwargs['xmlContent']
-        if 'xmlLink' in kwargs:
+        if xml_link is None and 'xmlLink' in kwargs:
             xml_link = kwargs['xmlLink']
 
         if xml_content is not None:
@@ -8270,9 +8464,9 @@ class ServiceProtocols(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              enable_http2: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'enableHttp2' in kwargs:
+        if enable_http2 is None and 'enableHttp2' in kwargs:
             enable_http2 = kwargs['enableHttp2']
 
         if enable_http2 is not None:
@@ -8449,41 +8643,41 @@ class ServiceSecurity(dict):
              tls_rsa_with_aes256_cbc_sha_ciphers_enabled: Optional[bool] = None,
              tls_rsa_with_aes256_gcm_sha384_ciphers_enabled: Optional[bool] = None,
              triple_des_ciphers_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'enableBackendSsl30' in kwargs:
+        if enable_backend_ssl30 is None and 'enableBackendSsl30' in kwargs:
             enable_backend_ssl30 = kwargs['enableBackendSsl30']
-        if 'enableBackendTls10' in kwargs:
+        if enable_backend_tls10 is None and 'enableBackendTls10' in kwargs:
             enable_backend_tls10 = kwargs['enableBackendTls10']
-        if 'enableBackendTls11' in kwargs:
+        if enable_backend_tls11 is None and 'enableBackendTls11' in kwargs:
             enable_backend_tls11 = kwargs['enableBackendTls11']
-        if 'enableFrontendSsl30' in kwargs:
+        if enable_frontend_ssl30 is None and 'enableFrontendSsl30' in kwargs:
             enable_frontend_ssl30 = kwargs['enableFrontendSsl30']
-        if 'enableFrontendTls10' in kwargs:
+        if enable_frontend_tls10 is None and 'enableFrontendTls10' in kwargs:
             enable_frontend_tls10 = kwargs['enableFrontendTls10']
-        if 'enableFrontendTls11' in kwargs:
+        if enable_frontend_tls11 is None and 'enableFrontendTls11' in kwargs:
             enable_frontend_tls11 = kwargs['enableFrontendTls11']
-        if 'tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled' in kwargs:
+        if tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled is None and 'tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled' in kwargs:
             tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled = kwargs['tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled']
-        if 'tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled' in kwargs:
+        if tls_ecdhe_ecdsa_with_aes256_cbc_sha_ciphers_enabled is None and 'tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled' in kwargs:
             tls_ecdhe_ecdsa_with_aes256_cbc_sha_ciphers_enabled = kwargs['tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled']
-        if 'tlsEcdheRsaWithAes128CbcShaCiphersEnabled' in kwargs:
+        if tls_ecdhe_rsa_with_aes128_cbc_sha_ciphers_enabled is None and 'tlsEcdheRsaWithAes128CbcShaCiphersEnabled' in kwargs:
             tls_ecdhe_rsa_with_aes128_cbc_sha_ciphers_enabled = kwargs['tlsEcdheRsaWithAes128CbcShaCiphersEnabled']
-        if 'tlsEcdheRsaWithAes256CbcShaCiphersEnabled' in kwargs:
+        if tls_ecdhe_rsa_with_aes256_cbc_sha_ciphers_enabled is None and 'tlsEcdheRsaWithAes256CbcShaCiphersEnabled' in kwargs:
             tls_ecdhe_rsa_with_aes256_cbc_sha_ciphers_enabled = kwargs['tlsEcdheRsaWithAes256CbcShaCiphersEnabled']
-        if 'tlsRsaWithAes128CbcSha256CiphersEnabled' in kwargs:
+        if tls_rsa_with_aes128_cbc_sha256_ciphers_enabled is None and 'tlsRsaWithAes128CbcSha256CiphersEnabled' in kwargs:
             tls_rsa_with_aes128_cbc_sha256_ciphers_enabled = kwargs['tlsRsaWithAes128CbcSha256CiphersEnabled']
-        if 'tlsRsaWithAes128CbcShaCiphersEnabled' in kwargs:
+        if tls_rsa_with_aes128_cbc_sha_ciphers_enabled is None and 'tlsRsaWithAes128CbcShaCiphersEnabled' in kwargs:
             tls_rsa_with_aes128_cbc_sha_ciphers_enabled = kwargs['tlsRsaWithAes128CbcShaCiphersEnabled']
-        if 'tlsRsaWithAes128GcmSha256CiphersEnabled' in kwargs:
+        if tls_rsa_with_aes128_gcm_sha256_ciphers_enabled is None and 'tlsRsaWithAes128GcmSha256CiphersEnabled' in kwargs:
             tls_rsa_with_aes128_gcm_sha256_ciphers_enabled = kwargs['tlsRsaWithAes128GcmSha256CiphersEnabled']
-        if 'tlsRsaWithAes256CbcSha256CiphersEnabled' in kwargs:
+        if tls_rsa_with_aes256_cbc_sha256_ciphers_enabled is None and 'tlsRsaWithAes256CbcSha256CiphersEnabled' in kwargs:
             tls_rsa_with_aes256_cbc_sha256_ciphers_enabled = kwargs['tlsRsaWithAes256CbcSha256CiphersEnabled']
-        if 'tlsRsaWithAes256CbcShaCiphersEnabled' in kwargs:
+        if tls_rsa_with_aes256_cbc_sha_ciphers_enabled is None and 'tlsRsaWithAes256CbcShaCiphersEnabled' in kwargs:
             tls_rsa_with_aes256_cbc_sha_ciphers_enabled = kwargs['tlsRsaWithAes256CbcShaCiphersEnabled']
-        if 'tlsRsaWithAes256GcmSha384CiphersEnabled' in kwargs:
+        if tls_rsa_with_aes256_gcm_sha384_ciphers_enabled is None and 'tlsRsaWithAes256GcmSha384CiphersEnabled' in kwargs:
             tls_rsa_with_aes256_gcm_sha384_ciphers_enabled = kwargs['tlsRsaWithAes256GcmSha384CiphersEnabled']
-        if 'tripleDesCiphersEnabled' in kwargs:
+        if triple_des_ciphers_enabled is None and 'tripleDesCiphersEnabled' in kwargs:
             triple_des_ciphers_enabled = kwargs['tripleDesCiphersEnabled']
 
         if enable_backend_ssl30 is not None:
@@ -8706,9 +8900,11 @@ class ServiceSignIn(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: bool,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
 
         _setter("enabled", enabled)
 
@@ -8755,12 +8951,16 @@ class ServiceSignUp(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: bool,
-             terms_of_service: 'outputs.ServiceSignUpTermsOfService',
-             opts: Optional[pulumi.ResourceOptions]=None,
+             enabled: Optional[bool] = None,
+             terms_of_service: Optional['outputs.ServiceSignUpTermsOfService'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'termsOfService' in kwargs:
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if terms_of_service is None and 'termsOfService' in kwargs:
             terms_of_service = kwargs['termsOfService']
+        if terms_of_service is None:
+            raise TypeError("Missing 'terms_of_service' argument")
 
         _setter("enabled", enabled)
         _setter("terms_of_service", terms_of_service)
@@ -8819,13 +9019,17 @@ class ServiceSignUpTermsOfService(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             consent_required: bool,
-             enabled: bool,
+             consent_required: Optional[bool] = None,
+             enabled: Optional[bool] = None,
              text: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'consentRequired' in kwargs:
+        if consent_required is None and 'consentRequired' in kwargs:
             consent_required = kwargs['consentRequired']
+        if consent_required is None:
+            raise TypeError("Missing 'consent_required' argument")
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
 
         _setter("consent_required", consent_required)
         _setter("enabled", enabled)
@@ -8901,17 +9105,19 @@ class ServiceTenantAccess(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: bool,
+             enabled: Optional[bool] = None,
              primary_key: Optional[str] = None,
              secondary_key: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'primaryKey' in kwargs:
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if primary_key is None and 'primaryKey' in kwargs:
             primary_key = kwargs['primaryKey']
-        if 'secondaryKey' in kwargs:
+        if secondary_key is None and 'secondaryKey' in kwargs:
             secondary_key = kwargs['secondaryKey']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("enabled", enabled)
@@ -8986,11 +9192,13 @@ class ServiceVirtualNetworkConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             subnet_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             subnet_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
 
         _setter("subnet_id", subnet_id)
 
@@ -9020,10 +9228,14 @@ class GetApiSubscriptionKeyParameterNameResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             header: str,
-             query: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             header: Optional[str] = None,
+             query: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if header is None:
+            raise TypeError("Missing 'header' argument")
+        if query is None:
+            raise TypeError("Missing 'query' argument")
 
         _setter("header", header)
         _setter("query", query)
@@ -9067,12 +9279,20 @@ class GetGatewayLocationDataResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             city: str,
-             district: str,
-             name: str,
-             region: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             city: Optional[str] = None,
+             district: Optional[str] = None,
+             name: Optional[str] = None,
+             region: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if city is None:
+            raise TypeError("Missing 'city' argument")
+        if district is None:
+            raise TypeError("Missing 'district' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if region is None:
+            raise TypeError("Missing 'region' argument")
 
         _setter("city", city)
         _setter("district", district)
@@ -9141,23 +9361,37 @@ class GetServiceAdditionalLocationResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             capacity: int,
-             gateway_regional_url: str,
-             location: str,
-             private_ip_addresses: Sequence[str],
-             public_ip_address_id: str,
-             public_ip_addresses: Sequence[str],
-             zones: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             capacity: Optional[int] = None,
+             gateway_regional_url: Optional[str] = None,
+             location: Optional[str] = None,
+             private_ip_addresses: Optional[Sequence[str]] = None,
+             public_ip_address_id: Optional[str] = None,
+             public_ip_addresses: Optional[Sequence[str]] = None,
+             zones: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'gatewayRegionalUrl' in kwargs:
+        if capacity is None:
+            raise TypeError("Missing 'capacity' argument")
+        if gateway_regional_url is None and 'gatewayRegionalUrl' in kwargs:
             gateway_regional_url = kwargs['gatewayRegionalUrl']
-        if 'privateIpAddresses' in kwargs:
+        if gateway_regional_url is None:
+            raise TypeError("Missing 'gateway_regional_url' argument")
+        if location is None:
+            raise TypeError("Missing 'location' argument")
+        if private_ip_addresses is None and 'privateIpAddresses' in kwargs:
             private_ip_addresses = kwargs['privateIpAddresses']
-        if 'publicIpAddressId' in kwargs:
+        if private_ip_addresses is None:
+            raise TypeError("Missing 'private_ip_addresses' argument")
+        if public_ip_address_id is None and 'publicIpAddressId' in kwargs:
             public_ip_address_id = kwargs['publicIpAddressId']
-        if 'publicIpAddresses' in kwargs:
+        if public_ip_address_id is None:
+            raise TypeError("Missing 'public_ip_address_id' argument")
+        if public_ip_addresses is None and 'publicIpAddresses' in kwargs:
             public_ip_addresses = kwargs['publicIpAddresses']
+        if public_ip_addresses is None:
+            raise TypeError("Missing 'public_ip_addresses' argument")
+        if zones is None:
+            raise TypeError("Missing 'zones' argument")
 
         _setter("capacity", capacity)
         _setter("gateway_regional_url", gateway_regional_url)
@@ -9250,15 +9484,25 @@ class GetServiceHostnameConfigurationResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             developer_portals: Sequence['outputs.GetServiceHostnameConfigurationDeveloperPortalResult'],
-             managements: Sequence['outputs.GetServiceHostnameConfigurationManagementResult'],
-             portals: Sequence['outputs.GetServiceHostnameConfigurationPortalResult'],
-             proxies: Sequence['outputs.GetServiceHostnameConfigurationProxyResult'],
-             scms: Sequence['outputs.GetServiceHostnameConfigurationScmResult'],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             developer_portals: Optional[Sequence['outputs.GetServiceHostnameConfigurationDeveloperPortalResult']] = None,
+             managements: Optional[Sequence['outputs.GetServiceHostnameConfigurationManagementResult']] = None,
+             portals: Optional[Sequence['outputs.GetServiceHostnameConfigurationPortalResult']] = None,
+             proxies: Optional[Sequence['outputs.GetServiceHostnameConfigurationProxyResult']] = None,
+             scms: Optional[Sequence['outputs.GetServiceHostnameConfigurationScmResult']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'developerPortals' in kwargs:
+        if developer_portals is None and 'developerPortals' in kwargs:
             developer_portals = kwargs['developerPortals']
+        if developer_portals is None:
+            raise TypeError("Missing 'developer_portals' argument")
+        if managements is None:
+            raise TypeError("Missing 'managements' argument")
+        if portals is None:
+            raise TypeError("Missing 'portals' argument")
+        if proxies is None:
+            raise TypeError("Missing 'proxies' argument")
+        if scms is None:
+            raise TypeError("Missing 'scms' argument")
 
         _setter("developer_portals", developer_portals)
         _setter("managements", managements)
@@ -9327,17 +9571,23 @@ class GetServiceHostnameConfigurationDeveloperPortalResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             host_name: str,
-             key_vault_id: str,
-             negotiate_client_certificate: bool,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             host_name: Optional[str] = None,
+             key_vault_id: Optional[str] = None,
+             negotiate_client_certificate: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'hostName' in kwargs:
+        if host_name is None and 'hostName' in kwargs:
             host_name = kwargs['hostName']
-        if 'keyVaultId' in kwargs:
+        if host_name is None:
+            raise TypeError("Missing 'host_name' argument")
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
-        if 'negotiateClientCertificate' in kwargs:
+        if key_vault_id is None:
+            raise TypeError("Missing 'key_vault_id' argument")
+        if negotiate_client_certificate is None and 'negotiateClientCertificate' in kwargs:
             negotiate_client_certificate = kwargs['negotiateClientCertificate']
+        if negotiate_client_certificate is None:
+            raise TypeError("Missing 'negotiate_client_certificate' argument")
 
         _setter("host_name", host_name)
         _setter("key_vault_id", key_vault_id)
@@ -9388,17 +9638,23 @@ class GetServiceHostnameConfigurationManagementResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             host_name: str,
-             key_vault_id: str,
-             negotiate_client_certificate: bool,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             host_name: Optional[str] = None,
+             key_vault_id: Optional[str] = None,
+             negotiate_client_certificate: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'hostName' in kwargs:
+        if host_name is None and 'hostName' in kwargs:
             host_name = kwargs['hostName']
-        if 'keyVaultId' in kwargs:
+        if host_name is None:
+            raise TypeError("Missing 'host_name' argument")
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
-        if 'negotiateClientCertificate' in kwargs:
+        if key_vault_id is None:
+            raise TypeError("Missing 'key_vault_id' argument")
+        if negotiate_client_certificate is None and 'negotiateClientCertificate' in kwargs:
             negotiate_client_certificate = kwargs['negotiateClientCertificate']
+        if negotiate_client_certificate is None:
+            raise TypeError("Missing 'negotiate_client_certificate' argument")
 
         _setter("host_name", host_name)
         _setter("key_vault_id", key_vault_id)
@@ -9449,17 +9705,23 @@ class GetServiceHostnameConfigurationPortalResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             host_name: str,
-             key_vault_id: str,
-             negotiate_client_certificate: bool,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             host_name: Optional[str] = None,
+             key_vault_id: Optional[str] = None,
+             negotiate_client_certificate: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'hostName' in kwargs:
+        if host_name is None and 'hostName' in kwargs:
             host_name = kwargs['hostName']
-        if 'keyVaultId' in kwargs:
+        if host_name is None:
+            raise TypeError("Missing 'host_name' argument")
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
-        if 'negotiateClientCertificate' in kwargs:
+        if key_vault_id is None:
+            raise TypeError("Missing 'key_vault_id' argument")
+        if negotiate_client_certificate is None and 'negotiateClientCertificate' in kwargs:
             negotiate_client_certificate = kwargs['negotiateClientCertificate']
+        if negotiate_client_certificate is None:
+            raise TypeError("Missing 'negotiate_client_certificate' argument")
 
         _setter("host_name", host_name)
         _setter("key_vault_id", key_vault_id)
@@ -9513,20 +9775,28 @@ class GetServiceHostnameConfigurationProxyResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             default_ssl_binding: bool,
-             host_name: str,
-             key_vault_id: str,
-             negotiate_client_certificate: bool,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             default_ssl_binding: Optional[bool] = None,
+             host_name: Optional[str] = None,
+             key_vault_id: Optional[str] = None,
+             negotiate_client_certificate: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'defaultSslBinding' in kwargs:
+        if default_ssl_binding is None and 'defaultSslBinding' in kwargs:
             default_ssl_binding = kwargs['defaultSslBinding']
-        if 'hostName' in kwargs:
+        if default_ssl_binding is None:
+            raise TypeError("Missing 'default_ssl_binding' argument")
+        if host_name is None and 'hostName' in kwargs:
             host_name = kwargs['hostName']
-        if 'keyVaultId' in kwargs:
+        if host_name is None:
+            raise TypeError("Missing 'host_name' argument")
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
-        if 'negotiateClientCertificate' in kwargs:
+        if key_vault_id is None:
+            raise TypeError("Missing 'key_vault_id' argument")
+        if negotiate_client_certificate is None and 'negotiateClientCertificate' in kwargs:
             negotiate_client_certificate = kwargs['negotiateClientCertificate']
+        if negotiate_client_certificate is None:
+            raise TypeError("Missing 'negotiate_client_certificate' argument")
 
         _setter("default_ssl_binding", default_ssl_binding)
         _setter("host_name", host_name)
@@ -9586,17 +9856,23 @@ class GetServiceHostnameConfigurationScmResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             host_name: str,
-             key_vault_id: str,
-             negotiate_client_certificate: bool,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             host_name: Optional[str] = None,
+             key_vault_id: Optional[str] = None,
+             negotiate_client_certificate: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'hostName' in kwargs:
+        if host_name is None and 'hostName' in kwargs:
             host_name = kwargs['hostName']
-        if 'keyVaultId' in kwargs:
+        if host_name is None:
+            raise TypeError("Missing 'host_name' argument")
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
-        if 'negotiateClientCertificate' in kwargs:
+        if key_vault_id is None:
+            raise TypeError("Missing 'key_vault_id' argument")
+        if negotiate_client_certificate is None and 'negotiateClientCertificate' in kwargs:
             negotiate_client_certificate = kwargs['negotiateClientCertificate']
+        if negotiate_client_certificate is None:
+            raise TypeError("Missing 'negotiate_client_certificate' argument")
 
         _setter("host_name", host_name)
         _setter("key_vault_id", key_vault_id)
@@ -9650,18 +9926,26 @@ class GetServiceIdentityResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             identity_ids: Sequence[str],
-             principal_id: str,
-             tenant_id: str,
-             type: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             identity_ids: Optional[Sequence[str]] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if identity_ids is None:
+            raise TypeError("Missing 'identity_ids' argument")
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("identity_ids", identity_ids)
         _setter("principal_id", principal_id)
@@ -9724,18 +10008,26 @@ class GetServiceTenantAccessResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: bool,
-             primary_key: str,
-             secondary_key: str,
-             tenant_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             enabled: Optional[bool] = None,
+             primary_key: Optional[str] = None,
+             secondary_key: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'primaryKey' in kwargs:
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if primary_key is None and 'primaryKey' in kwargs:
             primary_key = kwargs['primaryKey']
-        if 'secondaryKey' in kwargs:
+        if primary_key is None:
+            raise TypeError("Missing 'primary_key' argument")
+        if secondary_key is None and 'secondaryKey' in kwargs:
             secondary_key = kwargs['secondaryKey']
-        if 'tenantId' in kwargs:
+        if secondary_key is None:
+            raise TypeError("Missing 'secondary_key' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
 
         _setter("enabled", enabled)
         _setter("primary_key", primary_key)

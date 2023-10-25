@@ -47,25 +47,31 @@ class DedicatedHostArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             dedicated_host_group_id: pulumi.Input[str],
-             platform_fault_domain: pulumi.Input[int],
-             sku_name: pulumi.Input[str],
+             dedicated_host_group_id: Optional[pulumi.Input[str]] = None,
+             platform_fault_domain: Optional[pulumi.Input[int]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
              auto_replace_on_failure: Optional[pulumi.Input[bool]] = None,
              license_type: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dedicatedHostGroupId' in kwargs:
+        if dedicated_host_group_id is None and 'dedicatedHostGroupId' in kwargs:
             dedicated_host_group_id = kwargs['dedicatedHostGroupId']
-        if 'platformFaultDomain' in kwargs:
+        if dedicated_host_group_id is None:
+            raise TypeError("Missing 'dedicated_host_group_id' argument")
+        if platform_fault_domain is None and 'platformFaultDomain' in kwargs:
             platform_fault_domain = kwargs['platformFaultDomain']
-        if 'skuName' in kwargs:
+        if platform_fault_domain is None:
+            raise TypeError("Missing 'platform_fault_domain' argument")
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'autoReplaceOnFailure' in kwargs:
+        if sku_name is None:
+            raise TypeError("Missing 'sku_name' argument")
+        if auto_replace_on_failure is None and 'autoReplaceOnFailure' in kwargs:
             auto_replace_on_failure = kwargs['autoReplaceOnFailure']
-        if 'licenseType' in kwargs:
+        if license_type is None and 'licenseType' in kwargs:
             license_type = kwargs['licenseType']
 
         _setter("dedicated_host_group_id", dedicated_host_group_id)
@@ -223,17 +229,17 @@ class _DedicatedHostState:
              platform_fault_domain: Optional[pulumi.Input[int]] = None,
              sku_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'autoReplaceOnFailure' in kwargs:
+        if auto_replace_on_failure is None and 'autoReplaceOnFailure' in kwargs:
             auto_replace_on_failure = kwargs['autoReplaceOnFailure']
-        if 'dedicatedHostGroupId' in kwargs:
+        if dedicated_host_group_id is None and 'dedicatedHostGroupId' in kwargs:
             dedicated_host_group_id = kwargs['dedicatedHostGroupId']
-        if 'licenseType' in kwargs:
+        if license_type is None and 'licenseType' in kwargs:
             license_type = kwargs['licenseType']
-        if 'platformFaultDomain' in kwargs:
+        if platform_fault_domain is None and 'platformFaultDomain' in kwargs:
             platform_fault_domain = kwargs['platformFaultDomain']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
 
         if auto_replace_on_failure is not None:
@@ -367,24 +373,6 @@ class DedicatedHost(pulumi.CustomResource):
         """
         Manage a Dedicated Host within a Dedicated Host Group.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_dedicated_host_group = azure.compute.DedicatedHostGroup("exampleDedicatedHostGroup",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            platform_fault_domain_count=2)
-        example_dedicated_host = azure.compute.DedicatedHost("exampleDedicatedHost",
-            location=example_resource_group.location,
-            dedicated_host_group_id=example_dedicated_host_group.id,
-            sku_name="DSv3-Type1",
-            platform_fault_domain=1)
-        ```
-
         ## Import
 
         Dedicated Hosts can be imported using the `resource id`, e.g.
@@ -412,24 +400,6 @@ class DedicatedHost(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manage a Dedicated Host within a Dedicated Host Group.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_dedicated_host_group = azure.compute.DedicatedHostGroup("exampleDedicatedHostGroup",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            platform_fault_domain_count=2)
-        example_dedicated_host = azure.compute.DedicatedHost("exampleDedicatedHost",
-            location=example_resource_group.location,
-            dedicated_host_group_id=example_dedicated_host_group.id,
-            sku_name="DSv3-Type1",
-            platform_fault_domain=1)
-        ```
 
         ## Import
 

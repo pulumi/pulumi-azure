@@ -29,12 +29,14 @@ class ExpressRouteAuthorizationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             private_cloud_id: pulumi.Input[str],
+             private_cloud_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'privateCloudId' in kwargs:
+        if private_cloud_id is None and 'privateCloudId' in kwargs:
             private_cloud_id = kwargs['privateCloudId']
+        if private_cloud_id is None:
+            raise TypeError("Missing 'private_cloud_id' argument")
 
         _setter("private_cloud_id", private_cloud_id)
         if name is not None:
@@ -93,13 +95,13 @@ class _ExpressRouteAuthorizationState:
              express_route_authorization_key: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              private_cloud_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'expressRouteAuthorizationId' in kwargs:
+        if express_route_authorization_id is None and 'expressRouteAuthorizationId' in kwargs:
             express_route_authorization_id = kwargs['expressRouteAuthorizationId']
-        if 'expressRouteAuthorizationKey' in kwargs:
+        if express_route_authorization_key is None and 'expressRouteAuthorizationKey' in kwargs:
             express_route_authorization_key = kwargs['expressRouteAuthorizationKey']
-        if 'privateCloudId' in kwargs:
+        if private_cloud_id is None and 'privateCloudId' in kwargs:
             private_cloud_id = kwargs['privateCloudId']
 
         if express_route_authorization_id is not None:
@@ -171,27 +173,6 @@ class ExpressRouteAuthorization(pulumi.CustomResource):
         """
         Manages an Express Route VMware Authorization.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_private_cloud = azure.avs.PrivateCloud("examplePrivateCloud",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku_name="av36",
-            management_cluster=azure.avs.PrivateCloudManagementClusterArgs(
-                size=3,
-            ),
-            network_subnet_cidr="192.168.48.0/22",
-            internet_connection_enabled=False,
-            nsxt_password="QazWsx13$Edc",
-            vcenter_password="WsxEdc23$Rfv")
-        example_express_route_authorization = azure.avs.ExpressRouteAuthorization("exampleExpressRouteAuthorization", private_cloud_id=example_private_cloud.id)
-        ```
-
         ## Import
 
         VMware Authorizations can be imported using the `resource id`, e.g.
@@ -213,27 +194,6 @@ class ExpressRouteAuthorization(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Express Route VMware Authorization.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_private_cloud = azure.avs.PrivateCloud("examplePrivateCloud",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku_name="av36",
-            management_cluster=azure.avs.PrivateCloudManagementClusterArgs(
-                size=3,
-            ),
-            network_subnet_cidr="192.168.48.0/22",
-            internet_connection_enabled=False,
-            nsxt_password="QazWsx13$Edc",
-            vcenter_password="WsxEdc23$Rfv")
-        example_express_route_authorization = azure.avs.ExpressRouteAuthorization("exampleExpressRouteAuthorization", private_cloud_id=example_private_cloud.id)
-        ```
 
         ## Import
 

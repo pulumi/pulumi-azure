@@ -14,24 +14,6 @@ namespace Pulumi.Azure.SecurityCenter
     /// 
     /// &gt; **NOTE:** There is no resource name required, it will always be "default"
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.SecurityCenter.AutoProvisioning("example", new()
-    ///     {
-    ///         AutoProvision = "On",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Security Center Auto Provisioning can be imported using the `resource id`, e.g.

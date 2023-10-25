@@ -12,50 +12,6 @@ namespace Pulumi.Azure.SiteRecovery
     /// <summary>
     /// Manages an Azure Site Recovery replication policy for HyperV within a Recovery Vault.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "East US",
-    ///     });
-    /// 
-    ///     var exampleVault = new Azure.RecoveryServices.Vault("exampleVault", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Sku = "Standard",
-    ///     });
-    /// 
-    ///     var exampleHyperVSite = new Azure.SiteRecovery.HyperVSite("exampleHyperVSite", new()
-    ///     {
-    ///         RecoveryVaultId = exampleVault.Id,
-    ///     });
-    /// 
-    ///     var exampleHyperVReplicationPolicy = new Azure.SiteRecovery.HyperVReplicationPolicy("exampleHyperVReplicationPolicy", new()
-    ///     {
-    ///         RecoveryVaultId = exampleVault.Id,
-    ///         RecoveryPointRetentionInHours = 2,
-    ///         ApplicationConsistentSnapshotFrequencyInHours = 1,
-    ///         ReplicationIntervalInSeconds = 300,
-    ///     });
-    /// 
-    ///     var exampleHyperVReplicationPolicyAssociation = new Azure.SiteRecovery.HyperVReplicationPolicyAssociation("exampleHyperVReplicationPolicyAssociation", new()
-    ///     {
-    ///         HypervSiteId = exampleHyperVSite.Id,
-    ///         PolicyId = exampleHyperVReplicationPolicy.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Site Recovery Replication Policies can be imported using the `resource id`, e.g.

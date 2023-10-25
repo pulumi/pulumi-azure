@@ -136,18 +136,7 @@ def get_a_record(name: Optional[str] = None,
                  zone_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetARecordResult:
     """
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.dns.get_a_record(name="test",
-        zone_name="test-zone",
-        resource_group_name="test-rg")
-    pulumi.export("dnsARecordId", example.id)
-    ```
-
+    Use this data source to access information about an existing resource.
 
     :param str name: The name of the DNS A Record.
     :param str resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists.
@@ -178,18 +167,7 @@ def get_a_record_output(name: Optional[pulumi.Input[str]] = None,
                         zone_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetARecordResult]:
     """
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.dns.get_a_record(name="test",
-        zone_name="test-zone",
-        resource_group_name="test-rg")
-    pulumi.export("dnsARecordId", example.id)
-    ```
-
+    Use this data source to access information about an existing resource.
 
     :param str name: The name of the DNS A Record.
     :param str resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists.

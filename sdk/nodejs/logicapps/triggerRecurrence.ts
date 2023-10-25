@@ -9,24 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Recurrence Trigger within a Logic App Workflow
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleWorkflow = new azure.logicapps.Workflow("exampleWorkflow", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleTriggerRecurrence = new azure.logicapps.TriggerRecurrence("exampleTriggerRecurrence", {
- *     logicAppId: exampleWorkflow.id,
- *     frequency: "Day",
- *     interval: 1,
- * });
- * ```
- *
  * ## Import
  *
  * Logic App Recurrence Triggers can be imported using the `resource id`, e.g.

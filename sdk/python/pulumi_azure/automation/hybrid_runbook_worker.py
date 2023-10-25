@@ -38,23 +38,33 @@ class HybridRunbookWorkerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             automation_account_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             vm_resource_id: pulumi.Input[str],
-             worker_group_name: pulumi.Input[str],
-             worker_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             automation_account_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             vm_resource_id: Optional[pulumi.Input[str]] = None,
+             worker_group_name: Optional[pulumi.Input[str]] = None,
+             worker_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'automationAccountName' in kwargs:
+        if automation_account_name is None and 'automationAccountName' in kwargs:
             automation_account_name = kwargs['automationAccountName']
-        if 'resourceGroupName' in kwargs:
+        if automation_account_name is None:
+            raise TypeError("Missing 'automation_account_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'vmResourceId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if vm_resource_id is None and 'vmResourceId' in kwargs:
             vm_resource_id = kwargs['vmResourceId']
-        if 'workerGroupName' in kwargs:
+        if vm_resource_id is None:
+            raise TypeError("Missing 'vm_resource_id' argument")
+        if worker_group_name is None and 'workerGroupName' in kwargs:
             worker_group_name = kwargs['workerGroupName']
-        if 'workerId' in kwargs:
+        if worker_group_name is None:
+            raise TypeError("Missing 'worker_group_name' argument")
+        if worker_id is None and 'workerId' in kwargs:
             worker_id = kwargs['workerId']
+        if worker_id is None:
+            raise TypeError("Missing 'worker_id' argument")
 
         _setter("automation_account_name", automation_account_name)
         _setter("resource_group_name", resource_group_name)
@@ -175,25 +185,25 @@ class _HybridRunbookWorkerState:
              worker_id: Optional[pulumi.Input[str]] = None,
              worker_name: Optional[pulumi.Input[str]] = None,
              worker_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'automationAccountName' in kwargs:
+        if automation_account_name is None and 'automationAccountName' in kwargs:
             automation_account_name = kwargs['automationAccountName']
-        if 'lastSeenDateTime' in kwargs:
+        if last_seen_date_time is None and 'lastSeenDateTime' in kwargs:
             last_seen_date_time = kwargs['lastSeenDateTime']
-        if 'registrationDateTime' in kwargs:
+        if registration_date_time is None and 'registrationDateTime' in kwargs:
             registration_date_time = kwargs['registrationDateTime']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'vmResourceId' in kwargs:
+        if vm_resource_id is None and 'vmResourceId' in kwargs:
             vm_resource_id = kwargs['vmResourceId']
-        if 'workerGroupName' in kwargs:
+        if worker_group_name is None and 'workerGroupName' in kwargs:
             worker_group_name = kwargs['workerGroupName']
-        if 'workerId' in kwargs:
+        if worker_id is None and 'workerId' in kwargs:
             worker_id = kwargs['workerId']
-        if 'workerName' in kwargs:
+        if worker_name is None and 'workerName' in kwargs:
             worker_name = kwargs['workerName']
-        if 'workerType' in kwargs:
+        if worker_type is None and 'workerType' in kwargs:
             worker_type = kwargs['workerType']
 
         if automation_account_name is not None:
@@ -352,63 +362,6 @@ class HybridRunbookWorker(pulumi.CustomResource):
         """
         Manages a Automation Hybrid Runbook Worker.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.automation.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Basic")
-        example_hybrid_runbook_worker_group = azure.automation.HybridRunbookWorkerGroup("exampleHybridRunbookWorkerGroup",
-            resource_group_name=example_resource_group.name,
-            automation_account_name=example_account.name)
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            resource_group_name=example_resource_group.name,
-            address_spaces=["192.168.1.0/24"],
-            location=example_resource_group.location)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["192.168.1.0/24"])
-        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="vm-example",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
-        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("exampleLinuxVirtualMachine",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            size="Standard_B1s",
-            admin_username="testadmin",
-            admin_password="Password1234!",
-            disable_password_authentication=False,
-            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
-                publisher="OpenLogic",
-                offer="CentOS",
-                sku="7.5",
-                version="latest",
-            ),
-            os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
-                caching="ReadWrite",
-                storage_account_type="Standard_LRS",
-            ),
-            network_interface_ids=[example_network_interface.id])
-        example_hybrid_runbook_worker = azure.automation.HybridRunbookWorker("exampleHybridRunbookWorker",
-            resource_group_name=example_resource_group.name,
-            automation_account_name=example_account.name,
-            worker_group_name=example_hybrid_runbook_worker_group.name,
-            vm_resource_id=example_linux_virtual_machine.id,
-            worker_id="00000000-0000-0000-0000-000000000000")
-        #unique uuid
-        ```
-
         ## Import
 
         Automations can be imported using the `resource id`, e.g.
@@ -433,63 +386,6 @@ class HybridRunbookWorker(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Automation Hybrid Runbook Worker.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.automation.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Basic")
-        example_hybrid_runbook_worker_group = azure.automation.HybridRunbookWorkerGroup("exampleHybridRunbookWorkerGroup",
-            resource_group_name=example_resource_group.name,
-            automation_account_name=example_account.name)
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            resource_group_name=example_resource_group.name,
-            address_spaces=["192.168.1.0/24"],
-            location=example_resource_group.location)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["192.168.1.0/24"])
-        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="vm-example",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
-        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("exampleLinuxVirtualMachine",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            size="Standard_B1s",
-            admin_username="testadmin",
-            admin_password="Password1234!",
-            disable_password_authentication=False,
-            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
-                publisher="OpenLogic",
-                offer="CentOS",
-                sku="7.5",
-                version="latest",
-            ),
-            os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
-                caching="ReadWrite",
-                storage_account_type="Standard_LRS",
-            ),
-            network_interface_ids=[example_network_interface.id])
-        example_hybrid_runbook_worker = azure.automation.HybridRunbookWorker("exampleHybridRunbookWorker",
-            resource_group_name=example_resource_group.name,
-            automation_account_name=example_account.name,
-            worker_group_name=example_hybrid_runbook_worker_group.name,
-            vm_resource_id=example_linux_virtual_machine.id,
-            worker_id="00000000-0000-0000-0000-000000000000")
-        #unique uuid
-        ```
 
         ## Import
 

@@ -56,8 +56,8 @@ class EnvironmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             subnet_id: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
              allowed_user_ip_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentClusterSettingArgs']]]] = None,
              front_end_scale_factor: Optional[pulumi.Input[int]] = None,
@@ -65,21 +65,25 @@ class EnvironmentArgs:
              name: Optional[pulumi.Input[str]] = None,
              pricing_tier: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'subnetId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'allowedUserIpCidrs' in kwargs:
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if allowed_user_ip_cidrs is None and 'allowedUserIpCidrs' in kwargs:
             allowed_user_ip_cidrs = kwargs['allowedUserIpCidrs']
-        if 'clusterSettings' in kwargs:
+        if cluster_settings is None and 'clusterSettings' in kwargs:
             cluster_settings = kwargs['clusterSettings']
-        if 'frontEndScaleFactor' in kwargs:
+        if front_end_scale_factor is None and 'frontEndScaleFactor' in kwargs:
             front_end_scale_factor = kwargs['frontEndScaleFactor']
-        if 'internalLoadBalancingMode' in kwargs:
+        if internal_load_balancing_mode is None and 'internalLoadBalancingMode' in kwargs:
             internal_load_balancing_mode = kwargs['internalLoadBalancingMode']
-        if 'pricingTier' in kwargs:
+        if pricing_tier is None and 'pricingTier' in kwargs:
             pricing_tier = kwargs['pricingTier']
 
         _setter("resource_group_name", resource_group_name)
@@ -280,27 +284,27 @@ class _EnvironmentState:
              service_ip_address: Optional[pulumi.Input[str]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'allowedUserIpCidrs' in kwargs:
+        if allowed_user_ip_cidrs is None and 'allowedUserIpCidrs' in kwargs:
             allowed_user_ip_cidrs = kwargs['allowedUserIpCidrs']
-        if 'clusterSettings' in kwargs:
+        if cluster_settings is None and 'clusterSettings' in kwargs:
             cluster_settings = kwargs['clusterSettings']
-        if 'frontEndScaleFactor' in kwargs:
+        if front_end_scale_factor is None and 'frontEndScaleFactor' in kwargs:
             front_end_scale_factor = kwargs['frontEndScaleFactor']
-        if 'internalIpAddress' in kwargs:
+        if internal_ip_address is None and 'internalIpAddress' in kwargs:
             internal_ip_address = kwargs['internalIpAddress']
-        if 'internalLoadBalancingMode' in kwargs:
+        if internal_load_balancing_mode is None and 'internalLoadBalancingMode' in kwargs:
             internal_load_balancing_mode = kwargs['internalLoadBalancingMode']
-        if 'outboundIpAddresses' in kwargs:
+        if outbound_ip_addresses is None and 'outboundIpAddresses' in kwargs:
             outbound_ip_addresses = kwargs['outboundIpAddresses']
-        if 'pricingTier' in kwargs:
+        if pricing_tier is None and 'pricingTier' in kwargs:
             pricing_tier = kwargs['pricingTier']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serviceIpAddress' in kwargs:
+        if service_ip_address is None and 'serviceIpAddress' in kwargs:
             service_ip_address = kwargs['serviceIpAddress']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
 
         if allowed_user_ip_cidrs is not None:
@@ -509,41 +513,6 @@ class Environment(pulumi.CustomResource):
         """
         Manages an App Service Environment.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            address_spaces=["10.0.0.0/16"])
-        ase = azure.network.Subnet("ase",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"])
-        gateway = azure.network.Subnet("gateway",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_environment = azure.appservice.Environment("exampleEnvironment",
-            resource_group_name=example_resource_group.name,
-            subnet_id=ase.id,
-            pricing_tier="I2",
-            front_end_scale_factor=10,
-            internal_load_balancing_mode="Web, Publishing",
-            allowed_user_ip_cidrs=[
-                "11.22.33.44/32",
-                "55.66.77.0/24",
-            ],
-            cluster_settings=[azure.appservice.EnvironmentClusterSettingArgs(
-                name="DisableTls1.0",
-                value="1",
-            )])
-        ```
-
         ## Import
 
         The App Service Environment can be imported using the `resource id`, e.g.
@@ -576,41 +545,6 @@ class Environment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an App Service Environment.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            address_spaces=["10.0.0.0/16"])
-        ase = azure.network.Subnet("ase",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"])
-        gateway = azure.network.Subnet("gateway",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_environment = azure.appservice.Environment("exampleEnvironment",
-            resource_group_name=example_resource_group.name,
-            subnet_id=ase.id,
-            pricing_tier="I2",
-            front_end_scale_factor=10,
-            internal_load_balancing_mode="Web, Publishing",
-            allowed_user_ip_cidrs=[
-                "11.22.33.44/32",
-                "55.66.77.0/24",
-            ],
-            cluster_settings=[azure.appservice.EnvironmentClusterSettingArgs(
-                name="DisableTls1.0",
-                value="1",
-            )])
-        ```
 
         ## Import
 

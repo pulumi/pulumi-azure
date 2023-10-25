@@ -51,9 +51,9 @@ class ZipBlobArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             storage_account_name: pulumi.Input[str],
-             storage_container_name: pulumi.Input[str],
-             type: pulumi.Input[str],
+             storage_account_name: Optional[pulumi.Input[str]] = None,
+             storage_container_name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              access_tier: Optional[pulumi.Input[str]] = None,
              cache_control: Optional[pulumi.Input[str]] = None,
              content: Optional[pulumi.Input[pulumi.Archive]] = None,
@@ -65,23 +65,29 @@ class ZipBlobArgs:
              size: Optional[pulumi.Input[int]] = None,
              source_content: Optional[pulumi.Input[str]] = None,
              source_uri: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'storageAccountName' in kwargs:
+        if storage_account_name is None and 'storageAccountName' in kwargs:
             storage_account_name = kwargs['storageAccountName']
-        if 'storageContainerName' in kwargs:
+        if storage_account_name is None:
+            raise TypeError("Missing 'storage_account_name' argument")
+        if storage_container_name is None and 'storageContainerName' in kwargs:
             storage_container_name = kwargs['storageContainerName']
-        if 'accessTier' in kwargs:
+        if storage_container_name is None:
+            raise TypeError("Missing 'storage_container_name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if access_tier is None and 'accessTier' in kwargs:
             access_tier = kwargs['accessTier']
-        if 'cacheControl' in kwargs:
+        if cache_control is None and 'cacheControl' in kwargs:
             cache_control = kwargs['cacheControl']
-        if 'contentMd5' in kwargs:
+        if content_md5 is None and 'contentMd5' in kwargs:
             content_md5 = kwargs['contentMd5']
-        if 'contentType' in kwargs:
+        if content_type is None and 'contentType' in kwargs:
             content_type = kwargs['contentType']
-        if 'sourceContent' in kwargs:
+        if source_content is None and 'sourceContent' in kwargs:
             source_content = kwargs['sourceContent']
-        if 'sourceUri' in kwargs:
+        if source_uri is None and 'sourceUri' in kwargs:
             source_uri = kwargs['sourceUri']
 
         _setter("storage_account_name", storage_account_name)
@@ -294,23 +300,23 @@ class _ZipBlobState:
              storage_container_name: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accessTier' in kwargs:
+        if access_tier is None and 'accessTier' in kwargs:
             access_tier = kwargs['accessTier']
-        if 'cacheControl' in kwargs:
+        if cache_control is None and 'cacheControl' in kwargs:
             cache_control = kwargs['cacheControl']
-        if 'contentMd5' in kwargs:
+        if content_md5 is None and 'contentMd5' in kwargs:
             content_md5 = kwargs['contentMd5']
-        if 'contentType' in kwargs:
+        if content_type is None and 'contentType' in kwargs:
             content_type = kwargs['contentType']
-        if 'sourceContent' in kwargs:
+        if source_content is None and 'sourceContent' in kwargs:
             source_content = kwargs['sourceContent']
-        if 'sourceUri' in kwargs:
+        if source_uri is None and 'sourceUri' in kwargs:
             source_uri = kwargs['sourceUri']
-        if 'storageAccountName' in kwargs:
+        if storage_account_name is None and 'storageAccountName' in kwargs:
             storage_account_name = kwargs['storageAccountName']
-        if 'storageContainerName' in kwargs:
+        if storage_container_name is None and 'storageContainerName' in kwargs:
             storage_container_name = kwargs['storageContainerName']
 
         if access_tier is not None:

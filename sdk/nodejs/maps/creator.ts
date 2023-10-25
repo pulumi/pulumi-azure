@@ -7,30 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Maps Creator.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.maps.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "G2",
- *     tags: {
- *         environment: "Test",
- *     },
- * });
- * const exampleCreator = new azure.maps.Creator("exampleCreator", {
- *     mapsAccountId: exampleAccount.id,
- *     location: exampleResourceGroup.location,
- *     storageUnits: 1,
- *     tags: {
- *         environment: "Test",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * An Azure Maps Creators can be imported using the `resource id`, e.g.

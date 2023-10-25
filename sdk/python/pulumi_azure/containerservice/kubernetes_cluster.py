@@ -147,28 +147,6 @@ class KubernetesClusterArgs:
         :param pulumi.Input[bool] private_cluster_public_fqdn_enabled: Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
                
                > **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
-               
-               ```python
-               import pulumi
-               import pulumi_azure as azure
-               
-               example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-               example_zone = azure.privatedns.Zone("exampleZone", resource_group_name=example_resource_group.name)
-               example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
-                   resource_group_name=example_resource_group.name,
-                   location=example_resource_group.location)
-               example_assignment = azure.authorization.Assignment("exampleAssignment",
-                   scope=example_zone.id,
-                   role_definition_name="Private DNS Zone Contributor",
-                   principal_id=example_user_assigned_identity.principal_id)
-               example_kubernetes_cluster = azure.containerservice.KubernetesCluster("exampleKubernetesCluster",
-                   location=example_resource_group.location,
-                   resource_group_name=example_resource_group.name,
-                   dns_prefix="aksexamplednsprefix1",
-                   private_cluster_enabled=True,
-                   private_dns_zone_id=example_zone.id,
-                   opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
-               ```
         :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. 
                
@@ -257,8 +235,8 @@ class KubernetesClusterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             default_node_pool: pulumi.Input['KubernetesClusterDefaultNodePoolArgs'],
-             resource_group_name: pulumi.Input[str],
+             default_node_pool: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              aci_connector_linux: Optional[pulumi.Input['KubernetesClusterAciConnectorLinuxArgs']] = None,
              api_server_access_profile: Optional[pulumi.Input['KubernetesClusterApiServerAccessProfileArgs']] = None,
              api_server_authorized_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -313,111 +291,115 @@ class KubernetesClusterArgs:
              windows_profile: Optional[pulumi.Input['KubernetesClusterWindowsProfileArgs']] = None,
              workload_autoscaler_profile: Optional[pulumi.Input['KubernetesClusterWorkloadAutoscalerProfileArgs']] = None,
              workload_identity_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'defaultNodePool' in kwargs:
+        if default_node_pool is None and 'defaultNodePool' in kwargs:
             default_node_pool = kwargs['defaultNodePool']
-        if 'resourceGroupName' in kwargs:
+        if default_node_pool is None:
+            raise TypeError("Missing 'default_node_pool' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'aciConnectorLinux' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if aci_connector_linux is None and 'aciConnectorLinux' in kwargs:
             aci_connector_linux = kwargs['aciConnectorLinux']
-        if 'apiServerAccessProfile' in kwargs:
+        if api_server_access_profile is None and 'apiServerAccessProfile' in kwargs:
             api_server_access_profile = kwargs['apiServerAccessProfile']
-        if 'apiServerAuthorizedIpRanges' in kwargs:
+        if api_server_authorized_ip_ranges is None and 'apiServerAuthorizedIpRanges' in kwargs:
             api_server_authorized_ip_ranges = kwargs['apiServerAuthorizedIpRanges']
-        if 'autoScalerProfile' in kwargs:
+        if auto_scaler_profile is None and 'autoScalerProfile' in kwargs:
             auto_scaler_profile = kwargs['autoScalerProfile']
-        if 'automaticChannelUpgrade' in kwargs:
+        if automatic_channel_upgrade is None and 'automaticChannelUpgrade' in kwargs:
             automatic_channel_upgrade = kwargs['automaticChannelUpgrade']
-        if 'azureActiveDirectoryRoleBasedAccessControl' in kwargs:
+        if azure_active_directory_role_based_access_control is None and 'azureActiveDirectoryRoleBasedAccessControl' in kwargs:
             azure_active_directory_role_based_access_control = kwargs['azureActiveDirectoryRoleBasedAccessControl']
-        if 'azurePolicyEnabled' in kwargs:
+        if azure_policy_enabled is None and 'azurePolicyEnabled' in kwargs:
             azure_policy_enabled = kwargs['azurePolicyEnabled']
-        if 'confidentialComputing' in kwargs:
+        if confidential_computing is None and 'confidentialComputing' in kwargs:
             confidential_computing = kwargs['confidentialComputing']
-        if 'customCaTrustCertificatesBase64s' in kwargs:
+        if custom_ca_trust_certificates_base64s is None and 'customCaTrustCertificatesBase64s' in kwargs:
             custom_ca_trust_certificates_base64s = kwargs['customCaTrustCertificatesBase64s']
-        if 'diskEncryptionSetId' in kwargs:
+        if disk_encryption_set_id is None and 'diskEncryptionSetId' in kwargs:
             disk_encryption_set_id = kwargs['diskEncryptionSetId']
-        if 'dnsPrefix' in kwargs:
+        if dns_prefix is None and 'dnsPrefix' in kwargs:
             dns_prefix = kwargs['dnsPrefix']
-        if 'dnsPrefixPrivateCluster' in kwargs:
+        if dns_prefix_private_cluster is None and 'dnsPrefixPrivateCluster' in kwargs:
             dns_prefix_private_cluster = kwargs['dnsPrefixPrivateCluster']
-        if 'edgeZone' in kwargs:
+        if edge_zone is None and 'edgeZone' in kwargs:
             edge_zone = kwargs['edgeZone']
-        if 'enablePodSecurityPolicy' in kwargs:
+        if enable_pod_security_policy is None and 'enablePodSecurityPolicy' in kwargs:
             enable_pod_security_policy = kwargs['enablePodSecurityPolicy']
-        if 'httpApplicationRoutingEnabled' in kwargs:
+        if http_application_routing_enabled is None and 'httpApplicationRoutingEnabled' in kwargs:
             http_application_routing_enabled = kwargs['httpApplicationRoutingEnabled']
-        if 'httpProxyConfig' in kwargs:
+        if http_proxy_config is None and 'httpProxyConfig' in kwargs:
             http_proxy_config = kwargs['httpProxyConfig']
-        if 'imageCleanerEnabled' in kwargs:
+        if image_cleaner_enabled is None and 'imageCleanerEnabled' in kwargs:
             image_cleaner_enabled = kwargs['imageCleanerEnabled']
-        if 'imageCleanerIntervalHours' in kwargs:
+        if image_cleaner_interval_hours is None and 'imageCleanerIntervalHours' in kwargs:
             image_cleaner_interval_hours = kwargs['imageCleanerIntervalHours']
-        if 'ingressApplicationGateway' in kwargs:
+        if ingress_application_gateway is None and 'ingressApplicationGateway' in kwargs:
             ingress_application_gateway = kwargs['ingressApplicationGateway']
-        if 'keyManagementService' in kwargs:
+        if key_management_service is None and 'keyManagementService' in kwargs:
             key_management_service = kwargs['keyManagementService']
-        if 'keyVaultSecretsProvider' in kwargs:
+        if key_vault_secrets_provider is None and 'keyVaultSecretsProvider' in kwargs:
             key_vault_secrets_provider = kwargs['keyVaultSecretsProvider']
-        if 'kubeletIdentity' in kwargs:
+        if kubelet_identity is None and 'kubeletIdentity' in kwargs:
             kubelet_identity = kwargs['kubeletIdentity']
-        if 'kubernetesVersion' in kwargs:
+        if kubernetes_version is None and 'kubernetesVersion' in kwargs:
             kubernetes_version = kwargs['kubernetesVersion']
-        if 'linuxProfile' in kwargs:
+        if linux_profile is None and 'linuxProfile' in kwargs:
             linux_profile = kwargs['linuxProfile']
-        if 'localAccountDisabled' in kwargs:
+        if local_account_disabled is None and 'localAccountDisabled' in kwargs:
             local_account_disabled = kwargs['localAccountDisabled']
-        if 'maintenanceWindow' in kwargs:
+        if maintenance_window is None and 'maintenanceWindow' in kwargs:
             maintenance_window = kwargs['maintenanceWindow']
-        if 'maintenanceWindowAutoUpgrade' in kwargs:
+        if maintenance_window_auto_upgrade is None and 'maintenanceWindowAutoUpgrade' in kwargs:
             maintenance_window_auto_upgrade = kwargs['maintenanceWindowAutoUpgrade']
-        if 'maintenanceWindowNodeOs' in kwargs:
+        if maintenance_window_node_os is None and 'maintenanceWindowNodeOs' in kwargs:
             maintenance_window_node_os = kwargs['maintenanceWindowNodeOs']
-        if 'microsoftDefender' in kwargs:
+        if microsoft_defender is None and 'microsoftDefender' in kwargs:
             microsoft_defender = kwargs['microsoftDefender']
-        if 'monitorMetrics' in kwargs:
+        if monitor_metrics is None and 'monitorMetrics' in kwargs:
             monitor_metrics = kwargs['monitorMetrics']
-        if 'networkProfile' in kwargs:
+        if network_profile is None and 'networkProfile' in kwargs:
             network_profile = kwargs['networkProfile']
-        if 'nodeOsChannelUpgrade' in kwargs:
+        if node_os_channel_upgrade is None and 'nodeOsChannelUpgrade' in kwargs:
             node_os_channel_upgrade = kwargs['nodeOsChannelUpgrade']
-        if 'nodeResourceGroup' in kwargs:
+        if node_resource_group is None and 'nodeResourceGroup' in kwargs:
             node_resource_group = kwargs['nodeResourceGroup']
-        if 'oidcIssuerEnabled' in kwargs:
+        if oidc_issuer_enabled is None and 'oidcIssuerEnabled' in kwargs:
             oidc_issuer_enabled = kwargs['oidcIssuerEnabled']
-        if 'omsAgent' in kwargs:
+        if oms_agent is None and 'omsAgent' in kwargs:
             oms_agent = kwargs['omsAgent']
-        if 'openServiceMeshEnabled' in kwargs:
+        if open_service_mesh_enabled is None and 'openServiceMeshEnabled' in kwargs:
             open_service_mesh_enabled = kwargs['openServiceMeshEnabled']
-        if 'privateClusterEnabled' in kwargs:
+        if private_cluster_enabled is None and 'privateClusterEnabled' in kwargs:
             private_cluster_enabled = kwargs['privateClusterEnabled']
-        if 'privateClusterPublicFqdnEnabled' in kwargs:
+        if private_cluster_public_fqdn_enabled is None and 'privateClusterPublicFqdnEnabled' in kwargs:
             private_cluster_public_fqdn_enabled = kwargs['privateClusterPublicFqdnEnabled']
-        if 'privateDnsZoneId' in kwargs:
+        if private_dns_zone_id is None and 'privateDnsZoneId' in kwargs:
             private_dns_zone_id = kwargs['privateDnsZoneId']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'roleBasedAccessControlEnabled' in kwargs:
+        if role_based_access_control_enabled is None and 'roleBasedAccessControlEnabled' in kwargs:
             role_based_access_control_enabled = kwargs['roleBasedAccessControlEnabled']
-        if 'runCommandEnabled' in kwargs:
+        if run_command_enabled is None and 'runCommandEnabled' in kwargs:
             run_command_enabled = kwargs['runCommandEnabled']
-        if 'serviceMeshProfile' in kwargs:
+        if service_mesh_profile is None and 'serviceMeshProfile' in kwargs:
             service_mesh_profile = kwargs['serviceMeshProfile']
-        if 'servicePrincipal' in kwargs:
+        if service_principal is None and 'servicePrincipal' in kwargs:
             service_principal = kwargs['servicePrincipal']
-        if 'skuTier' in kwargs:
+        if sku_tier is None and 'skuTier' in kwargs:
             sku_tier = kwargs['skuTier']
-        if 'storageProfile' in kwargs:
+        if storage_profile is None and 'storageProfile' in kwargs:
             storage_profile = kwargs['storageProfile']
-        if 'webAppRouting' in kwargs:
+        if web_app_routing is None and 'webAppRouting' in kwargs:
             web_app_routing = kwargs['webAppRouting']
-        if 'windowsProfile' in kwargs:
+        if windows_profile is None and 'windowsProfile' in kwargs:
             windows_profile = kwargs['windowsProfile']
-        if 'workloadAutoscalerProfile' in kwargs:
+        if workload_autoscaler_profile is None and 'workloadAutoscalerProfile' in kwargs:
             workload_autoscaler_profile = kwargs['workloadAutoscalerProfile']
-        if 'workloadIdentityEnabled' in kwargs:
+        if workload_identity_enabled is None and 'workloadIdentityEnabled' in kwargs:
             workload_identity_enabled = kwargs['workloadIdentityEnabled']
 
         _setter("default_node_pool", default_node_pool)
@@ -1081,28 +1063,6 @@ class KubernetesClusterArgs:
         Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
 
         > **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_zone = azure.privatedns.Zone("exampleZone", resource_group_name=example_resource_group.name)
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_assignment = azure.authorization.Assignment("exampleAssignment",
-            scope=example_zone.id,
-            role_definition_name="Private DNS Zone Contributor",
-            principal_id=example_user_assigned_identity.principal_id)
-        example_kubernetes_cluster = azure.containerservice.KubernetesCluster("exampleKubernetesCluster",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            dns_prefix="aksexamplednsprefix1",
-            private_cluster_enabled=True,
-            private_dns_zone_id=example_zone.id,
-            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
-        ```
         """
         return pulumi.get(self, "private_cluster_public_fqdn_enabled")
 
@@ -1434,28 +1394,6 @@ class _KubernetesClusterState:
         :param pulumi.Input[bool] private_cluster_public_fqdn_enabled: Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
                
                > **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
-               
-               ```python
-               import pulumi
-               import pulumi_azure as azure
-               
-               example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-               example_zone = azure.privatedns.Zone("exampleZone", resource_group_name=example_resource_group.name)
-               example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
-                   resource_group_name=example_resource_group.name,
-                   location=example_resource_group.location)
-               example_assignment = azure.authorization.Assignment("exampleAssignment",
-                   scope=example_zone.id,
-                   role_definition_name="Private DNS Zone Contributor",
-                   principal_id=example_user_assigned_identity.principal_id)
-               example_kubernetes_cluster = azure.containerservice.KubernetesCluster("exampleKubernetesCluster",
-                   location=example_resource_group.location,
-                   resource_group_name=example_resource_group.name,
-                   dns_prefix="aksexamplednsprefix1",
-                   private_cluster_enabled=True,
-                   private_dns_zone_id=example_zone.id,
-                   opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
-               ```
         :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
         :param pulumi.Input[str] private_fqdn: The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. 
@@ -1622,129 +1560,129 @@ class _KubernetesClusterState:
              windows_profile: Optional[pulumi.Input['KubernetesClusterWindowsProfileArgs']] = None,
              workload_autoscaler_profile: Optional[pulumi.Input['KubernetesClusterWorkloadAutoscalerProfileArgs']] = None,
              workload_identity_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'aciConnectorLinux' in kwargs:
+        if aci_connector_linux is None and 'aciConnectorLinux' in kwargs:
             aci_connector_linux = kwargs['aciConnectorLinux']
-        if 'apiServerAccessProfile' in kwargs:
+        if api_server_access_profile is None and 'apiServerAccessProfile' in kwargs:
             api_server_access_profile = kwargs['apiServerAccessProfile']
-        if 'apiServerAuthorizedIpRanges' in kwargs:
+        if api_server_authorized_ip_ranges is None and 'apiServerAuthorizedIpRanges' in kwargs:
             api_server_authorized_ip_ranges = kwargs['apiServerAuthorizedIpRanges']
-        if 'autoScalerProfile' in kwargs:
+        if auto_scaler_profile is None and 'autoScalerProfile' in kwargs:
             auto_scaler_profile = kwargs['autoScalerProfile']
-        if 'automaticChannelUpgrade' in kwargs:
+        if automatic_channel_upgrade is None and 'automaticChannelUpgrade' in kwargs:
             automatic_channel_upgrade = kwargs['automaticChannelUpgrade']
-        if 'azureActiveDirectoryRoleBasedAccessControl' in kwargs:
+        if azure_active_directory_role_based_access_control is None and 'azureActiveDirectoryRoleBasedAccessControl' in kwargs:
             azure_active_directory_role_based_access_control = kwargs['azureActiveDirectoryRoleBasedAccessControl']
-        if 'azurePolicyEnabled' in kwargs:
+        if azure_policy_enabled is None and 'azurePolicyEnabled' in kwargs:
             azure_policy_enabled = kwargs['azurePolicyEnabled']
-        if 'confidentialComputing' in kwargs:
+        if confidential_computing is None and 'confidentialComputing' in kwargs:
             confidential_computing = kwargs['confidentialComputing']
-        if 'customCaTrustCertificatesBase64s' in kwargs:
+        if custom_ca_trust_certificates_base64s is None and 'customCaTrustCertificatesBase64s' in kwargs:
             custom_ca_trust_certificates_base64s = kwargs['customCaTrustCertificatesBase64s']
-        if 'defaultNodePool' in kwargs:
+        if default_node_pool is None and 'defaultNodePool' in kwargs:
             default_node_pool = kwargs['defaultNodePool']
-        if 'diskEncryptionSetId' in kwargs:
+        if disk_encryption_set_id is None and 'diskEncryptionSetId' in kwargs:
             disk_encryption_set_id = kwargs['diskEncryptionSetId']
-        if 'dnsPrefix' in kwargs:
+        if dns_prefix is None and 'dnsPrefix' in kwargs:
             dns_prefix = kwargs['dnsPrefix']
-        if 'dnsPrefixPrivateCluster' in kwargs:
+        if dns_prefix_private_cluster is None and 'dnsPrefixPrivateCluster' in kwargs:
             dns_prefix_private_cluster = kwargs['dnsPrefixPrivateCluster']
-        if 'edgeZone' in kwargs:
+        if edge_zone is None and 'edgeZone' in kwargs:
             edge_zone = kwargs['edgeZone']
-        if 'enablePodSecurityPolicy' in kwargs:
+        if enable_pod_security_policy is None and 'enablePodSecurityPolicy' in kwargs:
             enable_pod_security_policy = kwargs['enablePodSecurityPolicy']
-        if 'httpApplicationRoutingEnabled' in kwargs:
+        if http_application_routing_enabled is None and 'httpApplicationRoutingEnabled' in kwargs:
             http_application_routing_enabled = kwargs['httpApplicationRoutingEnabled']
-        if 'httpApplicationRoutingZoneName' in kwargs:
+        if http_application_routing_zone_name is None and 'httpApplicationRoutingZoneName' in kwargs:
             http_application_routing_zone_name = kwargs['httpApplicationRoutingZoneName']
-        if 'httpProxyConfig' in kwargs:
+        if http_proxy_config is None and 'httpProxyConfig' in kwargs:
             http_proxy_config = kwargs['httpProxyConfig']
-        if 'imageCleanerEnabled' in kwargs:
+        if image_cleaner_enabled is None and 'imageCleanerEnabled' in kwargs:
             image_cleaner_enabled = kwargs['imageCleanerEnabled']
-        if 'imageCleanerIntervalHours' in kwargs:
+        if image_cleaner_interval_hours is None and 'imageCleanerIntervalHours' in kwargs:
             image_cleaner_interval_hours = kwargs['imageCleanerIntervalHours']
-        if 'ingressApplicationGateway' in kwargs:
+        if ingress_application_gateway is None and 'ingressApplicationGateway' in kwargs:
             ingress_application_gateway = kwargs['ingressApplicationGateway']
-        if 'keyManagementService' in kwargs:
+        if key_management_service is None and 'keyManagementService' in kwargs:
             key_management_service = kwargs['keyManagementService']
-        if 'keyVaultSecretsProvider' in kwargs:
+        if key_vault_secrets_provider is None and 'keyVaultSecretsProvider' in kwargs:
             key_vault_secrets_provider = kwargs['keyVaultSecretsProvider']
-        if 'kubeAdminConfigRaw' in kwargs:
+        if kube_admin_config_raw is None and 'kubeAdminConfigRaw' in kwargs:
             kube_admin_config_raw = kwargs['kubeAdminConfigRaw']
-        if 'kubeAdminConfigs' in kwargs:
+        if kube_admin_configs is None and 'kubeAdminConfigs' in kwargs:
             kube_admin_configs = kwargs['kubeAdminConfigs']
-        if 'kubeConfigRaw' in kwargs:
+        if kube_config_raw is None and 'kubeConfigRaw' in kwargs:
             kube_config_raw = kwargs['kubeConfigRaw']
-        if 'kubeConfigs' in kwargs:
+        if kube_configs is None and 'kubeConfigs' in kwargs:
             kube_configs = kwargs['kubeConfigs']
-        if 'kubeletIdentity' in kwargs:
+        if kubelet_identity is None and 'kubeletIdentity' in kwargs:
             kubelet_identity = kwargs['kubeletIdentity']
-        if 'kubernetesVersion' in kwargs:
+        if kubernetes_version is None and 'kubernetesVersion' in kwargs:
             kubernetes_version = kwargs['kubernetesVersion']
-        if 'linuxProfile' in kwargs:
+        if linux_profile is None and 'linuxProfile' in kwargs:
             linux_profile = kwargs['linuxProfile']
-        if 'localAccountDisabled' in kwargs:
+        if local_account_disabled is None and 'localAccountDisabled' in kwargs:
             local_account_disabled = kwargs['localAccountDisabled']
-        if 'maintenanceWindow' in kwargs:
+        if maintenance_window is None and 'maintenanceWindow' in kwargs:
             maintenance_window = kwargs['maintenanceWindow']
-        if 'maintenanceWindowAutoUpgrade' in kwargs:
+        if maintenance_window_auto_upgrade is None and 'maintenanceWindowAutoUpgrade' in kwargs:
             maintenance_window_auto_upgrade = kwargs['maintenanceWindowAutoUpgrade']
-        if 'maintenanceWindowNodeOs' in kwargs:
+        if maintenance_window_node_os is None and 'maintenanceWindowNodeOs' in kwargs:
             maintenance_window_node_os = kwargs['maintenanceWindowNodeOs']
-        if 'microsoftDefender' in kwargs:
+        if microsoft_defender is None and 'microsoftDefender' in kwargs:
             microsoft_defender = kwargs['microsoftDefender']
-        if 'monitorMetrics' in kwargs:
+        if monitor_metrics is None and 'monitorMetrics' in kwargs:
             monitor_metrics = kwargs['monitorMetrics']
-        if 'networkProfile' in kwargs:
+        if network_profile is None and 'networkProfile' in kwargs:
             network_profile = kwargs['networkProfile']
-        if 'nodeOsChannelUpgrade' in kwargs:
+        if node_os_channel_upgrade is None and 'nodeOsChannelUpgrade' in kwargs:
             node_os_channel_upgrade = kwargs['nodeOsChannelUpgrade']
-        if 'nodeResourceGroup' in kwargs:
+        if node_resource_group is None and 'nodeResourceGroup' in kwargs:
             node_resource_group = kwargs['nodeResourceGroup']
-        if 'nodeResourceGroupId' in kwargs:
+        if node_resource_group_id is None and 'nodeResourceGroupId' in kwargs:
             node_resource_group_id = kwargs['nodeResourceGroupId']
-        if 'oidcIssuerEnabled' in kwargs:
+        if oidc_issuer_enabled is None and 'oidcIssuerEnabled' in kwargs:
             oidc_issuer_enabled = kwargs['oidcIssuerEnabled']
-        if 'oidcIssuerUrl' in kwargs:
+        if oidc_issuer_url is None and 'oidcIssuerUrl' in kwargs:
             oidc_issuer_url = kwargs['oidcIssuerUrl']
-        if 'omsAgent' in kwargs:
+        if oms_agent is None and 'omsAgent' in kwargs:
             oms_agent = kwargs['omsAgent']
-        if 'openServiceMeshEnabled' in kwargs:
+        if open_service_mesh_enabled is None and 'openServiceMeshEnabled' in kwargs:
             open_service_mesh_enabled = kwargs['openServiceMeshEnabled']
-        if 'portalFqdn' in kwargs:
+        if portal_fqdn is None and 'portalFqdn' in kwargs:
             portal_fqdn = kwargs['portalFqdn']
-        if 'privateClusterEnabled' in kwargs:
+        if private_cluster_enabled is None and 'privateClusterEnabled' in kwargs:
             private_cluster_enabled = kwargs['privateClusterEnabled']
-        if 'privateClusterPublicFqdnEnabled' in kwargs:
+        if private_cluster_public_fqdn_enabled is None and 'privateClusterPublicFqdnEnabled' in kwargs:
             private_cluster_public_fqdn_enabled = kwargs['privateClusterPublicFqdnEnabled']
-        if 'privateDnsZoneId' in kwargs:
+        if private_dns_zone_id is None and 'privateDnsZoneId' in kwargs:
             private_dns_zone_id = kwargs['privateDnsZoneId']
-        if 'privateFqdn' in kwargs:
+        if private_fqdn is None and 'privateFqdn' in kwargs:
             private_fqdn = kwargs['privateFqdn']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'roleBasedAccessControlEnabled' in kwargs:
+        if role_based_access_control_enabled is None and 'roleBasedAccessControlEnabled' in kwargs:
             role_based_access_control_enabled = kwargs['roleBasedAccessControlEnabled']
-        if 'runCommandEnabled' in kwargs:
+        if run_command_enabled is None and 'runCommandEnabled' in kwargs:
             run_command_enabled = kwargs['runCommandEnabled']
-        if 'serviceMeshProfile' in kwargs:
+        if service_mesh_profile is None and 'serviceMeshProfile' in kwargs:
             service_mesh_profile = kwargs['serviceMeshProfile']
-        if 'servicePrincipal' in kwargs:
+        if service_principal is None and 'servicePrincipal' in kwargs:
             service_principal = kwargs['servicePrincipal']
-        if 'skuTier' in kwargs:
+        if sku_tier is None and 'skuTier' in kwargs:
             sku_tier = kwargs['skuTier']
-        if 'storageProfile' in kwargs:
+        if storage_profile is None and 'storageProfile' in kwargs:
             storage_profile = kwargs['storageProfile']
-        if 'webAppRouting' in kwargs:
+        if web_app_routing is None and 'webAppRouting' in kwargs:
             web_app_routing = kwargs['webAppRouting']
-        if 'windowsProfile' in kwargs:
+        if windows_profile is None and 'windowsProfile' in kwargs:
             windows_profile = kwargs['windowsProfile']
-        if 'workloadAutoscalerProfile' in kwargs:
+        if workload_autoscaler_profile is None and 'workloadAutoscalerProfile' in kwargs:
             workload_autoscaler_profile = kwargs['workloadAutoscalerProfile']
-        if 'workloadIdentityEnabled' in kwargs:
+        if workload_identity_enabled is None and 'workloadIdentityEnabled' in kwargs:
             workload_identity_enabled = kwargs['workloadIdentityEnabled']
 
         if aci_connector_linux is not None:
@@ -2526,28 +2464,6 @@ class _KubernetesClusterState:
         Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
 
         > **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_zone = azure.privatedns.Zone("exampleZone", resource_group_name=example_resource_group.name)
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_assignment = azure.authorization.Assignment("exampleAssignment",
-            scope=example_zone.id,
-            role_definition_name="Private DNS Zone Contributor",
-            principal_id=example_user_assigned_identity.principal_id)
-        example_kubernetes_cluster = azure.containerservice.KubernetesCluster("exampleKubernetesCluster",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            dns_prefix="aksexamplednsprefix1",
-            private_cluster_enabled=True,
-            private_dns_zone_id=example_zone.id,
-            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
-        ```
         """
         return pulumi.get(self, "private_cluster_public_fqdn_enabled")
 
@@ -2816,34 +2732,6 @@ class KubernetesCluster(pulumi.CustomResource):
         """
         Manages a Managed Kubernetes Cluster (also known as AKS / Azure Kubernetes Service)
 
-        ## Example Usage
-
-        This example provisions a basic Managed Kubernetes Cluster.
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_kubernetes_cluster = azure.containerservice.KubernetesCluster("exampleKubernetesCluster",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            dns_prefix="exampleaks1",
-            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
-                name="default",
-                node_count=1,
-                vm_size="Standard_D2_v2",
-            ),
-            identity=azure.containerservice.KubernetesClusterIdentityArgs(
-                type="SystemAssigned",
-            ),
-            tags={
-                "Environment": "Production",
-            })
-        pulumi.export("clientCertificate", example_kubernetes_cluster.kube_configs[0].client_certificate)
-        pulumi.export("kubeConfig", example_kubernetes_cluster.kube_config_raw)
-        ```
-
         ## Import
 
         Managed Kubernetes Clusters can be imported using the `resource id`, e.g.
@@ -2926,28 +2814,6 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[bool] private_cluster_public_fqdn_enabled: Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
                
                > **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
-               
-               ```python
-               import pulumi
-               import pulumi_azure as azure
-               
-               example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-               example_zone = azure.privatedns.Zone("exampleZone", resource_group_name=example_resource_group.name)
-               example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
-                   resource_group_name=example_resource_group.name,
-                   location=example_resource_group.location)
-               example_assignment = azure.authorization.Assignment("exampleAssignment",
-                   scope=example_zone.id,
-                   role_definition_name="Private DNS Zone Contributor",
-                   principal_id=example_user_assigned_identity.principal_id)
-               example_kubernetes_cluster = azure.containerservice.KubernetesCluster("exampleKubernetesCluster",
-                   location=example_resource_group.location,
-                   resource_group_name=example_resource_group.name,
-                   dns_prefix="aksexamplednsprefix1",
-                   private_cluster_enabled=True,
-                   private_dns_zone_id=example_zone.id,
-                   opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
-               ```
         :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. 
                
@@ -2983,34 +2849,6 @@ class KubernetesCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Managed Kubernetes Cluster (also known as AKS / Azure Kubernetes Service)
-
-        ## Example Usage
-
-        This example provisions a basic Managed Kubernetes Cluster.
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_kubernetes_cluster = azure.containerservice.KubernetesCluster("exampleKubernetesCluster",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            dns_prefix="exampleaks1",
-            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
-                name="default",
-                node_count=1,
-                vm_size="Standard_D2_v2",
-            ),
-            identity=azure.containerservice.KubernetesClusterIdentityArgs(
-                type="SystemAssigned",
-            ),
-            tags={
-                "Environment": "Production",
-            })
-        pulumi.export("clientCertificate", example_kubernetes_cluster.kube_configs[0].client_certificate)
-        pulumi.export("kubeConfig", example_kubernetes_cluster.kube_config_raw)
-        ```
 
         ## Import
 
@@ -3104,45 +2942,21 @@ class KubernetesCluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = KubernetesClusterArgs.__new__(KubernetesClusterArgs)
 
-            if aci_connector_linux is not None and not isinstance(aci_connector_linux, KubernetesClusterAciConnectorLinuxArgs):
-                aci_connector_linux = aci_connector_linux or {}
-                def _setter(key, value):
-                    aci_connector_linux[key] = value
-                KubernetesClusterAciConnectorLinuxArgs._configure(_setter, **aci_connector_linux)
+            aci_connector_linux = _utilities.configure(aci_connector_linux, KubernetesClusterAciConnectorLinuxArgs, True)
             __props__.__dict__["aci_connector_linux"] = aci_connector_linux
-            if api_server_access_profile is not None and not isinstance(api_server_access_profile, KubernetesClusterApiServerAccessProfileArgs):
-                api_server_access_profile = api_server_access_profile or {}
-                def _setter(key, value):
-                    api_server_access_profile[key] = value
-                KubernetesClusterApiServerAccessProfileArgs._configure(_setter, **api_server_access_profile)
+            api_server_access_profile = _utilities.configure(api_server_access_profile, KubernetesClusterApiServerAccessProfileArgs, True)
             __props__.__dict__["api_server_access_profile"] = api_server_access_profile
             __props__.__dict__["api_server_authorized_ip_ranges"] = api_server_authorized_ip_ranges
-            if auto_scaler_profile is not None and not isinstance(auto_scaler_profile, KubernetesClusterAutoScalerProfileArgs):
-                auto_scaler_profile = auto_scaler_profile or {}
-                def _setter(key, value):
-                    auto_scaler_profile[key] = value
-                KubernetesClusterAutoScalerProfileArgs._configure(_setter, **auto_scaler_profile)
+            auto_scaler_profile = _utilities.configure(auto_scaler_profile, KubernetesClusterAutoScalerProfileArgs, True)
             __props__.__dict__["auto_scaler_profile"] = auto_scaler_profile
             __props__.__dict__["automatic_channel_upgrade"] = automatic_channel_upgrade
-            if azure_active_directory_role_based_access_control is not None and not isinstance(azure_active_directory_role_based_access_control, KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs):
-                azure_active_directory_role_based_access_control = azure_active_directory_role_based_access_control or {}
-                def _setter(key, value):
-                    azure_active_directory_role_based_access_control[key] = value
-                KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs._configure(_setter, **azure_active_directory_role_based_access_control)
+            azure_active_directory_role_based_access_control = _utilities.configure(azure_active_directory_role_based_access_control, KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs, True)
             __props__.__dict__["azure_active_directory_role_based_access_control"] = azure_active_directory_role_based_access_control
             __props__.__dict__["azure_policy_enabled"] = azure_policy_enabled
-            if confidential_computing is not None and not isinstance(confidential_computing, KubernetesClusterConfidentialComputingArgs):
-                confidential_computing = confidential_computing or {}
-                def _setter(key, value):
-                    confidential_computing[key] = value
-                KubernetesClusterConfidentialComputingArgs._configure(_setter, **confidential_computing)
+            confidential_computing = _utilities.configure(confidential_computing, KubernetesClusterConfidentialComputingArgs, True)
             __props__.__dict__["confidential_computing"] = confidential_computing
             __props__.__dict__["custom_ca_trust_certificates_base64s"] = custom_ca_trust_certificates_base64s
-            if default_node_pool is not None and not isinstance(default_node_pool, KubernetesClusterDefaultNodePoolArgs):
-                default_node_pool = default_node_pool or {}
-                def _setter(key, value):
-                    default_node_pool[key] = value
-                KubernetesClusterDefaultNodePoolArgs._configure(_setter, **default_node_pool)
+            default_node_pool = _utilities.configure(default_node_pool, KubernetesClusterDefaultNodePoolArgs, True)
             if default_node_pool is None and not opts.urn:
                 raise TypeError("Missing required property 'default_node_pool'")
             __props__.__dict__["default_node_pool"] = default_node_pool
@@ -3152,98 +2966,42 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__.__dict__["edge_zone"] = edge_zone
             __props__.__dict__["enable_pod_security_policy"] = enable_pod_security_policy
             __props__.__dict__["http_application_routing_enabled"] = http_application_routing_enabled
-            if http_proxy_config is not None and not isinstance(http_proxy_config, KubernetesClusterHttpProxyConfigArgs):
-                http_proxy_config = http_proxy_config or {}
-                def _setter(key, value):
-                    http_proxy_config[key] = value
-                KubernetesClusterHttpProxyConfigArgs._configure(_setter, **http_proxy_config)
+            http_proxy_config = _utilities.configure(http_proxy_config, KubernetesClusterHttpProxyConfigArgs, True)
             __props__.__dict__["http_proxy_config"] = http_proxy_config
-            if identity is not None and not isinstance(identity, KubernetesClusterIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                KubernetesClusterIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, KubernetesClusterIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["image_cleaner_enabled"] = image_cleaner_enabled
             __props__.__dict__["image_cleaner_interval_hours"] = image_cleaner_interval_hours
-            if ingress_application_gateway is not None and not isinstance(ingress_application_gateway, KubernetesClusterIngressApplicationGatewayArgs):
-                ingress_application_gateway = ingress_application_gateway or {}
-                def _setter(key, value):
-                    ingress_application_gateway[key] = value
-                KubernetesClusterIngressApplicationGatewayArgs._configure(_setter, **ingress_application_gateway)
+            ingress_application_gateway = _utilities.configure(ingress_application_gateway, KubernetesClusterIngressApplicationGatewayArgs, True)
             __props__.__dict__["ingress_application_gateway"] = ingress_application_gateway
-            if key_management_service is not None and not isinstance(key_management_service, KubernetesClusterKeyManagementServiceArgs):
-                key_management_service = key_management_service or {}
-                def _setter(key, value):
-                    key_management_service[key] = value
-                KubernetesClusterKeyManagementServiceArgs._configure(_setter, **key_management_service)
+            key_management_service = _utilities.configure(key_management_service, KubernetesClusterKeyManagementServiceArgs, True)
             __props__.__dict__["key_management_service"] = key_management_service
-            if key_vault_secrets_provider is not None and not isinstance(key_vault_secrets_provider, KubernetesClusterKeyVaultSecretsProviderArgs):
-                key_vault_secrets_provider = key_vault_secrets_provider or {}
-                def _setter(key, value):
-                    key_vault_secrets_provider[key] = value
-                KubernetesClusterKeyVaultSecretsProviderArgs._configure(_setter, **key_vault_secrets_provider)
+            key_vault_secrets_provider = _utilities.configure(key_vault_secrets_provider, KubernetesClusterKeyVaultSecretsProviderArgs, True)
             __props__.__dict__["key_vault_secrets_provider"] = key_vault_secrets_provider
-            if kubelet_identity is not None and not isinstance(kubelet_identity, KubernetesClusterKubeletIdentityArgs):
-                kubelet_identity = kubelet_identity or {}
-                def _setter(key, value):
-                    kubelet_identity[key] = value
-                KubernetesClusterKubeletIdentityArgs._configure(_setter, **kubelet_identity)
+            kubelet_identity = _utilities.configure(kubelet_identity, KubernetesClusterKubeletIdentityArgs, True)
             __props__.__dict__["kubelet_identity"] = kubelet_identity
             __props__.__dict__["kubernetes_version"] = kubernetes_version
-            if linux_profile is not None and not isinstance(linux_profile, KubernetesClusterLinuxProfileArgs):
-                linux_profile = linux_profile or {}
-                def _setter(key, value):
-                    linux_profile[key] = value
-                KubernetesClusterLinuxProfileArgs._configure(_setter, **linux_profile)
+            linux_profile = _utilities.configure(linux_profile, KubernetesClusterLinuxProfileArgs, True)
             __props__.__dict__["linux_profile"] = linux_profile
             __props__.__dict__["local_account_disabled"] = local_account_disabled
             __props__.__dict__["location"] = location
-            if maintenance_window is not None and not isinstance(maintenance_window, KubernetesClusterMaintenanceWindowArgs):
-                maintenance_window = maintenance_window or {}
-                def _setter(key, value):
-                    maintenance_window[key] = value
-                KubernetesClusterMaintenanceWindowArgs._configure(_setter, **maintenance_window)
+            maintenance_window = _utilities.configure(maintenance_window, KubernetesClusterMaintenanceWindowArgs, True)
             __props__.__dict__["maintenance_window"] = maintenance_window
-            if maintenance_window_auto_upgrade is not None and not isinstance(maintenance_window_auto_upgrade, KubernetesClusterMaintenanceWindowAutoUpgradeArgs):
-                maintenance_window_auto_upgrade = maintenance_window_auto_upgrade or {}
-                def _setter(key, value):
-                    maintenance_window_auto_upgrade[key] = value
-                KubernetesClusterMaintenanceWindowAutoUpgradeArgs._configure(_setter, **maintenance_window_auto_upgrade)
+            maintenance_window_auto_upgrade = _utilities.configure(maintenance_window_auto_upgrade, KubernetesClusterMaintenanceWindowAutoUpgradeArgs, True)
             __props__.__dict__["maintenance_window_auto_upgrade"] = maintenance_window_auto_upgrade
-            if maintenance_window_node_os is not None and not isinstance(maintenance_window_node_os, KubernetesClusterMaintenanceWindowNodeOsArgs):
-                maintenance_window_node_os = maintenance_window_node_os or {}
-                def _setter(key, value):
-                    maintenance_window_node_os[key] = value
-                KubernetesClusterMaintenanceWindowNodeOsArgs._configure(_setter, **maintenance_window_node_os)
+            maintenance_window_node_os = _utilities.configure(maintenance_window_node_os, KubernetesClusterMaintenanceWindowNodeOsArgs, True)
             __props__.__dict__["maintenance_window_node_os"] = maintenance_window_node_os
-            if microsoft_defender is not None and not isinstance(microsoft_defender, KubernetesClusterMicrosoftDefenderArgs):
-                microsoft_defender = microsoft_defender or {}
-                def _setter(key, value):
-                    microsoft_defender[key] = value
-                KubernetesClusterMicrosoftDefenderArgs._configure(_setter, **microsoft_defender)
+            microsoft_defender = _utilities.configure(microsoft_defender, KubernetesClusterMicrosoftDefenderArgs, True)
             __props__.__dict__["microsoft_defender"] = microsoft_defender
-            if monitor_metrics is not None and not isinstance(monitor_metrics, KubernetesClusterMonitorMetricsArgs):
-                monitor_metrics = monitor_metrics or {}
-                def _setter(key, value):
-                    monitor_metrics[key] = value
-                KubernetesClusterMonitorMetricsArgs._configure(_setter, **monitor_metrics)
+            monitor_metrics = _utilities.configure(monitor_metrics, KubernetesClusterMonitorMetricsArgs, True)
             __props__.__dict__["monitor_metrics"] = monitor_metrics
             __props__.__dict__["name"] = name
-            if network_profile is not None and not isinstance(network_profile, KubernetesClusterNetworkProfileArgs):
-                network_profile = network_profile or {}
-                def _setter(key, value):
-                    network_profile[key] = value
-                KubernetesClusterNetworkProfileArgs._configure(_setter, **network_profile)
+            network_profile = _utilities.configure(network_profile, KubernetesClusterNetworkProfileArgs, True)
             __props__.__dict__["network_profile"] = network_profile
             __props__.__dict__["node_os_channel_upgrade"] = node_os_channel_upgrade
             __props__.__dict__["node_resource_group"] = node_resource_group
             __props__.__dict__["oidc_issuer_enabled"] = oidc_issuer_enabled
-            if oms_agent is not None and not isinstance(oms_agent, KubernetesClusterOmsAgentArgs):
-                oms_agent = oms_agent or {}
-                def _setter(key, value):
-                    oms_agent[key] = value
-                KubernetesClusterOmsAgentArgs._configure(_setter, **oms_agent)
+            oms_agent = _utilities.configure(oms_agent, KubernetesClusterOmsAgentArgs, True)
             __props__.__dict__["oms_agent"] = oms_agent
             __props__.__dict__["open_service_mesh_enabled"] = open_service_mesh_enabled
             __props__.__dict__["private_cluster_enabled"] = private_cluster_enabled
@@ -3255,43 +3013,19 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["role_based_access_control_enabled"] = role_based_access_control_enabled
             __props__.__dict__["run_command_enabled"] = run_command_enabled
-            if service_mesh_profile is not None and not isinstance(service_mesh_profile, KubernetesClusterServiceMeshProfileArgs):
-                service_mesh_profile = service_mesh_profile or {}
-                def _setter(key, value):
-                    service_mesh_profile[key] = value
-                KubernetesClusterServiceMeshProfileArgs._configure(_setter, **service_mesh_profile)
+            service_mesh_profile = _utilities.configure(service_mesh_profile, KubernetesClusterServiceMeshProfileArgs, True)
             __props__.__dict__["service_mesh_profile"] = service_mesh_profile
-            if service_principal is not None and not isinstance(service_principal, KubernetesClusterServicePrincipalArgs):
-                service_principal = service_principal or {}
-                def _setter(key, value):
-                    service_principal[key] = value
-                KubernetesClusterServicePrincipalArgs._configure(_setter, **service_principal)
+            service_principal = _utilities.configure(service_principal, KubernetesClusterServicePrincipalArgs, True)
             __props__.__dict__["service_principal"] = service_principal
             __props__.__dict__["sku_tier"] = sku_tier
-            if storage_profile is not None and not isinstance(storage_profile, KubernetesClusterStorageProfileArgs):
-                storage_profile = storage_profile or {}
-                def _setter(key, value):
-                    storage_profile[key] = value
-                KubernetesClusterStorageProfileArgs._configure(_setter, **storage_profile)
+            storage_profile = _utilities.configure(storage_profile, KubernetesClusterStorageProfileArgs, True)
             __props__.__dict__["storage_profile"] = storage_profile
             __props__.__dict__["tags"] = tags
-            if web_app_routing is not None and not isinstance(web_app_routing, KubernetesClusterWebAppRoutingArgs):
-                web_app_routing = web_app_routing or {}
-                def _setter(key, value):
-                    web_app_routing[key] = value
-                KubernetesClusterWebAppRoutingArgs._configure(_setter, **web_app_routing)
+            web_app_routing = _utilities.configure(web_app_routing, KubernetesClusterWebAppRoutingArgs, True)
             __props__.__dict__["web_app_routing"] = web_app_routing
-            if windows_profile is not None and not isinstance(windows_profile, KubernetesClusterWindowsProfileArgs):
-                windows_profile = windows_profile or {}
-                def _setter(key, value):
-                    windows_profile[key] = value
-                KubernetesClusterWindowsProfileArgs._configure(_setter, **windows_profile)
+            windows_profile = _utilities.configure(windows_profile, KubernetesClusterWindowsProfileArgs, True)
             __props__.__dict__["windows_profile"] = windows_profile
-            if workload_autoscaler_profile is not None and not isinstance(workload_autoscaler_profile, KubernetesClusterWorkloadAutoscalerProfileArgs):
-                workload_autoscaler_profile = workload_autoscaler_profile or {}
-                def _setter(key, value):
-                    workload_autoscaler_profile[key] = value
-                KubernetesClusterWorkloadAutoscalerProfileArgs._configure(_setter, **workload_autoscaler_profile)
+            workload_autoscaler_profile = _utilities.configure(workload_autoscaler_profile, KubernetesClusterWorkloadAutoscalerProfileArgs, True)
             __props__.__dict__["workload_autoscaler_profile"] = workload_autoscaler_profile
             __props__.__dict__["workload_identity_enabled"] = workload_identity_enabled
             __props__.__dict__["fqdn"] = None
@@ -3470,28 +3204,6 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[bool] private_cluster_public_fqdn_enabled: Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
                
                > **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
-               
-               ```python
-               import pulumi
-               import pulumi_azure as azure
-               
-               example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-               example_zone = azure.privatedns.Zone("exampleZone", resource_group_name=example_resource_group.name)
-               example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
-                   resource_group_name=example_resource_group.name,
-                   location=example_resource_group.location)
-               example_assignment = azure.authorization.Assignment("exampleAssignment",
-                   scope=example_zone.id,
-                   role_definition_name="Private DNS Zone Contributor",
-                   principal_id=example_user_assigned_identity.principal_id)
-               example_kubernetes_cluster = azure.containerservice.KubernetesCluster("exampleKubernetesCluster",
-                   location=example_resource_group.location,
-                   resource_group_name=example_resource_group.name,
-                   dns_prefix="aksexamplednsprefix1",
-                   private_cluster_enabled=True,
-                   private_dns_zone_id=example_zone.id,
-                   opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
-               ```
         :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
         :param pulumi.Input[str] private_fqdn: The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. 
@@ -4029,28 +3741,6 @@ class KubernetesCluster(pulumi.CustomResource):
         Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
 
         > **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_zone = azure.privatedns.Zone("exampleZone", resource_group_name=example_resource_group.name)
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_assignment = azure.authorization.Assignment("exampleAssignment",
-            scope=example_zone.id,
-            role_definition_name="Private DNS Zone Contributor",
-            principal_id=example_user_assigned_identity.principal_id)
-        example_kubernetes_cluster = azure.containerservice.KubernetesCluster("exampleKubernetesCluster",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            dns_prefix="aksexamplednsprefix1",
-            private_cluster_enabled=True,
-            private_dns_zone_id=example_zone.id,
-            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
-        ```
         """
         return pulumi.get(self, "private_cluster_public_fqdn_enabled")
 

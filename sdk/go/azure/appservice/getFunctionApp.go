@@ -15,33 +15,6 @@ import (
 // Use this data source to access information about a Function App.
 //
 // !> **Note:** The `appservice.FunctionApp` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `appservice.LinuxFunctionApp` data sources instead.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appservice.LookupFunctionApp(ctx, &appservice.LookupFunctionAppArgs{
-//				Name:              "test-azure-functions",
-//				ResourceGroupName: azurerm_resource_group.Example.Name,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupFunctionApp(ctx *pulumi.Context, args *LookupFunctionAppArgs, opts ...pulumi.InvokeOption) (*LookupFunctionAppResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFunctionAppResult

@@ -13,34 +13,6 @@ import (
 )
 
 // Use this data source to access information about an existing Cosmos DB SQL Role Definition.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cosmosdb.LookupSqlRoleDefinition(ctx, &cosmosdb.LookupSqlRoleDefinitionArgs{
-//				AccountName:       "tfex-cosmosdb-sql-role-definition-account-name",
-//				ResourceGroupName: "tfex-cosmosdb-sql-role-definition-rg",
-//				RoleDefinitionId:  "00000000-0000-0000-0000-000000000000",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupSqlRoleDefinition(ctx *pulumi.Context, args *LookupSqlRoleDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupSqlRoleDefinitionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSqlRoleDefinitionResult

@@ -32,17 +32,23 @@ class SqlDedicatedGatewayArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cosmosdb_account_id: pulumi.Input[str],
-             instance_count: pulumi.Input[int],
-             instance_size: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             cosmosdb_account_id: Optional[pulumi.Input[str]] = None,
+             instance_count: Optional[pulumi.Input[int]] = None,
+             instance_size: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'cosmosdbAccountId' in kwargs:
+        if cosmosdb_account_id is None and 'cosmosdbAccountId' in kwargs:
             cosmosdb_account_id = kwargs['cosmosdbAccountId']
-        if 'instanceCount' in kwargs:
+        if cosmosdb_account_id is None:
+            raise TypeError("Missing 'cosmosdb_account_id' argument")
+        if instance_count is None and 'instanceCount' in kwargs:
             instance_count = kwargs['instanceCount']
-        if 'instanceSize' in kwargs:
+        if instance_count is None:
+            raise TypeError("Missing 'instance_count' argument")
+        if instance_size is None and 'instanceSize' in kwargs:
             instance_size = kwargs['instanceSize']
+        if instance_size is None:
+            raise TypeError("Missing 'instance_size' argument")
 
         _setter("cosmosdb_account_id", cosmosdb_account_id)
         _setter("instance_count", instance_count)
@@ -109,13 +115,13 @@ class _SqlDedicatedGatewayState:
              cosmosdb_account_id: Optional[pulumi.Input[str]] = None,
              instance_count: Optional[pulumi.Input[int]] = None,
              instance_size: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'cosmosdbAccountId' in kwargs:
+        if cosmosdb_account_id is None and 'cosmosdbAccountId' in kwargs:
             cosmosdb_account_id = kwargs['cosmosdbAccountId']
-        if 'instanceCount' in kwargs:
+        if instance_count is None and 'instanceCount' in kwargs:
             instance_count = kwargs['instanceCount']
-        if 'instanceSize' in kwargs:
+        if instance_size is None and 'instanceSize' in kwargs:
             instance_size = kwargs['instanceSize']
 
         if cosmosdb_account_id is not None:
@@ -174,31 +180,6 @@ class SqlDedicatedGateway(pulumi.CustomResource):
         """
         Manages a SQL Dedicated Gateway within a Cosmos DB Account.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.cosmosdb.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            offer_type="Standard",
-            kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="BoundedStaleness",
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example_resource_group.location,
-                failover_priority=0,
-            )])
-        example_sql_dedicated_gateway = azure.cosmosdb.SqlDedicatedGateway("exampleSqlDedicatedGateway",
-            cosmosdb_account_id=example_account.id,
-            instance_count=1,
-            instance_size="Cosmos.D4s")
-        ```
-
         ## Import
 
         CosmosDB SQL Dedicated Gateways can be imported using the `resource id`, e.g.
@@ -221,31 +202,6 @@ class SqlDedicatedGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a SQL Dedicated Gateway within a Cosmos DB Account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.cosmosdb.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            offer_type="Standard",
-            kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="BoundedStaleness",
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example_resource_group.location,
-                failover_priority=0,
-            )])
-        example_sql_dedicated_gateway = azure.cosmosdb.SqlDedicatedGateway("exampleSqlDedicatedGateway",
-            cosmosdb_account_id=example_account.id,
-            instance_count=1,
-            instance_size="Cosmos.D4s")
-        ```
 
         ## Import
 

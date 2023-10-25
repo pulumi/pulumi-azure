@@ -6,19 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Data Collection Endpoint.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.monitoring.getDataCollectionEndpoint({
- *     name: "example-mdce",
- *     resourceGroupName: azurerm_resource_group.example.name,
- * });
- * export const endpointId = example.then(example => example.id);
- * ```
  */
 export function getDataCollectionEndpoint(args: GetDataCollectionEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetDataCollectionEndpointResult> {
 
@@ -84,19 +71,6 @@ export interface GetDataCollectionEndpointResult {
 }
 /**
  * Use this data source to access information about an existing Data Collection Endpoint.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.monitoring.getDataCollectionEndpoint({
- *     name: "example-mdce",
- *     resourceGroupName: azurerm_resource_group.example.name,
- * });
- * export const endpointId = example.then(example => example.id);
- * ```
  */
 export function getDataCollectionEndpointOutput(args: GetDataCollectionEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataCollectionEndpointResult> {
     return pulumi.output(args).apply((a: any) => getDataCollectionEndpoint(a, opts))

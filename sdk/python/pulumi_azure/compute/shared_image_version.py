@@ -82,10 +82,10 @@ class SharedImageVersionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             gallery_name: pulumi.Input[str],
-             image_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             target_regions: pulumi.Input[Sequence[pulumi.Input['SharedImageVersionTargetRegionArgs']]],
+             gallery_name: Optional[pulumi.Input[str]] = None,
+             image_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             target_regions: Optional[pulumi.Input[Sequence[pulumi.Input['SharedImageVersionTargetRegionArgs']]]] = None,
              blob_uri: Optional[pulumi.Input[str]] = None,
              deletion_of_replicated_locations_enabled: Optional[pulumi.Input[bool]] = None,
              end_of_life_date: Optional[pulumi.Input[str]] = None,
@@ -97,31 +97,39 @@ class SharedImageVersionArgs:
              replication_mode: Optional[pulumi.Input[str]] = None,
              storage_account_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'galleryName' in kwargs:
+        if gallery_name is None and 'galleryName' in kwargs:
             gallery_name = kwargs['galleryName']
-        if 'imageName' in kwargs:
+        if gallery_name is None:
+            raise TypeError("Missing 'gallery_name' argument")
+        if image_name is None and 'imageName' in kwargs:
             image_name = kwargs['imageName']
-        if 'resourceGroupName' in kwargs:
+        if image_name is None:
+            raise TypeError("Missing 'image_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'targetRegions' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if target_regions is None and 'targetRegions' in kwargs:
             target_regions = kwargs['targetRegions']
-        if 'blobUri' in kwargs:
+        if target_regions is None:
+            raise TypeError("Missing 'target_regions' argument")
+        if blob_uri is None and 'blobUri' in kwargs:
             blob_uri = kwargs['blobUri']
-        if 'deletionOfReplicatedLocationsEnabled' in kwargs:
+        if deletion_of_replicated_locations_enabled is None and 'deletionOfReplicatedLocationsEnabled' in kwargs:
             deletion_of_replicated_locations_enabled = kwargs['deletionOfReplicatedLocationsEnabled']
-        if 'endOfLifeDate' in kwargs:
+        if end_of_life_date is None and 'endOfLifeDate' in kwargs:
             end_of_life_date = kwargs['endOfLifeDate']
-        if 'excludeFromLatest' in kwargs:
+        if exclude_from_latest is None and 'excludeFromLatest' in kwargs:
             exclude_from_latest = kwargs['excludeFromLatest']
-        if 'managedImageId' in kwargs:
+        if managed_image_id is None and 'managedImageId' in kwargs:
             managed_image_id = kwargs['managedImageId']
-        if 'osDiskSnapshotId' in kwargs:
+        if os_disk_snapshot_id is None and 'osDiskSnapshotId' in kwargs:
             os_disk_snapshot_id = kwargs['osDiskSnapshotId']
-        if 'replicationMode' in kwargs:
+        if replication_mode is None and 'replicationMode' in kwargs:
             replication_mode = kwargs['replicationMode']
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
 
         _setter("gallery_name", gallery_name)
@@ -428,31 +436,31 @@ class _SharedImageVersionState:
              storage_account_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              target_regions: Optional[pulumi.Input[Sequence[pulumi.Input['SharedImageVersionTargetRegionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'blobUri' in kwargs:
+        if blob_uri is None and 'blobUri' in kwargs:
             blob_uri = kwargs['blobUri']
-        if 'deletionOfReplicatedLocationsEnabled' in kwargs:
+        if deletion_of_replicated_locations_enabled is None and 'deletionOfReplicatedLocationsEnabled' in kwargs:
             deletion_of_replicated_locations_enabled = kwargs['deletionOfReplicatedLocationsEnabled']
-        if 'endOfLifeDate' in kwargs:
+        if end_of_life_date is None and 'endOfLifeDate' in kwargs:
             end_of_life_date = kwargs['endOfLifeDate']
-        if 'excludeFromLatest' in kwargs:
+        if exclude_from_latest is None and 'excludeFromLatest' in kwargs:
             exclude_from_latest = kwargs['excludeFromLatest']
-        if 'galleryName' in kwargs:
+        if gallery_name is None and 'galleryName' in kwargs:
             gallery_name = kwargs['galleryName']
-        if 'imageName' in kwargs:
+        if image_name is None and 'imageName' in kwargs:
             image_name = kwargs['imageName']
-        if 'managedImageId' in kwargs:
+        if managed_image_id is None and 'managedImageId' in kwargs:
             managed_image_id = kwargs['managedImageId']
-        if 'osDiskSnapshotId' in kwargs:
+        if os_disk_snapshot_id is None and 'osDiskSnapshotId' in kwargs:
             os_disk_snapshot_id = kwargs['osDiskSnapshotId']
-        if 'replicationMode' in kwargs:
+        if replication_mode is None and 'replicationMode' in kwargs:
             replication_mode = kwargs['replicationMode']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'targetRegions' in kwargs:
+        if target_regions is None and 'targetRegions' in kwargs:
             target_regions = kwargs['targetRegions']
 
         if blob_uri is not None:
@@ -703,30 +711,6 @@ class SharedImageVersion(pulumi.CustomResource):
         """
         Manages a Version of a Shared Image within a Shared Image Gallery.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        existing_image = azure.compute.get_image(name="search-api",
-            resource_group_name="packerimages")
-        existing_shared_image = azure.compute.get_shared_image(name="existing-image",
-            gallery_name="existing_gallery",
-            resource_group_name="existing-resources")
-        example = azure.compute.SharedImageVersion("example",
-            gallery_name=existing_shared_image.gallery_name,
-            image_name=existing_shared_image.name,
-            resource_group_name=existing_shared_image.resource_group_name,
-            location=existing_shared_image.location,
-            managed_image_id=existing_image.id,
-            target_regions=[azure.compute.SharedImageVersionTargetRegionArgs(
-                name=existing_shared_image.location,
-                regional_replica_count=5,
-                storage_account_type="Standard_LRS",
-            )])
-        ```
-
         ## Import
 
         Shared Image Versions can be imported using the `resource id`, e.g.
@@ -773,30 +757,6 @@ class SharedImageVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Version of a Shared Image within a Shared Image Gallery.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        existing_image = azure.compute.get_image(name="search-api",
-            resource_group_name="packerimages")
-        existing_shared_image = azure.compute.get_shared_image(name="existing-image",
-            gallery_name="existing_gallery",
-            resource_group_name="existing-resources")
-        example = azure.compute.SharedImageVersion("example",
-            gallery_name=existing_shared_image.gallery_name,
-            image_name=existing_shared_image.name,
-            resource_group_name=existing_shared_image.resource_group_name,
-            location=existing_shared_image.location,
-            managed_image_id=existing_image.id,
-            target_regions=[azure.compute.SharedImageVersionTargetRegionArgs(
-                name=existing_shared_image.location,
-                regional_replica_count=5,
-                storage_account_type="Standard_LRS",
-            )])
-        ```
 
         ## Import
 

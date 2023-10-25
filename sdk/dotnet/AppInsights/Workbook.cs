@@ -12,57 +12,6 @@ namespace Pulumi.Azure.AppInsights
     /// <summary>
     /// Manages an Azure Workbook.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleWorkbook = new Azure.AppInsights.Workbook("exampleWorkbook", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         DisplayName = "workbook1",
-    ///         DataJson = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["version"] = "Notebook/1.0",
-    ///             ["items"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["type"] = 1,
-    ///                     ["content"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["json"] = "Test2022",
-    ///                     },
-    ///                     ["name"] = "text - 0",
-    ///                 },
-    ///             },
-    ///             ["isLocked"] = false,
-    ///             ["fallbackResourceIds"] = new[]
-    ///             {
-    ///                 "Azure Monitor",
-    ///             },
-    ///         }),
-    ///         Tags = 
-    ///         {
-    ///             { "ENV", "Test" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Workbooks can be imported using the `resource id`, e.g.

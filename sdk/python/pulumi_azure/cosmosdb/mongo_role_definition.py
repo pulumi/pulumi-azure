@@ -39,17 +39,21 @@ class MongoRoleDefinitionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cosmos_mongo_database_id: pulumi.Input[str],
-             role_name: pulumi.Input[str],
+             cosmos_mongo_database_id: Optional[pulumi.Input[str]] = None,
+             role_name: Optional[pulumi.Input[str]] = None,
              inherited_role_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              privileges: Optional[pulumi.Input[Sequence[pulumi.Input['MongoRoleDefinitionPrivilegeArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'cosmosMongoDatabaseId' in kwargs:
+        if cosmos_mongo_database_id is None and 'cosmosMongoDatabaseId' in kwargs:
             cosmos_mongo_database_id = kwargs['cosmosMongoDatabaseId']
-        if 'roleName' in kwargs:
+        if cosmos_mongo_database_id is None:
+            raise TypeError("Missing 'cosmos_mongo_database_id' argument")
+        if role_name is None and 'roleName' in kwargs:
             role_name = kwargs['roleName']
-        if 'inheritedRoleNames' in kwargs:
+        if role_name is None:
+            raise TypeError("Missing 'role_name' argument")
+        if inherited_role_names is None and 'inheritedRoleNames' in kwargs:
             inherited_role_names = kwargs['inheritedRoleNames']
 
         _setter("cosmos_mongo_database_id", cosmos_mongo_database_id)
@@ -140,13 +144,13 @@ class _MongoRoleDefinitionState:
              inherited_role_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              privileges: Optional[pulumi.Input[Sequence[pulumi.Input['MongoRoleDefinitionPrivilegeArgs']]]] = None,
              role_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'cosmosMongoDatabaseId' in kwargs:
+        if cosmos_mongo_database_id is None and 'cosmosMongoDatabaseId' in kwargs:
             cosmos_mongo_database_id = kwargs['cosmosMongoDatabaseId']
-        if 'inheritedRoleNames' in kwargs:
+        if inherited_role_names is None and 'inheritedRoleNames' in kwargs:
             inherited_role_names = kwargs['inheritedRoleNames']
-        if 'roleName' in kwargs:
+        if role_name is None and 'roleName' in kwargs:
             role_name = kwargs['roleName']
 
         if cosmos_mongo_database_id is not None:
@@ -222,41 +226,6 @@ class MongoRoleDefinition(pulumi.CustomResource):
         """
         Manages a Cosmos DB Mongo Role Definition.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.cosmosdb.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            offer_type="Standard",
-            kind="MongoDB",
-            capabilities=[
-                azure.cosmosdb.AccountCapabilityArgs(
-                    name="EnableMongo",
-                ),
-                azure.cosmosdb.AccountCapabilityArgs(
-                    name="EnableMongoRoleBasedAccessControl",
-                ),
-            ],
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="Strong",
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example_resource_group.location,
-                failover_priority=0,
-            )])
-        example_mongo_database = azure.cosmosdb.MongoDatabase("exampleMongoDatabase",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name)
-        example_mongo_role_definition = azure.cosmosdb.MongoRoleDefinition("exampleMongoRoleDefinition",
-            cosmos_mongo_database_id=example_mongo_database.id,
-            role_name="example-roledefinition")
-        ```
-
         ## Import
 
         Cosmos DB Mongo Role Definitions can be imported using the `resource id`, e.g.
@@ -282,41 +251,6 @@ class MongoRoleDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Cosmos DB Mongo Role Definition.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.cosmosdb.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            offer_type="Standard",
-            kind="MongoDB",
-            capabilities=[
-                azure.cosmosdb.AccountCapabilityArgs(
-                    name="EnableMongo",
-                ),
-                azure.cosmosdb.AccountCapabilityArgs(
-                    name="EnableMongoRoleBasedAccessControl",
-                ),
-            ],
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="Strong",
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example_resource_group.location,
-                failover_priority=0,
-            )])
-        example_mongo_database = azure.cosmosdb.MongoDatabase("exampleMongoDatabase",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name)
-        example_mongo_role_definition = azure.cosmosdb.MongoRoleDefinition("exampleMongoRoleDefinition",
-            cosmos_mongo_database_id=example_mongo_database.id,
-            role_name="example-roledefinition")
-        ```
 
         ## Import
 

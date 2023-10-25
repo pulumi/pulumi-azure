@@ -10,18 +10,6 @@ import * as utilities from "../utilities";
  * Use this data source to access information about a Function App.
  *
  * !> **Note:** The `azure.appservice.FunctionApp` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxFunctionApp` data sources instead.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.appservice.getFunctionApp({
- *     name: "test-azure-functions",
- *     resourceGroupName: azurerm_resource_group.example.name,
- * });
- * ```
  */
 export function getFunctionApp(args: GetFunctionAppArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionAppResult> {
 
@@ -121,18 +109,6 @@ export interface GetFunctionAppResult {
  * Use this data source to access information about a Function App.
  *
  * !> **Note:** The `azure.appservice.FunctionApp` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxFunctionApp` data sources instead.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.appservice.getFunctionApp({
- *     name: "test-azure-functions",
- *     resourceGroupName: azurerm_resource_group.example.name,
- * });
- * ```
  */
 export function getFunctionAppOutput(args: GetFunctionAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionAppResult> {
     return pulumi.output(args).apply((a: any) => getFunctionApp(a, opts))

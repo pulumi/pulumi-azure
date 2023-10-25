@@ -45,23 +45,27 @@ class FrontdoorOriginGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cdn_frontdoor_profile_id: pulumi.Input[str],
-             load_balancing: pulumi.Input['FrontdoorOriginGroupLoadBalancingArgs'],
+             cdn_frontdoor_profile_id: Optional[pulumi.Input[str]] = None,
+             load_balancing: Optional[pulumi.Input['FrontdoorOriginGroupLoadBalancingArgs']] = None,
              health_probe: Optional[pulumi.Input['FrontdoorOriginGroupHealthProbeArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              restore_traffic_time_to_healed_or_new_endpoint_in_minutes: Optional[pulumi.Input[int]] = None,
              session_affinity_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'cdnFrontdoorProfileId' in kwargs:
+        if cdn_frontdoor_profile_id is None and 'cdnFrontdoorProfileId' in kwargs:
             cdn_frontdoor_profile_id = kwargs['cdnFrontdoorProfileId']
-        if 'loadBalancing' in kwargs:
+        if cdn_frontdoor_profile_id is None:
+            raise TypeError("Missing 'cdn_frontdoor_profile_id' argument")
+        if load_balancing is None and 'loadBalancing' in kwargs:
             load_balancing = kwargs['loadBalancing']
-        if 'healthProbe' in kwargs:
+        if load_balancing is None:
+            raise TypeError("Missing 'load_balancing' argument")
+        if health_probe is None and 'healthProbe' in kwargs:
             health_probe = kwargs['healthProbe']
-        if 'restoreTrafficTimeToHealedOrNewEndpointInMinutes' in kwargs:
+        if restore_traffic_time_to_healed_or_new_endpoint_in_minutes is None and 'restoreTrafficTimeToHealedOrNewEndpointInMinutes' in kwargs:
             restore_traffic_time_to_healed_or_new_endpoint_in_minutes = kwargs['restoreTrafficTimeToHealedOrNewEndpointInMinutes']
-        if 'sessionAffinityEnabled' in kwargs:
+        if session_affinity_enabled is None and 'sessionAffinityEnabled' in kwargs:
             session_affinity_enabled = kwargs['sessionAffinityEnabled']
 
         _setter("cdn_frontdoor_profile_id", cdn_frontdoor_profile_id)
@@ -188,17 +192,17 @@ class _FrontdoorOriginGroupState:
              name: Optional[pulumi.Input[str]] = None,
              restore_traffic_time_to_healed_or_new_endpoint_in_minutes: Optional[pulumi.Input[int]] = None,
              session_affinity_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'cdnFrontdoorProfileId' in kwargs:
+        if cdn_frontdoor_profile_id is None and 'cdnFrontdoorProfileId' in kwargs:
             cdn_frontdoor_profile_id = kwargs['cdnFrontdoorProfileId']
-        if 'healthProbe' in kwargs:
+        if health_probe is None and 'healthProbe' in kwargs:
             health_probe = kwargs['healthProbe']
-        if 'loadBalancing' in kwargs:
+        if load_balancing is None and 'loadBalancing' in kwargs:
             load_balancing = kwargs['loadBalancing']
-        if 'restoreTrafficTimeToHealedOrNewEndpointInMinutes' in kwargs:
+        if restore_traffic_time_to_healed_or_new_endpoint_in_minutes is None and 'restoreTrafficTimeToHealedOrNewEndpointInMinutes' in kwargs:
             restore_traffic_time_to_healed_or_new_endpoint_in_minutes = kwargs['restoreTrafficTimeToHealedOrNewEndpointInMinutes']
-        if 'sessionAffinityEnabled' in kwargs:
+        if session_affinity_enabled is None and 'sessionAffinityEnabled' in kwargs:
             session_affinity_enabled = kwargs['sessionAffinityEnabled']
 
         if cdn_frontdoor_profile_id is not None:
@@ -304,33 +308,6 @@ class FrontdoorOriginGroup(pulumi.CustomResource):
         """
         Manages a Front Door (standard/premium) Origin Group.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_frontdoor_profile = azure.cdn.FrontdoorProfile("exampleFrontdoorProfile",
-            resource_group_name=example_resource_group.name,
-            sku_name="Standard_AzureFrontDoor")
-        example_frontdoor_origin_group = azure.cdn.FrontdoorOriginGroup("exampleFrontdoorOriginGroup",
-            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
-            session_affinity_enabled=True,
-            restore_traffic_time_to_healed_or_new_endpoint_in_minutes=10,
-            health_probe=azure.cdn.FrontdoorOriginGroupHealthProbeArgs(
-                interval_in_seconds=240,
-                path="/healthProbe",
-                protocol="Https",
-                request_type="HEAD",
-            ),
-            load_balancing=azure.cdn.FrontdoorOriginGroupLoadBalancingArgs(
-                additional_latency_in_milliseconds=0,
-                sample_size=16,
-                successful_samples_required=3,
-            ))
-        ```
-
         ## Import
 
         Front Door Origin Groups can be imported using the `resource id`, e.g.
@@ -358,33 +335,6 @@ class FrontdoorOriginGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Front Door (standard/premium) Origin Group.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_frontdoor_profile = azure.cdn.FrontdoorProfile("exampleFrontdoorProfile",
-            resource_group_name=example_resource_group.name,
-            sku_name="Standard_AzureFrontDoor")
-        example_frontdoor_origin_group = azure.cdn.FrontdoorOriginGroup("exampleFrontdoorOriginGroup",
-            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
-            session_affinity_enabled=True,
-            restore_traffic_time_to_healed_or_new_endpoint_in_minutes=10,
-            health_probe=azure.cdn.FrontdoorOriginGroupHealthProbeArgs(
-                interval_in_seconds=240,
-                path="/healthProbe",
-                protocol="Https",
-                request_type="HEAD",
-            ),
-            load_balancing=azure.cdn.FrontdoorOriginGroupLoadBalancingArgs(
-                additional_latency_in_milliseconds=0,
-                sample_size=16,
-                successful_samples_required=3,
-            ))
-        ```
 
         ## Import
 
@@ -431,17 +381,9 @@ class FrontdoorOriginGroup(pulumi.CustomResource):
             if cdn_frontdoor_profile_id is None and not opts.urn:
                 raise TypeError("Missing required property 'cdn_frontdoor_profile_id'")
             __props__.__dict__["cdn_frontdoor_profile_id"] = cdn_frontdoor_profile_id
-            if health_probe is not None and not isinstance(health_probe, FrontdoorOriginGroupHealthProbeArgs):
-                health_probe = health_probe or {}
-                def _setter(key, value):
-                    health_probe[key] = value
-                FrontdoorOriginGroupHealthProbeArgs._configure(_setter, **health_probe)
+            health_probe = _utilities.configure(health_probe, FrontdoorOriginGroupHealthProbeArgs, True)
             __props__.__dict__["health_probe"] = health_probe
-            if load_balancing is not None and not isinstance(load_balancing, FrontdoorOriginGroupLoadBalancingArgs):
-                load_balancing = load_balancing or {}
-                def _setter(key, value):
-                    load_balancing[key] = value
-                FrontdoorOriginGroupLoadBalancingArgs._configure(_setter, **load_balancing)
+            load_balancing = _utilities.configure(load_balancing, FrontdoorOriginGroupLoadBalancingArgs, True)
             if load_balancing is None and not opts.urn:
                 raise TypeError("Missing required property 'load_balancing'")
             __props__.__dict__["load_balancing"] = load_balancing

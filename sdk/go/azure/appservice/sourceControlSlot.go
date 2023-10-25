@@ -15,66 +15,6 @@ import (
 
 // Manages an App Service Source Control Slot.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleServicePlan, err := appservice.NewServicePlan(ctx, "exampleServicePlan", &appservice.ServicePlanArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
-//				OsType:            pulumi.String("Linux"),
-//				SkuName:           pulumi.String("P1v2"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleLinuxWebApp, err := appservice.NewLinuxWebApp(ctx, "exampleLinuxWebApp", &appservice.LinuxWebAppArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleServicePlan.Location,
-//				ServicePlanId:     exampleServicePlan.ID(),
-//				SiteConfig:        nil,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleLinuxWebAppSlot, err := appservice.NewLinuxWebAppSlot(ctx, "exampleLinuxWebAppSlot", &appservice.LinuxWebAppSlotArgs{
-//				AppServiceId: exampleLinuxWebApp.ID(),
-//				SiteConfig:   nil,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appservice.NewSourceControlSlot(ctx, "exampleSourceControlSlot", &appservice.SourceControlSlotArgs{
-//				SlotId:  exampleLinuxWebAppSlot.ID(),
-//				RepoUrl: pulumi.String("https://github.com/Azure-Samples/python-docs-hello-world"),
-//				Branch:  pulumi.String("master"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // an App Service Source Control Slot can be imported using the `resource id`, e.g.

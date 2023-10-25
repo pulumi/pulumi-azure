@@ -41,23 +41,31 @@ class RouteArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             address_prefix: pulumi.Input[str],
-             next_hop_type: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             route_table_name: pulumi.Input[str],
+             address_prefix: Optional[pulumi.Input[str]] = None,
+             next_hop_type: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             route_table_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              next_hop_in_ip_address: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'addressPrefix' in kwargs:
+        if address_prefix is None and 'addressPrefix' in kwargs:
             address_prefix = kwargs['addressPrefix']
-        if 'nextHopType' in kwargs:
+        if address_prefix is None:
+            raise TypeError("Missing 'address_prefix' argument")
+        if next_hop_type is None and 'nextHopType' in kwargs:
             next_hop_type = kwargs['nextHopType']
-        if 'resourceGroupName' in kwargs:
+        if next_hop_type is None:
+            raise TypeError("Missing 'next_hop_type' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'routeTableName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if route_table_name is None and 'routeTableName' in kwargs:
             route_table_name = kwargs['routeTableName']
-        if 'nextHopInIpAddress' in kwargs:
+        if route_table_name is None:
+            raise TypeError("Missing 'route_table_name' argument")
+        if next_hop_in_ip_address is None and 'nextHopInIpAddress' in kwargs:
             next_hop_in_ip_address = kwargs['nextHopInIpAddress']
 
         _setter("address_prefix", address_prefix)
@@ -178,17 +186,17 @@ class _RouteState:
              next_hop_type: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              route_table_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'addressPrefix' in kwargs:
+        if address_prefix is None and 'addressPrefix' in kwargs:
             address_prefix = kwargs['addressPrefix']
-        if 'nextHopInIpAddress' in kwargs:
+        if next_hop_in_ip_address is None and 'nextHopInIpAddress' in kwargs:
             next_hop_in_ip_address = kwargs['nextHopInIpAddress']
-        if 'nextHopType' in kwargs:
+        if next_hop_type is None and 'nextHopType' in kwargs:
             next_hop_type = kwargs['nextHopType']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'routeTableName' in kwargs:
+        if route_table_name is None and 'routeTableName' in kwargs:
             route_table_name = kwargs['routeTableName']
 
         if address_prefix is not None:
@@ -296,23 +304,6 @@ class Route(pulumi.CustomResource):
         provides both a standalone Route resource, and allows for Routes to be defined in-line within the Route Table resource.
         At this time you cannot use a Route Table with in-line Routes in conjunction with any Route resources. Doing so will cause a conflict of Route configurations and will overwrite Routes.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_route_table = azure.network.RouteTable("exampleRouteTable",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_route = azure.network.Route("exampleRoute",
-            resource_group_name=example_resource_group.name,
-            route_table_name=example_route_table.name,
-            address_prefix="10.1.0.0/16",
-            next_hop_type="VnetLocal")
-        ```
-
         ## Import
 
         Routes can be imported using the `resource id`, e.g.
@@ -342,23 +333,6 @@ class Route(pulumi.CustomResource):
         > **NOTE on Route Tables and Routes:** This provider currently
         provides both a standalone Route resource, and allows for Routes to be defined in-line within the Route Table resource.
         At this time you cannot use a Route Table with in-line Routes in conjunction with any Route resources. Doing so will cause a conflict of Route configurations and will overwrite Routes.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_route_table = azure.network.RouteTable("exampleRouteTable",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_route = azure.network.Route("exampleRoute",
-            resource_group_name=example_resource_group.name,
-            route_table_name=example_route_table.name,
-            address_prefix="10.1.0.0/16",
-            next_hop_type="VnetLocal")
-        ```
 
         ## Import
 

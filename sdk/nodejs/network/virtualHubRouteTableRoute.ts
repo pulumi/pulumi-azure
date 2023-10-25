@@ -9,61 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **Note:** Route table routes can managed with this resource, or in-line with the virtualHubRouteTable resource. Using both is not supported.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     addressSpaces: ["10.5.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("exampleNetworkSecurityGroup", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.5.1.0/24"],
- * });
- * const exampleSubnetNetworkSecurityGroupAssociation = new azure.network.SubnetNetworkSecurityGroupAssociation("exampleSubnetNetworkSecurityGroupAssociation", {
- *     subnetId: exampleSubnet.id,
- *     networkSecurityGroupId: exampleNetworkSecurityGroup.id,
- * });
- * const exampleVirtualWan = new azure.network.VirtualWan("exampleVirtualWan", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- * });
- * const exampleVirtualHub = new azure.network.VirtualHub("exampleVirtualHub", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     virtualWanId: exampleVirtualWan.id,
- *     addressPrefix: "10.0.2.0/24",
- * });
- * const exampleVirtualHubRouteTable = new azure.network.VirtualHubRouteTable("exampleVirtualHubRouteTable", {
- *     virtualHubId: exampleVirtualHub.id,
- *     labels: ["label1"],
- * });
- * const exampleVirtualHubConnection = new azure.network.VirtualHubConnection("exampleVirtualHubConnection", {
- *     virtualHubId: exampleVirtualHub.id,
- *     remoteVirtualNetworkId: exampleVirtualNetwork.id,
- *     routing: {
- *         associatedRouteTableId: exampleVirtualHubRouteTable.id,
- *     },
- * });
- * const exampleVirtualHubRouteTableRoute = new azure.network.VirtualHubRouteTableRoute("exampleVirtualHubRouteTableRoute", {
- *     routeTableId: exampleVirtualHubRouteTable.id,
- *     destinationsType: "CIDR",
- *     destinations: ["10.0.0.0/16"],
- *     nextHopType: "ResourceId",
- *     nextHop: exampleVirtualHubConnection.id,
- * });
- * ```
- *
  * ## Import
  *
  * Virtual Hub Route Table Routes can be imported using `<Route Table Resource Id>/routes/<Route Name>`, e.g.

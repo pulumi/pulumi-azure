@@ -43,24 +43,34 @@ class CacheNfsTargetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cache_name: pulumi.Input[str],
-             namespace_junctions: pulumi.Input[Sequence[pulumi.Input['CacheNfsTargetNamespaceJunctionArgs']]],
-             resource_group_name: pulumi.Input[str],
-             target_host_name: pulumi.Input[str],
-             usage_model: pulumi.Input[str],
+             cache_name: Optional[pulumi.Input[str]] = None,
+             namespace_junctions: Optional[pulumi.Input[Sequence[pulumi.Input['CacheNfsTargetNamespaceJunctionArgs']]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             target_host_name: Optional[pulumi.Input[str]] = None,
+             usage_model: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'cacheName' in kwargs:
+        if cache_name is None and 'cacheName' in kwargs:
             cache_name = kwargs['cacheName']
-        if 'namespaceJunctions' in kwargs:
+        if cache_name is None:
+            raise TypeError("Missing 'cache_name' argument")
+        if namespace_junctions is None and 'namespaceJunctions' in kwargs:
             namespace_junctions = kwargs['namespaceJunctions']
-        if 'resourceGroupName' in kwargs:
+        if namespace_junctions is None:
+            raise TypeError("Missing 'namespace_junctions' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'targetHostName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if target_host_name is None and 'targetHostName' in kwargs:
             target_host_name = kwargs['targetHostName']
-        if 'usageModel' in kwargs:
+        if target_host_name is None:
+            raise TypeError("Missing 'target_host_name' argument")
+        if usage_model is None and 'usageModel' in kwargs:
             usage_model = kwargs['usageModel']
+        if usage_model is None:
+            raise TypeError("Missing 'usage_model' argument")
 
         _setter("cache_name", cache_name)
         _setter("namespace_junctions", namespace_junctions)
@@ -179,17 +189,17 @@ class _CacheNfsTargetState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              target_host_name: Optional[pulumi.Input[str]] = None,
              usage_model: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'cacheName' in kwargs:
+        if cache_name is None and 'cacheName' in kwargs:
             cache_name = kwargs['cacheName']
-        if 'namespaceJunctions' in kwargs:
+        if namespace_junctions is None and 'namespaceJunctions' in kwargs:
             namespace_junctions = kwargs['namespaceJunctions']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'targetHostName' in kwargs:
+        if target_host_name is None and 'targetHostName' in kwargs:
             target_host_name = kwargs['targetHostName']
-        if 'usageModel' in kwargs:
+        if usage_model is None and 'usageModel' in kwargs:
             usage_model = kwargs['usageModel']
 
         if cache_name is not None:

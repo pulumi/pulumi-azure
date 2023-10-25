@@ -38,17 +38,21 @@ class ResolverArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             virtual_network_id: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             virtual_network_id: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'virtualNetworkId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if virtual_network_id is None and 'virtualNetworkId' in kwargs:
             virtual_network_id = kwargs['virtualNetworkId']
+        if virtual_network_id is None:
+            raise TypeError("Missing 'virtual_network_id' argument")
 
         _setter("resource_group_name", resource_group_name)
         _setter("virtual_network_id", virtual_network_id)
@@ -152,11 +156,11 @@ class _ResolverState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              virtual_network_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'virtualNetworkId' in kwargs:
+        if virtual_network_id is None and 'virtualNetworkId' in kwargs:
             virtual_network_id = kwargs['virtualNetworkId']
 
         if location is not None:
@@ -245,23 +249,6 @@ class Resolver(pulumi.CustomResource):
         """
         Manages a Private DNS Resolver.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            address_spaces=["10.0.0.0/16"])
-        test = azure.privatedns.Resolver("test",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            virtual_network_id=example_virtual_network.id)
-        ```
-
         ## Import
 
         DNS Resolver can be imported using the `resource id`, e.g.
@@ -286,23 +273,6 @@ class Resolver(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Private DNS Resolver.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            address_spaces=["10.0.0.0/16"])
-        test = azure.privatedns.Resolver("test",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            virtual_network_id=example_virtual_network.id)
-        ```
 
         ## Import
 

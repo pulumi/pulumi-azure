@@ -12,29 +12,6 @@ namespace Pulumi.Azure.CostManagement
     /// <summary>
     /// Manages a Cost Anomaly Alert.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.CostManagement.AnomalyAlert("example", new()
-    ///     {
-    ///         DisplayName = "Alert DisplayName",
-    ///         EmailAddresses = new[]
-    ///         {
-    ///             "example@test.net",
-    ///         },
-    ///         EmailSubject = "My Test Anomaly Alert",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Cost Anomaly Alerts can be imported using the `resource id`, e.g.

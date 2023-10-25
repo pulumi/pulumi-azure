@@ -12,43 +12,6 @@ namespace Pulumi.Azure.WebPubSub
     /// <summary>
     /// Manages an Azure Web PubSub Service.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "east us",
-    ///     });
-    /// 
-    ///     var exampleService = new Azure.WebPubSub.Service("exampleService", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Sku = "Standard_S1",
-    ///         Capacity = 1,
-    ///         PublicNetworkAccessEnabled = false,
-    ///         LiveTrace = new Azure.WebPubSub.Inputs.ServiceLiveTraceArgs
-    ///         {
-    ///             Enabled = true,
-    ///             MessagingLogsEnabled = true,
-    ///             ConnectivityLogsEnabled = false,
-    ///         },
-    ///         Identity = new Azure.WebPubSub.Inputs.ServiceIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Web PubSub services can be imported using the `resource id`, e.g.

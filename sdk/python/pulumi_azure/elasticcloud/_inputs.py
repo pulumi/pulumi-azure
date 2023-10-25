@@ -43,15 +43,15 @@ class ElasticsearchLogsArgs:
              send_activity_logs: Optional[pulumi.Input[bool]] = None,
              send_azuread_logs: Optional[pulumi.Input[bool]] = None,
              send_subscription_logs: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'filteringTags' in kwargs:
+        if filtering_tags is None and 'filteringTags' in kwargs:
             filtering_tags = kwargs['filteringTags']
-        if 'sendActivityLogs' in kwargs:
+        if send_activity_logs is None and 'sendActivityLogs' in kwargs:
             send_activity_logs = kwargs['sendActivityLogs']
-        if 'sendAzureadLogs' in kwargs:
+        if send_azuread_logs is None and 'sendAzureadLogs' in kwargs:
             send_azuread_logs = kwargs['sendAzureadLogs']
-        if 'sendSubscriptionLogs' in kwargs:
+        if send_subscription_logs is None and 'sendSubscriptionLogs' in kwargs:
             send_subscription_logs = kwargs['sendSubscriptionLogs']
 
         if filtering_tags is not None:
@@ -132,11 +132,17 @@ class ElasticsearchLogsFilteringTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action: pulumi.Input[str],
-             name: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             action: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("action", action)
         _setter("name", name)
@@ -202,20 +208,28 @@ class GetElasticsearchLogArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             filtering_tags: Sequence['GetElasticsearchLogFilteringTagArgs'],
-             send_activity_logs: bool,
-             send_azuread_logs: bool,
-             send_subscription_logs: bool,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             filtering_tags: Optional[Sequence['GetElasticsearchLogFilteringTagArgs']] = None,
+             send_activity_logs: Optional[bool] = None,
+             send_azuread_logs: Optional[bool] = None,
+             send_subscription_logs: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'filteringTags' in kwargs:
+        if filtering_tags is None and 'filteringTags' in kwargs:
             filtering_tags = kwargs['filteringTags']
-        if 'sendActivityLogs' in kwargs:
+        if filtering_tags is None:
+            raise TypeError("Missing 'filtering_tags' argument")
+        if send_activity_logs is None and 'sendActivityLogs' in kwargs:
             send_activity_logs = kwargs['sendActivityLogs']
-        if 'sendAzureadLogs' in kwargs:
+        if send_activity_logs is None:
+            raise TypeError("Missing 'send_activity_logs' argument")
+        if send_azuread_logs is None and 'sendAzureadLogs' in kwargs:
             send_azuread_logs = kwargs['sendAzureadLogs']
-        if 'sendSubscriptionLogs' in kwargs:
+        if send_azuread_logs is None:
+            raise TypeError("Missing 'send_azuread_logs' argument")
+        if send_subscription_logs is None and 'sendSubscriptionLogs' in kwargs:
             send_subscription_logs = kwargs['sendSubscriptionLogs']
+        if send_subscription_logs is None:
+            raise TypeError("Missing 'send_subscription_logs' argument")
 
         _setter("filtering_tags", filtering_tags)
         _setter("send_activity_logs", send_activity_logs)
@@ -291,11 +305,17 @@ class GetElasticsearchLogFilteringTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action: str,
-             name: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             action: Optional[str] = None,
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("action", action)
         _setter("name", name)

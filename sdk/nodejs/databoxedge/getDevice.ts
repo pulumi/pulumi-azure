@@ -8,18 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Get information about a Databox Edge Device.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.databoxedge.getDevice({
- *     name: "example-device",
- *     resourceGroupName: "example-rg",
- * });
- * ```
  */
 export function getDevice(args: GetDeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceResult> {
 
@@ -73,18 +61,6 @@ export interface GetDeviceResult {
 }
 /**
  * Get information about a Databox Edge Device.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.databoxedge.getDevice({
- *     name: "example-device",
- *     resourceGroupName: "example-rg",
- * });
- * ```
  */
 export function getDeviceOutput(args: GetDeviceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceResult> {
     return pulumi.output(args).apply((a: any) => getDevice(a, opts))

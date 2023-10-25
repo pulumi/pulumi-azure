@@ -40,21 +40,25 @@ class ApiConnectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             managed_api_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             managed_api_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              display_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              parameter_values: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'managedApiId' in kwargs:
+        if managed_api_id is None and 'managedApiId' in kwargs:
             managed_api_id = kwargs['managedApiId']
-        if 'resourceGroupName' in kwargs:
+        if managed_api_id is None:
+            raise TypeError("Missing 'managed_api_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'displayName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'parameterValues' in kwargs:
+        if parameter_values is None and 'parameterValues' in kwargs:
             parameter_values = kwargs['parameterValues']
 
         _setter("managed_api_id", managed_api_id)
@@ -173,15 +177,15 @@ class _ApiConnectionState:
              parameter_values: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'managedApiId' in kwargs:
+        if managed_api_id is None and 'managedApiId' in kwargs:
             managed_api_id = kwargs['managedApiId']
-        if 'parameterValues' in kwargs:
+        if parameter_values is None and 'parameterValues' in kwargs:
             parameter_values = kwargs['parameterValues']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if display_name is not None:
@@ -282,31 +286,6 @@ class ApiConnection(pulumi.CustomResource):
         """
         Manages an API Connection.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_managed_api = azure.connections.get_managed_api_output(name="servicebus",
-            location=example_resource_group.location)
-        example_namespace = azure.servicebus.Namespace("exampleNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Basic")
-        example_api_connection = azure.connections.ApiConnection("exampleApiConnection",
-            resource_group_name=example_resource_group.name,
-            managed_api_id=example_managed_api.id,
-            display_name="Example 1",
-            parameter_values={
-                "connectionString": example_namespace.default_primary_connection_string,
-            },
-            tags={
-                "Hello": "World",
-            })
-        ```
-
         ## Import
 
         API Connections can be imported using the `resource id`, e.g.
@@ -331,31 +310,6 @@ class ApiConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an API Connection.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_managed_api = azure.connections.get_managed_api_output(name="servicebus",
-            location=example_resource_group.location)
-        example_namespace = azure.servicebus.Namespace("exampleNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Basic")
-        example_api_connection = azure.connections.ApiConnection("exampleApiConnection",
-            resource_group_name=example_resource_group.name,
-            managed_api_id=example_managed_api.id,
-            display_name="Example 1",
-            parameter_values={
-                "connectionString": example_namespace.default_primary_connection_string,
-            },
-            tags={
-                "Hello": "World",
-            })
-        ```
 
         ## Import
 

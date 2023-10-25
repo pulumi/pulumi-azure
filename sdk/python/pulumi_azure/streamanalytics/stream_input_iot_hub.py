@@ -52,29 +52,45 @@ class StreamInputIotHubArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             endpoint: pulumi.Input[str],
-             eventhub_consumer_group_name: pulumi.Input[str],
-             iothub_namespace: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             serialization: pulumi.Input['StreamInputIotHubSerializationArgs'],
-             shared_access_policy_key: pulumi.Input[str],
-             shared_access_policy_name: pulumi.Input[str],
-             stream_analytics_job_name: pulumi.Input[str],
+             endpoint: Optional[pulumi.Input[str]] = None,
+             eventhub_consumer_group_name: Optional[pulumi.Input[str]] = None,
+             iothub_namespace: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             serialization: Optional[pulumi.Input['StreamInputIotHubSerializationArgs']] = None,
+             shared_access_policy_key: Optional[pulumi.Input[str]] = None,
+             shared_access_policy_name: Optional[pulumi.Input[str]] = None,
+             stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'eventhubConsumerGroupName' in kwargs:
+        if endpoint is None:
+            raise TypeError("Missing 'endpoint' argument")
+        if eventhub_consumer_group_name is None and 'eventhubConsumerGroupName' in kwargs:
             eventhub_consumer_group_name = kwargs['eventhubConsumerGroupName']
-        if 'iothubNamespace' in kwargs:
+        if eventhub_consumer_group_name is None:
+            raise TypeError("Missing 'eventhub_consumer_group_name' argument")
+        if iothub_namespace is None and 'iothubNamespace' in kwargs:
             iothub_namespace = kwargs['iothubNamespace']
-        if 'resourceGroupName' in kwargs:
+        if iothub_namespace is None:
+            raise TypeError("Missing 'iothub_namespace' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'sharedAccessPolicyKey' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if serialization is None:
+            raise TypeError("Missing 'serialization' argument")
+        if shared_access_policy_key is None and 'sharedAccessPolicyKey' in kwargs:
             shared_access_policy_key = kwargs['sharedAccessPolicyKey']
-        if 'sharedAccessPolicyName' in kwargs:
+        if shared_access_policy_key is None:
+            raise TypeError("Missing 'shared_access_policy_key' argument")
+        if shared_access_policy_name is None and 'sharedAccessPolicyName' in kwargs:
             shared_access_policy_name = kwargs['sharedAccessPolicyName']
-        if 'streamAnalyticsJobName' in kwargs:
+        if shared_access_policy_name is None:
+            raise TypeError("Missing 'shared_access_policy_name' argument")
+        if stream_analytics_job_name is None and 'streamAnalyticsJobName' in kwargs:
             stream_analytics_job_name = kwargs['streamAnalyticsJobName']
+        if stream_analytics_job_name is None:
+            raise TypeError("Missing 'stream_analytics_job_name' argument")
 
         _setter("endpoint", endpoint)
         _setter("eventhub_consumer_group_name", eventhub_consumer_group_name)
@@ -244,19 +260,19 @@ class _StreamInputIotHubState:
              shared_access_policy_key: Optional[pulumi.Input[str]] = None,
              shared_access_policy_name: Optional[pulumi.Input[str]] = None,
              stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'eventhubConsumerGroupName' in kwargs:
+        if eventhub_consumer_group_name is None and 'eventhubConsumerGroupName' in kwargs:
             eventhub_consumer_group_name = kwargs['eventhubConsumerGroupName']
-        if 'iothubNamespace' in kwargs:
+        if iothub_namespace is None and 'iothubNamespace' in kwargs:
             iothub_namespace = kwargs['iothubNamespace']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'sharedAccessPolicyKey' in kwargs:
+        if shared_access_policy_key is None and 'sharedAccessPolicyKey' in kwargs:
             shared_access_policy_key = kwargs['sharedAccessPolicyKey']
-        if 'sharedAccessPolicyName' in kwargs:
+        if shared_access_policy_name is None and 'sharedAccessPolicyName' in kwargs:
             shared_access_policy_name = kwargs['sharedAccessPolicyName']
-        if 'streamAnalyticsJobName' in kwargs:
+        if stream_analytics_job_name is None and 'streamAnalyticsJobName' in kwargs:
             stream_analytics_job_name = kwargs['streamAnalyticsJobName']
 
         if endpoint is not None:
@@ -405,36 +421,6 @@ class StreamInputIotHub(pulumi.CustomResource):
         """
         Manages a Stream Analytics Stream Input IoTHub.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_job = azure.streamanalytics.get_job_output(name="example-job",
-            resource_group_name=example_resource_group.name)
-        example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="S1",
-                capacity=1,
-            ))
-        example_stream_input_iot_hub = azure.streamanalytics.StreamInputIotHub("exampleStreamInputIotHub",
-            stream_analytics_job_name=example_job.name,
-            resource_group_name=example_job.resource_group_name,
-            endpoint="messages/events",
-            eventhub_consumer_group_name="$Default",
-            iothub_namespace=example_io_t_hub.name,
-            shared_access_policy_key=example_io_t_hub.shared_access_policies[0].primary_key,
-            shared_access_policy_name="iothubowner",
-            serialization=azure.streamanalytics.StreamInputIotHubSerializationArgs(
-                type="Json",
-                encoding="UTF8",
-            ))
-        ```
-
         ## Import
 
         Stream Analytics Stream Input IoTHub's can be imported using the `resource id`, e.g.
@@ -463,36 +449,6 @@ class StreamInputIotHub(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Stream Analytics Stream Input IoTHub.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_job = azure.streamanalytics.get_job_output(name="example-job",
-            resource_group_name=example_resource_group.name)
-        example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="S1",
-                capacity=1,
-            ))
-        example_stream_input_iot_hub = azure.streamanalytics.StreamInputIotHub("exampleStreamInputIotHub",
-            stream_analytics_job_name=example_job.name,
-            resource_group_name=example_job.resource_group_name,
-            endpoint="messages/events",
-            eventhub_consumer_group_name="$Default",
-            iothub_namespace=example_io_t_hub.name,
-            shared_access_policy_key=example_io_t_hub.shared_access_policies[0].primary_key,
-            shared_access_policy_name="iothubowner",
-            serialization=azure.streamanalytics.StreamInputIotHubSerializationArgs(
-                type="Json",
-                encoding="UTF8",
-            ))
-        ```
 
         ## Import
 
@@ -552,11 +508,7 @@ class StreamInputIotHub(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if serialization is not None and not isinstance(serialization, StreamInputIotHubSerializationArgs):
-                serialization = serialization or {}
-                def _setter(key, value):
-                    serialization[key] = value
-                StreamInputIotHubSerializationArgs._configure(_setter, **serialization)
+            serialization = _utilities.configure(serialization, StreamInputIotHubSerializationArgs, True)
             if serialization is None and not opts.urn:
                 raise TypeError("Missing required property 'serialization'")
             __props__.__dict__["serialization"] = serialization

@@ -14,41 +14,6 @@ namespace Pulumi.Azure.DevCenter
     /// 
     /// Manages a Dev Center Project.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleDevCenter = new Azure.DevCenter.DevCenter("exampleDevCenter", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         Identity = new Azure.DevCenter.Inputs.DevCenterIdentityArgs
-    ///         {
-    ///             Type = "example-value",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleProject = new Azure.DevCenter.Project("exampleProject", new()
-    ///     {
-    ///         DevCenterId = exampleDevCenter.Id,
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// An existing Dev Center Project can be imported into Terraform using the `resource id`, e.g.

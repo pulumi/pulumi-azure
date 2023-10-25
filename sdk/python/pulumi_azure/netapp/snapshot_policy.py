@@ -55,9 +55,9 @@ class SnapshotPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             account_name: pulumi.Input[str],
-             enabled: pulumi.Input[bool],
-             resource_group_name: pulumi.Input[str],
+             account_name: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              daily_schedule: Optional[pulumi.Input['SnapshotPolicyDailyScheduleArgs']] = None,
              hourly_schedule: Optional[pulumi.Input['SnapshotPolicyHourlyScheduleArgs']] = None,
              location: Optional[pulumi.Input[str]] = None,
@@ -65,19 +65,25 @@ class SnapshotPolicyArgs:
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              weekly_schedule: Optional[pulumi.Input['SnapshotPolicyWeeklyScheduleArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accountName' in kwargs:
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'resourceGroupName' in kwargs:
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'dailySchedule' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if daily_schedule is None and 'dailySchedule' in kwargs:
             daily_schedule = kwargs['dailySchedule']
-        if 'hourlySchedule' in kwargs:
+        if hourly_schedule is None and 'hourlySchedule' in kwargs:
             hourly_schedule = kwargs['hourlySchedule']
-        if 'monthlySchedule' in kwargs:
+        if monthly_schedule is None and 'monthlySchedule' in kwargs:
             monthly_schedule = kwargs['monthlySchedule']
-        if 'weeklySchedule' in kwargs:
+        if weekly_schedule is None and 'weeklySchedule' in kwargs:
             weekly_schedule = kwargs['weeklySchedule']
 
         _setter("account_name", account_name)
@@ -271,19 +277,19 @@ class _SnapshotPolicyState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              weekly_schedule: Optional[pulumi.Input['SnapshotPolicyWeeklyScheduleArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accountName' in kwargs:
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'dailySchedule' in kwargs:
+        if daily_schedule is None and 'dailySchedule' in kwargs:
             daily_schedule = kwargs['dailySchedule']
-        if 'hourlySchedule' in kwargs:
+        if hourly_schedule is None and 'hourlySchedule' in kwargs:
             hourly_schedule = kwargs['hourlySchedule']
-        if 'monthlySchedule' in kwargs:
+        if monthly_schedule is None and 'monthlySchedule' in kwargs:
             monthly_schedule = kwargs['monthlySchedule']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'weeklySchedule' in kwargs:
+        if weekly_schedule is None and 'weeklySchedule' in kwargs:
             weekly_schedule = kwargs['weeklySchedule']
 
         if account_name is not None:
@@ -447,52 +453,6 @@ class SnapshotPolicy(pulumi.CustomResource):
         """
         Manages a NetApp Snapshot Policy.
 
-        ## NetApp Snapshot Policy Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="East US")
-        example_account = azure.netapp.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_snapshot_policy = azure.netapp.SnapshotPolicy("exampleSnapshotPolicy",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            account_name=example_account.name,
-            enabled=True,
-            hourly_schedule=azure.netapp.SnapshotPolicyHourlyScheduleArgs(
-                snapshots_to_keep=4,
-                minute=15,
-            ),
-            daily_schedule=azure.netapp.SnapshotPolicyDailyScheduleArgs(
-                snapshots_to_keep=2,
-                hour=20,
-                minute=15,
-            ),
-            weekly_schedule=azure.netapp.SnapshotPolicyWeeklyScheduleArgs(
-                snapshots_to_keep=1,
-                days_of_weeks=[
-                    "Monday",
-                    "Friday",
-                ],
-                hour=23,
-                minute=0,
-            ),
-            monthly_schedule=azure.netapp.SnapshotPolicyMonthlyScheduleArgs(
-                snapshots_to_keep=1,
-                days_of_months=[
-                    1,
-                    15,
-                    20,
-                    30,
-                ],
-                hour=5,
-                minute=45,
-            ))
-        ```
-
         ## Import
 
         NetApp Snapshot Policy can be imported using the `resource id`, e.g.
@@ -522,52 +482,6 @@ class SnapshotPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a NetApp Snapshot Policy.
-
-        ## NetApp Snapshot Policy Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="East US")
-        example_account = azure.netapp.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_snapshot_policy = azure.netapp.SnapshotPolicy("exampleSnapshotPolicy",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            account_name=example_account.name,
-            enabled=True,
-            hourly_schedule=azure.netapp.SnapshotPolicyHourlyScheduleArgs(
-                snapshots_to_keep=4,
-                minute=15,
-            ),
-            daily_schedule=azure.netapp.SnapshotPolicyDailyScheduleArgs(
-                snapshots_to_keep=2,
-                hour=20,
-                minute=15,
-            ),
-            weekly_schedule=azure.netapp.SnapshotPolicyWeeklyScheduleArgs(
-                snapshots_to_keep=1,
-                days_of_weeks=[
-                    "Monday",
-                    "Friday",
-                ],
-                hour=23,
-                minute=0,
-            ),
-            monthly_schedule=azure.netapp.SnapshotPolicyMonthlyScheduleArgs(
-                snapshots_to_keep=1,
-                days_of_months=[
-                    1,
-                    15,
-                    20,
-                    30,
-                ],
-                hour=5,
-                minute=45,
-            ))
-        ```
 
         ## Import
 
@@ -618,38 +532,22 @@ class SnapshotPolicy(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
-            if daily_schedule is not None and not isinstance(daily_schedule, SnapshotPolicyDailyScheduleArgs):
-                daily_schedule = daily_schedule or {}
-                def _setter(key, value):
-                    daily_schedule[key] = value
-                SnapshotPolicyDailyScheduleArgs._configure(_setter, **daily_schedule)
+            daily_schedule = _utilities.configure(daily_schedule, SnapshotPolicyDailyScheduleArgs, True)
             __props__.__dict__["daily_schedule"] = daily_schedule
             if enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'enabled'")
             __props__.__dict__["enabled"] = enabled
-            if hourly_schedule is not None and not isinstance(hourly_schedule, SnapshotPolicyHourlyScheduleArgs):
-                hourly_schedule = hourly_schedule or {}
-                def _setter(key, value):
-                    hourly_schedule[key] = value
-                SnapshotPolicyHourlyScheduleArgs._configure(_setter, **hourly_schedule)
+            hourly_schedule = _utilities.configure(hourly_schedule, SnapshotPolicyHourlyScheduleArgs, True)
             __props__.__dict__["hourly_schedule"] = hourly_schedule
             __props__.__dict__["location"] = location
-            if monthly_schedule is not None and not isinstance(monthly_schedule, SnapshotPolicyMonthlyScheduleArgs):
-                monthly_schedule = monthly_schedule or {}
-                def _setter(key, value):
-                    monthly_schedule[key] = value
-                SnapshotPolicyMonthlyScheduleArgs._configure(_setter, **monthly_schedule)
+            monthly_schedule = _utilities.configure(monthly_schedule, SnapshotPolicyMonthlyScheduleArgs, True)
             __props__.__dict__["monthly_schedule"] = monthly_schedule
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
-            if weekly_schedule is not None and not isinstance(weekly_schedule, SnapshotPolicyWeeklyScheduleArgs):
-                weekly_schedule = weekly_schedule or {}
-                def _setter(key, value):
-                    weekly_schedule[key] = value
-                SnapshotPolicyWeeklyScheduleArgs._configure(_setter, **weekly_schedule)
+            weekly_schedule = _utilities.configure(weekly_schedule, SnapshotPolicyWeeklyScheduleArgs, True)
             __props__.__dict__["weekly_schedule"] = weekly_schedule
         super(SnapshotPolicy, __self__).__init__(
             'azure:netapp/snapshotPolicy:SnapshotPolicy',

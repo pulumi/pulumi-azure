@@ -9,21 +9,6 @@ import * as utilities from "../utilities";
  *
  * Manages a Spring Cloud Application Live View.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("exampleSpringCloudService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "E0",
- * });
- * const exampleSpringCloudApplicationLiveView = new azure.appplatform.SpringCloudApplicationLiveView("exampleSpringCloudApplicationLiveView", {springCloudServiceId: exampleSpringCloudService.id});
- * ```
- *
  * ## Import
  *
  * Spring Cloud Application Live Views can be imported using the `resource id`, e.g. g

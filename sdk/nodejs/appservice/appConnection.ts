@@ -9,67 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a service connector for function app.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.cosmosdb.Account("exampleAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     offerType: "Standard",
- *     kind: "GlobalDocumentDB",
- *     consistencyPolicy: {
- *         consistencyLevel: "BoundedStaleness",
- *         maxIntervalInSeconds: 10,
- *         maxStalenessPrefix: 200,
- *     },
- *     geoLocations: [{
- *         location: exampleResourceGroup.location,
- *         failoverPriority: 0,
- *     }],
- * });
- * const exampleSqlDatabase = new azure.cosmosdb.SqlDatabase("exampleSqlDatabase", {
- *     resourceGroupName: exampleAccount.resourceGroupName,
- *     accountName: exampleAccount.name,
- *     throughput: 400,
- * });
- * const exampleSqlContainer = new azure.cosmosdb.SqlContainer("exampleSqlContainer", {
- *     resourceGroupName: exampleAccount.resourceGroupName,
- *     accountName: exampleAccount.name,
- *     databaseName: exampleSqlDatabase.name,
- *     partitionKeyPath: "/definition",
- * });
- * const exampleStorage_accountAccount = new azure.storage.Account("exampleStorage/accountAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "LRS",
- * });
- * const exampleServicePlan = new azure.appservice.ServicePlan("exampleServicePlan", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "P1v2",
- *     osType: "Linux",
- * });
- * const test = new azure.appservice.FunctionApp("test", {
- *     location: azurerm_resource_group.test.location,
- *     resourceGroupName: azurerm_resource_group.test.name,
- *     appServicePlanId: azurerm_app_service_plan.test.id,
- *     storageAccountName: azurerm_storage_account.test.name,
- *     storageAccountAccessKey: azurerm_storage_account.test.primary_access_key,
- * });
- * const exampleAppConnection = new azure.appservice.AppConnection("exampleAppConnection", {
- *     functionAppId: azurerm_function_app.example.id,
- *     targetResourceId: azurerm_cosmosdb_account.test.id,
- *     authentication: {
- *         type: "systemAssignedIdentity",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Service Connector for app service can be imported using the `resource id`, e.g.

@@ -57,8 +57,8 @@ class VpnSiteArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             virtual_wan_id: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             virtual_wan_id: Optional[pulumi.Input[str]] = None,
              address_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              device_model: Optional[pulumi.Input[str]] = None,
              device_vendor: Optional[pulumi.Input[str]] = None,
@@ -67,19 +67,23 @@ class VpnSiteArgs:
              name: Optional[pulumi.Input[str]] = None,
              o365_policy: Optional[pulumi.Input['VpnSiteO365PolicyArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'virtualWanId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if virtual_wan_id is None and 'virtualWanId' in kwargs:
             virtual_wan_id = kwargs['virtualWanId']
-        if 'addressCidrs' in kwargs:
+        if virtual_wan_id is None:
+            raise TypeError("Missing 'virtual_wan_id' argument")
+        if address_cidrs is None and 'addressCidrs' in kwargs:
             address_cidrs = kwargs['addressCidrs']
-        if 'deviceModel' in kwargs:
+        if device_model is None and 'deviceModel' in kwargs:
             device_model = kwargs['deviceModel']
-        if 'deviceVendor' in kwargs:
+        if device_vendor is None and 'deviceVendor' in kwargs:
             device_vendor = kwargs['deviceVendor']
-        if 'o365Policy' in kwargs:
+        if o365_policy is None and 'o365Policy' in kwargs:
             o365_policy = kwargs['o365Policy']
 
         _setter("resource_group_name", resource_group_name)
@@ -278,19 +282,19 @@ class _VpnSiteState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              virtual_wan_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'addressCidrs' in kwargs:
+        if address_cidrs is None and 'addressCidrs' in kwargs:
             address_cidrs = kwargs['addressCidrs']
-        if 'deviceModel' in kwargs:
+        if device_model is None and 'deviceModel' in kwargs:
             device_model = kwargs['deviceModel']
-        if 'deviceVendor' in kwargs:
+        if device_vendor is None and 'deviceVendor' in kwargs:
             device_vendor = kwargs['deviceVendor']
-        if 'o365Policy' in kwargs:
+        if o365_policy is None and 'o365Policy' in kwargs:
             o365_policy = kwargs['o365Policy']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'virtualWanId' in kwargs:
+        if virtual_wan_id is None and 'virtualWanId' in kwargs:
             virtual_wan_id = kwargs['virtualWanId']
 
         if address_cidrs is not None:
@@ -456,27 +460,6 @@ class VpnSite(pulumi.CustomResource):
         """
         Manages a VPN Site.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_wan = azure.network.VirtualWan("exampleVirtualWan",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_vpn_site = azure.network.VpnSite("exampleVpnSite",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            virtual_wan_id=example_virtual_wan.id,
-            address_cidrs=["10.0.0.0/24"],
-            links=[azure.network.VpnSiteLinkArgs(
-                name="link1",
-                ip_address="10.0.0.1",
-            )])
-        ```
-
         ## Import
 
         VPN Sites can be imported using the `resource id`, e.g.
@@ -508,27 +491,6 @@ class VpnSite(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a VPN Site.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_wan = azure.network.VirtualWan("exampleVirtualWan",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_vpn_site = azure.network.VpnSite("exampleVpnSite",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            virtual_wan_id=example_virtual_wan.id,
-            address_cidrs=["10.0.0.0/24"],
-            links=[azure.network.VpnSiteLinkArgs(
-                name="link1",
-                ip_address="10.0.0.1",
-            )])
-        ```
 
         ## Import
 
@@ -582,11 +544,7 @@ class VpnSite(pulumi.CustomResource):
             __props__.__dict__["links"] = links
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
-            if o365_policy is not None and not isinstance(o365_policy, VpnSiteO365PolicyArgs):
-                o365_policy = o365_policy or {}
-                def _setter(key, value):
-                    o365_policy[key] = value
-                VpnSiteO365PolicyArgs._configure(_setter, **o365_policy)
+            o365_policy = _utilities.configure(o365_policy, VpnSiteO365PolicyArgs, True)
             __props__.__dict__["o365_policy"] = o365_policy
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

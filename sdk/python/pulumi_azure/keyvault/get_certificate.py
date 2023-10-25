@@ -229,19 +229,6 @@ def get_certificate(key_vault_id: Optional[str] = None,
     """
     Use this data source to access information about an existing Key Vault Certificate.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example_key_vault = azure.keyvault.get_key_vault(name="examplekv",
-        resource_group_name="some-resource-group")
-    example_certificate = azure.keyvault.get_certificate(name="secret-sauce",
-        key_vault_id=example_key_vault.id)
-    pulumi.export("certificateThumbprint", example_certificate.thumbprint)
-    ```
-
 
     :param str key_vault_id: Specifies the ID of the Key Vault instance where the Secret resides, available on the `keyvault.KeyVault` Data Source / Resource.
     :param str name: Specifies the name of the Key Vault Certificate.
@@ -282,19 +269,6 @@ def get_certificate_output(key_vault_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateResult]:
     """
     Use this data source to access information about an existing Key Vault Certificate.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example_key_vault = azure.keyvault.get_key_vault(name="examplekv",
-        resource_group_name="some-resource-group")
-    example_certificate = azure.keyvault.get_certificate(name="secret-sauce",
-        key_vault_id=example_key_vault.id)
-    pulumi.export("certificateThumbprint", example_certificate.thumbprint)
-    ```
 
 
     :param str key_vault_id: Specifies the ID of the Key Vault instance where the Secret resides, available on the `keyvault.KeyVault` Data Source / Resource.

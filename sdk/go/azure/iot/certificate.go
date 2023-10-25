@@ -15,64 +15,6 @@ import (
 
 // Manages an IotHub Certificate.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/base64"
-//	"os"
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func filebase64OrPanic(path string) pulumi.StringPtrInput {
-//		if fileData, err := os.ReadFile(path); err == nil {
-//			return pulumi.String(base64.StdEncoding.EncodeToString(fileData[:]))
-//		} else {
-//			panic(err.Error())
-//		}
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleIoTHub, err := iot.NewIoTHub(ctx, "exampleIoTHub", &iot.IoTHubArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
-//				Sku: &iot.IoTHubSkuArgs{
-//					Name:     pulumi.String("B1"),
-//					Capacity: pulumi.Int(1),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iot.NewCertificate(ctx, "exampleCertificate", &iot.CertificateArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
-//				IothubName:         exampleIoTHub.Name,
-//				IsVerified:         pulumi.Bool(true),
-//				CertificateContent: filebase64OrPanic("example.cer"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // IoTHub Certificates can be imported using the `resource id`, e.g.

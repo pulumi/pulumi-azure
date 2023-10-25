@@ -54,30 +54,38 @@ class TrafficManagerProfileArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             dns_config: pulumi.Input['TrafficManagerProfileDnsConfigArgs'],
-             monitor_config: pulumi.Input['TrafficManagerProfileMonitorConfigArgs'],
-             resource_group_name: pulumi.Input[str],
-             traffic_routing_method: pulumi.Input[str],
+             dns_config: Optional[pulumi.Input['TrafficManagerProfileDnsConfigArgs']] = None,
+             monitor_config: Optional[pulumi.Input['TrafficManagerProfileMonitorConfigArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             traffic_routing_method: Optional[pulumi.Input[str]] = None,
              max_return: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
              profile_status: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              traffic_view_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dnsConfig' in kwargs:
+        if dns_config is None and 'dnsConfig' in kwargs:
             dns_config = kwargs['dnsConfig']
-        if 'monitorConfig' in kwargs:
+        if dns_config is None:
+            raise TypeError("Missing 'dns_config' argument")
+        if monitor_config is None and 'monitorConfig' in kwargs:
             monitor_config = kwargs['monitorConfig']
-        if 'resourceGroupName' in kwargs:
+        if monitor_config is None:
+            raise TypeError("Missing 'monitor_config' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'trafficRoutingMethod' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if traffic_routing_method is None and 'trafficRoutingMethod' in kwargs:
             traffic_routing_method = kwargs['trafficRoutingMethod']
-        if 'maxReturn' in kwargs:
+        if traffic_routing_method is None:
+            raise TypeError("Missing 'traffic_routing_method' argument")
+        if max_return is None and 'maxReturn' in kwargs:
             max_return = kwargs['maxReturn']
-        if 'profileStatus' in kwargs:
+        if profile_status is None and 'profileStatus' in kwargs:
             profile_status = kwargs['profileStatus']
-        if 'trafficViewEnabled' in kwargs:
+        if traffic_view_enabled is None and 'trafficViewEnabled' in kwargs:
             traffic_view_enabled = kwargs['trafficViewEnabled']
 
         _setter("dns_config", dns_config)
@@ -260,21 +268,21 @@ class _TrafficManagerProfileState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              traffic_routing_method: Optional[pulumi.Input[str]] = None,
              traffic_view_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dnsConfig' in kwargs:
+        if dns_config is None and 'dnsConfig' in kwargs:
             dns_config = kwargs['dnsConfig']
-        if 'maxReturn' in kwargs:
+        if max_return is None and 'maxReturn' in kwargs:
             max_return = kwargs['maxReturn']
-        if 'monitorConfig' in kwargs:
+        if monitor_config is None and 'monitorConfig' in kwargs:
             monitor_config = kwargs['monitorConfig']
-        if 'profileStatus' in kwargs:
+        if profile_status is None and 'profileStatus' in kwargs:
             profile_status = kwargs['profileStatus']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'trafficRoutingMethod' in kwargs:
+        if traffic_routing_method is None and 'trafficRoutingMethod' in kwargs:
             traffic_routing_method = kwargs['trafficRoutingMethod']
-        if 'trafficViewEnabled' in kwargs:
+        if traffic_view_enabled is None and 'trafficViewEnabled' in kwargs:
             traffic_view_enabled = kwargs['trafficViewEnabled']
 
         if dns_config is not None:
@@ -439,39 +447,6 @@ class TrafficManagerProfile(pulumi.CustomResource):
         """
         Manages a Traffic Manager Profile to which multiple endpoints can be attached.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_random as random
-
-        server = random.RandomId("server",
-            keepers={
-                "azi_id": 1,
-            },
-            byte_length=8)
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_traffic_manager_profile = azure.network.TrafficManagerProfile("exampleTrafficManagerProfile",
-            resource_group_name=example_resource_group.name,
-            traffic_routing_method="Weighted",
-            dns_config=azure.network.TrafficManagerProfileDnsConfigArgs(
-                relative_name=server.hex,
-                ttl=100,
-            ),
-            monitor_config=azure.network.TrafficManagerProfileMonitorConfigArgs(
-                protocol="HTTP",
-                port=80,
-                path="/",
-                interval_in_seconds=30,
-                timeout_in_seconds=9,
-                tolerated_number_of_failures=3,
-            ),
-            tags={
-                "environment": "Production",
-            })
-        ```
-
         ## Import
 
         Traffic Manager Profiles can be imported using the `resource id`, e.g.
@@ -502,39 +477,6 @@ class TrafficManagerProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Traffic Manager Profile to which multiple endpoints can be attached.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_random as random
-
-        server = random.RandomId("server",
-            keepers={
-                "azi_id": 1,
-            },
-            byte_length=8)
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_traffic_manager_profile = azure.network.TrafficManagerProfile("exampleTrafficManagerProfile",
-            resource_group_name=example_resource_group.name,
-            traffic_routing_method="Weighted",
-            dns_config=azure.network.TrafficManagerProfileDnsConfigArgs(
-                relative_name=server.hex,
-                ttl=100,
-            ),
-            monitor_config=azure.network.TrafficManagerProfileMonitorConfigArgs(
-                protocol="HTTP",
-                port=80,
-                path="/",
-                interval_in_seconds=30,
-                timeout_in_seconds=9,
-                tolerated_number_of_failures=3,
-            ),
-            tags={
-                "environment": "Production",
-            })
-        ```
 
         ## Import
 
@@ -581,20 +523,12 @@ class TrafficManagerProfile(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TrafficManagerProfileArgs.__new__(TrafficManagerProfileArgs)
 
-            if dns_config is not None and not isinstance(dns_config, TrafficManagerProfileDnsConfigArgs):
-                dns_config = dns_config or {}
-                def _setter(key, value):
-                    dns_config[key] = value
-                TrafficManagerProfileDnsConfigArgs._configure(_setter, **dns_config)
+            dns_config = _utilities.configure(dns_config, TrafficManagerProfileDnsConfigArgs, True)
             if dns_config is None and not opts.urn:
                 raise TypeError("Missing required property 'dns_config'")
             __props__.__dict__["dns_config"] = dns_config
             __props__.__dict__["max_return"] = max_return
-            if monitor_config is not None and not isinstance(monitor_config, TrafficManagerProfileMonitorConfigArgs):
-                monitor_config = monitor_config or {}
-                def _setter(key, value):
-                    monitor_config[key] = value
-                TrafficManagerProfileMonitorConfigArgs._configure(_setter, **monitor_config)
+            monitor_config = _utilities.configure(monitor_config, TrafficManagerProfileMonitorConfigArgs, True)
             if monitor_config is None and not opts.urn:
                 raise TypeError("Missing required property 'monitor_config'")
             __props__.__dict__["monitor_config"] = monitor_config

@@ -12,38 +12,6 @@ namespace Pulumi.Azure.DataProtection
     /// <summary>
     /// Manages a Backup Policy Blob Storage.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleBackupVault = new Azure.DataProtection.BackupVault("exampleBackupVault", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         DatastoreType = "VaultStore",
-    ///         Redundancy = "LocallyRedundant",
-    ///     });
-    /// 
-    ///     var exampleBackupPolicyBlobStorage = new Azure.DataProtection.BackupPolicyBlobStorage("exampleBackupPolicyBlobStorage", new()
-    ///     {
-    ///         VaultId = exampleBackupVault.Id,
-    ///         RetentionDuration = "P30D",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Backup Policy Blob Storages can be imported using the `resource id`, e.g.

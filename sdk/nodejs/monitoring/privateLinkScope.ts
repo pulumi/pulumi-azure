@@ -7,16 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Monitor Private Link Scope.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const examplePrivateLinkScope = new azure.monitoring.PrivateLinkScope("examplePrivateLinkScope", {resourceGroupName: exampleResourceGroup.name});
- * ```
- *
  * ## Import
  *
  * Azure Monitor Private Link Scopes can be imported using the `resource id`, e.g.

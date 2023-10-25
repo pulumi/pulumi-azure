@@ -57,7 +57,7 @@ class CertificateOrderArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              auto_renew: Optional[pulumi.Input[bool]] = None,
              csr: Optional[pulumi.Input[str]] = None,
              distinguished_name: Optional[pulumi.Input[str]] = None,
@@ -67,19 +67,21 @@ class CertificateOrderArgs:
              product_type: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              validity_in_years: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'autoRenew' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if auto_renew is None and 'autoRenew' in kwargs:
             auto_renew = kwargs['autoRenew']
-        if 'distinguishedName' in kwargs:
+        if distinguished_name is None and 'distinguishedName' in kwargs:
             distinguished_name = kwargs['distinguishedName']
-        if 'keySize' in kwargs:
+        if key_size is None and 'keySize' in kwargs:
             key_size = kwargs['keySize']
-        if 'productType' in kwargs:
+        if product_type is None and 'productType' in kwargs:
             product_type = kwargs['productType']
-        if 'validityInYears' in kwargs:
+        if validity_in_years is None and 'validityInYears' in kwargs:
             validity_in_years = kwargs['validityInYears']
 
         _setter("resource_group_name", resource_group_name)
@@ -315,33 +317,33 @@ class _CertificateOrderState:
              status: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              validity_in_years: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'appServiceCertificateNotRenewableReasons' in kwargs:
+        if app_service_certificate_not_renewable_reasons is None and 'appServiceCertificateNotRenewableReasons' in kwargs:
             app_service_certificate_not_renewable_reasons = kwargs['appServiceCertificateNotRenewableReasons']
-        if 'autoRenew' in kwargs:
+        if auto_renew is None and 'autoRenew' in kwargs:
             auto_renew = kwargs['autoRenew']
-        if 'distinguishedName' in kwargs:
+        if distinguished_name is None and 'distinguishedName' in kwargs:
             distinguished_name = kwargs['distinguishedName']
-        if 'domainVerificationToken' in kwargs:
+        if domain_verification_token is None and 'domainVerificationToken' in kwargs:
             domain_verification_token = kwargs['domainVerificationToken']
-        if 'expirationTime' in kwargs:
+        if expiration_time is None and 'expirationTime' in kwargs:
             expiration_time = kwargs['expirationTime']
-        if 'intermediateThumbprint' in kwargs:
+        if intermediate_thumbprint is None and 'intermediateThumbprint' in kwargs:
             intermediate_thumbprint = kwargs['intermediateThumbprint']
-        if 'isPrivateKeyExternal' in kwargs:
+        if is_private_key_external is None and 'isPrivateKeyExternal' in kwargs:
             is_private_key_external = kwargs['isPrivateKeyExternal']
-        if 'keySize' in kwargs:
+        if key_size is None and 'keySize' in kwargs:
             key_size = kwargs['keySize']
-        if 'productType' in kwargs:
+        if product_type is None and 'productType' in kwargs:
             product_type = kwargs['productType']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'rootThumbprint' in kwargs:
+        if root_thumbprint is None and 'rootThumbprint' in kwargs:
             root_thumbprint = kwargs['rootThumbprint']
-        if 'signedCertificateThumbprint' in kwargs:
+        if signed_certificate_thumbprint is None and 'signedCertificateThumbprint' in kwargs:
             signed_certificate_thumbprint = kwargs['signedCertificateThumbprint']
-        if 'validityInYears' in kwargs:
+        if validity_in_years is None and 'validityInYears' in kwargs:
             validity_in_years = kwargs['validityInYears']
 
         if app_service_certificate_not_renewable_reasons is not None:
@@ -633,20 +635,6 @@ class CertificateOrder(pulumi.CustomResource):
         """
         Manages an App Service Certificate Order.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_certificate_order = azure.appservice.CertificateOrder("exampleCertificateOrder",
-            resource_group_name=example_resource_group.name,
-            location="global",
-            distinguished_name="CN=example.com",
-            product_type="Standard")
-        ```
-
         ## Import
 
         App Service Certificate Orders can be imported using the `resource id`, e.g.
@@ -678,20 +666,6 @@ class CertificateOrder(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an App Service Certificate Order.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_certificate_order = azure.appservice.CertificateOrder("exampleCertificateOrder",
-            resource_group_name=example_resource_group.name,
-            location="global",
-            distinguished_name="CN=example.com",
-            product_type="Standard")
-        ```
 
         ## Import
 

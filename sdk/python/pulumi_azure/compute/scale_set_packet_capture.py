@@ -52,30 +52,36 @@ class ScaleSetPacketCaptureArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             network_watcher_id: pulumi.Input[str],
-             storage_location: pulumi.Input['ScaleSetPacketCaptureStorageLocationArgs'],
-             virtual_machine_scale_set_id: pulumi.Input[str],
+             network_watcher_id: Optional[pulumi.Input[str]] = None,
+             storage_location: Optional[pulumi.Input['ScaleSetPacketCaptureStorageLocationArgs']] = None,
+             virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
              filters: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetPacketCaptureFilterArgs']]]] = None,
              machine_scope: Optional[pulumi.Input['ScaleSetPacketCaptureMachineScopeArgs']] = None,
              maximum_bytes_per_packet: Optional[pulumi.Input[int]] = None,
              maximum_bytes_per_session: Optional[pulumi.Input[int]] = None,
              maximum_capture_duration_in_seconds: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'networkWatcherId' in kwargs:
+        if network_watcher_id is None and 'networkWatcherId' in kwargs:
             network_watcher_id = kwargs['networkWatcherId']
-        if 'storageLocation' in kwargs:
+        if network_watcher_id is None:
+            raise TypeError("Missing 'network_watcher_id' argument")
+        if storage_location is None and 'storageLocation' in kwargs:
             storage_location = kwargs['storageLocation']
-        if 'virtualMachineScaleSetId' in kwargs:
+        if storage_location is None:
+            raise TypeError("Missing 'storage_location' argument")
+        if virtual_machine_scale_set_id is None and 'virtualMachineScaleSetId' in kwargs:
             virtual_machine_scale_set_id = kwargs['virtualMachineScaleSetId']
-        if 'machineScope' in kwargs:
+        if virtual_machine_scale_set_id is None:
+            raise TypeError("Missing 'virtual_machine_scale_set_id' argument")
+        if machine_scope is None and 'machineScope' in kwargs:
             machine_scope = kwargs['machineScope']
-        if 'maximumBytesPerPacket' in kwargs:
+        if maximum_bytes_per_packet is None and 'maximumBytesPerPacket' in kwargs:
             maximum_bytes_per_packet = kwargs['maximumBytesPerPacket']
-        if 'maximumBytesPerSession' in kwargs:
+        if maximum_bytes_per_session is None and 'maximumBytesPerSession' in kwargs:
             maximum_bytes_per_session = kwargs['maximumBytesPerSession']
-        if 'maximumCaptureDurationInSeconds' in kwargs:
+        if maximum_capture_duration_in_seconds is None and 'maximumCaptureDurationInSeconds' in kwargs:
             maximum_capture_duration_in_seconds = kwargs['maximumCaptureDurationInSeconds']
 
         _setter("network_watcher_id", network_watcher_id)
@@ -251,21 +257,21 @@ class _ScaleSetPacketCaptureState:
              network_watcher_id: Optional[pulumi.Input[str]] = None,
              storage_location: Optional[pulumi.Input['ScaleSetPacketCaptureStorageLocationArgs']] = None,
              virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'machineScope' in kwargs:
+        if machine_scope is None and 'machineScope' in kwargs:
             machine_scope = kwargs['machineScope']
-        if 'maximumBytesPerPacket' in kwargs:
+        if maximum_bytes_per_packet is None and 'maximumBytesPerPacket' in kwargs:
             maximum_bytes_per_packet = kwargs['maximumBytesPerPacket']
-        if 'maximumBytesPerSession' in kwargs:
+        if maximum_bytes_per_session is None and 'maximumBytesPerSession' in kwargs:
             maximum_bytes_per_session = kwargs['maximumBytesPerSession']
-        if 'maximumCaptureDurationInSeconds' in kwargs:
+        if maximum_capture_duration_in_seconds is None and 'maximumCaptureDurationInSeconds' in kwargs:
             maximum_capture_duration_in_seconds = kwargs['maximumCaptureDurationInSeconds']
-        if 'networkWatcherId' in kwargs:
+        if network_watcher_id is None and 'networkWatcherId' in kwargs:
             network_watcher_id = kwargs['networkWatcherId']
-        if 'storageLocation' in kwargs:
+        if storage_location is None and 'storageLocation' in kwargs:
             storage_location = kwargs['storageLocation']
-        if 'virtualMachineScaleSetId' in kwargs:
+        if virtual_machine_scale_set_id is None and 'virtualMachineScaleSetId' in kwargs:
             virtual_machine_scale_set_id = kwargs['virtualMachineScaleSetId']
 
         if filters is not None:
@@ -414,75 +420,6 @@ class ScaleSetPacketCapture(pulumi.CustomResource):
         """
         Configures Network Packet Capturing against a Virtual Machine Scale Set using a Network Watcher.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_network_watcher = azure.network.NetworkWatcher("exampleNetworkWatcher",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku="Standard_F2",
-            instances=4,
-            admin_username="adminuser",
-            admin_password="P@ssword1234!",
-            computer_name_prefix="my-linux-computer-name-prefix",
-            upgrade_mode="Automatic",
-            disable_password_authentication=False,
-            source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-focal",
-                sku="20_04-lts",
-                version="latest",
-            ),
-            os_disk=azure.compute.LinuxVirtualMachineScaleSetOsDiskArgs(
-                storage_account_type="Standard_LRS",
-                caching="ReadWrite",
-            ),
-            network_interfaces=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs(
-                name="example",
-                primary=True,
-                ip_configurations=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs(
-                    name="internal",
-                    primary=True,
-                    subnet_id=example_subnet.id,
-                )],
-            )])
-        example_virtual_machine_scale_set_extension = azure.compute.VirtualMachineScaleSetExtension("exampleVirtualMachineScaleSetExtension",
-            virtual_machine_scale_set_id=example_linux_virtual_machine_scale_set.id,
-            publisher="Microsoft.Azure.NetworkWatcher",
-            type="NetworkWatcherAgentLinux",
-            type_handler_version="1.4",
-            auto_upgrade_minor_version=True,
-            automatic_upgrade_enabled=True)
-        example_scale_set_packet_capture = azure.compute.ScaleSetPacketCapture("exampleScaleSetPacketCapture",
-            network_watcher_id=example_network_watcher.id,
-            virtual_machine_scale_set_id=example_linux_virtual_machine_scale_set.id,
-            storage_location=azure.compute.ScaleSetPacketCaptureStorageLocationArgs(
-                file_path="/var/captures/packet.cap",
-            ),
-            machine_scope=azure.compute.ScaleSetPacketCaptureMachineScopeArgs(
-                include_instance_ids=["0"],
-                exclude_instance_ids=["1"],
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[example_virtual_machine_scale_set_extension]))
-        ```
-
-        > **NOTE:** This Resource requires that [the Network Watcher Extension](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-manage-portal#before-you-begin) is installed on the Virtual Machine Scale Set before capturing can be enabled which can be installed via the `compute.VirtualMachineScaleSetExtension` resource.
-
         ## Import
 
         Virtual Machine Scale Set Packet Captures can be imported using the `resource id`, e.g.
@@ -511,75 +448,6 @@ class ScaleSetPacketCapture(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Configures Network Packet Capturing against a Virtual Machine Scale Set using a Network Watcher.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_network_watcher = azure.network.NetworkWatcher("exampleNetworkWatcher",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku="Standard_F2",
-            instances=4,
-            admin_username="adminuser",
-            admin_password="P@ssword1234!",
-            computer_name_prefix="my-linux-computer-name-prefix",
-            upgrade_mode="Automatic",
-            disable_password_authentication=False,
-            source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-focal",
-                sku="20_04-lts",
-                version="latest",
-            ),
-            os_disk=azure.compute.LinuxVirtualMachineScaleSetOsDiskArgs(
-                storage_account_type="Standard_LRS",
-                caching="ReadWrite",
-            ),
-            network_interfaces=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs(
-                name="example",
-                primary=True,
-                ip_configurations=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs(
-                    name="internal",
-                    primary=True,
-                    subnet_id=example_subnet.id,
-                )],
-            )])
-        example_virtual_machine_scale_set_extension = azure.compute.VirtualMachineScaleSetExtension("exampleVirtualMachineScaleSetExtension",
-            virtual_machine_scale_set_id=example_linux_virtual_machine_scale_set.id,
-            publisher="Microsoft.Azure.NetworkWatcher",
-            type="NetworkWatcherAgentLinux",
-            type_handler_version="1.4",
-            auto_upgrade_minor_version=True,
-            automatic_upgrade_enabled=True)
-        example_scale_set_packet_capture = azure.compute.ScaleSetPacketCapture("exampleScaleSetPacketCapture",
-            network_watcher_id=example_network_watcher.id,
-            virtual_machine_scale_set_id=example_linux_virtual_machine_scale_set.id,
-            storage_location=azure.compute.ScaleSetPacketCaptureStorageLocationArgs(
-                file_path="/var/captures/packet.cap",
-            ),
-            machine_scope=azure.compute.ScaleSetPacketCaptureMachineScopeArgs(
-                include_instance_ids=["0"],
-                exclude_instance_ids=["1"],
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[example_virtual_machine_scale_set_extension]))
-        ```
-
-        > **NOTE:** This Resource requires that [the Network Watcher Extension](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-manage-portal#before-you-begin) is installed on the Virtual Machine Scale Set before capturing can be enabled which can be installed via the `compute.VirtualMachineScaleSetExtension` resource.
 
         ## Import
 
@@ -627,11 +495,7 @@ class ScaleSetPacketCapture(pulumi.CustomResource):
             __props__ = ScaleSetPacketCaptureArgs.__new__(ScaleSetPacketCaptureArgs)
 
             __props__.__dict__["filters"] = filters
-            if machine_scope is not None and not isinstance(machine_scope, ScaleSetPacketCaptureMachineScopeArgs):
-                machine_scope = machine_scope or {}
-                def _setter(key, value):
-                    machine_scope[key] = value
-                ScaleSetPacketCaptureMachineScopeArgs._configure(_setter, **machine_scope)
+            machine_scope = _utilities.configure(machine_scope, ScaleSetPacketCaptureMachineScopeArgs, True)
             __props__.__dict__["machine_scope"] = machine_scope
             __props__.__dict__["maximum_bytes_per_packet"] = maximum_bytes_per_packet
             __props__.__dict__["maximum_bytes_per_session"] = maximum_bytes_per_session
@@ -640,11 +504,7 @@ class ScaleSetPacketCapture(pulumi.CustomResource):
             if network_watcher_id is None and not opts.urn:
                 raise TypeError("Missing required property 'network_watcher_id'")
             __props__.__dict__["network_watcher_id"] = network_watcher_id
-            if storage_location is not None and not isinstance(storage_location, ScaleSetPacketCaptureStorageLocationArgs):
-                storage_location = storage_location or {}
-                def _setter(key, value):
-                    storage_location[key] = value
-                ScaleSetPacketCaptureStorageLocationArgs._configure(_setter, **storage_location)
+            storage_location = _utilities.configure(storage_location, ScaleSetPacketCaptureStorageLocationArgs, True)
             if storage_location is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_location'")
             __props__.__dict__["storage_location"] = storage_location

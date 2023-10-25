@@ -15,47 +15,6 @@ import (
 
 // Manages a Palo Alto Networks Rulestack Certificate.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/paloalto"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleLocalRulestack, err := paloalto.NewLocalRulestack(ctx, "exampleLocalRulestack", &paloalto.LocalRulestackArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = paloalto.NewLocalRulestackCertificate(ctx, "exampleLocalRulestackCertificate", &paloalto.LocalRulestackCertificateArgs{
-//				RulestackId: exampleLocalRulestack.ID(),
-//				SelfSigned:  pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Palo Alto Networks Rulestack Certificates can be imported using the `resource id`, e.g.

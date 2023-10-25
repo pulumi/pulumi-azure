@@ -47,7 +47,7 @@ class VirtualWanArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              allow_branch_to_branch_traffic: Optional[pulumi.Input[bool]] = None,
              disable_vpn_encryption: Optional[pulumi.Input[bool]] = None,
              location: Optional[pulumi.Input[str]] = None,
@@ -55,15 +55,17 @@ class VirtualWanArgs:
              office365_local_breakout_category: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'allowBranchToBranchTraffic' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if allow_branch_to_branch_traffic is None and 'allowBranchToBranchTraffic' in kwargs:
             allow_branch_to_branch_traffic = kwargs['allowBranchToBranchTraffic']
-        if 'disableVpnEncryption' in kwargs:
+        if disable_vpn_encryption is None and 'disableVpnEncryption' in kwargs:
             disable_vpn_encryption = kwargs['disableVpnEncryption']
-        if 'office365LocalBreakoutCategory' in kwargs:
+        if office365_local_breakout_category is None and 'office365LocalBreakoutCategory' in kwargs:
             office365_local_breakout_category = kwargs['office365LocalBreakoutCategory']
 
         _setter("resource_group_name", resource_group_name)
@@ -223,15 +225,15 @@ class _VirtualWanState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'allowBranchToBranchTraffic' in kwargs:
+        if allow_branch_to_branch_traffic is None and 'allowBranchToBranchTraffic' in kwargs:
             allow_branch_to_branch_traffic = kwargs['allowBranchToBranchTraffic']
-        if 'disableVpnEncryption' in kwargs:
+        if disable_vpn_encryption is None and 'disableVpnEncryption' in kwargs:
             disable_vpn_encryption = kwargs['disableVpnEncryption']
-        if 'office365LocalBreakoutCategory' in kwargs:
+        if office365_local_breakout_category is None and 'office365LocalBreakoutCategory' in kwargs:
             office365_local_breakout_category = kwargs['office365LocalBreakoutCategory']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if allow_branch_to_branch_traffic is not None:
@@ -365,18 +367,6 @@ class VirtualWan(pulumi.CustomResource):
         """
         Manages a Virtual WAN.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_wan = azure.network.VirtualWan("exampleVirtualWan",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        ```
-
         ## Import
 
         Virtual WAN can be imported using the `resource id`, e.g.
@@ -404,18 +394,6 @@ class VirtualWan(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Virtual WAN.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_wan = azure.network.VirtualWan("exampleVirtualWan",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        ```
 
         ## Import
 

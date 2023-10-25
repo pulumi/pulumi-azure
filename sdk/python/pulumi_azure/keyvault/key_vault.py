@@ -81,9 +81,9 @@ class KeyVaultArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             sku_name: pulumi.Input[str],
-             tenant_id: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
              access_policies: Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultAccessPolicyArgs']]]] = None,
              contacts: Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultContactArgs']]]] = None,
              enable_rbac_authorization: Optional[pulumi.Input[bool]] = None,
@@ -97,31 +97,37 @@ class KeyVaultArgs:
              purge_protection_enabled: Optional[pulumi.Input[bool]] = None,
              soft_delete_retention_days: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'tenantId' in kwargs:
+        if sku_name is None:
+            raise TypeError("Missing 'sku_name' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
-        if 'accessPolicies' in kwargs:
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if access_policies is None and 'accessPolicies' in kwargs:
             access_policies = kwargs['accessPolicies']
-        if 'enableRbacAuthorization' in kwargs:
+        if enable_rbac_authorization is None and 'enableRbacAuthorization' in kwargs:
             enable_rbac_authorization = kwargs['enableRbacAuthorization']
-        if 'enabledForDeployment' in kwargs:
+        if enabled_for_deployment is None and 'enabledForDeployment' in kwargs:
             enabled_for_deployment = kwargs['enabledForDeployment']
-        if 'enabledForDiskEncryption' in kwargs:
+        if enabled_for_disk_encryption is None and 'enabledForDiskEncryption' in kwargs:
             enabled_for_disk_encryption = kwargs['enabledForDiskEncryption']
-        if 'enabledForTemplateDeployment' in kwargs:
+        if enabled_for_template_deployment is None and 'enabledForTemplateDeployment' in kwargs:
             enabled_for_template_deployment = kwargs['enabledForTemplateDeployment']
-        if 'networkAcls' in kwargs:
+        if network_acls is None and 'networkAcls' in kwargs:
             network_acls = kwargs['networkAcls']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'purgeProtectionEnabled' in kwargs:
+        if purge_protection_enabled is None and 'purgeProtectionEnabled' in kwargs:
             purge_protection_enabled = kwargs['purgeProtectionEnabled']
-        if 'softDeleteRetentionDays' in kwargs:
+        if soft_delete_retention_days is None and 'softDeleteRetentionDays' in kwargs:
             soft_delete_retention_days = kwargs['softDeleteRetentionDays']
 
         _setter("resource_group_name", resource_group_name)
@@ -443,33 +449,33 @@ class _KeyVaultState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              vault_uri: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accessPolicies' in kwargs:
+        if access_policies is None and 'accessPolicies' in kwargs:
             access_policies = kwargs['accessPolicies']
-        if 'enableRbacAuthorization' in kwargs:
+        if enable_rbac_authorization is None and 'enableRbacAuthorization' in kwargs:
             enable_rbac_authorization = kwargs['enableRbacAuthorization']
-        if 'enabledForDeployment' in kwargs:
+        if enabled_for_deployment is None and 'enabledForDeployment' in kwargs:
             enabled_for_deployment = kwargs['enabledForDeployment']
-        if 'enabledForDiskEncryption' in kwargs:
+        if enabled_for_disk_encryption is None and 'enabledForDiskEncryption' in kwargs:
             enabled_for_disk_encryption = kwargs['enabledForDiskEncryption']
-        if 'enabledForTemplateDeployment' in kwargs:
+        if enabled_for_template_deployment is None and 'enabledForTemplateDeployment' in kwargs:
             enabled_for_template_deployment = kwargs['enabledForTemplateDeployment']
-        if 'networkAcls' in kwargs:
+        if network_acls is None and 'networkAcls' in kwargs:
             network_acls = kwargs['networkAcls']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'purgeProtectionEnabled' in kwargs:
+        if purge_protection_enabled is None and 'purgeProtectionEnabled' in kwargs:
             purge_protection_enabled = kwargs['purgeProtectionEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'softDeleteRetentionDays' in kwargs:
+        if soft_delete_retention_days is None and 'softDeleteRetentionDays' in kwargs:
             soft_delete_retention_days = kwargs['softDeleteRetentionDays']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
-        if 'vaultUri' in kwargs:
+        if vault_uri is None and 'vaultUri' in kwargs:
             vault_uri = kwargs['vaultUri']
 
         if access_policies is not None:
@@ -751,31 +757,6 @@ class KeyVault(pulumi.CustomResource):
 
         > **Note:** It's possible to define Key Vault Certificate Contacts both within the `keyvault.KeyVault` resource via the `contact` block and by using the `keyvault.CertificateContacts` resource. However it's not possible to use both methods to manage Certificate Contacts within a KeyVault, since there'll be conflicts.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            enabled_for_disk_encryption=True,
-            tenant_id=current.tenant_id,
-            soft_delete_retention_days=7,
-            purge_protection_enabled=False,
-            sku_name="standard",
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
-                tenant_id=current.tenant_id,
-                object_id=current.object_id,
-                key_permissions=["Get"],
-                secret_permissions=["Get"],
-                storage_permissions=["Get"],
-            )])
-        ```
-
         ## Import
 
         Key Vault's can be imported using the `resource id`, e.g.
@@ -825,31 +806,6 @@ class KeyVault(pulumi.CustomResource):
         > **Note:** It's possible to define Key Vault Access Policies both within the `keyvault.KeyVault` resource via the `access_policy` block and by using the `keyvault.AccessPolicy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
 
         > **Note:** It's possible to define Key Vault Certificate Contacts both within the `keyvault.KeyVault` resource via the `contact` block and by using the `keyvault.CertificateContacts` resource. However it's not possible to use both methods to manage Certificate Contacts within a KeyVault, since there'll be conflicts.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            enabled_for_disk_encryption=True,
-            tenant_id=current.tenant_id,
-            soft_delete_retention_days=7,
-            purge_protection_enabled=False,
-            sku_name="standard",
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
-                tenant_id=current.tenant_id,
-                object_id=current.object_id,
-                key_permissions=["Get"],
-                secret_permissions=["Get"],
-                storage_permissions=["Get"],
-            )])
-        ```
 
         ## Import
 
@@ -911,11 +867,7 @@ class KeyVault(pulumi.CustomResource):
             __props__.__dict__["enabled_for_template_deployment"] = enabled_for_template_deployment
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
-            if network_acls is not None and not isinstance(network_acls, KeyVaultNetworkAclsArgs):
-                network_acls = network_acls or {}
-                def _setter(key, value):
-                    network_acls[key] = value
-                KeyVaultNetworkAclsArgs._configure(_setter, **network_acls)
+            network_acls = _utilities.configure(network_acls, KeyVaultNetworkAclsArgs, True)
             __props__.__dict__["network_acls"] = network_acls
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             __props__.__dict__["purge_protection_enabled"] = purge_protection_enabled

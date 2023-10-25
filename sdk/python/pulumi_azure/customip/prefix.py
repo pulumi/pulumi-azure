@@ -62,8 +62,8 @@ class PrefixArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cidr: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             cidr: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              commissioning_enabled: Optional[pulumi.Input[bool]] = None,
              internet_advertising_disabled: Optional[pulumi.Input[bool]] = None,
              location: Optional[pulumi.Input[str]] = None,
@@ -73,19 +73,23 @@ class PrefixArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              wan_validation_signed_message: Optional[pulumi.Input[str]] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if cidr is None:
+            raise TypeError("Missing 'cidr' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'commissioningEnabled' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if commissioning_enabled is None and 'commissioningEnabled' in kwargs:
             commissioning_enabled = kwargs['commissioningEnabled']
-        if 'internetAdvertisingDisabled' in kwargs:
+        if internet_advertising_disabled is None and 'internetAdvertisingDisabled' in kwargs:
             internet_advertising_disabled = kwargs['internetAdvertisingDisabled']
-        if 'parentCustomIpPrefixId' in kwargs:
+        if parent_custom_ip_prefix_id is None and 'parentCustomIpPrefixId' in kwargs:
             parent_custom_ip_prefix_id = kwargs['parentCustomIpPrefixId']
-        if 'roaValidityEndDate' in kwargs:
+        if roa_validity_end_date is None and 'roaValidityEndDate' in kwargs:
             roa_validity_end_date = kwargs['roaValidityEndDate']
-        if 'wanValidationSignedMessage' in kwargs:
+        if wan_validation_signed_message is None and 'wanValidationSignedMessage' in kwargs:
             wan_validation_signed_message = kwargs['wanValidationSignedMessage']
 
         _setter("cidr", cidr)
@@ -310,19 +314,19 @@ class _PrefixState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              wan_validation_signed_message: Optional[pulumi.Input[str]] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'commissioningEnabled' in kwargs:
+        if commissioning_enabled is None and 'commissioningEnabled' in kwargs:
             commissioning_enabled = kwargs['commissioningEnabled']
-        if 'internetAdvertisingDisabled' in kwargs:
+        if internet_advertising_disabled is None and 'internetAdvertisingDisabled' in kwargs:
             internet_advertising_disabled = kwargs['internetAdvertisingDisabled']
-        if 'parentCustomIpPrefixId' in kwargs:
+        if parent_custom_ip_prefix_id is None and 'parentCustomIpPrefixId' in kwargs:
             parent_custom_ip_prefix_id = kwargs['parentCustomIpPrefixId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'roaValidityEndDate' in kwargs:
+        if roa_validity_end_date is None and 'roaValidityEndDate' in kwargs:
             roa_validity_end_date = kwargs['roaValidityEndDate']
-        if 'wanValidationSignedMessage' in kwargs:
+        if wan_validation_signed_message is None and 'wanValidationSignedMessage' in kwargs:
             wan_validation_signed_message = kwargs['wanValidationSignedMessage']
 
         if cidr is not None:

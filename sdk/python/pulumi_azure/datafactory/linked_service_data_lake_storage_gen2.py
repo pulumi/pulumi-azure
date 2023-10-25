@@ -68,8 +68,8 @@ class LinkedServiceDataLakeStorageGen2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_factory_id: pulumi.Input[str],
-             url: pulumi.Input[str],
+             data_factory_id: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
              additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -81,21 +81,25 @@ class LinkedServiceDataLakeStorageGen2Args:
              storage_account_key: Optional[pulumi.Input[str]] = None,
              tenant: Optional[pulumi.Input[str]] = None,
              use_managed_identity: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'additionalProperties' in kwargs:
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'integrationRuntimeName' in kwargs:
+        if integration_runtime_name is None and 'integrationRuntimeName' in kwargs:
             integration_runtime_name = kwargs['integrationRuntimeName']
-        if 'servicePrincipalId' in kwargs:
+        if service_principal_id is None and 'servicePrincipalId' in kwargs:
             service_principal_id = kwargs['servicePrincipalId']
-        if 'servicePrincipalKey' in kwargs:
+        if service_principal_key is None and 'servicePrincipalKey' in kwargs:
             service_principal_key = kwargs['servicePrincipalKey']
-        if 'storageAccountKey' in kwargs:
+        if storage_account_key is None and 'storageAccountKey' in kwargs:
             storage_account_key = kwargs['storageAccountKey']
-        if 'useManagedIdentity' in kwargs:
+        if use_managed_identity is None and 'useManagedIdentity' in kwargs:
             use_managed_identity = kwargs['useManagedIdentity']
 
         _setter("data_factory_id", data_factory_id)
@@ -356,21 +360,21 @@ class _LinkedServiceDataLakeStorageGen2State:
              tenant: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
              use_managed_identity: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'additionalProperties' in kwargs:
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'integrationRuntimeName' in kwargs:
+        if integration_runtime_name is None and 'integrationRuntimeName' in kwargs:
             integration_runtime_name = kwargs['integrationRuntimeName']
-        if 'servicePrincipalId' in kwargs:
+        if service_principal_id is None and 'servicePrincipalId' in kwargs:
             service_principal_id = kwargs['servicePrincipalId']
-        if 'servicePrincipalKey' in kwargs:
+        if service_principal_key is None and 'servicePrincipalKey' in kwargs:
             service_principal_key = kwargs['servicePrincipalKey']
-        if 'storageAccountKey' in kwargs:
+        if storage_account_key is None and 'storageAccountKey' in kwargs:
             storage_account_key = kwargs['storageAccountKey']
-        if 'useManagedIdentity' in kwargs:
+        if use_managed_identity is None and 'useManagedIdentity' in kwargs:
             use_managed_identity = kwargs['useManagedIdentity']
 
         if additional_properties is not None:
@@ -585,25 +589,6 @@ class LinkedServiceDataLakeStorageGen2(pulumi.CustomResource):
         """
         Manages a Linked Service (connection) between Data Lake Storage Gen2 and Azure Data Factory.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        current = azure.core.get_client_config()
-        example_linked_service_data_lake_storage_gen2 = azure.datafactory.LinkedServiceDataLakeStorageGen2("exampleLinkedServiceDataLakeStorageGen2",
-            data_factory_id=example_factory.id,
-            service_principal_id=current.client_id,
-            service_principal_key="exampleKey",
-            tenant="11111111-1111-1111-1111-111111111111",
-            url="https://datalakestoragegen2")
-        ```
-
         ## Import
 
         Data Factory Data Lake Storage Gen2 Linked Services can be imported using the `resource id`, e.g.
@@ -642,25 +627,6 @@ class LinkedServiceDataLakeStorageGen2(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Linked Service (connection) between Data Lake Storage Gen2 and Azure Data Factory.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        current = azure.core.get_client_config()
-        example_linked_service_data_lake_storage_gen2 = azure.datafactory.LinkedServiceDataLakeStorageGen2("exampleLinkedServiceDataLakeStorageGen2",
-            data_factory_id=example_factory.id,
-            service_principal_id=current.client_id,
-            service_principal_key="exampleKey",
-            tenant="11111111-1111-1111-1111-111111111111",
-            url="https://datalakestoragegen2")
-        ```
 
         ## Import
 

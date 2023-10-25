@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = new azure.dns.PtrRecord("example", {
- *     zoneName: "test-zone",
- *     resourceGroupName: "test-rg",
- * });
- * export const dnsPtrRecordId = example.id;
- * ```
- */
 export function getPtrRecord(args: GetPtrRecordArgs, opts?: pulumi.InvokeOptions): Promise<GetPtrRecordResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -74,20 +60,6 @@ export interface GetPtrRecordResult {
     readonly ttl: number;
     readonly zoneName: string;
 }
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = new azure.dns.PtrRecord("example", {
- *     zoneName: "test-zone",
- *     resourceGroupName: "test-rg",
- * });
- * export const dnsPtrRecordId = example.id;
- * ```
- */
 export function getPtrRecordOutput(args: GetPtrRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPtrRecordResult> {
     return pulumi.output(args).apply((a: any) => getPtrRecord(a, opts))
 }

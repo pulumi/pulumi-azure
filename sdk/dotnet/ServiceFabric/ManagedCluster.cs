@@ -12,55 +12,6 @@ namespace Pulumi.Azure.ServiceFabric
     /// <summary>
     /// Manages a Resource Group.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.ServiceFabric.ManagedCluster("example", new()
-    ///     {
-    ///         ClientConnectionPort = 12345,
-    ///         HttpGatewayPort = 4567,
-    ///         LbRules = new[]
-    ///         {
-    ///             new Azure.ServiceFabric.Inputs.ManagedClusterLbRuleArgs
-    ///             {
-    ///                 BackendPort = 38080,
-    ///                 FrontendPort = 80,
-    ///                 ProbeProtocol = "http",
-    ///                 ProbeRequestPath = "/test",
-    ///                 Protocol = "tcp",
-    ///             },
-    ///         },
-    ///         Location = "West Europe",
-    ///         NodeTypes = new[]
-    ///         {
-    ///             new Azure.ServiceFabric.Inputs.ManagedClusterNodeTypeArgs
-    ///             {
-    ///                 ApplicationPortRange = "30000-49000",
-    ///                 DataDiskSizeGb = 130,
-    ///                 EphemeralPortRange = "10000-20000",
-    ///                 Name = "test1",
-    ///                 Primary = true,
-    ///                 VmImageOffer = "WindowsServer",
-    ///                 VmImagePublisher = "MicrosoftWindowsServer",
-    ///                 VmImageSku = "2019-Datacenter-with-Containers",
-    ///                 VmImageVersion = "latest",
-    ///                 VmInstanceCount = 5,
-    ///                 VmSize = "Standard_DS1_v2",
-    ///             },
-    ///         },
-    ///         ResourceGroupName = "example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Resource Groups can be imported using the `resource id`, e.g.

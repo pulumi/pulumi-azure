@@ -32,7 +32,7 @@ class ResourceProviderRegistrationArgs:
              _setter: Callable[[Any, Any], None],
              features: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderRegistrationFeatureArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
 
         if features is not None:
@@ -81,7 +81,7 @@ class _ResourceProviderRegistrationState:
              _setter: Callable[[Any, Any], None],
              features: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderRegistrationFeatureArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
 
         if features is not None:
@@ -128,26 +128,6 @@ class ResourceProviderRegistration(pulumi.CustomResource):
 
         > **Note:** Adding or Removing a Preview Feature will re-register the Resource Provider.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceProviderRegistration("example")
-        ```
-        ### Registering A Preview Feature)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceProviderRegistration("example", features=[azure.core.ResourceProviderRegistrationFeatureArgs(
-            name="AKS-DataPlaneAutoApprove",
-            registered=True,
-        )])
-        ```
-
         ## Import
 
         Resource Provider Registrations can be imported using the `resource id`, e.g.
@@ -174,26 +154,6 @@ class ResourceProviderRegistration(pulumi.CustomResource):
         !> **Note:** The errors returned from the Azure API when a Resource Provider is unregistered are unclear (example `API version '2019-01-01' was not found for 'Microsoft.Foo'`) - please ensure that all of the necessary Resource Providers you're using are registered - if in doubt **we strongly recommend letting the provider register these for you**.
 
         > **Note:** Adding or Removing a Preview Feature will re-register the Resource Provider.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceProviderRegistration("example")
-        ```
-        ### Registering A Preview Feature)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceProviderRegistration("example", features=[azure.core.ResourceProviderRegistrationFeatureArgs(
-            name="AKS-DataPlaneAutoApprove",
-            registered=True,
-        )])
-        ```
 
         ## Import
 

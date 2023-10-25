@@ -7,50 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Bgp Connection for a Virtual Hub.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualHub = new azure.network.VirtualHub("exampleVirtualHub", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     sku: "Standard",
- * });
- * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     allocationMethod: "Static",
- *     sku: "Standard",
- * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     addressSpaces: ["10.5.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.5.1.0/24"],
- * });
- * const exampleVirtualHubIp = new azure.network.VirtualHubIp("exampleVirtualHubIp", {
- *     virtualHubId: exampleVirtualHub.id,
- *     privateIpAddress: "10.5.1.18",
- *     privateIpAllocationMethod: "Static",
- *     publicIpAddressId: examplePublicIp.id,
- *     subnetId: exampleSubnet.id,
- * });
- * const exampleBgpConnection = new azure.network.BgpConnection("exampleBgpConnection", {
- *     virtualHubId: exampleVirtualHub.id,
- *     peerAsn: 65514,
- *     peerIp: "169.254.21.5",
- * }, {
- *     dependsOn: [exampleVirtualHubIp],
- * });
- * ```
- *
  * ## Import
  *
  * Virtual Hub Bgp Connections can be imported using the `resource id`, e.g.

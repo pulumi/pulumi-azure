@@ -12,59 +12,6 @@ namespace Pulumi.Azure.ContainerApp
     /// <summary>
     /// Manages a Container App.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Sku = "PerGB2018",
-    ///         RetentionInDays = 30,
-    ///     });
-    /// 
-    ///     var exampleEnvironment = new Azure.ContainerApp.Environment("exampleEnvironment", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         LogAnalyticsWorkspaceId = exampleAnalyticsWorkspace.Id,
-    ///     });
-    /// 
-    ///     var exampleApp = new Azure.ContainerApp.App("exampleApp", new()
-    ///     {
-    ///         ContainerAppEnvironmentId = exampleEnvironment.Id,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         RevisionMode = "Single",
-    ///         Template = new Azure.ContainerApp.Inputs.AppTemplateArgs
-    ///         {
-    ///             Containers = new[]
-    ///             {
-    ///                 new Azure.ContainerApp.Inputs.AppTemplateContainerArgs
-    ///                 {
-    ///                     Name = "examplecontainerapp",
-    ///                     Image = "mcr.microsoft.com/azuredocs/containerapps-helloworld:latest",
-    ///                     Cpu = 0.25,
-    ///                     Memory = "0.5Gi",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// A Container App can be imported using the `resource id`, e.g.

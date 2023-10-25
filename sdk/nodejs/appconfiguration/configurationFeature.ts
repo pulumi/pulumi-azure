@@ -11,31 +11,6 @@ import * as utilities from "../utilities";
  *
  * > **Note:** App Configuration Features are provisioned using a Data Plane API which requires the role `App Configuration Data Owner` on either the App Configuration or a parent scope (such as the Resource Group/Subscription). [More information can be found in the Azure Documentation for App Configuration](https://docs.microsoft.com/azure/azure-app-configuration/concept-enable-rbac#azure-built-in-roles-for-azure-app-configuration). This is similar to providing App Configuration Keys.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
- * const appconf = new azure.appconfiguration.ConfigurationStore("appconf", {
- *     resourceGroupName: example.name,
- *     location: example.location,
- * });
- * const current = azure.core.getClientConfig({});
- * const appconfDataowner = new azure.authorization.Assignment("appconfDataowner", {
- *     scope: appconf.id,
- *     roleDefinitionName: "App Configuration Data Owner",
- *     principalId: current.then(current => current.objectId),
- * });
- * const test = new azure.appconfiguration.ConfigurationFeature("test", {
- *     configurationStoreId: appconf.id,
- *     description: "test description",
- *     label: "test-ackeylabel",
- *     enabled: true,
- * });
- * ```
- *
  * ## Import
  *
  * App Configuration Features can be imported using the `resource id`, e.g.

@@ -13,68 +13,12 @@ namespace Pulumi.Azure.Compute
     {
         /// <summary>
         /// Use this data source to access information about an existing Dedicated Host.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Compute.GetDedicatedHost.Invoke(new()
-        ///     {
-        ///         Name = "example-host",
-        ///         DedicatedHostGroupName = "example-host-group",
-        ///         ResourceGroupName = "example-resources",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["dedicatedHostId"] = example.Apply(getDedicatedHostResult =&gt; getDedicatedHostResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetDedicatedHostResult> InvokeAsync(GetDedicatedHostArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedHostResult>("azure:compute/getDedicatedHost:getDedicatedHost", args ?? new GetDedicatedHostArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Dedicated Host.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Compute.GetDedicatedHost.Invoke(new()
-        ///     {
-        ///         Name = "example-host",
-        ///         DedicatedHostGroupName = "example-host-group",
-        ///         ResourceGroupName = "example-resources",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["dedicatedHostId"] = example.Apply(getDedicatedHostResult =&gt; getDedicatedHostResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetDedicatedHostResult> Invoke(GetDedicatedHostInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDedicatedHostResult>("azure:compute/getDedicatedHost:getDedicatedHost", args ?? new GetDedicatedHostInvokeArgs(), options.WithDefaults());

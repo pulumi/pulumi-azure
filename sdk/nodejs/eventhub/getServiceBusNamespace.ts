@@ -6,19 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing ServiceBus Namespace.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.servicebus.getNamespace({
- *     name: "examplenamespace",
- *     resourceGroupName: "example-resources",
- * });
- * export const location = example.then(example => example.location);
- * ```
  */
 /** @deprecated azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace */
 export function getServiceBusNamespace(args: GetServiceBusNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceBusNamespaceResult> {
@@ -100,19 +87,6 @@ export interface GetServiceBusNamespaceResult {
 }
 /**
  * Use this data source to access information about an existing ServiceBus Namespace.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.servicebus.getNamespace({
- *     name: "examplenamespace",
- *     resourceGroupName: "example-resources",
- * });
- * export const location = example.then(example => example.location);
- * ```
  */
 /** @deprecated azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace */
 export function getServiceBusNamespaceOutput(args: GetServiceBusNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceBusNamespaceResult> {

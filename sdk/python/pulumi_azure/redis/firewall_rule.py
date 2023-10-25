@@ -38,21 +38,29 @@ class FirewallRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             end_ip: pulumi.Input[str],
-             redis_cache_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             start_ip: pulumi.Input[str],
+             end_ip: Optional[pulumi.Input[str]] = None,
+             redis_cache_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             start_ip: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'endIp' in kwargs:
+        if end_ip is None and 'endIp' in kwargs:
             end_ip = kwargs['endIp']
-        if 'redisCacheName' in kwargs:
+        if end_ip is None:
+            raise TypeError("Missing 'end_ip' argument")
+        if redis_cache_name is None and 'redisCacheName' in kwargs:
             redis_cache_name = kwargs['redisCacheName']
-        if 'resourceGroupName' in kwargs:
+        if redis_cache_name is None:
+            raise TypeError("Missing 'redis_cache_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'startIp' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if start_ip is None and 'startIp' in kwargs:
             start_ip = kwargs['startIp']
+        if start_ip is None:
+            raise TypeError("Missing 'start_ip' argument")
 
         _setter("end_ip", end_ip)
         _setter("redis_cache_name", redis_cache_name)
@@ -154,15 +162,15 @@ class _FirewallRuleState:
              redis_cache_name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              start_ip: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'endIp' in kwargs:
+        if end_ip is None and 'endIp' in kwargs:
             end_ip = kwargs['endIp']
-        if 'redisCacheName' in kwargs:
+        if redis_cache_name is None and 'redisCacheName' in kwargs:
             redis_cache_name = kwargs['redisCacheName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'startIp' in kwargs:
+        if start_ip is None and 'startIp' in kwargs:
             start_ip = kwargs['startIp']
 
         if end_ip is not None:
@@ -251,38 +259,6 @@ class FirewallRule(pulumi.CustomResource):
         """
         Manages a Firewall Rule associated with a Redis Cache.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_random as random
-
-        server = random.RandomId("server",
-            keepers={
-                "azi_id": 1,
-            },
-            byte_length=8)
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_cache = azure.redis.Cache("exampleCache",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            capacity=1,
-            family="P",
-            sku_name="Premium",
-            enable_non_ssl_port=False,
-            redis_configuration=azure.redis.CacheRedisConfigurationArgs(
-                maxmemory_reserved=2,
-                maxmemory_delta=2,
-                maxmemory_policy="allkeys-lru",
-            ))
-        example_firewall_rule = azure.redis.FirewallRule("exampleFirewallRule",
-            redis_cache_name=example_cache.name,
-            resource_group_name=example_resource_group.name,
-            start_ip="1.2.3.4",
-            end_ip="2.3.4.5")
-        ```
-
         ## Import
 
         Redis Firewall Rules can be imported using the `resource id`, e.g.
@@ -307,38 +283,6 @@ class FirewallRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Firewall Rule associated with a Redis Cache.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_random as random
-
-        server = random.RandomId("server",
-            keepers={
-                "azi_id": 1,
-            },
-            byte_length=8)
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_cache = azure.redis.Cache("exampleCache",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            capacity=1,
-            family="P",
-            sku_name="Premium",
-            enable_non_ssl_port=False,
-            redis_configuration=azure.redis.CacheRedisConfigurationArgs(
-                maxmemory_reserved=2,
-                maxmemory_delta=2,
-                maxmemory_policy="allkeys-lru",
-            ))
-        example_firewall_rule = azure.redis.FirewallRule("exampleFirewallRule",
-            redis_cache_name=example_cache.name,
-            resource_group_name=example_resource_group.name,
-            start_ip="1.2.3.4",
-            end_ip="2.3.4.5")
-        ```
 
         ## Import
 

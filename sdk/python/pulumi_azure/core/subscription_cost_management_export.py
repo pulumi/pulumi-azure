@@ -49,28 +49,40 @@ class SubscriptionCostManagementExportArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             export_data_options: pulumi.Input['SubscriptionCostManagementExportExportDataOptionsArgs'],
-             export_data_storage_location: pulumi.Input['SubscriptionCostManagementExportExportDataStorageLocationArgs'],
-             recurrence_period_end_date: pulumi.Input[str],
-             recurrence_period_start_date: pulumi.Input[str],
-             recurrence_type: pulumi.Input[str],
-             subscription_id: pulumi.Input[str],
+             export_data_options: Optional[pulumi.Input['SubscriptionCostManagementExportExportDataOptionsArgs']] = None,
+             export_data_storage_location: Optional[pulumi.Input['SubscriptionCostManagementExportExportDataStorageLocationArgs']] = None,
+             recurrence_period_end_date: Optional[pulumi.Input[str]] = None,
+             recurrence_period_start_date: Optional[pulumi.Input[str]] = None,
+             recurrence_type: Optional[pulumi.Input[str]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
              active: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'exportDataOptions' in kwargs:
+        if export_data_options is None and 'exportDataOptions' in kwargs:
             export_data_options = kwargs['exportDataOptions']
-        if 'exportDataStorageLocation' in kwargs:
+        if export_data_options is None:
+            raise TypeError("Missing 'export_data_options' argument")
+        if export_data_storage_location is None and 'exportDataStorageLocation' in kwargs:
             export_data_storage_location = kwargs['exportDataStorageLocation']
-        if 'recurrencePeriodEndDate' in kwargs:
+        if export_data_storage_location is None:
+            raise TypeError("Missing 'export_data_storage_location' argument")
+        if recurrence_period_end_date is None and 'recurrencePeriodEndDate' in kwargs:
             recurrence_period_end_date = kwargs['recurrencePeriodEndDate']
-        if 'recurrencePeriodStartDate' in kwargs:
+        if recurrence_period_end_date is None:
+            raise TypeError("Missing 'recurrence_period_end_date' argument")
+        if recurrence_period_start_date is None and 'recurrencePeriodStartDate' in kwargs:
             recurrence_period_start_date = kwargs['recurrencePeriodStartDate']
-        if 'recurrenceType' in kwargs:
+        if recurrence_period_start_date is None:
+            raise TypeError("Missing 'recurrence_period_start_date' argument")
+        if recurrence_type is None and 'recurrenceType' in kwargs:
             recurrence_type = kwargs['recurrenceType']
-        if 'subscriptionId' in kwargs:
+        if recurrence_type is None:
+            raise TypeError("Missing 'recurrence_type' argument")
+        if subscription_id is None and 'subscriptionId' in kwargs:
             subscription_id = kwargs['subscriptionId']
+        if subscription_id is None:
+            raise TypeError("Missing 'subscription_id' argument")
 
         _setter("export_data_options", export_data_options)
         _setter("export_data_storage_location", export_data_storage_location)
@@ -224,19 +236,19 @@ class _SubscriptionCostManagementExportState:
              recurrence_period_start_date: Optional[pulumi.Input[str]] = None,
              recurrence_type: Optional[pulumi.Input[str]] = None,
              subscription_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'exportDataOptions' in kwargs:
+        if export_data_options is None and 'exportDataOptions' in kwargs:
             export_data_options = kwargs['exportDataOptions']
-        if 'exportDataStorageLocation' in kwargs:
+        if export_data_storage_location is None and 'exportDataStorageLocation' in kwargs:
             export_data_storage_location = kwargs['exportDataStorageLocation']
-        if 'recurrencePeriodEndDate' in kwargs:
+        if recurrence_period_end_date is None and 'recurrencePeriodEndDate' in kwargs:
             recurrence_period_end_date = kwargs['recurrencePeriodEndDate']
-        if 'recurrencePeriodStartDate' in kwargs:
+        if recurrence_period_start_date is None and 'recurrencePeriodStartDate' in kwargs:
             recurrence_period_start_date = kwargs['recurrencePeriodStartDate']
-        if 'recurrenceType' in kwargs:
+        if recurrence_type is None and 'recurrenceType' in kwargs:
             recurrence_type = kwargs['recurrenceType']
-        if 'subscriptionId' in kwargs:
+        if subscription_id is None and 'subscriptionId' in kwargs:
             subscription_id = kwargs['subscriptionId']
 
         if active is not None:
@@ -370,35 +382,6 @@ class SubscriptionCostManagementExport(pulumi.CustomResource):
         """
         Manages a Cost Management Export for a Subscription.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_subscription = azure.core.get_subscription()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("exampleContainer", storage_account_name=example_account.name)
-        example_subscription_cost_management_export = azure.core.SubscriptionCostManagementExport("exampleSubscriptionCostManagementExport",
-            subscription_id=example_subscription.id,
-            recurrence_type="Monthly",
-            recurrence_period_start_date="2020-08-18T00:00:00Z",
-            recurrence_period_end_date="2020-09-18T00:00:00Z",
-            export_data_storage_location=azure.core.SubscriptionCostManagementExportExportDataStorageLocationArgs(
-                container_id=example_container.resource_manager_id,
-                root_folder_path="/root/updated",
-            ),
-            export_data_options=azure.core.SubscriptionCostManagementExportExportDataOptionsArgs(
-                type="Usage",
-                time_frame="WeekToDate",
-            ))
-        ```
-
         ## Import
 
         Subscription Cost Management Exports can be imported using the `resource id`, e.g.
@@ -426,35 +409,6 @@ class SubscriptionCostManagementExport(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Cost Management Export for a Subscription.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_subscription = azure.core.get_subscription()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("exampleContainer", storage_account_name=example_account.name)
-        example_subscription_cost_management_export = azure.core.SubscriptionCostManagementExport("exampleSubscriptionCostManagementExport",
-            subscription_id=example_subscription.id,
-            recurrence_type="Monthly",
-            recurrence_period_start_date="2020-08-18T00:00:00Z",
-            recurrence_period_end_date="2020-09-18T00:00:00Z",
-            export_data_storage_location=azure.core.SubscriptionCostManagementExportExportDataStorageLocationArgs(
-                container_id=example_container.resource_manager_id,
-                root_folder_path="/root/updated",
-            ),
-            export_data_options=azure.core.SubscriptionCostManagementExportExportDataOptionsArgs(
-                type="Usage",
-                time_frame="WeekToDate",
-            ))
-        ```
 
         ## Import
 
@@ -501,19 +455,11 @@ class SubscriptionCostManagementExport(pulumi.CustomResource):
             __props__ = SubscriptionCostManagementExportArgs.__new__(SubscriptionCostManagementExportArgs)
 
             __props__.__dict__["active"] = active
-            if export_data_options is not None and not isinstance(export_data_options, SubscriptionCostManagementExportExportDataOptionsArgs):
-                export_data_options = export_data_options or {}
-                def _setter(key, value):
-                    export_data_options[key] = value
-                SubscriptionCostManagementExportExportDataOptionsArgs._configure(_setter, **export_data_options)
+            export_data_options = _utilities.configure(export_data_options, SubscriptionCostManagementExportExportDataOptionsArgs, True)
             if export_data_options is None and not opts.urn:
                 raise TypeError("Missing required property 'export_data_options'")
             __props__.__dict__["export_data_options"] = export_data_options
-            if export_data_storage_location is not None and not isinstance(export_data_storage_location, SubscriptionCostManagementExportExportDataStorageLocationArgs):
-                export_data_storage_location = export_data_storage_location or {}
-                def _setter(key, value):
-                    export_data_storage_location[key] = value
-                SubscriptionCostManagementExportExportDataStorageLocationArgs._configure(_setter, **export_data_storage_location)
+            export_data_storage_location = _utilities.configure(export_data_storage_location, SubscriptionCostManagementExportExportDataStorageLocationArgs, True)
             if export_data_storage_location is None and not opts.urn:
                 raise TypeError("Missing required property 'export_data_storage_location'")
             __props__.__dict__["export_data_storage_location"] = export_data_storage_location

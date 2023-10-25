@@ -12,46 +12,6 @@ namespace Pulumi.Azure.DataFactory
     /// <summary>
     /// Manages a Linked Service (connection) between Key Vault and Azure Data Factory.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Azure.Core.GetClientConfig.Invoke();
-    /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///         SkuName = "standard",
-    ///     });
-    /// 
-    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///     });
-    /// 
-    ///     var exampleLinkedServiceKeyVault = new Azure.DataFactory.LinkedServiceKeyVault("exampleLinkedServiceKeyVault", new()
-    ///     {
-    ///         DataFactoryId = exampleFactory.Id,
-    ///         KeyVaultId = exampleKeyVault.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Data Factory Key Vault Linked Service's can be imported using the `resource id`, e.g.

@@ -76,10 +76,10 @@ class ManagedClusterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_connection_port: pulumi.Input[int],
-             http_gateway_port: pulumi.Input[int],
-             lb_rules: pulumi.Input[Sequence[pulumi.Input['ManagedClusterLbRuleArgs']]],
-             resource_group_name: pulumi.Input[str],
+             client_connection_port: Optional[pulumi.Input[int]] = None,
+             http_gateway_port: Optional[pulumi.Input[int]] = None,
+             lb_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterLbRuleArgs']]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              authentication: Optional[pulumi.Input['ManagedClusterAuthenticationArgs']] = None,
              backup_service_enabled: Optional[pulumi.Input[bool]] = None,
              custom_fabric_settings: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterCustomFabricSettingArgs']]]] = None,
@@ -93,27 +93,35 @@ class ManagedClusterArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              upgrade_wave: Optional[pulumi.Input[str]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'clientConnectionPort' in kwargs:
+        if client_connection_port is None and 'clientConnectionPort' in kwargs:
             client_connection_port = kwargs['clientConnectionPort']
-        if 'httpGatewayPort' in kwargs:
+        if client_connection_port is None:
+            raise TypeError("Missing 'client_connection_port' argument")
+        if http_gateway_port is None and 'httpGatewayPort' in kwargs:
             http_gateway_port = kwargs['httpGatewayPort']
-        if 'lbRules' in kwargs:
+        if http_gateway_port is None:
+            raise TypeError("Missing 'http_gateway_port' argument")
+        if lb_rules is None and 'lbRules' in kwargs:
             lb_rules = kwargs['lbRules']
-        if 'resourceGroupName' in kwargs:
+        if lb_rules is None:
+            raise TypeError("Missing 'lb_rules' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'backupServiceEnabled' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if backup_service_enabled is None and 'backupServiceEnabled' in kwargs:
             backup_service_enabled = kwargs['backupServiceEnabled']
-        if 'customFabricSettings' in kwargs:
+        if custom_fabric_settings is None and 'customFabricSettings' in kwargs:
             custom_fabric_settings = kwargs['customFabricSettings']
-        if 'dnsName' in kwargs:
+        if dns_name is None and 'dnsName' in kwargs:
             dns_name = kwargs['dnsName']
-        if 'dnsServiceEnabled' in kwargs:
+        if dns_service_enabled is None and 'dnsServiceEnabled' in kwargs:
             dns_service_enabled = kwargs['dnsServiceEnabled']
-        if 'nodeTypes' in kwargs:
+        if node_types is None and 'nodeTypes' in kwargs:
             node_types = kwargs['nodeTypes']
-        if 'upgradeWave' in kwargs:
+        if upgrade_wave is None and 'upgradeWave' in kwargs:
             upgrade_wave = kwargs['upgradeWave']
 
         _setter("client_connection_port", client_connection_port)
@@ -432,27 +440,27 @@ class _ManagedClusterState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              upgrade_wave: Optional[pulumi.Input[str]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'backupServiceEnabled' in kwargs:
+        if backup_service_enabled is None and 'backupServiceEnabled' in kwargs:
             backup_service_enabled = kwargs['backupServiceEnabled']
-        if 'clientConnectionPort' in kwargs:
+        if client_connection_port is None and 'clientConnectionPort' in kwargs:
             client_connection_port = kwargs['clientConnectionPort']
-        if 'customFabricSettings' in kwargs:
+        if custom_fabric_settings is None and 'customFabricSettings' in kwargs:
             custom_fabric_settings = kwargs['customFabricSettings']
-        if 'dnsName' in kwargs:
+        if dns_name is None and 'dnsName' in kwargs:
             dns_name = kwargs['dnsName']
-        if 'dnsServiceEnabled' in kwargs:
+        if dns_service_enabled is None and 'dnsServiceEnabled' in kwargs:
             dns_service_enabled = kwargs['dnsServiceEnabled']
-        if 'httpGatewayPort' in kwargs:
+        if http_gateway_port is None and 'httpGatewayPort' in kwargs:
             http_gateway_port = kwargs['httpGatewayPort']
-        if 'lbRules' in kwargs:
+        if lb_rules is None and 'lbRules' in kwargs:
             lb_rules = kwargs['lbRules']
-        if 'nodeTypes' in kwargs:
+        if node_types is None and 'nodeTypes' in kwargs:
             node_types = kwargs['nodeTypes']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'upgradeWave' in kwargs:
+        if upgrade_wave is None and 'upgradeWave' in kwargs:
             upgrade_wave = kwargs['upgradeWave']
 
         if authentication is not None:
@@ -721,39 +729,6 @@ class ManagedCluster(pulumi.CustomResource):
         """
         Manages a Resource Group.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.servicefabric.ManagedCluster("example",
-            client_connection_port=12345,
-            http_gateway_port=4567,
-            lb_rules=[azure.servicefabric.ManagedClusterLbRuleArgs(
-                backend_port=38080,
-                frontend_port=80,
-                probe_protocol="http",
-                probe_request_path="/test",
-                protocol="tcp",
-            )],
-            location="West Europe",
-            node_types=[azure.servicefabric.ManagedClusterNodeTypeArgs(
-                application_port_range="30000-49000",
-                data_disk_size_gb=130,
-                ephemeral_port_range="10000-20000",
-                name="test1",
-                primary=True,
-                vm_image_offer="WindowsServer",
-                vm_image_publisher="MicrosoftWindowsServer",
-                vm_image_sku="2019-Datacenter-with-Containers",
-                vm_image_version="latest",
-                vm_instance_count=5,
-                vm_size="Standard_DS1_v2",
-            )],
-            resource_group_name="example")
-        ```
-
         ## Import
 
         Resource Groups can be imported using the `resource id`, e.g.
@@ -790,39 +765,6 @@ class ManagedCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Resource Group.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.servicefabric.ManagedCluster("example",
-            client_connection_port=12345,
-            http_gateway_port=4567,
-            lb_rules=[azure.servicefabric.ManagedClusterLbRuleArgs(
-                backend_port=38080,
-                frontend_port=80,
-                probe_protocol="http",
-                probe_request_path="/test",
-                protocol="tcp",
-            )],
-            location="West Europe",
-            node_types=[azure.servicefabric.ManagedClusterNodeTypeArgs(
-                application_port_range="30000-49000",
-                data_disk_size_gb=130,
-                ephemeral_port_range="10000-20000",
-                name="test1",
-                primary=True,
-                vm_image_offer="WindowsServer",
-                vm_image_publisher="MicrosoftWindowsServer",
-                vm_image_sku="2019-Datacenter-with-Containers",
-                vm_image_version="latest",
-                vm_instance_count=5,
-                vm_size="Standard_DS1_v2",
-            )],
-            resource_group_name="example")
-        ```
 
         ## Import
 
@@ -877,11 +819,7 @@ class ManagedCluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ManagedClusterArgs.__new__(ManagedClusterArgs)
 
-            if authentication is not None and not isinstance(authentication, ManagedClusterAuthenticationArgs):
-                authentication = authentication or {}
-                def _setter(key, value):
-                    authentication[key] = value
-                ManagedClusterAuthenticationArgs._configure(_setter, **authentication)
+            authentication = _utilities.configure(authentication, ManagedClusterAuthenticationArgs, True)
             __props__.__dict__["authentication"] = authentication
             __props__.__dict__["backup_service_enabled"] = backup_service_enabled
             if client_connection_port is None and not opts.urn:

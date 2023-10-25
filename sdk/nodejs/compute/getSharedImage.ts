@@ -8,19 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Shared Image within a Shared Image Gallery.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.compute.getSharedImage({
- *     galleryName: "my-image-gallery",
- *     name: "my-image",
- *     resourceGroupName: "example-resources",
- * });
- * ```
  */
 export function getSharedImage(args: GetSharedImageArgs, opts?: pulumi.InvokeOptions): Promise<GetSharedImageResult> {
 
@@ -112,19 +99,6 @@ export interface GetSharedImageResult {
 }
 /**
  * Use this data source to access information about an existing Shared Image within a Shared Image Gallery.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.compute.getSharedImage({
- *     galleryName: "my-image-gallery",
- *     name: "my-image",
- *     resourceGroupName: "example-resources",
- * });
- * ```
  */
 export function getSharedImageOutput(args: GetSharedImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSharedImageResult> {
     return pulumi.output(args).apply((a: any) => getSharedImage(a, opts))

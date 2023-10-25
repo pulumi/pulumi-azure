@@ -13,66 +13,12 @@ namespace Pulumi.Azure.ManagedApplication
     {
         /// <summary>
         /// Uses this data source to access information about an existing Managed Application Definition.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.ManagedApplication.GetDefinition.Invoke(new()
-        ///     {
-        ///         Name = "examplemanagedappdef",
-        ///         ResourceGroupName = "exampleresources",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["id"] = example.Apply(getDefinitionResult =&gt; getDefinitionResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetDefinitionResult> InvokeAsync(GetDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDefinitionResult>("azure:managedapplication/getDefinition:getDefinition", args ?? new GetDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Uses this data source to access information about an existing Managed Application Definition.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.ManagedApplication.GetDefinition.Invoke(new()
-        ///     {
-        ///         Name = "examplemanagedappdef",
-        ///         ResourceGroupName = "exampleresources",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["id"] = example.Apply(getDefinitionResult =&gt; getDefinitionResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetDefinitionResult> Invoke(GetDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDefinitionResult>("azure:managedapplication/getDefinition:getDefinition", args ?? new GetDefinitionInvokeArgs(), options.WithDefaults());

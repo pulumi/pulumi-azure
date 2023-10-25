@@ -12,44 +12,6 @@ namespace Pulumi.Azure.RecoveryServices
     /// <summary>
     /// Manages an association of a Resource Guard and Recovery Services Vault.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleResourceGuard = new Azure.DataProtection.ResourceGuard("exampleResourceGuard", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///     });
-    /// 
-    ///     var vault = new Azure.RecoveryServices.Vault("vault", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Sku = "Standard",
-    ///         SoftDeleteEnabled = true,
-    ///     });
-    /// 
-    ///     var test = new Azure.RecoveryServices.VaultResourceGuardAssociation("test", new()
-    ///     {
-    ///         VaultId = azurerm_recovery_services_vault.Test.Id,
-    ///         ResourceGuardId = azurerm_data_protection_resource_guard.Test.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Resource Guards can be imported using the `resource id`, e.g.

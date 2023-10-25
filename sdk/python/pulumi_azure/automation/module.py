@@ -37,18 +37,24 @@ class ModuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             automation_account_name: pulumi.Input[str],
-             module_link: pulumi.Input['ModuleModuleLinkArgs'],
-             resource_group_name: pulumi.Input[str],
+             automation_account_name: Optional[pulumi.Input[str]] = None,
+             module_link: Optional[pulumi.Input['ModuleModuleLinkArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'automationAccountName' in kwargs:
+        if automation_account_name is None and 'automationAccountName' in kwargs:
             automation_account_name = kwargs['automationAccountName']
-        if 'moduleLink' in kwargs:
+        if automation_account_name is None:
+            raise TypeError("Missing 'automation_account_name' argument")
+        if module_link is None and 'moduleLink' in kwargs:
             module_link = kwargs['moduleLink']
-        if 'resourceGroupName' in kwargs:
+        if module_link is None:
+            raise TypeError("Missing 'module_link' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("automation_account_name", automation_account_name)
         _setter("module_link", module_link)
@@ -133,13 +139,13 @@ class _ModuleState:
              module_link: Optional[pulumi.Input['ModuleModuleLinkArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'automationAccountName' in kwargs:
+        if automation_account_name is None and 'automationAccountName' in kwargs:
             automation_account_name = kwargs['automationAccountName']
-        if 'moduleLink' in kwargs:
+        if module_link is None and 'moduleLink' in kwargs:
             module_link = kwargs['moduleLink']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if automation_account_name is not None:
@@ -213,25 +219,6 @@ class Module(pulumi.CustomResource):
         """
         Manages a Automation Module.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.automation.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Basic")
-        example_module = azure.automation.Module("exampleModule",
-            resource_group_name=example_resource_group.name,
-            automation_account_name=example_account.name,
-            module_link=azure.automation.ModuleModuleLinkArgs(
-                uri="https://devopsgallerystorage.blob.core.windows.net/packages/xactivedirectory.2.19.0.nupkg",
-            ))
-        ```
-
         ## Import
 
         Automation Modules can be imported using the `resource id`, e.g.
@@ -255,25 +242,6 @@ class Module(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Automation Module.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.automation.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Basic")
-        example_module = azure.automation.Module("exampleModule",
-            resource_group_name=example_resource_group.name,
-            automation_account_name=example_account.name,
-            module_link=azure.automation.ModuleModuleLinkArgs(
-                uri="https://devopsgallerystorage.blob.core.windows.net/packages/xactivedirectory.2.19.0.nupkg",
-            ))
-        ```
 
         ## Import
 
@@ -318,11 +286,7 @@ class Module(pulumi.CustomResource):
             if automation_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__.__dict__["automation_account_name"] = automation_account_name
-            if module_link is not None and not isinstance(module_link, ModuleModuleLinkArgs):
-                module_link = module_link or {}
-                def _setter(key, value):
-                    module_link[key] = value
-                ModuleModuleLinkArgs._configure(_setter, **module_link)
+            module_link = _utilities.configure(module_link, ModuleModuleLinkArgs, True)
             if module_link is None and not opts.urn:
                 raise TypeError("Missing required property 'module_link'")
             __props__.__dict__["module_link"] = module_link

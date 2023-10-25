@@ -10,38 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.EventHub
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Location = "East US",
-    ///     });
-    /// 
-    ///     var testEventHubNamespace = new Azure.EventHub.EventHubNamespace("testEventHubNamespace", new()
-    ///     {
-    ///         Location = azurerm_resource_group.Test.Location,
-    ///         ResourceGroupName = azurerm_resource_group.Test.Name,
-    ///         Sku = "Standard",
-    ///     });
-    /// 
-    ///     var testNamespaceSchemaGroup = new Azure.EventHub.NamespaceSchemaGroup("testNamespaceSchemaGroup", new()
-    ///     {
-    ///         NamespaceId = testEventHubNamespace.Id,
-    ///         SchemaCompatibility = "Forward",
-    ///         SchemaType = "Avro",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Schema Group for a EventHub Namespace can be imported using the `resource id`, e.g.

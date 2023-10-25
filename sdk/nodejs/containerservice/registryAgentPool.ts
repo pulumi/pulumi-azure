@@ -7,25 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Container Registry Agent Pool.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europ"});
- * const exampleRegistry = new azure.containerservice.Registry("exampleRegistry", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     sku: "Premium",
- * });
- * const exampleRegistryAgentPool = new azure.containerservice.RegistryAgentPool("exampleRegistryAgentPool", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     containerRegistryName: exampleRegistry.name,
- * });
- * ```
- *
  * ## Import
  *
  * Azure Container Registry Agent Pool can be imported using the `resource id`, e.g.

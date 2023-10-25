@@ -35,16 +35,20 @@ class NetworkManagerAdminRuleCollectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             network_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             security_admin_configuration_id: pulumi.Input[str],
+             network_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             security_admin_configuration_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'networkGroupIds' in kwargs:
+        if network_group_ids is None and 'networkGroupIds' in kwargs:
             network_group_ids = kwargs['networkGroupIds']
-        if 'securityAdminConfigurationId' in kwargs:
+        if network_group_ids is None:
+            raise TypeError("Missing 'network_group_ids' argument")
+        if security_admin_configuration_id is None and 'securityAdminConfigurationId' in kwargs:
             security_admin_configuration_id = kwargs['securityAdminConfigurationId']
+        if security_admin_configuration_id is None:
+            raise TypeError("Missing 'security_admin_configuration_id' argument")
 
         _setter("network_group_ids", network_group_ids)
         _setter("security_admin_configuration_id", security_admin_configuration_id)
@@ -130,11 +134,11 @@ class _NetworkManagerAdminRuleCollectionState:
              name: Optional[pulumi.Input[str]] = None,
              network_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              security_admin_configuration_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'networkGroupIds' in kwargs:
+        if network_group_ids is None and 'networkGroupIds' in kwargs:
             network_group_ids = kwargs['networkGroupIds']
-        if 'securityAdminConfigurationId' in kwargs:
+        if security_admin_configuration_id is None and 'securityAdminConfigurationId' in kwargs:
             security_admin_configuration_id = kwargs['securityAdminConfigurationId']
 
         if description is not None:
@@ -208,32 +212,6 @@ class NetworkManagerAdminRuleCollection(pulumi.CustomResource):
         """
         Manages a Network Manager Admin Rule Collection.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        current = azure.core.get_subscription()
-        example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            scope=azure.network.NetworkManagerScopeArgs(
-                subscription_ids=[current.id],
-            ),
-            scope_accesses=[
-                "Connectivity",
-                "SecurityAdmin",
-            ],
-            description="example network manager")
-        example_network_manager_network_group = azure.network.NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup", network_manager_id=example_network_manager.id)
-        example_network_manager_security_admin_configuration = azure.network.NetworkManagerSecurityAdminConfiguration("exampleNetworkManagerSecurityAdminConfiguration", network_manager_id=example_network_manager.id)
-        example_network_manager_admin_rule_collection = azure.network.NetworkManagerAdminRuleCollection("exampleNetworkManagerAdminRuleCollection",
-            security_admin_configuration_id=example_network_manager_security_admin_configuration.id,
-            network_group_ids=[example_network_manager_network_group.id])
-        ```
-
         ## Import
 
         Network Manager Admin Rule Collection can be imported using the `resource id`, e.g.
@@ -257,32 +235,6 @@ class NetworkManagerAdminRuleCollection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Network Manager Admin Rule Collection.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        current = azure.core.get_subscription()
-        example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            scope=azure.network.NetworkManagerScopeArgs(
-                subscription_ids=[current.id],
-            ),
-            scope_accesses=[
-                "Connectivity",
-                "SecurityAdmin",
-            ],
-            description="example network manager")
-        example_network_manager_network_group = azure.network.NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup", network_manager_id=example_network_manager.id)
-        example_network_manager_security_admin_configuration = azure.network.NetworkManagerSecurityAdminConfiguration("exampleNetworkManagerSecurityAdminConfiguration", network_manager_id=example_network_manager.id)
-        example_network_manager_admin_rule_collection = azure.network.NetworkManagerAdminRuleCollection("exampleNetworkManagerAdminRuleCollection",
-            security_admin_configuration_id=example_network_manager_security_admin_configuration.id,
-            network_group_ids=[example_network_manager_network_group.id])
-        ```
 
         ## Import
 

@@ -6,20 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Event Hubs Consumer Group within an Event Hub.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const test = azure.eventhub.getConsumeGroup({
- *     name: azurerm_eventhub_consumer_group.test.name,
- *     namespaceName: azurerm_eventhub_namespace.test.name,
- *     eventhubName: azurerm_eventhub.test.name,
- *     resourceGroupName: azurerm_resource_group.test.name,
- * });
- * ```
  */
 export function getConsumeGroup(args: GetConsumeGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetConsumeGroupResult> {
 
@@ -73,20 +59,6 @@ export interface GetConsumeGroupResult {
 }
 /**
  * Use this data source to access information about an existing Event Hubs Consumer Group within an Event Hub.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const test = azure.eventhub.getConsumeGroup({
- *     name: azurerm_eventhub_consumer_group.test.name,
- *     namespaceName: azurerm_eventhub_namespace.test.name,
- *     eventhubName: azurerm_eventhub.test.name,
- *     resourceGroupName: azurerm_resource_group.test.name,
- * });
- * ```
  */
 export function getConsumeGroupOutput(args: GetConsumeGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConsumeGroupResult> {
     return pulumi.output(args).apply((a: any) => getConsumeGroup(a, opts))

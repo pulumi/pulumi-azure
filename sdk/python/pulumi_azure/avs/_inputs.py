@@ -41,15 +41,15 @@ class PrivateCloudCircuitArgs:
              express_route_private_peering_id: Optional[pulumi.Input[str]] = None,
              primary_subnet_cidr: Optional[pulumi.Input[str]] = None,
              secondary_subnet_cidr: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'expressRouteId' in kwargs:
+        if express_route_id is None and 'expressRouteId' in kwargs:
             express_route_id = kwargs['expressRouteId']
-        if 'expressRoutePrivatePeeringId' in kwargs:
+        if express_route_private_peering_id is None and 'expressRoutePrivatePeeringId' in kwargs:
             express_route_private_peering_id = kwargs['expressRoutePrivatePeeringId']
-        if 'primarySubnetCidr' in kwargs:
+        if primary_subnet_cidr is None and 'primarySubnetCidr' in kwargs:
             primary_subnet_cidr = kwargs['primarySubnetCidr']
-        if 'secondarySubnetCidr' in kwargs:
+        if secondary_subnet_cidr is None and 'secondarySubnetCidr' in kwargs:
             secondary_subnet_cidr = kwargs['secondarySubnetCidr']
 
         if express_route_id is not None:
@@ -130,11 +130,13 @@ class PrivateCloudManagementClusterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             size: pulumi.Input[int],
+             size: Optional[pulumi.Input[int]] = None,
              hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              id: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if size is None:
+            raise TypeError("Missing 'size' argument")
 
         _setter("size", size)
         if hosts is not None:

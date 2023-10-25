@@ -9,29 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Cost Management View for a Subscription.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = new azure.core.SubscriptionCostManagementView("example", {
- *     accumulated: false,
- *     chartType: "StackedColumn",
- *     dataset: {
- *         aggregations: [{
- *             columnName: "Cost",
- *             name: "totalCost",
- *         }],
- *         granularity: "Monthly",
- *     },
- *     displayName: "Cost View per Month",
- *     reportType: "Usage",
- *     subscriptionId: "/subscription/00000000-0000-0000-0000-000000000000",
- *     timeframe: "MonthToDate",
- * });
- * ```
- *
  * ## Import
  *
  * Cost Management View for a Subscriptions can be imported using the `resource id`, e.g.

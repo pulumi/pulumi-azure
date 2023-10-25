@@ -29,14 +29,18 @@ class NetworkInterfaceApplicationSecurityGroupAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_security_group_id: pulumi.Input[str],
-             network_interface_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             application_security_group_id: Optional[pulumi.Input[str]] = None,
+             network_interface_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'applicationSecurityGroupId' in kwargs:
+        if application_security_group_id is None and 'applicationSecurityGroupId' in kwargs:
             application_security_group_id = kwargs['applicationSecurityGroupId']
-        if 'networkInterfaceId' in kwargs:
+        if application_security_group_id is None:
+            raise TypeError("Missing 'application_security_group_id' argument")
+        if network_interface_id is None and 'networkInterfaceId' in kwargs:
             network_interface_id = kwargs['networkInterfaceId']
+        if network_interface_id is None:
+            raise TypeError("Missing 'network_interface_id' argument")
 
         _setter("application_security_group_id", application_security_group_id)
         _setter("network_interface_id", network_interface_id)
@@ -86,11 +90,11 @@ class _NetworkInterfaceApplicationSecurityGroupAssociationState:
              _setter: Callable[[Any, Any], None],
              application_security_group_id: Optional[pulumi.Input[str]] = None,
              network_interface_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'applicationSecurityGroupId' in kwargs:
+        if application_security_group_id is None and 'applicationSecurityGroupId' in kwargs:
             application_security_group_id = kwargs['applicationSecurityGroupId']
-        if 'networkInterfaceId' in kwargs:
+        if network_interface_id is None and 'networkInterfaceId' in kwargs:
             network_interface_id = kwargs['networkInterfaceId']
 
         if application_security_group_id is not None:
@@ -134,37 +138,6 @@ class NetworkInterfaceApplicationSecurityGroupAssociation(pulumi.CustomResource)
         """
         Manages the association between a Network Interface and a Application Security Group.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"])
-        example_application_security_group = azure.network.ApplicationSecurityGroup("exampleApplicationSecurityGroup",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="testconfiguration1",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
-        example_network_interface_application_security_group_association = azure.network.NetworkInterfaceApplicationSecurityGroupAssociation("exampleNetworkInterfaceApplicationSecurityGroupAssociation",
-            network_interface_id=example_network_interface.id,
-            application_security_group_id=example_application_security_group.id)
-        ```
-
         ## Import
 
         Associations between Network Interfaces and Application Security Groups can be imported using the `resource id`, e.g.
@@ -186,37 +159,6 @@ class NetworkInterfaceApplicationSecurityGroupAssociation(pulumi.CustomResource)
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages the association between a Network Interface and a Application Security Group.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"])
-        example_application_security_group = azure.network.ApplicationSecurityGroup("exampleApplicationSecurityGroup",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="testconfiguration1",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
-        example_network_interface_application_security_group_association = azure.network.NetworkInterfaceApplicationSecurityGroupAssociation("exampleNetworkInterfaceApplicationSecurityGroupAssociation",
-            network_interface_id=example_network_interface.id,
-            application_security_group_id=example_application_security_group.id)
-        ```
 
         ## Import
 

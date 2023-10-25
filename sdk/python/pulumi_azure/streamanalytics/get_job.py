@@ -237,17 +237,6 @@ def get_job(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Stream Analytics Job.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.streamanalytics.get_job(name="example-job",
-        resource_group_name="example-resources")
-    pulumi.export("jobId", example.job_id)
-    ```
-
 
     :param str name: Specifies the name of the Stream Analytics Job.
     :param str resource_group_name: Specifies the name of the resource group the Stream Analytics Job is located in.
@@ -284,17 +273,6 @@ def get_job_output(name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobResult]:
     """
     Use this data source to access information about an existing Stream Analytics Job.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.streamanalytics.get_job(name="example-job",
-        resource_group_name="example-resources")
-    pulumi.export("jobId", example.job_id)
-    ```
 
 
     :param str name: Specifies the name of the Stream Analytics Job.

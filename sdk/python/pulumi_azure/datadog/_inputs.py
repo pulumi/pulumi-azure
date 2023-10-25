@@ -54,27 +54,31 @@ class MonitorDatadogOrganizationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_key: pulumi.Input[str],
-             application_key: pulumi.Input[str],
+             api_key: Optional[pulumi.Input[str]] = None,
+             application_key: Optional[pulumi.Input[str]] = None,
              enterprise_app_id: Optional[pulumi.Input[str]] = None,
              id: Optional[pulumi.Input[str]] = None,
              linking_auth_code: Optional[pulumi.Input[str]] = None,
              linking_client_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              redirect_uri: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiKey' in kwargs:
+        if api_key is None and 'apiKey' in kwargs:
             api_key = kwargs['apiKey']
-        if 'applicationKey' in kwargs:
+        if api_key is None:
+            raise TypeError("Missing 'api_key' argument")
+        if application_key is None and 'applicationKey' in kwargs:
             application_key = kwargs['applicationKey']
-        if 'enterpriseAppId' in kwargs:
+        if application_key is None:
+            raise TypeError("Missing 'application_key' argument")
+        if enterprise_app_id is None and 'enterpriseAppId' in kwargs:
             enterprise_app_id = kwargs['enterpriseAppId']
-        if 'linkingAuthCode' in kwargs:
+        if linking_auth_code is None and 'linkingAuthCode' in kwargs:
             linking_auth_code = kwargs['linkingAuthCode']
-        if 'linkingClientId' in kwargs:
+        if linking_client_id is None and 'linkingClientId' in kwargs:
             linking_client_id = kwargs['linkingClientId']
-        if 'redirectUri' in kwargs:
+        if redirect_uri is None and 'redirectUri' in kwargs:
             redirect_uri = kwargs['redirectUri']
 
         _setter("api_key", api_key)
@@ -211,14 +215,16 @@ class MonitorIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'principalId' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -295,13 +301,13 @@ class MonitorTagRuleLogArgs:
              filters: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleLogFilterArgs']]]] = None,
              resource_log_enabled: Optional[pulumi.Input[bool]] = None,
              subscription_log_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'aadLogEnabled' in kwargs:
+        if aad_log_enabled is None and 'aadLogEnabled' in kwargs:
             aad_log_enabled = kwargs['aadLogEnabled']
-        if 'resourceLogEnabled' in kwargs:
+        if resource_log_enabled is None and 'resourceLogEnabled' in kwargs:
             resource_log_enabled = kwargs['resourceLogEnabled']
-        if 'subscriptionLogEnabled' in kwargs:
+        if subscription_log_enabled is None and 'subscriptionLogEnabled' in kwargs:
             subscription_log_enabled = kwargs['subscriptionLogEnabled']
 
         if aad_log_enabled is not None:
@@ -384,11 +390,17 @@ class MonitorTagRuleLogFilterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action: pulumi.Input[str],
-             name: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             action: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("action", action)
         _setter("name", name)
@@ -448,7 +460,7 @@ class MonitorTagRuleMetricArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              filters: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleMetricFilterArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
 
         if filters is not None:
@@ -489,11 +501,17 @@ class MonitorTagRuleMetricFilterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action: pulumi.Input[str],
-             name: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             action: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("action", action)
         _setter("name", name)
@@ -556,12 +574,16 @@ class MonitorUserArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             email: pulumi.Input[str],
-             name: pulumi.Input[str],
+             email: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
              phone_number: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'phoneNumber' in kwargs:
+        if email is None:
+            raise TypeError("Missing 'email' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if phone_number is None and 'phoneNumber' in kwargs:
             phone_number = kwargs['phoneNumber']
 
         _setter("email", email)

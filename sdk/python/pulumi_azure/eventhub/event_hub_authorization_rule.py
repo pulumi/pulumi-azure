@@ -46,21 +46,27 @@ class EventHubAuthorizationRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             eventhub_name: pulumi.Input[str],
-             namespace_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             eventhub_name: Optional[pulumi.Input[str]] = None,
+             namespace_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              listen: Optional[pulumi.Input[bool]] = None,
              manage: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              send: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'eventhubName' in kwargs:
+        if eventhub_name is None and 'eventhubName' in kwargs:
             eventhub_name = kwargs['eventhubName']
-        if 'namespaceName' in kwargs:
+        if eventhub_name is None:
+            raise TypeError("Missing 'eventhub_name' argument")
+        if namespace_name is None and 'namespaceName' in kwargs:
             namespace_name = kwargs['namespaceName']
-        if 'resourceGroupName' in kwargs:
+        if namespace_name is None:
+            raise TypeError("Missing 'namespace_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("eventhub_name", eventhub_name)
         _setter("namespace_name", namespace_name)
@@ -227,25 +233,25 @@ class _EventHubAuthorizationRuleState:
              secondary_connection_string_alias: Optional[pulumi.Input[str]] = None,
              secondary_key: Optional[pulumi.Input[str]] = None,
              send: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'eventhubName' in kwargs:
+        if eventhub_name is None and 'eventhubName' in kwargs:
             eventhub_name = kwargs['eventhubName']
-        if 'namespaceName' in kwargs:
+        if namespace_name is None and 'namespaceName' in kwargs:
             namespace_name = kwargs['namespaceName']
-        if 'primaryConnectionString' in kwargs:
+        if primary_connection_string is None and 'primaryConnectionString' in kwargs:
             primary_connection_string = kwargs['primaryConnectionString']
-        if 'primaryConnectionStringAlias' in kwargs:
+        if primary_connection_string_alias is None and 'primaryConnectionStringAlias' in kwargs:
             primary_connection_string_alias = kwargs['primaryConnectionStringAlias']
-        if 'primaryKey' in kwargs:
+        if primary_key is None and 'primaryKey' in kwargs:
             primary_key = kwargs['primaryKey']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'secondaryConnectionString' in kwargs:
+        if secondary_connection_string is None and 'secondaryConnectionString' in kwargs:
             secondary_connection_string = kwargs['secondaryConnectionString']
-        if 'secondaryConnectionStringAlias' in kwargs:
+        if secondary_connection_string_alias is None and 'secondaryConnectionStringAlias' in kwargs:
             secondary_connection_string_alias = kwargs['secondaryConnectionStringAlias']
-        if 'secondaryKey' in kwargs:
+        if secondary_key is None and 'secondaryKey' in kwargs:
             secondary_key = kwargs['secondaryKey']
 
         if eventhub_name is not None:
@@ -455,35 +461,6 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
         """
         Manages a Event Hubs authorization Rule within an Event Hub.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Basic",
-            capacity=2,
-            tags={
-                "environment": "Production",
-            })
-        example_event_hub = azure.eventhub.EventHub("exampleEventHub",
-            namespace_name=example_event_hub_namespace.name,
-            resource_group_name=example_resource_group.name,
-            partition_count=2,
-            message_retention=2)
-        example_authorization_rule = azure.eventhub.AuthorizationRule("exampleAuthorizationRule",
-            namespace_name=example_event_hub_namespace.name,
-            eventhub_name=example_event_hub.name,
-            resource_group_name=example_resource_group.name,
-            listen=True,
-            send=False,
-            manage=False)
-        ```
-
         ## Import
 
         EventHub Authorization Rules can be imported using the `resource id`, e.g.
@@ -512,35 +489,6 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Event Hubs authorization Rule within an Event Hub.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Basic",
-            capacity=2,
-            tags={
-                "environment": "Production",
-            })
-        example_event_hub = azure.eventhub.EventHub("exampleEventHub",
-            namespace_name=example_event_hub_namespace.name,
-            resource_group_name=example_resource_group.name,
-            partition_count=2,
-            message_retention=2)
-        example_authorization_rule = azure.eventhub.AuthorizationRule("exampleAuthorizationRule",
-            namespace_name=example_event_hub_namespace.name,
-            eventhub_name=example_event_hub.name,
-            resource_group_name=example_resource_group.name,
-            listen=True,
-            send=False,
-            manage=False)
-        ```
 
         ## Import
 

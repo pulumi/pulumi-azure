@@ -52,8 +52,8 @@ class VpnGatewayArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             virtual_hub_id: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             virtual_hub_id: Optional[pulumi.Input[str]] = None,
              bgp_route_translation_for_nat_enabled: Optional[pulumi.Input[bool]] = None,
              bgp_settings: Optional[pulumi.Input['VpnGatewayBgpSettingsArgs']] = None,
              location: Optional[pulumi.Input[str]] = None,
@@ -61,19 +61,23 @@ class VpnGatewayArgs:
              routing_preference: Optional[pulumi.Input[str]] = None,
              scale_unit: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'virtualHubId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if virtual_hub_id is None and 'virtualHubId' in kwargs:
             virtual_hub_id = kwargs['virtualHubId']
-        if 'bgpRouteTranslationForNatEnabled' in kwargs:
+        if virtual_hub_id is None:
+            raise TypeError("Missing 'virtual_hub_id' argument")
+        if bgp_route_translation_for_nat_enabled is None and 'bgpRouteTranslationForNatEnabled' in kwargs:
             bgp_route_translation_for_nat_enabled = kwargs['bgpRouteTranslationForNatEnabled']
-        if 'bgpSettings' in kwargs:
+        if bgp_settings is None and 'bgpSettings' in kwargs:
             bgp_settings = kwargs['bgpSettings']
-        if 'routingPreference' in kwargs:
+        if routing_preference is None and 'routingPreference' in kwargs:
             routing_preference = kwargs['routingPreference']
-        if 'scaleUnit' in kwargs:
+        if scale_unit is None and 'scaleUnit' in kwargs:
             scale_unit = kwargs['scaleUnit']
 
         _setter("resource_group_name", resource_group_name)
@@ -250,19 +254,19 @@ class _VpnGatewayState:
              scale_unit: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              virtual_hub_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'bgpRouteTranslationForNatEnabled' in kwargs:
+        if bgp_route_translation_for_nat_enabled is None and 'bgpRouteTranslationForNatEnabled' in kwargs:
             bgp_route_translation_for_nat_enabled = kwargs['bgpRouteTranslationForNatEnabled']
-        if 'bgpSettings' in kwargs:
+        if bgp_settings is None and 'bgpSettings' in kwargs:
             bgp_settings = kwargs['bgpSettings']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'routingPreference' in kwargs:
+        if routing_preference is None and 'routingPreference' in kwargs:
             routing_preference = kwargs['routingPreference']
-        if 'scaleUnit' in kwargs:
+        if scale_unit is None and 'scaleUnit' in kwargs:
             scale_unit = kwargs['scaleUnit']
-        if 'virtualHubId' in kwargs:
+        if virtual_hub_id is None and 'virtualHubId' in kwargs:
             virtual_hub_id = kwargs['virtualHubId']
 
         if bgp_route_translation_for_nat_enabled is not None:
@@ -411,31 +415,6 @@ class VpnGateway(pulumi.CustomResource):
         """
         Manages a VPN Gateway within a Virtual Hub, which enables Site-to-Site communication.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            address_spaces=["10.0.0.0/16"])
-        example_virtual_wan = azure.network.VirtualWan("exampleVirtualWan",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_virtual_hub = azure.network.VirtualHub("exampleVirtualHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            virtual_wan_id=example_virtual_wan.id,
-            address_prefix="10.0.1.0/24")
-        example_vpn_gateway = azure.network.VpnGateway("exampleVpnGateway",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            virtual_hub_id=example_virtual_hub.id)
-        ```
-
         ## Import
 
         VPN Gateways can be imported using the `resource id`, e.g.
@@ -464,31 +443,6 @@ class VpnGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a VPN Gateway within a Virtual Hub, which enables Site-to-Site communication.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            address_spaces=["10.0.0.0/16"])
-        example_virtual_wan = azure.network.VirtualWan("exampleVirtualWan",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_virtual_hub = azure.network.VirtualHub("exampleVirtualHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            virtual_wan_id=example_virtual_wan.id,
-            address_prefix="10.0.1.0/24")
-        example_vpn_gateway = azure.network.VpnGateway("exampleVpnGateway",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            virtual_hub_id=example_virtual_hub.id)
-        ```
 
         ## Import
 
@@ -536,11 +490,7 @@ class VpnGateway(pulumi.CustomResource):
             __props__ = VpnGatewayArgs.__new__(VpnGatewayArgs)
 
             __props__.__dict__["bgp_route_translation_for_nat_enabled"] = bgp_route_translation_for_nat_enabled
-            if bgp_settings is not None and not isinstance(bgp_settings, VpnGatewayBgpSettingsArgs):
-                bgp_settings = bgp_settings or {}
-                def _setter(key, value):
-                    bgp_settings[key] = value
-                VpnGatewayBgpSettingsArgs._configure(_setter, **bgp_settings)
+            bgp_settings = _utilities.configure(bgp_settings, VpnGatewayBgpSettingsArgs, True)
             __props__.__dict__["bgp_settings"] = bgp_settings
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name

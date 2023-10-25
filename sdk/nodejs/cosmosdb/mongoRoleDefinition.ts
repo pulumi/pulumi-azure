@@ -9,44 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Cosmos DB Mongo Role Definition.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.cosmosdb.Account("exampleAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     offerType: "Standard",
- *     kind: "MongoDB",
- *     capabilities: [
- *         {
- *             name: "EnableMongo",
- *         },
- *         {
- *             name: "EnableMongoRoleBasedAccessControl",
- *         },
- *     ],
- *     consistencyPolicy: {
- *         consistencyLevel: "Strong",
- *     },
- *     geoLocations: [{
- *         location: exampleResourceGroup.location,
- *         failoverPriority: 0,
- *     }],
- * });
- * const exampleMongoDatabase = new azure.cosmosdb.MongoDatabase("exampleMongoDatabase", {
- *     resourceGroupName: exampleAccount.resourceGroupName,
- *     accountName: exampleAccount.name,
- * });
- * const exampleMongoRoleDefinition = new azure.cosmosdb.MongoRoleDefinition("exampleMongoRoleDefinition", {
- *     cosmosMongoDatabaseId: exampleMongoDatabase.id,
- *     roleName: "example-roledefinition",
- * });
- * ```
- *
  * ## Import
  *
  * Cosmos DB Mongo Role Definitions can be imported using the `resource id`, e.g.

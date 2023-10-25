@@ -17,33 +17,6 @@ namespace Pulumi.Azure.Hybrid
         /// ## Disclaimers
         /// 
         /// &gt; **Note:** The  Data Source `azure.hybrid.getComputeMachine` is deprecated will be removed in v4.0 of the Azure Provider - a replacement can be found in the form of the `azure.arcmachine.get` Data Source.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Hybrid.GetComputeMachine.Invoke(new()
-        ///     {
-        ///         Name = "existing-hcmachine",
-        ///         ResourceGroupName = "existing-rg",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["id"] = example.Apply(getComputeMachineResult =&gt; getComputeMachineResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetComputeMachineResult> InvokeAsync(GetComputeMachineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetComputeMachineResult>("azure:hybrid/getComputeMachine:getComputeMachine", args ?? new GetComputeMachineArgs(), options.WithDefaults());
@@ -54,33 +27,6 @@ namespace Pulumi.Azure.Hybrid
         /// ## Disclaimers
         /// 
         /// &gt; **Note:** The  Data Source `azure.hybrid.getComputeMachine` is deprecated will be removed in v4.0 of the Azure Provider - a replacement can be found in the form of the `azure.arcmachine.get` Data Source.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Hybrid.GetComputeMachine.Invoke(new()
-        ///     {
-        ///         Name = "existing-hcmachine",
-        ///         ResourceGroupName = "existing-rg",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["id"] = example.Apply(getComputeMachineResult =&gt; getComputeMachineResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetComputeMachineResult> Invoke(GetComputeMachineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetComputeMachineResult>("azure:hybrid/getComputeMachine:getComputeMachine", args ?? new GetComputeMachineInvokeArgs(), options.WithDefaults());

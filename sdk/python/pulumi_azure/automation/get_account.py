@@ -138,17 +138,6 @@ def get_account(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Automation Account.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.automation.get_account(name="example-account",
-        resource_group_name="example-resources")
-    pulumi.export("automationAccountId", example.id)
-    ```
-
 
     :param str name: The name of the Automation Account.
     :param str resource_group_name: Specifies the name of the Resource Group where the Automation Account exists.
@@ -177,17 +166,6 @@ def get_account_output(name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
     """
     Use this data source to access information about an existing Automation Account.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.automation.get_account(name="example-account",
-        resource_group_name="example-resources")
-    pulumi.export("automationAccountId", example.id)
-    ```
 
 
     :param str name: The name of the Automation Account.

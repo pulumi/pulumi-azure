@@ -12,43 +12,6 @@ namespace Pulumi.Azure.EventHub
     /// <summary>
     /// Manages a ServiceBus Namespace authorization Rule within a ServiceBus.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West US",
-    ///     });
-    /// 
-    ///     var exampleNamespace = new Azure.ServiceBus.Namespace("exampleNamespace", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Sku = "Standard",
-    ///         Tags = 
-    ///         {
-    ///             { "source", "example" },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleNamespaceAuthorizationRule = new Azure.ServiceBus.NamespaceAuthorizationRule("exampleNamespaceAuthorizationRule", new()
-    ///     {
-    ///         NamespaceId = exampleNamespace.Id,
-    ///         Listen = true,
-    ///         Send = true,
-    ///         Manage = false,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// ServiceBus Namespace authorization rules can be imported using the `resource id`, e.g.

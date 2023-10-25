@@ -53,14 +53,16 @@ class ApplicationIdentity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'principalId' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -128,12 +130,16 @@ class ApplicationNetworkRuleSetIpRule(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ip_mask: str,
-             name: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             ip_mask: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'ipMask' in kwargs:
+        if ip_mask is None and 'ipMask' in kwargs:
             ip_mask = kwargs['ipMask']
+        if ip_mask is None:
+            raise TypeError("Missing 'ip_mask' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("ip_mask", ip_mask)
         _setter("name", name)

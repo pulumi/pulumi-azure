@@ -67,10 +67,10 @@ class DiagnosticArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_management_logger_id: pulumi.Input[str],
-             api_management_name: pulumi.Input[str],
-             identifier: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             api_management_logger_id: Optional[pulumi.Input[str]] = None,
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             identifier: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              always_log_errors: Optional[pulumi.Input[bool]] = None,
              backend_request: Optional[pulumi.Input['DiagnosticBackendRequestArgs']] = None,
              backend_response: Optional[pulumi.Input['DiagnosticBackendResponseArgs']] = None,
@@ -81,31 +81,39 @@ class DiagnosticArgs:
              operation_name_format: Optional[pulumi.Input[str]] = None,
              sampling_percentage: Optional[pulumi.Input[float]] = None,
              verbosity: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementLoggerId' in kwargs:
+        if api_management_logger_id is None and 'apiManagementLoggerId' in kwargs:
             api_management_logger_id = kwargs['apiManagementLoggerId']
-        if 'apiManagementName' in kwargs:
+        if api_management_logger_id is None:
+            raise TypeError("Missing 'api_management_logger_id' argument")
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'resourceGroupName' in kwargs:
+        if api_management_name is None:
+            raise TypeError("Missing 'api_management_name' argument")
+        if identifier is None:
+            raise TypeError("Missing 'identifier' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'alwaysLogErrors' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if always_log_errors is None and 'alwaysLogErrors' in kwargs:
             always_log_errors = kwargs['alwaysLogErrors']
-        if 'backendRequest' in kwargs:
+        if backend_request is None and 'backendRequest' in kwargs:
             backend_request = kwargs['backendRequest']
-        if 'backendResponse' in kwargs:
+        if backend_response is None and 'backendResponse' in kwargs:
             backend_response = kwargs['backendResponse']
-        if 'frontendRequest' in kwargs:
+        if frontend_request is None and 'frontendRequest' in kwargs:
             frontend_request = kwargs['frontendRequest']
-        if 'frontendResponse' in kwargs:
+        if frontend_response is None and 'frontendResponse' in kwargs:
             frontend_response = kwargs['frontendResponse']
-        if 'httpCorrelationProtocol' in kwargs:
+        if http_correlation_protocol is None and 'httpCorrelationProtocol' in kwargs:
             http_correlation_protocol = kwargs['httpCorrelationProtocol']
-        if 'logClientIp' in kwargs:
+        if log_client_ip is None and 'logClientIp' in kwargs:
             log_client_ip = kwargs['logClientIp']
-        if 'operationNameFormat' in kwargs:
+        if operation_name_format is None and 'operationNameFormat' in kwargs:
             operation_name_format = kwargs['operationNameFormat']
-        if 'samplingPercentage' in kwargs:
+        if sampling_percentage is None and 'samplingPercentage' in kwargs:
             sampling_percentage = kwargs['samplingPercentage']
 
         _setter("api_management_logger_id", api_management_logger_id)
@@ -370,31 +378,31 @@ class _DiagnosticState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              sampling_percentage: Optional[pulumi.Input[float]] = None,
              verbosity: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'alwaysLogErrors' in kwargs:
+        if always_log_errors is None and 'alwaysLogErrors' in kwargs:
             always_log_errors = kwargs['alwaysLogErrors']
-        if 'apiManagementLoggerId' in kwargs:
+        if api_management_logger_id is None and 'apiManagementLoggerId' in kwargs:
             api_management_logger_id = kwargs['apiManagementLoggerId']
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'backendRequest' in kwargs:
+        if backend_request is None and 'backendRequest' in kwargs:
             backend_request = kwargs['backendRequest']
-        if 'backendResponse' in kwargs:
+        if backend_response is None and 'backendResponse' in kwargs:
             backend_response = kwargs['backendResponse']
-        if 'frontendRequest' in kwargs:
+        if frontend_request is None and 'frontendRequest' in kwargs:
             frontend_request = kwargs['frontendRequest']
-        if 'frontendResponse' in kwargs:
+        if frontend_response is None and 'frontendResponse' in kwargs:
             frontend_response = kwargs['frontendResponse']
-        if 'httpCorrelationProtocol' in kwargs:
+        if http_correlation_protocol is None and 'httpCorrelationProtocol' in kwargs:
             http_correlation_protocol = kwargs['httpCorrelationProtocol']
-        if 'logClientIp' in kwargs:
+        if log_client_ip is None and 'logClientIp' in kwargs:
             log_client_ip = kwargs['logClientIp']
-        if 'operationNameFormat' in kwargs:
+        if operation_name_format is None and 'operationNameFormat' in kwargs:
             operation_name_format = kwargs['operationNameFormat']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'samplingPercentage' in kwargs:
+        if sampling_percentage is None and 'samplingPercentage' in kwargs:
             sampling_percentage = kwargs['samplingPercentage']
 
         if always_log_errors is not None:
@@ -618,73 +626,6 @@ class Diagnostic(pulumi.CustomResource):
         """
         Manages an API Management Service Diagnostic.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="web")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            publisher_name="My Company",
-            publisher_email="company@mycompany.io",
-            sku_name="Developer_1")
-        example_logger = azure.apimanagement.Logger("exampleLogger",
-            api_management_name=example_service.name,
-            resource_group_name=example_resource_group.name,
-            application_insights=azure.apimanagement.LoggerApplicationInsightsArgs(
-                instrumentation_key=example_insights.instrumentation_key,
-            ))
-        example_diagnostic = azure.apimanagement.Diagnostic("exampleDiagnostic",
-            identifier="applicationinsights",
-            resource_group_name=example_resource_group.name,
-            api_management_name=example_service.name,
-            api_management_logger_id=example_logger.id,
-            sampling_percentage=5,
-            always_log_errors=True,
-            log_client_ip=True,
-            verbosity="verbose",
-            http_correlation_protocol="W3C",
-            frontend_request=azure.apimanagement.DiagnosticFrontendRequestArgs(
-                body_bytes=32,
-                headers_to_logs=[
-                    "content-type",
-                    "accept",
-                    "origin",
-                ],
-            ),
-            frontend_response=azure.apimanagement.DiagnosticFrontendResponseArgs(
-                body_bytes=32,
-                headers_to_logs=[
-                    "content-type",
-                    "content-length",
-                    "origin",
-                ],
-            ),
-            backend_request=azure.apimanagement.DiagnosticBackendRequestArgs(
-                body_bytes=32,
-                headers_to_logs=[
-                    "content-type",
-                    "accept",
-                    "origin",
-                ],
-            ),
-            backend_response=azure.apimanagement.DiagnosticBackendResponseArgs(
-                body_bytes=32,
-                headers_to_logs=[
-                    "content-type",
-                    "content-length",
-                    "origin",
-                ],
-            ))
-        ```
-
         ## Import
 
         API Management Diagnostics can be imported using the `resource id`, e.g.
@@ -718,73 +659,6 @@ class Diagnostic(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an API Management Service Diagnostic.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="web")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            publisher_name="My Company",
-            publisher_email="company@mycompany.io",
-            sku_name="Developer_1")
-        example_logger = azure.apimanagement.Logger("exampleLogger",
-            api_management_name=example_service.name,
-            resource_group_name=example_resource_group.name,
-            application_insights=azure.apimanagement.LoggerApplicationInsightsArgs(
-                instrumentation_key=example_insights.instrumentation_key,
-            ))
-        example_diagnostic = azure.apimanagement.Diagnostic("exampleDiagnostic",
-            identifier="applicationinsights",
-            resource_group_name=example_resource_group.name,
-            api_management_name=example_service.name,
-            api_management_logger_id=example_logger.id,
-            sampling_percentage=5,
-            always_log_errors=True,
-            log_client_ip=True,
-            verbosity="verbose",
-            http_correlation_protocol="W3C",
-            frontend_request=azure.apimanagement.DiagnosticFrontendRequestArgs(
-                body_bytes=32,
-                headers_to_logs=[
-                    "content-type",
-                    "accept",
-                    "origin",
-                ],
-            ),
-            frontend_response=azure.apimanagement.DiagnosticFrontendResponseArgs(
-                body_bytes=32,
-                headers_to_logs=[
-                    "content-type",
-                    "content-length",
-                    "origin",
-                ],
-            ),
-            backend_request=azure.apimanagement.DiagnosticBackendRequestArgs(
-                body_bytes=32,
-                headers_to_logs=[
-                    "content-type",
-                    "accept",
-                    "origin",
-                ],
-            ),
-            backend_response=azure.apimanagement.DiagnosticBackendResponseArgs(
-                body_bytes=32,
-                headers_to_logs=[
-                    "content-type",
-                    "content-length",
-                    "origin",
-                ],
-            ))
-        ```
 
         ## Import
 
@@ -843,29 +717,13 @@ class Diagnostic(pulumi.CustomResource):
             if api_management_name is None and not opts.urn:
                 raise TypeError("Missing required property 'api_management_name'")
             __props__.__dict__["api_management_name"] = api_management_name
-            if backend_request is not None and not isinstance(backend_request, DiagnosticBackendRequestArgs):
-                backend_request = backend_request or {}
-                def _setter(key, value):
-                    backend_request[key] = value
-                DiagnosticBackendRequestArgs._configure(_setter, **backend_request)
+            backend_request = _utilities.configure(backend_request, DiagnosticBackendRequestArgs, True)
             __props__.__dict__["backend_request"] = backend_request
-            if backend_response is not None and not isinstance(backend_response, DiagnosticBackendResponseArgs):
-                backend_response = backend_response or {}
-                def _setter(key, value):
-                    backend_response[key] = value
-                DiagnosticBackendResponseArgs._configure(_setter, **backend_response)
+            backend_response = _utilities.configure(backend_response, DiagnosticBackendResponseArgs, True)
             __props__.__dict__["backend_response"] = backend_response
-            if frontend_request is not None and not isinstance(frontend_request, DiagnosticFrontendRequestArgs):
-                frontend_request = frontend_request or {}
-                def _setter(key, value):
-                    frontend_request[key] = value
-                DiagnosticFrontendRequestArgs._configure(_setter, **frontend_request)
+            frontend_request = _utilities.configure(frontend_request, DiagnosticFrontendRequestArgs, True)
             __props__.__dict__["frontend_request"] = frontend_request
-            if frontend_response is not None and not isinstance(frontend_response, DiagnosticFrontendResponseArgs):
-                frontend_response = frontend_response or {}
-                def _setter(key, value):
-                    frontend_response[key] = value
-                DiagnosticFrontendResponseArgs._configure(_setter, **frontend_response)
+            frontend_response = _utilities.configure(frontend_response, DiagnosticFrontendResponseArgs, True)
             __props__.__dict__["frontend_response"] = frontend_response
             __props__.__dict__["http_correlation_protocol"] = http_correlation_protocol
             if identifier is None and not opts.urn:

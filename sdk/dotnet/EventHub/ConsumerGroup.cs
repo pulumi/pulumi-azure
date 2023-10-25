@@ -12,52 +12,6 @@ namespace Pulumi.Azure.EventHub
     /// <summary>
     /// Manages a Event Hubs Consumer Group as a nested resource within an Event Hub.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Sku = "Basic",
-    ///         Capacity = 2,
-    ///         Tags = 
-    ///         {
-    ///             { "environment", "Production" },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleEventHub = new Azure.EventHub.EventHub("exampleEventHub", new()
-    ///     {
-    ///         NamespaceName = exampleEventHubNamespace.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         PartitionCount = 2,
-    ///         MessageRetention = 2,
-    ///     });
-    /// 
-    ///     var exampleConsumerGroup = new Azure.EventHub.ConsumerGroup("exampleConsumerGroup", new()
-    ///     {
-    ///         NamespaceName = exampleEventHubNamespace.Name,
-    ///         EventhubName = exampleEventHub.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         UserMetadata = "some-meta-data",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// EventHub Consumer Groups can be imported using the `resource id`, e.g.

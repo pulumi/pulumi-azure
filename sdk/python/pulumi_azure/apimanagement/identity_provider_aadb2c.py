@@ -56,38 +56,56 @@ class IdentityProviderAadb2cArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             allowed_tenant: pulumi.Input[str],
-             api_management_name: pulumi.Input[str],
-             authority: pulumi.Input[str],
-             client_id: pulumi.Input[str],
-             client_secret: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             signin_policy: pulumi.Input[str],
-             signin_tenant: pulumi.Input[str],
-             signup_policy: pulumi.Input[str],
+             allowed_tenant: Optional[pulumi.Input[str]] = None,
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             authority: Optional[pulumi.Input[str]] = None,
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             signin_policy: Optional[pulumi.Input[str]] = None,
+             signin_tenant: Optional[pulumi.Input[str]] = None,
+             signup_policy: Optional[pulumi.Input[str]] = None,
              password_reset_policy: Optional[pulumi.Input[str]] = None,
              profile_editing_policy: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'allowedTenant' in kwargs:
+        if allowed_tenant is None and 'allowedTenant' in kwargs:
             allowed_tenant = kwargs['allowedTenant']
-        if 'apiManagementName' in kwargs:
+        if allowed_tenant is None:
+            raise TypeError("Missing 'allowed_tenant' argument")
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'clientId' in kwargs:
+        if api_management_name is None:
+            raise TypeError("Missing 'api_management_name' argument")
+        if authority is None:
+            raise TypeError("Missing 'authority' argument")
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecret' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'resourceGroupName' in kwargs:
+        if client_secret is None:
+            raise TypeError("Missing 'client_secret' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'signinPolicy' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if signin_policy is None and 'signinPolicy' in kwargs:
             signin_policy = kwargs['signinPolicy']
-        if 'signinTenant' in kwargs:
+        if signin_policy is None:
+            raise TypeError("Missing 'signin_policy' argument")
+        if signin_tenant is None and 'signinTenant' in kwargs:
             signin_tenant = kwargs['signinTenant']
-        if 'signupPolicy' in kwargs:
+        if signin_tenant is None:
+            raise TypeError("Missing 'signin_tenant' argument")
+        if signup_policy is None and 'signupPolicy' in kwargs:
             signup_policy = kwargs['signupPolicy']
-        if 'passwordResetPolicy' in kwargs:
+        if signup_policy is None:
+            raise TypeError("Missing 'signup_policy' argument")
+        if password_reset_policy is None and 'passwordResetPolicy' in kwargs:
             password_reset_policy = kwargs['passwordResetPolicy']
-        if 'profileEditingPolicy' in kwargs:
+        if profile_editing_policy is None and 'profileEditingPolicy' in kwargs:
             profile_editing_policy = kwargs['profileEditingPolicy']
 
         _setter("allowed_tenant", allowed_tenant)
@@ -293,27 +311,27 @@ class _IdentityProviderAadb2cState:
              signin_policy: Optional[pulumi.Input[str]] = None,
              signin_tenant: Optional[pulumi.Input[str]] = None,
              signup_policy: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'allowedTenant' in kwargs:
+        if allowed_tenant is None and 'allowedTenant' in kwargs:
             allowed_tenant = kwargs['allowedTenant']
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecret' in kwargs:
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'passwordResetPolicy' in kwargs:
+        if password_reset_policy is None and 'passwordResetPolicy' in kwargs:
             password_reset_policy = kwargs['passwordResetPolicy']
-        if 'profileEditingPolicy' in kwargs:
+        if profile_editing_policy is None and 'profileEditingPolicy' in kwargs:
             profile_editing_policy = kwargs['profileEditingPolicy']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'signinPolicy' in kwargs:
+        if signin_policy is None and 'signinPolicy' in kwargs:
             signin_policy = kwargs['signinPolicy']
-        if 'signinTenant' in kwargs:
+        if signin_tenant is None and 'signinTenant' in kwargs:
             signin_tenant = kwargs['signinTenant']
-        if 'signupPolicy' in kwargs:
+        if signup_policy is None and 'signupPolicy' in kwargs:
             signup_policy = kwargs['signupPolicy']
 
         if allowed_tenant is not None:
@@ -492,37 +510,6 @@ class IdentityProviderAadb2c(pulumi.CustomResource):
         """
         Manages an API Management Azure AD B2C Identity Provider.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_azuread as azuread
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            publisher_name="My Company",
-            publisher_email="company@terraform.io",
-            sku_name="Developer_1")
-        example_application = azuread.Application("exampleApplication", display_name="acctestam-example")
-        example_application_password = azuread.ApplicationPassword("exampleApplicationPassword",
-            application_object_id=example_application.object_id,
-            end_date_relative="36h")
-        example_identity_provider_aadb2c = azure.apimanagement.IdentityProviderAadb2c("exampleIdentityProviderAadb2c",
-            resource_group_name=example_resource_group.name,
-            api_management_name=example_service.name,
-            client_id=example_application.application_id,
-            client_secret="P@55w0rD!",
-            allowed_tenant="myb2ctenant.onmicrosoft.com",
-            signin_tenant="myb2ctenant.onmicrosoft.com",
-            authority="myb2ctenant.b2clogin.com",
-            signin_policy="B2C_1_Login",
-            signup_policy="B2C_1_Signup",
-            opts=pulumi.ResourceOptions(depends_on=[example_application_password]))
-        ```
-
         ## Import
 
         API Management Azure AD B2C Identity Providers can be imported using the `resource id`, e.g.
@@ -553,37 +540,6 @@ class IdentityProviderAadb2c(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an API Management Azure AD B2C Identity Provider.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_azuread as azuread
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            publisher_name="My Company",
-            publisher_email="company@terraform.io",
-            sku_name="Developer_1")
-        example_application = azuread.Application("exampleApplication", display_name="acctestam-example")
-        example_application_password = azuread.ApplicationPassword("exampleApplicationPassword",
-            application_object_id=example_application.object_id,
-            end_date_relative="36h")
-        example_identity_provider_aadb2c = azure.apimanagement.IdentityProviderAadb2c("exampleIdentityProviderAadb2c",
-            resource_group_name=example_resource_group.name,
-            api_management_name=example_service.name,
-            client_id=example_application.application_id,
-            client_secret="P@55w0rD!",
-            allowed_tenant="myb2ctenant.onmicrosoft.com",
-            signin_tenant="myb2ctenant.onmicrosoft.com",
-            authority="myb2ctenant.b2clogin.com",
-            signin_policy="B2C_1_Login",
-            signup_policy="B2C_1_Signup",
-            opts=pulumi.ResourceOptions(depends_on=[example_application_password]))
-        ```
 
         ## Import
 

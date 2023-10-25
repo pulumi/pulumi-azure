@@ -7,29 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Linked Service (connection) between a CosmosDB and Azure Data Factory using SQL API.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = azure.cosmosdb.getAccount({
- *     name: "tfex-cosmosdb-account",
- *     resourceGroupName: "tfex-cosmosdb-account-rg",
- * });
- * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleLinkedServiceCosmosDb = new azure.datafactory.LinkedServiceCosmosDb("exampleLinkedServiceCosmosDb", {
- *     dataFactoryId: exampleFactory.id,
- *     accountEndpoint: exampleAccount.then(exampleAccount => exampleAccount.endpoint),
- *     accountKey: exampleAccount.then(exampleAccount => exampleAccount.primaryKey),
- *     database: "foo",
- * });
- * ```
- *
  * ## Import
  *
  * Data Factory Linked Service's can be imported using the `resource id`, e.g.

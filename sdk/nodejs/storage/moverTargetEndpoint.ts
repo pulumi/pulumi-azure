@@ -7,36 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Storage Mover Target Endpoint.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "LRS",
- *     allowNestedItemsToBePublic: true,
- * });
- * const exampleContainer = new azure.storage.Container("exampleContainer", {
- *     storageAccountName: exampleAccount.name,
- *     containerAccessType: "blob",
- * });
- * const exampleMover = new azure.storage.Mover("exampleMover", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: "West Europe",
- * });
- * const exampleMoverTargetEndpoint = new azure.storage.MoverTargetEndpoint("exampleMoverTargetEndpoint", {
- *     storageMoverId: exampleMover.id,
- *     storageAccountId: exampleAccount.id,
- *     storageContainerName: exampleContainer.name,
- *     description: "Example Storage Container Endpoint Description",
- * });
- * ```
- *
  * ## Import
  *
  * Storage Mover Target Endpoint can be imported using the `resource id`, e.g.

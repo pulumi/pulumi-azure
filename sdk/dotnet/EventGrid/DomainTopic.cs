@@ -12,40 +12,6 @@ namespace Pulumi.Azure.EventGrid
     /// <summary>
     /// Manages an EventGrid Domain Topic
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleDomain = new Azure.EventGrid.Domain("exampleDomain", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Tags = 
-    ///         {
-    ///             { "environment", "Production" },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleDomainTopic = new Azure.EventGrid.DomainTopic("exampleDomainTopic", new()
-    ///     {
-    ///         DomainName = exampleDomain.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// EventGrid Domain Topics can be imported using the `resource id`, e.g.

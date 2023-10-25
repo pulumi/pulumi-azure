@@ -6,18 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Front Door (standard/premium) Firewall Policy.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.cdn.getFrontdoorFirewallPolicy({
- *     name: "examplecdnfdwafpolicy",
- *     resourceGroupName: azurerm_resource_group.example.name,
- * });
- * ```
  */
 export function getFrontdoorFirewallPolicy(args: GetFrontdoorFirewallPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetFrontdoorFirewallPolicyResult> {
 
@@ -75,18 +63,6 @@ export interface GetFrontdoorFirewallPolicyResult {
 }
 /**
  * Use this data source to access information about an existing Front Door (standard/premium) Firewall Policy.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.cdn.getFrontdoorFirewallPolicy({
- *     name: "examplecdnfdwafpolicy",
- *     resourceGroupName: azurerm_resource_group.example.name,
- * });
- * ```
  */
 export function getFrontdoorFirewallPolicyOutput(args: GetFrontdoorFirewallPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrontdoorFirewallPolicyResult> {
     return pulumi.output(args).apply((a: any) => getFrontdoorFirewallPolicy(a, opts))

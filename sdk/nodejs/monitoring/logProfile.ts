@@ -13,44 +13,6 @@ import * as utilities from "../utilities";
  *
  * !> **NOTE:** Azure Log Profiles will be retired on 30th September 2026 and will be removed in v4.0 of the AzureRM Provider. More information on the deprecation can be found [in the Azure documentation](https://learn.microsoft.com/azure/azure-monitor/essentials/activity-log?tabs=powershell#legacy-collection-methods).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "GRS",
- * });
- * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("exampleEventHubNamespace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "Standard",
- *     capacity: 2,
- * });
- * const exampleLogProfile = new azure.monitoring.LogProfile("exampleLogProfile", {
- *     categories: [
- *         "Action",
- *         "Delete",
- *         "Write",
- *     ],
- *     locations: [
- *         "westus",
- *         "global",
- *     ],
- *     servicebusRuleId: pulumi.interpolate`${exampleEventHubNamespace.id}/authorizationrules/RootManageSharedAccessKey`,
- *     storageAccountId: exampleAccount.id,
- *     retentionPolicy: {
- *         enabled: true,
- *         days: 7,
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * A Log Profile can be imported using the `resource id`, e.g.

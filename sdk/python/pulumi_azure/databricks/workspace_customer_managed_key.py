@@ -29,14 +29,18 @@ class WorkspaceCustomerManagedKeyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_vault_key_id: pulumi.Input[str],
-             workspace_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             key_vault_key_id: Optional[pulumi.Input[str]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'keyVaultKeyId' in kwargs:
+        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
             key_vault_key_id = kwargs['keyVaultKeyId']
-        if 'workspaceId' in kwargs:
+        if key_vault_key_id is None:
+            raise TypeError("Missing 'key_vault_key_id' argument")
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
+        if workspace_id is None:
+            raise TypeError("Missing 'workspace_id' argument")
 
         _setter("key_vault_key_id", key_vault_key_id)
         if workspace_id is not None:
@@ -92,11 +96,11 @@ class _WorkspaceCustomerManagedKeyState:
              _setter: Callable[[Any, Any], None],
              key_vault_key_id: Optional[pulumi.Input[str]] = None,
              workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'keyVaultKeyId' in kwargs:
+        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
             key_vault_key_id = kwargs['keyVaultKeyId']
-        if 'workspaceId' in kwargs:
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
 
         if key_vault_key_id is not None:

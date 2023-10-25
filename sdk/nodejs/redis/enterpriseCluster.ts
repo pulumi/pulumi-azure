@@ -7,20 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Redis Enterprise Cluster.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleEnterpriseCluster = new azure.redis.EnterpriseCluster("exampleEnterpriseCluster", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     skuName: "EnterpriseFlash_F300-3",
- * });
- * ```
- *
  * ## Import
  *
  * Redis Enterprise Clusters can be imported using the `resource id`, e.g.

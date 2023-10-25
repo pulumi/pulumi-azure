@@ -34,13 +34,17 @@ class FlexibleServerConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             server_id: pulumi.Input[str],
-             value: pulumi.Input[str],
+             server_id: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'serverId' in kwargs:
+        if server_id is None and 'serverId' in kwargs:
             server_id = kwargs['serverId']
+        if server_id is None:
+            raise TypeError("Missing 'server_id' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("server_id", server_id)
         _setter("value", value)
@@ -112,9 +116,9 @@ class _FlexibleServerConfigurationState:
              name: Optional[pulumi.Input[str]] = None,
              server_id: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'serverId' in kwargs:
+        if server_id is None and 'serverId' in kwargs:
             server_id = kwargs['serverId']
 
         if name is not None:
@@ -175,45 +179,6 @@ class FlexibleServerConfiguration(pulumi.CustomResource):
         """
         Sets a PostgreSQL Configuration value on a Azure PostgreSQL Flexible Server.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_flexible_server = azure.postgresql.FlexibleServer("exampleFlexibleServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            version="12",
-            administrator_login="psqladmin",
-            administrator_password="H@Sh1CoR3!",
-            storage_mb=32768,
-            sku_name="GP_Standard_D4s_v3")
-        example_flexible_server_configuration = azure.postgresql.FlexibleServerConfiguration("exampleFlexibleServerConfiguration",
-            server_id=example_flexible_server.id,
-            value="on")
-        ```
-        ### Azure Extensions
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_flexible_server = azure.postgresql.FlexibleServer("exampleFlexibleServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            version="12",
-            administrator_login="psqladmin",
-            administrator_password="H@Sh1CoR3!",
-            storage_mb=32768,
-            sku_name="GP_Standard_D4s_v3")
-        example_flexible_server_configuration = azure.postgresql.FlexibleServerConfiguration("exampleFlexibleServerConfiguration",
-            server_id=example_flexible_server.id,
-            value="CUBE,CITEXT,BTREE_GIST")
-        ```
-
         ## Import
 
         PostgreSQL Configurations can be imported using the `resource id`, e.g.
@@ -238,45 +203,6 @@ class FlexibleServerConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Sets a PostgreSQL Configuration value on a Azure PostgreSQL Flexible Server.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_flexible_server = azure.postgresql.FlexibleServer("exampleFlexibleServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            version="12",
-            administrator_login="psqladmin",
-            administrator_password="H@Sh1CoR3!",
-            storage_mb=32768,
-            sku_name="GP_Standard_D4s_v3")
-        example_flexible_server_configuration = azure.postgresql.FlexibleServerConfiguration("exampleFlexibleServerConfiguration",
-            server_id=example_flexible_server.id,
-            value="on")
-        ```
-        ### Azure Extensions
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_flexible_server = azure.postgresql.FlexibleServer("exampleFlexibleServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            version="12",
-            administrator_login="psqladmin",
-            administrator_password="H@Sh1CoR3!",
-            storage_mb=32768,
-            sku_name="GP_Standard_D4s_v3")
-        example_flexible_server_configuration = azure.postgresql.FlexibleServerConfiguration("exampleFlexibleServerConfiguration",
-            server_id=example_flexible_server.id,
-            value="CUBE,CITEXT,BTREE_GIST")
-        ```
 
         ## Import
 

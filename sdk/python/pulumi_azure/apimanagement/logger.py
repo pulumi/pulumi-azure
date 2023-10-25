@@ -49,23 +49,27 @@ class LoggerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_management_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              application_insights: Optional[pulumi.Input['LoggerApplicationInsightsArgs']] = None,
              buffered: Optional[pulumi.Input[bool]] = None,
              description: Optional[pulumi.Input[str]] = None,
              eventhub: Optional[pulumi.Input['LoggerEventhubArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'resourceGroupName' in kwargs:
+        if api_management_name is None:
+            raise TypeError("Missing 'api_management_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'applicationInsights' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if application_insights is None and 'applicationInsights' in kwargs:
             application_insights = kwargs['applicationInsights']
-        if 'resourceId' in kwargs:
+        if resource_id is None and 'resourceId' in kwargs:
             resource_id = kwargs['resourceId']
 
         _setter("api_management_name", api_management_name)
@@ -224,15 +228,15 @@ class _LoggerState:
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'applicationInsights' in kwargs:
+        if application_insights is None and 'applicationInsights' in kwargs:
             application_insights = kwargs['applicationInsights']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'resourceId' in kwargs:
+        if resource_id is None and 'resourceId' in kwargs:
             resource_id = kwargs['resourceId']
 
         if api_management_name is not None:
@@ -366,32 +370,6 @@ class Logger(pulumi.CustomResource):
         """
         Manages a Logger within an API Management Service.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="other")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            publisher_name="My Company",
-            publisher_email="company@exmaple.com",
-            sku_name="Developer_1")
-        example_logger = azure.apimanagement.Logger("exampleLogger",
-            api_management_name=example_service.name,
-            resource_group_name=example_resource_group.name,
-            resource_id=example_insights.id,
-            application_insights=azure.apimanagement.LoggerApplicationInsightsArgs(
-                instrumentation_key=example_insights.instrumentation_key,
-            ))
-        ```
-
         ## Import
 
         API Management Loggers can be imported using the `resource id`, e.g.
@@ -419,32 +397,6 @@ class Logger(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Logger within an API Management Service.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="other")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            publisher_name="My Company",
-            publisher_email="company@exmaple.com",
-            sku_name="Developer_1")
-        example_logger = azure.apimanagement.Logger("exampleLogger",
-            api_management_name=example_service.name,
-            resource_group_name=example_resource_group.name,
-            resource_id=example_insights.id,
-            application_insights=azure.apimanagement.LoggerApplicationInsightsArgs(
-                instrumentation_key=example_insights.instrumentation_key,
-            ))
-        ```
 
         ## Import
 
@@ -493,19 +445,11 @@ class Logger(pulumi.CustomResource):
             if api_management_name is None and not opts.urn:
                 raise TypeError("Missing required property 'api_management_name'")
             __props__.__dict__["api_management_name"] = api_management_name
-            if application_insights is not None and not isinstance(application_insights, LoggerApplicationInsightsArgs):
-                application_insights = application_insights or {}
-                def _setter(key, value):
-                    application_insights[key] = value
-                LoggerApplicationInsightsArgs._configure(_setter, **application_insights)
+            application_insights = _utilities.configure(application_insights, LoggerApplicationInsightsArgs, True)
             __props__.__dict__["application_insights"] = application_insights
             __props__.__dict__["buffered"] = buffered
             __props__.__dict__["description"] = description
-            if eventhub is not None and not isinstance(eventhub, LoggerEventhubArgs):
-                eventhub = eventhub or {}
-                def _setter(key, value):
-                    eventhub[key] = value
-                LoggerEventhubArgs._configure(_setter, **eventhub)
+            eventhub = _utilities.configure(eventhub, LoggerEventhubArgs, True)
             __props__.__dict__["eventhub"] = eventhub
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:

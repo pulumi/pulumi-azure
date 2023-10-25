@@ -58,9 +58,9 @@ class MonitorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             plan: pulumi.Input['MonitorPlanArgs'],
-             resource_group_name: pulumi.Input[str],
-             user: pulumi.Input['MonitorUserArgs'],
+             plan: Optional[pulumi.Input['MonitorPlanArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             user: Optional[pulumi.Input['MonitorUserArgs']] = None,
              account_creation_source: Optional[pulumi.Input[str]] = None,
              account_id: Optional[pulumi.Input[str]] = None,
              ingestion_key: Optional[pulumi.Input[str]] = None,
@@ -69,21 +69,27 @@ class MonitorArgs:
              org_creation_source: Optional[pulumi.Input[str]] = None,
              organization_id: Optional[pulumi.Input[str]] = None,
              user_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if plan is None:
+            raise TypeError("Missing 'plan' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'accountCreationSource' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if user is None:
+            raise TypeError("Missing 'user' argument")
+        if account_creation_source is None and 'accountCreationSource' in kwargs:
             account_creation_source = kwargs['accountCreationSource']
-        if 'accountId' in kwargs:
+        if account_id is None and 'accountId' in kwargs:
             account_id = kwargs['accountId']
-        if 'ingestionKey' in kwargs:
+        if ingestion_key is None and 'ingestionKey' in kwargs:
             ingestion_key = kwargs['ingestionKey']
-        if 'orgCreationSource' in kwargs:
+        if org_creation_source is None and 'orgCreationSource' in kwargs:
             org_creation_source = kwargs['orgCreationSource']
-        if 'organizationId' in kwargs:
+        if organization_id is None and 'organizationId' in kwargs:
             organization_id = kwargs['organizationId']
-        if 'userId' in kwargs:
+        if user_id is None and 'userId' in kwargs:
             user_id = kwargs['userId']
 
         _setter("plan", plan)
@@ -295,21 +301,21 @@ class _MonitorState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              user: Optional[pulumi.Input['MonitorUserArgs']] = None,
              user_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accountCreationSource' in kwargs:
+        if account_creation_source is None and 'accountCreationSource' in kwargs:
             account_creation_source = kwargs['accountCreationSource']
-        if 'accountId' in kwargs:
+        if account_id is None and 'accountId' in kwargs:
             account_id = kwargs['accountId']
-        if 'ingestionKey' in kwargs:
+        if ingestion_key is None and 'ingestionKey' in kwargs:
             ingestion_key = kwargs['ingestionKey']
-        if 'orgCreationSource' in kwargs:
+        if org_creation_source is None and 'orgCreationSource' in kwargs:
             org_creation_source = kwargs['orgCreationSource']
-        if 'organizationId' in kwargs:
+        if organization_id is None and 'organizationId' in kwargs:
             organization_id = kwargs['organizationId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'userId' in kwargs:
+        if user_id is None and 'userId' in kwargs:
             user_id = kwargs['userId']
 
         if account_creation_source is not None:
@@ -488,27 +494,6 @@ class Monitor(pulumi.CustomResource):
         """
         Manages an Azure Native New Relic Monitor.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="East US")
-        example_monitor = azure.newrelic.Monitor("exampleMonitor",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            plan=azure.newrelic.MonitorPlanArgs(
-                effective_date="2023-06-06T00:00:00Z",
-            ),
-            user=azure.newrelic.MonitorUserArgs(
-                email="user@example.com",
-                first_name="Example",
-                last_name="User",
-                phone_number="+12313803556",
-            ))
-        ```
-
         ## Import
 
         Azure Native New Relic Monitor can be imported using the `resource id`, e.g.
@@ -539,27 +524,6 @@ class Monitor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Native New Relic Monitor.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="East US")
-        example_monitor = azure.newrelic.Monitor("exampleMonitor",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            plan=azure.newrelic.MonitorPlanArgs(
-                effective_date="2023-06-06T00:00:00Z",
-            ),
-            user=azure.newrelic.MonitorUserArgs(
-                email="user@example.com",
-                first_name="Example",
-                last_name="User",
-                phone_number="+12313803556",
-            ))
-        ```
 
         ## Import
 
@@ -615,22 +579,14 @@ class Monitor(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["org_creation_source"] = org_creation_source
             __props__.__dict__["organization_id"] = organization_id
-            if plan is not None and not isinstance(plan, MonitorPlanArgs):
-                plan = plan or {}
-                def _setter(key, value):
-                    plan[key] = value
-                MonitorPlanArgs._configure(_setter, **plan)
+            plan = _utilities.configure(plan, MonitorPlanArgs, True)
             if plan is None and not opts.urn:
                 raise TypeError("Missing required property 'plan'")
             __props__.__dict__["plan"] = plan
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if user is not None and not isinstance(user, MonitorUserArgs):
-                user = user or {}
-                def _setter(key, value):
-                    user[key] = value
-                MonitorUserArgs._configure(_setter, **user)
+            user = _utilities.configure(user, MonitorUserArgs, True)
             if user is None and not opts.urn:
                 raise TypeError("Missing required property 'user'")
             __props__.__dict__["user"] = user

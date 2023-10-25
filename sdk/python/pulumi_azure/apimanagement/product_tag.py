@@ -35,18 +35,24 @@ class ProductTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_management_name: pulumi.Input[str],
-             api_management_product_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             api_management_product_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'apiManagementProductId' in kwargs:
+        if api_management_name is None:
+            raise TypeError("Missing 'api_management_name' argument")
+        if api_management_product_id is None and 'apiManagementProductId' in kwargs:
             api_management_product_id = kwargs['apiManagementProductId']
-        if 'resourceGroupName' in kwargs:
+        if api_management_product_id is None:
+            raise TypeError("Missing 'api_management_product_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("api_management_name", api_management_name)
         _setter("api_management_product_id", api_management_product_id)
@@ -131,13 +137,13 @@ class _ProductTagState:
              api_management_product_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'apiManagementProductId' in kwargs:
+        if api_management_product_id is None and 'apiManagementProductId' in kwargs:
             api_management_product_id = kwargs['apiManagementProductId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if api_management_name is not None:
@@ -211,34 +217,6 @@ class ProductTag(pulumi.CustomResource):
         """
         Manages an API Management Product tag
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            publisher_name="My Company",
-            publisher_email="company@terraform.io",
-            sku_name="Developer_1")
-        example_product = azure.apimanagement.Product("exampleProduct",
-            product_id="test-product",
-            api_management_name=example_service.name,
-            resource_group_name=example_resource_group.name,
-            display_name="Test Product",
-            subscription_required=True,
-            approval_required=True,
-            published=True)
-        example_tag = azure.apimanagement.Tag("exampleTag", api_management_id=example_service.id)
-        example_product_tag = azure.apimanagement.ProductTag("exampleProductTag",
-            api_management_product_id=example_product.product_id,
-            api_management_name=example_service.name,
-            resource_group_name=example_resource_group.name)
-        ```
-
         ## Import
 
         API Management Products can be imported using the `resource id`, e.g.
@@ -262,34 +240,6 @@ class ProductTag(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an API Management Product tag
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            publisher_name="My Company",
-            publisher_email="company@terraform.io",
-            sku_name="Developer_1")
-        example_product = azure.apimanagement.Product("exampleProduct",
-            product_id="test-product",
-            api_management_name=example_service.name,
-            resource_group_name=example_resource_group.name,
-            display_name="Test Product",
-            subscription_required=True,
-            approval_required=True,
-            published=True)
-        example_tag = azure.apimanagement.Tag("exampleTag", api_management_id=example_service.id)
-        example_product_tag = azure.apimanagement.ProductTag("exampleProductTag",
-            api_management_product_id=example_product.product_id,
-            api_management_name=example_service.name,
-            resource_group_name=example_resource_group.name)
-        ```
 
         ## Import
 

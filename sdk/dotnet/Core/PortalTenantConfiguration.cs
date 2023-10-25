@@ -20,24 +20,6 @@ namespace Pulumi.Azure.Core
     /// 
     /// &gt; **Note:** While assigning the role to the existing/new Service Principal at the Tenant Scope, the user assigning role must already have the `Owner` role assigned at the Tenant Scope.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.Core.PortalTenantConfiguration("example", new()
-    ///     {
-    ///         PrivateMarkdownStorageEnforced = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Portal Tenant Configurations can be imported using the `resource id`, e.g.

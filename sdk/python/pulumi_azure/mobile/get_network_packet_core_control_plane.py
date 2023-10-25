@@ -240,16 +240,6 @@ def get_network_packet_core_control_plane(name: Optional[str] = None,
     """
     Get information about a Mobile Network Packet Core Control Plane.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.mobile.get_network_packet_core_control_plane(name="example-mnpccp",
-        resource_group_name="example-rg")
-    ```
-
 
     :param str name: The name of the Mobile Network Packet Core Control Plane.
     :param str resource_group_name: The name of the Resource Group where the Mobile Network Packet Core Control Plane exists.
@@ -287,16 +277,6 @@ def get_network_packet_core_control_plane_output(name: Optional[pulumi.Input[str
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkPacketCoreControlPlaneResult]:
     """
     Get information about a Mobile Network Packet Core Control Plane.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.mobile.get_network_packet_core_control_plane(name="example-mnpccp",
-        resource_group_name="example-rg")
-    ```
 
 
     :param str name: The name of the Mobile Network Packet Core Control Plane.

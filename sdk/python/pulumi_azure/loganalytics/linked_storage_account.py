@@ -37,20 +37,28 @@ class LinkedStorageAccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_source_type: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             storage_account_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             workspace_resource_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             data_source_type: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             storage_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             workspace_resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dataSourceType' in kwargs:
+        if data_source_type is None and 'dataSourceType' in kwargs:
             data_source_type = kwargs['dataSourceType']
-        if 'resourceGroupName' in kwargs:
+        if data_source_type is None:
+            raise TypeError("Missing 'data_source_type' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'storageAccountIds' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if storage_account_ids is None and 'storageAccountIds' in kwargs:
             storage_account_ids = kwargs['storageAccountIds']
-        if 'workspaceResourceId' in kwargs:
+        if storage_account_ids is None:
+            raise TypeError("Missing 'storage_account_ids' argument")
+        if workspace_resource_id is None and 'workspaceResourceId' in kwargs:
             workspace_resource_id = kwargs['workspaceResourceId']
+        if workspace_resource_id is None:
+            raise TypeError("Missing 'workspace_resource_id' argument")
 
         _setter("data_source_type", data_source_type)
         _setter("resource_group_name", resource_group_name)
@@ -138,15 +146,15 @@ class _LinkedStorageAccountState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              storage_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              workspace_resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dataSourceType' in kwargs:
+        if data_source_type is None and 'dataSourceType' in kwargs:
             data_source_type = kwargs['dataSourceType']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'storageAccountIds' in kwargs:
+        if storage_account_ids is None and 'storageAccountIds' in kwargs:
             storage_account_ids = kwargs['storageAccountIds']
-        if 'workspaceResourceId' in kwargs:
+        if workspace_resource_id is None and 'workspaceResourceId' in kwargs:
             workspace_resource_id = kwargs['workspaceResourceId']
 
         if data_source_type is not None:
@@ -222,29 +230,6 @@ class LinkedStorageAccount(pulumi.CustomResource):
         """
         Manages a Log Analytics Linked Storage Account.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018")
-        example_linked_storage_account = azure.loganalytics.LinkedStorageAccount("exampleLinkedStorageAccount",
-            data_source_type="CustomLogs",
-            resource_group_name=example_resource_group.name,
-            workspace_resource_id=example_analytics_workspace.id,
-            storage_account_ids=[example_account.id])
-        ```
-
         ## Import
 
         Log Analytics Linked Storage Accounts can be imported using the `resource id`, e.g.
@@ -270,29 +255,6 @@ class LinkedStorageAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Log Analytics Linked Storage Account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018")
-        example_linked_storage_account = azure.loganalytics.LinkedStorageAccount("exampleLinkedStorageAccount",
-            data_source_type="CustomLogs",
-            resource_group_name=example_resource_group.name,
-            workspace_resource_id=example_analytics_workspace.id,
-            storage_account_ids=[example_account.id])
-        ```
 
         ## Import
 

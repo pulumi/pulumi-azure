@@ -46,24 +46,26 @@ class SpringCloudJavaDeploymentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             spring_cloud_app_id: pulumi.Input[str],
+             spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
              environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              instance_count: Optional[pulumi.Input[int]] = None,
              jvm_options: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              quota: Optional[pulumi.Input['SpringCloudJavaDeploymentQuotaArgs']] = None,
              runtime_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'springCloudAppId' in kwargs:
+        if spring_cloud_app_id is None and 'springCloudAppId' in kwargs:
             spring_cloud_app_id = kwargs['springCloudAppId']
-        if 'environmentVariables' in kwargs:
+        if spring_cloud_app_id is None:
+            raise TypeError("Missing 'spring_cloud_app_id' argument")
+        if environment_variables is None and 'environmentVariables' in kwargs:
             environment_variables = kwargs['environmentVariables']
-        if 'instanceCount' in kwargs:
+        if instance_count is None and 'instanceCount' in kwargs:
             instance_count = kwargs['instanceCount']
-        if 'jvmOptions' in kwargs:
+        if jvm_options is None and 'jvmOptions' in kwargs:
             jvm_options = kwargs['jvmOptions']
-        if 'runtimeVersion' in kwargs:
+        if runtime_version is None and 'runtimeVersion' in kwargs:
             runtime_version = kwargs['runtimeVersion']
 
         _setter("spring_cloud_app_id", spring_cloud_app_id)
@@ -205,17 +207,17 @@ class _SpringCloudJavaDeploymentState:
              quota: Optional[pulumi.Input['SpringCloudJavaDeploymentQuotaArgs']] = None,
              runtime_version: Optional[pulumi.Input[str]] = None,
              spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'environmentVariables' in kwargs:
+        if environment_variables is None and 'environmentVariables' in kwargs:
             environment_variables = kwargs['environmentVariables']
-        if 'instanceCount' in kwargs:
+        if instance_count is None and 'instanceCount' in kwargs:
             instance_count = kwargs['instanceCount']
-        if 'jvmOptions' in kwargs:
+        if jvm_options is None and 'jvmOptions' in kwargs:
             jvm_options = kwargs['jvmOptions']
-        if 'runtimeVersion' in kwargs:
+        if runtime_version is None and 'runtimeVersion' in kwargs:
             runtime_version = kwargs['runtimeVersion']
-        if 'springCloudAppId' in kwargs:
+        if spring_cloud_app_id is None and 'springCloudAppId' in kwargs:
             spring_cloud_app_id = kwargs['springCloudAppId']
 
         if environment_variables is not None:
@@ -336,37 +338,6 @@ class SpringCloudJavaDeployment(pulumi.CustomResource):
 
         > **NOTE:** This resource is applicable only for Spring Cloud Service with basic and standard tier.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_spring_cloud_app = azure.appplatform.SpringCloudApp("exampleSpringCloudApp",
-            resource_group_name=example_resource_group.name,
-            service_name=example_spring_cloud_service.name,
-            identity=azure.appplatform.SpringCloudAppIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_spring_cloud_java_deployment = azure.appplatform.SpringCloudJavaDeployment("exampleSpringCloudJavaDeployment",
-            spring_cloud_app_id=example_spring_cloud_app.id,
-            instance_count=2,
-            jvm_options="-XX:+PrintGC",
-            quota=azure.appplatform.SpringCloudJavaDeploymentQuotaArgs(
-                cpu="2",
-                memory="4Gi",
-            ),
-            runtime_version="Java_11",
-            environment_variables={
-                "Foo": "Bar",
-                "Env": "Staging",
-            })
-        ```
-
         ## Import
 
         Spring Cloud Deployment can be imported using the `resource id`, e.g.
@@ -395,37 +366,6 @@ class SpringCloudJavaDeployment(pulumi.CustomResource):
         Manages an Azure Spring Cloud Deployment with a Java runtime.
 
         > **NOTE:** This resource is applicable only for Spring Cloud Service with basic and standard tier.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_spring_cloud_app = azure.appplatform.SpringCloudApp("exampleSpringCloudApp",
-            resource_group_name=example_resource_group.name,
-            service_name=example_spring_cloud_service.name,
-            identity=azure.appplatform.SpringCloudAppIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_spring_cloud_java_deployment = azure.appplatform.SpringCloudJavaDeployment("exampleSpringCloudJavaDeployment",
-            spring_cloud_app_id=example_spring_cloud_app.id,
-            instance_count=2,
-            jvm_options="-XX:+PrintGC",
-            quota=azure.appplatform.SpringCloudJavaDeploymentQuotaArgs(
-                cpu="2",
-                memory="4Gi",
-            ),
-            runtime_version="Java_11",
-            environment_variables={
-                "Foo": "Bar",
-                "Env": "Staging",
-            })
-        ```
 
         ## Import
 
@@ -474,11 +414,7 @@ class SpringCloudJavaDeployment(pulumi.CustomResource):
             __props__.__dict__["instance_count"] = instance_count
             __props__.__dict__["jvm_options"] = jvm_options
             __props__.__dict__["name"] = name
-            if quota is not None and not isinstance(quota, SpringCloudJavaDeploymentQuotaArgs):
-                quota = quota or {}
-                def _setter(key, value):
-                    quota[key] = value
-                SpringCloudJavaDeploymentQuotaArgs._configure(_setter, **quota)
+            quota = _utilities.configure(quota, SpringCloudJavaDeploymentQuotaArgs, True)
             __props__.__dict__["quota"] = quota
             __props__.__dict__["runtime_version"] = runtime_version
             if spring_cloud_app_id is None and not opts.urn:

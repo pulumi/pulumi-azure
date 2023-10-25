@@ -12,41 +12,6 @@ namespace Pulumi.Azure.ApiManagement
     /// <summary>
     /// Manages an API Management Facebook Identity Provider.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         PublisherName = "My Company",
-    ///         PublisherEmail = "company@mycompany.io",
-    ///         SkuName = "Developer_1",
-    ///     });
-    /// 
-    ///     var exampleIdentityProviderFacebook = new Azure.ApiManagement.IdentityProviderFacebook("exampleIdentityProviderFacebook", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         ApiManagementName = exampleService.Name,
-    ///         AppId = "00000000000000000000000000000000",
-    ///         AppSecret = "00000000000000000000000000000000",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// API Management Facebook Identity Provider can be imported using the `resource id`, e.g.

@@ -71,8 +71,8 @@ class ResourcePolicyAssignmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             policy_definition_id: pulumi.Input[str],
-             resource_id: pulumi.Input[str],
+             policy_definition_id: Optional[pulumi.Input[str]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              display_name: Optional[pulumi.Input[str]] = None,
              enforce: Optional[pulumi.Input[bool]] = None,
@@ -85,19 +85,23 @@ class ResourcePolicyAssignmentArgs:
              overrides: Optional[pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentOverrideArgs']]]] = None,
              parameters: Optional[pulumi.Input[str]] = None,
              resource_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentResourceSelectorArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'policyDefinitionId' in kwargs:
+        if policy_definition_id is None and 'policyDefinitionId' in kwargs:
             policy_definition_id = kwargs['policyDefinitionId']
-        if 'resourceId' in kwargs:
+        if policy_definition_id is None:
+            raise TypeError("Missing 'policy_definition_id' argument")
+        if resource_id is None and 'resourceId' in kwargs:
             resource_id = kwargs['resourceId']
-        if 'displayName' in kwargs:
+        if resource_id is None:
+            raise TypeError("Missing 'resource_id' argument")
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'nonComplianceMessages' in kwargs:
+        if non_compliance_messages is None and 'nonComplianceMessages' in kwargs:
             non_compliance_messages = kwargs['nonComplianceMessages']
-        if 'notScopes' in kwargs:
+        if not_scopes is None and 'notScopes' in kwargs:
             not_scopes = kwargs['notScopes']
-        if 'resourceSelectors' in kwargs:
+        if resource_selectors is None and 'resourceSelectors' in kwargs:
             resource_selectors = kwargs['resourceSelectors']
 
         _setter("policy_definition_id", policy_definition_id)
@@ -372,19 +376,19 @@ class _ResourcePolicyAssignmentState:
              policy_definition_id: Optional[pulumi.Input[str]] = None,
              resource_id: Optional[pulumi.Input[str]] = None,
              resource_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentResourceSelectorArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'nonComplianceMessages' in kwargs:
+        if non_compliance_messages is None and 'nonComplianceMessages' in kwargs:
             non_compliance_messages = kwargs['nonComplianceMessages']
-        if 'notScopes' in kwargs:
+        if not_scopes is None and 'notScopes' in kwargs:
             not_scopes = kwargs['notScopes']
-        if 'policyDefinitionId' in kwargs:
+        if policy_definition_id is None and 'policyDefinitionId' in kwargs:
             policy_definition_id = kwargs['policyDefinitionId']
-        if 'resourceId' in kwargs:
+        if resource_id is None and 'resourceId' in kwargs:
             resource_id = kwargs['resourceId']
-        if 'resourceSelectors' in kwargs:
+        if resource_selectors is None and 'resourceSelectors' in kwargs:
             resource_selectors = kwargs['resourceSelectors']
 
         if description is not None:
@@ -612,35 +616,6 @@ class ResourcePolicyAssignment(pulumi.CustomResource):
         """
         Manages a Policy Assignment to a Resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_virtual_network = azure.network.get_virtual_network(name="production",
-            resource_group_name="networking")
-        example_definition = azure.policy.Definition("exampleDefinition",
-            policy_type="Custom",
-            mode="All",
-            display_name="my-policy-definition",
-            policy_rule=\"\"\" {
-            "if": {
-              "not": {
-                "field": "location",
-                "equals": "westeurope"
-              }
-            },
-            "then": {
-              "effect": "Deny"
-            }
-          }
-        \"\"\")
-        example_resource_policy_assignment = azure.core.ResourcePolicyAssignment("exampleResourcePolicyAssignment",
-            resource_id=example_virtual_network.id,
-            policy_definition_id=example_definition.id)
-        ```
-
         ## Import
 
         Resource Policy Assignments can be imported using the `resource id`, e.g.
@@ -680,35 +655,6 @@ class ResourcePolicyAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Policy Assignment to a Resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_virtual_network = azure.network.get_virtual_network(name="production",
-            resource_group_name="networking")
-        example_definition = azure.policy.Definition("exampleDefinition",
-            policy_type="Custom",
-            mode="All",
-            display_name="my-policy-definition",
-            policy_rule=\"\"\" {
-            "if": {
-              "not": {
-                "field": "location",
-                "equals": "westeurope"
-              }
-            },
-            "then": {
-              "effect": "Deny"
-            }
-          }
-        \"\"\")
-        example_resource_policy_assignment = azure.core.ResourcePolicyAssignment("exampleResourcePolicyAssignment",
-            resource_id=example_virtual_network.id,
-            policy_definition_id=example_definition.id)
-        ```
 
         ## Import
 
@@ -765,11 +711,7 @@ class ResourcePolicyAssignment(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["enforce"] = enforce
-            if identity is not None and not isinstance(identity, ResourcePolicyAssignmentIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                ResourcePolicyAssignmentIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, ResourcePolicyAssignmentIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["metadata"] = metadata

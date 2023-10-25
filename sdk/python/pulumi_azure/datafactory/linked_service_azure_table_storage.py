@@ -49,23 +49,27 @@ class LinkedServiceAzureTableStorageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             connection_string: pulumi.Input[str],
-             data_factory_id: pulumi.Input[str],
+             connection_string: Optional[pulumi.Input[str]] = None,
+             data_factory_id: Optional[pulumi.Input[str]] = None,
              additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              integration_runtime_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
-        if 'dataFactoryId' in kwargs:
+        if connection_string is None:
+            raise TypeError("Missing 'connection_string' argument")
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'additionalProperties' in kwargs:
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'integrationRuntimeName' in kwargs:
+        if integration_runtime_name is None and 'integrationRuntimeName' in kwargs:
             integration_runtime_name = kwargs['integrationRuntimeName']
 
         _setter("connection_string", connection_string)
@@ -228,15 +232,15 @@ class _LinkedServiceAzureTableStorageState:
              integration_runtime_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'additionalProperties' in kwargs:
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'integrationRuntimeName' in kwargs:
+        if integration_runtime_name is None and 'integrationRuntimeName' in kwargs:
             integration_runtime_name = kwargs['integrationRuntimeName']
 
         if additional_properties is not None:
@@ -372,23 +376,6 @@ class LinkedServiceAzureTableStorage(pulumi.CustomResource):
         """
         Manages a Linked Service (connection) between an Azure Table Storage and Azure Data Factory.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.get_account_output(name="storageaccountname",
-            resource_group_name=example_resource_group.name)
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_linked_service_azure_table_storage = azure.datafactory.LinkedServiceAzureTableStorage("exampleLinkedServiceAzureTableStorage",
-            data_factory_id=example_factory.id,
-            connection_string=example_account.primary_connection_string)
-        ```
-
         ## Import
 
         Data Factory Linked Service's can be imported using the `resource id`, e.g.
@@ -418,23 +405,6 @@ class LinkedServiceAzureTableStorage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Linked Service (connection) between an Azure Table Storage and Azure Data Factory.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.get_account_output(name="storageaccountname",
-            resource_group_name=example_resource_group.name)
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_linked_service_azure_table_storage = azure.datafactory.LinkedServiceAzureTableStorage("exampleLinkedServiceAzureTableStorage",
-            data_factory_id=example_factory.id,
-            connection_string=example_account.primary_connection_string)
-        ```
 
         ## Import
 

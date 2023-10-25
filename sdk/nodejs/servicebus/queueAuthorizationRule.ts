@@ -7,33 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Authorization Rule for a ServiceBus Queue.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
- * const exampleNamespace = new azure.servicebus.Namespace("exampleNamespace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "Standard",
- *     tags: {
- *         source: "example",
- *     },
- * });
- * const exampleQueue = new azure.servicebus.Queue("exampleQueue", {
- *     namespaceId: exampleNamespace.id,
- *     enablePartitioning: true,
- * });
- * const exampleQueueAuthorizationRule = new azure.servicebus.QueueAuthorizationRule("exampleQueueAuthorizationRule", {
- *     queueId: exampleQueue.id,
- *     listen: true,
- *     send: true,
- *     manage: false,
- * });
- * ```
- *
  * ## Import
  *
  * ServiceBus Queue Authorization Rules can be imported using the `resource id`, e.g.

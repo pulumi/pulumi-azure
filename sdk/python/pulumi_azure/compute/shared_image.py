@@ -104,10 +104,10 @@ class SharedImageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             gallery_name: pulumi.Input[str],
-             identifier: pulumi.Input['SharedImageIdentifierArgs'],
-             os_type: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             gallery_name: Optional[pulumi.Input[str]] = None,
+             identifier: Optional[pulumi.Input['SharedImageIdentifierArgs']] = None,
+             os_type: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              accelerated_network_support_enabled: Optional[pulumi.Input[bool]] = None,
              architecture: Optional[pulumi.Input[str]] = None,
              confidential_vm_enabled: Optional[pulumi.Input[bool]] = None,
@@ -129,41 +129,49 @@ class SharedImageArgs:
              specialized: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              trusted_launch_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'galleryName' in kwargs:
+        if gallery_name is None and 'galleryName' in kwargs:
             gallery_name = kwargs['galleryName']
-        if 'osType' in kwargs:
+        if gallery_name is None:
+            raise TypeError("Missing 'gallery_name' argument")
+        if identifier is None:
+            raise TypeError("Missing 'identifier' argument")
+        if os_type is None and 'osType' in kwargs:
             os_type = kwargs['osType']
-        if 'resourceGroupName' in kwargs:
+        if os_type is None:
+            raise TypeError("Missing 'os_type' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'acceleratedNetworkSupportEnabled' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if accelerated_network_support_enabled is None and 'acceleratedNetworkSupportEnabled' in kwargs:
             accelerated_network_support_enabled = kwargs['acceleratedNetworkSupportEnabled']
-        if 'confidentialVmEnabled' in kwargs:
+        if confidential_vm_enabled is None and 'confidentialVmEnabled' in kwargs:
             confidential_vm_enabled = kwargs['confidentialVmEnabled']
-        if 'confidentialVmSupported' in kwargs:
+        if confidential_vm_supported is None and 'confidentialVmSupported' in kwargs:
             confidential_vm_supported = kwargs['confidentialVmSupported']
-        if 'diskTypesNotAlloweds' in kwargs:
+        if disk_types_not_alloweds is None and 'diskTypesNotAlloweds' in kwargs:
             disk_types_not_alloweds = kwargs['diskTypesNotAlloweds']
-        if 'endOfLifeDate' in kwargs:
+        if end_of_life_date is None and 'endOfLifeDate' in kwargs:
             end_of_life_date = kwargs['endOfLifeDate']
-        if 'hyperVGeneration' in kwargs:
+        if hyper_v_generation is None and 'hyperVGeneration' in kwargs:
             hyper_v_generation = kwargs['hyperVGeneration']
-        if 'maxRecommendedMemoryInGb' in kwargs:
+        if max_recommended_memory_in_gb is None and 'maxRecommendedMemoryInGb' in kwargs:
             max_recommended_memory_in_gb = kwargs['maxRecommendedMemoryInGb']
-        if 'maxRecommendedVcpuCount' in kwargs:
+        if max_recommended_vcpu_count is None and 'maxRecommendedVcpuCount' in kwargs:
             max_recommended_vcpu_count = kwargs['maxRecommendedVcpuCount']
-        if 'minRecommendedMemoryInGb' in kwargs:
+        if min_recommended_memory_in_gb is None and 'minRecommendedMemoryInGb' in kwargs:
             min_recommended_memory_in_gb = kwargs['minRecommendedMemoryInGb']
-        if 'minRecommendedVcpuCount' in kwargs:
+        if min_recommended_vcpu_count is None and 'minRecommendedVcpuCount' in kwargs:
             min_recommended_vcpu_count = kwargs['minRecommendedVcpuCount']
-        if 'privacyStatementUri' in kwargs:
+        if privacy_statement_uri is None and 'privacyStatementUri' in kwargs:
             privacy_statement_uri = kwargs['privacyStatementUri']
-        if 'purchasePlan' in kwargs:
+        if purchase_plan is None and 'purchasePlan' in kwargs:
             purchase_plan = kwargs['purchasePlan']
-        if 'releaseNoteUri' in kwargs:
+        if release_note_uri is None and 'releaseNoteUri' in kwargs:
             release_note_uri = kwargs['releaseNoteUri']
-        if 'trustedLaunchEnabled' in kwargs:
+        if trusted_launch_enabled is None and 'trustedLaunchEnabled' in kwargs:
             trusted_launch_enabled = kwargs['trustedLaunchEnabled']
 
         _setter("gallery_name", gallery_name)
@@ -634,41 +642,41 @@ class _SharedImageState:
              specialized: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              trusted_launch_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'acceleratedNetworkSupportEnabled' in kwargs:
+        if accelerated_network_support_enabled is None and 'acceleratedNetworkSupportEnabled' in kwargs:
             accelerated_network_support_enabled = kwargs['acceleratedNetworkSupportEnabled']
-        if 'confidentialVmEnabled' in kwargs:
+        if confidential_vm_enabled is None and 'confidentialVmEnabled' in kwargs:
             confidential_vm_enabled = kwargs['confidentialVmEnabled']
-        if 'confidentialVmSupported' in kwargs:
+        if confidential_vm_supported is None and 'confidentialVmSupported' in kwargs:
             confidential_vm_supported = kwargs['confidentialVmSupported']
-        if 'diskTypesNotAlloweds' in kwargs:
+        if disk_types_not_alloweds is None and 'diskTypesNotAlloweds' in kwargs:
             disk_types_not_alloweds = kwargs['diskTypesNotAlloweds']
-        if 'endOfLifeDate' in kwargs:
+        if end_of_life_date is None and 'endOfLifeDate' in kwargs:
             end_of_life_date = kwargs['endOfLifeDate']
-        if 'galleryName' in kwargs:
+        if gallery_name is None and 'galleryName' in kwargs:
             gallery_name = kwargs['galleryName']
-        if 'hyperVGeneration' in kwargs:
+        if hyper_v_generation is None and 'hyperVGeneration' in kwargs:
             hyper_v_generation = kwargs['hyperVGeneration']
-        if 'maxRecommendedMemoryInGb' in kwargs:
+        if max_recommended_memory_in_gb is None and 'maxRecommendedMemoryInGb' in kwargs:
             max_recommended_memory_in_gb = kwargs['maxRecommendedMemoryInGb']
-        if 'maxRecommendedVcpuCount' in kwargs:
+        if max_recommended_vcpu_count is None and 'maxRecommendedVcpuCount' in kwargs:
             max_recommended_vcpu_count = kwargs['maxRecommendedVcpuCount']
-        if 'minRecommendedMemoryInGb' in kwargs:
+        if min_recommended_memory_in_gb is None and 'minRecommendedMemoryInGb' in kwargs:
             min_recommended_memory_in_gb = kwargs['minRecommendedMemoryInGb']
-        if 'minRecommendedVcpuCount' in kwargs:
+        if min_recommended_vcpu_count is None and 'minRecommendedVcpuCount' in kwargs:
             min_recommended_vcpu_count = kwargs['minRecommendedVcpuCount']
-        if 'osType' in kwargs:
+        if os_type is None and 'osType' in kwargs:
             os_type = kwargs['osType']
-        if 'privacyStatementUri' in kwargs:
+        if privacy_statement_uri is None and 'privacyStatementUri' in kwargs:
             privacy_statement_uri = kwargs['privacyStatementUri']
-        if 'purchasePlan' in kwargs:
+        if purchase_plan is None and 'purchasePlan' in kwargs:
             purchase_plan = kwargs['purchasePlan']
-        if 'releaseNoteUri' in kwargs:
+        if release_note_uri is None and 'releaseNoteUri' in kwargs:
             release_note_uri = kwargs['releaseNoteUri']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'trustedLaunchEnabled' in kwargs:
+        if trusted_launch_enabled is None and 'trustedLaunchEnabled' in kwargs:
             trusted_launch_enabled = kwargs['trustedLaunchEnabled']
 
         if accelerated_network_support_enabled is not None:
@@ -1061,33 +1069,6 @@ class SharedImage(pulumi.CustomResource):
         """
         Manages a Shared Image within a Shared Image Gallery.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_shared_image_gallery = azure.compute.SharedImageGallery("exampleSharedImageGallery",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            description="Shared images and things.",
-            tags={
-                "Hello": "There",
-                "World": "Example",
-            })
-        example_shared_image = azure.compute.SharedImage("exampleSharedImage",
-            gallery_name=example_shared_image_gallery.name,
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            os_type="Linux",
-            identifier=azure.compute.SharedImageIdentifierArgs(
-                publisher="PublisherName",
-                offer="OfferName",
-                sku="ExampleSku",
-            ))
-        ```
-
         ## Import
 
         Shared Images can be imported using the `resource id`, e.g.
@@ -1136,33 +1117,6 @@ class SharedImage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Shared Image within a Shared Image Gallery.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_shared_image_gallery = azure.compute.SharedImageGallery("exampleSharedImageGallery",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            description="Shared images and things.",
-            tags={
-                "Hello": "There",
-                "World": "Example",
-            })
-        example_shared_image = azure.compute.SharedImage("exampleSharedImage",
-            gallery_name=example_shared_image_gallery.name,
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            os_type="Linux",
-            identifier=azure.compute.SharedImageIdentifierArgs(
-                publisher="PublisherName",
-                offer="OfferName",
-                sku="ExampleSku",
-            ))
-        ```
 
         ## Import
 
@@ -1237,11 +1191,7 @@ class SharedImage(pulumi.CustomResource):
                 raise TypeError("Missing required property 'gallery_name'")
             __props__.__dict__["gallery_name"] = gallery_name
             __props__.__dict__["hyper_v_generation"] = hyper_v_generation
-            if identifier is not None and not isinstance(identifier, SharedImageIdentifierArgs):
-                identifier = identifier or {}
-                def _setter(key, value):
-                    identifier[key] = value
-                SharedImageIdentifierArgs._configure(_setter, **identifier)
+            identifier = _utilities.configure(identifier, SharedImageIdentifierArgs, True)
             if identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'identifier'")
             __props__.__dict__["identifier"] = identifier
@@ -1255,11 +1205,7 @@ class SharedImage(pulumi.CustomResource):
                 raise TypeError("Missing required property 'os_type'")
             __props__.__dict__["os_type"] = os_type
             __props__.__dict__["privacy_statement_uri"] = privacy_statement_uri
-            if purchase_plan is not None and not isinstance(purchase_plan, SharedImagePurchasePlanArgs):
-                purchase_plan = purchase_plan or {}
-                def _setter(key, value):
-                    purchase_plan[key] = value
-                SharedImagePurchasePlanArgs._configure(_setter, **purchase_plan)
+            purchase_plan = _utilities.configure(purchase_plan, SharedImagePurchasePlanArgs, True)
             __props__.__dict__["purchase_plan"] = purchase_plan
             __props__.__dict__["release_note_uri"] = release_note_uri
             if resource_group_name is None and not opts.urn:

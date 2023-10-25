@@ -28,9 +28,9 @@ class ProviderPolicyArgs:
              _setter: Callable[[Any, Any], None],
              data: Optional[pulumi.Input[str]] = None,
              environment_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'environmentType' in kwargs:
+        if environment_type is None and 'environmentType' in kwargs:
             environment_type = kwargs['environmentType']
 
         if data is not None:

@@ -64,7 +64,7 @@ class ConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              antimalware: Optional[pulumi.Input['ConfigurationAntimalwareArgs']] = None,
              automation_account_enabled: Optional[pulumi.Input[bool]] = None,
              azure_security_baseline: Optional[pulumi.Input['ConfigurationAzureSecurityBaselineArgs']] = None,
@@ -77,23 +77,25 @@ class ConfigurationArgs:
              name: Optional[pulumi.Input[str]] = None,
              status_change_alert_enabled: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'automationAccountEnabled' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if automation_account_enabled is None and 'automationAccountEnabled' in kwargs:
             automation_account_enabled = kwargs['automationAccountEnabled']
-        if 'azureSecurityBaseline' in kwargs:
+        if azure_security_baseline is None and 'azureSecurityBaseline' in kwargs:
             azure_security_baseline = kwargs['azureSecurityBaseline']
-        if 'bootDiagnosticsEnabled' in kwargs:
+        if boot_diagnostics_enabled is None and 'bootDiagnosticsEnabled' in kwargs:
             boot_diagnostics_enabled = kwargs['bootDiagnosticsEnabled']
-        if 'defenderForCloudEnabled' in kwargs:
+        if defender_for_cloud_enabled is None and 'defenderForCloudEnabled' in kwargs:
             defender_for_cloud_enabled = kwargs['defenderForCloudEnabled']
-        if 'guestConfigurationEnabled' in kwargs:
+        if guest_configuration_enabled is None and 'guestConfigurationEnabled' in kwargs:
             guest_configuration_enabled = kwargs['guestConfigurationEnabled']
-        if 'logAnalyticsEnabled' in kwargs:
+        if log_analytics_enabled is None and 'logAnalyticsEnabled' in kwargs:
             log_analytics_enabled = kwargs['logAnalyticsEnabled']
-        if 'statusChangeAlertEnabled' in kwargs:
+        if status_change_alert_enabled is None and 'statusChangeAlertEnabled' in kwargs:
             status_change_alert_enabled = kwargs['statusChangeAlertEnabled']
 
         _setter("resource_group_name", resource_group_name)
@@ -343,23 +345,23 @@ class _ConfigurationState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              status_change_alert_enabled: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'automationAccountEnabled' in kwargs:
+        if automation_account_enabled is None and 'automationAccountEnabled' in kwargs:
             automation_account_enabled = kwargs['automationAccountEnabled']
-        if 'azureSecurityBaseline' in kwargs:
+        if azure_security_baseline is None and 'azureSecurityBaseline' in kwargs:
             azure_security_baseline = kwargs['azureSecurityBaseline']
-        if 'bootDiagnosticsEnabled' in kwargs:
+        if boot_diagnostics_enabled is None and 'bootDiagnosticsEnabled' in kwargs:
             boot_diagnostics_enabled = kwargs['bootDiagnosticsEnabled']
-        if 'defenderForCloudEnabled' in kwargs:
+        if defender_for_cloud_enabled is None and 'defenderForCloudEnabled' in kwargs:
             defender_for_cloud_enabled = kwargs['defenderForCloudEnabled']
-        if 'guestConfigurationEnabled' in kwargs:
+        if guest_configuration_enabled is None and 'guestConfigurationEnabled' in kwargs:
             guest_configuration_enabled = kwargs['guestConfigurationEnabled']
-        if 'logAnalyticsEnabled' in kwargs:
+        if log_analytics_enabled is None and 'logAnalyticsEnabled' in kwargs:
             log_analytics_enabled = kwargs['logAnalyticsEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'statusChangeAlertEnabled' in kwargs:
+        if status_change_alert_enabled is None and 'statusChangeAlertEnabled' in kwargs:
             status_change_alert_enabled = kwargs['statusChangeAlertEnabled']
 
         if antimalware is not None:
@@ -568,73 +570,6 @@ class Configuration(pulumi.CustomResource):
         """
         Manages an Automanage Configuration.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_configuration = azure.automanage.Configuration("exampleConfiguration",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            antimalware=azure.automanage.ConfigurationAntimalwareArgs(
-                exclusions=azure.automanage.ConfigurationAntimalwareExclusionsArgs(
-                    extensions="exe;dll",
-                    paths="C:\\\\Windows\\\\Temp;D:\\\\Temp",
-                    processes="svchost.exe;notepad.exe",
-                ),
-                real_time_protection_enabled=True,
-                scheduled_scan_enabled=True,
-                scheduled_scan_type="Quick",
-                scheduled_scan_day=1,
-                scheduled_scan_time_in_minutes=1339,
-            ),
-            azure_security_baseline=azure.automanage.ConfigurationAzureSecurityBaselineArgs(
-                assignment_type="ApplyAndAutoCorrect",
-            ),
-            automation_account_enabled=True,
-            backup=azure.automanage.ConfigurationBackupArgs(
-                policy_name="acctest-backup-policy-%d",
-                time_zone="UTC",
-                instant_rp_retention_range_in_days=2,
-                schedule_policy=azure.automanage.ConfigurationBackupSchedulePolicyArgs(
-                    schedule_run_frequency="Daily",
-                    schedule_run_days=[
-                        "Monday",
-                        "Tuesday",
-                    ],
-                    schedule_run_times=["12:00"],
-                    schedule_policy_type="SimpleSchedulePolicy",
-                ),
-                retention_policy=azure.automanage.ConfigurationBackupRetentionPolicyArgs(
-                    retention_policy_type="LongTermRetentionPolicy",
-                    daily_schedule=azure.automanage.ConfigurationBackupRetentionPolicyDailyScheduleArgs(
-                        retention_times=["12:00"],
-                        retention_duration=azure.automanage.ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArgs(
-                            count=7,
-                            duration_type="Days",
-                        ),
-                    ),
-                    weekly_schedule=azure.automanage.ConfigurationBackupRetentionPolicyWeeklyScheduleArgs(
-                        retention_times=["14:00"],
-                        retention_duration=azure.automanage.ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArgs(
-                            count=4,
-                            duration_type="Weeks",
-                        ),
-                    ),
-                ),
-            ),
-            boot_diagnostics_enabled=True,
-            defender_for_cloud_enabled=True,
-            guest_configuration_enabled=True,
-            log_analytics_enabled=True,
-            status_change_alert_enabled=True,
-            tags={
-                "env": "test",
-            })
-        ```
-
         ## Import
 
         Automanage Configuration can be imported using the `resource id`, e.g.
@@ -667,73 +602,6 @@ class Configuration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Automanage Configuration.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_configuration = azure.automanage.Configuration("exampleConfiguration",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            antimalware=azure.automanage.ConfigurationAntimalwareArgs(
-                exclusions=azure.automanage.ConfigurationAntimalwareExclusionsArgs(
-                    extensions="exe;dll",
-                    paths="C:\\\\Windows\\\\Temp;D:\\\\Temp",
-                    processes="svchost.exe;notepad.exe",
-                ),
-                real_time_protection_enabled=True,
-                scheduled_scan_enabled=True,
-                scheduled_scan_type="Quick",
-                scheduled_scan_day=1,
-                scheduled_scan_time_in_minutes=1339,
-            ),
-            azure_security_baseline=azure.automanage.ConfigurationAzureSecurityBaselineArgs(
-                assignment_type="ApplyAndAutoCorrect",
-            ),
-            automation_account_enabled=True,
-            backup=azure.automanage.ConfigurationBackupArgs(
-                policy_name="acctest-backup-policy-%d",
-                time_zone="UTC",
-                instant_rp_retention_range_in_days=2,
-                schedule_policy=azure.automanage.ConfigurationBackupSchedulePolicyArgs(
-                    schedule_run_frequency="Daily",
-                    schedule_run_days=[
-                        "Monday",
-                        "Tuesday",
-                    ],
-                    schedule_run_times=["12:00"],
-                    schedule_policy_type="SimpleSchedulePolicy",
-                ),
-                retention_policy=azure.automanage.ConfigurationBackupRetentionPolicyArgs(
-                    retention_policy_type="LongTermRetentionPolicy",
-                    daily_schedule=azure.automanage.ConfigurationBackupRetentionPolicyDailyScheduleArgs(
-                        retention_times=["12:00"],
-                        retention_duration=azure.automanage.ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArgs(
-                            count=7,
-                            duration_type="Days",
-                        ),
-                    ),
-                    weekly_schedule=azure.automanage.ConfigurationBackupRetentionPolicyWeeklyScheduleArgs(
-                        retention_times=["14:00"],
-                        retention_duration=azure.automanage.ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArgs(
-                            count=4,
-                            duration_type="Weeks",
-                        ),
-                    ),
-                ),
-            ),
-            boot_diagnostics_enabled=True,
-            defender_for_cloud_enabled=True,
-            guest_configuration_enabled=True,
-            log_analytics_enabled=True,
-            status_change_alert_enabled=True,
-            tags={
-                "env": "test",
-            })
-        ```
 
         ## Import
 
@@ -784,24 +652,12 @@ class Configuration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConfigurationArgs.__new__(ConfigurationArgs)
 
-            if antimalware is not None and not isinstance(antimalware, ConfigurationAntimalwareArgs):
-                antimalware = antimalware or {}
-                def _setter(key, value):
-                    antimalware[key] = value
-                ConfigurationAntimalwareArgs._configure(_setter, **antimalware)
+            antimalware = _utilities.configure(antimalware, ConfigurationAntimalwareArgs, True)
             __props__.__dict__["antimalware"] = antimalware
             __props__.__dict__["automation_account_enabled"] = automation_account_enabled
-            if azure_security_baseline is not None and not isinstance(azure_security_baseline, ConfigurationAzureSecurityBaselineArgs):
-                azure_security_baseline = azure_security_baseline or {}
-                def _setter(key, value):
-                    azure_security_baseline[key] = value
-                ConfigurationAzureSecurityBaselineArgs._configure(_setter, **azure_security_baseline)
+            azure_security_baseline = _utilities.configure(azure_security_baseline, ConfigurationAzureSecurityBaselineArgs, True)
             __props__.__dict__["azure_security_baseline"] = azure_security_baseline
-            if backup is not None and not isinstance(backup, ConfigurationBackupArgs):
-                backup = backup or {}
-                def _setter(key, value):
-                    backup[key] = value
-                ConfigurationBackupArgs._configure(_setter, **backup)
+            backup = _utilities.configure(backup, ConfigurationBackupArgs, True)
             __props__.__dict__["backup"] = backup
             __props__.__dict__["boot_diagnostics_enabled"] = boot_diagnostics_enabled
             __props__.__dict__["defender_for_cloud_enabled"] = defender_for_cloud_enabled

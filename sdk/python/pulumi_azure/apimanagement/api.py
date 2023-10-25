@@ -103,9 +103,9 @@ class ApiArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_management_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             revision: pulumi.Input[str],
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             revision: Optional[pulumi.Input[str]] = None,
              api_type: Optional[pulumi.Input[str]] = None,
              contact: Optional[pulumi.Input['ApiContactArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -127,39 +127,45 @@ class ApiArgs:
              version: Optional[pulumi.Input[str]] = None,
              version_description: Optional[pulumi.Input[str]] = None,
              version_set_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'resourceGroupName' in kwargs:
+        if api_management_name is None:
+            raise TypeError("Missing 'api_management_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'apiType' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if revision is None:
+            raise TypeError("Missing 'revision' argument")
+        if api_type is None and 'apiType' in kwargs:
             api_type = kwargs['apiType']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'import' in kwargs:
+        if import_ is None and 'import' in kwargs:
             import_ = kwargs['import']
-        if 'oauth2Authorization' in kwargs:
+        if oauth2_authorization is None and 'oauth2Authorization' in kwargs:
             oauth2_authorization = kwargs['oauth2Authorization']
-        if 'openidAuthentication' in kwargs:
+        if openid_authentication is None and 'openidAuthentication' in kwargs:
             openid_authentication = kwargs['openidAuthentication']
-        if 'revisionDescription' in kwargs:
+        if revision_description is None and 'revisionDescription' in kwargs:
             revision_description = kwargs['revisionDescription']
-        if 'serviceUrl' in kwargs:
+        if service_url is None and 'serviceUrl' in kwargs:
             service_url = kwargs['serviceUrl']
-        if 'soapPassThrough' in kwargs:
+        if soap_pass_through is None and 'soapPassThrough' in kwargs:
             soap_pass_through = kwargs['soapPassThrough']
-        if 'sourceApiId' in kwargs:
+        if source_api_id is None and 'sourceApiId' in kwargs:
             source_api_id = kwargs['sourceApiId']
-        if 'subscriptionKeyParameterNames' in kwargs:
+        if subscription_key_parameter_names is None and 'subscriptionKeyParameterNames' in kwargs:
             subscription_key_parameter_names = kwargs['subscriptionKeyParameterNames']
-        if 'subscriptionRequired' in kwargs:
+        if subscription_required is None and 'subscriptionRequired' in kwargs:
             subscription_required = kwargs['subscriptionRequired']
-        if 'termsOfServiceUrl' in kwargs:
+        if terms_of_service_url is None and 'termsOfServiceUrl' in kwargs:
             terms_of_service_url = kwargs['termsOfServiceUrl']
-        if 'versionDescription' in kwargs:
+        if version_description is None and 'versionDescription' in kwargs:
             version_description = kwargs['versionDescription']
-        if 'versionSetId' in kwargs:
+        if version_set_id is None and 'versionSetId' in kwargs:
             version_set_id = kwargs['versionSetId']
 
         _setter("api_management_name", api_management_name)
@@ -631,43 +637,43 @@ class _ApiState:
              version: Optional[pulumi.Input[str]] = None,
              version_description: Optional[pulumi.Input[str]] = None,
              version_set_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'apiType' in kwargs:
+        if api_type is None and 'apiType' in kwargs:
             api_type = kwargs['apiType']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'import' in kwargs:
+        if import_ is None and 'import' in kwargs:
             import_ = kwargs['import']
-        if 'isCurrent' in kwargs:
+        if is_current is None and 'isCurrent' in kwargs:
             is_current = kwargs['isCurrent']
-        if 'isOnline' in kwargs:
+        if is_online is None and 'isOnline' in kwargs:
             is_online = kwargs['isOnline']
-        if 'oauth2Authorization' in kwargs:
+        if oauth2_authorization is None and 'oauth2Authorization' in kwargs:
             oauth2_authorization = kwargs['oauth2Authorization']
-        if 'openidAuthentication' in kwargs:
+        if openid_authentication is None and 'openidAuthentication' in kwargs:
             openid_authentication = kwargs['openidAuthentication']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'revisionDescription' in kwargs:
+        if revision_description is None and 'revisionDescription' in kwargs:
             revision_description = kwargs['revisionDescription']
-        if 'serviceUrl' in kwargs:
+        if service_url is None and 'serviceUrl' in kwargs:
             service_url = kwargs['serviceUrl']
-        if 'soapPassThrough' in kwargs:
+        if soap_pass_through is None and 'soapPassThrough' in kwargs:
             soap_pass_through = kwargs['soapPassThrough']
-        if 'sourceApiId' in kwargs:
+        if source_api_id is None and 'sourceApiId' in kwargs:
             source_api_id = kwargs['sourceApiId']
-        if 'subscriptionKeyParameterNames' in kwargs:
+        if subscription_key_parameter_names is None and 'subscriptionKeyParameterNames' in kwargs:
             subscription_key_parameter_names = kwargs['subscriptionKeyParameterNames']
-        if 'subscriptionRequired' in kwargs:
+        if subscription_required is None and 'subscriptionRequired' in kwargs:
             subscription_required = kwargs['subscriptionRequired']
-        if 'termsOfServiceUrl' in kwargs:
+        if terms_of_service_url is None and 'termsOfServiceUrl' in kwargs:
             terms_of_service_url = kwargs['termsOfServiceUrl']
-        if 'versionDescription' in kwargs:
+        if version_description is None and 'versionDescription' in kwargs:
             version_description = kwargs['versionDescription']
-        if 'versionSetId' in kwargs:
+        if version_set_id is None and 'versionSetId' in kwargs:
             version_set_id = kwargs['versionSetId']
 
         if api_management_name is not None:
@@ -1081,32 +1087,6 @@ class Api(pulumi.CustomResource):
         """
         Manages an API within an API Management Service.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            publisher_name="My Company",
-            publisher_email="company@exmaple.com",
-            sku_name="Developer_1")
-        example_api = azure.apimanagement.Api("exampleApi",
-            resource_group_name=example_resource_group.name,
-            api_management_name=example_service.name,
-            revision="1",
-            display_name="Example API",
-            path="example",
-            protocols=["https"],
-            import_=azure.apimanagement.ApiImportArgs(
-                content_format="swagger-link-json",
-                content_value="http://conferenceapi.azurewebsites.net/?format=json",
-            ))
-        ```
-
         ## Import
 
         API Management API's can be imported using the `resource id`, e.g.
@@ -1156,32 +1136,6 @@ class Api(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an API within an API Management Service.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            publisher_name="My Company",
-            publisher_email="company@exmaple.com",
-            sku_name="Developer_1")
-        example_api = azure.apimanagement.Api("exampleApi",
-            resource_group_name=example_resource_group.name,
-            api_management_name=example_service.name,
-            revision="1",
-            display_name="Example API",
-            path="example",
-            protocols=["https"],
-            import_=azure.apimanagement.ApiImportArgs(
-                content_format="swagger-link-json",
-                content_value="http://conferenceapi.azurewebsites.net/?format=json",
-            ))
-        ```
 
         ## Import
 
@@ -1247,38 +1201,18 @@ class Api(pulumi.CustomResource):
                 raise TypeError("Missing required property 'api_management_name'")
             __props__.__dict__["api_management_name"] = api_management_name
             __props__.__dict__["api_type"] = api_type
-            if contact is not None and not isinstance(contact, ApiContactArgs):
-                contact = contact or {}
-                def _setter(key, value):
-                    contact[key] = value
-                ApiContactArgs._configure(_setter, **contact)
+            contact = _utilities.configure(contact, ApiContactArgs, True)
             __props__.__dict__["contact"] = contact
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name
-            if import_ is not None and not isinstance(import_, ApiImportArgs):
-                import_ = import_ or {}
-                def _setter(key, value):
-                    import_[key] = value
-                ApiImportArgs._configure(_setter, **import_)
+            import_ = _utilities.configure(import_, ApiImportArgs, True)
             __props__.__dict__["import_"] = import_
-            if license is not None and not isinstance(license, ApiLicenseArgs):
-                license = license or {}
-                def _setter(key, value):
-                    license[key] = value
-                ApiLicenseArgs._configure(_setter, **license)
+            license = _utilities.configure(license, ApiLicenseArgs, True)
             __props__.__dict__["license"] = license
             __props__.__dict__["name"] = name
-            if oauth2_authorization is not None and not isinstance(oauth2_authorization, ApiOauth2AuthorizationArgs):
-                oauth2_authorization = oauth2_authorization or {}
-                def _setter(key, value):
-                    oauth2_authorization[key] = value
-                ApiOauth2AuthorizationArgs._configure(_setter, **oauth2_authorization)
+            oauth2_authorization = _utilities.configure(oauth2_authorization, ApiOauth2AuthorizationArgs, True)
             __props__.__dict__["oauth2_authorization"] = oauth2_authorization
-            if openid_authentication is not None and not isinstance(openid_authentication, ApiOpenidAuthenticationArgs):
-                openid_authentication = openid_authentication or {}
-                def _setter(key, value):
-                    openid_authentication[key] = value
-                ApiOpenidAuthenticationArgs._configure(_setter, **openid_authentication)
+            openid_authentication = _utilities.configure(openid_authentication, ApiOpenidAuthenticationArgs, True)
             __props__.__dict__["openid_authentication"] = openid_authentication
             __props__.__dict__["path"] = path
             __props__.__dict__["protocols"] = protocols
@@ -1292,11 +1226,7 @@ class Api(pulumi.CustomResource):
             __props__.__dict__["service_url"] = service_url
             __props__.__dict__["soap_pass_through"] = soap_pass_through
             __props__.__dict__["source_api_id"] = source_api_id
-            if subscription_key_parameter_names is not None and not isinstance(subscription_key_parameter_names, ApiSubscriptionKeyParameterNamesArgs):
-                subscription_key_parameter_names = subscription_key_parameter_names or {}
-                def _setter(key, value):
-                    subscription_key_parameter_names[key] = value
-                ApiSubscriptionKeyParameterNamesArgs._configure(_setter, **subscription_key_parameter_names)
+            subscription_key_parameter_names = _utilities.configure(subscription_key_parameter_names, ApiSubscriptionKeyParameterNamesArgs, True)
             __props__.__dict__["subscription_key_parameter_names"] = subscription_key_parameter_names
             __props__.__dict__["subscription_required"] = subscription_required
             __props__.__dict__["terms_of_service_url"] = terms_of_service_url

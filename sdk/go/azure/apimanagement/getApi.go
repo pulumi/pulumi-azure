@@ -13,36 +13,6 @@ import (
 )
 
 // Use this data source to access information about an existing API Management API.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := apimanagement.LookupApi(ctx, &apimanagement.LookupApiArgs{
-//				Name:              "search-api",
-//				ApiManagementName: "search-api-management",
-//				ResourceGroupName: "search-service",
-//				Revision:          "2",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("apiManagementApiId", example.Id)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupApi(ctx *pulumi.Context, args *LookupApiArgs, opts ...pulumi.InvokeOption) (*LookupApiResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupApiResult

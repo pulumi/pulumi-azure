@@ -58,9 +58,9 @@ class LinkedServiceWebArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             authentication_type: pulumi.Input[str],
-             data_factory_id: pulumi.Input[str],
-             url: pulumi.Input[str],
+             authentication_type: Optional[pulumi.Input[str]] = None,
+             data_factory_id: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
              additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -69,15 +69,21 @@ class LinkedServiceWebArgs:
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              password: Optional[pulumi.Input[str]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'authenticationType' in kwargs:
+        if authentication_type is None and 'authenticationType' in kwargs:
             authentication_type = kwargs['authenticationType']
-        if 'dataFactoryId' in kwargs:
+        if authentication_type is None:
+            raise TypeError("Missing 'authentication_type' argument")
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'additionalProperties' in kwargs:
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'integrationRuntimeName' in kwargs:
+        if integration_runtime_name is None and 'integrationRuntimeName' in kwargs:
             integration_runtime_name = kwargs['integrationRuntimeName']
 
         _setter("authentication_type", authentication_type)
@@ -293,15 +299,15 @@ class _LinkedServiceWebState:
              password: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'additionalProperties' in kwargs:
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'authenticationType' in kwargs:
+        if authentication_type is None and 'authenticationType' in kwargs:
             authentication_type = kwargs['authenticationType']
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'integrationRuntimeName' in kwargs:
+        if integration_runtime_name is None and 'integrationRuntimeName' in kwargs:
             integration_runtime_name = kwargs['integrationRuntimeName']
 
         if additional_properties is not None:
@@ -482,22 +488,6 @@ class LinkedServiceWeb(pulumi.CustomResource):
         """
         Manages a Linked Service (connection) between a Web Server and Azure Data Factory.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_linked_service_web = azure.datafactory.LinkedServiceWeb("exampleLinkedServiceWeb",
-            data_factory_id=example_factory.id,
-            authentication_type="Anonymous",
-            url="http://www.bing.com")
-        ```
-
         ## Import
 
         Data Factory Linked Service's can be imported using the `resource id`, e.g.
@@ -530,22 +520,6 @@ class LinkedServiceWeb(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Linked Service (connection) between a Web Server and Azure Data Factory.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_linked_service_web = azure.datafactory.LinkedServiceWeb("exampleLinkedServiceWeb",
-            data_factory_id=example_factory.id,
-            authentication_type="Anonymous",
-            url="http://www.bing.com")
-        ```
 
         ## Import
 

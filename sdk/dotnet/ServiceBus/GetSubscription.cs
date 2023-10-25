@@ -13,66 +13,12 @@ namespace Pulumi.Azure.ServiceBus
     {
         /// <summary>
         /// Use this data source to access information about an existing ServiceBus Subscription.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.ServiceBus.GetSubscription.Invoke(new()
-        ///     {
-        ///         Name = "examplesubscription",
-        ///         TopicId = "exampletopic",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["servicebusSubscription"] = data.Azurerm_servicebus_namespace.Example,
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetSubscriptionResult> InvokeAsync(GetSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionResult>("azure:servicebus/getSubscription:getSubscription", args ?? new GetSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing ServiceBus Subscription.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.ServiceBus.GetSubscription.Invoke(new()
-        ///     {
-        ///         Name = "examplesubscription",
-        ///         TopicId = "exampletopic",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["servicebusSubscription"] = data.Azurerm_servicebus_namespace.Example,
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetSubscriptionResult> Invoke(GetSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubscriptionResult>("azure:servicebus/getSubscription:getSubscription", args ?? new GetSubscriptionInvokeArgs(), options.WithDefaults());

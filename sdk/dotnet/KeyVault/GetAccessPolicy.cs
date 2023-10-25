@@ -13,64 +13,12 @@ namespace Pulumi.Azure.KeyVault
     {
         /// <summary>
         /// Use this data source to access information about the permissions from the Management Key Vault Templates.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var contributor = Azure.KeyVault.GetAccessPolicy.Invoke(new()
-        ///     {
-        ///         Name = "Key Management",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["accessPolicyKeyPermissions"] = contributor.Apply(getAccessPolicyResult =&gt; getAccessPolicyResult.KeyPermissions),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAccessPolicyResult> InvokeAsync(GetAccessPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccessPolicyResult>("azure:keyvault/getAccessPolicy:getAccessPolicy", args ?? new GetAccessPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about the permissions from the Management Key Vault Templates.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var contributor = Azure.KeyVault.GetAccessPolicy.Invoke(new()
-        ///     {
-        ///         Name = "Key Management",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["accessPolicyKeyPermissions"] = contributor.Apply(getAccessPolicyResult =&gt; getAccessPolicyResult.KeyPermissions),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetAccessPolicyResult> Invoke(GetAccessPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessPolicyResult>("azure:keyvault/getAccessPolicy:getAccessPolicy", args ?? new GetAccessPolicyInvokeArgs(), options.WithDefaults());

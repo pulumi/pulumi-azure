@@ -12,47 +12,6 @@ namespace Pulumi.Azure.PostgreSql
     /// <summary>
     /// Manages a PostgreSQL Database within a PostgreSQL Server
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleServer = new Azure.PostgreSql.Server("exampleServer", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         SkuName = "B_Gen5_2",
-    ///         StorageMb = 5120,
-    ///         BackupRetentionDays = 7,
-    ///         GeoRedundantBackupEnabled = false,
-    ///         AutoGrowEnabled = true,
-    ///         AdministratorLogin = "psqladmin",
-    ///         AdministratorLoginPassword = "H@Sh1CoR3!",
-    ///         Version = "9.5",
-    ///         SslEnforcementEnabled = true,
-    ///     });
-    /// 
-    ///     var exampleDatabase = new Azure.PostgreSql.Database("exampleDatabase", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         ServerName = exampleServer.Name,
-    ///         Charset = "UTF8",
-    ///         Collation = "English_United States.1252",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// PostgreSQL Database's can be imported using the `resource id`, e.g.

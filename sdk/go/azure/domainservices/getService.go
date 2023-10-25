@@ -15,33 +15,6 @@ import (
 // Gets information about an Active Directory Domain Service.
 //
 // > **Supported Modes:** At present this data source only supports **User Forest** mode and _not_ **Resource Forest** mode. [Read more](https://docs.microsoft.com/azure/active-directory-domain-services/concepts-resource-forest) about the different operation modes for this service.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/domainservices"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := domainservices.LookupService(ctx, &domainservices.LookupServiceArgs{
-//				Name:              "example-aadds",
-//				ResourceGroupName: "example-aadds-rg",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.InvokeOption) (*LookupServiceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServiceResult

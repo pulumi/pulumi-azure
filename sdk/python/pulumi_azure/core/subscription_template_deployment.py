@@ -51,15 +51,15 @@ class SubscriptionTemplateDeploymentArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              template_content: Optional[pulumi.Input[str]] = None,
              template_spec_version_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'debugLevel' in kwargs:
+        if debug_level is None and 'debugLevel' in kwargs:
             debug_level = kwargs['debugLevel']
-        if 'parametersContent' in kwargs:
+        if parameters_content is None and 'parametersContent' in kwargs:
             parameters_content = kwargs['parametersContent']
-        if 'templateContent' in kwargs:
+        if template_content is None and 'templateContent' in kwargs:
             template_content = kwargs['templateContent']
-        if 'templateSpecVersionId' in kwargs:
+        if template_spec_version_id is None and 'templateSpecVersionId' in kwargs:
             template_spec_version_id = kwargs['templateSpecVersionId']
 
         if debug_level is not None:
@@ -206,17 +206,17 @@ class _SubscriptionTemplateDeploymentState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              template_content: Optional[pulumi.Input[str]] = None,
              template_spec_version_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'debugLevel' in kwargs:
+        if debug_level is None and 'debugLevel' in kwargs:
             debug_level = kwargs['debugLevel']
-        if 'outputContent' in kwargs:
+        if output_content is None and 'outputContent' in kwargs:
             output_content = kwargs['outputContent']
-        if 'parametersContent' in kwargs:
+        if parameters_content is None and 'parametersContent' in kwargs:
             parameters_content = kwargs['parametersContent']
-        if 'templateContent' in kwargs:
+        if template_content is None and 'templateContent' in kwargs:
             template_content = kwargs['templateContent']
-        if 'templateSpecVersionId' in kwargs:
+        if template_spec_version_id is None and 'templateSpecVersionId' in kwargs:
             template_spec_version_id = kwargs['templateSpecVersionId']
 
         if debug_level is not None:
@@ -349,33 +349,6 @@ class SubscriptionTemplateDeployment(pulumi.CustomResource):
         """
         Manages a Subscription Template Deployment.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.SubscriptionTemplateDeployment("example",
-            location="West Europe",
-            template_content=\"\"\" {
-           "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-           "contentVersion": "1.0.0.0",
-           "parameters": {},
-           "variables": {},
-           "resources": [
-             {
-               "type": "Microsoft.Resources/resourceGroups",
-               "apiVersion": "2018-05-01",
-               "location": "West Europe",
-               "name": "some-resource-group",
-               "properties": {}
-             }
-           ]
-         }
-         
-        \"\"\")
-        ```
-
         ## Import
 
         Subscription Template Deployments can be imported using the `resource id`, e.g.
@@ -402,33 +375,6 @@ class SubscriptionTemplateDeployment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Subscription Template Deployment.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.SubscriptionTemplateDeployment("example",
-            location="West Europe",
-            template_content=\"\"\" {
-           "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-           "contentVersion": "1.0.0.0",
-           "parameters": {},
-           "variables": {},
-           "resources": [
-             {
-               "type": "Microsoft.Resources/resourceGroups",
-               "apiVersion": "2018-05-01",
-               "location": "West Europe",
-               "name": "some-resource-group",
-               "properties": {}
-             }
-           ]
-         }
-         
-        \"\"\")
-        ```
 
         ## Import
 

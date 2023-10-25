@@ -45,26 +45,28 @@ class DatabaseExtendedAuditingPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database_id: pulumi.Input[str],
+             database_id: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              log_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
              retention_in_days: Optional[pulumi.Input[int]] = None,
              storage_account_access_key: Optional[pulumi.Input[str]] = None,
              storage_account_access_key_is_secondary: Optional[pulumi.Input[bool]] = None,
              storage_endpoint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'databaseId' in kwargs:
+        if database_id is None and 'databaseId' in kwargs:
             database_id = kwargs['databaseId']
-        if 'logMonitoringEnabled' in kwargs:
+        if database_id is None:
+            raise TypeError("Missing 'database_id' argument")
+        if log_monitoring_enabled is None and 'logMonitoringEnabled' in kwargs:
             log_monitoring_enabled = kwargs['logMonitoringEnabled']
-        if 'retentionInDays' in kwargs:
+        if retention_in_days is None and 'retentionInDays' in kwargs:
             retention_in_days = kwargs['retentionInDays']
-        if 'storageAccountAccessKey' in kwargs:
+        if storage_account_access_key is None and 'storageAccountAccessKey' in kwargs:
             storage_account_access_key = kwargs['storageAccountAccessKey']
-        if 'storageAccountAccessKeyIsSecondary' in kwargs:
+        if storage_account_access_key_is_secondary is None and 'storageAccountAccessKeyIsSecondary' in kwargs:
             storage_account_access_key_is_secondary = kwargs['storageAccountAccessKeyIsSecondary']
-        if 'storageEndpoint' in kwargs:
+        if storage_endpoint is None and 'storageEndpoint' in kwargs:
             storage_endpoint = kwargs['storageEndpoint']
 
         _setter("database_id", database_id)
@@ -206,19 +208,19 @@ class _DatabaseExtendedAuditingPolicyState:
              storage_account_access_key: Optional[pulumi.Input[str]] = None,
              storage_account_access_key_is_secondary: Optional[pulumi.Input[bool]] = None,
              storage_endpoint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'databaseId' in kwargs:
+        if database_id is None and 'databaseId' in kwargs:
             database_id = kwargs['databaseId']
-        if 'logMonitoringEnabled' in kwargs:
+        if log_monitoring_enabled is None and 'logMonitoringEnabled' in kwargs:
             log_monitoring_enabled = kwargs['logMonitoringEnabled']
-        if 'retentionInDays' in kwargs:
+        if retention_in_days is None and 'retentionInDays' in kwargs:
             retention_in_days = kwargs['retentionInDays']
-        if 'storageAccountAccessKey' in kwargs:
+        if storage_account_access_key is None and 'storageAccountAccessKey' in kwargs:
             storage_account_access_key = kwargs['storageAccountAccessKey']
-        if 'storageAccountAccessKeyIsSecondary' in kwargs:
+        if storage_account_access_key_is_secondary is None and 'storageAccountAccessKeyIsSecondary' in kwargs:
             storage_account_access_key_is_secondary = kwargs['storageAccountAccessKeyIsSecondary']
-        if 'storageEndpoint' in kwargs:
+        if storage_endpoint is None and 'storageEndpoint' in kwargs:
             storage_endpoint = kwargs['storageEndpoint']
 
         if database_id is not None:
@@ -336,33 +338,6 @@ class DatabaseExtendedAuditingPolicy(pulumi.CustomResource):
         """
         Manages a MS SQL Database Extended Auditing Policy.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_server = azure.mssql.Server("exampleServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            version="12.0",
-            administrator_login="missadministrator",
-            administrator_login_password="AdminPassword123!")
-        example_database = azure.mssql.Database("exampleDatabase", server_id=example_server.id)
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_database_extended_auditing_policy = azure.mssql.DatabaseExtendedAuditingPolicy("exampleDatabaseExtendedAuditingPolicy",
-            database_id=example_database.id,
-            storage_endpoint=example_account.primary_blob_endpoint,
-            storage_account_access_key=example_account.primary_access_key,
-            storage_account_access_key_is_secondary=False,
-            retention_in_days=6)
-        ```
-
         ## Import
 
         MS SQL Database Extended Auditing Policies can be imported using the `resource id`, e.g.
@@ -390,33 +365,6 @@ class DatabaseExtendedAuditingPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a MS SQL Database Extended Auditing Policy.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_server = azure.mssql.Server("exampleServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            version="12.0",
-            administrator_login="missadministrator",
-            administrator_login_password="AdminPassword123!")
-        example_database = azure.mssql.Database("exampleDatabase", server_id=example_server.id)
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_database_extended_auditing_policy = azure.mssql.DatabaseExtendedAuditingPolicy("exampleDatabaseExtendedAuditingPolicy",
-            database_id=example_database.id,
-            storage_endpoint=example_account.primary_blob_endpoint,
-            storage_account_access_key=example_account.primary_access_key,
-            storage_account_access_key_is_secondary=False,
-            retention_in_days=6)
-        ```
 
         ## Import
 

@@ -7,33 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Container Registry Webhook.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
- * const acr = new azure.containerservice.Registry("acr", {
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     sku: "Standard",
- *     adminEnabled: false,
- * });
- * const webhook = new azure.containerservice.RegistryWebhook("webhook", {
- *     resourceGroupName: example.name,
- *     registryName: acr.name,
- *     location: example.location,
- *     serviceUri: "https://mywebhookreceiver.example/mytag",
- *     status: "enabled",
- *     scope: "mytag:*",
- *     actions: ["push"],
- *     customHeaders: {
- *         "Content-Type": "application/json",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Container Registry Webhooks can be imported using the `resource id`, e.g.

@@ -43,16 +43,18 @@ class SharedImageGalleryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              sharing: Optional[pulumi.Input['SharedImageGallerySharingArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("resource_group_name", resource_group_name)
         if description is not None:
@@ -179,11 +181,11 @@ class _SharedImageGalleryState:
              sharing: Optional[pulumi.Input['SharedImageGallerySharingArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              unique_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'uniqueName' in kwargs:
+        if unique_name is None and 'uniqueName' in kwargs:
             unique_name = kwargs['uniqueName']
 
         if description is not None:
@@ -301,23 +303,6 @@ class SharedImageGallery(pulumi.CustomResource):
         """
         Manages a Shared Image Gallery.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_shared_image_gallery = azure.compute.SharedImageGallery("exampleSharedImageGallery",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            description="Shared images and things.",
-            tags={
-                "Hello": "There",
-                "World": "Example",
-            })
-        ```
-
         ## Import
 
         Shared Image Galleries can be imported using the `resource id`, e.g.
@@ -343,23 +328,6 @@ class SharedImageGallery(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Shared Image Gallery.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_shared_image_gallery = azure.compute.SharedImageGallery("exampleSharedImageGallery",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            description="Shared images and things.",
-            tags={
-                "Hello": "There",
-                "World": "Example",
-            })
-        ```
 
         ## Import
 
@@ -409,11 +377,7 @@ class SharedImageGallery(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if sharing is not None and not isinstance(sharing, SharedImageGallerySharingArgs):
-                sharing = sharing or {}
-                def _setter(key, value):
-                    sharing[key] = value
-                SharedImageGallerySharingArgs._configure(_setter, **sharing)
+            sharing = _utilities.configure(sharing, SharedImageGallerySharingArgs, True)
             __props__.__dict__["sharing"] = sharing
             __props__.__dict__["tags"] = tags
             __props__.__dict__["unique_name"] = None

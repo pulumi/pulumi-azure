@@ -36,12 +36,16 @@ class ConfigurationConfigFileArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             content: pulumi.Input[str],
-             virtual_path: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             content: Optional[pulumi.Input[str]] = None,
+             virtual_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'virtualPath' in kwargs:
+        if content is None:
+            raise TypeError("Missing 'content' argument")
+        if virtual_path is None and 'virtualPath' in kwargs:
             virtual_path = kwargs['virtualPath']
+        if virtual_path is None:
+            raise TypeError("Missing 'virtual_path' argument")
 
         _setter("content", content)
         _setter("virtual_path", virtual_path)
@@ -88,12 +92,16 @@ class ConfigurationProtectedFileArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             content: pulumi.Input[str],
-             virtual_path: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             content: Optional[pulumi.Input[str]] = None,
+             virtual_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'virtualPath' in kwargs:
+        if content is None:
+            raise TypeError("Missing 'content' argument")
+        if virtual_path is None and 'virtualPath' in kwargs:
             virtual_path = kwargs['virtualPath']
+        if virtual_path is None:
+            raise TypeError("Missing 'virtual_path' argument")
 
         _setter("content", content)
         _setter("virtual_path", virtual_path)
@@ -143,17 +151,23 @@ class DeploymentFrontendPrivateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             allocation_method: pulumi.Input[str],
-             ip_address: pulumi.Input[str],
-             subnet_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             allocation_method: Optional[pulumi.Input[str]] = None,
+             ip_address: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'allocationMethod' in kwargs:
+        if allocation_method is None and 'allocationMethod' in kwargs:
             allocation_method = kwargs['allocationMethod']
-        if 'ipAddress' in kwargs:
+        if allocation_method is None:
+            raise TypeError("Missing 'allocation_method' argument")
+        if ip_address is None and 'ipAddress' in kwargs:
             ip_address = kwargs['ipAddress']
-        if 'subnetId' in kwargs:
+        if ip_address is None:
+            raise TypeError("Missing 'ip_address' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
 
         _setter("allocation_method", allocation_method)
         _setter("ip_address", ip_address)
@@ -211,9 +225,9 @@ class DeploymentFrontendPublicArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'ipAddresses' in kwargs:
+        if ip_addresses is None and 'ipAddresses' in kwargs:
             ip_addresses = kwargs['ipAddresses']
 
         if ip_addresses is not None:
@@ -253,17 +267,19 @@ class DeploymentIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -336,9 +352,9 @@ class DeploymentLoggingStorageAccountArgs:
              _setter: Callable[[Any, Any], None],
              container_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'containerName' in kwargs:
+        if container_name is None and 'containerName' in kwargs:
             container_name = kwargs['containerName']
 
         if container_name is not None:
@@ -385,11 +401,13 @@ class DeploymentNetworkInterfaceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             subnet_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
 
         _setter("subnet_id", subnet_id)
 

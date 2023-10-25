@@ -12,40 +12,6 @@ namespace Pulumi.Azure.ApiManagement
     /// <summary>
     /// Manages a API Management Notification Recipient Email.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         PublisherName = "My Company",
-    ///         PublisherEmail = "company@terraform.io",
-    ///         SkuName = "Developer_1",
-    ///     });
-    /// 
-    ///     var exampleNotificationRecipientEmail = new Azure.ApiManagement.NotificationRecipientEmail("exampleNotificationRecipientEmail", new()
-    ///     {
-    ///         ApiManagementId = exampleService.Id,
-    ///         NotificationType = "AccountClosedPublisher",
-    ///         Email = "foo@bar.com",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// API Management Notification Recipient Emails can be imported using the `resource id`, e.g.

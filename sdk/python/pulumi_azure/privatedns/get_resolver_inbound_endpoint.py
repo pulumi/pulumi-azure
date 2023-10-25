@@ -105,16 +105,6 @@ def get_resolver_inbound_endpoint(name: Optional[str] = None,
     """
     Gets information about an existing Private DNS Resolver Inbound Endpoint.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.privatedns.get_resolver_inbound_endpoint(name="example-drie",
-        private_dns_resolver_id="example-private-dns-resolver-id")
-    ```
-
 
     :param str name: Name of the Private DNS Resolver Inbound Endpoint.
     :param str private_dns_resolver_id: ID of the Private DNS Resolver.
@@ -140,16 +130,6 @@ def get_resolver_inbound_endpoint_output(name: Optional[pulumi.Input[str]] = Non
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverInboundEndpointResult]:
     """
     Gets information about an existing Private DNS Resolver Inbound Endpoint.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.privatedns.get_resolver_inbound_endpoint(name="example-drie",
-        private_dns_resolver_id="example-private-dns-resolver-id")
-    ```
 
 
     :param str name: Name of the Private DNS Resolver Inbound Endpoint.

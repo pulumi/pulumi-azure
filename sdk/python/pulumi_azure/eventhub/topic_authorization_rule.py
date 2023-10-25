@@ -40,15 +40,17 @@ class TopicAuthorizationRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             topic_id: pulumi.Input[str],
+             topic_id: Optional[pulumi.Input[str]] = None,
              listen: Optional[pulumi.Input[bool]] = None,
              manage: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              send: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'topicId' in kwargs:
+        if topic_id is None and 'topicId' in kwargs:
             topic_id = kwargs['topicId']
+        if topic_id is None:
+            raise TypeError("Missing 'topic_id' argument")
 
         _setter("topic_id", topic_id)
         if listen is not None:
@@ -181,21 +183,21 @@ class _TopicAuthorizationRuleState:
              secondary_key: Optional[pulumi.Input[str]] = None,
              send: Optional[pulumi.Input[bool]] = None,
              topic_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'primaryConnectionString' in kwargs:
+        if primary_connection_string is None and 'primaryConnectionString' in kwargs:
             primary_connection_string = kwargs['primaryConnectionString']
-        if 'primaryConnectionStringAlias' in kwargs:
+        if primary_connection_string_alias is None and 'primaryConnectionStringAlias' in kwargs:
             primary_connection_string_alias = kwargs['primaryConnectionStringAlias']
-        if 'primaryKey' in kwargs:
+        if primary_key is None and 'primaryKey' in kwargs:
             primary_key = kwargs['primaryKey']
-        if 'secondaryConnectionString' in kwargs:
+        if secondary_connection_string is None and 'secondaryConnectionString' in kwargs:
             secondary_connection_string = kwargs['secondaryConnectionString']
-        if 'secondaryConnectionStringAlias' in kwargs:
+        if secondary_connection_string_alias is None and 'secondaryConnectionStringAlias' in kwargs:
             secondary_connection_string_alias = kwargs['secondaryConnectionStringAlias']
-        if 'secondaryKey' in kwargs:
+        if secondary_key is None and 'secondaryKey' in kwargs:
             secondary_key = kwargs['secondaryKey']
-        if 'topicId' in kwargs:
+        if topic_id is None and 'topicId' in kwargs:
             topic_id = kwargs['topicId']
 
         if listen is not None:
@@ -375,28 +377,6 @@ class TopicAuthorizationRule(pulumi.CustomResource):
         """
         Manages a ServiceBus Topic authorization Rule within a ServiceBus Topic.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_namespace = azure.servicebus.Namespace("exampleNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard",
-            tags={
-                "source": "example",
-            })
-        example_topic = azure.servicebus.Topic("exampleTopic", namespace_id=example_namespace.id)
-        example_topic_authorization_rule = azure.servicebus.TopicAuthorizationRule("exampleTopicAuthorizationRule",
-            topic_id=example_topic.id,
-            listen=True,
-            send=False,
-            manage=False)
-        ```
-
         ## Import
 
         ServiceBus Topic authorization rules can be imported using the `resource id`, e.g.
@@ -423,28 +403,6 @@ class TopicAuthorizationRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a ServiceBus Topic authorization Rule within a ServiceBus Topic.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_namespace = azure.servicebus.Namespace("exampleNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard",
-            tags={
-                "source": "example",
-            })
-        example_topic = azure.servicebus.Topic("exampleTopic", namespace_id=example_namespace.id)
-        example_topic_authorization_rule = azure.servicebus.TopicAuthorizationRule("exampleTopicAuthorizationRule",
-            topic_id=example_topic.id,
-            listen=True,
-            send=False,
-            manage=False)
-        ```
 
         ## Import
 

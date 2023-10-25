@@ -15,61 +15,6 @@ import (
 
 // Manages a Palo Alto Local Rulestack Rule.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/paloalto"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleLocalRulestack, err := paloalto.NewLocalRulestack(ctx, "exampleLocalRulestack", &paloalto.LocalRulestackArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = paloalto.NewLocalRulestackRule(ctx, "exampleLocalRulestackRule", &paloalto.LocalRulestackRuleArgs{
-//				RulestackId: exampleLocalRulestack.ID(),
-//				Priority:    pulumi.Int(1000),
-//				Action:      pulumi.String("Allow"),
-//				Applications: pulumi.StringArray{
-//					pulumi.String("any"),
-//				},
-//				Source: &paloalto.LocalRulestackRuleSourceArgs{
-//					Cidrs: pulumi.StringArray{
-//						pulumi.String("10.0.0.0/8"),
-//					},
-//				},
-//				Destination: &paloalto.LocalRulestackRuleDestinationArgs{
-//					Cidrs: pulumi.StringArray{
-//						pulumi.String("192.168.16.0/24"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Palo Alto Local Rulestack Rules can be imported using the `resource id`, e.g.

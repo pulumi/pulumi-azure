@@ -15,49 +15,6 @@ import (
 
 // Manages a HyperV Site in Recovery Service Vault.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/recoveryservices"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/siterecovery"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("eastus"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVault, err := recoveryservices.NewVault(ctx, "exampleVault", &recoveryservices.VaultArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Sku:               pulumi.String("Standard"),
-//				SoftDeleteEnabled: pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = siterecovery.NewHyperVSite(ctx, "exampleHyperVSite", &siterecovery.HyperVSiteArgs{
-//				RecoveryVaultId: exampleVault.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Recovery Services can be imported using the `resource id`, e.g.

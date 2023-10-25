@@ -9,19 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Fluid Relay Server.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleServer = new azure.fluidrelay.Server("exampleServer", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- * });
- * ```
- *
  * ## Import
  *
  * Fluid Relay Servers can be imported using the `resource id`, e.g.

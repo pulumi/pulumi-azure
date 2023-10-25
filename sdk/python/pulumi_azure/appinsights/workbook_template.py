@@ -52,21 +52,27 @@ class WorkbookTemplateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             galleries: pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateGalleryArgs']]],
-             resource_group_name: pulumi.Input[str],
-             template_data: pulumi.Input[str],
+             galleries: Optional[pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateGalleryArgs']]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             template_data: Optional[pulumi.Input[str]] = None,
              author: Optional[pulumi.Input[str]] = None,
              localized: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              priority: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if galleries is None:
+            raise TypeError("Missing 'galleries' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'templateData' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if template_data is None and 'templateData' in kwargs:
             template_data = kwargs['templateData']
+        if template_data is None:
+            raise TypeError("Missing 'template_data' argument")
 
         _setter("galleries", galleries)
         _setter("resource_group_name", resource_group_name)
@@ -241,11 +247,11 @@ class _WorkbookTemplateState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              template_data: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'templateData' in kwargs:
+        if template_data is None and 'templateData' in kwargs:
             template_data = kwargs['templateData']
 
         if author is not None:
@@ -394,72 +400,6 @@ class WorkbookTemplate(pulumi.CustomResource):
         """
         Manages an Application Insights Workbook Template.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_workbook_template = azure.appinsights.WorkbookTemplate("exampleWorkbookTemplate",
-            resource_group_name=example_resource_group.name,
-            location="West Europe",
-            author="test author",
-            priority=1,
-            galleries=[azure.appinsights.WorkbookTemplateGalleryArgs(
-                category="workbook",
-                name="test",
-                order=100,
-                resource_type="microsoft.insights/components",
-                type="tsg",
-            )],
-            template_data=json.dumps({
-                "version": "Notebook/1.0",
-                "items": [{
-                    "type": 1,
-                    "content": {
-                        "json": \"\"\"## New workbook
-        ---
-
-        Welcome to your new workbook.\"\"\",
-                    },
-                    "name": "text - 2",
-                }],
-                "styleSettings": {},
-                "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json",
-            }),
-            localized=json.dumps({
-                "ar": [{
-                    "galleries": [{
-                        "name": "test",
-                        "category": "Failures",
-                        "type": "tsg",
-                        "resourceType": "microsoft.insights/components",
-                        "order": 100,
-                    }],
-                    "templateData": {
-                        "version": "Notebook/1.0",
-                        "items": [{
-                            "type": 1,
-                            "content": {
-                                "json": \"\"\"## New workbook
-        ---
-
-        Welcome to your new workbook.\"\"\",
-                            },
-                            "name": "text - 2",
-                        }],
-                        "styleSettings": {},
-                        "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json",
-                    },
-                }],
-            }),
-            tags={
-                "key": "value",
-            })
-        ```
-
         ## Import
 
         Application Insights Workbook Template can be imported using the `resource id`, e.g.
@@ -488,72 +428,6 @@ class WorkbookTemplate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Application Insights Workbook Template.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_workbook_template = azure.appinsights.WorkbookTemplate("exampleWorkbookTemplate",
-            resource_group_name=example_resource_group.name,
-            location="West Europe",
-            author="test author",
-            priority=1,
-            galleries=[azure.appinsights.WorkbookTemplateGalleryArgs(
-                category="workbook",
-                name="test",
-                order=100,
-                resource_type="microsoft.insights/components",
-                type="tsg",
-            )],
-            template_data=json.dumps({
-                "version": "Notebook/1.0",
-                "items": [{
-                    "type": 1,
-                    "content": {
-                        "json": \"\"\"## New workbook
-        ---
-
-        Welcome to your new workbook.\"\"\",
-                    },
-                    "name": "text - 2",
-                }],
-                "styleSettings": {},
-                "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json",
-            }),
-            localized=json.dumps({
-                "ar": [{
-                    "galleries": [{
-                        "name": "test",
-                        "category": "Failures",
-                        "type": "tsg",
-                        "resourceType": "microsoft.insights/components",
-                        "order": 100,
-                    }],
-                    "templateData": {
-                        "version": "Notebook/1.0",
-                        "items": [{
-                            "type": 1,
-                            "content": {
-                                "json": \"\"\"## New workbook
-        ---
-
-        Welcome to your new workbook.\"\"\",
-                            },
-                            "name": "text - 2",
-                        }],
-                        "styleSettings": {},
-                        "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json",
-                    },
-                }],
-            }),
-            tags={
-                "key": "value",
-            })
-        ```
 
         ## Import
 

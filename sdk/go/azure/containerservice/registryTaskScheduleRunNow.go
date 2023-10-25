@@ -14,64 +14,6 @@ import (
 )
 
 // Runs a Container Registry Task Schedule.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleRegistry, err := containerservice.NewRegistry(ctx, "exampleRegistry", &containerservice.RegistryArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
-//				Sku:               pulumi.String("Basic"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleRegistryTask, err := containerservice.NewRegistryTask(ctx, "exampleRegistryTask", &containerservice.RegistryTaskArgs{
-//				ContainerRegistryId: exampleRegistry.ID(),
-//				Platform: &containerservice.RegistryTaskPlatformArgs{
-//					Os: pulumi.String("Linux"),
-//				},
-//				DockerStep: &containerservice.RegistryTaskDockerStepArgs{
-//					DockerfilePath:     pulumi.String("Dockerfile"),
-//					ContextPath:        pulumi.String("https://github.com/<user name>/acr-build-helloworld-node#main"),
-//					ContextAccessToken: pulumi.String("<github personal access token>"),
-//					ImageNames: pulumi.StringArray{
-//						pulumi.String("helloworld:{{.Run.ID}}"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = containerservice.NewRegistryTaskScheduleRunNow(ctx, "exampleRegistryTaskScheduleRunNow", &containerservice.RegistryTaskScheduleRunNowArgs{
-//				ContainerRegistryTaskId: exampleRegistryTask.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type RegistryTaskScheduleRunNow struct {
 	pulumi.CustomResourceState
 

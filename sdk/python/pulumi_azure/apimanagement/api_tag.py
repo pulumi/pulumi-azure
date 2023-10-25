@@ -29,12 +29,14 @@ class ApiTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_id: pulumi.Input[str],
+             api_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiId' in kwargs:
+        if api_id is None and 'apiId' in kwargs:
             api_id = kwargs['apiId']
+        if api_id is None:
+            raise TypeError("Missing 'api_id' argument")
 
         _setter("api_id", api_id)
         if name is not None:
@@ -85,9 +87,9 @@ class _ApiTagState:
              _setter: Callable[[Any, Any], None],
              api_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiId' in kwargs:
+        if api_id is None and 'apiId' in kwargs:
             api_id = kwargs['apiId']
 
         if api_id is not None:
@@ -131,23 +133,6 @@ class ApiTag(pulumi.CustomResource):
         """
         Manages the Assignment of an API Management API Tag to an API.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.get_service_output(name="example-apim",
-            resource_group_name=example_resource_group.name)
-        example_api = azure.apimanagement.Api("exampleApi",
-            resource_group_name=example_resource_group.name,
-            api_management_name=example_service.name,
-            revision="1")
-        example_tag = azure.apimanagement.Tag("exampleTag", api_management_id=example_service.id)
-        example_api_tag = azure.apimanagement.ApiTag("exampleApiTag", api_id=example_api.id)
-        ```
-
         ## Import
 
         API Management API Tags can be imported using the `resource id`, e.g.
@@ -169,23 +154,6 @@ class ApiTag(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages the Assignment of an API Management API Tag to an API.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.get_service_output(name="example-apim",
-            resource_group_name=example_resource_group.name)
-        example_api = azure.apimanagement.Api("exampleApi",
-            resource_group_name=example_resource_group.name,
-            api_management_name=example_service.name,
-            revision="1")
-        example_tag = azure.apimanagement.Tag("exampleTag", api_management_id=example_service.id)
-        example_api_tag = azure.apimanagement.ApiTag("exampleApiTag", api_id=example_api.id)
-        ```
 
         ## Import
 

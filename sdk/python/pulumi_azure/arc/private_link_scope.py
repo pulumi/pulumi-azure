@@ -38,16 +38,18 @@ class PrivateLinkScopeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
 
         _setter("resource_group_name", resource_group_name)
@@ -153,11 +155,11 @@ class _PrivateLinkScopeState:
              public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if location is not None:
@@ -246,18 +248,6 @@ class PrivateLinkScope(pulumi.CustomResource):
         """
         Manages an Azure Arc Private Link Scope.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="west europe")
-        example_private_link_scope = azure.arc.PrivateLinkScope("examplePrivateLinkScope",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        ```
-
         ## Import
 
         Azure Arc Private Link Scope can be imported using the `resource id`, e.g.
@@ -282,18 +272,6 @@ class PrivateLinkScope(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Arc Private Link Scope.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="west europe")
-        example_private_link_scope = azure.arc.PrivateLinkScope("examplePrivateLinkScope",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        ```
 
         ## Import
 

@@ -70,11 +70,11 @@ class TriggerTumblingWindowArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_factory_id: pulumi.Input[str],
-             frequency: pulumi.Input[str],
-             interval: pulumi.Input[int],
-             pipeline: pulumi.Input['TriggerTumblingWindowPipelineArgs'],
-             start_time: pulumi.Input[str],
+             data_factory_id: Optional[pulumi.Input[str]] = None,
+             frequency: Optional[pulumi.Input[str]] = None,
+             interval: Optional[pulumi.Input[int]] = None,
+             pipeline: Optional[pulumi.Input['TriggerTumblingWindowPipelineArgs']] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
              activated: Optional[pulumi.Input[bool]] = None,
              additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -85,19 +85,29 @@ class TriggerTumblingWindowArgs:
              name: Optional[pulumi.Input[str]] = None,
              retry: Optional[pulumi.Input['TriggerTumblingWindowRetryArgs']] = None,
              trigger_dependencies: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerTumblingWindowTriggerDependencyArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'startTime' in kwargs:
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if frequency is None:
+            raise TypeError("Missing 'frequency' argument")
+        if interval is None:
+            raise TypeError("Missing 'interval' argument")
+        if pipeline is None:
+            raise TypeError("Missing 'pipeline' argument")
+        if start_time is None and 'startTime' in kwargs:
             start_time = kwargs['startTime']
-        if 'additionalProperties' in kwargs:
+        if start_time is None:
+            raise TypeError("Missing 'start_time' argument")
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'endTime' in kwargs:
+        if end_time is None and 'endTime' in kwargs:
             end_time = kwargs['endTime']
-        if 'maxConcurrency' in kwargs:
+        if max_concurrency is None and 'maxConcurrency' in kwargs:
             max_concurrency = kwargs['maxConcurrency']
-        if 'triggerDependencies' in kwargs:
+        if trigger_dependencies is None and 'triggerDependencies' in kwargs:
             trigger_dependencies = kwargs['triggerDependencies']
 
         _setter("data_factory_id", data_factory_id)
@@ -379,19 +389,19 @@ class _TriggerTumblingWindowState:
              retry: Optional[pulumi.Input['TriggerTumblingWindowRetryArgs']] = None,
              start_time: Optional[pulumi.Input[str]] = None,
              trigger_dependencies: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerTumblingWindowTriggerDependencyArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'additionalProperties' in kwargs:
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'endTime' in kwargs:
+        if end_time is None and 'endTime' in kwargs:
             end_time = kwargs['endTime']
-        if 'maxConcurrency' in kwargs:
+        if max_concurrency is None and 'maxConcurrency' in kwargs:
             max_concurrency = kwargs['maxConcurrency']
-        if 'startTime' in kwargs:
+        if start_time is None and 'startTime' in kwargs:
             start_time = kwargs['startTime']
-        if 'triggerDependencies' in kwargs:
+        if trigger_dependencies is None and 'triggerDependencies' in kwargs:
             trigger_dependencies = kwargs['triggerDependencies']
 
         if activated is not None:
@@ -630,50 +640,6 @@ class TriggerTumblingWindow(pulumi.CustomResource):
         """
         Manages a Tumbling Window Trigger inside an Azure Data Factory.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_pipeline = azure.datafactory.Pipeline("examplePipeline", data_factory_id=example_factory.id)
-        example_trigger_tumbling_window = azure.datafactory.TriggerTumblingWindow("exampleTriggerTumblingWindow",
-            data_factory_id=example_factory.id,
-            start_time="2022-09-21T00:00:00Z",
-            end_time="2022-09-21T08:00:00Z",
-            frequency="Minute",
-            interval=15,
-            delay="16:00:00",
-            annotations=[
-                "example1",
-                "example2",
-                "example3",
-            ],
-            description="example description",
-            retry=azure.datafactory.TriggerTumblingWindowRetryArgs(
-                count=1,
-                interval=30,
-            ),
-            pipeline=azure.datafactory.TriggerTumblingWindowPipelineArgs(
-                name=example_pipeline.name,
-                parameters={
-                    "Env": "Prod",
-                },
-            ),
-            trigger_dependencies=[azure.datafactory.TriggerTumblingWindowTriggerDependencyArgs(
-                size="24:00:00",
-                offset="-24:00:00",
-            )],
-            additional_properties={
-                "foo": "value1",
-                "bar": "value2",
-            })
-        ```
-
         ## Import
 
         Data Factory Tumbling Window Trigger can be imported using the `resource id`, e.g.
@@ -708,50 +674,6 @@ class TriggerTumblingWindow(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Tumbling Window Trigger inside an Azure Data Factory.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_pipeline = azure.datafactory.Pipeline("examplePipeline", data_factory_id=example_factory.id)
-        example_trigger_tumbling_window = azure.datafactory.TriggerTumblingWindow("exampleTriggerTumblingWindow",
-            data_factory_id=example_factory.id,
-            start_time="2022-09-21T00:00:00Z",
-            end_time="2022-09-21T08:00:00Z",
-            frequency="Minute",
-            interval=15,
-            delay="16:00:00",
-            annotations=[
-                "example1",
-                "example2",
-                "example3",
-            ],
-            description="example description",
-            retry=azure.datafactory.TriggerTumblingWindowRetryArgs(
-                count=1,
-                interval=30,
-            ),
-            pipeline=azure.datafactory.TriggerTumblingWindowPipelineArgs(
-                name=example_pipeline.name,
-                parameters={
-                    "Env": "Prod",
-                },
-            ),
-            trigger_dependencies=[azure.datafactory.TriggerTumblingWindowTriggerDependencyArgs(
-                size="24:00:00",
-                offset="-24:00:00",
-            )],
-            additional_properties={
-                "foo": "value1",
-                "bar": "value2",
-            })
-        ```
 
         ## Import
 
@@ -821,19 +743,11 @@ class TriggerTumblingWindow(pulumi.CustomResource):
             __props__.__dict__["interval"] = interval
             __props__.__dict__["max_concurrency"] = max_concurrency
             __props__.__dict__["name"] = name
-            if pipeline is not None and not isinstance(pipeline, TriggerTumblingWindowPipelineArgs):
-                pipeline = pipeline or {}
-                def _setter(key, value):
-                    pipeline[key] = value
-                TriggerTumblingWindowPipelineArgs._configure(_setter, **pipeline)
+            pipeline = _utilities.configure(pipeline, TriggerTumblingWindowPipelineArgs, True)
             if pipeline is None and not opts.urn:
                 raise TypeError("Missing required property 'pipeline'")
             __props__.__dict__["pipeline"] = pipeline
-            if retry is not None and not isinstance(retry, TriggerTumblingWindowRetryArgs):
-                retry = retry or {}
-                def _setter(key, value):
-                    retry[key] = value
-                TriggerTumblingWindowRetryArgs._configure(_setter, **retry)
+            retry = _utilities.configure(retry, TriggerTumblingWindowRetryArgs, True)
             __props__.__dict__["retry"] = retry
             if start_time is None and not opts.urn:
                 raise TypeError("Missing required property 'start_time'")

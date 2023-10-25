@@ -49,18 +49,22 @@ class ActionRuleSuppressionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             suppression: pulumi.Input['ActionRuleSuppressionSuppressionArgs'],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             suppression: Optional[pulumi.Input['ActionRuleSuppressionSuppressionArgs']] = None,
              condition: Optional[pulumi.Input['ActionRuleSuppressionConditionArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              scope: Optional[pulumi.Input['ActionRuleSuppressionScopeArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if suppression is None:
+            raise TypeError("Missing 'suppression' argument")
 
         _setter("resource_group_name", resource_group_name)
         _setter("suppression", suppression)
@@ -218,9 +222,9 @@ class _ActionRuleSuppressionState:
              scope: Optional[pulumi.Input['ActionRuleSuppressionScopeArgs']] = None,
              suppression: Optional[pulumi.Input['ActionRuleSuppressionSuppressionArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if condition is not None:
@@ -356,37 +360,6 @@ class ActionRuleSuppression(pulumi.CustomResource):
 
         !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `monitoring.AlertProcessingRuleSuppression` resource instead.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_action_rule_suppression = azure.monitoring.ActionRuleSuppression("exampleActionRuleSuppression",
-            resource_group_name=example_resource_group.name,
-            scope=azure.monitoring.ActionRuleSuppressionScopeArgs(
-                type="ResourceGroup",
-                resource_ids=[example_resource_group.id],
-            ),
-            suppression=azure.monitoring.ActionRuleSuppressionSuppressionArgs(
-                recurrence_type="Weekly",
-                schedule=azure.monitoring.ActionRuleSuppressionSuppressionScheduleArgs(
-                    start_date_utc="2019-01-01T01:02:03Z",
-                    end_date_utc="2019-01-03T15:02:07Z",
-                    recurrence_weeklies=[
-                        "Sunday",
-                        "Monday",
-                        "Friday",
-                        "Saturday",
-                    ],
-                ),
-            ),
-            tags={
-                "foo": "bar",
-            })
-        ```
-
         ## Import
 
         Monitor Action Rule can be imported using the `resource id`, e.g.
@@ -416,37 +389,6 @@ class ActionRuleSuppression(pulumi.CustomResource):
         Manages a Monitor Action Rule which type is suppression.
 
         !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `monitoring.AlertProcessingRuleSuppression` resource instead.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_action_rule_suppression = azure.monitoring.ActionRuleSuppression("exampleActionRuleSuppression",
-            resource_group_name=example_resource_group.name,
-            scope=azure.monitoring.ActionRuleSuppressionScopeArgs(
-                type="ResourceGroup",
-                resource_ids=[example_resource_group.id],
-            ),
-            suppression=azure.monitoring.ActionRuleSuppressionSuppressionArgs(
-                recurrence_type="Weekly",
-                schedule=azure.monitoring.ActionRuleSuppressionSuppressionScheduleArgs(
-                    start_date_utc="2019-01-01T01:02:03Z",
-                    end_date_utc="2019-01-03T15:02:07Z",
-                    recurrence_weeklies=[
-                        "Sunday",
-                        "Monday",
-                        "Friday",
-                        "Saturday",
-                    ],
-                ),
-            ),
-            tags={
-                "foo": "bar",
-            })
-        ```
 
         ## Import
 
@@ -492,11 +434,7 @@ class ActionRuleSuppression(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ActionRuleSuppressionArgs.__new__(ActionRuleSuppressionArgs)
 
-            if condition is not None and not isinstance(condition, ActionRuleSuppressionConditionArgs):
-                condition = condition or {}
-                def _setter(key, value):
-                    condition[key] = value
-                ActionRuleSuppressionConditionArgs._configure(_setter, **condition)
+            condition = _utilities.configure(condition, ActionRuleSuppressionConditionArgs, True)
             __props__.__dict__["condition"] = condition
             __props__.__dict__["description"] = description
             __props__.__dict__["enabled"] = enabled
@@ -504,17 +442,9 @@ class ActionRuleSuppression(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if scope is not None and not isinstance(scope, ActionRuleSuppressionScopeArgs):
-                scope = scope or {}
-                def _setter(key, value):
-                    scope[key] = value
-                ActionRuleSuppressionScopeArgs._configure(_setter, **scope)
+            scope = _utilities.configure(scope, ActionRuleSuppressionScopeArgs, True)
             __props__.__dict__["scope"] = scope
-            if suppression is not None and not isinstance(suppression, ActionRuleSuppressionSuppressionArgs):
-                suppression = suppression or {}
-                def _setter(key, value):
-                    suppression[key] = value
-                ActionRuleSuppressionSuppressionArgs._configure(_setter, **suppression)
+            suppression = _utilities.configure(suppression, ActionRuleSuppressionSuppressionArgs, True)
             if suppression is None and not opts.urn:
                 raise TypeError("Missing required property 'suppression'")
             __props__.__dict__["suppression"] = suppression

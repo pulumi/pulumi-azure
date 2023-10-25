@@ -7,33 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Sentinel Watchlist Item.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "PerGB2018",
- * });
- * const exampleLogAnalyticsWorkspaceOnboarding = new azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", {workspaceId: exampleAnalyticsWorkspace.id});
- * const exampleWatchlist = new azure.sentinel.Watchlist("exampleWatchlist", {
- *     logAnalyticsWorkspaceId: exampleLogAnalyticsWorkspaceOnboarding.workspaceId,
- *     displayName: "example-wl",
- *     itemSearchKey: "Key",
- * });
- * const exampleWatchlistItem = new azure.sentinel.WatchlistItem("exampleWatchlistItem", {
- *     watchlistId: exampleWatchlist.id,
- *     properties: {
- *         k1: "v1",
- *         k2: "v2",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Sentinel Watchlist Items can be imported using the `resource id`, e.g.

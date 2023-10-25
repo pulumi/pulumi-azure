@@ -35,20 +35,28 @@ class IdentityProviderMicrosoftArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_management_name: pulumi.Input[str],
-             client_id: pulumi.Input[str],
-             client_secret: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'clientId' in kwargs:
+        if api_management_name is None:
+            raise TypeError("Missing 'api_management_name' argument")
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecret' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'resourceGroupName' in kwargs:
+        if client_secret is None:
+            raise TypeError("Missing 'client_secret' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("api_management_name", api_management_name)
         _setter("client_id", client_id)
@@ -132,15 +140,15 @@ class _IdentityProviderMicrosoftState:
              client_id: Optional[pulumi.Input[str]] = None,
              client_secret: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecret' in kwargs:
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if api_management_name is not None:
@@ -214,26 +222,6 @@ class IdentityProviderMicrosoft(pulumi.CustomResource):
         """
         Manages an API Management Microsoft Identity Provider.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            publisher_name="My Company",
-            publisher_email="company@mycompany.io",
-            sku_name="Developer_1")
-        example_identity_provider_microsoft = azure.apimanagement.IdentityProviderMicrosoft("exampleIdentityProviderMicrosoft",
-            resource_group_name=example_resource_group.name,
-            api_management_name=example_service.name,
-            client_id="00000000-0000-0000-0000-000000000000",
-            client_secret="00000000000000000000000000000000")
-        ```
-
         ## Import
 
         API Management Microsoft Identity Provider can be imported using the `resource id`, e.g.
@@ -257,26 +245,6 @@ class IdentityProviderMicrosoft(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an API Management Microsoft Identity Provider.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            publisher_name="My Company",
-            publisher_email="company@mycompany.io",
-            sku_name="Developer_1")
-        example_identity_provider_microsoft = azure.apimanagement.IdentityProviderMicrosoft("exampleIdentityProviderMicrosoft",
-            resource_group_name=example_resource_group.name,
-            api_management_name=example_service.name,
-            client_id="00000000-0000-0000-0000-000000000000",
-            client_secret="00000000000000000000000000000000")
-        ```
 
         ## Import
 

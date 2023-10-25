@@ -12,43 +12,6 @@ namespace Pulumi.Azure.Mobile
     /// <summary>
     /// Manages a Mobile Network Data Network.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "East Us",
-    ///     });
-    /// 
-    ///     var exampleNetwork = new Azure.Mobile.Network("exampleNetwork", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         MobileCountryCode = "001",
-    ///         MobileNetworkCode = "01",
-    ///     });
-    /// 
-    ///     var exampleNetworkDataNetwork = new Azure.Mobile.NetworkDataNetwork("exampleNetworkDataNetwork", new()
-    ///     {
-    ///         MobileNetworkId = exampleNetwork.Id,
-    ///         Location = exampleResourceGroup.Location,
-    ///         Description = "example description",
-    ///         Tags = 
-    ///         {
-    ///             { "key", "value" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Mobile Network Data Network can be imported using the `resource id`, e.g.

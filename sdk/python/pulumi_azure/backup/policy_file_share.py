@@ -54,28 +54,36 @@ class PolicyFileShareArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             backup: pulumi.Input['PolicyFileShareBackupArgs'],
-             recovery_vault_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             retention_daily: pulumi.Input['PolicyFileShareRetentionDailyArgs'],
+             backup: Optional[pulumi.Input['PolicyFileShareBackupArgs']] = None,
+             recovery_vault_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             retention_daily: Optional[pulumi.Input['PolicyFileShareRetentionDailyArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              retention_monthly: Optional[pulumi.Input['PolicyFileShareRetentionMonthlyArgs']] = None,
              retention_weekly: Optional[pulumi.Input['PolicyFileShareRetentionWeeklyArgs']] = None,
              retention_yearly: Optional[pulumi.Input['PolicyFileShareRetentionYearlyArgs']] = None,
              timezone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'recoveryVaultName' in kwargs:
+        if backup is None:
+            raise TypeError("Missing 'backup' argument")
+        if recovery_vault_name is None and 'recoveryVaultName' in kwargs:
             recovery_vault_name = kwargs['recoveryVaultName']
-        if 'resourceGroupName' in kwargs:
+        if recovery_vault_name is None:
+            raise TypeError("Missing 'recovery_vault_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'retentionDaily' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if retention_daily is None and 'retentionDaily' in kwargs:
             retention_daily = kwargs['retentionDaily']
-        if 'retentionMonthly' in kwargs:
+        if retention_daily is None:
+            raise TypeError("Missing 'retention_daily' argument")
+        if retention_monthly is None and 'retentionMonthly' in kwargs:
             retention_monthly = kwargs['retentionMonthly']
-        if 'retentionWeekly' in kwargs:
+        if retention_weekly is None and 'retentionWeekly' in kwargs:
             retention_weekly = kwargs['retentionWeekly']
-        if 'retentionYearly' in kwargs:
+        if retention_yearly is None and 'retentionYearly' in kwargs:
             retention_yearly = kwargs['retentionYearly']
 
         _setter("backup", backup)
@@ -254,19 +262,19 @@ class _PolicyFileShareState:
              retention_weekly: Optional[pulumi.Input['PolicyFileShareRetentionWeeklyArgs']] = None,
              retention_yearly: Optional[pulumi.Input['PolicyFileShareRetentionYearlyArgs']] = None,
              timezone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'recoveryVaultName' in kwargs:
+        if recovery_vault_name is None and 'recoveryVaultName' in kwargs:
             recovery_vault_name = kwargs['recoveryVaultName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'retentionDaily' in kwargs:
+        if retention_daily is None and 'retentionDaily' in kwargs:
             retention_daily = kwargs['retentionDaily']
-        if 'retentionMonthly' in kwargs:
+        if retention_monthly is None and 'retentionMonthly' in kwargs:
             retention_monthly = kwargs['retentionMonthly']
-        if 'retentionWeekly' in kwargs:
+        if retention_weekly is None and 'retentionWeekly' in kwargs:
             retention_weekly = kwargs['retentionWeekly']
-        if 'retentionYearly' in kwargs:
+        if retention_yearly is None and 'retentionYearly' in kwargs:
             retention_yearly = kwargs['retentionYearly']
 
         if backup is not None:
@@ -417,56 +425,6 @@ class PolicyFileShare(pulumi.CustomResource):
         """
         Manages an Azure File Share Backup Policy within a Recovery Services vault.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_vault = azure.recoveryservices.Vault("exampleVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard")
-        policy = azure.backup.PolicyFileShare("policy",
-            resource_group_name=example_resource_group.name,
-            recovery_vault_name=example_vault.name,
-            timezone="UTC",
-            backup=azure.backup.PolicyFileShareBackupArgs(
-                frequency="Daily",
-                time="23:00",
-            ),
-            retention_daily=azure.backup.PolicyFileShareRetentionDailyArgs(
-                count=10,
-            ),
-            retention_weekly=azure.backup.PolicyFileShareRetentionWeeklyArgs(
-                count=7,
-                weekdays=[
-                    "Sunday",
-                    "Wednesday",
-                    "Friday",
-                    "Saturday",
-                ],
-            ),
-            retention_monthly=azure.backup.PolicyFileShareRetentionMonthlyArgs(
-                count=7,
-                weekdays=[
-                    "Sunday",
-                    "Wednesday",
-                ],
-                weeks=[
-                    "First",
-                    "Last",
-                ],
-            ),
-            retention_yearly=azure.backup.PolicyFileShareRetentionYearlyArgs(
-                count=7,
-                weekdays=["Sunday"],
-                weeks=["Last"],
-                months=["January"],
-            ))
-        ```
-
         ## Import
 
         Azure File Share Backup Policies can be imported using the `resource id`, e.g.
@@ -497,56 +455,6 @@ class PolicyFileShare(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure File Share Backup Policy within a Recovery Services vault.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_vault = azure.recoveryservices.Vault("exampleVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard")
-        policy = azure.backup.PolicyFileShare("policy",
-            resource_group_name=example_resource_group.name,
-            recovery_vault_name=example_vault.name,
-            timezone="UTC",
-            backup=azure.backup.PolicyFileShareBackupArgs(
-                frequency="Daily",
-                time="23:00",
-            ),
-            retention_daily=azure.backup.PolicyFileShareRetentionDailyArgs(
-                count=10,
-            ),
-            retention_weekly=azure.backup.PolicyFileShareRetentionWeeklyArgs(
-                count=7,
-                weekdays=[
-                    "Sunday",
-                    "Wednesday",
-                    "Friday",
-                    "Saturday",
-                ],
-            ),
-            retention_monthly=azure.backup.PolicyFileShareRetentionMonthlyArgs(
-                count=7,
-                weekdays=[
-                    "Sunday",
-                    "Wednesday",
-                ],
-                weeks=[
-                    "First",
-                    "Last",
-                ],
-            ),
-            retention_yearly=azure.backup.PolicyFileShareRetentionYearlyArgs(
-                count=7,
-                weekdays=["Sunday"],
-                weeks=["Last"],
-                months=["January"],
-            ))
-        ```
 
         ## Import
 
@@ -593,11 +501,7 @@ class PolicyFileShare(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PolicyFileShareArgs.__new__(PolicyFileShareArgs)
 
-            if backup is not None and not isinstance(backup, PolicyFileShareBackupArgs):
-                backup = backup or {}
-                def _setter(key, value):
-                    backup[key] = value
-                PolicyFileShareBackupArgs._configure(_setter, **backup)
+            backup = _utilities.configure(backup, PolicyFileShareBackupArgs, True)
             if backup is None and not opts.urn:
                 raise TypeError("Missing required property 'backup'")
             __props__.__dict__["backup"] = backup
@@ -608,31 +512,15 @@ class PolicyFileShare(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if retention_daily is not None and not isinstance(retention_daily, PolicyFileShareRetentionDailyArgs):
-                retention_daily = retention_daily or {}
-                def _setter(key, value):
-                    retention_daily[key] = value
-                PolicyFileShareRetentionDailyArgs._configure(_setter, **retention_daily)
+            retention_daily = _utilities.configure(retention_daily, PolicyFileShareRetentionDailyArgs, True)
             if retention_daily is None and not opts.urn:
                 raise TypeError("Missing required property 'retention_daily'")
             __props__.__dict__["retention_daily"] = retention_daily
-            if retention_monthly is not None and not isinstance(retention_monthly, PolicyFileShareRetentionMonthlyArgs):
-                retention_monthly = retention_monthly or {}
-                def _setter(key, value):
-                    retention_monthly[key] = value
-                PolicyFileShareRetentionMonthlyArgs._configure(_setter, **retention_monthly)
+            retention_monthly = _utilities.configure(retention_monthly, PolicyFileShareRetentionMonthlyArgs, True)
             __props__.__dict__["retention_monthly"] = retention_monthly
-            if retention_weekly is not None and not isinstance(retention_weekly, PolicyFileShareRetentionWeeklyArgs):
-                retention_weekly = retention_weekly or {}
-                def _setter(key, value):
-                    retention_weekly[key] = value
-                PolicyFileShareRetentionWeeklyArgs._configure(_setter, **retention_weekly)
+            retention_weekly = _utilities.configure(retention_weekly, PolicyFileShareRetentionWeeklyArgs, True)
             __props__.__dict__["retention_weekly"] = retention_weekly
-            if retention_yearly is not None and not isinstance(retention_yearly, PolicyFileShareRetentionYearlyArgs):
-                retention_yearly = retention_yearly or {}
-                def _setter(key, value):
-                    retention_yearly[key] = value
-                PolicyFileShareRetentionYearlyArgs._configure(_setter, **retention_yearly)
+            retention_yearly = _utilities.configure(retention_yearly, PolicyFileShareRetentionYearlyArgs, True)
             __props__.__dict__["retention_yearly"] = retention_yearly
             __props__.__dict__["timezone"] = timezone
         super(PolicyFileShare, __self__).__init__(

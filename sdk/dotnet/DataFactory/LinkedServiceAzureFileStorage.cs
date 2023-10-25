@@ -12,42 +12,6 @@ namespace Pulumi.Azure.DataFactory
     /// <summary>
     /// Manages a Linked Service (connection) between a SFTP Server and Azure Data Factory.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleAccount = Azure.Storage.GetAccount.Invoke(new()
-    ///     {
-    ///         Name = "storageaccountname",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///     });
-    /// 
-    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///     });
-    /// 
-    ///     var exampleLinkedServiceAzureFileStorage = new Azure.DataFactory.LinkedServiceAzureFileStorage("exampleLinkedServiceAzureFileStorage", new()
-    ///     {
-    ///         DataFactoryId = exampleFactory.Id,
-    ///         ConnectionString = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.PrimaryConnectionString),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Data Factory Linked Service's can be imported using the `resource id`, e.g.

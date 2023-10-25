@@ -169,24 +169,6 @@ def get_snapshot_policy(account_name: Optional[str] = None,
     """
     Uses this data source to access information about an existing NetApp Snapshot Policy.
 
-    ## NetApp Snapshot Policy Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.netapp.get_snapshot_policy(resource_group_name="acctestRG",
-        account_name="acctestnetappaccount",
-        name="example-snapshot-policy")
-    pulumi.export("id", example.id)
-    pulumi.export("name", example.name)
-    pulumi.export("enabled", example.enabled)
-    pulumi.export("hourlySchedule", example.hourly_schedules)
-    pulumi.export("dailySchedule", example.daily_schedules)
-    pulumi.export("weeklySchedule", example.weekly_schedules)
-    pulumi.export("monthlySchedule", example.monthly_schedules)
-    ```
-
 
     :param str account_name: The name of the NetApp account where the NetApp Snapshot Policy exists.
     :param str name: The name of the NetApp Snapshot Policy.
@@ -220,24 +202,6 @@ def get_snapshot_policy_output(account_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSnapshotPolicyResult]:
     """
     Uses this data source to access information about an existing NetApp Snapshot Policy.
-
-    ## NetApp Snapshot Policy Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.netapp.get_snapshot_policy(resource_group_name="acctestRG",
-        account_name="acctestnetappaccount",
-        name="example-snapshot-policy")
-    pulumi.export("id", example.id)
-    pulumi.export("name", example.name)
-    pulumi.export("enabled", example.enabled)
-    pulumi.export("hourlySchedule", example.hourly_schedules)
-    pulumi.export("dailySchedule", example.daily_schedules)
-    pulumi.export("weeklySchedule", example.weekly_schedules)
-    pulumi.export("monthlySchedule", example.monthly_schedules)
-    ```
 
 
     :param str account_name: The name of the NetApp account where the NetApp Snapshot Policy exists.

@@ -53,9 +53,9 @@ class ApplicationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_group_id: pulumi.Input[str],
-             command_line_argument_policy: pulumi.Input[str],
-             path: pulumi.Input[str],
+             application_group_id: Optional[pulumi.Input[str]] = None,
+             command_line_argument_policy: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
              command_line_arguments: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              friendly_name: Optional[pulumi.Input[str]] = None,
@@ -63,21 +63,27 @@ class ApplicationArgs:
              icon_path: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              show_in_portal: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'applicationGroupId' in kwargs:
+        if application_group_id is None and 'applicationGroupId' in kwargs:
             application_group_id = kwargs['applicationGroupId']
-        if 'commandLineArgumentPolicy' in kwargs:
+        if application_group_id is None:
+            raise TypeError("Missing 'application_group_id' argument")
+        if command_line_argument_policy is None and 'commandLineArgumentPolicy' in kwargs:
             command_line_argument_policy = kwargs['commandLineArgumentPolicy']
-        if 'commandLineArguments' in kwargs:
+        if command_line_argument_policy is None:
+            raise TypeError("Missing 'command_line_argument_policy' argument")
+        if path is None:
+            raise TypeError("Missing 'path' argument")
+        if command_line_arguments is None and 'commandLineArguments' in kwargs:
             command_line_arguments = kwargs['commandLineArguments']
-        if 'friendlyName' in kwargs:
+        if friendly_name is None and 'friendlyName' in kwargs:
             friendly_name = kwargs['friendlyName']
-        if 'iconIndex' in kwargs:
+        if icon_index is None and 'iconIndex' in kwargs:
             icon_index = kwargs['iconIndex']
-        if 'iconPath' in kwargs:
+        if icon_path is None and 'iconPath' in kwargs:
             icon_path = kwargs['iconPath']
-        if 'showInPortal' in kwargs:
+        if show_in_portal is None and 'showInPortal' in kwargs:
             show_in_portal = kwargs['showInPortal']
 
         _setter("application_group_id", application_group_id)
@@ -271,21 +277,21 @@ class _ApplicationState:
              name: Optional[pulumi.Input[str]] = None,
              path: Optional[pulumi.Input[str]] = None,
              show_in_portal: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'applicationGroupId' in kwargs:
+        if application_group_id is None and 'applicationGroupId' in kwargs:
             application_group_id = kwargs['applicationGroupId']
-        if 'commandLineArgumentPolicy' in kwargs:
+        if command_line_argument_policy is None and 'commandLineArgumentPolicy' in kwargs:
             command_line_argument_policy = kwargs['commandLineArgumentPolicy']
-        if 'commandLineArguments' in kwargs:
+        if command_line_arguments is None and 'commandLineArguments' in kwargs:
             command_line_arguments = kwargs['commandLineArguments']
-        if 'friendlyName' in kwargs:
+        if friendly_name is None and 'friendlyName' in kwargs:
             friendly_name = kwargs['friendlyName']
-        if 'iconIndex' in kwargs:
+        if icon_index is None and 'iconIndex' in kwargs:
             icon_index = kwargs['iconIndex']
-        if 'iconPath' in kwargs:
+        if icon_path is None and 'iconPath' in kwargs:
             icon_path = kwargs['iconPath']
-        if 'showInPortal' in kwargs:
+        if show_in_portal is None and 'showInPortal' in kwargs:
             show_in_portal = kwargs['showInPortal']
 
         if application_group_id is not None:
@@ -449,43 +455,6 @@ class Application(pulumi.CustomResource):
         """
         Manages a Virtual Desktop Application.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        pooledbreadthfirst = azure.desktopvirtualization.HostPool("pooledbreadthfirst",
-            location=example.location,
-            resource_group_name=example.name,
-            type="Pooled",
-            load_balancer_type="BreadthFirst")
-        personalautomatic = azure.desktopvirtualization.HostPool("personalautomatic",
-            location=example.location,
-            resource_group_name=example.name,
-            type="Personal",
-            personal_desktop_assignment_type="Automatic",
-            load_balancer_type="BreadthFirst")
-        remoteapp = azure.desktopvirtualization.ApplicationGroup("remoteapp",
-            location=example.location,
-            resource_group_name=example.name,
-            type="RemoteApp",
-            host_pool_id=pooledbreadthfirst.id,
-            friendly_name="TestAppGroup",
-            description="Acceptance Test: An application group")
-        chrome = azure.desktopvirtualization.Application("chrome",
-            application_group_id=remoteapp.id,
-            friendly_name="Google Chrome",
-            description="Chromium based web browser",
-            path="C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe",
-            command_line_argument_policy="DoNotAllow",
-            command_line_arguments="--incognito",
-            show_in_portal=False,
-            icon_path="C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe",
-            icon_index=0)
-        ```
-
         ## Import
 
         Virtual Desktop Application can be imported using the `resource id`, e.g.
@@ -515,43 +484,6 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Virtual Desktop Application.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        pooledbreadthfirst = azure.desktopvirtualization.HostPool("pooledbreadthfirst",
-            location=example.location,
-            resource_group_name=example.name,
-            type="Pooled",
-            load_balancer_type="BreadthFirst")
-        personalautomatic = azure.desktopvirtualization.HostPool("personalautomatic",
-            location=example.location,
-            resource_group_name=example.name,
-            type="Personal",
-            personal_desktop_assignment_type="Automatic",
-            load_balancer_type="BreadthFirst")
-        remoteapp = azure.desktopvirtualization.ApplicationGroup("remoteapp",
-            location=example.location,
-            resource_group_name=example.name,
-            type="RemoteApp",
-            host_pool_id=pooledbreadthfirst.id,
-            friendly_name="TestAppGroup",
-            description="Acceptance Test: An application group")
-        chrome = azure.desktopvirtualization.Application("chrome",
-            application_group_id=remoteapp.id,
-            friendly_name="Google Chrome",
-            description="Chromium based web browser",
-            path="C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe",
-            command_line_argument_policy="DoNotAllow",
-            command_line_arguments="--incognito",
-            show_in_portal=False,
-            icon_path="C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe",
-            icon_index=0)
-        ```
 
         ## Import
 

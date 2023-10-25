@@ -58,10 +58,10 @@ class ExpressRoutePortArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bandwidth_in_gbps: pulumi.Input[int],
-             encapsulation: pulumi.Input[str],
-             peering_location: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             bandwidth_in_gbps: Optional[pulumi.Input[int]] = None,
+             encapsulation: Optional[pulumi.Input[str]] = None,
+             peering_location: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              billing_type: Optional[pulumi.Input[str]] = None,
              identity: Optional[pulumi.Input['ExpressRoutePortIdentityArgs']] = None,
              link1: Optional[pulumi.Input['ExpressRoutePortLink1Args']] = None,
@@ -69,15 +69,23 @@ class ExpressRoutePortArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'bandwidthInGbps' in kwargs:
+        if bandwidth_in_gbps is None and 'bandwidthInGbps' in kwargs:
             bandwidth_in_gbps = kwargs['bandwidthInGbps']
-        if 'peeringLocation' in kwargs:
+        if bandwidth_in_gbps is None:
+            raise TypeError("Missing 'bandwidth_in_gbps' argument")
+        if encapsulation is None:
+            raise TypeError("Missing 'encapsulation' argument")
+        if peering_location is None and 'peeringLocation' in kwargs:
             peering_location = kwargs['peeringLocation']
-        if 'resourceGroupName' in kwargs:
+        if peering_location is None:
+            raise TypeError("Missing 'peering_location' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'billingType' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if billing_type is None and 'billingType' in kwargs:
             billing_type = kwargs['billingType']
 
         _setter("bandwidth_in_gbps", bandwidth_in_gbps)
@@ -300,15 +308,15 @@ class _ExpressRoutePortState:
              peering_location: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'bandwidthInGbps' in kwargs:
+        if bandwidth_in_gbps is None and 'bandwidthInGbps' in kwargs:
             bandwidth_in_gbps = kwargs['bandwidthInGbps']
-        if 'billingType' in kwargs:
+        if billing_type is None and 'billingType' in kwargs:
             billing_type = kwargs['billingType']
-        if 'peeringLocation' in kwargs:
+        if peering_location is None and 'peeringLocation' in kwargs:
             peering_location = kwargs['peeringLocation']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if bandwidth_in_gbps is not None:
@@ -529,21 +537,6 @@ class ExpressRoutePort(pulumi.CustomResource):
         """
         Manages a Express Route Port.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
-        example_express_route_port = azure.network.ExpressRoutePort("exampleExpressRoutePort",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            peering_location="Airtel-Chennai-CLS",
-            bandwidth_in_gbps=10,
-            encapsulation="Dot1Q")
-        ```
-
         ## Import
 
         Express Route Ports can be imported using the `resource id`, e.g.
@@ -574,21 +567,6 @@ class ExpressRoutePort(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Express Route Port.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
-        example_express_route_port = azure.network.ExpressRoutePort("exampleExpressRoutePort",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            peering_location="Airtel-Chennai-CLS",
-            bandwidth_in_gbps=10,
-            encapsulation="Dot1Q")
-        ```
 
         ## Import
 
@@ -644,23 +622,11 @@ class ExpressRoutePort(pulumi.CustomResource):
             if encapsulation is None and not opts.urn:
                 raise TypeError("Missing required property 'encapsulation'")
             __props__.__dict__["encapsulation"] = encapsulation
-            if identity is not None and not isinstance(identity, ExpressRoutePortIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                ExpressRoutePortIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, ExpressRoutePortIdentityArgs, True)
             __props__.__dict__["identity"] = identity
-            if link1 is not None and not isinstance(link1, ExpressRoutePortLink1Args):
-                link1 = link1 or {}
-                def _setter(key, value):
-                    link1[key] = value
-                ExpressRoutePortLink1Args._configure(_setter, **link1)
+            link1 = _utilities.configure(link1, ExpressRoutePortLink1Args, True)
             __props__.__dict__["link1"] = link1
-            if link2 is not None and not isinstance(link2, ExpressRoutePortLink2Args):
-                link2 = link2 or {}
-                def _setter(key, value):
-                    link2[key] = value
-                ExpressRoutePortLink2Args._configure(_setter, **link2)
+            link2 = _utilities.configure(link2, ExpressRoutePortLink2Args, True)
             __props__.__dict__["link2"] = link2
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name

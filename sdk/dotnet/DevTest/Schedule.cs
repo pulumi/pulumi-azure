@@ -12,53 +12,6 @@ namespace Pulumi.Azure.DevTest
     /// <summary>
     /// Manages automated startup and shutdown schedules for Azure Dev Test Lab.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleLab = new Azure.DevTest.Lab("exampleLab", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///     });
-    /// 
-    ///     var exampleSchedule = new Azure.DevTest.Schedule("exampleSchedule", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         LabName = exampleLab.Name,
-    ///         WeeklyRecurrence = new Azure.DevTest.Inputs.ScheduleWeeklyRecurrenceArgs
-    ///         {
-    ///             Time = "1100",
-    ///             WeekDays = new[]
-    ///             {
-    ///                 "Monday",
-    ///                 "Tuesday",
-    ///             },
-    ///         },
-    ///         TimeZoneId = "Pacific Standard Time",
-    ///         TaskType = "LabVmsStartupTask",
-    ///         NotificationSettings = null,
-    ///         Tags = 
-    ///         {
-    ///             { "environment", "Production" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// DevTest Schedule's can be imported using the `resource id`, e.g.

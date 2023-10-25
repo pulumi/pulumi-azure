@@ -12,62 +12,6 @@ namespace Pulumi.Azure.StreamAnalytics
     /// <summary>
     /// Manages a Stream Analytics Output to Blob Storage.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleJob = Azure.StreamAnalytics.GetJob.Invoke(new()
-    ///     {
-    ///         Name = "example-job",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///     });
-    /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         AccountTier = "Standard",
-    ///         AccountReplicationType = "LRS",
-    ///     });
-    /// 
-    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
-    ///     {
-    ///         StorageAccountName = exampleAccount.Name,
-    ///         ContainerAccessType = "private",
-    ///     });
-    /// 
-    ///     var exampleOutputBlob = new Azure.StreamAnalytics.OutputBlob("exampleOutputBlob", new()
-    ///     {
-    ///         StreamAnalyticsJobName = exampleJob.Apply(getJobResult =&gt; getJobResult.Name),
-    ///         ResourceGroupName = exampleJob.Apply(getJobResult =&gt; getJobResult.ResourceGroupName),
-    ///         StorageAccountName = exampleAccount.Name,
-    ///         StorageAccountKey = exampleAccount.PrimaryAccessKey,
-    ///         StorageContainerName = exampleContainer.Name,
-    ///         PathPattern = "some-pattern",
-    ///         DateFormat = "yyyy-MM-dd",
-    ///         TimeFormat = "HH",
-    ///         Serialization = new Azure.StreamAnalytics.Inputs.OutputBlobSerializationArgs
-    ///         {
-    ///             Type = "Csv",
-    ///             Encoding = "UTF8",
-    ///             FieldDelimiter = ",",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Stream Analytics Outputs to Blob Storage can be imported using the `resource id`, e.g.

@@ -475,17 +475,6 @@ def get_linux_web_app(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Linux Web App.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.appservice.get_linux_web_app(name="existing",
-        resource_group_name="existing")
-    pulumi.export("id", example.id)
-    ```
-
 
     :param str name: The name of this Linux Web App.
     :param str resource_group_name: The name of the Resource Group where the Linux Web App exists.
@@ -542,17 +531,6 @@ def get_linux_web_app_output(name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLinuxWebAppResult]:
     """
     Use this data source to access information about an existing Linux Web App.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.appservice.get_linux_web_app(name="existing",
-        resource_group_name="existing")
-    pulumi.export("id", example.id)
-    ```
 
 
     :param str name: The name of this Linux Web App.

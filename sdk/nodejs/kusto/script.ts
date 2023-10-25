@@ -7,66 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Kusto Script.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleCluster = new azure.kusto.Cluster("exampleCluster", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: {
- *         name: "Dev(No SLA)_Standard_D11_v2",
- *         capacity: 1,
- *     },
- * });
- * const exampleDatabase = new azure.kusto.Database("exampleDatabase", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     clusterName: exampleCluster.name,
- * });
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "LRS",
- * });
- * const exampleContainer = new azure.storage.Container("exampleContainer", {
- *     storageAccountName: exampleAccount.name,
- *     containerAccessType: "private",
- * });
- * const exampleBlob = new azure.storage.Blob("exampleBlob", {
- *     storageAccountName: exampleAccount.name,
- *     storageContainerName: exampleContainer.name,
- *     type: "Block",
- *     sourceContent: ".create table MyTable (Level:string, Timestamp:datetime, UserId:string, TraceId:string, Message:string, ProcessId:int32)",
- * });
- * const exampleAccountBlobContainerSAS = azure.storage.getAccountBlobContainerSASOutput({
- *     connectionString: exampleAccount.primaryConnectionString,
- *     containerName: exampleContainer.name,
- *     httpsOnly: true,
- *     start: "2017-03-21",
- *     expiry: "2022-03-21",
- *     permissions: {
- *         read: true,
- *         add: false,
- *         create: false,
- *         write: true,
- *         "delete": false,
- *         list: true,
- *     },
- * });
- * const exampleScript = new azure.kusto.Script("exampleScript", {
- *     databaseId: exampleDatabase.id,
- *     url: exampleBlob.id,
- *     sasToken: exampleAccountBlobContainerSAS.apply(exampleAccountBlobContainerSAS => exampleAccountBlobContainerSAS.sas),
- *     continueOnErrorsEnabled: true,
- *     forceAnUpdateWhenValueChanged: "first",
- * });
- * ```
- *
  * ## Import
  *
  * Kusto Scripts can be imported using the `resource id`, e.g.

@@ -11,28 +11,6 @@ import * as utilities from "../utilities";
  *
  * > **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Managed Hardware Security Module resource on destroy, rather than the default soft-delete. See `purgeSoftDeletedHardwareSecurityModulesOnDestroy` for more information.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleManagedHardwareSecurityModule = new azure.keyvault.ManagedHardwareSecurityModule("exampleManagedHardwareSecurityModule", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     skuName: "Standard_B1",
- *     purgeProtectionEnabled: false,
- *     softDeleteRetentionDays: 90,
- *     tenantId: current.then(current => current.tenantId),
- *     adminObjectIds: [current.then(current => current.objectId)],
- *     tags: {
- *         Env: "Test",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Key Vault Managed Hardware Security Module can be imported using the `resource id`, e.g.

@@ -46,23 +46,33 @@ class AnalyticsSolutionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             plan: pulumi.Input['AnalyticsSolutionPlanArgs'],
-             resource_group_name: pulumi.Input[str],
-             solution_name: pulumi.Input[str],
-             workspace_name: pulumi.Input[str],
-             workspace_resource_id: pulumi.Input[str],
+             plan: Optional[pulumi.Input['AnalyticsSolutionPlanArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             solution_name: Optional[pulumi.Input[str]] = None,
+             workspace_name: Optional[pulumi.Input[str]] = None,
+             workspace_resource_id: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if plan is None:
+            raise TypeError("Missing 'plan' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'solutionName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if solution_name is None and 'solutionName' in kwargs:
             solution_name = kwargs['solutionName']
-        if 'workspaceName' in kwargs:
+        if solution_name is None:
+            raise TypeError("Missing 'solution_name' argument")
+        if workspace_name is None and 'workspaceName' in kwargs:
             workspace_name = kwargs['workspaceName']
-        if 'workspaceResourceId' in kwargs:
+        if workspace_name is None:
+            raise TypeError("Missing 'workspace_name' argument")
+        if workspace_resource_id is None and 'workspaceResourceId' in kwargs:
             workspace_resource_id = kwargs['workspaceResourceId']
+        if workspace_resource_id is None:
+            raise TypeError("Missing 'workspace_resource_id' argument")
 
         _setter("plan", plan)
         _setter("resource_group_name", resource_group_name)
@@ -199,15 +209,15 @@ class _AnalyticsSolutionState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              workspace_name: Optional[pulumi.Input[str]] = None,
              workspace_resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'solutionName' in kwargs:
+        if solution_name is None and 'solutionName' in kwargs:
             solution_name = kwargs['solutionName']
-        if 'workspaceName' in kwargs:
+        if workspace_name is None and 'workspaceName' in kwargs:
             workspace_name = kwargs['workspaceName']
-        if 'workspaceResourceId' in kwargs:
+        if workspace_resource_id is None and 'workspaceResourceId' in kwargs:
             workspace_resource_id = kwargs['workspaceResourceId']
 
         if location is not None:
@@ -326,35 +336,6 @@ class AnalyticsSolution(pulumi.CustomResource):
         """
         Manages a Log Analytics (formally Operational Insights) Solution.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_random as random
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        workspace = random.RandomId("workspace",
-            keepers={
-                "group_name": example_resource_group.name,
-            },
-            byte_length=8)
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018")
-        example_analytics_solution = azure.operationalinsights.AnalyticsSolution("exampleAnalyticsSolution",
-            solution_name="ContainerInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            workspace_resource_id=example_analytics_workspace.id,
-            workspace_name=example_analytics_workspace.name,
-            plan=azure.operationalinsights.AnalyticsSolutionPlanArgs(
-                publisher="Microsoft",
-                product="OMSGallery/ContainerInsights",
-            ))
-        ```
-
         ## Import
 
         Log Analytics Solutions can be imported using the `resource id`, e.g.
@@ -381,35 +362,6 @@ class AnalyticsSolution(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Log Analytics (formally Operational Insights) Solution.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_random as random
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        workspace = random.RandomId("workspace",
-            keepers={
-                "group_name": example_resource_group.name,
-            },
-            byte_length=8)
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018")
-        example_analytics_solution = azure.operationalinsights.AnalyticsSolution("exampleAnalyticsSolution",
-            solution_name="ContainerInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            workspace_resource_id=example_analytics_workspace.id,
-            workspace_name=example_analytics_workspace.name,
-            plan=azure.operationalinsights.AnalyticsSolutionPlanArgs(
-                publisher="Microsoft",
-                product="OMSGallery/ContainerInsights",
-            ))
-        ```
 
         ## Import
 
@@ -455,11 +407,7 @@ class AnalyticsSolution(pulumi.CustomResource):
             __props__ = AnalyticsSolutionArgs.__new__(AnalyticsSolutionArgs)
 
             __props__.__dict__["location"] = location
-            if plan is not None and not isinstance(plan, AnalyticsSolutionPlanArgs):
-                plan = plan or {}
-                def _setter(key, value):
-                    plan[key] = value
-                AnalyticsSolutionPlanArgs._configure(_setter, **plan)
+            plan = _utilities.configure(plan, AnalyticsSolutionPlanArgs, True)
             if plan is None and not opts.urn:
                 raise TypeError("Missing required property 'plan'")
             __props__.__dict__["plan"] = plan

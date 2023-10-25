@@ -104,9 +104,9 @@ class VirtualNetworkGatewayConnectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             type: pulumi.Input[str],
-             virtual_network_gateway_id: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             virtual_network_gateway_id: Optional[pulumi.Input[str]] = None,
              authorization_key: Optional[pulumi.Input[str]] = None,
              connection_mode: Optional[pulumi.Input[str]] = None,
              connection_protocol: Optional[pulumi.Input[str]] = None,
@@ -128,47 +128,53 @@ class VirtualNetworkGatewayConnectionArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              traffic_selector_policy: Optional[pulumi.Input['VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs']] = None,
              use_policy_based_traffic_selectors: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'virtualNetworkGatewayId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if virtual_network_gateway_id is None and 'virtualNetworkGatewayId' in kwargs:
             virtual_network_gateway_id = kwargs['virtualNetworkGatewayId']
-        if 'authorizationKey' in kwargs:
+        if virtual_network_gateway_id is None:
+            raise TypeError("Missing 'virtual_network_gateway_id' argument")
+        if authorization_key is None and 'authorizationKey' in kwargs:
             authorization_key = kwargs['authorizationKey']
-        if 'connectionMode' in kwargs:
+        if connection_mode is None and 'connectionMode' in kwargs:
             connection_mode = kwargs['connectionMode']
-        if 'connectionProtocol' in kwargs:
+        if connection_protocol is None and 'connectionProtocol' in kwargs:
             connection_protocol = kwargs['connectionProtocol']
-        if 'customBgpAddresses' in kwargs:
+        if custom_bgp_addresses is None and 'customBgpAddresses' in kwargs:
             custom_bgp_addresses = kwargs['customBgpAddresses']
-        if 'dpdTimeoutSeconds' in kwargs:
+        if dpd_timeout_seconds is None and 'dpdTimeoutSeconds' in kwargs:
             dpd_timeout_seconds = kwargs['dpdTimeoutSeconds']
-        if 'egressNatRuleIds' in kwargs:
+        if egress_nat_rule_ids is None and 'egressNatRuleIds' in kwargs:
             egress_nat_rule_ids = kwargs['egressNatRuleIds']
-        if 'enableBgp' in kwargs:
+        if enable_bgp is None and 'enableBgp' in kwargs:
             enable_bgp = kwargs['enableBgp']
-        if 'expressRouteCircuitId' in kwargs:
+        if express_route_circuit_id is None and 'expressRouteCircuitId' in kwargs:
             express_route_circuit_id = kwargs['expressRouteCircuitId']
-        if 'expressRouteGatewayBypass' in kwargs:
+        if express_route_gateway_bypass is None and 'expressRouteGatewayBypass' in kwargs:
             express_route_gateway_bypass = kwargs['expressRouteGatewayBypass']
-        if 'ingressNatRuleIds' in kwargs:
+        if ingress_nat_rule_ids is None and 'ingressNatRuleIds' in kwargs:
             ingress_nat_rule_ids = kwargs['ingressNatRuleIds']
-        if 'ipsecPolicy' in kwargs:
+        if ipsec_policy is None and 'ipsecPolicy' in kwargs:
             ipsec_policy = kwargs['ipsecPolicy']
-        if 'localAzureIpAddressEnabled' in kwargs:
+        if local_azure_ip_address_enabled is None and 'localAzureIpAddressEnabled' in kwargs:
             local_azure_ip_address_enabled = kwargs['localAzureIpAddressEnabled']
-        if 'localNetworkGatewayId' in kwargs:
+        if local_network_gateway_id is None and 'localNetworkGatewayId' in kwargs:
             local_network_gateway_id = kwargs['localNetworkGatewayId']
-        if 'peerVirtualNetworkGatewayId' in kwargs:
+        if peer_virtual_network_gateway_id is None and 'peerVirtualNetworkGatewayId' in kwargs:
             peer_virtual_network_gateway_id = kwargs['peerVirtualNetworkGatewayId']
-        if 'routingWeight' in kwargs:
+        if routing_weight is None and 'routingWeight' in kwargs:
             routing_weight = kwargs['routingWeight']
-        if 'sharedKey' in kwargs:
+        if shared_key is None and 'sharedKey' in kwargs:
             shared_key = kwargs['sharedKey']
-        if 'trafficSelectorPolicy' in kwargs:
+        if traffic_selector_policy is None and 'trafficSelectorPolicy' in kwargs:
             traffic_selector_policy = kwargs['trafficSelectorPolicy']
-        if 'usePolicyBasedTrafficSelectors' in kwargs:
+        if use_policy_based_traffic_selectors is None and 'usePolicyBasedTrafficSelectors' in kwargs:
             use_policy_based_traffic_selectors = kwargs['usePolicyBasedTrafficSelectors']
 
         _setter("resource_group_name", resource_group_name)
@@ -628,47 +634,47 @@ class _VirtualNetworkGatewayConnectionState:
              type: Optional[pulumi.Input[str]] = None,
              use_policy_based_traffic_selectors: Optional[pulumi.Input[bool]] = None,
              virtual_network_gateway_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'authorizationKey' in kwargs:
+        if authorization_key is None and 'authorizationKey' in kwargs:
             authorization_key = kwargs['authorizationKey']
-        if 'connectionMode' in kwargs:
+        if connection_mode is None and 'connectionMode' in kwargs:
             connection_mode = kwargs['connectionMode']
-        if 'connectionProtocol' in kwargs:
+        if connection_protocol is None and 'connectionProtocol' in kwargs:
             connection_protocol = kwargs['connectionProtocol']
-        if 'customBgpAddresses' in kwargs:
+        if custom_bgp_addresses is None and 'customBgpAddresses' in kwargs:
             custom_bgp_addresses = kwargs['customBgpAddresses']
-        if 'dpdTimeoutSeconds' in kwargs:
+        if dpd_timeout_seconds is None and 'dpdTimeoutSeconds' in kwargs:
             dpd_timeout_seconds = kwargs['dpdTimeoutSeconds']
-        if 'egressNatRuleIds' in kwargs:
+        if egress_nat_rule_ids is None and 'egressNatRuleIds' in kwargs:
             egress_nat_rule_ids = kwargs['egressNatRuleIds']
-        if 'enableBgp' in kwargs:
+        if enable_bgp is None and 'enableBgp' in kwargs:
             enable_bgp = kwargs['enableBgp']
-        if 'expressRouteCircuitId' in kwargs:
+        if express_route_circuit_id is None and 'expressRouteCircuitId' in kwargs:
             express_route_circuit_id = kwargs['expressRouteCircuitId']
-        if 'expressRouteGatewayBypass' in kwargs:
+        if express_route_gateway_bypass is None and 'expressRouteGatewayBypass' in kwargs:
             express_route_gateway_bypass = kwargs['expressRouteGatewayBypass']
-        if 'ingressNatRuleIds' in kwargs:
+        if ingress_nat_rule_ids is None and 'ingressNatRuleIds' in kwargs:
             ingress_nat_rule_ids = kwargs['ingressNatRuleIds']
-        if 'ipsecPolicy' in kwargs:
+        if ipsec_policy is None and 'ipsecPolicy' in kwargs:
             ipsec_policy = kwargs['ipsecPolicy']
-        if 'localAzureIpAddressEnabled' in kwargs:
+        if local_azure_ip_address_enabled is None and 'localAzureIpAddressEnabled' in kwargs:
             local_azure_ip_address_enabled = kwargs['localAzureIpAddressEnabled']
-        if 'localNetworkGatewayId' in kwargs:
+        if local_network_gateway_id is None and 'localNetworkGatewayId' in kwargs:
             local_network_gateway_id = kwargs['localNetworkGatewayId']
-        if 'peerVirtualNetworkGatewayId' in kwargs:
+        if peer_virtual_network_gateway_id is None and 'peerVirtualNetworkGatewayId' in kwargs:
             peer_virtual_network_gateway_id = kwargs['peerVirtualNetworkGatewayId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'routingWeight' in kwargs:
+        if routing_weight is None and 'routingWeight' in kwargs:
             routing_weight = kwargs['routingWeight']
-        if 'sharedKey' in kwargs:
+        if shared_key is None and 'sharedKey' in kwargs:
             shared_key = kwargs['sharedKey']
-        if 'trafficSelectorPolicy' in kwargs:
+        if traffic_selector_policy is None and 'trafficSelectorPolicy' in kwargs:
             traffic_selector_policy = kwargs['trafficSelectorPolicy']
-        if 'usePolicyBasedTrafficSelectors' in kwargs:
+        if use_policy_based_traffic_selectors is None and 'usePolicyBasedTrafficSelectors' in kwargs:
             use_policy_based_traffic_selectors = kwargs['usePolicyBasedTrafficSelectors']
-        if 'virtualNetworkGatewayId' in kwargs:
+        if virtual_network_gateway_id is None and 'virtualNetworkGatewayId' in kwargs:
             virtual_network_gateway_id = kwargs['virtualNetworkGatewayId']
 
         if authorization_key is not None:
@@ -1050,126 +1056,6 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         Manages a connection in an existing Virtual Network Gateway.
 
         ## Example Usage
-        ### Site-to-Site connection
-
-        The following example shows a connection between an Azure virtual network
-        and an on-premises VPN device and network.
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            address_spaces=["10.0.0.0/16"])
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"])
-        onpremise_local_network_gateway = azure.network.LocalNetworkGateway("onpremiseLocalNetworkGateway",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            gateway_address="168.62.225.23",
-            address_spaces=["10.1.1.0/24"])
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            allocation_method="Dynamic")
-        example_virtual_network_gateway = azure.network.VirtualNetworkGateway("exampleVirtualNetworkGateway",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            type="Vpn",
-            vpn_type="RouteBased",
-            active_active=False,
-            enable_bgp=False,
-            sku="Basic",
-            ip_configurations=[azure.network.VirtualNetworkGatewayIpConfigurationArgs(
-                public_ip_address_id=example_public_ip.id,
-                private_ip_address_allocation="Dynamic",
-                subnet_id=example_subnet.id,
-            )])
-        onpremise_virtual_network_gateway_connection = azure.network.VirtualNetworkGatewayConnection("onpremiseVirtualNetworkGatewayConnection",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            type="IPsec",
-            virtual_network_gateway_id=example_virtual_network_gateway.id,
-            local_network_gateway_id=onpremise_local_network_gateway.id,
-            shared_key="4-v3ry-53cr37-1p53c-5h4r3d-k3y")
-        ```
-        ### VNet-to-VNet connection
-
-        The following example shows a connection between two Azure virtual network
-        in different locations/regions.
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        us_resource_group = azure.core.ResourceGroup("usResourceGroup", location="East US")
-        us_virtual_network = azure.network.VirtualNetwork("usVirtualNetwork",
-            location=us_resource_group.location,
-            resource_group_name=us_resource_group.name,
-            address_spaces=["10.0.0.0/16"])
-        us_gateway = azure.network.Subnet("usGateway",
-            resource_group_name=us_resource_group.name,
-            virtual_network_name=us_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"])
-        us_public_ip = azure.network.PublicIp("usPublicIp",
-            location=us_resource_group.location,
-            resource_group_name=us_resource_group.name,
-            allocation_method="Dynamic")
-        us_virtual_network_gateway = azure.network.VirtualNetworkGateway("usVirtualNetworkGateway",
-            location=us_resource_group.location,
-            resource_group_name=us_resource_group.name,
-            type="Vpn",
-            vpn_type="RouteBased",
-            sku="Basic",
-            ip_configurations=[azure.network.VirtualNetworkGatewayIpConfigurationArgs(
-                public_ip_address_id=us_public_ip.id,
-                private_ip_address_allocation="Dynamic",
-                subnet_id=us_gateway.id,
-            )])
-        europe_resource_group = azure.core.ResourceGroup("europeResourceGroup", location="West Europe")
-        europe_virtual_network = azure.network.VirtualNetwork("europeVirtualNetwork",
-            location=europe_resource_group.location,
-            resource_group_name=europe_resource_group.name,
-            address_spaces=["10.1.0.0/16"])
-        europe_gateway = azure.network.Subnet("europeGateway",
-            resource_group_name=europe_resource_group.name,
-            virtual_network_name=europe_virtual_network.name,
-            address_prefixes=["10.1.1.0/24"])
-        europe_public_ip = azure.network.PublicIp("europePublicIp",
-            location=europe_resource_group.location,
-            resource_group_name=europe_resource_group.name,
-            allocation_method="Dynamic")
-        europe_virtual_network_gateway = azure.network.VirtualNetworkGateway("europeVirtualNetworkGateway",
-            location=europe_resource_group.location,
-            resource_group_name=europe_resource_group.name,
-            type="Vpn",
-            vpn_type="RouteBased",
-            sku="Basic",
-            ip_configurations=[azure.network.VirtualNetworkGatewayIpConfigurationArgs(
-                public_ip_address_id=europe_public_ip.id,
-                private_ip_address_allocation="Dynamic",
-                subnet_id=europe_gateway.id,
-            )])
-        us_to_europe = azure.network.VirtualNetworkGatewayConnection("usToEurope",
-            location=us_resource_group.location,
-            resource_group_name=us_resource_group.name,
-            type="Vnet2Vnet",
-            virtual_network_gateway_id=us_virtual_network_gateway.id,
-            peer_virtual_network_gateway_id=europe_virtual_network_gateway.id,
-            shared_key="4-v3ry-53cr37-1p53c-5h4r3d-k3y")
-        europe_to_us = azure.network.VirtualNetworkGatewayConnection("europeToUs",
-            location=europe_resource_group.location,
-            resource_group_name=europe_resource_group.name,
-            type="Vnet2Vnet",
-            virtual_network_gateway_id=europe_virtual_network_gateway.id,
-            peer_virtual_network_gateway_id=us_virtual_network_gateway.id,
-            shared_key="4-v3ry-53cr37-1p53c-5h4r3d-k3y")
-        ```
 
         ## Import
 
@@ -1223,126 +1109,6 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         Manages a connection in an existing Virtual Network Gateway.
 
         ## Example Usage
-        ### Site-to-Site connection
-
-        The following example shows a connection between an Azure virtual network
-        and an on-premises VPN device and network.
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            address_spaces=["10.0.0.0/16"])
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"])
-        onpremise_local_network_gateway = azure.network.LocalNetworkGateway("onpremiseLocalNetworkGateway",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            gateway_address="168.62.225.23",
-            address_spaces=["10.1.1.0/24"])
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            allocation_method="Dynamic")
-        example_virtual_network_gateway = azure.network.VirtualNetworkGateway("exampleVirtualNetworkGateway",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            type="Vpn",
-            vpn_type="RouteBased",
-            active_active=False,
-            enable_bgp=False,
-            sku="Basic",
-            ip_configurations=[azure.network.VirtualNetworkGatewayIpConfigurationArgs(
-                public_ip_address_id=example_public_ip.id,
-                private_ip_address_allocation="Dynamic",
-                subnet_id=example_subnet.id,
-            )])
-        onpremise_virtual_network_gateway_connection = azure.network.VirtualNetworkGatewayConnection("onpremiseVirtualNetworkGatewayConnection",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            type="IPsec",
-            virtual_network_gateway_id=example_virtual_network_gateway.id,
-            local_network_gateway_id=onpremise_local_network_gateway.id,
-            shared_key="4-v3ry-53cr37-1p53c-5h4r3d-k3y")
-        ```
-        ### VNet-to-VNet connection
-
-        The following example shows a connection between two Azure virtual network
-        in different locations/regions.
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        us_resource_group = azure.core.ResourceGroup("usResourceGroup", location="East US")
-        us_virtual_network = azure.network.VirtualNetwork("usVirtualNetwork",
-            location=us_resource_group.location,
-            resource_group_name=us_resource_group.name,
-            address_spaces=["10.0.0.0/16"])
-        us_gateway = azure.network.Subnet("usGateway",
-            resource_group_name=us_resource_group.name,
-            virtual_network_name=us_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"])
-        us_public_ip = azure.network.PublicIp("usPublicIp",
-            location=us_resource_group.location,
-            resource_group_name=us_resource_group.name,
-            allocation_method="Dynamic")
-        us_virtual_network_gateway = azure.network.VirtualNetworkGateway("usVirtualNetworkGateway",
-            location=us_resource_group.location,
-            resource_group_name=us_resource_group.name,
-            type="Vpn",
-            vpn_type="RouteBased",
-            sku="Basic",
-            ip_configurations=[azure.network.VirtualNetworkGatewayIpConfigurationArgs(
-                public_ip_address_id=us_public_ip.id,
-                private_ip_address_allocation="Dynamic",
-                subnet_id=us_gateway.id,
-            )])
-        europe_resource_group = azure.core.ResourceGroup("europeResourceGroup", location="West Europe")
-        europe_virtual_network = azure.network.VirtualNetwork("europeVirtualNetwork",
-            location=europe_resource_group.location,
-            resource_group_name=europe_resource_group.name,
-            address_spaces=["10.1.0.0/16"])
-        europe_gateway = azure.network.Subnet("europeGateway",
-            resource_group_name=europe_resource_group.name,
-            virtual_network_name=europe_virtual_network.name,
-            address_prefixes=["10.1.1.0/24"])
-        europe_public_ip = azure.network.PublicIp("europePublicIp",
-            location=europe_resource_group.location,
-            resource_group_name=europe_resource_group.name,
-            allocation_method="Dynamic")
-        europe_virtual_network_gateway = azure.network.VirtualNetworkGateway("europeVirtualNetworkGateway",
-            location=europe_resource_group.location,
-            resource_group_name=europe_resource_group.name,
-            type="Vpn",
-            vpn_type="RouteBased",
-            sku="Basic",
-            ip_configurations=[azure.network.VirtualNetworkGatewayIpConfigurationArgs(
-                public_ip_address_id=europe_public_ip.id,
-                private_ip_address_allocation="Dynamic",
-                subnet_id=europe_gateway.id,
-            )])
-        us_to_europe = azure.network.VirtualNetworkGatewayConnection("usToEurope",
-            location=us_resource_group.location,
-            resource_group_name=us_resource_group.name,
-            type="Vnet2Vnet",
-            virtual_network_gateway_id=us_virtual_network_gateway.id,
-            peer_virtual_network_gateway_id=europe_virtual_network_gateway.id,
-            shared_key="4-v3ry-53cr37-1p53c-5h4r3d-k3y")
-        europe_to_us = azure.network.VirtualNetworkGatewayConnection("europeToUs",
-            location=europe_resource_group.location,
-            resource_group_name=europe_resource_group.name,
-            type="Vnet2Vnet",
-            virtual_network_gateway_id=europe_virtual_network_gateway.id,
-            peer_virtual_network_gateway_id=us_virtual_network_gateway.id,
-            shared_key="4-v3ry-53cr37-1p53c-5h4r3d-k3y")
-        ```
 
         ## Import
 
@@ -1407,11 +1173,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             __props__.__dict__["authorization_key"] = None if authorization_key is None else pulumi.Output.secret(authorization_key)
             __props__.__dict__["connection_mode"] = connection_mode
             __props__.__dict__["connection_protocol"] = connection_protocol
-            if custom_bgp_addresses is not None and not isinstance(custom_bgp_addresses, VirtualNetworkGatewayConnectionCustomBgpAddressesArgs):
-                custom_bgp_addresses = custom_bgp_addresses or {}
-                def _setter(key, value):
-                    custom_bgp_addresses[key] = value
-                VirtualNetworkGatewayConnectionCustomBgpAddressesArgs._configure(_setter, **custom_bgp_addresses)
+            custom_bgp_addresses = _utilities.configure(custom_bgp_addresses, VirtualNetworkGatewayConnectionCustomBgpAddressesArgs, True)
             __props__.__dict__["custom_bgp_addresses"] = custom_bgp_addresses
             __props__.__dict__["dpd_timeout_seconds"] = dpd_timeout_seconds
             __props__.__dict__["egress_nat_rule_ids"] = egress_nat_rule_ids
@@ -1419,11 +1181,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             __props__.__dict__["express_route_circuit_id"] = express_route_circuit_id
             __props__.__dict__["express_route_gateway_bypass"] = express_route_gateway_bypass
             __props__.__dict__["ingress_nat_rule_ids"] = ingress_nat_rule_ids
-            if ipsec_policy is not None and not isinstance(ipsec_policy, VirtualNetworkGatewayConnectionIpsecPolicyArgs):
-                ipsec_policy = ipsec_policy or {}
-                def _setter(key, value):
-                    ipsec_policy[key] = value
-                VirtualNetworkGatewayConnectionIpsecPolicyArgs._configure(_setter, **ipsec_policy)
+            ipsec_policy = _utilities.configure(ipsec_policy, VirtualNetworkGatewayConnectionIpsecPolicyArgs, True)
             __props__.__dict__["ipsec_policy"] = ipsec_policy
             __props__.__dict__["local_azure_ip_address_enabled"] = local_azure_ip_address_enabled
             __props__.__dict__["local_network_gateway_id"] = local_network_gateway_id
@@ -1436,11 +1194,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             __props__.__dict__["routing_weight"] = routing_weight
             __props__.__dict__["shared_key"] = None if shared_key is None else pulumi.Output.secret(shared_key)
             __props__.__dict__["tags"] = tags
-            if traffic_selector_policy is not None and not isinstance(traffic_selector_policy, VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs):
-                traffic_selector_policy = traffic_selector_policy or {}
-                def _setter(key, value):
-                    traffic_selector_policy[key] = value
-                VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs._configure(_setter, **traffic_selector_policy)
+            traffic_selector_policy = _utilities.configure(traffic_selector_policy, VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs, True)
             __props__.__dict__["traffic_selector_policy"] = traffic_selector_policy
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")

@@ -38,22 +38,24 @@ class StorageDefenderArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             storage_account_id: pulumi.Input[str],
+             storage_account_id: Optional[pulumi.Input[str]] = None,
              malware_scanning_on_upload_cap_gb_per_month: Optional[pulumi.Input[int]] = None,
              malware_scanning_on_upload_enabled: Optional[pulumi.Input[bool]] = None,
              override_subscription_settings_enabled: Optional[pulumi.Input[bool]] = None,
              sensitive_data_discovery_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'malwareScanningOnUploadCapGbPerMonth' in kwargs:
+        if storage_account_id is None:
+            raise TypeError("Missing 'storage_account_id' argument")
+        if malware_scanning_on_upload_cap_gb_per_month is None and 'malwareScanningOnUploadCapGbPerMonth' in kwargs:
             malware_scanning_on_upload_cap_gb_per_month = kwargs['malwareScanningOnUploadCapGbPerMonth']
-        if 'malwareScanningOnUploadEnabled' in kwargs:
+        if malware_scanning_on_upload_enabled is None and 'malwareScanningOnUploadEnabled' in kwargs:
             malware_scanning_on_upload_enabled = kwargs['malwareScanningOnUploadEnabled']
-        if 'overrideSubscriptionSettingsEnabled' in kwargs:
+        if override_subscription_settings_enabled is None and 'overrideSubscriptionSettingsEnabled' in kwargs:
             override_subscription_settings_enabled = kwargs['overrideSubscriptionSettingsEnabled']
-        if 'sensitiveDataDiscoveryEnabled' in kwargs:
+        if sensitive_data_discovery_enabled is None and 'sensitiveDataDiscoveryEnabled' in kwargs:
             sensitive_data_discovery_enabled = kwargs['sensitiveDataDiscoveryEnabled']
 
         _setter("storage_account_id", storage_account_id)
@@ -159,17 +161,17 @@ class _StorageDefenderState:
              override_subscription_settings_enabled: Optional[pulumi.Input[bool]] = None,
              sensitive_data_discovery_enabled: Optional[pulumi.Input[bool]] = None,
              storage_account_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'malwareScanningOnUploadCapGbPerMonth' in kwargs:
+        if malware_scanning_on_upload_cap_gb_per_month is None and 'malwareScanningOnUploadCapGbPerMonth' in kwargs:
             malware_scanning_on_upload_cap_gb_per_month = kwargs['malwareScanningOnUploadCapGbPerMonth']
-        if 'malwareScanningOnUploadEnabled' in kwargs:
+        if malware_scanning_on_upload_enabled is None and 'malwareScanningOnUploadEnabled' in kwargs:
             malware_scanning_on_upload_enabled = kwargs['malwareScanningOnUploadEnabled']
-        if 'overrideSubscriptionSettingsEnabled' in kwargs:
+        if override_subscription_settings_enabled is None and 'overrideSubscriptionSettingsEnabled' in kwargs:
             override_subscription_settings_enabled = kwargs['overrideSubscriptionSettingsEnabled']
-        if 'sensitiveDataDiscoveryEnabled' in kwargs:
+        if sensitive_data_discovery_enabled is None and 'sensitiveDataDiscoveryEnabled' in kwargs:
             sensitive_data_discovery_enabled = kwargs['sensitiveDataDiscoveryEnabled']
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
 
         if malware_scanning_on_upload_cap_gb_per_month is not None:
@@ -258,21 +260,6 @@ class StorageDefender(pulumi.CustomResource):
         """
         Manages the Defender for Storage.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="westus2")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_storage_defender = azure.securitycenter.StorageDefender("exampleStorageDefender", storage_account_id=example_account.id)
-        ```
-
         ## Import
 
         The setting can be imported using the `resource id`, e.g.
@@ -297,21 +284,6 @@ class StorageDefender(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages the Defender for Storage.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="westus2")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_storage_defender = azure.securitycenter.StorageDefender("exampleStorageDefender", storage_account_id=example_account.id)
-        ```
 
         ## Import
 

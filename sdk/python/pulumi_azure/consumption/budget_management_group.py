@@ -49,21 +49,29 @@ class BudgetManagementGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             amount: pulumi.Input[float],
-             management_group_id: pulumi.Input[str],
-             notifications: pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupNotificationArgs']]],
-             time_period: pulumi.Input['BudgetManagementGroupTimePeriodArgs'],
+             amount: Optional[pulumi.Input[float]] = None,
+             management_group_id: Optional[pulumi.Input[str]] = None,
+             notifications: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupNotificationArgs']]]] = None,
+             time_period: Optional[pulumi.Input['BudgetManagementGroupTimePeriodArgs']] = None,
              etag: Optional[pulumi.Input[str]] = None,
              filter: Optional[pulumi.Input['BudgetManagementGroupFilterArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              time_grain: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'managementGroupId' in kwargs:
+        if amount is None:
+            raise TypeError("Missing 'amount' argument")
+        if management_group_id is None and 'managementGroupId' in kwargs:
             management_group_id = kwargs['managementGroupId']
-        if 'timePeriod' in kwargs:
+        if management_group_id is None:
+            raise TypeError("Missing 'management_group_id' argument")
+        if notifications is None:
+            raise TypeError("Missing 'notifications' argument")
+        if time_period is None and 'timePeriod' in kwargs:
             time_period = kwargs['timePeriod']
-        if 'timeGrain' in kwargs:
+        if time_period is None:
+            raise TypeError("Missing 'time_period' argument")
+        if time_grain is None and 'timeGrain' in kwargs:
             time_grain = kwargs['timeGrain']
 
         _setter("amount", amount)
@@ -220,13 +228,13 @@ class _BudgetManagementGroupState:
              notifications: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupNotificationArgs']]]] = None,
              time_grain: Optional[pulumi.Input[str]] = None,
              time_period: Optional[pulumi.Input['BudgetManagementGroupTimePeriodArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'managementGroupId' in kwargs:
+        if management_group_id is None and 'managementGroupId' in kwargs:
             management_group_id = kwargs['managementGroupId']
-        if 'timeGrain' in kwargs:
+        if time_grain is None and 'timeGrain' in kwargs:
             time_grain = kwargs['timeGrain']
-        if 'timePeriod' in kwargs:
+        if time_period is None and 'timePeriod' in kwargs:
             time_period = kwargs['timePeriod']
 
         if amount is not None:
@@ -360,58 +368,6 @@ class BudgetManagementGroup(pulumi.CustomResource):
         """
         Manages a Consumption Budget for a Management Group.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_group = azure.management.Group("exampleGroup", display_name="example")
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="eastus")
-        example_budget_management_group = azure.consumption.BudgetManagementGroup("exampleBudgetManagementGroup",
-            management_group_id=example_group.id,
-            amount=1000,
-            time_grain="Monthly",
-            time_period=azure.consumption.BudgetManagementGroupTimePeriodArgs(
-                start_date="2022-06-01T00:00:00Z",
-                end_date="2022-07-01T00:00:00Z",
-            ),
-            filter=azure.consumption.BudgetManagementGroupFilterArgs(
-                dimensions=[azure.consumption.BudgetManagementGroupFilterDimensionArgs(
-                    name="ResourceGroupName",
-                    values=[example_resource_group.name],
-                )],
-                tags=[azure.consumption.BudgetManagementGroupFilterTagArgs(
-                    name="foo",
-                    values=[
-                        "bar",
-                        "baz",
-                    ],
-                )],
-            ),
-            notifications=[
-                azure.consumption.BudgetManagementGroupNotificationArgs(
-                    enabled=True,
-                    threshold=90,
-                    operator="EqualTo",
-                    contact_emails=[
-                        "foo@example.com",
-                        "bar@example.com",
-                    ],
-                ),
-                azure.consumption.BudgetManagementGroupNotificationArgs(
-                    enabled=False,
-                    threshold=100,
-                    operator="GreaterThan",
-                    threshold_type="Forecasted",
-                    contact_emails=[
-                        "foo@example.com",
-                        "bar@example.com",
-                    ],
-                ),
-            ])
-        ```
-
         ## Import
 
         Management Group Consumption Budgets can be imported using the `resource id`, e.g.
@@ -439,58 +395,6 @@ class BudgetManagementGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Consumption Budget for a Management Group.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_group = azure.management.Group("exampleGroup", display_name="example")
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="eastus")
-        example_budget_management_group = azure.consumption.BudgetManagementGroup("exampleBudgetManagementGroup",
-            management_group_id=example_group.id,
-            amount=1000,
-            time_grain="Monthly",
-            time_period=azure.consumption.BudgetManagementGroupTimePeriodArgs(
-                start_date="2022-06-01T00:00:00Z",
-                end_date="2022-07-01T00:00:00Z",
-            ),
-            filter=azure.consumption.BudgetManagementGroupFilterArgs(
-                dimensions=[azure.consumption.BudgetManagementGroupFilterDimensionArgs(
-                    name="ResourceGroupName",
-                    values=[example_resource_group.name],
-                )],
-                tags=[azure.consumption.BudgetManagementGroupFilterTagArgs(
-                    name="foo",
-                    values=[
-                        "bar",
-                        "baz",
-                    ],
-                )],
-            ),
-            notifications=[
-                azure.consumption.BudgetManagementGroupNotificationArgs(
-                    enabled=True,
-                    threshold=90,
-                    operator="EqualTo",
-                    contact_emails=[
-                        "foo@example.com",
-                        "bar@example.com",
-                    ],
-                ),
-                azure.consumption.BudgetManagementGroupNotificationArgs(
-                    enabled=False,
-                    threshold=100,
-                    operator="GreaterThan",
-                    threshold_type="Forecasted",
-                    contact_emails=[
-                        "foo@example.com",
-                        "bar@example.com",
-                    ],
-                ),
-            ])
-        ```
 
         ## Import
 
@@ -540,11 +444,7 @@ class BudgetManagementGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'amount'")
             __props__.__dict__["amount"] = amount
             __props__.__dict__["etag"] = etag
-            if filter is not None and not isinstance(filter, BudgetManagementGroupFilterArgs):
-                filter = filter or {}
-                def _setter(key, value):
-                    filter[key] = value
-                BudgetManagementGroupFilterArgs._configure(_setter, **filter)
+            filter = _utilities.configure(filter, BudgetManagementGroupFilterArgs, True)
             __props__.__dict__["filter"] = filter
             if management_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'management_group_id'")
@@ -554,11 +454,7 @@ class BudgetManagementGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'notifications'")
             __props__.__dict__["notifications"] = notifications
             __props__.__dict__["time_grain"] = time_grain
-            if time_period is not None and not isinstance(time_period, BudgetManagementGroupTimePeriodArgs):
-                time_period = time_period or {}
-                def _setter(key, value):
-                    time_period[key] = value
-                BudgetManagementGroupTimePeriodArgs._configure(_setter, **time_period)
+            time_period = _utilities.configure(time_period, BudgetManagementGroupTimePeriodArgs, True)
             if time_period is None and not opts.urn:
                 raise TypeError("Missing required property 'time_period'")
             __props__.__dict__["time_period"] = time_period

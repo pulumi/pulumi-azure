@@ -47,23 +47,31 @@ class SavedSearchArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             category: pulumi.Input[str],
-             display_name: pulumi.Input[str],
-             log_analytics_workspace_id: pulumi.Input[str],
-             query: pulumi.Input[str],
+             category: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+             query: Optional[pulumi.Input[str]] = None,
              function_alias: Optional[pulumi.Input[str]] = None,
              function_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'displayName' in kwargs:
+        if category is None:
+            raise TypeError("Missing 'category' argument")
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'functionAlias' in kwargs:
+        if log_analytics_workspace_id is None:
+            raise TypeError("Missing 'log_analytics_workspace_id' argument")
+        if query is None:
+            raise TypeError("Missing 'query' argument")
+        if function_alias is None and 'functionAlias' in kwargs:
             function_alias = kwargs['functionAlias']
-        if 'functionParameters' in kwargs:
+        if function_parameters is None and 'functionParameters' in kwargs:
             function_parameters = kwargs['functionParameters']
 
         _setter("category", category)
@@ -220,15 +228,15 @@ class _SavedSearchState:
              name: Optional[pulumi.Input[str]] = None,
              query: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'functionAlias' in kwargs:
+        if function_alias is None and 'functionAlias' in kwargs:
             function_alias = kwargs['functionAlias']
-        if 'functionParameters' in kwargs:
+        if function_parameters is None and 'functionParameters' in kwargs:
             function_parameters = kwargs['functionParameters']
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
 
         if category is not None:
@@ -362,25 +370,6 @@ class SavedSearch(pulumi.CustomResource):
         """
         Manages a Log Analytics (formally Operational Insights) Saved Search.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018",
-            retention_in_days=30)
-        example_saved_search = azure.loganalytics.SavedSearch("exampleSavedSearch",
-            log_analytics_workspace_id=example_analytics_workspace.id,
-            category="exampleCategory",
-            display_name="exampleDisplayName",
-            query="exampleQuery")
-        ```
-
         ## Import
 
         Log Analytics Saved Searches can be imported using the `resource id`, e.g.
@@ -408,25 +397,6 @@ class SavedSearch(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Log Analytics (formally Operational Insights) Saved Search.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018",
-            retention_in_days=30)
-        example_saved_search = azure.loganalytics.SavedSearch("exampleSavedSearch",
-            log_analytics_workspace_id=example_analytics_workspace.id,
-            category="exampleCategory",
-            display_name="exampleDisplayName",
-            query="exampleQuery")
-        ```
 
         ## Import
 

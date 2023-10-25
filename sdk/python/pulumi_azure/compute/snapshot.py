@@ -62,8 +62,8 @@ class SnapshotArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             create_option: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             create_option: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              disk_size_gb: Optional[pulumi.Input[int]] = None,
              encryption_settings: Optional[pulumi.Input['SnapshotEncryptionSettingsArgs']] = None,
              incremental_enabled: Optional[pulumi.Input[bool]] = None,
@@ -73,23 +73,27 @@ class SnapshotArgs:
              source_uri: Optional[pulumi.Input[str]] = None,
              storage_account_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'createOption' in kwargs:
+        if create_option is None and 'createOption' in kwargs:
             create_option = kwargs['createOption']
-        if 'resourceGroupName' in kwargs:
+        if create_option is None:
+            raise TypeError("Missing 'create_option' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'diskSizeGb' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if disk_size_gb is None and 'diskSizeGb' in kwargs:
             disk_size_gb = kwargs['diskSizeGb']
-        if 'encryptionSettings' in kwargs:
+        if encryption_settings is None and 'encryptionSettings' in kwargs:
             encryption_settings = kwargs['encryptionSettings']
-        if 'incrementalEnabled' in kwargs:
+        if incremental_enabled is None and 'incrementalEnabled' in kwargs:
             incremental_enabled = kwargs['incrementalEnabled']
-        if 'sourceResourceId' in kwargs:
+        if source_resource_id is None and 'sourceResourceId' in kwargs:
             source_resource_id = kwargs['sourceResourceId']
-        if 'sourceUri' in kwargs:
+        if source_uri is None and 'sourceUri' in kwargs:
             source_uri = kwargs['sourceUri']
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
 
         _setter("create_option", create_option)
@@ -314,25 +318,25 @@ class _SnapshotState:
              storage_account_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              trusted_launch_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'createOption' in kwargs:
+        if create_option is None and 'createOption' in kwargs:
             create_option = kwargs['createOption']
-        if 'diskSizeGb' in kwargs:
+        if disk_size_gb is None and 'diskSizeGb' in kwargs:
             disk_size_gb = kwargs['diskSizeGb']
-        if 'encryptionSettings' in kwargs:
+        if encryption_settings is None and 'encryptionSettings' in kwargs:
             encryption_settings = kwargs['encryptionSettings']
-        if 'incrementalEnabled' in kwargs:
+        if incremental_enabled is None and 'incrementalEnabled' in kwargs:
             incremental_enabled = kwargs['incrementalEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'sourceResourceId' in kwargs:
+        if source_resource_id is None and 'sourceResourceId' in kwargs:
             source_resource_id = kwargs['sourceResourceId']
-        if 'sourceUri' in kwargs:
+        if source_uri is None and 'sourceUri' in kwargs:
             source_uri = kwargs['sourceUri']
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'trustedLaunchEnabled' in kwargs:
+        if trusted_launch_enabled is None and 'trustedLaunchEnabled' in kwargs:
             trusted_launch_enabled = kwargs['trustedLaunchEnabled']
 
         if create_option is not None:
@@ -529,26 +533,6 @@ class Snapshot(pulumi.CustomResource):
         """
         Manages a Disk Snapshot.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_managed_disk = azure.compute.ManagedDisk("exampleManagedDisk",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            storage_account_type="Standard_LRS",
-            create_option="Empty",
-            disk_size_gb=10)
-        example_snapshot = azure.compute.Snapshot("exampleSnapshot",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            create_option="Copy",
-            source_uri=example_managed_disk.id)
-        ```
-
         ## Import
 
         Snapshots can be imported using the `resource id`, e.g.
@@ -583,26 +567,6 @@ class Snapshot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Disk Snapshot.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_managed_disk = azure.compute.ManagedDisk("exampleManagedDisk",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            storage_account_type="Standard_LRS",
-            create_option="Empty",
-            disk_size_gb=10)
-        example_snapshot = azure.compute.Snapshot("exampleSnapshot",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            create_option="Copy",
-            source_uri=example_managed_disk.id)
-        ```
 
         ## Import
 
@@ -655,11 +619,7 @@ class Snapshot(pulumi.CustomResource):
                 raise TypeError("Missing required property 'create_option'")
             __props__.__dict__["create_option"] = create_option
             __props__.__dict__["disk_size_gb"] = disk_size_gb
-            if encryption_settings is not None and not isinstance(encryption_settings, SnapshotEncryptionSettingsArgs):
-                encryption_settings = encryption_settings or {}
-                def _setter(key, value):
-                    encryption_settings[key] = value
-                SnapshotEncryptionSettingsArgs._configure(_setter, **encryption_settings)
+            encryption_settings = _utilities.configure(encryption_settings, SnapshotEncryptionSettingsArgs, True)
             __props__.__dict__["encryption_settings"] = encryption_settings
             __props__.__dict__["incremental_enabled"] = incremental_enabled
             __props__.__dict__["location"] = location

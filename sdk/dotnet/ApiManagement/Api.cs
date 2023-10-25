@@ -12,51 +12,6 @@ namespace Pulumi.Azure.ApiManagement
     /// <summary>
     /// Manages an API within an API Management Service.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         PublisherName = "My Company",
-    ///         PublisherEmail = "company@exmaple.com",
-    ///         SkuName = "Developer_1",
-    ///     });
-    /// 
-    ///     var exampleApi = new Azure.ApiManagement.Api("exampleApi", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         ApiManagementName = exampleService.Name,
-    ///         Revision = "1",
-    ///         DisplayName = "Example API",
-    ///         Path = "example",
-    ///         Protocols = new[]
-    ///         {
-    ///             "https",
-    ///         },
-    ///         Import = new Azure.ApiManagement.Inputs.ApiImportArgs
-    ///         {
-    ///             ContentFormat = "swagger-link-json",
-    ///             ContentValue = "http://conferenceapi.azurewebsites.net/?format=json",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// API Management API's can be imported using the `resource id`, e.g.

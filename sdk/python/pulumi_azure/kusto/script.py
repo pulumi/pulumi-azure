@@ -44,24 +44,26 @@ class ScriptArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database_id: pulumi.Input[str],
+             database_id: Optional[pulumi.Input[str]] = None,
              continue_on_errors_enabled: Optional[pulumi.Input[bool]] = None,
              force_an_update_when_value_changed: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              sas_token: Optional[pulumi.Input[str]] = None,
              script_content: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'databaseId' in kwargs:
+        if database_id is None and 'databaseId' in kwargs:
             database_id = kwargs['databaseId']
-        if 'continueOnErrorsEnabled' in kwargs:
+        if database_id is None:
+            raise TypeError("Missing 'database_id' argument")
+        if continue_on_errors_enabled is None and 'continueOnErrorsEnabled' in kwargs:
             continue_on_errors_enabled = kwargs['continueOnErrorsEnabled']
-        if 'forceAnUpdateWhenValueChanged' in kwargs:
+        if force_an_update_when_value_changed is None and 'forceAnUpdateWhenValueChanged' in kwargs:
             force_an_update_when_value_changed = kwargs['forceAnUpdateWhenValueChanged']
-        if 'sasToken' in kwargs:
+        if sas_token is None and 'sasToken' in kwargs:
             sas_token = kwargs['sasToken']
-        if 'scriptContent' in kwargs:
+        if script_content is None and 'scriptContent' in kwargs:
             script_content = kwargs['scriptContent']
 
         _setter("database_id", database_id)
@@ -203,17 +205,17 @@ class _ScriptState:
              sas_token: Optional[pulumi.Input[str]] = None,
              script_content: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'continueOnErrorsEnabled' in kwargs:
+        if continue_on_errors_enabled is None and 'continueOnErrorsEnabled' in kwargs:
             continue_on_errors_enabled = kwargs['continueOnErrorsEnabled']
-        if 'databaseId' in kwargs:
+        if database_id is None and 'databaseId' in kwargs:
             database_id = kwargs['databaseId']
-        if 'forceAnUpdateWhenValueChanged' in kwargs:
+        if force_an_update_when_value_changed is None and 'forceAnUpdateWhenValueChanged' in kwargs:
             force_an_update_when_value_changed = kwargs['forceAnUpdateWhenValueChanged']
-        if 'sasToken' in kwargs:
+        if sas_token is None and 'sasToken' in kwargs:
             sas_token = kwargs['sasToken']
-        if 'scriptContent' in kwargs:
+        if script_content is None and 'scriptContent' in kwargs:
             script_content = kwargs['scriptContent']
 
         if continue_on_errors_enabled is not None:
@@ -332,58 +334,6 @@ class Script(pulumi.CustomResource):
         """
         Manages a Kusto Script.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_cluster = azure.kusto.Cluster("exampleCluster",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Dev(No SLA)_Standard_D11_v2",
-                capacity=1,
-            ))
-        example_database = azure.kusto.Database("exampleDatabase",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            cluster_name=example_cluster.name)
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("exampleContainer",
-            storage_account_name=example_account.name,
-            container_access_type="private")
-        example_blob = azure.storage.Blob("exampleBlob",
-            storage_account_name=example_account.name,
-            storage_container_name=example_container.name,
-            type="Block",
-            source_content=".create table MyTable (Level:string, Timestamp:datetime, UserId:string, TraceId:string, Message:string, ProcessId:int32)")
-        example_account_blob_container_sas = azure.storage.get_account_blob_container_sas_output(connection_string=example_account.primary_connection_string,
-            container_name=example_container.name,
-            https_only=True,
-            start="2017-03-21",
-            expiry="2022-03-21",
-            permissions=azure.storage.GetAccountBlobContainerSASPermissionsArgs(
-                read=True,
-                add=False,
-                create=False,
-                write=True,
-                delete=False,
-                list=True,
-            ))
-        example_script = azure.kusto.Script("exampleScript",
-            database_id=example_database.id,
-            url=example_blob.id,
-            sas_token=example_account_blob_container_sas.sas,
-            continue_on_errors_enabled=True,
-            force_an_update_when_value_changed="first")
-        ```
-
         ## Import
 
         Kusto Scripts can be imported using the `resource id`, e.g.
@@ -410,58 +360,6 @@ class Script(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Kusto Script.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_cluster = azure.kusto.Cluster("exampleCluster",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Dev(No SLA)_Standard_D11_v2",
-                capacity=1,
-            ))
-        example_database = azure.kusto.Database("exampleDatabase",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            cluster_name=example_cluster.name)
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("exampleContainer",
-            storage_account_name=example_account.name,
-            container_access_type="private")
-        example_blob = azure.storage.Blob("exampleBlob",
-            storage_account_name=example_account.name,
-            storage_container_name=example_container.name,
-            type="Block",
-            source_content=".create table MyTable (Level:string, Timestamp:datetime, UserId:string, TraceId:string, Message:string, ProcessId:int32)")
-        example_account_blob_container_sas = azure.storage.get_account_blob_container_sas_output(connection_string=example_account.primary_connection_string,
-            container_name=example_container.name,
-            https_only=True,
-            start="2017-03-21",
-            expiry="2022-03-21",
-            permissions=azure.storage.GetAccountBlobContainerSASPermissionsArgs(
-                read=True,
-                add=False,
-                create=False,
-                write=True,
-                delete=False,
-                list=True,
-            ))
-        example_script = azure.kusto.Script("exampleScript",
-            database_id=example_database.id,
-            url=example_blob.id,
-            sas_token=example_account_blob_container_sas.sas,
-            continue_on_errors_enabled=True,
-            force_an_update_when_value_changed="first")
-        ```
 
         ## Import
 

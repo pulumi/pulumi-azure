@@ -48,22 +48,30 @@ class SqlRoleDefinitionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             account_name: pulumi.Input[str],
-             assignable_scopes: pulumi.Input[Sequence[pulumi.Input[str]]],
-             permissions: pulumi.Input[Sequence[pulumi.Input['SqlRoleDefinitionPermissionArgs']]],
-             resource_group_name: pulumi.Input[str],
+             account_name: Optional[pulumi.Input[str]] = None,
+             assignable_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             permissions: Optional[pulumi.Input[Sequence[pulumi.Input['SqlRoleDefinitionPermissionArgs']]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              role_definition_id: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accountName' in kwargs:
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'assignableScopes' in kwargs:
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if assignable_scopes is None and 'assignableScopes' in kwargs:
             assignable_scopes = kwargs['assignableScopes']
-        if 'resourceGroupName' in kwargs:
+        if assignable_scopes is None:
+            raise TypeError("Missing 'assignable_scopes' argument")
+        if permissions is None:
+            raise TypeError("Missing 'permissions' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'roleDefinitionId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if role_definition_id is None and 'roleDefinitionId' in kwargs:
             role_definition_id = kwargs['roleDefinitionId']
 
         _setter("account_name", account_name)
@@ -206,15 +214,15 @@ class _SqlRoleDefinitionState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              role_definition_id: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accountName' in kwargs:
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'assignableScopes' in kwargs:
+        if assignable_scopes is None and 'assignableScopes' in kwargs:
             assignable_scopes = kwargs['assignableScopes']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'roleDefinitionId' in kwargs:
+        if role_definition_id is None and 'roleDefinitionId' in kwargs:
             role_definition_id = kwargs['roleDefinitionId']
 
         if account_name is not None:
@@ -335,36 +343,6 @@ class SqlRoleDefinition(pulumi.CustomResource):
         """
         Manages a Cosmos DB SQL Role Definition.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.cosmosdb.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            offer_type="Standard",
-            kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="Strong",
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example_resource_group.location,
-                failover_priority=0,
-            )])
-        example_sql_role_definition = azure.cosmosdb.SqlRoleDefinition("exampleSqlRoleDefinition",
-            role_definition_id="84cf3a8b-4122-4448-bce2-fa423cfe0a15",
-            resource_group_name=example_resource_group.name,
-            account_name=example_account.name,
-            assignable_scopes=[example_account.id.apply(lambda id: f"{id}/dbs/sales")],
-            permissions=[azure.cosmosdb.SqlRoleDefinitionPermissionArgs(
-                data_actions=["Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read"],
-            )])
-        ```
-
         ## Import
 
         Cosmos DB SQL Role Definitions can be imported using the `resource id`, e.g.
@@ -393,36 +371,6 @@ class SqlRoleDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Cosmos DB SQL Role Definition.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.cosmosdb.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            offer_type="Standard",
-            kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="Strong",
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example_resource_group.location,
-                failover_priority=0,
-            )])
-        example_sql_role_definition = azure.cosmosdb.SqlRoleDefinition("exampleSqlRoleDefinition",
-            role_definition_id="84cf3a8b-4122-4448-bce2-fa423cfe0a15",
-            resource_group_name=example_resource_group.name,
-            account_name=example_account.name,
-            assignable_scopes=[example_account.id.apply(lambda id: f"{id}/dbs/sales")],
-            permissions=[azure.cosmosdb.SqlRoleDefinitionPermissionArgs(
-                data_actions=["Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read"],
-            )])
-        ```
 
         ## Import
 

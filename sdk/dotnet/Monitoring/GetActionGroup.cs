@@ -13,66 +13,12 @@ namespace Pulumi.Azure.Monitoring
     {
         /// <summary>
         /// Use this data source to access the properties of an Action Group.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Monitoring.GetActionGroup.Invoke(new()
-        ///     {
-        ///         ResourceGroupName = "example-rg",
-        ///         Name = "tfex-actiongroup",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["actionGroupId"] = example.Apply(getActionGroupResult =&gt; getActionGroupResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetActionGroupResult> InvokeAsync(GetActionGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetActionGroupResult>("azure:monitoring/getActionGroup:getActionGroup", args ?? new GetActionGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access the properties of an Action Group.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Monitoring.GetActionGroup.Invoke(new()
-        ///     {
-        ///         ResourceGroupName = "example-rg",
-        ///         Name = "tfex-actiongroup",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["actionGroupId"] = example.Apply(getActionGroupResult =&gt; getActionGroupResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetActionGroupResult> Invoke(GetActionGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetActionGroupResult>("azure:monitoring/getActionGroup:getActionGroup", args ?? new GetActionGroupInvokeArgs(), options.WithDefaults());

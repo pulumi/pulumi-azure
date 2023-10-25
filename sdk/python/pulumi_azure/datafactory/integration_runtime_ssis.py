@@ -73,8 +73,8 @@ class IntegrationRuntimeSsisArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_factory_id: pulumi.Input[str],
-             node_size: pulumi.Input[str],
+             data_factory_id: Optional[pulumi.Input[str]] = None,
+             node_size: Optional[pulumi.Input[str]] = None,
              catalog_info: Optional[pulumi.Input['IntegrationRuntimeSsisCatalogInfoArgs']] = None,
              custom_setup_script: Optional[pulumi.Input['IntegrationRuntimeSsisCustomSetupScriptArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -89,29 +89,33 @@ class IntegrationRuntimeSsisArgs:
              package_stores: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisPackageStoreArgs']]]] = None,
              proxy: Optional[pulumi.Input['IntegrationRuntimeSsisProxyArgs']] = None,
              vnet_integration: Optional[pulumi.Input['IntegrationRuntimeSsisVnetIntegrationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'nodeSize' in kwargs:
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if node_size is None and 'nodeSize' in kwargs:
             node_size = kwargs['nodeSize']
-        if 'catalogInfo' in kwargs:
+        if node_size is None:
+            raise TypeError("Missing 'node_size' argument")
+        if catalog_info is None and 'catalogInfo' in kwargs:
             catalog_info = kwargs['catalogInfo']
-        if 'customSetupScript' in kwargs:
+        if custom_setup_script is None and 'customSetupScript' in kwargs:
             custom_setup_script = kwargs['customSetupScript']
-        if 'expressCustomSetup' in kwargs:
+        if express_custom_setup is None and 'expressCustomSetup' in kwargs:
             express_custom_setup = kwargs['expressCustomSetup']
-        if 'expressVnetIntegration' in kwargs:
+        if express_vnet_integration is None and 'expressVnetIntegration' in kwargs:
             express_vnet_integration = kwargs['expressVnetIntegration']
-        if 'licenseType' in kwargs:
+        if license_type is None and 'licenseType' in kwargs:
             license_type = kwargs['licenseType']
-        if 'maxParallelExecutionsPerNode' in kwargs:
+        if max_parallel_executions_per_node is None and 'maxParallelExecutionsPerNode' in kwargs:
             max_parallel_executions_per_node = kwargs['maxParallelExecutionsPerNode']
-        if 'numberOfNodes' in kwargs:
+        if number_of_nodes is None and 'numberOfNodes' in kwargs:
             number_of_nodes = kwargs['numberOfNodes']
-        if 'packageStores' in kwargs:
+        if package_stores is None and 'packageStores' in kwargs:
             package_stores = kwargs['packageStores']
-        if 'vnetIntegration' in kwargs:
+        if vnet_integration is None and 'vnetIntegration' in kwargs:
             vnet_integration = kwargs['vnetIntegration']
 
         _setter("data_factory_id", data_factory_id)
@@ -414,29 +418,29 @@ class _IntegrationRuntimeSsisState:
              package_stores: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisPackageStoreArgs']]]] = None,
              proxy: Optional[pulumi.Input['IntegrationRuntimeSsisProxyArgs']] = None,
              vnet_integration: Optional[pulumi.Input['IntegrationRuntimeSsisVnetIntegrationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'catalogInfo' in kwargs:
+        if catalog_info is None and 'catalogInfo' in kwargs:
             catalog_info = kwargs['catalogInfo']
-        if 'customSetupScript' in kwargs:
+        if custom_setup_script is None and 'customSetupScript' in kwargs:
             custom_setup_script = kwargs['customSetupScript']
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'expressCustomSetup' in kwargs:
+        if express_custom_setup is None and 'expressCustomSetup' in kwargs:
             express_custom_setup = kwargs['expressCustomSetup']
-        if 'expressVnetIntegration' in kwargs:
+        if express_vnet_integration is None and 'expressVnetIntegration' in kwargs:
             express_vnet_integration = kwargs['expressVnetIntegration']
-        if 'licenseType' in kwargs:
+        if license_type is None and 'licenseType' in kwargs:
             license_type = kwargs['licenseType']
-        if 'maxParallelExecutionsPerNode' in kwargs:
+        if max_parallel_executions_per_node is None and 'maxParallelExecutionsPerNode' in kwargs:
             max_parallel_executions_per_node = kwargs['maxParallelExecutionsPerNode']
-        if 'nodeSize' in kwargs:
+        if node_size is None and 'nodeSize' in kwargs:
             node_size = kwargs['nodeSize']
-        if 'numberOfNodes' in kwargs:
+        if number_of_nodes is None and 'numberOfNodes' in kwargs:
             number_of_nodes = kwargs['numberOfNodes']
-        if 'packageStores' in kwargs:
+        if package_stores is None and 'packageStores' in kwargs:
             package_stores = kwargs['packageStores']
-        if 'vnetIntegration' in kwargs:
+        if vnet_integration is None and 'vnetIntegration' in kwargs:
             vnet_integration = kwargs['vnetIntegration']
 
         if catalog_info is not None:
@@ -690,22 +694,6 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
         """
         Manages a Data Factory Azure-SSIS Integration Runtime.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_integration_runtime_ssis = azure.datafactory.IntegrationRuntimeSsis("exampleIntegrationRuntimeSsis",
-            data_factory_id=example_factory.id,
-            location=example_resource_group.location,
-            node_size="Standard_D8_v3")
-        ```
-
         ## Import
 
         Data Factory Azure-SSIS Integration Runtimes can be imported using the `resource id`, e.g.
@@ -741,22 +729,6 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Data Factory Azure-SSIS Integration Runtime.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_integration_runtime_ssis = azure.datafactory.IntegrationRuntimeSsis("exampleIntegrationRuntimeSsis",
-            data_factory_id=example_factory.id,
-            location=example_resource_group.location,
-            node_size="Standard_D8_v3")
-        ```
 
         ## Import
 
@@ -810,34 +782,18 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IntegrationRuntimeSsisArgs.__new__(IntegrationRuntimeSsisArgs)
 
-            if catalog_info is not None and not isinstance(catalog_info, IntegrationRuntimeSsisCatalogInfoArgs):
-                catalog_info = catalog_info or {}
-                def _setter(key, value):
-                    catalog_info[key] = value
-                IntegrationRuntimeSsisCatalogInfoArgs._configure(_setter, **catalog_info)
+            catalog_info = _utilities.configure(catalog_info, IntegrationRuntimeSsisCatalogInfoArgs, True)
             __props__.__dict__["catalog_info"] = catalog_info
-            if custom_setup_script is not None and not isinstance(custom_setup_script, IntegrationRuntimeSsisCustomSetupScriptArgs):
-                custom_setup_script = custom_setup_script or {}
-                def _setter(key, value):
-                    custom_setup_script[key] = value
-                IntegrationRuntimeSsisCustomSetupScriptArgs._configure(_setter, **custom_setup_script)
+            custom_setup_script = _utilities.configure(custom_setup_script, IntegrationRuntimeSsisCustomSetupScriptArgs, True)
             __props__.__dict__["custom_setup_script"] = custom_setup_script
             if data_factory_id is None and not opts.urn:
                 raise TypeError("Missing required property 'data_factory_id'")
             __props__.__dict__["data_factory_id"] = data_factory_id
             __props__.__dict__["description"] = description
             __props__.__dict__["edition"] = edition
-            if express_custom_setup is not None and not isinstance(express_custom_setup, IntegrationRuntimeSsisExpressCustomSetupArgs):
-                express_custom_setup = express_custom_setup or {}
-                def _setter(key, value):
-                    express_custom_setup[key] = value
-                IntegrationRuntimeSsisExpressCustomSetupArgs._configure(_setter, **express_custom_setup)
+            express_custom_setup = _utilities.configure(express_custom_setup, IntegrationRuntimeSsisExpressCustomSetupArgs, True)
             __props__.__dict__["express_custom_setup"] = express_custom_setup
-            if express_vnet_integration is not None and not isinstance(express_vnet_integration, IntegrationRuntimeSsisExpressVnetIntegrationArgs):
-                express_vnet_integration = express_vnet_integration or {}
-                def _setter(key, value):
-                    express_vnet_integration[key] = value
-                IntegrationRuntimeSsisExpressVnetIntegrationArgs._configure(_setter, **express_vnet_integration)
+            express_vnet_integration = _utilities.configure(express_vnet_integration, IntegrationRuntimeSsisExpressVnetIntegrationArgs, True)
             __props__.__dict__["express_vnet_integration"] = express_vnet_integration
             __props__.__dict__["license_type"] = license_type
             __props__.__dict__["location"] = location
@@ -848,17 +804,9 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
             __props__.__dict__["node_size"] = node_size
             __props__.__dict__["number_of_nodes"] = number_of_nodes
             __props__.__dict__["package_stores"] = package_stores
-            if proxy is not None and not isinstance(proxy, IntegrationRuntimeSsisProxyArgs):
-                proxy = proxy or {}
-                def _setter(key, value):
-                    proxy[key] = value
-                IntegrationRuntimeSsisProxyArgs._configure(_setter, **proxy)
+            proxy = _utilities.configure(proxy, IntegrationRuntimeSsisProxyArgs, True)
             __props__.__dict__["proxy"] = proxy
-            if vnet_integration is not None and not isinstance(vnet_integration, IntegrationRuntimeSsisVnetIntegrationArgs):
-                vnet_integration = vnet_integration or {}
-                def _setter(key, value):
-                    vnet_integration[key] = value
-                IntegrationRuntimeSsisVnetIntegrationArgs._configure(_setter, **vnet_integration)
+            vnet_integration = _utilities.configure(vnet_integration, IntegrationRuntimeSsisVnetIntegrationArgs, True)
             __props__.__dict__["vnet_integration"] = vnet_integration
         super(IntegrationRuntimeSsis, __self__).__init__(
             'azure:datafactory/integrationRuntimeSsis:IntegrationRuntimeSsis',

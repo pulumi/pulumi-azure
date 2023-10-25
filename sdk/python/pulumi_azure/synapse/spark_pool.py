@@ -82,9 +82,9 @@ class SparkPoolArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             node_size: pulumi.Input[str],
-             node_size_family: pulumi.Input[str],
-             synapse_workspace_id: pulumi.Input[str],
+             node_size: Optional[pulumi.Input[str]] = None,
+             node_size_family: Optional[pulumi.Input[str]] = None,
+             synapse_workspace_id: Optional[pulumi.Input[str]] = None,
              auto_pause: Optional[pulumi.Input['SparkPoolAutoPauseArgs']] = None,
              auto_scale: Optional[pulumi.Input['SparkPoolAutoScaleArgs']] = None,
              cache_size: Optional[pulumi.Input[int]] = None,
@@ -101,41 +101,47 @@ class SparkPoolArgs:
              spark_log_folder: Optional[pulumi.Input[str]] = None,
              spark_version: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'nodeSize' in kwargs:
+        if node_size is None and 'nodeSize' in kwargs:
             node_size = kwargs['nodeSize']
-        if 'nodeSizeFamily' in kwargs:
+        if node_size is None:
+            raise TypeError("Missing 'node_size' argument")
+        if node_size_family is None and 'nodeSizeFamily' in kwargs:
             node_size_family = kwargs['nodeSizeFamily']
-        if 'synapseWorkspaceId' in kwargs:
+        if node_size_family is None:
+            raise TypeError("Missing 'node_size_family' argument")
+        if synapse_workspace_id is None and 'synapseWorkspaceId' in kwargs:
             synapse_workspace_id = kwargs['synapseWorkspaceId']
-        if 'autoPause' in kwargs:
+        if synapse_workspace_id is None:
+            raise TypeError("Missing 'synapse_workspace_id' argument")
+        if auto_pause is None and 'autoPause' in kwargs:
             auto_pause = kwargs['autoPause']
-        if 'autoScale' in kwargs:
+        if auto_scale is None and 'autoScale' in kwargs:
             auto_scale = kwargs['autoScale']
-        if 'cacheSize' in kwargs:
+        if cache_size is None and 'cacheSize' in kwargs:
             cache_size = kwargs['cacheSize']
-        if 'computeIsolationEnabled' in kwargs:
+        if compute_isolation_enabled is None and 'computeIsolationEnabled' in kwargs:
             compute_isolation_enabled = kwargs['computeIsolationEnabled']
-        if 'dynamicExecutorAllocationEnabled' in kwargs:
+        if dynamic_executor_allocation_enabled is None and 'dynamicExecutorAllocationEnabled' in kwargs:
             dynamic_executor_allocation_enabled = kwargs['dynamicExecutorAllocationEnabled']
-        if 'libraryRequirement' in kwargs:
+        if library_requirement is None and 'libraryRequirement' in kwargs:
             library_requirement = kwargs['libraryRequirement']
-        if 'maxExecutors' in kwargs:
+        if max_executors is None and 'maxExecutors' in kwargs:
             max_executors = kwargs['maxExecutors']
-        if 'minExecutors' in kwargs:
+        if min_executors is None and 'minExecutors' in kwargs:
             min_executors = kwargs['minExecutors']
-        if 'nodeCount' in kwargs:
+        if node_count is None and 'nodeCount' in kwargs:
             node_count = kwargs['nodeCount']
-        if 'sessionLevelPackagesEnabled' in kwargs:
+        if session_level_packages_enabled is None and 'sessionLevelPackagesEnabled' in kwargs:
             session_level_packages_enabled = kwargs['sessionLevelPackagesEnabled']
-        if 'sparkConfig' in kwargs:
+        if spark_config is None and 'sparkConfig' in kwargs:
             spark_config = kwargs['sparkConfig']
-        if 'sparkEventsFolder' in kwargs:
+        if spark_events_folder is None and 'sparkEventsFolder' in kwargs:
             spark_events_folder = kwargs['sparkEventsFolder']
-        if 'sparkLogFolder' in kwargs:
+        if spark_log_folder is None and 'sparkLogFolder' in kwargs:
             spark_log_folder = kwargs['sparkLogFolder']
-        if 'sparkVersion' in kwargs:
+        if spark_version is None and 'sparkVersion' in kwargs:
             spark_version = kwargs['sparkVersion']
 
         _setter("node_size", node_size)
@@ -491,41 +497,41 @@ class _SparkPoolState:
              spark_version: Optional[pulumi.Input[str]] = None,
              synapse_workspace_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'autoPause' in kwargs:
+        if auto_pause is None and 'autoPause' in kwargs:
             auto_pause = kwargs['autoPause']
-        if 'autoScale' in kwargs:
+        if auto_scale is None and 'autoScale' in kwargs:
             auto_scale = kwargs['autoScale']
-        if 'cacheSize' in kwargs:
+        if cache_size is None and 'cacheSize' in kwargs:
             cache_size = kwargs['cacheSize']
-        if 'computeIsolationEnabled' in kwargs:
+        if compute_isolation_enabled is None and 'computeIsolationEnabled' in kwargs:
             compute_isolation_enabled = kwargs['computeIsolationEnabled']
-        if 'dynamicExecutorAllocationEnabled' in kwargs:
+        if dynamic_executor_allocation_enabled is None and 'dynamicExecutorAllocationEnabled' in kwargs:
             dynamic_executor_allocation_enabled = kwargs['dynamicExecutorAllocationEnabled']
-        if 'libraryRequirement' in kwargs:
+        if library_requirement is None and 'libraryRequirement' in kwargs:
             library_requirement = kwargs['libraryRequirement']
-        if 'maxExecutors' in kwargs:
+        if max_executors is None and 'maxExecutors' in kwargs:
             max_executors = kwargs['maxExecutors']
-        if 'minExecutors' in kwargs:
+        if min_executors is None and 'minExecutors' in kwargs:
             min_executors = kwargs['minExecutors']
-        if 'nodeCount' in kwargs:
+        if node_count is None and 'nodeCount' in kwargs:
             node_count = kwargs['nodeCount']
-        if 'nodeSize' in kwargs:
+        if node_size is None and 'nodeSize' in kwargs:
             node_size = kwargs['nodeSize']
-        if 'nodeSizeFamily' in kwargs:
+        if node_size_family is None and 'nodeSizeFamily' in kwargs:
             node_size_family = kwargs['nodeSizeFamily']
-        if 'sessionLevelPackagesEnabled' in kwargs:
+        if session_level_packages_enabled is None and 'sessionLevelPackagesEnabled' in kwargs:
             session_level_packages_enabled = kwargs['sessionLevelPackagesEnabled']
-        if 'sparkConfig' in kwargs:
+        if spark_config is None and 'sparkConfig' in kwargs:
             spark_config = kwargs['sparkConfig']
-        if 'sparkEventsFolder' in kwargs:
+        if spark_events_folder is None and 'sparkEventsFolder' in kwargs:
             spark_events_folder = kwargs['sparkEventsFolder']
-        if 'sparkLogFolder' in kwargs:
+        if spark_log_folder is None and 'sparkLogFolder' in kwargs:
             spark_log_folder = kwargs['sparkLogFolder']
-        if 'sparkVersion' in kwargs:
+        if spark_version is None and 'sparkVersion' in kwargs:
             spark_version = kwargs['sparkVersion']
-        if 'synapseWorkspaceId' in kwargs:
+        if synapse_workspace_id is None and 'synapseWorkspaceId' in kwargs:
             synapse_workspace_id = kwargs['synapseWorkspaceId']
 
         if auto_pause is not None:
@@ -918,26 +924,14 @@ class SparkPool(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SparkPoolArgs.__new__(SparkPoolArgs)
 
-            if auto_pause is not None and not isinstance(auto_pause, SparkPoolAutoPauseArgs):
-                auto_pause = auto_pause or {}
-                def _setter(key, value):
-                    auto_pause[key] = value
-                SparkPoolAutoPauseArgs._configure(_setter, **auto_pause)
+            auto_pause = _utilities.configure(auto_pause, SparkPoolAutoPauseArgs, True)
             __props__.__dict__["auto_pause"] = auto_pause
-            if auto_scale is not None and not isinstance(auto_scale, SparkPoolAutoScaleArgs):
-                auto_scale = auto_scale or {}
-                def _setter(key, value):
-                    auto_scale[key] = value
-                SparkPoolAutoScaleArgs._configure(_setter, **auto_scale)
+            auto_scale = _utilities.configure(auto_scale, SparkPoolAutoScaleArgs, True)
             __props__.__dict__["auto_scale"] = auto_scale
             __props__.__dict__["cache_size"] = cache_size
             __props__.__dict__["compute_isolation_enabled"] = compute_isolation_enabled
             __props__.__dict__["dynamic_executor_allocation_enabled"] = dynamic_executor_allocation_enabled
-            if library_requirement is not None and not isinstance(library_requirement, SparkPoolLibraryRequirementArgs):
-                library_requirement = library_requirement or {}
-                def _setter(key, value):
-                    library_requirement[key] = value
-                SparkPoolLibraryRequirementArgs._configure(_setter, **library_requirement)
+            library_requirement = _utilities.configure(library_requirement, SparkPoolLibraryRequirementArgs, True)
             __props__.__dict__["library_requirement"] = library_requirement
             __props__.__dict__["max_executors"] = max_executors
             __props__.__dict__["min_executors"] = min_executors
@@ -950,11 +944,7 @@ class SparkPool(pulumi.CustomResource):
                 raise TypeError("Missing required property 'node_size_family'")
             __props__.__dict__["node_size_family"] = node_size_family
             __props__.__dict__["session_level_packages_enabled"] = session_level_packages_enabled
-            if spark_config is not None and not isinstance(spark_config, SparkPoolSparkConfigArgs):
-                spark_config = spark_config or {}
-                def _setter(key, value):
-                    spark_config[key] = value
-                SparkPoolSparkConfigArgs._configure(_setter, **spark_config)
+            spark_config = _utilities.configure(spark_config, SparkPoolSparkConfigArgs, True)
             __props__.__dict__["spark_config"] = spark_config
             __props__.__dict__["spark_events_folder"] = spark_events_folder
             __props__.__dict__["spark_log_folder"] = spark_log_folder

@@ -7,46 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Pipeline inside a Azure Data Factory.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const examplePipeline = new azure.datafactory.Pipeline("examplePipeline", {dataFactoryId: exampleFactory.id});
- * ```
- * ### With Activities
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const test = new azure.datafactory.Pipeline("test", {
- *     dataFactoryId: azurerm_data_factory.test.id,
- *     variables: {
- *         bob: "item1",
- *     },
- *     activitiesJson: `[
- *     {
- *         "name": "Append variable1",
- *         "type": "AppendVariable",
- *         "dependsOn": [],
- *         "userProperties": [],
- *         "typeProperties": {
- *           "variableName": "bob",
- *           "value": "something"
- *         }
- *     }
- * ]
- * `,
- * });
- * ```
- *
  * ## Import
  *
  * Data Factory Pipeline's can be imported using the `resource id`, e.g.

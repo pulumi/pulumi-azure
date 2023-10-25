@@ -35,16 +35,22 @@ class FlexibleServerConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             server_name: pulumi.Input[str],
-             value: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serverName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if server_name is None and 'serverName' in kwargs:
             server_name = kwargs['serverName']
+        if server_name is None:
+            raise TypeError("Missing 'server_name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("resource_group_name", resource_group_name)
         _setter("server_name", server_name)
@@ -129,11 +135,11 @@ class _FlexibleServerConfigurationState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              server_name: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serverName' in kwargs:
+        if server_name is None and 'serverName' in kwargs:
             server_name = kwargs['serverName']
 
         if name is not None:
@@ -211,25 +217,6 @@ class FlexibleServerConfiguration(pulumi.CustomResource):
 
         > **Note:** Since this resource is provisioned by default, the Azure Provider will not check for the presence of an existing resource prior to attempting to create it.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_flexible_server = azure.mysql.FlexibleServer("exampleFlexibleServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            administrator_login="adminTerraform",
-            administrator_password="H@Sh1CoR3!",
-            sku_name="GP_Standard_D2ds_v4")
-        example_flexible_server_configuration = azure.mysql.FlexibleServerConfiguration("exampleFlexibleServerConfiguration",
-            resource_group_name=example_resource_group.name,
-            server_name=example_flexible_server.name,
-            value="600")
-        ```
-
         ## Import
 
         MySQL Flexible Server Configurations can be imported using the `resource id`, e.g.
@@ -257,25 +244,6 @@ class FlexibleServerConfiguration(pulumi.CustomResource):
         ## Disclaimers
 
         > **Note:** Since this resource is provisioned by default, the Azure Provider will not check for the presence of an existing resource prior to attempting to create it.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_flexible_server = azure.mysql.FlexibleServer("exampleFlexibleServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            administrator_login="adminTerraform",
-            administrator_password="H@Sh1CoR3!",
-            sku_name="GP_Standard_D2ds_v4")
-        example_flexible_server_configuration = azure.mysql.FlexibleServerConfiguration("exampleFlexibleServerConfiguration",
-            resource_group_name=example_resource_group.name,
-            server_name=example_flexible_server.name,
-            value="600")
-        ```
 
         ## Import
 

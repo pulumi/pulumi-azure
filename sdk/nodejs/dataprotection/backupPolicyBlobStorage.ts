@@ -7,25 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Backup Policy Blob Storage.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleBackupVault = new azure.dataprotection.BackupVault("exampleBackupVault", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     datastoreType: "VaultStore",
- *     redundancy: "LocallyRedundant",
- * });
- * const exampleBackupPolicyBlobStorage = new azure.dataprotection.BackupPolicyBlobStorage("exampleBackupPolicyBlobStorage", {
- *     vaultId: exampleBackupVault.id,
- *     retentionDuration: "P30D",
- * });
- * ```
- *
  * ## Import
  *
  * Backup Policy Blob Storages can be imported using the `resource id`, e.g.

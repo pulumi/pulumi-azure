@@ -9,35 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Shared Image within a Shared Image Gallery.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleSharedImageGallery = new azure.compute.SharedImageGallery("exampleSharedImageGallery", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     description: "Shared images and things.",
- *     tags: {
- *         Hello: "There",
- *         World: "Example",
- *     },
- * });
- * const exampleSharedImage = new azure.compute.SharedImage("exampleSharedImage", {
- *     galleryName: exampleSharedImageGallery.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     osType: "Linux",
- *     identifier: {
- *         publisher: "PublisherName",
- *         offer: "OfferName",
- *         sku: "ExampleSku",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Shared Images can be imported using the `resource id`, e.g.

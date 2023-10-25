@@ -38,19 +38,25 @@ class MoverTargetEndpointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             storage_account_id: pulumi.Input[str],
-             storage_container_name: pulumi.Input[str],
-             storage_mover_id: pulumi.Input[str],
+             storage_account_id: Optional[pulumi.Input[str]] = None,
+             storage_container_name: Optional[pulumi.Input[str]] = None,
+             storage_mover_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'storageContainerName' in kwargs:
+        if storage_account_id is None:
+            raise TypeError("Missing 'storage_account_id' argument")
+        if storage_container_name is None and 'storageContainerName' in kwargs:
             storage_container_name = kwargs['storageContainerName']
-        if 'storageMoverId' in kwargs:
+        if storage_container_name is None:
+            raise TypeError("Missing 'storage_container_name' argument")
+        if storage_mover_id is None and 'storageMoverId' in kwargs:
             storage_mover_id = kwargs['storageMoverId']
+        if storage_mover_id is None:
+            raise TypeError("Missing 'storage_mover_id' argument")
 
         _setter("storage_account_id", storage_account_id)
         _setter("storage_container_name", storage_container_name)
@@ -153,13 +159,13 @@ class _MoverTargetEndpointState:
              storage_account_id: Optional[pulumi.Input[str]] = None,
              storage_container_name: Optional[pulumi.Input[str]] = None,
              storage_mover_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'storageContainerName' in kwargs:
+        if storage_container_name is None and 'storageContainerName' in kwargs:
             storage_container_name = kwargs['storageContainerName']
-        if 'storageMoverId' in kwargs:
+        if storage_mover_id is None and 'storageMoverId' in kwargs:
             storage_mover_id = kwargs['storageMoverId']
 
         if description is not None:
@@ -248,32 +254,6 @@ class MoverTargetEndpoint(pulumi.CustomResource):
         """
         Manages a Storage Mover Target Endpoint.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            allow_nested_items_to_be_public=True)
-        example_container = azure.storage.Container("exampleContainer",
-            storage_account_name=example_account.name,
-            container_access_type="blob")
-        example_mover = azure.storage.Mover("exampleMover",
-            resource_group_name=example_resource_group.name,
-            location="West Europe")
-        example_mover_target_endpoint = azure.storage.MoverTargetEndpoint("exampleMoverTargetEndpoint",
-            storage_mover_id=example_mover.id,
-            storage_account_id=example_account.id,
-            storage_container_name=example_container.name,
-            description="Example Storage Container Endpoint Description")
-        ```
-
         ## Import
 
         Storage Mover Target Endpoint can be imported using the `resource id`, e.g.
@@ -298,32 +278,6 @@ class MoverTargetEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Storage Mover Target Endpoint.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            allow_nested_items_to_be_public=True)
-        example_container = azure.storage.Container("exampleContainer",
-            storage_account_name=example_account.name,
-            container_access_type="blob")
-        example_mover = azure.storage.Mover("exampleMover",
-            resource_group_name=example_resource_group.name,
-            location="West Europe")
-        example_mover_target_endpoint = azure.storage.MoverTargetEndpoint("exampleMoverTargetEndpoint",
-            storage_mover_id=example_mover.id,
-            storage_account_id=example_account.id,
-            storage_container_name=example_container.name,
-            description="Example Storage Container Endpoint Description")
-        ```
 
         ## Import
 

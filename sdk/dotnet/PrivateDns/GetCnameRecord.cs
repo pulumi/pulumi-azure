@@ -11,65 +11,9 @@ namespace Pulumi.Azure.PrivateDns
 {
     public static class GetCnameRecord
     {
-        /// <summary>
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = new Azure.PrivateDns.CnameRecord("example", new()
-        ///     {
-        ///         ZoneName = "test-zone",
-        ///         ResourceGroupName = "test-rg",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["privateDnsCnameRecordId"] = example.Id,
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetCnameRecordResult> InvokeAsync(GetCnameRecordArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCnameRecordResult>("azure:privatedns/getCnameRecord:getCnameRecord", args ?? new GetCnameRecordArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = new Azure.PrivateDns.CnameRecord("example", new()
-        ///     {
-        ///         ZoneName = "test-zone",
-        ///         ResourceGroupName = "test-rg",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["privateDnsCnameRecordId"] = example.Id,
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetCnameRecordResult> Invoke(GetCnameRecordInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCnameRecordResult>("azure:privatedns/getCnameRecord:getCnameRecord", args ?? new GetCnameRecordInvokeArgs(), options.WithDefaults());
     }

@@ -76,10 +76,10 @@ class NetworkPacketCoreControlPlaneArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             local_diagnostics_access: pulumi.Input['NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs'],
-             resource_group_name: pulumi.Input[str],
-             site_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             sku: pulumi.Input[str],
+             local_diagnostics_access: Optional[pulumi.Input['NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             site_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
              control_plane_access_ipv4_address: Optional[pulumi.Input[str]] = None,
              control_plane_access_ipv4_gateway: Optional[pulumi.Input[str]] = None,
              control_plane_access_ipv4_subnet: Optional[pulumi.Input[str]] = None,
@@ -93,29 +93,37 @@ class NetworkPacketCoreControlPlaneArgs:
              software_version: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              user_equipment_mtu_in_bytes: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'localDiagnosticsAccess' in kwargs:
+        if local_diagnostics_access is None and 'localDiagnosticsAccess' in kwargs:
             local_diagnostics_access = kwargs['localDiagnosticsAccess']
-        if 'resourceGroupName' in kwargs:
+        if local_diagnostics_access is None:
+            raise TypeError("Missing 'local_diagnostics_access' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'siteIds' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if site_ids is None and 'siteIds' in kwargs:
             site_ids = kwargs['siteIds']
-        if 'controlPlaneAccessIpv4Address' in kwargs:
+        if site_ids is None:
+            raise TypeError("Missing 'site_ids' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if control_plane_access_ipv4_address is None and 'controlPlaneAccessIpv4Address' in kwargs:
             control_plane_access_ipv4_address = kwargs['controlPlaneAccessIpv4Address']
-        if 'controlPlaneAccessIpv4Gateway' in kwargs:
+        if control_plane_access_ipv4_gateway is None and 'controlPlaneAccessIpv4Gateway' in kwargs:
             control_plane_access_ipv4_gateway = kwargs['controlPlaneAccessIpv4Gateway']
-        if 'controlPlaneAccessIpv4Subnet' in kwargs:
+        if control_plane_access_ipv4_subnet is None and 'controlPlaneAccessIpv4Subnet' in kwargs:
             control_plane_access_ipv4_subnet = kwargs['controlPlaneAccessIpv4Subnet']
-        if 'controlPlaneAccessName' in kwargs:
+        if control_plane_access_name is None and 'controlPlaneAccessName' in kwargs:
             control_plane_access_name = kwargs['controlPlaneAccessName']
-        if 'coreNetworkTechnology' in kwargs:
+        if core_network_technology is None and 'coreNetworkTechnology' in kwargs:
             core_network_technology = kwargs['coreNetworkTechnology']
-        if 'interoperabilitySettingsJson' in kwargs:
+        if interoperability_settings_json is None and 'interoperabilitySettingsJson' in kwargs:
             interoperability_settings_json = kwargs['interoperabilitySettingsJson']
-        if 'softwareVersion' in kwargs:
+        if software_version is None and 'softwareVersion' in kwargs:
             software_version = kwargs['softwareVersion']
-        if 'userEquipmentMtuInBytes' in kwargs:
+        if user_equipment_mtu_in_bytes is None and 'userEquipmentMtuInBytes' in kwargs:
             user_equipment_mtu_in_bytes = kwargs['userEquipmentMtuInBytes']
 
         _setter("local_diagnostics_access", local_diagnostics_access)
@@ -434,29 +442,29 @@ class _NetworkPacketCoreControlPlaneState:
              software_version: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              user_equipment_mtu_in_bytes: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'controlPlaneAccessIpv4Address' in kwargs:
+        if control_plane_access_ipv4_address is None and 'controlPlaneAccessIpv4Address' in kwargs:
             control_plane_access_ipv4_address = kwargs['controlPlaneAccessIpv4Address']
-        if 'controlPlaneAccessIpv4Gateway' in kwargs:
+        if control_plane_access_ipv4_gateway is None and 'controlPlaneAccessIpv4Gateway' in kwargs:
             control_plane_access_ipv4_gateway = kwargs['controlPlaneAccessIpv4Gateway']
-        if 'controlPlaneAccessIpv4Subnet' in kwargs:
+        if control_plane_access_ipv4_subnet is None and 'controlPlaneAccessIpv4Subnet' in kwargs:
             control_plane_access_ipv4_subnet = kwargs['controlPlaneAccessIpv4Subnet']
-        if 'controlPlaneAccessName' in kwargs:
+        if control_plane_access_name is None and 'controlPlaneAccessName' in kwargs:
             control_plane_access_name = kwargs['controlPlaneAccessName']
-        if 'coreNetworkTechnology' in kwargs:
+        if core_network_technology is None and 'coreNetworkTechnology' in kwargs:
             core_network_technology = kwargs['coreNetworkTechnology']
-        if 'interoperabilitySettingsJson' in kwargs:
+        if interoperability_settings_json is None and 'interoperabilitySettingsJson' in kwargs:
             interoperability_settings_json = kwargs['interoperabilitySettingsJson']
-        if 'localDiagnosticsAccess' in kwargs:
+        if local_diagnostics_access is None and 'localDiagnosticsAccess' in kwargs:
             local_diagnostics_access = kwargs['localDiagnosticsAccess']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'siteIds' in kwargs:
+        if site_ids is None and 'siteIds' in kwargs:
             site_ids = kwargs['siteIds']
-        if 'softwareVersion' in kwargs:
+        if software_version is None and 'softwareVersion' in kwargs:
             software_version = kwargs['softwareVersion']
-        if 'userEquipmentMtuInBytes' in kwargs:
+        if user_equipment_mtu_in_bytes is None and 'userEquipmentMtuInBytes' in kwargs:
             user_equipment_mtu_in_bytes = kwargs['userEquipmentMtuInBytes']
 
         if control_plane_access_ipv4_address is not None:
@@ -725,50 +733,6 @@ class NetworkPacketCoreControlPlane(pulumi.CustomResource):
         """
         Manages a Mobile Network Packet Core Control Plane.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_network = azure.mobile.Network("exampleNetwork",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            mobile_country_code="001",
-            mobile_network_code="01")
-        example_network_site = azure.mobile.NetworkSite("exampleNetworkSite",
-            mobile_network_id=azurerm_mobile_network["test"]["id"],
-            location=example_resource_group.location)
-        example_device = azure.databoxedge.Device("exampleDevice",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku_name="EdgeP_Base-Standard")
-        example_network_packet_core_control_plane = azure.mobile.NetworkPacketCoreControlPlane("exampleNetworkPacketCoreControlPlane",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku="G0",
-            control_plane_access_name="default-interface",
-            control_plane_access_ipv4_address="192.168.1.199",
-            control_plane_access_ipv4_gateway="192.168.1.1",
-            control_plane_access_ipv4_subnet="192.168.1.0/25",
-            site_ids=[example_network_site.id],
-            local_diagnostics_access=azure.mobile.NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs(
-                authentication_type="AAD",
-            ),
-            platform=azure.mobile.NetworkPacketCoreControlPlanePlatformArgs(
-                type="AKS-HCI",
-                edge_device_id=example_device.id,
-            ),
-            interoperability_settings_json=json.dumps({
-                "key": "value",
-            }),
-            tags={
-                "key": "value",
-            })
-        ```
-
         ## Import
 
         Mobile Network Packet Core Control Plane can be imported using the `resource id`, e.g.
@@ -805,50 +769,6 @@ class NetworkPacketCoreControlPlane(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Mobile Network Packet Core Control Plane.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_network = azure.mobile.Network("exampleNetwork",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            mobile_country_code="001",
-            mobile_network_code="01")
-        example_network_site = azure.mobile.NetworkSite("exampleNetworkSite",
-            mobile_network_id=azurerm_mobile_network["test"]["id"],
-            location=example_resource_group.location)
-        example_device = azure.databoxedge.Device("exampleDevice",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku_name="EdgeP_Base-Standard")
-        example_network_packet_core_control_plane = azure.mobile.NetworkPacketCoreControlPlane("exampleNetworkPacketCoreControlPlane",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku="G0",
-            control_plane_access_name="default-interface",
-            control_plane_access_ipv4_address="192.168.1.199",
-            control_plane_access_ipv4_gateway="192.168.1.1",
-            control_plane_access_ipv4_subnet="192.168.1.0/25",
-            site_ids=[example_network_site.id],
-            local_diagnostics_access=azure.mobile.NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs(
-                authentication_type="AAD",
-            ),
-            platform=azure.mobile.NetworkPacketCoreControlPlanePlatformArgs(
-                type="AKS-HCI",
-                edge_device_id=example_device.id,
-            ),
-            interoperability_settings_json=json.dumps({
-                "key": "value",
-            }),
-            tags={
-                "key": "value",
-            })
-        ```
 
         ## Import
 
@@ -908,28 +828,16 @@ class NetworkPacketCoreControlPlane(pulumi.CustomResource):
             __props__.__dict__["control_plane_access_ipv4_subnet"] = control_plane_access_ipv4_subnet
             __props__.__dict__["control_plane_access_name"] = control_plane_access_name
             __props__.__dict__["core_network_technology"] = core_network_technology
-            if identity is not None and not isinstance(identity, NetworkPacketCoreControlPlaneIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                NetworkPacketCoreControlPlaneIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, NetworkPacketCoreControlPlaneIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["interoperability_settings_json"] = interoperability_settings_json
-            if local_diagnostics_access is not None and not isinstance(local_diagnostics_access, NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs):
-                local_diagnostics_access = local_diagnostics_access or {}
-                def _setter(key, value):
-                    local_diagnostics_access[key] = value
-                NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs._configure(_setter, **local_diagnostics_access)
+            local_diagnostics_access = _utilities.configure(local_diagnostics_access, NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs, True)
             if local_diagnostics_access is None and not opts.urn:
                 raise TypeError("Missing required property 'local_diagnostics_access'")
             __props__.__dict__["local_diagnostics_access"] = local_diagnostics_access
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
-            if platform is not None and not isinstance(platform, NetworkPacketCoreControlPlanePlatformArgs):
-                platform = platform or {}
-                def _setter(key, value):
-                    platform[key] = value
-                NetworkPacketCoreControlPlanePlatformArgs._configure(_setter, **platform)
+            platform = _utilities.configure(platform, NetworkPacketCoreControlPlanePlatformArgs, True)
             __props__.__dict__["platform"] = platform
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

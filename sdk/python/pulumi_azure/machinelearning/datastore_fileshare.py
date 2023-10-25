@@ -47,25 +47,29 @@ class DatastoreFileshareArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             storage_fileshare_id: pulumi.Input[str],
-             workspace_id: pulumi.Input[str],
+             storage_fileshare_id: Optional[pulumi.Input[str]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
              account_key: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              service_data_identity: Optional[pulumi.Input[str]] = None,
              shared_access_signature: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'storageFileshareId' in kwargs:
+        if storage_fileshare_id is None and 'storageFileshareId' in kwargs:
             storage_fileshare_id = kwargs['storageFileshareId']
-        if 'workspaceId' in kwargs:
+        if storage_fileshare_id is None:
+            raise TypeError("Missing 'storage_fileshare_id' argument")
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
-        if 'accountKey' in kwargs:
+        if workspace_id is None:
+            raise TypeError("Missing 'workspace_id' argument")
+        if account_key is None and 'accountKey' in kwargs:
             account_key = kwargs['accountKey']
-        if 'serviceDataIdentity' in kwargs:
+        if service_data_identity is None and 'serviceDataIdentity' in kwargs:
             service_data_identity = kwargs['serviceDataIdentity']
-        if 'sharedAccessSignature' in kwargs:
+        if shared_access_signature is None and 'sharedAccessSignature' in kwargs:
             shared_access_signature = kwargs['sharedAccessSignature']
 
         _setter("storage_fileshare_id", storage_fileshare_id)
@@ -228,19 +232,19 @@ class _DatastoreFileshareState:
              storage_fileshare_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accountKey' in kwargs:
+        if account_key is None and 'accountKey' in kwargs:
             account_key = kwargs['accountKey']
-        if 'isDefault' in kwargs:
+        if is_default is None and 'isDefault' in kwargs:
             is_default = kwargs['isDefault']
-        if 'serviceDataIdentity' in kwargs:
+        if service_data_identity is None and 'serviceDataIdentity' in kwargs:
             service_data_identity = kwargs['serviceDataIdentity']
-        if 'sharedAccessSignature' in kwargs:
+        if shared_access_signature is None and 'sharedAccessSignature' in kwargs:
             shared_access_signature = kwargs['sharedAccessSignature']
-        if 'storageFileshareId' in kwargs:
+        if storage_fileshare_id is None and 'storageFileshareId' in kwargs:
             storage_fileshare_id = kwargs['storageFileshareId']
-        if 'workspaceId' in kwargs:
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
 
         if account_key is not None:

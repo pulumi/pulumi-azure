@@ -38,19 +38,25 @@ class NetworkManagerScopeConnectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             network_manager_id: pulumi.Input[str],
-             target_scope_id: pulumi.Input[str],
-             tenant_id: pulumi.Input[str],
+             network_manager_id: Optional[pulumi.Input[str]] = None,
+             target_scope_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'networkManagerId' in kwargs:
+        if network_manager_id is None and 'networkManagerId' in kwargs:
             network_manager_id = kwargs['networkManagerId']
-        if 'targetScopeId' in kwargs:
+        if network_manager_id is None:
+            raise TypeError("Missing 'network_manager_id' argument")
+        if target_scope_id is None and 'targetScopeId' in kwargs:
             target_scope_id = kwargs['targetScopeId']
-        if 'tenantId' in kwargs:
+        if target_scope_id is None:
+            raise TypeError("Missing 'target_scope_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
 
         _setter("network_manager_id", network_manager_id)
         _setter("target_scope_id", target_scope_id)
@@ -157,15 +163,15 @@ class _NetworkManagerScopeConnectionState:
              network_manager_id: Optional[pulumi.Input[str]] = None,
              target_scope_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'connectionState' in kwargs:
+        if connection_state is None and 'connectionState' in kwargs:
             connection_state = kwargs['connectionState']
-        if 'networkManagerId' in kwargs:
+        if network_manager_id is None and 'networkManagerId' in kwargs:
             network_manager_id = kwargs['networkManagerId']
-        if 'targetScopeId' in kwargs:
+        if target_scope_id is None and 'targetScopeId' in kwargs:
             target_scope_id = kwargs['targetScopeId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         if connection_state is not None:
@@ -268,30 +274,6 @@ class NetworkManagerScopeConnection(pulumi.CustomResource):
         """
         Manages a Network Manager Scope Connection which may cross tenants.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        current_client_config = azure.core.get_client_config()
-        current_subscription = azure.core.get_subscription()
-        alt = azure.core.get_subscription(subscription_id="00000000-0000-0000-0000-000000000000")
-        example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            scope=azure.network.NetworkManagerScopeArgs(
-                subscription_ids=[current_subscription.id],
-            ),
-            scope_accesses=["SecurityAdmin"])
-        example_network_manager_scope_connection = azure.network.NetworkManagerScopeConnection("exampleNetworkManagerScopeConnection",
-            network_manager_id=example_network_manager.id,
-            tenant_id=current_client_config.tenant_id,
-            target_scope_id=alt.id,
-            description="example")
-        ```
-
         ## Import
 
         Network Manager Scope Connection can be imported using the `resource id`, e.g.
@@ -316,30 +298,6 @@ class NetworkManagerScopeConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Network Manager Scope Connection which may cross tenants.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        current_client_config = azure.core.get_client_config()
-        current_subscription = azure.core.get_subscription()
-        alt = azure.core.get_subscription(subscription_id="00000000-0000-0000-0000-000000000000")
-        example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            scope=azure.network.NetworkManagerScopeArgs(
-                subscription_ids=[current_subscription.id],
-            ),
-            scope_accesses=["SecurityAdmin"])
-        example_network_manager_scope_connection = azure.network.NetworkManagerScopeConnection("exampleNetworkManagerScopeConnection",
-            network_manager_id=example_network_manager.id,
-            tenant_id=current_client_config.tenant_id,
-            target_scope_id=alt.id,
-            description="example")
-        ```
 
         ## Import
 

@@ -53,23 +53,27 @@ class AccountNetworkRulesInitArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             default_action: pulumi.Input[str],
-             storage_account_id: pulumi.Input[str],
+             default_action: Optional[pulumi.Input[str]] = None,
+             storage_account_id: Optional[pulumi.Input[str]] = None,
              bypasses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              private_link_access_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessRuleArgs']]]] = None,
              virtual_network_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'defaultAction' in kwargs:
+        if default_action is None and 'defaultAction' in kwargs:
             default_action = kwargs['defaultAction']
-        if 'storageAccountId' in kwargs:
+        if default_action is None:
+            raise TypeError("Missing 'default_action' argument")
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'ipRules' in kwargs:
+        if storage_account_id is None:
+            raise TypeError("Missing 'storage_account_id' argument")
+        if ip_rules is None and 'ipRules' in kwargs:
             ip_rules = kwargs['ipRules']
-        if 'privateLinkAccessRules' in kwargs:
+        if private_link_access_rules is None and 'privateLinkAccessRules' in kwargs:
             private_link_access_rules = kwargs['privateLinkAccessRules']
-        if 'virtualNetworkSubnetIds' in kwargs:
+        if virtual_network_subnet_ids is None and 'virtualNetworkSubnetIds' in kwargs:
             virtual_network_subnet_ids = kwargs['virtualNetworkSubnetIds']
 
         _setter("default_action", default_action)
@@ -212,17 +216,17 @@ class _AccountNetworkRulesState:
              private_link_access_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessRuleArgs']]]] = None,
              storage_account_id: Optional[pulumi.Input[str]] = None,
              virtual_network_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'defaultAction' in kwargs:
+        if default_action is None and 'defaultAction' in kwargs:
             default_action = kwargs['defaultAction']
-        if 'ipRules' in kwargs:
+        if ip_rules is None and 'ipRules' in kwargs:
             ip_rules = kwargs['ipRules']
-        if 'privateLinkAccessRules' in kwargs:
+        if private_link_access_rules is None and 'privateLinkAccessRules' in kwargs:
             private_link_access_rules = kwargs['privateLinkAccessRules']
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'virtualNetworkSubnetIds' in kwargs:
+        if virtual_network_subnet_ids is None and 'virtualNetworkSubnetIds' in kwargs:
             virtual_network_subnet_ids = kwargs['virtualNetworkSubnetIds']
 
         if bypasses is not None:
@@ -342,38 +346,6 @@ class AccountNetworkRules(pulumi.CustomResource):
 
         > **NOTE:** Deleting this resource updates the storage account back to the default values it had when the storage account was created.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"],
-            service_endpoints=["Microsoft.Storage"])
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="GRS",
-            tags={
-                "environment": "staging",
-            })
-        example_account_network_rules = azure.storage.AccountNetworkRules("exampleAccountNetworkRules",
-            storage_account_id=example_account.id,
-            default_action="Allow",
-            ip_rules=["127.0.0.1"],
-            virtual_network_subnet_ids=[example_subnet.id],
-            bypasses=["Metrics"])
-        ```
-
         ## Import
 
         Storage Account Network Rules can be imported using the `resource id`, e.g.
@@ -415,38 +387,6 @@ class AccountNetworkRules(pulumi.CustomResource):
         > **NOTE:** Only one `storage.AccountNetworkRules` can be tied to an `storage.Account`. Spurious changes will occur if more than `storage.AccountNetworkRules` is tied to the same `storage.Account`.
 
         > **NOTE:** Deleting this resource updates the storage account back to the default values it had when the storage account was created.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"],
-            service_endpoints=["Microsoft.Storage"])
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="GRS",
-            tags={
-                "environment": "staging",
-            })
-        example_account_network_rules = azure.storage.AccountNetworkRules("exampleAccountNetworkRules",
-            storage_account_id=example_account.id,
-            default_action="Allow",
-            ip_rules=["127.0.0.1"],
-            virtual_network_subnet_ids=[example_subnet.id],
-            bypasses=["Metrics"])
-        ```
 
         ## Import
 

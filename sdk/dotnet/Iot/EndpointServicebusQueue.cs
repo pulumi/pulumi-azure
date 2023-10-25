@@ -14,67 +14,6 @@ namespace Pulumi.Azure.Iot
     /// 
     /// &gt; **NOTE:** Endpoints can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azurerm_iothub_endpoint_*` resources - but the two ways of defining the endpoints cannot be used together. If both are used against the same IoTHub, spurious changes will occur. Also, defining a `azurerm_iothub_endpoint_*` resource and another endpoint of a different type directly on the `azure.iot.IoTHub` resource is not supported.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleNamespace = new Azure.ServiceBus.Namespace("exampleNamespace", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Sku = "Standard",
-    ///     });
-    /// 
-    ///     var exampleQueue = new Azure.ServiceBus.Queue("exampleQueue", new()
-    ///     {
-    ///         NamespaceId = exampleNamespace.Id,
-    ///         EnablePartitioning = true,
-    ///     });
-    /// 
-    ///     var exampleQueueAuthorizationRule = new Azure.ServiceBus.QueueAuthorizationRule("exampleQueueAuthorizationRule", new()
-    ///     {
-    ///         QueueId = exampleQueue.Id,
-    ///         Listen = false,
-    ///         Send = true,
-    ///         Manage = false,
-    ///     });
-    /// 
-    ///     var exampleIoTHub = new Azure.Iot.IoTHub("exampleIoTHub", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         Sku = new Azure.Iot.Inputs.IoTHubSkuArgs
-    ///         {
-    ///             Name = "B1",
-    ///             Capacity = 1,
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "purpose", "example" },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleEndpointServicebusQueue = new Azure.Iot.EndpointServicebusQueue("exampleEndpointServicebusQueue", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         IothubId = exampleIoTHub.Id,
-    ///         ConnectionString = exampleQueueAuthorizationRule.PrimaryConnectionString,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// IoTHub ServiceBus Queue Endpoint can be imported using the `resource id`, e.g. g

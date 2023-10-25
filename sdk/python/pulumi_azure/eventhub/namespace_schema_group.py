@@ -35,18 +35,24 @@ class NamespaceSchemaGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             namespace_id: pulumi.Input[str],
-             schema_compatibility: pulumi.Input[str],
-             schema_type: pulumi.Input[str],
+             namespace_id: Optional[pulumi.Input[str]] = None,
+             schema_compatibility: Optional[pulumi.Input[str]] = None,
+             schema_type: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'namespaceId' in kwargs:
+        if namespace_id is None and 'namespaceId' in kwargs:
             namespace_id = kwargs['namespaceId']
-        if 'schemaCompatibility' in kwargs:
+        if namespace_id is None:
+            raise TypeError("Missing 'namespace_id' argument")
+        if schema_compatibility is None and 'schemaCompatibility' in kwargs:
             schema_compatibility = kwargs['schemaCompatibility']
-        if 'schemaType' in kwargs:
+        if schema_compatibility is None:
+            raise TypeError("Missing 'schema_compatibility' argument")
+        if schema_type is None and 'schemaType' in kwargs:
             schema_type = kwargs['schemaType']
+        if schema_type is None:
+            raise TypeError("Missing 'schema_type' argument")
 
         _setter("namespace_id", namespace_id)
         _setter("schema_compatibility", schema_compatibility)
@@ -131,13 +137,13 @@ class _NamespaceSchemaGroupState:
              namespace_id: Optional[pulumi.Input[str]] = None,
              schema_compatibility: Optional[pulumi.Input[str]] = None,
              schema_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'namespaceId' in kwargs:
+        if namespace_id is None and 'namespaceId' in kwargs:
             namespace_id = kwargs['namespaceId']
-        if 'schemaCompatibility' in kwargs:
+        if schema_compatibility is None and 'schemaCompatibility' in kwargs:
             schema_compatibility = kwargs['schemaCompatibility']
-        if 'schemaType' in kwargs:
+        if schema_type is None and 'schemaType' in kwargs:
             schema_type = kwargs['schemaType']
 
         if name is not None:
@@ -209,23 +215,6 @@ class NamespaceSchemaGroup(pulumi.CustomResource):
                  schema_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example", location="East US")
-        test_event_hub_namespace = azure.eventhub.EventHubNamespace("testEventHubNamespace",
-            location=azurerm_resource_group["test"]["location"],
-            resource_group_name=azurerm_resource_group["test"]["name"],
-            sku="Standard")
-        test_namespace_schema_group = azure.eventhub.NamespaceSchemaGroup("testNamespaceSchemaGroup",
-            namespace_id=test_event_hub_namespace.id,
-            schema_compatibility="Forward",
-            schema_type="Avro")
-        ```
-
         ## Import
 
         Schema Group for a EventHub Namespace can be imported using the `resource id`, e.g.
@@ -248,23 +237,6 @@ class NamespaceSchemaGroup(pulumi.CustomResource):
                  args: NamespaceSchemaGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example", location="East US")
-        test_event_hub_namespace = azure.eventhub.EventHubNamespace("testEventHubNamespace",
-            location=azurerm_resource_group["test"]["location"],
-            resource_group_name=azurerm_resource_group["test"]["name"],
-            sku="Standard")
-        test_namespace_schema_group = azure.eventhub.NamespaceSchemaGroup("testNamespaceSchemaGroup",
-            namespace_id=test_event_hub_namespace.id,
-            schema_compatibility="Forward",
-            schema_type="Avro")
-        ```
-
         ## Import
 
         Schema Group for a EventHub Namespace can be imported using the `resource id`, e.g.

@@ -57,31 +57,41 @@ class ProductArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_management_name: pulumi.Input[str],
-             display_name: pulumi.Input[str],
-             product_id: pulumi.Input[str],
-             published: pulumi.Input[bool],
-             resource_group_name: pulumi.Input[str],
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             product_id: Optional[pulumi.Input[str]] = None,
+             published: Optional[pulumi.Input[bool]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              approval_required: Optional[pulumi.Input[bool]] = None,
              description: Optional[pulumi.Input[str]] = None,
              subscription_required: Optional[pulumi.Input[bool]] = None,
              subscriptions_limit: Optional[pulumi.Input[int]] = None,
              terms: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'displayName' in kwargs:
+        if api_management_name is None:
+            raise TypeError("Missing 'api_management_name' argument")
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'productId' in kwargs:
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if product_id is None and 'productId' in kwargs:
             product_id = kwargs['productId']
-        if 'resourceGroupName' in kwargs:
+        if product_id is None:
+            raise TypeError("Missing 'product_id' argument")
+        if published is None:
+            raise TypeError("Missing 'published' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'approvalRequired' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if approval_required is None and 'approvalRequired' in kwargs:
             approval_required = kwargs['approvalRequired']
-        if 'subscriptionRequired' in kwargs:
+        if subscription_required is None and 'subscriptionRequired' in kwargs:
             subscription_required = kwargs['subscriptionRequired']
-        if 'subscriptionsLimit' in kwargs:
+        if subscriptions_limit is None and 'subscriptionsLimit' in kwargs:
             subscriptions_limit = kwargs['subscriptionsLimit']
 
         _setter("api_management_name", api_management_name)
@@ -281,21 +291,21 @@ class _ProductState:
              subscription_required: Optional[pulumi.Input[bool]] = None,
              subscriptions_limit: Optional[pulumi.Input[int]] = None,
              terms: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'approvalRequired' in kwargs:
+        if approval_required is None and 'approvalRequired' in kwargs:
             approval_required = kwargs['approvalRequired']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'productId' in kwargs:
+        if product_id is None and 'productId' in kwargs:
             product_id = kwargs['productId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'subscriptionRequired' in kwargs:
+        if subscription_required is None and 'subscriptionRequired' in kwargs:
             subscription_required = kwargs['subscriptionRequired']
-        if 'subscriptionsLimit' in kwargs:
+        if subscriptions_limit is None and 'subscriptionsLimit' in kwargs:
             subscriptions_limit = kwargs['subscriptionsLimit']
 
         if api_management_name is not None:
@@ -463,29 +473,6 @@ class Product(pulumi.CustomResource):
         """
         Manages an API Management Product.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            publisher_name="My Company",
-            publisher_email="company@exmaple.com",
-            sku_name="Developer_1")
-        example_product = azure.apimanagement.Product("exampleProduct",
-            product_id="test-product",
-            api_management_name=example_service.name,
-            resource_group_name=example_resource_group.name,
-            display_name="Test Product",
-            subscription_required=True,
-            approval_required=True,
-            published=True)
-        ```
-
         ## Import
 
         API Management Products can be imported using the `resource id`, e.g.
@@ -519,29 +506,6 @@ class Product(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an API Management Product.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            publisher_name="My Company",
-            publisher_email="company@exmaple.com",
-            sku_name="Developer_1")
-        example_product = azure.apimanagement.Product("exampleProduct",
-            product_id="test-product",
-            api_management_name=example_service.name,
-            resource_group_name=example_resource_group.name,
-            display_name="Test Product",
-            subscription_required=True,
-            approval_required=True,
-            published=True)
-        ```
 
         ## Import
 

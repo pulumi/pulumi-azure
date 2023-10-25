@@ -132,16 +132,6 @@ def get_route_table(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Route Table.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.network.get_route_table(name="myroutetable",
-        resource_group_name="some-resource-group")
-    ```
-
 
     :param str name: The name of the Route Table.
     :param str resource_group_name: The name of the Resource Group in which the Route Table exists.
@@ -169,16 +159,6 @@ def get_route_table_output(name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteTableResult]:
     """
     Use this data source to access information about an existing Route Table.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.network.get_route_table(name="myroutetable",
-        resource_group_name="some-resource-group")
-    ```
 
 
     :param str name: The name of the Route Table.

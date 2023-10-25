@@ -70,15 +70,6 @@ def get_extended_locations(location: Optional[str] = None,
     """
     This data source return the available Extended Locations for a specific Azure Region.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.core.get_extended_locations(location="West Europe")
-    ```
-
 
     :param str location: The Azure location to retrieve the Extended Locations for.
     """
@@ -98,15 +89,6 @@ def get_extended_locations_output(location: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExtendedLocationsResult]:
     """
     This data source return the available Extended Locations for a specific Azure Region.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.core.get_extended_locations(location="West Europe")
-    ```
 
 
     :param str location: The Azure location to retrieve the Extended Locations for.

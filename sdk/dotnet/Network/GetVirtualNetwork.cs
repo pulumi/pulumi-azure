@@ -13,66 +13,12 @@ namespace Pulumi.Azure.Network
     {
         /// <summary>
         /// Use this data source to access information about an existing Virtual Network.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Network.GetVirtualNetwork.Invoke(new()
-        ///     {
-        ///         Name = "production",
-        ///         ResourceGroupName = "networking",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["virtualNetworkId"] = example.Apply(getVirtualNetworkResult =&gt; getVirtualNetworkResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetVirtualNetworkResult> InvokeAsync(GetVirtualNetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkResult>("azure:network/getVirtualNetwork:getVirtualNetwork", args ?? new GetVirtualNetworkArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Virtual Network.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Network.GetVirtualNetwork.Invoke(new()
-        ///     {
-        ///         Name = "production",
-        ///         ResourceGroupName = "networking",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["virtualNetworkId"] = example.Apply(getVirtualNetworkResult =&gt; getVirtualNetworkResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetVirtualNetworkResult> Invoke(GetVirtualNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkResult>("azure:network/getVirtualNetwork:getVirtualNetwork", args ?? new GetVirtualNetworkInvokeArgs(), options.WithDefaults());

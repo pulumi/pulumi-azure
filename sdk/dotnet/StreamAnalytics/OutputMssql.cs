@@ -12,61 +12,6 @@ namespace Pulumi.Azure.StreamAnalytics
     /// <summary>
     /// Manages a Stream Analytics Output to Microsoft SQL Server Database.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleJob = Azure.StreamAnalytics.GetJob.Invoke(new()
-    ///     {
-    ///         Name = "example-job",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///     });
-    /// 
-    ///     var exampleSqlServer = new Azure.Sql.SqlServer("exampleSqlServer", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         Version = "12.0",
-    ///         AdministratorLogin = "dbadmin",
-    ///         AdministratorLoginPassword = "example-password",
-    ///     });
-    /// 
-    ///     var exampleDatabase = new Azure.Sql.Database("exampleDatabase", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         ServerName = exampleSqlServer.Name,
-    ///         RequestedServiceObjectiveName = "S0",
-    ///         Collation = "SQL_LATIN1_GENERAL_CP1_CI_AS",
-    ///         MaxSizeBytes = "268435456000",
-    ///         CreateMode = "Default",
-    ///     });
-    /// 
-    ///     var exampleOutputMssql = new Azure.StreamAnalytics.OutputMssql("exampleOutputMssql", new()
-    ///     {
-    ///         StreamAnalyticsJobName = exampleJob.Apply(getJobResult =&gt; getJobResult.Name),
-    ///         ResourceGroupName = exampleJob.Apply(getJobResult =&gt; getJobResult.ResourceGroupName),
-    ///         Server = exampleSqlServer.FullyQualifiedDomainName,
-    ///         User = exampleSqlServer.AdministratorLogin,
-    ///         Password = exampleSqlServer.AdministratorLoginPassword,
-    ///         Database = exampleDatabase.Name,
-    ///         Table = "ExampleTable",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Stream Analytics Outputs to Microsoft SQL Server Database can be imported using the `resource id`, e.g.

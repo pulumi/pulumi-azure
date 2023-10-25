@@ -32,17 +32,23 @@ class NetworkInterfaceBackendAddressPoolAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             backend_address_pool_id: pulumi.Input[str],
-             ip_configuration_name: pulumi.Input[str],
-             network_interface_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             backend_address_pool_id: Optional[pulumi.Input[str]] = None,
+             ip_configuration_name: Optional[pulumi.Input[str]] = None,
+             network_interface_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'backendAddressPoolId' in kwargs:
+        if backend_address_pool_id is None and 'backendAddressPoolId' in kwargs:
             backend_address_pool_id = kwargs['backendAddressPoolId']
-        if 'ipConfigurationName' in kwargs:
+        if backend_address_pool_id is None:
+            raise TypeError("Missing 'backend_address_pool_id' argument")
+        if ip_configuration_name is None and 'ipConfigurationName' in kwargs:
             ip_configuration_name = kwargs['ipConfigurationName']
-        if 'networkInterfaceId' in kwargs:
+        if ip_configuration_name is None:
+            raise TypeError("Missing 'ip_configuration_name' argument")
+        if network_interface_id is None and 'networkInterfaceId' in kwargs:
             network_interface_id = kwargs['networkInterfaceId']
+        if network_interface_id is None:
+            raise TypeError("Missing 'network_interface_id' argument")
 
         _setter("backend_address_pool_id", backend_address_pool_id)
         _setter("ip_configuration_name", ip_configuration_name)
@@ -109,13 +115,13 @@ class _NetworkInterfaceBackendAddressPoolAssociationState:
              backend_address_pool_id: Optional[pulumi.Input[str]] = None,
              ip_configuration_name: Optional[pulumi.Input[str]] = None,
              network_interface_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'backendAddressPoolId' in kwargs:
+        if backend_address_pool_id is None and 'backendAddressPoolId' in kwargs:
             backend_address_pool_id = kwargs['backendAddressPoolId']
-        if 'ipConfigurationName' in kwargs:
+        if ip_configuration_name is None and 'ipConfigurationName' in kwargs:
             ip_configuration_name = kwargs['ipConfigurationName']
-        if 'networkInterfaceId' in kwargs:
+        if network_interface_id is None and 'networkInterfaceId' in kwargs:
             network_interface_id = kwargs['networkInterfaceId']
 
         if backend_address_pool_id is not None:
@@ -174,47 +180,6 @@ class NetworkInterfaceBackendAddressPoolAssociation(pulumi.CustomResource):
         """
         Manages the association between a Network Interface and a Load Balancer's Backend Address Pool.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            allocation_method="Static")
-        example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
-                name="primary",
-                public_ip_address_id=example_public_ip.id,
-            )])
-        example_backend_address_pool = azure.lb.BackendAddressPool("exampleBackendAddressPool", loadbalancer_id=example_load_balancer.id)
-        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="testconfiguration1",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
-        example_network_interface_backend_address_pool_association = azure.network.NetworkInterfaceBackendAddressPoolAssociation("exampleNetworkInterfaceBackendAddressPoolAssociation",
-            network_interface_id=example_network_interface.id,
-            ip_configuration_name="testconfiguration1",
-            backend_address_pool_id=example_backend_address_pool.id)
-        ```
-
         ## Import
 
         Associations between Network Interfaces and Load Balancer Backend Address Pools can be imported using the `resource id`, e.g.
@@ -237,47 +202,6 @@ class NetworkInterfaceBackendAddressPoolAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages the association between a Network Interface and a Load Balancer's Backend Address Pool.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            allocation_method="Static")
-        example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
-                name="primary",
-                public_ip_address_id=example_public_ip.id,
-            )])
-        example_backend_address_pool = azure.lb.BackendAddressPool("exampleBackendAddressPool", loadbalancer_id=example_load_balancer.id)
-        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="testconfiguration1",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
-        example_network_interface_backend_address_pool_association = azure.network.NetworkInterfaceBackendAddressPoolAssociation("exampleNetworkInterfaceBackendAddressPoolAssociation",
-            network_interface_id=example_network_interface.id,
-            ip_configuration_name="testconfiguration1",
-            backend_address_pool_id=example_backend_address_pool.id)
-        ```
 
         ## Import
 

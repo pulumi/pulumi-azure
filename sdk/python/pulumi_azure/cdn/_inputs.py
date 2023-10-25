@@ -109,16 +109,20 @@ class EndpointCustomDomainCdnManagedHttpsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             certificate_type: pulumi.Input[str],
-             protocol_type: pulumi.Input[str],
+             certificate_type: Optional[pulumi.Input[str]] = None,
+             protocol_type: Optional[pulumi.Input[str]] = None,
              tls_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'certificateType' in kwargs:
+        if certificate_type is None and 'certificateType' in kwargs:
             certificate_type = kwargs['certificateType']
-        if 'protocolType' in kwargs:
+        if certificate_type is None:
+            raise TypeError("Missing 'certificate_type' argument")
+        if protocol_type is None and 'protocolType' in kwargs:
             protocol_type = kwargs['protocolType']
-        if 'tlsVersion' in kwargs:
+        if protocol_type is None:
+            raise TypeError("Missing 'protocol_type' argument")
+        if tls_version is None and 'tlsVersion' in kwargs:
             tls_version = kwargs['tlsVersion']
 
         _setter("certificate_type", certificate_type)
@@ -188,13 +192,13 @@ class EndpointCustomDomainUserManagedHttpsArgs:
              key_vault_certificate_id: Optional[pulumi.Input[str]] = None,
              key_vault_secret_id: Optional[pulumi.Input[str]] = None,
              tls_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'keyVaultCertificateId' in kwargs:
+        if key_vault_certificate_id is None and 'keyVaultCertificateId' in kwargs:
             key_vault_certificate_id = kwargs['keyVaultCertificateId']
-        if 'keyVaultSecretId' in kwargs:
+        if key_vault_secret_id is None and 'keyVaultSecretId' in kwargs:
             key_vault_secret_id = kwargs['keyVaultSecretId']
-        if 'tlsVersion' in kwargs:
+        if tls_version is None and 'tlsVersion' in kwargs:
             tls_version = kwargs['tlsVersion']
 
         if key_vault_certificate_id is not None:
@@ -326,8 +330,8 @@ class EndpointDeliveryRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             order: pulumi.Input[int],
+             name: Optional[pulumi.Input[str]] = None,
+             order: Optional[pulumi.Input[int]] = None,
              cache_expiration_action: Optional[pulumi.Input['EndpointDeliveryRuleCacheExpirationActionArgs']] = None,
              cache_key_query_string_action: Optional[pulumi.Input['EndpointDeliveryRuleCacheKeyQueryStringActionArgs']] = None,
              cookies_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleCookiesConditionArgs']]]] = None,
@@ -348,47 +352,51 @@ class EndpointDeliveryRuleArgs:
              url_path_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleUrlPathConditionArgs']]]] = None,
              url_redirect_action: Optional[pulumi.Input['EndpointDeliveryRuleUrlRedirectActionArgs']] = None,
              url_rewrite_action: Optional[pulumi.Input['EndpointDeliveryRuleUrlRewriteActionArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'cacheExpirationAction' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if order is None:
+            raise TypeError("Missing 'order' argument")
+        if cache_expiration_action is None and 'cacheExpirationAction' in kwargs:
             cache_expiration_action = kwargs['cacheExpirationAction']
-        if 'cacheKeyQueryStringAction' in kwargs:
+        if cache_key_query_string_action is None and 'cacheKeyQueryStringAction' in kwargs:
             cache_key_query_string_action = kwargs['cacheKeyQueryStringAction']
-        if 'cookiesConditions' in kwargs:
+        if cookies_conditions is None and 'cookiesConditions' in kwargs:
             cookies_conditions = kwargs['cookiesConditions']
-        if 'deviceCondition' in kwargs:
+        if device_condition is None and 'deviceCondition' in kwargs:
             device_condition = kwargs['deviceCondition']
-        if 'httpVersionConditions' in kwargs:
+        if http_version_conditions is None and 'httpVersionConditions' in kwargs:
             http_version_conditions = kwargs['httpVersionConditions']
-        if 'modifyRequestHeaderActions' in kwargs:
+        if modify_request_header_actions is None and 'modifyRequestHeaderActions' in kwargs:
             modify_request_header_actions = kwargs['modifyRequestHeaderActions']
-        if 'modifyResponseHeaderActions' in kwargs:
+        if modify_response_header_actions is None and 'modifyResponseHeaderActions' in kwargs:
             modify_response_header_actions = kwargs['modifyResponseHeaderActions']
-        if 'postArgConditions' in kwargs:
+        if post_arg_conditions is None and 'postArgConditions' in kwargs:
             post_arg_conditions = kwargs['postArgConditions']
-        if 'queryStringConditions' in kwargs:
+        if query_string_conditions is None and 'queryStringConditions' in kwargs:
             query_string_conditions = kwargs['queryStringConditions']
-        if 'remoteAddressConditions' in kwargs:
+        if remote_address_conditions is None and 'remoteAddressConditions' in kwargs:
             remote_address_conditions = kwargs['remoteAddressConditions']
-        if 'requestBodyConditions' in kwargs:
+        if request_body_conditions is None and 'requestBodyConditions' in kwargs:
             request_body_conditions = kwargs['requestBodyConditions']
-        if 'requestHeaderConditions' in kwargs:
+        if request_header_conditions is None and 'requestHeaderConditions' in kwargs:
             request_header_conditions = kwargs['requestHeaderConditions']
-        if 'requestMethodCondition' in kwargs:
+        if request_method_condition is None and 'requestMethodCondition' in kwargs:
             request_method_condition = kwargs['requestMethodCondition']
-        if 'requestSchemeCondition' in kwargs:
+        if request_scheme_condition is None and 'requestSchemeCondition' in kwargs:
             request_scheme_condition = kwargs['requestSchemeCondition']
-        if 'requestUriConditions' in kwargs:
+        if request_uri_conditions is None and 'requestUriConditions' in kwargs:
             request_uri_conditions = kwargs['requestUriConditions']
-        if 'urlFileExtensionConditions' in kwargs:
+        if url_file_extension_conditions is None and 'urlFileExtensionConditions' in kwargs:
             url_file_extension_conditions = kwargs['urlFileExtensionConditions']
-        if 'urlFileNameConditions' in kwargs:
+        if url_file_name_conditions is None and 'urlFileNameConditions' in kwargs:
             url_file_name_conditions = kwargs['urlFileNameConditions']
-        if 'urlPathConditions' in kwargs:
+        if url_path_conditions is None and 'urlPathConditions' in kwargs:
             url_path_conditions = kwargs['urlPathConditions']
-        if 'urlRedirectAction' in kwargs:
+        if url_redirect_action is None and 'urlRedirectAction' in kwargs:
             url_redirect_action = kwargs['urlRedirectAction']
-        if 'urlRewriteAction' in kwargs:
+        if url_rewrite_action is None and 'urlRewriteAction' in kwargs:
             url_rewrite_action = kwargs['urlRewriteAction']
 
         _setter("name", name)
@@ -716,10 +724,12 @@ class EndpointDeliveryRuleCacheExpirationActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             behavior: pulumi.Input[str],
+             behavior: Optional[pulumi.Input[str]] = None,
              duration: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if behavior is None:
+            raise TypeError("Missing 'behavior' argument")
 
         _setter("behavior", behavior)
         if duration is not None:
@@ -767,10 +777,12 @@ class EndpointDeliveryRuleCacheKeyQueryStringActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             behavior: pulumi.Input[str],
+             behavior: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if behavior is None:
+            raise TypeError("Missing 'behavior' argument")
 
         _setter("behavior", behavior)
         if parameters is not None:
@@ -827,16 +839,20 @@ class EndpointDeliveryRuleCookiesConditionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: pulumi.Input[str],
-             selector: pulumi.Input[str],
+             operator: Optional[pulumi.Input[str]] = None,
+             selector: Optional[pulumi.Input[str]] = None,
              match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              negate_condition: Optional[pulumi.Input[bool]] = None,
              transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'matchValues' in kwargs:
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if selector is None:
+            raise TypeError("Missing 'selector' argument")
+        if match_values is None and 'matchValues' in kwargs:
             match_values = kwargs['matchValues']
-        if 'negateCondition' in kwargs:
+        if negate_condition is None and 'negateCondition' in kwargs:
             negate_condition = kwargs['negateCondition']
 
         _setter("operator", operator)
@@ -929,14 +945,16 @@ class EndpointDeliveryRuleDeviceConditionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              negate_condition: Optional[pulumi.Input[bool]] = None,
              operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'matchValues' in kwargs:
+        if match_values is None and 'matchValues' in kwargs:
             match_values = kwargs['matchValues']
-        if 'negateCondition' in kwargs:
+        if match_values is None:
+            raise TypeError("Missing 'match_values' argument")
+        if negate_condition is None and 'negateCondition' in kwargs:
             negate_condition = kwargs['negateCondition']
 
         _setter("match_values", match_values)
@@ -1002,14 +1020,16 @@ class EndpointDeliveryRuleHttpVersionConditionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              negate_condition: Optional[pulumi.Input[bool]] = None,
              operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'matchValues' in kwargs:
+        if match_values is None and 'matchValues' in kwargs:
             match_values = kwargs['matchValues']
-        if 'negateCondition' in kwargs:
+        if match_values is None:
+            raise TypeError("Missing 'match_values' argument")
+        if negate_condition is None and 'negateCondition' in kwargs:
             negate_condition = kwargs['negateCondition']
 
         _setter("match_values", match_values)
@@ -1075,11 +1095,15 @@ class EndpointDeliveryRuleModifyRequestHeaderActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action: pulumi.Input[str],
-             name: pulumi.Input[str],
+             action: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("action", action)
         _setter("name", name)
@@ -1143,11 +1167,15 @@ class EndpointDeliveryRuleModifyResponseHeaderActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action: pulumi.Input[str],
-             name: pulumi.Input[str],
+             action: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("action", action)
         _setter("name", name)
@@ -1217,16 +1245,20 @@ class EndpointDeliveryRulePostArgConditionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: pulumi.Input[str],
-             selector: pulumi.Input[str],
+             operator: Optional[pulumi.Input[str]] = None,
+             selector: Optional[pulumi.Input[str]] = None,
              match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              negate_condition: Optional[pulumi.Input[bool]] = None,
              transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'matchValues' in kwargs:
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if selector is None:
+            raise TypeError("Missing 'selector' argument")
+        if match_values is None and 'matchValues' in kwargs:
             match_values = kwargs['matchValues']
-        if 'negateCondition' in kwargs:
+        if negate_condition is None and 'negateCondition' in kwargs:
             negate_condition = kwargs['negateCondition']
 
         _setter("operator", operator)
@@ -1322,15 +1354,17 @@ class EndpointDeliveryRuleQueryStringConditionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: pulumi.Input[str],
+             operator: Optional[pulumi.Input[str]] = None,
              match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              negate_condition: Optional[pulumi.Input[bool]] = None,
              transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'matchValues' in kwargs:
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if match_values is None and 'matchValues' in kwargs:
             match_values = kwargs['matchValues']
-        if 'negateCondition' in kwargs:
+        if negate_condition is None and 'negateCondition' in kwargs:
             negate_condition = kwargs['negateCondition']
 
         _setter("operator", operator)
@@ -1410,14 +1444,16 @@ class EndpointDeliveryRuleRemoteAddressConditionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: pulumi.Input[str],
+             operator: Optional[pulumi.Input[str]] = None,
              match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              negate_condition: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'matchValues' in kwargs:
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if match_values is None and 'matchValues' in kwargs:
             match_values = kwargs['matchValues']
-        if 'negateCondition' in kwargs:
+        if negate_condition is None and 'negateCondition' in kwargs:
             negate_condition = kwargs['negateCondition']
 
         _setter("operator", operator)
@@ -1486,15 +1522,17 @@ class EndpointDeliveryRuleRequestBodyConditionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: pulumi.Input[str],
+             operator: Optional[pulumi.Input[str]] = None,
              match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              negate_condition: Optional[pulumi.Input[bool]] = None,
              transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'matchValues' in kwargs:
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if match_values is None and 'matchValues' in kwargs:
             match_values = kwargs['matchValues']
-        if 'negateCondition' in kwargs:
+        if negate_condition is None and 'negateCondition' in kwargs:
             negate_condition = kwargs['negateCondition']
 
         _setter("operator", operator)
@@ -1580,16 +1618,20 @@ class EndpointDeliveryRuleRequestHeaderConditionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: pulumi.Input[str],
-             selector: pulumi.Input[str],
+             operator: Optional[pulumi.Input[str]] = None,
+             selector: Optional[pulumi.Input[str]] = None,
              match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              negate_condition: Optional[pulumi.Input[bool]] = None,
              transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'matchValues' in kwargs:
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if selector is None:
+            raise TypeError("Missing 'selector' argument")
+        if match_values is None and 'matchValues' in kwargs:
             match_values = kwargs['matchValues']
-        if 'negateCondition' in kwargs:
+        if negate_condition is None and 'negateCondition' in kwargs:
             negate_condition = kwargs['negateCondition']
 
         _setter("operator", operator)
@@ -1682,14 +1724,16 @@ class EndpointDeliveryRuleRequestMethodConditionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              negate_condition: Optional[pulumi.Input[bool]] = None,
              operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'matchValues' in kwargs:
+        if match_values is None and 'matchValues' in kwargs:
             match_values = kwargs['matchValues']
-        if 'negateCondition' in kwargs:
+        if match_values is None:
+            raise TypeError("Missing 'match_values' argument")
+        if negate_condition is None and 'negateCondition' in kwargs:
             negate_condition = kwargs['negateCondition']
 
         _setter("match_values", match_values)
@@ -1755,14 +1799,16 @@ class EndpointDeliveryRuleRequestSchemeConditionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              negate_condition: Optional[pulumi.Input[bool]] = None,
              operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'matchValues' in kwargs:
+        if match_values is None and 'matchValues' in kwargs:
             match_values = kwargs['matchValues']
-        if 'negateCondition' in kwargs:
+        if match_values is None:
+            raise TypeError("Missing 'match_values' argument")
+        if negate_condition is None and 'negateCondition' in kwargs:
             negate_condition = kwargs['negateCondition']
 
         _setter("match_values", match_values)
@@ -1831,15 +1877,17 @@ class EndpointDeliveryRuleRequestUriConditionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: pulumi.Input[str],
+             operator: Optional[pulumi.Input[str]] = None,
              match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              negate_condition: Optional[pulumi.Input[bool]] = None,
              transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'matchValues' in kwargs:
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if match_values is None and 'matchValues' in kwargs:
             match_values = kwargs['matchValues']
-        if 'negateCondition' in kwargs:
+        if negate_condition is None and 'negateCondition' in kwargs:
             negate_condition = kwargs['negateCondition']
 
         _setter("operator", operator)
@@ -1922,15 +1970,17 @@ class EndpointDeliveryRuleUrlFileExtensionConditionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: pulumi.Input[str],
+             operator: Optional[pulumi.Input[str]] = None,
              match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              negate_condition: Optional[pulumi.Input[bool]] = None,
              transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'matchValues' in kwargs:
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if match_values is None and 'matchValues' in kwargs:
             match_values = kwargs['matchValues']
-        if 'negateCondition' in kwargs:
+        if negate_condition is None and 'negateCondition' in kwargs:
             negate_condition = kwargs['negateCondition']
 
         _setter("operator", operator)
@@ -2013,15 +2063,17 @@ class EndpointDeliveryRuleUrlFileNameConditionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: pulumi.Input[str],
+             operator: Optional[pulumi.Input[str]] = None,
              match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              negate_condition: Optional[pulumi.Input[bool]] = None,
              transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'matchValues' in kwargs:
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if match_values is None and 'matchValues' in kwargs:
             match_values = kwargs['matchValues']
-        if 'negateCondition' in kwargs:
+        if negate_condition is None and 'negateCondition' in kwargs:
             negate_condition = kwargs['negateCondition']
 
         _setter("operator", operator)
@@ -2104,15 +2156,17 @@ class EndpointDeliveryRuleUrlPathConditionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: pulumi.Input[str],
+             operator: Optional[pulumi.Input[str]] = None,
              match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              negate_condition: Optional[pulumi.Input[bool]] = None,
              transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'matchValues' in kwargs:
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if match_values is None and 'matchValues' in kwargs:
             match_values = kwargs['matchValues']
-        if 'negateCondition' in kwargs:
+        if negate_condition is None and 'negateCondition' in kwargs:
             negate_condition = kwargs['negateCondition']
 
         _setter("operator", operator)
@@ -2201,17 +2255,19 @@ class EndpointDeliveryRuleUrlRedirectActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             redirect_type: pulumi.Input[str],
+             redirect_type: Optional[pulumi.Input[str]] = None,
              fragment: Optional[pulumi.Input[str]] = None,
              hostname: Optional[pulumi.Input[str]] = None,
              path: Optional[pulumi.Input[str]] = None,
              protocol: Optional[pulumi.Input[str]] = None,
              query_string: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'redirectType' in kwargs:
+        if redirect_type is None and 'redirectType' in kwargs:
             redirect_type = kwargs['redirectType']
-        if 'queryString' in kwargs:
+        if redirect_type is None:
+            raise TypeError("Missing 'redirect_type' argument")
+        if query_string is None and 'queryString' in kwargs:
             query_string = kwargs['queryString']
 
         _setter("redirect_type", redirect_type)
@@ -2319,14 +2375,18 @@ class EndpointDeliveryRuleUrlRewriteActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             destination: pulumi.Input[str],
-             source_pattern: pulumi.Input[str],
+             destination: Optional[pulumi.Input[str]] = None,
+             source_pattern: Optional[pulumi.Input[str]] = None,
              preserve_unmatched_path: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'sourcePattern' in kwargs:
+        if destination is None:
+            raise TypeError("Missing 'destination' argument")
+        if source_pattern is None and 'sourcePattern' in kwargs:
             source_pattern = kwargs['sourcePattern']
-        if 'preserveUnmatchedPath' in kwargs:
+        if source_pattern is None:
+            raise TypeError("Missing 'source_pattern' argument")
+        if preserve_unmatched_path is None and 'preserveUnmatchedPath' in kwargs:
             preserve_unmatched_path = kwargs['preserveUnmatchedPath']
 
         _setter("destination", destination)
@@ -2391,15 +2451,21 @@ class EndpointGeoFilterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action: pulumi.Input[str],
-             country_codes: pulumi.Input[Sequence[pulumi.Input[str]]],
-             relative_path: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             action: Optional[pulumi.Input[str]] = None,
+             country_codes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             relative_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'countryCodes' in kwargs:
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if country_codes is None and 'countryCodes' in kwargs:
             country_codes = kwargs['countryCodes']
-        if 'relativePath' in kwargs:
+        if country_codes is None:
+            raise TypeError("Missing 'country_codes' argument")
+        if relative_path is None and 'relativePath' in kwargs:
             relative_path = kwargs['relativePath']
+        if relative_path is None:
+            raise TypeError("Missing 'relative_path' argument")
 
         _setter("action", action)
         _setter("country_codes", country_codes)
@@ -2477,19 +2543,19 @@ class EndpointGlobalDeliveryRuleArgs:
              modify_response_header_actions: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointGlobalDeliveryRuleModifyResponseHeaderActionArgs']]]] = None,
              url_redirect_action: Optional[pulumi.Input['EndpointGlobalDeliveryRuleUrlRedirectActionArgs']] = None,
              url_rewrite_action: Optional[pulumi.Input['EndpointGlobalDeliveryRuleUrlRewriteActionArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'cacheExpirationAction' in kwargs:
+        if cache_expiration_action is None and 'cacheExpirationAction' in kwargs:
             cache_expiration_action = kwargs['cacheExpirationAction']
-        if 'cacheKeyQueryStringAction' in kwargs:
+        if cache_key_query_string_action is None and 'cacheKeyQueryStringAction' in kwargs:
             cache_key_query_string_action = kwargs['cacheKeyQueryStringAction']
-        if 'modifyRequestHeaderActions' in kwargs:
+        if modify_request_header_actions is None and 'modifyRequestHeaderActions' in kwargs:
             modify_request_header_actions = kwargs['modifyRequestHeaderActions']
-        if 'modifyResponseHeaderActions' in kwargs:
+        if modify_response_header_actions is None and 'modifyResponseHeaderActions' in kwargs:
             modify_response_header_actions = kwargs['modifyResponseHeaderActions']
-        if 'urlRedirectAction' in kwargs:
+        if url_redirect_action is None and 'urlRedirectAction' in kwargs:
             url_redirect_action = kwargs['urlRedirectAction']
-        if 'urlRewriteAction' in kwargs:
+        if url_rewrite_action is None and 'urlRewriteAction' in kwargs:
             url_rewrite_action = kwargs['urlRewriteAction']
 
         if cache_expiration_action is not None:
@@ -2595,10 +2661,12 @@ class EndpointGlobalDeliveryRuleCacheExpirationActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             behavior: pulumi.Input[str],
+             behavior: Optional[pulumi.Input[str]] = None,
              duration: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if behavior is None:
+            raise TypeError("Missing 'behavior' argument")
 
         _setter("behavior", behavior)
         if duration is not None:
@@ -2646,10 +2714,12 @@ class EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             behavior: pulumi.Input[str],
+             behavior: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if behavior is None:
+            raise TypeError("Missing 'behavior' argument")
 
         _setter("behavior", behavior)
         if parameters is not None:
@@ -2700,11 +2770,15 @@ class EndpointGlobalDeliveryRuleModifyRequestHeaderActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action: pulumi.Input[str],
-             name: pulumi.Input[str],
+             action: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("action", action)
         _setter("name", name)
@@ -2768,11 +2842,15 @@ class EndpointGlobalDeliveryRuleModifyResponseHeaderActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action: pulumi.Input[str],
-             name: pulumi.Input[str],
+             action: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("action", action)
         _setter("name", name)
@@ -2845,17 +2923,19 @@ class EndpointGlobalDeliveryRuleUrlRedirectActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             redirect_type: pulumi.Input[str],
+             redirect_type: Optional[pulumi.Input[str]] = None,
              fragment: Optional[pulumi.Input[str]] = None,
              hostname: Optional[pulumi.Input[str]] = None,
              path: Optional[pulumi.Input[str]] = None,
              protocol: Optional[pulumi.Input[str]] = None,
              query_string: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'redirectType' in kwargs:
+        if redirect_type is None and 'redirectType' in kwargs:
             redirect_type = kwargs['redirectType']
-        if 'queryString' in kwargs:
+        if redirect_type is None:
+            raise TypeError("Missing 'redirect_type' argument")
+        if query_string is None and 'queryString' in kwargs:
             query_string = kwargs['queryString']
 
         _setter("redirect_type", redirect_type)
@@ -2963,14 +3043,18 @@ class EndpointGlobalDeliveryRuleUrlRewriteActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             destination: pulumi.Input[str],
-             source_pattern: pulumi.Input[str],
+             destination: Optional[pulumi.Input[str]] = None,
+             source_pattern: Optional[pulumi.Input[str]] = None,
              preserve_unmatched_path: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'sourcePattern' in kwargs:
+        if destination is None:
+            raise TypeError("Missing 'destination' argument")
+        if source_pattern is None and 'sourcePattern' in kwargs:
             source_pattern = kwargs['sourcePattern']
-        if 'preserveUnmatchedPath' in kwargs:
+        if source_pattern is None:
+            raise TypeError("Missing 'source_pattern' argument")
+        if preserve_unmatched_path is None and 'preserveUnmatchedPath' in kwargs:
             preserve_unmatched_path = kwargs['preserveUnmatchedPath']
 
         _setter("destination", destination)
@@ -3038,17 +3122,21 @@ class EndpointOriginArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             host_name: pulumi.Input[str],
-             name: pulumi.Input[str],
+             host_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
              http_port: Optional[pulumi.Input[int]] = None,
              https_port: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'hostName' in kwargs:
+        if host_name is None and 'hostName' in kwargs:
             host_name = kwargs['hostName']
-        if 'httpPort' in kwargs:
+        if host_name is None:
+            raise TypeError("Missing 'host_name' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if http_port is None and 'httpPort' in kwargs:
             http_port = kwargs['httpPort']
-        if 'httpsPort' in kwargs:
+        if https_port is None and 'httpsPort' in kwargs:
             https_port = kwargs['httpsPort']
 
         _setter("host_name", host_name)
@@ -3132,13 +3220,13 @@ class FrontdoorCustomDomainTlsArgs:
              cdn_frontdoor_secret_id: Optional[pulumi.Input[str]] = None,
              certificate_type: Optional[pulumi.Input[str]] = None,
              minimum_tls_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'cdnFrontdoorSecretId' in kwargs:
+        if cdn_frontdoor_secret_id is None and 'cdnFrontdoorSecretId' in kwargs:
             cdn_frontdoor_secret_id = kwargs['cdnFrontdoorSecretId']
-        if 'certificateType' in kwargs:
+        if certificate_type is None and 'certificateType' in kwargs:
             certificate_type = kwargs['certificateType']
-        if 'minimumTlsVersion' in kwargs:
+        if minimum_tls_version is None and 'minimumTlsVersion' in kwargs:
             minimum_tls_version = kwargs['minimumTlsVersion']
 
         if cdn_frontdoor_secret_id is not None:
@@ -3222,21 +3310,27 @@ class FrontdoorFirewallPolicyCustomRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action: pulumi.Input[str],
-             name: pulumi.Input[str],
-             type: pulumi.Input[str],
+             action: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              match_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyCustomRuleMatchConditionArgs']]]] = None,
              priority: Optional[pulumi.Input[int]] = None,
              rate_limit_duration_in_minutes: Optional[pulumi.Input[int]] = None,
              rate_limit_threshold: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'matchConditions' in kwargs:
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if match_conditions is None and 'matchConditions' in kwargs:
             match_conditions = kwargs['matchConditions']
-        if 'rateLimitDurationInMinutes' in kwargs:
+        if rate_limit_duration_in_minutes is None and 'rateLimitDurationInMinutes' in kwargs:
             rate_limit_duration_in_minutes = kwargs['rateLimitDurationInMinutes']
-        if 'rateLimitThreshold' in kwargs:
+        if rate_limit_threshold is None and 'rateLimitThreshold' in kwargs:
             rate_limit_threshold = kwargs['rateLimitThreshold']
 
         _setter("action", action)
@@ -3379,19 +3473,25 @@ class FrontdoorFirewallPolicyCustomRuleMatchConditionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
-             match_variable: pulumi.Input[str],
-             operator: pulumi.Input[str],
+             match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             match_variable: Optional[pulumi.Input[str]] = None,
+             operator: Optional[pulumi.Input[str]] = None,
              negation_condition: Optional[pulumi.Input[bool]] = None,
              selector: Optional[pulumi.Input[str]] = None,
              transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'matchValues' in kwargs:
+        if match_values is None and 'matchValues' in kwargs:
             match_values = kwargs['matchValues']
-        if 'matchVariable' in kwargs:
+        if match_values is None:
+            raise TypeError("Missing 'match_values' argument")
+        if match_variable is None and 'matchVariable' in kwargs:
             match_variable = kwargs['matchVariable']
-        if 'negationCondition' in kwargs:
+        if match_variable is None:
+            raise TypeError("Missing 'match_variable' argument")
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if negation_condition is None and 'negationCondition' in kwargs:
             negation_condition = kwargs['negationCondition']
 
         _setter("match_values", match_values)
@@ -3503,13 +3603,19 @@ class FrontdoorFirewallPolicyManagedRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action: pulumi.Input[str],
-             type: pulumi.Input[str],
-             version: pulumi.Input[str],
+             action: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
              exclusions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleExclusionArgs']]]] = None,
              overrides: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
 
         _setter("action", action)
         _setter("type", type)
@@ -3604,13 +3710,19 @@ class FrontdoorFirewallPolicyManagedRuleExclusionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             match_variable: pulumi.Input[str],
-             operator: pulumi.Input[str],
-             selector: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             match_variable: Optional[pulumi.Input[str]] = None,
+             operator: Optional[pulumi.Input[str]] = None,
+             selector: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'matchVariable' in kwargs:
+        if match_variable is None and 'matchVariable' in kwargs:
             match_variable = kwargs['matchVariable']
+        if match_variable is None:
+            raise TypeError("Missing 'match_variable' argument")
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if selector is None:
+            raise TypeError("Missing 'selector' argument")
 
         _setter("match_variable", match_variable)
         _setter("operator", operator)
@@ -3677,13 +3789,15 @@ class FrontdoorFirewallPolicyManagedRuleOverrideArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             rule_group_name: pulumi.Input[str],
+             rule_group_name: Optional[pulumi.Input[str]] = None,
              exclusions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgs']]]] = None,
              rules: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'ruleGroupName' in kwargs:
+        if rule_group_name is None and 'ruleGroupName' in kwargs:
             rule_group_name = kwargs['ruleGroupName']
+        if rule_group_name is None:
+            raise TypeError("Missing 'rule_group_name' argument")
 
         _setter("rule_group_name", rule_group_name)
         if exclusions is not None:
@@ -3752,13 +3866,19 @@ class FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             match_variable: pulumi.Input[str],
-             operator: pulumi.Input[str],
-             selector: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             match_variable: Optional[pulumi.Input[str]] = None,
+             operator: Optional[pulumi.Input[str]] = None,
+             selector: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'matchVariable' in kwargs:
+        if match_variable is None and 'matchVariable' in kwargs:
             match_variable = kwargs['matchVariable']
+        if match_variable is None:
+            raise TypeError("Missing 'match_variable' argument")
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if selector is None:
+            raise TypeError("Missing 'selector' argument")
 
         _setter("match_variable", match_variable)
         _setter("operator", operator)
@@ -3830,14 +3950,18 @@ class FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action: pulumi.Input[str],
-             rule_id: pulumi.Input[str],
+             action: Optional[pulumi.Input[str]] = None,
+             rule_id: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              exclusions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'ruleId' in kwargs:
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if rule_id is None and 'ruleId' in kwargs:
             rule_id = kwargs['ruleId']
+        if rule_id is None:
+            raise TypeError("Missing 'rule_id' argument")
 
         _setter("action", action)
         _setter("rule_id", rule_id)
@@ -3921,13 +4045,19 @@ class FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             match_variable: pulumi.Input[str],
-             operator: pulumi.Input[str],
-             selector: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             match_variable: Optional[pulumi.Input[str]] = None,
+             operator: Optional[pulumi.Input[str]] = None,
+             selector: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'matchVariable' in kwargs:
+        if match_variable is None and 'matchVariable' in kwargs:
             match_variable = kwargs['matchVariable']
+        if match_variable is None:
+            raise TypeError("Missing 'match_variable' argument")
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if selector is None:
+            raise TypeError("Missing 'selector' argument")
 
         _setter("match_variable", match_variable)
         _setter("operator", operator)
@@ -3999,15 +4129,19 @@ class FrontdoorOriginGroupHealthProbeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             interval_in_seconds: pulumi.Input[int],
-             protocol: pulumi.Input[str],
+             interval_in_seconds: Optional[pulumi.Input[int]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
              path: Optional[pulumi.Input[str]] = None,
              request_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'intervalInSeconds' in kwargs:
+        if interval_in_seconds is None and 'intervalInSeconds' in kwargs:
             interval_in_seconds = kwargs['intervalInSeconds']
-        if 'requestType' in kwargs:
+        if interval_in_seconds is None:
+            raise TypeError("Missing 'interval_in_seconds' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if request_type is None and 'requestType' in kwargs:
             request_type = kwargs['requestType']
 
         _setter("interval_in_seconds", interval_in_seconds)
@@ -4091,13 +4225,13 @@ class FrontdoorOriginGroupLoadBalancingArgs:
              additional_latency_in_milliseconds: Optional[pulumi.Input[int]] = None,
              sample_size: Optional[pulumi.Input[int]] = None,
              successful_samples_required: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'additionalLatencyInMilliseconds' in kwargs:
+        if additional_latency_in_milliseconds is None and 'additionalLatencyInMilliseconds' in kwargs:
             additional_latency_in_milliseconds = kwargs['additionalLatencyInMilliseconds']
-        if 'sampleSize' in kwargs:
+        if sample_size is None and 'sampleSize' in kwargs:
             sample_size = kwargs['sampleSize']
-        if 'successfulSamplesRequired' in kwargs:
+        if successful_samples_required is None and 'successfulSamplesRequired' in kwargs:
             successful_samples_required = kwargs['successfulSamplesRequired']
 
         if additional_latency_in_milliseconds is not None:
@@ -4171,17 +4305,21 @@ class FrontdoorOriginPrivateLinkArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             location: pulumi.Input[str],
-             private_link_target_id: pulumi.Input[str],
+             location: Optional[pulumi.Input[str]] = None,
+             private_link_target_id: Optional[pulumi.Input[str]] = None,
              request_message: Optional[pulumi.Input[str]] = None,
              target_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'privateLinkTargetId' in kwargs:
+        if location is None:
+            raise TypeError("Missing 'location' argument")
+        if private_link_target_id is None and 'privateLinkTargetId' in kwargs:
             private_link_target_id = kwargs['privateLinkTargetId']
-        if 'requestMessage' in kwargs:
+        if private_link_target_id is None:
+            raise TypeError("Missing 'private_link_target_id' argument")
+        if request_message is None and 'requestMessage' in kwargs:
             request_message = kwargs['requestMessage']
-        if 'targetType' in kwargs:
+        if target_type is None and 'targetType' in kwargs:
             target_type = kwargs['targetType']
 
         _setter("location", location)
@@ -4275,15 +4413,15 @@ class FrontdoorRouteCacheArgs:
              content_types_to_compresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              query_string_caching_behavior: Optional[pulumi.Input[str]] = None,
              query_strings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'compressionEnabled' in kwargs:
+        if compression_enabled is None and 'compressionEnabled' in kwargs:
             compression_enabled = kwargs['compressionEnabled']
-        if 'contentTypesToCompresses' in kwargs:
+        if content_types_to_compresses is None and 'contentTypesToCompresses' in kwargs:
             content_types_to_compresses = kwargs['contentTypesToCompresses']
-        if 'queryStringCachingBehavior' in kwargs:
+        if query_string_caching_behavior is None and 'queryStringCachingBehavior' in kwargs:
             query_string_caching_behavior = kwargs['queryStringCachingBehavior']
-        if 'queryStrings' in kwargs:
+        if query_strings is None and 'queryStrings' in kwargs:
             query_strings = kwargs['queryStrings']
 
         if compression_enabled is not None:
@@ -4379,17 +4517,17 @@ class FrontdoorRuleActionsArgs:
              route_configuration_override_action: Optional[pulumi.Input['FrontdoorRuleActionsRouteConfigurationOverrideActionArgs']] = None,
              url_redirect_action: Optional[pulumi.Input['FrontdoorRuleActionsUrlRedirectActionArgs']] = None,
              url_rewrite_action: Optional[pulumi.Input['FrontdoorRuleActionsUrlRewriteActionArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'requestHeaderActions' in kwargs:
+        if request_header_actions is None and 'requestHeaderActions' in kwargs:
             request_header_actions = kwargs['requestHeaderActions']
-        if 'responseHeaderActions' in kwargs:
+        if response_header_actions is None and 'responseHeaderActions' in kwargs:
             response_header_actions = kwargs['responseHeaderActions']
-        if 'routeConfigurationOverrideAction' in kwargs:
+        if route_configuration_override_action is None and 'routeConfigurationOverrideAction' in kwargs:
             route_configuration_override_action = kwargs['routeConfigurationOverrideAction']
-        if 'urlRedirectAction' in kwargs:
+        if url_redirect_action is None and 'urlRedirectAction' in kwargs:
             url_redirect_action = kwargs['urlRedirectAction']
-        if 'urlRewriteAction' in kwargs:
+        if url_rewrite_action is None and 'urlRewriteAction' in kwargs:
             url_rewrite_action = kwargs['urlRewriteAction']
 
         if request_header_actions is not None:
@@ -4488,15 +4626,19 @@ class FrontdoorRuleActionsRequestHeaderActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             header_action: pulumi.Input[str],
-             header_name: pulumi.Input[str],
+             header_action: Optional[pulumi.Input[str]] = None,
+             header_name: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'headerAction' in kwargs:
+        if header_action is None and 'headerAction' in kwargs:
             header_action = kwargs['headerAction']
-        if 'headerName' in kwargs:
+        if header_action is None:
+            raise TypeError("Missing 'header_action' argument")
+        if header_name is None and 'headerName' in kwargs:
             header_name = kwargs['headerName']
+        if header_name is None:
+            raise TypeError("Missing 'header_name' argument")
 
         _setter("header_action", header_action)
         _setter("header_name", header_name)
@@ -4568,15 +4710,19 @@ class FrontdoorRuleActionsResponseHeaderActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             header_action: pulumi.Input[str],
-             header_name: pulumi.Input[str],
+             header_action: Optional[pulumi.Input[str]] = None,
+             header_name: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'headerAction' in kwargs:
+        if header_action is None and 'headerAction' in kwargs:
             header_action = kwargs['headerAction']
-        if 'headerName' in kwargs:
+        if header_action is None:
+            raise TypeError("Missing 'header_action' argument")
+        if header_name is None and 'headerName' in kwargs:
             header_name = kwargs['headerName']
+        if header_name is None:
+            raise TypeError("Missing 'header_name' argument")
 
         _setter("header_action", header_action)
         _setter("header_name", header_name)
@@ -4669,21 +4815,21 @@ class FrontdoorRuleActionsRouteConfigurationOverrideActionArgs:
              forwarding_protocol: Optional[pulumi.Input[str]] = None,
              query_string_caching_behavior: Optional[pulumi.Input[str]] = None,
              query_string_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'cacheBehavior' in kwargs:
+        if cache_behavior is None and 'cacheBehavior' in kwargs:
             cache_behavior = kwargs['cacheBehavior']
-        if 'cacheDuration' in kwargs:
+        if cache_duration is None and 'cacheDuration' in kwargs:
             cache_duration = kwargs['cacheDuration']
-        if 'cdnFrontdoorOriginGroupId' in kwargs:
+        if cdn_frontdoor_origin_group_id is None and 'cdnFrontdoorOriginGroupId' in kwargs:
             cdn_frontdoor_origin_group_id = kwargs['cdnFrontdoorOriginGroupId']
-        if 'compressionEnabled' in kwargs:
+        if compression_enabled is None and 'compressionEnabled' in kwargs:
             compression_enabled = kwargs['compressionEnabled']
-        if 'forwardingProtocol' in kwargs:
+        if forwarding_protocol is None and 'forwardingProtocol' in kwargs:
             forwarding_protocol = kwargs['forwardingProtocol']
-        if 'queryStringCachingBehavior' in kwargs:
+        if query_string_caching_behavior is None and 'queryStringCachingBehavior' in kwargs:
             query_string_caching_behavior = kwargs['queryStringCachingBehavior']
-        if 'queryStringParameters' in kwargs:
+        if query_string_parameters is None and 'queryStringParameters' in kwargs:
             query_string_parameters = kwargs['queryStringParameters']
 
         if cache_behavior is not None:
@@ -4821,25 +4967,29 @@ class FrontdoorRuleActionsUrlRedirectActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             destination_hostname: pulumi.Input[str],
-             redirect_type: pulumi.Input[str],
+             destination_hostname: Optional[pulumi.Input[str]] = None,
+             redirect_type: Optional[pulumi.Input[str]] = None,
              destination_fragment: Optional[pulumi.Input[str]] = None,
              destination_path: Optional[pulumi.Input[str]] = None,
              query_string: Optional[pulumi.Input[str]] = None,
              redirect_protocol: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'destinationHostname' in kwargs:
+        if destination_hostname is None and 'destinationHostname' in kwargs:
             destination_hostname = kwargs['destinationHostname']
-        if 'redirectType' in kwargs:
+        if destination_hostname is None:
+            raise TypeError("Missing 'destination_hostname' argument")
+        if redirect_type is None and 'redirectType' in kwargs:
             redirect_type = kwargs['redirectType']
-        if 'destinationFragment' in kwargs:
+        if redirect_type is None:
+            raise TypeError("Missing 'redirect_type' argument")
+        if destination_fragment is None and 'destinationFragment' in kwargs:
             destination_fragment = kwargs['destinationFragment']
-        if 'destinationPath' in kwargs:
+        if destination_path is None and 'destinationPath' in kwargs:
             destination_path = kwargs['destinationPath']
-        if 'queryString' in kwargs:
+        if query_string is None and 'queryString' in kwargs:
             query_string = kwargs['queryString']
-        if 'redirectProtocol' in kwargs:
+        if redirect_protocol is None and 'redirectProtocol' in kwargs:
             redirect_protocol = kwargs['redirectProtocol']
 
         _setter("destination_hostname", destination_hostname)
@@ -4946,14 +5096,18 @@ class FrontdoorRuleActionsUrlRewriteActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             destination: pulumi.Input[str],
-             source_pattern: pulumi.Input[str],
+             destination: Optional[pulumi.Input[str]] = None,
+             source_pattern: Optional[pulumi.Input[str]] = None,
              preserve_unmatched_path: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'sourcePattern' in kwargs:
+        if destination is None:
+            raise TypeError("Missing 'destination' argument")
+        if source_pattern is None and 'sourcePattern' in kwargs:
             source_pattern = kwargs['sourcePattern']
-        if 'preserveUnmatchedPath' in kwargs:
+        if source_pattern is None:
+            raise TypeError("Missing 'source_pattern' argument")
+        if preserve_unmatched_path is None and 'preserveUnmatchedPath' in kwargs:
             preserve_unmatched_path = kwargs['preserveUnmatchedPath']
 
         _setter("destination", destination)
@@ -5085,45 +5239,45 @@ class FrontdoorRuleConditionsArgs:
              url_file_extension_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlFileExtensionConditionArgs']]]] = None,
              url_filename_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlFilenameConditionArgs']]]] = None,
              url_path_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlPathConditionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'clientPortConditions' in kwargs:
+        if client_port_conditions is None and 'clientPortConditions' in kwargs:
             client_port_conditions = kwargs['clientPortConditions']
-        if 'cookiesConditions' in kwargs:
+        if cookies_conditions is None and 'cookiesConditions' in kwargs:
             cookies_conditions = kwargs['cookiesConditions']
-        if 'hostNameConditions' in kwargs:
+        if host_name_conditions is None and 'hostNameConditions' in kwargs:
             host_name_conditions = kwargs['hostNameConditions']
-        if 'httpVersionConditions' in kwargs:
+        if http_version_conditions is None and 'httpVersionConditions' in kwargs:
             http_version_conditions = kwargs['httpVersionConditions']
-        if 'isDeviceConditions' in kwargs:
+        if is_device_conditions is None and 'isDeviceConditions' in kwargs:
             is_device_conditions = kwargs['isDeviceConditions']
-        if 'postArgsConditions' in kwargs:
+        if post_args_conditions is None and 'postArgsConditions' in kwargs:
             post_args_conditions = kwargs['postArgsConditions']
-        if 'queryStringConditions' in kwargs:
+        if query_string_conditions is None and 'queryStringConditions' in kwargs:
             query_string_conditions = kwargs['queryStringConditions']
-        if 'remoteAddressConditions' in kwargs:
+        if remote_address_conditions is None and 'remoteAddressConditions' in kwargs:
             remote_address_conditions = kwargs['remoteAddressConditions']
-        if 'requestBodyConditions' in kwargs:
+        if request_body_conditions is None and 'requestBodyConditions' in kwargs:
             request_body_conditions = kwargs['requestBodyConditions']
-        if 'requestHeaderConditions' in kwargs:
+        if request_header_conditions is None and 'requestHeaderConditions' in kwargs:
             request_header_conditions = kwargs['requestHeaderConditions']
-        if 'requestMethodConditions' in kwargs:
+        if request_method_conditions is None and 'requestMethodConditions' in kwargs:
             request_method_conditions = kwargs['requestMethodConditions']
-        if 'requestSchemeConditions' in kwargs:
+        if request_scheme_conditions is None and 'requestSchemeConditions' in kwargs:
             request_scheme_conditions = kwargs['requestSchemeConditions']
-        if 'requestUriConditions' in kwargs:
+        if request_uri_conditions is None and 'requestUriConditions' in kwargs:
             request_uri_conditions = kwargs['requestUriConditions']
-        if 'serverPortConditions' in kwargs:
+        if server_port_conditions is None and 'serverPortConditions' in kwargs:
             server_port_conditions = kwargs['serverPortConditions']
-        if 'socketAddressConditions' in kwargs:
+        if socket_address_conditions is None and 'socketAddressConditions' in kwargs:
             socket_address_conditions = kwargs['socketAddressConditions']
-        if 'sslProtocolConditions' in kwargs:
+        if ssl_protocol_conditions is None and 'sslProtocolConditions' in kwargs:
             ssl_protocol_conditions = kwargs['sslProtocolConditions']
-        if 'urlFileExtensionConditions' in kwargs:
+        if url_file_extension_conditions is None and 'urlFileExtensionConditions' in kwargs:
             url_file_extension_conditions = kwargs['urlFileExtensionConditions']
-        if 'urlFilenameConditions' in kwargs:
+        if url_filename_conditions is None and 'urlFilenameConditions' in kwargs:
             url_filename_conditions = kwargs['urlFilenameConditions']
-        if 'urlPathConditions' in kwargs:
+        if url_path_conditions is None and 'urlPathConditions' in kwargs:
             url_path_conditions = kwargs['urlPathConditions']
 
         if client_port_conditions is not None:
@@ -5414,14 +5568,16 @@ class FrontdoorRuleConditionsClientPortConditionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: pulumi.Input[str],
+             operator: Optional[pulumi.Input[str]] = None,
              match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              negate_condition: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'matchValues' in kwargs:
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if match_values is None and 'matchValues' in kwargs:
             match_values = kwargs['matchValues']
-        if 'negateCondition' in kwargs:
+        if negate_condition is None and 'negateCondition' in kwargs:
             negate_condition = kwargs['negateCondition']
 
         _setter("operator", operator)
@@ -5493,18 +5649,22 @@ class FrontdoorRuleConditionsCookiesConditionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cookie_name: pulumi.Input[str],
-             operator: pulumi.Input[str],
+             cookie_name: Optional[pulumi.Input[str]] = None,
+             operator: Optional[pulumi.Input[str]] = None,
              match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              negate_condition: Optional[pulumi.Input[bool]] = None,
              transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'cookieName' in kwargs:
+        if cookie_name is None and 'cookieName' in kwargs:
             cookie_name = kwargs['cookieName']
-        if 'matchValues' in kwargs:
+        if cookie_name is None:
+            raise TypeError("Missing 'cookie_name' argument")
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if match_values is None and 'matchValues' in kwargs:
             match_values = kwargs['matchValues']
-        if 'negateCondition' in kwargs:
+        if negate_condition is None and 'negateCondition' in kwargs:
             negate_condition = kwargs['negateCondition']
 
         _setter("cookie_name", cookie_name)
@@ -5600,15 +5760,17 @@ class FrontdoorRuleConditionsHostNameConditionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: pulumi.Input[str],
+             operator: Optional[pulumi.Input[str]] = None,
              match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              negate_condition: Optional[pulumi.Input[bool]] = None,
              transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'matchValues' in kwargs:
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if match_values is None and 'matchValues' in kwargs:
             match_values = kwargs['matchValues']
-        if 'negateCondition' in kwargs:
+        if negate_condition is None and 'negateCondition' in kwargs:
             negate_condition = kwargs['negateCondition']
 
         _setter("operator", operator)
@@ -5688,14 +5850,16 @@ class FrontdoorRuleConditionsHttpVersionConditionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              negate_condition: Optional[pulumi.Input[bool]] = None,
              operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'matchValues' in kwargs:
+        if match_values is None and 'matchValues' in kwargs:
             match_values = kwargs['matchValues']
-        if 'negateCondition' in kwargs:
+        if match_values is None:
+            raise TypeError("Missing 'match_values' argument")
+        if negate_condition is None and 'negateCondition' in kwargs:
             negate_condition = kwargs['negateCondition']
 
         _setter("match_values", match_values)
@@ -5764,11 +5928,11 @@ class FrontdoorRuleConditionsIsDeviceConditionArgs:
              match_values: Optional[pulumi.Input[str]] = None,
              negate_condition: Optional[pulumi.Input[bool]] = None,
              operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'matchValues' in kwargs:
+        if match_values is None and 'matchValues' in kwargs:
             match_values = kwargs['matchValues']
-        if 'negateCondition' in kwargs:
+        if negate_condition is None and 'negateCondition' in kwargs:
             negate_condition = kwargs['negateCondition']
 
         if match_values is not None:
@@ -5841,18 +6005,22 @@ class FrontdoorRuleConditionsPostArgsConditionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: pulumi.Input[str],
-             post_args_name: pulumi.Input[str],
+             operator: Optional[pulumi.Input[str]] = None,
+             post_args_name: Optional[pulumi.Input[str]] = None,
              match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              negate_condition: Optional[pulumi.Input[bool]] = None,
              transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'postArgsName' in kwargs:
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if post_args_name is None and 'postArgsName' in kwargs:
             post_args_name = kwargs['postArgsName']
-        if 'matchValues' in kwargs:
+        if post_args_name is None:
+            raise TypeError("Missing 'post_args_name' argument")
+        if match_values is None and 'matchValues' in kwargs:
             match_values = kwargs['matchValues']
-        if 'negateCondition' in kwargs:
+        if negate_condition is None and 'negateCondition' in kwargs:
             negate_condition = kwargs['negateCondition']
 
         _setter("operator", operator)
@@ -5948,15 +6116,17 @@ class FrontdoorRuleConditionsQueryStringConditionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: pulumi.Input[str],
+             operator: Optional[pulumi.Input[str]] = None,
              match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              negate_condition: Optional[pulumi.Input[bool]] = None,
              transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'matchValues' in kwargs:
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if match_values is None and 'matchValues' in kwargs:
             match_values = kwargs['matchValues']
-        if 'negateCondition' in kwargs:
+        if negate_condition is None and 'negateCondition' in kwargs:
             negate_condition = kwargs['negateCondition']
 
         _setter("operator", operator)
@@ -6041,11 +6211,11 @@ class FrontdoorRuleConditionsRemoteAddressConditionArgs:
              match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              negate_condition: Optional[pulumi.Input[bool]] = None,
              operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'matchValues' in kwargs:
+        if match_values is None and 'matchValues' in kwargs:
             match_values = kwargs['matchValues']
-        if 'negateCondition' in kwargs:
+        if negate_condition is None and 'negateCondition' in kwargs:
             negate_condition = kwargs['negateCondition']
 
         if match_values is not None:
@@ -6117,15 +6287,19 @@ class FrontdoorRuleConditionsRequestBodyConditionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
-             operator: pulumi.Input[str],
+             match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             operator: Optional[pulumi.Input[str]] = None,
              negate_condition: Optional[pulumi.Input[bool]] = None,
              transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'matchValues' in kwargs:
+        if match_values is None and 'matchValues' in kwargs:
             match_values = kwargs['matchValues']
-        if 'negateCondition' in kwargs:
+        if match_values is None:
+            raise TypeError("Missing 'match_values' argument")
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if negate_condition is None and 'negateCondition' in kwargs:
             negate_condition = kwargs['negateCondition']
 
         _setter("match_values", match_values)
@@ -6210,18 +6384,22 @@ class FrontdoorRuleConditionsRequestHeaderConditionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             header_name: pulumi.Input[str],
-             operator: pulumi.Input[str],
+             header_name: Optional[pulumi.Input[str]] = None,
+             operator: Optional[pulumi.Input[str]] = None,
              match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              negate_condition: Optional[pulumi.Input[bool]] = None,
              transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'headerName' in kwargs:
+        if header_name is None and 'headerName' in kwargs:
             header_name = kwargs['headerName']
-        if 'matchValues' in kwargs:
+        if header_name is None:
+            raise TypeError("Missing 'header_name' argument")
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if match_values is None and 'matchValues' in kwargs:
             match_values = kwargs['matchValues']
-        if 'negateCondition' in kwargs:
+        if negate_condition is None and 'negateCondition' in kwargs:
             negate_condition = kwargs['negateCondition']
 
         _setter("header_name", header_name)
@@ -6314,14 +6492,16 @@ class FrontdoorRuleConditionsRequestMethodConditionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              negate_condition: Optional[pulumi.Input[bool]] = None,
              operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'matchValues' in kwargs:
+        if match_values is None and 'matchValues' in kwargs:
             match_values = kwargs['matchValues']
-        if 'negateCondition' in kwargs:
+        if match_values is None:
+            raise TypeError("Missing 'match_values' argument")
+        if negate_condition is None and 'negateCondition' in kwargs:
             negate_condition = kwargs['negateCondition']
 
         _setter("match_values", match_values)
@@ -6390,11 +6570,11 @@ class FrontdoorRuleConditionsRequestSchemeConditionArgs:
              match_values: Optional[pulumi.Input[str]] = None,
              negate_condition: Optional[pulumi.Input[bool]] = None,
              operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'matchValues' in kwargs:
+        if match_values is None and 'matchValues' in kwargs:
             match_values = kwargs['matchValues']
-        if 'negateCondition' in kwargs:
+        if negate_condition is None and 'negateCondition' in kwargs:
             negate_condition = kwargs['negateCondition']
 
         if match_values is not None:
@@ -6464,15 +6644,17 @@ class FrontdoorRuleConditionsRequestUriConditionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: pulumi.Input[str],
+             operator: Optional[pulumi.Input[str]] = None,
              match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              negate_condition: Optional[pulumi.Input[bool]] = None,
              transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'matchValues' in kwargs:
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if match_values is None and 'matchValues' in kwargs:
             match_values = kwargs['matchValues']
-        if 'negateCondition' in kwargs:
+        if negate_condition is None and 'negateCondition' in kwargs:
             negate_condition = kwargs['negateCondition']
 
         _setter("operator", operator)
@@ -6552,14 +6734,18 @@ class FrontdoorRuleConditionsServerPortConditionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
-             operator: pulumi.Input[str],
+             match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             operator: Optional[pulumi.Input[str]] = None,
              negate_condition: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'matchValues' in kwargs:
+        if match_values is None and 'matchValues' in kwargs:
             match_values = kwargs['matchValues']
-        if 'negateCondition' in kwargs:
+        if match_values is None:
+            raise TypeError("Missing 'match_values' argument")
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if negate_condition is None and 'negateCondition' in kwargs:
             negate_condition = kwargs['negateCondition']
 
         _setter("match_values", match_values)
@@ -6631,11 +6817,11 @@ class FrontdoorRuleConditionsSocketAddressConditionArgs:
              match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              negate_condition: Optional[pulumi.Input[bool]] = None,
              operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'matchValues' in kwargs:
+        if match_values is None and 'matchValues' in kwargs:
             match_values = kwargs['matchValues']
-        if 'negateCondition' in kwargs:
+        if negate_condition is None and 'negateCondition' in kwargs:
             negate_condition = kwargs['negateCondition']
 
         if match_values is not None:
@@ -6706,14 +6892,16 @@ class FrontdoorRuleConditionsSslProtocolConditionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              negate_condition: Optional[pulumi.Input[bool]] = None,
              operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'matchValues' in kwargs:
+        if match_values is None and 'matchValues' in kwargs:
             match_values = kwargs['matchValues']
-        if 'negateCondition' in kwargs:
+        if match_values is None:
+            raise TypeError("Missing 'match_values' argument")
+        if negate_condition is None and 'negateCondition' in kwargs:
             negate_condition = kwargs['negateCondition']
 
         _setter("match_values", match_values)
@@ -6782,15 +6970,19 @@ class FrontdoorRuleConditionsUrlFileExtensionConditionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
-             operator: pulumi.Input[str],
+             match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             operator: Optional[pulumi.Input[str]] = None,
              negate_condition: Optional[pulumi.Input[bool]] = None,
              transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'matchValues' in kwargs:
+        if match_values is None and 'matchValues' in kwargs:
             match_values = kwargs['matchValues']
-        if 'negateCondition' in kwargs:
+        if match_values is None:
+            raise TypeError("Missing 'match_values' argument")
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if negate_condition is None and 'negateCondition' in kwargs:
             negate_condition = kwargs['negateCondition']
 
         _setter("match_values", match_values)
@@ -6874,15 +7066,17 @@ class FrontdoorRuleConditionsUrlFilenameConditionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: pulumi.Input[str],
+             operator: Optional[pulumi.Input[str]] = None,
              match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              negate_condition: Optional[pulumi.Input[bool]] = None,
              transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'matchValues' in kwargs:
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if match_values is None and 'matchValues' in kwargs:
             match_values = kwargs['matchValues']
-        if 'negateCondition' in kwargs:
+        if negate_condition is None and 'negateCondition' in kwargs:
             negate_condition = kwargs['negateCondition']
 
         _setter("operator", operator)
@@ -6967,15 +7161,17 @@ class FrontdoorRuleConditionsUrlPathConditionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: pulumi.Input[str],
+             operator: Optional[pulumi.Input[str]] = None,
              match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              negate_condition: Optional[pulumi.Input[bool]] = None,
              transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'matchValues' in kwargs:
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if match_values is None and 'matchValues' in kwargs:
             match_values = kwargs['matchValues']
-        if 'negateCondition' in kwargs:
+        if negate_condition is None and 'negateCondition' in kwargs:
             negate_condition = kwargs['negateCondition']
 
         _setter("operator", operator)
@@ -7049,11 +7245,13 @@ class FrontdoorSecretSecretArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             customer_certificates: pulumi.Input[Sequence[pulumi.Input['FrontdoorSecretSecretCustomerCertificateArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             customer_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorSecretSecretCustomerCertificateArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'customerCertificates' in kwargs:
+        if customer_certificates is None and 'customerCertificates' in kwargs:
             customer_certificates = kwargs['customerCertificates']
+        if customer_certificates is None:
+            raise TypeError("Missing 'customer_certificates' argument")
 
         _setter("customer_certificates", customer_certificates)
 
@@ -7089,13 +7287,15 @@ class FrontdoorSecretSecretCustomerCertificateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_vault_certificate_id: pulumi.Input[str],
+             key_vault_certificate_id: Optional[pulumi.Input[str]] = None,
              subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'keyVaultCertificateId' in kwargs:
+        if key_vault_certificate_id is None and 'keyVaultCertificateId' in kwargs:
             key_vault_certificate_id = kwargs['keyVaultCertificateId']
-        if 'subjectAlternativeNames' in kwargs:
+        if key_vault_certificate_id is None:
+            raise TypeError("Missing 'key_vault_certificate_id' argument")
+        if subject_alternative_names is None and 'subjectAlternativeNames' in kwargs:
             subject_alternative_names = kwargs['subjectAlternativeNames']
 
         _setter("key_vault_certificate_id", key_vault_certificate_id)
@@ -7143,9 +7343,11 @@ class FrontdoorSecurityPolicySecurityPoliciesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             firewall: pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             firewall: Optional[pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if firewall is None:
+            raise TypeError("Missing 'firewall' argument")
 
         _setter("firewall", firewall)
 
@@ -7179,12 +7381,16 @@ class FrontdoorSecurityPolicySecurityPoliciesFirewallArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             association: pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs'],
-             cdn_frontdoor_firewall_policy_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             association: Optional[pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs']] = None,
+             cdn_frontdoor_firewall_policy_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'cdnFrontdoorFirewallPolicyId' in kwargs:
+        if association is None:
+            raise TypeError("Missing 'association' argument")
+        if cdn_frontdoor_firewall_policy_id is None and 'cdnFrontdoorFirewallPolicyId' in kwargs:
             cdn_frontdoor_firewall_policy_id = kwargs['cdnFrontdoorFirewallPolicyId']
+        if cdn_frontdoor_firewall_policy_id is None:
+            raise TypeError("Missing 'cdn_frontdoor_firewall_policy_id' argument")
 
         _setter("association", association)
         _setter("cdn_frontdoor_firewall_policy_id", cdn_frontdoor_firewall_policy_id)
@@ -7231,12 +7437,16 @@ class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             domains: pulumi.Input[Sequence[pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs']]],
-             patterns_to_match: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             domains: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs']]]] = None,
+             patterns_to_match: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'patternsToMatch' in kwargs:
+        if domains is None:
+            raise TypeError("Missing 'domains' argument")
+        if patterns_to_match is None and 'patternsToMatch' in kwargs:
             patterns_to_match = kwargs['patternsToMatch']
+        if patterns_to_match is None:
+            raise TypeError("Missing 'patterns_to_match' argument")
 
         _setter("domains", domains)
         _setter("patterns_to_match", patterns_to_match)
@@ -7283,12 +7493,14 @@ class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cdn_frontdoor_domain_id: pulumi.Input[str],
+             cdn_frontdoor_domain_id: Optional[pulumi.Input[str]] = None,
              active: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'cdnFrontdoorDomainId' in kwargs:
+        if cdn_frontdoor_domain_id is None and 'cdnFrontdoorDomainId' in kwargs:
             cdn_frontdoor_domain_id = kwargs['cdnFrontdoorDomainId']
+        if cdn_frontdoor_domain_id is None:
+            raise TypeError("Missing 'cdn_frontdoor_domain_id' argument")
 
         _setter("cdn_frontdoor_domain_id", cdn_frontdoor_domain_id)
         if active is not None:

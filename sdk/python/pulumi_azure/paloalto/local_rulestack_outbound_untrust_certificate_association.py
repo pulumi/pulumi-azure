@@ -26,11 +26,13 @@ class LocalRulestackOutboundUntrustCertificateAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             certificate_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             certificate_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'certificateId' in kwargs:
+        if certificate_id is None and 'certificateId' in kwargs:
             certificate_id = kwargs['certificateId']
+        if certificate_id is None:
+            raise TypeError("Missing 'certificate_id' argument")
 
         _setter("certificate_id", certificate_id)
 
@@ -63,9 +65,9 @@ class _LocalRulestackOutboundUntrustCertificateAssociationState:
     def _configure(
              _setter: Callable[[Any, Any], None],
              certificate_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'certificateId' in kwargs:
+        if certificate_id is None and 'certificateId' in kwargs:
             certificate_id = kwargs['certificateId']
 
         if certificate_id is not None:
@@ -94,22 +96,6 @@ class LocalRulestackOutboundUntrustCertificateAssociation(pulumi.CustomResource)
         """
         Manages a Palo Alto Networks Rulestack Outbound Untrust Certificate Association.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_local_rulestack = azure.paloalto.LocalRulestack("exampleLocalRulestack",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_local_rulestack_certificate = azure.paloalto.LocalRulestackCertificate("exampleLocalRulestackCertificate",
-            rulestack_id=example_local_rulestack.id,
-            self_signed=True)
-        example_local_rulestack_outbound_untrust_certificate_association = azure.paloalto.LocalRulestackOutboundUntrustCertificateAssociation("exampleLocalRulestackOutboundUntrustCertificateAssociation", certificate_id=example_local_rulestack_certificate.id)
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_id: The ID of the Certificate to use as the Outbound Untrust Certificate. Changing this forces a new Palo Alto Networks Rulestack Outbound Untrust Certificate Association to be created.
@@ -122,22 +108,6 @@ class LocalRulestackOutboundUntrustCertificateAssociation(pulumi.CustomResource)
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Palo Alto Networks Rulestack Outbound Untrust Certificate Association.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_local_rulestack = azure.paloalto.LocalRulestack("exampleLocalRulestack",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_local_rulestack_certificate = azure.paloalto.LocalRulestackCertificate("exampleLocalRulestackCertificate",
-            rulestack_id=example_local_rulestack.id,
-            self_signed=True)
-        example_local_rulestack_outbound_untrust_certificate_association = azure.paloalto.LocalRulestackOutboundUntrustCertificateAssociation("exampleLocalRulestackOutboundUntrustCertificateAssociation", certificate_id=example_local_rulestack_certificate.id)
-        ```
 
         :param str resource_name: The name of the resource.
         :param LocalRulestackOutboundUntrustCertificateAssociationArgs args: The arguments to use to populate this resource's properties.

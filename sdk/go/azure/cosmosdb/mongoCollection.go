@@ -15,59 +15,6 @@ import (
 
 // Manages a Mongo Collection within a Cosmos DB Account.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleAccount, err := cosmosdb.LookupAccount(ctx, &cosmosdb.LookupAccountArgs{
-//				Name:              "tfex-cosmosdb-account",
-//				ResourceGroupName: "tfex-cosmosdb-account-rg",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleMongoDatabase, err := cosmosdb.NewMongoDatabase(ctx, "exampleMongoDatabase", &cosmosdb.MongoDatabaseArgs{
-//				ResourceGroupName: *pulumi.String(exampleAccount.ResourceGroupName),
-//				AccountName:       *pulumi.String(exampleAccount.Name),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cosmosdb.NewMongoCollection(ctx, "exampleMongoCollection", &cosmosdb.MongoCollectionArgs{
-//				ResourceGroupName: *pulumi.String(exampleAccount.ResourceGroupName),
-//				AccountName:       *pulumi.String(exampleAccount.Name),
-//				DatabaseName:      exampleMongoDatabase.Name,
-//				DefaultTtlSeconds: pulumi.Int(777),
-//				ShardKey:          pulumi.String("uniqueKey"),
-//				Throughput:        pulumi.Int(400),
-//				Indices: cosmosdb.MongoCollectionIndexArray{
-//					&cosmosdb.MongoCollectionIndexArgs{
-//						Keys: pulumi.StringArray{
-//							pulumi.String("_id"),
-//						},
-//						Unique: pulumi.Bool(true),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // CosmosDB Mongo Collection can be imported using the `resource id`, e.g.

@@ -12,49 +12,6 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages an ExpressRoute Circuit Authorization.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleExpressRouteCircuit = new Azure.Network.ExpressRouteCircuit("exampleExpressRouteCircuit", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         ServiceProviderName = "Equinix",
-    ///         PeeringLocation = "Silicon Valley",
-    ///         BandwidthInMbps = 50,
-    ///         Sku = new Azure.Network.Inputs.ExpressRouteCircuitSkuArgs
-    ///         {
-    ///             Tier = "Standard",
-    ///             Family = "MeteredData",
-    ///         },
-    ///         AllowClassicOperations = false,
-    ///         Tags = 
-    ///         {
-    ///             { "environment", "Production" },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleExpressRouteCircuitAuthorization = new Azure.Network.ExpressRouteCircuitAuthorization("exampleExpressRouteCircuitAuthorization", new()
-    ///     {
-    ///         ExpressRouteCircuitName = exampleExpressRouteCircuit.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// ExpressRoute Circuit Authorizations can be imported using the `resource id`, e.g.

@@ -11,27 +11,6 @@ import * as utilities from "../utilities";
  *
  * > **Note:** Since this resource is provisioned by default, the Azure Provider will not check for the presence of an existing resource prior to attempting to create it.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleFlexibleServer = new azure.mysql.FlexibleServer("exampleFlexibleServer", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     administratorLogin: "adminTerraform",
- *     administratorPassword: "H@Sh1CoR3!",
- *     skuName: "GP_Standard_D2ds_v4",
- * });
- * const exampleFlexibleServerConfiguration = new azure.mysql.FlexibleServerConfiguration("exampleFlexibleServerConfiguration", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     serverName: exampleFlexibleServer.name,
- *     value: "600",
- * });
- * ```
- *
  * ## Import
  *
  * MySQL Flexible Server Configurations can be imported using the `resource id`, e.g.

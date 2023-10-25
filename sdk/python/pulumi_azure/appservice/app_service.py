@@ -85,8 +85,8 @@ class AppServiceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_service_plan_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             app_service_plan_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              auth_settings: Optional[pulumi.Input['AppServiceAuthSettingsArgs']] = None,
              backup: Optional[pulumi.Input['AppServiceBackupArgs']] = None,
@@ -105,33 +105,37 @@ class AppServiceArgs:
              source_control: Optional[pulumi.Input['AppServiceSourceControlArgs']] = None,
              storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['AppServiceStorageAccountArgs']]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'appServicePlanId' in kwargs:
+        if app_service_plan_id is None and 'appServicePlanId' in kwargs:
             app_service_plan_id = kwargs['appServicePlanId']
-        if 'resourceGroupName' in kwargs:
+        if app_service_plan_id is None:
+            raise TypeError("Missing 'app_service_plan_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'appSettings' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if app_settings is None and 'appSettings' in kwargs:
             app_settings = kwargs['appSettings']
-        if 'authSettings' in kwargs:
+        if auth_settings is None and 'authSettings' in kwargs:
             auth_settings = kwargs['authSettings']
-        if 'clientAffinityEnabled' in kwargs:
+        if client_affinity_enabled is None and 'clientAffinityEnabled' in kwargs:
             client_affinity_enabled = kwargs['clientAffinityEnabled']
-        if 'clientCertEnabled' in kwargs:
+        if client_cert_enabled is None and 'clientCertEnabled' in kwargs:
             client_cert_enabled = kwargs['clientCertEnabled']
-        if 'clientCertMode' in kwargs:
+        if client_cert_mode is None and 'clientCertMode' in kwargs:
             client_cert_mode = kwargs['clientCertMode']
-        if 'connectionStrings' in kwargs:
+        if connection_strings is None and 'connectionStrings' in kwargs:
             connection_strings = kwargs['connectionStrings']
-        if 'httpsOnly' in kwargs:
+        if https_only is None and 'httpsOnly' in kwargs:
             https_only = kwargs['httpsOnly']
-        if 'keyVaultReferenceIdentityId' in kwargs:
+        if key_vault_reference_identity_id is None and 'keyVaultReferenceIdentityId' in kwargs:
             key_vault_reference_identity_id = kwargs['keyVaultReferenceIdentityId']
-        if 'siteConfig' in kwargs:
+        if site_config is None and 'siteConfig' in kwargs:
             site_config = kwargs['siteConfig']
-        if 'sourceControl' in kwargs:
+        if source_control is None and 'sourceControl' in kwargs:
             source_control = kwargs['sourceControl']
-        if 'storageAccounts' in kwargs:
+        if storage_accounts is None and 'storageAccounts' in kwargs:
             storage_accounts = kwargs['storageAccounts']
 
         _setter("app_service_plan_id", app_service_plan_id)
@@ -534,47 +538,47 @@ class _AppServiceState:
              source_control: Optional[pulumi.Input['AppServiceSourceControlArgs']] = None,
              storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['AppServiceStorageAccountArgs']]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'appServicePlanId' in kwargs:
+        if app_service_plan_id is None and 'appServicePlanId' in kwargs:
             app_service_plan_id = kwargs['appServicePlanId']
-        if 'appSettings' in kwargs:
+        if app_settings is None and 'appSettings' in kwargs:
             app_settings = kwargs['appSettings']
-        if 'authSettings' in kwargs:
+        if auth_settings is None and 'authSettings' in kwargs:
             auth_settings = kwargs['authSettings']
-        if 'clientAffinityEnabled' in kwargs:
+        if client_affinity_enabled is None and 'clientAffinityEnabled' in kwargs:
             client_affinity_enabled = kwargs['clientAffinityEnabled']
-        if 'clientCertEnabled' in kwargs:
+        if client_cert_enabled is None and 'clientCertEnabled' in kwargs:
             client_cert_enabled = kwargs['clientCertEnabled']
-        if 'clientCertMode' in kwargs:
+        if client_cert_mode is None and 'clientCertMode' in kwargs:
             client_cert_mode = kwargs['clientCertMode']
-        if 'connectionStrings' in kwargs:
+        if connection_strings is None and 'connectionStrings' in kwargs:
             connection_strings = kwargs['connectionStrings']
-        if 'customDomainVerificationId' in kwargs:
+        if custom_domain_verification_id is None and 'customDomainVerificationId' in kwargs:
             custom_domain_verification_id = kwargs['customDomainVerificationId']
-        if 'defaultSiteHostname' in kwargs:
+        if default_site_hostname is None and 'defaultSiteHostname' in kwargs:
             default_site_hostname = kwargs['defaultSiteHostname']
-        if 'httpsOnly' in kwargs:
+        if https_only is None and 'httpsOnly' in kwargs:
             https_only = kwargs['httpsOnly']
-        if 'keyVaultReferenceIdentityId' in kwargs:
+        if key_vault_reference_identity_id is None and 'keyVaultReferenceIdentityId' in kwargs:
             key_vault_reference_identity_id = kwargs['keyVaultReferenceIdentityId']
-        if 'outboundIpAddressLists' in kwargs:
+        if outbound_ip_address_lists is None and 'outboundIpAddressLists' in kwargs:
             outbound_ip_address_lists = kwargs['outboundIpAddressLists']
-        if 'outboundIpAddresses' in kwargs:
+        if outbound_ip_addresses is None and 'outboundIpAddresses' in kwargs:
             outbound_ip_addresses = kwargs['outboundIpAddresses']
-        if 'possibleOutboundIpAddressLists' in kwargs:
+        if possible_outbound_ip_address_lists is None and 'possibleOutboundIpAddressLists' in kwargs:
             possible_outbound_ip_address_lists = kwargs['possibleOutboundIpAddressLists']
-        if 'possibleOutboundIpAddresses' in kwargs:
+        if possible_outbound_ip_addresses is None and 'possibleOutboundIpAddresses' in kwargs:
             possible_outbound_ip_addresses = kwargs['possibleOutboundIpAddresses']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'siteConfig' in kwargs:
+        if site_config is None and 'siteConfig' in kwargs:
             site_config = kwargs['siteConfig']
-        if 'siteCredentials' in kwargs:
+        if site_credentials is None and 'siteCredentials' in kwargs:
             site_credentials = kwargs['siteCredentials']
-        if 'sourceControl' in kwargs:
+        if source_control is None and 'sourceControl' in kwargs:
             source_control = kwargs['sourceControl']
-        if 'storageAccounts' in kwargs:
+        if storage_accounts is None and 'storageAccounts' in kwargs:
             storage_accounts = kwargs['storageAccounts']
 
         if app_service_plan_id is not None:
@@ -990,40 +994,6 @@ class AppService(pulumi.CustomResource):
 
         > **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `appservice.AppService` resource will be overwritten when promoting a Slot using the `appservice.ActiveSlot` resource.
 
-        ## Example Usage
-
-        This example provisions a Windows App Service.
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_plan = azure.appservice.Plan("examplePlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Standard",
-                size="S1",
-            ))
-        example_app_service = azure.appservice.AppService("exampleAppService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            app_service_plan_id=example_plan.id,
-            site_config=azure.appservice.AppServiceSiteConfigArgs(
-                dotnet_framework_version="v4.0",
-                scm_type="LocalGit",
-            ),
-            app_settings={
-                "SOME_KEY": "some-value",
-            },
-            connection_strings=[azure.appservice.AppServiceConnectionStringArgs(
-                name="Database",
-                type="SQLServer",
-                value="Server=some-server.mydomain.com;Integrated Security=SSPI",
-            )])
-        ```
-
         ## Import
 
         App Services can be imported using the `resource id`, e.g.
@@ -1067,40 +1037,6 @@ class AppService(pulumi.CustomResource):
         !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `appservice.LinuxWebApp` resources instead.
 
         > **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `appservice.AppService` resource will be overwritten when promoting a Slot using the `appservice.ActiveSlot` resource.
-
-        ## Example Usage
-
-        This example provisions a Windows App Service.
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_plan = azure.appservice.Plan("examplePlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Standard",
-                size="S1",
-            ))
-        example_app_service = azure.appservice.AppService("exampleAppService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            app_service_plan_id=example_plan.id,
-            site_config=azure.appservice.AppServiceSiteConfigArgs(
-                dotnet_framework_version="v4.0",
-                scm_type="LocalGit",
-            ),
-            app_settings={
-                "SOME_KEY": "some-value",
-            },
-            connection_strings=[azure.appservice.AppServiceConnectionStringArgs(
-                name="Database",
-                type="SQLServer",
-                value="Server=some-server.mydomain.com;Integrated Security=SSPI",
-            )])
-        ```
 
         ## Import
 
@@ -1162,17 +1098,9 @@ class AppService(pulumi.CustomResource):
                 raise TypeError("Missing required property 'app_service_plan_id'")
             __props__.__dict__["app_service_plan_id"] = app_service_plan_id
             __props__.__dict__["app_settings"] = app_settings
-            if auth_settings is not None and not isinstance(auth_settings, AppServiceAuthSettingsArgs):
-                auth_settings = auth_settings or {}
-                def _setter(key, value):
-                    auth_settings[key] = value
-                AppServiceAuthSettingsArgs._configure(_setter, **auth_settings)
+            auth_settings = _utilities.configure(auth_settings, AppServiceAuthSettingsArgs, True)
             __props__.__dict__["auth_settings"] = auth_settings
-            if backup is not None and not isinstance(backup, AppServiceBackupArgs):
-                backup = backup or {}
-                def _setter(key, value):
-                    backup[key] = value
-                AppServiceBackupArgs._configure(_setter, **backup)
+            backup = _utilities.configure(backup, AppServiceBackupArgs, True)
             __props__.__dict__["backup"] = backup
             __props__.__dict__["client_affinity_enabled"] = client_affinity_enabled
             __props__.__dict__["client_cert_enabled"] = client_cert_enabled
@@ -1180,35 +1108,19 @@ class AppService(pulumi.CustomResource):
             __props__.__dict__["connection_strings"] = connection_strings
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["https_only"] = https_only
-            if identity is not None and not isinstance(identity, AppServiceIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                AppServiceIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, AppServiceIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["key_vault_reference_identity_id"] = key_vault_reference_identity_id
             __props__.__dict__["location"] = location
-            if logs is not None and not isinstance(logs, AppServiceLogsArgs):
-                logs = logs or {}
-                def _setter(key, value):
-                    logs[key] = value
-                AppServiceLogsArgs._configure(_setter, **logs)
+            logs = _utilities.configure(logs, AppServiceLogsArgs, True)
             __props__.__dict__["logs"] = logs
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if site_config is not None and not isinstance(site_config, AppServiceSiteConfigArgs):
-                site_config = site_config or {}
-                def _setter(key, value):
-                    site_config[key] = value
-                AppServiceSiteConfigArgs._configure(_setter, **site_config)
+            site_config = _utilities.configure(site_config, AppServiceSiteConfigArgs, True)
             __props__.__dict__["site_config"] = site_config
-            if source_control is not None and not isinstance(source_control, AppServiceSourceControlArgs):
-                source_control = source_control or {}
-                def _setter(key, value):
-                    source_control[key] = value
-                AppServiceSourceControlArgs._configure(_setter, **source_control)
+            source_control = _utilities.configure(source_control, AppServiceSourceControlArgs, True)
             __props__.__dict__["source_control"] = source_control
             __props__.__dict__["storage_accounts"] = storage_accounts
             __props__.__dict__["tags"] = tags

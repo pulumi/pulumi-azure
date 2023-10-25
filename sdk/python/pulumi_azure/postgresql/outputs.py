@@ -68,13 +68,13 @@ class FlexibleServerAuthentication(dict):
              active_directory_auth_enabled: Optional[bool] = None,
              password_auth_enabled: Optional[bool] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'activeDirectoryAuthEnabled' in kwargs:
+        if active_directory_auth_enabled is None and 'activeDirectoryAuthEnabled' in kwargs:
             active_directory_auth_enabled = kwargs['activeDirectoryAuthEnabled']
-        if 'passwordAuthEnabled' in kwargs:
+        if password_auth_enabled is None and 'passwordAuthEnabled' in kwargs:
             password_auth_enabled = kwargs['passwordAuthEnabled']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         if active_directory_auth_enabled is not None:
@@ -165,15 +165,15 @@ class FlexibleServerCustomerManagedKey(dict):
              geo_backup_user_assigned_identity_id: Optional[str] = None,
              key_vault_key_id: Optional[str] = None,
              primary_user_assigned_identity_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'geoBackupKeyVaultKeyId' in kwargs:
+        if geo_backup_key_vault_key_id is None and 'geoBackupKeyVaultKeyId' in kwargs:
             geo_backup_key_vault_key_id = kwargs['geoBackupKeyVaultKeyId']
-        if 'geoBackupUserAssignedIdentityId' in kwargs:
+        if geo_backup_user_assigned_identity_id is None and 'geoBackupUserAssignedIdentityId' in kwargs:
             geo_backup_user_assigned_identity_id = kwargs['geoBackupUserAssignedIdentityId']
-        if 'keyVaultKeyId' in kwargs:
+        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
             key_vault_key_id = kwargs['keyVaultKeyId']
-        if 'primaryUserAssignedIdentityId' in kwargs:
+        if primary_user_assigned_identity_id is None and 'primaryUserAssignedIdentityId' in kwargs:
             primary_user_assigned_identity_id = kwargs['primaryUserAssignedIdentityId']
 
         if geo_backup_key_vault_key_id is not None:
@@ -253,11 +253,13 @@ class FlexibleServerHighAvailability(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mode: str,
+             mode: Optional[str] = None,
              standby_availability_zone: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'standbyAvailabilityZone' in kwargs:
+        if mode is None:
+            raise TypeError("Missing 'mode' argument")
+        if standby_availability_zone is None and 'standbyAvailabilityZone' in kwargs:
             standby_availability_zone = kwargs['standbyAvailabilityZone']
 
         _setter("mode", mode)
@@ -312,12 +314,16 @@ class FlexibleServerIdentity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             identity_ids: Sequence[str],
-             type: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             identity_ids: Optional[Sequence[str]] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
+        if identity_ids is None:
+            raise TypeError("Missing 'identity_ids' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("identity_ids", identity_ids)
         _setter("type", type)
@@ -383,13 +389,13 @@ class FlexibleServerMaintenanceWindow(dict):
              day_of_week: Optional[int] = None,
              start_hour: Optional[int] = None,
              start_minute: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dayOfWeek' in kwargs:
+        if day_of_week is None and 'dayOfWeek' in kwargs:
             day_of_week = kwargs['dayOfWeek']
-        if 'startHour' in kwargs:
+        if start_hour is None and 'startHour' in kwargs:
             start_hour = kwargs['startHour']
-        if 'startMinute' in kwargs:
+        if start_minute is None and 'startMinute' in kwargs:
             start_minute = kwargs['startMinute']
 
         if day_of_week is not None:
@@ -463,14 +469,16 @@ class ServerIdentity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'principalId' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -570,19 +578,19 @@ class ServerThreatDetectionPolicy(dict):
              retention_days: Optional[int] = None,
              storage_account_access_key: Optional[str] = None,
              storage_endpoint: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'disabledAlerts' in kwargs:
+        if disabled_alerts is None and 'disabledAlerts' in kwargs:
             disabled_alerts = kwargs['disabledAlerts']
-        if 'emailAccountAdmins' in kwargs:
+        if email_account_admins is None and 'emailAccountAdmins' in kwargs:
             email_account_admins = kwargs['emailAccountAdmins']
-        if 'emailAddresses' in kwargs:
+        if email_addresses is None and 'emailAddresses' in kwargs:
             email_addresses = kwargs['emailAddresses']
-        if 'retentionDays' in kwargs:
+        if retention_days is None and 'retentionDays' in kwargs:
             retention_days = kwargs['retentionDays']
-        if 'storageAccountAccessKey' in kwargs:
+        if storage_account_access_key is None and 'storageAccountAccessKey' in kwargs:
             storage_account_access_key = kwargs['storageAccountAccessKey']
-        if 'storageEndpoint' in kwargs:
+        if storage_endpoint is None and 'storageEndpoint' in kwargs:
             storage_endpoint = kwargs['storageEndpoint']
 
         if disabled_alerts is not None:
@@ -677,15 +685,21 @@ class GetServerIdentityResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             principal_id: str,
-             tenant_id: str,
-             type: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("principal_id", principal_id)
         _setter("tenant_id", tenant_id)

@@ -9,35 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a VPN Server Configuration Policy Group.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVpnServerConfiguration = new azure.network.VpnServerConfiguration("exampleVpnServerConfiguration", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     vpnAuthenticationTypes: ["Radius"],
- *     radius: {
- *         servers: [{
- *             address: "10.105.1.1",
- *             secret: "vindicators-the-return-of-worldender",
- *             score: 15,
- *         }],
- *     },
- * });
- * const exampleVpnServerConfigurationPolicyGroup = new azure.network.VpnServerConfigurationPolicyGroup("exampleVpnServerConfigurationPolicyGroup", {
- *     vpnServerConfigurationId: exampleVpnServerConfiguration.id,
- *     policies: [{
- *         name: "policy1",
- *         type: "RadiusAzureGroupId",
- *         value: "6ad1bd08",
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * VPN Server Configuration Policy Groups can be imported using the `resource id`, e.g.

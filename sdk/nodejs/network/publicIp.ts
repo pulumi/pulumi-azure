@@ -9,23 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **Note** If this resource is to be associated with a resource that requires disassociation before destruction (such as `azure.network.NetworkInterface`) it is recommended to set the `lifecycle` argument `createBeforeDestroy = true`. Otherwise, it can fail to disassociate on destruction.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     allocationMethod: "Static",
- *     tags: {
- *         environment: "Production",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Public IPs can be imported using the `resource id`, e.g.

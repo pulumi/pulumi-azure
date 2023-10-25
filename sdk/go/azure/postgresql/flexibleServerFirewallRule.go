@@ -15,53 +15,6 @@ import (
 
 // Manages a PostgreSQL Flexible Server Firewall Rule.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/postgresql"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleFlexibleServer, err := postgresql.NewFlexibleServer(ctx, "exampleFlexibleServer", &postgresql.FlexibleServerArgs{
-//				ResourceGroupName:     exampleResourceGroup.Name,
-//				Location:              exampleResourceGroup.Location,
-//				Version:               pulumi.String("12"),
-//				AdministratorLogin:    pulumi.String("psqladmin"),
-//				AdministratorPassword: pulumi.String("H@Sh1CoR3!"),
-//				StorageMb:             pulumi.Int(32768),
-//				SkuName:               pulumi.String("GP_Standard_D4s_v3"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = postgresql.NewFlexibleServerFirewallRule(ctx, "exampleFlexibleServerFirewallRule", &postgresql.FlexibleServerFirewallRuleArgs{
-//				ServerId:       exampleFlexibleServer.ID(),
-//				StartIpAddress: pulumi.String("122.122.0.0"),
-//				EndIpAddress:   pulumi.String("122.122.0.0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // PostgreSQL Flexible Server Firewall Rules can be imported using the `resource id`, e.g.

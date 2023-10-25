@@ -35,15 +35,17 @@ class ContainerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             storage_account_name: pulumi.Input[str],
+             storage_account_name: Optional[pulumi.Input[str]] = None,
              container_access_type: Optional[pulumi.Input[str]] = None,
              metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'storageAccountName' in kwargs:
+        if storage_account_name is None and 'storageAccountName' in kwargs:
             storage_account_name = kwargs['storageAccountName']
-        if 'containerAccessType' in kwargs:
+        if storage_account_name is None:
+            raise TypeError("Missing 'storage_account_name' argument")
+        if container_access_type is None and 'containerAccessType' in kwargs:
             container_access_type = kwargs['containerAccessType']
 
         _setter("storage_account_name", storage_account_name)
@@ -143,17 +145,17 @@ class _ContainerState:
              name: Optional[pulumi.Input[str]] = None,
              resource_manager_id: Optional[pulumi.Input[str]] = None,
              storage_account_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'containerAccessType' in kwargs:
+        if container_access_type is None and 'containerAccessType' in kwargs:
             container_access_type = kwargs['containerAccessType']
-        if 'hasImmutabilityPolicy' in kwargs:
+        if has_immutability_policy is None and 'hasImmutabilityPolicy' in kwargs:
             has_immutability_policy = kwargs['hasImmutabilityPolicy']
-        if 'hasLegalHold' in kwargs:
+        if has_legal_hold is None and 'hasLegalHold' in kwargs:
             has_legal_hold = kwargs['hasLegalHold']
-        if 'resourceManagerId' in kwargs:
+        if resource_manager_id is None and 'resourceManagerId' in kwargs:
             resource_manager_id = kwargs['resourceManagerId']
-        if 'storageAccountName' in kwargs:
+        if storage_account_name is None and 'storageAccountName' in kwargs:
             storage_account_name = kwargs['storageAccountName']
 
         if container_access_type is not None:
@@ -269,26 +271,6 @@ class Container(pulumi.CustomResource):
         """
         Manages a Container within an Azure Storage Account.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            tags={
-                "environment": "staging",
-            })
-        example_container = azure.storage.Container("exampleContainer",
-            storage_account_name=example_account.name,
-            container_access_type="private")
-        ```
-
         ## Import
 
         Storage Containers can be imported using the `resource id`, e.g.
@@ -312,26 +294,6 @@ class Container(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Container within an Azure Storage Account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            tags={
-                "environment": "staging",
-            })
-        example_container = azure.storage.Container("exampleContainer",
-            storage_account_name=example_account.name,
-            container_access_type="private")
-        ```
 
         ## Import
 

@@ -37,19 +37,23 @@ class LinkedServiceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             workspace_id: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
              read_access_id: Optional[pulumi.Input[str]] = None,
              write_access_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'workspaceId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
-        if 'readAccessId' in kwargs:
+        if workspace_id is None:
+            raise TypeError("Missing 'workspace_id' argument")
+        if read_access_id is None and 'readAccessId' in kwargs:
             read_access_id = kwargs['readAccessId']
-        if 'writeAccessId' in kwargs:
+        if write_access_id is None and 'writeAccessId' in kwargs:
             write_access_id = kwargs['writeAccessId']
 
         _setter("resource_group_name", resource_group_name)
@@ -144,15 +148,15 @@ class _LinkedServiceState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              workspace_id: Optional[pulumi.Input[str]] = None,
              write_access_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'readAccessId' in kwargs:
+        if read_access_id is None and 'readAccessId' in kwargs:
             read_access_id = kwargs['readAccessId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'workspaceId' in kwargs:
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
-        if 'writeAccessId' in kwargs:
+        if write_access_id is None and 'writeAccessId' in kwargs:
             write_access_id = kwargs['writeAccessId']
 
         if name is not None:
@@ -242,31 +246,6 @@ class LinkedService(pulumi.CustomResource):
         """
         Manages a Log Analytics Linked Service.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.automation.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Basic",
-            tags={
-                "environment": "development",
-            })
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018",
-            retention_in_days=30)
-        example_linked_service = azure.loganalytics.LinkedService("exampleLinkedService",
-            resource_group_name=example_resource_group.name,
-            workspace_id=example_analytics_workspace.id,
-            read_access_id=example_account.id)
-        ```
-
         ## Import
 
         Log Analytics Workspaces can be imported using the `resource id`, e.g.
@@ -292,31 +271,6 @@ class LinkedService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Log Analytics Linked Service.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.automation.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Basic",
-            tags={
-                "environment": "development",
-            })
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018",
-            retention_in_days=30)
-        example_linked_service = azure.loganalytics.LinkedService("exampleLinkedService",
-            resource_group_name=example_resource_group.name,
-            workspace_id=example_analytics_workspace.id,
-            read_access_id=example_account.id)
-        ```
 
         ## Import
 

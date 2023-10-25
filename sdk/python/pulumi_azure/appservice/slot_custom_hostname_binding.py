@@ -39,15 +39,19 @@ class SlotCustomHostnameBindingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_service_slot_id: pulumi.Input[str],
-             hostname: pulumi.Input[str],
+             app_service_slot_id: Optional[pulumi.Input[str]] = None,
+             hostname: Optional[pulumi.Input[str]] = None,
              ssl_state: Optional[pulumi.Input[str]] = None,
              thumbprint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'appServiceSlotId' in kwargs:
+        if app_service_slot_id is None and 'appServiceSlotId' in kwargs:
             app_service_slot_id = kwargs['appServiceSlotId']
-        if 'sslState' in kwargs:
+        if app_service_slot_id is None:
+            raise TypeError("Missing 'app_service_slot_id' argument")
+        if hostname is None:
+            raise TypeError("Missing 'hostname' argument")
+        if ssl_state is None and 'sslState' in kwargs:
             ssl_state = kwargs['sslState']
 
         _setter("app_service_slot_id", app_service_slot_id)
@@ -146,13 +150,13 @@ class _SlotCustomHostnameBindingState:
              ssl_state: Optional[pulumi.Input[str]] = None,
              thumbprint: Optional[pulumi.Input[str]] = None,
              virtual_ip: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'appServiceSlotId' in kwargs:
+        if app_service_slot_id is None and 'appServiceSlotId' in kwargs:
             app_service_slot_id = kwargs['appServiceSlotId']
-        if 'sslState' in kwargs:
+        if ssl_state is None and 'sslState' in kwargs:
             ssl_state = kwargs['sslState']
-        if 'virtualIp' in kwargs:
+        if virtual_ip is None and 'virtualIp' in kwargs:
             virtual_ip = kwargs['virtualIp']
 
         if app_service_slot_id is not None:
@@ -244,34 +248,6 @@ class SlotCustomHostnameBinding(pulumi.CustomResource):
         """
         Manages a Hostname Binding within an App Service Slot.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_plan = azure.appservice.Plan("examplePlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Standard",
-                size="S1",
-            ))
-        example_app_service = azure.appservice.AppService("exampleAppService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            app_service_plan_id=example_plan.id)
-        example_slot = azure.appservice.Slot("exampleSlot",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            app_service_name=example_app_service.name,
-            app_service_plan_id=example_plan.id)
-        example_slot_custom_hostname_binding = azure.appservice.SlotCustomHostnameBinding("exampleSlotCustomHostnameBinding",
-            app_service_slot_id=example_slot.id,
-            hostname="www.mywebsite.com")
-        ```
-
         ## Import
 
         App Service Custom Hostname Bindings can be imported using the `resource id`, e.g.
@@ -299,34 +275,6 @@ class SlotCustomHostnameBinding(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Hostname Binding within an App Service Slot.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_plan = azure.appservice.Plan("examplePlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Standard",
-                size="S1",
-            ))
-        example_app_service = azure.appservice.AppService("exampleAppService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            app_service_plan_id=example_plan.id)
-        example_slot = azure.appservice.Slot("exampleSlot",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            app_service_name=example_app_service.name,
-            app_service_plan_id=example_plan.id)
-        example_slot_custom_hostname_binding = azure.appservice.SlotCustomHostnameBinding("exampleSlotCustomHostnameBinding",
-            app_service_slot_id=example_slot.id,
-            hostname="www.mywebsite.com")
-        ```
 
         ## Import
 

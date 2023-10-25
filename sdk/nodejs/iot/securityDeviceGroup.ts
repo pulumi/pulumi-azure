@@ -9,43 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Iot Security Device Group.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleIoTHub = new azure.iot.IoTHub("exampleIoTHub", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     sku: {
- *         name: "S1",
- *         capacity: 1,
- *     },
- * });
- * const exampleSecuritySolution = new azure.iot.SecuritySolution("exampleSecuritySolution", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     displayName: "Iot Security Solution",
- *     iothubIds: [exampleIoTHub.id],
- * });
- * const exampleSecurityDeviceGroup = new azure.iot.SecurityDeviceGroup("exampleSecurityDeviceGroup", {
- *     iothubId: exampleIoTHub.id,
- *     allowRule: {
- *         connectionToIpsNotAlloweds: ["10.0.0.0/24"],
- *     },
- *     rangeRules: [{
- *         type: "ActiveConnectionsNotInAllowedRange",
- *         min: 0,
- *         max: 30,
- *         duration: "PT5M",
- *     }],
- * }, {
- *     dependsOn: [exampleSecuritySolution],
- * });
- * ```
- *
  * ## Import
  *
  * Iot Security Device Group can be imported using the `resource id`, e.g.

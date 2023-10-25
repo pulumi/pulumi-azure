@@ -15,53 +15,6 @@ import (
 
 // Manages an Azure Stack HCI Cluster.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/stack"
-//	"github.com/pulumi/pulumi-azuread/sdk/v5/go/azuread"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleApplication, err := azuread.LookupApplication(ctx, &azuread.LookupApplicationArgs{
-//				DisplayName: pulumi.StringRef("Allowed resource types"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			current, err := core.GetClientConfig(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = stack.NewHciCluster(ctx, "exampleHciCluster", &stack.HciClusterArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
-//				ClientId:          *pulumi.String(exampleApplication.ApplicationId),
-//				TenantId:          *pulumi.String(current.TenantId),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Azure Stack HCI Clusters can be imported using the `resource id`, e.g.

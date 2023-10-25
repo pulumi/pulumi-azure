@@ -17,61 +17,6 @@ import (
 //
 // > **Note:** The storage share supports two storage tiers: premium and standard. Standard file shares are created in general purpose (GPv1 or GPv2) storage accounts and premium file shares are created in FileStorage storage accounts. For further information, refer to the section "What storage tiers are supported in Azure Files?" of [documentation](https://docs.microsoft.com/azure/storage/files/storage-files-faq#general).
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				Location:               exampleResourceGroup.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = storage.NewShare(ctx, "exampleShare", &storage.ShareArgs{
-//				StorageAccountName: exampleAccount.Name,
-//				Quota:              pulumi.Int(50),
-//				Acls: storage.ShareAclArray{
-//					&storage.ShareAclArgs{
-//						Id: pulumi.String("MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI"),
-//						AccessPolicies: storage.ShareAclAccessPolicyArray{
-//							&storage.ShareAclAccessPolicyArgs{
-//								Permissions: pulumi.String("rwdl"),
-//								Start:       pulumi.String("2019-07-02T09:38:21.0000000Z"),
-//								Expiry:      pulumi.String("2019-07-02T10:38:21.0000000Z"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Storage Shares can be imported using the `resource id`, e.g.

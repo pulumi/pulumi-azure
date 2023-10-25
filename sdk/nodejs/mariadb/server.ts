@@ -7,30 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a MariaDB Server.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleServer = new azure.mariadb.Server("exampleServer", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     administratorLogin: "mariadbadmin",
- *     administratorLoginPassword: "H@Sh1CoR3!",
- *     skuName: "B_Gen5_2",
- *     storageMb: 5120,
- *     version: "10.2",
- *     autoGrowEnabled: true,
- *     backupRetentionDays: 7,
- *     geoRedundantBackupEnabled: false,
- *     publicNetworkAccessEnabled: false,
- *     sslEnforcementEnabled: true,
- *     sslMinimalTlsVersionEnforced: "TLS1_2",
- * });
- * ```
- *
  * ## Import
  *
  * MariaDB Server's can be imported using the `resource id`, e.g.

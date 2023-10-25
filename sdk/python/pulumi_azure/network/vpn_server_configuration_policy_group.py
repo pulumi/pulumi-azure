@@ -40,16 +40,20 @@ class VpnServerConfigurationPolicyGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             policies: pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationPolicyGroupPolicyArgs']]],
-             vpn_server_configuration_id: pulumi.Input[str],
+             policies: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationPolicyGroupPolicyArgs']]]] = None,
+             vpn_server_configuration_id: Optional[pulumi.Input[str]] = None,
              is_default: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              priority: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'vpnServerConfigurationId' in kwargs:
+        if policies is None:
+            raise TypeError("Missing 'policies' argument")
+        if vpn_server_configuration_id is None and 'vpnServerConfigurationId' in kwargs:
             vpn_server_configuration_id = kwargs['vpnServerConfigurationId']
-        if 'isDefault' in kwargs:
+        if vpn_server_configuration_id is None:
+            raise TypeError("Missing 'vpn_server_configuration_id' argument")
+        if is_default is None and 'isDefault' in kwargs:
             is_default = kwargs['isDefault']
 
         _setter("policies", policies)
@@ -154,11 +158,11 @@ class _VpnServerConfigurationPolicyGroupState:
              policies: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationPolicyGroupPolicyArgs']]]] = None,
              priority: Optional[pulumi.Input[int]] = None,
              vpn_server_configuration_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'isDefault' in kwargs:
+        if is_default is None and 'isDefault' in kwargs:
             is_default = kwargs['isDefault']
-        if 'vpnServerConfigurationId' in kwargs:
+        if vpn_server_configuration_id is None and 'vpnServerConfigurationId' in kwargs:
             vpn_server_configuration_id = kwargs['vpnServerConfigurationId']
 
         if is_default is not None:
@@ -247,33 +251,6 @@ class VpnServerConfigurationPolicyGroup(pulumi.CustomResource):
         """
         Manages a VPN Server Configuration Policy Group.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_vpn_server_configuration = azure.network.VpnServerConfiguration("exampleVpnServerConfiguration",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            vpn_authentication_types=["Radius"],
-            radius=azure.network.VpnServerConfigurationRadiusArgs(
-                servers=[azure.network.VpnServerConfigurationRadiusServerArgs(
-                    address="10.105.1.1",
-                    secret="vindicators-the-return-of-worldender",
-                    score=15,
-                )],
-            ))
-        example_vpn_server_configuration_policy_group = azure.network.VpnServerConfigurationPolicyGroup("exampleVpnServerConfigurationPolicyGroup",
-            vpn_server_configuration_id=example_vpn_server_configuration.id,
-            policies=[azure.network.VpnServerConfigurationPolicyGroupPolicyArgs(
-                name="policy1",
-                type="RadiusAzureGroupId",
-                value="6ad1bd08",
-            )])
-        ```
-
         ## Import
 
         VPN Server Configuration Policy Groups can be imported using the `resource id`, e.g.
@@ -298,33 +275,6 @@ class VpnServerConfigurationPolicyGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a VPN Server Configuration Policy Group.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_vpn_server_configuration = azure.network.VpnServerConfiguration("exampleVpnServerConfiguration",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            vpn_authentication_types=["Radius"],
-            radius=azure.network.VpnServerConfigurationRadiusArgs(
-                servers=[azure.network.VpnServerConfigurationRadiusServerArgs(
-                    address="10.105.1.1",
-                    secret="vindicators-the-return-of-worldender",
-                    score=15,
-                )],
-            ))
-        example_vpn_server_configuration_policy_group = azure.network.VpnServerConfigurationPolicyGroup("exampleVpnServerConfigurationPolicyGroup",
-            vpn_server_configuration_id=example_vpn_server_configuration.id,
-            policies=[azure.network.VpnServerConfigurationPolicyGroupPolicyArgs(
-                name="policy1",
-                type="RadiusAzureGroupId",
-                value="6ad1bd08",
-            )])
-        ```
 
         ## Import
 

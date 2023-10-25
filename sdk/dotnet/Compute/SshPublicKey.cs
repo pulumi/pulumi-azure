@@ -12,27 +12,6 @@ namespace Pulumi.Azure.Compute
     /// <summary>
     /// Manages a SSH Public Key.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.IO;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.Compute.SshPublicKey("example", new()
-    ///     {
-    ///         ResourceGroupName = "example",
-    ///         Location = "West Europe",
-    ///         PublicKey = File.ReadAllText("~/.ssh/id_rsa.pub"),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// SSH Public Keys can be imported using the `resource id`, e.g.

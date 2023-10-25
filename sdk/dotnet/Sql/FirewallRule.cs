@@ -14,41 +14,6 @@ namespace Pulumi.Azure.Sql
     /// 
     /// &gt; **Note:** The `azure.sql.FirewallRule` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.FirewallRule` resource instead.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleSqlServer = new Azure.Sql.SqlServer("exampleSqlServer", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         Version = "12.0",
-    ///         AdministratorLogin = "4dm1n157r470r",
-    ///         AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
-    ///     });
-    /// 
-    ///     var exampleFirewallRule = new Azure.Sql.FirewallRule("exampleFirewallRule", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         ServerName = exampleSqlServer.Name,
-    ///         StartIpAddress = "10.0.17.62",
-    ///         EndIpAddress = "10.0.17.62",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// SQL Firewall Rules can be imported using the `resource id`, e.g.

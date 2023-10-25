@@ -12,41 +12,6 @@ namespace Pulumi.Azure.EventHub
     /// <summary>
     /// Manages a ServiceBus Queue.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleNamespace = new Azure.ServiceBus.Namespace("exampleNamespace", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Sku = "Standard",
-    ///         Tags = 
-    ///         {
-    ///             { "source", "example" },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleQueue = new Azure.ServiceBus.Queue("exampleQueue", new()
-    ///     {
-    ///         NamespaceId = exampleNamespace.Id,
-    ///         EnablePartitioning = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Service Bus Queue can be imported using the `resource id`, e.g.

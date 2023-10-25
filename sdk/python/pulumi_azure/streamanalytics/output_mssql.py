@@ -56,28 +56,38 @@ class OutputMssqlArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             server: pulumi.Input[str],
-             stream_analytics_job_name: pulumi.Input[str],
-             table: pulumi.Input[str],
+             database: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             server: Optional[pulumi.Input[str]] = None,
+             stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
+             table: Optional[pulumi.Input[str]] = None,
              authentication_mode: Optional[pulumi.Input[str]] = None,
              max_batch_count: Optional[pulumi.Input[float]] = None,
              max_writer_count: Optional[pulumi.Input[float]] = None,
              name: Optional[pulumi.Input[str]] = None,
              password: Optional[pulumi.Input[str]] = None,
              user: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if database is None:
+            raise TypeError("Missing 'database' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'streamAnalyticsJobName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if server is None:
+            raise TypeError("Missing 'server' argument")
+        if stream_analytics_job_name is None and 'streamAnalyticsJobName' in kwargs:
             stream_analytics_job_name = kwargs['streamAnalyticsJobName']
-        if 'authenticationMode' in kwargs:
+        if stream_analytics_job_name is None:
+            raise TypeError("Missing 'stream_analytics_job_name' argument")
+        if table is None:
+            raise TypeError("Missing 'table' argument")
+        if authentication_mode is None and 'authenticationMode' in kwargs:
             authentication_mode = kwargs['authenticationMode']
-        if 'maxBatchCount' in kwargs:
+        if max_batch_count is None and 'maxBatchCount' in kwargs:
             max_batch_count = kwargs['maxBatchCount']
-        if 'maxWriterCount' in kwargs:
+        if max_writer_count is None and 'maxWriterCount' in kwargs:
             max_writer_count = kwargs['maxWriterCount']
 
         _setter("database", database)
@@ -287,17 +297,17 @@ class _OutputMssqlState:
              stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
              table: Optional[pulumi.Input[str]] = None,
              user: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'authenticationMode' in kwargs:
+        if authentication_mode is None and 'authenticationMode' in kwargs:
             authentication_mode = kwargs['authenticationMode']
-        if 'maxBatchCount' in kwargs:
+        if max_batch_count is None and 'maxBatchCount' in kwargs:
             max_batch_count = kwargs['maxBatchCount']
-        if 'maxWriterCount' in kwargs:
+        if max_writer_count is None and 'maxWriterCount' in kwargs:
             max_writer_count = kwargs['maxWriterCount']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'streamAnalyticsJobName' in kwargs:
+        if stream_analytics_job_name is None and 'streamAnalyticsJobName' in kwargs:
             stream_analytics_job_name = kwargs['streamAnalyticsJobName']
 
         if authentication_mode is not None:
@@ -476,39 +486,6 @@ class OutputMssql(pulumi.CustomResource):
         """
         Manages a Stream Analytics Output to Microsoft SQL Server Database.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_job = azure.streamanalytics.get_job_output(name="example-job",
-            resource_group_name=example_resource_group.name)
-        example_sql_server = azure.sql.SqlServer("exampleSqlServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            version="12.0",
-            administrator_login="dbadmin",
-            administrator_login_password="example-password")
-        example_database = azure.sql.Database("exampleDatabase",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            server_name=example_sql_server.name,
-            requested_service_objective_name="S0",
-            collation="SQL_LATIN1_GENERAL_CP1_CI_AS",
-            max_size_bytes="268435456000",
-            create_mode="Default")
-        example_output_mssql = azure.streamanalytics.OutputMssql("exampleOutputMssql",
-            stream_analytics_job_name=example_job.name,
-            resource_group_name=example_job.resource_group_name,
-            server=example_sql_server.fully_qualified_domain_name,
-            user=example_sql_server.administrator_login,
-            password=example_sql_server.administrator_login_password,
-            database=example_database.name,
-            table="ExampleTable")
-        ```
-
         ## Import
 
         Stream Analytics Outputs to Microsoft SQL Server Database can be imported using the `resource id`, e.g.
@@ -539,39 +516,6 @@ class OutputMssql(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Stream Analytics Output to Microsoft SQL Server Database.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_job = azure.streamanalytics.get_job_output(name="example-job",
-            resource_group_name=example_resource_group.name)
-        example_sql_server = azure.sql.SqlServer("exampleSqlServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            version="12.0",
-            administrator_login="dbadmin",
-            administrator_login_password="example-password")
-        example_database = azure.sql.Database("exampleDatabase",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            server_name=example_sql_server.name,
-            requested_service_objective_name="S0",
-            collation="SQL_LATIN1_GENERAL_CP1_CI_AS",
-            max_size_bytes="268435456000",
-            create_mode="Default")
-        example_output_mssql = azure.streamanalytics.OutputMssql("exampleOutputMssql",
-            stream_analytics_job_name=example_job.name,
-            resource_group_name=example_job.resource_group_name,
-            server=example_sql_server.fully_qualified_domain_name,
-            user=example_sql_server.administrator_login,
-            password=example_sql_server.administrator_login_password,
-            database=example_database.name,
-            table="ExampleTable")
-        ```
 
         ## Import
 

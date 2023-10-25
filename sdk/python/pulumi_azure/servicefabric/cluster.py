@@ -98,12 +98,12 @@ class ClusterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             management_endpoint: pulumi.Input[str],
-             node_types: pulumi.Input[Sequence[pulumi.Input['ClusterNodeTypeArgs']]],
-             reliability_level: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             upgrade_mode: pulumi.Input[str],
-             vm_image: pulumi.Input[str],
+             management_endpoint: Optional[pulumi.Input[str]] = None,
+             node_types: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterNodeTypeArgs']]]] = None,
+             reliability_level: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             upgrade_mode: Optional[pulumi.Input[str]] = None,
+             vm_image: Optional[pulumi.Input[str]] = None,
              add_on_features: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              azure_active_directory: Optional[pulumi.Input['ClusterAzureActiveDirectoryArgs']] = None,
              certificate: Optional[pulumi.Input['ClusterCertificateArgs']] = None,
@@ -121,45 +121,57 @@ class ClusterArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              upgrade_policy: Optional[pulumi.Input['ClusterUpgradePolicyArgs']] = None,
              vmss_zonal_upgrade_mode: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'managementEndpoint' in kwargs:
+        if management_endpoint is None and 'managementEndpoint' in kwargs:
             management_endpoint = kwargs['managementEndpoint']
-        if 'nodeTypes' in kwargs:
+        if management_endpoint is None:
+            raise TypeError("Missing 'management_endpoint' argument")
+        if node_types is None and 'nodeTypes' in kwargs:
             node_types = kwargs['nodeTypes']
-        if 'reliabilityLevel' in kwargs:
+        if node_types is None:
+            raise TypeError("Missing 'node_types' argument")
+        if reliability_level is None and 'reliabilityLevel' in kwargs:
             reliability_level = kwargs['reliabilityLevel']
-        if 'resourceGroupName' in kwargs:
+        if reliability_level is None:
+            raise TypeError("Missing 'reliability_level' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'upgradeMode' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if upgrade_mode is None and 'upgradeMode' in kwargs:
             upgrade_mode = kwargs['upgradeMode']
-        if 'vmImage' in kwargs:
+        if upgrade_mode is None:
+            raise TypeError("Missing 'upgrade_mode' argument")
+        if vm_image is None and 'vmImage' in kwargs:
             vm_image = kwargs['vmImage']
-        if 'addOnFeatures' in kwargs:
+        if vm_image is None:
+            raise TypeError("Missing 'vm_image' argument")
+        if add_on_features is None and 'addOnFeatures' in kwargs:
             add_on_features = kwargs['addOnFeatures']
-        if 'azureActiveDirectory' in kwargs:
+        if azure_active_directory is None and 'azureActiveDirectory' in kwargs:
             azure_active_directory = kwargs['azureActiveDirectory']
-        if 'certificateCommonNames' in kwargs:
+        if certificate_common_names is None and 'certificateCommonNames' in kwargs:
             certificate_common_names = kwargs['certificateCommonNames']
-        if 'clientCertificateCommonNames' in kwargs:
+        if client_certificate_common_names is None and 'clientCertificateCommonNames' in kwargs:
             client_certificate_common_names = kwargs['clientCertificateCommonNames']
-        if 'clientCertificateThumbprints' in kwargs:
+        if client_certificate_thumbprints is None and 'clientCertificateThumbprints' in kwargs:
             client_certificate_thumbprints = kwargs['clientCertificateThumbprints']
-        if 'clusterCodeVersion' in kwargs:
+        if cluster_code_version is None and 'clusterCodeVersion' in kwargs:
             cluster_code_version = kwargs['clusterCodeVersion']
-        if 'diagnosticsConfig' in kwargs:
+        if diagnostics_config is None and 'diagnosticsConfig' in kwargs:
             diagnostics_config = kwargs['diagnosticsConfig']
-        if 'fabricSettings' in kwargs:
+        if fabric_settings is None and 'fabricSettings' in kwargs:
             fabric_settings = kwargs['fabricSettings']
-        if 'reverseProxyCertificate' in kwargs:
+        if reverse_proxy_certificate is None and 'reverseProxyCertificate' in kwargs:
             reverse_proxy_certificate = kwargs['reverseProxyCertificate']
-        if 'reverseProxyCertificateCommonNames' in kwargs:
+        if reverse_proxy_certificate_common_names is None and 'reverseProxyCertificateCommonNames' in kwargs:
             reverse_proxy_certificate_common_names = kwargs['reverseProxyCertificateCommonNames']
-        if 'serviceFabricZonalUpgradeMode' in kwargs:
+        if service_fabric_zonal_upgrade_mode is None and 'serviceFabricZonalUpgradeMode' in kwargs:
             service_fabric_zonal_upgrade_mode = kwargs['serviceFabricZonalUpgradeMode']
-        if 'upgradePolicy' in kwargs:
+        if upgrade_policy is None and 'upgradePolicy' in kwargs:
             upgrade_policy = kwargs['upgradePolicy']
-        if 'vmssZonalUpgradeMode' in kwargs:
+        if vmss_zonal_upgrade_mode is None and 'vmssZonalUpgradeMode' in kwargs:
             vmss_zonal_upgrade_mode = kwargs['vmssZonalUpgradeMode']
 
         _setter("management_endpoint", management_endpoint)
@@ -596,47 +608,47 @@ class _ClusterState:
              upgrade_policy: Optional[pulumi.Input['ClusterUpgradePolicyArgs']] = None,
              vm_image: Optional[pulumi.Input[str]] = None,
              vmss_zonal_upgrade_mode: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'addOnFeatures' in kwargs:
+        if add_on_features is None and 'addOnFeatures' in kwargs:
             add_on_features = kwargs['addOnFeatures']
-        if 'azureActiveDirectory' in kwargs:
+        if azure_active_directory is None and 'azureActiveDirectory' in kwargs:
             azure_active_directory = kwargs['azureActiveDirectory']
-        if 'certificateCommonNames' in kwargs:
+        if certificate_common_names is None and 'certificateCommonNames' in kwargs:
             certificate_common_names = kwargs['certificateCommonNames']
-        if 'clientCertificateCommonNames' in kwargs:
+        if client_certificate_common_names is None and 'clientCertificateCommonNames' in kwargs:
             client_certificate_common_names = kwargs['clientCertificateCommonNames']
-        if 'clientCertificateThumbprints' in kwargs:
+        if client_certificate_thumbprints is None and 'clientCertificateThumbprints' in kwargs:
             client_certificate_thumbprints = kwargs['clientCertificateThumbprints']
-        if 'clusterCodeVersion' in kwargs:
+        if cluster_code_version is None and 'clusterCodeVersion' in kwargs:
             cluster_code_version = kwargs['clusterCodeVersion']
-        if 'clusterEndpoint' in kwargs:
+        if cluster_endpoint is None and 'clusterEndpoint' in kwargs:
             cluster_endpoint = kwargs['clusterEndpoint']
-        if 'diagnosticsConfig' in kwargs:
+        if diagnostics_config is None and 'diagnosticsConfig' in kwargs:
             diagnostics_config = kwargs['diagnosticsConfig']
-        if 'fabricSettings' in kwargs:
+        if fabric_settings is None and 'fabricSettings' in kwargs:
             fabric_settings = kwargs['fabricSettings']
-        if 'managementEndpoint' in kwargs:
+        if management_endpoint is None and 'managementEndpoint' in kwargs:
             management_endpoint = kwargs['managementEndpoint']
-        if 'nodeTypes' in kwargs:
+        if node_types is None and 'nodeTypes' in kwargs:
             node_types = kwargs['nodeTypes']
-        if 'reliabilityLevel' in kwargs:
+        if reliability_level is None and 'reliabilityLevel' in kwargs:
             reliability_level = kwargs['reliabilityLevel']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'reverseProxyCertificate' in kwargs:
+        if reverse_proxy_certificate is None and 'reverseProxyCertificate' in kwargs:
             reverse_proxy_certificate = kwargs['reverseProxyCertificate']
-        if 'reverseProxyCertificateCommonNames' in kwargs:
+        if reverse_proxy_certificate_common_names is None and 'reverseProxyCertificateCommonNames' in kwargs:
             reverse_proxy_certificate_common_names = kwargs['reverseProxyCertificateCommonNames']
-        if 'serviceFabricZonalUpgradeMode' in kwargs:
+        if service_fabric_zonal_upgrade_mode is None and 'serviceFabricZonalUpgradeMode' in kwargs:
             service_fabric_zonal_upgrade_mode = kwargs['serviceFabricZonalUpgradeMode']
-        if 'upgradeMode' in kwargs:
+        if upgrade_mode is None and 'upgradeMode' in kwargs:
             upgrade_mode = kwargs['upgradeMode']
-        if 'upgradePolicy' in kwargs:
+        if upgrade_policy is None and 'upgradePolicy' in kwargs:
             upgrade_policy = kwargs['upgradePolicy']
-        if 'vmImage' in kwargs:
+        if vm_image is None and 'vmImage' in kwargs:
             vm_image = kwargs['vmImage']
-        if 'vmssZonalUpgradeMode' in kwargs:
+        if vmss_zonal_upgrade_mode is None and 'vmssZonalUpgradeMode' in kwargs:
             vmss_zonal_upgrade_mode = kwargs['vmssZonalUpgradeMode']
 
         if add_on_features is not None:
@@ -1013,30 +1025,6 @@ class Cluster(pulumi.CustomResource):
         """
         Manages a Service Fabric Cluster.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_cluster = azure.servicefabric.Cluster("exampleCluster",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            reliability_level="Bronze",
-            upgrade_mode="Manual",
-            cluster_code_version="7.1.456.959",
-            vm_image="Windows",
-            management_endpoint="https://example:80",
-            node_types=[azure.servicefabric.ClusterNodeTypeArgs(
-                name="first",
-                instance_count=3,
-                is_primary=True,
-                client_endpoint_port=2020,
-                http_endpoint_port=80,
-            )])
-        ```
-
         ## Import
 
         Service Fabric Clusters can be imported using the `resource id`, e.g.
@@ -1083,30 +1071,6 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Service Fabric Cluster.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_cluster = azure.servicefabric.Cluster("exampleCluster",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            reliability_level="Bronze",
-            upgrade_mode="Manual",
-            cluster_code_version="7.1.456.959",
-            vm_image="Windows",
-            management_endpoint="https://example:80",
-            node_types=[azure.servicefabric.ClusterNodeTypeArgs(
-                name="first",
-                instance_count=3,
-                is_primary=True,
-                client_endpoint_port=2020,
-                http_endpoint_port=80,
-            )])
-        ```
 
         ## Import
 
@@ -1168,32 +1132,16 @@ class Cluster(pulumi.CustomResource):
             __props__ = ClusterArgs.__new__(ClusterArgs)
 
             __props__.__dict__["add_on_features"] = add_on_features
-            if azure_active_directory is not None and not isinstance(azure_active_directory, ClusterAzureActiveDirectoryArgs):
-                azure_active_directory = azure_active_directory or {}
-                def _setter(key, value):
-                    azure_active_directory[key] = value
-                ClusterAzureActiveDirectoryArgs._configure(_setter, **azure_active_directory)
+            azure_active_directory = _utilities.configure(azure_active_directory, ClusterAzureActiveDirectoryArgs, True)
             __props__.__dict__["azure_active_directory"] = azure_active_directory
-            if certificate is not None and not isinstance(certificate, ClusterCertificateArgs):
-                certificate = certificate or {}
-                def _setter(key, value):
-                    certificate[key] = value
-                ClusterCertificateArgs._configure(_setter, **certificate)
+            certificate = _utilities.configure(certificate, ClusterCertificateArgs, True)
             __props__.__dict__["certificate"] = certificate
-            if certificate_common_names is not None and not isinstance(certificate_common_names, ClusterCertificateCommonNamesArgs):
-                certificate_common_names = certificate_common_names or {}
-                def _setter(key, value):
-                    certificate_common_names[key] = value
-                ClusterCertificateCommonNamesArgs._configure(_setter, **certificate_common_names)
+            certificate_common_names = _utilities.configure(certificate_common_names, ClusterCertificateCommonNamesArgs, True)
             __props__.__dict__["certificate_common_names"] = certificate_common_names
             __props__.__dict__["client_certificate_common_names"] = client_certificate_common_names
             __props__.__dict__["client_certificate_thumbprints"] = client_certificate_thumbprints
             __props__.__dict__["cluster_code_version"] = cluster_code_version
-            if diagnostics_config is not None and not isinstance(diagnostics_config, ClusterDiagnosticsConfigArgs):
-                diagnostics_config = diagnostics_config or {}
-                def _setter(key, value):
-                    diagnostics_config[key] = value
-                ClusterDiagnosticsConfigArgs._configure(_setter, **diagnostics_config)
+            diagnostics_config = _utilities.configure(diagnostics_config, ClusterDiagnosticsConfigArgs, True)
             __props__.__dict__["diagnostics_config"] = diagnostics_config
             __props__.__dict__["fabric_settings"] = fabric_settings
             __props__.__dict__["location"] = location
@@ -1210,28 +1158,16 @@ class Cluster(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if reverse_proxy_certificate is not None and not isinstance(reverse_proxy_certificate, ClusterReverseProxyCertificateArgs):
-                reverse_proxy_certificate = reverse_proxy_certificate or {}
-                def _setter(key, value):
-                    reverse_proxy_certificate[key] = value
-                ClusterReverseProxyCertificateArgs._configure(_setter, **reverse_proxy_certificate)
+            reverse_proxy_certificate = _utilities.configure(reverse_proxy_certificate, ClusterReverseProxyCertificateArgs, True)
             __props__.__dict__["reverse_proxy_certificate"] = reverse_proxy_certificate
-            if reverse_proxy_certificate_common_names is not None and not isinstance(reverse_proxy_certificate_common_names, ClusterReverseProxyCertificateCommonNamesArgs):
-                reverse_proxy_certificate_common_names = reverse_proxy_certificate_common_names or {}
-                def _setter(key, value):
-                    reverse_proxy_certificate_common_names[key] = value
-                ClusterReverseProxyCertificateCommonNamesArgs._configure(_setter, **reverse_proxy_certificate_common_names)
+            reverse_proxy_certificate_common_names = _utilities.configure(reverse_proxy_certificate_common_names, ClusterReverseProxyCertificateCommonNamesArgs, True)
             __props__.__dict__["reverse_proxy_certificate_common_names"] = reverse_proxy_certificate_common_names
             __props__.__dict__["service_fabric_zonal_upgrade_mode"] = service_fabric_zonal_upgrade_mode
             __props__.__dict__["tags"] = tags
             if upgrade_mode is None and not opts.urn:
                 raise TypeError("Missing required property 'upgrade_mode'")
             __props__.__dict__["upgrade_mode"] = upgrade_mode
-            if upgrade_policy is not None and not isinstance(upgrade_policy, ClusterUpgradePolicyArgs):
-                upgrade_policy = upgrade_policy or {}
-                def _setter(key, value):
-                    upgrade_policy[key] = value
-                ClusterUpgradePolicyArgs._configure(_setter, **upgrade_policy)
+            upgrade_policy = _utilities.configure(upgrade_policy, ClusterUpgradePolicyArgs, True)
             __props__.__dict__["upgrade_policy"] = upgrade_policy
             if vm_image is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_image'")

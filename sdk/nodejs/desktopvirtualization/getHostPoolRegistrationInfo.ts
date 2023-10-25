@@ -7,26 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages the Registration Info for a Virtual Desktop Host Pool.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "westeurope"});
- * const exampleHostPool = new azure.desktopvirtualization.HostPool("exampleHostPool", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     type: "Pooled",
- *     validateEnvironment: true,
- *     loadBalancerType: "BreadthFirst",
- * });
- * const examplegetHostPoolRegistrationInfo = new azure.desktopvirtualization.GetHostPoolRegistrationInfo("examplegetHostPoolRegistrationInfo", {
- *     hostpoolId: exampleHostPool.id,
- *     expirationDate: "2022-01-01T23:40:52Z",
- * });
- * ```
- *
  * ## Import
  *
  * AVD Registration Infos can be imported using the `resource id`, e.g.

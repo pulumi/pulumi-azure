@@ -70,9 +70,9 @@ class StreamingEndpointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             media_services_account_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             scale_units: pulumi.Input[int],
+             media_services_account_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             scale_units: Optional[pulumi.Input[int]] = None,
              access_control: Optional[pulumi.Input['StreamingEndpointAccessControlArgs']] = None,
              auto_start_enabled: Optional[pulumi.Input[bool]] = None,
              cdn_enabled: Optional[pulumi.Input[bool]] = None,
@@ -85,29 +85,35 @@ class StreamingEndpointArgs:
              max_cache_age_seconds: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'mediaServicesAccountName' in kwargs:
+        if media_services_account_name is None and 'mediaServicesAccountName' in kwargs:
             media_services_account_name = kwargs['mediaServicesAccountName']
-        if 'resourceGroupName' in kwargs:
+        if media_services_account_name is None:
+            raise TypeError("Missing 'media_services_account_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'scaleUnits' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if scale_units is None and 'scaleUnits' in kwargs:
             scale_units = kwargs['scaleUnits']
-        if 'accessControl' in kwargs:
+        if scale_units is None:
+            raise TypeError("Missing 'scale_units' argument")
+        if access_control is None and 'accessControl' in kwargs:
             access_control = kwargs['accessControl']
-        if 'autoStartEnabled' in kwargs:
+        if auto_start_enabled is None and 'autoStartEnabled' in kwargs:
             auto_start_enabled = kwargs['autoStartEnabled']
-        if 'cdnEnabled' in kwargs:
+        if cdn_enabled is None and 'cdnEnabled' in kwargs:
             cdn_enabled = kwargs['cdnEnabled']
-        if 'cdnProfile' in kwargs:
+        if cdn_profile is None and 'cdnProfile' in kwargs:
             cdn_profile = kwargs['cdnProfile']
-        if 'cdnProvider' in kwargs:
+        if cdn_provider is None and 'cdnProvider' in kwargs:
             cdn_provider = kwargs['cdnProvider']
-        if 'crossSiteAccessPolicy' in kwargs:
+        if cross_site_access_policy is None and 'crossSiteAccessPolicy' in kwargs:
             cross_site_access_policy = kwargs['crossSiteAccessPolicy']
-        if 'customHostNames' in kwargs:
+        if custom_host_names is None and 'customHostNames' in kwargs:
             custom_host_names = kwargs['customHostNames']
-        if 'maxCacheAgeSeconds' in kwargs:
+        if max_cache_age_seconds is None and 'maxCacheAgeSeconds' in kwargs:
             max_cache_age_seconds = kwargs['maxCacheAgeSeconds']
 
         _setter("media_services_account_name", media_services_account_name)
@@ -399,31 +405,31 @@ class _StreamingEndpointState:
              scale_units: Optional[pulumi.Input[int]] = None,
              skus: Optional[pulumi.Input[Sequence[pulumi.Input['StreamingEndpointSkusArgs']]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accessControl' in kwargs:
+        if access_control is None and 'accessControl' in kwargs:
             access_control = kwargs['accessControl']
-        if 'autoStartEnabled' in kwargs:
+        if auto_start_enabled is None and 'autoStartEnabled' in kwargs:
             auto_start_enabled = kwargs['autoStartEnabled']
-        if 'cdnEnabled' in kwargs:
+        if cdn_enabled is None and 'cdnEnabled' in kwargs:
             cdn_enabled = kwargs['cdnEnabled']
-        if 'cdnProfile' in kwargs:
+        if cdn_profile is None and 'cdnProfile' in kwargs:
             cdn_profile = kwargs['cdnProfile']
-        if 'cdnProvider' in kwargs:
+        if cdn_provider is None and 'cdnProvider' in kwargs:
             cdn_provider = kwargs['cdnProvider']
-        if 'crossSiteAccessPolicy' in kwargs:
+        if cross_site_access_policy is None and 'crossSiteAccessPolicy' in kwargs:
             cross_site_access_policy = kwargs['crossSiteAccessPolicy']
-        if 'customHostNames' in kwargs:
+        if custom_host_names is None and 'customHostNames' in kwargs:
             custom_host_names = kwargs['customHostNames']
-        if 'hostName' in kwargs:
+        if host_name is None and 'hostName' in kwargs:
             host_name = kwargs['hostName']
-        if 'maxCacheAgeSeconds' in kwargs:
+        if max_cache_age_seconds is None and 'maxCacheAgeSeconds' in kwargs:
             max_cache_age_seconds = kwargs['maxCacheAgeSeconds']
-        if 'mediaServicesAccountName' in kwargs:
+        if media_services_account_name is None and 'mediaServicesAccountName' in kwargs:
             media_services_account_name = kwargs['mediaServicesAccountName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'scaleUnits' in kwargs:
+        if scale_units is None and 'scaleUnits' in kwargs:
             scale_units = kwargs['scaleUnits']
 
         if access_control is not None:
@@ -690,81 +696,6 @@ class StreamingEndpoint(pulumi.CustomResource):
         """
         Manages a Streaming Endpoint.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
-                id=example_account.id,
-                is_primary=True,
-            )])
-        example_streaming_endpoint = azure.media.StreamingEndpoint("exampleStreamingEndpoint",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            media_services_account_name=example_service_account.name,
-            scale_units=2)
-        ```
-        ### With Access Control
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
-                id=example_account.id,
-                is_primary=True,
-            )])
-        example_streaming_endpoint = azure.media.StreamingEndpoint("exampleStreamingEndpoint",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            media_services_account_name=example_service_account.name,
-            scale_units=2,
-            access_control=azure.media.StreamingEndpointAccessControlArgs(
-                ip_allows=[
-                    azure.media.StreamingEndpointAccessControlIpAllowArgs(
-                        name="AllowedIP",
-                        address="192.168.1.1",
-                    ),
-                    azure.media.StreamingEndpointAccessControlIpAllowArgs(
-                        name="AnotherIp",
-                        address="192.168.1.2",
-                    ),
-                ],
-                akamai_signature_header_authentication_keys=[
-                    azure.media.StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs(
-                        identifier="id1",
-                        expiration="2030-12-31T16:00:00Z",
-                        base64_key="dGVzdGlkMQ==",
-                    ),
-                    azure.media.StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs(
-                        identifier="id2",
-                        expiration="2032-01-28T16:00:00Z",
-                        base64_key="dGVzdGlkMQ==",
-                    ),
-                ],
-            ))
-        ```
-
         ## Import
 
         Streaming Endpoints can be imported using the `resource id`, e.g.
@@ -799,81 +730,6 @@ class StreamingEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Streaming Endpoint.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
-                id=example_account.id,
-                is_primary=True,
-            )])
-        example_streaming_endpoint = azure.media.StreamingEndpoint("exampleStreamingEndpoint",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            media_services_account_name=example_service_account.name,
-            scale_units=2)
-        ```
-        ### With Access Control
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
-                id=example_account.id,
-                is_primary=True,
-            )])
-        example_streaming_endpoint = azure.media.StreamingEndpoint("exampleStreamingEndpoint",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            media_services_account_name=example_service_account.name,
-            scale_units=2,
-            access_control=azure.media.StreamingEndpointAccessControlArgs(
-                ip_allows=[
-                    azure.media.StreamingEndpointAccessControlIpAllowArgs(
-                        name="AllowedIP",
-                        address="192.168.1.1",
-                    ),
-                    azure.media.StreamingEndpointAccessControlIpAllowArgs(
-                        name="AnotherIp",
-                        address="192.168.1.2",
-                    ),
-                ],
-                akamai_signature_header_authentication_keys=[
-                    azure.media.StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs(
-                        identifier="id1",
-                        expiration="2030-12-31T16:00:00Z",
-                        base64_key="dGVzdGlkMQ==",
-                    ),
-                    azure.media.StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs(
-                        identifier="id2",
-                        expiration="2032-01-28T16:00:00Z",
-                        base64_key="dGVzdGlkMQ==",
-                    ),
-                ],
-            ))
-        ```
 
         ## Import
 
@@ -926,21 +782,13 @@ class StreamingEndpoint(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = StreamingEndpointArgs.__new__(StreamingEndpointArgs)
 
-            if access_control is not None and not isinstance(access_control, StreamingEndpointAccessControlArgs):
-                access_control = access_control or {}
-                def _setter(key, value):
-                    access_control[key] = value
-                StreamingEndpointAccessControlArgs._configure(_setter, **access_control)
+            access_control = _utilities.configure(access_control, StreamingEndpointAccessControlArgs, True)
             __props__.__dict__["access_control"] = access_control
             __props__.__dict__["auto_start_enabled"] = auto_start_enabled
             __props__.__dict__["cdn_enabled"] = cdn_enabled
             __props__.__dict__["cdn_profile"] = cdn_profile
             __props__.__dict__["cdn_provider"] = cdn_provider
-            if cross_site_access_policy is not None and not isinstance(cross_site_access_policy, StreamingEndpointCrossSiteAccessPolicyArgs):
-                cross_site_access_policy = cross_site_access_policy or {}
-                def _setter(key, value):
-                    cross_site_access_policy[key] = value
-                StreamingEndpointCrossSiteAccessPolicyArgs._configure(_setter, **cross_site_access_policy)
+            cross_site_access_policy = _utilities.configure(cross_site_access_policy, StreamingEndpointCrossSiteAccessPolicyArgs, True)
             __props__.__dict__["cross_site_access_policy"] = cross_site_access_policy
             __props__.__dict__["custom_host_names"] = custom_host_names
             __props__.__dict__["description"] = description

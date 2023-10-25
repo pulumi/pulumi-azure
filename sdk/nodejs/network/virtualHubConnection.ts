@@ -9,34 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Connection for a Virtual Hub.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     addressSpaces: ["172.16.0.0/12"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleVirtualWan = new azure.network.VirtualWan("exampleVirtualWan", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- * });
- * const exampleVirtualHub = new azure.network.VirtualHub("exampleVirtualHub", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     virtualWanId: exampleVirtualWan.id,
- *     addressPrefix: "10.0.1.0/24",
- * });
- * const exampleVirtualHubConnection = new azure.network.VirtualHubConnection("exampleVirtualHubConnection", {
- *     virtualHubId: exampleVirtualHub.id,
- *     remoteVirtualNetworkId: exampleVirtualNetwork.id,
- * });
- * ```
- *
  * ## Import
  *
  * Virtual Hub Connection's can be imported using the `resource id`, e.g.

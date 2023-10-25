@@ -49,27 +49,33 @@ class OutboundRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             backend_address_pool_id: pulumi.Input[str],
-             loadbalancer_id: pulumi.Input[str],
-             protocol: pulumi.Input[str],
+             backend_address_pool_id: Optional[pulumi.Input[str]] = None,
+             loadbalancer_id: Optional[pulumi.Input[str]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
              allocated_outbound_ports: Optional[pulumi.Input[int]] = None,
              enable_tcp_reset: Optional[pulumi.Input[bool]] = None,
              frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['OutboundRuleFrontendIpConfigurationArgs']]]] = None,
              idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'backendAddressPoolId' in kwargs:
+        if backend_address_pool_id is None and 'backendAddressPoolId' in kwargs:
             backend_address_pool_id = kwargs['backendAddressPoolId']
-        if 'loadbalancerId' in kwargs:
+        if backend_address_pool_id is None:
+            raise TypeError("Missing 'backend_address_pool_id' argument")
+        if loadbalancer_id is None and 'loadbalancerId' in kwargs:
             loadbalancer_id = kwargs['loadbalancerId']
-        if 'allocatedOutboundPorts' in kwargs:
+        if loadbalancer_id is None:
+            raise TypeError("Missing 'loadbalancer_id' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if allocated_outbound_ports is None and 'allocatedOutboundPorts' in kwargs:
             allocated_outbound_ports = kwargs['allocatedOutboundPorts']
-        if 'enableTcpReset' in kwargs:
+        if enable_tcp_reset is None and 'enableTcpReset' in kwargs:
             enable_tcp_reset = kwargs['enableTcpReset']
-        if 'frontendIpConfigurations' in kwargs:
+        if frontend_ip_configurations is None and 'frontendIpConfigurations' in kwargs:
             frontend_ip_configurations = kwargs['frontendIpConfigurations']
-        if 'idleTimeoutInMinutes' in kwargs:
+        if idle_timeout_in_minutes is None and 'idleTimeoutInMinutes' in kwargs:
             idle_timeout_in_minutes = kwargs['idleTimeoutInMinutes']
 
         _setter("backend_address_pool_id", backend_address_pool_id)
@@ -227,19 +233,19 @@ class _OutboundRuleState:
              loadbalancer_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              protocol: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'allocatedOutboundPorts' in kwargs:
+        if allocated_outbound_ports is None and 'allocatedOutboundPorts' in kwargs:
             allocated_outbound_ports = kwargs['allocatedOutboundPorts']
-        if 'backendAddressPoolId' in kwargs:
+        if backend_address_pool_id is None and 'backendAddressPoolId' in kwargs:
             backend_address_pool_id = kwargs['backendAddressPoolId']
-        if 'enableTcpReset' in kwargs:
+        if enable_tcp_reset is None and 'enableTcpReset' in kwargs:
             enable_tcp_reset = kwargs['enableTcpReset']
-        if 'frontendIpConfigurations' in kwargs:
+        if frontend_ip_configurations is None and 'frontendIpConfigurations' in kwargs:
             frontend_ip_configurations = kwargs['frontendIpConfigurations']
-        if 'idleTimeoutInMinutes' in kwargs:
+        if idle_timeout_in_minutes is None and 'idleTimeoutInMinutes' in kwargs:
             idle_timeout_in_minutes = kwargs['idleTimeoutInMinutes']
-        if 'loadbalancerId' in kwargs:
+        if loadbalancer_id is None and 'loadbalancerId' in kwargs:
             loadbalancer_id = kwargs['loadbalancerId']
 
         if allocated_outbound_ports is not None:
@@ -375,34 +381,6 @@ class OutboundRule(pulumi.CustomResource):
 
         > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration and a Backend Address Pool Attached.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            allocation_method="Static")
-        example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
-                name="PublicIPAddress",
-                public_ip_address_id=example_public_ip.id,
-            )])
-        example_backend_address_pool = azure.lb.BackendAddressPool("exampleBackendAddressPool", loadbalancer_id=example_load_balancer.id)
-        example_outbound_rule = azure.lb.OutboundRule("exampleOutboundRule",
-            loadbalancer_id=example_load_balancer.id,
-            protocol="Tcp",
-            backend_address_pool_id=example_backend_address_pool.id,
-            frontend_ip_configurations=[azure.lb.OutboundRuleFrontendIpConfigurationArgs(
-                name="PublicIPAddress",
-            )])
-        ```
-
         ## Import
 
         Load Balancer Outbound Rules can be imported using the `resource id`, e.g.
@@ -432,34 +410,6 @@ class OutboundRule(pulumi.CustomResource):
         Manages a Load Balancer Outbound Rule.
 
         > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration and a Backend Address Pool Attached.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            allocation_method="Static")
-        example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
-                name="PublicIPAddress",
-                public_ip_address_id=example_public_ip.id,
-            )])
-        example_backend_address_pool = azure.lb.BackendAddressPool("exampleBackendAddressPool", loadbalancer_id=example_load_balancer.id)
-        example_outbound_rule = azure.lb.OutboundRule("exampleOutboundRule",
-            loadbalancer_id=example_load_balancer.id,
-            protocol="Tcp",
-            backend_address_pool_id=example_backend_address_pool.id,
-            frontend_ip_configurations=[azure.lb.OutboundRuleFrontendIpConfigurationArgs(
-                name="PublicIPAddress",
-            )])
-        ```
 
         ## Import
 

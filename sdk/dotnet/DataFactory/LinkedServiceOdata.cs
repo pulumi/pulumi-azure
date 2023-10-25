@@ -14,47 +14,6 @@ namespace Pulumi.Azure.DataFactory
     /// 
     /// &gt; **Note:** All arguments including the connection_string will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///     });
-    /// 
-    ///     var anonymous = new Azure.DataFactory.LinkedServiceOdata("anonymous", new()
-    ///     {
-    ///         DataFactoryId = exampleFactory.Id,
-    ///         Url = "https://services.odata.org/v4/TripPinServiceRW/People",
-    ///     });
-    /// 
-    ///     var basicAuth = new Azure.DataFactory.LinkedServiceOdata("basicAuth", new()
-    ///     {
-    ///         DataFactoryId = exampleFactory.Id,
-    ///         Url = "https://services.odata.org/v4/TripPinServiceRW/People",
-    ///         BasicAuthentication = new Azure.DataFactory.Inputs.LinkedServiceOdataBasicAuthenticationArgs
-    ///         {
-    ///             Username = "emma",
-    ///             Password = "Ch4ngeM3!",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Data Factory OData Linked Service's can be imported using the `resource id`, e.g.

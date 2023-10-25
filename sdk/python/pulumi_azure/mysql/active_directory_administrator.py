@@ -38,21 +38,31 @@ class ActiveDirectoryAdministratorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             login: pulumi.Input[str],
-             object_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             server_name: pulumi.Input[str],
-             tenant_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             login: Optional[pulumi.Input[str]] = None,
+             object_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'objectId' in kwargs:
+        if login is None:
+            raise TypeError("Missing 'login' argument")
+        if object_id is None and 'objectId' in kwargs:
             object_id = kwargs['objectId']
-        if 'resourceGroupName' in kwargs:
+        if object_id is None:
+            raise TypeError("Missing 'object_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serverName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if server_name is None and 'serverName' in kwargs:
             server_name = kwargs['serverName']
-        if 'tenantId' in kwargs:
+        if server_name is None:
+            raise TypeError("Missing 'server_name' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
 
         _setter("login", login)
         _setter("object_id", object_id)
@@ -153,15 +163,15 @@ class _ActiveDirectoryAdministratorState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              server_name: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'objectId' in kwargs:
+        if object_id is None and 'objectId' in kwargs:
             object_id = kwargs['objectId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serverName' in kwargs:
+        if server_name is None and 'serverName' in kwargs:
             server_name = kwargs['serverName']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         if login is not None:
@@ -250,31 +260,6 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
         """
         Allows you to set a user or group as the AD administrator for an MySQL server in Azure
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_server = azure.mysql.Server("exampleServer",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            administrator_login="mysqladminun",
-            administrator_login_password="H@Sh1CoR3!",
-            ssl_enforcement_enabled=True,
-            sku_name="B_Gen5_2",
-            storage_mb=5120,
-            version="5.7")
-        example_active_directory_administrator = azure.mysql.ActiveDirectoryAdministrator("exampleActiveDirectoryAdministrator",
-            server_name=example_server.name,
-            resource_group_name=example_resource_group.name,
-            login="sqladmin",
-            tenant_id=current.tenant_id,
-            object_id=current.object_id)
-        ```
-
         ## Import
 
         A MySQL Active Directory Administrator can be imported using the `resource id`, e.g.
@@ -299,31 +284,6 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Allows you to set a user or group as the AD administrator for an MySQL server in Azure
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_server = azure.mysql.Server("exampleServer",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            administrator_login="mysqladminun",
-            administrator_login_password="H@Sh1CoR3!",
-            ssl_enforcement_enabled=True,
-            sku_name="B_Gen5_2",
-            storage_mb=5120,
-            version="5.7")
-        example_active_directory_administrator = azure.mysql.ActiveDirectoryAdministrator("exampleActiveDirectoryAdministrator",
-            server_name=example_server.name,
-            resource_group_name=example_resource_group.name,
-            login="sqladmin",
-            tenant_id=current.tenant_id,
-            object_id=current.object_id)
-        ```
 
         ## Import
 

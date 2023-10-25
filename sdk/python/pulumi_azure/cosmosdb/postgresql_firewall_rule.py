@@ -35,18 +35,24 @@ class PostgresqlFirewallRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cluster_id: pulumi.Input[str],
-             end_ip_address: pulumi.Input[str],
-             start_ip_address: pulumi.Input[str],
+             cluster_id: Optional[pulumi.Input[str]] = None,
+             end_ip_address: Optional[pulumi.Input[str]] = None,
+             start_ip_address: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'clusterId' in kwargs:
+        if cluster_id is None and 'clusterId' in kwargs:
             cluster_id = kwargs['clusterId']
-        if 'endIpAddress' in kwargs:
+        if cluster_id is None:
+            raise TypeError("Missing 'cluster_id' argument")
+        if end_ip_address is None and 'endIpAddress' in kwargs:
             end_ip_address = kwargs['endIpAddress']
-        if 'startIpAddress' in kwargs:
+        if end_ip_address is None:
+            raise TypeError("Missing 'end_ip_address' argument")
+        if start_ip_address is None and 'startIpAddress' in kwargs:
             start_ip_address = kwargs['startIpAddress']
+        if start_ip_address is None:
+            raise TypeError("Missing 'start_ip_address' argument")
 
         _setter("cluster_id", cluster_id)
         _setter("end_ip_address", end_ip_address)
@@ -131,13 +137,13 @@ class _PostgresqlFirewallRuleState:
              end_ip_address: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              start_ip_address: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'clusterId' in kwargs:
+        if cluster_id is None and 'clusterId' in kwargs:
             cluster_id = kwargs['clusterId']
-        if 'endIpAddress' in kwargs:
+        if end_ip_address is None and 'endIpAddress' in kwargs:
             end_ip_address = kwargs['endIpAddress']
-        if 'startIpAddress' in kwargs:
+        if start_ip_address is None and 'startIpAddress' in kwargs:
             start_ip_address = kwargs['startIpAddress']
 
         if cluster_id is not None:
@@ -211,26 +217,6 @@ class PostgresqlFirewallRule(pulumi.CustomResource):
         """
         Manages an Azure Cosmos DB for PostgreSQL Firewall Rule.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_postgresql_cluster = azure.cosmosdb.PostgresqlCluster("examplePostgresqlCluster",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            administrator_login_password="H@Sh1CoR3!",
-            coordinator_storage_quota_in_mb=131072,
-            coordinator_vcore_count=2,
-            node_count=0)
-        example_postgresql_firewall_rule = azure.cosmosdb.PostgresqlFirewallRule("examplePostgresqlFirewallRule",
-            cluster_id=example_postgresql_cluster.id,
-            start_ip_address="10.0.17.62",
-            end_ip_address="10.0.17.64")
-        ```
-
         ## Import
 
         Azure Cosmos DB for PostgreSQL Firewall Rules can be imported using the `resource id`, e.g.
@@ -254,26 +240,6 @@ class PostgresqlFirewallRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Cosmos DB for PostgreSQL Firewall Rule.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_postgresql_cluster = azure.cosmosdb.PostgresqlCluster("examplePostgresqlCluster",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            administrator_login_password="H@Sh1CoR3!",
-            coordinator_storage_quota_in_mb=131072,
-            coordinator_vcore_count=2,
-            node_count=0)
-        example_postgresql_firewall_rule = azure.cosmosdb.PostgresqlFirewallRule("examplePostgresqlFirewallRule",
-            cluster_id=example_postgresql_cluster.id,
-            start_ip_address="10.0.17.62",
-            end_ip_address="10.0.17.64")
-        ```
 
         ## Import
 

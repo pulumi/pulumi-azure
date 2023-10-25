@@ -34,14 +34,16 @@ class DataConnectorAzureAdvancedThreadProtectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             log_analytics_workspace_id: pulumi.Input[str],
+             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'tenantId' in kwargs:
+        if log_analytics_workspace_id is None:
+            raise TypeError("Missing 'log_analytics_workspace_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("log_analytics_workspace_id", log_analytics_workspace_id)
@@ -115,11 +117,11 @@ class _DataConnectorAzureAdvancedThreadProtectionState:
              log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         if log_analytics_workspace_id is not None:
@@ -182,21 +184,6 @@ class DataConnectorAzureAdvancedThreadProtection(pulumi.CustomResource):
 
         !> **NOTE:** This resource requires that [Enterprise Mobility + Security E5](https://www.microsoft.com/en-us/microsoft-365/enterprise-mobility-security) is enabled on the tenant being connected to.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="west europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018")
-        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", workspace_id=example_analytics_workspace.id)
-        example_data_connector_azure_advanced_thread_protection = azure.sentinel.DataConnectorAzureAdvancedThreadProtection("exampleDataConnectorAzureAdvancedThreadProtection", log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id)
-        ```
-
         ## Import
 
         Azure Advanced Threat Protection Data Connectors can be imported using the `resource id`, e.g.
@@ -223,21 +210,6 @@ class DataConnectorAzureAdvancedThreadProtection(pulumi.CustomResource):
         Manages a Azure Advanced Threat Protection Data Connector.
 
         !> **NOTE:** This resource requires that [Enterprise Mobility + Security E5](https://www.microsoft.com/en-us/microsoft-365/enterprise-mobility-security) is enabled on the tenant being connected to.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="west europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018")
-        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", workspace_id=example_analytics_workspace.id)
-        example_data_connector_azure_advanced_thread_protection = azure.sentinel.DataConnectorAzureAdvancedThreadProtection("exampleDataConnectorAzureAdvancedThreadProtection", log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id)
-        ```
 
         ## Import
 

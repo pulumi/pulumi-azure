@@ -55,28 +55,40 @@ class UserArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_management_name: pulumi.Input[str],
-             email: pulumi.Input[str],
-             first_name: pulumi.Input[str],
-             last_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             user_id: pulumi.Input[str],
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             email: Optional[pulumi.Input[str]] = None,
+             first_name: Optional[pulumi.Input[str]] = None,
+             last_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             user_id: Optional[pulumi.Input[str]] = None,
              confirmation: Optional[pulumi.Input[str]] = None,
              note: Optional[pulumi.Input[str]] = None,
              password: Optional[pulumi.Input[str]] = None,
              state: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'firstName' in kwargs:
+        if api_management_name is None:
+            raise TypeError("Missing 'api_management_name' argument")
+        if email is None:
+            raise TypeError("Missing 'email' argument")
+        if first_name is None and 'firstName' in kwargs:
             first_name = kwargs['firstName']
-        if 'lastName' in kwargs:
+        if first_name is None:
+            raise TypeError("Missing 'first_name' argument")
+        if last_name is None and 'lastName' in kwargs:
             last_name = kwargs['lastName']
-        if 'resourceGroupName' in kwargs:
+        if last_name is None:
+            raise TypeError("Missing 'last_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'userId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if user_id is None and 'userId' in kwargs:
             user_id = kwargs['userId']
+        if user_id is None:
+            raise TypeError("Missing 'user_id' argument")
 
         _setter("api_management_name", api_management_name)
         _setter("email", email)
@@ -270,17 +282,17 @@ class _UserState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              state: Optional[pulumi.Input[str]] = None,
              user_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'firstName' in kwargs:
+        if first_name is None and 'firstName' in kwargs:
             first_name = kwargs['firstName']
-        if 'lastName' in kwargs:
+        if last_name is None and 'lastName' in kwargs:
             last_name = kwargs['lastName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'userId' in kwargs:
+        if user_id is None and 'userId' in kwargs:
             user_id = kwargs['userId']
 
         if api_management_name is not None:
@@ -446,29 +458,6 @@ class User(pulumi.CustomResource):
         """
         Manages an API Management User.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            publisher_name="My Company",
-            publisher_email="company@exmaple.com",
-            sku_name="Developer_1")
-        example_user = azure.apimanagement.User("exampleUser",
-            user_id="5931a75ae4bbd512288c680b",
-            api_management_name=example_service.name,
-            resource_group_name=example_resource_group.name,
-            first_name="Example",
-            last_name="User",
-            email="user@example.com",
-            state="active")
-        ```
-
         ## Import
 
         API Management Users can be imported using the `resource id`, e.g.
@@ -500,29 +489,6 @@ class User(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an API Management User.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            publisher_name="My Company",
-            publisher_email="company@exmaple.com",
-            sku_name="Developer_1")
-        example_user = azure.apimanagement.User("exampleUser",
-            user_id="5931a75ae4bbd512288c680b",
-            api_management_name=example_service.name,
-            resource_group_name=example_resource_group.name,
-            first_name="Example",
-            last_name="User",
-            email="user@example.com",
-            state="active")
-        ```
 
         ## Import
 

@@ -9,29 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Key Vault Certificate Issuer.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "standard",
- *     tenantId: current.then(current => current.tenantId),
- * });
- * const exampleCertificateIssuer = new azure.keyvault.CertificateIssuer("exampleCertificateIssuer", {
- *     orgId: "ExampleOrgName",
- *     keyVaultId: exampleKeyVault.id,
- *     providerName: "DigiCert",
- *     accountId: "0000",
- *     password: "example-password",
- * });
- * ```
- *
  * ## Import
  *
  * Key Vault Certificate Issuers can be imported using the `resource id`, e.g.

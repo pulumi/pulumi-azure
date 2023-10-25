@@ -59,29 +59,43 @@ class GetAgentResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             extensions_allow_lists: Sequence['outputs.GetAgentExtensionsAllowListResult'],
-             extensions_block_lists: Sequence['outputs.GetAgentExtensionsBlockListResult'],
-             extensions_enabled: bool,
-             guest_configuration_enabled: bool,
-             incoming_connections_ports: Sequence[str],
-             proxy_bypasses: Sequence[str],
-             proxy_url: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             extensions_allow_lists: Optional[Sequence['outputs.GetAgentExtensionsAllowListResult']] = None,
+             extensions_block_lists: Optional[Sequence['outputs.GetAgentExtensionsBlockListResult']] = None,
+             extensions_enabled: Optional[bool] = None,
+             guest_configuration_enabled: Optional[bool] = None,
+             incoming_connections_ports: Optional[Sequence[str]] = None,
+             proxy_bypasses: Optional[Sequence[str]] = None,
+             proxy_url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'extensionsAllowLists' in kwargs:
+        if extensions_allow_lists is None and 'extensionsAllowLists' in kwargs:
             extensions_allow_lists = kwargs['extensionsAllowLists']
-        if 'extensionsBlockLists' in kwargs:
+        if extensions_allow_lists is None:
+            raise TypeError("Missing 'extensions_allow_lists' argument")
+        if extensions_block_lists is None and 'extensionsBlockLists' in kwargs:
             extensions_block_lists = kwargs['extensionsBlockLists']
-        if 'extensionsEnabled' in kwargs:
+        if extensions_block_lists is None:
+            raise TypeError("Missing 'extensions_block_lists' argument")
+        if extensions_enabled is None and 'extensionsEnabled' in kwargs:
             extensions_enabled = kwargs['extensionsEnabled']
-        if 'guestConfigurationEnabled' in kwargs:
+        if extensions_enabled is None:
+            raise TypeError("Missing 'extensions_enabled' argument")
+        if guest_configuration_enabled is None and 'guestConfigurationEnabled' in kwargs:
             guest_configuration_enabled = kwargs['guestConfigurationEnabled']
-        if 'incomingConnectionsPorts' in kwargs:
+        if guest_configuration_enabled is None:
+            raise TypeError("Missing 'guest_configuration_enabled' argument")
+        if incoming_connections_ports is None and 'incomingConnectionsPorts' in kwargs:
             incoming_connections_ports = kwargs['incomingConnectionsPorts']
-        if 'proxyBypasses' in kwargs:
+        if incoming_connections_ports is None:
+            raise TypeError("Missing 'incoming_connections_ports' argument")
+        if proxy_bypasses is None and 'proxyBypasses' in kwargs:
             proxy_bypasses = kwargs['proxyBypasses']
-        if 'proxyUrl' in kwargs:
+        if proxy_bypasses is None:
+            raise TypeError("Missing 'proxy_bypasses' argument")
+        if proxy_url is None and 'proxyUrl' in kwargs:
             proxy_url = kwargs['proxyUrl']
+        if proxy_url is None:
+            raise TypeError("Missing 'proxy_url' argument")
 
         _setter("extensions_allow_lists", extensions_allow_lists)
         _setter("extensions_block_lists", extensions_block_lists)
@@ -165,10 +179,14 @@ class GetAgentExtensionsAllowListResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             publisher: str,
-             type: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             publisher: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if publisher is None:
+            raise TypeError("Missing 'publisher' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("publisher", publisher)
         _setter("type", type)
@@ -207,10 +225,14 @@ class GetAgentExtensionsBlockListResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             publisher: str,
-             type: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             publisher: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if publisher is None:
+            raise TypeError("Missing 'publisher' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("publisher", publisher)
         _setter("type", type)
@@ -246,9 +268,11 @@ class GetCloudMetadataResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             provider: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             provider: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if provider is None:
+            raise TypeError("Missing 'provider' argument")
 
         _setter("provider", provider)
 
@@ -281,15 +305,21 @@ class GetIdentityResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             principal_id: str,
-             tenant_id: str,
-             type: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("principal_id", principal_id)
         _setter("tenant_id", tenant_id)
@@ -343,14 +373,22 @@ class GetLocationDataResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             city: str,
-             country_or_region: str,
-             district: str,
-             name: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             city: Optional[str] = None,
+             country_or_region: Optional[str] = None,
+             district: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'countryOrRegion' in kwargs:
+        if city is None:
+            raise TypeError("Missing 'city' argument")
+        if country_or_region is None and 'countryOrRegion' in kwargs:
             country_or_region = kwargs['countryOrRegion']
+        if country_or_region is None:
+            raise TypeError("Missing 'country_or_region' argument")
+        if district is None:
+            raise TypeError("Missing 'district' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("city", city)
         _setter("country_or_region", country_or_region)
@@ -410,13 +448,19 @@ class GetOsProfileResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             computer_name: str,
-             linuxes: Sequence['outputs.GetOsProfileLinuxResult'],
-             windows: Sequence['outputs.GetOsProfileWindowResult'],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             computer_name: Optional[str] = None,
+             linuxes: Optional[Sequence['outputs.GetOsProfileLinuxResult']] = None,
+             windows: Optional[Sequence['outputs.GetOsProfileWindowResult']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'computerName' in kwargs:
+        if computer_name is None and 'computerName' in kwargs:
             computer_name = kwargs['computerName']
+        if computer_name is None:
+            raise TypeError("Missing 'computer_name' argument")
+        if linuxes is None:
+            raise TypeError("Missing 'linuxes' argument")
+        if windows is None:
+            raise TypeError("Missing 'windows' argument")
 
         _setter("computer_name", computer_name)
         _setter("linuxes", linuxes)
@@ -461,9 +505,11 @@ class GetOsProfileLinuxResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             patches: Sequence['outputs.GetOsProfileLinuxPatchResult'],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             patches: Optional[Sequence['outputs.GetOsProfileLinuxPatchResult']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if patches is None:
+            raise TypeError("Missing 'patches' argument")
 
         _setter("patches", patches)
 
@@ -493,14 +539,18 @@ class GetOsProfileLinuxPatchResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             assessment_mode: str,
-             patch_mode: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             assessment_mode: Optional[str] = None,
+             patch_mode: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'assessmentMode' in kwargs:
+        if assessment_mode is None and 'assessmentMode' in kwargs:
             assessment_mode = kwargs['assessmentMode']
-        if 'patchMode' in kwargs:
+        if assessment_mode is None:
+            raise TypeError("Missing 'assessment_mode' argument")
+        if patch_mode is None and 'patchMode' in kwargs:
             patch_mode = kwargs['patchMode']
+        if patch_mode is None:
+            raise TypeError("Missing 'patch_mode' argument")
 
         _setter("assessment_mode", assessment_mode)
         _setter("patch_mode", patch_mode)
@@ -536,9 +586,11 @@ class GetOsProfileWindowResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             patches: Sequence['outputs.GetOsProfileWindowPatchResult'],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             patches: Optional[Sequence['outputs.GetOsProfileWindowPatchResult']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if patches is None:
+            raise TypeError("Missing 'patches' argument")
 
         _setter("patches", patches)
 
@@ -568,14 +620,18 @@ class GetOsProfileWindowPatchResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             assessment_mode: str,
-             patch_mode: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             assessment_mode: Optional[str] = None,
+             patch_mode: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'assessmentMode' in kwargs:
+        if assessment_mode is None and 'assessmentMode' in kwargs:
             assessment_mode = kwargs['assessmentMode']
-        if 'patchMode' in kwargs:
+        if assessment_mode is None:
+            raise TypeError("Missing 'assessment_mode' argument")
+        if patch_mode is None and 'patchMode' in kwargs:
             patch_mode = kwargs['patchMode']
+        if patch_mode is None:
+            raise TypeError("Missing 'patch_mode' argument")
 
         _setter("assessment_mode", assessment_mode)
         _setter("patch_mode", patch_mode)
@@ -614,14 +670,18 @@ class GetServiceStatusResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             extension_services: Sequence['outputs.GetServiceStatusExtensionServiceResult'],
-             guest_configuration_services: Sequence['outputs.GetServiceStatusGuestConfigurationServiceResult'],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             extension_services: Optional[Sequence['outputs.GetServiceStatusExtensionServiceResult']] = None,
+             guest_configuration_services: Optional[Sequence['outputs.GetServiceStatusGuestConfigurationServiceResult']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'extensionServices' in kwargs:
+        if extension_services is None and 'extensionServices' in kwargs:
             extension_services = kwargs['extensionServices']
-        if 'guestConfigurationServices' in kwargs:
+        if extension_services is None:
+            raise TypeError("Missing 'extension_services' argument")
+        if guest_configuration_services is None and 'guestConfigurationServices' in kwargs:
             guest_configuration_services = kwargs['guestConfigurationServices']
+        if guest_configuration_services is None:
+            raise TypeError("Missing 'guest_configuration_services' argument")
 
         _setter("extension_services", extension_services)
         _setter("guest_configuration_services", guest_configuration_services)
@@ -660,12 +720,16 @@ class GetServiceStatusExtensionServiceResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             startup_type: str,
-             status: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             startup_type: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'startupType' in kwargs:
+        if startup_type is None and 'startupType' in kwargs:
             startup_type = kwargs['startupType']
+        if startup_type is None:
+            raise TypeError("Missing 'startup_type' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
 
         _setter("startup_type", startup_type)
         _setter("status", status)
@@ -704,12 +768,16 @@ class GetServiceStatusGuestConfigurationServiceResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             startup_type: str,
-             status: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             startup_type: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'startupType' in kwargs:
+        if startup_type is None and 'startupType' in kwargs:
             startup_type = kwargs['startupType']
+        if startup_type is None:
+            raise TypeError("Missing 'startup_type' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
 
         _setter("startup_type", startup_type)
         _setter("status", status)

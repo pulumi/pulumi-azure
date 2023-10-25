@@ -7,20 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Healthbot Service.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleHealthbot = new azure.bot.Healthbot("exampleHealthbot", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     skuName: "F0",
- * });
- * ```
- *
  * ## Import
  *
  * Healthbot Service can be imported using the `resource id`, e.g.

@@ -65,9 +65,9 @@ class AuthomationRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             display_name: pulumi.Input[str],
-             log_analytics_workspace_id: pulumi.Input[str],
-             order: pulumi.Input[int],
+             display_name: Optional[pulumi.Input[str]] = None,
+             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+             order: Optional[pulumi.Input[int]] = None,
              action_incidents: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionIncidentArgs']]]] = None,
              action_playbooks: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionPlaybookArgs']]]] = None,
              condition_json: Optional[pulumi.Input[str]] = None,
@@ -77,21 +77,27 @@ class AuthomationRuleArgs:
              name: Optional[pulumi.Input[str]] = None,
              triggers_on: Optional[pulumi.Input[str]] = None,
              triggers_when: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'actionIncidents' in kwargs:
+        if log_analytics_workspace_id is None:
+            raise TypeError("Missing 'log_analytics_workspace_id' argument")
+        if order is None:
+            raise TypeError("Missing 'order' argument")
+        if action_incidents is None and 'actionIncidents' in kwargs:
             action_incidents = kwargs['actionIncidents']
-        if 'actionPlaybooks' in kwargs:
+        if action_playbooks is None and 'actionPlaybooks' in kwargs:
             action_playbooks = kwargs['actionPlaybooks']
-        if 'conditionJson' in kwargs:
+        if condition_json is None and 'conditionJson' in kwargs:
             condition_json = kwargs['conditionJson']
-        if 'triggersOn' in kwargs:
+        if triggers_on is None and 'triggersOn' in kwargs:
             triggers_on = kwargs['triggersOn']
-        if 'triggersWhen' in kwargs:
+        if triggers_when is None and 'triggersWhen' in kwargs:
             triggers_when = kwargs['triggersWhen']
 
         _setter("display_name", display_name)
@@ -335,21 +341,21 @@ class _AuthomationRuleState:
              order: Optional[pulumi.Input[int]] = None,
              triggers_on: Optional[pulumi.Input[str]] = None,
              triggers_when: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'actionIncidents' in kwargs:
+        if action_incidents is None and 'actionIncidents' in kwargs:
             action_incidents = kwargs['actionIncidents']
-        if 'actionPlaybooks' in kwargs:
+        if action_playbooks is None and 'actionPlaybooks' in kwargs:
             action_playbooks = kwargs['actionPlaybooks']
-        if 'conditionJson' in kwargs:
+        if condition_json is None and 'conditionJson' in kwargs:
             condition_json = kwargs['conditionJson']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'triggersOn' in kwargs:
+        if triggers_on is None and 'triggersOn' in kwargs:
             triggers_on = kwargs['triggersOn']
-        if 'triggersWhen' in kwargs:
+        if triggers_when is None and 'triggersWhen' in kwargs:
             triggers_when = kwargs['triggersWhen']
 
         if action_incidents is not None:
@@ -558,28 +564,6 @@ class AuthomationRule(pulumi.CustomResource):
         """
         Manages a Sentinel Automation Rule.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="west europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018")
-        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", workspace_id=example_analytics_workspace.id)
-        example_automation_rule = azure.sentinel.AutomationRule("exampleAutomationRule",
-            log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
-            display_name="automation_rule1",
-            order=1,
-            action_incidents=[azure.sentinel.AutomationRuleActionIncidentArgs(
-                order=1,
-                status="Active",
-            )])
-        ```
-
         ## Import
 
         Sentinel Automation Rules can be imported using the `resource id`, e.g.
@@ -615,28 +599,6 @@ class AuthomationRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Sentinel Automation Rule.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="west europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018")
-        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", workspace_id=example_analytics_workspace.id)
-        example_automation_rule = azure.sentinel.AutomationRule("exampleAutomationRule",
-            log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
-            display_name="automation_rule1",
-            order=1,
-            action_incidents=[azure.sentinel.AutomationRuleActionIncidentArgs(
-                order=1,
-                status="Active",
-            )])
-        ```
 
         ## Import
 

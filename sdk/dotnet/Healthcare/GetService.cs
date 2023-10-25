@@ -13,68 +13,12 @@ namespace Pulumi.Azure.Healthcare
     {
         /// <summary>
         /// Use this data source to access information about an existing Healthcare Service
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Healthcare.GetService.Invoke(new()
-        ///     {
-        ///         Name = "example-healthcare_service",
-        ///         ResourceGroupName = "example-resources",
-        ///         Location = "westus2",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["healthcareServiceId"] = example.Apply(getServiceResult =&gt; getServiceResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure:healthcare/getService:getService", args ?? new GetServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Healthcare Service
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Healthcare.GetService.Invoke(new()
-        ///     {
-        ///         Name = "example-healthcare_service",
-        ///         ResourceGroupName = "example-resources",
-        ///         Location = "westus2",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["healthcareServiceId"] = example.Apply(getServiceResult =&gt; getServiceResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure:healthcare/getService:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());

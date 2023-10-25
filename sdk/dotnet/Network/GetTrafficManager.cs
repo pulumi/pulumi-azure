@@ -16,29 +16,6 @@ namespace Pulumi.Azure.Network
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### World)
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Network.GetTrafficManager.Invoke(new()
-        ///     {
-        ///         Name = "World",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["locationCode"] = example.Apply(getTrafficManagerResult =&gt; getTrafficManagerResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetTrafficManagerResult> InvokeAsync(GetTrafficManagerArgs args, InvokeOptions? options = null)
@@ -49,29 +26,6 @@ namespace Pulumi.Azure.Network
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### World)
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Network.GetTrafficManager.Invoke(new()
-        ///     {
-        ///         Name = "World",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["locationCode"] = example.Apply(getTrafficManagerResult =&gt; getTrafficManagerResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetTrafficManagerResult> Invoke(GetTrafficManagerInvokeArgs args, InvokeOptions? options = null)

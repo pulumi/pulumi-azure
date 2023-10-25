@@ -15,54 +15,6 @@ import (
 
 // Sets a MariaDB Configuration value on a MariaDB Server.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mariadb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleServer, err := mariadb.NewServer(ctx, "exampleServer", &mariadb.ServerArgs{
-//				Location:                   exampleResourceGroup.Location,
-//				ResourceGroupName:          exampleResourceGroup.Name,
-//				SkuName:                    pulumi.String("B_Gen5_2"),
-//				SslEnforcementEnabled:      pulumi.Bool(true),
-//				AdministratorLogin:         pulumi.String("mariadbadmin"),
-//				AdministratorLoginPassword: pulumi.String("H@Sh1CoR3!"),
-//				Version:                    pulumi.String("10.2"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mariadb.NewConfiguration(ctx, "exampleConfiguration", &mariadb.ConfigurationArgs{
-//				Name:              pulumi.String("interactive_timeout"),
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				ServerName:        exampleServer.Name,
-//				Value:             pulumi.String("600"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // MariaDB Configurations can be imported using the `resource id`, e.g.

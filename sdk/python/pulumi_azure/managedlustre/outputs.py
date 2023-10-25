@@ -52,14 +52,18 @@ class FileSystemEncryptionKey(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_url: str,
-             source_vault_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             key_url: Optional[str] = None,
+             source_vault_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'keyUrl' in kwargs:
+        if key_url is None and 'keyUrl' in kwargs:
             key_url = kwargs['keyUrl']
-        if 'sourceVaultId' in kwargs:
+        if key_url is None:
+            raise TypeError("Missing 'key_url' argument")
+        if source_vault_id is None and 'sourceVaultId' in kwargs:
             source_vault_id = kwargs['sourceVaultId']
+        if source_vault_id is None:
+            raise TypeError("Missing 'source_vault_id' argument")
 
         _setter("key_url", key_url)
         _setter("source_vault_id", source_vault_id)
@@ -124,16 +128,20 @@ class FileSystemHsmSetting(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             container_id: str,
-             logging_container_id: str,
+             container_id: Optional[str] = None,
+             logging_container_id: Optional[str] = None,
              import_prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'containerId' in kwargs:
+        if container_id is None and 'containerId' in kwargs:
             container_id = kwargs['containerId']
-        if 'loggingContainerId' in kwargs:
+        if container_id is None:
+            raise TypeError("Missing 'container_id' argument")
+        if logging_container_id is None and 'loggingContainerId' in kwargs:
             logging_container_id = kwargs['loggingContainerId']
-        if 'importPrefix' in kwargs:
+        if logging_container_id is None:
+            raise TypeError("Missing 'logging_container_id' argument")
+        if import_prefix is None and 'importPrefix' in kwargs:
             import_prefix = kwargs['importPrefix']
 
         _setter("container_id", container_id)
@@ -202,12 +210,16 @@ class FileSystemIdentity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             identity_ids: Sequence[str],
-             type: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             identity_ids: Optional[Sequence[str]] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
+        if identity_ids is None:
+            raise TypeError("Missing 'identity_ids' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("identity_ids", identity_ids)
         _setter("type", type)
@@ -264,14 +276,18 @@ class FileSystemMaintenanceWindow(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             day_of_week: str,
-             time_of_day_in_utc: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             day_of_week: Optional[str] = None,
+             time_of_day_in_utc: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dayOfWeek' in kwargs:
+        if day_of_week is None and 'dayOfWeek' in kwargs:
             day_of_week = kwargs['dayOfWeek']
-        if 'timeOfDayInUtc' in kwargs:
+        if day_of_week is None:
+            raise TypeError("Missing 'day_of_week' argument")
+        if time_of_day_in_utc is None and 'timeOfDayInUtc' in kwargs:
             time_of_day_in_utc = kwargs['timeOfDayInUtc']
+        if time_of_day_in_utc is None:
+            raise TypeError("Missing 'time_of_day_in_utc' argument")
 
         _setter("day_of_week", day_of_week)
         _setter("time_of_day_in_utc", time_of_day_in_utc)

@@ -35,16 +35,24 @@ class ConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             server_name: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serverName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if server_name is None and 'serverName' in kwargs:
             server_name = kwargs['serverName']
+        if server_name is None:
+            raise TypeError("Missing 'server_name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("name", name)
         _setter("resource_group_name", resource_group_name)
@@ -128,11 +136,11 @@ class _ConfigurationState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              server_name: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serverName' in kwargs:
+        if server_name is None and 'serverName' in kwargs:
             server_name = kwargs['serverName']
 
         if name is not None:
@@ -210,32 +218,6 @@ class Configuration(pulumi.CustomResource):
 
         > **Note:** Since this resource is provisioned by default, the Azure Provider will not check for the presence of an existing resource prior to attempting to create it.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_server = azure.postgresql.Server("exampleServer",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="B_Gen5_2",
-            storage_mb=5120,
-            backup_retention_days=7,
-            geo_redundant_backup_enabled=False,
-            auto_grow_enabled=True,
-            administrator_login="psqladmin",
-            administrator_login_password="H@Sh1CoR3!",
-            version="9.5",
-            ssl_enforcement_enabled=True)
-        example_configuration = azure.postgresql.Configuration("exampleConfiguration",
-            name="backslash_quote",
-            resource_group_name=example_resource_group.name,
-            server_name=example_server.name,
-            value="on")
-        ```
-
         ## Import
 
         PostgreSQL Configurations can be imported using the `resource id`, e.g.
@@ -263,32 +245,6 @@ class Configuration(pulumi.CustomResource):
         ## Disclaimers
 
         > **Note:** Since this resource is provisioned by default, the Azure Provider will not check for the presence of an existing resource prior to attempting to create it.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_server = azure.postgresql.Server("exampleServer",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="B_Gen5_2",
-            storage_mb=5120,
-            backup_retention_days=7,
-            geo_redundant_backup_enabled=False,
-            auto_grow_enabled=True,
-            administrator_login="psqladmin",
-            administrator_login_password="H@Sh1CoR3!",
-            version="9.5",
-            ssl_enforcement_enabled=True)
-        example_configuration = azure.postgresql.Configuration("exampleConfiguration",
-            name="backslash_quote",
-            resource_group_name=example_resource_group.name,
-            server_name=example_server.name,
-            value="on")
-        ```
 
         ## Import
 

@@ -12,26 +12,6 @@ namespace Pulumi.Azure.Marketplace
     /// <summary>
     /// Allows accepting the Legal Terms for a Marketplace Image.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var barracuda = new Azure.Marketplace.Agreement("barracuda", new()
-    ///     {
-    ///         Offer = "waf",
-    ///         Plan = "hourly",
-    ///         Publisher = "barracudanetworks",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Marketplace Agreement can be imported using the `resource id`, e.g.

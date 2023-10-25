@@ -17,54 +17,6 @@ import (
 //
 // > **Note** A bot can only have a single MS Teams Channel associated with it.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/bot"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := core.GetClientConfig(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleChannelsRegistration, err := bot.NewChannelsRegistration(ctx, "exampleChannelsRegistration", &bot.ChannelsRegistrationArgs{
-//				Location:          pulumi.String("global"),
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Sku:               pulumi.String("F0"),
-//				MicrosoftAppId:    *pulumi.String(current.ClientId),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = bot.NewChannelTeams(ctx, "exampleChannelTeams", &bot.ChannelTeamsArgs{
-//				BotName:           exampleChannelsRegistration.Name,
-//				Location:          exampleChannelsRegistration.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // The Microsoft Teams Integration for a Bot Channel can be imported using the `resource id`, e.g.

@@ -57,8 +57,8 @@ class ConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             scope: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             scope: Optional[pulumi.Input[str]] = None,
              in_guest_user_patch_mode: Optional[pulumi.Input[str]] = None,
              install_patches: Optional[pulumi.Input['ConfigurationInstallPatchesArgs']] = None,
              location: Optional[pulumi.Input[str]] = None,
@@ -67,13 +67,17 @@ class ConfigurationArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              visibility: Optional[pulumi.Input[str]] = None,
              window: Optional[pulumi.Input['ConfigurationWindowArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'inGuestUserPatchMode' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if scope is None:
+            raise TypeError("Missing 'scope' argument")
+        if in_guest_user_patch_mode is None and 'inGuestUserPatchMode' in kwargs:
             in_guest_user_patch_mode = kwargs['inGuestUserPatchMode']
-        if 'installPatches' in kwargs:
+        if install_patches is None and 'installPatches' in kwargs:
             install_patches = kwargs['installPatches']
 
         _setter("resource_group_name", resource_group_name)
@@ -272,13 +276,13 @@ class _ConfigurationState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              visibility: Optional[pulumi.Input[str]] = None,
              window: Optional[pulumi.Input['ConfigurationWindowArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'inGuestUserPatchMode' in kwargs:
+        if in_guest_user_patch_mode is None and 'inGuestUserPatchMode' in kwargs:
             in_guest_user_patch_mode = kwargs['inGuestUserPatchMode']
-        if 'installPatches' in kwargs:
+        if install_patches is None and 'installPatches' in kwargs:
             install_patches = kwargs['installPatches']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if in_guest_user_patch_mode is not None:
@@ -444,22 +448,6 @@ class Configuration(pulumi.CustomResource):
         """
         Manages a maintenance configuration.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_configuration = azure.maintenance.Configuration("exampleConfiguration",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            scope="SQLDB",
-            tags={
-                "Env": "prod",
-            })
-        ```
-
         ## Import
 
         Maintenance Configuration can be imported using the `resource id`, e.g.
@@ -491,22 +479,6 @@ class Configuration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a maintenance configuration.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_configuration = azure.maintenance.Configuration("exampleConfiguration",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            scope="SQLDB",
-            tags={
-                "Env": "prod",
-            })
-        ```
 
         ## Import
 
@@ -555,11 +527,7 @@ class Configuration(pulumi.CustomResource):
             __props__ = ConfigurationArgs.__new__(ConfigurationArgs)
 
             __props__.__dict__["in_guest_user_patch_mode"] = in_guest_user_patch_mode
-            if install_patches is not None and not isinstance(install_patches, ConfigurationInstallPatchesArgs):
-                install_patches = install_patches or {}
-                def _setter(key, value):
-                    install_patches[key] = value
-                ConfigurationInstallPatchesArgs._configure(_setter, **install_patches)
+            install_patches = _utilities.configure(install_patches, ConfigurationInstallPatchesArgs, True)
             __props__.__dict__["install_patches"] = install_patches
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -572,11 +540,7 @@ class Configuration(pulumi.CustomResource):
             __props__.__dict__["scope"] = scope
             __props__.__dict__["tags"] = tags
             __props__.__dict__["visibility"] = visibility
-            if window is not None and not isinstance(window, ConfigurationWindowArgs):
-                window = window or {}
-                def _setter(key, value):
-                    window[key] = value
-                ConfigurationWindowArgs._configure(_setter, **window)
+            window = _utilities.configure(window, ConfigurationWindowArgs, True)
             __props__.__dict__["window"] = window
         super(Configuration, __self__).__init__(
             'azure:maintenance/configuration:Configuration',

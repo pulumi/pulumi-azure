@@ -12,45 +12,6 @@ namespace Pulumi.Azure.LogicApps
     /// <summary>
     /// Manages a Logic App Integration Account Partner.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleIntegrationAccount = new Azure.LogicApps.IntegrationAccount("exampleIntegrationAccount", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         SkuName = "Standard",
-    ///     });
-    /// 
-    ///     var exampleIntegrationAccountPartner = new Azure.LogicApps.IntegrationAccountPartner("exampleIntegrationAccountPartner", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         IntegrationAccountName = exampleIntegrationAccount.Name,
-    ///         BusinessIdentities = new[]
-    ///         {
-    ///             new Azure.LogicApps.Inputs.IntegrationAccountPartnerBusinessIdentityArgs
-    ///             {
-    ///                 Qualifier = "ZZ",
-    ///                 Value = "AA",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Logic App Integration Account Partners can be imported using the `resource id`, e.g.

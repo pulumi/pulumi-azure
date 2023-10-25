@@ -7,30 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages the association between a NAT Gateway and a Public IP.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     allocationMethod: "Static",
- *     sku: "Standard",
- * });
- * const exampleNatGateway = new azure.network.NatGateway("exampleNatGateway", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "Standard",
- * });
- * const exampleNatGatewayPublicIpAssociation = new azure.network.NatGatewayPublicIpAssociation("exampleNatGatewayPublicIpAssociation", {
- *     natGatewayId: exampleNatGateway.id,
- *     publicIpAddressId: examplePublicIp.id,
- * });
- * ```
- *
  * ## Import
  *
  * Associations between NAT Gateway and Public IP Addresses can be imported using the `resource id`, e.g.

@@ -13,94 +13,12 @@ namespace Pulumi.Azure.MSSql
     {
         /// <summary>
         /// Use this data source to access information about an existing SQL database.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-        ///     {
-        ///         Location = "West Europe",
-        ///     });
-        /// 
-        ///     var exampleServer = new Azure.MSSql.Server("exampleServer", new()
-        ///     {
-        ///         ResourceGroupName = exampleResourceGroup.Name,
-        ///         Location = exampleResourceGroup.Location,
-        ///         Version = "12.0",
-        ///         AdministratorLogin = "4dm1n157r470r",
-        ///         AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
-        ///     });
-        /// 
-        ///     var exampleDatabase = Azure.MSSql.GetDatabase.Invoke(new()
-        ///     {
-        ///         Name = "example-mssql-db",
-        ///         ServerId = exampleServer.Id,
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["databaseId"] = exampleDatabase.Apply(getDatabaseResult =&gt; getDatabaseResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure:mssql/getDatabase:getDatabase", args ?? new GetDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing SQL database.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-        ///     {
-        ///         Location = "West Europe",
-        ///     });
-        /// 
-        ///     var exampleServer = new Azure.MSSql.Server("exampleServer", new()
-        ///     {
-        ///         ResourceGroupName = exampleResourceGroup.Name,
-        ///         Location = exampleResourceGroup.Location,
-        ///         Version = "12.0",
-        ///         AdministratorLogin = "4dm1n157r470r",
-        ///         AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
-        ///     });
-        /// 
-        ///     var exampleDatabase = Azure.MSSql.GetDatabase.Invoke(new()
-        ///     {
-        ///         Name = "example-mssql-db",
-        ///         ServerId = exampleServer.Id,
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["databaseId"] = exampleDatabase.Apply(getDatabaseResult =&gt; getDatabaseResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetDatabaseResult> Invoke(GetDatabaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseResult>("azure:mssql/getDatabase:getDatabase", args ?? new GetDatabaseInvokeArgs(), options.WithDefaults());

@@ -108,17 +108,6 @@ def get_network_security_group(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Network Security Group.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.network.get_network_security_group(name="example",
-        resource_group_name=azurerm_resource_group["example"]["name"])
-    pulumi.export("location", example.location)
-    ```
-
 
     :param str name: Specifies the Name of the Network Security Group.
     :param str resource_group_name: Specifies the Name of the Resource Group within which the Network Security Group exists
@@ -144,17 +133,6 @@ def get_network_security_group_output(name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkSecurityGroupResult]:
     """
     Use this data source to access information about an existing Network Security Group.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.network.get_network_security_group(name="example",
-        resource_group_name=azurerm_resource_group["example"]["name"])
-    pulumi.export("location", example.location)
-    ```
 
 
     :param str name: Specifies the Name of the Network Security Group.

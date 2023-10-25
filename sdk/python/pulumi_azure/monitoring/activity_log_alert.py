@@ -49,18 +49,24 @@ class ActivityLogAlertArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             criteria: pulumi.Input['ActivityLogAlertCriteriaArgs'],
-             resource_group_name: pulumi.Input[str],
-             scopes: pulumi.Input[Sequence[pulumi.Input[str]]],
+             criteria: Optional[pulumi.Input['ActivityLogAlertCriteriaArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              actions: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertActionArgs']]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if criteria is None:
+            raise TypeError("Missing 'criteria' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if scopes is None:
+            raise TypeError("Missing 'scopes' argument")
 
         _setter("criteria", criteria)
         _setter("resource_group_name", resource_group_name)
@@ -217,9 +223,9 @@ class _ActivityLogAlertState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if actions is not None:
@@ -353,42 +359,6 @@ class ActivityLogAlert(pulumi.CustomResource):
         """
         Manages an Activity Log Alert within Azure Monitor.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        main_action_group = azure.monitoring.ActionGroup("mainActionGroup",
-            resource_group_name=example.name,
-            short_name="p0action",
-            webhook_receivers=[azure.monitoring.ActionGroupWebhookReceiverArgs(
-                name="callmyapi",
-                service_uri="http://example.com/alert",
-            )])
-        to_monitor = azure.storage.Account("toMonitor",
-            resource_group_name=example.name,
-            location=example.location,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        main_activity_log_alert = azure.monitoring.ActivityLogAlert("mainActivityLogAlert",
-            resource_group_name=example.name,
-            scopes=[example.id],
-            description="This alert will monitor a specific storage account updates.",
-            criteria=azure.monitoring.ActivityLogAlertCriteriaArgs(
-                resource_id=to_monitor.id,
-                operation_name="Microsoft.Storage/storageAccounts/write",
-                category="Recommendation",
-            ),
-            actions=[azure.monitoring.ActivityLogAlertActionArgs(
-                action_group_id=main_action_group.id,
-                webhook_properties={
-                    "from": "source",
-                },
-            )])
-        ```
-
         ## Import
 
         Activity log alerts can be imported using the `resource id`, e.g.
@@ -416,42 +386,6 @@ class ActivityLogAlert(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Activity Log Alert within Azure Monitor.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        main_action_group = azure.monitoring.ActionGroup("mainActionGroup",
-            resource_group_name=example.name,
-            short_name="p0action",
-            webhook_receivers=[azure.monitoring.ActionGroupWebhookReceiverArgs(
-                name="callmyapi",
-                service_uri="http://example.com/alert",
-            )])
-        to_monitor = azure.storage.Account("toMonitor",
-            resource_group_name=example.name,
-            location=example.location,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        main_activity_log_alert = azure.monitoring.ActivityLogAlert("mainActivityLogAlert",
-            resource_group_name=example.name,
-            scopes=[example.id],
-            description="This alert will monitor a specific storage account updates.",
-            criteria=azure.monitoring.ActivityLogAlertCriteriaArgs(
-                resource_id=to_monitor.id,
-                operation_name="Microsoft.Storage/storageAccounts/write",
-                category="Recommendation",
-            ),
-            actions=[azure.monitoring.ActivityLogAlertActionArgs(
-                action_group_id=main_action_group.id,
-                webhook_properties={
-                    "from": "source",
-                },
-            )])
-        ```
 
         ## Import
 
@@ -498,11 +432,7 @@ class ActivityLogAlert(pulumi.CustomResource):
             __props__ = ActivityLogAlertArgs.__new__(ActivityLogAlertArgs)
 
             __props__.__dict__["actions"] = actions
-            if criteria is not None and not isinstance(criteria, ActivityLogAlertCriteriaArgs):
-                criteria = criteria or {}
-                def _setter(key, value):
-                    criteria[key] = value
-                ActivityLogAlertCriteriaArgs._configure(_setter, **criteria)
+            criteria = _utilities.configure(criteria, ActivityLogAlertCriteriaArgs, True)
             if criteria is None and not opts.urn:
                 raise TypeError("Missing required property 'criteria'")
             __props__.__dict__["criteria"] = criteria

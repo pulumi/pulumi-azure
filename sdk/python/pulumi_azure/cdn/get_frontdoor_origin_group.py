@@ -136,17 +136,6 @@ def get_frontdoor_origin_group(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Front Door (standard/premium) Origin Group.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.cdn.get_frontdoor_origin_group(name="example-origin-group",
-        profile_name="example-profile",
-        resource_group_name="example-resources")
-    ```
-
 
     :param str name: Specifies the name of the Front Door Origin Group.
     :param str profile_name: The name of the Front Door Profile within which Front Door Origin Group exists.
@@ -178,17 +167,6 @@ def get_frontdoor_origin_group_output(name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFrontdoorOriginGroupResult]:
     """
     Use this data source to access information about an existing Front Door (standard/premium) Origin Group.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.cdn.get_frontdoor_origin_group(name="example-origin-group",
-        profile_name="example-profile",
-        resource_group_name="example-resources")
-    ```
 
 
     :param str name: Specifies the name of the Front Door Origin Group.

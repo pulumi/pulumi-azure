@@ -115,17 +115,6 @@ def get_dashboard(dashboard_properties: Optional[str] = None,
     """
     Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `portal.Dashboard` resource.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.portal.get_dashboard(name="existing-dashboard",
-        resource_group_name="dashboard-rg")
-    pulumi.export("id", data["azurerm_dashboard"]["example"]["id"])
-    ```
-
 
     :param str dashboard_properties: JSON data representing dashboard body.
     :param str display_name: Specifies the display name of the shared Azure Portal Dashboard.
@@ -158,17 +147,6 @@ def get_dashboard_output(dashboard_properties: Optional[pulumi.Input[Optional[st
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDashboardResult]:
     """
     Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `portal.Dashboard` resource.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.portal.get_dashboard(name="existing-dashboard",
-        resource_group_name="dashboard-rg")
-    pulumi.export("id", data["azurerm_dashboard"]["example"]["id"])
-    ```
 
 
     :param str dashboard_properties: JSON data representing dashboard body.

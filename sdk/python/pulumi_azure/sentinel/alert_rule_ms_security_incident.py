@@ -55,31 +55,39 @@ class AlertRuleMsSecurityIncidentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             display_name: pulumi.Input[str],
-             log_analytics_workspace_id: pulumi.Input[str],
-             product_filter: pulumi.Input[str],
-             severity_filters: pulumi.Input[Sequence[pulumi.Input[str]]],
+             display_name: Optional[pulumi.Input[str]] = None,
+             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+             product_filter: Optional[pulumi.Input[str]] = None,
+             severity_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              alert_rule_template_guid: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              display_name_exclude_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              display_name_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'productFilter' in kwargs:
+        if log_analytics_workspace_id is None:
+            raise TypeError("Missing 'log_analytics_workspace_id' argument")
+        if product_filter is None and 'productFilter' in kwargs:
             product_filter = kwargs['productFilter']
-        if 'severityFilters' in kwargs:
+        if product_filter is None:
+            raise TypeError("Missing 'product_filter' argument")
+        if severity_filters is None and 'severityFilters' in kwargs:
             severity_filters = kwargs['severityFilters']
-        if 'alertRuleTemplateGuid' in kwargs:
+        if severity_filters is None:
+            raise TypeError("Missing 'severity_filters' argument")
+        if alert_rule_template_guid is None and 'alertRuleTemplateGuid' in kwargs:
             alert_rule_template_guid = kwargs['alertRuleTemplateGuid']
-        if 'displayNameExcludeFilters' in kwargs:
+        if display_name_exclude_filters is None and 'displayNameExcludeFilters' in kwargs:
             display_name_exclude_filters = kwargs['displayNameExcludeFilters']
-        if 'displayNameFilters' in kwargs:
+        if display_name_filters is None and 'displayNameFilters' in kwargs:
             display_name_filters = kwargs['displayNameFilters']
 
         _setter("display_name", display_name)
@@ -276,21 +284,21 @@ class _AlertRuleMsSecurityIncidentState:
              name: Optional[pulumi.Input[str]] = None,
              product_filter: Optional[pulumi.Input[str]] = None,
              severity_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'alertRuleTemplateGuid' in kwargs:
+        if alert_rule_template_guid is None and 'alertRuleTemplateGuid' in kwargs:
             alert_rule_template_guid = kwargs['alertRuleTemplateGuid']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'displayNameExcludeFilters' in kwargs:
+        if display_name_exclude_filters is None and 'displayNameExcludeFilters' in kwargs:
             display_name_exclude_filters = kwargs['displayNameExcludeFilters']
-        if 'displayNameFilters' in kwargs:
+        if display_name_filters is None and 'displayNameFilters' in kwargs:
             display_name_filters = kwargs['displayNameFilters']
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'productFilter' in kwargs:
+        if product_filter is None and 'productFilter' in kwargs:
             product_filter = kwargs['productFilter']
-        if 'severityFilters' in kwargs:
+        if severity_filters is None and 'severityFilters' in kwargs:
             severity_filters = kwargs['severityFilters']
 
         if alert_rule_template_guid is not None:
@@ -456,25 +464,6 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
         """
         Manages a Sentinel MS Security Incident Alert Rule.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018")
-        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", workspace_id=example_analytics_workspace.id)
-        example_alert_rule_ms_security_incident = azure.sentinel.AlertRuleMsSecurityIncident("exampleAlertRuleMsSecurityIncident",
-            log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
-            product_filter="Microsoft Cloud App Security",
-            display_name="example rule",
-            severity_filters=["High"])
-        ```
-
         ## Import
 
         Sentinel MS Security Incident Alert Rules can be imported using the `resource id`, e.g.
@@ -506,25 +495,6 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Sentinel MS Security Incident Alert Rule.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018")
-        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", workspace_id=example_analytics_workspace.id)
-        example_alert_rule_ms_security_incident = azure.sentinel.AlertRuleMsSecurityIncident("exampleAlertRuleMsSecurityIncident",
-            log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
-            product_filter="Microsoft Cloud App Security",
-            display_name="example rule",
-            severity_filters=["High"])
-        ```
 
         ## Import
 

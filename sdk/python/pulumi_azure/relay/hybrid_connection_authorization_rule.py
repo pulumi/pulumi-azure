@@ -44,21 +44,27 @@ class HybridConnectionAuthorizationRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             hybrid_connection_name: pulumi.Input[str],
-             namespace_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             hybrid_connection_name: Optional[pulumi.Input[str]] = None,
+             namespace_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              listen: Optional[pulumi.Input[bool]] = None,
              manage: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              send: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'hybridConnectionName' in kwargs:
+        if hybrid_connection_name is None and 'hybridConnectionName' in kwargs:
             hybrid_connection_name = kwargs['hybridConnectionName']
-        if 'namespaceName' in kwargs:
+        if hybrid_connection_name is None:
+            raise TypeError("Missing 'hybrid_connection_name' argument")
+        if namespace_name is None and 'namespaceName' in kwargs:
             namespace_name = kwargs['namespaceName']
-        if 'resourceGroupName' in kwargs:
+        if namespace_name is None:
+            raise TypeError("Missing 'namespace_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("hybrid_connection_name", hybrid_connection_name)
         _setter("namespace_name", namespace_name)
@@ -213,21 +219,21 @@ class _HybridConnectionAuthorizationRuleState:
              secondary_connection_string: Optional[pulumi.Input[str]] = None,
              secondary_key: Optional[pulumi.Input[str]] = None,
              send: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'hybridConnectionName' in kwargs:
+        if hybrid_connection_name is None and 'hybridConnectionName' in kwargs:
             hybrid_connection_name = kwargs['hybridConnectionName']
-        if 'namespaceName' in kwargs:
+        if namespace_name is None and 'namespaceName' in kwargs:
             namespace_name = kwargs['namespaceName']
-        if 'primaryConnectionString' in kwargs:
+        if primary_connection_string is None and 'primaryConnectionString' in kwargs:
             primary_connection_string = kwargs['primaryConnectionString']
-        if 'primaryKey' in kwargs:
+        if primary_key is None and 'primaryKey' in kwargs:
             primary_key = kwargs['primaryKey']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'secondaryConnectionString' in kwargs:
+        if secondary_connection_string is None and 'secondaryConnectionString' in kwargs:
             secondary_connection_string = kwargs['secondaryConnectionString']
-        if 'secondaryKey' in kwargs:
+        if secondary_key is None and 'secondaryKey' in kwargs:
             secondary_key = kwargs['secondaryKey']
 
         if hybrid_connection_name is not None:
@@ -402,34 +408,6 @@ class HybridConnectionAuthorizationRule(pulumi.CustomResource):
         """
         Manages an Azure Relay Hybrid Connection Authorization Rule.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_namespace = azure.relay.Namespace("exampleNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Standard",
-            tags={
-                "source": "terraform",
-            })
-        example_hybrid_connection = azure.relay.HybridConnection("exampleHybridConnection",
-            resource_group_name=example_resource_group.name,
-            relay_namespace_name=example_namespace.name,
-            requires_client_authorization=False,
-            user_metadata="testmetadata")
-        example_hybrid_connection_authorization_rule = azure.relay.HybridConnectionAuthorizationRule("exampleHybridConnectionAuthorizationRule",
-            resource_group_name=example_resource_group.name,
-            hybrid_connection_name=example_hybrid_connection.name,
-            namespace_name=example_namespace.name,
-            listen=True,
-            send=True,
-            manage=False)
-        ```
-
         ## Import
 
         Azure Relay Hybrid Connection Authorization Rules can be imported using the `resource id`, e.g.
@@ -456,34 +434,6 @@ class HybridConnectionAuthorizationRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Relay Hybrid Connection Authorization Rule.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_namespace = azure.relay.Namespace("exampleNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Standard",
-            tags={
-                "source": "terraform",
-            })
-        example_hybrid_connection = azure.relay.HybridConnection("exampleHybridConnection",
-            resource_group_name=example_resource_group.name,
-            relay_namespace_name=example_namespace.name,
-            requires_client_authorization=False,
-            user_metadata="testmetadata")
-        example_hybrid_connection_authorization_rule = azure.relay.HybridConnectionAuthorizationRule("exampleHybridConnectionAuthorizationRule",
-            resource_group_name=example_resource_group.name,
-            hybrid_connection_name=example_hybrid_connection.name,
-            namespace_name=example_namespace.name,
-            listen=True,
-            send=True,
-            manage=False)
-        ```
 
         ## Import
 

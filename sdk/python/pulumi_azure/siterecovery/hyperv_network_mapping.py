@@ -38,21 +38,29 @@ class HypervNetworkMappingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             recovery_vault_id: pulumi.Input[str],
-             source_network_name: pulumi.Input[str],
-             source_system_center_virtual_machine_manager_name: pulumi.Input[str],
-             target_network_id: pulumi.Input[str],
+             recovery_vault_id: Optional[pulumi.Input[str]] = None,
+             source_network_name: Optional[pulumi.Input[str]] = None,
+             source_system_center_virtual_machine_manager_name: Optional[pulumi.Input[str]] = None,
+             target_network_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'recoveryVaultId' in kwargs:
+        if recovery_vault_id is None and 'recoveryVaultId' in kwargs:
             recovery_vault_id = kwargs['recoveryVaultId']
-        if 'sourceNetworkName' in kwargs:
+        if recovery_vault_id is None:
+            raise TypeError("Missing 'recovery_vault_id' argument")
+        if source_network_name is None and 'sourceNetworkName' in kwargs:
             source_network_name = kwargs['sourceNetworkName']
-        if 'sourceSystemCenterVirtualMachineManagerName' in kwargs:
+        if source_network_name is None:
+            raise TypeError("Missing 'source_network_name' argument")
+        if source_system_center_virtual_machine_manager_name is None and 'sourceSystemCenterVirtualMachineManagerName' in kwargs:
             source_system_center_virtual_machine_manager_name = kwargs['sourceSystemCenterVirtualMachineManagerName']
-        if 'targetNetworkId' in kwargs:
+        if source_system_center_virtual_machine_manager_name is None:
+            raise TypeError("Missing 'source_system_center_virtual_machine_manager_name' argument")
+        if target_network_id is None and 'targetNetworkId' in kwargs:
             target_network_id = kwargs['targetNetworkId']
+        if target_network_id is None:
+            raise TypeError("Missing 'target_network_id' argument")
 
         _setter("recovery_vault_id", recovery_vault_id)
         _setter("source_network_name", source_network_name)
@@ -154,15 +162,15 @@ class _HypervNetworkMappingState:
              source_network_name: Optional[pulumi.Input[str]] = None,
              source_system_center_virtual_machine_manager_name: Optional[pulumi.Input[str]] = None,
              target_network_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'recoveryVaultId' in kwargs:
+        if recovery_vault_id is None and 'recoveryVaultId' in kwargs:
             recovery_vault_id = kwargs['recoveryVaultId']
-        if 'sourceNetworkName' in kwargs:
+        if source_network_name is None and 'sourceNetworkName' in kwargs:
             source_network_name = kwargs['sourceNetworkName']
-        if 'sourceSystemCenterVirtualMachineManagerName' in kwargs:
+        if source_system_center_virtual_machine_manager_name is None and 'sourceSystemCenterVirtualMachineManagerName' in kwargs:
             source_system_center_virtual_machine_manager_name = kwargs['sourceSystemCenterVirtualMachineManagerName']
-        if 'targetNetworkId' in kwargs:
+        if target_network_id is None and 'targetNetworkId' in kwargs:
             target_network_id = kwargs['targetNetworkId']
 
         if name is not None:
@@ -251,28 +259,6 @@ class HypervNetworkMapping(pulumi.CustomResource):
         """
         Manages a HyperV site recovery network mapping on Azure. A HyperV network mapping decides how to translate connected networks when a VM is migrated from HyperV VMM Center to Azure.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        target_resource_group = azure.core.ResourceGroup("targetResourceGroup", location="East US")
-        vault = azure.recoveryservices.Vault("vault",
-            location=target_resource_group.location,
-            resource_group_name=target_resource_group.name,
-            sku="Standard")
-        target_virtual_network = azure.network.VirtualNetwork("targetVirtualNetwork",
-            resource_group_name=target_resource_group.name,
-            address_spaces=["192.168.2.0/24"],
-            location=target_resource_group.location)
-        recovery_mapping = azure.siterecovery.HypervNetworkMapping("recovery-mapping",
-            recovery_vault_id=vault.id,
-            source_system_center_virtual_machine_manager_name="my-vmm-server",
-            source_network_name="my-vmm-network",
-            target_network_id=target_virtual_network.id)
-        ```
-
         ## Import
 
         Site Recovery Network Mapping can be imported using the `resource id`, e.g.
@@ -297,28 +283,6 @@ class HypervNetworkMapping(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a HyperV site recovery network mapping on Azure. A HyperV network mapping decides how to translate connected networks when a VM is migrated from HyperV VMM Center to Azure.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        target_resource_group = azure.core.ResourceGroup("targetResourceGroup", location="East US")
-        vault = azure.recoveryservices.Vault("vault",
-            location=target_resource_group.location,
-            resource_group_name=target_resource_group.name,
-            sku="Standard")
-        target_virtual_network = azure.network.VirtualNetwork("targetVirtualNetwork",
-            resource_group_name=target_resource_group.name,
-            address_spaces=["192.168.2.0/24"],
-            location=target_resource_group.location)
-        recovery_mapping = azure.siterecovery.HypervNetworkMapping("recovery-mapping",
-            recovery_vault_id=vault.id,
-            source_system_center_virtual_machine_manager_name="my-vmm-server",
-            source_network_name="my-vmm-network",
-            target_network_id=target_virtual_network.id)
-        ```
 
         ## Import
 

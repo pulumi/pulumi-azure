@@ -35,14 +35,16 @@ class FrontdoorEndpointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cdn_frontdoor_profile_id: pulumi.Input[str],
+             cdn_frontdoor_profile_id: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'cdnFrontdoorProfileId' in kwargs:
+        if cdn_frontdoor_profile_id is None and 'cdnFrontdoorProfileId' in kwargs:
             cdn_frontdoor_profile_id = kwargs['cdnFrontdoorProfileId']
+        if cdn_frontdoor_profile_id is None:
+            raise TypeError("Missing 'cdn_frontdoor_profile_id' argument")
 
         _setter("cdn_frontdoor_profile_id", cdn_frontdoor_profile_id)
         if enabled is not None:
@@ -133,11 +135,11 @@ class _FrontdoorEndpointState:
              host_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'cdnFrontdoorProfileId' in kwargs:
+        if cdn_frontdoor_profile_id is None and 'cdnFrontdoorProfileId' in kwargs:
             cdn_frontdoor_profile_id = kwargs['cdnFrontdoorProfileId']
-        if 'hostName' in kwargs:
+        if host_name is None and 'hostName' in kwargs:
             host_name = kwargs['hostName']
 
         if cdn_frontdoor_profile_id is not None:
@@ -225,23 +227,6 @@ class FrontdoorEndpoint(pulumi.CustomResource):
         """
         Manages a Front Door (standard/premium) Endpoint.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_frontdoor_profile = azure.cdn.FrontdoorProfile("exampleFrontdoorProfile",
-            resource_group_name=example_resource_group.name,
-            sku_name="Standard_AzureFrontDoor")
-        example_frontdoor_endpoint = azure.cdn.FrontdoorEndpoint("exampleFrontdoorEndpoint",
-            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
-            tags={
-                "ENV": "example",
-            })
-        ```
-
         ## Import
 
         Front Door Endpoints can be imported using the `resource id`, e.g.
@@ -265,23 +250,6 @@ class FrontdoorEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Front Door (standard/premium) Endpoint.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_frontdoor_profile = azure.cdn.FrontdoorProfile("exampleFrontdoorProfile",
-            resource_group_name=example_resource_group.name,
-            sku_name="Standard_AzureFrontDoor")
-        example_frontdoor_endpoint = azure.cdn.FrontdoorEndpoint("exampleFrontdoorEndpoint",
-            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
-            tags={
-                "ENV": "example",
-            })
-        ```
 
         ## Import
 

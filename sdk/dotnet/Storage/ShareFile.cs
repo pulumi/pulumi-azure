@@ -12,44 +12,6 @@ namespace Pulumi.Azure.Storage
     /// <summary>
     /// Manages a File within an Azure Storage File Share.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         AccountTier = "Standard",
-    ///         AccountReplicationType = "LRS",
-    ///     });
-    /// 
-    ///     var exampleShare = new Azure.Storage.Share("exampleShare", new()
-    ///     {
-    ///         StorageAccountName = exampleAccount.Name,
-    ///         Quota = 50,
-    ///     });
-    /// 
-    ///     var exampleShareFile = new Azure.Storage.ShareFile("exampleShareFile", new()
-    ///     {
-    ///         StorageShareId = exampleShare.Id,
-    ///         Source = "some-local-file.zip",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Directories within an Azure Storage File Share can be imported using the `resource id`, e.g.

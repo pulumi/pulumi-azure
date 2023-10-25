@@ -12,46 +12,6 @@ namespace Pulumi.Azure.MariaDB
     /// <summary>
     /// Manages a MariaDB Database within a MariaDB Server
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleServer = new Azure.MariaDB.Server("exampleServer", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         SkuName = "B_Gen5_2",
-    ///         StorageMb = 51200,
-    ///         BackupRetentionDays = 7,
-    ///         GeoRedundantBackupEnabled = false,
-    ///         AdministratorLogin = "acctestun",
-    ///         AdministratorLoginPassword = "H@Sh1CoR3!",
-    ///         Version = "10.2",
-    ///         SslEnforcementEnabled = true,
-    ///     });
-    /// 
-    ///     var exampleDatabase = new Azure.MariaDB.Database("exampleDatabase", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         ServerName = exampleServer.Name,
-    ///         Charset = "utf8mb4",
-    ///         Collation = "utf8mb4_unicode_520_ci",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// MariaDB Database's can be imported using the `resource id`, e.g.

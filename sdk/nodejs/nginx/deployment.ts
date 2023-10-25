@@ -9,56 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Nginx Deployment.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     allocationMethod: "Static",
- *     sku: "Standard",
- *     tags: {
- *         environment: "Production",
- *     },
- * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     addressSpaces: ["10.0.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.2.0/24"],
- *     delegations: [{
- *         name: "delegation",
- *         serviceDelegation: {
- *             name: "NGINX.NGINXPLUS/nginxDeployments",
- *             actions: ["Microsoft.Network/virtualNetworks/subnets/join/action"],
- *         },
- *     }],
- * });
- * const exampleDeployment = new azure.nginx.Deployment("exampleDeployment", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "publicpreview_Monthly_gmz7xq9ge3py",
- *     location: exampleResourceGroup.location,
- *     managedResourceGroup: "example",
- *     diagnoseSupportEnabled: true,
- *     frontendPublic: {
- *         ipAddresses: [examplePublicIp.id],
- *     },
- *     networkInterfaces: [{
- *         subnetId: exampleSubnet.id,
- *     }],
- *     capacity: 20,
- *     email: "user@test.com",
- * });
- * ```
- *
  * ## Import
  *
  * Nginx Deployments can be imported using the `resource id`, e.g.

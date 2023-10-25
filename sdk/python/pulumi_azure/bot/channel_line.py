@@ -37,18 +37,24 @@ class ChannelLineArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bot_name: pulumi.Input[str],
-             line_channels: pulumi.Input[Sequence[pulumi.Input['ChannelLineLineChannelArgs']]],
-             resource_group_name: pulumi.Input[str],
+             bot_name: Optional[pulumi.Input[str]] = None,
+             line_channels: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelLineLineChannelArgs']]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'botName' in kwargs:
+        if bot_name is None and 'botName' in kwargs:
             bot_name = kwargs['botName']
-        if 'lineChannels' in kwargs:
+        if bot_name is None:
+            raise TypeError("Missing 'bot_name' argument")
+        if line_channels is None and 'lineChannels' in kwargs:
             line_channels = kwargs['lineChannels']
-        if 'resourceGroupName' in kwargs:
+        if line_channels is None:
+            raise TypeError("Missing 'line_channels' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("bot_name", bot_name)
         _setter("line_channels", line_channels)
@@ -133,13 +139,13 @@ class _ChannelLineState:
              line_channels: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelLineLineChannelArgs']]]] = None,
              location: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'botName' in kwargs:
+        if bot_name is None and 'botName' in kwargs:
             bot_name = kwargs['botName']
-        if 'lineChannels' in kwargs:
+        if line_channels is None and 'lineChannels' in kwargs:
             line_channels = kwargs['lineChannels']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if bot_name is not None:
@@ -215,29 +221,6 @@ class ChannelLine(pulumi.CustomResource):
 
         > **Note** A bot can only have a single Line Channel associated with it.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_channels_registration = azure.bot.ChannelsRegistration("exampleChannelsRegistration",
-            location="global",
-            resource_group_name=example_resource_group.name,
-            sku="F0",
-            microsoft_app_id=current.client_id)
-        example_channel_line = azure.bot.ChannelLine("exampleChannelLine",
-            bot_name=example_channels_registration.name,
-            location=example_channels_registration.location,
-            resource_group_name=example_resource_group.name,
-            line_channels=[azure.bot.ChannelLineLineChannelArgs(
-                access_token="asdfdsdfTYUIOIoj1231hkjhk",
-                secret="aagfdgfd123567",
-            )])
-        ```
-
         ## Import
 
         The Line Integration for a Bot Channel can be imported using the `resource id`, e.g.
@@ -263,29 +246,6 @@ class ChannelLine(pulumi.CustomResource):
         Manages a Line integration for a Bot Channel
 
         > **Note** A bot can only have a single Line Channel associated with it.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_channels_registration = azure.bot.ChannelsRegistration("exampleChannelsRegistration",
-            location="global",
-            resource_group_name=example_resource_group.name,
-            sku="F0",
-            microsoft_app_id=current.client_id)
-        example_channel_line = azure.bot.ChannelLine("exampleChannelLine",
-            bot_name=example_channels_registration.name,
-            location=example_channels_registration.location,
-            resource_group_name=example_resource_group.name,
-            line_channels=[azure.bot.ChannelLineLineChannelArgs(
-                access_token="asdfdsdfTYUIOIoj1231hkjhk",
-                secret="aagfdgfd123567",
-            )])
-        ```
 
         ## Import
 

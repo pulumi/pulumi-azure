@@ -16,93 +16,9 @@ import (
 // Manages a datadog Monitor.
 //
 // ## Example Usage
-// ### Monitor creation with linking to Datadog organization
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datadog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West US 2"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = datadog.NewMonitor(ctx, "exampleMonitor", &datadog.MonitorArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
-//				DatadogOrganization: &datadog.MonitorDatadogOrganizationArgs{
-//					ApiKey:         pulumi.String("XXXX"),
-//					ApplicationKey: pulumi.String("XXXX"),
-//				},
-//				User: &datadog.MonitorUserArgs{
-//					Name:  pulumi.String("Example"),
-//					Email: pulumi.String("abc@xyz.com"),
-//				},
-//				SkuName: pulumi.String("Linked"),
-//				Identity: &datadog.MonitorIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ## Role Assignment
 //
 // To enable metrics flow, perform role assignment on the identity created above. `Monitoring reader(43d0d8ad-25c7-4714-9337-8ba259a9fe05)` role is required .
-//
-// ### Role assignment on the monitor created
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			primary, err := core.LookupSubscription(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			monitoringReader, err := authorization.LookupRoleDefinition(ctx, &authorization.LookupRoleDefinitionArgs{
-//				Name: pulumi.StringRef("Monitoring Reader"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
-//				Scope:            *pulumi.String(primary.Id),
-//				RoleDefinitionId: *pulumi.String(monitoringReader.RoleDefinitionId),
-//				PrincipalId:      pulumi.Any(azurerm_datadog_monitor.Example.Identity[0].Principal_id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

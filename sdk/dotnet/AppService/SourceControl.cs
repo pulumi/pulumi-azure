@@ -12,47 +12,6 @@ namespace Pulumi.Azure.AppService
     /// <summary>
     /// Manages an App Service Web App or Function App Source Control Configuration.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleServicePlan = new Azure.AppService.ServicePlan("exampleServicePlan", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         OsType = "Linux",
-    ///         SkuName = "P1v2",
-    ///     });
-    /// 
-    ///     var exampleLinuxWebApp = new Azure.AppService.LinuxWebApp("exampleLinuxWebApp", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleServicePlan.Location,
-    ///         ServicePlanId = exampleServicePlan.Id,
-    ///         SiteConfig = null,
-    ///     });
-    /// 
-    ///     var exampleSourceControl = new Azure.AppService.SourceControl("exampleSourceControl", new()
-    ///     {
-    ///         AppId = exampleLinuxWebApp.Id,
-    ///         RepoUrl = "https://github.com/Azure-Samples/python-docs-hello-world",
-    ///         Branch = "master",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// App Service Source Controls can be imported using the `resource id`, e.g.

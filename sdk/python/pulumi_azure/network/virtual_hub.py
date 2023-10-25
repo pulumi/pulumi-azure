@@ -55,7 +55,7 @@ class VirtualHubArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              address_prefix: Optional[pulumi.Input[str]] = None,
              hub_routing_preference: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
@@ -65,17 +65,19 @@ class VirtualHubArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              virtual_router_auto_scale_min_capacity: Optional[pulumi.Input[int]] = None,
              virtual_wan_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'addressPrefix' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if address_prefix is None and 'addressPrefix' in kwargs:
             address_prefix = kwargs['addressPrefix']
-        if 'hubRoutingPreference' in kwargs:
+        if hub_routing_preference is None and 'hubRoutingPreference' in kwargs:
             hub_routing_preference = kwargs['hubRoutingPreference']
-        if 'virtualRouterAutoScaleMinCapacity' in kwargs:
+        if virtual_router_auto_scale_min_capacity is None and 'virtualRouterAutoScaleMinCapacity' in kwargs:
             virtual_router_auto_scale_min_capacity = kwargs['virtualRouterAutoScaleMinCapacity']
-        if 'virtualWanId' in kwargs:
+        if virtual_wan_id is None and 'virtualWanId' in kwargs:
             virtual_wan_id = kwargs['virtualWanId']
 
         _setter("resource_group_name", resource_group_name)
@@ -283,23 +285,23 @@ class _VirtualHubState:
              virtual_router_auto_scale_min_capacity: Optional[pulumi.Input[int]] = None,
              virtual_router_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              virtual_wan_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'addressPrefix' in kwargs:
+        if address_prefix is None and 'addressPrefix' in kwargs:
             address_prefix = kwargs['addressPrefix']
-        if 'defaultRouteTableId' in kwargs:
+        if default_route_table_id is None and 'defaultRouteTableId' in kwargs:
             default_route_table_id = kwargs['defaultRouteTableId']
-        if 'hubRoutingPreference' in kwargs:
+        if hub_routing_preference is None and 'hubRoutingPreference' in kwargs:
             hub_routing_preference = kwargs['hubRoutingPreference']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'virtualRouterAsn' in kwargs:
+        if virtual_router_asn is None and 'virtualRouterAsn' in kwargs:
             virtual_router_asn = kwargs['virtualRouterAsn']
-        if 'virtualRouterAutoScaleMinCapacity' in kwargs:
+        if virtual_router_auto_scale_min_capacity is None and 'virtualRouterAutoScaleMinCapacity' in kwargs:
             virtual_router_auto_scale_min_capacity = kwargs['virtualRouterAutoScaleMinCapacity']
-        if 'virtualRouterIps' in kwargs:
+        if virtual_router_ips is None and 'virtualRouterIps' in kwargs:
             virtual_router_ips = kwargs['virtualRouterIps']
-        if 'virtualWanId' in kwargs:
+        if virtual_wan_id is None and 'virtualWanId' in kwargs:
             virtual_wan_id = kwargs['virtualWanId']
 
         if address_prefix is not None:
@@ -505,23 +507,6 @@ class VirtualHub(pulumi.CustomResource):
         """
         Manages a Virtual Hub within a Virtual WAN.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_wan = azure.network.VirtualWan("exampleVirtualWan",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_virtual_hub = azure.network.VirtualHub("exampleVirtualHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            virtual_wan_id=example_virtual_wan.id,
-            address_prefix="10.0.0.0/23")
-        ```
-
         ## Import
 
         Virtual Hub's can be imported using the `resource id`, e.g.
@@ -551,23 +536,6 @@ class VirtualHub(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Virtual Hub within a Virtual WAN.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_wan = azure.network.VirtualWan("exampleVirtualWan",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_virtual_hub = azure.network.VirtualHub("exampleVirtualHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            virtual_wan_id=example_virtual_wan.id,
-            address_prefix="10.0.0.0/23")
-        ```
 
         ## Import
 

@@ -52,24 +52,30 @@ class DefinitionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             display_name: pulumi.Input[str],
-             mode: pulumi.Input[str],
-             policy_type: pulumi.Input[str],
+             display_name: Optional[pulumi.Input[str]] = None,
+             mode: Optional[pulumi.Input[str]] = None,
+             policy_type: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              management_group_id: Optional[pulumi.Input[str]] = None,
              metadata: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[str]] = None,
              policy_rule: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'policyType' in kwargs:
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if mode is None:
+            raise TypeError("Missing 'mode' argument")
+        if policy_type is None and 'policyType' in kwargs:
             policy_type = kwargs['policyType']
-        if 'managementGroupId' in kwargs:
+        if policy_type is None:
+            raise TypeError("Missing 'policy_type' argument")
+        if management_group_id is None and 'managementGroupId' in kwargs:
             management_group_id = kwargs['managementGroupId']
-        if 'policyRule' in kwargs:
+        if policy_rule is None and 'policyRule' in kwargs:
             policy_rule = kwargs['policyRule']
 
         _setter("display_name", display_name)
@@ -253,17 +259,17 @@ class _DefinitionState:
              policy_rule: Optional[pulumi.Input[str]] = None,
              policy_type: Optional[pulumi.Input[str]] = None,
              role_definition_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'managementGroupId' in kwargs:
+        if management_group_id is None and 'managementGroupId' in kwargs:
             management_group_id = kwargs['managementGroupId']
-        if 'policyRule' in kwargs:
+        if policy_rule is None and 'policyRule' in kwargs:
             policy_rule = kwargs['policyRule']
-        if 'policyType' in kwargs:
+        if policy_type is None and 'policyType' in kwargs:
             policy_type = kwargs['policyType']
-        if 'roleDefinitionIds' in kwargs:
+        if role_definition_ids is None and 'roleDefinitionIds' in kwargs:
             role_definition_ids = kwargs['roleDefinitionIds']
 
         if description is not None:
@@ -430,49 +436,6 @@ class Definition(pulumi.CustomResource):
 
         Policy definitions do not take effect until they are assigned to a scope using a Policy Assignment.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        policy = azure.policy.Definition("policy",
-            display_name="acceptance test policy definition",
-            metadata=\"\"\"    {
-            "category": "General"
-            }
-
-
-        \"\"\",
-            mode="Indexed",
-            parameters=\"\"\" {
-            "allowedLocations": {
-              "type": "Array",
-              "metadata": {
-                "description": "The list of allowed locations for resources.",
-                "displayName": "Allowed locations",
-                "strongType": "location"
-              }
-            }
-          }
-
-        \"\"\",
-            policy_rule=\"\"\" {
-            "if": {
-              "not": {
-                "field": "location",
-                "in": "[parameters('allowedLocations')]"
-              }
-            },
-            "then": {
-              "effect": "audit"
-            }
-          }
-
-        \"\"\",
-            policy_type="Custom")
-        ```
-
         ## Import
 
         Policy Definitions can be imported using the `policy name`, e.g.
@@ -511,49 +474,6 @@ class Definition(pulumi.CustomResource):
         Manages a policy rule definition on a management group or your provider subscription.
 
         Policy definitions do not take effect until they are assigned to a scope using a Policy Assignment.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        policy = azure.policy.Definition("policy",
-            display_name="acceptance test policy definition",
-            metadata=\"\"\"    {
-            "category": "General"
-            }
-
-
-        \"\"\",
-            mode="Indexed",
-            parameters=\"\"\" {
-            "allowedLocations": {
-              "type": "Array",
-              "metadata": {
-                "description": "The list of allowed locations for resources.",
-                "displayName": "Allowed locations",
-                "strongType": "location"
-              }
-            }
-          }
-
-        \"\"\",
-            policy_rule=\"\"\" {
-            "if": {
-              "not": {
-                "field": "location",
-                "in": "[parameters('allowedLocations')]"
-              }
-            },
-            "then": {
-              "effect": "audit"
-            }
-          }
-
-        \"\"\",
-            policy_type="Custom")
-        ```
 
         ## Import
 

@@ -88,18 +88,6 @@ def get_protection_container(name: Optional[str] = None,
     """
     Use this data source to access information about an existing site recovery services protection container.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    container = azure.siterecovery.get_protection_container(name="primary-container",
-        recovery_fabric_name="primary-fabric",
-        recovery_vault_name="tfex-recovery_vault",
-        resource_group_name="tfex-resource_group")
-    ```
-
 
     :param str name: Specifies the name of the protection container.
     :param str recovery_fabric_name: The name of the fabric that contains the protection container.
@@ -130,18 +118,6 @@ def get_protection_container_output(name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProtectionContainerResult]:
     """
     Use this data source to access information about an existing site recovery services protection container.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    container = azure.siterecovery.get_protection_container(name="primary-container",
-        recovery_fabric_name="primary-fabric",
-        recovery_vault_name="tfex-recovery_vault",
-        resource_group_name="tfex-resource_group")
-    ```
 
 
     :param str name: Specifies the name of the protection container.

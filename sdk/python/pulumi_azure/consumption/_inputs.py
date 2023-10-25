@@ -59,9 +59,9 @@ class BudgetManagementGroupFilterArgs:
              dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupFilterDimensionArgs']]]] = None,
              not_: Optional[pulumi.Input['BudgetManagementGroupFilterNotArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupFilterTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'not' in kwargs:
+        if not_ is None and 'not' in kwargs:
             not_ = kwargs['not']
 
         if dimensions is not None:
@@ -134,11 +134,15 @@ class BudgetManagementGroupFilterDimensionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             name: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("name", name)
         _setter("values", values)
@@ -201,7 +205,7 @@ class BudgetManagementGroupFilterNotArgs:
              _setter: Callable[[Any, Any], None],
              dimension: Optional[pulumi.Input['BudgetManagementGroupFilterNotDimensionArgs']] = None,
              tag: Optional[pulumi.Input['BudgetManagementGroupFilterNotTagArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
 
         if dimension is not None:
@@ -254,11 +258,15 @@ class BudgetManagementGroupFilterNotDimensionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             name: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("name", name)
         _setter("values", values)
@@ -322,11 +330,15 @@ class BudgetManagementGroupFilterNotTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             name: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("name", name)
         _setter("values", values)
@@ -390,11 +402,15 @@ class BudgetManagementGroupFilterTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             name: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("name", name)
         _setter("values", values)
@@ -464,16 +480,22 @@ class BudgetManagementGroupNotificationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             contact_emails: pulumi.Input[Sequence[pulumi.Input[str]]],
-             operator: pulumi.Input[str],
-             threshold: pulumi.Input[int],
+             contact_emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             operator: Optional[pulumi.Input[str]] = None,
+             threshold: Optional[pulumi.Input[int]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              threshold_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'contactEmails' in kwargs:
+        if contact_emails is None and 'contactEmails' in kwargs:
             contact_emails = kwargs['contactEmails']
-        if 'thresholdType' in kwargs:
+        if contact_emails is None:
+            raise TypeError("Missing 'contact_emails' argument")
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if threshold is None:
+            raise TypeError("Missing 'threshold' argument")
+        if threshold_type is None and 'thresholdType' in kwargs:
             threshold_type = kwargs['thresholdType']
 
         _setter("contact_emails", contact_emails)
@@ -562,13 +584,15 @@ class BudgetManagementGroupTimePeriodArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             start_date: pulumi.Input[str],
+             start_date: Optional[pulumi.Input[str]] = None,
              end_date: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'startDate' in kwargs:
+        if start_date is None and 'startDate' in kwargs:
             start_date = kwargs['startDate']
-        if 'endDate' in kwargs:
+        if start_date is None:
+            raise TypeError("Missing 'start_date' argument")
+        if end_date is None and 'endDate' in kwargs:
             end_date = kwargs['endDate']
 
         _setter("start_date", start_date)
@@ -623,9 +647,9 @@ class BudgetResourceGroupFilterArgs:
              dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetResourceGroupFilterDimensionArgs']]]] = None,
              not_: Optional[pulumi.Input['BudgetResourceGroupFilterNotArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetResourceGroupFilterTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'not' in kwargs:
+        if not_ is None and 'not' in kwargs:
             not_ = kwargs['not']
 
         if dimensions is not None:
@@ -698,11 +722,15 @@ class BudgetResourceGroupFilterDimensionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             name: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("name", name)
         _setter("values", values)
@@ -765,7 +793,7 @@ class BudgetResourceGroupFilterNotArgs:
              _setter: Callable[[Any, Any], None],
              dimension: Optional[pulumi.Input['BudgetResourceGroupFilterNotDimensionArgs']] = None,
              tag: Optional[pulumi.Input['BudgetResourceGroupFilterNotTagArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
 
         if dimension is not None:
@@ -818,11 +846,15 @@ class BudgetResourceGroupFilterNotDimensionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             name: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("name", name)
         _setter("values", values)
@@ -886,11 +918,15 @@ class BudgetResourceGroupFilterNotTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             name: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("name", name)
         _setter("values", values)
@@ -954,11 +990,15 @@ class BudgetResourceGroupFilterTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             name: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("name", name)
         _setter("values", values)
@@ -1036,22 +1076,26 @@ class BudgetResourceGroupNotificationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: pulumi.Input[str],
-             threshold: pulumi.Input[int],
+             operator: Optional[pulumi.Input[str]] = None,
+             threshold: Optional[pulumi.Input[int]] = None,
              contact_emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              contact_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              contact_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              threshold_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'contactEmails' in kwargs:
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if threshold is None:
+            raise TypeError("Missing 'threshold' argument")
+        if contact_emails is None and 'contactEmails' in kwargs:
             contact_emails = kwargs['contactEmails']
-        if 'contactGroups' in kwargs:
+        if contact_groups is None and 'contactGroups' in kwargs:
             contact_groups = kwargs['contactGroups']
-        if 'contactRoles' in kwargs:
+        if contact_roles is None and 'contactRoles' in kwargs:
             contact_roles = kwargs['contactRoles']
-        if 'thresholdType' in kwargs:
+        if threshold_type is None and 'thresholdType' in kwargs:
             threshold_type = kwargs['thresholdType']
 
         _setter("operator", operator)
@@ -1171,13 +1215,15 @@ class BudgetResourceGroupTimePeriodArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             start_date: pulumi.Input[str],
+             start_date: Optional[pulumi.Input[str]] = None,
              end_date: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'startDate' in kwargs:
+        if start_date is None and 'startDate' in kwargs:
             start_date = kwargs['startDate']
-        if 'endDate' in kwargs:
+        if start_date is None:
+            raise TypeError("Missing 'start_date' argument")
+        if end_date is None and 'endDate' in kwargs:
             end_date = kwargs['endDate']
 
         _setter("start_date", start_date)
@@ -1232,9 +1278,9 @@ class BudgetSubscriptionFilterArgs:
              dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionFilterDimensionArgs']]]] = None,
              not_: Optional[pulumi.Input['BudgetSubscriptionFilterNotArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionFilterTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'not' in kwargs:
+        if not_ is None and 'not' in kwargs:
             not_ = kwargs['not']
 
         if dimensions is not None:
@@ -1307,11 +1353,15 @@ class BudgetSubscriptionFilterDimensionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             name: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("name", name)
         _setter("values", values)
@@ -1374,7 +1424,7 @@ class BudgetSubscriptionFilterNotArgs:
              _setter: Callable[[Any, Any], None],
              dimension: Optional[pulumi.Input['BudgetSubscriptionFilterNotDimensionArgs']] = None,
              tag: Optional[pulumi.Input['BudgetSubscriptionFilterNotTagArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
 
         if dimension is not None:
@@ -1427,11 +1477,15 @@ class BudgetSubscriptionFilterNotDimensionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             name: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("name", name)
         _setter("values", values)
@@ -1495,11 +1549,15 @@ class BudgetSubscriptionFilterNotTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             name: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("name", name)
         _setter("values", values)
@@ -1563,11 +1621,15 @@ class BudgetSubscriptionFilterTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             name: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("name", name)
         _setter("values", values)
@@ -1645,22 +1707,26 @@ class BudgetSubscriptionNotificationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: pulumi.Input[str],
-             threshold: pulumi.Input[int],
+             operator: Optional[pulumi.Input[str]] = None,
+             threshold: Optional[pulumi.Input[int]] = None,
              contact_emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              contact_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              contact_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              threshold_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'contactEmails' in kwargs:
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if threshold is None:
+            raise TypeError("Missing 'threshold' argument")
+        if contact_emails is None and 'contactEmails' in kwargs:
             contact_emails = kwargs['contactEmails']
-        if 'contactGroups' in kwargs:
+        if contact_groups is None and 'contactGroups' in kwargs:
             contact_groups = kwargs['contactGroups']
-        if 'contactRoles' in kwargs:
+        if contact_roles is None and 'contactRoles' in kwargs:
             contact_roles = kwargs['contactRoles']
-        if 'thresholdType' in kwargs:
+        if threshold_type is None and 'thresholdType' in kwargs:
             threshold_type = kwargs['thresholdType']
 
         _setter("operator", operator)
@@ -1780,13 +1846,15 @@ class BudgetSubscriptionTimePeriodArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             start_date: pulumi.Input[str],
+             start_date: Optional[pulumi.Input[str]] = None,
              end_date: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'startDate' in kwargs:
+        if start_date is None and 'startDate' in kwargs:
             start_date = kwargs['startDate']
-        if 'endDate' in kwargs:
+        if start_date is None:
+            raise TypeError("Missing 'start_date' argument")
+        if end_date is None and 'endDate' in kwargs:
             end_date = kwargs['endDate']
 
         _setter("start_date", start_date)

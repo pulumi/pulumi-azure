@@ -15,52 +15,6 @@ import (
 
 // Manages a Storage Mover Agent.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("East US"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleMover, err := storage.NewMover(ctx, "exampleMover", &storage.MoverArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = storage.NewMoverAgent(ctx, "exampleMoverAgent", &storage.MoverAgentArgs{
-//				StorageMoverId: exampleMover.ID(),
-//				ArcVirtualMachineId: exampleResourceGroup.ID().ApplyT(func(id string) (string, error) {
-//					return fmt.Sprintf("%v/providers/Microsoft.HybridCompute/machines/examples-hybridComputeName", id), nil
-//				}).(pulumi.StringOutput),
-//				ArcVirtualMachineUuid: pulumi.String("3bb2c024-eba9-4d18-9e7a-1d772fcc5fe9"),
-//				Description:           pulumi.String("Example Agent Description"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Storage Mover Agent can be imported using the `resource id`, e.g.

@@ -7,60 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Private DNS Resolver Virtual Network Link.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "west europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     addressSpaces: ["10.0.0.0/16"],
- * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.0.64/28"],
- *     delegations: [{
- *         name: "Microsoft.Network.dnsResolvers",
- *         serviceDelegation: {
- *             actions: ["Microsoft.Network/virtualNetworks/subnets/join/action"],
- *             name: "Microsoft.Network/dnsResolvers",
- *         },
- *     }],
- * });
- * const exampleResolver = new azure.privatedns.Resolver("exampleResolver", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     virtualNetworkId: exampleVirtualNetwork.id,
- * });
- * const exampleResolverOutboundEndpoint = new azure.privatedns.ResolverOutboundEndpoint("exampleResolverOutboundEndpoint", {
- *     privateDnsResolverId: exampleResolver.id,
- *     location: exampleResolver.location,
- *     subnetId: exampleSubnet.id,
- *     tags: {
- *         key: "value",
- *     },
- * });
- * const exampleResolverDnsForwardingRuleset = new azure.privatedns.ResolverDnsForwardingRuleset("exampleResolverDnsForwardingRuleset", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     privateDnsResolverOutboundEndpointIds: [exampleResolverOutboundEndpoint.id],
- *     tags: {
- *         key: "value",
- *     },
- * });
- * const exampleResolverVirtualNetworkLink = new azure.privatedns.ResolverVirtualNetworkLink("exampleResolverVirtualNetworkLink", {
- *     dnsForwardingRulesetId: exampleResolverDnsForwardingRuleset.id,
- *     virtualNetworkId: exampleVirtualNetwork.id,
- *     metadata: {
- *         key: "value",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Private DNS Resolver Virtual Network Link can be imported using the `resource id`, e.g.

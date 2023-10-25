@@ -43,20 +43,26 @@ class ResolverForwardingRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             dns_forwarding_ruleset_id: pulumi.Input[str],
-             domain_name: pulumi.Input[str],
-             target_dns_servers: pulumi.Input[Sequence[pulumi.Input['ResolverForwardingRuleTargetDnsServerArgs']]],
+             dns_forwarding_ruleset_id: Optional[pulumi.Input[str]] = None,
+             domain_name: Optional[pulumi.Input[str]] = None,
+             target_dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input['ResolverForwardingRuleTargetDnsServerArgs']]]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dnsForwardingRulesetId' in kwargs:
+        if dns_forwarding_ruleset_id is None and 'dnsForwardingRulesetId' in kwargs:
             dns_forwarding_ruleset_id = kwargs['dnsForwardingRulesetId']
-        if 'domainName' in kwargs:
+        if dns_forwarding_ruleset_id is None:
+            raise TypeError("Missing 'dns_forwarding_ruleset_id' argument")
+        if domain_name is None and 'domainName' in kwargs:
             domain_name = kwargs['domainName']
-        if 'targetDnsServers' in kwargs:
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+        if target_dns_servers is None and 'targetDnsServers' in kwargs:
             target_dns_servers = kwargs['targetDnsServers']
+        if target_dns_servers is None:
+            raise TypeError("Missing 'target_dns_servers' argument")
 
         _setter("dns_forwarding_ruleset_id", dns_forwarding_ruleset_id)
         _setter("domain_name", domain_name)
@@ -177,13 +183,13 @@ class _ResolverForwardingRuleState:
              metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              target_dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input['ResolverForwardingRuleTargetDnsServerArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dnsForwardingRulesetId' in kwargs:
+        if dns_forwarding_ruleset_id is None and 'dnsForwardingRulesetId' in kwargs:
             dns_forwarding_ruleset_id = kwargs['dnsForwardingRulesetId']
-        if 'domainName' in kwargs:
+        if domain_name is None and 'domainName' in kwargs:
             domain_name = kwargs['domainName']
-        if 'targetDnsServers' in kwargs:
+        if target_dns_servers is None and 'targetDnsServers' in kwargs:
             target_dns_servers = kwargs['targetDnsServers']
 
         if dns_forwarding_ruleset_id is not None:
@@ -287,56 +293,6 @@ class ResolverForwardingRule(pulumi.CustomResource):
         """
         Manages a Private DNS Resolver Forwarding Rule.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="west europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            address_spaces=["10.0.0.0/16"])
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.0.64/28"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="Microsoft.Network.dnsResolvers",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
-                    name="Microsoft.Network/dnsResolvers",
-                ),
-            )])
-        example_resolver = azure.privatedns.Resolver("exampleResolver",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            virtual_network_id=example_virtual_network.id)
-        example_resolver_outbound_endpoint = azure.privatedns.ResolverOutboundEndpoint("exampleResolverOutboundEndpoint",
-            private_dns_resolver_id=example_resolver.id,
-            location=example_resolver.location,
-            subnet_id=example_subnet.id,
-            tags={
-                "key": "value",
-            })
-        example_resolver_dns_forwarding_ruleset = azure.privatedns.ResolverDnsForwardingRuleset("exampleResolverDnsForwardingRuleset",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            private_dns_resolver_outbound_endpoint_ids=[example_resolver_outbound_endpoint.id])
-        example_resolver_forwarding_rule = azure.privatedns.ResolverForwardingRule("exampleResolverForwardingRule",
-            dns_forwarding_ruleset_id=example_resolver_dns_forwarding_ruleset.id,
-            domain_name="onprem.local.",
-            enabled=True,
-            target_dns_servers=[azure.privatedns.ResolverForwardingRuleTargetDnsServerArgs(
-                ip_address="10.10.0.1",
-                port=53,
-            )],
-            metadata={
-                "key": "value",
-            })
-        ```
-
         ## Import
 
         Private DNS Resolver Forwarding Rules can be imported using the `resource id`, e.g.
@@ -362,56 +318,6 @@ class ResolverForwardingRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Private DNS Resolver Forwarding Rule.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="west europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            address_spaces=["10.0.0.0/16"])
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.0.64/28"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="Microsoft.Network.dnsResolvers",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
-                    name="Microsoft.Network/dnsResolvers",
-                ),
-            )])
-        example_resolver = azure.privatedns.Resolver("exampleResolver",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            virtual_network_id=example_virtual_network.id)
-        example_resolver_outbound_endpoint = azure.privatedns.ResolverOutboundEndpoint("exampleResolverOutboundEndpoint",
-            private_dns_resolver_id=example_resolver.id,
-            location=example_resolver.location,
-            subnet_id=example_subnet.id,
-            tags={
-                "key": "value",
-            })
-        example_resolver_dns_forwarding_ruleset = azure.privatedns.ResolverDnsForwardingRuleset("exampleResolverDnsForwardingRuleset",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            private_dns_resolver_outbound_endpoint_ids=[example_resolver_outbound_endpoint.id])
-        example_resolver_forwarding_rule = azure.privatedns.ResolverForwardingRule("exampleResolverForwardingRule",
-            dns_forwarding_ruleset_id=example_resolver_dns_forwarding_ruleset.id,
-            domain_name="onprem.local.",
-            enabled=True,
-            target_dns_servers=[azure.privatedns.ResolverForwardingRuleTargetDnsServerArgs(
-                ip_address="10.10.0.1",
-                port=53,
-            )],
-            metadata={
-                "key": "value",
-            })
-        ```
 
         ## Import
 

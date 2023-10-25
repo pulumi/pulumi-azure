@@ -54,24 +54,30 @@ class EnvironmentDaprComponentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             component_type: pulumi.Input[str],
-             container_app_environment_id: pulumi.Input[str],
-             version: pulumi.Input[str],
+             component_type: Optional[pulumi.Input[str]] = None,
+             container_app_environment_id: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
              ignore_errors: Optional[pulumi.Input[bool]] = None,
              init_timeout: Optional[pulumi.Input[str]] = None,
              metadatas: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentMetadataArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              secrets: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentSecretArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'componentType' in kwargs:
+        if component_type is None and 'componentType' in kwargs:
             component_type = kwargs['componentType']
-        if 'containerAppEnvironmentId' in kwargs:
+        if component_type is None:
+            raise TypeError("Missing 'component_type' argument")
+        if container_app_environment_id is None and 'containerAppEnvironmentId' in kwargs:
             container_app_environment_id = kwargs['containerAppEnvironmentId']
-        if 'ignoreErrors' in kwargs:
+        if container_app_environment_id is None:
+            raise TypeError("Missing 'container_app_environment_id' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+        if ignore_errors is None and 'ignoreErrors' in kwargs:
             ignore_errors = kwargs['ignoreErrors']
-        if 'initTimeout' in kwargs:
+        if init_timeout is None and 'initTimeout' in kwargs:
             init_timeout = kwargs['initTimeout']
 
         _setter("component_type", component_type)
@@ -251,15 +257,15 @@ class _EnvironmentDaprComponentState:
              scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              secrets: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentSecretArgs']]]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'componentType' in kwargs:
+        if component_type is None and 'componentType' in kwargs:
             component_type = kwargs['componentType']
-        if 'containerAppEnvironmentId' in kwargs:
+        if container_app_environment_id is None and 'containerAppEnvironmentId' in kwargs:
             container_app_environment_id = kwargs['containerAppEnvironmentId']
-        if 'ignoreErrors' in kwargs:
+        if ignore_errors is None and 'ignoreErrors' in kwargs:
             ignore_errors = kwargs['ignoreErrors']
-        if 'initTimeout' in kwargs:
+        if init_timeout is None and 'initTimeout' in kwargs:
             init_timeout = kwargs['initTimeout']
 
         if component_type is not None:
@@ -410,28 +416,6 @@ class EnvironmentDaprComponent(pulumi.CustomResource):
         """
         Manages a Dapr Component for a Container App Environment.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018",
-            retention_in_days=30)
-        example_environment = azure.containerapp.Environment("exampleEnvironment",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            log_analytics_workspace_id=example_analytics_workspace.id)
-        example_environment_dapr_component = azure.containerapp.EnvironmentDaprComponent("exampleEnvironmentDaprComponent",
-            container_app_environment_id=example_environment.id,
-            component_type="state.azure.blobstorage",
-            version="v1")
-        ```
-
         ## Import
 
         A Dapr Component for a Container App Environment can be imported using the `resource id`, e.g.
@@ -462,28 +446,6 @@ class EnvironmentDaprComponent(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Dapr Component for a Container App Environment.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018",
-            retention_in_days=30)
-        example_environment = azure.containerapp.Environment("exampleEnvironment",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            log_analytics_workspace_id=example_analytics_workspace.id)
-        example_environment_dapr_component = azure.containerapp.EnvironmentDaprComponent("exampleEnvironmentDaprComponent",
-            container_app_environment_id=example_environment.id,
-            component_type="state.azure.blobstorage",
-            version="v1")
-        ```
 
         ## Import
 

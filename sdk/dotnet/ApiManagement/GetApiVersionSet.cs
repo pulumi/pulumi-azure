@@ -13,68 +13,12 @@ namespace Pulumi.Azure.ApiManagement
     {
         /// <summary>
         /// Uses this data source to access information about an API Version Set within an API Management Service.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.ApiManagement.GetApiVersionSet.Invoke(new()
-        ///     {
-        ///         ResourceGroupName = "example-resources",
-        ///         ApiManagementName = "example-api",
-        ///         Name = "example-api-version-set",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["apiManagementApiVersionSetId"] = example.Apply(getApiVersionSetResult =&gt; getApiVersionSetResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetApiVersionSetResult> InvokeAsync(GetApiVersionSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiVersionSetResult>("azure:apimanagement/getApiVersionSet:getApiVersionSet", args ?? new GetApiVersionSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Uses this data source to access information about an API Version Set within an API Management Service.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.ApiManagement.GetApiVersionSet.Invoke(new()
-        ///     {
-        ///         ResourceGroupName = "example-resources",
-        ///         ApiManagementName = "example-api",
-        ///         Name = "example-api-version-set",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["apiManagementApiVersionSetId"] = example.Apply(getApiVersionSetResult =&gt; getApiVersionSetResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetApiVersionSetResult> Invoke(GetApiVersionSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiVersionSetResult>("azure:apimanagement/getApiVersionSet:getApiVersionSet", args ?? new GetApiVersionSetInvokeArgs(), options.WithDefaults());

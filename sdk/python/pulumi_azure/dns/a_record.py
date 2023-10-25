@@ -48,20 +48,26 @@ class ARecordArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             ttl: pulumi.Input[int],
-             zone_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             ttl: Optional[pulumi.Input[int]] = None,
+             zone_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              records: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              target_resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'zoneName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if ttl is None:
+            raise TypeError("Missing 'ttl' argument")
+        if zone_name is None and 'zoneName' in kwargs:
             zone_name = kwargs['zoneName']
-        if 'targetResourceId' in kwargs:
+        if zone_name is None:
+            raise TypeError("Missing 'zone_name' argument")
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
 
         _setter("resource_group_name", resource_group_name)
@@ -213,13 +219,13 @@ class _ARecordState:
              target_resource_id: Optional[pulumi.Input[str]] = None,
              ttl: Optional[pulumi.Input[int]] = None,
              zone_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'targetResourceId' in kwargs:
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
-        if 'zoneName' in kwargs:
+        if zone_name is None and 'zoneName' in kwargs:
             zone_name = kwargs['zoneName']
 
         if fqdn is not None:
@@ -354,40 +360,6 @@ class ARecord(pulumi.CustomResource):
                  zone_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_zone = azure.dns.Zone("exampleZone", resource_group_name=example_resource_group.name)
-        example_a_record = azure.dns.ARecord("exampleARecord",
-            zone_name=example_zone.name,
-            resource_group_name=example_resource_group.name,
-            ttl=300,
-            records=["10.0.180.17"])
-        ```
-        ### Alias Record)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_zone = azure.dns.Zone("exampleZone", resource_group_name=example_resource_group.name)
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            allocation_method="Dynamic",
-            ip_version="IPv4")
-        example_a_record = azure.dns.ARecord("exampleARecord",
-            zone_name=example_zone.name,
-            resource_group_name=example_resource_group.name,
-            ttl=300,
-            target_resource_id=example_public_ip.id)
-        ```
-
         ## Import
 
         A records can be imported using the `resource id`, e.g.
@@ -417,40 +389,6 @@ class ARecord(pulumi.CustomResource):
                  args: ARecordArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_zone = azure.dns.Zone("exampleZone", resource_group_name=example_resource_group.name)
-        example_a_record = azure.dns.ARecord("exampleARecord",
-            zone_name=example_zone.name,
-            resource_group_name=example_resource_group.name,
-            ttl=300,
-            records=["10.0.180.17"])
-        ```
-        ### Alias Record)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_zone = azure.dns.Zone("exampleZone", resource_group_name=example_resource_group.name)
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            allocation_method="Dynamic",
-            ip_version="IPv4")
-        example_a_record = azure.dns.ARecord("exampleARecord",
-            zone_name=example_zone.name,
-            resource_group_name=example_resource_group.name,
-            ttl=300,
-            target_resource_id=example_public_ip.id)
-        ```
-
         ## Import
 
         A records can be imported using the `resource id`, e.g.

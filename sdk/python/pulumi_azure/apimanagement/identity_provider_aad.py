@@ -41,25 +41,35 @@ class IdentityProviderAadArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             allowed_tenants: pulumi.Input[Sequence[pulumi.Input[str]]],
-             api_management_name: pulumi.Input[str],
-             client_id: pulumi.Input[str],
-             client_secret: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             allowed_tenants: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              signin_tenant: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'allowedTenants' in kwargs:
+        if allowed_tenants is None and 'allowedTenants' in kwargs:
             allowed_tenants = kwargs['allowedTenants']
-        if 'apiManagementName' in kwargs:
+        if allowed_tenants is None:
+            raise TypeError("Missing 'allowed_tenants' argument")
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'clientId' in kwargs:
+        if api_management_name is None:
+            raise TypeError("Missing 'api_management_name' argument")
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecret' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'resourceGroupName' in kwargs:
+        if client_secret is None:
+            raise TypeError("Missing 'client_secret' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'signinTenant' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if signin_tenant is None and 'signinTenant' in kwargs:
             signin_tenant = kwargs['signinTenant']
 
         _setter("allowed_tenants", allowed_tenants)
@@ -179,19 +189,19 @@ class _IdentityProviderAadState:
              client_secret: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              signin_tenant: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'allowedTenants' in kwargs:
+        if allowed_tenants is None and 'allowedTenants' in kwargs:
             allowed_tenants = kwargs['allowedTenants']
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecret' in kwargs:
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'signinTenant' in kwargs:
+        if signin_tenant is None and 'signinTenant' in kwargs:
             signin_tenant = kwargs['signinTenant']
 
         if allowed_tenants is not None:
@@ -295,27 +305,6 @@ class IdentityProviderAad(pulumi.CustomResource):
         """
         Manages an API Management AAD Identity Provider.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            publisher_name="My Company",
-            publisher_email="company@mycompany.io",
-            sku_name="Developer_1")
-        example_identity_provider_aad = azure.apimanagement.IdentityProviderAad("exampleIdentityProviderAad",
-            resource_group_name=example_resource_group.name,
-            api_management_name=example_service.name,
-            client_id="00000000-0000-0000-0000-000000000000",
-            client_secret="00000000000000000000000000000000",
-            allowed_tenants=["00000000-0000-0000-0000-000000000000"])
-        ```
-
         ## Import
 
         API Management AAD Identity Provider can be imported using the `resource id`, e.g.
@@ -341,27 +330,6 @@ class IdentityProviderAad(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an API Management AAD Identity Provider.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            publisher_name="My Company",
-            publisher_email="company@mycompany.io",
-            sku_name="Developer_1")
-        example_identity_provider_aad = azure.apimanagement.IdentityProviderAad("exampleIdentityProviderAad",
-            resource_group_name=example_resource_group.name,
-            api_management_name=example_service.name,
-            client_id="00000000-0000-0000-0000-000000000000",
-            client_secret="00000000000000000000000000000000",
-            allowed_tenants=["00000000-0000-0000-0000-000000000000"])
-        ```
 
         ## Import
 

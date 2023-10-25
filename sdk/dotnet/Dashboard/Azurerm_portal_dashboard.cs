@@ -14,66 +14,12 @@ namespace Pulumi.Azure.Dashboard
     {
         /// <summary>
         /// Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `azure.portal.Dashboard` resource.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Portal.GetDashboard.Invoke(new()
-        ///     {
-        ///         Name = "existing-dashboard",
-        ///         ResourceGroupName = "dashboard-rg",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["id"] = data.Azurerm_dashboard.Example.Id,
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<Azurerm_portal_dashboardResult> InvokeAsync(Azurerm_portal_dashboardArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<Azurerm_portal_dashboardResult>("azure:dashboard/azurerm_portal_dashboard:azurerm_portal_dashboard", args ?? new Azurerm_portal_dashboardArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `azure.portal.Dashboard` resource.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Portal.GetDashboard.Invoke(new()
-        ///     {
-        ///         Name = "existing-dashboard",
-        ///         ResourceGroupName = "dashboard-rg",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["id"] = data.Azurerm_dashboard.Example.Id,
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<Azurerm_portal_dashboardResult> Invoke(Azurerm_portal_dashboardInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Azurerm_portal_dashboardResult>("azure:dashboard/azurerm_portal_dashboard:azurerm_portal_dashboard", args ?? new Azurerm_portal_dashboardInvokeArgs(), options.WithDefaults());

@@ -71,8 +71,8 @@ class DatasetParquetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_factory_id: pulumi.Input[str],
-             linked_service_name: pulumi.Input[str],
+             data_factory_id: Optional[pulumi.Input[str]] = None,
+             linked_service_name: Optional[pulumi.Input[str]] = None,
              additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              azure_blob_fs_location: Optional[pulumi.Input['DatasetParquetAzureBlobFsLocationArgs']] = None,
@@ -85,25 +85,29 @@ class DatasetParquetArgs:
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetParquetSchemaColumnArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'linkedServiceName' in kwargs:
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if linked_service_name is None and 'linkedServiceName' in kwargs:
             linked_service_name = kwargs['linkedServiceName']
-        if 'additionalProperties' in kwargs:
+        if linked_service_name is None:
+            raise TypeError("Missing 'linked_service_name' argument")
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'azureBlobFsLocation' in kwargs:
+        if azure_blob_fs_location is None and 'azureBlobFsLocation' in kwargs:
             azure_blob_fs_location = kwargs['azureBlobFsLocation']
-        if 'azureBlobStorageLocation' in kwargs:
+        if azure_blob_storage_location is None and 'azureBlobStorageLocation' in kwargs:
             azure_blob_storage_location = kwargs['azureBlobStorageLocation']
-        if 'compressionCodec' in kwargs:
+        if compression_codec is None and 'compressionCodec' in kwargs:
             compression_codec = kwargs['compressionCodec']
-        if 'compressionLevel' in kwargs:
+        if compression_level is None and 'compressionLevel' in kwargs:
             compression_level = kwargs['compressionLevel']
-        if 'httpServerLocation' in kwargs:
+        if http_server_location is None and 'httpServerLocation' in kwargs:
             http_server_location = kwargs['httpServerLocation']
-        if 'schemaColumns' in kwargs:
+        if schema_columns is None and 'schemaColumns' in kwargs:
             schema_columns = kwargs['schemaColumns']
 
         _setter("data_factory_id", data_factory_id)
@@ -378,25 +382,25 @@ class _DatasetParquetState:
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetParquetSchemaColumnArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'additionalProperties' in kwargs:
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'azureBlobFsLocation' in kwargs:
+        if azure_blob_fs_location is None and 'azureBlobFsLocation' in kwargs:
             azure_blob_fs_location = kwargs['azureBlobFsLocation']
-        if 'azureBlobStorageLocation' in kwargs:
+        if azure_blob_storage_location is None and 'azureBlobStorageLocation' in kwargs:
             azure_blob_storage_location = kwargs['azureBlobStorageLocation']
-        if 'compressionCodec' in kwargs:
+        if compression_codec is None and 'compressionCodec' in kwargs:
             compression_codec = kwargs['compressionCodec']
-        if 'compressionLevel' in kwargs:
+        if compression_level is None and 'compressionLevel' in kwargs:
             compression_level = kwargs['compressionLevel']
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'httpServerLocation' in kwargs:
+        if http_server_location is None and 'httpServerLocation' in kwargs:
             http_server_location = kwargs['httpServerLocation']
-        if 'linkedServiceName' in kwargs:
+        if linked_service_name is None and 'linkedServiceName' in kwargs:
             linked_service_name = kwargs['linkedServiceName']
-        if 'schemaColumns' in kwargs:
+        if schema_columns is None and 'schemaColumns' in kwargs:
             schema_columns = kwargs['schemaColumns']
 
         if additional_properties is not None:
@@ -624,30 +628,6 @@ class DatasetParquet(pulumi.CustomResource):
         """
         Manages an Azure Parquet Dataset inside an Azure Data Factory.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_linked_service_web = azure.datafactory.LinkedServiceWeb("exampleLinkedServiceWeb",
-            data_factory_id=example_factory.id,
-            authentication_type="Anonymous",
-            url="https://www.bing.com")
-        example_dataset_parquet = azure.datafactory.DatasetParquet("exampleDatasetParquet",
-            data_factory_id=example_factory.id,
-            linked_service_name=example_linked_service_web.name,
-            http_server_location=azure.datafactory.DatasetParquetHttpServerLocationArgs(
-                relative_url="http://www.bing.com",
-                path="foo/bar/",
-                filename="fizz.txt",
-            ))
-        ```
-
         ## Import
 
         Data Factory Datasets can be imported using the `resource id`, e.g.
@@ -685,30 +665,6 @@ class DatasetParquet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Parquet Dataset inside an Azure Data Factory.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_linked_service_web = azure.datafactory.LinkedServiceWeb("exampleLinkedServiceWeb",
-            data_factory_id=example_factory.id,
-            authentication_type="Anonymous",
-            url="https://www.bing.com")
-        example_dataset_parquet = azure.datafactory.DatasetParquet("exampleDatasetParquet",
-            data_factory_id=example_factory.id,
-            linked_service_name=example_linked_service_web.name,
-            http_server_location=azure.datafactory.DatasetParquetHttpServerLocationArgs(
-                relative_url="http://www.bing.com",
-                path="foo/bar/",
-                filename="fizz.txt",
-            ))
-        ```
 
         ## Import
 
@@ -762,17 +718,9 @@ class DatasetParquet(pulumi.CustomResource):
 
             __props__.__dict__["additional_properties"] = additional_properties
             __props__.__dict__["annotations"] = annotations
-            if azure_blob_fs_location is not None and not isinstance(azure_blob_fs_location, DatasetParquetAzureBlobFsLocationArgs):
-                azure_blob_fs_location = azure_blob_fs_location or {}
-                def _setter(key, value):
-                    azure_blob_fs_location[key] = value
-                DatasetParquetAzureBlobFsLocationArgs._configure(_setter, **azure_blob_fs_location)
+            azure_blob_fs_location = _utilities.configure(azure_blob_fs_location, DatasetParquetAzureBlobFsLocationArgs, True)
             __props__.__dict__["azure_blob_fs_location"] = azure_blob_fs_location
-            if azure_blob_storage_location is not None and not isinstance(azure_blob_storage_location, DatasetParquetAzureBlobStorageLocationArgs):
-                azure_blob_storage_location = azure_blob_storage_location or {}
-                def _setter(key, value):
-                    azure_blob_storage_location[key] = value
-                DatasetParquetAzureBlobStorageLocationArgs._configure(_setter, **azure_blob_storage_location)
+            azure_blob_storage_location = _utilities.configure(azure_blob_storage_location, DatasetParquetAzureBlobStorageLocationArgs, True)
             __props__.__dict__["azure_blob_storage_location"] = azure_blob_storage_location
             __props__.__dict__["compression_codec"] = compression_codec
             __props__.__dict__["compression_level"] = compression_level
@@ -781,11 +729,7 @@ class DatasetParquet(pulumi.CustomResource):
             __props__.__dict__["data_factory_id"] = data_factory_id
             __props__.__dict__["description"] = description
             __props__.__dict__["folder"] = folder
-            if http_server_location is not None and not isinstance(http_server_location, DatasetParquetHttpServerLocationArgs):
-                http_server_location = http_server_location or {}
-                def _setter(key, value):
-                    http_server_location[key] = value
-                DatasetParquetHttpServerLocationArgs._configure(_setter, **http_server_location)
+            http_server_location = _utilities.configure(http_server_location, DatasetParquetHttpServerLocationArgs, True)
             __props__.__dict__["http_server_location"] = http_server_location
             if linked_service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'linked_service_name'")

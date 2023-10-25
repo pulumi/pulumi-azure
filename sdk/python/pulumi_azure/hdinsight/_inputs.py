@@ -153,9 +153,11 @@ class HBaseClusterComponentVersionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             hbase: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             hbase: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if hbase is None:
+            raise TypeError("Missing 'hbase' argument")
 
         _setter("hbase", hbase)
 
@@ -191,11 +193,11 @@ class HBaseClusterComputeIsolationArgs:
              _setter: Callable[[Any, Any], None],
              compute_isolation_enabled: Optional[pulumi.Input[bool]] = None,
              host_sku: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'computeIsolationEnabled' in kwargs:
+        if compute_isolation_enabled is None and 'computeIsolationEnabled' in kwargs:
             compute_isolation_enabled = kwargs['computeIsolationEnabled']
-        if 'hostSku' in kwargs:
+        if host_sku is None and 'hostSku' in kwargs:
             host_sku = kwargs['hostSku']
 
         if compute_isolation_enabled is not None:
@@ -255,15 +257,15 @@ class HBaseClusterDiskEncryptionArgs:
              encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
              key_vault_key_id: Optional[pulumi.Input[str]] = None,
              key_vault_managed_identity_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'encryptionAlgorithm' in kwargs:
+        if encryption_algorithm is None and 'encryptionAlgorithm' in kwargs:
             encryption_algorithm = kwargs['encryptionAlgorithm']
-        if 'encryptionAtHostEnabled' in kwargs:
+        if encryption_at_host_enabled is None and 'encryptionAtHostEnabled' in kwargs:
             encryption_at_host_enabled = kwargs['encryptionAtHostEnabled']
-        if 'keyVaultKeyId' in kwargs:
+        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
             key_vault_key_id = kwargs['keyVaultKeyId']
-        if 'keyVaultManagedIdentityId' in kwargs:
+        if key_vault_managed_identity_id is None and 'keyVaultManagedIdentityId' in kwargs:
             key_vault_managed_identity_id = kwargs['keyVaultManagedIdentityId']
 
         if encryption_algorithm is not None:
@@ -341,14 +343,18 @@ class HBaseClusterExtensionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             log_analytics_workspace_id: pulumi.Input[str],
-             primary_key: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+             primary_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'primaryKey' in kwargs:
+        if log_analytics_workspace_id is None:
+            raise TypeError("Missing 'log_analytics_workspace_id' argument")
+        if primary_key is None and 'primaryKey' in kwargs:
             primary_key = kwargs['primaryKey']
+        if primary_key is None:
+            raise TypeError("Missing 'primary_key' argument")
 
         _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         _setter("primary_key", primary_key)
@@ -397,10 +403,14 @@ class HBaseClusterGatewayArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             password: pulumi.Input[str],
-             username: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             password: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
 
         _setter("password", password)
         _setter("username", username)
@@ -455,7 +465,7 @@ class HBaseClusterMetastoresArgs:
              ambari: Optional[pulumi.Input['HBaseClusterMetastoresAmbariArgs']] = None,
              hive: Optional[pulumi.Input['HBaseClusterMetastoresHiveArgs']] = None,
              oozie: Optional[pulumi.Input['HBaseClusterMetastoresOozieArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
 
         if ambari is not None:
@@ -525,14 +535,22 @@ class HBaseClusterMetastoresAmbariArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database_name: pulumi.Input[str],
-             password: pulumi.Input[str],
-             server: pulumi.Input[str],
-             username: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             server: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'databaseName' in kwargs:
+        if database_name is None and 'databaseName' in kwargs:
             database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if server is None:
+            raise TypeError("Missing 'server' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
 
         _setter("database_name", database_name)
         _setter("password", password)
@@ -611,14 +629,22 @@ class HBaseClusterMetastoresHiveArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database_name: pulumi.Input[str],
-             password: pulumi.Input[str],
-             server: pulumi.Input[str],
-             username: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             server: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'databaseName' in kwargs:
+        if database_name is None and 'databaseName' in kwargs:
             database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if server is None:
+            raise TypeError("Missing 'server' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
 
         _setter("database_name", database_name)
         _setter("password", password)
@@ -697,14 +723,22 @@ class HBaseClusterMetastoresOozieArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database_name: pulumi.Input[str],
-             password: pulumi.Input[str],
-             server: pulumi.Input[str],
-             username: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             server: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'databaseName' in kwargs:
+        if database_name is None and 'databaseName' in kwargs:
             database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if server is None:
+            raise TypeError("Missing 'server' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
 
         _setter("database_name", database_name)
         _setter("password", password)
@@ -777,14 +811,18 @@ class HBaseClusterMonitorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             log_analytics_workspace_id: pulumi.Input[str],
-             primary_key: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+             primary_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'primaryKey' in kwargs:
+        if log_analytics_workspace_id is None:
+            raise TypeError("Missing 'log_analytics_workspace_id' argument")
+        if primary_key is None and 'primaryKey' in kwargs:
             primary_key = kwargs['primaryKey']
+        if primary_key is None:
+            raise TypeError("Missing 'primary_key' argument")
 
         _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         _setter("primary_key", primary_key)
@@ -835,11 +873,11 @@ class HBaseClusterNetworkArgs:
              _setter: Callable[[Any, Any], None],
              connection_direction: Optional[pulumi.Input[str]] = None,
              private_link_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'connectionDirection' in kwargs:
+        if connection_direction is None and 'connectionDirection' in kwargs:
             connection_direction = kwargs['connectionDirection']
-        if 'privateLinkEnabled' in kwargs:
+        if private_link_enabled is None and 'privateLinkEnabled' in kwargs:
             private_link_enabled = kwargs['privateLinkEnabled']
 
         if connection_direction is not None:
@@ -894,17 +932,23 @@ class HBaseClusterRolesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             head_node: pulumi.Input['HBaseClusterRolesHeadNodeArgs'],
-             worker_node: pulumi.Input['HBaseClusterRolesWorkerNodeArgs'],
-             zookeeper_node: pulumi.Input['HBaseClusterRolesZookeeperNodeArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             head_node: Optional[pulumi.Input['HBaseClusterRolesHeadNodeArgs']] = None,
+             worker_node: Optional[pulumi.Input['HBaseClusterRolesWorkerNodeArgs']] = None,
+             zookeeper_node: Optional[pulumi.Input['HBaseClusterRolesZookeeperNodeArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'headNode' in kwargs:
+        if head_node is None and 'headNode' in kwargs:
             head_node = kwargs['headNode']
-        if 'workerNode' in kwargs:
+        if head_node is None:
+            raise TypeError("Missing 'head_node' argument")
+        if worker_node is None and 'workerNode' in kwargs:
             worker_node = kwargs['workerNode']
-        if 'zookeeperNode' in kwargs:
+        if worker_node is None:
+            raise TypeError("Missing 'worker_node' argument")
+        if zookeeper_node is None and 'zookeeperNode' in kwargs:
             zookeeper_node = kwargs['zookeeperNode']
+        if zookeeper_node is None:
+            raise TypeError("Missing 'zookeeper_node' argument")
 
         _setter("head_node", head_node)
         _setter("worker_node", worker_node)
@@ -983,24 +1027,28 @@ class HBaseClusterRolesHeadNodeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             username: pulumi.Input[str],
-             vm_size: pulumi.Input[str],
+             username: Optional[pulumi.Input[str]] = None,
+             vm_size: Optional[pulumi.Input[str]] = None,
              password: Optional[pulumi.Input[str]] = None,
              script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesHeadNodeScriptActionArgs']]]] = None,
              ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
              virtual_network_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'vmSize' in kwargs:
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+        if vm_size is None and 'vmSize' in kwargs:
             vm_size = kwargs['vmSize']
-        if 'scriptActions' in kwargs:
+        if vm_size is None:
+            raise TypeError("Missing 'vm_size' argument")
+        if script_actions is None and 'scriptActions' in kwargs:
             script_actions = kwargs['scriptActions']
-        if 'sshKeys' in kwargs:
+        if ssh_keys is None and 'sshKeys' in kwargs:
             ssh_keys = kwargs['sshKeys']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'virtualNetworkId' in kwargs:
+        if virtual_network_id is None and 'virtualNetworkId' in kwargs:
             virtual_network_id = kwargs['virtualNetworkId']
 
         _setter("username", username)
@@ -1125,11 +1173,15 @@ class HBaseClusterRolesHeadNodeScriptActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             uri: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             uri: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if uri is None:
+            raise TypeError("Missing 'uri' argument")
 
         _setter("name", name)
         _setter("uri", uri)
@@ -1214,28 +1266,34 @@ class HBaseClusterRolesWorkerNodeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             target_instance_count: pulumi.Input[int],
-             username: pulumi.Input[str],
-             vm_size: pulumi.Input[str],
+             target_instance_count: Optional[pulumi.Input[int]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             vm_size: Optional[pulumi.Input[str]] = None,
              autoscale: Optional[pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleArgs']] = None,
              password: Optional[pulumi.Input[str]] = None,
              script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesWorkerNodeScriptActionArgs']]]] = None,
              ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
              virtual_network_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'targetInstanceCount' in kwargs:
+        if target_instance_count is None and 'targetInstanceCount' in kwargs:
             target_instance_count = kwargs['targetInstanceCount']
-        if 'vmSize' in kwargs:
+        if target_instance_count is None:
+            raise TypeError("Missing 'target_instance_count' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+        if vm_size is None and 'vmSize' in kwargs:
             vm_size = kwargs['vmSize']
-        if 'scriptActions' in kwargs:
+        if vm_size is None:
+            raise TypeError("Missing 'vm_size' argument")
+        if script_actions is None and 'scriptActions' in kwargs:
             script_actions = kwargs['scriptActions']
-        if 'sshKeys' in kwargs:
+        if ssh_keys is None and 'sshKeys' in kwargs:
             ssh_keys = kwargs['sshKeys']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'virtualNetworkId' in kwargs:
+        if virtual_network_id is None and 'virtualNetworkId' in kwargs:
             virtual_network_id = kwargs['virtualNetworkId']
 
         _setter("target_instance_count", target_instance_count)
@@ -1376,7 +1434,7 @@ class HBaseClusterRolesWorkerNodeAutoscaleArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              recurrence: Optional[pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
 
         if recurrence is not None:
@@ -1405,10 +1463,14 @@ class HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             schedules: pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs']]],
-             timezone: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             schedules: Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs']]]] = None,
+             timezone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if schedules is None:
+            raise TypeError("Missing 'schedules' argument")
+        if timezone is None:
+            raise TypeError("Missing 'timezone' argument")
 
         _setter("schedules", schedules)
         _setter("timezone", timezone)
@@ -1450,13 +1512,19 @@ class HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             days: pulumi.Input[Sequence[pulumi.Input[str]]],
-             target_instance_count: pulumi.Input[int],
-             time: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             days: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             target_instance_count: Optional[pulumi.Input[int]] = None,
+             time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'targetInstanceCount' in kwargs:
+        if days is None:
+            raise TypeError("Missing 'days' argument")
+        if target_instance_count is None and 'targetInstanceCount' in kwargs:
             target_instance_count = kwargs['targetInstanceCount']
+        if target_instance_count is None:
+            raise TypeError("Missing 'target_instance_count' argument")
+        if time is None:
+            raise TypeError("Missing 'time' argument")
 
         _setter("days", days)
         _setter("target_instance_count", target_instance_count)
@@ -1513,11 +1581,15 @@ class HBaseClusterRolesWorkerNodeScriptActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             uri: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             uri: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if uri is None:
+            raise TypeError("Missing 'uri' argument")
 
         _setter("name", name)
         _setter("uri", uri)
@@ -1597,24 +1669,28 @@ class HBaseClusterRolesZookeeperNodeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             username: pulumi.Input[str],
-             vm_size: pulumi.Input[str],
+             username: Optional[pulumi.Input[str]] = None,
+             vm_size: Optional[pulumi.Input[str]] = None,
              password: Optional[pulumi.Input[str]] = None,
              script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesZookeeperNodeScriptActionArgs']]]] = None,
              ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
              virtual_network_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'vmSize' in kwargs:
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+        if vm_size is None and 'vmSize' in kwargs:
             vm_size = kwargs['vmSize']
-        if 'scriptActions' in kwargs:
+        if vm_size is None:
+            raise TypeError("Missing 'vm_size' argument")
+        if script_actions is None and 'scriptActions' in kwargs:
             script_actions = kwargs['scriptActions']
-        if 'sshKeys' in kwargs:
+        if ssh_keys is None and 'sshKeys' in kwargs:
             ssh_keys = kwargs['sshKeys']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'virtualNetworkId' in kwargs:
+        if virtual_network_id is None and 'virtualNetworkId' in kwargs:
             virtual_network_id = kwargs['virtualNetworkId']
 
         _setter("username", username)
@@ -1739,11 +1815,15 @@ class HBaseClusterRolesZookeeperNodeScriptActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             uri: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             uri: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if uri is None:
+            raise TypeError("Missing 'uri' argument")
 
         _setter("name", name)
         _setter("uri", uri)
@@ -1819,28 +1899,40 @@ class HBaseClusterSecurityProfileArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             aadds_resource_id: pulumi.Input[str],
-             domain_name: pulumi.Input[str],
-             domain_user_password: pulumi.Input[str],
-             domain_username: pulumi.Input[str],
-             ldaps_urls: pulumi.Input[Sequence[pulumi.Input[str]]],
-             msi_resource_id: pulumi.Input[str],
+             aadds_resource_id: Optional[pulumi.Input[str]] = None,
+             domain_name: Optional[pulumi.Input[str]] = None,
+             domain_user_password: Optional[pulumi.Input[str]] = None,
+             domain_username: Optional[pulumi.Input[str]] = None,
+             ldaps_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             msi_resource_id: Optional[pulumi.Input[str]] = None,
              cluster_users_group_dns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'aaddsResourceId' in kwargs:
+        if aadds_resource_id is None and 'aaddsResourceId' in kwargs:
             aadds_resource_id = kwargs['aaddsResourceId']
-        if 'domainName' in kwargs:
+        if aadds_resource_id is None:
+            raise TypeError("Missing 'aadds_resource_id' argument")
+        if domain_name is None and 'domainName' in kwargs:
             domain_name = kwargs['domainName']
-        if 'domainUserPassword' in kwargs:
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+        if domain_user_password is None and 'domainUserPassword' in kwargs:
             domain_user_password = kwargs['domainUserPassword']
-        if 'domainUsername' in kwargs:
+        if domain_user_password is None:
+            raise TypeError("Missing 'domain_user_password' argument")
+        if domain_username is None and 'domainUsername' in kwargs:
             domain_username = kwargs['domainUsername']
-        if 'ldapsUrls' in kwargs:
+        if domain_username is None:
+            raise TypeError("Missing 'domain_username' argument")
+        if ldaps_urls is None and 'ldapsUrls' in kwargs:
             ldaps_urls = kwargs['ldapsUrls']
-        if 'msiResourceId' in kwargs:
+        if ldaps_urls is None:
+            raise TypeError("Missing 'ldaps_urls' argument")
+        if msi_resource_id is None and 'msiResourceId' in kwargs:
             msi_resource_id = kwargs['msiResourceId']
-        if 'clusterUsersGroupDns' in kwargs:
+        if msi_resource_id is None:
+            raise TypeError("Missing 'msi_resource_id' argument")
+        if cluster_users_group_dns is None and 'clusterUsersGroupDns' in kwargs:
             cluster_users_group_dns = kwargs['clusterUsersGroupDns']
 
         _setter("aadds_resource_id", aadds_resource_id)
@@ -1964,19 +2056,25 @@ class HBaseClusterStorageAccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             is_default: pulumi.Input[bool],
-             storage_account_key: pulumi.Input[str],
-             storage_container_id: pulumi.Input[str],
+             is_default: Optional[pulumi.Input[bool]] = None,
+             storage_account_key: Optional[pulumi.Input[str]] = None,
+             storage_container_id: Optional[pulumi.Input[str]] = None,
              storage_resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'isDefault' in kwargs:
+        if is_default is None and 'isDefault' in kwargs:
             is_default = kwargs['isDefault']
-        if 'storageAccountKey' in kwargs:
+        if is_default is None:
+            raise TypeError("Missing 'is_default' argument")
+        if storage_account_key is None and 'storageAccountKey' in kwargs:
             storage_account_key = kwargs['storageAccountKey']
-        if 'storageContainerId' in kwargs:
+        if storage_account_key is None:
+            raise TypeError("Missing 'storage_account_key' argument")
+        if storage_container_id is None and 'storageContainerId' in kwargs:
             storage_container_id = kwargs['storageContainerId']
-        if 'storageResourceId' in kwargs:
+        if storage_container_id is None:
+            raise TypeError("Missing 'storage_container_id' argument")
+        if storage_resource_id is None and 'storageResourceId' in kwargs:
             storage_resource_id = kwargs['storageResourceId']
 
         _setter("is_default", is_default)
@@ -2065,20 +2163,28 @@ class HBaseClusterStorageAccountGen2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             filesystem_id: pulumi.Input[str],
-             is_default: pulumi.Input[bool],
-             managed_identity_resource_id: pulumi.Input[str],
-             storage_resource_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             filesystem_id: Optional[pulumi.Input[str]] = None,
+             is_default: Optional[pulumi.Input[bool]] = None,
+             managed_identity_resource_id: Optional[pulumi.Input[str]] = None,
+             storage_resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'filesystemId' in kwargs:
+        if filesystem_id is None and 'filesystemId' in kwargs:
             filesystem_id = kwargs['filesystemId']
-        if 'isDefault' in kwargs:
+        if filesystem_id is None:
+            raise TypeError("Missing 'filesystem_id' argument")
+        if is_default is None and 'isDefault' in kwargs:
             is_default = kwargs['isDefault']
-        if 'managedIdentityResourceId' in kwargs:
+        if is_default is None:
+            raise TypeError("Missing 'is_default' argument")
+        if managed_identity_resource_id is None and 'managedIdentityResourceId' in kwargs:
             managed_identity_resource_id = kwargs['managedIdentityResourceId']
-        if 'storageResourceId' in kwargs:
+        if managed_identity_resource_id is None:
+            raise TypeError("Missing 'managed_identity_resource_id' argument")
+        if storage_resource_id is None and 'storageResourceId' in kwargs:
             storage_resource_id = kwargs['storageResourceId']
+        if storage_resource_id is None:
+            raise TypeError("Missing 'storage_resource_id' argument")
 
         _setter("filesystem_id", filesystem_id)
         _setter("is_default", is_default)
@@ -2152,9 +2258,11 @@ class HadoopClusterComponentVersionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             hadoop: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             hadoop: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if hadoop is None:
+            raise TypeError("Missing 'hadoop' argument")
 
         _setter("hadoop", hadoop)
 
@@ -2190,11 +2298,11 @@ class HadoopClusterComputeIsolationArgs:
              _setter: Callable[[Any, Any], None],
              compute_isolation_enabled: Optional[pulumi.Input[bool]] = None,
              host_sku: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'computeIsolationEnabled' in kwargs:
+        if compute_isolation_enabled is None and 'computeIsolationEnabled' in kwargs:
             compute_isolation_enabled = kwargs['computeIsolationEnabled']
-        if 'hostSku' in kwargs:
+        if host_sku is None and 'hostSku' in kwargs:
             host_sku = kwargs['hostSku']
 
         if compute_isolation_enabled is not None:
@@ -2254,15 +2362,15 @@ class HadoopClusterDiskEncryptionArgs:
              encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
              key_vault_key_id: Optional[pulumi.Input[str]] = None,
              key_vault_managed_identity_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'encryptionAlgorithm' in kwargs:
+        if encryption_algorithm is None and 'encryptionAlgorithm' in kwargs:
             encryption_algorithm = kwargs['encryptionAlgorithm']
-        if 'encryptionAtHostEnabled' in kwargs:
+        if encryption_at_host_enabled is None and 'encryptionAtHostEnabled' in kwargs:
             encryption_at_host_enabled = kwargs['encryptionAtHostEnabled']
-        if 'keyVaultKeyId' in kwargs:
+        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
             key_vault_key_id = kwargs['keyVaultKeyId']
-        if 'keyVaultManagedIdentityId' in kwargs:
+        if key_vault_managed_identity_id is None and 'keyVaultManagedIdentityId' in kwargs:
             key_vault_managed_identity_id = kwargs['keyVaultManagedIdentityId']
 
         if encryption_algorithm is not None:
@@ -2340,14 +2448,18 @@ class HadoopClusterExtensionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             log_analytics_workspace_id: pulumi.Input[str],
-             primary_key: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+             primary_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'primaryKey' in kwargs:
+        if log_analytics_workspace_id is None:
+            raise TypeError("Missing 'log_analytics_workspace_id' argument")
+        if primary_key is None and 'primaryKey' in kwargs:
             primary_key = kwargs['primaryKey']
+        if primary_key is None:
+            raise TypeError("Missing 'primary_key' argument")
 
         _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         _setter("primary_key", primary_key)
@@ -2396,10 +2508,14 @@ class HadoopClusterGatewayArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             password: pulumi.Input[str],
-             username: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             password: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
 
         _setter("password", password)
         _setter("username", username)
@@ -2454,7 +2570,7 @@ class HadoopClusterMetastoresArgs:
              ambari: Optional[pulumi.Input['HadoopClusterMetastoresAmbariArgs']] = None,
              hive: Optional[pulumi.Input['HadoopClusterMetastoresHiveArgs']] = None,
              oozie: Optional[pulumi.Input['HadoopClusterMetastoresOozieArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
 
         if ambari is not None:
@@ -2524,14 +2640,22 @@ class HadoopClusterMetastoresAmbariArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database_name: pulumi.Input[str],
-             password: pulumi.Input[str],
-             server: pulumi.Input[str],
-             username: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             server: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'databaseName' in kwargs:
+        if database_name is None and 'databaseName' in kwargs:
             database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if server is None:
+            raise TypeError("Missing 'server' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
 
         _setter("database_name", database_name)
         _setter("password", password)
@@ -2610,14 +2734,22 @@ class HadoopClusterMetastoresHiveArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database_name: pulumi.Input[str],
-             password: pulumi.Input[str],
-             server: pulumi.Input[str],
-             username: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             server: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'databaseName' in kwargs:
+        if database_name is None and 'databaseName' in kwargs:
             database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if server is None:
+            raise TypeError("Missing 'server' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
 
         _setter("database_name", database_name)
         _setter("password", password)
@@ -2696,14 +2828,22 @@ class HadoopClusterMetastoresOozieArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database_name: pulumi.Input[str],
-             password: pulumi.Input[str],
-             server: pulumi.Input[str],
-             username: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             server: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'databaseName' in kwargs:
+        if database_name is None and 'databaseName' in kwargs:
             database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if server is None:
+            raise TypeError("Missing 'server' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
 
         _setter("database_name", database_name)
         _setter("password", password)
@@ -2776,14 +2916,18 @@ class HadoopClusterMonitorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             log_analytics_workspace_id: pulumi.Input[str],
-             primary_key: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+             primary_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'primaryKey' in kwargs:
+        if log_analytics_workspace_id is None:
+            raise TypeError("Missing 'log_analytics_workspace_id' argument")
+        if primary_key is None and 'primaryKey' in kwargs:
             primary_key = kwargs['primaryKey']
+        if primary_key is None:
+            raise TypeError("Missing 'primary_key' argument")
 
         _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         _setter("primary_key", primary_key)
@@ -2834,11 +2978,11 @@ class HadoopClusterNetworkArgs:
              _setter: Callable[[Any, Any], None],
              connection_direction: Optional[pulumi.Input[str]] = None,
              private_link_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'connectionDirection' in kwargs:
+        if connection_direction is None and 'connectionDirection' in kwargs:
             connection_direction = kwargs['connectionDirection']
-        if 'privateLinkEnabled' in kwargs:
+        if private_link_enabled is None and 'privateLinkEnabled' in kwargs:
             private_link_enabled = kwargs['privateLinkEnabled']
 
         if connection_direction is not None:
@@ -2896,19 +3040,25 @@ class HadoopClusterRolesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             head_node: pulumi.Input['HadoopClusterRolesHeadNodeArgs'],
-             worker_node: pulumi.Input['HadoopClusterRolesWorkerNodeArgs'],
-             zookeeper_node: pulumi.Input['HadoopClusterRolesZookeeperNodeArgs'],
+             head_node: Optional[pulumi.Input['HadoopClusterRolesHeadNodeArgs']] = None,
+             worker_node: Optional[pulumi.Input['HadoopClusterRolesWorkerNodeArgs']] = None,
+             zookeeper_node: Optional[pulumi.Input['HadoopClusterRolesZookeeperNodeArgs']] = None,
              edge_node: Optional[pulumi.Input['HadoopClusterRolesEdgeNodeArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'headNode' in kwargs:
+        if head_node is None and 'headNode' in kwargs:
             head_node = kwargs['headNode']
-        if 'workerNode' in kwargs:
+        if head_node is None:
+            raise TypeError("Missing 'head_node' argument")
+        if worker_node is None and 'workerNode' in kwargs:
             worker_node = kwargs['workerNode']
-        if 'zookeeperNode' in kwargs:
+        if worker_node is None:
+            raise TypeError("Missing 'worker_node' argument")
+        if zookeeper_node is None and 'zookeeperNode' in kwargs:
             zookeeper_node = kwargs['zookeeperNode']
-        if 'edgeNode' in kwargs:
+        if zookeeper_node is None:
+            raise TypeError("Missing 'zookeeper_node' argument")
+        if edge_node is None and 'edgeNode' in kwargs:
             edge_node = kwargs['edgeNode']
 
         _setter("head_node", head_node)
@@ -2992,22 +3142,28 @@ class HadoopClusterRolesEdgeNodeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             install_script_actions: pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeInstallScriptActionArgs']]],
-             target_instance_count: pulumi.Input[int],
-             vm_size: pulumi.Input[str],
+             install_script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeInstallScriptActionArgs']]]] = None,
+             target_instance_count: Optional[pulumi.Input[int]] = None,
+             vm_size: Optional[pulumi.Input[str]] = None,
              https_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeHttpsEndpointArgs']]]] = None,
              uninstall_script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeUninstallScriptActionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'installScriptActions' in kwargs:
+        if install_script_actions is None and 'installScriptActions' in kwargs:
             install_script_actions = kwargs['installScriptActions']
-        if 'targetInstanceCount' in kwargs:
+        if install_script_actions is None:
+            raise TypeError("Missing 'install_script_actions' argument")
+        if target_instance_count is None and 'targetInstanceCount' in kwargs:
             target_instance_count = kwargs['targetInstanceCount']
-        if 'vmSize' in kwargs:
+        if target_instance_count is None:
+            raise TypeError("Missing 'target_instance_count' argument")
+        if vm_size is None and 'vmSize' in kwargs:
             vm_size = kwargs['vmSize']
-        if 'httpsEndpoints' in kwargs:
+        if vm_size is None:
+            raise TypeError("Missing 'vm_size' argument")
+        if https_endpoints is None and 'httpsEndpoints' in kwargs:
             https_endpoints = kwargs['httpsEndpoints']
-        if 'uninstallScriptActions' in kwargs:
+        if uninstall_script_actions is None and 'uninstallScriptActions' in kwargs:
             uninstall_script_actions = kwargs['uninstallScriptActions']
 
         _setter("install_script_actions", install_script_actions)
@@ -3110,17 +3266,17 @@ class HadoopClusterRolesEdgeNodeHttpsEndpointArgs:
              disable_gateway_auth: Optional[pulumi.Input[bool]] = None,
              private_ip_address: Optional[pulumi.Input[str]] = None,
              sub_domain_suffix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accessModes' in kwargs:
+        if access_modes is None and 'accessModes' in kwargs:
             access_modes = kwargs['accessModes']
-        if 'destinationPort' in kwargs:
+        if destination_port is None and 'destinationPort' in kwargs:
             destination_port = kwargs['destinationPort']
-        if 'disableGatewayAuth' in kwargs:
+        if disable_gateway_auth is None and 'disableGatewayAuth' in kwargs:
             disable_gateway_auth = kwargs['disableGatewayAuth']
-        if 'privateIpAddress' in kwargs:
+        if private_ip_address is None and 'privateIpAddress' in kwargs:
             private_ip_address = kwargs['privateIpAddress']
-        if 'subDomainSuffix' in kwargs:
+        if sub_domain_suffix is None and 'subDomainSuffix' in kwargs:
             sub_domain_suffix = kwargs['subDomainSuffix']
 
         if access_modes is not None:
@@ -3215,11 +3371,15 @@ class HadoopClusterRolesEdgeNodeInstallScriptActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             uri: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             uri: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if uri is None:
+            raise TypeError("Missing 'uri' argument")
 
         _setter("name", name)
         _setter("uri", uri)
@@ -3283,11 +3443,15 @@ class HadoopClusterRolesEdgeNodeUninstallScriptActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             uri: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             uri: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if uri is None:
+            raise TypeError("Missing 'uri' argument")
 
         _setter("name", name)
         _setter("uri", uri)
@@ -3367,24 +3531,28 @@ class HadoopClusterRolesHeadNodeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             username: pulumi.Input[str],
-             vm_size: pulumi.Input[str],
+             username: Optional[pulumi.Input[str]] = None,
+             vm_size: Optional[pulumi.Input[str]] = None,
              password: Optional[pulumi.Input[str]] = None,
              script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesHeadNodeScriptActionArgs']]]] = None,
              ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
              virtual_network_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'vmSize' in kwargs:
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+        if vm_size is None and 'vmSize' in kwargs:
             vm_size = kwargs['vmSize']
-        if 'scriptActions' in kwargs:
+        if vm_size is None:
+            raise TypeError("Missing 'vm_size' argument")
+        if script_actions is None and 'scriptActions' in kwargs:
             script_actions = kwargs['scriptActions']
-        if 'sshKeys' in kwargs:
+        if ssh_keys is None and 'sshKeys' in kwargs:
             ssh_keys = kwargs['sshKeys']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'virtualNetworkId' in kwargs:
+        if virtual_network_id is None and 'virtualNetworkId' in kwargs:
             virtual_network_id = kwargs['virtualNetworkId']
 
         _setter("username", username)
@@ -3509,11 +3677,15 @@ class HadoopClusterRolesHeadNodeScriptActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             uri: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             uri: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if uri is None:
+            raise TypeError("Missing 'uri' argument")
 
         _setter("name", name)
         _setter("uri", uri)
@@ -3599,28 +3771,34 @@ class HadoopClusterRolesWorkerNodeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             target_instance_count: pulumi.Input[int],
-             username: pulumi.Input[str],
-             vm_size: pulumi.Input[str],
+             target_instance_count: Optional[pulumi.Input[int]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             vm_size: Optional[pulumi.Input[str]] = None,
              autoscale: Optional[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleArgs']] = None,
              password: Optional[pulumi.Input[str]] = None,
              script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesWorkerNodeScriptActionArgs']]]] = None,
              ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
              virtual_network_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'targetInstanceCount' in kwargs:
+        if target_instance_count is None and 'targetInstanceCount' in kwargs:
             target_instance_count = kwargs['targetInstanceCount']
-        if 'vmSize' in kwargs:
+        if target_instance_count is None:
+            raise TypeError("Missing 'target_instance_count' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+        if vm_size is None and 'vmSize' in kwargs:
             vm_size = kwargs['vmSize']
-        if 'scriptActions' in kwargs:
+        if vm_size is None:
+            raise TypeError("Missing 'vm_size' argument")
+        if script_actions is None and 'scriptActions' in kwargs:
             script_actions = kwargs['scriptActions']
-        if 'sshKeys' in kwargs:
+        if ssh_keys is None and 'sshKeys' in kwargs:
             ssh_keys = kwargs['sshKeys']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'virtualNetworkId' in kwargs:
+        if virtual_network_id is None and 'virtualNetworkId' in kwargs:
             virtual_network_id = kwargs['virtualNetworkId']
 
         _setter("target_instance_count", target_instance_count)
@@ -3773,7 +3951,7 @@ class HadoopClusterRolesWorkerNodeAutoscaleArgs:
              _setter: Callable[[Any, Any], None],
              capacity: Optional[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs']] = None,
              recurrence: Optional[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
 
         if capacity is not None:
@@ -3825,14 +4003,18 @@ class HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             max_instance_count: pulumi.Input[int],
-             min_instance_count: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             max_instance_count: Optional[pulumi.Input[int]] = None,
+             min_instance_count: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'maxInstanceCount' in kwargs:
+        if max_instance_count is None and 'maxInstanceCount' in kwargs:
             max_instance_count = kwargs['maxInstanceCount']
-        if 'minInstanceCount' in kwargs:
+        if max_instance_count is None:
+            raise TypeError("Missing 'max_instance_count' argument")
+        if min_instance_count is None and 'minInstanceCount' in kwargs:
             min_instance_count = kwargs['minInstanceCount']
+        if min_instance_count is None:
+            raise TypeError("Missing 'min_instance_count' argument")
 
         _setter("max_instance_count", max_instance_count)
         _setter("min_instance_count", min_instance_count)
@@ -3879,10 +4061,14 @@ class HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             schedules: pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs']]],
-             timezone: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             schedules: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs']]]] = None,
+             timezone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if schedules is None:
+            raise TypeError("Missing 'schedules' argument")
+        if timezone is None:
+            raise TypeError("Missing 'timezone' argument")
 
         _setter("schedules", schedules)
         _setter("timezone", timezone)
@@ -3932,13 +4118,19 @@ class HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             days: pulumi.Input[Sequence[pulumi.Input[str]]],
-             target_instance_count: pulumi.Input[int],
-             time: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             days: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             target_instance_count: Optional[pulumi.Input[int]] = None,
+             time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'targetInstanceCount' in kwargs:
+        if days is None:
+            raise TypeError("Missing 'days' argument")
+        if target_instance_count is None and 'targetInstanceCount' in kwargs:
             target_instance_count = kwargs['targetInstanceCount']
+        if target_instance_count is None:
+            raise TypeError("Missing 'target_instance_count' argument")
+        if time is None:
+            raise TypeError("Missing 'time' argument")
 
         _setter("days", days)
         _setter("target_instance_count", target_instance_count)
@@ -4001,11 +4193,15 @@ class HadoopClusterRolesWorkerNodeScriptActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             uri: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             uri: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if uri is None:
+            raise TypeError("Missing 'uri' argument")
 
         _setter("name", name)
         _setter("uri", uri)
@@ -4085,24 +4281,28 @@ class HadoopClusterRolesZookeeperNodeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             username: pulumi.Input[str],
-             vm_size: pulumi.Input[str],
+             username: Optional[pulumi.Input[str]] = None,
+             vm_size: Optional[pulumi.Input[str]] = None,
              password: Optional[pulumi.Input[str]] = None,
              script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesZookeeperNodeScriptActionArgs']]]] = None,
              ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
              virtual_network_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'vmSize' in kwargs:
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+        if vm_size is None and 'vmSize' in kwargs:
             vm_size = kwargs['vmSize']
-        if 'scriptActions' in kwargs:
+        if vm_size is None:
+            raise TypeError("Missing 'vm_size' argument")
+        if script_actions is None and 'scriptActions' in kwargs:
             script_actions = kwargs['scriptActions']
-        if 'sshKeys' in kwargs:
+        if ssh_keys is None and 'sshKeys' in kwargs:
             ssh_keys = kwargs['sshKeys']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'virtualNetworkId' in kwargs:
+        if virtual_network_id is None and 'virtualNetworkId' in kwargs:
             virtual_network_id = kwargs['virtualNetworkId']
 
         _setter("username", username)
@@ -4227,11 +4427,15 @@ class HadoopClusterRolesZookeeperNodeScriptActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             uri: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             uri: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if uri is None:
+            raise TypeError("Missing 'uri' argument")
 
         _setter("name", name)
         _setter("uri", uri)
@@ -4307,28 +4511,40 @@ class HadoopClusterSecurityProfileArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             aadds_resource_id: pulumi.Input[str],
-             domain_name: pulumi.Input[str],
-             domain_user_password: pulumi.Input[str],
-             domain_username: pulumi.Input[str],
-             ldaps_urls: pulumi.Input[Sequence[pulumi.Input[str]]],
-             msi_resource_id: pulumi.Input[str],
+             aadds_resource_id: Optional[pulumi.Input[str]] = None,
+             domain_name: Optional[pulumi.Input[str]] = None,
+             domain_user_password: Optional[pulumi.Input[str]] = None,
+             domain_username: Optional[pulumi.Input[str]] = None,
+             ldaps_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             msi_resource_id: Optional[pulumi.Input[str]] = None,
              cluster_users_group_dns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'aaddsResourceId' in kwargs:
+        if aadds_resource_id is None and 'aaddsResourceId' in kwargs:
             aadds_resource_id = kwargs['aaddsResourceId']
-        if 'domainName' in kwargs:
+        if aadds_resource_id is None:
+            raise TypeError("Missing 'aadds_resource_id' argument")
+        if domain_name is None and 'domainName' in kwargs:
             domain_name = kwargs['domainName']
-        if 'domainUserPassword' in kwargs:
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+        if domain_user_password is None and 'domainUserPassword' in kwargs:
             domain_user_password = kwargs['domainUserPassword']
-        if 'domainUsername' in kwargs:
+        if domain_user_password is None:
+            raise TypeError("Missing 'domain_user_password' argument")
+        if domain_username is None and 'domainUsername' in kwargs:
             domain_username = kwargs['domainUsername']
-        if 'ldapsUrls' in kwargs:
+        if domain_username is None:
+            raise TypeError("Missing 'domain_username' argument")
+        if ldaps_urls is None and 'ldapsUrls' in kwargs:
             ldaps_urls = kwargs['ldapsUrls']
-        if 'msiResourceId' in kwargs:
+        if ldaps_urls is None:
+            raise TypeError("Missing 'ldaps_urls' argument")
+        if msi_resource_id is None and 'msiResourceId' in kwargs:
             msi_resource_id = kwargs['msiResourceId']
-        if 'clusterUsersGroupDns' in kwargs:
+        if msi_resource_id is None:
+            raise TypeError("Missing 'msi_resource_id' argument")
+        if cluster_users_group_dns is None and 'clusterUsersGroupDns' in kwargs:
             cluster_users_group_dns = kwargs['clusterUsersGroupDns']
 
         _setter("aadds_resource_id", aadds_resource_id)
@@ -4452,19 +4668,25 @@ class HadoopClusterStorageAccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             is_default: pulumi.Input[bool],
-             storage_account_key: pulumi.Input[str],
-             storage_container_id: pulumi.Input[str],
+             is_default: Optional[pulumi.Input[bool]] = None,
+             storage_account_key: Optional[pulumi.Input[str]] = None,
+             storage_container_id: Optional[pulumi.Input[str]] = None,
              storage_resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'isDefault' in kwargs:
+        if is_default is None and 'isDefault' in kwargs:
             is_default = kwargs['isDefault']
-        if 'storageAccountKey' in kwargs:
+        if is_default is None:
+            raise TypeError("Missing 'is_default' argument")
+        if storage_account_key is None and 'storageAccountKey' in kwargs:
             storage_account_key = kwargs['storageAccountKey']
-        if 'storageContainerId' in kwargs:
+        if storage_account_key is None:
+            raise TypeError("Missing 'storage_account_key' argument")
+        if storage_container_id is None and 'storageContainerId' in kwargs:
             storage_container_id = kwargs['storageContainerId']
-        if 'storageResourceId' in kwargs:
+        if storage_container_id is None:
+            raise TypeError("Missing 'storage_container_id' argument")
+        if storage_resource_id is None and 'storageResourceId' in kwargs:
             storage_resource_id = kwargs['storageResourceId']
 
         _setter("is_default", is_default)
@@ -4553,20 +4775,28 @@ class HadoopClusterStorageAccountGen2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             filesystem_id: pulumi.Input[str],
-             is_default: pulumi.Input[bool],
-             managed_identity_resource_id: pulumi.Input[str],
-             storage_resource_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             filesystem_id: Optional[pulumi.Input[str]] = None,
+             is_default: Optional[pulumi.Input[bool]] = None,
+             managed_identity_resource_id: Optional[pulumi.Input[str]] = None,
+             storage_resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'filesystemId' in kwargs:
+        if filesystem_id is None and 'filesystemId' in kwargs:
             filesystem_id = kwargs['filesystemId']
-        if 'isDefault' in kwargs:
+        if filesystem_id is None:
+            raise TypeError("Missing 'filesystem_id' argument")
+        if is_default is None and 'isDefault' in kwargs:
             is_default = kwargs['isDefault']
-        if 'managedIdentityResourceId' in kwargs:
+        if is_default is None:
+            raise TypeError("Missing 'is_default' argument")
+        if managed_identity_resource_id is None and 'managedIdentityResourceId' in kwargs:
             managed_identity_resource_id = kwargs['managedIdentityResourceId']
-        if 'storageResourceId' in kwargs:
+        if managed_identity_resource_id is None:
+            raise TypeError("Missing 'managed_identity_resource_id' argument")
+        if storage_resource_id is None and 'storageResourceId' in kwargs:
             storage_resource_id = kwargs['storageResourceId']
+        if storage_resource_id is None:
+            raise TypeError("Missing 'storage_resource_id' argument")
 
         _setter("filesystem_id", filesystem_id)
         _setter("is_default", is_default)
@@ -4640,11 +4870,13 @@ class InteractiveQueryClusterComponentVersionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             interactive_hive: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             interactive_hive: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'interactiveHive' in kwargs:
+        if interactive_hive is None and 'interactiveHive' in kwargs:
             interactive_hive = kwargs['interactiveHive']
+        if interactive_hive is None:
+            raise TypeError("Missing 'interactive_hive' argument")
 
         _setter("interactive_hive", interactive_hive)
 
@@ -4680,11 +4912,11 @@ class InteractiveQueryClusterComputeIsolationArgs:
              _setter: Callable[[Any, Any], None],
              compute_isolation_enabled: Optional[pulumi.Input[bool]] = None,
              host_sku: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'computeIsolationEnabled' in kwargs:
+        if compute_isolation_enabled is None and 'computeIsolationEnabled' in kwargs:
             compute_isolation_enabled = kwargs['computeIsolationEnabled']
-        if 'hostSku' in kwargs:
+        if host_sku is None and 'hostSku' in kwargs:
             host_sku = kwargs['hostSku']
 
         if compute_isolation_enabled is not None:
@@ -4744,15 +4976,15 @@ class InteractiveQueryClusterDiskEncryptionArgs:
              encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
              key_vault_key_id: Optional[pulumi.Input[str]] = None,
              key_vault_managed_identity_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'encryptionAlgorithm' in kwargs:
+        if encryption_algorithm is None and 'encryptionAlgorithm' in kwargs:
             encryption_algorithm = kwargs['encryptionAlgorithm']
-        if 'encryptionAtHostEnabled' in kwargs:
+        if encryption_at_host_enabled is None and 'encryptionAtHostEnabled' in kwargs:
             encryption_at_host_enabled = kwargs['encryptionAtHostEnabled']
-        if 'keyVaultKeyId' in kwargs:
+        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
             key_vault_key_id = kwargs['keyVaultKeyId']
-        if 'keyVaultManagedIdentityId' in kwargs:
+        if key_vault_managed_identity_id is None and 'keyVaultManagedIdentityId' in kwargs:
             key_vault_managed_identity_id = kwargs['keyVaultManagedIdentityId']
 
         if encryption_algorithm is not None:
@@ -4830,14 +5062,18 @@ class InteractiveQueryClusterExtensionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             log_analytics_workspace_id: pulumi.Input[str],
-             primary_key: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+             primary_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'primaryKey' in kwargs:
+        if log_analytics_workspace_id is None:
+            raise TypeError("Missing 'log_analytics_workspace_id' argument")
+        if primary_key is None and 'primaryKey' in kwargs:
             primary_key = kwargs['primaryKey']
+        if primary_key is None:
+            raise TypeError("Missing 'primary_key' argument")
 
         _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         _setter("primary_key", primary_key)
@@ -4886,10 +5122,14 @@ class InteractiveQueryClusterGatewayArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             password: pulumi.Input[str],
-             username: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             password: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
 
         _setter("password", password)
         _setter("username", username)
@@ -4944,7 +5184,7 @@ class InteractiveQueryClusterMetastoresArgs:
              ambari: Optional[pulumi.Input['InteractiveQueryClusterMetastoresAmbariArgs']] = None,
              hive: Optional[pulumi.Input['InteractiveQueryClusterMetastoresHiveArgs']] = None,
              oozie: Optional[pulumi.Input['InteractiveQueryClusterMetastoresOozieArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
 
         if ambari is not None:
@@ -5014,14 +5254,22 @@ class InteractiveQueryClusterMetastoresAmbariArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database_name: pulumi.Input[str],
-             password: pulumi.Input[str],
-             server: pulumi.Input[str],
-             username: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             server: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'databaseName' in kwargs:
+        if database_name is None and 'databaseName' in kwargs:
             database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if server is None:
+            raise TypeError("Missing 'server' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
 
         _setter("database_name", database_name)
         _setter("password", password)
@@ -5100,14 +5348,22 @@ class InteractiveQueryClusterMetastoresHiveArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database_name: pulumi.Input[str],
-             password: pulumi.Input[str],
-             server: pulumi.Input[str],
-             username: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             server: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'databaseName' in kwargs:
+        if database_name is None and 'databaseName' in kwargs:
             database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if server is None:
+            raise TypeError("Missing 'server' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
 
         _setter("database_name", database_name)
         _setter("password", password)
@@ -5186,14 +5442,22 @@ class InteractiveQueryClusterMetastoresOozieArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database_name: pulumi.Input[str],
-             password: pulumi.Input[str],
-             server: pulumi.Input[str],
-             username: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             server: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'databaseName' in kwargs:
+        if database_name is None and 'databaseName' in kwargs:
             database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if server is None:
+            raise TypeError("Missing 'server' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
 
         _setter("database_name", database_name)
         _setter("password", password)
@@ -5266,14 +5530,18 @@ class InteractiveQueryClusterMonitorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             log_analytics_workspace_id: pulumi.Input[str],
-             primary_key: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+             primary_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'primaryKey' in kwargs:
+        if log_analytics_workspace_id is None:
+            raise TypeError("Missing 'log_analytics_workspace_id' argument")
+        if primary_key is None and 'primaryKey' in kwargs:
             primary_key = kwargs['primaryKey']
+        if primary_key is None:
+            raise TypeError("Missing 'primary_key' argument")
 
         _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         _setter("primary_key", primary_key)
@@ -5324,11 +5592,11 @@ class InteractiveQueryClusterNetworkArgs:
              _setter: Callable[[Any, Any], None],
              connection_direction: Optional[pulumi.Input[str]] = None,
              private_link_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'connectionDirection' in kwargs:
+        if connection_direction is None and 'connectionDirection' in kwargs:
             connection_direction = kwargs['connectionDirection']
-        if 'privateLinkEnabled' in kwargs:
+        if private_link_enabled is None and 'privateLinkEnabled' in kwargs:
             private_link_enabled = kwargs['privateLinkEnabled']
 
         if connection_direction is not None:
@@ -5383,17 +5651,23 @@ class InteractiveQueryClusterRolesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             head_node: pulumi.Input['InteractiveQueryClusterRolesHeadNodeArgs'],
-             worker_node: pulumi.Input['InteractiveQueryClusterRolesWorkerNodeArgs'],
-             zookeeper_node: pulumi.Input['InteractiveQueryClusterRolesZookeeperNodeArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             head_node: Optional[pulumi.Input['InteractiveQueryClusterRolesHeadNodeArgs']] = None,
+             worker_node: Optional[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeArgs']] = None,
+             zookeeper_node: Optional[pulumi.Input['InteractiveQueryClusterRolesZookeeperNodeArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'headNode' in kwargs:
+        if head_node is None and 'headNode' in kwargs:
             head_node = kwargs['headNode']
-        if 'workerNode' in kwargs:
+        if head_node is None:
+            raise TypeError("Missing 'head_node' argument")
+        if worker_node is None and 'workerNode' in kwargs:
             worker_node = kwargs['workerNode']
-        if 'zookeeperNode' in kwargs:
+        if worker_node is None:
+            raise TypeError("Missing 'worker_node' argument")
+        if zookeeper_node is None and 'zookeeperNode' in kwargs:
             zookeeper_node = kwargs['zookeeperNode']
+        if zookeeper_node is None:
+            raise TypeError("Missing 'zookeeper_node' argument")
 
         _setter("head_node", head_node)
         _setter("worker_node", worker_node)
@@ -5474,24 +5748,28 @@ class InteractiveQueryClusterRolesHeadNodeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             username: pulumi.Input[str],
-             vm_size: pulumi.Input[str],
+             username: Optional[pulumi.Input[str]] = None,
+             vm_size: Optional[pulumi.Input[str]] = None,
              password: Optional[pulumi.Input[str]] = None,
              script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesHeadNodeScriptActionArgs']]]] = None,
              ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
              virtual_network_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'vmSize' in kwargs:
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+        if vm_size is None and 'vmSize' in kwargs:
             vm_size = kwargs['vmSize']
-        if 'scriptActions' in kwargs:
+        if vm_size is None:
+            raise TypeError("Missing 'vm_size' argument")
+        if script_actions is None and 'scriptActions' in kwargs:
             script_actions = kwargs['scriptActions']
-        if 'sshKeys' in kwargs:
+        if ssh_keys is None and 'sshKeys' in kwargs:
             ssh_keys = kwargs['sshKeys']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'virtualNetworkId' in kwargs:
+        if virtual_network_id is None and 'virtualNetworkId' in kwargs:
             virtual_network_id = kwargs['virtualNetworkId']
 
         _setter("username", username)
@@ -5618,11 +5896,15 @@ class InteractiveQueryClusterRolesHeadNodeScriptActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             uri: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             uri: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if uri is None:
+            raise TypeError("Missing 'uri' argument")
 
         _setter("name", name)
         _setter("uri", uri)
@@ -5710,28 +5992,34 @@ class InteractiveQueryClusterRolesWorkerNodeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             target_instance_count: pulumi.Input[int],
-             username: pulumi.Input[str],
-             vm_size: pulumi.Input[str],
+             target_instance_count: Optional[pulumi.Input[int]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             vm_size: Optional[pulumi.Input[str]] = None,
              autoscale: Optional[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs']] = None,
              password: Optional[pulumi.Input[str]] = None,
              script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeScriptActionArgs']]]] = None,
              ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
              virtual_network_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'targetInstanceCount' in kwargs:
+        if target_instance_count is None and 'targetInstanceCount' in kwargs:
             target_instance_count = kwargs['targetInstanceCount']
-        if 'vmSize' in kwargs:
+        if target_instance_count is None:
+            raise TypeError("Missing 'target_instance_count' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+        if vm_size is None and 'vmSize' in kwargs:
             vm_size = kwargs['vmSize']
-        if 'scriptActions' in kwargs:
+        if vm_size is None:
+            raise TypeError("Missing 'vm_size' argument")
+        if script_actions is None and 'scriptActions' in kwargs:
             script_actions = kwargs['scriptActions']
-        if 'sshKeys' in kwargs:
+        if ssh_keys is None and 'sshKeys' in kwargs:
             ssh_keys = kwargs['sshKeys']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'virtualNetworkId' in kwargs:
+        if virtual_network_id is None and 'virtualNetworkId' in kwargs:
             virtual_network_id = kwargs['virtualNetworkId']
 
         _setter("target_instance_count", target_instance_count)
@@ -5883,7 +6171,7 @@ class InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs:
              _setter: Callable[[Any, Any], None],
              capacity: Optional[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs']] = None,
              recurrence: Optional[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
 
         if capacity is not None:
@@ -5932,14 +6220,18 @@ class InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             max_instance_count: pulumi.Input[int],
-             min_instance_count: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             max_instance_count: Optional[pulumi.Input[int]] = None,
+             min_instance_count: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'maxInstanceCount' in kwargs:
+        if max_instance_count is None and 'maxInstanceCount' in kwargs:
             max_instance_count = kwargs['maxInstanceCount']
-        if 'minInstanceCount' in kwargs:
+        if max_instance_count is None:
+            raise TypeError("Missing 'max_instance_count' argument")
+        if min_instance_count is None and 'minInstanceCount' in kwargs:
             min_instance_count = kwargs['minInstanceCount']
+        if min_instance_count is None:
+            raise TypeError("Missing 'min_instance_count' argument")
 
         _setter("max_instance_count", max_instance_count)
         _setter("min_instance_count", min_instance_count)
@@ -5980,10 +6272,14 @@ class InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             schedules: pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs']]],
-             timezone: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             schedules: Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs']]]] = None,
+             timezone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if schedules is None:
+            raise TypeError("Missing 'schedules' argument")
+        if timezone is None:
+            raise TypeError("Missing 'timezone' argument")
 
         _setter("schedules", schedules)
         _setter("timezone", timezone)
@@ -6033,13 +6329,19 @@ class InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             days: pulumi.Input[Sequence[pulumi.Input[str]]],
-             target_instance_count: pulumi.Input[int],
-             time: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             days: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             target_instance_count: Optional[pulumi.Input[int]] = None,
+             time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'targetInstanceCount' in kwargs:
+        if days is None:
+            raise TypeError("Missing 'days' argument")
+        if target_instance_count is None and 'targetInstanceCount' in kwargs:
             target_instance_count = kwargs['targetInstanceCount']
+        if target_instance_count is None:
+            raise TypeError("Missing 'target_instance_count' argument")
+        if time is None:
+            raise TypeError("Missing 'time' argument")
 
         _setter("days", days)
         _setter("target_instance_count", target_instance_count)
@@ -6102,11 +6404,15 @@ class InteractiveQueryClusterRolesWorkerNodeScriptActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             uri: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             uri: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if uri is None:
+            raise TypeError("Missing 'uri' argument")
 
         _setter("name", name)
         _setter("uri", uri)
@@ -6186,24 +6492,28 @@ class InteractiveQueryClusterRolesZookeeperNodeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             username: pulumi.Input[str],
-             vm_size: pulumi.Input[str],
+             username: Optional[pulumi.Input[str]] = None,
+             vm_size: Optional[pulumi.Input[str]] = None,
              password: Optional[pulumi.Input[str]] = None,
              script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs']]]] = None,
              ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
              virtual_network_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'vmSize' in kwargs:
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+        if vm_size is None and 'vmSize' in kwargs:
             vm_size = kwargs['vmSize']
-        if 'scriptActions' in kwargs:
+        if vm_size is None:
+            raise TypeError("Missing 'vm_size' argument")
+        if script_actions is None and 'scriptActions' in kwargs:
             script_actions = kwargs['scriptActions']
-        if 'sshKeys' in kwargs:
+        if ssh_keys is None and 'sshKeys' in kwargs:
             ssh_keys = kwargs['sshKeys']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'virtualNetworkId' in kwargs:
+        if virtual_network_id is None and 'virtualNetworkId' in kwargs:
             virtual_network_id = kwargs['virtualNetworkId']
 
         _setter("username", username)
@@ -6328,11 +6638,15 @@ class InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             uri: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             uri: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if uri is None:
+            raise TypeError("Missing 'uri' argument")
 
         _setter("name", name)
         _setter("uri", uri)
@@ -6408,28 +6722,40 @@ class InteractiveQueryClusterSecurityProfileArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             aadds_resource_id: pulumi.Input[str],
-             domain_name: pulumi.Input[str],
-             domain_user_password: pulumi.Input[str],
-             domain_username: pulumi.Input[str],
-             ldaps_urls: pulumi.Input[Sequence[pulumi.Input[str]]],
-             msi_resource_id: pulumi.Input[str],
+             aadds_resource_id: Optional[pulumi.Input[str]] = None,
+             domain_name: Optional[pulumi.Input[str]] = None,
+             domain_user_password: Optional[pulumi.Input[str]] = None,
+             domain_username: Optional[pulumi.Input[str]] = None,
+             ldaps_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             msi_resource_id: Optional[pulumi.Input[str]] = None,
              cluster_users_group_dns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'aaddsResourceId' in kwargs:
+        if aadds_resource_id is None and 'aaddsResourceId' in kwargs:
             aadds_resource_id = kwargs['aaddsResourceId']
-        if 'domainName' in kwargs:
+        if aadds_resource_id is None:
+            raise TypeError("Missing 'aadds_resource_id' argument")
+        if domain_name is None and 'domainName' in kwargs:
             domain_name = kwargs['domainName']
-        if 'domainUserPassword' in kwargs:
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+        if domain_user_password is None and 'domainUserPassword' in kwargs:
             domain_user_password = kwargs['domainUserPassword']
-        if 'domainUsername' in kwargs:
+        if domain_user_password is None:
+            raise TypeError("Missing 'domain_user_password' argument")
+        if domain_username is None and 'domainUsername' in kwargs:
             domain_username = kwargs['domainUsername']
-        if 'ldapsUrls' in kwargs:
+        if domain_username is None:
+            raise TypeError("Missing 'domain_username' argument")
+        if ldaps_urls is None and 'ldapsUrls' in kwargs:
             ldaps_urls = kwargs['ldapsUrls']
-        if 'msiResourceId' in kwargs:
+        if ldaps_urls is None:
+            raise TypeError("Missing 'ldaps_urls' argument")
+        if msi_resource_id is None and 'msiResourceId' in kwargs:
             msi_resource_id = kwargs['msiResourceId']
-        if 'clusterUsersGroupDns' in kwargs:
+        if msi_resource_id is None:
+            raise TypeError("Missing 'msi_resource_id' argument")
+        if cluster_users_group_dns is None and 'clusterUsersGroupDns' in kwargs:
             cluster_users_group_dns = kwargs['clusterUsersGroupDns']
 
         _setter("aadds_resource_id", aadds_resource_id)
@@ -6553,19 +6879,25 @@ class InteractiveQueryClusterStorageAccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             is_default: pulumi.Input[bool],
-             storage_account_key: pulumi.Input[str],
-             storage_container_id: pulumi.Input[str],
+             is_default: Optional[pulumi.Input[bool]] = None,
+             storage_account_key: Optional[pulumi.Input[str]] = None,
+             storage_container_id: Optional[pulumi.Input[str]] = None,
              storage_resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'isDefault' in kwargs:
+        if is_default is None and 'isDefault' in kwargs:
             is_default = kwargs['isDefault']
-        if 'storageAccountKey' in kwargs:
+        if is_default is None:
+            raise TypeError("Missing 'is_default' argument")
+        if storage_account_key is None and 'storageAccountKey' in kwargs:
             storage_account_key = kwargs['storageAccountKey']
-        if 'storageContainerId' in kwargs:
+        if storage_account_key is None:
+            raise TypeError("Missing 'storage_account_key' argument")
+        if storage_container_id is None and 'storageContainerId' in kwargs:
             storage_container_id = kwargs['storageContainerId']
-        if 'storageResourceId' in kwargs:
+        if storage_container_id is None:
+            raise TypeError("Missing 'storage_container_id' argument")
+        if storage_resource_id is None and 'storageResourceId' in kwargs:
             storage_resource_id = kwargs['storageResourceId']
 
         _setter("is_default", is_default)
@@ -6654,20 +6986,28 @@ class InteractiveQueryClusterStorageAccountGen2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             filesystem_id: pulumi.Input[str],
-             is_default: pulumi.Input[bool],
-             managed_identity_resource_id: pulumi.Input[str],
-             storage_resource_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             filesystem_id: Optional[pulumi.Input[str]] = None,
+             is_default: Optional[pulumi.Input[bool]] = None,
+             managed_identity_resource_id: Optional[pulumi.Input[str]] = None,
+             storage_resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'filesystemId' in kwargs:
+        if filesystem_id is None and 'filesystemId' in kwargs:
             filesystem_id = kwargs['filesystemId']
-        if 'isDefault' in kwargs:
+        if filesystem_id is None:
+            raise TypeError("Missing 'filesystem_id' argument")
+        if is_default is None and 'isDefault' in kwargs:
             is_default = kwargs['isDefault']
-        if 'managedIdentityResourceId' in kwargs:
+        if is_default is None:
+            raise TypeError("Missing 'is_default' argument")
+        if managed_identity_resource_id is None and 'managedIdentityResourceId' in kwargs:
             managed_identity_resource_id = kwargs['managedIdentityResourceId']
-        if 'storageResourceId' in kwargs:
+        if managed_identity_resource_id is None:
+            raise TypeError("Missing 'managed_identity_resource_id' argument")
+        if storage_resource_id is None and 'storageResourceId' in kwargs:
             storage_resource_id = kwargs['storageResourceId']
+        if storage_resource_id is None:
+            raise TypeError("Missing 'storage_resource_id' argument")
 
         _setter("filesystem_id", filesystem_id)
         _setter("is_default", is_default)
@@ -6741,9 +7081,11 @@ class KafkaClusterComponentVersionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             kafka: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             kafka: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if kafka is None:
+            raise TypeError("Missing 'kafka' argument")
 
         _setter("kafka", kafka)
 
@@ -6779,11 +7121,11 @@ class KafkaClusterComputeIsolationArgs:
              _setter: Callable[[Any, Any], None],
              compute_isolation_enabled: Optional[pulumi.Input[bool]] = None,
              host_sku: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'computeIsolationEnabled' in kwargs:
+        if compute_isolation_enabled is None and 'computeIsolationEnabled' in kwargs:
             compute_isolation_enabled = kwargs['computeIsolationEnabled']
-        if 'hostSku' in kwargs:
+        if host_sku is None and 'hostSku' in kwargs:
             host_sku = kwargs['hostSku']
 
         if compute_isolation_enabled is not None:
@@ -6843,15 +7185,15 @@ class KafkaClusterDiskEncryptionArgs:
              encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
              key_vault_key_id: Optional[pulumi.Input[str]] = None,
              key_vault_managed_identity_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'encryptionAlgorithm' in kwargs:
+        if encryption_algorithm is None and 'encryptionAlgorithm' in kwargs:
             encryption_algorithm = kwargs['encryptionAlgorithm']
-        if 'encryptionAtHostEnabled' in kwargs:
+        if encryption_at_host_enabled is None and 'encryptionAtHostEnabled' in kwargs:
             encryption_at_host_enabled = kwargs['encryptionAtHostEnabled']
-        if 'keyVaultKeyId' in kwargs:
+        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
             key_vault_key_id = kwargs['keyVaultKeyId']
-        if 'keyVaultManagedIdentityId' in kwargs:
+        if key_vault_managed_identity_id is None and 'keyVaultManagedIdentityId' in kwargs:
             key_vault_managed_identity_id = kwargs['keyVaultManagedIdentityId']
 
         if encryption_algorithm is not None:
@@ -6929,14 +7271,18 @@ class KafkaClusterExtensionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             log_analytics_workspace_id: pulumi.Input[str],
-             primary_key: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+             primary_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'primaryKey' in kwargs:
+        if log_analytics_workspace_id is None:
+            raise TypeError("Missing 'log_analytics_workspace_id' argument")
+        if primary_key is None and 'primaryKey' in kwargs:
             primary_key = kwargs['primaryKey']
+        if primary_key is None:
+            raise TypeError("Missing 'primary_key' argument")
 
         _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         _setter("primary_key", primary_key)
@@ -6985,10 +7331,14 @@ class KafkaClusterGatewayArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             password: pulumi.Input[str],
-             username: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             password: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
 
         _setter("password", password)
         _setter("username", username)
@@ -7043,7 +7393,7 @@ class KafkaClusterMetastoresArgs:
              ambari: Optional[pulumi.Input['KafkaClusterMetastoresAmbariArgs']] = None,
              hive: Optional[pulumi.Input['KafkaClusterMetastoresHiveArgs']] = None,
              oozie: Optional[pulumi.Input['KafkaClusterMetastoresOozieArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
 
         if ambari is not None:
@@ -7113,14 +7463,22 @@ class KafkaClusterMetastoresAmbariArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database_name: pulumi.Input[str],
-             password: pulumi.Input[str],
-             server: pulumi.Input[str],
-             username: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             server: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'databaseName' in kwargs:
+        if database_name is None and 'databaseName' in kwargs:
             database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if server is None:
+            raise TypeError("Missing 'server' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
 
         _setter("database_name", database_name)
         _setter("password", password)
@@ -7199,14 +7557,22 @@ class KafkaClusterMetastoresHiveArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database_name: pulumi.Input[str],
-             password: pulumi.Input[str],
-             server: pulumi.Input[str],
-             username: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             server: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'databaseName' in kwargs:
+        if database_name is None and 'databaseName' in kwargs:
             database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if server is None:
+            raise TypeError("Missing 'server' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
 
         _setter("database_name", database_name)
         _setter("password", password)
@@ -7285,14 +7651,22 @@ class KafkaClusterMetastoresOozieArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database_name: pulumi.Input[str],
-             password: pulumi.Input[str],
-             server: pulumi.Input[str],
-             username: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             server: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'databaseName' in kwargs:
+        if database_name is None and 'databaseName' in kwargs:
             database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if server is None:
+            raise TypeError("Missing 'server' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
 
         _setter("database_name", database_name)
         _setter("password", password)
@@ -7365,14 +7739,18 @@ class KafkaClusterMonitorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             log_analytics_workspace_id: pulumi.Input[str],
-             primary_key: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+             primary_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'primaryKey' in kwargs:
+        if log_analytics_workspace_id is None:
+            raise TypeError("Missing 'log_analytics_workspace_id' argument")
+        if primary_key is None and 'primaryKey' in kwargs:
             primary_key = kwargs['primaryKey']
+        if primary_key is None:
+            raise TypeError("Missing 'primary_key' argument")
 
         _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         _setter("primary_key", primary_key)
@@ -7423,11 +7801,11 @@ class KafkaClusterNetworkArgs:
              _setter: Callable[[Any, Any], None],
              connection_direction: Optional[pulumi.Input[str]] = None,
              private_link_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'connectionDirection' in kwargs:
+        if connection_direction is None and 'connectionDirection' in kwargs:
             connection_direction = kwargs['connectionDirection']
-        if 'privateLinkEnabled' in kwargs:
+        if private_link_enabled is None and 'privateLinkEnabled' in kwargs:
             private_link_enabled = kwargs['privateLinkEnabled']
 
         if connection_direction is not None:
@@ -7481,14 +7859,18 @@ class KafkaClusterRestProxyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             security_group_id: pulumi.Input[str],
-             security_group_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             security_group_id: Optional[pulumi.Input[str]] = None,
+             security_group_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'securityGroupId' in kwargs:
+        if security_group_id is None and 'securityGroupId' in kwargs:
             security_group_id = kwargs['securityGroupId']
-        if 'securityGroupName' in kwargs:
+        if security_group_id is None:
+            raise TypeError("Missing 'security_group_id' argument")
+        if security_group_name is None and 'securityGroupName' in kwargs:
             security_group_name = kwargs['securityGroupName']
+        if security_group_name is None:
+            raise TypeError("Missing 'security_group_name' argument")
 
         _setter("security_group_id", security_group_id)
         _setter("security_group_name", security_group_name)
@@ -7545,19 +7927,25 @@ class KafkaClusterRolesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             head_node: pulumi.Input['KafkaClusterRolesHeadNodeArgs'],
-             worker_node: pulumi.Input['KafkaClusterRolesWorkerNodeArgs'],
-             zookeeper_node: pulumi.Input['KafkaClusterRolesZookeeperNodeArgs'],
+             head_node: Optional[pulumi.Input['KafkaClusterRolesHeadNodeArgs']] = None,
+             worker_node: Optional[pulumi.Input['KafkaClusterRolesWorkerNodeArgs']] = None,
+             zookeeper_node: Optional[pulumi.Input['KafkaClusterRolesZookeeperNodeArgs']] = None,
              kafka_management_node: Optional[pulumi.Input['KafkaClusterRolesKafkaManagementNodeArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'headNode' in kwargs:
+        if head_node is None and 'headNode' in kwargs:
             head_node = kwargs['headNode']
-        if 'workerNode' in kwargs:
+        if head_node is None:
+            raise TypeError("Missing 'head_node' argument")
+        if worker_node is None and 'workerNode' in kwargs:
             worker_node = kwargs['workerNode']
-        if 'zookeeperNode' in kwargs:
+        if worker_node is None:
+            raise TypeError("Missing 'worker_node' argument")
+        if zookeeper_node is None and 'zookeeperNode' in kwargs:
             zookeeper_node = kwargs['zookeeperNode']
-        if 'kafkaManagementNode' in kwargs:
+        if zookeeper_node is None:
+            raise TypeError("Missing 'zookeeper_node' argument")
+        if kafka_management_node is None and 'kafkaManagementNode' in kwargs:
             kafka_management_node = kwargs['kafkaManagementNode']
 
         _setter("head_node", head_node)
@@ -7653,24 +8041,28 @@ class KafkaClusterRolesHeadNodeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             username: pulumi.Input[str],
-             vm_size: pulumi.Input[str],
+             username: Optional[pulumi.Input[str]] = None,
+             vm_size: Optional[pulumi.Input[str]] = None,
              password: Optional[pulumi.Input[str]] = None,
              script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesHeadNodeScriptActionArgs']]]] = None,
              ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
              virtual_network_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'vmSize' in kwargs:
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+        if vm_size is None and 'vmSize' in kwargs:
             vm_size = kwargs['vmSize']
-        if 'scriptActions' in kwargs:
+        if vm_size is None:
+            raise TypeError("Missing 'vm_size' argument")
+        if script_actions is None and 'scriptActions' in kwargs:
             script_actions = kwargs['scriptActions']
-        if 'sshKeys' in kwargs:
+        if ssh_keys is None and 'sshKeys' in kwargs:
             ssh_keys = kwargs['sshKeys']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'virtualNetworkId' in kwargs:
+        if virtual_network_id is None and 'virtualNetworkId' in kwargs:
             virtual_network_id = kwargs['virtualNetworkId']
 
         _setter("username", username)
@@ -7795,11 +8187,15 @@ class KafkaClusterRolesHeadNodeScriptActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             uri: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             uri: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if uri is None:
+            raise TypeError("Missing 'uri' argument")
 
         _setter("name", name)
         _setter("uri", uri)
@@ -7879,24 +8275,28 @@ class KafkaClusterRolesKafkaManagementNodeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             username: pulumi.Input[str],
-             vm_size: pulumi.Input[str],
+             username: Optional[pulumi.Input[str]] = None,
+             vm_size: Optional[pulumi.Input[str]] = None,
              password: Optional[pulumi.Input[str]] = None,
              script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesKafkaManagementNodeScriptActionArgs']]]] = None,
              ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
              virtual_network_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'vmSize' in kwargs:
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+        if vm_size is None and 'vmSize' in kwargs:
             vm_size = kwargs['vmSize']
-        if 'scriptActions' in kwargs:
+        if vm_size is None:
+            raise TypeError("Missing 'vm_size' argument")
+        if script_actions is None and 'scriptActions' in kwargs:
             script_actions = kwargs['scriptActions']
-        if 'sshKeys' in kwargs:
+        if ssh_keys is None and 'sshKeys' in kwargs:
             ssh_keys = kwargs['sshKeys']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'virtualNetworkId' in kwargs:
+        if virtual_network_id is None and 'virtualNetworkId' in kwargs:
             virtual_network_id = kwargs['virtualNetworkId']
 
         _setter("username", username)
@@ -8021,11 +8421,15 @@ class KafkaClusterRolesKafkaManagementNodeScriptActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             uri: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             uri: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if uri is None:
+            raise TypeError("Missing 'uri' argument")
 
         _setter("name", name)
         _setter("uri", uri)
@@ -8111,30 +8515,38 @@ class KafkaClusterRolesWorkerNodeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             number_of_disks_per_node: pulumi.Input[int],
-             target_instance_count: pulumi.Input[int],
-             username: pulumi.Input[str],
-             vm_size: pulumi.Input[str],
+             number_of_disks_per_node: Optional[pulumi.Input[int]] = None,
+             target_instance_count: Optional[pulumi.Input[int]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             vm_size: Optional[pulumi.Input[str]] = None,
              password: Optional[pulumi.Input[str]] = None,
              script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesWorkerNodeScriptActionArgs']]]] = None,
              ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
              virtual_network_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'numberOfDisksPerNode' in kwargs:
+        if number_of_disks_per_node is None and 'numberOfDisksPerNode' in kwargs:
             number_of_disks_per_node = kwargs['numberOfDisksPerNode']
-        if 'targetInstanceCount' in kwargs:
+        if number_of_disks_per_node is None:
+            raise TypeError("Missing 'number_of_disks_per_node' argument")
+        if target_instance_count is None and 'targetInstanceCount' in kwargs:
             target_instance_count = kwargs['targetInstanceCount']
-        if 'vmSize' in kwargs:
+        if target_instance_count is None:
+            raise TypeError("Missing 'target_instance_count' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+        if vm_size is None and 'vmSize' in kwargs:
             vm_size = kwargs['vmSize']
-        if 'scriptActions' in kwargs:
+        if vm_size is None:
+            raise TypeError("Missing 'vm_size' argument")
+        if script_actions is None and 'scriptActions' in kwargs:
             script_actions = kwargs['scriptActions']
-        if 'sshKeys' in kwargs:
+        if ssh_keys is None and 'sshKeys' in kwargs:
             ssh_keys = kwargs['sshKeys']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'virtualNetworkId' in kwargs:
+        if virtual_network_id is None and 'virtualNetworkId' in kwargs:
             virtual_network_id = kwargs['virtualNetworkId']
 
         _setter("number_of_disks_per_node", number_of_disks_per_node)
@@ -8285,11 +8697,15 @@ class KafkaClusterRolesWorkerNodeScriptActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             uri: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             uri: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if uri is None:
+            raise TypeError("Missing 'uri' argument")
 
         _setter("name", name)
         _setter("uri", uri)
@@ -8369,24 +8785,28 @@ class KafkaClusterRolesZookeeperNodeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             username: pulumi.Input[str],
-             vm_size: pulumi.Input[str],
+             username: Optional[pulumi.Input[str]] = None,
+             vm_size: Optional[pulumi.Input[str]] = None,
              password: Optional[pulumi.Input[str]] = None,
              script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesZookeeperNodeScriptActionArgs']]]] = None,
              ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
              virtual_network_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'vmSize' in kwargs:
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+        if vm_size is None and 'vmSize' in kwargs:
             vm_size = kwargs['vmSize']
-        if 'scriptActions' in kwargs:
+        if vm_size is None:
+            raise TypeError("Missing 'vm_size' argument")
+        if script_actions is None and 'scriptActions' in kwargs:
             script_actions = kwargs['scriptActions']
-        if 'sshKeys' in kwargs:
+        if ssh_keys is None and 'sshKeys' in kwargs:
             ssh_keys = kwargs['sshKeys']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'virtualNetworkId' in kwargs:
+        if virtual_network_id is None and 'virtualNetworkId' in kwargs:
             virtual_network_id = kwargs['virtualNetworkId']
 
         _setter("username", username)
@@ -8511,11 +8931,15 @@ class KafkaClusterRolesZookeeperNodeScriptActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             uri: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             uri: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if uri is None:
+            raise TypeError("Missing 'uri' argument")
 
         _setter("name", name)
         _setter("uri", uri)
@@ -8591,28 +9015,40 @@ class KafkaClusterSecurityProfileArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             aadds_resource_id: pulumi.Input[str],
-             domain_name: pulumi.Input[str],
-             domain_user_password: pulumi.Input[str],
-             domain_username: pulumi.Input[str],
-             ldaps_urls: pulumi.Input[Sequence[pulumi.Input[str]]],
-             msi_resource_id: pulumi.Input[str],
+             aadds_resource_id: Optional[pulumi.Input[str]] = None,
+             domain_name: Optional[pulumi.Input[str]] = None,
+             domain_user_password: Optional[pulumi.Input[str]] = None,
+             domain_username: Optional[pulumi.Input[str]] = None,
+             ldaps_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             msi_resource_id: Optional[pulumi.Input[str]] = None,
              cluster_users_group_dns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'aaddsResourceId' in kwargs:
+        if aadds_resource_id is None and 'aaddsResourceId' in kwargs:
             aadds_resource_id = kwargs['aaddsResourceId']
-        if 'domainName' in kwargs:
+        if aadds_resource_id is None:
+            raise TypeError("Missing 'aadds_resource_id' argument")
+        if domain_name is None and 'domainName' in kwargs:
             domain_name = kwargs['domainName']
-        if 'domainUserPassword' in kwargs:
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+        if domain_user_password is None and 'domainUserPassword' in kwargs:
             domain_user_password = kwargs['domainUserPassword']
-        if 'domainUsername' in kwargs:
+        if domain_user_password is None:
+            raise TypeError("Missing 'domain_user_password' argument")
+        if domain_username is None and 'domainUsername' in kwargs:
             domain_username = kwargs['domainUsername']
-        if 'ldapsUrls' in kwargs:
+        if domain_username is None:
+            raise TypeError("Missing 'domain_username' argument")
+        if ldaps_urls is None and 'ldapsUrls' in kwargs:
             ldaps_urls = kwargs['ldapsUrls']
-        if 'msiResourceId' in kwargs:
+        if ldaps_urls is None:
+            raise TypeError("Missing 'ldaps_urls' argument")
+        if msi_resource_id is None and 'msiResourceId' in kwargs:
             msi_resource_id = kwargs['msiResourceId']
-        if 'clusterUsersGroupDns' in kwargs:
+        if msi_resource_id is None:
+            raise TypeError("Missing 'msi_resource_id' argument")
+        if cluster_users_group_dns is None and 'clusterUsersGroupDns' in kwargs:
             cluster_users_group_dns = kwargs['clusterUsersGroupDns']
 
         _setter("aadds_resource_id", aadds_resource_id)
@@ -8736,19 +9172,25 @@ class KafkaClusterStorageAccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             is_default: pulumi.Input[bool],
-             storage_account_key: pulumi.Input[str],
-             storage_container_id: pulumi.Input[str],
+             is_default: Optional[pulumi.Input[bool]] = None,
+             storage_account_key: Optional[pulumi.Input[str]] = None,
+             storage_container_id: Optional[pulumi.Input[str]] = None,
              storage_resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'isDefault' in kwargs:
+        if is_default is None and 'isDefault' in kwargs:
             is_default = kwargs['isDefault']
-        if 'storageAccountKey' in kwargs:
+        if is_default is None:
+            raise TypeError("Missing 'is_default' argument")
+        if storage_account_key is None and 'storageAccountKey' in kwargs:
             storage_account_key = kwargs['storageAccountKey']
-        if 'storageContainerId' in kwargs:
+        if storage_account_key is None:
+            raise TypeError("Missing 'storage_account_key' argument")
+        if storage_container_id is None and 'storageContainerId' in kwargs:
             storage_container_id = kwargs['storageContainerId']
-        if 'storageResourceId' in kwargs:
+        if storage_container_id is None:
+            raise TypeError("Missing 'storage_container_id' argument")
+        if storage_resource_id is None and 'storageResourceId' in kwargs:
             storage_resource_id = kwargs['storageResourceId']
 
         _setter("is_default", is_default)
@@ -8837,20 +9279,28 @@ class KafkaClusterStorageAccountGen2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             filesystem_id: pulumi.Input[str],
-             is_default: pulumi.Input[bool],
-             managed_identity_resource_id: pulumi.Input[str],
-             storage_resource_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             filesystem_id: Optional[pulumi.Input[str]] = None,
+             is_default: Optional[pulumi.Input[bool]] = None,
+             managed_identity_resource_id: Optional[pulumi.Input[str]] = None,
+             storage_resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'filesystemId' in kwargs:
+        if filesystem_id is None and 'filesystemId' in kwargs:
             filesystem_id = kwargs['filesystemId']
-        if 'isDefault' in kwargs:
+        if filesystem_id is None:
+            raise TypeError("Missing 'filesystem_id' argument")
+        if is_default is None and 'isDefault' in kwargs:
             is_default = kwargs['isDefault']
-        if 'managedIdentityResourceId' in kwargs:
+        if is_default is None:
+            raise TypeError("Missing 'is_default' argument")
+        if managed_identity_resource_id is None and 'managedIdentityResourceId' in kwargs:
             managed_identity_resource_id = kwargs['managedIdentityResourceId']
-        if 'storageResourceId' in kwargs:
+        if managed_identity_resource_id is None:
+            raise TypeError("Missing 'managed_identity_resource_id' argument")
+        if storage_resource_id is None and 'storageResourceId' in kwargs:
             storage_resource_id = kwargs['storageResourceId']
+        if storage_resource_id is None:
+            raise TypeError("Missing 'storage_resource_id' argument")
 
         _setter("filesystem_id", filesystem_id)
         _setter("is_default", is_default)
@@ -8924,9 +9374,11 @@ class SparkClusterComponentVersionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             spark: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             spark: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if spark is None:
+            raise TypeError("Missing 'spark' argument")
 
         _setter("spark", spark)
 
@@ -8962,11 +9414,11 @@ class SparkClusterComputeIsolationArgs:
              _setter: Callable[[Any, Any], None],
              compute_isolation_enabled: Optional[pulumi.Input[bool]] = None,
              host_sku: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'computeIsolationEnabled' in kwargs:
+        if compute_isolation_enabled is None and 'computeIsolationEnabled' in kwargs:
             compute_isolation_enabled = kwargs['computeIsolationEnabled']
-        if 'hostSku' in kwargs:
+        if host_sku is None and 'hostSku' in kwargs:
             host_sku = kwargs['hostSku']
 
         if compute_isolation_enabled is not None:
@@ -9026,15 +9478,15 @@ class SparkClusterDiskEncryptionArgs:
              encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
              key_vault_key_id: Optional[pulumi.Input[str]] = None,
              key_vault_managed_identity_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'encryptionAlgorithm' in kwargs:
+        if encryption_algorithm is None and 'encryptionAlgorithm' in kwargs:
             encryption_algorithm = kwargs['encryptionAlgorithm']
-        if 'encryptionAtHostEnabled' in kwargs:
+        if encryption_at_host_enabled is None and 'encryptionAtHostEnabled' in kwargs:
             encryption_at_host_enabled = kwargs['encryptionAtHostEnabled']
-        if 'keyVaultKeyId' in kwargs:
+        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
             key_vault_key_id = kwargs['keyVaultKeyId']
-        if 'keyVaultManagedIdentityId' in kwargs:
+        if key_vault_managed_identity_id is None and 'keyVaultManagedIdentityId' in kwargs:
             key_vault_managed_identity_id = kwargs['keyVaultManagedIdentityId']
 
         if encryption_algorithm is not None:
@@ -9112,14 +9564,18 @@ class SparkClusterExtensionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             log_analytics_workspace_id: pulumi.Input[str],
-             primary_key: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+             primary_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'primaryKey' in kwargs:
+        if log_analytics_workspace_id is None:
+            raise TypeError("Missing 'log_analytics_workspace_id' argument")
+        if primary_key is None and 'primaryKey' in kwargs:
             primary_key = kwargs['primaryKey']
+        if primary_key is None:
+            raise TypeError("Missing 'primary_key' argument")
 
         _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         _setter("primary_key", primary_key)
@@ -9168,10 +9624,14 @@ class SparkClusterGatewayArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             password: pulumi.Input[str],
-             username: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             password: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
 
         _setter("password", password)
         _setter("username", username)
@@ -9226,7 +9686,7 @@ class SparkClusterMetastoresArgs:
              ambari: Optional[pulumi.Input['SparkClusterMetastoresAmbariArgs']] = None,
              hive: Optional[pulumi.Input['SparkClusterMetastoresHiveArgs']] = None,
              oozie: Optional[pulumi.Input['SparkClusterMetastoresOozieArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
 
         if ambari is not None:
@@ -9296,14 +9756,22 @@ class SparkClusterMetastoresAmbariArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database_name: pulumi.Input[str],
-             password: pulumi.Input[str],
-             server: pulumi.Input[str],
-             username: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             server: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'databaseName' in kwargs:
+        if database_name is None and 'databaseName' in kwargs:
             database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if server is None:
+            raise TypeError("Missing 'server' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
 
         _setter("database_name", database_name)
         _setter("password", password)
@@ -9382,14 +9850,22 @@ class SparkClusterMetastoresHiveArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database_name: pulumi.Input[str],
-             password: pulumi.Input[str],
-             server: pulumi.Input[str],
-             username: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             server: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'databaseName' in kwargs:
+        if database_name is None and 'databaseName' in kwargs:
             database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if server is None:
+            raise TypeError("Missing 'server' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
 
         _setter("database_name", database_name)
         _setter("password", password)
@@ -9468,14 +9944,22 @@ class SparkClusterMetastoresOozieArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database_name: pulumi.Input[str],
-             password: pulumi.Input[str],
-             server: pulumi.Input[str],
-             username: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             server: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'databaseName' in kwargs:
+        if database_name is None and 'databaseName' in kwargs:
             database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if server is None:
+            raise TypeError("Missing 'server' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
 
         _setter("database_name", database_name)
         _setter("password", password)
@@ -9548,14 +10032,18 @@ class SparkClusterMonitorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             log_analytics_workspace_id: pulumi.Input[str],
-             primary_key: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+             primary_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'primaryKey' in kwargs:
+        if log_analytics_workspace_id is None:
+            raise TypeError("Missing 'log_analytics_workspace_id' argument")
+        if primary_key is None and 'primaryKey' in kwargs:
             primary_key = kwargs['primaryKey']
+        if primary_key is None:
+            raise TypeError("Missing 'primary_key' argument")
 
         _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         _setter("primary_key", primary_key)
@@ -9606,11 +10094,11 @@ class SparkClusterNetworkArgs:
              _setter: Callable[[Any, Any], None],
              connection_direction: Optional[pulumi.Input[str]] = None,
              private_link_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'connectionDirection' in kwargs:
+        if connection_direction is None and 'connectionDirection' in kwargs:
             connection_direction = kwargs['connectionDirection']
-        if 'privateLinkEnabled' in kwargs:
+        if private_link_enabled is None and 'privateLinkEnabled' in kwargs:
             private_link_enabled = kwargs['privateLinkEnabled']
 
         if connection_direction is not None:
@@ -9665,17 +10153,23 @@ class SparkClusterRolesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             head_node: pulumi.Input['SparkClusterRolesHeadNodeArgs'],
-             worker_node: pulumi.Input['SparkClusterRolesWorkerNodeArgs'],
-             zookeeper_node: pulumi.Input['SparkClusterRolesZookeeperNodeArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             head_node: Optional[pulumi.Input['SparkClusterRolesHeadNodeArgs']] = None,
+             worker_node: Optional[pulumi.Input['SparkClusterRolesWorkerNodeArgs']] = None,
+             zookeeper_node: Optional[pulumi.Input['SparkClusterRolesZookeeperNodeArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'headNode' in kwargs:
+        if head_node is None and 'headNode' in kwargs:
             head_node = kwargs['headNode']
-        if 'workerNode' in kwargs:
+        if head_node is None:
+            raise TypeError("Missing 'head_node' argument")
+        if worker_node is None and 'workerNode' in kwargs:
             worker_node = kwargs['workerNode']
-        if 'zookeeperNode' in kwargs:
+        if worker_node is None:
+            raise TypeError("Missing 'worker_node' argument")
+        if zookeeper_node is None and 'zookeeperNode' in kwargs:
             zookeeper_node = kwargs['zookeeperNode']
+        if zookeeper_node is None:
+            raise TypeError("Missing 'zookeeper_node' argument")
 
         _setter("head_node", head_node)
         _setter("worker_node", worker_node)
@@ -9754,24 +10248,28 @@ class SparkClusterRolesHeadNodeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             username: pulumi.Input[str],
-             vm_size: pulumi.Input[str],
+             username: Optional[pulumi.Input[str]] = None,
+             vm_size: Optional[pulumi.Input[str]] = None,
              password: Optional[pulumi.Input[str]] = None,
              script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesHeadNodeScriptActionArgs']]]] = None,
              ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
              virtual_network_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'vmSize' in kwargs:
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+        if vm_size is None and 'vmSize' in kwargs:
             vm_size = kwargs['vmSize']
-        if 'scriptActions' in kwargs:
+        if vm_size is None:
+            raise TypeError("Missing 'vm_size' argument")
+        if script_actions is None and 'scriptActions' in kwargs:
             script_actions = kwargs['scriptActions']
-        if 'sshKeys' in kwargs:
+        if ssh_keys is None and 'sshKeys' in kwargs:
             ssh_keys = kwargs['sshKeys']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'virtualNetworkId' in kwargs:
+        if virtual_network_id is None and 'virtualNetworkId' in kwargs:
             virtual_network_id = kwargs['virtualNetworkId']
 
         _setter("username", username)
@@ -9896,11 +10394,15 @@ class SparkClusterRolesHeadNodeScriptActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             uri: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             uri: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if uri is None:
+            raise TypeError("Missing 'uri' argument")
 
         _setter("name", name)
         _setter("uri", uri)
@@ -9986,28 +10488,34 @@ class SparkClusterRolesWorkerNodeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             target_instance_count: pulumi.Input[int],
-             username: pulumi.Input[str],
-             vm_size: pulumi.Input[str],
+             target_instance_count: Optional[pulumi.Input[int]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             vm_size: Optional[pulumi.Input[str]] = None,
              autoscale: Optional[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleArgs']] = None,
              password: Optional[pulumi.Input[str]] = None,
              script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesWorkerNodeScriptActionArgs']]]] = None,
              ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
              virtual_network_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'targetInstanceCount' in kwargs:
+        if target_instance_count is None and 'targetInstanceCount' in kwargs:
             target_instance_count = kwargs['targetInstanceCount']
-        if 'vmSize' in kwargs:
+        if target_instance_count is None:
+            raise TypeError("Missing 'target_instance_count' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+        if vm_size is None and 'vmSize' in kwargs:
             vm_size = kwargs['vmSize']
-        if 'scriptActions' in kwargs:
+        if vm_size is None:
+            raise TypeError("Missing 'vm_size' argument")
+        if script_actions is None and 'scriptActions' in kwargs:
             script_actions = kwargs['scriptActions']
-        if 'sshKeys' in kwargs:
+        if ssh_keys is None and 'sshKeys' in kwargs:
             ssh_keys = kwargs['sshKeys']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'virtualNetworkId' in kwargs:
+        if virtual_network_id is None and 'virtualNetworkId' in kwargs:
             virtual_network_id = kwargs['virtualNetworkId']
 
         _setter("target_instance_count", target_instance_count)
@@ -10160,7 +10668,7 @@ class SparkClusterRolesWorkerNodeAutoscaleArgs:
              _setter: Callable[[Any, Any], None],
              capacity: Optional[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleCapacityArgs']] = None,
              recurrence: Optional[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
 
         if capacity is not None:
@@ -10212,14 +10720,18 @@ class SparkClusterRolesWorkerNodeAutoscaleCapacityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             max_instance_count: pulumi.Input[int],
-             min_instance_count: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             max_instance_count: Optional[pulumi.Input[int]] = None,
+             min_instance_count: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'maxInstanceCount' in kwargs:
+        if max_instance_count is None and 'maxInstanceCount' in kwargs:
             max_instance_count = kwargs['maxInstanceCount']
-        if 'minInstanceCount' in kwargs:
+        if max_instance_count is None:
+            raise TypeError("Missing 'max_instance_count' argument")
+        if min_instance_count is None and 'minInstanceCount' in kwargs:
             min_instance_count = kwargs['minInstanceCount']
+        if min_instance_count is None:
+            raise TypeError("Missing 'min_instance_count' argument")
 
         _setter("max_instance_count", max_instance_count)
         _setter("min_instance_count", min_instance_count)
@@ -10266,10 +10778,14 @@ class SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             schedules: pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs']]],
-             timezone: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             schedules: Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs']]]] = None,
+             timezone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if schedules is None:
+            raise TypeError("Missing 'schedules' argument")
+        if timezone is None:
+            raise TypeError("Missing 'timezone' argument")
 
         _setter("schedules", schedules)
         _setter("timezone", timezone)
@@ -10319,13 +10835,19 @@ class SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             days: pulumi.Input[Sequence[pulumi.Input[str]]],
-             target_instance_count: pulumi.Input[int],
-             time: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             days: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             target_instance_count: Optional[pulumi.Input[int]] = None,
+             time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'targetInstanceCount' in kwargs:
+        if days is None:
+            raise TypeError("Missing 'days' argument")
+        if target_instance_count is None and 'targetInstanceCount' in kwargs:
             target_instance_count = kwargs['targetInstanceCount']
+        if target_instance_count is None:
+            raise TypeError("Missing 'target_instance_count' argument")
+        if time is None:
+            raise TypeError("Missing 'time' argument")
 
         _setter("days", days)
         _setter("target_instance_count", target_instance_count)
@@ -10388,11 +10910,15 @@ class SparkClusterRolesWorkerNodeScriptActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             uri: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             uri: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if uri is None:
+            raise TypeError("Missing 'uri' argument")
 
         _setter("name", name)
         _setter("uri", uri)
@@ -10472,24 +10998,28 @@ class SparkClusterRolesZookeeperNodeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             username: pulumi.Input[str],
-             vm_size: pulumi.Input[str],
+             username: Optional[pulumi.Input[str]] = None,
+             vm_size: Optional[pulumi.Input[str]] = None,
              password: Optional[pulumi.Input[str]] = None,
              script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesZookeeperNodeScriptActionArgs']]]] = None,
              ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
              virtual_network_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'vmSize' in kwargs:
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+        if vm_size is None and 'vmSize' in kwargs:
             vm_size = kwargs['vmSize']
-        if 'scriptActions' in kwargs:
+        if vm_size is None:
+            raise TypeError("Missing 'vm_size' argument")
+        if script_actions is None and 'scriptActions' in kwargs:
             script_actions = kwargs['scriptActions']
-        if 'sshKeys' in kwargs:
+        if ssh_keys is None and 'sshKeys' in kwargs:
             ssh_keys = kwargs['sshKeys']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'virtualNetworkId' in kwargs:
+        if virtual_network_id is None and 'virtualNetworkId' in kwargs:
             virtual_network_id = kwargs['virtualNetworkId']
 
         _setter("username", username)
@@ -10614,11 +11144,15 @@ class SparkClusterRolesZookeeperNodeScriptActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             uri: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             uri: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if uri is None:
+            raise TypeError("Missing 'uri' argument")
 
         _setter("name", name)
         _setter("uri", uri)
@@ -10694,28 +11228,40 @@ class SparkClusterSecurityProfileArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             aadds_resource_id: pulumi.Input[str],
-             domain_name: pulumi.Input[str],
-             domain_user_password: pulumi.Input[str],
-             domain_username: pulumi.Input[str],
-             ldaps_urls: pulumi.Input[Sequence[pulumi.Input[str]]],
-             msi_resource_id: pulumi.Input[str],
+             aadds_resource_id: Optional[pulumi.Input[str]] = None,
+             domain_name: Optional[pulumi.Input[str]] = None,
+             domain_user_password: Optional[pulumi.Input[str]] = None,
+             domain_username: Optional[pulumi.Input[str]] = None,
+             ldaps_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             msi_resource_id: Optional[pulumi.Input[str]] = None,
              cluster_users_group_dns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'aaddsResourceId' in kwargs:
+        if aadds_resource_id is None and 'aaddsResourceId' in kwargs:
             aadds_resource_id = kwargs['aaddsResourceId']
-        if 'domainName' in kwargs:
+        if aadds_resource_id is None:
+            raise TypeError("Missing 'aadds_resource_id' argument")
+        if domain_name is None and 'domainName' in kwargs:
             domain_name = kwargs['domainName']
-        if 'domainUserPassword' in kwargs:
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+        if domain_user_password is None and 'domainUserPassword' in kwargs:
             domain_user_password = kwargs['domainUserPassword']
-        if 'domainUsername' in kwargs:
+        if domain_user_password is None:
+            raise TypeError("Missing 'domain_user_password' argument")
+        if domain_username is None and 'domainUsername' in kwargs:
             domain_username = kwargs['domainUsername']
-        if 'ldapsUrls' in kwargs:
+        if domain_username is None:
+            raise TypeError("Missing 'domain_username' argument")
+        if ldaps_urls is None and 'ldapsUrls' in kwargs:
             ldaps_urls = kwargs['ldapsUrls']
-        if 'msiResourceId' in kwargs:
+        if ldaps_urls is None:
+            raise TypeError("Missing 'ldaps_urls' argument")
+        if msi_resource_id is None and 'msiResourceId' in kwargs:
             msi_resource_id = kwargs['msiResourceId']
-        if 'clusterUsersGroupDns' in kwargs:
+        if msi_resource_id is None:
+            raise TypeError("Missing 'msi_resource_id' argument")
+        if cluster_users_group_dns is None and 'clusterUsersGroupDns' in kwargs:
             cluster_users_group_dns = kwargs['clusterUsersGroupDns']
 
         _setter("aadds_resource_id", aadds_resource_id)
@@ -10839,19 +11385,25 @@ class SparkClusterStorageAccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             is_default: pulumi.Input[bool],
-             storage_account_key: pulumi.Input[str],
-             storage_container_id: pulumi.Input[str],
+             is_default: Optional[pulumi.Input[bool]] = None,
+             storage_account_key: Optional[pulumi.Input[str]] = None,
+             storage_container_id: Optional[pulumi.Input[str]] = None,
              storage_resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'isDefault' in kwargs:
+        if is_default is None and 'isDefault' in kwargs:
             is_default = kwargs['isDefault']
-        if 'storageAccountKey' in kwargs:
+        if is_default is None:
+            raise TypeError("Missing 'is_default' argument")
+        if storage_account_key is None and 'storageAccountKey' in kwargs:
             storage_account_key = kwargs['storageAccountKey']
-        if 'storageContainerId' in kwargs:
+        if storage_account_key is None:
+            raise TypeError("Missing 'storage_account_key' argument")
+        if storage_container_id is None and 'storageContainerId' in kwargs:
             storage_container_id = kwargs['storageContainerId']
-        if 'storageResourceId' in kwargs:
+        if storage_container_id is None:
+            raise TypeError("Missing 'storage_container_id' argument")
+        if storage_resource_id is None and 'storageResourceId' in kwargs:
             storage_resource_id = kwargs['storageResourceId']
 
         _setter("is_default", is_default)
@@ -10940,20 +11492,28 @@ class SparkClusterStorageAccountGen2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             filesystem_id: pulumi.Input[str],
-             is_default: pulumi.Input[bool],
-             managed_identity_resource_id: pulumi.Input[str],
-             storage_resource_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             filesystem_id: Optional[pulumi.Input[str]] = None,
+             is_default: Optional[pulumi.Input[bool]] = None,
+             managed_identity_resource_id: Optional[pulumi.Input[str]] = None,
+             storage_resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'filesystemId' in kwargs:
+        if filesystem_id is None and 'filesystemId' in kwargs:
             filesystem_id = kwargs['filesystemId']
-        if 'isDefault' in kwargs:
+        if filesystem_id is None:
+            raise TypeError("Missing 'filesystem_id' argument")
+        if is_default is None and 'isDefault' in kwargs:
             is_default = kwargs['isDefault']
-        if 'managedIdentityResourceId' in kwargs:
+        if is_default is None:
+            raise TypeError("Missing 'is_default' argument")
+        if managed_identity_resource_id is None and 'managedIdentityResourceId' in kwargs:
             managed_identity_resource_id = kwargs['managedIdentityResourceId']
-        if 'storageResourceId' in kwargs:
+        if managed_identity_resource_id is None:
+            raise TypeError("Missing 'managed_identity_resource_id' argument")
+        if storage_resource_id is None and 'storageResourceId' in kwargs:
             storage_resource_id = kwargs['storageResourceId']
+        if storage_resource_id is None:
+            raise TypeError("Missing 'storage_resource_id' argument")
 
         _setter("filesystem_id", filesystem_id)
         _setter("is_default", is_default)

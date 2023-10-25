@@ -8,18 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Virtual Desktop Host Pool.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.desktopvirtualization.getHostPool({
- *     name: "example-pool",
- *     resourceGroupName: "example-resources",
- * });
- * ```
  */
 export function getHostPool(args: GetHostPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetHostPoolResult> {
 
@@ -109,18 +97,6 @@ export interface GetHostPoolResult {
 }
 /**
  * Use this data source to access information about an existing Virtual Desktop Host Pool.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.desktopvirtualization.getHostPool({
- *     name: "example-pool",
- *     resourceGroupName: "example-resources",
- * });
- * ```
  */
 export function getHostPoolOutput(args: GetHostPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostPoolResult> {
     return pulumi.output(args).apply((a: any) => getHostPool(a, opts))

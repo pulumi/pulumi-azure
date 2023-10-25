@@ -35,18 +35,24 @@ class FlexibleServerFirewallRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             end_ip_address: pulumi.Input[str],
-             server_id: pulumi.Input[str],
-             start_ip_address: pulumi.Input[str],
+             end_ip_address: Optional[pulumi.Input[str]] = None,
+             server_id: Optional[pulumi.Input[str]] = None,
+             start_ip_address: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'endIpAddress' in kwargs:
+        if end_ip_address is None and 'endIpAddress' in kwargs:
             end_ip_address = kwargs['endIpAddress']
-        if 'serverId' in kwargs:
+        if end_ip_address is None:
+            raise TypeError("Missing 'end_ip_address' argument")
+        if server_id is None and 'serverId' in kwargs:
             server_id = kwargs['serverId']
-        if 'startIpAddress' in kwargs:
+        if server_id is None:
+            raise TypeError("Missing 'server_id' argument")
+        if start_ip_address is None and 'startIpAddress' in kwargs:
             start_ip_address = kwargs['startIpAddress']
+        if start_ip_address is None:
+            raise TypeError("Missing 'start_ip_address' argument")
 
         _setter("end_ip_address", end_ip_address)
         _setter("server_id", server_id)
@@ -131,13 +137,13 @@ class _FlexibleServerFirewallRuleState:
              name: Optional[pulumi.Input[str]] = None,
              server_id: Optional[pulumi.Input[str]] = None,
              start_ip_address: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'endIpAddress' in kwargs:
+        if end_ip_address is None and 'endIpAddress' in kwargs:
             end_ip_address = kwargs['endIpAddress']
-        if 'serverId' in kwargs:
+        if server_id is None and 'serverId' in kwargs:
             server_id = kwargs['serverId']
-        if 'startIpAddress' in kwargs:
+        if start_ip_address is None and 'startIpAddress' in kwargs:
             start_ip_address = kwargs['startIpAddress']
 
         if end_ip_address is not None:
@@ -211,27 +217,6 @@ class FlexibleServerFirewallRule(pulumi.CustomResource):
         """
         Manages a PostgreSQL Flexible Server Firewall Rule.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_flexible_server = azure.postgresql.FlexibleServer("exampleFlexibleServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            version="12",
-            administrator_login="psqladmin",
-            administrator_password="H@Sh1CoR3!",
-            storage_mb=32768,
-            sku_name="GP_Standard_D4s_v3")
-        example_flexible_server_firewall_rule = azure.postgresql.FlexibleServerFirewallRule("exampleFlexibleServerFirewallRule",
-            server_id=example_flexible_server.id,
-            start_ip_address="122.122.0.0",
-            end_ip_address="122.122.0.0")
-        ```
-
         ## Import
 
         PostgreSQL Flexible Server Firewall Rules can be imported using the `resource id`, e.g.
@@ -255,27 +240,6 @@ class FlexibleServerFirewallRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a PostgreSQL Flexible Server Firewall Rule.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_flexible_server = azure.postgresql.FlexibleServer("exampleFlexibleServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            version="12",
-            administrator_login="psqladmin",
-            administrator_password="H@Sh1CoR3!",
-            storage_mb=32768,
-            sku_name="GP_Standard_D4s_v3")
-        example_flexible_server_firewall_rule = azure.postgresql.FlexibleServerFirewallRule("exampleFlexibleServerFirewallRule",
-            server_id=example_flexible_server.id,
-            start_ip_address="122.122.0.0",
-            end_ip_address="122.122.0.0")
-        ```
 
         ## Import
 

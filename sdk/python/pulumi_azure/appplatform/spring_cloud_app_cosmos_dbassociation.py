@@ -53,35 +53,43 @@ class SpringCloudAppCosmosDBAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_type: pulumi.Input[str],
-             cosmosdb_access_key: pulumi.Input[str],
-             cosmosdb_account_id: pulumi.Input[str],
-             spring_cloud_app_id: pulumi.Input[str],
+             api_type: Optional[pulumi.Input[str]] = None,
+             cosmosdb_access_key: Optional[pulumi.Input[str]] = None,
+             cosmosdb_account_id: Optional[pulumi.Input[str]] = None,
+             spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
              cosmosdb_cassandra_keyspace_name: Optional[pulumi.Input[str]] = None,
              cosmosdb_gremlin_database_name: Optional[pulumi.Input[str]] = None,
              cosmosdb_gremlin_graph_name: Optional[pulumi.Input[str]] = None,
              cosmosdb_mongo_database_name: Optional[pulumi.Input[str]] = None,
              cosmosdb_sql_database_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiType' in kwargs:
+        if api_type is None and 'apiType' in kwargs:
             api_type = kwargs['apiType']
-        if 'cosmosdbAccessKey' in kwargs:
+        if api_type is None:
+            raise TypeError("Missing 'api_type' argument")
+        if cosmosdb_access_key is None and 'cosmosdbAccessKey' in kwargs:
             cosmosdb_access_key = kwargs['cosmosdbAccessKey']
-        if 'cosmosdbAccountId' in kwargs:
+        if cosmosdb_access_key is None:
+            raise TypeError("Missing 'cosmosdb_access_key' argument")
+        if cosmosdb_account_id is None and 'cosmosdbAccountId' in kwargs:
             cosmosdb_account_id = kwargs['cosmosdbAccountId']
-        if 'springCloudAppId' in kwargs:
+        if cosmosdb_account_id is None:
+            raise TypeError("Missing 'cosmosdb_account_id' argument")
+        if spring_cloud_app_id is None and 'springCloudAppId' in kwargs:
             spring_cloud_app_id = kwargs['springCloudAppId']
-        if 'cosmosdbCassandraKeyspaceName' in kwargs:
+        if spring_cloud_app_id is None:
+            raise TypeError("Missing 'spring_cloud_app_id' argument")
+        if cosmosdb_cassandra_keyspace_name is None and 'cosmosdbCassandraKeyspaceName' in kwargs:
             cosmosdb_cassandra_keyspace_name = kwargs['cosmosdbCassandraKeyspaceName']
-        if 'cosmosdbGremlinDatabaseName' in kwargs:
+        if cosmosdb_gremlin_database_name is None and 'cosmosdbGremlinDatabaseName' in kwargs:
             cosmosdb_gremlin_database_name = kwargs['cosmosdbGremlinDatabaseName']
-        if 'cosmosdbGremlinGraphName' in kwargs:
+        if cosmosdb_gremlin_graph_name is None and 'cosmosdbGremlinGraphName' in kwargs:
             cosmosdb_gremlin_graph_name = kwargs['cosmosdbGremlinGraphName']
-        if 'cosmosdbMongoDatabaseName' in kwargs:
+        if cosmosdb_mongo_database_name is None and 'cosmosdbMongoDatabaseName' in kwargs:
             cosmosdb_mongo_database_name = kwargs['cosmosdbMongoDatabaseName']
-        if 'cosmosdbSqlDatabaseName' in kwargs:
+        if cosmosdb_sql_database_name is None and 'cosmosdbSqlDatabaseName' in kwargs:
             cosmosdb_sql_database_name = kwargs['cosmosdbSqlDatabaseName']
 
         _setter("api_type", api_type)
@@ -274,25 +282,25 @@ class _SpringCloudAppCosmosDBAssociationState:
              cosmosdb_sql_database_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiType' in kwargs:
+        if api_type is None and 'apiType' in kwargs:
             api_type = kwargs['apiType']
-        if 'cosmosdbAccessKey' in kwargs:
+        if cosmosdb_access_key is None and 'cosmosdbAccessKey' in kwargs:
             cosmosdb_access_key = kwargs['cosmosdbAccessKey']
-        if 'cosmosdbAccountId' in kwargs:
+        if cosmosdb_account_id is None and 'cosmosdbAccountId' in kwargs:
             cosmosdb_account_id = kwargs['cosmosdbAccountId']
-        if 'cosmosdbCassandraKeyspaceName' in kwargs:
+        if cosmosdb_cassandra_keyspace_name is None and 'cosmosdbCassandraKeyspaceName' in kwargs:
             cosmosdb_cassandra_keyspace_name = kwargs['cosmosdbCassandraKeyspaceName']
-        if 'cosmosdbGremlinDatabaseName' in kwargs:
+        if cosmosdb_gremlin_database_name is None and 'cosmosdbGremlinDatabaseName' in kwargs:
             cosmosdb_gremlin_database_name = kwargs['cosmosdbGremlinDatabaseName']
-        if 'cosmosdbGremlinGraphName' in kwargs:
+        if cosmosdb_gremlin_graph_name is None and 'cosmosdbGremlinGraphName' in kwargs:
             cosmosdb_gremlin_graph_name = kwargs['cosmosdbGremlinGraphName']
-        if 'cosmosdbMongoDatabaseName' in kwargs:
+        if cosmosdb_mongo_database_name is None and 'cosmosdbMongoDatabaseName' in kwargs:
             cosmosdb_mongo_database_name = kwargs['cosmosdbMongoDatabaseName']
-        if 'cosmosdbSqlDatabaseName' in kwargs:
+        if cosmosdb_sql_database_name is None and 'cosmosdbSqlDatabaseName' in kwargs:
             cosmosdb_sql_database_name = kwargs['cosmosdbSqlDatabaseName']
-        if 'springCloudAppId' in kwargs:
+        if spring_cloud_app_id is None and 'springCloudAppId' in kwargs:
             spring_cloud_app_id = kwargs['springCloudAppId']
 
         if api_type is not None:
@@ -456,38 +464,6 @@ class SpringCloudAppCosmosDBAssociation(pulumi.CustomResource):
         """
         Associates a Spring Cloud Application with a CosmosDB Account.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_spring_cloud_app = azure.appplatform.SpringCloudApp("exampleSpringCloudApp",
-            resource_group_name=example_resource_group.name,
-            service_name=example_spring_cloud_service.name)
-        example_account = azure.cosmosdb.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            offer_type="Standard",
-            kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="Strong",
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example_resource_group.location,
-                failover_priority=0,
-            )])
-        example_spring_cloud_app_cosmos_dbassociation = azure.appplatform.SpringCloudAppCosmosDBAssociation("exampleSpringCloudAppCosmosDBAssociation",
-            spring_cloud_app_id=example_spring_cloud_app.id,
-            cosmosdb_account_id=example_account.id,
-            api_type="table",
-            cosmosdb_access_key=example_account.primary_key)
-        ```
-
         ## Import
 
         Spring Cloud Application CosmosDB Association can be imported using the `resource id`, e.g.
@@ -517,38 +493,6 @@ class SpringCloudAppCosmosDBAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Associates a Spring Cloud Application with a CosmosDB Account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_spring_cloud_app = azure.appplatform.SpringCloudApp("exampleSpringCloudApp",
-            resource_group_name=example_resource_group.name,
-            service_name=example_spring_cloud_service.name)
-        example_account = azure.cosmosdb.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            offer_type="Standard",
-            kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="Strong",
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example_resource_group.location,
-                failover_priority=0,
-            )])
-        example_spring_cloud_app_cosmos_dbassociation = azure.appplatform.SpringCloudAppCosmosDBAssociation("exampleSpringCloudAppCosmosDBAssociation",
-            spring_cloud_app_id=example_spring_cloud_app.id,
-            cosmosdb_account_id=example_account.id,
-            api_type="table",
-            cosmosdb_access_key=example_account.primary_key)
-        ```
 
         ## Import
 

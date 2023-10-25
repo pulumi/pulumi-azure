@@ -7,27 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an IP group that contains a list of CIDRs and/or IP addresses.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleIPGroup = new azure.network.IPGroup("exampleIPGroup", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     cidrs: [
- *         "192.168.0.1",
- *         "172.16.240.0/20",
- *         "10.48.0.0/12",
- *     ],
- *     tags: {
- *         environment: "Production",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * IP Groups can be imported using the `resource id`, e.g.

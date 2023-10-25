@@ -39,7 +39,7 @@ class ConfigurationInstallPatchesArgs:
              linuxes: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationInstallPatchesLinuxArgs']]]] = None,
              reboot: Optional[pulumi.Input[str]] = None,
              windows: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationInstallPatchesWindowArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
 
         if linuxes is not None:
@@ -109,13 +109,13 @@ class ConfigurationInstallPatchesLinuxArgs:
              classifications_to_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              package_names_mask_to_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              package_names_mask_to_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'classificationsToIncludes' in kwargs:
+        if classifications_to_includes is None and 'classificationsToIncludes' in kwargs:
             classifications_to_includes = kwargs['classificationsToIncludes']
-        if 'packageNamesMaskToExcludes' in kwargs:
+        if package_names_mask_to_excludes is None and 'packageNamesMaskToExcludes' in kwargs:
             package_names_mask_to_excludes = kwargs['packageNamesMaskToExcludes']
-        if 'packageNamesMaskToIncludes' in kwargs:
+        if package_names_mask_to_includes is None and 'packageNamesMaskToIncludes' in kwargs:
             package_names_mask_to_includes = kwargs['packageNamesMaskToIncludes']
 
         if classifications_to_includes is not None:
@@ -185,13 +185,13 @@ class ConfigurationInstallPatchesWindowArgs:
              classifications_to_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              kb_numbers_to_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              kb_numbers_to_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'classificationsToIncludes' in kwargs:
+        if classifications_to_includes is None and 'classificationsToIncludes' in kwargs:
             classifications_to_includes = kwargs['classificationsToIncludes']
-        if 'kbNumbersToExcludes' in kwargs:
+        if kb_numbers_to_excludes is None and 'kbNumbersToExcludes' in kwargs:
             kb_numbers_to_excludes = kwargs['kbNumbersToExcludes']
-        if 'kbNumbersToIncludes' in kwargs:
+        if kb_numbers_to_includes is None and 'kbNumbersToIncludes' in kwargs:
             kb_numbers_to_includes = kwargs['kbNumbersToIncludes']
 
         if classifications_to_includes is not None:
@@ -264,20 +264,24 @@ class ConfigurationWindowArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             start_date_time: pulumi.Input[str],
-             time_zone: pulumi.Input[str],
+             start_date_time: Optional[pulumi.Input[str]] = None,
+             time_zone: Optional[pulumi.Input[str]] = None,
              duration: Optional[pulumi.Input[str]] = None,
              expiration_date_time: Optional[pulumi.Input[str]] = None,
              recur_every: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'startDateTime' in kwargs:
+        if start_date_time is None and 'startDateTime' in kwargs:
             start_date_time = kwargs['startDateTime']
-        if 'timeZone' in kwargs:
+        if start_date_time is None:
+            raise TypeError("Missing 'start_date_time' argument")
+        if time_zone is None and 'timeZone' in kwargs:
             time_zone = kwargs['timeZone']
-        if 'expirationDateTime' in kwargs:
+        if time_zone is None:
+            raise TypeError("Missing 'time_zone' argument")
+        if expiration_date_time is None and 'expirationDateTime' in kwargs:
             expiration_date_time = kwargs['expirationDateTime']
-        if 'recurEvery' in kwargs:
+        if recur_every is None and 'recurEvery' in kwargs:
             recur_every = kwargs['recurEvery']
 
         _setter("start_date_time", start_date_time)

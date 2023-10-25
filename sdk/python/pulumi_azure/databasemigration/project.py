@@ -44,23 +44,31 @@ class ProjectArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             service_name: pulumi.Input[str],
-             source_platform: pulumi.Input[str],
-             target_platform: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             service_name: Optional[pulumi.Input[str]] = None,
+             source_platform: Optional[pulumi.Input[str]] = None,
+             target_platform: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serviceName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if service_name is None and 'serviceName' in kwargs:
             service_name = kwargs['serviceName']
-        if 'sourcePlatform' in kwargs:
+        if service_name is None:
+            raise TypeError("Missing 'service_name' argument")
+        if source_platform is None and 'sourcePlatform' in kwargs:
             source_platform = kwargs['sourcePlatform']
-        if 'targetPlatform' in kwargs:
+        if source_platform is None:
+            raise TypeError("Missing 'source_platform' argument")
+        if target_platform is None and 'targetPlatform' in kwargs:
             target_platform = kwargs['targetPlatform']
+        if target_platform is None:
+            raise TypeError("Missing 'target_platform' argument")
 
         _setter("resource_group_name", resource_group_name)
         _setter("service_name", service_name)
@@ -198,15 +206,15 @@ class _ProjectState:
              source_platform: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              target_platform: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serviceName' in kwargs:
+        if service_name is None and 'serviceName' in kwargs:
             service_name = kwargs['serviceName']
-        if 'sourcePlatform' in kwargs:
+        if source_platform is None and 'sourcePlatform' in kwargs:
             source_platform = kwargs['sourcePlatform']
-        if 'targetPlatform' in kwargs:
+        if target_platform is None and 'targetPlatform' in kwargs:
             target_platform = kwargs['targetPlatform']
 
         if location is not None:
@@ -327,34 +335,6 @@ class Project(pulumi.CustomResource):
 
         > **NOTE:** Destroying a Database Migration Project will leave any outstanding tasks untouched. This is to avoid unexpectedly deleting any tasks managed outside of this provider.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"])
-        example_service = azure.databasemigration.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            subnet_id=example_subnet.id,
-            sku_name="Standard_1vCores")
-        example_project = azure.databasemigration.Project("exampleProject",
-            service_name=example_service.name,
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            source_platform="SQL",
-            target_platform="SQLDB")
-        ```
-
         ## Import
 
         Database Migration Projects can be imported using the `resource id`, e.g.
@@ -383,34 +363,6 @@ class Project(pulumi.CustomResource):
         Manage a Azure Database Migration Project.
 
         > **NOTE:** Destroying a Database Migration Project will leave any outstanding tasks untouched. This is to avoid unexpectedly deleting any tasks managed outside of this provider.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"])
-        example_service = azure.databasemigration.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            subnet_id=example_subnet.id,
-            sku_name="Standard_1vCores")
-        example_project = azure.databasemigration.Project("exampleProject",
-            service_name=example_service.name,
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            source_platform="SQL",
-            target_platform="SQLDB")
-        ```
 
         ## Import
 

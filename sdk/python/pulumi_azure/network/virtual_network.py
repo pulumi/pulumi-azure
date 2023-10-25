@@ -67,8 +67,8 @@ class VirtualNetworkArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             address_spaces: pulumi.Input[Sequence[pulumi.Input[str]]],
-             resource_group_name: pulumi.Input[str],
+             address_spaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              bgp_community: Optional[pulumi.Input[str]] = None,
              ddos_protection_plan: Optional[pulumi.Input['VirtualNetworkDdosProtectionPlanArgs']] = None,
              dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -79,21 +79,25 @@ class VirtualNetworkArgs:
              name: Optional[pulumi.Input[str]] = None,
              subnets: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkSubnetArgs']]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'addressSpaces' in kwargs:
+        if address_spaces is None and 'addressSpaces' in kwargs:
             address_spaces = kwargs['addressSpaces']
-        if 'resourceGroupName' in kwargs:
+        if address_spaces is None:
+            raise TypeError("Missing 'address_spaces' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'bgpCommunity' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if bgp_community is None and 'bgpCommunity' in kwargs:
             bgp_community = kwargs['bgpCommunity']
-        if 'ddosProtectionPlan' in kwargs:
+        if ddos_protection_plan is None and 'ddosProtectionPlan' in kwargs:
             ddos_protection_plan = kwargs['ddosProtectionPlan']
-        if 'dnsServers' in kwargs:
+        if dns_servers is None and 'dnsServers' in kwargs:
             dns_servers = kwargs['dnsServers']
-        if 'edgeZone' in kwargs:
+        if edge_zone is None and 'edgeZone' in kwargs:
             edge_zone = kwargs['edgeZone']
-        if 'flowTimeoutInMinutes' in kwargs:
+        if flow_timeout_in_minutes is None and 'flowTimeoutInMinutes' in kwargs:
             flow_timeout_in_minutes = kwargs['flowTimeoutInMinutes']
 
         _setter("address_spaces", address_spaces)
@@ -340,21 +344,21 @@ class _VirtualNetworkState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              subnets: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkSubnetArgs']]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'addressSpaces' in kwargs:
+        if address_spaces is None and 'addressSpaces' in kwargs:
             address_spaces = kwargs['addressSpaces']
-        if 'bgpCommunity' in kwargs:
+        if bgp_community is None and 'bgpCommunity' in kwargs:
             bgp_community = kwargs['bgpCommunity']
-        if 'ddosProtectionPlan' in kwargs:
+        if ddos_protection_plan is None and 'ddosProtectionPlan' in kwargs:
             ddos_protection_plan = kwargs['ddosProtectionPlan']
-        if 'dnsServers' in kwargs:
+        if dns_servers is None and 'dnsServers' in kwargs:
             dns_servers = kwargs['dnsServers']
-        if 'edgeZone' in kwargs:
+        if edge_zone is None and 'edgeZone' in kwargs:
             edge_zone = kwargs['edgeZone']
-        if 'flowTimeoutInMinutes' in kwargs:
+        if flow_timeout_in_minutes is None and 'flowTimeoutInMinutes' in kwargs:
             flow_timeout_in_minutes = kwargs['flowTimeoutInMinutes']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if address_spaces is not None:
@@ -575,40 +579,6 @@ class VirtualNetwork(pulumi.CustomResource):
         **NOTE on Virtual Networks and DNS Servers:** This provider currently provides both a standalone virtual network DNS Servers resource, and allows for DNS servers to be defined in-line within the Virtual Network resource.
         At this time you cannot use a Virtual Network with in-line DNS servers in conjunction with any Virtual Network DNS Servers resources. Doing so will cause a conflict of Virtual Network DNS Servers configurations and will overwrite virtual networks DNS servers.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_network_security_group = azure.network.NetworkSecurityGroup("exampleNetworkSecurityGroup",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            address_spaces=["10.0.0.0/16"],
-            dns_servers=[
-                "10.0.0.4",
-                "10.0.0.5",
-            ],
-            subnets=[
-                azure.network.VirtualNetworkSubnetArgs(
-                    name="subnet1",
-                    address_prefix="10.0.1.0/24",
-                ),
-                azure.network.VirtualNetworkSubnetArgs(
-                    name="subnet2",
-                    address_prefix="10.0.2.0/24",
-                    security_group=example_network_security_group.id,
-                ),
-            ],
-            tags={
-                "environment": "Production",
-            })
-        ```
-
         ## Import
 
         Virtual Networks can be imported using the `resource id`, e.g.
@@ -653,40 +623,6 @@ class VirtualNetwork(pulumi.CustomResource):
         At this time you cannot use a Virtual Network with in-line Subnets in conjunction with any Subnet resources. Doing so will cause a conflict of Subnet configurations and will overwrite Subnet's.
         **NOTE on Virtual Networks and DNS Servers:** This provider currently provides both a standalone virtual network DNS Servers resource, and allows for DNS servers to be defined in-line within the Virtual Network resource.
         At this time you cannot use a Virtual Network with in-line DNS servers in conjunction with any Virtual Network DNS Servers resources. Doing so will cause a conflict of Virtual Network DNS Servers configurations and will overwrite virtual networks DNS servers.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_network_security_group = azure.network.NetworkSecurityGroup("exampleNetworkSecurityGroup",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            address_spaces=["10.0.0.0/16"],
-            dns_servers=[
-                "10.0.0.4",
-                "10.0.0.5",
-            ],
-            subnets=[
-                azure.network.VirtualNetworkSubnetArgs(
-                    name="subnet1",
-                    address_prefix="10.0.1.0/24",
-                ),
-                azure.network.VirtualNetworkSubnetArgs(
-                    name="subnet2",
-                    address_prefix="10.0.2.0/24",
-                    security_group=example_network_security_group.id,
-                ),
-            ],
-            tags={
-                "environment": "Production",
-            })
-        ```
 
         ## Import
 
@@ -740,19 +676,11 @@ class VirtualNetwork(pulumi.CustomResource):
                 raise TypeError("Missing required property 'address_spaces'")
             __props__.__dict__["address_spaces"] = address_spaces
             __props__.__dict__["bgp_community"] = bgp_community
-            if ddos_protection_plan is not None and not isinstance(ddos_protection_plan, VirtualNetworkDdosProtectionPlanArgs):
-                ddos_protection_plan = ddos_protection_plan or {}
-                def _setter(key, value):
-                    ddos_protection_plan[key] = value
-                VirtualNetworkDdosProtectionPlanArgs._configure(_setter, **ddos_protection_plan)
+            ddos_protection_plan = _utilities.configure(ddos_protection_plan, VirtualNetworkDdosProtectionPlanArgs, True)
             __props__.__dict__["ddos_protection_plan"] = ddos_protection_plan
             __props__.__dict__["dns_servers"] = dns_servers
             __props__.__dict__["edge_zone"] = edge_zone
-            if encryption is not None and not isinstance(encryption, VirtualNetworkEncryptionArgs):
-                encryption = encryption or {}
-                def _setter(key, value):
-                    encryption[key] = value
-                VirtualNetworkEncryptionArgs._configure(_setter, **encryption)
+            encryption = _utilities.configure(encryption, VirtualNetworkEncryptionArgs, True)
             __props__.__dict__["encryption"] = encryption
             __props__.__dict__["flow_timeout_in_minutes"] = flow_timeout_in_minutes
             __props__.__dict__["location"] = location

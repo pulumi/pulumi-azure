@@ -13,34 +13,6 @@ import (
 )
 
 // Use this data source to access information about an existing Sentinel Alert Rule Template.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sentinel"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := sentinel.GetAlertRuleTemplate(ctx, &sentinel.GetAlertRuleTemplateArgs{
-//				LogAnalyticsWorkspaceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1",
-//				DisplayName:             pulumi.StringRef("Create incidents based on Azure Security Center for IoT alerts"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("id", example.Id)
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetAlertRuleTemplate(ctx *pulumi.Context, args *GetAlertRuleTemplateArgs, opts ...pulumi.InvokeOption) (*GetAlertRuleTemplateResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAlertRuleTemplateResult

@@ -9,15 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** There is no resource name required, it will always be "default"
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = new azure.securitycenter.AutoProvisioning("example", {autoProvision: "On"});
- * ```
- *
  * ## Import
  *
  * Security Center Auto Provisioning can be imported using the `resource id`, e.g.

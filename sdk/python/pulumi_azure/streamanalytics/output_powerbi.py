@@ -47,25 +47,35 @@ class OutputPowerbiArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             dataset: pulumi.Input[str],
-             group_id: pulumi.Input[str],
-             group_name: pulumi.Input[str],
-             stream_analytics_job_id: pulumi.Input[str],
-             table: pulumi.Input[str],
+             dataset: Optional[pulumi.Input[str]] = None,
+             group_id: Optional[pulumi.Input[str]] = None,
+             group_name: Optional[pulumi.Input[str]] = None,
+             stream_analytics_job_id: Optional[pulumi.Input[str]] = None,
+             table: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              token_user_display_name: Optional[pulumi.Input[str]] = None,
              token_user_principal_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'groupId' in kwargs:
+        if dataset is None:
+            raise TypeError("Missing 'dataset' argument")
+        if group_id is None and 'groupId' in kwargs:
             group_id = kwargs['groupId']
-        if 'groupName' in kwargs:
+        if group_id is None:
+            raise TypeError("Missing 'group_id' argument")
+        if group_name is None and 'groupName' in kwargs:
             group_name = kwargs['groupName']
-        if 'streamAnalyticsJobId' in kwargs:
+        if group_name is None:
+            raise TypeError("Missing 'group_name' argument")
+        if stream_analytics_job_id is None and 'streamAnalyticsJobId' in kwargs:
             stream_analytics_job_id = kwargs['streamAnalyticsJobId']
-        if 'tokenUserDisplayName' in kwargs:
+        if stream_analytics_job_id is None:
+            raise TypeError("Missing 'stream_analytics_job_id' argument")
+        if table is None:
+            raise TypeError("Missing 'table' argument")
+        if token_user_display_name is None and 'tokenUserDisplayName' in kwargs:
             token_user_display_name = kwargs['tokenUserDisplayName']
-        if 'tokenUserPrincipalName' in kwargs:
+        if token_user_principal_name is None and 'tokenUserPrincipalName' in kwargs:
             token_user_principal_name = kwargs['tokenUserPrincipalName']
 
         _setter("dataset", dataset)
@@ -221,17 +231,17 @@ class _OutputPowerbiState:
              table: Optional[pulumi.Input[str]] = None,
              token_user_display_name: Optional[pulumi.Input[str]] = None,
              token_user_principal_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'groupId' in kwargs:
+        if group_id is None and 'groupId' in kwargs:
             group_id = kwargs['groupId']
-        if 'groupName' in kwargs:
+        if group_name is None and 'groupName' in kwargs:
             group_name = kwargs['groupName']
-        if 'streamAnalyticsJobId' in kwargs:
+        if stream_analytics_job_id is None and 'streamAnalyticsJobId' in kwargs:
             stream_analytics_job_id = kwargs['streamAnalyticsJobId']
-        if 'tokenUserDisplayName' in kwargs:
+        if token_user_display_name is None and 'tokenUserDisplayName' in kwargs:
             token_user_display_name = kwargs['tokenUserDisplayName']
-        if 'tokenUserPrincipalName' in kwargs:
+        if token_user_principal_name is None and 'tokenUserPrincipalName' in kwargs:
             token_user_principal_name = kwargs['tokenUserPrincipalName']
 
         if dataset is not None:
@@ -365,23 +375,6 @@ class OutputPowerbi(pulumi.CustomResource):
         """
         Manages a Stream Analytics Output powerBI.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.get_resource_group(name="example-resources")
-        example_job = azure.streamanalytics.get_job(name="example-job",
-            resource_group_name=example_resource_group.name)
-        example_output_powerbi = azure.streamanalytics.OutputPowerbi("exampleOutputPowerbi",
-            stream_analytics_job_id=example_job.id,
-            dataset="example-dataset",
-            table="example-table",
-            group_id="00000000-0000-0000-0000-000000000000",
-            group_name="some-group-name")
-        ```
-
         ## Import
 
         Stream Analytics Output to Power BI can be imported using the `resource id`, e.g.
@@ -409,23 +402,6 @@ class OutputPowerbi(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Stream Analytics Output powerBI.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.get_resource_group(name="example-resources")
-        example_job = azure.streamanalytics.get_job(name="example-job",
-            resource_group_name=example_resource_group.name)
-        example_output_powerbi = azure.streamanalytics.OutputPowerbi("exampleOutputPowerbi",
-            stream_analytics_job_id=example_job.id,
-            dataset="example-dataset",
-            table="example-table",
-            group_id="00000000-0000-0000-0000-000000000000",
-            group_name="some-group-name")
-        ```
 
         ## Import
 

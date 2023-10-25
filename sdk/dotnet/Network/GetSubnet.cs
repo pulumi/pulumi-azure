@@ -13,68 +13,12 @@ namespace Pulumi.Azure.Network
     {
         /// <summary>
         /// Use this data source to access information about an existing Subnet within a Virtual Network.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Network.GetSubnet.Invoke(new()
-        ///     {
-        ///         Name = "backend",
-        ///         VirtualNetworkName = "production",
-        ///         ResourceGroupName = "networking",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["subnetId"] = example.Apply(getSubnetResult =&gt; getSubnetResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetSubnetResult> InvokeAsync(GetSubnetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubnetResult>("azure:network/getSubnet:getSubnet", args ?? new GetSubnetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Subnet within a Virtual Network.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Network.GetSubnet.Invoke(new()
-        ///     {
-        ///         Name = "backend",
-        ///         VirtualNetworkName = "production",
-        ///         ResourceGroupName = "networking",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["subnetId"] = example.Apply(getSubnetResult =&gt; getSubnetResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetSubnetResult> Invoke(GetSubnetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubnetResult>("azure:network/getSubnet:getSubnet", args ?? new GetSubnetInvokeArgs(), options.WithDefaults());

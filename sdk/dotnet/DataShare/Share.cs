@@ -12,52 +12,6 @@ namespace Pulumi.Azure.DataShare
     /// <summary>
     /// Manages a Data Share.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleAccount = new Azure.DataShare.Account("exampleAccount", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Identity = new Azure.DataShare.Inputs.AccountIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "foo", "bar" },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleShare = new Azure.DataShare.Share("exampleShare", new()
-    ///     {
-    ///         AccountId = exampleAccount.Id,
-    ///         Kind = "CopyBased",
-    ///         Description = "example desc",
-    ///         Terms = "example terms",
-    ///         SnapshotSchedule = new Azure.DataShare.Inputs.ShareSnapshotScheduleArgs
-    ///         {
-    ///             Name = "example-ss",
-    ///             Recurrence = "Day",
-    ///             StartTime = "2020-04-17T04:47:52.9614956Z",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Data Shares can be imported using the `resource id`, e.g.

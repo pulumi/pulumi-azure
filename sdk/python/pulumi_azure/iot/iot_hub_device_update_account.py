@@ -46,18 +46,20 @@ class IotHubDeviceUpdateAccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              identity: Optional[pulumi.Input['IotHubDeviceUpdateAccountIdentityArgs']] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
              sku: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
 
         _setter("resource_group_name", resource_group_name)
@@ -203,13 +205,13 @@ class _IotHubDeviceUpdateAccountState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              sku: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'hostName' in kwargs:
+        if host_name is None and 'hostName' in kwargs:
             host_name = kwargs['hostName']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if host_name is not None:
@@ -342,24 +344,6 @@ class IotHubDeviceUpdateAccount(pulumi.CustomResource):
         """
         Manages an IoT Hub Device Update Account.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="East US")
-        example_iot_hub_device_update_account = azure.iot.IotHubDeviceUpdateAccount("exampleIotHubDeviceUpdateAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            identity=azure.iot.IotHubDeviceUpdateAccountIdentityArgs(
-                type="SystemAssigned",
-            ),
-            tags={
-                "key": "value",
-            })
-        ```
-
         ## Import
 
         IoT Hub Device Update Account can be imported using the `resource id`, e.g.
@@ -386,24 +370,6 @@ class IotHubDeviceUpdateAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an IoT Hub Device Update Account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="East US")
-        example_iot_hub_device_update_account = azure.iot.IotHubDeviceUpdateAccount("exampleIotHubDeviceUpdateAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            identity=azure.iot.IotHubDeviceUpdateAccountIdentityArgs(
-                type="SystemAssigned",
-            ),
-            tags={
-                "key": "value",
-            })
-        ```
 
         ## Import
 
@@ -448,11 +414,7 @@ class IotHubDeviceUpdateAccount(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IotHubDeviceUpdateAccountArgs.__new__(IotHubDeviceUpdateAccountArgs)
 
-            if identity is not None and not isinstance(identity, IotHubDeviceUpdateAccountIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                IotHubDeviceUpdateAccountIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, IotHubDeviceUpdateAccountIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name

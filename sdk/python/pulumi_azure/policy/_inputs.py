@@ -42,16 +42,18 @@ class PolicySetDefinitionPolicyDefinitionGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              additional_metadata_resource_id: Optional[pulumi.Input[str]] = None,
              category: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              display_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'additionalMetadataResourceId' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if additional_metadata_resource_id is None and 'additionalMetadataResourceId' in kwargs:
             additional_metadata_resource_id = kwargs['additionalMetadataResourceId']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
 
         _setter("name", name)
@@ -148,19 +150,21 @@ class PolicySetDefinitionPolicyDefinitionReferenceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             policy_definition_id: pulumi.Input[str],
+             policy_definition_id: Optional[pulumi.Input[str]] = None,
              parameter_values: Optional[pulumi.Input[str]] = None,
              policy_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              reference_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'policyDefinitionId' in kwargs:
+        if policy_definition_id is None and 'policyDefinitionId' in kwargs:
             policy_definition_id = kwargs['policyDefinitionId']
-        if 'parameterValues' in kwargs:
+        if policy_definition_id is None:
+            raise TypeError("Missing 'policy_definition_id' argument")
+        if parameter_values is None and 'parameterValues' in kwargs:
             parameter_values = kwargs['parameterValues']
-        if 'policyGroupNames' in kwargs:
+        if policy_group_names is None and 'policyGroupNames' in kwargs:
             policy_group_names = kwargs['policyGroupNames']
-        if 'referenceId' in kwargs:
+        if reference_id is None and 'referenceId' in kwargs:
             reference_id = kwargs['referenceId']
 
         _setter("policy_definition_id", policy_definition_id)
@@ -253,13 +257,13 @@ class VirtualMachineConfigurationAssignmentConfigurationArgs:
              content_uri: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineConfigurationAssignmentConfigurationParameterArgs']]]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'assignmentType' in kwargs:
+        if assignment_type is None and 'assignmentType' in kwargs:
             assignment_type = kwargs['assignmentType']
-        if 'contentHash' in kwargs:
+        if content_hash is None and 'contentHash' in kwargs:
             content_hash = kwargs['contentHash']
-        if 'contentUri' in kwargs:
+        if content_uri is None and 'contentUri' in kwargs:
             content_uri = kwargs['contentUri']
 
         if assignment_type is not None:
@@ -353,10 +357,14 @@ class VirtualMachineConfigurationAssignmentConfigurationParameterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("name", name)
         _setter("value", value)

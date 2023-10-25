@@ -38,16 +38,18 @@ class SyncArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              incoming_traffic_policy: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'incomingTrafficPolicy' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if incoming_traffic_policy is None and 'incomingTrafficPolicy' in kwargs:
             incoming_traffic_policy = kwargs['incomingTrafficPolicy']
 
         _setter("resource_group_name", resource_group_name)
@@ -153,11 +155,11 @@ class _SyncState:
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'incomingTrafficPolicy' in kwargs:
+        if incoming_traffic_policy is None and 'incomingTrafficPolicy' in kwargs:
             incoming_traffic_policy = kwargs['incomingTrafficPolicy']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if incoming_traffic_policy is not None:
@@ -246,21 +248,6 @@ class Sync(pulumi.CustomResource):
         """
         Manages a Storage Sync.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_sync = azure.storage.Sync("exampleSync",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            tags={
-                "foo": "bar",
-            })
-        ```
-
         ## Import
 
         Storage Syncs can be imported using the `resource id`, e.g.
@@ -285,21 +272,6 @@ class Sync(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Storage Sync.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_sync = azure.storage.Sync("exampleSync",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            tags={
-                "foo": "bar",
-            })
-        ```
 
         ## Import
 

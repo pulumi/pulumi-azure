@@ -86,8 +86,8 @@ class ServiceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             sku: pulumi.Input['ServiceSkuArgs'],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['ServiceSkuArgs']] = None,
              aad_auth_enabled: Optional[pulumi.Input[bool]] = None,
              connectivity_logs_enabled: Optional[pulumi.Input[bool]] = None,
              cors: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCorArgs']]]] = None,
@@ -105,33 +105,37 @@ class ServiceArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tls_client_cert_enabled: Optional[pulumi.Input[bool]] = None,
              upstream_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceUpstreamEndpointArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'aadAuthEnabled' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if aad_auth_enabled is None and 'aadAuthEnabled' in kwargs:
             aad_auth_enabled = kwargs['aadAuthEnabled']
-        if 'connectivityLogsEnabled' in kwargs:
+        if connectivity_logs_enabled is None and 'connectivityLogsEnabled' in kwargs:
             connectivity_logs_enabled = kwargs['connectivityLogsEnabled']
-        if 'httpRequestLogsEnabled' in kwargs:
+        if http_request_logs_enabled is None and 'httpRequestLogsEnabled' in kwargs:
             http_request_logs_enabled = kwargs['httpRequestLogsEnabled']
-        if 'liveTrace' in kwargs:
+        if live_trace is None and 'liveTrace' in kwargs:
             live_trace = kwargs['liveTrace']
-        if 'liveTraceEnabled' in kwargs:
+        if live_trace_enabled is None and 'liveTraceEnabled' in kwargs:
             live_trace_enabled = kwargs['liveTraceEnabled']
-        if 'localAuthEnabled' in kwargs:
+        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
             local_auth_enabled = kwargs['localAuthEnabled']
-        if 'messagingLogsEnabled' in kwargs:
+        if messaging_logs_enabled is None and 'messagingLogsEnabled' in kwargs:
             messaging_logs_enabled = kwargs['messagingLogsEnabled']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'serverlessConnectionTimeoutInSeconds' in kwargs:
+        if serverless_connection_timeout_in_seconds is None and 'serverlessConnectionTimeoutInSeconds' in kwargs:
             serverless_connection_timeout_in_seconds = kwargs['serverlessConnectionTimeoutInSeconds']
-        if 'serviceMode' in kwargs:
+        if service_mode is None and 'serviceMode' in kwargs:
             service_mode = kwargs['serviceMode']
-        if 'tlsClientCertEnabled' in kwargs:
+        if tls_client_cert_enabled is None and 'tlsClientCertEnabled' in kwargs:
             tls_client_cert_enabled = kwargs['tlsClientCertEnabled']
-        if 'upstreamEndpoints' in kwargs:
+        if upstream_endpoints is None and 'upstreamEndpoints' in kwargs:
             upstream_endpoints = kwargs['upstreamEndpoints']
 
         _setter("resource_group_name", resource_group_name)
@@ -534,47 +538,47 @@ class _ServiceState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tls_client_cert_enabled: Optional[pulumi.Input[bool]] = None,
              upstream_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceUpstreamEndpointArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'aadAuthEnabled' in kwargs:
+        if aad_auth_enabled is None and 'aadAuthEnabled' in kwargs:
             aad_auth_enabled = kwargs['aadAuthEnabled']
-        if 'connectivityLogsEnabled' in kwargs:
+        if connectivity_logs_enabled is None and 'connectivityLogsEnabled' in kwargs:
             connectivity_logs_enabled = kwargs['connectivityLogsEnabled']
-        if 'httpRequestLogsEnabled' in kwargs:
+        if http_request_logs_enabled is None and 'httpRequestLogsEnabled' in kwargs:
             http_request_logs_enabled = kwargs['httpRequestLogsEnabled']
-        if 'ipAddress' in kwargs:
+        if ip_address is None and 'ipAddress' in kwargs:
             ip_address = kwargs['ipAddress']
-        if 'liveTrace' in kwargs:
+        if live_trace is None and 'liveTrace' in kwargs:
             live_trace = kwargs['liveTrace']
-        if 'liveTraceEnabled' in kwargs:
+        if live_trace_enabled is None and 'liveTraceEnabled' in kwargs:
             live_trace_enabled = kwargs['liveTraceEnabled']
-        if 'localAuthEnabled' in kwargs:
+        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
             local_auth_enabled = kwargs['localAuthEnabled']
-        if 'messagingLogsEnabled' in kwargs:
+        if messaging_logs_enabled is None and 'messagingLogsEnabled' in kwargs:
             messaging_logs_enabled = kwargs['messagingLogsEnabled']
-        if 'primaryAccessKey' in kwargs:
+        if primary_access_key is None and 'primaryAccessKey' in kwargs:
             primary_access_key = kwargs['primaryAccessKey']
-        if 'primaryConnectionString' in kwargs:
+        if primary_connection_string is None and 'primaryConnectionString' in kwargs:
             primary_connection_string = kwargs['primaryConnectionString']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'publicPort' in kwargs:
+        if public_port is None and 'publicPort' in kwargs:
             public_port = kwargs['publicPort']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'secondaryAccessKey' in kwargs:
+        if secondary_access_key is None and 'secondaryAccessKey' in kwargs:
             secondary_access_key = kwargs['secondaryAccessKey']
-        if 'secondaryConnectionString' in kwargs:
+        if secondary_connection_string is None and 'secondaryConnectionString' in kwargs:
             secondary_connection_string = kwargs['secondaryConnectionString']
-        if 'serverPort' in kwargs:
+        if server_port is None and 'serverPort' in kwargs:
             server_port = kwargs['serverPort']
-        if 'serverlessConnectionTimeoutInSeconds' in kwargs:
+        if serverless_connection_timeout_in_seconds is None and 'serverlessConnectionTimeoutInSeconds' in kwargs:
             serverless_connection_timeout_in_seconds = kwargs['serverlessConnectionTimeoutInSeconds']
-        if 'serviceMode' in kwargs:
+        if service_mode is None and 'serviceMode' in kwargs:
             service_mode = kwargs['serviceMode']
-        if 'tlsClientCertEnabled' in kwargs:
+        if tls_client_cert_enabled is None and 'tlsClientCertEnabled' in kwargs:
             tls_client_cert_enabled = kwargs['tlsClientCertEnabled']
-        if 'upstreamEndpoints' in kwargs:
+        if upstream_endpoints is None and 'upstreamEndpoints' in kwargs:
             upstream_endpoints = kwargs['upstreamEndpoints']
 
         if aad_auth_enabled is not None:
@@ -995,38 +999,6 @@ class Service(pulumi.CustomResource):
         """
         Manages an Azure SignalR service.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
-        example_service = azure.signalr.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku=azure.signalr.ServiceSkuArgs(
-                name="Free_F1",
-                capacity=1,
-            ),
-            cors=[azure.signalr.ServiceCorArgs(
-                allowed_origins=["http://www.example.com"],
-            )],
-            public_network_access_enabled=False,
-            connectivity_logs_enabled=True,
-            messaging_logs_enabled=True,
-            service_mode="Default",
-            upstream_endpoints=[azure.signalr.ServiceUpstreamEndpointArgs(
-                category_patterns=[
-                    "connections",
-                    "messages",
-                ],
-                event_patterns=["*"],
-                hub_patterns=["hub1"],
-                url_template="http://foo.com",
-            )])
-        ```
-
         ## Import
 
         SignalR services can be imported using the `resource id`, e.g.
@@ -1069,38 +1041,6 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure SignalR service.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
-        example_service = azure.signalr.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku=azure.signalr.ServiceSkuArgs(
-                name="Free_F1",
-                capacity=1,
-            ),
-            cors=[azure.signalr.ServiceCorArgs(
-                allowed_origins=["http://www.example.com"],
-            )],
-            public_network_access_enabled=False,
-            connectivity_logs_enabled=True,
-            messaging_logs_enabled=True,
-            service_mode="Default",
-            upstream_endpoints=[azure.signalr.ServiceUpstreamEndpointArgs(
-                category_patterns=[
-                    "connections",
-                    "messages",
-                ],
-                event_patterns=["*"],
-                hub_patterns=["hub1"],
-                url_template="http://foo.com",
-            )])
-        ```
 
         ## Import
 
@@ -1161,17 +1101,9 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["connectivity_logs_enabled"] = connectivity_logs_enabled
             __props__.__dict__["cors"] = cors
             __props__.__dict__["http_request_logs_enabled"] = http_request_logs_enabled
-            if identity is not None and not isinstance(identity, ServiceIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                ServiceIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, ServiceIdentityArgs, True)
             __props__.__dict__["identity"] = identity
-            if live_trace is not None and not isinstance(live_trace, ServiceLiveTraceArgs):
-                live_trace = live_trace or {}
-                def _setter(key, value):
-                    live_trace[key] = value
-                ServiceLiveTraceArgs._configure(_setter, **live_trace)
+            live_trace = _utilities.configure(live_trace, ServiceLiveTraceArgs, True)
             __props__.__dict__["live_trace"] = live_trace
             __props__.__dict__["live_trace_enabled"] = live_trace_enabled
             __props__.__dict__["local_auth_enabled"] = local_auth_enabled
@@ -1184,11 +1116,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["serverless_connection_timeout_in_seconds"] = serverless_connection_timeout_in_seconds
             __props__.__dict__["service_mode"] = service_mode
-            if sku is not None and not isinstance(sku, ServiceSkuArgs):
-                sku = sku or {}
-                def _setter(key, value):
-                    sku[key] = value
-                ServiceSkuArgs._configure(_setter, **sku)
+            sku = _utilities.configure(sku, ServiceSkuArgs, True)
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku

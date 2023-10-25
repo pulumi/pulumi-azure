@@ -77,7 +77,7 @@ class AnalyticsWorkspaceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              allow_resource_only_permissions: Optional[pulumi.Input[bool]] = None,
              cmk_for_query_forced: Optional[pulumi.Input[bool]] = None,
              daily_quota_gb: Optional[pulumi.Input[float]] = None,
@@ -91,27 +91,29 @@ class AnalyticsWorkspaceArgs:
              retention_in_days: Optional[pulumi.Input[int]] = None,
              sku: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'allowResourceOnlyPermissions' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if allow_resource_only_permissions is None and 'allowResourceOnlyPermissions' in kwargs:
             allow_resource_only_permissions = kwargs['allowResourceOnlyPermissions']
-        if 'cmkForQueryForced' in kwargs:
+        if cmk_for_query_forced is None and 'cmkForQueryForced' in kwargs:
             cmk_for_query_forced = kwargs['cmkForQueryForced']
-        if 'dailyQuotaGb' in kwargs:
+        if daily_quota_gb is None and 'dailyQuotaGb' in kwargs:
             daily_quota_gb = kwargs['dailyQuotaGb']
-        if 'dataCollectionRuleId' in kwargs:
+        if data_collection_rule_id is None and 'dataCollectionRuleId' in kwargs:
             data_collection_rule_id = kwargs['dataCollectionRuleId']
-        if 'internetIngestionEnabled' in kwargs:
+        if internet_ingestion_enabled is None and 'internetIngestionEnabled' in kwargs:
             internet_ingestion_enabled = kwargs['internetIngestionEnabled']
-        if 'internetQueryEnabled' in kwargs:
+        if internet_query_enabled is None and 'internetQueryEnabled' in kwargs:
             internet_query_enabled = kwargs['internetQueryEnabled']
-        if 'localAuthenticationDisabled' in kwargs:
+        if local_authentication_disabled is None and 'localAuthenticationDisabled' in kwargs:
             local_authentication_disabled = kwargs['localAuthenticationDisabled']
-        if 'reservationCapacityInGbPerDay' in kwargs:
+        if reservation_capacity_in_gb_per_day is None and 'reservationCapacityInGbPerDay' in kwargs:
             reservation_capacity_in_gb_per_day = kwargs['reservationCapacityInGbPerDay']
-        if 'retentionInDays' in kwargs:
+        if retention_in_days is None and 'retentionInDays' in kwargs:
             retention_in_days = kwargs['retentionInDays']
 
         _setter("resource_group_name", resource_group_name)
@@ -415,33 +417,33 @@ class _AnalyticsWorkspaceState:
              sku: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'allowResourceOnlyPermissions' in kwargs:
+        if allow_resource_only_permissions is None and 'allowResourceOnlyPermissions' in kwargs:
             allow_resource_only_permissions = kwargs['allowResourceOnlyPermissions']
-        if 'cmkForQueryForced' in kwargs:
+        if cmk_for_query_forced is None and 'cmkForQueryForced' in kwargs:
             cmk_for_query_forced = kwargs['cmkForQueryForced']
-        if 'dailyQuotaGb' in kwargs:
+        if daily_quota_gb is None and 'dailyQuotaGb' in kwargs:
             daily_quota_gb = kwargs['dailyQuotaGb']
-        if 'dataCollectionRuleId' in kwargs:
+        if data_collection_rule_id is None and 'dataCollectionRuleId' in kwargs:
             data_collection_rule_id = kwargs['dataCollectionRuleId']
-        if 'internetIngestionEnabled' in kwargs:
+        if internet_ingestion_enabled is None and 'internetIngestionEnabled' in kwargs:
             internet_ingestion_enabled = kwargs['internetIngestionEnabled']
-        if 'internetQueryEnabled' in kwargs:
+        if internet_query_enabled is None and 'internetQueryEnabled' in kwargs:
             internet_query_enabled = kwargs['internetQueryEnabled']
-        if 'localAuthenticationDisabled' in kwargs:
+        if local_authentication_disabled is None and 'localAuthenticationDisabled' in kwargs:
             local_authentication_disabled = kwargs['localAuthenticationDisabled']
-        if 'primarySharedKey' in kwargs:
+        if primary_shared_key is None and 'primarySharedKey' in kwargs:
             primary_shared_key = kwargs['primarySharedKey']
-        if 'reservationCapacityInGbPerDay' in kwargs:
+        if reservation_capacity_in_gb_per_day is None and 'reservationCapacityInGbPerDay' in kwargs:
             reservation_capacity_in_gb_per_day = kwargs['reservationCapacityInGbPerDay']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'retentionInDays' in kwargs:
+        if retention_in_days is None and 'retentionInDays' in kwargs:
             retention_in_days = kwargs['retentionInDays']
-        if 'secondarySharedKey' in kwargs:
+        if secondary_shared_key is None and 'secondarySharedKey' in kwargs:
             secondary_shared_key = kwargs['secondarySharedKey']
-        if 'workspaceId' in kwargs:
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
 
         if allow_resource_only_permissions is not None:
@@ -719,20 +721,6 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         """
         Manages a Log Analytics (formally Operational Insights) Workspace.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018",
-            retention_in_days=30)
-        ```
-
         ## Import
 
         Log Analytics Workspaces can be imported using the `resource id`, e.g.
@@ -778,20 +766,6 @@ class AnalyticsWorkspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Log Analytics (formally Operational Insights) Workspace.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018",
-            retention_in_days=30)
-        ```
 
         ## Import
 

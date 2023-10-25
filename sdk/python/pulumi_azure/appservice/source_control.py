@@ -53,7 +53,7 @@ class SourceControlArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_id: pulumi.Input[str],
+             app_id: Optional[pulumi.Input[str]] = None,
              branch: Optional[pulumi.Input[str]] = None,
              github_action_configuration: Optional[pulumi.Input['SourceControlGithubActionConfigurationArgs']] = None,
              repo_url: Optional[pulumi.Input[str]] = None,
@@ -61,21 +61,23 @@ class SourceControlArgs:
              use_local_git: Optional[pulumi.Input[bool]] = None,
              use_manual_integration: Optional[pulumi.Input[bool]] = None,
              use_mercurial: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'appId' in kwargs:
+        if app_id is None and 'appId' in kwargs:
             app_id = kwargs['appId']
-        if 'githubActionConfiguration' in kwargs:
+        if app_id is None:
+            raise TypeError("Missing 'app_id' argument")
+        if github_action_configuration is None and 'githubActionConfiguration' in kwargs:
             github_action_configuration = kwargs['githubActionConfiguration']
-        if 'repoUrl' in kwargs:
+        if repo_url is None and 'repoUrl' in kwargs:
             repo_url = kwargs['repoUrl']
-        if 'rollbackEnabled' in kwargs:
+        if rollback_enabled is None and 'rollbackEnabled' in kwargs:
             rollback_enabled = kwargs['rollbackEnabled']
-        if 'useLocalGit' in kwargs:
+        if use_local_git is None and 'useLocalGit' in kwargs:
             use_local_git = kwargs['useLocalGit']
-        if 'useManualIntegration' in kwargs:
+        if use_manual_integration is None and 'useManualIntegration' in kwargs:
             use_manual_integration = kwargs['useManualIntegration']
-        if 'useMercurial' in kwargs:
+        if use_mercurial is None and 'useMercurial' in kwargs:
             use_mercurial = kwargs['useMercurial']
 
         _setter("app_id", app_id)
@@ -251,25 +253,25 @@ class _SourceControlState:
              use_manual_integration: Optional[pulumi.Input[bool]] = None,
              use_mercurial: Optional[pulumi.Input[bool]] = None,
              uses_github_action: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'appId' in kwargs:
+        if app_id is None and 'appId' in kwargs:
             app_id = kwargs['appId']
-        if 'githubActionConfiguration' in kwargs:
+        if github_action_configuration is None and 'githubActionConfiguration' in kwargs:
             github_action_configuration = kwargs['githubActionConfiguration']
-        if 'repoUrl' in kwargs:
+        if repo_url is None and 'repoUrl' in kwargs:
             repo_url = kwargs['repoUrl']
-        if 'rollbackEnabled' in kwargs:
+        if rollback_enabled is None and 'rollbackEnabled' in kwargs:
             rollback_enabled = kwargs['rollbackEnabled']
-        if 'scmType' in kwargs:
+        if scm_type is None and 'scmType' in kwargs:
             scm_type = kwargs['scmType']
-        if 'useLocalGit' in kwargs:
+        if use_local_git is None and 'useLocalGit' in kwargs:
             use_local_git = kwargs['useLocalGit']
-        if 'useManualIntegration' in kwargs:
+        if use_manual_integration is None and 'useManualIntegration' in kwargs:
             use_manual_integration = kwargs['useManualIntegration']
-        if 'useMercurial' in kwargs:
+        if use_mercurial is None and 'useMercurial' in kwargs:
             use_mercurial = kwargs['useMercurial']
-        if 'usesGithubAction' in kwargs:
+        if uses_github_action is None and 'usesGithubAction' in kwargs:
             uses_github_action = kwargs['usesGithubAction']
 
         if app_id is not None:
@@ -435,29 +437,6 @@ class SourceControl(pulumi.CustomResource):
         """
         Manages an App Service Web App or Function App Source Control Configuration.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            os_type="Linux",
-            sku_name="P1v2")
-        example_linux_web_app = azure.appservice.LinuxWebApp("exampleLinuxWebApp",
-            resource_group_name=example_resource_group.name,
-            location=example_service_plan.location,
-            service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.LinuxWebAppSiteConfigArgs())
-        example_source_control = azure.appservice.SourceControl("exampleSourceControl",
-            app_id=example_linux_web_app.id,
-            repo_url="https://github.com/Azure-Samples/python-docs-hello-world",
-            branch="master")
-        ```
-
         ## Import
 
         App Service Source Controls can be imported using the `resource id`, e.g.
@@ -489,29 +468,6 @@ class SourceControl(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an App Service Web App or Function App Source Control Configuration.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            os_type="Linux",
-            sku_name="P1v2")
-        example_linux_web_app = azure.appservice.LinuxWebApp("exampleLinuxWebApp",
-            resource_group_name=example_resource_group.name,
-            location=example_service_plan.location,
-            service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.LinuxWebAppSiteConfigArgs())
-        example_source_control = azure.appservice.SourceControl("exampleSourceControl",
-            app_id=example_linux_web_app.id,
-            repo_url="https://github.com/Azure-Samples/python-docs-hello-world",
-            branch="master")
-        ```
 
         ## Import
 
@@ -561,11 +517,7 @@ class SourceControl(pulumi.CustomResource):
                 raise TypeError("Missing required property 'app_id'")
             __props__.__dict__["app_id"] = app_id
             __props__.__dict__["branch"] = branch
-            if github_action_configuration is not None and not isinstance(github_action_configuration, SourceControlGithubActionConfigurationArgs):
-                github_action_configuration = github_action_configuration or {}
-                def _setter(key, value):
-                    github_action_configuration[key] = value
-                SourceControlGithubActionConfigurationArgs._configure(_setter, **github_action_configuration)
+            github_action_configuration = _utilities.configure(github_action_configuration, SourceControlGithubActionConfigurationArgs, True)
             __props__.__dict__["github_action_configuration"] = github_action_configuration
             __props__.__dict__["repo_url"] = repo_url
             __props__.__dict__["rollback_enabled"] = rollback_enabled

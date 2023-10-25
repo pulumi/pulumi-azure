@@ -52,19 +52,19 @@ class AttachedDatabaseConfigurationSharingArgs:
              materialized_views_to_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tables_to_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tables_to_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'externalTablesToExcludes' in kwargs:
+        if external_tables_to_excludes is None and 'externalTablesToExcludes' in kwargs:
             external_tables_to_excludes = kwargs['externalTablesToExcludes']
-        if 'externalTablesToIncludes' in kwargs:
+        if external_tables_to_includes is None and 'externalTablesToIncludes' in kwargs:
             external_tables_to_includes = kwargs['externalTablesToIncludes']
-        if 'materializedViewsToExcludes' in kwargs:
+        if materialized_views_to_excludes is None and 'materializedViewsToExcludes' in kwargs:
             materialized_views_to_excludes = kwargs['materializedViewsToExcludes']
-        if 'materializedViewsToIncludes' in kwargs:
+        if materialized_views_to_includes is None and 'materializedViewsToIncludes' in kwargs:
             materialized_views_to_includes = kwargs['materializedViewsToIncludes']
-        if 'tablesToExcludes' in kwargs:
+        if tables_to_excludes is None and 'tablesToExcludes' in kwargs:
             tables_to_excludes = kwargs['tablesToExcludes']
-        if 'tablesToIncludes' in kwargs:
+        if tables_to_includes is None and 'tablesToIncludes' in kwargs:
             tables_to_includes = kwargs['tablesToIncludes']
 
         if external_tables_to_excludes is not None:
@@ -178,17 +178,19 @@ class ClusterIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -267,14 +269,18 @@ class ClusterOptimizedAutoScaleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             maximum_instances: pulumi.Input[int],
-             minimum_instances: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             maximum_instances: Optional[pulumi.Input[int]] = None,
+             minimum_instances: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'maximumInstances' in kwargs:
+        if maximum_instances is None and 'maximumInstances' in kwargs:
             maximum_instances = kwargs['maximumInstances']
-        if 'minimumInstances' in kwargs:
+        if maximum_instances is None:
+            raise TypeError("Missing 'maximum_instances' argument")
+        if minimum_instances is None and 'minimumInstances' in kwargs:
             minimum_instances = kwargs['minimumInstances']
+        if minimum_instances is None:
+            raise TypeError("Missing 'minimum_instances' argument")
 
         _setter("maximum_instances", maximum_instances)
         _setter("minimum_instances", minimum_instances)
@@ -324,10 +330,12 @@ class ClusterSkuArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              capacity: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
         if capacity is not None:
@@ -381,17 +389,23 @@ class ClusterVirtualNetworkConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_management_public_ip_id: pulumi.Input[str],
-             engine_public_ip_id: pulumi.Input[str],
-             subnet_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             data_management_public_ip_id: Optional[pulumi.Input[str]] = None,
+             engine_public_ip_id: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dataManagementPublicIpId' in kwargs:
+        if data_management_public_ip_id is None and 'dataManagementPublicIpId' in kwargs:
             data_management_public_ip_id = kwargs['dataManagementPublicIpId']
-        if 'enginePublicIpId' in kwargs:
+        if data_management_public_ip_id is None:
+            raise TypeError("Missing 'data_management_public_ip_id' argument")
+        if engine_public_ip_id is None and 'enginePublicIpId' in kwargs:
             engine_public_ip_id = kwargs['enginePublicIpId']
-        if 'subnetId' in kwargs:
+        if engine_public_ip_id is None:
+            raise TypeError("Missing 'engine_public_ip_id' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
 
         _setter("data_management_public_ip_id", data_management_public_ip_id)
         _setter("engine_public_ip_id", engine_public_ip_id)

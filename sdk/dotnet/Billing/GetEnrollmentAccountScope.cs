@@ -13,66 +13,12 @@ namespace Pulumi.Azure.Billing
     {
         /// <summary>
         /// Use this data source to access information about an existing Enrollment Account Billing Scope.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Billing.GetEnrollmentAccountScope.Invoke(new()
-        ///     {
-        ///         BillingAccountName = "existing",
-        ///         EnrollmentAccountName = "existing",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["id"] = example.Apply(getEnrollmentAccountScopeResult =&gt; getEnrollmentAccountScopeResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetEnrollmentAccountScopeResult> InvokeAsync(GetEnrollmentAccountScopeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEnrollmentAccountScopeResult>("azure:billing/getEnrollmentAccountScope:getEnrollmentAccountScope", args ?? new GetEnrollmentAccountScopeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Enrollment Account Billing Scope.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Billing.GetEnrollmentAccountScope.Invoke(new()
-        ///     {
-        ///         BillingAccountName = "existing",
-        ///         EnrollmentAccountName = "existing",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["id"] = example.Apply(getEnrollmentAccountScopeResult =&gt; getEnrollmentAccountScopeResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetEnrollmentAccountScopeResult> Invoke(GetEnrollmentAccountScopeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnrollmentAccountScopeResult>("azure:billing/getEnrollmentAccountScope:getEnrollmentAccountScope", args ?? new GetEnrollmentAccountScopeInvokeArgs(), options.WithDefaults());

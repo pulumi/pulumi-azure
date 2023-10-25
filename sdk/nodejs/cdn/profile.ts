@@ -5,24 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleProfile = new azure.cdn.Profile("exampleProfile", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "Standard_Verizon",
- *     tags: {
- *         environment: "Production",
- *         cost_center: "MSFT",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * CDN Profiles can be imported using the `resource id`, e.g.

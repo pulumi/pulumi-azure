@@ -9,35 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Spacecraft.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleSpacecraft = new azure.orbital.Spacecraft("exampleSpacecraft", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: "westeurope",
- *     noradId: "12345",
- *     links: [{
- *         bandwidthMhz: 100,
- *         centerFrequencyMhz: 101,
- *         direction: "Uplink",
- *         polarization: "LHCP",
- *         name: "examplename",
- *     }],
- *     twoLineElements: [
- *         "1 23455U 94089A   97320.90946019  .00000140  00000-0  10191-3 0  2621",
- *         "2 23455  99.0090 272.6745 0008546 223.1686 136.8816 14.11711747148495",
- *     ],
- *     titleLine: "AQUA",
- *     tags: {
- *         "aks-managed-cluster-name": "9a57225d-a405-4d40-aa46-f13d2342abef",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Spacecraft can be imported using the `resource id`, e.g.

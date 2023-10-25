@@ -15,51 +15,6 @@ import (
 
 // Enables you to manage DNS AAAA Records within Azure Private DNS.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testZone, err := privatedns.NewZone(ctx, "testZone", &privatedns.ZoneArgs{
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = privatedns.NewAAAARecord(ctx, "testAAAARecord", &privatedns.AAAARecordArgs{
-//				ZoneName:          testZone.Name,
-//				ResourceGroupName: example.Name,
-//				Ttl:               pulumi.Int(300),
-//				Records: pulumi.StringArray{
-//					pulumi.String("fd5d:70bc:930e:d008:0000:0000:0000:7334"),
-//					pulumi.String("fd5d:70bc:930e:d008::7335"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Private DNS AAAA Records can be imported using the `resource id`, e.g.

@@ -42,20 +42,26 @@ class SharedPrivateLinkResourceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             subresource_name: pulumi.Input[str],
-             target_resource_id: pulumi.Input[str],
-             web_pubsub_id: pulumi.Input[str],
+             subresource_name: Optional[pulumi.Input[str]] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
+             web_pubsub_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              request_message: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'subresourceName' in kwargs:
+        if subresource_name is None and 'subresourceName' in kwargs:
             subresource_name = kwargs['subresourceName']
-        if 'targetResourceId' in kwargs:
+        if subresource_name is None:
+            raise TypeError("Missing 'subresource_name' argument")
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
-        if 'webPubsubId' in kwargs:
+        if target_resource_id is None:
+            raise TypeError("Missing 'target_resource_id' argument")
+        if web_pubsub_id is None and 'webPubsubId' in kwargs:
             web_pubsub_id = kwargs['webPubsubId']
-        if 'requestMessage' in kwargs:
+        if web_pubsub_id is None:
+            raise TypeError("Missing 'web_pubsub_id' argument")
+        if request_message is None and 'requestMessage' in kwargs:
             request_message = kwargs['requestMessage']
 
         _setter("subresource_name", subresource_name)
@@ -171,15 +177,15 @@ class _SharedPrivateLinkResourceState:
              subresource_name: Optional[pulumi.Input[str]] = None,
              target_resource_id: Optional[pulumi.Input[str]] = None,
              web_pubsub_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'requestMessage' in kwargs:
+        if request_message is None and 'requestMessage' in kwargs:
             request_message = kwargs['requestMessage']
-        if 'subresourceName' in kwargs:
+        if subresource_name is None and 'subresourceName' in kwargs:
             subresource_name = kwargs['subresourceName']
-        if 'targetResourceId' in kwargs:
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
-        if 'webPubsubId' in kwargs:
+        if web_pubsub_id is None and 'webPubsubId' in kwargs:
             web_pubsub_id = kwargs['webPubsubId']
 
         if name is not None:
@@ -286,38 +292,6 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
         """
         Manages the Shared Private Link Resource for a Web Pubsub service.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="east us")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="standard",
-            soft_delete_retention_days=7,
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
-                tenant_id=current.tenant_id,
-                object_id=current.object_id,
-                certificate_permissions=["managecontacts"],
-                key_permissions=["create"],
-                secret_permissions=["set"],
-            )])
-        example_service = azure.webpubsub.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard_S1",
-            capacity=1)
-        example_shared_private_link_resource = azure.webpubsub.SharedPrivateLinkResource("exampleSharedPrivateLinkResource",
-            web_pubsub_id=example_service.id,
-            subresource_name="vault",
-            target_resource_id=example_key_vault.id)
-        ```
-
         ## Import
 
         Web Pubsub Shared Private Link Resource can be imported using the `resource id`, e.g.
@@ -346,38 +320,6 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages the Shared Private Link Resource for a Web Pubsub service.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="east us")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="standard",
-            soft_delete_retention_days=7,
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
-                tenant_id=current.tenant_id,
-                object_id=current.object_id,
-                certificate_permissions=["managecontacts"],
-                key_permissions=["create"],
-                secret_permissions=["set"],
-            )])
-        example_service = azure.webpubsub.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard_S1",
-            capacity=1)
-        example_shared_private_link_resource = azure.webpubsub.SharedPrivateLinkResource("exampleSharedPrivateLinkResource",
-            web_pubsub_id=example_service.id,
-            subresource_name="vault",
-            target_resource_id=example_key_vault.id)
-        ```
 
         ## Import
 

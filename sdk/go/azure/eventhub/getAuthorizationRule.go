@@ -13,35 +13,6 @@ import (
 )
 
 // Use this data source to access information about an existing Event Hubs Authorization Rule within an Event Hub.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventhub"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := eventhub.LookupAuthorizationRule(ctx, &eventhub.LookupAuthorizationRuleArgs{
-//				Name:              "test",
-//				NamespaceName:     azurerm_eventhub_namespace.Test.Name,
-//				EventhubName:      azurerm_eventhub.Test.Name,
-//				ResourceGroupName: azurerm_resource_group.Test.Name,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupAuthorizationRule(ctx *pulumi.Context, args *LookupAuthorizationRuleArgs, opts ...pulumi.InvokeOption) (*LookupAuthorizationRuleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAuthorizationRuleResult

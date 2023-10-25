@@ -15,15 +15,6 @@ import * as utilities from "../utilities";
  *
  * > **Note:** While assigning the role to the existing/new Service Principal at the Tenant Scope, the user assigning role must already have the `Owner` role assigned at the Tenant Scope.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = new azure.core.PortalTenantConfiguration("example", {privateMarkdownStorageEnforced: true});
- * ```
- *
  * ## Import
  *
  * Portal Tenant Configurations can be imported using the `resource id`, e.g.

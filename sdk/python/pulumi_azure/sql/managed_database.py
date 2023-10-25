@@ -32,13 +32,15 @@ class ManagedDatabaseArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             sql_managed_instance_id: pulumi.Input[str],
+             sql_managed_instance_id: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'sqlManagedInstanceId' in kwargs:
+        if sql_managed_instance_id is None and 'sqlManagedInstanceId' in kwargs:
             sql_managed_instance_id = kwargs['sqlManagedInstanceId']
+        if sql_managed_instance_id is None:
+            raise TypeError("Missing 'sql_managed_instance_id' argument")
 
         _setter("sql_managed_instance_id", sql_managed_instance_id)
         if location is not None:
@@ -107,9 +109,9 @@ class _ManagedDatabaseState:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              sql_managed_instance_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'sqlManagedInstanceId' in kwargs:
+        if sql_managed_instance_id is None and 'sqlManagedInstanceId' in kwargs:
             sql_managed_instance_id = kwargs['sqlManagedInstanceId']
 
         if location is not None:
@@ -170,36 +172,6 @@ class ManagedDatabase(pulumi.CustomResource):
 
         > **Note:** The `sql.ManagedDatabase` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.ManagedDatabase` resource instead.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_managed_instance = azure.sql.ManagedInstance("exampleManagedInstance",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            administrator_login="mradministrator",
-            administrator_login_password="thisIsDog11",
-            license_type="BasePrice",
-            subnet_id=example_subnet.id,
-            sku_name="GP_Gen5",
-            vcores=4,
-            storage_size_in_gb=32)
-        example_managed_database = azure.sql.ManagedDatabase("exampleManagedDatabase",
-            sql_managed_instance_id=example_managed_instance.id,
-            location=example_resource_group.location)
-        ```
-
         ## Import
 
         SQL Managed Databases can be imported using the `resource id`, e.g.
@@ -224,36 +196,6 @@ class ManagedDatabase(pulumi.CustomResource):
         Manages a SQL Azure Managed Database.
 
         > **Note:** The `sql.ManagedDatabase` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.ManagedDatabase` resource instead.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_managed_instance = azure.sql.ManagedInstance("exampleManagedInstance",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            administrator_login="mradministrator",
-            administrator_login_password="thisIsDog11",
-            license_type="BasePrice",
-            subnet_id=example_subnet.id,
-            sku_name="GP_Gen5",
-            vcores=4,
-            storage_size_in_gb=32)
-        example_managed_database = azure.sql.ManagedDatabase("exampleManagedDatabase",
-            sql_managed_instance_id=example_managed_instance.id,
-            location=example_resource_group.location)
-        ```
 
         ## Import
 

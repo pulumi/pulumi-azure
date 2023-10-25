@@ -9,27 +9,6 @@ import * as utilities from "../utilities";
  *
  * Manages a Dev Center Project.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleDevCenter = new azure.devcenter.DevCenter("exampleDevCenter", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     identity: {
- *         type: "example-value",
- *     },
- * });
- * const exampleProject = new azure.devcenter.Project("exampleProject", {
- *     devCenterId: exampleDevCenter.id,
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * ```
- *
  * ## Import
  *
  * An existing Dev Center Project can be imported into Terraform using the `resource id`, e.g.

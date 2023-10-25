@@ -71,21 +71,6 @@ def get_private_link_resource(web_pubsub_id: Optional[str] = None,
     """
     Use this data source to access information about the Private Link Resource supported by the Web Pubsub Resource.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    test_resource_group = azure.core.ResourceGroup("testResourceGroup", location="east us")
-    test_service = azure.webpubsub.Service("testService",
-        location=test_resource_group.location,
-        resource_group_name=test_resource_group.name,
-        sku="Standard_S1",
-        capacity=1)
-    test_private_link_resource = azure.webpubsub.get_private_link_resource_output(web_pubsub_id=test_service.id)
-    ```
-
 
     :param str web_pubsub_id: The ID of an existing Web Pubsub Resource which Private Link Resource should be retrieved for.
     """
@@ -105,21 +90,6 @@ def get_private_link_resource_output(web_pubsub_id: Optional[pulumi.Input[str]] 
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateLinkResourceResult]:
     """
     Use this data source to access information about the Private Link Resource supported by the Web Pubsub Resource.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    test_resource_group = azure.core.ResourceGroup("testResourceGroup", location="east us")
-    test_service = azure.webpubsub.Service("testService",
-        location=test_resource_group.location,
-        resource_group_name=test_resource_group.name,
-        sku="Standard_S1",
-        capacity=1)
-    test_private_link_resource = azure.webpubsub.get_private_link_resource_output(web_pubsub_id=test_service.id)
-    ```
 
 
     :param str web_pubsub_id: The ID of an existing Web Pubsub Resource which Private Link Resource should be retrieved for.

@@ -46,24 +46,28 @@ class SpringCloudCustomizedAcceleratorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             git_repository: pulumi.Input['SpringCloudCustomizedAcceleratorGitRepositoryArgs'],
-             spring_cloud_accelerator_id: pulumi.Input[str],
+             git_repository: Optional[pulumi.Input['SpringCloudCustomizedAcceleratorGitRepositoryArgs']] = None,
+             spring_cloud_accelerator_id: Optional[pulumi.Input[str]] = None,
              accelerator_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              display_name: Optional[pulumi.Input[str]] = None,
              icon_url: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'gitRepository' in kwargs:
+        if git_repository is None and 'gitRepository' in kwargs:
             git_repository = kwargs['gitRepository']
-        if 'springCloudAcceleratorId' in kwargs:
+        if git_repository is None:
+            raise TypeError("Missing 'git_repository' argument")
+        if spring_cloud_accelerator_id is None and 'springCloudAcceleratorId' in kwargs:
             spring_cloud_accelerator_id = kwargs['springCloudAcceleratorId']
-        if 'acceleratorTags' in kwargs:
+        if spring_cloud_accelerator_id is None:
+            raise TypeError("Missing 'spring_cloud_accelerator_id' argument")
+        if accelerator_tags is None and 'acceleratorTags' in kwargs:
             accelerator_tags = kwargs['acceleratorTags']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'iconUrl' in kwargs:
+        if icon_url is None and 'iconUrl' in kwargs:
             icon_url = kwargs['iconUrl']
 
         _setter("git_repository", git_repository)
@@ -204,17 +208,17 @@ class _SpringCloudCustomizedAcceleratorState:
              icon_url: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              spring_cloud_accelerator_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'acceleratorTags' in kwargs:
+        if accelerator_tags is None and 'acceleratorTags' in kwargs:
             accelerator_tags = kwargs['acceleratorTags']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'gitRepository' in kwargs:
+        if git_repository is None and 'gitRepository' in kwargs:
             git_repository = kwargs['gitRepository']
-        if 'iconUrl' in kwargs:
+        if icon_url is None and 'iconUrl' in kwargs:
             icon_url = kwargs['iconUrl']
-        if 'springCloudAcceleratorId' in kwargs:
+        if spring_cloud_accelerator_id is None and 'springCloudAcceleratorId' in kwargs:
             spring_cloud_accelerator_id = kwargs['springCloudAcceleratorId']
 
         if accelerator_tags is not None:
@@ -333,34 +337,6 @@ class SpringCloudCustomizedAccelerator(pulumi.CustomResource):
         """
         Manages a Spring Cloud Customized Accelerator.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="west europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="E0")
-        example_spring_cloud_accelerator = azure.appplatform.SpringCloudAccelerator("exampleSpringCloudAccelerator", spring_cloud_service_id=example_spring_cloud_service.id)
-        example_spring_cloud_customized_accelerator = azure.appplatform.SpringCloudCustomizedAccelerator("exampleSpringCloudCustomizedAccelerator",
-            spring_cloud_accelerator_id=example_spring_cloud_accelerator.id,
-            git_repository=azure.appplatform.SpringCloudCustomizedAcceleratorGitRepositoryArgs(
-                url="https://github.com/Azure-Samples/piggymetrics",
-                git_tag="spring.version.2.0.3",
-                interval_in_seconds=100,
-            ),
-            accelerator_tags=[
-                "tag-a",
-                "tag-b",
-            ],
-            description="example description",
-            display_name="example name",
-            icon_url="https://images.freecreatives.com/wp-content/uploads/2015/05/smiley-559124_640.jpg")
-        ```
-
         ## Import
 
         Spring Cloud Customized Accelerators can be imported using the `resource id`, e.g.
@@ -387,34 +363,6 @@ class SpringCloudCustomizedAccelerator(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Spring Cloud Customized Accelerator.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="west europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="E0")
-        example_spring_cloud_accelerator = azure.appplatform.SpringCloudAccelerator("exampleSpringCloudAccelerator", spring_cloud_service_id=example_spring_cloud_service.id)
-        example_spring_cloud_customized_accelerator = azure.appplatform.SpringCloudCustomizedAccelerator("exampleSpringCloudCustomizedAccelerator",
-            spring_cloud_accelerator_id=example_spring_cloud_accelerator.id,
-            git_repository=azure.appplatform.SpringCloudCustomizedAcceleratorGitRepositoryArgs(
-                url="https://github.com/Azure-Samples/piggymetrics",
-                git_tag="spring.version.2.0.3",
-                interval_in_seconds=100,
-            ),
-            accelerator_tags=[
-                "tag-a",
-                "tag-b",
-            ],
-            description="example description",
-            display_name="example name",
-            icon_url="https://images.freecreatives.com/wp-content/uploads/2015/05/smiley-559124_640.jpg")
-        ```
 
         ## Import
 
@@ -462,11 +410,7 @@ class SpringCloudCustomizedAccelerator(pulumi.CustomResource):
             __props__.__dict__["accelerator_tags"] = accelerator_tags
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name
-            if git_repository is not None and not isinstance(git_repository, SpringCloudCustomizedAcceleratorGitRepositoryArgs):
-                git_repository = git_repository or {}
-                def _setter(key, value):
-                    git_repository[key] = value
-                SpringCloudCustomizedAcceleratorGitRepositoryArgs._configure(_setter, **git_repository)
+            git_repository = _utilities.configure(git_repository, SpringCloudCustomizedAcceleratorGitRepositoryArgs, True)
             if git_repository is None and not opts.urn:
                 raise TypeError("Missing required property 'git_repository'")
             __props__.__dict__["git_repository"] = git_repository
