@@ -29,14 +29,18 @@ class GetHostPoolRegistrationInfoArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             expiration_date: pulumi.Input[str],
-             hostpool_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             expiration_date: Optional[pulumi.Input[str]] = None,
+             hostpool_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'expirationDate' in kwargs:
+        if expiration_date is None and 'expirationDate' in kwargs:
             expiration_date = kwargs['expirationDate']
-        if 'hostpoolId' in kwargs:
+        if expiration_date is None:
+            raise TypeError("Missing 'expiration_date' argument")
+        if hostpool_id is None and 'hostpoolId' in kwargs:
             hostpool_id = kwargs['hostpoolId']
+        if hostpool_id is None:
+            raise TypeError("Missing 'hostpool_id' argument")
 
         _setter("expiration_date", expiration_date)
         _setter("hostpool_id", hostpool_id)
@@ -90,11 +94,11 @@ class _GetHostPoolRegistrationInfoState:
              expiration_date: Optional[pulumi.Input[str]] = None,
              hostpool_id: Optional[pulumi.Input[str]] = None,
              token: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'expirationDate' in kwargs:
+        if expiration_date is None and 'expirationDate' in kwargs:
             expiration_date = kwargs['expirationDate']
-        if 'hostpoolId' in kwargs:
+        if hostpool_id is None and 'hostpoolId' in kwargs:
             hostpool_id = kwargs['hostpoolId']
 
         if expiration_date is not None:
@@ -152,24 +156,6 @@ class GetHostPoolRegistrationInfo(pulumi.CustomResource):
         """
         Manages the Registration Info for a Virtual Desktop Host Pool.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="westeurope")
-        example_host_pool = azure.desktopvirtualization.HostPool("exampleHostPool",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            type="Pooled",
-            validate_environment=True,
-            load_balancer_type="BreadthFirst")
-        exampleget_host_pool_registration_info = azure.desktopvirtualization.GetHostPoolRegistrationInfo("examplegetHostPoolRegistrationInfo",
-            hostpool_id=example_host_pool.id,
-            expiration_date="2022-01-01T23:40:52Z")
-        ```
-
         ## Import
 
         AVD Registration Infos can be imported using the `resource id`, e.g.
@@ -191,24 +177,6 @@ class GetHostPoolRegistrationInfo(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages the Registration Info for a Virtual Desktop Host Pool.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="westeurope")
-        example_host_pool = azure.desktopvirtualization.HostPool("exampleHostPool",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            type="Pooled",
-            validate_environment=True,
-            load_balancer_type="BreadthFirst")
-        exampleget_host_pool_registration_info = azure.desktopvirtualization.GetHostPoolRegistrationInfo("examplegetHostPoolRegistrationInfo",
-            hostpool_id=example_host_pool.id,
-            expiration_date="2022-01-01T23:40:52Z")
-        ```
 
         ## Import
 

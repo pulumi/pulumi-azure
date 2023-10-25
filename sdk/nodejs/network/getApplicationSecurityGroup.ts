@@ -6,19 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Application Security Group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.network.getApplicationSecurityGroup({
- *     name: "tf-appsecuritygroup",
- *     resourceGroupName: "my-resource-group",
- * });
- * export const applicationSecurityGroupId = example.then(example => example.id);
- * ```
  */
 export function getApplicationSecurityGroup(args: GetApplicationSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationSecurityGroupResult> {
 
@@ -64,19 +51,6 @@ export interface GetApplicationSecurityGroupResult {
 }
 /**
  * Use this data source to access information about an existing Application Security Group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.network.getApplicationSecurityGroup({
- *     name: "tf-appsecuritygroup",
- *     resourceGroupName: "my-resource-group",
- * });
- * export const applicationSecurityGroupId = example.then(example => example.id);
- * ```
  */
 export function getApplicationSecurityGroupOutput(args: GetApplicationSecurityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationSecurityGroupResult> {
     return pulumi.output(args).apply((a: any) => getApplicationSecurityGroup(a, opts))

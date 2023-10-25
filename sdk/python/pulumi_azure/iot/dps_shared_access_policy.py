@@ -55,29 +55,33 @@ class DpsSharedAccessPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             iothub_dps_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             iothub_dps_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              enrollment_read: Optional[pulumi.Input[bool]] = None,
              enrollment_write: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              registration_read: Optional[pulumi.Input[bool]] = None,
              registration_write: Optional[pulumi.Input[bool]] = None,
              service_config: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'iothubDpsName' in kwargs:
+        if iothub_dps_name is None and 'iothubDpsName' in kwargs:
             iothub_dps_name = kwargs['iothubDpsName']
-        if 'resourceGroupName' in kwargs:
+        if iothub_dps_name is None:
+            raise TypeError("Missing 'iothub_dps_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'enrollmentRead' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if enrollment_read is None and 'enrollmentRead' in kwargs:
             enrollment_read = kwargs['enrollmentRead']
-        if 'enrollmentWrite' in kwargs:
+        if enrollment_write is None and 'enrollmentWrite' in kwargs:
             enrollment_write = kwargs['enrollmentWrite']
-        if 'registrationRead' in kwargs:
+        if registration_read is None and 'registrationRead' in kwargs:
             registration_read = kwargs['registrationRead']
-        if 'registrationWrite' in kwargs:
+        if registration_write is None and 'registrationWrite' in kwargs:
             registration_write = kwargs['registrationWrite']
-        if 'serviceConfig' in kwargs:
+        if service_config is None and 'serviceConfig' in kwargs:
             service_config = kwargs['serviceConfig']
 
         _setter("iothub_dps_name", iothub_dps_name)
@@ -268,29 +272,29 @@ class _DpsSharedAccessPolicyState:
              secondary_connection_string: Optional[pulumi.Input[str]] = None,
              secondary_key: Optional[pulumi.Input[str]] = None,
              service_config: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'enrollmentRead' in kwargs:
+        if enrollment_read is None and 'enrollmentRead' in kwargs:
             enrollment_read = kwargs['enrollmentRead']
-        if 'enrollmentWrite' in kwargs:
+        if enrollment_write is None and 'enrollmentWrite' in kwargs:
             enrollment_write = kwargs['enrollmentWrite']
-        if 'iothubDpsName' in kwargs:
+        if iothub_dps_name is None and 'iothubDpsName' in kwargs:
             iothub_dps_name = kwargs['iothubDpsName']
-        if 'primaryConnectionString' in kwargs:
+        if primary_connection_string is None and 'primaryConnectionString' in kwargs:
             primary_connection_string = kwargs['primaryConnectionString']
-        if 'primaryKey' in kwargs:
+        if primary_key is None and 'primaryKey' in kwargs:
             primary_key = kwargs['primaryKey']
-        if 'registrationRead' in kwargs:
+        if registration_read is None and 'registrationRead' in kwargs:
             registration_read = kwargs['registrationRead']
-        if 'registrationWrite' in kwargs:
+        if registration_write is None and 'registrationWrite' in kwargs:
             registration_write = kwargs['registrationWrite']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'secondaryConnectionString' in kwargs:
+        if secondary_connection_string is None and 'secondaryConnectionString' in kwargs:
             secondary_connection_string = kwargs['secondaryConnectionString']
-        if 'secondaryKey' in kwargs:
+        if secondary_key is None and 'secondaryKey' in kwargs:
             secondary_key = kwargs['secondaryKey']
-        if 'serviceConfig' in kwargs:
+        if service_config is None and 'serviceConfig' in kwargs:
             service_config = kwargs['serviceConfig']
 
         if enrollment_read is not None:
@@ -488,27 +492,6 @@ class DpsSharedAccessPolicy(pulumi.CustomResource):
         """
         Manages an IotHub Device Provisioning Service Shared Access Policy
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_iot_hub_dps = azure.iot.IotHubDps("exampleIotHubDps",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku=azure.iot.IotHubDpsSkuArgs(
-                name="S1",
-                capacity=1,
-            ))
-        example_dps_shared_access_policy = azure.iot.DpsSharedAccessPolicy("exampleDpsSharedAccessPolicy",
-            resource_group_name=example_resource_group.name,
-            iothub_dps_name=example_iot_hub_dps.name,
-            enrollment_write=True,
-            enrollment_read=True)
-        ```
-
         ## Import
 
         IoTHub Device Provisioning Service Shared Access Policies can be imported using the `resource id`, e.g.
@@ -544,27 +527,6 @@ class DpsSharedAccessPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an IotHub Device Provisioning Service Shared Access Policy
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_iot_hub_dps = azure.iot.IotHubDps("exampleIotHubDps",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku=azure.iot.IotHubDpsSkuArgs(
-                name="S1",
-                capacity=1,
-            ))
-        example_dps_shared_access_policy = azure.iot.DpsSharedAccessPolicy("exampleDpsSharedAccessPolicy",
-            resource_group_name=example_resource_group.name,
-            iothub_dps_name=example_iot_hub_dps.name,
-            enrollment_write=True,
-            enrollment_read=True)
-        ```
 
         ## Import
 

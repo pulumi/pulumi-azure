@@ -7,32 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Log Analytics Linked Storage Account.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "GRS",
- * });
- * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "PerGB2018",
- * });
- * const exampleLinkedStorageAccount = new azure.loganalytics.LinkedStorageAccount("exampleLinkedStorageAccount", {
- *     dataSourceType: "CustomLogs",
- *     resourceGroupName: exampleResourceGroup.name,
- *     workspaceResourceId: exampleAnalyticsWorkspace.id,
- *     storageAccountIds: [exampleAccount.id],
- * });
- * ```
- *
  * ## Import
  *
  * Log Analytics Linked Storage Accounts can be imported using the `resource id`, e.g.

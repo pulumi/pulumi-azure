@@ -13,34 +13,6 @@ import (
 )
 
 // Use this data source to access information about an existing Container Registry.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := containerservice.LookupRegistry(ctx, &containerservice.LookupRegistryArgs{
-//				Name:              "testacr",
-//				ResourceGroupName: "test",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("loginServer", example.LoginServer)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupRegistry(ctx *pulumi.Context, args *LookupRegistryArgs, opts ...pulumi.InvokeOption) (*LookupRegistryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRegistryResult

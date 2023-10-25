@@ -46,23 +46,33 @@ class VolumeGroupSapHanaArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             account_name: pulumi.Input[str],
-             application_identifier: pulumi.Input[str],
-             group_description: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             volumes: pulumi.Input[Sequence[pulumi.Input['VolumeGroupSapHanaVolumeArgs']]],
+             account_name: Optional[pulumi.Input[str]] = None,
+             application_identifier: Optional[pulumi.Input[str]] = None,
+             group_description: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             volumes: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeGroupSapHanaVolumeArgs']]]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accountName' in kwargs:
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'applicationIdentifier' in kwargs:
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if application_identifier is None and 'applicationIdentifier' in kwargs:
             application_identifier = kwargs['applicationIdentifier']
-        if 'groupDescription' in kwargs:
+        if application_identifier is None:
+            raise TypeError("Missing 'application_identifier' argument")
+        if group_description is None and 'groupDescription' in kwargs:
             group_description = kwargs['groupDescription']
-        if 'resourceGroupName' in kwargs:
+        if group_description is None:
+            raise TypeError("Missing 'group_description' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if volumes is None:
+            raise TypeError("Missing 'volumes' argument")
 
         _setter("account_name", account_name)
         _setter("application_identifier", application_identifier)
@@ -199,15 +209,15 @@ class _VolumeGroupSapHanaState:
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              volumes: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeGroupSapHanaVolumeArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accountName' in kwargs:
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'applicationIdentifier' in kwargs:
+        if application_identifier is None and 'applicationIdentifier' in kwargs:
             application_identifier = kwargs['applicationIdentifier']
-        if 'groupDescription' in kwargs:
+        if group_description is None and 'groupDescription' in kwargs:
             group_description = kwargs['groupDescription']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if account_name is not None:

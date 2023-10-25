@@ -37,19 +37,21 @@ class ApplicationNetworkRuleSetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             iotcentral_application_id: pulumi.Input[str],
+             iotcentral_application_id: Optional[pulumi.Input[str]] = None,
              apply_to_device: Optional[pulumi.Input[bool]] = None,
              default_action: Optional[pulumi.Input[str]] = None,
              ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationNetworkRuleSetIpRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'iotcentralApplicationId' in kwargs:
+        if iotcentral_application_id is None and 'iotcentralApplicationId' in kwargs:
             iotcentral_application_id = kwargs['iotcentralApplicationId']
-        if 'applyToDevice' in kwargs:
+        if iotcentral_application_id is None:
+            raise TypeError("Missing 'iotcentral_application_id' argument")
+        if apply_to_device is None and 'applyToDevice' in kwargs:
             apply_to_device = kwargs['applyToDevice']
-        if 'defaultAction' in kwargs:
+        if default_action is None and 'defaultAction' in kwargs:
             default_action = kwargs['defaultAction']
-        if 'ipRules' in kwargs:
+        if ip_rules is None and 'ipRules' in kwargs:
             ip_rules = kwargs['ipRules']
 
         _setter("iotcentral_application_id", iotcentral_application_id)
@@ -137,15 +139,15 @@ class _ApplicationNetworkRuleSetState:
              default_action: Optional[pulumi.Input[str]] = None,
              iotcentral_application_id: Optional[pulumi.Input[str]] = None,
              ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationNetworkRuleSetIpRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'applyToDevice' in kwargs:
+        if apply_to_device is None and 'applyToDevice' in kwargs:
             apply_to_device = kwargs['applyToDevice']
-        if 'defaultAction' in kwargs:
+        if default_action is None and 'defaultAction' in kwargs:
             default_action = kwargs['defaultAction']
-        if 'iotcentralApplicationId' in kwargs:
+        if iotcentral_application_id is None and 'iotcentralApplicationId' in kwargs:
             iotcentral_application_id = kwargs['iotcentralApplicationId']
-        if 'ipRules' in kwargs:
+        if ip_rules is None and 'ipRules' in kwargs:
             ip_rules = kwargs['ipRules']
 
         if apply_to_device is not None:
@@ -219,36 +221,6 @@ class ApplicationNetworkRuleSet(pulumi.CustomResource):
         """
         Manages an IoT Central Application Network Rule Set.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_application = azure.iotcentral.Application("exampleApplication",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sub_domain="example-iotcentral-app-subdomain",
-            display_name="example-iotcentral-app-display-name",
-            sku="ST1",
-            tags={
-                "Foo": "Bar",
-            })
-        example_application_network_rule_set = azure.iotcentral.ApplicationNetworkRuleSet("exampleApplicationNetworkRuleSet",
-            iotcentral_application_id=example_application.id,
-            ip_rules=[
-                azure.iotcentral.ApplicationNetworkRuleSetIpRuleArgs(
-                    name="rule1",
-                    ip_mask="10.0.1.0/24",
-                ),
-                azure.iotcentral.ApplicationNetworkRuleSetIpRuleArgs(
-                    name="rule2",
-                    ip_mask="10.1.1.0/24",
-                ),
-            ])
-        ```
-
         ## Import
 
         IoT Central Application Network Rule Sets can be imported using the `resource id`, e.g.
@@ -272,36 +244,6 @@ class ApplicationNetworkRuleSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an IoT Central Application Network Rule Set.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_application = azure.iotcentral.Application("exampleApplication",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sub_domain="example-iotcentral-app-subdomain",
-            display_name="example-iotcentral-app-display-name",
-            sku="ST1",
-            tags={
-                "Foo": "Bar",
-            })
-        example_application_network_rule_set = azure.iotcentral.ApplicationNetworkRuleSet("exampleApplicationNetworkRuleSet",
-            iotcentral_application_id=example_application.id,
-            ip_rules=[
-                azure.iotcentral.ApplicationNetworkRuleSetIpRuleArgs(
-                    name="rule1",
-                    ip_mask="10.0.1.0/24",
-                ),
-                azure.iotcentral.ApplicationNetworkRuleSetIpRuleArgs(
-                    name="rule2",
-                    ip_mask="10.1.1.0/24",
-                ),
-            ])
-        ```
 
         ## Import
 

@@ -6,21 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing ServiceBus Queue Authorisation Rule within a ServiceBus Queue.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.servicebus.getQueueAuthorizationRule({
- *     name: "example-tfex_name",
- *     resourceGroupName: "example-resources",
- *     queueName: "example-servicebus_queue",
- *     namespaceName: "example-namespace",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getQueueAuthorizationRule(args: GetQueueAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetQueueAuthorizationRuleResult> {
 
@@ -100,21 +85,6 @@ export interface GetQueueAuthorizationRuleResult {
 }
 /**
  * Use this data source to access information about an existing ServiceBus Queue Authorisation Rule within a ServiceBus Queue.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.servicebus.getQueueAuthorizationRule({
- *     name: "example-tfex_name",
- *     resourceGroupName: "example-resources",
- *     queueName: "example-servicebus_queue",
- *     namespaceName: "example-namespace",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getQueueAuthorizationRuleOutput(args: GetQueueAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueueAuthorizationRuleResult> {
     return pulumi.output(args).apply((a: any) => getQueueAuthorizationRule(a, opts))

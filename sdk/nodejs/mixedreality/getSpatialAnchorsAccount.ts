@@ -6,19 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Get information about an Azure Spatial Anchors Account.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.mixedreality.getSpatialAnchorsAccount({
- *     name: "example",
- *     resourceGroupName: azurerm_resource_group.example.name,
- * });
- * export const accountDomain = data.azurerm_spatial_anchors_account.account_domain;
- * ```
  */
 export function getSpatialAnchorsAccount(args: GetSpatialAnchorsAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetSpatialAnchorsAccountResult> {
 
@@ -69,19 +56,6 @@ export interface GetSpatialAnchorsAccountResult {
 }
 /**
  * Get information about an Azure Spatial Anchors Account.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.mixedreality.getSpatialAnchorsAccount({
- *     name: "example",
- *     resourceGroupName: azurerm_resource_group.example.name,
- * });
- * export const accountDomain = data.azurerm_spatial_anchors_account.account_domain;
- * ```
  */
 export function getSpatialAnchorsAccountOutput(args: GetSpatialAnchorsAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSpatialAnchorsAccountResult> {
     return pulumi.output(args).apply((a: any) => getSpatialAnchorsAccount(a, opts))

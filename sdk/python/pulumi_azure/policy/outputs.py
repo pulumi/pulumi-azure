@@ -66,16 +66,18 @@ class PolicySetDefinitionPolicyDefinitionGroup(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              additional_metadata_resource_id: Optional[str] = None,
              category: Optional[str] = None,
              description: Optional[str] = None,
              display_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'additionalMetadataResourceId' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if additional_metadata_resource_id is None and 'additionalMetadataResourceId' in kwargs:
             additional_metadata_resource_id = kwargs['additionalMetadataResourceId']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
 
         _setter("name", name)
@@ -175,19 +177,21 @@ class PolicySetDefinitionPolicyDefinitionReference(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             policy_definition_id: str,
+             policy_definition_id: Optional[str] = None,
              parameter_values: Optional[str] = None,
              policy_group_names: Optional[Sequence[str]] = None,
              reference_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'policyDefinitionId' in kwargs:
+        if policy_definition_id is None and 'policyDefinitionId' in kwargs:
             policy_definition_id = kwargs['policyDefinitionId']
-        if 'parameterValues' in kwargs:
+        if policy_definition_id is None:
+            raise TypeError("Missing 'policy_definition_id' argument")
+        if parameter_values is None and 'parameterValues' in kwargs:
             parameter_values = kwargs['parameterValues']
-        if 'policyGroupNames' in kwargs:
+        if policy_group_names is None and 'policyGroupNames' in kwargs:
             policy_group_names = kwargs['policyGroupNames']
-        if 'referenceId' in kwargs:
+        if reference_id is None and 'referenceId' in kwargs:
             reference_id = kwargs['referenceId']
 
         _setter("policy_definition_id", policy_definition_id)
@@ -285,13 +289,13 @@ class VirtualMachineConfigurationAssignmentConfiguration(dict):
              content_uri: Optional[str] = None,
              parameters: Optional[Sequence['outputs.VirtualMachineConfigurationAssignmentConfigurationParameter']] = None,
              version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'assignmentType' in kwargs:
+        if assignment_type is None and 'assignmentType' in kwargs:
             assignment_type = kwargs['assignmentType']
-        if 'contentHash' in kwargs:
+        if content_hash is None and 'contentHash' in kwargs:
             content_hash = kwargs['contentHash']
-        if 'contentUri' in kwargs:
+        if content_uri is None and 'contentUri' in kwargs:
             content_uri = kwargs['contentUri']
 
         if assignment_type is not None:
@@ -365,10 +369,14 @@ class VirtualMachineConfigurationAssignmentConfigurationParameter(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("name", name)
         _setter("value", value)
@@ -413,18 +421,26 @@ class GetPolicyAssignmentIdentityResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             identity_ids: Sequence[str],
-             principal_id: str,
-             tenant_id: str,
-             type: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             identity_ids: Optional[Sequence[str]] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if identity_ids is None:
+            raise TypeError("Missing 'identity_ids' argument")
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("identity_ids", identity_ids)
         _setter("principal_id", principal_id)
@@ -481,12 +497,16 @@ class GetPolicyAssignmentNonComplianceMessageResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             content: str,
-             policy_definition_reference_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             content: Optional[str] = None,
+             policy_definition_reference_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'policyDefinitionReferenceId' in kwargs:
+        if content is None:
+            raise TypeError("Missing 'content' argument")
+        if policy_definition_reference_id is None and 'policyDefinitionReferenceId' in kwargs:
             policy_definition_reference_id = kwargs['policyDefinitionReferenceId']
+        if policy_definition_reference_id is None:
+            raise TypeError("Missing 'policy_definition_reference_id' argument")
 
         _setter("content", content)
         _setter("policy_definition_reference_id", policy_definition_reference_id)
@@ -536,17 +556,27 @@ class GetPolicySetDefinitionPolicyDefinitionGroupResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             additional_metadata_resource_id: str,
-             category: str,
-             description: str,
-             display_name: str,
-             name: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             additional_metadata_resource_id: Optional[str] = None,
+             category: Optional[str] = None,
+             description: Optional[str] = None,
+             display_name: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'additionalMetadataResourceId' in kwargs:
+        if additional_metadata_resource_id is None and 'additionalMetadataResourceId' in kwargs:
             additional_metadata_resource_id = kwargs['additionalMetadataResourceId']
-        if 'displayName' in kwargs:
+        if additional_metadata_resource_id is None:
+            raise TypeError("Missing 'additional_metadata_resource_id' argument")
+        if category is None:
+            raise TypeError("Missing 'category' argument")
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("additional_metadata_resource_id", additional_metadata_resource_id)
         _setter("category", category)
@@ -623,21 +653,31 @@ class GetPolicySetDefinitionPolicyDefinitionReferenceResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             parameter_values: str,
-             parameters: Mapping[str, str],
-             policy_definition_id: str,
-             policy_group_names: Sequence[str],
-             reference_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             parameter_values: Optional[str] = None,
+             parameters: Optional[Mapping[str, str]] = None,
+             policy_definition_id: Optional[str] = None,
+             policy_group_names: Optional[Sequence[str]] = None,
+             reference_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'parameterValues' in kwargs:
+        if parameter_values is None and 'parameterValues' in kwargs:
             parameter_values = kwargs['parameterValues']
-        if 'policyDefinitionId' in kwargs:
+        if parameter_values is None:
+            raise TypeError("Missing 'parameter_values' argument")
+        if parameters is None:
+            raise TypeError("Missing 'parameters' argument")
+        if policy_definition_id is None and 'policyDefinitionId' in kwargs:
             policy_definition_id = kwargs['policyDefinitionId']
-        if 'policyGroupNames' in kwargs:
+        if policy_definition_id is None:
+            raise TypeError("Missing 'policy_definition_id' argument")
+        if policy_group_names is None and 'policyGroupNames' in kwargs:
             policy_group_names = kwargs['policyGroupNames']
-        if 'referenceId' in kwargs:
+        if policy_group_names is None:
+            raise TypeError("Missing 'policy_group_names' argument")
+        if reference_id is None and 'referenceId' in kwargs:
             reference_id = kwargs['referenceId']
+        if reference_id is None:
+            raise TypeError("Missing 'reference_id' argument")
 
         _setter("parameter_values", parameter_values)
         _setter("parameters", parameters)

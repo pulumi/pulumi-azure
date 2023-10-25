@@ -81,20 +81,6 @@ def get_recommendations(filter_by_categories: Optional[Sequence[str]] = None,
     """
     Use this data source to access information about an existing Advisor Recommendations.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.advisor.get_recommendations(filter_by_categories=[
-            "security",
-            "cost",
-        ],
-        filter_by_resource_groups=["example-resgroups"])
-    pulumi.export("recommendations", example.recommendations)
-    ```
-
 
     :param Sequence[str] filter_by_categories: Specifies a list of categories in which the Advisor Recommendations will be listed. Possible values are `HighAvailability`, `Security`, `Performance`, `Cost` and `OperationalExcellence`.
     :param Sequence[str] filter_by_resource_groups: Specifies a list of resource groups about which the Advisor Recommendations will be listed.
@@ -118,20 +104,6 @@ def get_recommendations_output(filter_by_categories: Optional[pulumi.Input[Optio
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRecommendationsResult]:
     """
     Use this data source to access information about an existing Advisor Recommendations.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.advisor.get_recommendations(filter_by_categories=[
-            "security",
-            "cost",
-        ],
-        filter_by_resource_groups=["example-resgroups"])
-    pulumi.export("recommendations", example.recommendations)
-    ```
 
 
     :param Sequence[str] filter_by_categories: Specifies a list of categories in which the Advisor Recommendations will be listed. Possible values are `HighAvailability`, `Security`, `Performance`, `Cost` and `OperationalExcellence`.

@@ -8,19 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Load Balancer Outbound Rule.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.lb.getLBOutboundRule({
- *     name: "existing_lb_outbound_rule",
- *     loadbalancerId: "existing_load_balancer_id",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getLBOutboundRule(args: GetLBOutboundRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetLBOutboundRuleResult> {
 
@@ -85,19 +72,6 @@ export interface GetLBOutboundRuleResult {
 }
 /**
  * Use this data source to access information about an existing Load Balancer Outbound Rule.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.lb.getLBOutboundRule({
- *     name: "existing_lb_outbound_rule",
- *     loadbalancerId: "existing_load_balancer_id",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getLBOutboundRuleOutput(args: GetLBOutboundRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLBOutboundRuleResult> {
     return pulumi.output(args).apply((a: any) => getLBOutboundRule(a, opts))

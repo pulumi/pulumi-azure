@@ -39,13 +39,13 @@ class BackendAddressPoolAddressInboundNatRulePortMappingArgs:
              backend_port: Optional[pulumi.Input[int]] = None,
              frontend_port: Optional[pulumi.Input[int]] = None,
              inbound_nat_rule_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'backendPort' in kwargs:
+        if backend_port is None and 'backendPort' in kwargs:
             backend_port = kwargs['backendPort']
-        if 'frontendPort' in kwargs:
+        if frontend_port is None and 'frontendPort' in kwargs:
             frontend_port = kwargs['frontendPort']
-        if 'inboundNatRuleName' in kwargs:
+        if inbound_nat_rule_name is None and 'inboundNatRuleName' in kwargs:
             inbound_nat_rule_name = kwargs['inboundNatRuleName']
 
         if backend_port is not None:
@@ -115,12 +115,20 @@ class BackendAddressPoolTunnelInterfaceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             identifier: pulumi.Input[int],
-             port: pulumi.Input[int],
-             protocol: pulumi.Input[str],
-             type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             identifier: Optional[pulumi.Input[int]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if identifier is None:
+            raise TypeError("Missing 'identifier' argument")
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("identifier", identifier)
         _setter("port", port)
@@ -228,7 +236,7 @@ class LoadBalancerFrontendIpConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              gateway_load_balancer_frontend_ip_configuration_id: Optional[pulumi.Input[str]] = None,
              id: Optional[pulumi.Input[str]] = None,
              inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -241,27 +249,29 @@ class LoadBalancerFrontendIpConfigurationArgs:
              public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'gatewayLoadBalancerFrontendIpConfigurationId' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if gateway_load_balancer_frontend_ip_configuration_id is None and 'gatewayLoadBalancerFrontendIpConfigurationId' in kwargs:
             gateway_load_balancer_frontend_ip_configuration_id = kwargs['gatewayLoadBalancerFrontendIpConfigurationId']
-        if 'inboundNatRules' in kwargs:
+        if inbound_nat_rules is None and 'inboundNatRules' in kwargs:
             inbound_nat_rules = kwargs['inboundNatRules']
-        if 'loadBalancerRules' in kwargs:
+        if load_balancer_rules is None and 'loadBalancerRules' in kwargs:
             load_balancer_rules = kwargs['loadBalancerRules']
-        if 'outboundRules' in kwargs:
+        if outbound_rules is None and 'outboundRules' in kwargs:
             outbound_rules = kwargs['outboundRules']
-        if 'privateIpAddress' in kwargs:
+        if private_ip_address is None and 'privateIpAddress' in kwargs:
             private_ip_address = kwargs['privateIpAddress']
-        if 'privateIpAddressAllocation' in kwargs:
+        if private_ip_address_allocation is None and 'privateIpAddressAllocation' in kwargs:
             private_ip_address_allocation = kwargs['privateIpAddressAllocation']
-        if 'privateIpAddressVersion' in kwargs:
+        if private_ip_address_version is None and 'privateIpAddressVersion' in kwargs:
             private_ip_address_version = kwargs['privateIpAddressVersion']
-        if 'publicIpAddressId' in kwargs:
+        if public_ip_address_id is None and 'publicIpAddressId' in kwargs:
             public_ip_address_id = kwargs['publicIpAddressId']
-        if 'publicIpPrefixId' in kwargs:
+        if public_ip_prefix_id is None and 'publicIpPrefixId' in kwargs:
             public_ip_prefix_id = kwargs['publicIpPrefixId']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
 
         _setter("name", name)
@@ -466,10 +476,12 @@ class OutboundRuleFrontendIpConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
         if id is not None:

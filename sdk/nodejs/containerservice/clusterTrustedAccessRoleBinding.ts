@@ -11,68 +11,6 @@ import * as utilities from "../utilities";
  * > **Note:** This Resource is in **Preview** to use this you must be opted into the Preview. You can do this by running `az feature register --namespace Microsoft.ContainerService --name TrustedAccessPreview` and then `az provider register -n Microsoft.ContainerService`
  * .
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleInsights = new azure.appinsights.Insights("exampleInsights", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     applicationType: "example-value",
- * });
- * const test = azure.core.getClientConfig({});
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     tenantId: data.azurerm_client_config.example.tenant_id,
- *     skuName: "example-value",
- *     softDeleteRetentionDays: "example-value",
- * });
- * const exampleAccessPolicy = new azure.keyvault.AccessPolicy("exampleAccessPolicy", {
- *     keyVaultId: exampleKeyVault.id,
- *     tenantId: data.azurerm_client_config.example.tenant_id,
- *     objectId: data.azurerm_client_config.example.object_id,
- *     keyPermissions: "example-value",
- * });
- * const exampleKubernetesCluster = new azure.containerservice.KubernetesCluster("exampleKubernetesCluster", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     dnsPrefix: "acctestaksexample",
- *     defaultNodePool: {
- *         name: "example-value",
- *         nodeCount: "example-value",
- *         vmSize: "example-value",
- *     },
- *     identity: {
- *         type: "example-value",
- *     },
- * });
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     accountTier: "example-value",
- *     accountReplicationType: "example-value",
- * });
- * const exampleWorkspace = new azure.machinelearning.Workspace("exampleWorkspace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     keyVaultId: exampleKeyVault.id,
- *     storageAccountId: exampleAccount.id,
- *     applicationInsightsId: exampleInsights.id,
- *     identity: {
- *         type: "example-value",
- *     },
- * });
- * const exampleClusterTrustedAccessRoleBinding = new azure.containerservice.ClusterTrustedAccessRoleBinding("exampleClusterTrustedAccessRoleBinding", {
- *     kubernetesClusterId: exampleKubernetesCluster.id,
- *     roles: "example-value",
- *     sourceResourceId: exampleWorkspace.id,
- * });
- * ```
- *
  * ## Import
  *
  * An existing Kubernetes Cluster Trusted Access Role Binding can be imported into Terraform using the `resource id`, e.g.

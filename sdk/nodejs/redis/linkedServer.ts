@@ -7,49 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Redis Linked Server (ie Geo Location)
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example_primaryResourceGroup = new azure.core.ResourceGroup("example-primaryResourceGroup", {location: "East US"});
- * const example_primaryCache = new azure.redis.Cache("example-primaryCache", {
- *     location: example_primaryResourceGroup.location,
- *     resourceGroupName: example_primaryResourceGroup.name,
- *     capacity: 1,
- *     family: "P",
- *     skuName: "Premium",
- *     enableNonSslPort: false,
- *     redisConfiguration: {
- *         maxmemoryReserved: 2,
- *         maxmemoryDelta: 2,
- *         maxmemoryPolicy: "allkeys-lru",
- *     },
- * });
- * const example_secondaryResourceGroup = new azure.core.ResourceGroup("example-secondaryResourceGroup", {location: "West US"});
- * const example_secondaryCache = new azure.redis.Cache("example-secondaryCache", {
- *     location: example_secondaryResourceGroup.location,
- *     resourceGroupName: example_secondaryResourceGroup.name,
- *     capacity: 1,
- *     family: "P",
- *     skuName: "Premium",
- *     enableNonSslPort: false,
- *     redisConfiguration: {
- *         maxmemoryReserved: 2,
- *         maxmemoryDelta: 2,
- *         maxmemoryPolicy: "allkeys-lru",
- *     },
- * });
- * const example_link = new azure.redis.LinkedServer("example-link", {
- *     targetRedisCacheName: example_primaryCache.name,
- *     resourceGroupName: example_primaryCache.resourceGroupName,
- *     linkedRedisCacheId: example_secondaryCache.id,
- *     linkedRedisCacheLocation: example_secondaryCache.location,
- *     serverRole: "Secondary",
- * });
- * ```
- *
  * ## Import
  *
  * Redis can be imported using the `resource id`, e.g.

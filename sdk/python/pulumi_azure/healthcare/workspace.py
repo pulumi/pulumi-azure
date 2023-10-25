@@ -37,14 +37,16 @@ class WorkspaceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("resource_group_name", resource_group_name)
         if location is not None:
@@ -134,11 +136,11 @@ class _WorkspaceState:
              private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspacePrivateEndpointConnectionArgs']]]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'privateEndpointConnections' in kwargs:
+        if private_endpoint_connections is None and 'privateEndpointConnections' in kwargs:
             private_endpoint_connections = kwargs['privateEndpointConnections']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if location is not None:
@@ -223,17 +225,6 @@ class Workspace(pulumi.CustomResource):
         """
         Manages a Healthcare workspace
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        test = azure.healthcare.Workspace("test",
-            location="east us",
-            resource_group_name="tfex-resource_group")
-        ```
-
         ## Import
 
         Healthcare Workspaces can be imported using the resource`id`, e.g.
@@ -257,17 +248,6 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Healthcare workspace
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        test = azure.healthcare.Workspace("test",
-            location="east us",
-            resource_group_name="tfex-resource_group")
-        ```
 
         ## Import
 

@@ -41,22 +41,30 @@ class DataExportRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             destination_resource_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             table_names: pulumi.Input[Sequence[pulumi.Input[str]]],
-             workspace_resource_id: pulumi.Input[str],
+             destination_resource_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             table_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             workspace_resource_id: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'destinationResourceId' in kwargs:
+        if destination_resource_id is None and 'destinationResourceId' in kwargs:
             destination_resource_id = kwargs['destinationResourceId']
-        if 'resourceGroupName' in kwargs:
+        if destination_resource_id is None:
+            raise TypeError("Missing 'destination_resource_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'tableNames' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if table_names is None and 'tableNames' in kwargs:
             table_names = kwargs['tableNames']
-        if 'workspaceResourceId' in kwargs:
+        if table_names is None:
+            raise TypeError("Missing 'table_names' argument")
+        if workspace_resource_id is None and 'workspaceResourceId' in kwargs:
             workspace_resource_id = kwargs['workspaceResourceId']
+        if workspace_resource_id is None:
+            raise TypeError("Missing 'workspace_resource_id' argument")
 
         _setter("destination_resource_id", destination_resource_id)
         _setter("resource_group_name", resource_group_name)
@@ -180,17 +188,17 @@ class _DataExportRuleState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              table_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              workspace_resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'destinationResourceId' in kwargs:
+        if destination_resource_id is None and 'destinationResourceId' in kwargs:
             destination_resource_id = kwargs['destinationResourceId']
-        if 'exportRuleId' in kwargs:
+        if export_rule_id is None and 'exportRuleId' in kwargs:
             export_rule_id = kwargs['exportRuleId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'tableNames' in kwargs:
+        if table_names is None and 'tableNames' in kwargs:
             table_names = kwargs['tableNames']
-        if 'workspaceResourceId' in kwargs:
+        if workspace_resource_id is None and 'workspaceResourceId' in kwargs:
             workspace_resource_id = kwargs['workspaceResourceId']
 
         if destination_resource_id is not None:
@@ -308,31 +316,6 @@ class DataExportRule(pulumi.CustomResource):
         """
         Manages a Log Analytics Data Export Rule.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018",
-            retention_in_days=30)
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_data_export_rule = azure.loganalytics.DataExportRule("exampleDataExportRule",
-            resource_group_name=example_resource_group.name,
-            workspace_resource_id=example_analytics_workspace.id,
-            destination_resource_id=example_account.id,
-            table_names=["Heartbeat"],
-            enabled=True)
-        ```
-
         ## Import
 
         Log Analytics Data Export Rule can be imported using the `resource id`, e.g.
@@ -358,31 +341,6 @@ class DataExportRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Log Analytics Data Export Rule.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018",
-            retention_in_days=30)
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_data_export_rule = azure.loganalytics.DataExportRule("exampleDataExportRule",
-            resource_group_name=example_resource_group.name,
-            workspace_resource_id=example_analytics_workspace.id,
-            destination_resource_id=example_account.id,
-            table_names=["Heartbeat"],
-            enabled=True)
-        ```
 
         ## Import
 

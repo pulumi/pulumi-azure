@@ -13,40 +13,6 @@ import (
 )
 
 // Get information about a Mobile Network Sim Group.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mobile"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleNetwork, err := mobile.LookupNetwork(ctx, &mobile.LookupNetworkArgs{
-//				Name:              "example-mn",
-//				ResourceGroupName: azurerm_resource_group.Example.Name,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mobile.LookupNetworkSimGroup(ctx, &mobile.LookupNetworkSimGroupArgs{
-//				Name:            "example-mnsg",
-//				MobileNetworkId: exampleNetwork.Id,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupNetworkSimGroup(ctx *pulumi.Context, args *LookupNetworkSimGroupArgs, opts ...pulumi.InvokeOption) (*LookupNetworkSimGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNetworkSimGroupResult

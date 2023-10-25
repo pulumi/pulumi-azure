@@ -49,27 +49,33 @@ class PacketCaptureArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             network_watcher_id: pulumi.Input[str],
-             storage_location: pulumi.Input['PacketCaptureStorageLocationArgs'],
-             virtual_machine_id: pulumi.Input[str],
+             network_watcher_id: Optional[pulumi.Input[str]] = None,
+             storage_location: Optional[pulumi.Input['PacketCaptureStorageLocationArgs']] = None,
+             virtual_machine_id: Optional[pulumi.Input[str]] = None,
              filters: Optional[pulumi.Input[Sequence[pulumi.Input['PacketCaptureFilterArgs']]]] = None,
              maximum_bytes_per_packet: Optional[pulumi.Input[int]] = None,
              maximum_bytes_per_session: Optional[pulumi.Input[int]] = None,
              maximum_capture_duration_in_seconds: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'networkWatcherId' in kwargs:
+        if network_watcher_id is None and 'networkWatcherId' in kwargs:
             network_watcher_id = kwargs['networkWatcherId']
-        if 'storageLocation' in kwargs:
+        if network_watcher_id is None:
+            raise TypeError("Missing 'network_watcher_id' argument")
+        if storage_location is None and 'storageLocation' in kwargs:
             storage_location = kwargs['storageLocation']
-        if 'virtualMachineId' in kwargs:
+        if storage_location is None:
+            raise TypeError("Missing 'storage_location' argument")
+        if virtual_machine_id is None and 'virtualMachineId' in kwargs:
             virtual_machine_id = kwargs['virtualMachineId']
-        if 'maximumBytesPerPacket' in kwargs:
+        if virtual_machine_id is None:
+            raise TypeError("Missing 'virtual_machine_id' argument")
+        if maximum_bytes_per_packet is None and 'maximumBytesPerPacket' in kwargs:
             maximum_bytes_per_packet = kwargs['maximumBytesPerPacket']
-        if 'maximumBytesPerSession' in kwargs:
+        if maximum_bytes_per_session is None and 'maximumBytesPerSession' in kwargs:
             maximum_bytes_per_session = kwargs['maximumBytesPerSession']
-        if 'maximumCaptureDurationInSeconds' in kwargs:
+        if maximum_capture_duration_in_seconds is None and 'maximumCaptureDurationInSeconds' in kwargs:
             maximum_capture_duration_in_seconds = kwargs['maximumCaptureDurationInSeconds']
 
         _setter("network_watcher_id", network_watcher_id)
@@ -227,19 +233,19 @@ class _PacketCaptureState:
              network_watcher_id: Optional[pulumi.Input[str]] = None,
              storage_location: Optional[pulumi.Input['PacketCaptureStorageLocationArgs']] = None,
              virtual_machine_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'maximumBytesPerPacket' in kwargs:
+        if maximum_bytes_per_packet is None and 'maximumBytesPerPacket' in kwargs:
             maximum_bytes_per_packet = kwargs['maximumBytesPerPacket']
-        if 'maximumBytesPerSession' in kwargs:
+        if maximum_bytes_per_session is None and 'maximumBytesPerSession' in kwargs:
             maximum_bytes_per_session = kwargs['maximumBytesPerSession']
-        if 'maximumCaptureDurationInSeconds' in kwargs:
+        if maximum_capture_duration_in_seconds is None and 'maximumCaptureDurationInSeconds' in kwargs:
             maximum_capture_duration_in_seconds = kwargs['maximumCaptureDurationInSeconds']
-        if 'networkWatcherId' in kwargs:
+        if network_watcher_id is None and 'networkWatcherId' in kwargs:
             network_watcher_id = kwargs['networkWatcherId']
-        if 'storageLocation' in kwargs:
+        if storage_location is None and 'storageLocation' in kwargs:
             storage_location = kwargs['storageLocation']
-        if 'virtualMachineId' in kwargs:
+        if virtual_machine_id is None and 'virtualMachineId' in kwargs:
             virtual_machine_id = kwargs['virtualMachineId']
 
         if filters is not None:
@@ -373,79 +379,6 @@ class PacketCapture(pulumi.CustomResource):
         """
         Configures Network Packet Capturing against a Virtual Machine using a Network Watcher.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_network_watcher = azure.network.NetworkWatcher("exampleNetworkWatcher",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="testconfiguration1",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
-        example_virtual_machine = azure.compute.VirtualMachine("exampleVirtualMachine",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            network_interface_ids=[example_network_interface.id],
-            vm_size="Standard_F2",
-            storage_image_reference=azure.compute.VirtualMachineStorageImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-focal",
-                sku="20_04-lts",
-                version="latest",
-            ),
-            storage_os_disk=azure.compute.VirtualMachineStorageOsDiskArgs(
-                name="osdisk",
-                caching="ReadWrite",
-                create_option="FromImage",
-                managed_disk_type="Standard_LRS",
-            ),
-            os_profile=azure.compute.VirtualMachineOsProfileArgs(
-                computer_name="pctest-vm",
-                admin_username="testadmin",
-                admin_password="Password1234!",
-            ),
-            os_profile_linux_config=azure.compute.VirtualMachineOsProfileLinuxConfigArgs(
-                disable_password_authentication=False,
-            ))
-        example_extension = azure.compute.Extension("exampleExtension",
-            virtual_machine_id=example_virtual_machine.id,
-            publisher="Microsoft.Azure.NetworkWatcher",
-            type="NetworkWatcherAgentLinux",
-            type_handler_version="1.4",
-            auto_upgrade_minor_version=True)
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_packet_capture = azure.compute.PacketCapture("examplePacketCapture",
-            network_watcher_id=example_network_watcher.id,
-            virtual_machine_id=example_virtual_machine.id,
-            storage_location=azure.compute.PacketCaptureStorageLocationArgs(
-                storage_account_id=example_account.id,
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[example_extension]))
-        ```
-
-        > **NOTE:** This Resource requires that [the Network Watcher Virtual Machine Extension](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-manage-portal#before-you-begin) is installed on the Virtual Machine before capturing can be enabled which can be installed via the `compute.Extension` resource.
-
         ## Import
 
         Virtual Machine Packet Captures can be imported using the `resource id`, e.g.
@@ -473,79 +406,6 @@ class PacketCapture(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Configures Network Packet Capturing against a Virtual Machine using a Network Watcher.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_network_watcher = azure.network.NetworkWatcher("exampleNetworkWatcher",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="testconfiguration1",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
-        example_virtual_machine = azure.compute.VirtualMachine("exampleVirtualMachine",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            network_interface_ids=[example_network_interface.id],
-            vm_size="Standard_F2",
-            storage_image_reference=azure.compute.VirtualMachineStorageImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-focal",
-                sku="20_04-lts",
-                version="latest",
-            ),
-            storage_os_disk=azure.compute.VirtualMachineStorageOsDiskArgs(
-                name="osdisk",
-                caching="ReadWrite",
-                create_option="FromImage",
-                managed_disk_type="Standard_LRS",
-            ),
-            os_profile=azure.compute.VirtualMachineOsProfileArgs(
-                computer_name="pctest-vm",
-                admin_username="testadmin",
-                admin_password="Password1234!",
-            ),
-            os_profile_linux_config=azure.compute.VirtualMachineOsProfileLinuxConfigArgs(
-                disable_password_authentication=False,
-            ))
-        example_extension = azure.compute.Extension("exampleExtension",
-            virtual_machine_id=example_virtual_machine.id,
-            publisher="Microsoft.Azure.NetworkWatcher",
-            type="NetworkWatcherAgentLinux",
-            type_handler_version="1.4",
-            auto_upgrade_minor_version=True)
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_packet_capture = azure.compute.PacketCapture("examplePacketCapture",
-            network_watcher_id=example_network_watcher.id,
-            virtual_machine_id=example_virtual_machine.id,
-            storage_location=azure.compute.PacketCaptureStorageLocationArgs(
-                storage_account_id=example_account.id,
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[example_extension]))
-        ```
-
-        > **NOTE:** This Resource requires that [the Network Watcher Virtual Machine Extension](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-manage-portal#before-you-begin) is installed on the Virtual Machine before capturing can be enabled which can be installed via the `compute.Extension` resource.
 
         ## Import
 
@@ -599,11 +459,7 @@ class PacketCapture(pulumi.CustomResource):
             if network_watcher_id is None and not opts.urn:
                 raise TypeError("Missing required property 'network_watcher_id'")
             __props__.__dict__["network_watcher_id"] = network_watcher_id
-            if storage_location is not None and not isinstance(storage_location, PacketCaptureStorageLocationArgs):
-                storage_location = storage_location or {}
-                def _setter(key, value):
-                    storage_location[key] = value
-                PacketCaptureStorageLocationArgs._configure(_setter, **storage_location)
+            storage_location = _utilities.configure(storage_location, PacketCaptureStorageLocationArgs, True)
             if storage_location is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_location'")
             __props__.__dict__["storage_location"] = storage_location

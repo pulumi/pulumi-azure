@@ -63,11 +63,11 @@ class ProtectionContainerMappingAutomaticUpdateArgs:
              authentication_type: Optional[pulumi.Input[str]] = None,
              automation_account_id: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'authenticationType' in kwargs:
+        if authentication_type is None and 'authenticationType' in kwargs:
             authentication_type = kwargs['authenticationType']
-        if 'automationAccountId' in kwargs:
+        if automation_account_id is None and 'automationAccountId' in kwargs:
             automation_account_id = kwargs['automationAccountId']
 
         if authentication_type is not None:
@@ -156,28 +156,38 @@ class ReplicatedVMManagedDiskArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             disk_id: pulumi.Input[str],
-             staging_storage_account_id: pulumi.Input[str],
-             target_disk_type: pulumi.Input[str],
-             target_replica_disk_type: pulumi.Input[str],
-             target_resource_group_id: pulumi.Input[str],
+             disk_id: Optional[pulumi.Input[str]] = None,
+             staging_storage_account_id: Optional[pulumi.Input[str]] = None,
+             target_disk_type: Optional[pulumi.Input[str]] = None,
+             target_replica_disk_type: Optional[pulumi.Input[str]] = None,
+             target_resource_group_id: Optional[pulumi.Input[str]] = None,
              target_disk_encryption: Optional[pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionArgs']] = None,
              target_disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'diskId' in kwargs:
+        if disk_id is None and 'diskId' in kwargs:
             disk_id = kwargs['diskId']
-        if 'stagingStorageAccountId' in kwargs:
+        if disk_id is None:
+            raise TypeError("Missing 'disk_id' argument")
+        if staging_storage_account_id is None and 'stagingStorageAccountId' in kwargs:
             staging_storage_account_id = kwargs['stagingStorageAccountId']
-        if 'targetDiskType' in kwargs:
+        if staging_storage_account_id is None:
+            raise TypeError("Missing 'staging_storage_account_id' argument")
+        if target_disk_type is None and 'targetDiskType' in kwargs:
             target_disk_type = kwargs['targetDiskType']
-        if 'targetReplicaDiskType' in kwargs:
+        if target_disk_type is None:
+            raise TypeError("Missing 'target_disk_type' argument")
+        if target_replica_disk_type is None and 'targetReplicaDiskType' in kwargs:
             target_replica_disk_type = kwargs['targetReplicaDiskType']
-        if 'targetResourceGroupId' in kwargs:
+        if target_replica_disk_type is None:
+            raise TypeError("Missing 'target_replica_disk_type' argument")
+        if target_resource_group_id is None and 'targetResourceGroupId' in kwargs:
             target_resource_group_id = kwargs['targetResourceGroupId']
-        if 'targetDiskEncryption' in kwargs:
+        if target_resource_group_id is None:
+            raise TypeError("Missing 'target_resource_group_id' argument")
+        if target_disk_encryption is None and 'targetDiskEncryption' in kwargs:
             target_disk_encryption = kwargs['targetDiskEncryption']
-        if 'targetDiskEncryptionSetId' in kwargs:
+        if target_disk_encryption_set_id is None and 'targetDiskEncryptionSetId' in kwargs:
             target_disk_encryption_set_id = kwargs['targetDiskEncryptionSetId']
 
         _setter("disk_id", disk_id)
@@ -294,13 +304,15 @@ class ReplicatedVMManagedDiskTargetDiskEncryptionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             disk_encryption_key: pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs'],
+             disk_encryption_key: Optional[pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs']] = None,
              key_encryption_key: Optional[pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'diskEncryptionKey' in kwargs:
+        if disk_encryption_key is None and 'diskEncryptionKey' in kwargs:
             disk_encryption_key = kwargs['diskEncryptionKey']
-        if 'keyEncryptionKey' in kwargs:
+        if disk_encryption_key is None:
+            raise TypeError("Missing 'disk_encryption_key' argument")
+        if key_encryption_key is None and 'keyEncryptionKey' in kwargs:
             key_encryption_key = kwargs['keyEncryptionKey']
 
         _setter("disk_encryption_key", disk_encryption_key)
@@ -349,14 +361,18 @@ class ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             secret_url: pulumi.Input[str],
-             vault_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             secret_url: Optional[pulumi.Input[str]] = None,
+             vault_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'secretUrl' in kwargs:
+        if secret_url is None and 'secretUrl' in kwargs:
             secret_url = kwargs['secretUrl']
-        if 'vaultId' in kwargs:
+        if secret_url is None:
+            raise TypeError("Missing 'secret_url' argument")
+        if vault_id is None and 'vaultId' in kwargs:
             vault_id = kwargs['vaultId']
+        if vault_id is None:
+            raise TypeError("Missing 'vault_id' argument")
 
         _setter("secret_url", secret_url)
         _setter("vault_id", vault_id)
@@ -403,14 +419,18 @@ class ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_url: pulumi.Input[str],
-             vault_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             key_url: Optional[pulumi.Input[str]] = None,
+             vault_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'keyUrl' in kwargs:
+        if key_url is None and 'keyUrl' in kwargs:
             key_url = kwargs['keyUrl']
-        if 'vaultId' in kwargs:
+        if key_url is None:
+            raise TypeError("Missing 'key_url' argument")
+        if vault_id is None and 'vaultId' in kwargs:
             vault_id = kwargs['vaultId']
+        if vault_id is None:
+            raise TypeError("Missing 'vault_id' argument")
 
         _setter("key_url", key_url)
         _setter("vault_id", vault_id)
@@ -482,23 +502,23 @@ class ReplicatedVMNetworkInterfaceArgs:
              source_network_interface_id: Optional[pulumi.Input[str]] = None,
              target_static_ip: Optional[pulumi.Input[str]] = None,
              target_subnet_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'failoverTestPublicIpAddressId' in kwargs:
+        if failover_test_public_ip_address_id is None and 'failoverTestPublicIpAddressId' in kwargs:
             failover_test_public_ip_address_id = kwargs['failoverTestPublicIpAddressId']
-        if 'failoverTestStaticIp' in kwargs:
+        if failover_test_static_ip is None and 'failoverTestStaticIp' in kwargs:
             failover_test_static_ip = kwargs['failoverTestStaticIp']
-        if 'failoverTestSubnetName' in kwargs:
+        if failover_test_subnet_name is None and 'failoverTestSubnetName' in kwargs:
             failover_test_subnet_name = kwargs['failoverTestSubnetName']
-        if 'isPrimary' in kwargs:
+        if is_primary is None and 'isPrimary' in kwargs:
             is_primary = kwargs['isPrimary']
-        if 'recoveryPublicIpAddressId' in kwargs:
+        if recovery_public_ip_address_id is None and 'recoveryPublicIpAddressId' in kwargs:
             recovery_public_ip_address_id = kwargs['recoveryPublicIpAddressId']
-        if 'sourceNetworkInterfaceId' in kwargs:
+        if source_network_interface_id is None and 'sourceNetworkInterfaceId' in kwargs:
             source_network_interface_id = kwargs['sourceNetworkInterfaceId']
-        if 'targetStaticIp' in kwargs:
+        if target_static_ip is None and 'targetStaticIp' in kwargs:
             target_static_ip = kwargs['targetStaticIp']
-        if 'targetSubnetName' in kwargs:
+        if target_subnet_name is None and 'targetSubnetName' in kwargs:
             target_subnet_name = kwargs['targetSubnetName']
 
         if failover_test_public_ip_address_id is not None:
@@ -638,17 +658,23 @@ class ReplicatedVMUnmanagedDiskArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             disk_uri: pulumi.Input[str],
-             staging_storage_account_id: pulumi.Input[str],
-             target_storage_account_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             disk_uri: Optional[pulumi.Input[str]] = None,
+             staging_storage_account_id: Optional[pulumi.Input[str]] = None,
+             target_storage_account_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'diskUri' in kwargs:
+        if disk_uri is None and 'diskUri' in kwargs:
             disk_uri = kwargs['diskUri']
-        if 'stagingStorageAccountId' in kwargs:
+        if disk_uri is None:
+            raise TypeError("Missing 'disk_uri' argument")
+        if staging_storage_account_id is None and 'stagingStorageAccountId' in kwargs:
             staging_storage_account_id = kwargs['stagingStorageAccountId']
-        if 'targetStorageAccountId' in kwargs:
+        if staging_storage_account_id is None:
+            raise TypeError("Missing 'staging_storage_account_id' argument")
+        if target_storage_account_id is None and 'targetStorageAccountId' in kwargs:
             target_storage_account_id = kwargs['targetStorageAccountId']
+        if target_storage_account_id is None:
+            raise TypeError("Missing 'target_storage_account_id' argument")
 
         _setter("disk_uri", disk_uri)
         _setter("staging_storage_account_id", staging_storage_account_id)
@@ -722,15 +748,15 @@ class ReplicationRecoveryPlanAzureToAzureSettingsArgs:
              primary_zone: Optional[pulumi.Input[str]] = None,
              recovery_edge_zone: Optional[pulumi.Input[str]] = None,
              recovery_zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'primaryEdgeZone' in kwargs:
+        if primary_edge_zone is None and 'primaryEdgeZone' in kwargs:
             primary_edge_zone = kwargs['primaryEdgeZone']
-        if 'primaryZone' in kwargs:
+        if primary_zone is None and 'primaryZone' in kwargs:
             primary_zone = kwargs['primaryZone']
-        if 'recoveryEdgeZone' in kwargs:
+        if recovery_edge_zone is None and 'recoveryEdgeZone' in kwargs:
             recovery_edge_zone = kwargs['recoveryEdgeZone']
-        if 'recoveryZone' in kwargs:
+        if recovery_zone is None and 'recoveryZone' in kwargs:
             recovery_zone = kwargs['recoveryZone']
 
         if primary_edge_zone is not None:
@@ -818,13 +844,13 @@ class ReplicationRecoveryPlanBootRecoveryGroupArgs:
              post_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPostActionArgs']]]] = None,
              pre_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs']]]] = None,
              replicated_protected_items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'postActions' in kwargs:
+        if post_actions is None and 'postActions' in kwargs:
             post_actions = kwargs['postActions']
-        if 'preActions' in kwargs:
+        if pre_actions is None and 'preActions' in kwargs:
             pre_actions = kwargs['preActions']
-        if 'replicatedProtectedItems' in kwargs:
+        if replicated_protected_items is None and 'replicatedProtectedItems' in kwargs:
             replicated_protected_items = kwargs['replicatedProtectedItems']
 
         if post_actions is not None:
@@ -914,27 +940,35 @@ class ReplicationRecoveryPlanBootRecoveryGroupPostActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             fail_over_directions: pulumi.Input[Sequence[pulumi.Input[str]]],
-             fail_over_types: pulumi.Input[Sequence[pulumi.Input[str]]],
-             name: pulumi.Input[str],
-             type: pulumi.Input[str],
+             fail_over_directions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             fail_over_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              fabric_location: Optional[pulumi.Input[str]] = None,
              manual_action_instruction: Optional[pulumi.Input[str]] = None,
              runbook_id: Optional[pulumi.Input[str]] = None,
              script_path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'failOverDirections' in kwargs:
+        if fail_over_directions is None and 'failOverDirections' in kwargs:
             fail_over_directions = kwargs['failOverDirections']
-        if 'failOverTypes' in kwargs:
+        if fail_over_directions is None:
+            raise TypeError("Missing 'fail_over_directions' argument")
+        if fail_over_types is None and 'failOverTypes' in kwargs:
             fail_over_types = kwargs['failOverTypes']
-        if 'fabricLocation' in kwargs:
+        if fail_over_types is None:
+            raise TypeError("Missing 'fail_over_types' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if fabric_location is None and 'fabricLocation' in kwargs:
             fabric_location = kwargs['fabricLocation']
-        if 'manualActionInstruction' in kwargs:
+        if manual_action_instruction is None and 'manualActionInstruction' in kwargs:
             manual_action_instruction = kwargs['manualActionInstruction']
-        if 'runbookId' in kwargs:
+        if runbook_id is None and 'runbookId' in kwargs:
             runbook_id = kwargs['runbookId']
-        if 'scriptPath' in kwargs:
+        if script_path is None and 'scriptPath' in kwargs:
             script_path = kwargs['scriptPath']
 
         _setter("fail_over_directions", fail_over_directions)
@@ -1098,27 +1132,35 @@ class ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             fail_over_directions: pulumi.Input[Sequence[pulumi.Input[str]]],
-             fail_over_types: pulumi.Input[Sequence[pulumi.Input[str]]],
-             name: pulumi.Input[str],
-             type: pulumi.Input[str],
+             fail_over_directions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             fail_over_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              fabric_location: Optional[pulumi.Input[str]] = None,
              manual_action_instruction: Optional[pulumi.Input[str]] = None,
              runbook_id: Optional[pulumi.Input[str]] = None,
              script_path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'failOverDirections' in kwargs:
+        if fail_over_directions is None and 'failOverDirections' in kwargs:
             fail_over_directions = kwargs['failOverDirections']
-        if 'failOverTypes' in kwargs:
+        if fail_over_directions is None:
+            raise TypeError("Missing 'fail_over_directions' argument")
+        if fail_over_types is None and 'failOverTypes' in kwargs:
             fail_over_types = kwargs['failOverTypes']
-        if 'fabricLocation' in kwargs:
+        if fail_over_types is None:
+            raise TypeError("Missing 'fail_over_types' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if fabric_location is None and 'fabricLocation' in kwargs:
             fabric_location = kwargs['fabricLocation']
-        if 'manualActionInstruction' in kwargs:
+        if manual_action_instruction is None and 'manualActionInstruction' in kwargs:
             manual_action_instruction = kwargs['manualActionInstruction']
-        if 'runbookId' in kwargs:
+        if runbook_id is None and 'runbookId' in kwargs:
             runbook_id = kwargs['runbookId']
-        if 'scriptPath' in kwargs:
+        if script_path is None and 'scriptPath' in kwargs:
             script_path = kwargs['scriptPath']
 
         _setter("fail_over_directions", fail_over_directions)
@@ -1258,11 +1300,11 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupArgs:
              _setter: Callable[[Any, Any], None],
              post_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs']]]] = None,
              pre_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'postActions' in kwargs:
+        if post_actions is None and 'postActions' in kwargs:
             post_actions = kwargs['postActions']
-        if 'preActions' in kwargs:
+        if pre_actions is None and 'preActions' in kwargs:
             pre_actions = kwargs['preActions']
 
         if post_actions is not None:
@@ -1338,27 +1380,35 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             fail_over_directions: pulumi.Input[Sequence[pulumi.Input[str]]],
-             fail_over_types: pulumi.Input[Sequence[pulumi.Input[str]]],
-             name: pulumi.Input[str],
-             type: pulumi.Input[str],
+             fail_over_directions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             fail_over_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              fabric_location: Optional[pulumi.Input[str]] = None,
              manual_action_instruction: Optional[pulumi.Input[str]] = None,
              runbook_id: Optional[pulumi.Input[str]] = None,
              script_path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'failOverDirections' in kwargs:
+        if fail_over_directions is None and 'failOverDirections' in kwargs:
             fail_over_directions = kwargs['failOverDirections']
-        if 'failOverTypes' in kwargs:
+        if fail_over_directions is None:
+            raise TypeError("Missing 'fail_over_directions' argument")
+        if fail_over_types is None and 'failOverTypes' in kwargs:
             fail_over_types = kwargs['failOverTypes']
-        if 'fabricLocation' in kwargs:
+        if fail_over_types is None:
+            raise TypeError("Missing 'fail_over_types' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if fabric_location is None and 'fabricLocation' in kwargs:
             fabric_location = kwargs['fabricLocation']
-        if 'manualActionInstruction' in kwargs:
+        if manual_action_instruction is None and 'manualActionInstruction' in kwargs:
             manual_action_instruction = kwargs['manualActionInstruction']
-        if 'runbookId' in kwargs:
+        if runbook_id is None and 'runbookId' in kwargs:
             runbook_id = kwargs['runbookId']
-        if 'scriptPath' in kwargs:
+        if script_path is None and 'scriptPath' in kwargs:
             script_path = kwargs['scriptPath']
 
         _setter("fail_over_directions", fail_over_directions)
@@ -1522,27 +1572,35 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             fail_over_directions: pulumi.Input[Sequence[pulumi.Input[str]]],
-             fail_over_types: pulumi.Input[Sequence[pulumi.Input[str]]],
-             name: pulumi.Input[str],
-             type: pulumi.Input[str],
+             fail_over_directions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             fail_over_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              fabric_location: Optional[pulumi.Input[str]] = None,
              manual_action_instruction: Optional[pulumi.Input[str]] = None,
              runbook_id: Optional[pulumi.Input[str]] = None,
              script_path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'failOverDirections' in kwargs:
+        if fail_over_directions is None and 'failOverDirections' in kwargs:
             fail_over_directions = kwargs['failOverDirections']
-        if 'failOverTypes' in kwargs:
+        if fail_over_directions is None:
+            raise TypeError("Missing 'fail_over_directions' argument")
+        if fail_over_types is None and 'failOverTypes' in kwargs:
             fail_over_types = kwargs['failOverTypes']
-        if 'fabricLocation' in kwargs:
+        if fail_over_types is None:
+            raise TypeError("Missing 'fail_over_types' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if fabric_location is None and 'fabricLocation' in kwargs:
             fabric_location = kwargs['fabricLocation']
-        if 'manualActionInstruction' in kwargs:
+        if manual_action_instruction is None and 'manualActionInstruction' in kwargs:
             manual_action_instruction = kwargs['manualActionInstruction']
-        if 'runbookId' in kwargs:
+        if runbook_id is None and 'runbookId' in kwargs:
             runbook_id = kwargs['runbookId']
-        if 'scriptPath' in kwargs:
+        if script_path is None and 'scriptPath' in kwargs:
             script_path = kwargs['scriptPath']
 
         _setter("fail_over_directions", fail_over_directions)
@@ -1686,17 +1744,19 @@ class ReplicationRecoveryPlanRecoveryGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              post_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupPostActionArgs']]]] = None,
              pre_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupPreActionArgs']]]] = None,
              replicated_protected_items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'postActions' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if post_actions is None and 'postActions' in kwargs:
             post_actions = kwargs['postActions']
-        if 'preActions' in kwargs:
+        if pre_actions is None and 'preActions' in kwargs:
             pre_actions = kwargs['preActions']
-        if 'replicatedProtectedItems' in kwargs:
+        if replicated_protected_items is None and 'replicatedProtectedItems' in kwargs:
             replicated_protected_items = kwargs['replicatedProtectedItems']
 
         _setter("type", type)
@@ -1799,27 +1859,35 @@ class ReplicationRecoveryPlanRecoveryGroupPostActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             fail_over_directions: pulumi.Input[Sequence[pulumi.Input[str]]],
-             fail_over_types: pulumi.Input[Sequence[pulumi.Input[str]]],
-             name: pulumi.Input[str],
-             type: pulumi.Input[str],
+             fail_over_directions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             fail_over_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              fabric_location: Optional[pulumi.Input[str]] = None,
              manual_action_instruction: Optional[pulumi.Input[str]] = None,
              runbook_id: Optional[pulumi.Input[str]] = None,
              script_path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'failOverDirections' in kwargs:
+        if fail_over_directions is None and 'failOverDirections' in kwargs:
             fail_over_directions = kwargs['failOverDirections']
-        if 'failOverTypes' in kwargs:
+        if fail_over_directions is None:
+            raise TypeError("Missing 'fail_over_directions' argument")
+        if fail_over_types is None and 'failOverTypes' in kwargs:
             fail_over_types = kwargs['failOverTypes']
-        if 'fabricLocation' in kwargs:
+        if fail_over_types is None:
+            raise TypeError("Missing 'fail_over_types' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if fabric_location is None and 'fabricLocation' in kwargs:
             fabric_location = kwargs['fabricLocation']
-        if 'manualActionInstruction' in kwargs:
+        if manual_action_instruction is None and 'manualActionInstruction' in kwargs:
             manual_action_instruction = kwargs['manualActionInstruction']
-        if 'runbookId' in kwargs:
+        if runbook_id is None and 'runbookId' in kwargs:
             runbook_id = kwargs['runbookId']
-        if 'scriptPath' in kwargs:
+        if script_path is None and 'scriptPath' in kwargs:
             script_path = kwargs['scriptPath']
 
         _setter("fail_over_directions", fail_over_directions)
@@ -1983,27 +2051,35 @@ class ReplicationRecoveryPlanRecoveryGroupPreActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             fail_over_directions: pulumi.Input[Sequence[pulumi.Input[str]]],
-             fail_over_types: pulumi.Input[Sequence[pulumi.Input[str]]],
-             name: pulumi.Input[str],
-             type: pulumi.Input[str],
+             fail_over_directions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             fail_over_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              fabric_location: Optional[pulumi.Input[str]] = None,
              manual_action_instruction: Optional[pulumi.Input[str]] = None,
              runbook_id: Optional[pulumi.Input[str]] = None,
              script_path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'failOverDirections' in kwargs:
+        if fail_over_directions is None and 'failOverDirections' in kwargs:
             fail_over_directions = kwargs['failOverDirections']
-        if 'failOverTypes' in kwargs:
+        if fail_over_directions is None:
+            raise TypeError("Missing 'fail_over_directions' argument")
+        if fail_over_types is None and 'failOverTypes' in kwargs:
             fail_over_types = kwargs['failOverTypes']
-        if 'fabricLocation' in kwargs:
+        if fail_over_types is None:
+            raise TypeError("Missing 'fail_over_types' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if fabric_location is None and 'fabricLocation' in kwargs:
             fabric_location = kwargs['fabricLocation']
-        if 'manualActionInstruction' in kwargs:
+        if manual_action_instruction is None and 'manualActionInstruction' in kwargs:
             manual_action_instruction = kwargs['manualActionInstruction']
-        if 'runbookId' in kwargs:
+        if runbook_id is None and 'runbookId' in kwargs:
             runbook_id = kwargs['runbookId']
-        if 'scriptPath' in kwargs:
+        if script_path is None and 'scriptPath' in kwargs:
             script_path = kwargs['scriptPath']
 
         _setter("fail_over_directions", fail_over_directions)
@@ -2143,11 +2219,11 @@ class ReplicationRecoveryPlanShutdownRecoveryGroupArgs:
              _setter: Callable[[Any, Any], None],
              post_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs']]]] = None,
              pre_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'postActions' in kwargs:
+        if post_actions is None and 'postActions' in kwargs:
             post_actions = kwargs['postActions']
-        if 'preActions' in kwargs:
+        if pre_actions is None and 'preActions' in kwargs:
             pre_actions = kwargs['preActions']
 
         if post_actions is not None:
@@ -2223,27 +2299,35 @@ class ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             fail_over_directions: pulumi.Input[Sequence[pulumi.Input[str]]],
-             fail_over_types: pulumi.Input[Sequence[pulumi.Input[str]]],
-             name: pulumi.Input[str],
-             type: pulumi.Input[str],
+             fail_over_directions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             fail_over_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              fabric_location: Optional[pulumi.Input[str]] = None,
              manual_action_instruction: Optional[pulumi.Input[str]] = None,
              runbook_id: Optional[pulumi.Input[str]] = None,
              script_path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'failOverDirections' in kwargs:
+        if fail_over_directions is None and 'failOverDirections' in kwargs:
             fail_over_directions = kwargs['failOverDirections']
-        if 'failOverTypes' in kwargs:
+        if fail_over_directions is None:
+            raise TypeError("Missing 'fail_over_directions' argument")
+        if fail_over_types is None and 'failOverTypes' in kwargs:
             fail_over_types = kwargs['failOverTypes']
-        if 'fabricLocation' in kwargs:
+        if fail_over_types is None:
+            raise TypeError("Missing 'fail_over_types' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if fabric_location is None and 'fabricLocation' in kwargs:
             fabric_location = kwargs['fabricLocation']
-        if 'manualActionInstruction' in kwargs:
+        if manual_action_instruction is None and 'manualActionInstruction' in kwargs:
             manual_action_instruction = kwargs['manualActionInstruction']
-        if 'runbookId' in kwargs:
+        if runbook_id is None and 'runbookId' in kwargs:
             runbook_id = kwargs['runbookId']
-        if 'scriptPath' in kwargs:
+        if script_path is None and 'scriptPath' in kwargs:
             script_path = kwargs['scriptPath']
 
         _setter("fail_over_directions", fail_over_directions)
@@ -2407,27 +2491,35 @@ class ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             fail_over_directions: pulumi.Input[Sequence[pulumi.Input[str]]],
-             fail_over_types: pulumi.Input[Sequence[pulumi.Input[str]]],
-             name: pulumi.Input[str],
-             type: pulumi.Input[str],
+             fail_over_directions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             fail_over_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              fabric_location: Optional[pulumi.Input[str]] = None,
              manual_action_instruction: Optional[pulumi.Input[str]] = None,
              runbook_id: Optional[pulumi.Input[str]] = None,
              script_path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'failOverDirections' in kwargs:
+        if fail_over_directions is None and 'failOverDirections' in kwargs:
             fail_over_directions = kwargs['failOverDirections']
-        if 'failOverTypes' in kwargs:
+        if fail_over_directions is None:
+            raise TypeError("Missing 'fail_over_directions' argument")
+        if fail_over_types is None and 'failOverTypes' in kwargs:
             fail_over_types = kwargs['failOverTypes']
-        if 'fabricLocation' in kwargs:
+        if fail_over_types is None:
+            raise TypeError("Missing 'fail_over_types' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if fabric_location is None and 'fabricLocation' in kwargs:
             fabric_location = kwargs['fabricLocation']
-        if 'manualActionInstruction' in kwargs:
+        if manual_action_instruction is None and 'manualActionInstruction' in kwargs:
             manual_action_instruction = kwargs['manualActionInstruction']
-        if 'runbookId' in kwargs:
+        if runbook_id is None and 'runbookId' in kwargs:
             runbook_id = kwargs['runbookId']
-        if 'scriptPath' in kwargs:
+        if script_path is None and 'scriptPath' in kwargs:
             script_path = kwargs['scriptPath']
 
         _setter("fail_over_directions", fail_over_directions)

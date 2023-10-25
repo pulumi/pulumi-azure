@@ -7,36 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a API Management Notification Recipient User.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleService = new azure.apimanagement.Service("exampleService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     publisherName: "My Company",
- *     publisherEmail: "company@terraform.io",
- *     skuName: "Developer_1",
- * });
- * const exampleUser = new azure.apimanagement.User("exampleUser", {
- *     userId: "123",
- *     apiManagementName: exampleService.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     firstName: "Example",
- *     lastName: "User",
- *     email: "foo@bar.com",
- *     state: "active",
- * });
- * const exampleNotificationRecipientUser = new azure.apimanagement.NotificationRecipientUser("exampleNotificationRecipientUser", {
- *     apiManagementId: exampleService.id,
- *     notificationType: "AccountClosedPublisher",
- *     userId: exampleUser.userId,
- * });
- * ```
- *
  * ## Import
  *
  * API Management Notification Recipient Users can be imported using the `resource id`, e.g.

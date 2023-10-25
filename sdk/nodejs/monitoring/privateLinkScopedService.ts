@@ -7,26 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Monitor Private Link Scoped Service.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleInsights = new azure.appinsights.Insights("exampleInsights", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     applicationType: "web",
- * });
- * const examplePrivateLinkScope = new azure.monitoring.PrivateLinkScope("examplePrivateLinkScope", {resourceGroupName: exampleResourceGroup.name});
- * const examplePrivateLinkScopedService = new azure.monitoring.PrivateLinkScopedService("examplePrivateLinkScopedService", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     scopeName: examplePrivateLinkScope.name,
- *     linkedResourceId: exampleInsights.id,
- * });
- * ```
- *
  * ## Import
  *
  * Azure Monitor Private Link Scoped Services can be imported using the `resource id`, e.g.

@@ -9,46 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Kubernetes Flux Configuration.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleKubernetesCluster = new azure.containerservice.KubernetesCluster("exampleKubernetesCluster", {
- *     location: "West Europe",
- *     resourceGroupName: exampleResourceGroup.name,
- *     dnsPrefix: "example-aks",
- *     defaultNodePool: {
- *         name: "default",
- *         nodeCount: 1,
- *         vmSize: "Standard_DS2_v2",
- *     },
- *     identity: {
- *         type: "SystemAssigned",
- *     },
- * });
- * const exampleKubernetesClusterExtension = new azure.containerservice.KubernetesClusterExtension("exampleKubernetesClusterExtension", {
- *     clusterId: azurerm_kubernetes_cluster.test.id,
- *     extensionType: "microsoft.flux",
- * });
- * const exampleFluxConfiguration = new azure.containerservice.FluxConfiguration("exampleFluxConfiguration", {
- *     clusterId: azurerm_kubernetes_cluster.test.id,
- *     namespace: "flux",
- *     gitRepository: {
- *         url: "https://github.com/Azure/arc-k8s-demo",
- *         referenceType: "branch",
- *         referenceValue: "main",
- *     },
- *     kustomizations: [{
- *         name: "kustomization-1",
- *     }],
- * }, {
- *     dependsOn: [exampleKubernetesClusterExtension],
- * });
- * ```
- *
  * ## Import
  *
  * Kubernetes Flux Configuration can be imported using the `resource id` for different `cluster_resource_name`, e.g.

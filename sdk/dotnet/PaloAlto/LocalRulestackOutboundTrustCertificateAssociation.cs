@@ -11,41 +11,6 @@ namespace Pulumi.Azure.PaloAlto
 {
     /// <summary>
     /// Manages a Palo Alto Networks Rulestack Outbound Trust Certificate Association.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleLocalRulestack = new Azure.PaloAlto.LocalRulestack("exampleLocalRulestack", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///     });
-    /// 
-    ///     var exampleLocalRulestackCertificate = new Azure.PaloAlto.LocalRulestackCertificate("exampleLocalRulestackCertificate", new()
-    ///     {
-    ///         RulestackId = exampleLocalRulestack.Id,
-    ///         SelfSigned = true,
-    ///     });
-    /// 
-    ///     var exampleLocalRulestackOutboundTrustCertificateAssociation = new Azure.PaloAlto.LocalRulestackOutboundTrustCertificateAssociation("exampleLocalRulestackOutboundTrustCertificateAssociation", new()
-    ///     {
-    ///         CertificateId = exampleLocalRulestackCertificate.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AzureResourceType("azure:paloalto/localRulestackOutboundTrustCertificateAssociation:LocalRulestackOutboundTrustCertificateAssociation")]
     public partial class LocalRulestackOutboundTrustCertificateAssociation : global::Pulumi.CustomResource

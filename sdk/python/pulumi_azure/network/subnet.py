@@ -64,9 +64,9 @@ class SubnetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             address_prefixes: pulumi.Input[Sequence[pulumi.Input[str]]],
-             resource_group_name: pulumi.Input[str],
-             virtual_network_name: pulumi.Input[str],
+             address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             virtual_network_name: Optional[pulumi.Input[str]] = None,
              delegations: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetDelegationArgs']]]] = None,
              enforce_private_link_endpoint_network_policies: Optional[pulumi.Input[bool]] = None,
              enforce_private_link_service_network_policies: Optional[pulumi.Input[bool]] = None,
@@ -75,25 +75,31 @@ class SubnetArgs:
              private_link_service_network_policies_enabled: Optional[pulumi.Input[bool]] = None,
              service_endpoint_policy_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'addressPrefixes' in kwargs:
+        if address_prefixes is None and 'addressPrefixes' in kwargs:
             address_prefixes = kwargs['addressPrefixes']
-        if 'resourceGroupName' in kwargs:
+        if address_prefixes is None:
+            raise TypeError("Missing 'address_prefixes' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'virtualNetworkName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if virtual_network_name is None and 'virtualNetworkName' in kwargs:
             virtual_network_name = kwargs['virtualNetworkName']
-        if 'enforcePrivateLinkEndpointNetworkPolicies' in kwargs:
+        if virtual_network_name is None:
+            raise TypeError("Missing 'virtual_network_name' argument")
+        if enforce_private_link_endpoint_network_policies is None and 'enforcePrivateLinkEndpointNetworkPolicies' in kwargs:
             enforce_private_link_endpoint_network_policies = kwargs['enforcePrivateLinkEndpointNetworkPolicies']
-        if 'enforcePrivateLinkServiceNetworkPolicies' in kwargs:
+        if enforce_private_link_service_network_policies is None and 'enforcePrivateLinkServiceNetworkPolicies' in kwargs:
             enforce_private_link_service_network_policies = kwargs['enforcePrivateLinkServiceNetworkPolicies']
-        if 'privateEndpointNetworkPoliciesEnabled' in kwargs:
+        if private_endpoint_network_policies_enabled is None and 'privateEndpointNetworkPoliciesEnabled' in kwargs:
             private_endpoint_network_policies_enabled = kwargs['privateEndpointNetworkPoliciesEnabled']
-        if 'privateLinkServiceNetworkPoliciesEnabled' in kwargs:
+        if private_link_service_network_policies_enabled is None and 'privateLinkServiceNetworkPoliciesEnabled' in kwargs:
             private_link_service_network_policies_enabled = kwargs['privateLinkServiceNetworkPoliciesEnabled']
-        if 'serviceEndpointPolicyIds' in kwargs:
+        if service_endpoint_policy_ids is None and 'serviceEndpointPolicyIds' in kwargs:
             service_endpoint_policy_ids = kwargs['serviceEndpointPolicyIds']
-        if 'serviceEndpoints' in kwargs:
+        if service_endpoints is None and 'serviceEndpoints' in kwargs:
             service_endpoints = kwargs['serviceEndpoints']
 
         _setter("address_prefixes", address_prefixes)
@@ -325,25 +331,25 @@ class _SubnetState:
              service_endpoint_policy_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              virtual_network_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'addressPrefixes' in kwargs:
+        if address_prefixes is None and 'addressPrefixes' in kwargs:
             address_prefixes = kwargs['addressPrefixes']
-        if 'enforcePrivateLinkEndpointNetworkPolicies' in kwargs:
+        if enforce_private_link_endpoint_network_policies is None and 'enforcePrivateLinkEndpointNetworkPolicies' in kwargs:
             enforce_private_link_endpoint_network_policies = kwargs['enforcePrivateLinkEndpointNetworkPolicies']
-        if 'enforcePrivateLinkServiceNetworkPolicies' in kwargs:
+        if enforce_private_link_service_network_policies is None and 'enforcePrivateLinkServiceNetworkPolicies' in kwargs:
             enforce_private_link_service_network_policies = kwargs['enforcePrivateLinkServiceNetworkPolicies']
-        if 'privateEndpointNetworkPoliciesEnabled' in kwargs:
+        if private_endpoint_network_policies_enabled is None and 'privateEndpointNetworkPoliciesEnabled' in kwargs:
             private_endpoint_network_policies_enabled = kwargs['privateEndpointNetworkPoliciesEnabled']
-        if 'privateLinkServiceNetworkPoliciesEnabled' in kwargs:
+        if private_link_service_network_policies_enabled is None and 'privateLinkServiceNetworkPoliciesEnabled' in kwargs:
             private_link_service_network_policies_enabled = kwargs['privateLinkServiceNetworkPoliciesEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serviceEndpointPolicyIds' in kwargs:
+        if service_endpoint_policy_ids is None and 'serviceEndpointPolicyIds' in kwargs:
             service_endpoint_policy_ids = kwargs['serviceEndpointPolicyIds']
-        if 'serviceEndpoints' in kwargs:
+        if service_endpoints is None and 'serviceEndpoints' in kwargs:
             service_endpoints = kwargs['serviceEndpoints']
-        if 'virtualNetworkName' in kwargs:
+        if virtual_network_name is None and 'virtualNetworkName' in kwargs:
             virtual_network_name = kwargs['virtualNetworkName']
 
         if address_prefixes is not None:
@@ -540,33 +546,6 @@ class Subnet(pulumi.CustomResource):
         provides both a standalone Subnet resource, and allows for Subnets to be defined in-line within the Virtual Network resource.
         At this time you cannot use a Virtual Network with in-line Subnets in conjunction with any Subnet resources. Doing so will cause a conflict of Subnet configurations and will overwrite Subnets.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="delegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.ContainerInstance/containerGroups",
-                    actions=[
-                        "Microsoft.Network/virtualNetworks/subnets/join/action",
-                        "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
-                    ],
-                ),
-            )])
-        ```
-
         ## Import
 
         Subnets can be imported using the `resource id`, e.g.
@@ -607,33 +586,6 @@ class Subnet(pulumi.CustomResource):
         > **NOTE on Virtual Networks and Subnet's:** This provider currently
         provides both a standalone Subnet resource, and allows for Subnets to be defined in-line within the Virtual Network resource.
         At this time you cannot use a Virtual Network with in-line Subnets in conjunction with any Subnet resources. Doing so will cause a conflict of Subnet configurations and will overwrite Subnets.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="delegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.ContainerInstance/containerGroups",
-                    actions=[
-                        "Microsoft.Network/virtualNetworks/subnets/join/action",
-                        "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
-                    ],
-                ),
-            )])
-        ```
 
         ## Import
 

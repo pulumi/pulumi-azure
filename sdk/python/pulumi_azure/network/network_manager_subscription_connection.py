@@ -35,16 +35,20 @@ class NetworkManagerSubscriptionConnectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             network_manager_id: pulumi.Input[str],
-             subscription_id: pulumi.Input[str],
+             network_manager_id: Optional[pulumi.Input[str]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'networkManagerId' in kwargs:
+        if network_manager_id is None and 'networkManagerId' in kwargs:
             network_manager_id = kwargs['networkManagerId']
-        if 'subscriptionId' in kwargs:
+        if network_manager_id is None:
+            raise TypeError("Missing 'network_manager_id' argument")
+        if subscription_id is None and 'subscriptionId' in kwargs:
             subscription_id = kwargs['subscriptionId']
+        if subscription_id is None:
+            raise TypeError("Missing 'subscription_id' argument")
 
         _setter("network_manager_id", network_manager_id)
         _setter("subscription_id", subscription_id)
@@ -134,13 +138,13 @@ class _NetworkManagerSubscriptionConnectionState:
              name: Optional[pulumi.Input[str]] = None,
              network_manager_id: Optional[pulumi.Input[str]] = None,
              subscription_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'connectionState' in kwargs:
+        if connection_state is None and 'connectionState' in kwargs:
             connection_state = kwargs['connectionState']
-        if 'networkManagerId' in kwargs:
+        if network_manager_id is None and 'networkManagerId' in kwargs:
             network_manager_id = kwargs['networkManagerId']
-        if 'subscriptionId' in kwargs:
+        if subscription_id is None and 'subscriptionId' in kwargs:
             subscription_id = kwargs['subscriptionId']
 
         if connection_state is not None:
@@ -228,27 +232,6 @@ class NetworkManagerSubscriptionConnection(pulumi.CustomResource):
         """
         Manages a Network Manager Subscription Connection which may cross tenants.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        current = azure.core.get_subscription()
-        example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            scope=azure.network.NetworkManagerScopeArgs(
-                subscription_ids=[current.id],
-            ),
-            scope_accesses=["SecurityAdmin"])
-        example_network_manager_subscription_connection = azure.network.NetworkManagerSubscriptionConnection("exampleNetworkManagerSubscriptionConnection",
-            subscription_id=current.id,
-            network_manager_id=example_network_manager.id,
-            description="example")
-        ```
-
         ## Import
 
         Network Subscription Network Manager Connection can be imported using the `resource id`, e.g.
@@ -272,27 +255,6 @@ class NetworkManagerSubscriptionConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Network Manager Subscription Connection which may cross tenants.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        current = azure.core.get_subscription()
-        example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            scope=azure.network.NetworkManagerScopeArgs(
-                subscription_ids=[current.id],
-            ),
-            scope_accesses=["SecurityAdmin"])
-        example_network_manager_subscription_connection = azure.network.NetworkManagerSubscriptionConnection("exampleNetworkManagerSubscriptionConnection",
-            subscription_id=current.id,
-            network_manager_id=example_network_manager.id,
-            description="example")
-        ```
 
         ## Import
 

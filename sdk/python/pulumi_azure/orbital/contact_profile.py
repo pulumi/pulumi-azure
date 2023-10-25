@@ -55,29 +55,39 @@ class ContactProfileArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             auto_tracking: pulumi.Input[str],
-             links: pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkArgs']]],
-             minimum_variable_contact_duration: pulumi.Input[str],
-             network_configuration_subnet_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             auto_tracking: Optional[pulumi.Input[str]] = None,
+             links: Optional[pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkArgs']]]] = None,
+             minimum_variable_contact_duration: Optional[pulumi.Input[str]] = None,
+             network_configuration_subnet_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              event_hub_uri: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              minimum_elevation_degrees: Optional[pulumi.Input[float]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'autoTracking' in kwargs:
+        if auto_tracking is None and 'autoTracking' in kwargs:
             auto_tracking = kwargs['autoTracking']
-        if 'minimumVariableContactDuration' in kwargs:
+        if auto_tracking is None:
+            raise TypeError("Missing 'auto_tracking' argument")
+        if links is None:
+            raise TypeError("Missing 'links' argument")
+        if minimum_variable_contact_duration is None and 'minimumVariableContactDuration' in kwargs:
             minimum_variable_contact_duration = kwargs['minimumVariableContactDuration']
-        if 'networkConfigurationSubnetId' in kwargs:
+        if minimum_variable_contact_duration is None:
+            raise TypeError("Missing 'minimum_variable_contact_duration' argument")
+        if network_configuration_subnet_id is None and 'networkConfigurationSubnetId' in kwargs:
             network_configuration_subnet_id = kwargs['networkConfigurationSubnetId']
-        if 'resourceGroupName' in kwargs:
+        if network_configuration_subnet_id is None:
+            raise TypeError("Missing 'network_configuration_subnet_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'eventHubUri' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if event_hub_uri is None and 'eventHubUri' in kwargs:
             event_hub_uri = kwargs['eventHubUri']
-        if 'minimumElevationDegrees' in kwargs:
+        if minimum_elevation_degrees is None and 'minimumElevationDegrees' in kwargs:
             minimum_elevation_degrees = kwargs['minimumElevationDegrees']
 
         _setter("auto_tracking", auto_tracking)
@@ -269,19 +279,19 @@ class _ContactProfileState:
              network_configuration_subnet_id: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'autoTracking' in kwargs:
+        if auto_tracking is None and 'autoTracking' in kwargs:
             auto_tracking = kwargs['autoTracking']
-        if 'eventHubUri' in kwargs:
+        if event_hub_uri is None and 'eventHubUri' in kwargs:
             event_hub_uri = kwargs['eventHubUri']
-        if 'minimumElevationDegrees' in kwargs:
+        if minimum_elevation_degrees is None and 'minimumElevationDegrees' in kwargs:
             minimum_elevation_degrees = kwargs['minimumElevationDegrees']
-        if 'minimumVariableContactDuration' in kwargs:
+        if minimum_variable_contact_duration is None and 'minimumVariableContactDuration' in kwargs:
             minimum_variable_contact_duration = kwargs['minimumVariableContactDuration']
-        if 'networkConfigurationSubnetId' in kwargs:
+        if network_configuration_subnet_id is None and 'networkConfigurationSubnetId' in kwargs:
             network_configuration_subnet_id = kwargs['networkConfigurationSubnetId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if auto_tracking is not None:
@@ -445,57 +455,6 @@ class ContactProfile(pulumi.CustomResource):
         """
         Manages a Contact profile.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="orbitalgateway",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.Orbital/orbitalGateways",
-                    actions=[
-                        "Microsoft.Network/publicIPAddresses/join/action",
-                        "Microsoft.Network/virtualNetworks/subnets/join/action",
-                        "Microsoft.Network/virtualNetworks/read",
-                        "Microsoft.Network/publicIPAddresses/read",
-                    ],
-                ),
-            )])
-        example_contact_profile = azure.orbital.ContactProfile("exampleContactProfile",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            minimum_variable_contact_duration="PT1M",
-            auto_tracking="disabled",
-            links=[azure.orbital.ContactProfileLinkArgs(
-                channels=[azure.orbital.ContactProfileLinkChannelArgs(
-                    name="channelname",
-                    bandwidth_mhz=100,
-                    center_frequency_mhz=101,
-                    end_points=[azure.orbital.ContactProfileLinkChannelEndPointArgs(
-                        end_point_name="AQUA_command",
-                        ip_address="10.0.1.0",
-                        port="49513",
-                        protocol="TCP",
-                    )],
-                )],
-                direction="Uplink",
-                name="RHCP_UL",
-                polarization="RHCP",
-            )],
-            network_configuration_subnet_id=example_subnet.id)
-        ```
-
         ## Import
 
         Contact profile can be imported using the `resource id`, e.g.
@@ -525,57 +484,6 @@ class ContactProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Contact profile.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="orbitalgateway",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.Orbital/orbitalGateways",
-                    actions=[
-                        "Microsoft.Network/publicIPAddresses/join/action",
-                        "Microsoft.Network/virtualNetworks/subnets/join/action",
-                        "Microsoft.Network/virtualNetworks/read",
-                        "Microsoft.Network/publicIPAddresses/read",
-                    ],
-                ),
-            )])
-        example_contact_profile = azure.orbital.ContactProfile("exampleContactProfile",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            minimum_variable_contact_duration="PT1M",
-            auto_tracking="disabled",
-            links=[azure.orbital.ContactProfileLinkArgs(
-                channels=[azure.orbital.ContactProfileLinkChannelArgs(
-                    name="channelname",
-                    bandwidth_mhz=100,
-                    center_frequency_mhz=101,
-                    end_points=[azure.orbital.ContactProfileLinkChannelEndPointArgs(
-                        end_point_name="AQUA_command",
-                        ip_address="10.0.1.0",
-                        port="49513",
-                        protocol="TCP",
-                    )],
-                )],
-                direction="Uplink",
-                name="RHCP_UL",
-                polarization="RHCP",
-            )],
-            network_configuration_subnet_id=example_subnet.id)
-        ```
 
         ## Import
 

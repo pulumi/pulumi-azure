@@ -49,7 +49,7 @@ class StaticSiteArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              identity: Optional[pulumi.Input['StaticSiteIdentityArgs']] = None,
              location: Optional[pulumi.Input[str]] = None,
@@ -57,15 +57,17 @@ class StaticSiteArgs:
              sku_size: Optional[pulumi.Input[str]] = None,
              sku_tier: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'appSettings' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if app_settings is None and 'appSettings' in kwargs:
             app_settings = kwargs['appSettings']
-        if 'skuSize' in kwargs:
+        if sku_size is None and 'skuSize' in kwargs:
             sku_size = kwargs['skuSize']
-        if 'skuTier' in kwargs:
+        if sku_tier is None and 'skuTier' in kwargs:
             sku_tier = kwargs['skuTier']
 
         _setter("resource_group_name", resource_group_name)
@@ -233,19 +235,19 @@ class _StaticSiteState:
              sku_size: Optional[pulumi.Input[str]] = None,
              sku_tier: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiKey' in kwargs:
+        if api_key is None and 'apiKey' in kwargs:
             api_key = kwargs['apiKey']
-        if 'appSettings' in kwargs:
+        if app_settings is None and 'appSettings' in kwargs:
             app_settings = kwargs['appSettings']
-        if 'defaultHostName' in kwargs:
+        if default_host_name is None and 'defaultHostName' in kwargs:
             default_host_name = kwargs['defaultHostName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuSize' in kwargs:
+        if sku_size is None and 'skuSize' in kwargs:
             sku_size = kwargs['skuSize']
-        if 'skuTier' in kwargs:
+        if sku_tier is None and 'skuTier' in kwargs:
             sku_tier = kwargs['skuTier']
 
         if api_key is not None:
@@ -409,17 +411,6 @@ class StaticSite(pulumi.CustomResource):
 
         ->**NOTE:** After the Static Site is provisioned, you'll need to associate your target repository, which contains your web app, to the Static Site, by following the [Azure Static Site document](https://docs.microsoft.com/azure/static-web-apps/github-actions-workflow).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.appservice.StaticSite("example",
-            location="West Europe",
-            resource_group_name="example")
-        ```
-
         ## Import
 
         Static Web Apps can be imported using the `resource id`, e.g.
@@ -449,17 +440,6 @@ class StaticSite(pulumi.CustomResource):
         Manages an App Service Static Site.
 
         ->**NOTE:** After the Static Site is provisioned, you'll need to associate your target repository, which contains your web app, to the Static Site, by following the [Azure Static Site document](https://docs.microsoft.com/azure/static-web-apps/github-actions-workflow).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.appservice.StaticSite("example",
-            location="West Europe",
-            resource_group_name="example")
-        ```
 
         ## Import
 
@@ -506,11 +486,7 @@ class StaticSite(pulumi.CustomResource):
             __props__ = StaticSiteArgs.__new__(StaticSiteArgs)
 
             __props__.__dict__["app_settings"] = app_settings
-            if identity is not None and not isinstance(identity, StaticSiteIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                StaticSiteIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, StaticSiteIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name

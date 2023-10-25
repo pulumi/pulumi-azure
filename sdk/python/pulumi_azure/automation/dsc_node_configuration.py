@@ -35,18 +35,24 @@ class DscNodeConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             automation_account_name: pulumi.Input[str],
-             content_embedded: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             automation_account_name: Optional[pulumi.Input[str]] = None,
+             content_embedded: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'automationAccountName' in kwargs:
+        if automation_account_name is None and 'automationAccountName' in kwargs:
             automation_account_name = kwargs['automationAccountName']
-        if 'contentEmbedded' in kwargs:
+        if automation_account_name is None:
+            raise TypeError("Missing 'automation_account_name' argument")
+        if content_embedded is None and 'contentEmbedded' in kwargs:
             content_embedded = kwargs['contentEmbedded']
-        if 'resourceGroupName' in kwargs:
+        if content_embedded is None:
+            raise TypeError("Missing 'content_embedded' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("automation_account_name", automation_account_name)
         _setter("content_embedded", content_embedded)
@@ -134,15 +140,15 @@ class _DscNodeConfigurationState:
              content_embedded: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'automationAccountName' in kwargs:
+        if automation_account_name is None and 'automationAccountName' in kwargs:
             automation_account_name = kwargs['automationAccountName']
-        if 'configurationName' in kwargs:
+        if configuration_name is None and 'configurationName' in kwargs:
             configuration_name = kwargs['configurationName']
-        if 'contentEmbedded' in kwargs:
+        if content_embedded is None and 'contentEmbedded' in kwargs:
             content_embedded = kwargs['contentEmbedded']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if automation_account_name is not None:
@@ -227,50 +233,6 @@ class DscNodeConfiguration(pulumi.CustomResource):
         """
         Manages a Automation DSC Node Configuration.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.automation.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Basic")
-        example_dsc_configuration = azure.automation.DscConfiguration("exampleDscConfiguration",
-            resource_group_name=example_resource_group.name,
-            automation_account_name=example_account.name,
-            location=example_resource_group.location,
-            content_embedded="configuration test {}")
-        example_dsc_node_configuration = azure.automation.DscNodeConfiguration("exampleDscNodeConfiguration",
-            resource_group_name=example_resource_group.name,
-            automation_account_name=example_account.name,
-            content_embedded=\"\"\"instance of MSFT_FileDirectoryConfiguration as $MSFT_FileDirectoryConfiguration1ref
-        {
-          ResourceID = "[File]bla";
-          Ensure = "Present";
-          Contents = "bogus Content";
-          DestinationPath = "c:\\\\bogus.txt";
-          ModuleName = "PSDesiredStateConfiguration";
-          SourceInfo = "::3::9::file";
-          ModuleVersion = "1.0";
-          ConfigurationName = "bla";
-        };
-        instance of OMI_ConfigurationDocument
-        {
-          Version="2.0.0";
-          MinimumCompatibleVersion = "1.0.0";
-          CompatibleVersionAdditionalProperties= {"Omi_BaseResource:ConfigurationName"};
-          Author="bogusAuthor";
-          GenerationDate="06/15/2018 14:06:24";
-          GenerationHost="bogusComputer";
-          Name="test";
-        };
-        \"\"\",
-            opts=pulumi.ResourceOptions(depends_on=[example_dsc_configuration]))
-        ```
-
         ## Import
 
         Automation DSC Node Configuration's can be imported using the `resource id`, e.g.
@@ -294,50 +256,6 @@ class DscNodeConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Automation DSC Node Configuration.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.automation.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Basic")
-        example_dsc_configuration = azure.automation.DscConfiguration("exampleDscConfiguration",
-            resource_group_name=example_resource_group.name,
-            automation_account_name=example_account.name,
-            location=example_resource_group.location,
-            content_embedded="configuration test {}")
-        example_dsc_node_configuration = azure.automation.DscNodeConfiguration("exampleDscNodeConfiguration",
-            resource_group_name=example_resource_group.name,
-            automation_account_name=example_account.name,
-            content_embedded=\"\"\"instance of MSFT_FileDirectoryConfiguration as $MSFT_FileDirectoryConfiguration1ref
-        {
-          ResourceID = "[File]bla";
-          Ensure = "Present";
-          Contents = "bogus Content";
-          DestinationPath = "c:\\\\bogus.txt";
-          ModuleName = "PSDesiredStateConfiguration";
-          SourceInfo = "::3::9::file";
-          ModuleVersion = "1.0";
-          ConfigurationName = "bla";
-        };
-        instance of OMI_ConfigurationDocument
-        {
-          Version="2.0.0";
-          MinimumCompatibleVersion = "1.0.0";
-          CompatibleVersionAdditionalProperties= {"Omi_BaseResource:ConfigurationName"};
-          Author="bogusAuthor";
-          GenerationDate="06/15/2018 14:06:24";
-          GenerationHost="bogusComputer";
-          Name="test";
-        };
-        \"\"\",
-            opts=pulumi.ResourceOptions(depends_on=[example_dsc_configuration]))
-        ```
 
         ## Import
 

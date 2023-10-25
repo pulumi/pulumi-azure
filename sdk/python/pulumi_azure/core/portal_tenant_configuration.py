@@ -28,11 +28,13 @@ class PortalTenantConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             private_markdown_storage_enforced: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             private_markdown_storage_enforced: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'privateMarkdownStorageEnforced' in kwargs:
+        if private_markdown_storage_enforced is None and 'privateMarkdownStorageEnforced' in kwargs:
             private_markdown_storage_enforced = kwargs['privateMarkdownStorageEnforced']
+        if private_markdown_storage_enforced is None:
+            raise TypeError("Missing 'private_markdown_storage_enforced' argument")
 
         _setter("private_markdown_storage_enforced", private_markdown_storage_enforced)
 
@@ -69,9 +71,9 @@ class _PortalTenantConfigurationState:
     def _configure(
              _setter: Callable[[Any, Any], None],
              private_markdown_storage_enforced: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'privateMarkdownStorageEnforced' in kwargs:
+        if private_markdown_storage_enforced is None and 'privateMarkdownStorageEnforced' in kwargs:
             private_markdown_storage_enforced = kwargs['privateMarkdownStorageEnforced']
 
         if private_markdown_storage_enforced is not None:
@@ -110,15 +112,6 @@ class PortalTenantConfiguration(pulumi.CustomResource):
 
         > **Note:** While assigning the role to the existing/new Service Principal at the Tenant Scope, the user assigning role must already have the `Owner` role assigned at the Tenant Scope.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.PortalTenantConfiguration("example", private_markdown_storage_enforced=True)
-        ```
-
         ## Import
 
         Portal Tenant Configurations can be imported using the `resource id`, e.g.
@@ -149,15 +142,6 @@ class PortalTenantConfiguration(pulumi.CustomResource):
         > **Note:** The Service Principal can be granted Tenant Admin permission by `az role assignment create --assignee "<app id>" --role "Contributor" --scope "/"`.
 
         > **Note:** While assigning the role to the existing/new Service Principal at the Tenant Scope, the user assigning role must already have the `Owner` role assigned at the Tenant Scope.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.PortalTenantConfiguration("example", private_markdown_storage_enforced=True)
-        ```
 
         ## Import
 

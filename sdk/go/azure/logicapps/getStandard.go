@@ -13,34 +13,6 @@ import (
 )
 
 // Use this data source to access information about an existing Logic App Standard instance.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/logicapps"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := logicapps.LookupStandard(ctx, &logicapps.LookupStandardArgs{
-//				Name:              "logicappstd",
-//				ResourceGroupName: "example-rg",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("id", example.Id)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupStandard(ctx *pulumi.Context, args *LookupStandardArgs, opts ...pulumi.InvokeOption) (*LookupStandardResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupStandardResult

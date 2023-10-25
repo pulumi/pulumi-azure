@@ -37,17 +37,19 @@ class SecurityDeviceGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             iothub_id: pulumi.Input[str],
+             iothub_id: Optional[pulumi.Input[str]] = None,
              allow_rule: Optional[pulumi.Input['SecurityDeviceGroupAllowRuleArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              range_rules: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityDeviceGroupRangeRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'iothubId' in kwargs:
+        if iothub_id is None and 'iothubId' in kwargs:
             iothub_id = kwargs['iothubId']
-        if 'allowRule' in kwargs:
+        if iothub_id is None:
+            raise TypeError("Missing 'iothub_id' argument")
+        if allow_rule is None and 'allowRule' in kwargs:
             allow_rule = kwargs['allowRule']
-        if 'rangeRules' in kwargs:
+        if range_rules is None and 'rangeRules' in kwargs:
             range_rules = kwargs['rangeRules']
 
         _setter("iothub_id", iothub_id)
@@ -135,13 +137,13 @@ class _SecurityDeviceGroupState:
              iothub_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              range_rules: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityDeviceGroupRangeRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'allowRule' in kwargs:
+        if allow_rule is None and 'allowRule' in kwargs:
             allow_rule = kwargs['allowRule']
-        if 'iothubId' in kwargs:
+        if iothub_id is None and 'iothubId' in kwargs:
             iothub_id = kwargs['iothubId']
-        if 'rangeRules' in kwargs:
+        if range_rules is None and 'rangeRules' in kwargs:
             range_rules = kwargs['rangeRules']
 
         if allow_rule is not None:
@@ -215,39 +217,6 @@ class SecurityDeviceGroup(pulumi.CustomResource):
         """
         Manages a Iot Security Device Group.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="S1",
-                capacity=1,
-            ))
-        example_security_solution = azure.iot.SecuritySolution("exampleSecuritySolution",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            display_name="Iot Security Solution",
-            iothub_ids=[example_io_t_hub.id])
-        example_security_device_group = azure.iot.SecurityDeviceGroup("exampleSecurityDeviceGroup",
-            iothub_id=example_io_t_hub.id,
-            allow_rule=azure.iot.SecurityDeviceGroupAllowRuleArgs(
-                connection_to_ips_not_alloweds=["10.0.0.0/24"],
-            ),
-            range_rules=[azure.iot.SecurityDeviceGroupRangeRuleArgs(
-                type="ActiveConnectionsNotInAllowedRange",
-                min=0,
-                max=30,
-                duration="PT5M",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[example_security_solution]))
-        ```
-
         ## Import
 
         Iot Security Device Group can be imported using the `resource id`, e.g.
@@ -271,39 +240,6 @@ class SecurityDeviceGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Iot Security Device Group.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="S1",
-                capacity=1,
-            ))
-        example_security_solution = azure.iot.SecuritySolution("exampleSecuritySolution",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            display_name="Iot Security Solution",
-            iothub_ids=[example_io_t_hub.id])
-        example_security_device_group = azure.iot.SecurityDeviceGroup("exampleSecurityDeviceGroup",
-            iothub_id=example_io_t_hub.id,
-            allow_rule=azure.iot.SecurityDeviceGroupAllowRuleArgs(
-                connection_to_ips_not_alloweds=["10.0.0.0/24"],
-            ),
-            range_rules=[azure.iot.SecurityDeviceGroupRangeRuleArgs(
-                type="ActiveConnectionsNotInAllowedRange",
-                min=0,
-                max=30,
-                duration="PT5M",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[example_security_solution]))
-        ```
 
         ## Import
 
@@ -345,11 +281,7 @@ class SecurityDeviceGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SecurityDeviceGroupArgs.__new__(SecurityDeviceGroupArgs)
 
-            if allow_rule is not None and not isinstance(allow_rule, SecurityDeviceGroupAllowRuleArgs):
-                allow_rule = allow_rule or {}
-                def _setter(key, value):
-                    allow_rule[key] = value
-                SecurityDeviceGroupAllowRuleArgs._configure(_setter, **allow_rule)
+            allow_rule = _utilities.configure(allow_rule, SecurityDeviceGroupAllowRuleArgs, True)
             __props__.__dict__["allow_rule"] = allow_rule
             if iothub_id is None and not opts.urn:
                 raise TypeError("Missing required property 'iothub_id'")

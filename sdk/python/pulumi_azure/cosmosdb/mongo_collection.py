@@ -53,9 +53,9 @@ class MongoCollectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             account_name: pulumi.Input[str],
-             database_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             account_name: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              analytical_storage_ttl: Optional[pulumi.Input[int]] = None,
              autoscale_settings: Optional[pulumi.Input['MongoCollectionAutoscaleSettingsArgs']] = None,
              default_ttl_seconds: Optional[pulumi.Input[int]] = None,
@@ -63,21 +63,27 @@ class MongoCollectionArgs:
              name: Optional[pulumi.Input[str]] = None,
              shard_key: Optional[pulumi.Input[str]] = None,
              throughput: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accountName' in kwargs:
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'databaseName' in kwargs:
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if database_name is None and 'databaseName' in kwargs:
             database_name = kwargs['databaseName']
-        if 'resourceGroupName' in kwargs:
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'analyticalStorageTtl' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if analytical_storage_ttl is None and 'analyticalStorageTtl' in kwargs:
             analytical_storage_ttl = kwargs['analyticalStorageTtl']
-        if 'autoscaleSettings' in kwargs:
+        if autoscale_settings is None and 'autoscaleSettings' in kwargs:
             autoscale_settings = kwargs['autoscaleSettings']
-        if 'defaultTtlSeconds' in kwargs:
+        if default_ttl_seconds is None and 'defaultTtlSeconds' in kwargs:
             default_ttl_seconds = kwargs['defaultTtlSeconds']
-        if 'shardKey' in kwargs:
+        if shard_key is None and 'shardKey' in kwargs:
             shard_key = kwargs['shardKey']
 
         _setter("account_name", account_name)
@@ -267,23 +273,23 @@ class _MongoCollectionState:
              shard_key: Optional[pulumi.Input[str]] = None,
              system_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['MongoCollectionSystemIndexArgs']]]] = None,
              throughput: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accountName' in kwargs:
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'analyticalStorageTtl' in kwargs:
+        if analytical_storage_ttl is None and 'analyticalStorageTtl' in kwargs:
             analytical_storage_ttl = kwargs['analyticalStorageTtl']
-        if 'autoscaleSettings' in kwargs:
+        if autoscale_settings is None and 'autoscaleSettings' in kwargs:
             autoscale_settings = kwargs['autoscaleSettings']
-        if 'databaseName' in kwargs:
+        if database_name is None and 'databaseName' in kwargs:
             database_name = kwargs['databaseName']
-        if 'defaultTtlSeconds' in kwargs:
+        if default_ttl_seconds is None and 'defaultTtlSeconds' in kwargs:
             default_ttl_seconds = kwargs['defaultTtlSeconds']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'shardKey' in kwargs:
+        if shard_key is None and 'shardKey' in kwargs:
             shard_key = kwargs['shardKey']
-        if 'systemIndexes' in kwargs:
+        if system_indexes is None and 'systemIndexes' in kwargs:
             system_indexes = kwargs['systemIndexes']
 
         if account_name is not None:
@@ -455,30 +461,6 @@ class MongoCollection(pulumi.CustomResource):
         """
         Manages a Mongo Collection within a Cosmos DB Account.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_account = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
-            resource_group_name="tfex-cosmosdb-account-rg")
-        example_mongo_database = azure.cosmosdb.MongoDatabase("exampleMongoDatabase",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name)
-        example_mongo_collection = azure.cosmosdb.MongoCollection("exampleMongoCollection",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name,
-            database_name=example_mongo_database.name,
-            default_ttl_seconds=777,
-            shard_key="uniqueKey",
-            throughput=400,
-            indices=[azure.cosmosdb.MongoCollectionIndexArgs(
-                keys=["_id"],
-                unique=True,
-            )])
-        ```
-
         ## Import
 
         CosmosDB Mongo Collection can be imported using the `resource id`, e.g.
@@ -506,30 +488,6 @@ class MongoCollection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Mongo Collection within a Cosmos DB Account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_account = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
-            resource_group_name="tfex-cosmosdb-account-rg")
-        example_mongo_database = azure.cosmosdb.MongoDatabase("exampleMongoDatabase",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name)
-        example_mongo_collection = azure.cosmosdb.MongoCollection("exampleMongoCollection",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name,
-            database_name=example_mongo_database.name,
-            default_ttl_seconds=777,
-            shard_key="uniqueKey",
-            throughput=400,
-            indices=[azure.cosmosdb.MongoCollectionIndexArgs(
-                keys=["_id"],
-                unique=True,
-            )])
-        ```
 
         ## Import
 
@@ -581,11 +539,7 @@ class MongoCollection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["analytical_storage_ttl"] = analytical_storage_ttl
-            if autoscale_settings is not None and not isinstance(autoscale_settings, MongoCollectionAutoscaleSettingsArgs):
-                autoscale_settings = autoscale_settings or {}
-                def _setter(key, value):
-                    autoscale_settings[key] = value
-                MongoCollectionAutoscaleSettingsArgs._configure(_setter, **autoscale_settings)
+            autoscale_settings = _utilities.configure(autoscale_settings, MongoCollectionAutoscaleSettingsArgs, True)
             __props__.__dict__["autoscale_settings"] = autoscale_settings
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")

@@ -13,58 +13,12 @@ namespace Pulumi.Azure.RecoveryServices
     {
         /// <summary>
         /// Use this data source to access information about an existing Recovery Services Vault.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var vault = Azure.RecoveryServices.GetVault.Invoke(new()
-        ///     {
-        ///         Name = "tfex-recovery_vault",
-        ///         ResourceGroupName = "tfex-resource_group",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetVaultResult> InvokeAsync(GetVaultArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVaultResult>("azure:recoveryservices/getVault:getVault", args ?? new GetVaultArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Recovery Services Vault.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var vault = Azure.RecoveryServices.GetVault.Invoke(new()
-        ///     {
-        ///         Name = "tfex-recovery_vault",
-        ///         ResourceGroupName = "tfex-resource_group",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetVaultResult> Invoke(GetVaultInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVaultResult>("azure:recoveryservices/getVault:getVault", args ?? new GetVaultInvokeArgs(), options.WithDefaults());

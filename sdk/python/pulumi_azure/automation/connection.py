@@ -41,18 +41,26 @@ class ConnectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             automation_account_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             type: pulumi.Input[str],
-             values: pulumi.Input[Mapping[str, pulumi.Input[str]]],
+             automation_account_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'automationAccountName' in kwargs:
+        if automation_account_name is None and 'automationAccountName' in kwargs:
             automation_account_name = kwargs['automationAccountName']
-        if 'resourceGroupName' in kwargs:
+        if automation_account_name is None:
+            raise TypeError("Missing 'automation_account_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("automation_account_name", automation_account_name)
         _setter("resource_group_name", resource_group_name)
@@ -172,11 +180,11 @@ class _ConnectionState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
              values: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'automationAccountName' in kwargs:
+        if automation_account_name is None and 'automationAccountName' in kwargs:
             automation_account_name = kwargs['automationAccountName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if automation_account_name is not None:
@@ -280,30 +288,6 @@ class Connection(pulumi.CustomResource):
         """
         Manages an Automation Connection.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_client_config = azure.core.get_client_config()
-        example_account = azure.automation.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Basic")
-        example_connection = azure.automation.Connection("exampleConnection",
-            resource_group_name=example_resource_group.name,
-            automation_account_name=example_account.name,
-            type="AzureServicePrincipal",
-            values={
-                "ApplicationId": "00000000-0000-0000-0000-000000000000",
-                "TenantId": example_client_config.tenant_id,
-                "SubscriptionId": example_client_config.subscription_id,
-                "CertificateThumbprint": "sample-certificate-thumbprint",
-            })
-        ```
-
         ## Import
 
         Automation Connection can be imported using the `resource id`, e.g.
@@ -329,30 +313,6 @@ class Connection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Automation Connection.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_client_config = azure.core.get_client_config()
-        example_account = azure.automation.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Basic")
-        example_connection = azure.automation.Connection("exampleConnection",
-            resource_group_name=example_resource_group.name,
-            automation_account_name=example_account.name,
-            type="AzureServicePrincipal",
-            values={
-                "ApplicationId": "00000000-0000-0000-0000-000000000000",
-                "TenantId": example_client_config.tenant_id,
-                "SubscriptionId": example_client_config.subscription_id,
-                "CertificateThumbprint": "sample-certificate-thumbprint",
-            })
-        ```
 
         ## Import
 

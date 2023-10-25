@@ -13,35 +13,6 @@ import (
 )
 
 // Use this data source to access information about an existing Cosmos DB Mongo Database.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := cosmosdb.LookupMongoDatabase(ctx, &cosmosdb.LookupMongoDatabaseArgs{
-//				Name:              "test-cosmosdb-mongo-db",
-//				ResourceGroupName: "test-cosmosdb-account-rg",
-//				AccountName:       "test-cosmosdb-account",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("id", example.Id)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupMongoDatabase(ctx *pulumi.Context, args *LookupMongoDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupMongoDatabaseResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupMongoDatabaseResult

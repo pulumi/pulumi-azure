@@ -15,44 +15,6 @@ import (
 
 // Manages an Azure Cosmos DB for PostgreSQL Cluster.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cosmosdb.NewPostgresqlCluster(ctx, "examplePostgresqlCluster", &cosmosdb.PostgresqlClusterArgs{
-//				ResourceGroupName:           exampleResourceGroup.Name,
-//				Location:                    exampleResourceGroup.Location,
-//				AdministratorLoginPassword:  pulumi.String("H@Sh1CoR3!"),
-//				CoordinatorStorageQuotaInMb: pulumi.Int(131072),
-//				CoordinatorVcoreCount:       pulumi.Int(2),
-//				NodeCount:                   pulumi.Int(0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Azure Cosmos DB for PostgreSQL Clusters can be imported using the `resource id`, e.g.

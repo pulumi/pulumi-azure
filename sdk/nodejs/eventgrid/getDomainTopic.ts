@@ -6,18 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing EventGrid Domain Topic
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.eventgrid.getDomainTopic({
- *     name: "my-eventgrid-domain-topic",
- *     resourceGroupName: "example-resources",
- * });
- * ```
  */
 export function getDomainTopic(args: GetDomainTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainTopicResult> {
 
@@ -64,18 +52,6 @@ export interface GetDomainTopicResult {
 }
 /**
  * Use this data source to access information about an existing EventGrid Domain Topic
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.eventgrid.getDomainTopic({
- *     name: "my-eventgrid-domain-topic",
- *     resourceGroupName: "example-resources",
- * });
- * ```
  */
 export function getDomainTopicOutput(args: GetDomainTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainTopicResult> {
     return pulumi.output(args).apply((a: any) => getDomainTopic(a, opts))

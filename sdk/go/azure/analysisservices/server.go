@@ -15,57 +15,6 @@ import (
 
 // Manages an Analysis Services Server.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/analysisservices"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = analysisservices.NewServer(ctx, "server", &analysisservices.ServerArgs{
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku:               pulumi.String("S0"),
-//				AdminUsers: pulumi.StringArray{
-//					pulumi.String("myuser@domain.tld"),
-//				},
-//				EnablePowerBiService: pulumi.Bool(true),
-//				Ipv4FirewallRules: analysisservices.ServerIpv4FirewallRuleArray{
-//					&analysisservices.ServerIpv4FirewallRuleArgs{
-//						Name:       pulumi.String("myRule1"),
-//						RangeStart: pulumi.String("210.117.252.0"),
-//						RangeEnd:   pulumi.String("210.117.252.255"),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"abc": pulumi.String("123"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// > **NOTE:** The server resource will automatically be started and stopped during an update if it is in `paused` state.
-//
 // ## Import
 //
 // Analysis Services Server can be imported using the `resource id`, e.g.

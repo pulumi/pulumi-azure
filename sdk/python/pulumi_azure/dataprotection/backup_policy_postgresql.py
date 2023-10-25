@@ -43,23 +43,31 @@ class BackupPolicyPostgresqlArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             backup_repeating_time_intervals: pulumi.Input[Sequence[pulumi.Input[str]]],
-             default_retention_duration: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             vault_name: pulumi.Input[str],
+             backup_repeating_time_intervals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             default_retention_duration: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             vault_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPolicyPostgresqlRetentionRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'backupRepeatingTimeIntervals' in kwargs:
+        if backup_repeating_time_intervals is None and 'backupRepeatingTimeIntervals' in kwargs:
             backup_repeating_time_intervals = kwargs['backupRepeatingTimeIntervals']
-        if 'defaultRetentionDuration' in kwargs:
+        if backup_repeating_time_intervals is None:
+            raise TypeError("Missing 'backup_repeating_time_intervals' argument")
+        if default_retention_duration is None and 'defaultRetentionDuration' in kwargs:
             default_retention_duration = kwargs['defaultRetentionDuration']
-        if 'resourceGroupName' in kwargs:
+        if default_retention_duration is None:
+            raise TypeError("Missing 'default_retention_duration' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'vaultName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if vault_name is None and 'vaultName' in kwargs:
             vault_name = kwargs['vaultName']
-        if 'retentionRules' in kwargs:
+        if vault_name is None:
+            raise TypeError("Missing 'vault_name' argument")
+        if retention_rules is None and 'retentionRules' in kwargs:
             retention_rules = kwargs['retentionRules']
 
         _setter("backup_repeating_time_intervals", backup_repeating_time_intervals)
@@ -180,17 +188,17 @@ class _BackupPolicyPostgresqlState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPolicyPostgresqlRetentionRuleArgs']]]] = None,
              vault_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'backupRepeatingTimeIntervals' in kwargs:
+        if backup_repeating_time_intervals is None and 'backupRepeatingTimeIntervals' in kwargs:
             backup_repeating_time_intervals = kwargs['backupRepeatingTimeIntervals']
-        if 'defaultRetentionDuration' in kwargs:
+        if default_retention_duration is None and 'defaultRetentionDuration' in kwargs:
             default_retention_duration = kwargs['defaultRetentionDuration']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'retentionRules' in kwargs:
+        if retention_rules is None and 'retentionRules' in kwargs:
             retention_rules = kwargs['retentionRules']
-        if 'vaultName' in kwargs:
+        if vault_name is None and 'vaultName' in kwargs:
             vault_name = kwargs['vaultName']
 
         if backup_repeating_time_intervals is not None:
@@ -294,57 +302,6 @@ class BackupPolicyPostgresql(pulumi.CustomResource):
         """
         Manages a Backup Policy to back up PostgreSQL.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_backup_vault = azure.dataprotection.BackupVault("exampleBackupVault",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            datastore_type="VaultStore",
-            redundancy="LocallyRedundant")
-        example_backup_policy_postgresql = azure.dataprotection.BackupPolicyPostgresql("exampleBackupPolicyPostgresql",
-            resource_group_name=example_resource_group.name,
-            vault_name=example_backup_vault.name,
-            backup_repeating_time_intervals=["R/2021-05-23T02:30:00+00:00/P1W"],
-            default_retention_duration="P4M",
-            retention_rules=[
-                azure.dataprotection.BackupPolicyPostgresqlRetentionRuleArgs(
-                    name="weekly",
-                    duration="P6M",
-                    priority=20,
-                    criteria=azure.dataprotection.BackupPolicyPostgresqlRetentionRuleCriteriaArgs(
-                        absolute_criteria="FirstOfWeek",
-                    ),
-                ),
-                azure.dataprotection.BackupPolicyPostgresqlRetentionRuleArgs(
-                    name="thursday",
-                    duration="P1W",
-                    priority=25,
-                    criteria=azure.dataprotection.BackupPolicyPostgresqlRetentionRuleCriteriaArgs(
-                        days_of_weeks=["Thursday"],
-                        scheduled_backup_times=["2021-05-23T02:30:00Z"],
-                    ),
-                ),
-                azure.dataprotection.BackupPolicyPostgresqlRetentionRuleArgs(
-                    name="monthly",
-                    duration="P1D",
-                    priority=15,
-                    criteria=azure.dataprotection.BackupPolicyPostgresqlRetentionRuleCriteriaArgs(
-                        weeks_of_months=[
-                            "First",
-                            "Last",
-                        ],
-                        days_of_weeks=["Tuesday"],
-                        scheduled_backup_times=["2021-05-23T02:30:00Z"],
-                    ),
-                ),
-            ])
-        ```
-
         ## Import
 
         Backup Policy PostgreSQL's can be imported using the `resource id`, e.g.
@@ -370,57 +327,6 @@ class BackupPolicyPostgresql(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Backup Policy to back up PostgreSQL.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_backup_vault = azure.dataprotection.BackupVault("exampleBackupVault",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            datastore_type="VaultStore",
-            redundancy="LocallyRedundant")
-        example_backup_policy_postgresql = azure.dataprotection.BackupPolicyPostgresql("exampleBackupPolicyPostgresql",
-            resource_group_name=example_resource_group.name,
-            vault_name=example_backup_vault.name,
-            backup_repeating_time_intervals=["R/2021-05-23T02:30:00+00:00/P1W"],
-            default_retention_duration="P4M",
-            retention_rules=[
-                azure.dataprotection.BackupPolicyPostgresqlRetentionRuleArgs(
-                    name="weekly",
-                    duration="P6M",
-                    priority=20,
-                    criteria=azure.dataprotection.BackupPolicyPostgresqlRetentionRuleCriteriaArgs(
-                        absolute_criteria="FirstOfWeek",
-                    ),
-                ),
-                azure.dataprotection.BackupPolicyPostgresqlRetentionRuleArgs(
-                    name="thursday",
-                    duration="P1W",
-                    priority=25,
-                    criteria=azure.dataprotection.BackupPolicyPostgresqlRetentionRuleCriteriaArgs(
-                        days_of_weeks=["Thursday"],
-                        scheduled_backup_times=["2021-05-23T02:30:00Z"],
-                    ),
-                ),
-                azure.dataprotection.BackupPolicyPostgresqlRetentionRuleArgs(
-                    name="monthly",
-                    duration="P1D",
-                    priority=15,
-                    criteria=azure.dataprotection.BackupPolicyPostgresqlRetentionRuleCriteriaArgs(
-                        weeks_of_months=[
-                            "First",
-                            "Last",
-                        ],
-                        days_of_weeks=["Tuesday"],
-                        scheduled_backup_times=["2021-05-23T02:30:00Z"],
-                    ),
-                ),
-            ])
-        ```
 
         ## Import
 

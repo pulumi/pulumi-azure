@@ -43,19 +43,23 @@ class TimeSeriesInsightsReferenceDataSetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_properties: pulumi.Input[Sequence[pulumi.Input['TimeSeriesInsightsReferenceDataSetKeyPropertyArgs']]],
-             time_series_insights_environment_id: pulumi.Input[str],
+             key_properties: Optional[pulumi.Input[Sequence[pulumi.Input['TimeSeriesInsightsReferenceDataSetKeyPropertyArgs']]]] = None,
+             time_series_insights_environment_id: Optional[pulumi.Input[str]] = None,
              data_string_comparison_behavior: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'keyProperties' in kwargs:
+        if key_properties is None and 'keyProperties' in kwargs:
             key_properties = kwargs['keyProperties']
-        if 'timeSeriesInsightsEnvironmentId' in kwargs:
+        if key_properties is None:
+            raise TypeError("Missing 'key_properties' argument")
+        if time_series_insights_environment_id is None and 'timeSeriesInsightsEnvironmentId' in kwargs:
             time_series_insights_environment_id = kwargs['timeSeriesInsightsEnvironmentId']
-        if 'dataStringComparisonBehavior' in kwargs:
+        if time_series_insights_environment_id is None:
+            raise TypeError("Missing 'time_series_insights_environment_id' argument")
+        if data_string_comparison_behavior is None and 'dataStringComparisonBehavior' in kwargs:
             data_string_comparison_behavior = kwargs['dataStringComparisonBehavior']
 
         _setter("key_properties", key_properties)
@@ -178,13 +182,13 @@ class _TimeSeriesInsightsReferenceDataSetState:
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              time_series_insights_environment_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dataStringComparisonBehavior' in kwargs:
+        if data_string_comparison_behavior is None and 'dataStringComparisonBehavior' in kwargs:
             data_string_comparison_behavior = kwargs['dataStringComparisonBehavior']
-        if 'keyProperties' in kwargs:
+        if key_properties is None and 'keyProperties' in kwargs:
             key_properties = kwargs['keyProperties']
-        if 'timeSeriesInsightsEnvironmentId' in kwargs:
+        if time_series_insights_environment_id is None and 'timeSeriesInsightsEnvironmentId' in kwargs:
             time_series_insights_environment_id = kwargs['timeSeriesInsightsEnvironmentId']
 
         if data_string_comparison_behavior is not None:
@@ -288,27 +292,6 @@ class TimeSeriesInsightsReferenceDataSet(pulumi.CustomResource):
         """
         Manages an Azure IoT Time Series Insights Reference Data Set.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_time_series_insights_standard_environment = azure.iot.TimeSeriesInsightsStandardEnvironment("exampleTimeSeriesInsightsStandardEnvironment",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="S1_1",
-            data_retention_time="P30D")
-        example_time_series_insights_reference_data_set = azure.iot.TimeSeriesInsightsReferenceDataSet("exampleTimeSeriesInsightsReferenceDataSet",
-            time_series_insights_environment_id=example_time_series_insights_standard_environment.id,
-            location=example_resource_group.location,
-            key_properties=[azure.iot.TimeSeriesInsightsReferenceDataSetKeyPropertyArgs(
-                name="keyProperty1",
-                type="String",
-            )])
-        ```
-
         ## Import
 
         Azure IoT Time Series Insights Reference Data Set can be imported using the `resource id`, e.g.
@@ -334,27 +317,6 @@ class TimeSeriesInsightsReferenceDataSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure IoT Time Series Insights Reference Data Set.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_time_series_insights_standard_environment = azure.iot.TimeSeriesInsightsStandardEnvironment("exampleTimeSeriesInsightsStandardEnvironment",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="S1_1",
-            data_retention_time="P30D")
-        example_time_series_insights_reference_data_set = azure.iot.TimeSeriesInsightsReferenceDataSet("exampleTimeSeriesInsightsReferenceDataSet",
-            time_series_insights_environment_id=example_time_series_insights_standard_environment.id,
-            location=example_resource_group.location,
-            key_properties=[azure.iot.TimeSeriesInsightsReferenceDataSetKeyPropertyArgs(
-                name="keyProperty1",
-                type="String",
-            )])
-        ```
 
         ## Import
 

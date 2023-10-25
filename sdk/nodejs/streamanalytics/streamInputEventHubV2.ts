@@ -11,48 +11,6 @@ import * as utilities from "../utilities";
  *
  * Manages a Stream Analytics Stream Input EventHub V2.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleJob = azure.streamanalytics.getJobOutput({
- *     name: "example-job",
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("exampleEventHubNamespace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "Standard",
- *     capacity: 1,
- * });
- * const exampleEventHub = new azure.eventhub.EventHub("exampleEventHub", {
- *     namespaceName: exampleEventHubNamespace.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     partitionCount: 2,
- *     messageRetention: 1,
- * });
- * const exampleConsumerGroup = new azure.eventhub.ConsumerGroup("exampleConsumerGroup", {
- *     namespaceName: exampleEventHubNamespace.name,
- *     eventhubName: exampleEventHub.name,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleStreamInputEventHubV2 = new azure.streamanalytics.StreamInputEventHubV2("exampleStreamInputEventHubV2", {
- *     streamAnalyticsJobId: exampleJob.apply(exampleJob => exampleJob.id),
- *     eventhubConsumerGroupName: exampleConsumerGroup.name,
- *     eventhubName: exampleEventHub.name,
- *     servicebusNamespace: exampleEventHubNamespace.name,
- *     sharedAccessPolicyKey: exampleEventHubNamespace.defaultPrimaryKey,
- *     sharedAccessPolicyName: "RootManageSharedAccessKey",
- *     serialization: {
- *         type: "Json",
- *         encoding: "UTF8",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Stream Analytics Stream Input EventHub's can be imported using the `resource id`, e.g.

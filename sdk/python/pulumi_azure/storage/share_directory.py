@@ -35,16 +35,20 @@ class ShareDirectoryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             share_name: pulumi.Input[str],
-             storage_account_name: pulumi.Input[str],
+             share_name: Optional[pulumi.Input[str]] = None,
+             storage_account_name: Optional[pulumi.Input[str]] = None,
              metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'shareName' in kwargs:
+        if share_name is None and 'shareName' in kwargs:
             share_name = kwargs['shareName']
-        if 'storageAccountName' in kwargs:
+        if share_name is None:
+            raise TypeError("Missing 'share_name' argument")
+        if storage_account_name is None and 'storageAccountName' in kwargs:
             storage_account_name = kwargs['storageAccountName']
+        if storage_account_name is None:
+            raise TypeError("Missing 'storage_account_name' argument")
 
         _setter("share_name", share_name)
         _setter("storage_account_name", storage_account_name)
@@ -130,11 +134,11 @@ class _ShareDirectoryState:
              name: Optional[pulumi.Input[str]] = None,
              share_name: Optional[pulumi.Input[str]] = None,
              storage_account_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'shareName' in kwargs:
+        if share_name is None and 'shareName' in kwargs:
             share_name = kwargs['shareName']
-        if 'storageAccountName' in kwargs:
+        if storage_account_name is None and 'storageAccountName' in kwargs:
             storage_account_name = kwargs['storageAccountName']
 
         if metadata is not None:
@@ -208,26 +212,6 @@ class ShareDirectory(pulumi.CustomResource):
         """
         Manages a Directory within an Azure Storage File Share.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_share = azure.storage.Share("exampleShare",
-            storage_account_name=example_account.name,
-            quota=50)
-        example_share_directory = azure.storage.ShareDirectory("exampleShareDirectory",
-            share_name=example_share.name,
-            storage_account_name=example_account.name)
-        ```
-
         ## Import
 
         Directories within an Azure Storage File Share can be imported using the `resource id`, e.g.
@@ -251,26 +235,6 @@ class ShareDirectory(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Directory within an Azure Storage File Share.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_share = azure.storage.Share("exampleShare",
-            storage_account_name=example_account.name,
-            quota=50)
-        example_share_directory = azure.storage.ShareDirectory("exampleShareDirectory",
-            share_name=example_share.name,
-            storage_account_name=example_account.name)
-        ```
 
         ## Import
 

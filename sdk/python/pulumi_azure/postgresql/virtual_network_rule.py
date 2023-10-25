@@ -44,20 +44,26 @@ class VirtualNetworkRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             server_name: pulumi.Input[str],
-             subnet_id: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
              ignore_missing_vnet_service_endpoint: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serverName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if server_name is None and 'serverName' in kwargs:
             server_name = kwargs['serverName']
-        if 'subnetId' in kwargs:
+        if server_name is None:
+            raise TypeError("Missing 'server_name' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'ignoreMissingVnetServiceEndpoint' in kwargs:
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if ignore_missing_vnet_service_endpoint is None and 'ignoreMissingVnetServiceEndpoint' in kwargs:
             ignore_missing_vnet_service_endpoint = kwargs['ignoreMissingVnetServiceEndpoint']
 
         _setter("resource_group_name", resource_group_name)
@@ -173,15 +179,15 @@ class _VirtualNetworkRuleState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              server_name: Optional[pulumi.Input[str]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'ignoreMissingVnetServiceEndpoint' in kwargs:
+        if ignore_missing_vnet_service_endpoint is None and 'ignoreMissingVnetServiceEndpoint' in kwargs:
             ignore_missing_vnet_service_endpoint = kwargs['ignoreMissingVnetServiceEndpoint']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serverName' in kwargs:
+        if server_name is None and 'serverName' in kwargs:
             server_name = kwargs['serverName']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
 
         if ignore_missing_vnet_service_endpoint is not None:
@@ -278,39 +284,6 @@ class VirtualNetworkRule(pulumi.CustomResource):
 
         > **NOTE:** PostgreSQL Virtual Network Rules [can only be used with SKU Tiers of `GeneralPurpose` or `MemoryOptimized`](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-vnet)
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.7.29.0/29"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        internal = azure.network.Subnet("internal",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.7.29.0/29"],
-            service_endpoints=["Microsoft.Sql"])
-        example_server = azure.postgresql.Server("exampleServer",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="GP_Gen5_2",
-            storage_mb=5120,
-            backup_retention_days=7,
-            administrator_login="psqladmin",
-            administrator_login_password="H@Sh1CoR3!",
-            version="9.5",
-            ssl_enforcement_enabled=True)
-        example_virtual_network_rule = azure.postgresql.VirtualNetworkRule("exampleVirtualNetworkRule",
-            resource_group_name=example_resource_group.name,
-            server_name=example_server.name,
-            subnet_id=internal.id,
-            ignore_missing_vnet_service_endpoint=True)
-        ```
-
         ## Import
 
         PostgreSQL Virtual Network Rules can be imported using the `resource id`, e.g.
@@ -343,39 +316,6 @@ class VirtualNetworkRule(pulumi.CustomResource):
         Manages a PostgreSQL Virtual Network Rule.
 
         > **NOTE:** PostgreSQL Virtual Network Rules [can only be used with SKU Tiers of `GeneralPurpose` or `MemoryOptimized`](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-vnet)
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.7.29.0/29"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        internal = azure.network.Subnet("internal",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.7.29.0/29"],
-            service_endpoints=["Microsoft.Sql"])
-        example_server = azure.postgresql.Server("exampleServer",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="GP_Gen5_2",
-            storage_mb=5120,
-            backup_retention_days=7,
-            administrator_login="psqladmin",
-            administrator_login_password="H@Sh1CoR3!",
-            version="9.5",
-            ssl_enforcement_enabled=True)
-        example_virtual_network_rule = azure.postgresql.VirtualNetworkRule("exampleVirtualNetworkRule",
-            resource_group_name=example_resource_group.name,
-            server_name=example_server.name,
-            subnet_id=internal.id,
-            ignore_missing_vnet_service_endpoint=True)
-        ```
 
         ## Import
 

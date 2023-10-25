@@ -7,25 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Private DNS Resolver.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     addressSpaces: ["10.0.0.0/16"],
- * });
- * const test = new azure.privatedns.Resolver("test", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     virtualNetworkId: exampleVirtualNetwork.id,
- * });
- * ```
- *
  * ## Import
  *
  * DNS Resolver can be imported using the `resource id`, e.g.

@@ -15,54 +15,6 @@ import (
 
 // Manages a Kusto (also known as Azure Data Explorer) Database
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/kusto"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			cluster, err := kusto.NewCluster(ctx, "cluster", &kusto.ClusterArgs{
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku: &kusto.ClusterSkuArgs{
-//					Name:     pulumi.String("Standard_D13_v2"),
-//					Capacity: pulumi.Int(2),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = kusto.NewDatabase(ctx, "database", &kusto.DatabaseArgs{
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				ClusterName:       cluster.Name,
-//				HotCachePeriod:    pulumi.String("P7D"),
-//				SoftDeletePeriod:  pulumi.String("P31D"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Kusto Clusters can be imported using the `resource id`, e.g.

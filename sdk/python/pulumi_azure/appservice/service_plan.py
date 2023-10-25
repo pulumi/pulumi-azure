@@ -64,9 +64,9 @@ class ServicePlanArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             os_type: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             sku_name: pulumi.Input[str],
+             os_type: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
              app_service_environment_id: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              maximum_elastic_worker_count: Optional[pulumi.Input[int]] = None,
@@ -75,23 +75,29 @@ class ServicePlanArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              worker_count: Optional[pulumi.Input[int]] = None,
              zone_balancing_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'osType' in kwargs:
+        if os_type is None and 'osType' in kwargs:
             os_type = kwargs['osType']
-        if 'resourceGroupName' in kwargs:
+        if os_type is None:
+            raise TypeError("Missing 'os_type' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'appServiceEnvironmentId' in kwargs:
+        if sku_name is None:
+            raise TypeError("Missing 'sku_name' argument")
+        if app_service_environment_id is None and 'appServiceEnvironmentId' in kwargs:
             app_service_environment_id = kwargs['appServiceEnvironmentId']
-        if 'maximumElasticWorkerCount' in kwargs:
+        if maximum_elastic_worker_count is None and 'maximumElasticWorkerCount' in kwargs:
             maximum_elastic_worker_count = kwargs['maximumElasticWorkerCount']
-        if 'perSiteScalingEnabled' in kwargs:
+        if per_site_scaling_enabled is None and 'perSiteScalingEnabled' in kwargs:
             per_site_scaling_enabled = kwargs['perSiteScalingEnabled']
-        if 'workerCount' in kwargs:
+        if worker_count is None and 'workerCount' in kwargs:
             worker_count = kwargs['workerCount']
-        if 'zoneBalancingEnabled' in kwargs:
+        if zone_balancing_enabled is None and 'zoneBalancingEnabled' in kwargs:
             zone_balancing_enabled = kwargs['zoneBalancingEnabled']
 
         _setter("os_type", os_type)
@@ -327,23 +333,23 @@ class _ServicePlanState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              worker_count: Optional[pulumi.Input[int]] = None,
              zone_balancing_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'appServiceEnvironmentId' in kwargs:
+        if app_service_environment_id is None and 'appServiceEnvironmentId' in kwargs:
             app_service_environment_id = kwargs['appServiceEnvironmentId']
-        if 'maximumElasticWorkerCount' in kwargs:
+        if maximum_elastic_worker_count is None and 'maximumElasticWorkerCount' in kwargs:
             maximum_elastic_worker_count = kwargs['maximumElasticWorkerCount']
-        if 'osType' in kwargs:
+        if os_type is None and 'osType' in kwargs:
             os_type = kwargs['osType']
-        if 'perSiteScalingEnabled' in kwargs:
+        if per_site_scaling_enabled is None and 'perSiteScalingEnabled' in kwargs:
             per_site_scaling_enabled = kwargs['perSiteScalingEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'workerCount' in kwargs:
+        if worker_count is None and 'workerCount' in kwargs:
             worker_count = kwargs['workerCount']
-        if 'zoneBalancingEnabled' in kwargs:
+        if zone_balancing_enabled is None and 'zoneBalancingEnabled' in kwargs:
             zone_balancing_enabled = kwargs['zoneBalancingEnabled']
 
         if app_service_environment_id is not None:
@@ -558,20 +564,6 @@ class ServicePlan(pulumi.CustomResource):
         """
         Manages an App Service: Service Plan.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            os_type="Linux",
-            sku_name="P1v2")
-        ```
-
         ## Import
 
         AppServices can be imported using the `resource id`, e.g.
@@ -610,20 +602,6 @@ class ServicePlan(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an App Service: Service Plan.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            os_type="Linux",
-            sku_name="P1v2")
-        ```
 
         ## Import
 

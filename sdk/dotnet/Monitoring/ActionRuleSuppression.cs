@@ -14,57 +14,6 @@ namespace Pulumi.Azure.Monitoring
     /// 
     /// !&gt; **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `azure.monitoring.AlertProcessingRuleSuppression` resource instead.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleActionRuleSuppression = new Azure.Monitoring.ActionRuleSuppression("exampleActionRuleSuppression", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Scope = new Azure.Monitoring.Inputs.ActionRuleSuppressionScopeArgs
-    ///         {
-    ///             Type = "ResourceGroup",
-    ///             ResourceIds = new[]
-    ///             {
-    ///                 exampleResourceGroup.Id,
-    ///             },
-    ///         },
-    ///         Suppression = new Azure.Monitoring.Inputs.ActionRuleSuppressionSuppressionArgs
-    ///         {
-    ///             RecurrenceType = "Weekly",
-    ///             Schedule = new Azure.Monitoring.Inputs.ActionRuleSuppressionSuppressionScheduleArgs
-    ///             {
-    ///                 StartDateUtc = "2019-01-01T01:02:03Z",
-    ///                 EndDateUtc = "2019-01-03T15:02:07Z",
-    ///                 RecurrenceWeeklies = new[]
-    ///                 {
-    ///                     "Sunday",
-    ///                     "Monday",
-    ///                     "Friday",
-    ///                     "Saturday",
-    ///                 },
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "foo", "bar" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Monitor Action Rule can be imported using the `resource id`, e.g.

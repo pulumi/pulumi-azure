@@ -114,18 +114,6 @@ def get_date_time_variable(automation_account_name: Optional[str] = None,
     """
     Use this data source to access information about an existing Automation Datetime Variable.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.automation.get_date_time_variable(name="tfex-example-var",
-        resource_group_name="tfex-example-rg",
-        automation_account_name="tfex-example-account")
-    pulumi.export("variableId", example.id)
-    ```
-
 
     :param str automation_account_name: The name of the automation account in which the Automation Variable exists.
     :param str name: The name of the Automation Variable.
@@ -155,18 +143,6 @@ def get_date_time_variable_output(automation_account_name: Optional[pulumi.Input
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDateTimeVariableResult]:
     """
     Use this data source to access information about an existing Automation Datetime Variable.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.automation.get_date_time_variable(name="tfex-example-var",
-        resource_group_name="tfex-example-rg",
-        automation_account_name="tfex-example-account")
-    pulumi.export("variableId", example.id)
-    ```
 
 
     :param str automation_account_name: The name of the automation account in which the Automation Variable exists.

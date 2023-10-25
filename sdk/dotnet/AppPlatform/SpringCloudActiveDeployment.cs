@@ -12,63 +12,6 @@ namespace Pulumi.Azure.AppPlatform
     /// <summary>
     /// Manages an Active Azure Spring Cloud Deployment.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///     });
-    /// 
-    ///     var exampleSpringCloudApp = new Azure.AppPlatform.SpringCloudApp("exampleSpringCloudApp", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         ServiceName = exampleSpringCloudService.Name,
-    ///         Identity = new Azure.AppPlatform.Inputs.SpringCloudAppIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleSpringCloudJavaDeployment = new Azure.AppPlatform.SpringCloudJavaDeployment("exampleSpringCloudJavaDeployment", new()
-    ///     {
-    ///         SpringCloudAppId = exampleSpringCloudApp.Id,
-    ///         InstanceCount = 2,
-    ///         JvmOptions = "-XX:+PrintGC",
-    ///         RuntimeVersion = "Java_11",
-    ///         Quota = new Azure.AppPlatform.Inputs.SpringCloudJavaDeploymentQuotaArgs
-    ///         {
-    ///             Cpu = "2",
-    ///             Memory = "4Gi",
-    ///         },
-    ///         EnvironmentVariables = 
-    ///         {
-    ///             { "Env", "Staging" },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleSpringCloudActiveDeployment = new Azure.AppPlatform.SpringCloudActiveDeployment("exampleSpringCloudActiveDeployment", new()
-    ///     {
-    ///         SpringCloudAppId = exampleSpringCloudApp.Id,
-    ///         DeploymentName = exampleSpringCloudJavaDeployment.Name,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Spring Cloud Active Deployment can be imported using the `resource id`, e.g.

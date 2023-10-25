@@ -54,9 +54,6 @@ class CertifiateCertificateArgs:
                > **NOTE:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a private_key in pkcs8 format. There should only be linux style `\\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
                
                To convert a private key to pkcs8 format with openssl use:
-               ```python
-               import pulumi
-               ```
                
                The PEM content should look something like:
         """
@@ -68,10 +65,12 @@ class CertifiateCertificateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             contents: pulumi.Input[str],
+             contents: Optional[pulumi.Input[str]] = None,
              password: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if contents is None:
+            raise TypeError("Missing 'contents' argument")
 
         _setter("contents", contents)
         if password is not None:
@@ -98,9 +97,6 @@ class CertifiateCertificateArgs:
         > **NOTE:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a private_key in pkcs8 format. There should only be linux style `\\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
 
         To convert a private key to pkcs8 format with openssl use:
-        ```python
-        import pulumi
-        ```
 
         The PEM content should look something like:
         """
@@ -146,11 +142,11 @@ class CertifiateCertificateAttributeArgs:
              not_before: Optional[pulumi.Input[str]] = None,
              recovery_level: Optional[pulumi.Input[str]] = None,
              updated: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'notBefore' in kwargs:
+        if not_before is None and 'notBefore' in kwargs:
             not_before = kwargs['notBefore']
-        if 'recoveryLevel' in kwargs:
+        if recovery_level is None and 'recoveryLevel' in kwargs:
             recovery_level = kwargs['recoveryLevel']
 
         if created is not None:
@@ -265,22 +261,28 @@ class CertifiateCertificatePolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             issuer_parameters: pulumi.Input['CertifiateCertificatePolicyIssuerParametersArgs'],
-             key_properties: pulumi.Input['CertifiateCertificatePolicyKeyPropertiesArgs'],
-             secret_properties: pulumi.Input['CertifiateCertificatePolicySecretPropertiesArgs'],
+             issuer_parameters: Optional[pulumi.Input['CertifiateCertificatePolicyIssuerParametersArgs']] = None,
+             key_properties: Optional[pulumi.Input['CertifiateCertificatePolicyKeyPropertiesArgs']] = None,
+             secret_properties: Optional[pulumi.Input['CertifiateCertificatePolicySecretPropertiesArgs']] = None,
              lifetime_actions: Optional[pulumi.Input[Sequence[pulumi.Input['CertifiateCertificatePolicyLifetimeActionArgs']]]] = None,
              x509_certificate_properties: Optional[pulumi.Input['CertifiateCertificatePolicyX509CertificatePropertiesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'issuerParameters' in kwargs:
+        if issuer_parameters is None and 'issuerParameters' in kwargs:
             issuer_parameters = kwargs['issuerParameters']
-        if 'keyProperties' in kwargs:
+        if issuer_parameters is None:
+            raise TypeError("Missing 'issuer_parameters' argument")
+        if key_properties is None and 'keyProperties' in kwargs:
             key_properties = kwargs['keyProperties']
-        if 'secretProperties' in kwargs:
+        if key_properties is None:
+            raise TypeError("Missing 'key_properties' argument")
+        if secret_properties is None and 'secretProperties' in kwargs:
             secret_properties = kwargs['secretProperties']
-        if 'lifetimeActions' in kwargs:
+        if secret_properties is None:
+            raise TypeError("Missing 'secret_properties' argument")
+        if lifetime_actions is None and 'lifetimeActions' in kwargs:
             lifetime_actions = kwargs['lifetimeActions']
-        if 'x509CertificateProperties' in kwargs:
+        if x509_certificate_properties is None and 'x509CertificateProperties' in kwargs:
             x509_certificate_properties = kwargs['x509CertificateProperties']
 
         _setter("issuer_parameters", issuer_parameters)
@@ -366,9 +368,11 @@ class CertifiateCertificatePolicyIssuerParametersArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
 
@@ -411,18 +415,24 @@ class CertifiateCertificatePolicyKeyPropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             exportable: pulumi.Input[bool],
-             key_type: pulumi.Input[str],
-             reuse_key: pulumi.Input[bool],
+             exportable: Optional[pulumi.Input[bool]] = None,
+             key_type: Optional[pulumi.Input[str]] = None,
+             reuse_key: Optional[pulumi.Input[bool]] = None,
              curve: Optional[pulumi.Input[str]] = None,
              key_size: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'keyType' in kwargs:
+        if exportable is None:
+            raise TypeError("Missing 'exportable' argument")
+        if key_type is None and 'keyType' in kwargs:
             key_type = kwargs['keyType']
-        if 'reuseKey' in kwargs:
+        if key_type is None:
+            raise TypeError("Missing 'key_type' argument")
+        if reuse_key is None and 'reuseKey' in kwargs:
             reuse_key = kwargs['reuseKey']
-        if 'keySize' in kwargs:
+        if reuse_key is None:
+            raise TypeError("Missing 'reuse_key' argument")
+        if key_size is None and 'keySize' in kwargs:
             key_size = kwargs['keySize']
 
         _setter("exportable", exportable)
@@ -511,10 +521,14 @@ class CertifiateCertificatePolicyLifetimeActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action: pulumi.Input['CertifiateCertificatePolicyLifetimeActionActionArgs'],
-             trigger: pulumi.Input['CertifiateCertificatePolicyLifetimeActionTriggerArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             action: Optional[pulumi.Input['CertifiateCertificatePolicyLifetimeActionActionArgs']] = None,
+             trigger: Optional[pulumi.Input['CertifiateCertificatePolicyLifetimeActionTriggerArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if trigger is None:
+            raise TypeError("Missing 'trigger' argument")
 
         _setter("action", action)
         _setter("trigger", trigger)
@@ -558,11 +572,13 @@ class CertifiateCertificatePolicyLifetimeActionActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action_type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             action_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'actionType' in kwargs:
+        if action_type is None and 'actionType' in kwargs:
             action_type = kwargs['actionType']
+        if action_type is None:
+            raise TypeError("Missing 'action_type' argument")
 
         _setter("action_type", action_type)
 
@@ -598,11 +614,11 @@ class CertifiateCertificatePolicyLifetimeActionTriggerArgs:
              _setter: Callable[[Any, Any], None],
              days_before_expiry: Optional[pulumi.Input[int]] = None,
              lifetime_percentage: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'daysBeforeExpiry' in kwargs:
+        if days_before_expiry is None and 'daysBeforeExpiry' in kwargs:
             days_before_expiry = kwargs['daysBeforeExpiry']
-        if 'lifetimePercentage' in kwargs:
+        if lifetime_percentage is None and 'lifetimePercentage' in kwargs:
             lifetime_percentage = kwargs['lifetimePercentage']
 
         if days_before_expiry is not None:
@@ -649,11 +665,13 @@ class CertifiateCertificatePolicySecretPropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             content_type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             content_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'contentType' in kwargs:
+        if content_type is None and 'contentType' in kwargs:
             content_type = kwargs['contentType']
+        if content_type is None:
+            raise TypeError("Missing 'content_type' argument")
 
         _setter("content_type", content_type)
 
@@ -696,20 +714,26 @@ class CertifiateCertificatePolicyX509CertificatePropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_usages: pulumi.Input[Sequence[pulumi.Input[str]]],
-             subject: pulumi.Input[str],
-             validity_in_months: pulumi.Input[int],
+             key_usages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             subject: Optional[pulumi.Input[str]] = None,
+             validity_in_months: Optional[pulumi.Input[int]] = None,
              extended_key_usages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              subject_alternative_names: Optional[pulumi.Input['CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'keyUsages' in kwargs:
+        if key_usages is None and 'keyUsages' in kwargs:
             key_usages = kwargs['keyUsages']
-        if 'validityInMonths' in kwargs:
+        if key_usages is None:
+            raise TypeError("Missing 'key_usages' argument")
+        if subject is None:
+            raise TypeError("Missing 'subject' argument")
+        if validity_in_months is None and 'validityInMonths' in kwargs:
             validity_in_months = kwargs['validityInMonths']
-        if 'extendedKeyUsages' in kwargs:
+        if validity_in_months is None:
+            raise TypeError("Missing 'validity_in_months' argument")
+        if extended_key_usages is None and 'extendedKeyUsages' in kwargs:
             extended_key_usages = kwargs['extendedKeyUsages']
-        if 'subjectAlternativeNames' in kwargs:
+        if subject_alternative_names is None and 'subjectAlternativeNames' in kwargs:
             subject_alternative_names = kwargs['subjectAlternativeNames']
 
         _setter("key_usages", key_usages)
@@ -804,9 +828,9 @@ class CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeName
              dns_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              upns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dnsNames' in kwargs:
+        if dns_names is None and 'dnsNames' in kwargs:
             dns_names = kwargs['dnsNames']
 
         if dns_names is not None:
@@ -865,9 +889,6 @@ class CertificateCertificateArgs:
                > **NOTE:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a private_key in pkcs8 format. There should only be linux style `\\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
                
                To convert a private key to pkcs8 format with openssl use:
-               ```python
-               import pulumi
-               ```
                
                The PEM content should look something like:
         """
@@ -879,10 +900,12 @@ class CertificateCertificateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             contents: pulumi.Input[str],
+             contents: Optional[pulumi.Input[str]] = None,
              password: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if contents is None:
+            raise TypeError("Missing 'contents' argument")
 
         _setter("contents", contents)
         if password is not None:
@@ -909,9 +932,6 @@ class CertificateCertificateArgs:
         > **NOTE:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a private_key in pkcs8 format. There should only be linux style `\\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
 
         To convert a private key to pkcs8 format with openssl use:
-        ```python
-        import pulumi
-        ```
 
         The PEM content should look something like:
         """
@@ -957,11 +977,11 @@ class CertificateCertificateAttributeArgs:
              not_before: Optional[pulumi.Input[str]] = None,
              recovery_level: Optional[pulumi.Input[str]] = None,
              updated: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'notBefore' in kwargs:
+        if not_before is None and 'notBefore' in kwargs:
             not_before = kwargs['notBefore']
-        if 'recoveryLevel' in kwargs:
+        if recovery_level is None and 'recoveryLevel' in kwargs:
             recovery_level = kwargs['recoveryLevel']
 
         if created is not None:
@@ -1076,22 +1096,28 @@ class CertificateCertificatePolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             issuer_parameters: pulumi.Input['CertificateCertificatePolicyIssuerParametersArgs'],
-             key_properties: pulumi.Input['CertificateCertificatePolicyKeyPropertiesArgs'],
-             secret_properties: pulumi.Input['CertificateCertificatePolicySecretPropertiesArgs'],
+             issuer_parameters: Optional[pulumi.Input['CertificateCertificatePolicyIssuerParametersArgs']] = None,
+             key_properties: Optional[pulumi.Input['CertificateCertificatePolicyKeyPropertiesArgs']] = None,
+             secret_properties: Optional[pulumi.Input['CertificateCertificatePolicySecretPropertiesArgs']] = None,
              lifetime_actions: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateCertificatePolicyLifetimeActionArgs']]]] = None,
              x509_certificate_properties: Optional[pulumi.Input['CertificateCertificatePolicyX509CertificatePropertiesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'issuerParameters' in kwargs:
+        if issuer_parameters is None and 'issuerParameters' in kwargs:
             issuer_parameters = kwargs['issuerParameters']
-        if 'keyProperties' in kwargs:
+        if issuer_parameters is None:
+            raise TypeError("Missing 'issuer_parameters' argument")
+        if key_properties is None and 'keyProperties' in kwargs:
             key_properties = kwargs['keyProperties']
-        if 'secretProperties' in kwargs:
+        if key_properties is None:
+            raise TypeError("Missing 'key_properties' argument")
+        if secret_properties is None and 'secretProperties' in kwargs:
             secret_properties = kwargs['secretProperties']
-        if 'lifetimeActions' in kwargs:
+        if secret_properties is None:
+            raise TypeError("Missing 'secret_properties' argument")
+        if lifetime_actions is None and 'lifetimeActions' in kwargs:
             lifetime_actions = kwargs['lifetimeActions']
-        if 'x509CertificateProperties' in kwargs:
+        if x509_certificate_properties is None and 'x509CertificateProperties' in kwargs:
             x509_certificate_properties = kwargs['x509CertificateProperties']
 
         _setter("issuer_parameters", issuer_parameters)
@@ -1177,9 +1203,11 @@ class CertificateCertificatePolicyIssuerParametersArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
 
@@ -1222,18 +1250,24 @@ class CertificateCertificatePolicyKeyPropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             exportable: pulumi.Input[bool],
-             key_type: pulumi.Input[str],
-             reuse_key: pulumi.Input[bool],
+             exportable: Optional[pulumi.Input[bool]] = None,
+             key_type: Optional[pulumi.Input[str]] = None,
+             reuse_key: Optional[pulumi.Input[bool]] = None,
              curve: Optional[pulumi.Input[str]] = None,
              key_size: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'keyType' in kwargs:
+        if exportable is None:
+            raise TypeError("Missing 'exportable' argument")
+        if key_type is None and 'keyType' in kwargs:
             key_type = kwargs['keyType']
-        if 'reuseKey' in kwargs:
+        if key_type is None:
+            raise TypeError("Missing 'key_type' argument")
+        if reuse_key is None and 'reuseKey' in kwargs:
             reuse_key = kwargs['reuseKey']
-        if 'keySize' in kwargs:
+        if reuse_key is None:
+            raise TypeError("Missing 'reuse_key' argument")
+        if key_size is None and 'keySize' in kwargs:
             key_size = kwargs['keySize']
 
         _setter("exportable", exportable)
@@ -1322,10 +1356,14 @@ class CertificateCertificatePolicyLifetimeActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action: pulumi.Input['CertificateCertificatePolicyLifetimeActionActionArgs'],
-             trigger: pulumi.Input['CertificateCertificatePolicyLifetimeActionTriggerArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             action: Optional[pulumi.Input['CertificateCertificatePolicyLifetimeActionActionArgs']] = None,
+             trigger: Optional[pulumi.Input['CertificateCertificatePolicyLifetimeActionTriggerArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if trigger is None:
+            raise TypeError("Missing 'trigger' argument")
 
         _setter("action", action)
         _setter("trigger", trigger)
@@ -1369,11 +1407,13 @@ class CertificateCertificatePolicyLifetimeActionActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action_type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             action_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'actionType' in kwargs:
+        if action_type is None and 'actionType' in kwargs:
             action_type = kwargs['actionType']
+        if action_type is None:
+            raise TypeError("Missing 'action_type' argument")
 
         _setter("action_type", action_type)
 
@@ -1409,11 +1449,11 @@ class CertificateCertificatePolicyLifetimeActionTriggerArgs:
              _setter: Callable[[Any, Any], None],
              days_before_expiry: Optional[pulumi.Input[int]] = None,
              lifetime_percentage: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'daysBeforeExpiry' in kwargs:
+        if days_before_expiry is None and 'daysBeforeExpiry' in kwargs:
             days_before_expiry = kwargs['daysBeforeExpiry']
-        if 'lifetimePercentage' in kwargs:
+        if lifetime_percentage is None and 'lifetimePercentage' in kwargs:
             lifetime_percentage = kwargs['lifetimePercentage']
 
         if days_before_expiry is not None:
@@ -1460,11 +1500,13 @@ class CertificateCertificatePolicySecretPropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             content_type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             content_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'contentType' in kwargs:
+        if content_type is None and 'contentType' in kwargs:
             content_type = kwargs['contentType']
+        if content_type is None:
+            raise TypeError("Missing 'content_type' argument")
 
         _setter("content_type", content_type)
 
@@ -1507,20 +1549,26 @@ class CertificateCertificatePolicyX509CertificatePropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_usages: pulumi.Input[Sequence[pulumi.Input[str]]],
-             subject: pulumi.Input[str],
-             validity_in_months: pulumi.Input[int],
+             key_usages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             subject: Optional[pulumi.Input[str]] = None,
+             validity_in_months: Optional[pulumi.Input[int]] = None,
              extended_key_usages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              subject_alternative_names: Optional[pulumi.Input['CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'keyUsages' in kwargs:
+        if key_usages is None and 'keyUsages' in kwargs:
             key_usages = kwargs['keyUsages']
-        if 'validityInMonths' in kwargs:
+        if key_usages is None:
+            raise TypeError("Missing 'key_usages' argument")
+        if subject is None:
+            raise TypeError("Missing 'subject' argument")
+        if validity_in_months is None and 'validityInMonths' in kwargs:
             validity_in_months = kwargs['validityInMonths']
-        if 'extendedKeyUsages' in kwargs:
+        if validity_in_months is None:
+            raise TypeError("Missing 'validity_in_months' argument")
+        if extended_key_usages is None and 'extendedKeyUsages' in kwargs:
             extended_key_usages = kwargs['extendedKeyUsages']
-        if 'subjectAlternativeNames' in kwargs:
+        if subject_alternative_names is None and 'subjectAlternativeNames' in kwargs:
             subject_alternative_names = kwargs['subjectAlternativeNames']
 
         _setter("key_usages", key_usages)
@@ -1615,9 +1663,9 @@ class CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNam
              dns_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              upns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dnsNames' in kwargs:
+        if dns_names is None and 'dnsNames' in kwargs:
             dns_names = kwargs['dnsNames']
 
         if dns_names is not None:
@@ -1684,11 +1732,13 @@ class CertificateContactsContactArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             email: pulumi.Input[str],
+             email: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              phone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if email is None:
+            raise TypeError("Missing 'email' argument")
 
         _setter("email", email)
         if name is not None:
@@ -1756,17 +1806,19 @@ class CertificateIssuerAdminArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             email_address: pulumi.Input[str],
+             email_address: Optional[pulumi.Input[str]] = None,
              first_name: Optional[pulumi.Input[str]] = None,
              last_name: Optional[pulumi.Input[str]] = None,
              phone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'emailAddress' in kwargs:
+        if email_address is None and 'emailAddress' in kwargs:
             email_address = kwargs['emailAddress']
-        if 'firstName' in kwargs:
+        if email_address is None:
+            raise TypeError("Missing 'email_address' argument")
+        if first_name is None and 'firstName' in kwargs:
             first_name = kwargs['firstName']
-        if 'lastName' in kwargs:
+        if last_name is None and 'lastName' in kwargs:
             last_name = kwargs['lastName']
 
         _setter("email_address", email_address)
@@ -1849,11 +1901,11 @@ class KeyRotationPolicyArgs:
              automatic: Optional[pulumi.Input['KeyRotationPolicyAutomaticArgs']] = None,
              expire_after: Optional[pulumi.Input[str]] = None,
              notify_before_expiry: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'expireAfter' in kwargs:
+        if expire_after is None and 'expireAfter' in kwargs:
             expire_after = kwargs['expireAfter']
-        if 'notifyBeforeExpiry' in kwargs:
+        if notify_before_expiry is None and 'notifyBeforeExpiry' in kwargs:
             notify_before_expiry = kwargs['notifyBeforeExpiry']
 
         if automatic is not None:
@@ -1919,11 +1971,11 @@ class KeyRotationPolicyAutomaticArgs:
              _setter: Callable[[Any, Any], None],
              time_after_creation: Optional[pulumi.Input[str]] = None,
              time_before_expiry: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'timeAfterCreation' in kwargs:
+        if time_after_creation is None and 'timeAfterCreation' in kwargs:
             time_after_creation = kwargs['timeAfterCreation']
-        if 'timeBeforeExpiry' in kwargs:
+        if time_before_expiry is None and 'timeBeforeExpiry' in kwargs:
             time_before_expiry = kwargs['timeBeforeExpiry']
 
         if time_after_creation is not None:
@@ -1988,28 +2040,32 @@ class KeyVaultAccessPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             object_id: pulumi.Input[str],
-             tenant_id: pulumi.Input[str],
+             object_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
              application_id: Optional[pulumi.Input[str]] = None,
              certificate_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              key_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              secret_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              storage_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'objectId' in kwargs:
+        if object_id is None and 'objectId' in kwargs:
             object_id = kwargs['objectId']
-        if 'tenantId' in kwargs:
+        if object_id is None:
+            raise TypeError("Missing 'object_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
-        if 'applicationId' in kwargs:
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if application_id is None and 'applicationId' in kwargs:
             application_id = kwargs['applicationId']
-        if 'certificatePermissions' in kwargs:
+        if certificate_permissions is None and 'certificatePermissions' in kwargs:
             certificate_permissions = kwargs['certificatePermissions']
-        if 'keyPermissions' in kwargs:
+        if key_permissions is None and 'keyPermissions' in kwargs:
             key_permissions = kwargs['keyPermissions']
-        if 'secretPermissions' in kwargs:
+        if secret_permissions is None and 'secretPermissions' in kwargs:
             secret_permissions = kwargs['secretPermissions']
-        if 'storagePermissions' in kwargs:
+        if storage_permissions is None and 'storagePermissions' in kwargs:
             storage_permissions = kwargs['storagePermissions']
 
         _setter("object_id", object_id)
@@ -2130,11 +2186,13 @@ class KeyVaultContactArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             email: pulumi.Input[str],
+             email: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              phone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if email is None:
+            raise TypeError("Missing 'email' argument")
 
         _setter("email", email)
         if name is not None:
@@ -2202,17 +2260,21 @@ class KeyVaultNetworkAclsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bypass: pulumi.Input[str],
-             default_action: pulumi.Input[str],
+             bypass: Optional[pulumi.Input[str]] = None,
+             default_action: Optional[pulumi.Input[str]] = None,
              ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              virtual_network_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'defaultAction' in kwargs:
+        if bypass is None:
+            raise TypeError("Missing 'bypass' argument")
+        if default_action is None and 'defaultAction' in kwargs:
             default_action = kwargs['defaultAction']
-        if 'ipRules' in kwargs:
+        if default_action is None:
+            raise TypeError("Missing 'default_action' argument")
+        if ip_rules is None and 'ipRules' in kwargs:
             ip_rules = kwargs['ipRules']
-        if 'virtualNetworkSubnetIds' in kwargs:
+        if virtual_network_subnet_ids is None and 'virtualNetworkSubnetIds' in kwargs:
             virtual_network_subnet_ids = kwargs['virtualNetworkSubnetIds']
 
         _setter("bypass", bypass)
@@ -2288,12 +2350,16 @@ class ManagedHardwareSecurityModuleNetworkAclsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bypass: pulumi.Input[str],
-             default_action: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             bypass: Optional[pulumi.Input[str]] = None,
+             default_action: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'defaultAction' in kwargs:
+        if bypass is None:
+            raise TypeError("Missing 'bypass' argument")
+        if default_action is None and 'defaultAction' in kwargs:
             default_action = kwargs['defaultAction']
+        if default_action is None:
+            raise TypeError("Missing 'default_action' argument")
 
         _setter("bypass", bypass)
         _setter("default_action", default_action)

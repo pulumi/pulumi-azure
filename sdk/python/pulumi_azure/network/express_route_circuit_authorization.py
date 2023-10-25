@@ -32,15 +32,19 @@ class ExpressRouteCircuitAuthorizationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             express_route_circuit_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             express_route_circuit_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'expressRouteCircuitName' in kwargs:
+        if express_route_circuit_name is None and 'expressRouteCircuitName' in kwargs:
             express_route_circuit_name = kwargs['expressRouteCircuitName']
-        if 'resourceGroupName' in kwargs:
+        if express_route_circuit_name is None:
+            raise TypeError("Missing 'express_route_circuit_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("express_route_circuit_name", express_route_circuit_name)
         _setter("resource_group_name", resource_group_name)
@@ -116,15 +120,15 @@ class _ExpressRouteCircuitAuthorizationState:
              express_route_circuit_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'authorizationKey' in kwargs:
+        if authorization_key is None and 'authorizationKey' in kwargs:
             authorization_key = kwargs['authorizationKey']
-        if 'authorizationUseStatus' in kwargs:
+        if authorization_use_status is None and 'authorizationUseStatus' in kwargs:
             authorization_use_status = kwargs['authorizationUseStatus']
-        if 'expressRouteCircuitName' in kwargs:
+        if express_route_circuit_name is None and 'expressRouteCircuitName' in kwargs:
             express_route_circuit_name = kwargs['expressRouteCircuitName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if authorization_key is not None:
@@ -211,32 +215,6 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
         """
         Manages an ExpressRoute Circuit Authorization.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_express_route_circuit = azure.network.ExpressRouteCircuit("exampleExpressRouteCircuit",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            service_provider_name="Equinix",
-            peering_location="Silicon Valley",
-            bandwidth_in_mbps=50,
-            sku=azure.network.ExpressRouteCircuitSkuArgs(
-                tier="Standard",
-                family="MeteredData",
-            ),
-            allow_classic_operations=False,
-            tags={
-                "environment": "Production",
-            })
-        example_express_route_circuit_authorization = azure.network.ExpressRouteCircuitAuthorization("exampleExpressRouteCircuitAuthorization",
-            express_route_circuit_name=example_express_route_circuit.name,
-            resource_group_name=example_resource_group.name)
-        ```
-
         ## Import
 
         ExpressRoute Circuit Authorizations can be imported using the `resource id`, e.g.
@@ -259,32 +237,6 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an ExpressRoute Circuit Authorization.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_express_route_circuit = azure.network.ExpressRouteCircuit("exampleExpressRouteCircuit",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            service_provider_name="Equinix",
-            peering_location="Silicon Valley",
-            bandwidth_in_mbps=50,
-            sku=azure.network.ExpressRouteCircuitSkuArgs(
-                tier="Standard",
-                family="MeteredData",
-            ),
-            allow_classic_operations=False,
-            tags={
-                "environment": "Production",
-            })
-        example_express_route_circuit_authorization = azure.network.ExpressRouteCircuitAuthorization("exampleExpressRouteCircuitAuthorization",
-            express_route_circuit_name=example_express_route_circuit.name,
-            resource_group_name=example_resource_group.name)
-        ```
 
         ## Import
 

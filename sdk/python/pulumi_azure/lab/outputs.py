@@ -83,15 +83,15 @@ class LabAutoShutdown(dict):
              idle_delay: Optional[str] = None,
              no_connect_delay: Optional[str] = None,
              shutdown_on_idle: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'disconnectDelay' in kwargs:
+        if disconnect_delay is None and 'disconnectDelay' in kwargs:
             disconnect_delay = kwargs['disconnectDelay']
-        if 'idleDelay' in kwargs:
+        if idle_delay is None and 'idleDelay' in kwargs:
             idle_delay = kwargs['idleDelay']
-        if 'noConnectDelay' in kwargs:
+        if no_connect_delay is None and 'noConnectDelay' in kwargs:
             no_connect_delay = kwargs['noConnectDelay']
-        if 'shutdownOnIdle' in kwargs:
+        if shutdown_on_idle is None and 'shutdownOnIdle' in kwargs:
             shutdown_on_idle = kwargs['shutdownOnIdle']
 
         if disconnect_delay is not None:
@@ -184,11 +184,11 @@ class LabConnectionSetting(dict):
              _setter: Callable[[Any, Any], None],
              client_rdp_access: Optional[str] = None,
              client_ssh_access: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'clientRdpAccess' in kwargs:
+        if client_rdp_access is None and 'clientRdpAccess' in kwargs:
             client_rdp_access = kwargs['clientRdpAccess']
-        if 'clientSshAccess' in kwargs:
+        if client_ssh_access is None and 'clientSshAccess' in kwargs:
             client_ssh_access = kwargs['clientSshAccess']
 
         if client_rdp_access is not None:
@@ -261,13 +261,13 @@ class LabNetwork(dict):
              load_balancer_id: Optional[str] = None,
              public_ip_id: Optional[str] = None,
              subnet_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'loadBalancerId' in kwargs:
+        if load_balancer_id is None and 'loadBalancerId' in kwargs:
             load_balancer_id = kwargs['loadBalancerId']
-        if 'publicIpId' in kwargs:
+        if public_ip_id is None and 'publicIpId' in kwargs:
             public_ip_id = kwargs['publicIpId']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
 
         if load_balancer_id is not None:
@@ -358,17 +358,17 @@ class LabRoster(dict):
              lti_client_id: Optional[str] = None,
              lti_context_id: Optional[str] = None,
              lti_roster_endpoint: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'activeDirectoryGroupId' in kwargs:
+        if active_directory_group_id is None and 'activeDirectoryGroupId' in kwargs:
             active_directory_group_id = kwargs['activeDirectoryGroupId']
-        if 'lmsInstance' in kwargs:
+        if lms_instance is None and 'lmsInstance' in kwargs:
             lms_instance = kwargs['lmsInstance']
-        if 'ltiClientId' in kwargs:
+        if lti_client_id is None and 'ltiClientId' in kwargs:
             lti_client_id = kwargs['ltiClientId']
-        if 'ltiContextId' in kwargs:
+        if lti_context_id is None and 'ltiContextId' in kwargs:
             lti_context_id = kwargs['ltiContextId']
-        if 'ltiRosterEndpoint' in kwargs:
+        if lti_roster_endpoint is None and 'ltiRosterEndpoint' in kwargs:
             lti_roster_endpoint = kwargs['ltiRosterEndpoint']
 
         if active_directory_group_id is not None:
@@ -459,13 +459,15 @@ class LabSecurity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             open_access_enabled: bool,
+             open_access_enabled: Optional[bool] = None,
              registration_code: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'openAccessEnabled' in kwargs:
+        if open_access_enabled is None and 'openAccessEnabled' in kwargs:
             open_access_enabled = kwargs['openAccessEnabled']
-        if 'registrationCode' in kwargs:
+        if open_access_enabled is None:
+            raise TypeError("Missing 'open_access_enabled' argument")
+        if registration_code is None and 'registrationCode' in kwargs:
             registration_code = kwargs['registrationCode']
 
         _setter("open_access_enabled", open_access_enabled)
@@ -553,29 +555,35 @@ class LabVirtualMachine(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             admin_user: 'outputs.LabVirtualMachineAdminUser',
-             image_reference: 'outputs.LabVirtualMachineImageReference',
-             sku: 'outputs.LabVirtualMachineSku',
+             admin_user: Optional['outputs.LabVirtualMachineAdminUser'] = None,
+             image_reference: Optional['outputs.LabVirtualMachineImageReference'] = None,
+             sku: Optional['outputs.LabVirtualMachineSku'] = None,
              additional_capability_gpu_drivers_installed: Optional[bool] = None,
              create_option: Optional[str] = None,
              non_admin_user: Optional['outputs.LabVirtualMachineNonAdminUser'] = None,
              shared_password_enabled: Optional[bool] = None,
              usage_quota: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'adminUser' in kwargs:
+        if admin_user is None and 'adminUser' in kwargs:
             admin_user = kwargs['adminUser']
-        if 'imageReference' in kwargs:
+        if admin_user is None:
+            raise TypeError("Missing 'admin_user' argument")
+        if image_reference is None and 'imageReference' in kwargs:
             image_reference = kwargs['imageReference']
-        if 'additionalCapabilityGpuDriversInstalled' in kwargs:
+        if image_reference is None:
+            raise TypeError("Missing 'image_reference' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if additional_capability_gpu_drivers_installed is None and 'additionalCapabilityGpuDriversInstalled' in kwargs:
             additional_capability_gpu_drivers_installed = kwargs['additionalCapabilityGpuDriversInstalled']
-        if 'createOption' in kwargs:
+        if create_option is None and 'createOption' in kwargs:
             create_option = kwargs['createOption']
-        if 'nonAdminUser' in kwargs:
+        if non_admin_user is None and 'nonAdminUser' in kwargs:
             non_admin_user = kwargs['nonAdminUser']
-        if 'sharedPasswordEnabled' in kwargs:
+        if shared_password_enabled is None and 'sharedPasswordEnabled' in kwargs:
             shared_password_enabled = kwargs['sharedPasswordEnabled']
-        if 'usageQuota' in kwargs:
+        if usage_quota is None and 'usageQuota' in kwargs:
             usage_quota = kwargs['usageQuota']
 
         _setter("admin_user", admin_user)
@@ -674,10 +682,14 @@ class LabVirtualMachineAdminUser(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             password: str,
-             username: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             password: Optional[str] = None,
+             username: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
 
         _setter("password", password)
         _setter("username", username)
@@ -730,7 +742,7 @@ class LabVirtualMachineImageReference(dict):
              publisher: Optional[str] = None,
              sku: Optional[str] = None,
              version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
 
         if id is not None:
@@ -802,10 +814,14 @@ class LabVirtualMachineNonAdminUser(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             password: str,
-             username: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             password: Optional[str] = None,
+             username: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
 
         _setter("password", password)
         _setter("username", username)
@@ -846,10 +862,14 @@ class LabVirtualMachineSku(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             capacity: int,
-             name: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             capacity: Optional[int] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if capacity is None:
+            raise TypeError("Missing 'capacity' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("capacity", capacity)
         _setter("name", name)
@@ -915,15 +935,19 @@ class ScheduleRecurrence(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             expiration_date: str,
-             frequency: str,
+             expiration_date: Optional[str] = None,
+             frequency: Optional[str] = None,
              interval: Optional[int] = None,
              week_days: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'expirationDate' in kwargs:
+        if expiration_date is None and 'expirationDate' in kwargs:
             expiration_date = kwargs['expirationDate']
-        if 'weekDays' in kwargs:
+        if expiration_date is None:
+            raise TypeError("Missing 'expiration_date' argument")
+        if frequency is None:
+            raise TypeError("Missing 'frequency' argument")
+        if week_days is None and 'weekDays' in kwargs:
             week_days = kwargs['weekDays']
 
         _setter("expiration_date", expiration_date)
@@ -1018,15 +1042,15 @@ class ServicePlanDefaultAutoShutdown(dict):
              idle_delay: Optional[str] = None,
              no_connect_delay: Optional[str] = None,
              shutdown_on_idle: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'disconnectDelay' in kwargs:
+        if disconnect_delay is None and 'disconnectDelay' in kwargs:
             disconnect_delay = kwargs['disconnectDelay']
-        if 'idleDelay' in kwargs:
+        if idle_delay is None and 'idleDelay' in kwargs:
             idle_delay = kwargs['idleDelay']
-        if 'noConnectDelay' in kwargs:
+        if no_connect_delay is None and 'noConnectDelay' in kwargs:
             no_connect_delay = kwargs['noConnectDelay']
-        if 'shutdownOnIdle' in kwargs:
+        if shutdown_on_idle is None and 'shutdownOnIdle' in kwargs:
             shutdown_on_idle = kwargs['shutdownOnIdle']
 
         if disconnect_delay is not None:
@@ -1131,15 +1155,15 @@ class ServicePlanDefaultConnection(dict):
              client_ssh_access: Optional[str] = None,
              web_rdp_access: Optional[str] = None,
              web_ssh_access: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'clientRdpAccess' in kwargs:
+        if client_rdp_access is None and 'clientRdpAccess' in kwargs:
             client_rdp_access = kwargs['clientRdpAccess']
-        if 'clientSshAccess' in kwargs:
+        if client_ssh_access is None and 'clientSshAccess' in kwargs:
             client_ssh_access = kwargs['clientSshAccess']
-        if 'webRdpAccess' in kwargs:
+        if web_rdp_access is None and 'webRdpAccess' in kwargs:
             web_rdp_access = kwargs['webRdpAccess']
-        if 'webSshAccess' in kwargs:
+        if web_ssh_access is None and 'webSshAccess' in kwargs:
             web_ssh_access = kwargs['webSshAccess']
 
         if client_rdp_access is not None:
@@ -1219,7 +1243,7 @@ class ServicePlanSupport(dict):
              instructions: Optional[str] = None,
              phone: Optional[str] = None,
              url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
 
         if email is not None:

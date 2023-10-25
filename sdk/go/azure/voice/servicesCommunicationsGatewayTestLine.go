@@ -15,51 +15,6 @@ import (
 
 // Manages a Voice Services Communications Gateway Test Line.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/voice"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Central US"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleServicesCommunicationsGateway, err := voice.NewServicesCommunicationsGateway(ctx, "exampleServicesCommunicationsGateway", &voice.ServicesCommunicationsGatewayArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = voice.NewServicesCommunicationsGatewayTestLine(ctx, "exampleServicesCommunicationsGatewayTestLine", &voice.ServicesCommunicationsGatewayTestLineArgs{
-//				Location:                             pulumi.String("West Central US"),
-//				VoiceServicesCommunicationsGatewayId: exampleServicesCommunicationsGateway.ID(),
-//				PhoneNumber:                          pulumi.String("123456789"),
-//				Purpose:                              pulumi.String("Automated"),
-//				Tags: pulumi.StringMap{
-//					"key": pulumi.String("value"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Voice Services Communications Gateway Test Line can be imported using the `resource id`, e.g.

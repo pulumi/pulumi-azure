@@ -7,28 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Logic App Integration Account Session.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleIntegrationAccount = new azure.logicapps.IntegrationAccount("exampleIntegrationAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "Basic",
- * });
- * const exampleIntegrationAccountSession = new azure.logicapps.IntegrationAccountSession("exampleIntegrationAccountSession", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     integrationAccountName: exampleIntegrationAccount.name,
- *     content: ` {
- *        "controlNumber": "1234"
- *     }
- * `,
- * });
- * ```
- *
  * ## Import
  *
  * Logic App Integration Account Sessions can be imported using the `resource id`, e.g.

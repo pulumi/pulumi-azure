@@ -59,31 +59,47 @@ class ReferenceInputMssqlArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database: pulumi.Input[str],
-             full_snapshot_query: pulumi.Input[str],
-             password: pulumi.Input[str],
-             refresh_type: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             server: pulumi.Input[str],
-             stream_analytics_job_name: pulumi.Input[str],
-             username: pulumi.Input[str],
+             database: Optional[pulumi.Input[str]] = None,
+             full_snapshot_query: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             refresh_type: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             server: Optional[pulumi.Input[str]] = None,
+             stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
              delta_snapshot_query: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              refresh_interval_duration: Optional[pulumi.Input[str]] = None,
              table: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'fullSnapshotQuery' in kwargs:
+        if database is None:
+            raise TypeError("Missing 'database' argument")
+        if full_snapshot_query is None and 'fullSnapshotQuery' in kwargs:
             full_snapshot_query = kwargs['fullSnapshotQuery']
-        if 'refreshType' in kwargs:
+        if full_snapshot_query is None:
+            raise TypeError("Missing 'full_snapshot_query' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if refresh_type is None and 'refreshType' in kwargs:
             refresh_type = kwargs['refreshType']
-        if 'resourceGroupName' in kwargs:
+        if refresh_type is None:
+            raise TypeError("Missing 'refresh_type' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'streamAnalyticsJobName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if server is None:
+            raise TypeError("Missing 'server' argument")
+        if stream_analytics_job_name is None and 'streamAnalyticsJobName' in kwargs:
             stream_analytics_job_name = kwargs['streamAnalyticsJobName']
-        if 'deltaSnapshotQuery' in kwargs:
+        if stream_analytics_job_name is None:
+            raise TypeError("Missing 'stream_analytics_job_name' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+        if delta_snapshot_query is None and 'deltaSnapshotQuery' in kwargs:
             delta_snapshot_query = kwargs['deltaSnapshotQuery']
-        if 'refreshIntervalDuration' in kwargs:
+        if refresh_interval_duration is None and 'refreshIntervalDuration' in kwargs:
             refresh_interval_duration = kwargs['refreshIntervalDuration']
 
         _setter("database", database)
@@ -308,19 +324,19 @@ class _ReferenceInputMssqlState:
              stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
              table: Optional[pulumi.Input[str]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'deltaSnapshotQuery' in kwargs:
+        if delta_snapshot_query is None and 'deltaSnapshotQuery' in kwargs:
             delta_snapshot_query = kwargs['deltaSnapshotQuery']
-        if 'fullSnapshotQuery' in kwargs:
+        if full_snapshot_query is None and 'fullSnapshotQuery' in kwargs:
             full_snapshot_query = kwargs['fullSnapshotQuery']
-        if 'refreshIntervalDuration' in kwargs:
+        if refresh_interval_duration is None and 'refreshIntervalDuration' in kwargs:
             refresh_interval_duration = kwargs['refreshIntervalDuration']
-        if 'refreshType' in kwargs:
+        if refresh_type is None and 'refreshType' in kwargs:
             refresh_type = kwargs['refreshType']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'streamAnalyticsJobName' in kwargs:
+        if stream_analytics_job_name is None and 'streamAnalyticsJobName' in kwargs:
             stream_analytics_job_name = kwargs['streamAnalyticsJobName']
 
         if database is not None:
@@ -514,37 +530,6 @@ class ReferenceInputMssql(pulumi.CustomResource):
         """
         Manages a Stream Analytics Reference Input from MS SQL. Reference data (also known as a lookup table) is a finite data set that is static or slowly changing in nature, used to perform a lookup or to correlate with your data stream. Learn more [here](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-use-reference-data#azure-sql-database).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_job = azure.streamanalytics.get_job_output(name="example-job",
-            resource_group_name=example_resource_group.name)
-        example_server = azure.mssql.Server("exampleServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            version="12.0",
-            administrator_login="admin",
-            administrator_login_password="password")
-        example_database = azure.mssql.Database("exampleDatabase", server_id=example_server.id)
-        example_reference_input_mssql = azure.streamanalytics.ReferenceInputMssql("exampleReferenceInputMssql",
-            resource_group_name=example_job.resource_group_name,
-            stream_analytics_job_name=example_job.name,
-            server=example_server.fully_qualified_domain_name,
-            database=example_database.name,
-            username="exampleuser",
-            password="examplepassword",
-            refresh_type="RefreshPeriodicallyWithFull",
-            refresh_interval_duration="00:20:00",
-            full_snapshot_query=\"\"\"    SELECT *
-            INTO [YourOutputAlias]
-            FROM [YourInputAlias]
-        \"\"\")
-        ```
-
         ## Import
 
         Stream Analytics can be imported using the `resource id`, e.g.
@@ -576,37 +561,6 @@ class ReferenceInputMssql(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Stream Analytics Reference Input from MS SQL. Reference data (also known as a lookup table) is a finite data set that is static or slowly changing in nature, used to perform a lookup or to correlate with your data stream. Learn more [here](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-use-reference-data#azure-sql-database).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_job = azure.streamanalytics.get_job_output(name="example-job",
-            resource_group_name=example_resource_group.name)
-        example_server = azure.mssql.Server("exampleServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            version="12.0",
-            administrator_login="admin",
-            administrator_login_password="password")
-        example_database = azure.mssql.Database("exampleDatabase", server_id=example_server.id)
-        example_reference_input_mssql = azure.streamanalytics.ReferenceInputMssql("exampleReferenceInputMssql",
-            resource_group_name=example_job.resource_group_name,
-            stream_analytics_job_name=example_job.name,
-            server=example_server.fully_qualified_domain_name,
-            database=example_database.name,
-            username="exampleuser",
-            password="examplepassword",
-            refresh_type="RefreshPeriodicallyWithFull",
-            refresh_interval_duration="00:20:00",
-            full_snapshot_query=\"\"\"    SELECT *
-            INTO [YourOutputAlias]
-            FROM [YourInputAlias]
-        \"\"\")
-        ```
 
         ## Import
 

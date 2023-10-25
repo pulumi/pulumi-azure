@@ -34,13 +34,17 @@ class TriggerCustomArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             body: pulumi.Input[str],
-             logic_app_id: pulumi.Input[str],
+             body: Optional[pulumi.Input[str]] = None,
+             logic_app_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'logicAppId' in kwargs:
+        if body is None:
+            raise TypeError("Missing 'body' argument")
+        if logic_app_id is None and 'logicAppId' in kwargs:
             logic_app_id = kwargs['logicAppId']
+        if logic_app_id is None:
+            raise TypeError("Missing 'logic_app_id' argument")
 
         _setter("body", body)
         _setter("logic_app_id", logic_app_id)
@@ -112,9 +116,9 @@ class _TriggerCustomState:
              body: Optional[pulumi.Input[str]] = None,
              logic_app_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'logicAppId' in kwargs:
+        if logic_app_id is None and 'logicAppId' in kwargs:
             logic_app_id = kwargs['logicAppId']
 
         if body is not None:
@@ -175,28 +179,6 @@ class TriggerCustom(pulumi.CustomResource):
         """
         Manages a Custom Trigger within a Logic App Workflow
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_workflow = azure.logicapps.Workflow("exampleWorkflow",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_trigger_custom = azure.logicapps.TriggerCustom("exampleTriggerCustom",
-            logic_app_id=example_workflow.id,
-            body=\"\"\"{
-          "recurrence": {
-            "frequency": "Day",
-            "interval": 1
-          },
-          "type": "Recurrence"
-        }
-        \"\"\")
-        ```
-
         ## Import
 
         Logic App Custom Triggers can be imported using the `resource id`, e.g.
@@ -221,28 +203,6 @@ class TriggerCustom(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Custom Trigger within a Logic App Workflow
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_workflow = azure.logicapps.Workflow("exampleWorkflow",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_trigger_custom = azure.logicapps.TriggerCustom("exampleTriggerCustom",
-            logic_app_id=example_workflow.id,
-            body=\"\"\"{
-          "recurrence": {
-            "frequency": "Day",
-            "interval": 1
-          },
-          "type": "Recurrence"
-        }
-        \"\"\")
-        ```
 
         ## Import
 

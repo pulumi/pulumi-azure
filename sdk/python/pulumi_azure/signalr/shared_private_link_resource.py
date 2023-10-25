@@ -40,20 +40,26 @@ class SharedPrivateLinkResourceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             signalr_service_id: pulumi.Input[str],
-             sub_resource_name: pulumi.Input[str],
-             target_resource_id: pulumi.Input[str],
+             signalr_service_id: Optional[pulumi.Input[str]] = None,
+             sub_resource_name: Optional[pulumi.Input[str]] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              request_message: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'signalrServiceId' in kwargs:
+        if signalr_service_id is None and 'signalrServiceId' in kwargs:
             signalr_service_id = kwargs['signalrServiceId']
-        if 'subResourceName' in kwargs:
+        if signalr_service_id is None:
+            raise TypeError("Missing 'signalr_service_id' argument")
+        if sub_resource_name is None and 'subResourceName' in kwargs:
             sub_resource_name = kwargs['subResourceName']
-        if 'targetResourceId' in kwargs:
+        if sub_resource_name is None:
+            raise TypeError("Missing 'sub_resource_name' argument")
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
-        if 'requestMessage' in kwargs:
+        if target_resource_id is None:
+            raise TypeError("Missing 'target_resource_id' argument")
+        if request_message is None and 'requestMessage' in kwargs:
             request_message = kwargs['requestMessage']
 
         _setter("signalr_service_id", signalr_service_id)
@@ -165,15 +171,15 @@ class _SharedPrivateLinkResourceState:
              status: Optional[pulumi.Input[str]] = None,
              sub_resource_name: Optional[pulumi.Input[str]] = None,
              target_resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'requestMessage' in kwargs:
+        if request_message is None and 'requestMessage' in kwargs:
             request_message = kwargs['requestMessage']
-        if 'signalrServiceId' in kwargs:
+        if signalr_service_id is None and 'signalrServiceId' in kwargs:
             signalr_service_id = kwargs['signalrServiceId']
-        if 'subResourceName' in kwargs:
+        if sub_resource_name is None and 'subResourceName' in kwargs:
             sub_resource_name = kwargs['subResourceName']
-        if 'targetResourceId' in kwargs:
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
 
         if name is not None:
@@ -278,40 +284,6 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
         """
         Manages the Shared Private Link Resource for a Signalr service.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="east us")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="standard",
-            soft_delete_retention_days=7,
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
-                tenant_id=current.tenant_id,
-                object_id=current.object_id,
-                certificate_permissions=["ManageContacts"],
-                key_permissions=["Create"],
-                secret_permissions=["Set"],
-            )])
-        test = azure.signalr.Service("test",
-            location=azurerm_resource_group["test"]["location"],
-            resource_group_name=azurerm_resource_group["test"]["name"],
-            sku=azure.signalr.ServiceSkuArgs(
-                name="Standard_S1",
-                capacity=1,
-            ))
-        example_shared_private_link_resource = azure.signalr.SharedPrivateLinkResource("exampleSharedPrivateLinkResource",
-            signalr_service_id=azurerm_signalr_service["example"]["id"],
-            sub_resource_name="vault",
-            target_resource_id=example_key_vault.id)
-        ```
-
         ## Import
 
         Signalr Shared Private Link Resource can be imported using the `resource id`, e.g.
@@ -338,40 +310,6 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages the Shared Private Link Resource for a Signalr service.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="east us")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="standard",
-            soft_delete_retention_days=7,
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
-                tenant_id=current.tenant_id,
-                object_id=current.object_id,
-                certificate_permissions=["ManageContacts"],
-                key_permissions=["Create"],
-                secret_permissions=["Set"],
-            )])
-        test = azure.signalr.Service("test",
-            location=azurerm_resource_group["test"]["location"],
-            resource_group_name=azurerm_resource_group["test"]["name"],
-            sku=azure.signalr.ServiceSkuArgs(
-                name="Standard_S1",
-                capacity=1,
-            ))
-        example_shared_private_link_resource = azure.signalr.SharedPrivateLinkResource("exampleSharedPrivateLinkResource",
-            signalr_service_id=azurerm_signalr_service["example"]["id"],
-            sub_resource_name="vault",
-            target_resource_id=example_key_vault.id)
-        ```
 
         ## Import
 

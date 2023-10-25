@@ -7,32 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a API Management Gateway API.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleService = azure.apimanagement.getService({
- *     name: "example-api",
- *     resourceGroupName: "example-resources",
- * });
- * const exampleApi = Promise.all([exampleService, exampleService]).then(([exampleService, exampleService1]) => azure.apimanagement.getApi({
- *     name: "search-api",
- *     apiManagementName: exampleService.name,
- *     resourceGroupName: exampleService1.resourceGroupName,
- *     revision: "2",
- * }));
- * const exampleGateway = exampleService.then(exampleService => azure.apimanagement.getGateway({
- *     name: "example-gateway",
- *     apiManagementId: exampleService.id,
- * }));
- * const exampleGatewayApi = new azure.apimanagement.GatewayApi("exampleGatewayApi", {
- *     gatewayId: exampleGateway.then(exampleGateway => exampleGateway.id),
- *     apiId: exampleApi.then(exampleApi => exampleApi.id),
- * });
- * ```
- *
  * ## Import
  *
  * API Management Gateway APIs can be imported using the `resource id`, e.g.

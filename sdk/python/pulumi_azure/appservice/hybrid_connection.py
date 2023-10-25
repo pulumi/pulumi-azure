@@ -41,21 +41,31 @@ class HybridConnectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_service_name: pulumi.Input[str],
-             hostname: pulumi.Input[str],
-             port: pulumi.Input[int],
-             relay_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             app_service_name: Optional[pulumi.Input[str]] = None,
+             hostname: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             relay_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              send_key_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'appServiceName' in kwargs:
+        if app_service_name is None and 'appServiceName' in kwargs:
             app_service_name = kwargs['appServiceName']
-        if 'relayId' in kwargs:
+        if app_service_name is None:
+            raise TypeError("Missing 'app_service_name' argument")
+        if hostname is None:
+            raise TypeError("Missing 'hostname' argument")
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if relay_id is None and 'relayId' in kwargs:
             relay_id = kwargs['relayId']
-        if 'resourceGroupName' in kwargs:
+        if relay_id is None:
+            raise TypeError("Missing 'relay_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'sendKeyName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if send_key_name is None and 'sendKeyName' in kwargs:
             send_key_name = kwargs['sendKeyName']
 
         _setter("app_service_name", app_service_name)
@@ -194,25 +204,25 @@ class _HybridConnectionState:
              send_key_value: Optional[pulumi.Input[str]] = None,
              service_bus_namespace: Optional[pulumi.Input[str]] = None,
              service_bus_suffix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'appServiceName' in kwargs:
+        if app_service_name is None and 'appServiceName' in kwargs:
             app_service_name = kwargs['appServiceName']
-        if 'namespaceName' in kwargs:
+        if namespace_name is None and 'namespaceName' in kwargs:
             namespace_name = kwargs['namespaceName']
-        if 'relayId' in kwargs:
+        if relay_id is None and 'relayId' in kwargs:
             relay_id = kwargs['relayId']
-        if 'relayName' in kwargs:
+        if relay_name is None and 'relayName' in kwargs:
             relay_name = kwargs['relayName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'sendKeyName' in kwargs:
+        if send_key_name is None and 'sendKeyName' in kwargs:
             send_key_name = kwargs['sendKeyName']
-        if 'sendKeyValue' in kwargs:
+        if send_key_value is None and 'sendKeyValue' in kwargs:
             send_key_value = kwargs['sendKeyValue']
-        if 'serviceBusNamespace' in kwargs:
+        if service_bus_namespace is None and 'serviceBusNamespace' in kwargs:
             service_bus_namespace = kwargs['serviceBusNamespace']
-        if 'serviceBusSuffix' in kwargs:
+        if service_bus_suffix is None and 'serviceBusSuffix' in kwargs:
             service_bus_suffix = kwargs['serviceBusSuffix']
 
         if app_service_name is not None:
@@ -385,43 +395,6 @@ class HybridConnection(pulumi.CustomResource):
 
         !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `appservice.FunctionAppHybridConnection` resources instead.
 
-        ## Example Usage
-
-        This example provisions an App Service, a Relay Hybrid Connection, and a Service Bus using their outputs to create the App Service Hybrid Connection.
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_plan = azure.appservice.Plan("examplePlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Standard",
-                size="S1",
-            ))
-        example_app_service = azure.appservice.AppService("exampleAppService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            app_service_plan_id=example_plan.id)
-        example_namespace = azure.relay.Namespace("exampleNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Standard")
-        example_hybrid_connection = azure.relay.HybridConnection("exampleHybridConnection",
-            resource_group_name=example_resource_group.name,
-            relay_namespace_name=example_namespace.name,
-            user_metadata="examplemetadata")
-        example_appservice_hybrid_connection_hybrid_connection = azure.appservice.HybridConnection("exampleAppservice/hybridConnectionHybridConnection",
-            app_service_name=example_app_service.name,
-            resource_group_name=example_resource_group.name,
-            relay_id=example_hybrid_connection.id,
-            hostname="testhostname.example",
-            port=8080,
-            send_key_name="exampleSharedAccessKey")
-        ```
-
         ## Import
 
         App Service Hybrid Connections can be imported using the `resource id`, e.g.
@@ -449,43 +422,6 @@ class HybridConnection(pulumi.CustomResource):
         Manages an App Service Hybrid Connection for an existing App Service, Relay and Service Bus.
 
         !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `appservice.FunctionAppHybridConnection` resources instead.
-
-        ## Example Usage
-
-        This example provisions an App Service, a Relay Hybrid Connection, and a Service Bus using their outputs to create the App Service Hybrid Connection.
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_plan = azure.appservice.Plan("examplePlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Standard",
-                size="S1",
-            ))
-        example_app_service = azure.appservice.AppService("exampleAppService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            app_service_plan_id=example_plan.id)
-        example_namespace = azure.relay.Namespace("exampleNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Standard")
-        example_hybrid_connection = azure.relay.HybridConnection("exampleHybridConnection",
-            resource_group_name=example_resource_group.name,
-            relay_namespace_name=example_namespace.name,
-            user_metadata="examplemetadata")
-        example_appservice_hybrid_connection_hybrid_connection = azure.appservice.HybridConnection("exampleAppservice/hybridConnectionHybridConnection",
-            app_service_name=example_app_service.name,
-            resource_group_name=example_resource_group.name,
-            relay_id=example_hybrid_connection.id,
-            hostname="testhostname.example",
-            port=8080,
-            send_key_name="exampleSharedAccessKey")
-        ```
 
         ## Import
 

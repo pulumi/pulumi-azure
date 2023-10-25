@@ -13,34 +13,6 @@ import (
 )
 
 // Use this data source to access information about an existing Data Collection Rule.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := monitoring.LookupDataCollectionRule(ctx, &monitoring.LookupDataCollectionRuleArgs{
-//				Name:              "example-rule",
-//				ResourceGroupName: azurerm_resource_group.Example.Name,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("ruleId", example.Id)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupDataCollectionRule(ctx *pulumi.Context, args *LookupDataCollectionRuleArgs, opts ...pulumi.InvokeOption) (*LookupDataCollectionRuleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDataCollectionRuleResult

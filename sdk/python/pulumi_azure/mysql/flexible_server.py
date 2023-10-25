@@ -102,7 +102,7 @@ class FlexibleServerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              administrator_login: Optional[pulumi.Input[str]] = None,
              administrator_password: Optional[pulumi.Input[str]] = None,
              backup_retention_days: Optional[pulumi.Input[int]] = None,
@@ -124,37 +124,39 @@ class FlexibleServerArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              version: Optional[pulumi.Input[str]] = None,
              zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'administratorLogin' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if administrator_login is None and 'administratorLogin' in kwargs:
             administrator_login = kwargs['administratorLogin']
-        if 'administratorPassword' in kwargs:
+        if administrator_password is None and 'administratorPassword' in kwargs:
             administrator_password = kwargs['administratorPassword']
-        if 'backupRetentionDays' in kwargs:
+        if backup_retention_days is None and 'backupRetentionDays' in kwargs:
             backup_retention_days = kwargs['backupRetentionDays']
-        if 'createMode' in kwargs:
+        if create_mode is None and 'createMode' in kwargs:
             create_mode = kwargs['createMode']
-        if 'customerManagedKey' in kwargs:
+        if customer_managed_key is None and 'customerManagedKey' in kwargs:
             customer_managed_key = kwargs['customerManagedKey']
-        if 'delegatedSubnetId' in kwargs:
+        if delegated_subnet_id is None and 'delegatedSubnetId' in kwargs:
             delegated_subnet_id = kwargs['delegatedSubnetId']
-        if 'geoRedundantBackupEnabled' in kwargs:
+        if geo_redundant_backup_enabled is None and 'geoRedundantBackupEnabled' in kwargs:
             geo_redundant_backup_enabled = kwargs['geoRedundantBackupEnabled']
-        if 'highAvailability' in kwargs:
+        if high_availability is None and 'highAvailability' in kwargs:
             high_availability = kwargs['highAvailability']
-        if 'maintenanceWindow' in kwargs:
+        if maintenance_window is None and 'maintenanceWindow' in kwargs:
             maintenance_window = kwargs['maintenanceWindow']
-        if 'pointInTimeRestoreTimeInUtc' in kwargs:
+        if point_in_time_restore_time_in_utc is None and 'pointInTimeRestoreTimeInUtc' in kwargs:
             point_in_time_restore_time_in_utc = kwargs['pointInTimeRestoreTimeInUtc']
-        if 'privateDnsZoneId' in kwargs:
+        if private_dns_zone_id is None and 'privateDnsZoneId' in kwargs:
             private_dns_zone_id = kwargs['privateDnsZoneId']
-        if 'replicationRole' in kwargs:
+        if replication_role is None and 'replicationRole' in kwargs:
             replication_role = kwargs['replicationRole']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'sourceServerId' in kwargs:
+        if source_server_id is None and 'sourceServerId' in kwargs:
             source_server_id = kwargs['sourceServerId']
 
         _setter("resource_group_name", resource_group_name)
@@ -598,41 +600,41 @@ class _FlexibleServerState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              version: Optional[pulumi.Input[str]] = None,
              zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'administratorLogin' in kwargs:
+        if administrator_login is None and 'administratorLogin' in kwargs:
             administrator_login = kwargs['administratorLogin']
-        if 'administratorPassword' in kwargs:
+        if administrator_password is None and 'administratorPassword' in kwargs:
             administrator_password = kwargs['administratorPassword']
-        if 'backupRetentionDays' in kwargs:
+        if backup_retention_days is None and 'backupRetentionDays' in kwargs:
             backup_retention_days = kwargs['backupRetentionDays']
-        if 'createMode' in kwargs:
+        if create_mode is None and 'createMode' in kwargs:
             create_mode = kwargs['createMode']
-        if 'customerManagedKey' in kwargs:
+        if customer_managed_key is None and 'customerManagedKey' in kwargs:
             customer_managed_key = kwargs['customerManagedKey']
-        if 'delegatedSubnetId' in kwargs:
+        if delegated_subnet_id is None and 'delegatedSubnetId' in kwargs:
             delegated_subnet_id = kwargs['delegatedSubnetId']
-        if 'geoRedundantBackupEnabled' in kwargs:
+        if geo_redundant_backup_enabled is None and 'geoRedundantBackupEnabled' in kwargs:
             geo_redundant_backup_enabled = kwargs['geoRedundantBackupEnabled']
-        if 'highAvailability' in kwargs:
+        if high_availability is None and 'highAvailability' in kwargs:
             high_availability = kwargs['highAvailability']
-        if 'maintenanceWindow' in kwargs:
+        if maintenance_window is None and 'maintenanceWindow' in kwargs:
             maintenance_window = kwargs['maintenanceWindow']
-        if 'pointInTimeRestoreTimeInUtc' in kwargs:
+        if point_in_time_restore_time_in_utc is None and 'pointInTimeRestoreTimeInUtc' in kwargs:
             point_in_time_restore_time_in_utc = kwargs['pointInTimeRestoreTimeInUtc']
-        if 'privateDnsZoneId' in kwargs:
+        if private_dns_zone_id is None and 'privateDnsZoneId' in kwargs:
             private_dns_zone_id = kwargs['privateDnsZoneId']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'replicaCapacity' in kwargs:
+        if replica_capacity is None and 'replicaCapacity' in kwargs:
             replica_capacity = kwargs['replicaCapacity']
-        if 'replicationRole' in kwargs:
+        if replication_role is None and 'replicationRole' in kwargs:
             replication_role = kwargs['replicationRole']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'sourceServerId' in kwargs:
+        if source_server_id is None and 'sourceServerId' in kwargs:
             source_server_id = kwargs['sourceServerId']
 
         if administrator_login is not None:
@@ -1027,46 +1029,6 @@ class FlexibleServer(pulumi.CustomResource):
         """
         Manages a MySQL Flexible Server.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            address_spaces=["10.0.0.0/16"])
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"],
-            service_endpoints=["Microsoft.Storage"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="fs",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.DBforMySQL/flexibleServers",
-                    actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
-                ),
-            )])
-        example_zone = azure.privatedns.Zone("exampleZone", resource_group_name=example_resource_group.name)
-        example_zone_virtual_network_link = azure.privatedns.ZoneVirtualNetworkLink("exampleZoneVirtualNetworkLink",
-            private_dns_zone_name=example_zone.name,
-            virtual_network_id=example_virtual_network.id,
-            resource_group_name=example_resource_group.name)
-        example_flexible_server = azure.mysql.FlexibleServer("exampleFlexibleServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            administrator_login="psqladmin",
-            administrator_password="H@Sh1CoR3!",
-            backup_retention_days=7,
-            delegated_subnet_id=example_subnet.id,
-            private_dns_zone_id=example_zone.id,
-            sku_name="GP_Standard_D2ds_v4",
-            opts=pulumi.ResourceOptions(depends_on=[example_zone_virtual_network_link]))
-        ```
-
         ## Import
 
         MySQL Flexible Servers can be imported using the `resource id`, e.g.
@@ -1119,46 +1081,6 @@ class FlexibleServer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a MySQL Flexible Server.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            address_spaces=["10.0.0.0/16"])
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"],
-            service_endpoints=["Microsoft.Storage"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="fs",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.DBforMySQL/flexibleServers",
-                    actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
-                ),
-            )])
-        example_zone = azure.privatedns.Zone("exampleZone", resource_group_name=example_resource_group.name)
-        example_zone_virtual_network_link = azure.privatedns.ZoneVirtualNetworkLink("exampleZoneVirtualNetworkLink",
-            private_dns_zone_name=example_zone.name,
-            virtual_network_id=example_virtual_network.id,
-            resource_group_name=example_resource_group.name)
-        example_flexible_server = azure.mysql.FlexibleServer("exampleFlexibleServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            administrator_login="psqladmin",
-            administrator_password="H@Sh1CoR3!",
-            backup_retention_days=7,
-            delegated_subnet_id=example_subnet.id,
-            private_dns_zone_id=example_zone.id,
-            sku_name="GP_Standard_D2ds_v4",
-            opts=pulumi.ResourceOptions(depends_on=[example_zone_virtual_network_link]))
-        ```
 
         ## Import
 
@@ -1222,32 +1144,16 @@ class FlexibleServer(pulumi.CustomResource):
             __props__.__dict__["administrator_password"] = None if administrator_password is None else pulumi.Output.secret(administrator_password)
             __props__.__dict__["backup_retention_days"] = backup_retention_days
             __props__.__dict__["create_mode"] = create_mode
-            if customer_managed_key is not None and not isinstance(customer_managed_key, FlexibleServerCustomerManagedKeyArgs):
-                customer_managed_key = customer_managed_key or {}
-                def _setter(key, value):
-                    customer_managed_key[key] = value
-                FlexibleServerCustomerManagedKeyArgs._configure(_setter, **customer_managed_key)
+            customer_managed_key = _utilities.configure(customer_managed_key, FlexibleServerCustomerManagedKeyArgs, True)
             __props__.__dict__["customer_managed_key"] = customer_managed_key
             __props__.__dict__["delegated_subnet_id"] = delegated_subnet_id
             __props__.__dict__["geo_redundant_backup_enabled"] = geo_redundant_backup_enabled
-            if high_availability is not None and not isinstance(high_availability, FlexibleServerHighAvailabilityArgs):
-                high_availability = high_availability or {}
-                def _setter(key, value):
-                    high_availability[key] = value
-                FlexibleServerHighAvailabilityArgs._configure(_setter, **high_availability)
+            high_availability = _utilities.configure(high_availability, FlexibleServerHighAvailabilityArgs, True)
             __props__.__dict__["high_availability"] = high_availability
-            if identity is not None and not isinstance(identity, FlexibleServerIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                FlexibleServerIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, FlexibleServerIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
-            if maintenance_window is not None and not isinstance(maintenance_window, FlexibleServerMaintenanceWindowArgs):
-                maintenance_window = maintenance_window or {}
-                def _setter(key, value):
-                    maintenance_window[key] = value
-                FlexibleServerMaintenanceWindowArgs._configure(_setter, **maintenance_window)
+            maintenance_window = _utilities.configure(maintenance_window, FlexibleServerMaintenanceWindowArgs, True)
             __props__.__dict__["maintenance_window"] = maintenance_window
             __props__.__dict__["name"] = name
             __props__.__dict__["point_in_time_restore_time_in_utc"] = point_in_time_restore_time_in_utc
@@ -1258,11 +1164,7 @@ class FlexibleServer(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["sku_name"] = sku_name
             __props__.__dict__["source_server_id"] = source_server_id
-            if storage is not None and not isinstance(storage, FlexibleServerStorageArgs):
-                storage = storage or {}
-                def _setter(key, value):
-                    storage[key] = value
-                FlexibleServerStorageArgs._configure(_setter, **storage)
+            storage = _utilities.configure(storage, FlexibleServerStorageArgs, True)
             __props__.__dict__["storage"] = storage
             __props__.__dict__["tags"] = tags
             __props__.__dict__["version"] = version

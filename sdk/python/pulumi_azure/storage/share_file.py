@@ -50,7 +50,7 @@ class ShareFileArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             storage_share_id: pulumi.Input[str],
+             storage_share_id: Optional[pulumi.Input[str]] = None,
              content_disposition: Optional[pulumi.Input[str]] = None,
              content_encoding: Optional[pulumi.Input[str]] = None,
              content_md5: Optional[pulumi.Input[str]] = None,
@@ -59,17 +59,19 @@ class ShareFileArgs:
              name: Optional[pulumi.Input[str]] = None,
              path: Optional[pulumi.Input[str]] = None,
              source: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'storageShareId' in kwargs:
+        if storage_share_id is None and 'storageShareId' in kwargs:
             storage_share_id = kwargs['storageShareId']
-        if 'contentDisposition' in kwargs:
+        if storage_share_id is None:
+            raise TypeError("Missing 'storage_share_id' argument")
+        if content_disposition is None and 'contentDisposition' in kwargs:
             content_disposition = kwargs['contentDisposition']
-        if 'contentEncoding' in kwargs:
+        if content_encoding is None and 'contentEncoding' in kwargs:
             content_encoding = kwargs['contentEncoding']
-        if 'contentMd5' in kwargs:
+        if content_md5 is None and 'contentMd5' in kwargs:
             content_md5 = kwargs['contentMd5']
-        if 'contentType' in kwargs:
+        if content_type is None and 'contentType' in kwargs:
             content_type = kwargs['contentType']
 
         _setter("storage_share_id", storage_share_id)
@@ -251,19 +253,19 @@ class _ShareFileState:
              path: Optional[pulumi.Input[str]] = None,
              source: Optional[pulumi.Input[str]] = None,
              storage_share_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'contentDisposition' in kwargs:
+        if content_disposition is None and 'contentDisposition' in kwargs:
             content_disposition = kwargs['contentDisposition']
-        if 'contentEncoding' in kwargs:
+        if content_encoding is None and 'contentEncoding' in kwargs:
             content_encoding = kwargs['contentEncoding']
-        if 'contentLength' in kwargs:
+        if content_length is None and 'contentLength' in kwargs:
             content_length = kwargs['contentLength']
-        if 'contentMd5' in kwargs:
+        if content_md5 is None and 'contentMd5' in kwargs:
             content_md5 = kwargs['contentMd5']
-        if 'contentType' in kwargs:
+        if content_type is None and 'contentType' in kwargs:
             content_type = kwargs['contentType']
-        if 'storageShareId' in kwargs:
+        if storage_share_id is None and 'storageShareId' in kwargs:
             storage_share_id = kwargs['storageShareId']
 
         if content_disposition is not None:
@@ -426,26 +428,6 @@ class ShareFile(pulumi.CustomResource):
         """
         Manages a File within an Azure Storage File Share.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_share = azure.storage.Share("exampleShare",
-            storage_account_name=example_account.name,
-            quota=50)
-        example_share_file = azure.storage.ShareFile("exampleShareFile",
-            storage_share_id=example_share.id,
-            source="some-local-file.zip")
-        ```
-
         ## Import
 
         Directories within an Azure Storage File Share can be imported using the `resource id`, e.g.
@@ -474,26 +456,6 @@ class ShareFile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a File within an Azure Storage File Share.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_share = azure.storage.Share("exampleShare",
-            storage_account_name=example_account.name,
-            quota=50)
-        example_share_file = azure.storage.ShareFile("exampleShareFile",
-            storage_share_id=example_share.id,
-            source="some-local-file.zip")
-        ```
 
         ## Import
 

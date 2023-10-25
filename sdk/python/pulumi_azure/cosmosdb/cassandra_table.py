@@ -46,22 +46,26 @@ class CassandraTableArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cassandra_keyspace_id: pulumi.Input[str],
-             schema: pulumi.Input['CassandraTableSchemaArgs'],
+             cassandra_keyspace_id: Optional[pulumi.Input[str]] = None,
+             schema: Optional[pulumi.Input['CassandraTableSchemaArgs']] = None,
              analytical_storage_ttl: Optional[pulumi.Input[int]] = None,
              autoscale_settings: Optional[pulumi.Input['CassandraTableAutoscaleSettingsArgs']] = None,
              default_ttl: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
              throughput: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'cassandraKeyspaceId' in kwargs:
+        if cassandra_keyspace_id is None and 'cassandraKeyspaceId' in kwargs:
             cassandra_keyspace_id = kwargs['cassandraKeyspaceId']
-        if 'analyticalStorageTtl' in kwargs:
+        if cassandra_keyspace_id is None:
+            raise TypeError("Missing 'cassandra_keyspace_id' argument")
+        if schema is None:
+            raise TypeError("Missing 'schema' argument")
+        if analytical_storage_ttl is None and 'analyticalStorageTtl' in kwargs:
             analytical_storage_ttl = kwargs['analyticalStorageTtl']
-        if 'autoscaleSettings' in kwargs:
+        if autoscale_settings is None and 'autoscaleSettings' in kwargs:
             autoscale_settings = kwargs['autoscaleSettings']
-        if 'defaultTtl' in kwargs:
+        if default_ttl is None and 'defaultTtl' in kwargs:
             default_ttl = kwargs['defaultTtl']
 
         _setter("cassandra_keyspace_id", cassandra_keyspace_id)
@@ -198,15 +202,15 @@ class _CassandraTableState:
              name: Optional[pulumi.Input[str]] = None,
              schema: Optional[pulumi.Input['CassandraTableSchemaArgs']] = None,
              throughput: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'analyticalStorageTtl' in kwargs:
+        if analytical_storage_ttl is None and 'analyticalStorageTtl' in kwargs:
             analytical_storage_ttl = kwargs['analyticalStorageTtl']
-        if 'autoscaleSettings' in kwargs:
+        if autoscale_settings is None and 'autoscaleSettings' in kwargs:
             autoscale_settings = kwargs['autoscaleSettings']
-        if 'cassandraKeyspaceId' in kwargs:
+        if cassandra_keyspace_id is None and 'cassandraKeyspaceId' in kwargs:
             cassandra_keyspace_id = kwargs['cassandraKeyspaceId']
-        if 'defaultTtl' in kwargs:
+        if default_ttl is None and 'defaultTtl' in kwargs:
             default_ttl = kwargs['defaultTtl']
 
         if analytical_storage_ttl is not None:
@@ -321,50 +325,6 @@ class CassandraTable(pulumi.CustomResource):
         """
         Manages a Cassandra Table within a Cosmos DB Cassandra Keyspace.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.cosmosdb.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            offer_type="Standard",
-            capabilities=[azure.cosmosdb.AccountCapabilityArgs(
-                name="EnableCassandra",
-            )],
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="Strong",
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example_resource_group.location,
-                failover_priority=0,
-            )])
-        example_cassandra_keyspace = azure.cosmosdb.CassandraKeyspace("exampleCassandraKeyspace",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name,
-            throughput=400)
-        example_cassandra_table = azure.cosmosdb.CassandraTable("exampleCassandraTable",
-            cassandra_keyspace_id=example_cassandra_keyspace.id,
-            schema=azure.cosmosdb.CassandraTableSchemaArgs(
-                columns=[
-                    azure.cosmosdb.CassandraTableSchemaColumnArgs(
-                        name="test1",
-                        type="ascii",
-                    ),
-                    azure.cosmosdb.CassandraTableSchemaColumnArgs(
-                        name="test2",
-                        type="int",
-                    ),
-                ],
-                partition_keys=[azure.cosmosdb.CassandraTableSchemaPartitionKeyArgs(
-                    name="test1",
-                )],
-            ))
-        ```
-
         ## Import
 
         Cosmos Cassandra Table can be imported using the `resource id`, e.g.
@@ -391,50 +351,6 @@ class CassandraTable(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Cassandra Table within a Cosmos DB Cassandra Keyspace.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.cosmosdb.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            offer_type="Standard",
-            capabilities=[azure.cosmosdb.AccountCapabilityArgs(
-                name="EnableCassandra",
-            )],
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="Strong",
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example_resource_group.location,
-                failover_priority=0,
-            )])
-        example_cassandra_keyspace = azure.cosmosdb.CassandraKeyspace("exampleCassandraKeyspace",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name,
-            throughput=400)
-        example_cassandra_table = azure.cosmosdb.CassandraTable("exampleCassandraTable",
-            cassandra_keyspace_id=example_cassandra_keyspace.id,
-            schema=azure.cosmosdb.CassandraTableSchemaArgs(
-                columns=[
-                    azure.cosmosdb.CassandraTableSchemaColumnArgs(
-                        name="test1",
-                        type="ascii",
-                    ),
-                    azure.cosmosdb.CassandraTableSchemaColumnArgs(
-                        name="test2",
-                        type="int",
-                    ),
-                ],
-                partition_keys=[azure.cosmosdb.CassandraTableSchemaPartitionKeyArgs(
-                    name="test1",
-                )],
-            ))
-        ```
 
         ## Import
 
@@ -480,22 +396,14 @@ class CassandraTable(pulumi.CustomResource):
             __props__ = CassandraTableArgs.__new__(CassandraTableArgs)
 
             __props__.__dict__["analytical_storage_ttl"] = analytical_storage_ttl
-            if autoscale_settings is not None and not isinstance(autoscale_settings, CassandraTableAutoscaleSettingsArgs):
-                autoscale_settings = autoscale_settings or {}
-                def _setter(key, value):
-                    autoscale_settings[key] = value
-                CassandraTableAutoscaleSettingsArgs._configure(_setter, **autoscale_settings)
+            autoscale_settings = _utilities.configure(autoscale_settings, CassandraTableAutoscaleSettingsArgs, True)
             __props__.__dict__["autoscale_settings"] = autoscale_settings
             if cassandra_keyspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'cassandra_keyspace_id'")
             __props__.__dict__["cassandra_keyspace_id"] = cassandra_keyspace_id
             __props__.__dict__["default_ttl"] = default_ttl
             __props__.__dict__["name"] = name
-            if schema is not None and not isinstance(schema, CassandraTableSchemaArgs):
-                schema = schema or {}
-                def _setter(key, value):
-                    schema[key] = value
-                CassandraTableSchemaArgs._configure(_setter, **schema)
+            schema = _utilities.configure(schema, CassandraTableSchemaArgs, True)
             if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")
             __props__.__dict__["schema"] = schema

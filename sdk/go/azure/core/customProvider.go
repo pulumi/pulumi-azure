@@ -15,45 +15,6 @@ import (
 
 // Manages an Azure Custom Provider.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = core.NewCustomProvider(ctx, "exampleCustomProvider", &core.CustomProviderArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				ResourceTypes: core.CustomProviderResourceTypeArray{
-//					&core.CustomProviderResourceTypeArgs{
-//						Name:     pulumi.String("dEf1"),
-//						Endpoint: pulumi.String("https://testendpoint.com/"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Custom Provider can be imported using the `resource id`, e.g.

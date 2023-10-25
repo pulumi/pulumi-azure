@@ -32,15 +32,19 @@ class ApiOperationTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_operation_id: pulumi.Input[str],
-             display_name: pulumi.Input[str],
+             api_operation_id: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiOperationId' in kwargs:
+        if api_operation_id is None and 'apiOperationId' in kwargs:
             api_operation_id = kwargs['apiOperationId']
-        if 'displayName' in kwargs:
+        if api_operation_id is None:
+            raise TypeError("Missing 'api_operation_id' argument")
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
 
         _setter("api_operation_id", api_operation_id)
         _setter("display_name", display_name)
@@ -108,11 +112,11 @@ class _ApiOperationTagState:
              api_operation_id: Optional[pulumi.Input[str]] = None,
              display_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiOperationId' in kwargs:
+        if api_operation_id is None and 'apiOperationId' in kwargs:
             api_operation_id = kwargs['apiOperationId']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
 
         if api_operation_id is not None:
@@ -171,33 +175,6 @@ class ApiOperationTag(pulumi.CustomResource):
         """
         Manages a API Management API Operation Tag.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_api = azure.apimanagement.get_api(name="search-api",
-            api_management_name="search-api-management",
-            resource_group_name="search-service",
-            revision="2")
-        example_api_operation = azure.apimanagement.ApiOperation("exampleApiOperation",
-            operation_id="user-delete",
-            api_name=example_api.name,
-            api_management_name=example_api.api_management_name,
-            resource_group_name=example_api.resource_group_name,
-            display_name="Delete User Operation",
-            method="DELETE",
-            url_template="/users/{id}/delete",
-            description="This can only be done by the logged in user.",
-            responses=[azure.apimanagement.ApiOperationResponseArgs(
-                status_code=200,
-            )])
-        example_api_operation_tag = azure.apimanagement.ApiOperationTag("exampleApiOperationTag",
-            api_operation_id=example_api_operation.id,
-            display_name="example-Tag")
-        ```
-
         ## Import
 
         API Management API Operation Tags can be imported using the `resource id`, e.g.
@@ -220,33 +197,6 @@ class ApiOperationTag(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a API Management API Operation Tag.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_api = azure.apimanagement.get_api(name="search-api",
-            api_management_name="search-api-management",
-            resource_group_name="search-service",
-            revision="2")
-        example_api_operation = azure.apimanagement.ApiOperation("exampleApiOperation",
-            operation_id="user-delete",
-            api_name=example_api.name,
-            api_management_name=example_api.api_management_name,
-            resource_group_name=example_api.resource_group_name,
-            display_name="Delete User Operation",
-            method="DELETE",
-            url_template="/users/{id}/delete",
-            description="This can only be done by the logged in user.",
-            responses=[azure.apimanagement.ApiOperationResponseArgs(
-                status_code=200,
-            )])
-        example_api_operation_tag = azure.apimanagement.ApiOperationTag("exampleApiOperationTag",
-            api_operation_id=example_api_operation.id,
-            display_name="example-Tag")
-        ```
 
         ## Import
 

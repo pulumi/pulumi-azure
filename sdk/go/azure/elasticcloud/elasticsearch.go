@@ -15,42 +15,6 @@ import (
 
 // Manages an Elasticsearch in Elastic Cloud.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/elasticcloud"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testResourceGroup, err := core.NewResourceGroup(ctx, "testResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elasticcloud.NewElasticsearch(ctx, "testElasticsearch", &elasticcloud.ElasticsearchArgs{
-//				ResourceGroupName:        testResourceGroup.Name,
-//				Location:                 testResourceGroup.Location,
-//				SkuName:                  pulumi.String("ess-monthly-consumption_Monthly"),
-//				ElasticCloudEmailAddress: pulumi.String("user@example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Elasticsearch's can be imported using the `resource id`, e.g.

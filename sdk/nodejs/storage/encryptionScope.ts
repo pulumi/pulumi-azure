@@ -9,28 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **Note:** Storage Encryption Scopes are in Preview [more information can be found here](https://docs.microsoft.com/azure/storage/blobs/encryption-scope-manage).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "LRS",
- *     identity: {
- *         type: "SystemAssigned",
- *     },
- * });
- * const exampleEncryptionScope = new azure.storage.EncryptionScope("exampleEncryptionScope", {
- *     storageAccountId: exampleAccount.id,
- *     source: "Microsoft.Storage",
- * });
- * ```
- *
  * ## Import
  *
  * Storage Encryption Scopes can be imported using the `resource id`, e.g.

@@ -46,19 +46,27 @@ class DataLakeGen2PathArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             filesystem_name: pulumi.Input[str],
-             path: pulumi.Input[str],
-             resource: pulumi.Input[str],
-             storage_account_id: pulumi.Input[str],
+             filesystem_name: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             resource: Optional[pulumi.Input[str]] = None,
+             storage_account_id: Optional[pulumi.Input[str]] = None,
              aces: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeGen2PathAceArgs']]]] = None,
              group: Optional[pulumi.Input[str]] = None,
              owner: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'filesystemName' in kwargs:
+        if filesystem_name is None and 'filesystemName' in kwargs:
             filesystem_name = kwargs['filesystemName']
-        if 'storageAccountId' in kwargs:
+        if filesystem_name is None:
+            raise TypeError("Missing 'filesystem_name' argument")
+        if path is None:
+            raise TypeError("Missing 'path' argument")
+        if resource is None:
+            raise TypeError("Missing 'resource' argument")
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
+        if storage_account_id is None:
+            raise TypeError("Missing 'storage_account_id' argument")
 
         _setter("filesystem_name", filesystem_name)
         _setter("path", path)
@@ -196,11 +204,11 @@ class _DataLakeGen2PathState:
              path: Optional[pulumi.Input[str]] = None,
              resource: Optional[pulumi.Input[str]] = None,
              storage_account_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'filesystemName' in kwargs:
+        if filesystem_name is None and 'filesystemName' in kwargs:
             filesystem_name = kwargs['filesystemName']
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
 
         if aces is not None:
@@ -321,28 +329,6 @@ class DataLakeGen2Path(pulumi.CustomResource):
 
         > **NOTE:** This resource requires some `Storage` specific roles which are not granted by default. Some of the built-ins roles that can be attributed are [`Storage Account Contributor`](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor), [`Storage Blob Data Owner`](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner), [`Storage Blob Data Contributor`](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor), [`Storage Blob Data Reader`](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            account_kind="StorageV2",
-            is_hns_enabled=True)
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
-        example_data_lake_gen2_path = azure.storage.DataLakeGen2Path("exampleDataLakeGen2Path",
-            path="example",
-            filesystem_name=example_data_lake_gen2_filesystem.name,
-            storage_account_id=example_account.id,
-            resource="directory")
-        ```
-
         ## Import
 
         Data Lake Gen2 Paths can be imported using the `resource id`, e.g.
@@ -371,28 +357,6 @@ class DataLakeGen2Path(pulumi.CustomResource):
         Manages a Data Lake Gen2 Path in a File System within an Azure Storage Account.
 
         > **NOTE:** This resource requires some `Storage` specific roles which are not granted by default. Some of the built-ins roles that can be attributed are [`Storage Account Contributor`](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor), [`Storage Blob Data Owner`](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner), [`Storage Blob Data Contributor`](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor), [`Storage Blob Data Reader`](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            account_kind="StorageV2",
-            is_hns_enabled=True)
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
-        example_data_lake_gen2_path = azure.storage.DataLakeGen2Path("exampleDataLakeGen2Path",
-            path="example",
-            filesystem_name=example_data_lake_gen2_filesystem.name,
-            storage_account_id=example_account.id,
-            resource="directory")
-        ```
 
         ## Import
 

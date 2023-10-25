@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = new azure.dns.NsRecord("example", {
- *     zoneName: "test-zone",
- *     resourceGroupName: "test-rg",
- * });
- * export const dnsNsRecordId = example.id;
- * ```
- */
 export function getNsRecord(args: GetNsRecordArgs, opts?: pulumi.InvokeOptions): Promise<GetNsRecordResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -74,20 +60,6 @@ export interface GetNsRecordResult {
     readonly ttl: number;
     readonly zoneName: string;
 }
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = new azure.dns.NsRecord("example", {
- *     zoneName: "test-zone",
- *     resourceGroupName: "test-rg",
- * });
- * export const dnsNsRecordId = example.id;
- * ```
- */
 export function getNsRecordOutput(args: GetNsRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNsRecordResult> {
     return pulumi.output(args).apply((a: any) => getNsRecord(a, opts))
 }

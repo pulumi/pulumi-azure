@@ -43,18 +43,28 @@ class FirewallNetworkRuleCollectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action: pulumi.Input[str],
-             azure_firewall_name: pulumi.Input[str],
-             priority: pulumi.Input[int],
-             resource_group_name: pulumi.Input[str],
-             rules: pulumi.Input[Sequence[pulumi.Input['FirewallNetworkRuleCollectionRuleArgs']]],
+             action: Optional[pulumi.Input[str]] = None,
+             azure_firewall_name: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             rules: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallNetworkRuleCollectionRuleArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'azureFirewallName' in kwargs:
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if azure_firewall_name is None and 'azureFirewallName' in kwargs:
             azure_firewall_name = kwargs['azureFirewallName']
-        if 'resourceGroupName' in kwargs:
+        if azure_firewall_name is None:
+            raise TypeError("Missing 'azure_firewall_name' argument")
+        if priority is None:
+            raise TypeError("Missing 'priority' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if rules is None:
+            raise TypeError("Missing 'rules' argument")
 
         _setter("action", action)
         _setter("azure_firewall_name", azure_firewall_name)
@@ -173,11 +183,11 @@ class _FirewallNetworkRuleCollectionState:
              priority: Optional[pulumi.Input[int]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              rules: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallNetworkRuleCollectionRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'azureFirewallName' in kwargs:
+        if azure_firewall_name is None and 'azureFirewallName' in kwargs:
             azure_firewall_name = kwargs['azureFirewallName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if action is not None:
@@ -281,56 +291,6 @@ class FirewallNetworkRuleCollection(pulumi.CustomResource):
         """
         Manages a Network Rule Collection within an Azure Firewall.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"])
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            allocation_method="Static",
-            sku="Standard")
-        example_firewall = azure.network.Firewall("exampleFirewall",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="AZFW_VNet",
-            sku_tier="Standard",
-            ip_configurations=[azure.network.FirewallIpConfigurationArgs(
-                name="configuration",
-                subnet_id=example_subnet.id,
-                public_ip_address_id=example_public_ip.id,
-            )])
-        example_firewall_network_rule_collection = azure.network.FirewallNetworkRuleCollection("exampleFirewallNetworkRuleCollection",
-            azure_firewall_name=example_firewall.name,
-            resource_group_name=example_resource_group.name,
-            priority=100,
-            action="Allow",
-            rules=[azure.network.FirewallNetworkRuleCollectionRuleArgs(
-                name="testrule",
-                source_addresses=["10.0.0.0/16"],
-                destination_ports=["53"],
-                destination_addresses=[
-                    "8.8.8.8",
-                    "8.8.4.4",
-                ],
-                protocols=[
-                    "TCP",
-                    "UDP",
-                ],
-            )])
-        ```
-
         ## Import
 
         Azure Firewall Network Rule Collections can be imported using the `resource id`, e.g.
@@ -356,56 +316,6 @@ class FirewallNetworkRuleCollection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Network Rule Collection within an Azure Firewall.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"])
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            allocation_method="Static",
-            sku="Standard")
-        example_firewall = azure.network.Firewall("exampleFirewall",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="AZFW_VNet",
-            sku_tier="Standard",
-            ip_configurations=[azure.network.FirewallIpConfigurationArgs(
-                name="configuration",
-                subnet_id=example_subnet.id,
-                public_ip_address_id=example_public_ip.id,
-            )])
-        example_firewall_network_rule_collection = azure.network.FirewallNetworkRuleCollection("exampleFirewallNetworkRuleCollection",
-            azure_firewall_name=example_firewall.name,
-            resource_group_name=example_resource_group.name,
-            priority=100,
-            action="Allow",
-            rules=[azure.network.FirewallNetworkRuleCollectionRuleArgs(
-                name="testrule",
-                source_addresses=["10.0.0.0/16"],
-                destination_ports=["53"],
-                destination_addresses=[
-                    "8.8.8.8",
-                    "8.8.4.4",
-                ],
-                protocols=[
-                    "TCP",
-                    "UDP",
-                ],
-            )])
-        ```
 
         ## Import
 

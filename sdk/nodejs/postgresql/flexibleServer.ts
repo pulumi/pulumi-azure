@@ -9,53 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a PostgreSQL Flexible Server.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     addressSpaces: ["10.0.0.0/16"],
- * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.2.0/24"],
- *     serviceEndpoints: ["Microsoft.Storage"],
- *     delegations: [{
- *         name: "fs",
- *         serviceDelegation: {
- *             name: "Microsoft.DBforPostgreSQL/flexibleServers",
- *             actions: ["Microsoft.Network/virtualNetworks/subnets/join/action"],
- *         },
- *     }],
- * });
- * const exampleZone = new azure.privatedns.Zone("exampleZone", {resourceGroupName: exampleResourceGroup.name});
- * const exampleZoneVirtualNetworkLink = new azure.privatedns.ZoneVirtualNetworkLink("exampleZoneVirtualNetworkLink", {
- *     privateDnsZoneName: exampleZone.name,
- *     virtualNetworkId: exampleVirtualNetwork.id,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleFlexibleServer = new azure.postgresql.FlexibleServer("exampleFlexibleServer", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     version: "12",
- *     delegatedSubnetId: exampleSubnet.id,
- *     privateDnsZoneId: exampleZone.id,
- *     administratorLogin: "psqladmin",
- *     administratorPassword: "H@Sh1CoR3!",
- *     zone: "1",
- *     storageMb: 32768,
- *     skuName: "GP_Standard_D4s_v3",
- * }, {
- *     dependsOn: [exampleZoneVirtualNetworkLink],
- * });
- * ```
- *
  * ## Import
  *
  * PostgreSQL Flexible Servers can be imported using the `resource id`, e.g.

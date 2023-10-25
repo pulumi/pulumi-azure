@@ -8,20 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing SQL elastic pool.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.mssql.getElasticPool({
- *     name: "mssqlelasticpoolname",
- *     resourceGroupName: "example-resources",
- *     serverName: "example-sql-server",
- * });
- * export const elasticpoolId = example.then(example => example.id);
- * ```
  */
 export function getElasticPool(args: GetElasticPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticPoolResult> {
 
@@ -104,20 +90,6 @@ export interface GetElasticPoolResult {
 }
 /**
  * Use this data source to access information about an existing SQL elastic pool.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.mssql.getElasticPool({
- *     name: "mssqlelasticpoolname",
- *     resourceGroupName: "example-resources",
- *     serverName: "example-sql-server",
- * });
- * export const elasticpoolId = example.then(example => example.id);
- * ```
  */
 export function getElasticPoolOutput(args: GetElasticPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetElasticPoolResult> {
     return pulumi.output(args).apply((a: any) => getElasticPool(a, opts))

@@ -12,29 +12,6 @@ namespace Pulumi.Azure.PrivateDns
     /// <summary>
     /// Enables you to manage Private DNS zones within Azure DNS. These zones are hosted on Azure's name servers.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleZone = new Azure.PrivateDns.Zone("exampleZone", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Private DNS Zones can be imported using the `resource id`, e.g.

@@ -60,36 +60,46 @@ class OutputServicebusTopicArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             serialization: pulumi.Input['OutputServicebusTopicSerializationArgs'],
-             servicebus_namespace: pulumi.Input[str],
-             stream_analytics_job_name: pulumi.Input[str],
-             topic_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             serialization: Optional[pulumi.Input['OutputServicebusTopicSerializationArgs']] = None,
+             servicebus_namespace: Optional[pulumi.Input[str]] = None,
+             stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
+             topic_name: Optional[pulumi.Input[str]] = None,
              authentication_mode: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              property_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              shared_access_policy_key: Optional[pulumi.Input[str]] = None,
              shared_access_policy_name: Optional[pulumi.Input[str]] = None,
              system_property_columns: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'servicebusNamespace' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if serialization is None:
+            raise TypeError("Missing 'serialization' argument")
+        if servicebus_namespace is None and 'servicebusNamespace' in kwargs:
             servicebus_namespace = kwargs['servicebusNamespace']
-        if 'streamAnalyticsJobName' in kwargs:
+        if servicebus_namespace is None:
+            raise TypeError("Missing 'servicebus_namespace' argument")
+        if stream_analytics_job_name is None and 'streamAnalyticsJobName' in kwargs:
             stream_analytics_job_name = kwargs['streamAnalyticsJobName']
-        if 'topicName' in kwargs:
+        if stream_analytics_job_name is None:
+            raise TypeError("Missing 'stream_analytics_job_name' argument")
+        if topic_name is None and 'topicName' in kwargs:
             topic_name = kwargs['topicName']
-        if 'authenticationMode' in kwargs:
+        if topic_name is None:
+            raise TypeError("Missing 'topic_name' argument")
+        if authentication_mode is None and 'authenticationMode' in kwargs:
             authentication_mode = kwargs['authenticationMode']
-        if 'propertyColumns' in kwargs:
+        if property_columns is None and 'propertyColumns' in kwargs:
             property_columns = kwargs['propertyColumns']
-        if 'sharedAccessPolicyKey' in kwargs:
+        if shared_access_policy_key is None and 'sharedAccessPolicyKey' in kwargs:
             shared_access_policy_key = kwargs['sharedAccessPolicyKey']
-        if 'sharedAccessPolicyName' in kwargs:
+        if shared_access_policy_name is None and 'sharedAccessPolicyName' in kwargs:
             shared_access_policy_name = kwargs['sharedAccessPolicyName']
-        if 'systemPropertyColumns' in kwargs:
+        if system_property_columns is None and 'systemPropertyColumns' in kwargs:
             system_property_columns = kwargs['systemPropertyColumns']
 
         _setter("resource_group_name", resource_group_name)
@@ -303,25 +313,25 @@ class _OutputServicebusTopicState:
              stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
              system_property_columns: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              topic_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'authenticationMode' in kwargs:
+        if authentication_mode is None and 'authenticationMode' in kwargs:
             authentication_mode = kwargs['authenticationMode']
-        if 'propertyColumns' in kwargs:
+        if property_columns is None and 'propertyColumns' in kwargs:
             property_columns = kwargs['propertyColumns']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'servicebusNamespace' in kwargs:
+        if servicebus_namespace is None and 'servicebusNamespace' in kwargs:
             servicebus_namespace = kwargs['servicebusNamespace']
-        if 'sharedAccessPolicyKey' in kwargs:
+        if shared_access_policy_key is None and 'sharedAccessPolicyKey' in kwargs:
             shared_access_policy_key = kwargs['sharedAccessPolicyKey']
-        if 'sharedAccessPolicyName' in kwargs:
+        if shared_access_policy_name is None and 'sharedAccessPolicyName' in kwargs:
             shared_access_policy_name = kwargs['sharedAccessPolicyName']
-        if 'streamAnalyticsJobName' in kwargs:
+        if stream_analytics_job_name is None and 'streamAnalyticsJobName' in kwargs:
             stream_analytics_job_name = kwargs['streamAnalyticsJobName']
-        if 'systemPropertyColumns' in kwargs:
+        if system_property_columns is None and 'systemPropertyColumns' in kwargs:
             system_property_columns = kwargs['systemPropertyColumns']
-        if 'topicName' in kwargs:
+        if topic_name is None and 'topicName' in kwargs:
             topic_name = kwargs['topicName']
 
         if authentication_mode is not None:
@@ -502,39 +512,6 @@ class OutputServicebusTopic(pulumi.CustomResource):
         """
         Manages a Stream Analytics Output to a ServiceBus Topic.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_job = azure.streamanalytics.get_job_output(name="example-job",
-            resource_group_name=example_resource_group.name)
-        example_namespace = azure.servicebus.Namespace("exampleNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard")
-        example_topic = azure.servicebus.Topic("exampleTopic",
-            namespace_id=example_namespace.id,
-            enable_partitioning=True)
-        example_output_servicebus_topic = azure.streamanalytics.OutputServicebusTopic("exampleOutputServicebusTopic",
-            stream_analytics_job_name=example_job.name,
-            resource_group_name=example_job.resource_group_name,
-            topic_name=example_topic.name,
-            servicebus_namespace=example_namespace.name,
-            shared_access_policy_key=example_namespace.default_primary_key,
-            shared_access_policy_name="RootManageSharedAccessKey",
-            property_columns=[
-                "col1",
-                "col2",
-            ],
-            serialization=azure.streamanalytics.OutputServicebusTopicSerializationArgs(
-                type="Csv",
-                format="Array",
-            ))
-        ```
-
         ## Import
 
         Stream Analytics Output ServiceBus Topic's can be imported using the `resource id`, e.g.
@@ -567,39 +544,6 @@ class OutputServicebusTopic(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Stream Analytics Output to a ServiceBus Topic.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_job = azure.streamanalytics.get_job_output(name="example-job",
-            resource_group_name=example_resource_group.name)
-        example_namespace = azure.servicebus.Namespace("exampleNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard")
-        example_topic = azure.servicebus.Topic("exampleTopic",
-            namespace_id=example_namespace.id,
-            enable_partitioning=True)
-        example_output_servicebus_topic = azure.streamanalytics.OutputServicebusTopic("exampleOutputServicebusTopic",
-            stream_analytics_job_name=example_job.name,
-            resource_group_name=example_job.resource_group_name,
-            topic_name=example_topic.name,
-            servicebus_namespace=example_namespace.name,
-            shared_access_policy_key=example_namespace.default_primary_key,
-            shared_access_policy_name="RootManageSharedAccessKey",
-            property_columns=[
-                "col1",
-                "col2",
-            ],
-            serialization=azure.streamanalytics.OutputServicebusTopicSerializationArgs(
-                type="Csv",
-                format="Array",
-            ))
-        ```
 
         ## Import
 
@@ -654,11 +598,7 @@ class OutputServicebusTopic(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if serialization is not None and not isinstance(serialization, OutputServicebusTopicSerializationArgs):
-                serialization = serialization or {}
-                def _setter(key, value):
-                    serialization[key] = value
-                OutputServicebusTopicSerializationArgs._configure(_setter, **serialization)
+            serialization = _utilities.configure(serialization, OutputServicebusTopicSerializationArgs, True)
             if serialization is None and not opts.urn:
                 raise TypeError("Missing required property 'serialization'")
             __props__.__dict__["serialization"] = serialization

@@ -43,22 +43,30 @@ class IntegrationAccountBatchConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             batch_group_name: pulumi.Input[str],
-             integration_account_name: pulumi.Input[str],
-             release_criteria: pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaArgs'],
-             resource_group_name: pulumi.Input[str],
+             batch_group_name: Optional[pulumi.Input[str]] = None,
+             integration_account_name: Optional[pulumi.Input[str]] = None,
+             release_criteria: Optional[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'batchGroupName' in kwargs:
+        if batch_group_name is None and 'batchGroupName' in kwargs:
             batch_group_name = kwargs['batchGroupName']
-        if 'integrationAccountName' in kwargs:
+        if batch_group_name is None:
+            raise TypeError("Missing 'batch_group_name' argument")
+        if integration_account_name is None and 'integrationAccountName' in kwargs:
             integration_account_name = kwargs['integrationAccountName']
-        if 'releaseCriteria' in kwargs:
+        if integration_account_name is None:
+            raise TypeError("Missing 'integration_account_name' argument")
+        if release_criteria is None and 'releaseCriteria' in kwargs:
             release_criteria = kwargs['releaseCriteria']
-        if 'resourceGroupName' in kwargs:
+        if release_criteria is None:
+            raise TypeError("Missing 'release_criteria' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("batch_group_name", batch_group_name)
         _setter("integration_account_name", integration_account_name)
@@ -178,15 +186,15 @@ class _IntegrationAccountBatchConfigurationState:
              name: Optional[pulumi.Input[str]] = None,
              release_criteria: Optional[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaArgs']] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'batchGroupName' in kwargs:
+        if batch_group_name is None and 'batchGroupName' in kwargs:
             batch_group_name = kwargs['batchGroupName']
-        if 'integrationAccountName' in kwargs:
+        if integration_account_name is None and 'integrationAccountName' in kwargs:
             integration_account_name = kwargs['integrationAccountName']
-        if 'releaseCriteria' in kwargs:
+        if release_criteria is None and 'releaseCriteria' in kwargs:
             release_criteria = kwargs['releaseCriteria']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if batch_group_name is not None:
@@ -290,26 +298,6 @@ class IntegrationAccountBatchConfiguration(pulumi.CustomResource):
         """
         Manages a Logic App Integration Account Batch Configuration.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_integration_account = azure.logicapps.IntegrationAccount("exampleIntegrationAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Standard")
-        example_integration_account_batch_configuration = azure.logicapps.IntegrationAccountBatchConfiguration("exampleIntegrationAccountBatchConfiguration",
-            resource_group_name=example_resource_group.name,
-            integration_account_name=example_integration_account.name,
-            batch_group_name="TestBatchGroup",
-            release_criteria=azure.logicapps.IntegrationAccountBatchConfigurationReleaseCriteriaArgs(
-                message_count=80,
-            ))
-        ```
-
         ## Import
 
         Logic App Integration Account Batch Configurations can be imported using the `resource id`, e.g.
@@ -335,26 +323,6 @@ class IntegrationAccountBatchConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Logic App Integration Account Batch Configuration.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_integration_account = azure.logicapps.IntegrationAccount("exampleIntegrationAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Standard")
-        example_integration_account_batch_configuration = azure.logicapps.IntegrationAccountBatchConfiguration("exampleIntegrationAccountBatchConfiguration",
-            resource_group_name=example_resource_group.name,
-            integration_account_name=example_integration_account.name,
-            batch_group_name="TestBatchGroup",
-            release_criteria=azure.logicapps.IntegrationAccountBatchConfigurationReleaseCriteriaArgs(
-                message_count=80,
-            ))
-        ```
 
         ## Import
 
@@ -406,11 +374,7 @@ class IntegrationAccountBatchConfiguration(pulumi.CustomResource):
             __props__.__dict__["integration_account_name"] = integration_account_name
             __props__.__dict__["metadata"] = metadata
             __props__.__dict__["name"] = name
-            if release_criteria is not None and not isinstance(release_criteria, IntegrationAccountBatchConfigurationReleaseCriteriaArgs):
-                release_criteria = release_criteria or {}
-                def _setter(key, value):
-                    release_criteria[key] = value
-                IntegrationAccountBatchConfigurationReleaseCriteriaArgs._configure(_setter, **release_criteria)
+            release_criteria = _utilities.configure(release_criteria, IntegrationAccountBatchConfigurationReleaseCriteriaArgs, True)
             if release_criteria is None and not opts.urn:
                 raise TypeError("Missing required property 'release_criteria'")
             __props__.__dict__["release_criteria"] = release_criteria

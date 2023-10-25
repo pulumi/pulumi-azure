@@ -9,31 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Linux Web App Slot.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleServicePlan = new azure.appservice.ServicePlan("exampleServicePlan", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     osType: "Linux",
- *     skuName: "P1v2",
- * });
- * const exampleLinuxWebApp = new azure.appservice.LinuxWebApp("exampleLinuxWebApp", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleServicePlan.location,
- *     servicePlanId: exampleServicePlan.id,
- *     siteConfig: {},
- * });
- * const exampleLinuxWebAppSlot = new azure.appservice.LinuxWebAppSlot("exampleLinuxWebAppSlot", {
- *     appServiceId: exampleLinuxWebApp.id,
- *     siteConfig: {},
- * });
- * ```
- *
  * ## Import
  *
  * Linux Web Apps can be imported using the `resource id`, e.g.

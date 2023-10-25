@@ -182,17 +182,6 @@ def get_account(encryption: Optional[pulumi.InputType['GetAccountEncryptionArgs'
     """
     Use this data source to access information about an existing Batch Account.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.batch.get_account(name="testbatchaccount",
-        resource_group_name="test")
-    pulumi.export("poolAllocationMode", example.pool_allocation_mode)
-    ```
-
 
     :param pulumi.InputType['GetAccountEncryptionArgs'] encryption: The `encryption` block that describes the Azure KeyVault key reference used to encrypt data for the Azure Batch account.
     :param str name: The name of the Batch account.
@@ -227,17 +216,6 @@ def get_account_output(encryption: Optional[pulumi.Input[Optional[pulumi.InputTy
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
     """
     Use this data source to access information about an existing Batch Account.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.batch.get_account(name="testbatchaccount",
-        resource_group_name="test")
-    pulumi.export("poolAllocationMode", example.pool_allocation_mode)
-    ```
 
 
     :param pulumi.InputType['GetAccountEncryptionArgs'] encryption: The `encryption` block that describes the Azure KeyVault key reference used to encrypt data for the Azure Batch account.

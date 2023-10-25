@@ -53,7 +53,7 @@ class LocalRulestackArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              anti_spyware_profile: Optional[pulumi.Input[str]] = None,
              anti_virus_profile: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -63,21 +63,23 @@ class LocalRulestackArgs:
              name: Optional[pulumi.Input[str]] = None,
              url_filtering_profile: Optional[pulumi.Input[str]] = None,
              vulnerability_profile: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'antiSpywareProfile' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if anti_spyware_profile is None and 'antiSpywareProfile' in kwargs:
             anti_spyware_profile = kwargs['antiSpywareProfile']
-        if 'antiVirusProfile' in kwargs:
+        if anti_virus_profile is None and 'antiVirusProfile' in kwargs:
             anti_virus_profile = kwargs['antiVirusProfile']
-        if 'dnsSubscription' in kwargs:
+        if dns_subscription is None and 'dnsSubscription' in kwargs:
             dns_subscription = kwargs['dnsSubscription']
-        if 'fileBlockingProfile' in kwargs:
+        if file_blocking_profile is None and 'fileBlockingProfile' in kwargs:
             file_blocking_profile = kwargs['fileBlockingProfile']
-        if 'urlFilteringProfile' in kwargs:
+        if url_filtering_profile is None and 'urlFilteringProfile' in kwargs:
             url_filtering_profile = kwargs['urlFilteringProfile']
-        if 'vulnerabilityProfile' in kwargs:
+        if vulnerability_profile is None and 'vulnerabilityProfile' in kwargs:
             vulnerability_profile = kwargs['vulnerabilityProfile']
 
         _setter("resource_group_name", resource_group_name)
@@ -273,21 +275,21 @@ class _LocalRulestackState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              url_filtering_profile: Optional[pulumi.Input[str]] = None,
              vulnerability_profile: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'antiSpywareProfile' in kwargs:
+        if anti_spyware_profile is None and 'antiSpywareProfile' in kwargs:
             anti_spyware_profile = kwargs['antiSpywareProfile']
-        if 'antiVirusProfile' in kwargs:
+        if anti_virus_profile is None and 'antiVirusProfile' in kwargs:
             anti_virus_profile = kwargs['antiVirusProfile']
-        if 'dnsSubscription' in kwargs:
+        if dns_subscription is None and 'dnsSubscription' in kwargs:
             dns_subscription = kwargs['dnsSubscription']
-        if 'fileBlockingProfile' in kwargs:
+        if file_blocking_profile is None and 'fileBlockingProfile' in kwargs:
             file_blocking_profile = kwargs['fileBlockingProfile']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'urlFilteringProfile' in kwargs:
+        if url_filtering_profile is None and 'urlFilteringProfile' in kwargs:
             url_filtering_profile = kwargs['urlFilteringProfile']
-        if 'vulnerabilityProfile' in kwargs:
+        if vulnerability_profile is None and 'vulnerabilityProfile' in kwargs:
             vulnerability_profile = kwargs['vulnerabilityProfile']
 
         if anti_spyware_profile is not None:
@@ -451,18 +453,6 @@ class LocalRulestack(pulumi.CustomResource):
         """
         Manages a Palo Alto Networks Rulestack.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_local_rulestack = azure.paloalto.LocalRulestack("exampleLocalRulestack",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        ```
-
         ## Import
 
         Palo Alto Networks Rulestacks can be imported using the `resource id`, e.g.
@@ -492,18 +482,6 @@ class LocalRulestack(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Palo Alto Networks Rulestack.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_local_rulestack = azure.paloalto.LocalRulestack("exampleLocalRulestack",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        ```
 
         ## Import
 

@@ -34,16 +34,20 @@ class CustomHttpsConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             custom_https_provisioning_enabled: pulumi.Input[bool],
-             frontend_endpoint_id: pulumi.Input[str],
+             custom_https_provisioning_enabled: Optional[pulumi.Input[bool]] = None,
+             frontend_endpoint_id: Optional[pulumi.Input[str]] = None,
              custom_https_configuration: Optional[pulumi.Input['CustomHttpsConfigurationCustomHttpsConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'customHttpsProvisioningEnabled' in kwargs:
+        if custom_https_provisioning_enabled is None and 'customHttpsProvisioningEnabled' in kwargs:
             custom_https_provisioning_enabled = kwargs['customHttpsProvisioningEnabled']
-        if 'frontendEndpointId' in kwargs:
+        if custom_https_provisioning_enabled is None:
+            raise TypeError("Missing 'custom_https_provisioning_enabled' argument")
+        if frontend_endpoint_id is None and 'frontendEndpointId' in kwargs:
             frontend_endpoint_id = kwargs['frontendEndpointId']
-        if 'customHttpsConfiguration' in kwargs:
+        if frontend_endpoint_id is None:
+            raise TypeError("Missing 'frontend_endpoint_id' argument")
+        if custom_https_configuration is None and 'customHttpsConfiguration' in kwargs:
             custom_https_configuration = kwargs['customHttpsConfiguration']
 
         _setter("custom_https_provisioning_enabled", custom_https_provisioning_enabled)
@@ -112,13 +116,13 @@ class _CustomHttpsConfigurationState:
              custom_https_configuration: Optional[pulumi.Input['CustomHttpsConfigurationCustomHttpsConfigurationArgs']] = None,
              custom_https_provisioning_enabled: Optional[pulumi.Input[bool]] = None,
              frontend_endpoint_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'customHttpsConfiguration' in kwargs:
+        if custom_https_configuration is None and 'customHttpsConfiguration' in kwargs:
             custom_https_configuration = kwargs['customHttpsConfiguration']
-        if 'customHttpsProvisioningEnabled' in kwargs:
+        if custom_https_provisioning_enabled is None and 'customHttpsProvisioningEnabled' in kwargs:
             custom_https_provisioning_enabled = kwargs['customHttpsProvisioningEnabled']
-        if 'frontendEndpointId' in kwargs:
+        if frontend_endpoint_id is None and 'frontendEndpointId' in kwargs:
             frontend_endpoint_id = kwargs['frontendEndpointId']
 
         if custom_https_configuration is not None:
@@ -235,11 +239,7 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CustomHttpsConfigurationArgs.__new__(CustomHttpsConfigurationArgs)
 
-            if custom_https_configuration is not None and not isinstance(custom_https_configuration, CustomHttpsConfigurationCustomHttpsConfigurationArgs):
-                custom_https_configuration = custom_https_configuration or {}
-                def _setter(key, value):
-                    custom_https_configuration[key] = value
-                CustomHttpsConfigurationCustomHttpsConfigurationArgs._configure(_setter, **custom_https_configuration)
+            custom_https_configuration = _utilities.configure(custom_https_configuration, CustomHttpsConfigurationCustomHttpsConfigurationArgs, True)
             __props__.__dict__["custom_https_configuration"] = custom_https_configuration
             if custom_https_provisioning_enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'custom_https_provisioning_enabled'")

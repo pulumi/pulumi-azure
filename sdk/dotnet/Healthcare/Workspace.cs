@@ -12,25 +12,6 @@ namespace Pulumi.Azure.Healthcare
     /// <summary>
     /// Manages a Healthcare workspace
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Azure.Healthcare.Workspace("test", new()
-    ///     {
-    ///         Location = "east us",
-    ///         ResourceGroupName = "tfex-resource_group",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Healthcare Workspaces can be imported using the resource`id`, e.g.

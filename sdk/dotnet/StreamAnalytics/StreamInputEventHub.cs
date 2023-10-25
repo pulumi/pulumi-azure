@@ -14,69 +14,6 @@ namespace Pulumi.Azure.StreamAnalytics
     /// 
     /// Manages a Stream Analytics Stream Input EventHub.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleJob = Azure.StreamAnalytics.GetJob.Invoke(new()
-    ///     {
-    ///         Name = "example-job",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///     });
-    /// 
-    ///     var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Sku = "Standard",
-    ///         Capacity = 1,
-    ///     });
-    /// 
-    ///     var exampleEventHub = new Azure.EventHub.EventHub("exampleEventHub", new()
-    ///     {
-    ///         NamespaceName = exampleEventHubNamespace.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         PartitionCount = 2,
-    ///         MessageRetention = 1,
-    ///     });
-    /// 
-    ///     var exampleConsumerGroup = new Azure.EventHub.ConsumerGroup("exampleConsumerGroup", new()
-    ///     {
-    ///         NamespaceName = exampleEventHubNamespace.Name,
-    ///         EventhubName = exampleEventHub.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///     });
-    /// 
-    ///     var exampleStreamInputEventHub = new Azure.StreamAnalytics.StreamInputEventHub("exampleStreamInputEventHub", new()
-    ///     {
-    ///         StreamAnalyticsJobName = exampleJob.Apply(getJobResult =&gt; getJobResult.Name),
-    ///         ResourceGroupName = exampleJob.Apply(getJobResult =&gt; getJobResult.ResourceGroupName),
-    ///         EventhubConsumerGroupName = exampleConsumerGroup.Name,
-    ///         EventhubName = exampleEventHub.Name,
-    ///         ServicebusNamespace = exampleEventHubNamespace.Name,
-    ///         SharedAccessPolicyKey = exampleEventHubNamespace.DefaultPrimaryKey,
-    ///         SharedAccessPolicyName = "RootManageSharedAccessKey",
-    ///         Serialization = new Azure.StreamAnalytics.Inputs.StreamInputEventHubSerializationArgs
-    ///         {
-    ///             Type = "Json",
-    ///             Encoding = "UTF8",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Stream Analytics Stream Input EventHub's can be imported using the `resource id`, e.g.

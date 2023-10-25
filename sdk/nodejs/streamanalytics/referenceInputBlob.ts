@@ -9,43 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Stream Analytics Reference Input Blob. Reference data (also known as a lookup table) is a finite data set that is static or slowly changing in nature, used to perform a lookup or to correlate with your data stream. Learn more [here](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-use-reference-data#azure-blob-storage).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleJob = azure.streamanalytics.getJobOutput({
- *     name: "example-job",
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "LRS",
- * });
- * const exampleContainer = new azure.storage.Container("exampleContainer", {
- *     storageAccountName: exampleAccount.name,
- *     containerAccessType: "private",
- * });
- * const test = new azure.streamanalytics.ReferenceInputBlob("test", {
- *     streamAnalyticsJobName: exampleJob.apply(exampleJob => exampleJob.name),
- *     resourceGroupName: exampleJob.apply(exampleJob => exampleJob.resourceGroupName),
- *     storageAccountName: exampleAccount.name,
- *     storageAccountKey: exampleAccount.primaryAccessKey,
- *     storageContainerName: exampleContainer.name,
- *     pathPattern: "some-random-pattern",
- *     dateFormat: "yyyy/MM/dd",
- *     timeFormat: "HH",
- *     serialization: {
- *         type: "Json",
- *         encoding: "UTF8",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Stream Analytics Reference Input Blob's can be imported using the `resource id`, e.g.

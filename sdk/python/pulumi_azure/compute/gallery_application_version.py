@@ -55,29 +55,37 @@ class GalleryApplicationVersionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             gallery_application_id: pulumi.Input[str],
-             manage_action: pulumi.Input['GalleryApplicationVersionManageActionArgs'],
-             source: pulumi.Input['GalleryApplicationVersionSourceArgs'],
-             target_regions: pulumi.Input[Sequence[pulumi.Input['GalleryApplicationVersionTargetRegionArgs']]],
+             gallery_application_id: Optional[pulumi.Input[str]] = None,
+             manage_action: Optional[pulumi.Input['GalleryApplicationVersionManageActionArgs']] = None,
+             source: Optional[pulumi.Input['GalleryApplicationVersionSourceArgs']] = None,
+             target_regions: Optional[pulumi.Input[Sequence[pulumi.Input['GalleryApplicationVersionTargetRegionArgs']]]] = None,
              enable_health_check: Optional[pulumi.Input[bool]] = None,
              end_of_life_date: Optional[pulumi.Input[str]] = None,
              exclude_from_latest: Optional[pulumi.Input[bool]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'galleryApplicationId' in kwargs:
+        if gallery_application_id is None and 'galleryApplicationId' in kwargs:
             gallery_application_id = kwargs['galleryApplicationId']
-        if 'manageAction' in kwargs:
+        if gallery_application_id is None:
+            raise TypeError("Missing 'gallery_application_id' argument")
+        if manage_action is None and 'manageAction' in kwargs:
             manage_action = kwargs['manageAction']
-        if 'targetRegions' in kwargs:
+        if manage_action is None:
+            raise TypeError("Missing 'manage_action' argument")
+        if source is None:
+            raise TypeError("Missing 'source' argument")
+        if target_regions is None and 'targetRegions' in kwargs:
             target_regions = kwargs['targetRegions']
-        if 'enableHealthCheck' in kwargs:
+        if target_regions is None:
+            raise TypeError("Missing 'target_regions' argument")
+        if enable_health_check is None and 'enableHealthCheck' in kwargs:
             enable_health_check = kwargs['enableHealthCheck']
-        if 'endOfLifeDate' in kwargs:
+        if end_of_life_date is None and 'endOfLifeDate' in kwargs:
             end_of_life_date = kwargs['endOfLifeDate']
-        if 'excludeFromLatest' in kwargs:
+        if exclude_from_latest is None and 'excludeFromLatest' in kwargs:
             exclude_from_latest = kwargs['excludeFromLatest']
 
         _setter("gallery_application_id", gallery_application_id)
@@ -270,19 +278,19 @@ class _GalleryApplicationVersionState:
              source: Optional[pulumi.Input['GalleryApplicationVersionSourceArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              target_regions: Optional[pulumi.Input[Sequence[pulumi.Input['GalleryApplicationVersionTargetRegionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'enableHealthCheck' in kwargs:
+        if enable_health_check is None and 'enableHealthCheck' in kwargs:
             enable_health_check = kwargs['enableHealthCheck']
-        if 'endOfLifeDate' in kwargs:
+        if end_of_life_date is None and 'endOfLifeDate' in kwargs:
             end_of_life_date = kwargs['endOfLifeDate']
-        if 'excludeFromLatest' in kwargs:
+        if exclude_from_latest is None and 'excludeFromLatest' in kwargs:
             exclude_from_latest = kwargs['excludeFromLatest']
-        if 'galleryApplicationId' in kwargs:
+        if gallery_application_id is None and 'galleryApplicationId' in kwargs:
             gallery_application_id = kwargs['galleryApplicationId']
-        if 'manageAction' in kwargs:
+        if manage_action is None and 'manageAction' in kwargs:
             manage_action = kwargs['manageAction']
-        if 'targetRegions' in kwargs:
+        if target_regions is None and 'targetRegions' in kwargs:
             target_regions = kwargs['targetRegions']
 
         if enable_health_check is not None:
@@ -446,49 +454,6 @@ class GalleryApplicationVersion(pulumi.CustomResource):
         """
         Manages a Gallery Application Version.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_shared_image_gallery = azure.compute.SharedImageGallery("exampleSharedImageGallery",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_gallery_application = azure.compute.GalleryApplication("exampleGalleryApplication",
-            gallery_id=example_shared_image_gallery.id,
-            location=example_resource_group.location,
-            supported_os_type="Linux")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("exampleContainer",
-            storage_account_name=example_account.name,
-            container_access_type="blob")
-        example_blob = azure.storage.Blob("exampleBlob",
-            storage_account_name=example_account.name,
-            storage_container_name=example_container.name,
-            type="Block",
-            source_content="[scripts file content]")
-        example_gallery_application_version = azure.compute.GalleryApplicationVersion("exampleGalleryApplicationVersion",
-            gallery_application_id=example_gallery_application.id,
-            location=example_gallery_application.location,
-            manage_action=azure.compute.GalleryApplicationVersionManageActionArgs(
-                install="[install command]",
-                remove="[remove command]",
-            ),
-            source=azure.compute.GalleryApplicationVersionSourceArgs(
-                media_link=example_blob.id,
-            ),
-            target_regions=[azure.compute.GalleryApplicationVersionTargetRegionArgs(
-                name=example_gallery_application.location,
-                regional_replica_count=1,
-            )])
-        ```
-
         ## Import
 
         Gallery Application Versions can be imported using the `resource id`, e.g.
@@ -518,49 +483,6 @@ class GalleryApplicationVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Gallery Application Version.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_shared_image_gallery = azure.compute.SharedImageGallery("exampleSharedImageGallery",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_gallery_application = azure.compute.GalleryApplication("exampleGalleryApplication",
-            gallery_id=example_shared_image_gallery.id,
-            location=example_resource_group.location,
-            supported_os_type="Linux")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("exampleContainer",
-            storage_account_name=example_account.name,
-            container_access_type="blob")
-        example_blob = azure.storage.Blob("exampleBlob",
-            storage_account_name=example_account.name,
-            storage_container_name=example_container.name,
-            type="Block",
-            source_content="[scripts file content]")
-        example_gallery_application_version = azure.compute.GalleryApplicationVersion("exampleGalleryApplicationVersion",
-            gallery_application_id=example_gallery_application.id,
-            location=example_gallery_application.location,
-            manage_action=azure.compute.GalleryApplicationVersionManageActionArgs(
-                install="[install command]",
-                remove="[remove command]",
-            ),
-            source=azure.compute.GalleryApplicationVersionSourceArgs(
-                media_link=example_blob.id,
-            ),
-            target_regions=[azure.compute.GalleryApplicationVersionTargetRegionArgs(
-                name=example_gallery_application.location,
-                regional_replica_count=1,
-            )])
-        ```
 
         ## Import
 
@@ -615,20 +537,12 @@ class GalleryApplicationVersion(pulumi.CustomResource):
                 raise TypeError("Missing required property 'gallery_application_id'")
             __props__.__dict__["gallery_application_id"] = gallery_application_id
             __props__.__dict__["location"] = location
-            if manage_action is not None and not isinstance(manage_action, GalleryApplicationVersionManageActionArgs):
-                manage_action = manage_action or {}
-                def _setter(key, value):
-                    manage_action[key] = value
-                GalleryApplicationVersionManageActionArgs._configure(_setter, **manage_action)
+            manage_action = _utilities.configure(manage_action, GalleryApplicationVersionManageActionArgs, True)
             if manage_action is None and not opts.urn:
                 raise TypeError("Missing required property 'manage_action'")
             __props__.__dict__["manage_action"] = manage_action
             __props__.__dict__["name"] = name
-            if source is not None and not isinstance(source, GalleryApplicationVersionSourceArgs):
-                source = source or {}
-                def _setter(key, value):
-                    source[key] = value
-                GalleryApplicationVersionSourceArgs._configure(_setter, **source)
+            source = _utilities.configure(source, GalleryApplicationVersionSourceArgs, True)
             if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")
             __props__.__dict__["source"] = source

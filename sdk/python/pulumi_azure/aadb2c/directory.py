@@ -44,26 +44,34 @@ class DirectoryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_residency_location: pulumi.Input[str],
-             domain_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             sku_name: pulumi.Input[str],
+             data_residency_location: Optional[pulumi.Input[str]] = None,
+             domain_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
              country_code: Optional[pulumi.Input[str]] = None,
              display_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dataResidencyLocation' in kwargs:
+        if data_residency_location is None and 'dataResidencyLocation' in kwargs:
             data_residency_location = kwargs['dataResidencyLocation']
-        if 'domainName' in kwargs:
+        if data_residency_location is None:
+            raise TypeError("Missing 'data_residency_location' argument")
+        if domain_name is None and 'domainName' in kwargs:
             domain_name = kwargs['domainName']
-        if 'resourceGroupName' in kwargs:
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'countryCode' in kwargs:
+        if sku_name is None:
+            raise TypeError("Missing 'sku_name' argument")
+        if country_code is None and 'countryCode' in kwargs:
             country_code = kwargs['countryCode']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
 
         _setter("data_residency_location", data_residency_location)
@@ -214,25 +222,25 @@ class _DirectoryState:
              sku_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'billingType' in kwargs:
+        if billing_type is None and 'billingType' in kwargs:
             billing_type = kwargs['billingType']
-        if 'countryCode' in kwargs:
+        if country_code is None and 'countryCode' in kwargs:
             country_code = kwargs['countryCode']
-        if 'dataResidencyLocation' in kwargs:
+        if data_residency_location is None and 'dataResidencyLocation' in kwargs:
             data_residency_location = kwargs['dataResidencyLocation']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'domainName' in kwargs:
+        if domain_name is None and 'domainName' in kwargs:
             domain_name = kwargs['domainName']
-        if 'effectiveStartDate' in kwargs:
+        if effective_start_date is None and 'effectiveStartDate' in kwargs:
             effective_start_date = kwargs['effectiveStartDate']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         if billing_type is not None:
@@ -393,21 +401,6 @@ class Directory(pulumi.CustomResource):
         """
         Manages an AAD B2C Directory.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.aadb2c.Directory("example",
-            country_code="US",
-            data_residency_location="United States",
-            display_name="example-b2c-tenant",
-            domain_name="exampleb2ctenant.onmicrosoft.com",
-            resource_group_name="example-rg",
-            sku_name="PremiumP1")
-        ```
-
         ## Import
 
         AAD B2C Directories can be imported using the `resource id`, e.g.
@@ -434,21 +427,6 @@ class Directory(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an AAD B2C Directory.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.aadb2c.Directory("example",
-            country_code="US",
-            data_residency_location="United States",
-            display_name="example-b2c-tenant",
-            domain_name="exampleb2ctenant.onmicrosoft.com",
-            resource_group_name="example-rg",
-            sku_name="PremiumP1")
-        ```
 
         ## Import
 

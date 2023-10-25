@@ -40,18 +40,22 @@ class VirtualHubConnectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             remote_virtual_network_id: pulumi.Input[str],
-             virtual_hub_id: pulumi.Input[str],
+             remote_virtual_network_id: Optional[pulumi.Input[str]] = None,
+             virtual_hub_id: Optional[pulumi.Input[str]] = None,
              internet_security_enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              routing: Optional[pulumi.Input['VirtualHubConnectionRoutingArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'remoteVirtualNetworkId' in kwargs:
+        if remote_virtual_network_id is None and 'remoteVirtualNetworkId' in kwargs:
             remote_virtual_network_id = kwargs['remoteVirtualNetworkId']
-        if 'virtualHubId' in kwargs:
+        if remote_virtual_network_id is None:
+            raise TypeError("Missing 'remote_virtual_network_id' argument")
+        if virtual_hub_id is None and 'virtualHubId' in kwargs:
             virtual_hub_id = kwargs['virtualHubId']
-        if 'internetSecurityEnabled' in kwargs:
+        if virtual_hub_id is None:
+            raise TypeError("Missing 'virtual_hub_id' argument")
+        if internet_security_enabled is None and 'internetSecurityEnabled' in kwargs:
             internet_security_enabled = kwargs['internetSecurityEnabled']
 
         _setter("remote_virtual_network_id", remote_virtual_network_id)
@@ -156,13 +160,13 @@ class _VirtualHubConnectionState:
              remote_virtual_network_id: Optional[pulumi.Input[str]] = None,
              routing: Optional[pulumi.Input['VirtualHubConnectionRoutingArgs']] = None,
              virtual_hub_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'internetSecurityEnabled' in kwargs:
+        if internet_security_enabled is None and 'internetSecurityEnabled' in kwargs:
             internet_security_enabled = kwargs['internetSecurityEnabled']
-        if 'remoteVirtualNetworkId' in kwargs:
+        if remote_virtual_network_id is None and 'remoteVirtualNetworkId' in kwargs:
             remote_virtual_network_id = kwargs['remoteVirtualNetworkId']
-        if 'virtualHubId' in kwargs:
+        if virtual_hub_id is None and 'virtualHubId' in kwargs:
             virtual_hub_id = kwargs['virtualHubId']
 
         if internet_security_enabled is not None:
@@ -251,30 +255,6 @@ class VirtualHubConnection(pulumi.CustomResource):
         """
         Manages a Connection for a Virtual Hub.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["172.16.0.0/12"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_virtual_wan = azure.network.VirtualWan("exampleVirtualWan",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_virtual_hub = azure.network.VirtualHub("exampleVirtualHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            virtual_wan_id=example_virtual_wan.id,
-            address_prefix="10.0.1.0/24")
-        example_virtual_hub_connection = azure.network.VirtualHubConnection("exampleVirtualHubConnection",
-            virtual_hub_id=example_virtual_hub.id,
-            remote_virtual_network_id=example_virtual_network.id)
-        ```
-
         ## Import
 
         Virtual Hub Connection's can be imported using the `resource id`, e.g.
@@ -299,30 +279,6 @@ class VirtualHubConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Connection for a Virtual Hub.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["172.16.0.0/12"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_virtual_wan = azure.network.VirtualWan("exampleVirtualWan",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_virtual_hub = azure.network.VirtualHub("exampleVirtualHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            virtual_wan_id=example_virtual_wan.id,
-            address_prefix="10.0.1.0/24")
-        example_virtual_hub_connection = azure.network.VirtualHubConnection("exampleVirtualHubConnection",
-            virtual_hub_id=example_virtual_hub.id,
-            remote_virtual_network_id=example_virtual_network.id)
-        ```
 
         ## Import
 
@@ -370,11 +326,7 @@ class VirtualHubConnection(pulumi.CustomResource):
             if remote_virtual_network_id is None and not opts.urn:
                 raise TypeError("Missing required property 'remote_virtual_network_id'")
             __props__.__dict__["remote_virtual_network_id"] = remote_virtual_network_id
-            if routing is not None and not isinstance(routing, VirtualHubConnectionRoutingArgs):
-                routing = routing or {}
-                def _setter(key, value):
-                    routing[key] = value
-                VirtualHubConnectionRoutingArgs._configure(_setter, **routing)
+            routing = _utilities.configure(routing, VirtualHubConnectionRoutingArgs, True)
             __props__.__dict__["routing"] = routing
             if virtual_hub_id is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_hub_id'")

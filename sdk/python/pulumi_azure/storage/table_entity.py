@@ -38,21 +38,31 @@ class TableEntityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             entity: pulumi.Input[Mapping[str, pulumi.Input[str]]],
-             partition_key: pulumi.Input[str],
-             row_key: pulumi.Input[str],
-             storage_account_name: pulumi.Input[str],
-             table_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             entity: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             partition_key: Optional[pulumi.Input[str]] = None,
+             row_key: Optional[pulumi.Input[str]] = None,
+             storage_account_name: Optional[pulumi.Input[str]] = None,
+             table_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'partitionKey' in kwargs:
+        if entity is None:
+            raise TypeError("Missing 'entity' argument")
+        if partition_key is None and 'partitionKey' in kwargs:
             partition_key = kwargs['partitionKey']
-        if 'rowKey' in kwargs:
+        if partition_key is None:
+            raise TypeError("Missing 'partition_key' argument")
+        if row_key is None and 'rowKey' in kwargs:
             row_key = kwargs['rowKey']
-        if 'storageAccountName' in kwargs:
+        if row_key is None:
+            raise TypeError("Missing 'row_key' argument")
+        if storage_account_name is None and 'storageAccountName' in kwargs:
             storage_account_name = kwargs['storageAccountName']
-        if 'tableName' in kwargs:
+        if storage_account_name is None:
+            raise TypeError("Missing 'storage_account_name' argument")
+        if table_name is None and 'tableName' in kwargs:
             table_name = kwargs['tableName']
+        if table_name is None:
+            raise TypeError("Missing 'table_name' argument")
 
         _setter("entity", entity)
         _setter("partition_key", partition_key)
@@ -153,15 +163,15 @@ class _TableEntityState:
              row_key: Optional[pulumi.Input[str]] = None,
              storage_account_name: Optional[pulumi.Input[str]] = None,
              table_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'partitionKey' in kwargs:
+        if partition_key is None and 'partitionKey' in kwargs:
             partition_key = kwargs['partitionKey']
-        if 'rowKey' in kwargs:
+        if row_key is None and 'rowKey' in kwargs:
             row_key = kwargs['rowKey']
-        if 'storageAccountName' in kwargs:
+        if storage_account_name is None and 'storageAccountName' in kwargs:
             storage_account_name = kwargs['storageAccountName']
-        if 'tableName' in kwargs:
+        if table_name is None and 'tableName' in kwargs:
             table_name = kwargs['tableName']
 
         if entity is not None:
@@ -250,29 +260,6 @@ class TableEntity(pulumi.CustomResource):
         """
         Manages an Entity within a Table in an Azure Storage Account.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_table = azure.storage.Table("exampleTable", storage_account_name=example_account.name)
-        example_table_entity = azure.storage.TableEntity("exampleTableEntity",
-            storage_account_name=example_account.name,
-            table_name=example_table.name,
-            partition_key="examplepartition",
-            row_key="examplerow",
-            entity={
-                "example": "example",
-            })
-        ```
-
         ## Import
 
         Entities within a Table in an Azure Storage Account can be imported using the `resource id`, e.g.
@@ -297,29 +284,6 @@ class TableEntity(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Entity within a Table in an Azure Storage Account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_table = azure.storage.Table("exampleTable", storage_account_name=example_account.name)
-        example_table_entity = azure.storage.TableEntity("exampleTableEntity",
-            storage_account_name=example_account.name,
-            table_name=example_table.name,
-            partition_key="examplepartition",
-            row_key="examplerow",
-            entity={
-                "example": "example",
-            })
-        ```
 
         ## Import
 

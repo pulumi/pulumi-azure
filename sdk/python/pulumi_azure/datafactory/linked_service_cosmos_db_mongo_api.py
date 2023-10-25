@@ -55,7 +55,7 @@ class LinkedServiceCosmosDbMongoApiArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_factory_id: pulumi.Input[str],
+             data_factory_id: Optional[pulumi.Input[str]] = None,
              additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              connection_string: Optional[pulumi.Input[str]] = None,
@@ -65,17 +65,19 @@ class LinkedServiceCosmosDbMongoApiArgs:
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              server_version_is32_or_higher: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'additionalProperties' in kwargs:
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
-        if 'integrationRuntimeName' in kwargs:
+        if integration_runtime_name is None and 'integrationRuntimeName' in kwargs:
             integration_runtime_name = kwargs['integrationRuntimeName']
-        if 'serverVersionIs32OrHigher' in kwargs:
+        if server_version_is32_or_higher is None and 'serverVersionIs32OrHigher' in kwargs:
             server_version_is32_or_higher = kwargs['serverVersionIs32OrHigher']
 
         _setter("data_factory_id", data_factory_id)
@@ -275,17 +277,17 @@ class _LinkedServiceCosmosDbMongoApiState:
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              server_version_is32_or_higher: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'additionalProperties' in kwargs:
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'integrationRuntimeName' in kwargs:
+        if integration_runtime_name is None and 'integrationRuntimeName' in kwargs:
             integration_runtime_name = kwargs['integrationRuntimeName']
-        if 'serverVersionIs32OrHigher' in kwargs:
+        if server_version_is32_or_higher is None and 'serverVersionIs32OrHigher' in kwargs:
             server_version_is32_or_higher = kwargs['serverVersionIs32OrHigher']
 
         if additional_properties is not None:
@@ -453,22 +455,6 @@ class LinkedServiceCosmosDbMongoApi(pulumi.CustomResource):
 
         > **Note:** All arguments including the client secret will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_linked_service_cosmos_db_mongo_api = azure.datafactory.LinkedServiceCosmosDbMongoApi("exampleLinkedServiceCosmosDbMongoApi",
-            data_factory_id=example_factory.id,
-            connection_string="mongodb://testinstance:testkey@testinstance.documents.azure.com:10255/?ssl=true",
-            database="foo")
-        ```
-
         ## Import
 
         Data Factory Linked Service's can be imported using the `resource id`, e.g.
@@ -502,22 +488,6 @@ class LinkedServiceCosmosDbMongoApi(pulumi.CustomResource):
         Manages a Linked Service (connection) between a CosmosDB and Azure Data Factory using Mongo API.
 
         > **Note:** All arguments including the client secret will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_linked_service_cosmos_db_mongo_api = azure.datafactory.LinkedServiceCosmosDbMongoApi("exampleLinkedServiceCosmosDbMongoApi",
-            data_factory_id=example_factory.id,
-            connection_string="mongodb://testinstance:testkey@testinstance.documents.azure.com:10255/?ssl=true",
-            database="foo")
-        ```
 
         ## Import
 

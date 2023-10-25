@@ -12,67 +12,6 @@ namespace Pulumi.Azure.ApiManagement
     /// <summary>
     /// Manages an API Management Gateway Certificate Authority.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System;
-    /// using System.Collections.Generic;
-    /// using System.IO;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// 	private static string ReadFileBase64(string path) {
-    /// 		return Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(File.ReadAllText(path)));
-    /// 	}
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         PublisherName = "pub1",
-    ///         PublisherEmail = "pub1@email.com",
-    ///         SkuName = "Consumption_0",
-    ///     });
-    /// 
-    ///     var exampleGateway = new Azure.ApiManagement.Gateway("exampleGateway", new()
-    ///     {
-    ///         ApiManagementId = exampleService.Id,
-    ///         Description = "Example API Management gateway",
-    ///         LocationData = new Azure.ApiManagement.Inputs.GatewayLocationDataArgs
-    ///         {
-    ///             Name = "example name",
-    ///             City = "example city",
-    ///             District = "example district",
-    ///             Region = "example region",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleCertificate = new Azure.ApiManagement.Certificate("exampleCertificate", new()
-    ///     {
-    ///         ApiManagementName = exampleService.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Data = ReadFileBase64("example.pfx"),
-    ///     });
-    /// 
-    ///     var exampleGatewayCertificateAuthority = new Azure.ApiManagement.GatewayCertificateAuthority("exampleGatewayCertificateAuthority", new()
-    ///     {
-    ///         ApiManagementId = exampleService.Id,
-    ///         CertificateName = exampleCertificate.Name,
-    ///         GatewayName = exampleGateway.Name,
-    ///         IsTrusted = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// API Management Gateway Certificate Authority can be imported using the `resource id`, e.g.

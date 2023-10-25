@@ -9,27 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a MySQL Dataset inside a Azure Data Factory.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleLinkedServiceMysql = new azure.datafactory.LinkedServiceMysql("exampleLinkedServiceMysql", {
- *     dataFactoryId: exampleFactory.id,
- *     connectionString: "Server=test;Port=3306;Database=test;User=test;SSLMode=1;UseSystemTrustStore=0;Password=test",
- * });
- * const exampleDatasetMysql = new azure.datafactory.DatasetMysql("exampleDatasetMysql", {
- *     dataFactoryId: exampleFactory.id,
- *     linkedServiceName: exampleLinkedServiceMysql.name,
- * });
- * ```
- *
  * ## Import
  *
  * Data Factory MySQL Datasets can be imported using the `resource id`, e.g.

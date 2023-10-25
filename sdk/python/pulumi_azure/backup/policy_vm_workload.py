@@ -43,22 +43,32 @@ class PolicyVMWorkloadArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             protection_policies: pulumi.Input[Sequence[pulumi.Input['PolicyVMWorkloadProtectionPolicyArgs']]],
-             recovery_vault_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             settings: pulumi.Input['PolicyVMWorkloadSettingsArgs'],
-             workload_type: pulumi.Input[str],
+             protection_policies: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyVMWorkloadProtectionPolicyArgs']]]] = None,
+             recovery_vault_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             settings: Optional[pulumi.Input['PolicyVMWorkloadSettingsArgs']] = None,
+             workload_type: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'protectionPolicies' in kwargs:
+        if protection_policies is None and 'protectionPolicies' in kwargs:
             protection_policies = kwargs['protectionPolicies']
-        if 'recoveryVaultName' in kwargs:
+        if protection_policies is None:
+            raise TypeError("Missing 'protection_policies' argument")
+        if recovery_vault_name is None and 'recoveryVaultName' in kwargs:
             recovery_vault_name = kwargs['recoveryVaultName']
-        if 'resourceGroupName' in kwargs:
+        if recovery_vault_name is None:
+            raise TypeError("Missing 'recovery_vault_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'workloadType' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if settings is None:
+            raise TypeError("Missing 'settings' argument")
+        if workload_type is None and 'workloadType' in kwargs:
             workload_type = kwargs['workloadType']
+        if workload_type is None:
+            raise TypeError("Missing 'workload_type' argument")
 
         _setter("protection_policies", protection_policies)
         _setter("recovery_vault_name", recovery_vault_name)
@@ -177,15 +187,15 @@ class _PolicyVMWorkloadState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              settings: Optional[pulumi.Input['PolicyVMWorkloadSettingsArgs']] = None,
              workload_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'protectionPolicies' in kwargs:
+        if protection_policies is None and 'protectionPolicies' in kwargs:
             protection_policies = kwargs['protectionPolicies']
-        if 'recoveryVaultName' in kwargs:
+        if recovery_vault_name is None and 'recoveryVaultName' in kwargs:
             recovery_vault_name = kwargs['recoveryVaultName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'workloadType' in kwargs:
+        if workload_type is None and 'workloadType' in kwargs:
             workload_type = kwargs['workloadType']
 
         if name is not None:
@@ -289,49 +299,6 @@ class PolicyVMWorkload(pulumi.CustomResource):
         """
         Manages an Azure VM Workload Backup Policy within a Recovery Services vault.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_vault = azure.recoveryservices.Vault("exampleVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard",
-            soft_delete_enabled=False)
-        example_policy_vm_workload = azure.backup.PolicyVMWorkload("examplePolicyVMWorkload",
-            resource_group_name=example_resource_group.name,
-            recovery_vault_name=example_vault.name,
-            workload_type="SQLDataBase",
-            settings=azure.backup.PolicyVMWorkloadSettingsArgs(
-                time_zone="UTC",
-                compression_enabled=False,
-            ),
-            protection_policies=[
-                azure.backup.PolicyVMWorkloadProtectionPolicyArgs(
-                    policy_type="Full",
-                    backup=azure.backup.PolicyVMWorkloadProtectionPolicyBackupArgs(
-                        frequency="Daily",
-                        time="15:00",
-                    ),
-                    retention_daily=azure.backup.PolicyVMWorkloadProtectionPolicyRetentionDailyArgs(
-                        count=8,
-                    ),
-                ),
-                azure.backup.PolicyVMWorkloadProtectionPolicyArgs(
-                    policy_type="Log",
-                    backup=azure.backup.PolicyVMWorkloadProtectionPolicyBackupArgs(
-                        frequency_in_minutes=15,
-                    ),
-                    simple_retention=azure.backup.PolicyVMWorkloadProtectionPolicySimpleRetentionArgs(
-                        count=8,
-                    ),
-                ),
-            ])
-        ```
-
         ## Import
 
         Azure VM Workload Backup Policies can be imported using the `resource id`, e.g.
@@ -357,49 +324,6 @@ class PolicyVMWorkload(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure VM Workload Backup Policy within a Recovery Services vault.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_vault = azure.recoveryservices.Vault("exampleVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard",
-            soft_delete_enabled=False)
-        example_policy_vm_workload = azure.backup.PolicyVMWorkload("examplePolicyVMWorkload",
-            resource_group_name=example_resource_group.name,
-            recovery_vault_name=example_vault.name,
-            workload_type="SQLDataBase",
-            settings=azure.backup.PolicyVMWorkloadSettingsArgs(
-                time_zone="UTC",
-                compression_enabled=False,
-            ),
-            protection_policies=[
-                azure.backup.PolicyVMWorkloadProtectionPolicyArgs(
-                    policy_type="Full",
-                    backup=azure.backup.PolicyVMWorkloadProtectionPolicyBackupArgs(
-                        frequency="Daily",
-                        time="15:00",
-                    ),
-                    retention_daily=azure.backup.PolicyVMWorkloadProtectionPolicyRetentionDailyArgs(
-                        count=8,
-                    ),
-                ),
-                azure.backup.PolicyVMWorkloadProtectionPolicyArgs(
-                    policy_type="Log",
-                    backup=azure.backup.PolicyVMWorkloadProtectionPolicyBackupArgs(
-                        frequency_in_minutes=15,
-                    ),
-                    simple_retention=azure.backup.PolicyVMWorkloadProtectionPolicySimpleRetentionArgs(
-                        count=8,
-                    ),
-                ),
-            ])
-        ```
 
         ## Import
 
@@ -453,11 +377,7 @@ class PolicyVMWorkload(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if settings is not None and not isinstance(settings, PolicyVMWorkloadSettingsArgs):
-                settings = settings or {}
-                def _setter(key, value):
-                    settings[key] = value
-                PolicyVMWorkloadSettingsArgs._configure(_setter, **settings)
+            settings = _utilities.configure(settings, PolicyVMWorkloadSettingsArgs, True)
             if settings is None and not opts.urn:
                 raise TypeError("Missing required property 'settings'")
             __props__.__dict__["settings"] = settings

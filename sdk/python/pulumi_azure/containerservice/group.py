@@ -98,9 +98,9 @@ class GroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             containers: pulumi.Input[Sequence[pulumi.Input['GroupContainerArgs']]],
-             os_type: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             containers: Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerArgs']]]] = None,
+             os_type: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              diagnostics: Optional[pulumi.Input['GroupDiagnosticsArgs']] = None,
              dns_config: Optional[pulumi.Input['GroupDnsConfigArgs']] = None,
              dns_name_label: Optional[pulumi.Input[str]] = None,
@@ -120,35 +120,41 @@ class GroupArgs:
              subnet_ids: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'osType' in kwargs:
+        if containers is None:
+            raise TypeError("Missing 'containers' argument")
+        if os_type is None and 'osType' in kwargs:
             os_type = kwargs['osType']
-        if 'resourceGroupName' in kwargs:
+        if os_type is None:
+            raise TypeError("Missing 'os_type' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'dnsConfig' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if dns_config is None and 'dnsConfig' in kwargs:
             dns_config = kwargs['dnsConfig']
-        if 'dnsNameLabel' in kwargs:
+        if dns_name_label is None and 'dnsNameLabel' in kwargs:
             dns_name_label = kwargs['dnsNameLabel']
-        if 'dnsNameLabelReusePolicy' in kwargs:
+        if dns_name_label_reuse_policy is None and 'dnsNameLabelReusePolicy' in kwargs:
             dns_name_label_reuse_policy = kwargs['dnsNameLabelReusePolicy']
-        if 'exposedPorts' in kwargs:
+        if exposed_ports is None and 'exposedPorts' in kwargs:
             exposed_ports = kwargs['exposedPorts']
-        if 'imageRegistryCredentials' in kwargs:
+        if image_registry_credentials is None and 'imageRegistryCredentials' in kwargs:
             image_registry_credentials = kwargs['imageRegistryCredentials']
-        if 'initContainers' in kwargs:
+        if init_containers is None and 'initContainers' in kwargs:
             init_containers = kwargs['initContainers']
-        if 'ipAddressType' in kwargs:
+        if ip_address_type is None and 'ipAddressType' in kwargs:
             ip_address_type = kwargs['ipAddressType']
-        if 'keyVaultKeyId' in kwargs:
+        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
             key_vault_key_id = kwargs['keyVaultKeyId']
-        if 'keyVaultUserAssignedIdentityId' in kwargs:
+        if key_vault_user_assigned_identity_id is None and 'keyVaultUserAssignedIdentityId' in kwargs:
             key_vault_user_assigned_identity_id = kwargs['keyVaultUserAssignedIdentityId']
-        if 'networkProfileId' in kwargs:
+        if network_profile_id is None and 'networkProfileId' in kwargs:
             network_profile_id = kwargs['networkProfileId']
-        if 'restartPolicy' in kwargs:
+        if restart_policy is None and 'restartPolicy' in kwargs:
             restart_policy = kwargs['restartPolicy']
-        if 'subnetIds' in kwargs:
+        if subnet_ids is None and 'subnetIds' in kwargs:
             subnet_ids = kwargs['subnetIds']
 
         _setter("containers", containers)
@@ -584,37 +590,37 @@ class _GroupState:
              subnet_ids: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dnsConfig' in kwargs:
+        if dns_config is None and 'dnsConfig' in kwargs:
             dns_config = kwargs['dnsConfig']
-        if 'dnsNameLabel' in kwargs:
+        if dns_name_label is None and 'dnsNameLabel' in kwargs:
             dns_name_label = kwargs['dnsNameLabel']
-        if 'dnsNameLabelReusePolicy' in kwargs:
+        if dns_name_label_reuse_policy is None and 'dnsNameLabelReusePolicy' in kwargs:
             dns_name_label_reuse_policy = kwargs['dnsNameLabelReusePolicy']
-        if 'exposedPorts' in kwargs:
+        if exposed_ports is None and 'exposedPorts' in kwargs:
             exposed_ports = kwargs['exposedPorts']
-        if 'imageRegistryCredentials' in kwargs:
+        if image_registry_credentials is None and 'imageRegistryCredentials' in kwargs:
             image_registry_credentials = kwargs['imageRegistryCredentials']
-        if 'initContainers' in kwargs:
+        if init_containers is None and 'initContainers' in kwargs:
             init_containers = kwargs['initContainers']
-        if 'ipAddress' in kwargs:
+        if ip_address is None and 'ipAddress' in kwargs:
             ip_address = kwargs['ipAddress']
-        if 'ipAddressType' in kwargs:
+        if ip_address_type is None and 'ipAddressType' in kwargs:
             ip_address_type = kwargs['ipAddressType']
-        if 'keyVaultKeyId' in kwargs:
+        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
             key_vault_key_id = kwargs['keyVaultKeyId']
-        if 'keyVaultUserAssignedIdentityId' in kwargs:
+        if key_vault_user_assigned_identity_id is None and 'keyVaultUserAssignedIdentityId' in kwargs:
             key_vault_user_assigned_identity_id = kwargs['keyVaultUserAssignedIdentityId']
-        if 'networkProfileId' in kwargs:
+        if network_profile_id is None and 'networkProfileId' in kwargs:
             network_profile_id = kwargs['networkProfileId']
-        if 'osType' in kwargs:
+        if os_type is None and 'osType' in kwargs:
             os_type = kwargs['osType']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'restartPolicy' in kwargs:
+        if restart_policy is None and 'restartPolicy' in kwargs:
             restart_policy = kwargs['restartPolicy']
-        if 'subnetIds' in kwargs:
+        if subnet_ids is None and 'subnetIds' in kwargs:
             subnet_ids = kwargs['subnetIds']
 
         if containers is not None:
@@ -999,44 +1005,6 @@ class Group(pulumi.CustomResource):
 
         > **Note** `network_profile_id` is [deprecated](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-vnet) by Azure. For users who want to continue to manage existing `containerservice.Group` that rely on `network_profile_id`, please stay on provider versions prior to v3.16.0. Otherwise, use `subnet_ids` instead.
 
-        ## Example Usage
-
-        This example provisions a Basic Container.
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_group = azure.containerservice.Group("exampleGroup",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            ip_address_type="Public",
-            dns_name_label="aci-label",
-            os_type="Linux",
-            containers=[
-                azure.containerservice.GroupContainerArgs(
-                    name="hello-world",
-                    image="mcr.microsoft.com/azuredocs/aci-helloworld:latest",
-                    cpu=0.5,
-                    memory=1.5,
-                    ports=[azure.containerservice.GroupContainerPortArgs(
-                        port=443,
-                        protocol="TCP",
-                    )],
-                ),
-                azure.containerservice.GroupContainerArgs(
-                    name="sidecar",
-                    image="mcr.microsoft.com/azuredocs/aci-tutorial-sidecar",
-                    cpu=0.5,
-                    memory=1.5,
-                ),
-            ],
-            tags={
-                "environment": "testing",
-            })
-        ```
-
         ## Import
 
         Container Group's can be imported using the `resource id`, e.g.
@@ -1087,44 +1055,6 @@ class Group(pulumi.CustomResource):
         Manages as an Azure Container Group instance.
 
         > **Note** `network_profile_id` is [deprecated](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-vnet) by Azure. For users who want to continue to manage existing `containerservice.Group` that rely on `network_profile_id`, please stay on provider versions prior to v3.16.0. Otherwise, use `subnet_ids` instead.
-
-        ## Example Usage
-
-        This example provisions a Basic Container.
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_group = azure.containerservice.Group("exampleGroup",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            ip_address_type="Public",
-            dns_name_label="aci-label",
-            os_type="Linux",
-            containers=[
-                azure.containerservice.GroupContainerArgs(
-                    name="hello-world",
-                    image="mcr.microsoft.com/azuredocs/aci-helloworld:latest",
-                    cpu=0.5,
-                    memory=1.5,
-                    ports=[azure.containerservice.GroupContainerPortArgs(
-                        port=443,
-                        protocol="TCP",
-                    )],
-                ),
-                azure.containerservice.GroupContainerArgs(
-                    name="sidecar",
-                    image="mcr.microsoft.com/azuredocs/aci-tutorial-sidecar",
-                    cpu=0.5,
-                    memory=1.5,
-                ),
-            ],
-            tags={
-                "environment": "testing",
-            })
-        ```
 
         ## Import
 
@@ -1187,26 +1117,14 @@ class Group(pulumi.CustomResource):
             if containers is None and not opts.urn:
                 raise TypeError("Missing required property 'containers'")
             __props__.__dict__["containers"] = containers
-            if diagnostics is not None and not isinstance(diagnostics, GroupDiagnosticsArgs):
-                diagnostics = diagnostics or {}
-                def _setter(key, value):
-                    diagnostics[key] = value
-                GroupDiagnosticsArgs._configure(_setter, **diagnostics)
+            diagnostics = _utilities.configure(diagnostics, GroupDiagnosticsArgs, True)
             __props__.__dict__["diagnostics"] = diagnostics
-            if dns_config is not None and not isinstance(dns_config, GroupDnsConfigArgs):
-                dns_config = dns_config or {}
-                def _setter(key, value):
-                    dns_config[key] = value
-                GroupDnsConfigArgs._configure(_setter, **dns_config)
+            dns_config = _utilities.configure(dns_config, GroupDnsConfigArgs, True)
             __props__.__dict__["dns_config"] = dns_config
             __props__.__dict__["dns_name_label"] = dns_name_label
             __props__.__dict__["dns_name_label_reuse_policy"] = dns_name_label_reuse_policy
             __props__.__dict__["exposed_ports"] = exposed_ports
-            if identity is not None and not isinstance(identity, GroupIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                GroupIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, GroupIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["image_registry_credentials"] = image_registry_credentials
             __props__.__dict__["init_containers"] = init_containers

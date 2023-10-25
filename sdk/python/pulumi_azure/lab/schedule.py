@@ -46,22 +46,28 @@ class ScheduleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             lab_id: pulumi.Input[str],
-             stop_time: pulumi.Input[str],
-             time_zone: pulumi.Input[str],
+             lab_id: Optional[pulumi.Input[str]] = None,
+             stop_time: Optional[pulumi.Input[str]] = None,
+             time_zone: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              notes: Optional[pulumi.Input[str]] = None,
              recurrence: Optional[pulumi.Input['ScheduleRecurrenceArgs']] = None,
              start_time: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'labId' in kwargs:
+        if lab_id is None and 'labId' in kwargs:
             lab_id = kwargs['labId']
-        if 'stopTime' in kwargs:
+        if lab_id is None:
+            raise TypeError("Missing 'lab_id' argument")
+        if stop_time is None and 'stopTime' in kwargs:
             stop_time = kwargs['stopTime']
-        if 'timeZone' in kwargs:
+        if stop_time is None:
+            raise TypeError("Missing 'stop_time' argument")
+        if time_zone is None and 'timeZone' in kwargs:
             time_zone = kwargs['timeZone']
-        if 'startTime' in kwargs:
+        if time_zone is None:
+            raise TypeError("Missing 'time_zone' argument")
+        if start_time is None and 'startTime' in kwargs:
             start_time = kwargs['startTime']
 
         _setter("lab_id", lab_id)
@@ -201,15 +207,15 @@ class _ScheduleState:
              start_time: Optional[pulumi.Input[str]] = None,
              stop_time: Optional[pulumi.Input[str]] = None,
              time_zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'labId' in kwargs:
+        if lab_id is None and 'labId' in kwargs:
             lab_id = kwargs['labId']
-        if 'startTime' in kwargs:
+        if start_time is None and 'startTime' in kwargs:
             start_time = kwargs['startTime']
-        if 'stopTime' in kwargs:
+        if stop_time is None and 'stopTime' in kwargs:
             stop_time = kwargs['stopTime']
-        if 'timeZone' in kwargs:
+        if time_zone is None and 'timeZone' in kwargs:
             time_zone = kwargs['timeZone']
 
         if lab_id is not None:
@@ -328,42 +334,6 @@ class Schedule(pulumi.CustomResource):
         """
         Manages a Lab Service Schedule.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_lab = azure.lab.Lab("exampleLab",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            title="Test Title",
-            security=azure.lab.LabSecurityArgs(
-                open_access_enabled=False,
-            ),
-            virtual_machine=azure.lab.LabVirtualMachineArgs(
-                admin_user=azure.lab.LabVirtualMachineAdminUserArgs(
-                    username="testadmin",
-                    password="Password1234!",
-                ),
-                image_reference=azure.lab.LabVirtualMachineImageReferenceArgs(
-                    offer="0001-com-ubuntu-server-focal",
-                    publisher="canonical",
-                    sku="20_04-lts",
-                    version="latest",
-                ),
-                sku=azure.lab.LabVirtualMachineSkuArgs(
-                    name="Classic_Fsv2_2_4GB_128_S_SSD",
-                    capacity=1,
-                ),
-            ))
-        example_schedule = azure.lab.Schedule("exampleSchedule",
-            lab_id=example_lab.id,
-            stop_time="2022-11-28T00:00:00Z",
-            time_zone="America/Los_Angeles")
-        ```
-
         ## Import
 
         Lab Service Schedules can be imported using the `resource id`, e.g.
@@ -390,42 +360,6 @@ class Schedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Lab Service Schedule.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_lab = azure.lab.Lab("exampleLab",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            title="Test Title",
-            security=azure.lab.LabSecurityArgs(
-                open_access_enabled=False,
-            ),
-            virtual_machine=azure.lab.LabVirtualMachineArgs(
-                admin_user=azure.lab.LabVirtualMachineAdminUserArgs(
-                    username="testadmin",
-                    password="Password1234!",
-                ),
-                image_reference=azure.lab.LabVirtualMachineImageReferenceArgs(
-                    offer="0001-com-ubuntu-server-focal",
-                    publisher="canonical",
-                    sku="20_04-lts",
-                    version="latest",
-                ),
-                sku=azure.lab.LabVirtualMachineSkuArgs(
-                    name="Classic_Fsv2_2_4GB_128_S_SSD",
-                    capacity=1,
-                ),
-            ))
-        example_schedule = azure.lab.Schedule("exampleSchedule",
-            lab_id=example_lab.id,
-            stop_time="2022-11-28T00:00:00Z",
-            time_zone="America/Los_Angeles")
-        ```
 
         ## Import
 
@@ -475,11 +409,7 @@ class Schedule(pulumi.CustomResource):
             __props__.__dict__["lab_id"] = lab_id
             __props__.__dict__["name"] = name
             __props__.__dict__["notes"] = notes
-            if recurrence is not None and not isinstance(recurrence, ScheduleRecurrenceArgs):
-                recurrence = recurrence or {}
-                def _setter(key, value):
-                    recurrence[key] = value
-                ScheduleRecurrenceArgs._configure(_setter, **recurrence)
+            recurrence = _utilities.configure(recurrence, ScheduleRecurrenceArgs, True)
             __props__.__dict__["recurrence"] = recurrence
             __props__.__dict__["start_time"] = start_time
             if stop_time is None and not opts.urn:

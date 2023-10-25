@@ -41,20 +41,30 @@ class GlobalSchemaArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_management_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             schema_id: pulumi.Input[str],
-             type: pulumi.Input[str],
-             value: pulumi.Input[str],
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             schema_id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'resourceGroupName' in kwargs:
+        if api_management_name is None:
+            raise TypeError("Missing 'api_management_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'schemaId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if schema_id is None and 'schemaId' in kwargs:
             schema_id = kwargs['schemaId']
+        if schema_id is None:
+            raise TypeError("Missing 'schema_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("api_management_name", api_management_name)
         _setter("resource_group_name", resource_group_name)
@@ -173,13 +183,13 @@ class _GlobalSchemaState:
              schema_id: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'schemaId' in kwargs:
+        if schema_id is None and 'schemaId' in kwargs:
             schema_id = kwargs['schemaId']
 
         if api_management_name is not None:
@@ -283,27 +293,6 @@ class GlobalSchema(pulumi.CustomResource):
         """
         Manages a Global Schema within an API Management Service.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            publisher_name="pub1",
-            publisher_email="pub1@email.com",
-            sku_name="Consumption_0")
-        example_global_schema = azure.apimanagement.GlobalSchema("exampleGlobalSchema",
-            schema_id="example-schema1",
-            api_management_name=example_service.name,
-            resource_group_name=example_resource_group.name,
-            type="xml",
-            value=(lambda path: open(path).read())("api_management_api_schema.xml"))
-        ```
-
         ## Import
 
         API Management API Schema's can be imported using the `resource id`, e.g.
@@ -329,27 +318,6 @@ class GlobalSchema(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Global Schema within an API Management Service.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            publisher_name="pub1",
-            publisher_email="pub1@email.com",
-            sku_name="Consumption_0")
-        example_global_schema = azure.apimanagement.GlobalSchema("exampleGlobalSchema",
-            schema_id="example-schema1",
-            api_management_name=example_service.name,
-            resource_group_name=example_resource_group.name,
-            type="xml",
-            value=(lambda path: open(path).read())("api_management_api_schema.xml"))
-        ```
 
         ## Import
 

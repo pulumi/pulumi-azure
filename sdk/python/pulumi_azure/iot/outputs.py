@@ -79,11 +79,11 @@ class IoTHubCloudToDevice(dict):
              default_ttl: Optional[str] = None,
              feedbacks: Optional[Sequence['outputs.IoTHubCloudToDeviceFeedback']] = None,
              max_delivery_count: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'defaultTtl' in kwargs:
+        if default_ttl is None and 'defaultTtl' in kwargs:
             default_ttl = kwargs['defaultTtl']
-        if 'maxDeliveryCount' in kwargs:
+        if max_delivery_count is None and 'maxDeliveryCount' in kwargs:
             max_delivery_count = kwargs['maxDeliveryCount']
 
         if default_ttl is not None:
@@ -162,13 +162,13 @@ class IoTHubCloudToDeviceFeedback(dict):
              lock_duration: Optional[str] = None,
              max_delivery_count: Optional[int] = None,
              time_to_live: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'lockDuration' in kwargs:
+        if lock_duration is None and 'lockDuration' in kwargs:
             lock_duration = kwargs['lockDuration']
-        if 'maxDeliveryCount' in kwargs:
+        if max_delivery_count is None and 'maxDeliveryCount' in kwargs:
             max_delivery_count = kwargs['maxDeliveryCount']
-        if 'timeToLive' in kwargs:
+        if time_to_live is None and 'timeToLive' in kwargs:
             time_to_live = kwargs['timeToLive']
 
         if lock_duration is not None:
@@ -292,8 +292,8 @@ class IoTHubEndpoint(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             type: str,
+             name: Optional[str] = None,
+             type: Optional[str] = None,
              authentication_type: Optional[str] = None,
              batch_frequency_in_seconds: Optional[int] = None,
              connection_string: Optional[str] = None,
@@ -305,27 +305,31 @@ class IoTHubEndpoint(dict):
              identity_id: Optional[str] = None,
              max_chunk_size_in_bytes: Optional[int] = None,
              resource_group_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'authenticationType' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if authentication_type is None and 'authenticationType' in kwargs:
             authentication_type = kwargs['authenticationType']
-        if 'batchFrequencyInSeconds' in kwargs:
+        if batch_frequency_in_seconds is None and 'batchFrequencyInSeconds' in kwargs:
             batch_frequency_in_seconds = kwargs['batchFrequencyInSeconds']
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
-        if 'containerName' in kwargs:
+        if container_name is None and 'containerName' in kwargs:
             container_name = kwargs['containerName']
-        if 'endpointUri' in kwargs:
+        if endpoint_uri is None and 'endpointUri' in kwargs:
             endpoint_uri = kwargs['endpointUri']
-        if 'entityPath' in kwargs:
+        if entity_path is None and 'entityPath' in kwargs:
             entity_path = kwargs['entityPath']
-        if 'fileNameFormat' in kwargs:
+        if file_name_format is None and 'fileNameFormat' in kwargs:
             file_name_format = kwargs['fileNameFormat']
-        if 'identityId' in kwargs:
+        if identity_id is None and 'identityId' in kwargs:
             identity_id = kwargs['identityId']
-        if 'maxChunkSizeInBytes' in kwargs:
+        if max_chunk_size_in_bytes is None and 'maxChunkSizeInBytes' in kwargs:
             max_chunk_size_in_bytes = kwargs['maxChunkSizeInBytes']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         _setter("name", name)
@@ -499,13 +503,19 @@ class IoTHubEnrichment(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             endpoint_names: Sequence[str],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             endpoint_names: Optional[Sequence[str]] = None,
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'endpointNames' in kwargs:
+        if endpoint_names is None and 'endpointNames' in kwargs:
             endpoint_names = kwargs['endpointNames']
+        if endpoint_names is None:
+            raise TypeError("Missing 'endpoint_names' argument")
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("endpoint_names", endpoint_names)
         _setter("key", key)
@@ -580,9 +590,9 @@ class IoTHubFallbackRoute(dict):
              enabled: Optional[bool] = None,
              endpoint_names: Optional[Sequence[str]] = None,
              source: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'endpointNames' in kwargs:
+        if endpoint_names is None and 'endpointNames' in kwargs:
             endpoint_names = kwargs['endpointNames']
 
         if condition is not None:
@@ -700,8 +710,8 @@ class IoTHubFileUpload(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             connection_string: str,
-             container_name: str,
+             connection_string: Optional[str] = None,
+             container_name: Optional[str] = None,
              authentication_type: Optional[str] = None,
              default_ttl: Optional[str] = None,
              identity_id: Optional[str] = None,
@@ -709,23 +719,27 @@ class IoTHubFileUpload(dict):
              max_delivery_count: Optional[int] = None,
              notifications: Optional[bool] = None,
              sas_ttl: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
-        if 'containerName' in kwargs:
+        if connection_string is None:
+            raise TypeError("Missing 'connection_string' argument")
+        if container_name is None and 'containerName' in kwargs:
             container_name = kwargs['containerName']
-        if 'authenticationType' in kwargs:
+        if container_name is None:
+            raise TypeError("Missing 'container_name' argument")
+        if authentication_type is None and 'authenticationType' in kwargs:
             authentication_type = kwargs['authenticationType']
-        if 'defaultTtl' in kwargs:
+        if default_ttl is None and 'defaultTtl' in kwargs:
             default_ttl = kwargs['defaultTtl']
-        if 'identityId' in kwargs:
+        if identity_id is None and 'identityId' in kwargs:
             identity_id = kwargs['identityId']
-        if 'lockDuration' in kwargs:
+        if lock_duration is None and 'lockDuration' in kwargs:
             lock_duration = kwargs['lockDuration']
-        if 'maxDeliveryCount' in kwargs:
+        if max_delivery_count is None and 'maxDeliveryCount' in kwargs:
             max_delivery_count = kwargs['maxDeliveryCount']
-        if 'sasTtl' in kwargs:
+        if sas_ttl is None and 'sasTtl' in kwargs:
             sas_ttl = kwargs['sasTtl']
 
         _setter("connection_string", connection_string)
@@ -868,17 +882,19 @@ class IoTHubIdentity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -968,13 +984,13 @@ class IoTHubNetworkRuleSet(dict):
              apply_to_builtin_eventhub_endpoint: Optional[bool] = None,
              default_action: Optional[str] = None,
              ip_rules: Optional[Sequence['outputs.IoTHubNetworkRuleSetIpRule']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'applyToBuiltinEventhubEndpoint' in kwargs:
+        if apply_to_builtin_eventhub_endpoint is None and 'applyToBuiltinEventhubEndpoint' in kwargs:
             apply_to_builtin_eventhub_endpoint = kwargs['applyToBuiltinEventhubEndpoint']
-        if 'defaultAction' in kwargs:
+        if default_action is None and 'defaultAction' in kwargs:
             default_action = kwargs['defaultAction']
-        if 'ipRules' in kwargs:
+        if ip_rules is None and 'ipRules' in kwargs:
             ip_rules = kwargs['ipRules']
 
         if apply_to_builtin_eventhub_endpoint is not None:
@@ -1046,13 +1062,17 @@ class IoTHubNetworkRuleSetIpRule(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ip_mask: str,
-             name: str,
+             ip_mask: Optional[str] = None,
+             name: Optional[str] = None,
              action: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'ipMask' in kwargs:
+        if ip_mask is None and 'ipMask' in kwargs:
             ip_mask = kwargs['ipMask']
+        if ip_mask is None:
+            raise TypeError("Missing 'ip_mask' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("ip_mask", ip_mask)
         _setter("name", name)
@@ -1127,15 +1147,23 @@ class IoTHubRoute(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: bool,
-             endpoint_names: Sequence[str],
-             name: str,
-             source: str,
+             enabled: Optional[bool] = None,
+             endpoint_names: Optional[Sequence[str]] = None,
+             name: Optional[str] = None,
+             source: Optional[str] = None,
              condition: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'endpointNames' in kwargs:
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if endpoint_names is None and 'endpointNames' in kwargs:
             endpoint_names = kwargs['endpointNames']
+        if endpoint_names is None:
+            raise TypeError("Missing 'endpoint_names' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if source is None:
+            raise TypeError("Missing 'source' argument")
 
         _setter("enabled", enabled)
         _setter("endpoint_names", endpoint_names)
@@ -1233,13 +1261,13 @@ class IoTHubSharedAccessPolicy(dict):
              permissions: Optional[str] = None,
              primary_key: Optional[str] = None,
              secondary_key: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'keyName' in kwargs:
+        if key_name is None and 'keyName' in kwargs:
             key_name = kwargs['keyName']
-        if 'primaryKey' in kwargs:
+        if primary_key is None and 'primaryKey' in kwargs:
             primary_key = kwargs['primaryKey']
-        if 'secondaryKey' in kwargs:
+        if secondary_key is None and 'secondaryKey' in kwargs:
             secondary_key = kwargs['secondaryKey']
 
         if key_name is not None:
@@ -1303,10 +1331,14 @@ class IoTHubSku(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             capacity: int,
-             name: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             capacity: Optional[int] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if capacity is None:
+            raise TypeError("Missing 'capacity' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("capacity", capacity)
         _setter("name", name)
@@ -1376,17 +1408,19 @@ class IotHubDeviceUpdateAccountIdentity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -1466,12 +1500,16 @@ class IotHubDeviceUpdateInstanceDiagnosticStorageAccount(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             connection_string: str,
-             id: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             connection_string: Optional[str] = None,
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
+        if connection_string is None:
+            raise TypeError("Missing 'connection_string' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
 
         _setter("connection_string", connection_string)
         _setter("id", id)
@@ -1533,14 +1571,20 @@ class IotHubDpsIpFilterRule(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action: str,
-             ip_mask: str,
-             name: str,
+             action: Optional[str] = None,
+             ip_mask: Optional[str] = None,
+             name: Optional[str] = None,
              target: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'ipMask' in kwargs:
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if ip_mask is None and 'ipMask' in kwargs:
             ip_mask = kwargs['ipMask']
+        if ip_mask is None:
+            raise TypeError("Missing 'ip_mask' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("action", action)
         _setter("ip_mask", ip_mask)
@@ -1628,18 +1672,22 @@ class IotHubDpsLinkedHub(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             connection_string: str,
-             location: str,
+             connection_string: Optional[str] = None,
+             location: Optional[str] = None,
              allocation_weight: Optional[int] = None,
              apply_allocation_policy: Optional[bool] = None,
              hostname: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
-        if 'allocationWeight' in kwargs:
+        if connection_string is None:
+            raise TypeError("Missing 'connection_string' argument")
+        if location is None:
+            raise TypeError("Missing 'location' argument")
+        if allocation_weight is None and 'allocationWeight' in kwargs:
             allocation_weight = kwargs['allocationWeight']
-        if 'applyAllocationPolicy' in kwargs:
+        if apply_allocation_policy is None and 'applyAllocationPolicy' in kwargs:
             apply_allocation_policy = kwargs['applyAllocationPolicy']
 
         _setter("connection_string", connection_string)
@@ -1709,10 +1757,14 @@ class IotHubDpsSku(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             capacity: int,
-             name: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             capacity: Optional[int] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if capacity is None:
+            raise TypeError("Missing 'capacity' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("capacity", capacity)
         _setter("name", name)
@@ -1784,15 +1836,15 @@ class SecurityDeviceGroupAllowRule(dict):
              connection_to_ips_not_alloweds: Optional[Sequence[str]] = None,
              local_users_not_alloweds: Optional[Sequence[str]] = None,
              processes_not_alloweds: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'connectionFromIpsNotAlloweds' in kwargs:
+        if connection_from_ips_not_alloweds is None and 'connectionFromIpsNotAlloweds' in kwargs:
             connection_from_ips_not_alloweds = kwargs['connectionFromIpsNotAlloweds']
-        if 'connectionToIpsNotAlloweds' in kwargs:
+        if connection_to_ips_not_alloweds is None and 'connectionToIpsNotAlloweds' in kwargs:
             connection_to_ips_not_alloweds = kwargs['connectionToIpsNotAlloweds']
-        if 'localUsersNotAlloweds' in kwargs:
+        if local_users_not_alloweds is None and 'localUsersNotAlloweds' in kwargs:
             local_users_not_alloweds = kwargs['localUsersNotAlloweds']
-        if 'processesNotAlloweds' in kwargs:
+        if processes_not_alloweds is None and 'processesNotAlloweds' in kwargs:
             processes_not_alloweds = kwargs['processesNotAlloweds']
 
         if connection_from_ips_not_alloweds is not None:
@@ -1860,12 +1912,20 @@ class SecurityDeviceGroupRangeRule(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             duration: str,
-             max: int,
-             min: int,
-             type: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             duration: Optional[str] = None,
+             max: Optional[int] = None,
+             min: Optional[int] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if duration is None:
+            raise TypeError("Missing 'duration' argument")
+        if max is None:
+            raise TypeError("Missing 'max' argument")
+        if min is None:
+            raise TypeError("Missing 'min' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("duration", duration)
         _setter("max", max)
@@ -1941,14 +2001,18 @@ class SecuritySolutionAdditionalWorkspace(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_types: Sequence[str],
-             workspace_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             data_types: Optional[Sequence[str]] = None,
+             workspace_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dataTypes' in kwargs:
+        if data_types is None and 'dataTypes' in kwargs:
             data_types = kwargs['dataTypes']
-        if 'workspaceId' in kwargs:
+        if data_types is None:
+            raise TypeError("Missing 'data_types' argument")
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
+        if workspace_id is None:
+            raise TypeError("Missing 'workspace_id' argument")
 
         _setter("data_types", data_types)
         _setter("workspace_id", workspace_id)
@@ -2090,37 +2154,37 @@ class SecuritySolutionRecommendationsEnabled(dict):
              privileged_docker_options: Optional[bool] = None,
              shared_credentials: Optional[bool] = None,
              vulnerable_tls_cipher_suite: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'acrAuthentication' in kwargs:
+        if acr_authentication is None and 'acrAuthentication' in kwargs:
             acr_authentication = kwargs['acrAuthentication']
-        if 'agentSendUnutilizedMsg' in kwargs:
+        if agent_send_unutilized_msg is None and 'agentSendUnutilizedMsg' in kwargs:
             agent_send_unutilized_msg = kwargs['agentSendUnutilizedMsg']
-        if 'edgeHubMemOptimize' in kwargs:
+        if edge_hub_mem_optimize is None and 'edgeHubMemOptimize' in kwargs:
             edge_hub_mem_optimize = kwargs['edgeHubMemOptimize']
-        if 'edgeLoggingOption' in kwargs:
+        if edge_logging_option is None and 'edgeLoggingOption' in kwargs:
             edge_logging_option = kwargs['edgeLoggingOption']
-        if 'inconsistentModuleSettings' in kwargs:
+        if inconsistent_module_settings is None and 'inconsistentModuleSettings' in kwargs:
             inconsistent_module_settings = kwargs['inconsistentModuleSettings']
-        if 'installAgent' in kwargs:
+        if install_agent is None and 'installAgent' in kwargs:
             install_agent = kwargs['installAgent']
-        if 'ipFilterDenyAll' in kwargs:
+        if ip_filter_deny_all is None and 'ipFilterDenyAll' in kwargs:
             ip_filter_deny_all = kwargs['ipFilterDenyAll']
-        if 'ipFilterPermissiveRule' in kwargs:
+        if ip_filter_permissive_rule is None and 'ipFilterPermissiveRule' in kwargs:
             ip_filter_permissive_rule = kwargs['ipFilterPermissiveRule']
-        if 'openPorts' in kwargs:
+        if open_ports is None and 'openPorts' in kwargs:
             open_ports = kwargs['openPorts']
-        if 'permissiveFirewallPolicy' in kwargs:
+        if permissive_firewall_policy is None and 'permissiveFirewallPolicy' in kwargs:
             permissive_firewall_policy = kwargs['permissiveFirewallPolicy']
-        if 'permissiveInputFirewallRules' in kwargs:
+        if permissive_input_firewall_rules is None and 'permissiveInputFirewallRules' in kwargs:
             permissive_input_firewall_rules = kwargs['permissiveInputFirewallRules']
-        if 'permissiveOutputFirewallRules' in kwargs:
+        if permissive_output_firewall_rules is None and 'permissiveOutputFirewallRules' in kwargs:
             permissive_output_firewall_rules = kwargs['permissiveOutputFirewallRules']
-        if 'privilegedDockerOptions' in kwargs:
+        if privileged_docker_options is None and 'privilegedDockerOptions' in kwargs:
             privileged_docker_options = kwargs['privilegedDockerOptions']
-        if 'sharedCredentials' in kwargs:
+        if shared_credentials is None and 'sharedCredentials' in kwargs:
             shared_credentials = kwargs['sharedCredentials']
-        if 'vulnerableTlsCipherSuite' in kwargs:
+        if vulnerable_tls_cipher_suite is None and 'vulnerableTlsCipherSuite' in kwargs:
             vulnerable_tls_cipher_suite = kwargs['vulnerableTlsCipherSuite']
 
         if acr_authentication is not None:
@@ -2302,10 +2366,14 @@ class TimeSeriesInsightsGen2EnvironmentStorage(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             name: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             key: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("key", key)
         _setter("name", name)
@@ -2344,10 +2412,14 @@ class TimeSeriesInsightsReferenceDataSetKeyProperty(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             type: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("name", name)
         _setter("type", type)
@@ -2392,18 +2464,26 @@ class GetIotHubIdentityResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             identity_ids: Sequence[str],
-             principal_id: str,
-             tenant_id: str,
-             type: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             identity_ids: Optional[Sequence[str]] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if identity_ids is None:
+            raise TypeError("Missing 'identity_ids' argument")
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("identity_ids", identity_ids)
         _setter("principal_id", principal_id)

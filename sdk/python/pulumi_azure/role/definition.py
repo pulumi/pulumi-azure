@@ -45,17 +45,19 @@ class DefinitionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             scope: pulumi.Input[str],
+             scope: Optional[pulumi.Input[str]] = None,
              assignable_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionPermissionArgs']]]] = None,
              role_definition_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'assignableScopes' in kwargs:
+        if scope is None:
+            raise TypeError("Missing 'scope' argument")
+        if assignable_scopes is None and 'assignableScopes' in kwargs:
             assignable_scopes = kwargs['assignableScopes']
-        if 'roleDefinitionId' in kwargs:
+        if role_definition_id is None and 'roleDefinitionId' in kwargs:
             role_definition_id = kwargs['roleDefinitionId']
 
         _setter("scope", scope)
@@ -187,13 +189,13 @@ class _DefinitionState:
              role_definition_id: Optional[pulumi.Input[str]] = None,
              role_definition_resource_id: Optional[pulumi.Input[str]] = None,
              scope: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'assignableScopes' in kwargs:
+        if assignable_scopes is None and 'assignableScopes' in kwargs:
             assignable_scopes = kwargs['assignableScopes']
-        if 'roleDefinitionId' in kwargs:
+        if role_definition_id is None and 'roleDefinitionId' in kwargs:
             role_definition_id = kwargs['roleDefinitionId']
-        if 'roleDefinitionResourceId' in kwargs:
+        if role_definition_resource_id is None and 'roleDefinitionResourceId' in kwargs:
             role_definition_resource_id = kwargs['roleDefinitionResourceId']
 
         if assignable_scopes is not None:
@@ -318,23 +320,6 @@ class Definition(pulumi.CustomResource):
         """
         Manages a custom Role Definition, used to assign Roles to Users/Principals. See ['Understand role definitions'](https://docs.microsoft.com/azure/role-based-access-control/role-definitions) in the Azure documentation for more details.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        primary = azure.core.get_subscription()
-        example = azure.authorization.RoleDefinition("example",
-            scope=primary.id,
-            description="This is a custom role created",
-            permissions=[azure.authorization.RoleDefinitionPermissionArgs(
-                actions=["*"],
-                not_actions=[],
-            )],
-            assignable_scopes=[primary.id])
-        ```
-
         ## Import
 
         Role Definitions can be imported using the `resource id`, e.g.
@@ -362,23 +347,6 @@ class Definition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a custom Role Definition, used to assign Roles to Users/Principals. See ['Understand role definitions'](https://docs.microsoft.com/azure/role-based-access-control/role-definitions) in the Azure documentation for more details.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        primary = azure.core.get_subscription()
-        example = azure.authorization.RoleDefinition("example",
-            scope=primary.id,
-            description="This is a custom role created",
-            permissions=[azure.authorization.RoleDefinitionPermissionArgs(
-                actions=["*"],
-                not_actions=[],
-            )],
-            assignable_scopes=[primary.id])
-        ```
 
         ## Import
 

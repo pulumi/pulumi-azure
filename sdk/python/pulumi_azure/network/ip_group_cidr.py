@@ -29,12 +29,16 @@ class IPGroupCIDRArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cidr: pulumi.Input[str],
-             ip_group_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             cidr: Optional[pulumi.Input[str]] = None,
+             ip_group_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'ipGroupId' in kwargs:
+        if cidr is None:
+            raise TypeError("Missing 'cidr' argument")
+        if ip_group_id is None and 'ipGroupId' in kwargs:
             ip_group_id = kwargs['ipGroupId']
+        if ip_group_id is None:
+            raise TypeError("Missing 'ip_group_id' argument")
 
         _setter("cidr", cidr)
         _setter("ip_group_id", ip_group_id)
@@ -82,9 +86,9 @@ class _IPGroupCIDRState:
              _setter: Callable[[Any, Any], None],
              cidr: Optional[pulumi.Input[str]] = None,
              ip_group_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'ipGroupId' in kwargs:
+        if ip_group_id is None and 'ipGroupId' in kwargs:
             ip_group_id = kwargs['ipGroupId']
 
         if cidr is not None:
@@ -130,21 +134,6 @@ class IPGroupCIDR(pulumi.CustomResource):
         `network.IPGroup` resource for the same IP Group. Doing so will cause a conflict and
         CIDRS will be removed.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_ip_group = azure.network.IPGroup("exampleIPGroup",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_ip_group_cidr = azure.network.IPGroupCIDR("exampleIPGroupCIDR",
-            ip_group_id=example_ip_group.id,
-            cidr="10.10.10.0/24")
-        ```
-
         ## Import
 
         IP Group CIDRs can be imported using the `resource id` of the IP Group and the CIDR value (`/` characters have to be replaced by `_`), e.g.
@@ -170,21 +159,6 @@ class IPGroupCIDR(pulumi.CustomResource):
         > Warning Do not use this resource at the same time as the `cidrs` property of the
         `network.IPGroup` resource for the same IP Group. Doing so will cause a conflict and
         CIDRS will be removed.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_ip_group = azure.network.IPGroup("exampleIPGroup",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_ip_group_cidr = azure.network.IPGroupCIDR("exampleIPGroupCIDR",
-            ip_group_id=example_ip_group.id,
-            cidr="10.10.10.0/24")
-        ```
 
         ## Import
 

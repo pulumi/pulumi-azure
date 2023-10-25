@@ -49,21 +49,25 @@ class SynapseSparkArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             machine_learning_workspace_id: pulumi.Input[str],
-             synapse_spark_pool_id: pulumi.Input[str],
+             machine_learning_workspace_id: Optional[pulumi.Input[str]] = None,
+             synapse_spark_pool_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              identity: Optional[pulumi.Input['SynapseSparkIdentityArgs']] = None,
              local_auth_enabled: Optional[pulumi.Input[bool]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'machineLearningWorkspaceId' in kwargs:
+        if machine_learning_workspace_id is None and 'machineLearningWorkspaceId' in kwargs:
             machine_learning_workspace_id = kwargs['machineLearningWorkspaceId']
-        if 'synapseSparkPoolId' in kwargs:
+        if machine_learning_workspace_id is None:
+            raise TypeError("Missing 'machine_learning_workspace_id' argument")
+        if synapse_spark_pool_id is None and 'synapseSparkPoolId' in kwargs:
             synapse_spark_pool_id = kwargs['synapseSparkPoolId']
-        if 'localAuthEnabled' in kwargs:
+        if synapse_spark_pool_id is None:
+            raise TypeError("Missing 'synapse_spark_pool_id' argument")
+        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
             local_auth_enabled = kwargs['localAuthEnabled']
 
         _setter("machine_learning_workspace_id", machine_learning_workspace_id)
@@ -222,13 +226,13 @@ class _SynapseSparkState:
              name: Optional[pulumi.Input[str]] = None,
              synapse_spark_pool_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'localAuthEnabled' in kwargs:
+        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
             local_auth_enabled = kwargs['localAuthEnabled']
-        if 'machineLearningWorkspaceId' in kwargs:
+        if machine_learning_workspace_id is None and 'machineLearningWorkspaceId' in kwargs:
             machine_learning_workspace_id = kwargs['machineLearningWorkspaceId']
-        if 'synapseSparkPoolId' in kwargs:
+        if synapse_spark_pool_id is None and 'synapseSparkPoolId' in kwargs:
             synapse_spark_pool_id = kwargs['synapseSparkPoolId']
 
         if description is not None:
@@ -362,66 +366,6 @@ class SynapseSpark(pulumi.CustomResource):
         """
         Manages the linked service to link an Azure Machine learning workspace to an Azure Synapse workspace.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup",
-            location="west europe",
-            tags={
-                "stage": "example",
-            })
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="web")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="standard",
-            purge_protection_enabled=True)
-        example_account = azure.storage.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_workspace = azure.machinelearning.Workspace("exampleWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_insights_id=example_insights.id,
-            key_vault_id=example_key_vault.id,
-            storage_account_id=example_account.id,
-            identity=azure.machinelearning.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
-        example_synapse_workspace_workspace = azure.synapse.Workspace("exampleSynapse/workspaceWorkspace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
-            sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!",
-            identity=azure.synapse.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_spark_pool = azure.synapse.SparkPool("exampleSparkPool",
-            synapse_workspace_id=example_synapse / workspace_workspace["id"],
-            node_size_family="MemoryOptimized",
-            node_size="Small",
-            node_count=3)
-        example_synapse_spark = azure.machinelearning.SynapseSpark("exampleSynapseSpark",
-            machine_learning_workspace_id=example_workspace.id,
-            location=example_resource_group.location,
-            synapse_spark_pool_id=example_spark_pool.id,
-            identity=azure.machinelearning.SynapseSparkIdentityArgs(
-                type="SystemAssigned",
-            ))
-        ```
-
         ## Import
 
         Machine Learning Synapse Sparks can be imported using the `resource id`, e.g.
@@ -449,66 +393,6 @@ class SynapseSpark(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages the linked service to link an Azure Machine learning workspace to an Azure Synapse workspace.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup",
-            location="west europe",
-            tags={
-                "stage": "example",
-            })
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="web")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="standard",
-            purge_protection_enabled=True)
-        example_account = azure.storage.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_workspace = azure.machinelearning.Workspace("exampleWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_insights_id=example_insights.id,
-            key_vault_id=example_key_vault.id,
-            storage_account_id=example_account.id,
-            identity=azure.machinelearning.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
-        example_synapse_workspace_workspace = azure.synapse.Workspace("exampleSynapse/workspaceWorkspace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
-            sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!",
-            identity=azure.synapse.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_spark_pool = azure.synapse.SparkPool("exampleSparkPool",
-            synapse_workspace_id=example_synapse / workspace_workspace["id"],
-            node_size_family="MemoryOptimized",
-            node_size="Small",
-            node_count=3)
-        example_synapse_spark = azure.machinelearning.SynapseSpark("exampleSynapseSpark",
-            machine_learning_workspace_id=example_workspace.id,
-            location=example_resource_group.location,
-            synapse_spark_pool_id=example_spark_pool.id,
-            identity=azure.machinelearning.SynapseSparkIdentityArgs(
-                type="SystemAssigned",
-            ))
-        ```
 
         ## Import
 
@@ -555,11 +439,7 @@ class SynapseSpark(pulumi.CustomResource):
             __props__ = SynapseSparkArgs.__new__(SynapseSparkArgs)
 
             __props__.__dict__["description"] = description
-            if identity is not None and not isinstance(identity, SynapseSparkIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                SynapseSparkIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, SynapseSparkIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["local_auth_enabled"] = local_auth_enabled
             __props__.__dict__["location"] = location

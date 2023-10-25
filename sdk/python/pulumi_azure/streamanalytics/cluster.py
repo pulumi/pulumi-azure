@@ -38,17 +38,21 @@ class ClusterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             streaming_capacity: pulumi.Input[int],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             streaming_capacity: Optional[pulumi.Input[int]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'streamingCapacity' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if streaming_capacity is None and 'streamingCapacity' in kwargs:
             streaming_capacity = kwargs['streamingCapacity']
+        if streaming_capacity is None:
+            raise TypeError("Missing 'streaming_capacity' argument")
 
         _setter("resource_group_name", resource_group_name)
         _setter("streaming_capacity", streaming_capacity)
@@ -152,11 +156,11 @@ class _ClusterState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              streaming_capacity: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'streamingCapacity' in kwargs:
+        if streaming_capacity is None and 'streamingCapacity' in kwargs:
             streaming_capacity = kwargs['streamingCapacity']
 
         if location is not None:
@@ -245,19 +249,6 @@ class Cluster(pulumi.CustomResource):
         """
         Manages a Stream Analytics Cluster.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_cluster = azure.streamanalytics.Cluster("exampleCluster",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            streaming_capacity=36)
-        ```
-
         ## Import
 
         Stream Analytics Clusters can be imported using the `resource id`, e.g.
@@ -282,19 +273,6 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Stream Analytics Cluster.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_cluster = azure.streamanalytics.Cluster("exampleCluster",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            streaming_capacity=36)
-        ```
 
         ## Import
 

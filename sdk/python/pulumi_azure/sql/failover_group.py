@@ -51,25 +51,33 @@ class FailoverGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             partner_servers: pulumi.Input[Sequence[pulumi.Input['FailoverGroupPartnerServerArgs']]],
-             read_write_endpoint_failover_policy: pulumi.Input['FailoverGroupReadWriteEndpointFailoverPolicyArgs'],
-             resource_group_name: pulumi.Input[str],
-             server_name: pulumi.Input[str],
+             partner_servers: Optional[pulumi.Input[Sequence[pulumi.Input['FailoverGroupPartnerServerArgs']]]] = None,
+             read_write_endpoint_failover_policy: Optional[pulumi.Input['FailoverGroupReadWriteEndpointFailoverPolicyArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
              databases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              readonly_endpoint_failover_policy: Optional[pulumi.Input['FailoverGroupReadonlyEndpointFailoverPolicyArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'partnerServers' in kwargs:
+        if partner_servers is None and 'partnerServers' in kwargs:
             partner_servers = kwargs['partnerServers']
-        if 'readWriteEndpointFailoverPolicy' in kwargs:
+        if partner_servers is None:
+            raise TypeError("Missing 'partner_servers' argument")
+        if read_write_endpoint_failover_policy is None and 'readWriteEndpointFailoverPolicy' in kwargs:
             read_write_endpoint_failover_policy = kwargs['readWriteEndpointFailoverPolicy']
-        if 'resourceGroupName' in kwargs:
+        if read_write_endpoint_failover_policy is None:
+            raise TypeError("Missing 'read_write_endpoint_failover_policy' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serverName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if server_name is None and 'serverName' in kwargs:
             server_name = kwargs['serverName']
-        if 'readonlyEndpointFailoverPolicy' in kwargs:
+        if server_name is None:
+            raise TypeError("Missing 'server_name' argument")
+        if readonly_endpoint_failover_policy is None and 'readonlyEndpointFailoverPolicy' in kwargs:
             readonly_endpoint_failover_policy = kwargs['readonlyEndpointFailoverPolicy']
 
         _setter("partner_servers", partner_servers)
@@ -238,17 +246,17 @@ class _FailoverGroupState:
              role: Optional[pulumi.Input[str]] = None,
              server_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'partnerServers' in kwargs:
+        if partner_servers is None and 'partnerServers' in kwargs:
             partner_servers = kwargs['partnerServers']
-        if 'readWriteEndpointFailoverPolicy' in kwargs:
+        if read_write_endpoint_failover_policy is None and 'readWriteEndpointFailoverPolicy' in kwargs:
             read_write_endpoint_failover_policy = kwargs['readWriteEndpointFailoverPolicy']
-        if 'readonlyEndpointFailoverPolicy' in kwargs:
+        if readonly_endpoint_failover_policy is None and 'readonlyEndpointFailoverPolicy' in kwargs:
             readonly_endpoint_failover_policy = kwargs['readonlyEndpointFailoverPolicy']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serverName' in kwargs:
+        if server_name is None and 'serverName' in kwargs:
             server_name = kwargs['serverName']
 
         if databases is not None:
@@ -414,42 +422,6 @@ class FailoverGroup(pulumi.CustomResource):
 
         > **Note:** The `sql.FailoverGroup` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.FailoverGroup` resource instead.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        primary = azure.sql.SqlServer("primary",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            version="12.0",
-            administrator_login="sqladmin",
-            administrator_login_password="pa$$w0rd")
-        secondary = azure.sql.SqlServer("secondary",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            version="12.0",
-            administrator_login="sqladmin",
-            administrator_login_password="pa$$w0rd")
-        db1 = azure.sql.Database("db1",
-            resource_group_name=primary.resource_group_name,
-            location=primary.location,
-            server_name=primary.name)
-        example_failover_group = azure.sql.FailoverGroup("exampleFailoverGroup",
-            resource_group_name=primary.resource_group_name,
-            server_name=primary.name,
-            databases=[db1.id],
-            partner_servers=[azure.sql.FailoverGroupPartnerServerArgs(
-                id=secondary.id,
-            )],
-            read_write_endpoint_failover_policy=azure.sql.FailoverGroupReadWriteEndpointFailoverPolicyArgs(
-                mode="Automatic",
-                grace_minutes=60,
-            ))
-        ```
-
         ## Import
 
         SQL Failover Groups can be imported using the `resource id`, e.g.
@@ -481,42 +453,6 @@ class FailoverGroup(pulumi.CustomResource):
         Create a failover group of databases on a collection of Azure SQL servers.
 
         > **Note:** The `sql.FailoverGroup` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.FailoverGroup` resource instead.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        primary = azure.sql.SqlServer("primary",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            version="12.0",
-            administrator_login="sqladmin",
-            administrator_login_password="pa$$w0rd")
-        secondary = azure.sql.SqlServer("secondary",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            version="12.0",
-            administrator_login="sqladmin",
-            administrator_login_password="pa$$w0rd")
-        db1 = azure.sql.Database("db1",
-            resource_group_name=primary.resource_group_name,
-            location=primary.location,
-            server_name=primary.name)
-        example_failover_group = azure.sql.FailoverGroup("exampleFailoverGroup",
-            resource_group_name=primary.resource_group_name,
-            server_name=primary.name,
-            databases=[db1.id],
-            partner_servers=[azure.sql.FailoverGroupPartnerServerArgs(
-                id=secondary.id,
-            )],
-            read_write_endpoint_failover_policy=azure.sql.FailoverGroupReadWriteEndpointFailoverPolicyArgs(
-                mode="Automatic",
-                grace_minutes=60,
-            ))
-        ```
 
         ## Import
 
@@ -567,19 +503,11 @@ class FailoverGroup(pulumi.CustomResource):
             if partner_servers is None and not opts.urn:
                 raise TypeError("Missing required property 'partner_servers'")
             __props__.__dict__["partner_servers"] = partner_servers
-            if read_write_endpoint_failover_policy is not None and not isinstance(read_write_endpoint_failover_policy, FailoverGroupReadWriteEndpointFailoverPolicyArgs):
-                read_write_endpoint_failover_policy = read_write_endpoint_failover_policy or {}
-                def _setter(key, value):
-                    read_write_endpoint_failover_policy[key] = value
-                FailoverGroupReadWriteEndpointFailoverPolicyArgs._configure(_setter, **read_write_endpoint_failover_policy)
+            read_write_endpoint_failover_policy = _utilities.configure(read_write_endpoint_failover_policy, FailoverGroupReadWriteEndpointFailoverPolicyArgs, True)
             if read_write_endpoint_failover_policy is None and not opts.urn:
                 raise TypeError("Missing required property 'read_write_endpoint_failover_policy'")
             __props__.__dict__["read_write_endpoint_failover_policy"] = read_write_endpoint_failover_policy
-            if readonly_endpoint_failover_policy is not None and not isinstance(readonly_endpoint_failover_policy, FailoverGroupReadonlyEndpointFailoverPolicyArgs):
-                readonly_endpoint_failover_policy = readonly_endpoint_failover_policy or {}
-                def _setter(key, value):
-                    readonly_endpoint_failover_policy[key] = value
-                FailoverGroupReadonlyEndpointFailoverPolicyArgs._configure(_setter, **readonly_endpoint_failover_policy)
+            readonly_endpoint_failover_policy = _utilities.configure(readonly_endpoint_failover_policy, FailoverGroupReadonlyEndpointFailoverPolicyArgs, True)
             __props__.__dict__["readonly_endpoint_failover_policy"] = readonly_endpoint_failover_policy
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

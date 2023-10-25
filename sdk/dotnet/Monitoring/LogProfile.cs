@@ -16,62 +16,6 @@ namespace Pulumi.Azure.Monitoring
     /// 
     /// !&gt; **NOTE:** Azure Log Profiles will be retired on 30th September 2026 and will be removed in v4.0 of the AzureRM Provider. More information on the deprecation can be found [in the Azure documentation](https://learn.microsoft.com/azure/azure-monitor/essentials/activity-log?tabs=powershell#legacy-collection-methods).
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         AccountTier = "Standard",
-    ///         AccountReplicationType = "GRS",
-    ///     });
-    /// 
-    ///     var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Sku = "Standard",
-    ///         Capacity = 2,
-    ///     });
-    /// 
-    ///     var exampleLogProfile = new Azure.Monitoring.LogProfile("exampleLogProfile", new()
-    ///     {
-    ///         Categories = new[]
-    ///         {
-    ///             "Action",
-    ///             "Delete",
-    ///             "Write",
-    ///         },
-    ///         Locations = new[]
-    ///         {
-    ///             "westus",
-    ///             "global",
-    ///         },
-    ///         ServicebusRuleId = exampleEventHubNamespace.Id.Apply(id =&gt; $"{id}/authorizationrules/RootManageSharedAccessKey"),
-    ///         StorageAccountId = exampleAccount.Id,
-    ///         RetentionPolicy = new Azure.Monitoring.Inputs.LogProfileRetentionPolicyArgs
-    ///         {
-    ///             Enabled = true,
-    ///             Days = 7,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// A Log Profile can be imported using the `resource id`, e.g.

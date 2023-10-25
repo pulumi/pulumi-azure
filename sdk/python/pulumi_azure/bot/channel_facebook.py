@@ -43,22 +43,32 @@ class ChannelFacebookArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bot_name: pulumi.Input[str],
-             facebook_application_id: pulumi.Input[str],
-             facebook_application_secret: pulumi.Input[str],
-             pages: pulumi.Input[Sequence[pulumi.Input['ChannelFacebookPageArgs']]],
-             resource_group_name: pulumi.Input[str],
+             bot_name: Optional[pulumi.Input[str]] = None,
+             facebook_application_id: Optional[pulumi.Input[str]] = None,
+             facebook_application_secret: Optional[pulumi.Input[str]] = None,
+             pages: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelFacebookPageArgs']]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'botName' in kwargs:
+        if bot_name is None and 'botName' in kwargs:
             bot_name = kwargs['botName']
-        if 'facebookApplicationId' in kwargs:
+        if bot_name is None:
+            raise TypeError("Missing 'bot_name' argument")
+        if facebook_application_id is None and 'facebookApplicationId' in kwargs:
             facebook_application_id = kwargs['facebookApplicationId']
-        if 'facebookApplicationSecret' in kwargs:
+        if facebook_application_id is None:
+            raise TypeError("Missing 'facebook_application_id' argument")
+        if facebook_application_secret is None and 'facebookApplicationSecret' in kwargs:
             facebook_application_secret = kwargs['facebookApplicationSecret']
-        if 'resourceGroupName' in kwargs:
+        if facebook_application_secret is None:
+            raise TypeError("Missing 'facebook_application_secret' argument")
+        if pages is None:
+            raise TypeError("Missing 'pages' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("bot_name", bot_name)
         _setter("facebook_application_id", facebook_application_id)
@@ -177,15 +187,15 @@ class _ChannelFacebookState:
              location: Optional[pulumi.Input[str]] = None,
              pages: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelFacebookPageArgs']]]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'botName' in kwargs:
+        if bot_name is None and 'botName' in kwargs:
             bot_name = kwargs['botName']
-        if 'facebookApplicationId' in kwargs:
+        if facebook_application_id is None and 'facebookApplicationId' in kwargs:
             facebook_application_id = kwargs['facebookApplicationId']
-        if 'facebookApplicationSecret' in kwargs:
+        if facebook_application_secret is None and 'facebookApplicationSecret' in kwargs:
             facebook_application_secret = kwargs['facebookApplicationSecret']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if bot_name is not None:
@@ -291,31 +301,6 @@ class ChannelFacebook(pulumi.CustomResource):
 
         > **Note** A bot can only have a single Facebook Channel associated with it.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_channels_registration = azure.bot.ChannelsRegistration("exampleChannelsRegistration",
-            location="global",
-            resource_group_name=example_resource_group.name,
-            sku="F0",
-            microsoft_app_id=current.client_id)
-        example_channel_facebook = azure.bot.ChannelFacebook("exampleChannelFacebook",
-            bot_name=example_channels_registration.name,
-            location=example_channels_registration.location,
-            resource_group_name=example_resource_group.name,
-            facebook_application_id="563490254873576",
-            facebook_application_secret="8976d2536445ad5b976dee8437b9beb0",
-            pages=[azure.bot.ChannelFacebookPageArgs(
-                id="876248795081953",
-                access_token="CGGCec3UAFPMBAKwK3Ft8SEpO8ZCuvpNBI5DClaJCDfqJj2BgEHCKxcY0FDarmUQap6XxpZC9GWCW4nZCzjcKosAZAP7SO44X8Q8gAntbDIXgYUBGp9xtS8wUkwgKPobUePcOOVFkvClxvYZByuiQxoTiK9fQ9jZCPEorbmZCsKDZAx4VLnrNwCTZAPUwXxO61gfq4ZD",
-            )])
-        ```
-
         ## Import
 
         The Facebook Integration for a Bot Channel can be imported using the `resource id`, e.g.
@@ -343,31 +328,6 @@ class ChannelFacebook(pulumi.CustomResource):
         Manages a Facebook integration for a Bot Channel
 
         > **Note** A bot can only have a single Facebook Channel associated with it.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_channels_registration = azure.bot.ChannelsRegistration("exampleChannelsRegistration",
-            location="global",
-            resource_group_name=example_resource_group.name,
-            sku="F0",
-            microsoft_app_id=current.client_id)
-        example_channel_facebook = azure.bot.ChannelFacebook("exampleChannelFacebook",
-            bot_name=example_channels_registration.name,
-            location=example_channels_registration.location,
-            resource_group_name=example_resource_group.name,
-            facebook_application_id="563490254873576",
-            facebook_application_secret="8976d2536445ad5b976dee8437b9beb0",
-            pages=[azure.bot.ChannelFacebookPageArgs(
-                id="876248795081953",
-                access_token="CGGCec3UAFPMBAKwK3Ft8SEpO8ZCuvpNBI5DClaJCDfqJj2BgEHCKxcY0FDarmUQap6XxpZC9GWCW4nZCzjcKosAZAP7SO44X8Q8gAntbDIXgYUBGp9xtS8wUkwgKPobUePcOOVFkvClxvYZByuiQxoTiK9fQ9jZCPEorbmZCsKDZAx4VLnrNwCTZAPUwXxO61gfq4ZD",
-            )])
-        ```
 
         ## Import
 

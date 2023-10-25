@@ -41,23 +41,27 @@ class ChannelTeamsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bot_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             bot_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              calling_web_hook: Optional[pulumi.Input[str]] = None,
              deployment_environment: Optional[pulumi.Input[str]] = None,
              enable_calling: Optional[pulumi.Input[bool]] = None,
              location: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'botName' in kwargs:
+        if bot_name is None and 'botName' in kwargs:
             bot_name = kwargs['botName']
-        if 'resourceGroupName' in kwargs:
+        if bot_name is None:
+            raise TypeError("Missing 'bot_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'callingWebHook' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if calling_web_hook is None and 'callingWebHook' in kwargs:
             calling_web_hook = kwargs['callingWebHook']
-        if 'deploymentEnvironment' in kwargs:
+        if deployment_environment is None and 'deploymentEnvironment' in kwargs:
             deployment_environment = kwargs['deploymentEnvironment']
-        if 'enableCalling' in kwargs:
+        if enable_calling is None and 'enableCalling' in kwargs:
             enable_calling = kwargs['enableCalling']
 
         _setter("bot_name", bot_name)
@@ -180,17 +184,17 @@ class _ChannelTeamsState:
              enable_calling: Optional[pulumi.Input[bool]] = None,
              location: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'botName' in kwargs:
+        if bot_name is None and 'botName' in kwargs:
             bot_name = kwargs['botName']
-        if 'callingWebHook' in kwargs:
+        if calling_web_hook is None and 'callingWebHook' in kwargs:
             calling_web_hook = kwargs['callingWebHook']
-        if 'deploymentEnvironment' in kwargs:
+        if deployment_environment is None and 'deploymentEnvironment' in kwargs:
             deployment_environment = kwargs['deploymentEnvironment']
-        if 'enableCalling' in kwargs:
+        if enable_calling is None and 'enableCalling' in kwargs:
             enable_calling = kwargs['enableCalling']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if bot_name is not None:
@@ -296,25 +300,6 @@ class ChannelTeams(pulumi.CustomResource):
 
         > **Note** A bot can only have a single MS Teams Channel associated with it.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_channels_registration = azure.bot.ChannelsRegistration("exampleChannelsRegistration",
-            location="global",
-            resource_group_name=example_resource_group.name,
-            sku="F0",
-            microsoft_app_id=current.client_id)
-        example_channel_teams = azure.bot.ChannelTeams("exampleChannelTeams",
-            bot_name=example_channels_registration.name,
-            location=example_channels_registration.location,
-            resource_group_name=example_resource_group.name)
-        ```
-
         ## Import
 
         The Microsoft Teams Integration for a Bot Channel can be imported using the `resource id`, e.g.
@@ -342,25 +327,6 @@ class ChannelTeams(pulumi.CustomResource):
         Manages a MS Teams integration for a Bot Channel
 
         > **Note** A bot can only have a single MS Teams Channel associated with it.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_channels_registration = azure.bot.ChannelsRegistration("exampleChannelsRegistration",
-            location="global",
-            resource_group_name=example_resource_group.name,
-            sku="F0",
-            microsoft_app_id=current.client_id)
-        example_channel_teams = azure.bot.ChannelTeams("exampleChannelTeams",
-            bot_name=example_channels_registration.name,
-            location=example_channels_registration.location,
-            resource_group_name=example_resource_group.name)
-        ```
 
         ## Import
 

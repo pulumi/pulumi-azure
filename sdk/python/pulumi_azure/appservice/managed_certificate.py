@@ -29,12 +29,14 @@ class ManagedCertificateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             custom_hostname_binding_id: pulumi.Input[str],
+             custom_hostname_binding_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'customHostnameBindingId' in kwargs:
+        if custom_hostname_binding_id is None and 'customHostnameBindingId' in kwargs:
             custom_hostname_binding_id = kwargs['customHostnameBindingId']
+        if custom_hostname_binding_id is None:
+            raise TypeError("Missing 'custom_hostname_binding_id' argument")
 
         _setter("custom_hostname_binding_id", custom_hostname_binding_id)
         if tags is not None:
@@ -117,21 +119,21 @@ class _ManagedCertificateState:
              subject_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              thumbprint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'canonicalName' in kwargs:
+        if canonical_name is None and 'canonicalName' in kwargs:
             canonical_name = kwargs['canonicalName']
-        if 'customHostnameBindingId' in kwargs:
+        if custom_hostname_binding_id is None and 'customHostnameBindingId' in kwargs:
             custom_hostname_binding_id = kwargs['customHostnameBindingId']
-        if 'expirationDate' in kwargs:
+        if expiration_date is None and 'expirationDate' in kwargs:
             expiration_date = kwargs['expirationDate']
-        if 'friendlyName' in kwargs:
+        if friendly_name is None and 'friendlyName' in kwargs:
             friendly_name = kwargs['friendlyName']
-        if 'hostNames' in kwargs:
+        if host_names is None and 'hostNames' in kwargs:
             host_names = kwargs['hostNames']
-        if 'issueDate' in kwargs:
+        if issue_date is None and 'issueDate' in kwargs:
             issue_date = kwargs['issueDate']
-        if 'subjectName' in kwargs:
+        if subject_name is None and 'subjectName' in kwargs:
             subject_name = kwargs['subjectName']
 
         if canonical_name is not None:

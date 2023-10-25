@@ -16,36 +16,6 @@ namespace Pulumi.Azure.Network
     /// `azure.network.IPGroup` resource for the same IP Group. Doing so will cause a conflict and
     /// CIDRS will be removed.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleIPGroup = new Azure.Network.IPGroup("exampleIPGroup", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///     });
-    /// 
-    ///     var exampleIPGroupCIDR = new Azure.Network.IPGroupCIDR("exampleIPGroupCIDR", new()
-    ///     {
-    ///         IpGroupId = exampleIPGroup.Id,
-    ///         Cidr = "10.10.10.0/24",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// IP Group CIDRs can be imported using the `resource id` of the IP Group and the CIDR value (`/` characters have to be replaced by `_`), e.g.

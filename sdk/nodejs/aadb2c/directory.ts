@@ -7,22 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an AAD B2C Directory.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = new azure.aadb2c.Directory("example", {
- *     countryCode: "US",
- *     dataResidencyLocation: "United States",
- *     displayName: "example-b2c-tenant",
- *     domainName: "exampleb2ctenant.onmicrosoft.com",
- *     resourceGroupName: "example-rg",
- *     skuName: "PremiumP1",
- * });
- * ```
- *
  * ## Import
  *
  * AAD B2C Directories can be imported using the `resource id`, e.g.

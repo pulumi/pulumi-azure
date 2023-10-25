@@ -60,32 +60,38 @@ class ReplicationRecoveryPlanArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             recovery_vault_id: pulumi.Input[str],
-             source_recovery_fabric_id: pulumi.Input[str],
-             target_recovery_fabric_id: pulumi.Input[str],
+             recovery_vault_id: Optional[pulumi.Input[str]] = None,
+             source_recovery_fabric_id: Optional[pulumi.Input[str]] = None,
+             target_recovery_fabric_id: Optional[pulumi.Input[str]] = None,
              azure_to_azure_settings: Optional[pulumi.Input['ReplicationRecoveryPlanAzureToAzureSettingsArgs']] = None,
              boot_recovery_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupArgs']]]] = None,
              failover_recovery_group: Optional[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              recovery_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupArgs']]]] = None,
              shutdown_recovery_group: Optional[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'recoveryVaultId' in kwargs:
+        if recovery_vault_id is None and 'recoveryVaultId' in kwargs:
             recovery_vault_id = kwargs['recoveryVaultId']
-        if 'sourceRecoveryFabricId' in kwargs:
+        if recovery_vault_id is None:
+            raise TypeError("Missing 'recovery_vault_id' argument")
+        if source_recovery_fabric_id is None and 'sourceRecoveryFabricId' in kwargs:
             source_recovery_fabric_id = kwargs['sourceRecoveryFabricId']
-        if 'targetRecoveryFabricId' in kwargs:
+        if source_recovery_fabric_id is None:
+            raise TypeError("Missing 'source_recovery_fabric_id' argument")
+        if target_recovery_fabric_id is None and 'targetRecoveryFabricId' in kwargs:
             target_recovery_fabric_id = kwargs['targetRecoveryFabricId']
-        if 'azureToAzureSettings' in kwargs:
+        if target_recovery_fabric_id is None:
+            raise TypeError("Missing 'target_recovery_fabric_id' argument")
+        if azure_to_azure_settings is None and 'azureToAzureSettings' in kwargs:
             azure_to_azure_settings = kwargs['azureToAzureSettings']
-        if 'bootRecoveryGroups' in kwargs:
+        if boot_recovery_groups is None and 'bootRecoveryGroups' in kwargs:
             boot_recovery_groups = kwargs['bootRecoveryGroups']
-        if 'failoverRecoveryGroup' in kwargs:
+        if failover_recovery_group is None and 'failoverRecoveryGroup' in kwargs:
             failover_recovery_group = kwargs['failoverRecoveryGroup']
-        if 'recoveryGroups' in kwargs:
+        if recovery_groups is None and 'recoveryGroups' in kwargs:
             recovery_groups = kwargs['recoveryGroups']
-        if 'shutdownRecoveryGroup' in kwargs:
+        if shutdown_recovery_group is None and 'shutdownRecoveryGroup' in kwargs:
             shutdown_recovery_group = kwargs['shutdownRecoveryGroup']
 
         _setter("recovery_vault_id", recovery_vault_id)
@@ -283,23 +289,23 @@ class _ReplicationRecoveryPlanState:
              shutdown_recovery_group: Optional[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupArgs']] = None,
              source_recovery_fabric_id: Optional[pulumi.Input[str]] = None,
              target_recovery_fabric_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'azureToAzureSettings' in kwargs:
+        if azure_to_azure_settings is None and 'azureToAzureSettings' in kwargs:
             azure_to_azure_settings = kwargs['azureToAzureSettings']
-        if 'bootRecoveryGroups' in kwargs:
+        if boot_recovery_groups is None and 'bootRecoveryGroups' in kwargs:
             boot_recovery_groups = kwargs['bootRecoveryGroups']
-        if 'failoverRecoveryGroup' in kwargs:
+        if failover_recovery_group is None and 'failoverRecoveryGroup' in kwargs:
             failover_recovery_group = kwargs['failoverRecoveryGroup']
-        if 'recoveryGroups' in kwargs:
+        if recovery_groups is None and 'recoveryGroups' in kwargs:
             recovery_groups = kwargs['recoveryGroups']
-        if 'recoveryVaultId' in kwargs:
+        if recovery_vault_id is None and 'recoveryVaultId' in kwargs:
             recovery_vault_id = kwargs['recoveryVaultId']
-        if 'shutdownRecoveryGroup' in kwargs:
+        if shutdown_recovery_group is None and 'shutdownRecoveryGroup' in kwargs:
             shutdown_recovery_group = kwargs['shutdownRecoveryGroup']
-        if 'sourceRecoveryFabricId' in kwargs:
+        if source_recovery_fabric_id is None and 'sourceRecoveryFabricId' in kwargs:
             source_recovery_fabric_id = kwargs['sourceRecoveryFabricId']
-        if 'targetRecoveryFabricId' in kwargs:
+        if target_recovery_fabric_id is None and 'targetRecoveryFabricId' in kwargs:
             target_recovery_fabric_id = kwargs['targetRecoveryFabricId']
 
         if azure_to_azure_settings is not None:
@@ -462,156 +468,6 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
         """
         Manages a Site Recovery Replication Recovery Plan within a Recovery Services vault. A recovery plan gathers machines into recovery groups for the purpose of failover.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        primary_resource_group = azure.core.ResourceGroup("primaryResourceGroup", location="West US")
-        secondary_resource_group = azure.core.ResourceGroup("secondaryResourceGroup", location="East US")
-        primary_virtual_network = azure.network.VirtualNetwork("primaryVirtualNetwork",
-            resource_group_name=primary_resource_group.name,
-            address_spaces=["192.168.1.0/24"],
-            location=primary_resource_group.location)
-        primary_subnet = azure.network.Subnet("primarySubnet",
-            resource_group_name=primary_resource_group.name,
-            virtual_network_name=primary_virtual_network.name,
-            address_prefixes=["192.168.1.0/24"])
-        primary_public_ip = azure.network.PublicIp("primaryPublicIp",
-            allocation_method="Static",
-            location=primary_resource_group.location,
-            resource_group_name=primary_resource_group.name,
-            sku="Basic")
-        vm_network_interface = azure.network.NetworkInterface("vmNetworkInterface",
-            location=primary_resource_group.location,
-            resource_group_name=primary_resource_group.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="vm",
-                subnet_id=primary_subnet.id,
-                private_ip_address_allocation="Dynamic",
-                public_ip_address_id=primary_public_ip.id,
-            )])
-        vm_virtual_machine = azure.compute.VirtualMachine("vmVirtualMachine",
-            location=primary_resource_group.location,
-            resource_group_name=primary_resource_group.name,
-            vm_size="Standard_B1s",
-            network_interface_ids=[vm_network_interface.id],
-            storage_image_reference=azure.compute.VirtualMachineStorageImageReferenceArgs(
-                publisher="OpenLogic",
-                offer="CentOS",
-                sku="7.5",
-                version="latest",
-            ),
-            storage_os_disk=azure.compute.VirtualMachineStorageOsDiskArgs(
-                name="vm-os-disk",
-                os_type="Linux",
-                caching="ReadWrite",
-                create_option="FromImage",
-                managed_disk_type="Premium_LRS",
-            ),
-            os_profile=azure.compute.VirtualMachineOsProfileArgs(
-                admin_username="test-admin-123",
-                admin_password="test-pwd-123",
-                computer_name="vm",
-            ),
-            os_profile_linux_config=azure.compute.VirtualMachineOsProfileLinuxConfigArgs(
-                disable_password_authentication=False,
-            ))
-        vault = azure.recoveryservices.Vault("vault",
-            location=secondary_resource_group.location,
-            resource_group_name=secondary_resource_group.name,
-            sku="Standard")
-        primary_fabric = azure.siterecovery.Fabric("primaryFabric",
-            resource_group_name=secondary_resource_group.name,
-            recovery_vault_name=vault.name,
-            location=primary_resource_group.location)
-        secondary_fabric = azure.siterecovery.Fabric("secondaryFabric",
-            resource_group_name=secondary_resource_group.name,
-            recovery_vault_name=vault.name,
-            location=secondary_resource_group.location)
-        primary_protection_container = azure.siterecovery.ProtectionContainer("primaryProtectionContainer",
-            resource_group_name=secondary_resource_group.name,
-            recovery_vault_name=vault.name,
-            recovery_fabric_name=primary_fabric.name)
-        secondary_protection_container = azure.siterecovery.ProtectionContainer("secondaryProtectionContainer",
-            resource_group_name=secondary_resource_group.name,
-            recovery_vault_name=vault.name,
-            recovery_fabric_name=secondary_fabric.name)
-        policy = azure.siterecovery.ReplicationPolicy("policy",
-            resource_group_name=secondary_resource_group.name,
-            recovery_vault_name=vault.name,
-            recovery_point_retention_in_minutes=24 * 60,
-            application_consistent_snapshot_frequency_in_minutes=4 * 60)
-        container_mapping = azure.siterecovery.ProtectionContainerMapping("container-mapping",
-            resource_group_name=secondary_resource_group.name,
-            recovery_vault_name=vault.name,
-            recovery_fabric_name=primary_fabric.name,
-            recovery_source_protection_container_name=primary_protection_container.name,
-            recovery_target_protection_container_id=secondary_protection_container.id,
-            recovery_replication_policy_id=policy.id)
-        secondary_virtual_network = azure.network.VirtualNetwork("secondaryVirtualNetwork",
-            resource_group_name=secondary_resource_group.name,
-            address_spaces=["192.168.2.0/24"],
-            location=secondary_resource_group.location)
-        network_mapping = azure.siterecovery.NetworkMapping("network-mapping",
-            resource_group_name=secondary_resource_group.name,
-            recovery_vault_name=vault.name,
-            source_recovery_fabric_name=primary_fabric.name,
-            target_recovery_fabric_name=secondary_fabric.name,
-            source_network_id=primary_virtual_network.id,
-            target_network_id=secondary_virtual_network.id)
-        primary_account = azure.storage.Account("primaryAccount",
-            location=primary_resource_group.location,
-            resource_group_name=primary_resource_group.name,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        secondary_subnet = azure.network.Subnet("secondarySubnet",
-            resource_group_name=secondary_resource_group.name,
-            virtual_network_name=secondary_virtual_network.name,
-            address_prefixes=["192.168.2.0/24"])
-        secondary_public_ip = azure.network.PublicIp("secondaryPublicIp",
-            allocation_method="Static",
-            location=secondary_resource_group.location,
-            resource_group_name=secondary_resource_group.name,
-            sku="Basic")
-        vm_replication = azure.siterecovery.ReplicatedVM("vm-replication",
-            resource_group_name=secondary_resource_group.name,
-            recovery_vault_name=vault.name,
-            source_recovery_fabric_name=primary_fabric.name,
-            source_vm_id=vm_virtual_machine.id,
-            recovery_replication_policy_id=policy.id,
-            source_recovery_protection_container_name=primary_protection_container.name,
-            target_resource_group_id=secondary_resource_group.id,
-            target_recovery_fabric_id=secondary_fabric.id,
-            target_recovery_protection_container_id=secondary_protection_container.id,
-            managed_disks=[azure.siterecovery.ReplicatedVMManagedDiskArgs(
-                disk_id=vm_virtual_machine.storage_os_disk.managed_disk_id,
-                staging_storage_account_id=primary_account.id,
-                target_resource_group_id=secondary_resource_group.id,
-                target_disk_type="Premium_LRS",
-                target_replica_disk_type="Premium_LRS",
-            )],
-            network_interfaces=[azure.siterecovery.ReplicatedVMNetworkInterfaceArgs(
-                source_network_interface_id=vm_network_interface.id,
-                target_subnet_name=secondary_subnet.name,
-                recovery_public_ip_address_id=secondary_public_ip.id,
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    container_mapping,
-                    network_mapping,
-                ]))
-        example = azure.siterecovery.ReplicationRecoveryPlan("example",
-            recovery_vault_id=vault.id,
-            source_recovery_fabric_id=primary_fabric.id,
-            target_recovery_fabric_id=secondary_fabric.id,
-            shutdown_recovery_group=azure.siterecovery.ReplicationRecoveryPlanShutdownRecoveryGroupArgs(),
-            failover_recovery_group=azure.siterecovery.ReplicationRecoveryPlanFailoverRecoveryGroupArgs(),
-            boot_recovery_groups=[azure.siterecovery.ReplicationRecoveryPlanBootRecoveryGroupArgs(
-                replicated_protected_items=[vm_replication.id],
-            )])
-        ```
-
         ## Import
 
         Site Recovery Fabric can be imported using the `resource id`, e.g.
@@ -648,156 +504,6 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Site Recovery Replication Recovery Plan within a Recovery Services vault. A recovery plan gathers machines into recovery groups for the purpose of failover.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        primary_resource_group = azure.core.ResourceGroup("primaryResourceGroup", location="West US")
-        secondary_resource_group = azure.core.ResourceGroup("secondaryResourceGroup", location="East US")
-        primary_virtual_network = azure.network.VirtualNetwork("primaryVirtualNetwork",
-            resource_group_name=primary_resource_group.name,
-            address_spaces=["192.168.1.0/24"],
-            location=primary_resource_group.location)
-        primary_subnet = azure.network.Subnet("primarySubnet",
-            resource_group_name=primary_resource_group.name,
-            virtual_network_name=primary_virtual_network.name,
-            address_prefixes=["192.168.1.0/24"])
-        primary_public_ip = azure.network.PublicIp("primaryPublicIp",
-            allocation_method="Static",
-            location=primary_resource_group.location,
-            resource_group_name=primary_resource_group.name,
-            sku="Basic")
-        vm_network_interface = azure.network.NetworkInterface("vmNetworkInterface",
-            location=primary_resource_group.location,
-            resource_group_name=primary_resource_group.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="vm",
-                subnet_id=primary_subnet.id,
-                private_ip_address_allocation="Dynamic",
-                public_ip_address_id=primary_public_ip.id,
-            )])
-        vm_virtual_machine = azure.compute.VirtualMachine("vmVirtualMachine",
-            location=primary_resource_group.location,
-            resource_group_name=primary_resource_group.name,
-            vm_size="Standard_B1s",
-            network_interface_ids=[vm_network_interface.id],
-            storage_image_reference=azure.compute.VirtualMachineStorageImageReferenceArgs(
-                publisher="OpenLogic",
-                offer="CentOS",
-                sku="7.5",
-                version="latest",
-            ),
-            storage_os_disk=azure.compute.VirtualMachineStorageOsDiskArgs(
-                name="vm-os-disk",
-                os_type="Linux",
-                caching="ReadWrite",
-                create_option="FromImage",
-                managed_disk_type="Premium_LRS",
-            ),
-            os_profile=azure.compute.VirtualMachineOsProfileArgs(
-                admin_username="test-admin-123",
-                admin_password="test-pwd-123",
-                computer_name="vm",
-            ),
-            os_profile_linux_config=azure.compute.VirtualMachineOsProfileLinuxConfigArgs(
-                disable_password_authentication=False,
-            ))
-        vault = azure.recoveryservices.Vault("vault",
-            location=secondary_resource_group.location,
-            resource_group_name=secondary_resource_group.name,
-            sku="Standard")
-        primary_fabric = azure.siterecovery.Fabric("primaryFabric",
-            resource_group_name=secondary_resource_group.name,
-            recovery_vault_name=vault.name,
-            location=primary_resource_group.location)
-        secondary_fabric = azure.siterecovery.Fabric("secondaryFabric",
-            resource_group_name=secondary_resource_group.name,
-            recovery_vault_name=vault.name,
-            location=secondary_resource_group.location)
-        primary_protection_container = azure.siterecovery.ProtectionContainer("primaryProtectionContainer",
-            resource_group_name=secondary_resource_group.name,
-            recovery_vault_name=vault.name,
-            recovery_fabric_name=primary_fabric.name)
-        secondary_protection_container = azure.siterecovery.ProtectionContainer("secondaryProtectionContainer",
-            resource_group_name=secondary_resource_group.name,
-            recovery_vault_name=vault.name,
-            recovery_fabric_name=secondary_fabric.name)
-        policy = azure.siterecovery.ReplicationPolicy("policy",
-            resource_group_name=secondary_resource_group.name,
-            recovery_vault_name=vault.name,
-            recovery_point_retention_in_minutes=24 * 60,
-            application_consistent_snapshot_frequency_in_minutes=4 * 60)
-        container_mapping = azure.siterecovery.ProtectionContainerMapping("container-mapping",
-            resource_group_name=secondary_resource_group.name,
-            recovery_vault_name=vault.name,
-            recovery_fabric_name=primary_fabric.name,
-            recovery_source_protection_container_name=primary_protection_container.name,
-            recovery_target_protection_container_id=secondary_protection_container.id,
-            recovery_replication_policy_id=policy.id)
-        secondary_virtual_network = azure.network.VirtualNetwork("secondaryVirtualNetwork",
-            resource_group_name=secondary_resource_group.name,
-            address_spaces=["192.168.2.0/24"],
-            location=secondary_resource_group.location)
-        network_mapping = azure.siterecovery.NetworkMapping("network-mapping",
-            resource_group_name=secondary_resource_group.name,
-            recovery_vault_name=vault.name,
-            source_recovery_fabric_name=primary_fabric.name,
-            target_recovery_fabric_name=secondary_fabric.name,
-            source_network_id=primary_virtual_network.id,
-            target_network_id=secondary_virtual_network.id)
-        primary_account = azure.storage.Account("primaryAccount",
-            location=primary_resource_group.location,
-            resource_group_name=primary_resource_group.name,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        secondary_subnet = azure.network.Subnet("secondarySubnet",
-            resource_group_name=secondary_resource_group.name,
-            virtual_network_name=secondary_virtual_network.name,
-            address_prefixes=["192.168.2.0/24"])
-        secondary_public_ip = azure.network.PublicIp("secondaryPublicIp",
-            allocation_method="Static",
-            location=secondary_resource_group.location,
-            resource_group_name=secondary_resource_group.name,
-            sku="Basic")
-        vm_replication = azure.siterecovery.ReplicatedVM("vm-replication",
-            resource_group_name=secondary_resource_group.name,
-            recovery_vault_name=vault.name,
-            source_recovery_fabric_name=primary_fabric.name,
-            source_vm_id=vm_virtual_machine.id,
-            recovery_replication_policy_id=policy.id,
-            source_recovery_protection_container_name=primary_protection_container.name,
-            target_resource_group_id=secondary_resource_group.id,
-            target_recovery_fabric_id=secondary_fabric.id,
-            target_recovery_protection_container_id=secondary_protection_container.id,
-            managed_disks=[azure.siterecovery.ReplicatedVMManagedDiskArgs(
-                disk_id=vm_virtual_machine.storage_os_disk.managed_disk_id,
-                staging_storage_account_id=primary_account.id,
-                target_resource_group_id=secondary_resource_group.id,
-                target_disk_type="Premium_LRS",
-                target_replica_disk_type="Premium_LRS",
-            )],
-            network_interfaces=[azure.siterecovery.ReplicatedVMNetworkInterfaceArgs(
-                source_network_interface_id=vm_network_interface.id,
-                target_subnet_name=secondary_subnet.name,
-                recovery_public_ip_address_id=secondary_public_ip.id,
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    container_mapping,
-                    network_mapping,
-                ]))
-        example = azure.siterecovery.ReplicationRecoveryPlan("example",
-            recovery_vault_id=vault.id,
-            source_recovery_fabric_id=primary_fabric.id,
-            target_recovery_fabric_id=secondary_fabric.id,
-            shutdown_recovery_group=azure.siterecovery.ReplicationRecoveryPlanShutdownRecoveryGroupArgs(),
-            failover_recovery_group=azure.siterecovery.ReplicationRecoveryPlanFailoverRecoveryGroupArgs(),
-            boot_recovery_groups=[azure.siterecovery.ReplicationRecoveryPlanBootRecoveryGroupArgs(
-                replicated_protected_items=[vm_replication.id],
-            )])
-        ```
 
         ## Import
 
@@ -844,29 +550,17 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ReplicationRecoveryPlanArgs.__new__(ReplicationRecoveryPlanArgs)
 
-            if azure_to_azure_settings is not None and not isinstance(azure_to_azure_settings, ReplicationRecoveryPlanAzureToAzureSettingsArgs):
-                azure_to_azure_settings = azure_to_azure_settings or {}
-                def _setter(key, value):
-                    azure_to_azure_settings[key] = value
-                ReplicationRecoveryPlanAzureToAzureSettingsArgs._configure(_setter, **azure_to_azure_settings)
+            azure_to_azure_settings = _utilities.configure(azure_to_azure_settings, ReplicationRecoveryPlanAzureToAzureSettingsArgs, True)
             __props__.__dict__["azure_to_azure_settings"] = azure_to_azure_settings
             __props__.__dict__["boot_recovery_groups"] = boot_recovery_groups
-            if failover_recovery_group is not None and not isinstance(failover_recovery_group, ReplicationRecoveryPlanFailoverRecoveryGroupArgs):
-                failover_recovery_group = failover_recovery_group or {}
-                def _setter(key, value):
-                    failover_recovery_group[key] = value
-                ReplicationRecoveryPlanFailoverRecoveryGroupArgs._configure(_setter, **failover_recovery_group)
+            failover_recovery_group = _utilities.configure(failover_recovery_group, ReplicationRecoveryPlanFailoverRecoveryGroupArgs, True)
             __props__.__dict__["failover_recovery_group"] = failover_recovery_group
             __props__.__dict__["name"] = name
             __props__.__dict__["recovery_groups"] = recovery_groups
             if recovery_vault_id is None and not opts.urn:
                 raise TypeError("Missing required property 'recovery_vault_id'")
             __props__.__dict__["recovery_vault_id"] = recovery_vault_id
-            if shutdown_recovery_group is not None and not isinstance(shutdown_recovery_group, ReplicationRecoveryPlanShutdownRecoveryGroupArgs):
-                shutdown_recovery_group = shutdown_recovery_group or {}
-                def _setter(key, value):
-                    shutdown_recovery_group[key] = value
-                ReplicationRecoveryPlanShutdownRecoveryGroupArgs._configure(_setter, **shutdown_recovery_group)
+            shutdown_recovery_group = _utilities.configure(shutdown_recovery_group, ReplicationRecoveryPlanShutdownRecoveryGroupArgs, True)
             __props__.__dict__["shutdown_recovery_group"] = shutdown_recovery_group
             if source_recovery_fabric_id is None and not opts.urn:
                 raise TypeError("Missing required property 'source_recovery_fabric_id'")

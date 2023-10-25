@@ -126,17 +126,6 @@ def get_database(cluster_name: Optional[str] = None,
     """
     Use this data source to access information about an existing Kusto Database
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.kusto.get_database(cluster_name="test_cluster",
-        name="my-kusto-database",
-        resource_group_name="test_resource_group")
-    ```
-
 
     :param str cluster_name: The name of the Kusto Cluster this database is added to.
     :param str name: The name of the Kusto Database.
@@ -167,17 +156,6 @@ def get_database_output(cluster_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseResult]:
     """
     Use this data source to access information about an existing Kusto Database
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.kusto.get_database(cluster_name="test_cluster",
-        name="my-kusto-database",
-        resource_group_name="test_resource_group")
-    ```
 
 
     :param str cluster_name: The name of the Kusto Cluster this database is added to.

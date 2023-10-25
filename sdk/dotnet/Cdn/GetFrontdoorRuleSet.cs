@@ -13,60 +13,12 @@ namespace Pulumi.Azure.Cdn
     {
         /// <summary>
         /// Use this data source to access information about an existing Front Door (standard/premium) Rule Set.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Cdn.GetFrontdoorRuleSet.Invoke(new()
-        ///     {
-        ///         Name = "existing-rule-set",
-        ///         ProfileName = "existing-profile",
-        ///         ResourceGroupName = "existing-resources",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetFrontdoorRuleSetResult> InvokeAsync(GetFrontdoorRuleSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFrontdoorRuleSetResult>("azure:cdn/getFrontdoorRuleSet:getFrontdoorRuleSet", args ?? new GetFrontdoorRuleSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Front Door (standard/premium) Rule Set.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Cdn.GetFrontdoorRuleSet.Invoke(new()
-        ///     {
-        ///         Name = "existing-rule-set",
-        ///         ProfileName = "existing-profile",
-        ///         ResourceGroupName = "existing-resources",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetFrontdoorRuleSetResult> Invoke(GetFrontdoorRuleSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFrontdoorRuleSetResult>("azure:cdn/getFrontdoorRuleSet:getFrontdoorRuleSet", args ?? new GetFrontdoorRuleSetInvokeArgs(), options.WithDefaults());

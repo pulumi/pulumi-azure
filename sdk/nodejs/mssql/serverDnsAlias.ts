@@ -7,23 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a MS SQL Server DNS Alias.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleServer = new azure.mssql.Server("exampleServer", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     version: "12.0",
- *     administratorLogin: "missadministrator",
- *     administratorLoginPassword: "AdminPassword123!",
- * });
- * const exampleServerDnsAlias = new azure.mssql.ServerDnsAlias("exampleServerDnsAlias", {mssqlServerId: exampleServer.id});
- * ```
- *
  * ## Import
  *
  * MSSQL Server DNS Aliass can be imported using the `resource id`, e.g.

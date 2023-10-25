@@ -38,18 +38,22 @@ class LocalRulestackFqdnListArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             fully_qualified_domain_names: pulumi.Input[Sequence[pulumi.Input[str]]],
-             rulestack_id: pulumi.Input[str],
+             fully_qualified_domain_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             rulestack_id: Optional[pulumi.Input[str]] = None,
              audit_comment: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'fullyQualifiedDomainNames' in kwargs:
+        if fully_qualified_domain_names is None and 'fullyQualifiedDomainNames' in kwargs:
             fully_qualified_domain_names = kwargs['fullyQualifiedDomainNames']
-        if 'rulestackId' in kwargs:
+        if fully_qualified_domain_names is None:
+            raise TypeError("Missing 'fully_qualified_domain_names' argument")
+        if rulestack_id is None and 'rulestackId' in kwargs:
             rulestack_id = kwargs['rulestackId']
-        if 'auditComment' in kwargs:
+        if rulestack_id is None:
+            raise TypeError("Missing 'rulestack_id' argument")
+        if audit_comment is None and 'auditComment' in kwargs:
             audit_comment = kwargs['auditComment']
 
         _setter("fully_qualified_domain_names", fully_qualified_domain_names)
@@ -154,13 +158,13 @@ class _LocalRulestackFqdnListState:
              fully_qualified_domain_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              rulestack_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'auditComment' in kwargs:
+        if audit_comment is None and 'auditComment' in kwargs:
             audit_comment = kwargs['auditComment']
-        if 'fullyQualifiedDomainNames' in kwargs:
+        if fully_qualified_domain_names is None and 'fullyQualifiedDomainNames' in kwargs:
             fully_qualified_domain_names = kwargs['fullyQualifiedDomainNames']
-        if 'rulestackId' in kwargs:
+        if rulestack_id is None and 'rulestackId' in kwargs:
             rulestack_id = kwargs['rulestackId']
 
         if audit_comment is not None:
@@ -249,21 +253,6 @@ class LocalRulestackFqdnList(pulumi.CustomResource):
         """
         Manages a Palo Alto Local Rulestack FQDN List.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_local_rulestack = azure.paloalto.LocalRulestack("exampleLocalRulestack",
-            resource_group_name=azurerm_resrouce_group["example"]["name"],
-            location=example_resource_group.location)
-        example_local_rulestack_fqdn_list = azure.paloalto.LocalRulestackFqdnList("exampleLocalRulestackFqdnList",
-            rulestack_id=example_local_rulestack.id,
-            fully_qualified_domain_names=["contoso.com"])
-        ```
-
         ## Import
 
         Palo Alto Local Rulestack FQDN Lists can be imported using the `resource id`, e.g.
@@ -288,21 +277,6 @@ class LocalRulestackFqdnList(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Palo Alto Local Rulestack FQDN List.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_local_rulestack = azure.paloalto.LocalRulestack("exampleLocalRulestack",
-            resource_group_name=azurerm_resrouce_group["example"]["name"],
-            location=example_resource_group.location)
-        example_local_rulestack_fqdn_list = azure.paloalto.LocalRulestackFqdnList("exampleLocalRulestackFqdnList",
-            rulestack_id=example_local_rulestack.id,
-            fully_qualified_domain_names=["contoso.com"])
-        ```
 
         ## Import
 

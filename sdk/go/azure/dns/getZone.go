@@ -13,34 +13,6 @@ import (
 )
 
 // Use this data source to access information about an existing DNS Zone.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dns"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := dns.LookupZone(ctx, &dns.LookupZoneArgs{
-//				Name:              "search-eventhubns",
-//				ResourceGroupName: pulumi.StringRef("search-service"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("dnsZoneId", example.Id)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupZone(ctx *pulumi.Context, args *LookupZoneArgs, opts ...pulumi.InvokeOption) (*LookupZoneResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupZoneResult

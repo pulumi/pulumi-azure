@@ -13,35 +13,6 @@ import (
 )
 
 // Use this data source to access information about an existing Spring Cloud Application.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := appplatform.LookupSpringCloudApp(ctx, &appplatform.LookupSpringCloudAppArgs{
-//				Name:              azurerm_spring_cloud_app.Example.Name,
-//				ResourceGroupName: azurerm_spring_cloud_app.Example.Resource_group_name,
-//				ServiceName:       azurerm_spring_cloud_app.Example.Service_name,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("springCloudAppId", example.Id)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupSpringCloudApp(ctx *pulumi.Context, args *LookupSpringCloudAppArgs, opts ...pulumi.InvokeOption) (*LookupSpringCloudAppResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSpringCloudAppResult

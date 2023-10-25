@@ -10,42 +10,6 @@ import * as utilities from "../utilities";
  * Manages TagRules on the datadog Monitor.
  *
  * ## Example Usage
- * ### Adding TagRules on monitor
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US 2"});
- * const exampleMonitor = new azure.datadog.Monitor("exampleMonitor", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     datadogOrganization: {
- *         apiKey: "XXXX",
- *         applicationKey: "XXXX",
- *     },
- *     user: {
- *         name: "Example",
- *         email: "abc@xyz.com",
- *     },
- *     skuName: "Linked",
- *     identity: {
- *         type: "SystemAssigned",
- *     },
- * });
- * const exampleMonitorTagRule = new azure.datadog.MonitorTagRule("exampleMonitorTagRule", {
- *     datadogMonitorId: exampleMonitor.id,
- *     logs: [{
- *         subscriptionLogEnabled: true,
- *     }],
- *     metrics: [{
- *         filters: [{
- *             name: "Test",
- *             value: "Logs",
- *             action: "Include",
- *         }],
- *     }],
- * });
- * ```
  *
  * ## Import
  *

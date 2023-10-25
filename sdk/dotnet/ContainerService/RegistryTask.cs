@@ -12,50 +12,6 @@ namespace Pulumi.Azure.ContainerService
     /// <summary>
     /// Manages a Container Registry Task.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleRegistry = new Azure.ContainerService.Registry("exampleRegistry", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         Sku = "Basic",
-    ///     });
-    /// 
-    ///     var exampleRegistryTask = new Azure.ContainerService.RegistryTask("exampleRegistryTask", new()
-    ///     {
-    ///         ContainerRegistryId = exampleRegistry.Id,
-    ///         Platform = new Azure.ContainerService.Inputs.RegistryTaskPlatformArgs
-    ///         {
-    ///             Os = "Linux",
-    ///         },
-    ///         DockerStep = new Azure.ContainerService.Inputs.RegistryTaskDockerStepArgs
-    ///         {
-    ///             DockerfilePath = "Dockerfile",
-    ///             ContextPath = "https://github.com/&lt;username&gt;/&lt;repository&gt;#&lt;branch&gt;:&lt;folder&gt;",
-    ///             ContextAccessToken = "&lt;github personal access token&gt;",
-    ///             ImageNames = new[]
-    ///             {
-    ///                 "helloworld:{{.Run.ID}}",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Container Registry Tasks can be imported using the `resource id`, e.g.

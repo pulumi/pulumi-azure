@@ -58,9 +58,9 @@ class SpringCloudContainerDeploymentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             image: pulumi.Input[str],
-             server: pulumi.Input[str],
-             spring_cloud_app_id: pulumi.Input[str],
+             image: Optional[pulumi.Input[str]] = None,
+             server: Optional[pulumi.Input[str]] = None,
+             spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
              addon_json: Optional[pulumi.Input[str]] = None,
              arguments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              commands: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -69,17 +69,23 @@ class SpringCloudContainerDeploymentArgs:
              language_framework: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              quota: Optional[pulumi.Input['SpringCloudContainerDeploymentQuotaArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'springCloudAppId' in kwargs:
+        if image is None:
+            raise TypeError("Missing 'image' argument")
+        if server is None:
+            raise TypeError("Missing 'server' argument")
+        if spring_cloud_app_id is None and 'springCloudAppId' in kwargs:
             spring_cloud_app_id = kwargs['springCloudAppId']
-        if 'addonJson' in kwargs:
+        if spring_cloud_app_id is None:
+            raise TypeError("Missing 'spring_cloud_app_id' argument")
+        if addon_json is None and 'addonJson' in kwargs:
             addon_json = kwargs['addonJson']
-        if 'environmentVariables' in kwargs:
+        if environment_variables is None and 'environmentVariables' in kwargs:
             environment_variables = kwargs['environmentVariables']
-        if 'instanceCount' in kwargs:
+        if instance_count is None and 'instanceCount' in kwargs:
             instance_count = kwargs['instanceCount']
-        if 'languageFramework' in kwargs:
+        if language_framework is None and 'languageFramework' in kwargs:
             language_framework = kwargs['languageFramework']
 
         _setter("image", image)
@@ -291,17 +297,17 @@ class _SpringCloudContainerDeploymentState:
              quota: Optional[pulumi.Input['SpringCloudContainerDeploymentQuotaArgs']] = None,
              server: Optional[pulumi.Input[str]] = None,
              spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'addonJson' in kwargs:
+        if addon_json is None and 'addonJson' in kwargs:
             addon_json = kwargs['addonJson']
-        if 'environmentVariables' in kwargs:
+        if environment_variables is None and 'environmentVariables' in kwargs:
             environment_variables = kwargs['environmentVariables']
-        if 'instanceCount' in kwargs:
+        if instance_count is None and 'instanceCount' in kwargs:
             instance_count = kwargs['instanceCount']
-        if 'languageFramework' in kwargs:
+        if language_framework is None and 'languageFramework' in kwargs:
             language_framework = kwargs['languageFramework']
-        if 'springCloudAppId' in kwargs:
+        if spring_cloud_app_id is None and 'springCloudAppId' in kwargs:
             spring_cloud_app_id = kwargs['springCloudAppId']
 
         if addon_json is not None:
@@ -480,38 +486,6 @@ class SpringCloudContainerDeployment(pulumi.CustomResource):
         """
         Manages a Spring Cloud Container Deployment.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="E0")
-        example_spring_cloud_app = azure.appplatform.SpringCloudApp("exampleSpringCloudApp",
-            resource_group_name=example_spring_cloud_service.resource_group_name,
-            service_name=example_spring_cloud_service.name)
-        example_spring_cloud_container_deployment = azure.appplatform.SpringCloudContainerDeployment("exampleSpringCloudContainerDeployment",
-            spring_cloud_app_id=example_spring_cloud_app.id,
-            instance_count=2,
-            arguments=[
-                "-cp",
-                "/app/resources:/app/classes:/app/libs/*",
-                "hello.Application",
-            ],
-            commands=["java"],
-            environment_variables={
-                "Foo": "Bar",
-                "Env": "Staging",
-            },
-            server="docker.io",
-            image="springio/gs-spring-boot-docker",
-            language_framework="springboot")
-        ```
-
         ## Import
 
         Spring Cloud Container Deployments can be imported using the `resource id`, e.g.
@@ -542,38 +516,6 @@ class SpringCloudContainerDeployment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Spring Cloud Container Deployment.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="E0")
-        example_spring_cloud_app = azure.appplatform.SpringCloudApp("exampleSpringCloudApp",
-            resource_group_name=example_spring_cloud_service.resource_group_name,
-            service_name=example_spring_cloud_service.name)
-        example_spring_cloud_container_deployment = azure.appplatform.SpringCloudContainerDeployment("exampleSpringCloudContainerDeployment",
-            spring_cloud_app_id=example_spring_cloud_app.id,
-            instance_count=2,
-            arguments=[
-                "-cp",
-                "/app/resources:/app/classes:/app/libs/*",
-                "hello.Application",
-            ],
-            commands=["java"],
-            environment_variables={
-                "Foo": "Bar",
-                "Env": "Staging",
-            },
-            server="docker.io",
-            image="springio/gs-spring-boot-docker",
-            language_framework="springboot")
-        ```
 
         ## Import
 
@@ -632,11 +574,7 @@ class SpringCloudContainerDeployment(pulumi.CustomResource):
             __props__.__dict__["instance_count"] = instance_count
             __props__.__dict__["language_framework"] = language_framework
             __props__.__dict__["name"] = name
-            if quota is not None and not isinstance(quota, SpringCloudContainerDeploymentQuotaArgs):
-                quota = quota or {}
-                def _setter(key, value):
-                    quota[key] = value
-                SpringCloudContainerDeploymentQuotaArgs._configure(_setter, **quota)
+            quota = _utilities.configure(quota, SpringCloudContainerDeploymentQuotaArgs, True)
             __props__.__dict__["quota"] = quota
             if server is None and not opts.urn:
                 raise TypeError("Missing required property 'server'")

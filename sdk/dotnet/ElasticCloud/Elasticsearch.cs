@@ -12,32 +12,6 @@ namespace Pulumi.Azure.ElasticCloud
     /// <summary>
     /// Manages an Elasticsearch in Elastic Cloud.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testResourceGroup = new Azure.Core.ResourceGroup("testResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var testElasticsearch = new Azure.ElasticCloud.Elasticsearch("testElasticsearch", new()
-    ///     {
-    ///         ResourceGroupName = testResourceGroup.Name,
-    ///         Location = testResourceGroup.Location,
-    ///         SkuName = "ess-monthly-consumption_Monthly",
-    ///         ElasticCloudEmailAddress = "user@example.com",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Elasticsearch's can be imported using the `resource id`, e.g.

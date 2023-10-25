@@ -66,8 +66,8 @@ class DatasetAzureBlobArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_factory_id: pulumi.Input[str],
-             linked_service_name: pulumi.Input[str],
+             data_factory_id: Optional[pulumi.Input[str]] = None,
+             linked_service_name: Optional[pulumi.Input[str]] = None,
              additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -79,19 +79,23 @@ class DatasetAzureBlobArgs:
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              path: Optional[pulumi.Input[str]] = None,
              schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetAzureBlobSchemaColumnArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'linkedServiceName' in kwargs:
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if linked_service_name is None and 'linkedServiceName' in kwargs:
             linked_service_name = kwargs['linkedServiceName']
-        if 'additionalProperties' in kwargs:
+        if linked_service_name is None:
+            raise TypeError("Missing 'linked_service_name' argument")
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'dynamicFilenameEnabled' in kwargs:
+        if dynamic_filename_enabled is None and 'dynamicFilenameEnabled' in kwargs:
             dynamic_filename_enabled = kwargs['dynamicFilenameEnabled']
-        if 'dynamicPathEnabled' in kwargs:
+        if dynamic_path_enabled is None and 'dynamicPathEnabled' in kwargs:
             dynamic_path_enabled = kwargs['dynamicPathEnabled']
-        if 'schemaColumns' in kwargs:
+        if schema_columns is None and 'schemaColumns' in kwargs:
             schema_columns = kwargs['schemaColumns']
 
         _setter("data_factory_id", data_factory_id)
@@ -344,19 +348,19 @@ class _DatasetAzureBlobState:
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              path: Optional[pulumi.Input[str]] = None,
              schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetAzureBlobSchemaColumnArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'additionalProperties' in kwargs:
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'dynamicFilenameEnabled' in kwargs:
+        if dynamic_filename_enabled is None and 'dynamicFilenameEnabled' in kwargs:
             dynamic_filename_enabled = kwargs['dynamicFilenameEnabled']
-        if 'dynamicPathEnabled' in kwargs:
+        if dynamic_path_enabled is None and 'dynamicPathEnabled' in kwargs:
             dynamic_path_enabled = kwargs['dynamicPathEnabled']
-        if 'linkedServiceName' in kwargs:
+        if linked_service_name is None and 'linkedServiceName' in kwargs:
             linked_service_name = kwargs['linkedServiceName']
-        if 'schemaColumns' in kwargs:
+        if schema_columns is None and 'schemaColumns' in kwargs:
             schema_columns = kwargs['schemaColumns']
 
         if additional_properties is not None:
@@ -567,28 +571,6 @@ class DatasetAzureBlob(pulumi.CustomResource):
         """
         Manages an Azure Blob Dataset inside an Azure Data Factory.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.get_account_output(name="storageaccountname",
-            resource_group_name=example_resource_group.name)
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_linked_service_azure_blob_storage = azure.datafactory.LinkedServiceAzureBlobStorage("exampleLinkedServiceAzureBlobStorage",
-            data_factory_id=example_factory.id,
-            connection_string=example_account.primary_connection_string)
-        example_dataset_azure_blob = azure.datafactory.DatasetAzureBlob("exampleDatasetAzureBlob",
-            data_factory_id=example_factory.id,
-            linked_service_name=example_linked_service_azure_blob_storage.name,
-            path="foo",
-            filename="bar.png")
-        ```
-
         ## Import
 
         Data Factory Datasets can be imported using the `resource id`, e.g.
@@ -623,28 +605,6 @@ class DatasetAzureBlob(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Blob Dataset inside an Azure Data Factory.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.get_account_output(name="storageaccountname",
-            resource_group_name=example_resource_group.name)
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_linked_service_azure_blob_storage = azure.datafactory.LinkedServiceAzureBlobStorage("exampleLinkedServiceAzureBlobStorage",
-            data_factory_id=example_factory.id,
-            connection_string=example_account.primary_connection_string)
-        example_dataset_azure_blob = azure.datafactory.DatasetAzureBlob("exampleDatasetAzureBlob",
-            data_factory_id=example_factory.id,
-            linked_service_name=example_linked_service_azure_blob_storage.name,
-            path="foo",
-            filename="bar.png")
-        ```
 
         ## Import
 

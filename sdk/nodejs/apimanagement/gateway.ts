@@ -9,32 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an API Management Gateway.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleService = new azure.apimanagement.Service("exampleService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     publisherName: "pub1",
- *     publisherEmail: "pub1@email.com",
- *     skuName: "Consumption_0",
- * });
- * const exampleGateway = new azure.apimanagement.Gateway("exampleGateway", {
- *     apiManagementId: exampleService.id,
- *     description: "Example API Management gateway",
- *     locationData: {
- *         name: "example name",
- *         city: "example city",
- *         district: "example district",
- *         region: "example region",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * API Management Gateways can be imported using the `resource id`, e.g.

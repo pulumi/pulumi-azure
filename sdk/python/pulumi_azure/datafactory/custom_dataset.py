@@ -58,10 +58,10 @@ class CustomDatasetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_factory_id: pulumi.Input[str],
-             linked_service: pulumi.Input['CustomDatasetLinkedServiceArgs'],
-             type: pulumi.Input[str],
-             type_properties_json: pulumi.Input[str],
+             data_factory_id: Optional[pulumi.Input[str]] = None,
+             linked_service: Optional[pulumi.Input['CustomDatasetLinkedServiceArgs']] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             type_properties_json: Optional[pulumi.Input[str]] = None,
              additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -69,17 +69,25 @@ class CustomDatasetArgs:
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              schema_json: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'linkedService' in kwargs:
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if linked_service is None and 'linkedService' in kwargs:
             linked_service = kwargs['linkedService']
-        if 'typePropertiesJson' in kwargs:
+        if linked_service is None:
+            raise TypeError("Missing 'linked_service' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if type_properties_json is None and 'typePropertiesJson' in kwargs:
             type_properties_json = kwargs['typePropertiesJson']
-        if 'additionalProperties' in kwargs:
+        if type_properties_json is None:
+            raise TypeError("Missing 'type_properties_json' argument")
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'schemaJson' in kwargs:
+        if schema_json is None and 'schemaJson' in kwargs:
             schema_json = kwargs['schemaJson']
 
         _setter("data_factory_id", data_factory_id)
@@ -290,17 +298,17 @@ class _CustomDatasetState:
              schema_json: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
              type_properties_json: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'additionalProperties' in kwargs:
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'linkedService' in kwargs:
+        if linked_service is None and 'linkedService' in kwargs:
             linked_service = kwargs['linkedService']
-        if 'schemaJson' in kwargs:
+        if schema_json is None and 'schemaJson' in kwargs:
             schema_json = kwargs['schemaJson']
-        if 'typePropertiesJson' in kwargs:
+        if type_properties_json is None and 'typePropertiesJson' in kwargs:
             type_properties_json = kwargs['typePropertiesJson']
 
         if additional_properties is not None:
@@ -479,91 +487,6 @@ class CustomDataset(pulumi.CustomResource):
         """
         Manages a Dataset inside an Azure Data Factory. This is a generic resource that supports all different Dataset Types.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            identity=azure.datafactory.FactoryIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_kind="BlobStorage",
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_linked_custom_service = azure.datafactory.LinkedCustomService("exampleLinkedCustomService",
-            data_factory_id=example_factory.id,
-            type="AzureBlobStorage",
-            type_properties_json=example_account.primary_connection_string.apply(lambda primary_connection_string: f\"\"\"{{
-          "connectionString":"{primary_connection_string}"
-        }}
-        \"\"\"))
-        example_container = azure.storage.Container("exampleContainer",
-            storage_account_name=example_account.name,
-            container_access_type="private")
-        example_custom_dataset = azure.datafactory.CustomDataset("exampleCustomDataset",
-            data_factory_id=example_factory.id,
-            type="Json",
-            linked_service=azure.datafactory.CustomDatasetLinkedServiceArgs(
-                name=example_linked_custom_service.name,
-                parameters={
-                    "key1": "value1",
-                },
-            ),
-            type_properties_json=example_container.name.apply(lambda name: f\"\"\"{{
-          "location": {{
-            "container":"{name}",
-            "fileName":"foo.txt",
-            "folderPath": "foo/bar/",
-            "type":"AzureBlobStorageLocation"
-          }},
-          "encodingName":"UTF-8"
-        }}
-        \"\"\"),
-            description="test description",
-            annotations=[
-                "test1",
-                "test2",
-                "test3",
-            ],
-            folder="testFolder",
-            parameters={
-                "foo": "test1",
-                "Bar": "Test2",
-            },
-            additional_properties={
-                "foo": "test1",
-                "bar": "test2",
-            },
-            schema_json=\"\"\"{
-          "type": "object",
-          "properties": {
-            "name": {
-              "type": "object",
-              "properties": {
-                "firstName": {
-                  "type": "string"
-                },
-                "lastName": {
-                  "type": "string"
-                }
-              }
-            },
-            "age": {
-              "type": "integer"
-            }
-          }
-        }
-        \"\"\")
-        ```
-
         ## Import
 
         Data Factory Datasets can be imported using the `resource id`, e.g.
@@ -594,91 +517,6 @@ class CustomDataset(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Dataset inside an Azure Data Factory. This is a generic resource that supports all different Dataset Types.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            identity=azure.datafactory.FactoryIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_kind="BlobStorage",
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_linked_custom_service = azure.datafactory.LinkedCustomService("exampleLinkedCustomService",
-            data_factory_id=example_factory.id,
-            type="AzureBlobStorage",
-            type_properties_json=example_account.primary_connection_string.apply(lambda primary_connection_string: f\"\"\"{{
-          "connectionString":"{primary_connection_string}"
-        }}
-        \"\"\"))
-        example_container = azure.storage.Container("exampleContainer",
-            storage_account_name=example_account.name,
-            container_access_type="private")
-        example_custom_dataset = azure.datafactory.CustomDataset("exampleCustomDataset",
-            data_factory_id=example_factory.id,
-            type="Json",
-            linked_service=azure.datafactory.CustomDatasetLinkedServiceArgs(
-                name=example_linked_custom_service.name,
-                parameters={
-                    "key1": "value1",
-                },
-            ),
-            type_properties_json=example_container.name.apply(lambda name: f\"\"\"{{
-          "location": {{
-            "container":"{name}",
-            "fileName":"foo.txt",
-            "folderPath": "foo/bar/",
-            "type":"AzureBlobStorageLocation"
-          }},
-          "encodingName":"UTF-8"
-        }}
-        \"\"\"),
-            description="test description",
-            annotations=[
-                "test1",
-                "test2",
-                "test3",
-            ],
-            folder="testFolder",
-            parameters={
-                "foo": "test1",
-                "Bar": "Test2",
-            },
-            additional_properties={
-                "foo": "test1",
-                "bar": "test2",
-            },
-            schema_json=\"\"\"{
-          "type": "object",
-          "properties": {
-            "name": {
-              "type": "object",
-              "properties": {
-                "firstName": {
-                  "type": "string"
-                },
-                "lastName": {
-                  "type": "string"
-                }
-              }
-            },
-            "age": {
-              "type": "integer"
-            }
-          }
-        }
-        \"\"\")
-        ```
 
         ## Import
 
@@ -734,11 +572,7 @@ class CustomDataset(pulumi.CustomResource):
             __props__.__dict__["data_factory_id"] = data_factory_id
             __props__.__dict__["description"] = description
             __props__.__dict__["folder"] = folder
-            if linked_service is not None and not isinstance(linked_service, CustomDatasetLinkedServiceArgs):
-                linked_service = linked_service or {}
-                def _setter(key, value):
-                    linked_service[key] = value
-                CustomDatasetLinkedServiceArgs._configure(_setter, **linked_service)
+            linked_service = _utilities.configure(linked_service, CustomDatasetLinkedServiceArgs, True)
             if linked_service is None and not opts.urn:
                 raise TypeError("Missing required property 'linked_service'")
             __props__.__dict__["linked_service"] = linked_service

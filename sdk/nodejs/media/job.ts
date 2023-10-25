@@ -9,64 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Media Job.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "GRS",
- * });
- * const exampleServiceAccount = new azure.media.ServiceAccount("exampleServiceAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     storageAccounts: [{
- *         id: exampleAccount.id,
- *         isPrimary: true,
- *     }],
- * });
- * const exampleTransform = new azure.media.Transform("exampleTransform", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     mediaServicesAccountName: exampleServiceAccount.name,
- *     description: "My transform description",
- *     outputs: [{
- *         relativePriority: "Normal",
- *         onErrorAction: "ContinueJob",
- *         builtinPreset: {
- *             presetName: "AACGoodQualityAudio",
- *         },
- *     }],
- * });
- * const input = new azure.media.Asset("input", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     mediaServicesAccountName: exampleServiceAccount.name,
- *     description: "Input Asset description",
- * });
- * const output = new azure.media.Asset("output", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     mediaServicesAccountName: exampleServiceAccount.name,
- *     description: "Output Asset description",
- * });
- * const exampleJob = new azure.media.Job("exampleJob", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     mediaServicesAccountName: exampleServiceAccount.name,
- *     transformName: exampleTransform.name,
- *     description: "My Job description",
- *     priority: "Normal",
- *     inputAsset: {
- *         name: input.name,
- *     },
- *     outputAssets: [{
- *         name: output.name,
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * Media Jobs can be imported using the `resource id`, e.g.

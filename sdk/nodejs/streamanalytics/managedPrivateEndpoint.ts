@@ -7,34 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Stream Analytics Managed Private Endpoint.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "LRS",
- *     accountKind: "StorageV2",
- *     isHnsEnabled: true,
- * });
- * const exampleCluster = new azure.streamanalytics.Cluster("exampleCluster", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     streamingCapacity: 36,
- * });
- * const exampleManagedPrivateEndpoint = new azure.streamanalytics.ManagedPrivateEndpoint("exampleManagedPrivateEndpoint", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     streamAnalyticsClusterName: exampleCluster.name,
- *     targetResourceId: exampleAccount.id,
- *     subresourceName: "blob",
- * });
- * ```
- *
  * ## Import
  *
  * Stream Analytics Private Endpoints can be imported using the `resource id`, e.g.

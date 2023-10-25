@@ -84,17 +84,6 @@ def get_restorable_database_accounts(location: Optional[str] = None,
     """
     Use this data source to access information about Cosmos DB Restorable Database Accounts.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.cosmosdb.get_restorable_database_accounts(name="example-ca",
-        location="West Europe")
-    pulumi.export("id", example.id)
-    ```
-
 
     :param str location: The location where the Cosmos DB Database Account.
     :param str name: The name of this Cosmos DB Database Account.
@@ -118,17 +107,6 @@ def get_restorable_database_accounts_output(location: Optional[pulumi.Input[str]
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRestorableDatabaseAccountsResult]:
     """
     Use this data source to access information about Cosmos DB Restorable Database Accounts.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.cosmosdb.get_restorable_database_accounts(name="example-ca",
-        location="West Europe")
-    pulumi.export("id", example.id)
-    ```
 
 
     :param str location: The location where the Cosmos DB Database Account.

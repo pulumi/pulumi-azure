@@ -55,32 +55,48 @@ class IntegrationAccountAgreementArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             agreement_type: pulumi.Input[str],
-             content: pulumi.Input[str],
-             guest_identity: pulumi.Input['IntegrationAccountAgreementGuestIdentityArgs'],
-             guest_partner_name: pulumi.Input[str],
-             host_identity: pulumi.Input['IntegrationAccountAgreementHostIdentityArgs'],
-             host_partner_name: pulumi.Input[str],
-             integration_account_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             agreement_type: Optional[pulumi.Input[str]] = None,
+             content: Optional[pulumi.Input[str]] = None,
+             guest_identity: Optional[pulumi.Input['IntegrationAccountAgreementGuestIdentityArgs']] = None,
+             guest_partner_name: Optional[pulumi.Input[str]] = None,
+             host_identity: Optional[pulumi.Input['IntegrationAccountAgreementHostIdentityArgs']] = None,
+             host_partner_name: Optional[pulumi.Input[str]] = None,
+             integration_account_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'agreementType' in kwargs:
+        if agreement_type is None and 'agreementType' in kwargs:
             agreement_type = kwargs['agreementType']
-        if 'guestIdentity' in kwargs:
+        if agreement_type is None:
+            raise TypeError("Missing 'agreement_type' argument")
+        if content is None:
+            raise TypeError("Missing 'content' argument")
+        if guest_identity is None and 'guestIdentity' in kwargs:
             guest_identity = kwargs['guestIdentity']
-        if 'guestPartnerName' in kwargs:
+        if guest_identity is None:
+            raise TypeError("Missing 'guest_identity' argument")
+        if guest_partner_name is None and 'guestPartnerName' in kwargs:
             guest_partner_name = kwargs['guestPartnerName']
-        if 'hostIdentity' in kwargs:
+        if guest_partner_name is None:
+            raise TypeError("Missing 'guest_partner_name' argument")
+        if host_identity is None and 'hostIdentity' in kwargs:
             host_identity = kwargs['hostIdentity']
-        if 'hostPartnerName' in kwargs:
+        if host_identity is None:
+            raise TypeError("Missing 'host_identity' argument")
+        if host_partner_name is None and 'hostPartnerName' in kwargs:
             host_partner_name = kwargs['hostPartnerName']
-        if 'integrationAccountName' in kwargs:
+        if host_partner_name is None:
+            raise TypeError("Missing 'host_partner_name' argument")
+        if integration_account_name is None and 'integrationAccountName' in kwargs:
             integration_account_name = kwargs['integrationAccountName']
-        if 'resourceGroupName' in kwargs:
+        if integration_account_name is None:
+            raise TypeError("Missing 'integration_account_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("agreement_type", agreement_type)
         _setter("content", content)
@@ -268,21 +284,21 @@ class _IntegrationAccountAgreementState:
              metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'agreementType' in kwargs:
+        if agreement_type is None and 'agreementType' in kwargs:
             agreement_type = kwargs['agreementType']
-        if 'guestIdentity' in kwargs:
+        if guest_identity is None and 'guestIdentity' in kwargs:
             guest_identity = kwargs['guestIdentity']
-        if 'guestPartnerName' in kwargs:
+        if guest_partner_name is None and 'guestPartnerName' in kwargs:
             guest_partner_name = kwargs['guestPartnerName']
-        if 'hostIdentity' in kwargs:
+        if host_identity is None and 'hostIdentity' in kwargs:
             host_identity = kwargs['hostIdentity']
-        if 'hostPartnerName' in kwargs:
+        if host_partner_name is None and 'hostPartnerName' in kwargs:
             host_partner_name = kwargs['hostPartnerName']
-        if 'integrationAccountName' in kwargs:
+        if integration_account_name is None and 'integrationAccountName' in kwargs:
             integration_account_name = kwargs['integrationAccountName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if agreement_type is not None:
@@ -446,48 +462,6 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
         """
         Manages a Logic App Integration Account Agreement.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        test_integration_account = azure.logicapps.IntegrationAccount("testIntegrationAccount",
-            location=example.location,
-            resource_group_name=example.name,
-            sku_name="Standard")
-        host = azure.logicapps.IntegrationAccountPartner("host",
-            resource_group_name=example.name,
-            integration_account_name=test_integration_account.name,
-            business_identities=[azure.logicapps.IntegrationAccountPartnerBusinessIdentityArgs(
-                qualifier="AS2Identity",
-                value="FabrikamNY",
-            )])
-        guest = azure.logicapps.IntegrationAccountPartner("guest",
-            resource_group_name=example.name,
-            integration_account_name=test_integration_account.name,
-            business_identities=[azure.logicapps.IntegrationAccountPartnerBusinessIdentityArgs(
-                qualifier="AS2Identity",
-                value="FabrikamDC",
-            )])
-        test_integration_account_agreement = azure.logicapps.IntegrationAccountAgreement("testIntegrationAccountAgreement",
-            resource_group_name=example.name,
-            integration_account_name=test_integration_account.name,
-            agreement_type="AS2",
-            host_partner_name=host.name,
-            guest_partner_name=guest.name,
-            content=(lambda path: open(path).read())("testdata/integration_account_agreement_content_as2.json"),
-            host_identity=azure.logicapps.IntegrationAccountAgreementHostIdentityArgs(
-                qualifier="AS2Identity",
-                value="FabrikamNY",
-            ),
-            guest_identity=azure.logicapps.IntegrationAccountAgreementGuestIdentityArgs(
-                qualifier="AS2Identity",
-                value="FabrikamDC",
-            ))
-        ```
-
         ## Import
 
         Logic App Integration Account Agreements can be imported using the `resource id`, e.g.
@@ -517,48 +491,6 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Logic App Integration Account Agreement.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        test_integration_account = azure.logicapps.IntegrationAccount("testIntegrationAccount",
-            location=example.location,
-            resource_group_name=example.name,
-            sku_name="Standard")
-        host = azure.logicapps.IntegrationAccountPartner("host",
-            resource_group_name=example.name,
-            integration_account_name=test_integration_account.name,
-            business_identities=[azure.logicapps.IntegrationAccountPartnerBusinessIdentityArgs(
-                qualifier="AS2Identity",
-                value="FabrikamNY",
-            )])
-        guest = azure.logicapps.IntegrationAccountPartner("guest",
-            resource_group_name=example.name,
-            integration_account_name=test_integration_account.name,
-            business_identities=[azure.logicapps.IntegrationAccountPartnerBusinessIdentityArgs(
-                qualifier="AS2Identity",
-                value="FabrikamDC",
-            )])
-        test_integration_account_agreement = azure.logicapps.IntegrationAccountAgreement("testIntegrationAccountAgreement",
-            resource_group_name=example.name,
-            integration_account_name=test_integration_account.name,
-            agreement_type="AS2",
-            host_partner_name=host.name,
-            guest_partner_name=guest.name,
-            content=(lambda path: open(path).read())("testdata/integration_account_agreement_content_as2.json"),
-            host_identity=azure.logicapps.IntegrationAccountAgreementHostIdentityArgs(
-                qualifier="AS2Identity",
-                value="FabrikamNY",
-            ),
-            guest_identity=azure.logicapps.IntegrationAccountAgreementGuestIdentityArgs(
-                qualifier="AS2Identity",
-                value="FabrikamDC",
-            ))
-        ```
 
         ## Import
 
@@ -612,22 +544,14 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
             if content is None and not opts.urn:
                 raise TypeError("Missing required property 'content'")
             __props__.__dict__["content"] = content
-            if guest_identity is not None and not isinstance(guest_identity, IntegrationAccountAgreementGuestIdentityArgs):
-                guest_identity = guest_identity or {}
-                def _setter(key, value):
-                    guest_identity[key] = value
-                IntegrationAccountAgreementGuestIdentityArgs._configure(_setter, **guest_identity)
+            guest_identity = _utilities.configure(guest_identity, IntegrationAccountAgreementGuestIdentityArgs, True)
             if guest_identity is None and not opts.urn:
                 raise TypeError("Missing required property 'guest_identity'")
             __props__.__dict__["guest_identity"] = guest_identity
             if guest_partner_name is None and not opts.urn:
                 raise TypeError("Missing required property 'guest_partner_name'")
             __props__.__dict__["guest_partner_name"] = guest_partner_name
-            if host_identity is not None and not isinstance(host_identity, IntegrationAccountAgreementHostIdentityArgs):
-                host_identity = host_identity or {}
-                def _setter(key, value):
-                    host_identity[key] = value
-                IntegrationAccountAgreementHostIdentityArgs._configure(_setter, **host_identity)
+            host_identity = _utilities.configure(host_identity, IntegrationAccountAgreementHostIdentityArgs, True)
             if host_identity is None and not opts.urn:
                 raise TypeError("Missing required property 'host_identity'")
             __props__.__dict__["host_identity"] = host_identity

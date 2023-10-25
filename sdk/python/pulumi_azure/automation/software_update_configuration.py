@@ -62,8 +62,8 @@ class SoftwareUpdateConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             automation_account_id: pulumi.Input[str],
-             schedules: pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationScheduleArgs']]],
+             automation_account_id: Optional[pulumi.Input[str]] = None,
+             schedules: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationScheduleArgs']]]] = None,
              duration: Optional[pulumi.Input[str]] = None,
              linuxes: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationLinuxArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
@@ -74,19 +74,23 @@ class SoftwareUpdateConfigurationArgs:
              target: Optional[pulumi.Input['SoftwareUpdateConfigurationTargetArgs']] = None,
              virtual_machine_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              windows: Optional[pulumi.Input['SoftwareUpdateConfigurationWindowsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'automationAccountId' in kwargs:
+        if automation_account_id is None and 'automationAccountId' in kwargs:
             automation_account_id = kwargs['automationAccountId']
-        if 'nonAzureComputerNames' in kwargs:
+        if automation_account_id is None:
+            raise TypeError("Missing 'automation_account_id' argument")
+        if schedules is None:
+            raise TypeError("Missing 'schedules' argument")
+        if non_azure_computer_names is None and 'nonAzureComputerNames' in kwargs:
             non_azure_computer_names = kwargs['nonAzureComputerNames']
-        if 'operatingSystem' in kwargs:
+        if operating_system is None and 'operatingSystem' in kwargs:
             operating_system = kwargs['operatingSystem']
-        if 'postTasks' in kwargs:
+        if post_tasks is None and 'postTasks' in kwargs:
             post_tasks = kwargs['postTasks']
-        if 'preTasks' in kwargs:
+        if pre_tasks is None and 'preTasks' in kwargs:
             pre_tasks = kwargs['preTasks']
-        if 'virtualMachineIds' in kwargs:
+        if virtual_machine_ids is None and 'virtualMachineIds' in kwargs:
             virtual_machine_ids = kwargs['virtualMachineIds']
 
         _setter("automation_account_id", automation_account_id)
@@ -334,25 +338,25 @@ class _SoftwareUpdateConfigurationState:
              target: Optional[pulumi.Input['SoftwareUpdateConfigurationTargetArgs']] = None,
              virtual_machine_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              windows: Optional[pulumi.Input['SoftwareUpdateConfigurationWindowsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'automationAccountId' in kwargs:
+        if automation_account_id is None and 'automationAccountId' in kwargs:
             automation_account_id = kwargs['automationAccountId']
-        if 'errorCode' in kwargs:
+        if error_code is None and 'errorCode' in kwargs:
             error_code = kwargs['errorCode']
-        if 'errorMeesage' in kwargs:
+        if error_meesage is None and 'errorMeesage' in kwargs:
             error_meesage = kwargs['errorMeesage']
-        if 'errorMessage' in kwargs:
+        if error_message is None and 'errorMessage' in kwargs:
             error_message = kwargs['errorMessage']
-        if 'nonAzureComputerNames' in kwargs:
+        if non_azure_computer_names is None and 'nonAzureComputerNames' in kwargs:
             non_azure_computer_names = kwargs['nonAzureComputerNames']
-        if 'operatingSystem' in kwargs:
+        if operating_system is None and 'operatingSystem' in kwargs:
             operating_system = kwargs['operatingSystem']
-        if 'postTasks' in kwargs:
+        if post_tasks is None and 'postTasks' in kwargs:
             post_tasks = kwargs['postTasks']
-        if 'preTasks' in kwargs:
+        if pre_tasks is None and 'preTasks' in kwargs:
             pre_tasks = kwargs['preTasks']
-        if 'virtualMachineIds' in kwargs:
+        if virtual_machine_ids is None and 'virtualMachineIds' in kwargs:
             virtual_machine_ids = kwargs['virtualMachineIds']
 
         if automation_account_id is not None:
@@ -596,49 +600,6 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
         """
         Manages an Automation Software Update Configuraion.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="East US")
-        example_account = azure.automation.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Basic")
-        example_run_book = azure.automation.RunBook("exampleRunBook",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            automation_account_name=example_account.name,
-            log_verbose=True,
-            log_progress=True,
-            description="This is a example runbook for terraform acceptance example",
-            runbook_type="Python3",
-            content=\"\"\"# Some example content
-        # for Terraform acceptance example
-        \"\"\",
-            tags={
-                "ENV": "runbook_test",
-            })
-        example_software_update_configuration = azure.automation.SoftwareUpdateConfiguration("exampleSoftwareUpdateConfiguration",
-            automation_account_id=example_account.id,
-            operating_system="Linux",
-            linuxes=[azure.automation.SoftwareUpdateConfigurationLinuxArgs(
-                classification_included="Security",
-                excluded_packages=["apt"],
-                included_packages=["vim"],
-                reboot="IfRequired",
-            )],
-            pre_tasks=[azure.automation.SoftwareUpdateConfigurationPreTaskArgs(
-                source=example_run_book.name,
-                parameters={
-                    "COMPUTER_NAME": "Foo",
-                },
-            )],
-            duration="PT2H2M2S")
-        ```
-
         ## Import
 
         Automations Software Update Configuration can be imported using the `resource id`, e.g.
@@ -671,49 +632,6 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Automation Software Update Configuraion.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="East US")
-        example_account = azure.automation.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Basic")
-        example_run_book = azure.automation.RunBook("exampleRunBook",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            automation_account_name=example_account.name,
-            log_verbose=True,
-            log_progress=True,
-            description="This is a example runbook for terraform acceptance example",
-            runbook_type="Python3",
-            content=\"\"\"# Some example content
-        # for Terraform acceptance example
-        \"\"\",
-            tags={
-                "ENV": "runbook_test",
-            })
-        example_software_update_configuration = azure.automation.SoftwareUpdateConfiguration("exampleSoftwareUpdateConfiguration",
-            automation_account_id=example_account.id,
-            operating_system="Linux",
-            linuxes=[azure.automation.SoftwareUpdateConfigurationLinuxArgs(
-                classification_included="Security",
-                excluded_packages=["apt"],
-                included_packages=["vim"],
-                reboot="IfRequired",
-            )],
-            pre_tasks=[azure.automation.SoftwareUpdateConfigurationPreTaskArgs(
-                source=example_run_book.name,
-                parameters={
-                    "COMPUTER_NAME": "Foo",
-                },
-            )],
-            duration="PT2H2M2S")
-        ```
 
         ## Import
 
@@ -776,18 +694,10 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
             if schedules is None and not opts.urn:
                 raise TypeError("Missing required property 'schedules'")
             __props__.__dict__["schedules"] = schedules
-            if target is not None and not isinstance(target, SoftwareUpdateConfigurationTargetArgs):
-                target = target or {}
-                def _setter(key, value):
-                    target[key] = value
-                SoftwareUpdateConfigurationTargetArgs._configure(_setter, **target)
+            target = _utilities.configure(target, SoftwareUpdateConfigurationTargetArgs, True)
             __props__.__dict__["target"] = target
             __props__.__dict__["virtual_machine_ids"] = virtual_machine_ids
-            if windows is not None and not isinstance(windows, SoftwareUpdateConfigurationWindowsArgs):
-                windows = windows or {}
-                def _setter(key, value):
-                    windows[key] = value
-                SoftwareUpdateConfigurationWindowsArgs._configure(_setter, **windows)
+            windows = _utilities.configure(windows, SoftwareUpdateConfigurationWindowsArgs, True)
             __props__.__dict__["windows"] = windows
             __props__.__dict__["error_code"] = None
             __props__.__dict__["error_meesage"] = None

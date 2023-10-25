@@ -14,68 +14,6 @@ namespace Pulumi.Azure.AppService
     /// 
     /// !&gt; **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `azure.appservice.FunctionAppHybridConnection` resources instead.
     /// 
-    /// ## Example Usage
-    /// 
-    /// This example provisions an App Service, a Relay Hybrid Connection, and a Service Bus using their outputs to create the App Service Hybrid Connection.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var examplePlan = new Azure.AppService.Plan("examplePlan", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
-    ///         {
-    ///             Tier = "Standard",
-    ///             Size = "S1",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleAppService = new Azure.AppService.AppService("exampleAppService", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         AppServicePlanId = examplePlan.Id,
-    ///     });
-    /// 
-    ///     var exampleNamespace = new Azure.Relay.Namespace("exampleNamespace", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         SkuName = "Standard",
-    ///     });
-    /// 
-    ///     var exampleHybridConnection = new Azure.Relay.HybridConnection("exampleHybridConnection", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         RelayNamespaceName = exampleNamespace.Name,
-    ///         UserMetadata = "examplemetadata",
-    ///     });
-    /// 
-    ///     var exampleAppservice_hybridConnectionHybridConnection = new Azure.AppService.HybridConnection("exampleAppservice/hybridConnectionHybridConnection", new()
-    ///     {
-    ///         AppServiceName = exampleAppService.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         RelayId = exampleHybridConnection.Id,
-    ///         Hostname = "testhostname.example",
-    ///         Port = 8080,
-    ///         SendKeyName = "exampleSharedAccessKey",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// App Service Hybrid Connections can be imported using the `resource id`, e.g.

@@ -56,36 +56,50 @@ class NatPoolArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             backend_port: pulumi.Input[int],
-             frontend_ip_configuration_name: pulumi.Input[str],
-             frontend_port_end: pulumi.Input[int],
-             frontend_port_start: pulumi.Input[int],
-             loadbalancer_id: pulumi.Input[str],
-             protocol: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             backend_port: Optional[pulumi.Input[int]] = None,
+             frontend_ip_configuration_name: Optional[pulumi.Input[str]] = None,
+             frontend_port_end: Optional[pulumi.Input[int]] = None,
+             frontend_port_start: Optional[pulumi.Input[int]] = None,
+             loadbalancer_id: Optional[pulumi.Input[str]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              floating_ip_enabled: Optional[pulumi.Input[bool]] = None,
              idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tcp_reset_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'backendPort' in kwargs:
+        if backend_port is None and 'backendPort' in kwargs:
             backend_port = kwargs['backendPort']
-        if 'frontendIpConfigurationName' in kwargs:
+        if backend_port is None:
+            raise TypeError("Missing 'backend_port' argument")
+        if frontend_ip_configuration_name is None and 'frontendIpConfigurationName' in kwargs:
             frontend_ip_configuration_name = kwargs['frontendIpConfigurationName']
-        if 'frontendPortEnd' in kwargs:
+        if frontend_ip_configuration_name is None:
+            raise TypeError("Missing 'frontend_ip_configuration_name' argument")
+        if frontend_port_end is None and 'frontendPortEnd' in kwargs:
             frontend_port_end = kwargs['frontendPortEnd']
-        if 'frontendPortStart' in kwargs:
+        if frontend_port_end is None:
+            raise TypeError("Missing 'frontend_port_end' argument")
+        if frontend_port_start is None and 'frontendPortStart' in kwargs:
             frontend_port_start = kwargs['frontendPortStart']
-        if 'loadbalancerId' in kwargs:
+        if frontend_port_start is None:
+            raise TypeError("Missing 'frontend_port_start' argument")
+        if loadbalancer_id is None and 'loadbalancerId' in kwargs:
             loadbalancer_id = kwargs['loadbalancerId']
-        if 'resourceGroupName' in kwargs:
+        if loadbalancer_id is None:
+            raise TypeError("Missing 'loadbalancer_id' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'floatingIpEnabled' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if floating_ip_enabled is None and 'floatingIpEnabled' in kwargs:
             floating_ip_enabled = kwargs['floatingIpEnabled']
-        if 'idleTimeoutInMinutes' in kwargs:
+        if idle_timeout_in_minutes is None and 'idleTimeoutInMinutes' in kwargs:
             idle_timeout_in_minutes = kwargs['idleTimeoutInMinutes']
-        if 'tcpResetEnabled' in kwargs:
+        if tcp_reset_enabled is None and 'tcpResetEnabled' in kwargs:
             tcp_reset_enabled = kwargs['tcpResetEnabled']
 
         _setter("backend_port", backend_port)
@@ -296,27 +310,27 @@ class _NatPoolState:
              protocol: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tcp_reset_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'backendPort' in kwargs:
+        if backend_port is None and 'backendPort' in kwargs:
             backend_port = kwargs['backendPort']
-        if 'floatingIpEnabled' in kwargs:
+        if floating_ip_enabled is None and 'floatingIpEnabled' in kwargs:
             floating_ip_enabled = kwargs['floatingIpEnabled']
-        if 'frontendIpConfigurationId' in kwargs:
+        if frontend_ip_configuration_id is None and 'frontendIpConfigurationId' in kwargs:
             frontend_ip_configuration_id = kwargs['frontendIpConfigurationId']
-        if 'frontendIpConfigurationName' in kwargs:
+        if frontend_ip_configuration_name is None and 'frontendIpConfigurationName' in kwargs:
             frontend_ip_configuration_name = kwargs['frontendIpConfigurationName']
-        if 'frontendPortEnd' in kwargs:
+        if frontend_port_end is None and 'frontendPortEnd' in kwargs:
             frontend_port_end = kwargs['frontendPortEnd']
-        if 'frontendPortStart' in kwargs:
+        if frontend_port_start is None and 'frontendPortStart' in kwargs:
             frontend_port_start = kwargs['frontendPortStart']
-        if 'idleTimeoutInMinutes' in kwargs:
+        if idle_timeout_in_minutes is None and 'idleTimeoutInMinutes' in kwargs:
             idle_timeout_in_minutes = kwargs['idleTimeoutInMinutes']
-        if 'loadbalancerId' in kwargs:
+        if loadbalancer_id is None and 'loadbalancerId' in kwargs:
             loadbalancer_id = kwargs['loadbalancerId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'tcpResetEnabled' in kwargs:
+        if tcp_reset_enabled is None and 'tcpResetEnabled' in kwargs:
             tcp_reset_enabled = kwargs['tcpResetEnabled']
 
         if backend_port is not None:
@@ -510,34 +524,6 @@ class NatPool(pulumi.CustomResource):
 
         > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            allocation_method="Static")
-        example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
-                name="PublicIPAddress",
-                public_ip_address_id=example_public_ip.id,
-            )])
-        example_nat_pool = azure.lb.NatPool("exampleNatPool",
-            resource_group_name=example_resource_group.name,
-            loadbalancer_id=example_load_balancer.id,
-            protocol="Tcp",
-            frontend_port_start=80,
-            frontend_port_end=81,
-            backend_port=8080,
-            frontend_ip_configuration_name="PublicIPAddress")
-        ```
-
         ## Import
 
         Load Balancer NAT Pools can be imported using the `resource id`, e.g.
@@ -572,34 +558,6 @@ class NatPool(pulumi.CustomResource):
         > **NOTE:** This resource cannot be used with with virtual machines, instead use the `lb.NatRule` resource.
 
         > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            allocation_method="Static")
-        example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
-                name="PublicIPAddress",
-                public_ip_address_id=example_public_ip.id,
-            )])
-        example_nat_pool = azure.lb.NatPool("exampleNatPool",
-            resource_group_name=example_resource_group.name,
-            loadbalancer_id=example_load_balancer.id,
-            protocol="Tcp",
-            frontend_port_start=80,
-            frontend_port_end=81,
-            backend_port=8080,
-            frontend_ip_configuration_name="PublicIPAddress")
-        ```
 
         ## Import
 

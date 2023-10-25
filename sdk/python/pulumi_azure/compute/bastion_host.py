@@ -73,8 +73,8 @@ class BastionHostArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ip_configuration: pulumi.Input['BastionHostIpConfigurationArgs'],
-             resource_group_name: pulumi.Input[str],
+             ip_configuration: Optional[pulumi.Input['BastionHostIpConfigurationArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              copy_paste_enabled: Optional[pulumi.Input[bool]] = None,
              file_copy_enabled: Optional[pulumi.Input[bool]] = None,
              ip_connect_enabled: Optional[pulumi.Input[bool]] = None,
@@ -85,23 +85,27 @@ class BastionHostArgs:
              sku: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tunneling_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'ipConfiguration' in kwargs:
+        if ip_configuration is None and 'ipConfiguration' in kwargs:
             ip_configuration = kwargs['ipConfiguration']
-        if 'resourceGroupName' in kwargs:
+        if ip_configuration is None:
+            raise TypeError("Missing 'ip_configuration' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'copyPasteEnabled' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if copy_paste_enabled is None and 'copyPasteEnabled' in kwargs:
             copy_paste_enabled = kwargs['copyPasteEnabled']
-        if 'fileCopyEnabled' in kwargs:
+        if file_copy_enabled is None and 'fileCopyEnabled' in kwargs:
             file_copy_enabled = kwargs['fileCopyEnabled']
-        if 'ipConnectEnabled' in kwargs:
+        if ip_connect_enabled is None and 'ipConnectEnabled' in kwargs:
             ip_connect_enabled = kwargs['ipConnectEnabled']
-        if 'scaleUnits' in kwargs:
+        if scale_units is None and 'scaleUnits' in kwargs:
             scale_units = kwargs['scaleUnits']
-        if 'shareableLinkEnabled' in kwargs:
+        if shareable_link_enabled is None and 'shareableLinkEnabled' in kwargs:
             shareable_link_enabled = kwargs['shareableLinkEnabled']
-        if 'tunnelingEnabled' in kwargs:
+        if tunneling_enabled is None and 'tunnelingEnabled' in kwargs:
             tunneling_enabled = kwargs['tunnelingEnabled']
 
         _setter("ip_configuration", ip_configuration)
@@ -360,25 +364,25 @@ class _BastionHostState:
              sku: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tunneling_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'copyPasteEnabled' in kwargs:
+        if copy_paste_enabled is None and 'copyPasteEnabled' in kwargs:
             copy_paste_enabled = kwargs['copyPasteEnabled']
-        if 'dnsName' in kwargs:
+        if dns_name is None and 'dnsName' in kwargs:
             dns_name = kwargs['dnsName']
-        if 'fileCopyEnabled' in kwargs:
+        if file_copy_enabled is None and 'fileCopyEnabled' in kwargs:
             file_copy_enabled = kwargs['fileCopyEnabled']
-        if 'ipConfiguration' in kwargs:
+        if ip_configuration is None and 'ipConfiguration' in kwargs:
             ip_configuration = kwargs['ipConfiguration']
-        if 'ipConnectEnabled' in kwargs:
+        if ip_connect_enabled is None and 'ipConnectEnabled' in kwargs:
             ip_connect_enabled = kwargs['ipConnectEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'scaleUnits' in kwargs:
+        if scale_units is None and 'scaleUnits' in kwargs:
             scale_units = kwargs['scaleUnits']
-        if 'shareableLinkEnabled' in kwargs:
+        if shareable_link_enabled is None and 'shareableLinkEnabled' in kwargs:
             shareable_link_enabled = kwargs['shareableLinkEnabled']
-        if 'tunnelingEnabled' in kwargs:
+        if tunneling_enabled is None and 'tunnelingEnabled' in kwargs:
             tunneling_enabled = kwargs['tunnelingEnabled']
 
         if copy_paste_enabled is not None:
@@ -598,38 +602,6 @@ class BastionHost(pulumi.CustomResource):
         """
         Manages a Bastion Host.
 
-        ## Example Usage
-
-        This example deploys an Azure Bastion Host Instance to a target virtual network.
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["192.168.1.0/24"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["192.168.1.224/27"])
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            allocation_method="Static",
-            sku="Standard")
-        example_bastion_host = azure.compute.BastionHost("exampleBastionHost",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            ip_configuration=azure.compute.BastionHostIpConfigurationArgs(
-                name="configuration",
-                subnet_id=example_subnet.id,
-                public_ip_address_id=example_public_ip.id,
-            ))
-        ```
-
         ## Import
 
         Bastion Hosts can be imported using the `resource id`, e.g.
@@ -673,38 +645,6 @@ class BastionHost(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Bastion Host.
-
-        ## Example Usage
-
-        This example deploys an Azure Bastion Host Instance to a target virtual network.
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["192.168.1.0/24"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["192.168.1.224/27"])
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            allocation_method="Static",
-            sku="Standard")
-        example_bastion_host = azure.compute.BastionHost("exampleBastionHost",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            ip_configuration=azure.compute.BastionHostIpConfigurationArgs(
-                name="configuration",
-                subnet_id=example_subnet.id,
-                public_ip_address_id=example_public_ip.id,
-            ))
-        ```
 
         ## Import
 
@@ -756,11 +696,7 @@ class BastionHost(pulumi.CustomResource):
 
             __props__.__dict__["copy_paste_enabled"] = copy_paste_enabled
             __props__.__dict__["file_copy_enabled"] = file_copy_enabled
-            if ip_configuration is not None and not isinstance(ip_configuration, BastionHostIpConfigurationArgs):
-                ip_configuration = ip_configuration or {}
-                def _setter(key, value):
-                    ip_configuration[key] = value
-                BastionHostIpConfigurationArgs._configure(_setter, **ip_configuration)
+            ip_configuration = _utilities.configure(ip_configuration, BastionHostIpConfigurationArgs, True)
             if ip_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'ip_configuration'")
             __props__.__dict__["ip_configuration"] = ip_configuration

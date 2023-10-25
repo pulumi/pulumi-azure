@@ -49,26 +49,36 @@ class JobArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             input_asset: pulumi.Input['JobInputAssetArgs'],
-             media_services_account_name: pulumi.Input[str],
-             output_assets: pulumi.Input[Sequence[pulumi.Input['JobOutputAssetArgs']]],
-             resource_group_name: pulumi.Input[str],
-             transform_name: pulumi.Input[str],
+             input_asset: Optional[pulumi.Input['JobInputAssetArgs']] = None,
+             media_services_account_name: Optional[pulumi.Input[str]] = None,
+             output_assets: Optional[pulumi.Input[Sequence[pulumi.Input['JobOutputAssetArgs']]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             transform_name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              priority: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'inputAsset' in kwargs:
+        if input_asset is None and 'inputAsset' in kwargs:
             input_asset = kwargs['inputAsset']
-        if 'mediaServicesAccountName' in kwargs:
+        if input_asset is None:
+            raise TypeError("Missing 'input_asset' argument")
+        if media_services_account_name is None and 'mediaServicesAccountName' in kwargs:
             media_services_account_name = kwargs['mediaServicesAccountName']
-        if 'outputAssets' in kwargs:
+        if media_services_account_name is None:
+            raise TypeError("Missing 'media_services_account_name' argument")
+        if output_assets is None and 'outputAssets' in kwargs:
             output_assets = kwargs['outputAssets']
-        if 'resourceGroupName' in kwargs:
+        if output_assets is None:
+            raise TypeError("Missing 'output_assets' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'transformName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if transform_name is None and 'transformName' in kwargs:
             transform_name = kwargs['transformName']
+        if transform_name is None:
+            raise TypeError("Missing 'transform_name' argument")
 
         _setter("input_asset", input_asset)
         _setter("media_services_account_name", media_services_account_name)
@@ -223,17 +233,17 @@ class _JobState:
              priority: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              transform_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'inputAsset' in kwargs:
+        if input_asset is None and 'inputAsset' in kwargs:
             input_asset = kwargs['inputAsset']
-        if 'mediaServicesAccountName' in kwargs:
+        if media_services_account_name is None and 'mediaServicesAccountName' in kwargs:
             media_services_account_name = kwargs['mediaServicesAccountName']
-        if 'outputAssets' in kwargs:
+        if output_assets is None and 'outputAssets' in kwargs:
             output_assets = kwargs['outputAssets']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'transformName' in kwargs:
+        if transform_name is None and 'transformName' in kwargs:
             transform_name = kwargs['transformName']
 
         if description is not None:
@@ -367,58 +377,6 @@ class Job(pulumi.CustomResource):
         """
         Manages a Media Job.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
-                id=example_account.id,
-                is_primary=True,
-            )])
-        example_transform = azure.media.Transform("exampleTransform",
-            resource_group_name=example_resource_group.name,
-            media_services_account_name=example_service_account.name,
-            description="My transform description",
-            outputs=[azure.media.TransformOutputArgs(
-                relative_priority="Normal",
-                on_error_action="ContinueJob",
-                builtin_preset=azure.media.TransformOutputBuiltinPresetArgs(
-                    preset_name="AACGoodQualityAudio",
-                ),
-            )])
-        input = azure.media.Asset("input",
-            resource_group_name=example_resource_group.name,
-            media_services_account_name=example_service_account.name,
-            description="Input Asset description")
-        output = azure.media.Asset("output",
-            resource_group_name=example_resource_group.name,
-            media_services_account_name=example_service_account.name,
-            description="Output Asset description")
-        example_job = azure.media.Job("exampleJob",
-            resource_group_name=example_resource_group.name,
-            media_services_account_name=example_service_account.name,
-            transform_name=example_transform.name,
-            description="My Job description",
-            priority="Normal",
-            input_asset=azure.media.JobInputAssetArgs(
-                name=input.name,
-            ),
-            output_assets=[azure.media.JobOutputAssetArgs(
-                name=output.name,
-            )])
-        ```
-
         ## Import
 
         Media Jobs can be imported using the `resource id`, e.g.
@@ -446,58 +404,6 @@ class Job(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Media Job.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
-                id=example_account.id,
-                is_primary=True,
-            )])
-        example_transform = azure.media.Transform("exampleTransform",
-            resource_group_name=example_resource_group.name,
-            media_services_account_name=example_service_account.name,
-            description="My transform description",
-            outputs=[azure.media.TransformOutputArgs(
-                relative_priority="Normal",
-                on_error_action="ContinueJob",
-                builtin_preset=azure.media.TransformOutputBuiltinPresetArgs(
-                    preset_name="AACGoodQualityAudio",
-                ),
-            )])
-        input = azure.media.Asset("input",
-            resource_group_name=example_resource_group.name,
-            media_services_account_name=example_service_account.name,
-            description="Input Asset description")
-        output = azure.media.Asset("output",
-            resource_group_name=example_resource_group.name,
-            media_services_account_name=example_service_account.name,
-            description="Output Asset description")
-        example_job = azure.media.Job("exampleJob",
-            resource_group_name=example_resource_group.name,
-            media_services_account_name=example_service_account.name,
-            transform_name=example_transform.name,
-            description="My Job description",
-            priority="Normal",
-            input_asset=azure.media.JobInputAssetArgs(
-                name=input.name,
-            ),
-            output_assets=[azure.media.JobOutputAssetArgs(
-                name=output.name,
-            )])
-        ```
 
         ## Import
 
@@ -544,11 +450,7 @@ class Job(pulumi.CustomResource):
             __props__ = JobArgs.__new__(JobArgs)
 
             __props__.__dict__["description"] = description
-            if input_asset is not None and not isinstance(input_asset, JobInputAssetArgs):
-                input_asset = input_asset or {}
-                def _setter(key, value):
-                    input_asset[key] = value
-                JobInputAssetArgs._configure(_setter, **input_asset)
+            input_asset = _utilities.configure(input_asset, JobInputAssetArgs, True)
             if input_asset is None and not opts.urn:
                 raise TypeError("Missing required property 'input_asset'")
             __props__.__dict__["input_asset"] = input_asset

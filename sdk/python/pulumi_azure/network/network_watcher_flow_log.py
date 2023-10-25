@@ -58,30 +58,42 @@ class NetworkWatcherFlowLogArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
-             network_security_group_id: pulumi.Input[str],
-             network_watcher_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             retention_policy: pulumi.Input['NetworkWatcherFlowLogRetentionPolicyArgs'],
-             storage_account_id: pulumi.Input[str],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             network_security_group_id: Optional[pulumi.Input[str]] = None,
+             network_watcher_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             retention_policy: Optional[pulumi.Input['NetworkWatcherFlowLogRetentionPolicyArgs']] = None,
+             storage_account_id: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              traffic_analytics: Optional[pulumi.Input['NetworkWatcherFlowLogTrafficAnalyticsArgs']] = None,
              version: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'networkSecurityGroupId' in kwargs:
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if network_security_group_id is None and 'networkSecurityGroupId' in kwargs:
             network_security_group_id = kwargs['networkSecurityGroupId']
-        if 'networkWatcherName' in kwargs:
+        if network_security_group_id is None:
+            raise TypeError("Missing 'network_security_group_id' argument")
+        if network_watcher_name is None and 'networkWatcherName' in kwargs:
             network_watcher_name = kwargs['networkWatcherName']
-        if 'resourceGroupName' in kwargs:
+        if network_watcher_name is None:
+            raise TypeError("Missing 'network_watcher_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'retentionPolicy' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if retention_policy is None and 'retentionPolicy' in kwargs:
             retention_policy = kwargs['retentionPolicy']
-        if 'storageAccountId' in kwargs:
+        if retention_policy is None:
+            raise TypeError("Missing 'retention_policy' argument")
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'trafficAnalytics' in kwargs:
+        if storage_account_id is None:
+            raise TypeError("Missing 'storage_account_id' argument")
+        if traffic_analytics is None and 'trafficAnalytics' in kwargs:
             traffic_analytics = kwargs['trafficAnalytics']
 
         _setter("enabled", enabled)
@@ -290,19 +302,19 @@ class _NetworkWatcherFlowLogState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              traffic_analytics: Optional[pulumi.Input['NetworkWatcherFlowLogTrafficAnalyticsArgs']] = None,
              version: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'networkSecurityGroupId' in kwargs:
+        if network_security_group_id is None and 'networkSecurityGroupId' in kwargs:
             network_security_group_id = kwargs['networkSecurityGroupId']
-        if 'networkWatcherName' in kwargs:
+        if network_watcher_name is None and 'networkWatcherName' in kwargs:
             network_watcher_name = kwargs['networkWatcherName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'retentionPolicy' in kwargs:
+        if retention_policy is None and 'retentionPolicy' in kwargs:
             retention_policy = kwargs['retentionPolicy']
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'trafficAnalytics' in kwargs:
+        if traffic_analytics is None and 'trafficAnalytics' in kwargs:
             traffic_analytics = kwargs['trafficAnalytics']
 
         if enabled is not None:
@@ -479,49 +491,6 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
                  version: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        test_network_security_group = azure.network.NetworkSecurityGroup("testNetworkSecurityGroup",
-            location=example.location,
-            resource_group_name=example.name)
-        test_network_watcher = azure.network.NetworkWatcher("testNetworkWatcher",
-            location=example.location,
-            resource_group_name=example.name)
-        test_account = azure.storage.Account("testAccount",
-            resource_group_name=example.name,
-            location=example.location,
-            account_tier="Standard",
-            account_kind="StorageV2",
-            account_replication_type="LRS",
-            enable_https_traffic_only=True)
-        test_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("testAnalyticsWorkspace",
-            location=example.location,
-            resource_group_name=example.name,
-            sku="PerGB2018")
-        test_network_watcher_flow_log = azure.network.NetworkWatcherFlowLog("testNetworkWatcherFlowLog",
-            network_watcher_name=test_network_watcher.name,
-            resource_group_name=example.name,
-            network_security_group_id=test_network_security_group.id,
-            storage_account_id=test_account.id,
-            enabled=True,
-            retention_policy=azure.network.NetworkWatcherFlowLogRetentionPolicyArgs(
-                enabled=True,
-                days=7,
-            ),
-            traffic_analytics=azure.network.NetworkWatcherFlowLogTrafficAnalyticsArgs(
-                enabled=True,
-                workspace_id=test_analytics_workspace.workspace_id,
-                workspace_region=test_analytics_workspace.location,
-                workspace_resource_id=test_analytics_workspace.id,
-                interval_in_minutes=10,
-            ))
-        ```
-
         ## Import
 
         Network Watcher Flow Logs can be imported using the `resource id`, e.g.
@@ -551,49 +520,6 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
                  args: NetworkWatcherFlowLogArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        test_network_security_group = azure.network.NetworkSecurityGroup("testNetworkSecurityGroup",
-            location=example.location,
-            resource_group_name=example.name)
-        test_network_watcher = azure.network.NetworkWatcher("testNetworkWatcher",
-            location=example.location,
-            resource_group_name=example.name)
-        test_account = azure.storage.Account("testAccount",
-            resource_group_name=example.name,
-            location=example.location,
-            account_tier="Standard",
-            account_kind="StorageV2",
-            account_replication_type="LRS",
-            enable_https_traffic_only=True)
-        test_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("testAnalyticsWorkspace",
-            location=example.location,
-            resource_group_name=example.name,
-            sku="PerGB2018")
-        test_network_watcher_flow_log = azure.network.NetworkWatcherFlowLog("testNetworkWatcherFlowLog",
-            network_watcher_name=test_network_watcher.name,
-            resource_group_name=example.name,
-            network_security_group_id=test_network_security_group.id,
-            storage_account_id=test_account.id,
-            enabled=True,
-            retention_policy=azure.network.NetworkWatcherFlowLogRetentionPolicyArgs(
-                enabled=True,
-                days=7,
-            ),
-            traffic_analytics=azure.network.NetworkWatcherFlowLogTrafficAnalyticsArgs(
-                enabled=True,
-                workspace_id=test_analytics_workspace.workspace_id,
-                workspace_region=test_analytics_workspace.location,
-                workspace_resource_id=test_analytics_workspace.id,
-                interval_in_minutes=10,
-            ))
-        ```
-
         ## Import
 
         Network Watcher Flow Logs can be imported using the `resource id`, e.g.
@@ -655,11 +581,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if retention_policy is not None and not isinstance(retention_policy, NetworkWatcherFlowLogRetentionPolicyArgs):
-                retention_policy = retention_policy or {}
-                def _setter(key, value):
-                    retention_policy[key] = value
-                NetworkWatcherFlowLogRetentionPolicyArgs._configure(_setter, **retention_policy)
+            retention_policy = _utilities.configure(retention_policy, NetworkWatcherFlowLogRetentionPolicyArgs, True)
             if retention_policy is None and not opts.urn:
                 raise TypeError("Missing required property 'retention_policy'")
             __props__.__dict__["retention_policy"] = retention_policy
@@ -667,11 +589,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
                 raise TypeError("Missing required property 'storage_account_id'")
             __props__.__dict__["storage_account_id"] = storage_account_id
             __props__.__dict__["tags"] = tags
-            if traffic_analytics is not None and not isinstance(traffic_analytics, NetworkWatcherFlowLogTrafficAnalyticsArgs):
-                traffic_analytics = traffic_analytics or {}
-                def _setter(key, value):
-                    traffic_analytics[key] = value
-                NetworkWatcherFlowLogTrafficAnalyticsArgs._configure(_setter, **traffic_analytics)
+            traffic_analytics = _utilities.configure(traffic_analytics, NetworkWatcherFlowLogTrafficAnalyticsArgs, True)
             __props__.__dict__["traffic_analytics"] = traffic_analytics
             __props__.__dict__["version"] = version
         super(NetworkWatcherFlowLog, __self__).__init__(

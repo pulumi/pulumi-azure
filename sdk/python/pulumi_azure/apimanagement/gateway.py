@@ -37,16 +37,20 @@ class GatewayArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_management_id: pulumi.Input[str],
-             location_data: pulumi.Input['GatewayLocationDataArgs'],
+             api_management_id: Optional[pulumi.Input[str]] = None,
+             location_data: Optional[pulumi.Input['GatewayLocationDataArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementId' in kwargs:
+        if api_management_id is None and 'apiManagementId' in kwargs:
             api_management_id = kwargs['apiManagementId']
-        if 'locationData' in kwargs:
+        if api_management_id is None:
+            raise TypeError("Missing 'api_management_id' argument")
+        if location_data is None and 'locationData' in kwargs:
             location_data = kwargs['locationData']
+        if location_data is None:
+            raise TypeError("Missing 'location_data' argument")
 
         _setter("api_management_id", api_management_id)
         _setter("location_data", location_data)
@@ -132,11 +136,11 @@ class _GatewayState:
              description: Optional[pulumi.Input[str]] = None,
              location_data: Optional[pulumi.Input['GatewayLocationDataArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementId' in kwargs:
+        if api_management_id is None and 'apiManagementId' in kwargs:
             api_management_id = kwargs['apiManagementId']
-        if 'locationData' in kwargs:
+        if location_data is None and 'locationData' in kwargs:
             location_data = kwargs['locationData']
 
         if api_management_id is not None:
@@ -210,30 +214,6 @@ class Gateway(pulumi.CustomResource):
         """
         Manages an API Management Gateway.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            publisher_name="pub1",
-            publisher_email="pub1@email.com",
-            sku_name="Consumption_0")
-        example_gateway = azure.apimanagement.Gateway("exampleGateway",
-            api_management_id=example_service.id,
-            description="Example API Management gateway",
-            location_data=azure.apimanagement.GatewayLocationDataArgs(
-                name="example name",
-                city="example city",
-                district="example district",
-                region="example region",
-            ))
-        ```
-
         ## Import
 
         API Management Gateways can be imported using the `resource id`, e.g.
@@ -257,30 +237,6 @@ class Gateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an API Management Gateway.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            publisher_name="pub1",
-            publisher_email="pub1@email.com",
-            sku_name="Consumption_0")
-        example_gateway = azure.apimanagement.Gateway("exampleGateway",
-            api_management_id=example_service.id,
-            description="Example API Management gateway",
-            location_data=azure.apimanagement.GatewayLocationDataArgs(
-                name="example name",
-                city="example city",
-                district="example district",
-                region="example region",
-            ))
-        ```
 
         ## Import
 
@@ -326,11 +282,7 @@ class Gateway(pulumi.CustomResource):
                 raise TypeError("Missing required property 'api_management_id'")
             __props__.__dict__["api_management_id"] = api_management_id
             __props__.__dict__["description"] = description
-            if location_data is not None and not isinstance(location_data, GatewayLocationDataArgs):
-                location_data = location_data or {}
-                def _setter(key, value):
-                    location_data[key] = value
-                GatewayLocationDataArgs._configure(_setter, **location_data)
+            location_data = _utilities.configure(location_data, GatewayLocationDataArgs, True)
             if location_data is None and not opts.urn:
                 raise TypeError("Missing required property 'location_data'")
             __props__.__dict__["location_data"] = location_data

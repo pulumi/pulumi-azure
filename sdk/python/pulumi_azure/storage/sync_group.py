@@ -29,12 +29,14 @@ class SyncGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             storage_sync_id: pulumi.Input[str],
+             storage_sync_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'storageSyncId' in kwargs:
+        if storage_sync_id is None and 'storageSyncId' in kwargs:
             storage_sync_id = kwargs['storageSyncId']
+        if storage_sync_id is None:
+            raise TypeError("Missing 'storage_sync_id' argument")
 
         _setter("storage_sync_id", storage_sync_id)
         if name is not None:
@@ -85,9 +87,9 @@ class _SyncGroupState:
              _setter: Callable[[Any, Any], None],
              name: Optional[pulumi.Input[str]] = None,
              storage_sync_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'storageSyncId' in kwargs:
+        if storage_sync_id is None and 'storageSyncId' in kwargs:
             storage_sync_id = kwargs['storageSyncId']
 
         if name is not None:
@@ -131,19 +133,6 @@ class SyncGroup(pulumi.CustomResource):
         """
         Manages a Storage Sync Group.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_sync = azure.storage.Sync("exampleSync",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_sync_group = azure.storage.SyncGroup("exampleSyncGroup", storage_sync_id=example_sync.id)
-        ```
-
         ## Import
 
         Storage Sync Groups can be imported using the `resource id`, e.g.
@@ -165,19 +154,6 @@ class SyncGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Storage Sync Group.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_sync = azure.storage.Sync("exampleSync",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_sync_group = azure.storage.SyncGroup("exampleSyncGroup", storage_sync_id=example_sync.id)
-        ```
 
         ## Import
 

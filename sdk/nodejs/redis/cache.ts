@@ -11,27 +11,6 @@ import * as utilities from "../utilities";
  *
  * > **Note:** Redis version 4 is being retired and no longer supports creating new instances. Version 4 will be removed in a future release. [Redis Version 4 Retirement](https://learn.microsoft.com/azure/azure-cache-for-redis/cache-retired-features#important-upgrade-timelines)
  *
- * ## Example Usage
- *
- * This example provisions a Standard Redis Cache.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * // NOTE: the Name used for Redis needs to be globally unique
- * const exampleCache = new azure.redis.Cache("exampleCache", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     capacity: 2,
- *     family: "C",
- *     skuName: "Standard",
- *     enableNonSslPort: false,
- *     minimumTlsVersion: "1.2",
- *     redisConfiguration: {},
- * });
- * ```
  * ## Relevant Links
  *
  * * [Azure Cache for Redis planning](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-planning-faq)

@@ -9,24 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Route Filter.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = new azure.network.RouteFilter("example", {
- *     location: "East US",
- *     resourceGroupName: "example",
- *     rule: {
- *         access: "Allow",
- *         communities: ["12076:52004"],
- *         name: "rule",
- *         ruleType: "Community",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Route Filters can be imported using the `resource id`, e.g.

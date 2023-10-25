@@ -94,10 +94,10 @@ class CacheArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             capacity: pulumi.Input[int],
-             family: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             sku_name: pulumi.Input[str],
+             capacity: Optional[pulumi.Input[int]] = None,
+             family: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
              enable_non_ssl_port: Optional[pulumi.Input[bool]] = None,
              identity: Optional[pulumi.Input['CacheIdentityArgs']] = None,
              location: Optional[pulumi.Input[str]] = None,
@@ -115,35 +115,43 @@ class CacheArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tenant_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if capacity is None:
+            raise TypeError("Missing 'capacity' argument")
+        if family is None:
+            raise TypeError("Missing 'family' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'enableNonSslPort' in kwargs:
+        if sku_name is None:
+            raise TypeError("Missing 'sku_name' argument")
+        if enable_non_ssl_port is None and 'enableNonSslPort' in kwargs:
             enable_non_ssl_port = kwargs['enableNonSslPort']
-        if 'minimumTlsVersion' in kwargs:
+        if minimum_tls_version is None and 'minimumTlsVersion' in kwargs:
             minimum_tls_version = kwargs['minimumTlsVersion']
-        if 'patchSchedules' in kwargs:
+        if patch_schedules is None and 'patchSchedules' in kwargs:
             patch_schedules = kwargs['patchSchedules']
-        if 'privateStaticIpAddress' in kwargs:
+        if private_static_ip_address is None and 'privateStaticIpAddress' in kwargs:
             private_static_ip_address = kwargs['privateStaticIpAddress']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'redisConfiguration' in kwargs:
+        if redis_configuration is None and 'redisConfiguration' in kwargs:
             redis_configuration = kwargs['redisConfiguration']
-        if 'redisVersion' in kwargs:
+        if redis_version is None and 'redisVersion' in kwargs:
             redis_version = kwargs['redisVersion']
-        if 'replicasPerMaster' in kwargs:
+        if replicas_per_master is None and 'replicasPerMaster' in kwargs:
             replicas_per_master = kwargs['replicasPerMaster']
-        if 'replicasPerPrimary' in kwargs:
+        if replicas_per_primary is None and 'replicasPerPrimary' in kwargs:
             replicas_per_primary = kwargs['replicasPerPrimary']
-        if 'shardCount' in kwargs:
+        if shard_count is None and 'shardCount' in kwargs:
             shard_count = kwargs['shardCount']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'tenantSettings' in kwargs:
+        if tenant_settings is None and 'tenantSettings' in kwargs:
             tenant_settings = kwargs['tenantSettings']
 
         _setter("capacity", capacity)
@@ -574,45 +582,45 @@ class _CacheState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tenant_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'enableNonSslPort' in kwargs:
+        if enable_non_ssl_port is None and 'enableNonSslPort' in kwargs:
             enable_non_ssl_port = kwargs['enableNonSslPort']
-        if 'minimumTlsVersion' in kwargs:
+        if minimum_tls_version is None and 'minimumTlsVersion' in kwargs:
             minimum_tls_version = kwargs['minimumTlsVersion']
-        if 'patchSchedules' in kwargs:
+        if patch_schedules is None and 'patchSchedules' in kwargs:
             patch_schedules = kwargs['patchSchedules']
-        if 'primaryAccessKey' in kwargs:
+        if primary_access_key is None and 'primaryAccessKey' in kwargs:
             primary_access_key = kwargs['primaryAccessKey']
-        if 'primaryConnectionString' in kwargs:
+        if primary_connection_string is None and 'primaryConnectionString' in kwargs:
             primary_connection_string = kwargs['primaryConnectionString']
-        if 'privateStaticIpAddress' in kwargs:
+        if private_static_ip_address is None and 'privateStaticIpAddress' in kwargs:
             private_static_ip_address = kwargs['privateStaticIpAddress']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'redisConfiguration' in kwargs:
+        if redis_configuration is None and 'redisConfiguration' in kwargs:
             redis_configuration = kwargs['redisConfiguration']
-        if 'redisVersion' in kwargs:
+        if redis_version is None and 'redisVersion' in kwargs:
             redis_version = kwargs['redisVersion']
-        if 'replicasPerMaster' in kwargs:
+        if replicas_per_master is None and 'replicasPerMaster' in kwargs:
             replicas_per_master = kwargs['replicasPerMaster']
-        if 'replicasPerPrimary' in kwargs:
+        if replicas_per_primary is None and 'replicasPerPrimary' in kwargs:
             replicas_per_primary = kwargs['replicasPerPrimary']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'secondaryAccessKey' in kwargs:
+        if secondary_access_key is None and 'secondaryAccessKey' in kwargs:
             secondary_access_key = kwargs['secondaryAccessKey']
-        if 'secondaryConnectionString' in kwargs:
+        if secondary_connection_string is None and 'secondaryConnectionString' in kwargs:
             secondary_connection_string = kwargs['secondaryConnectionString']
-        if 'shardCount' in kwargs:
+        if shard_count is None and 'shardCount' in kwargs:
             shard_count = kwargs['shardCount']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'sslPort' in kwargs:
+        if ssl_port is None and 'sslPort' in kwargs:
             ssl_port = kwargs['sslPort']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'tenantSettings' in kwargs:
+        if tenant_settings is None and 'tenantSettings' in kwargs:
             tenant_settings = kwargs['tenantSettings']
 
         if capacity is not None:
@@ -1047,26 +1055,6 @@ class Cache(pulumi.CustomResource):
 
         > **Note:** Redis version 4 is being retired and no longer supports creating new instances. Version 4 will be removed in a future release. [Redis Version 4 Retirement](https://learn.microsoft.com/azure/azure-cache-for-redis/cache-retired-features#important-upgrade-timelines)
 
-        ## Example Usage
-
-        This example provisions a Standard Redis Cache.
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        # NOTE: the Name used for Redis needs to be globally unique
-        example_cache = azure.redis.Cache("exampleCache",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            capacity=2,
-            family="C",
-            sku_name="Standard",
-            enable_non_ssl_port=False,
-            minimum_tls_version="1.2",
-            redis_configuration=azure.redis.CacheRedisConfigurationArgs())
-        ```
         ## Relevant Links
 
         * [Azure Cache for Redis planning](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-planning-faq)
@@ -1121,26 +1109,6 @@ class Cache(pulumi.CustomResource):
 
         > **Note:** Redis version 4 is being retired and no longer supports creating new instances. Version 4 will be removed in a future release. [Redis Version 4 Retirement](https://learn.microsoft.com/azure/azure-cache-for-redis/cache-retired-features#important-upgrade-timelines)
 
-        ## Example Usage
-
-        This example provisions a Standard Redis Cache.
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        # NOTE: the Name used for Redis needs to be globally unique
-        example_cache = azure.redis.Cache("exampleCache",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            capacity=2,
-            family="C",
-            sku_name="Standard",
-            enable_non_ssl_port=False,
-            minimum_tls_version="1.2",
-            redis_configuration=azure.redis.CacheRedisConfigurationArgs())
-        ```
         ## Relevant Links
 
         * [Azure Cache for Redis planning](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-planning-faq)
@@ -1210,11 +1178,7 @@ class Cache(pulumi.CustomResource):
             if family is None and not opts.urn:
                 raise TypeError("Missing required property 'family'")
             __props__.__dict__["family"] = family
-            if identity is not None and not isinstance(identity, CacheIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                CacheIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, CacheIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["minimum_tls_version"] = minimum_tls_version
@@ -1222,11 +1186,7 @@ class Cache(pulumi.CustomResource):
             __props__.__dict__["patch_schedules"] = patch_schedules
             __props__.__dict__["private_static_ip_address"] = private_static_ip_address
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
-            if redis_configuration is not None and not isinstance(redis_configuration, CacheRedisConfigurationArgs):
-                redis_configuration = redis_configuration or {}
-                def _setter(key, value):
-                    redis_configuration[key] = value
-                CacheRedisConfigurationArgs._configure(_setter, **redis_configuration)
+            redis_configuration = _utilities.configure(redis_configuration, CacheRedisConfigurationArgs, True)
             __props__.__dict__["redis_configuration"] = redis_configuration
             __props__.__dict__["redis_version"] = redis_version
             __props__.__dict__["replicas_per_master"] = replicas_per_master

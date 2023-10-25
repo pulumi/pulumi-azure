@@ -13,60 +13,12 @@ namespace Pulumi.Azure.Core
     {
         /// <summary>
         /// Use this data source to access information about all the Subscriptions currently available.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var available = Azure.Core.GetSubscriptions.Invoke();
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["availableSubscriptions"] = available.Apply(getSubscriptionsResult =&gt; getSubscriptionsResult.Subscriptions),
-        ///         ["firstAvailableSubscriptionDisplayName"] = available.Apply(getSubscriptionsResult =&gt; getSubscriptionsResult.Subscriptions[0]?.DisplayName),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetSubscriptionsResult> InvokeAsync(GetSubscriptionsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionsResult>("azure:core/getSubscriptions:getSubscriptions", args ?? new GetSubscriptionsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about all the Subscriptions currently available.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var available = Azure.Core.GetSubscriptions.Invoke();
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["availableSubscriptions"] = available.Apply(getSubscriptionsResult =&gt; getSubscriptionsResult.Subscriptions),
-        ///         ["firstAvailableSubscriptionDisplayName"] = available.Apply(getSubscriptionsResult =&gt; getSubscriptionsResult.Subscriptions[0]?.DisplayName),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetSubscriptionsResult> Invoke(GetSubscriptionsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubscriptionsResult>("azure:core/getSubscriptions:getSubscriptions", args ?? new GetSubscriptionsInvokeArgs(), options.WithDefaults());

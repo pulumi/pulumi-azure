@@ -52,24 +52,32 @@ class MonitorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             datadog_organization: pulumi.Input['MonitorDatadogOrganizationArgs'],
-             resource_group_name: pulumi.Input[str],
-             sku_name: pulumi.Input[str],
-             user: pulumi.Input['MonitorUserArgs'],
+             datadog_organization: Optional[pulumi.Input['MonitorDatadogOrganizationArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             user: Optional[pulumi.Input['MonitorUserArgs']] = None,
              identity: Optional[pulumi.Input['MonitorIdentityArgs']] = None,
              location: Optional[pulumi.Input[str]] = None,
              monitoring_enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'datadogOrganization' in kwargs:
+        if datadog_organization is None and 'datadogOrganization' in kwargs:
             datadog_organization = kwargs['datadogOrganization']
-        if 'resourceGroupName' in kwargs:
+        if datadog_organization is None:
+            raise TypeError("Missing 'datadog_organization' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'monitoringEnabled' in kwargs:
+        if sku_name is None:
+            raise TypeError("Missing 'sku_name' argument")
+        if user is None:
+            raise TypeError("Missing 'user' argument")
+        if monitoring_enabled is None and 'monitoringEnabled' in kwargs:
             monitoring_enabled = kwargs['monitoringEnabled']
 
         _setter("datadog_organization", datadog_organization)
@@ -248,17 +256,17 @@ class _MonitorState:
              sku_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              user: Optional[pulumi.Input['MonitorUserArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'datadogOrganization' in kwargs:
+        if datadog_organization is None and 'datadogOrganization' in kwargs:
             datadog_organization = kwargs['datadogOrganization']
-        if 'marketplaceSubscriptionStatus' in kwargs:
+        if marketplace_subscription_status is None and 'marketplaceSubscriptionStatus' in kwargs:
             marketplace_subscription_status = kwargs['marketplaceSubscriptionStatus']
-        if 'monitoringEnabled' in kwargs:
+        if monitoring_enabled is None and 'monitoringEnabled' in kwargs:
             monitoring_enabled = kwargs['monitoringEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
 
         if datadog_organization is not None:
@@ -422,46 +430,9 @@ class Monitor(pulumi.CustomResource):
         Manages a datadog Monitor.
 
         ## Example Usage
-        ### Monitor creation with linking to Datadog organization
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US 2")
-        example_monitor = azure.datadog.Monitor("exampleMonitor",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            datadog_organization=azure.datadog.MonitorDatadogOrganizationArgs(
-                api_key="XXXX",
-                application_key="XXXX",
-            ),
-            user=azure.datadog.MonitorUserArgs(
-                name="Example",
-                email="abc@xyz.com",
-            ),
-            sku_name="Linked",
-            identity=azure.datadog.MonitorIdentityArgs(
-                type="SystemAssigned",
-            ))
-        ```
         ## Role Assignment
 
         To enable metrics flow, perform role assignment on the identity created above. `Monitoring reader(43d0d8ad-25c7-4714-9337-8ba259a9fe05)` role is required .
-
-        ### Role assignment on the monitor created
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        primary = azure.core.get_subscription()
-        monitoring_reader = azure.authorization.get_role_definition(name="Monitoring Reader")
-        example = azure.authorization.Assignment("example",
-            scope=primary.id,
-            role_definition_id=monitoring_reader.role_definition_id,
-            principal_id=azurerm_datadog_monitor["example"]["identity"][0]["principal_id"])
-        ```
 
         ## Import
 
@@ -493,46 +464,9 @@ class Monitor(pulumi.CustomResource):
         Manages a datadog Monitor.
 
         ## Example Usage
-        ### Monitor creation with linking to Datadog organization
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US 2")
-        example_monitor = azure.datadog.Monitor("exampleMonitor",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            datadog_organization=azure.datadog.MonitorDatadogOrganizationArgs(
-                api_key="XXXX",
-                application_key="XXXX",
-            ),
-            user=azure.datadog.MonitorUserArgs(
-                name="Example",
-                email="abc@xyz.com",
-            ),
-            sku_name="Linked",
-            identity=azure.datadog.MonitorIdentityArgs(
-                type="SystemAssigned",
-            ))
-        ```
         ## Role Assignment
 
         To enable metrics flow, perform role assignment on the identity created above. `Monitoring reader(43d0d8ad-25c7-4714-9337-8ba259a9fe05)` role is required .
-
-        ### Role assignment on the monitor created
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        primary = azure.core.get_subscription()
-        monitoring_reader = azure.authorization.get_role_definition(name="Monitoring Reader")
-        example = azure.authorization.Assignment("example",
-            scope=primary.id,
-            role_definition_id=monitoring_reader.role_definition_id,
-            principal_id=azurerm_datadog_monitor["example"]["identity"][0]["principal_id"])
-        ```
 
         ## Import
 
@@ -579,19 +513,11 @@ class Monitor(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = MonitorArgs.__new__(MonitorArgs)
 
-            if datadog_organization is not None and not isinstance(datadog_organization, MonitorDatadogOrganizationArgs):
-                datadog_organization = datadog_organization or {}
-                def _setter(key, value):
-                    datadog_organization[key] = value
-                MonitorDatadogOrganizationArgs._configure(_setter, **datadog_organization)
+            datadog_organization = _utilities.configure(datadog_organization, MonitorDatadogOrganizationArgs, True)
             if datadog_organization is None and not opts.urn:
                 raise TypeError("Missing required property 'datadog_organization'")
             __props__.__dict__["datadog_organization"] = datadog_organization
-            if identity is not None and not isinstance(identity, MonitorIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                MonitorIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, MonitorIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["monitoring_enabled"] = monitoring_enabled
@@ -603,11 +529,7 @@ class Monitor(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku_name'")
             __props__.__dict__["sku_name"] = sku_name
             __props__.__dict__["tags"] = tags
-            if user is not None and not isinstance(user, MonitorUserArgs):
-                user = user or {}
-                def _setter(key, value):
-                    user[key] = value
-                MonitorUserArgs._configure(_setter, **user)
+            user = _utilities.configure(user, MonitorUserArgs, True)
             if user is None and not opts.urn:
                 raise TypeError("Missing required property 'user'")
             __props__.__dict__["user"] = user

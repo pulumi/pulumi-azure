@@ -7,23 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Maps Account.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.maps.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "S1",
- *     localAuthenticationEnabled: true,
- *     tags: {
- *         environment: "Test",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * A Maps Account can be imported using the `resource id`, e.g.

@@ -13,74 +13,9 @@ namespace Pulumi.Azure.Datadog
     /// Manages a datadog Monitor.
     /// 
     /// ## Example Usage
-    /// ### Monitor creation with linking to Datadog organization
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West US 2",
-    ///     });
-    /// 
-    ///     var exampleMonitor = new Azure.Datadog.Monitor("exampleMonitor", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         DatadogOrganization = new Azure.Datadog.Inputs.MonitorDatadogOrganizationArgs
-    ///         {
-    ///             ApiKey = "XXXX",
-    ///             ApplicationKey = "XXXX",
-    ///         },
-    ///         User = new Azure.Datadog.Inputs.MonitorUserArgs
-    ///         {
-    ///             Name = "Example",
-    ///             Email = "abc@xyz.com",
-    ///         },
-    ///         SkuName = "Linked",
-    ///         Identity = new Azure.Datadog.Inputs.MonitorIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ## Role Assignment
     /// 
     /// To enable metrics flow, perform role assignment on the identity created above. `Monitoring reader(43d0d8ad-25c7-4714-9337-8ba259a9fe05)` role is required .
-    /// 
-    /// ### Role assignment on the monitor created
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var primary = Azure.Core.GetSubscription.Invoke();
-    /// 
-    ///     var monitoringReader = Azure.Authorization.GetRoleDefinition.Invoke(new()
-    ///     {
-    ///         Name = "Monitoring Reader",
-    ///     });
-    /// 
-    ///     var example = new Azure.Authorization.Assignment("example", new()
-    ///     {
-    ///         Scope = primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
-    ///         RoleDefinitionId = monitoringReader.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.RoleDefinitionId),
-    ///         PrincipalId = azurerm_datadog_monitor.Example.Identity[0].Principal_id,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

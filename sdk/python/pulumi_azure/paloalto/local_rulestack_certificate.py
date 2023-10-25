@@ -43,21 +43,23 @@ class LocalRulestackCertificateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             rulestack_id: pulumi.Input[str],
+             rulestack_id: Optional[pulumi.Input[str]] = None,
              audit_comment: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              key_vault_certificate_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              self_signed: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'rulestackId' in kwargs:
+        if rulestack_id is None and 'rulestackId' in kwargs:
             rulestack_id = kwargs['rulestackId']
-        if 'auditComment' in kwargs:
+        if rulestack_id is None:
+            raise TypeError("Missing 'rulestack_id' argument")
+        if audit_comment is None and 'auditComment' in kwargs:
             audit_comment = kwargs['auditComment']
-        if 'keyVaultCertificateId' in kwargs:
+        if key_vault_certificate_id is None and 'keyVaultCertificateId' in kwargs:
             key_vault_certificate_id = kwargs['keyVaultCertificateId']
-        if 'selfSigned' in kwargs:
+        if self_signed is None and 'selfSigned' in kwargs:
             self_signed = kwargs['selfSigned']
 
         _setter("rulestack_id", rulestack_id)
@@ -185,15 +187,15 @@ class _LocalRulestackCertificateState:
              name: Optional[pulumi.Input[str]] = None,
              rulestack_id: Optional[pulumi.Input[str]] = None,
              self_signed: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'auditComment' in kwargs:
+        if audit_comment is None and 'auditComment' in kwargs:
             audit_comment = kwargs['auditComment']
-        if 'keyVaultCertificateId' in kwargs:
+        if key_vault_certificate_id is None and 'keyVaultCertificateId' in kwargs:
             key_vault_certificate_id = kwargs['keyVaultCertificateId']
-        if 'rulestackId' in kwargs:
+        if rulestack_id is None and 'rulestackId' in kwargs:
             rulestack_id = kwargs['rulestackId']
-        if 'selfSigned' in kwargs:
+        if self_signed is None and 'selfSigned' in kwargs:
             self_signed = kwargs['selfSigned']
 
         if audit_comment is not None:
@@ -299,21 +301,6 @@ class LocalRulestackCertificate(pulumi.CustomResource):
         """
         Manages a Palo Alto Networks Rulestack Certificate.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_local_rulestack = azure.paloalto.LocalRulestack("exampleLocalRulestack",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_local_rulestack_certificate = azure.paloalto.LocalRulestackCertificate("exampleLocalRulestackCertificate",
-            rulestack_id=example_local_rulestack.id,
-            self_signed=True)
-        ```
-
         ## Import
 
         Palo Alto Networks Rulestack Certificates can be imported using the `resource id`, e.g.
@@ -341,21 +328,6 @@ class LocalRulestackCertificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Palo Alto Networks Rulestack Certificate.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_local_rulestack = azure.paloalto.LocalRulestack("exampleLocalRulestack",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_local_rulestack_certificate = azure.paloalto.LocalRulestackCertificate("exampleLocalRulestackCertificate",
-            rulestack_id=example_local_rulestack.id,
-            self_signed=True)
-        ```
 
         ## Import
 

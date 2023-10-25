@@ -38,19 +38,25 @@ class EnvironmentCertificateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             certificate_blob_base64: pulumi.Input[str],
-             certificate_password: pulumi.Input[str],
-             container_app_environment_id: pulumi.Input[str],
+             certificate_blob_base64: Optional[pulumi.Input[str]] = None,
+             certificate_password: Optional[pulumi.Input[str]] = None,
+             container_app_environment_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'certificateBlobBase64' in kwargs:
+        if certificate_blob_base64 is None and 'certificateBlobBase64' in kwargs:
             certificate_blob_base64 = kwargs['certificateBlobBase64']
-        if 'certificatePassword' in kwargs:
+        if certificate_blob_base64 is None:
+            raise TypeError("Missing 'certificate_blob_base64' argument")
+        if certificate_password is None and 'certificatePassword' in kwargs:
             certificate_password = kwargs['certificatePassword']
-        if 'containerAppEnvironmentId' in kwargs:
+        if certificate_password is None:
+            raise TypeError("Missing 'certificate_password' argument")
+        if container_app_environment_id is None and 'containerAppEnvironmentId' in kwargs:
             container_app_environment_id = kwargs['containerAppEnvironmentId']
+        if container_app_environment_id is None:
+            raise TypeError("Missing 'container_app_environment_id' argument")
 
         _setter("certificate_blob_base64", certificate_blob_base64)
         _setter("certificate_password", certificate_password)
@@ -173,19 +179,19 @@ class _EnvironmentCertificateState:
              subject_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              thumbprint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'certificateBlobBase64' in kwargs:
+        if certificate_blob_base64 is None and 'certificateBlobBase64' in kwargs:
             certificate_blob_base64 = kwargs['certificateBlobBase64']
-        if 'certificatePassword' in kwargs:
+        if certificate_password is None and 'certificatePassword' in kwargs:
             certificate_password = kwargs['certificatePassword']
-        if 'containerAppEnvironmentId' in kwargs:
+        if container_app_environment_id is None and 'containerAppEnvironmentId' in kwargs:
             container_app_environment_id = kwargs['containerAppEnvironmentId']
-        if 'expirationDate' in kwargs:
+        if expiration_date is None and 'expirationDate' in kwargs:
             expiration_date = kwargs['expirationDate']
-        if 'issueDate' in kwargs:
+        if issue_date is None and 'issueDate' in kwargs:
             issue_date = kwargs['issueDate']
-        if 'subjectName' in kwargs:
+        if subject_name is None and 'subjectName' in kwargs:
             subject_name = kwargs['subjectName']
 
         if certificate_blob_base64 is not None:

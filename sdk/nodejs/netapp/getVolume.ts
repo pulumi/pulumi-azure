@@ -8,21 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Uses this data source to access information about an existing NetApp Volume.
- *
- * ## NetApp Volume Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.netapp.getVolume({
- *     resourceGroupName: "acctestRG",
- *     accountName: "acctestnetappaccount",
- *     poolName: "acctestnetapppool",
- *     name: "example-volume",
- * });
- * export const netappVolumeId = example.then(example => example.id);
- * ```
  */
 export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
 
@@ -121,21 +106,6 @@ export interface GetVolumeResult {
 }
 /**
  * Uses this data source to access information about an existing NetApp Volume.
- *
- * ## NetApp Volume Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.netapp.getVolume({
- *     resourceGroupName: "acctestRG",
- *     accountName: "acctestnetappaccount",
- *     poolName: "acctestnetapppool",
- *     name: "example-volume",
- * });
- * export const netappVolumeId = example.then(example => example.id);
- * ```
  */
 export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeResult> {
     return pulumi.output(args).apply((a: any) => getVolume(a, opts))

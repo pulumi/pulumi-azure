@@ -15,54 +15,6 @@ import (
 
 // Manages an Express Route VMware Authorization.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/avs"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			examplePrivateCloud, err := avs.NewPrivateCloud(ctx, "examplePrivateCloud", &avs.PrivateCloudArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
-//				SkuName:           pulumi.String("av36"),
-//				ManagementCluster: &avs.PrivateCloudManagementClusterArgs{
-//					Size: pulumi.Int(3),
-//				},
-//				NetworkSubnetCidr:         pulumi.String("192.168.48.0/22"),
-//				InternetConnectionEnabled: pulumi.Bool(false),
-//				NsxtPassword:              pulumi.String("QazWsx13$Edc"),
-//				VcenterPassword:           pulumi.String("WsxEdc23$Rfv"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = avs.NewExpressRouteAuthorization(ctx, "exampleExpressRouteAuthorization", &avs.ExpressRouteAuthorizationArgs{
-//				PrivateCloudId: examplePrivateCloud.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // VMware Authorizations can be imported using the `resource id`, e.g.

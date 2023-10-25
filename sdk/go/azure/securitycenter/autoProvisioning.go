@@ -17,32 +17,6 @@ import (
 //
 // > **NOTE:** There is no resource name required, it will always be "default"
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/securitycenter"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := securitycenter.NewAutoProvisioning(ctx, "example", &securitycenter.AutoProvisioningArgs{
-//				AutoProvision: pulumi.String("On"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Security Center Auto Provisioning can be imported using the `resource id`, e.g.

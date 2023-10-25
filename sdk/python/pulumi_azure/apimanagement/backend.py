@@ -61,10 +61,10 @@ class BackendArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_management_name: pulumi.Input[str],
-             protocol: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             url: pulumi.Input[str],
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
              credentials: Optional[pulumi.Input['BackendCredentialsArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
@@ -73,15 +73,23 @@ class BackendArgs:
              service_fabric_cluster: Optional[pulumi.Input['BackendServiceFabricClusterArgs']] = None,
              title: Optional[pulumi.Input[str]] = None,
              tls: Optional[pulumi.Input['BackendTlsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'resourceGroupName' in kwargs:
+        if api_management_name is None:
+            raise TypeError("Missing 'api_management_name' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'resourceId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+        if resource_id is None and 'resourceId' in kwargs:
             resource_id = kwargs['resourceId']
-        if 'serviceFabricCluster' in kwargs:
+        if service_fabric_cluster is None and 'serviceFabricCluster' in kwargs:
             service_fabric_cluster = kwargs['serviceFabricCluster']
 
         _setter("api_management_name", api_management_name)
@@ -310,15 +318,15 @@ class _BackendState:
              title: Optional[pulumi.Input[str]] = None,
              tls: Optional[pulumi.Input['BackendTlsArgs']] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'resourceId' in kwargs:
+        if resource_id is None and 'resourceId' in kwargs:
             resource_id = kwargs['resourceId']
-        if 'serviceFabricCluster' in kwargs:
+        if service_fabric_cluster is None and 'serviceFabricCluster' in kwargs:
             service_fabric_cluster = kwargs['serviceFabricCluster']
 
         if api_management_name is not None:
@@ -512,26 +520,6 @@ class Backend(pulumi.CustomResource):
         """
         Manages a backend within an API Management Service.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            publisher_name="My Company",
-            publisher_email="company@exmaple.com",
-            sku_name="Developer_1")
-        example_backend = azure.apimanagement.Backend("exampleBackend",
-            resource_group_name=example_resource_group.name,
-            api_management_name=example_service.name,
-            protocol="http",
-            url="https://backend")
-        ```
-
         ## Import
 
         API Management backends can be imported using the `resource id`, e.g.
@@ -563,26 +551,6 @@ class Backend(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a backend within an API Management Service.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            publisher_name="My Company",
-            publisher_email="company@exmaple.com",
-            sku_name="Developer_1")
-        example_backend = azure.apimanagement.Backend("exampleBackend",
-            resource_group_name=example_resource_group.name,
-            api_management_name=example_service.name,
-            protocol="http",
-            url="https://backend")
-        ```
 
         ## Import
 
@@ -635,39 +603,23 @@ class Backend(pulumi.CustomResource):
             if api_management_name is None and not opts.urn:
                 raise TypeError("Missing required property 'api_management_name'")
             __props__.__dict__["api_management_name"] = api_management_name
-            if credentials is not None and not isinstance(credentials, BackendCredentialsArgs):
-                credentials = credentials or {}
-                def _setter(key, value):
-                    credentials[key] = value
-                BackendCredentialsArgs._configure(_setter, **credentials)
+            credentials = _utilities.configure(credentials, BackendCredentialsArgs, True)
             __props__.__dict__["credentials"] = credentials
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
             if protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol'")
             __props__.__dict__["protocol"] = protocol
-            if proxy is not None and not isinstance(proxy, BackendProxyArgs):
-                proxy = proxy or {}
-                def _setter(key, value):
-                    proxy[key] = value
-                BackendProxyArgs._configure(_setter, **proxy)
+            proxy = _utilities.configure(proxy, BackendProxyArgs, True)
             __props__.__dict__["proxy"] = proxy
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["resource_id"] = resource_id
-            if service_fabric_cluster is not None and not isinstance(service_fabric_cluster, BackendServiceFabricClusterArgs):
-                service_fabric_cluster = service_fabric_cluster or {}
-                def _setter(key, value):
-                    service_fabric_cluster[key] = value
-                BackendServiceFabricClusterArgs._configure(_setter, **service_fabric_cluster)
+            service_fabric_cluster = _utilities.configure(service_fabric_cluster, BackendServiceFabricClusterArgs, True)
             __props__.__dict__["service_fabric_cluster"] = service_fabric_cluster
             __props__.__dict__["title"] = title
-            if tls is not None and not isinstance(tls, BackendTlsArgs):
-                tls = tls or {}
-                def _setter(key, value):
-                    tls[key] = value
-                BackendTlsArgs._configure(_setter, **tls)
+            tls = _utilities.configure(tls, BackendTlsArgs, True)
             __props__.__dict__["tls"] = tls
             if url is None and not opts.urn:
                 raise TypeError("Missing required property 'url'")

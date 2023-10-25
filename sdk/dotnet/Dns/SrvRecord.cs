@@ -10,50 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Dns
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleZone = new Azure.Dns.Zone("exampleZone", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///     });
-    /// 
-    ///     var exampleSrvRecord = new Azure.Dns.SrvRecord("exampleSrvRecord", new()
-    ///     {
-    ///         ZoneName = exampleZone.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Ttl = 300,
-    ///         Records = new[]
-    ///         {
-    ///             new Azure.Dns.Inputs.SrvRecordRecordArgs
-    ///             {
-    ///                 Priority = 1,
-    ///                 Weight = 5,
-    ///                 Port = 8080,
-    ///                 Target = "target1.contoso.com",
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Environment", "Production" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// SRV records can be imported using the `resource id`, e.g.

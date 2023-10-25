@@ -12,52 +12,6 @@ namespace Pulumi.Azure.DesktopVirtualization
     /// <summary>
     /// Manages a Virtual Desktop Workspace Application Group Association.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var pooledbreadthfirst = new Azure.DesktopVirtualization.HostPool("pooledbreadthfirst", new()
-    ///     {
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         Type = "Pooled",
-    ///         LoadBalancerType = "BreadthFirst",
-    ///     });
-    /// 
-    ///     var remoteapp = new Azure.DesktopVirtualization.ApplicationGroup("remoteapp", new()
-    ///     {
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         Type = "RemoteApp",
-    ///         HostPoolId = pooledbreadthfirst.Id,
-    ///     });
-    /// 
-    ///     var workspace = new Azure.DesktopVirtualization.Workspace("workspace", new()
-    ///     {
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///     });
-    /// 
-    ///     var workspaceremoteapp = new Azure.DesktopVirtualization.WorkspaceApplicationGroupAssociation("workspaceremoteapp", new()
-    ///     {
-    ///         WorkspaceId = workspace.Id,
-    ///         ApplicationGroupId = remoteapp.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Associations between Virtual Desktop Workspaces and Virtual Desktop Application Groups can be imported using the `resource id`, e.g.

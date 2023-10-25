@@ -63,9 +63,9 @@ class DefinitionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             display_name: pulumi.Input[str],
-             lock_level: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             display_name: Optional[pulumi.Input[str]] = None,
+             lock_level: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArgs']]]] = None,
              create_ui_definition: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -75,21 +75,27 @@ class DefinitionArgs:
              package_enabled: Optional[pulumi.Input[bool]] = None,
              package_file_uri: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'lockLevel' in kwargs:
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if lock_level is None and 'lockLevel' in kwargs:
             lock_level = kwargs['lockLevel']
-        if 'resourceGroupName' in kwargs:
+        if lock_level is None:
+            raise TypeError("Missing 'lock_level' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'createUiDefinition' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if create_ui_definition is None and 'createUiDefinition' in kwargs:
             create_ui_definition = kwargs['createUiDefinition']
-        if 'mainTemplate' in kwargs:
+        if main_template is None and 'mainTemplate' in kwargs:
             main_template = kwargs['mainTemplate']
-        if 'packageEnabled' in kwargs:
+        if package_enabled is None and 'packageEnabled' in kwargs:
             package_enabled = kwargs['packageEnabled']
-        if 'packageFileUri' in kwargs:
+        if package_file_uri is None and 'packageFileUri' in kwargs:
             package_file_uri = kwargs['packageFileUri']
 
         _setter("display_name", display_name)
@@ -323,21 +329,21 @@ class _DefinitionState:
              package_file_uri: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'createUiDefinition' in kwargs:
+        if create_ui_definition is None and 'createUiDefinition' in kwargs:
             create_ui_definition = kwargs['createUiDefinition']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'lockLevel' in kwargs:
+        if lock_level is None and 'lockLevel' in kwargs:
             lock_level = kwargs['lockLevel']
-        if 'mainTemplate' in kwargs:
+        if main_template is None and 'mainTemplate' in kwargs:
             main_template = kwargs['mainTemplate']
-        if 'packageEnabled' in kwargs:
+        if package_enabled is None and 'packageEnabled' in kwargs:
             package_enabled = kwargs['packageEnabled']
-        if 'packageFileUri' in kwargs:
+        if package_file_uri is None and 'packageFileUri' in kwargs:
             package_file_uri = kwargs['packageFileUri']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if authorizations is not None:
@@ -533,27 +539,6 @@ class Definition(pulumi.CustomResource):
         """
         Manages a Managed Application Definition.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_definition = azure.managedapplication.Definition("exampleDefinition",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            lock_level="ReadOnly",
-            package_file_uri="https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip",
-            display_name="TestManagedApplicationDefinition",
-            description="Test Managed Application Definition",
-            authorizations=[azure.managedapplication.DefinitionAuthorizationArgs(
-                service_principal_id=current.object_id,
-                role_definition_id="a094b430-dad3-424d-ae58-13f72fd72591",
-            )])
-        ```
-
         ## Import
 
         Managed Application Definition can be imported using the `resource id`, e.g.
@@ -587,27 +572,6 @@ class Definition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Managed Application Definition.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_definition = azure.managedapplication.Definition("exampleDefinition",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            lock_level="ReadOnly",
-            package_file_uri="https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip",
-            display_name="TestManagedApplicationDefinition",
-            description="Test Managed Application Definition",
-            authorizations=[azure.managedapplication.DefinitionAuthorizationArgs(
-                service_principal_id=current.object_id,
-                role_definition_id="a094b430-dad3-424d-ae58-13f72fd72591",
-            )])
-        ```
 
         ## Import
 

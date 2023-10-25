@@ -49,23 +49,31 @@ class TimeSeriesInsightsGen2EnvironmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             id_properties: pulumi.Input[Sequence[pulumi.Input[str]]],
-             resource_group_name: pulumi.Input[str],
-             sku_name: pulumi.Input[str],
-             storage: pulumi.Input['TimeSeriesInsightsGen2EnvironmentStorageArgs'],
+             id_properties: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             storage: Optional[pulumi.Input['TimeSeriesInsightsGen2EnvironmentStorageArgs']] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              warm_store_data_retention_time: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'idProperties' in kwargs:
+        if id_properties is None and 'idProperties' in kwargs:
             id_properties = kwargs['idProperties']
-        if 'resourceGroupName' in kwargs:
+        if id_properties is None:
+            raise TypeError("Missing 'id_properties' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'warmStoreDataRetentionTime' in kwargs:
+        if sku_name is None:
+            raise TypeError("Missing 'sku_name' argument")
+        if storage is None:
+            raise TypeError("Missing 'storage' argument")
+        if warm_store_data_retention_time is None and 'warmStoreDataRetentionTime' in kwargs:
             warm_store_data_retention_time = kwargs['warmStoreDataRetentionTime']
 
         _setter("id_properties", id_properties)
@@ -226,17 +234,17 @@ class _TimeSeriesInsightsGen2EnvironmentState:
              storage: Optional[pulumi.Input['TimeSeriesInsightsGen2EnvironmentStorageArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              warm_store_data_retention_time: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dataAccessFqdn' in kwargs:
+        if data_access_fqdn is None and 'dataAccessFqdn' in kwargs:
             data_access_fqdn = kwargs['dataAccessFqdn']
-        if 'idProperties' in kwargs:
+        if id_properties is None and 'idProperties' in kwargs:
             id_properties = kwargs['idProperties']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'warmStoreDataRetentionTime' in kwargs:
+        if warm_store_data_retention_time is None and 'warmStoreDataRetentionTime' in kwargs:
             warm_store_data_retention_time = kwargs['warmStoreDataRetentionTime']
 
         if data_access_fqdn is not None:
@@ -384,30 +392,6 @@ class TimeSeriesInsightsGen2Environment(pulumi.CustomResource):
         """
         Manages an Azure IoT Time Series Insights Gen2 Environment.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        storage = azure.storage.Account("storage",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_time_series_insights_gen2_environment = azure.iot.TimeSeriesInsightsGen2Environment("exampleTimeSeriesInsightsGen2Environment",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="L1",
-            warm_store_data_retention_time="P30D",
-            id_properties=["id"],
-            storage=azure.iot.TimeSeriesInsightsGen2EnvironmentStorageArgs(
-                name=storage.name,
-                key=storage.primary_access_key,
-            ))
-        ```
-
         ## Import
 
         Azure IoT Time Series Insights Gen2 Environment can be imported using the `resource id`, e.g.
@@ -435,30 +419,6 @@ class TimeSeriesInsightsGen2Environment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure IoT Time Series Insights Gen2 Environment.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        storage = azure.storage.Account("storage",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_time_series_insights_gen2_environment = azure.iot.TimeSeriesInsightsGen2Environment("exampleTimeSeriesInsightsGen2Environment",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="L1",
-            warm_store_data_retention_time="P30D",
-            id_properties=["id"],
-            storage=azure.iot.TimeSeriesInsightsGen2EnvironmentStorageArgs(
-                name=storage.name,
-                key=storage.primary_access_key,
-            ))
-        ```
 
         ## Import
 
@@ -515,11 +475,7 @@ class TimeSeriesInsightsGen2Environment(pulumi.CustomResource):
             if sku_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sku_name'")
             __props__.__dict__["sku_name"] = sku_name
-            if storage is not None and not isinstance(storage, TimeSeriesInsightsGen2EnvironmentStorageArgs):
-                storage = storage or {}
-                def _setter(key, value):
-                    storage[key] = value
-                TimeSeriesInsightsGen2EnvironmentStorageArgs._configure(_setter, **storage)
+            storage = _utilities.configure(storage, TimeSeriesInsightsGen2EnvironmentStorageArgs, True)
             if storage is None and not opts.urn:
                 raise TypeError("Missing required property 'storage'")
             __props__.__dict__["storage"] = storage

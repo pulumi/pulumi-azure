@@ -47,31 +47,35 @@ class SqlPoolSecurityAlertPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             policy_state: pulumi.Input[str],
-             sql_pool_id: pulumi.Input[str],
+             policy_state: Optional[pulumi.Input[str]] = None,
+             sql_pool_id: Optional[pulumi.Input[str]] = None,
              disabled_alerts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              email_account_admins_enabled: Optional[pulumi.Input[bool]] = None,
              email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              retention_days: Optional[pulumi.Input[int]] = None,
              storage_account_access_key: Optional[pulumi.Input[str]] = None,
              storage_endpoint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'policyState' in kwargs:
+        if policy_state is None and 'policyState' in kwargs:
             policy_state = kwargs['policyState']
-        if 'sqlPoolId' in kwargs:
+        if policy_state is None:
+            raise TypeError("Missing 'policy_state' argument")
+        if sql_pool_id is None and 'sqlPoolId' in kwargs:
             sql_pool_id = kwargs['sqlPoolId']
-        if 'disabledAlerts' in kwargs:
+        if sql_pool_id is None:
+            raise TypeError("Missing 'sql_pool_id' argument")
+        if disabled_alerts is None and 'disabledAlerts' in kwargs:
             disabled_alerts = kwargs['disabledAlerts']
-        if 'emailAccountAdminsEnabled' in kwargs:
+        if email_account_admins_enabled is None and 'emailAccountAdminsEnabled' in kwargs:
             email_account_admins_enabled = kwargs['emailAccountAdminsEnabled']
-        if 'emailAddresses' in kwargs:
+        if email_addresses is None and 'emailAddresses' in kwargs:
             email_addresses = kwargs['emailAddresses']
-        if 'retentionDays' in kwargs:
+        if retention_days is None and 'retentionDays' in kwargs:
             retention_days = kwargs['retentionDays']
-        if 'storageAccountAccessKey' in kwargs:
+        if storage_account_access_key is None and 'storageAccountAccessKey' in kwargs:
             storage_account_access_key = kwargs['storageAccountAccessKey']
-        if 'storageEndpoint' in kwargs:
+        if storage_endpoint is None and 'storageEndpoint' in kwargs:
             storage_endpoint = kwargs['storageEndpoint']
 
         _setter("policy_state", policy_state)
@@ -230,23 +234,23 @@ class _SqlPoolSecurityAlertPolicyState:
              sql_pool_id: Optional[pulumi.Input[str]] = None,
              storage_account_access_key: Optional[pulumi.Input[str]] = None,
              storage_endpoint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'disabledAlerts' in kwargs:
+        if disabled_alerts is None and 'disabledAlerts' in kwargs:
             disabled_alerts = kwargs['disabledAlerts']
-        if 'emailAccountAdminsEnabled' in kwargs:
+        if email_account_admins_enabled is None and 'emailAccountAdminsEnabled' in kwargs:
             email_account_admins_enabled = kwargs['emailAccountAdminsEnabled']
-        if 'emailAddresses' in kwargs:
+        if email_addresses is None and 'emailAddresses' in kwargs:
             email_addresses = kwargs['emailAddresses']
-        if 'policyState' in kwargs:
+        if policy_state is None and 'policyState' in kwargs:
             policy_state = kwargs['policyState']
-        if 'retentionDays' in kwargs:
+        if retention_days is None and 'retentionDays' in kwargs:
             retention_days = kwargs['retentionDays']
-        if 'sqlPoolId' in kwargs:
+        if sql_pool_id is None and 'sqlPoolId' in kwargs:
             sql_pool_id = kwargs['sqlPoolId']
-        if 'storageAccountAccessKey' in kwargs:
+        if storage_account_access_key is None and 'storageAccountAccessKey' in kwargs:
             storage_account_access_key = kwargs['storageAccountAccessKey']
-        if 'storageEndpoint' in kwargs:
+        if storage_endpoint is None and 'storageEndpoint' in kwargs:
             storage_endpoint = kwargs['storageEndpoint']
 
         if disabled_alerts is not None:
@@ -380,59 +384,6 @@ class SqlPoolSecurityAlertPolicy(pulumi.CustomResource):
         """
         Manages a Security Alert Policy for a Synapse SQL Pool.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            account_kind="StorageV2",
-            is_hns_enabled=True)
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
-        example_workspace = azure.synapse.Workspace("exampleWorkspace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
-            sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!",
-            aad_admin=azure.synapse.WorkspaceAadAdminArgs(
-                login="AzureAD Admin",
-                object_id="00000000-0000-0000-0000-000000000000",
-                tenant_id="00000000-0000-0000-0000-000000000000",
-            ),
-            identity=azure.synapse.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ),
-            tags={
-                "Env": "production",
-            })
-        example_sql_pool = azure.synapse.SqlPool("exampleSqlPool",
-            synapse_workspace_id=example_workspace.id,
-            sku_name="DW100c",
-            create_mode="Default")
-        audit_logs = azure.storage.Account("auditLogs",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_sql_pool_security_alert_policy = azure.synapse.SqlPoolSecurityAlertPolicy("exampleSqlPoolSecurityAlertPolicy",
-            sql_pool_id=example_sql_pool.id,
-            policy_state="Enabled",
-            storage_endpoint=audit_logs.primary_blob_endpoint,
-            storage_account_access_key=audit_logs.primary_access_key,
-            disabled_alerts=[
-                "Sql_Injection",
-                "Data_Exfiltration",
-            ],
-            retention_days=20)
-        ```
-
         ## Import
 
         Synapse SQL Pool Security Alert Policies can be imported using the `resource id`, e.g.
@@ -460,59 +411,6 @@ class SqlPoolSecurityAlertPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Security Alert Policy for a Synapse SQL Pool.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            account_kind="StorageV2",
-            is_hns_enabled=True)
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
-        example_workspace = azure.synapse.Workspace("exampleWorkspace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
-            sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!",
-            aad_admin=azure.synapse.WorkspaceAadAdminArgs(
-                login="AzureAD Admin",
-                object_id="00000000-0000-0000-0000-000000000000",
-                tenant_id="00000000-0000-0000-0000-000000000000",
-            ),
-            identity=azure.synapse.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ),
-            tags={
-                "Env": "production",
-            })
-        example_sql_pool = azure.synapse.SqlPool("exampleSqlPool",
-            synapse_workspace_id=example_workspace.id,
-            sku_name="DW100c",
-            create_mode="Default")
-        audit_logs = azure.storage.Account("auditLogs",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_sql_pool_security_alert_policy = azure.synapse.SqlPoolSecurityAlertPolicy("exampleSqlPoolSecurityAlertPolicy",
-            sql_pool_id=example_sql_pool.id,
-            policy_state="Enabled",
-            storage_endpoint=audit_logs.primary_blob_endpoint,
-            storage_account_access_key=audit_logs.primary_access_key,
-            disabled_alerts=[
-                "Sql_Injection",
-                "Data_Exfiltration",
-            ],
-            retention_days=20)
-        ```
 
         ## Import
 

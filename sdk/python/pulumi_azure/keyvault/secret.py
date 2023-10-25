@@ -46,22 +46,26 @@ class SecretArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_vault_id: pulumi.Input[str],
-             value: pulumi.Input[str],
+             key_vault_id: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
              content_type: Optional[pulumi.Input[str]] = None,
              expiration_date: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              not_before_date: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'keyVaultId' in kwargs:
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
-        if 'contentType' in kwargs:
+        if key_vault_id is None:
+            raise TypeError("Missing 'key_vault_id' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+        if content_type is None and 'contentType' in kwargs:
             content_type = kwargs['contentType']
-        if 'expirationDate' in kwargs:
+        if expiration_date is None and 'expirationDate' in kwargs:
             expiration_date = kwargs['expirationDate']
-        if 'notBeforeDate' in kwargs:
+        if not_before_date is None and 'notBeforeDate' in kwargs:
             not_before_date = kwargs['notBeforeDate']
 
         _setter("key_vault_id", key_vault_id)
@@ -222,21 +226,21 @@ class _SecretState:
              value: Optional[pulumi.Input[str]] = None,
              version: Optional[pulumi.Input[str]] = None,
              versionless_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'contentType' in kwargs:
+        if content_type is None and 'contentType' in kwargs:
             content_type = kwargs['contentType']
-        if 'expirationDate' in kwargs:
+        if expiration_date is None and 'expirationDate' in kwargs:
             expiration_date = kwargs['expirationDate']
-        if 'keyVaultId' in kwargs:
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
-        if 'notBeforeDate' in kwargs:
+        if not_before_date is None and 'notBeforeDate' in kwargs:
             not_before_date = kwargs['notBeforeDate']
-        if 'resourceId' in kwargs:
+        if resource_id is None and 'resourceId' in kwargs:
             resource_id = kwargs['resourceId']
-        if 'resourceVersionlessId' in kwargs:
+        if resource_versionless_id is None and 'resourceVersionlessId' in kwargs:
             resource_versionless_id = kwargs['resourceVersionlessId']
-        if 'versionlessId' in kwargs:
+        if versionless_id is None and 'versionlessId' in kwargs:
             versionless_id = kwargs['versionlessId']
 
         if content_type is not None:
@@ -421,39 +425,6 @@ class Secret(pulumi.CustomResource):
 
         =======
         > > > > > > > 8d78c87098 (Update-documentation)
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="premium",
-            soft_delete_retention_days=7,
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
-                tenant_id=current.tenant_id,
-                object_id=current.object_id,
-                key_permissions=[
-                    "Create",
-                    "Get",
-                ],
-                secret_permissions=[
-                    "Set",
-                    "Get",
-                    "Delete",
-                    "Purge",
-                    "Recover",
-                ],
-            )])
-        example_secret = azure.keyvault.Secret("exampleSecret",
-            value="szechuan",
-            key_vault_id=example_key_vault.id)
-        ```
 
         ## Import
 
@@ -492,39 +463,6 @@ class Secret(pulumi.CustomResource):
 
         =======
         > > > > > > > 8d78c87098 (Update-documentation)
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="premium",
-            soft_delete_retention_days=7,
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
-                tenant_id=current.tenant_id,
-                object_id=current.object_id,
-                key_permissions=[
-                    "Create",
-                    "Get",
-                ],
-                secret_permissions=[
-                    "Set",
-                    "Get",
-                    "Delete",
-                    "Purge",
-                    "Recover",
-                ],
-            )])
-        example_secret = azure.keyvault.Secret("exampleSecret",
-            value="szechuan",
-            key_vault_id=example_key_vault.id)
-        ```
 
         ## Import
 

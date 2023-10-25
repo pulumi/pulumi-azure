@@ -9,53 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Blob Event Trigger inside an Azure Data Factory.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const examplePipeline = new azure.datafactory.Pipeline("examplePipeline", {dataFactoryId: exampleFactory.id});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "LRS",
- * });
- * const exampleTriggerBlobEvent = new azure.datafactory.TriggerBlobEvent("exampleTriggerBlobEvent", {
- *     dataFactoryId: exampleFactory.id,
- *     storageAccountId: exampleAccount.id,
- *     events: [
- *         "Microsoft.Storage.BlobCreated",
- *         "Microsoft.Storage.BlobDeleted",
- *     ],
- *     blobPathEndsWith: ".txt",
- *     ignoreEmptyBlobs: true,
- *     activated: true,
- *     annotations: [
- *         "test1",
- *         "test2",
- *         "test3",
- *     ],
- *     description: "example description",
- *     pipelines: [{
- *         name: examplePipeline.name,
- *         parameters: {
- *             Env: "Prod",
- *         },
- *     }],
- *     additionalProperties: {
- *         foo: "foo1",
- *         bar: "bar2",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Data Factory Blob Event Trigger can be imported using the `resource id`, e.g.

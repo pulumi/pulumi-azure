@@ -15,51 +15,6 @@ import (
 
 // Manages a Stream Analytics Job.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/streamanalytics"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = streamanalytics.NewJob(ctx, "exampleJob", &streamanalytics.JobArgs{
-//				ResourceGroupName:                  exampleResourceGroup.Name,
-//				Location:                           exampleResourceGroup.Location,
-//				CompatibilityLevel:                 pulumi.String("1.2"),
-//				DataLocale:                         pulumi.String("en-GB"),
-//				EventsLateArrivalMaxDelayInSeconds: pulumi.Int(60),
-//				EventsOutOfOrderMaxDelayInSeconds:  pulumi.Int(50),
-//				EventsOutOfOrderPolicy:             pulumi.String("Adjust"),
-//				OutputErrorPolicy:                  pulumi.String("Drop"),
-//				StreamingUnits:                     pulumi.Int(3),
-//				Tags: pulumi.StringMap{
-//					"environment": pulumi.String("Example"),
-//				},
-//				TransformationQuery: pulumi.String("    SELECT *\n    INTO [YourOutputAlias]\n    FROM [YourInputAlias]\n"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Stream Analytics Job's can be imported using the `resource id`, e.g.

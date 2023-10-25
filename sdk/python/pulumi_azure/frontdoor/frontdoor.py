@@ -60,36 +60,48 @@ class FrontdoorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             backend_pool_health_probes: pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolHealthProbeArgs']]],
-             backend_pool_load_balancings: pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolLoadBalancingArgs']]],
-             backend_pools: pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolArgs']]],
-             frontend_endpoints: pulumi.Input[Sequence[pulumi.Input['FrontdoorFrontendEndpointArgs']]],
-             resource_group_name: pulumi.Input[str],
-             routing_rules: pulumi.Input[Sequence[pulumi.Input['FrontdoorRoutingRuleArgs']]],
+             backend_pool_health_probes: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolHealthProbeArgs']]]] = None,
+             backend_pool_load_balancings: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolLoadBalancingArgs']]]] = None,
+             backend_pools: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolArgs']]]] = None,
+             frontend_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFrontendEndpointArgs']]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRoutingRuleArgs']]]] = None,
              backend_pool_settings: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolSettingArgs']]]] = None,
              friendly_name: Optional[pulumi.Input[str]] = None,
              load_balancer_enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'backendPoolHealthProbes' in kwargs:
+        if backend_pool_health_probes is None and 'backendPoolHealthProbes' in kwargs:
             backend_pool_health_probes = kwargs['backendPoolHealthProbes']
-        if 'backendPoolLoadBalancings' in kwargs:
+        if backend_pool_health_probes is None:
+            raise TypeError("Missing 'backend_pool_health_probes' argument")
+        if backend_pool_load_balancings is None and 'backendPoolLoadBalancings' in kwargs:
             backend_pool_load_balancings = kwargs['backendPoolLoadBalancings']
-        if 'backendPools' in kwargs:
+        if backend_pool_load_balancings is None:
+            raise TypeError("Missing 'backend_pool_load_balancings' argument")
+        if backend_pools is None and 'backendPools' in kwargs:
             backend_pools = kwargs['backendPools']
-        if 'frontendEndpoints' in kwargs:
+        if backend_pools is None:
+            raise TypeError("Missing 'backend_pools' argument")
+        if frontend_endpoints is None and 'frontendEndpoints' in kwargs:
             frontend_endpoints = kwargs['frontendEndpoints']
-        if 'resourceGroupName' in kwargs:
+        if frontend_endpoints is None:
+            raise TypeError("Missing 'frontend_endpoints' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'routingRules' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if routing_rules is None and 'routingRules' in kwargs:
             routing_rules = kwargs['routingRules']
-        if 'backendPoolSettings' in kwargs:
+        if routing_rules is None:
+            raise TypeError("Missing 'routing_rules' argument")
+        if backend_pool_settings is None and 'backendPoolSettings' in kwargs:
             backend_pool_settings = kwargs['backendPoolSettings']
-        if 'friendlyName' in kwargs:
+        if friendly_name is None and 'friendlyName' in kwargs:
             friendly_name = kwargs['friendlyName']
-        if 'loadBalancerEnabled' in kwargs:
+        if load_balancer_enabled is None and 'loadBalancerEnabled' in kwargs:
             load_balancer_enabled = kwargs['loadBalancerEnabled']
 
         _setter("backend_pool_health_probes", backend_pool_health_probes)
@@ -333,39 +345,39 @@ class _FrontdoorState:
              routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRoutingRuleArgs']]]] = None,
              routing_rules_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'backendPoolHealthProbes' in kwargs:
+        if backend_pool_health_probes is None and 'backendPoolHealthProbes' in kwargs:
             backend_pool_health_probes = kwargs['backendPoolHealthProbes']
-        if 'backendPoolHealthProbesMap' in kwargs:
+        if backend_pool_health_probes_map is None and 'backendPoolHealthProbesMap' in kwargs:
             backend_pool_health_probes_map = kwargs['backendPoolHealthProbesMap']
-        if 'backendPoolLoadBalancingSettingsMap' in kwargs:
+        if backend_pool_load_balancing_settings_map is None and 'backendPoolLoadBalancingSettingsMap' in kwargs:
             backend_pool_load_balancing_settings_map = kwargs['backendPoolLoadBalancingSettingsMap']
-        if 'backendPoolLoadBalancings' in kwargs:
+        if backend_pool_load_balancings is None and 'backendPoolLoadBalancings' in kwargs:
             backend_pool_load_balancings = kwargs['backendPoolLoadBalancings']
-        if 'backendPoolSettings' in kwargs:
+        if backend_pool_settings is None and 'backendPoolSettings' in kwargs:
             backend_pool_settings = kwargs['backendPoolSettings']
-        if 'backendPools' in kwargs:
+        if backend_pools is None and 'backendPools' in kwargs:
             backend_pools = kwargs['backendPools']
-        if 'backendPoolsMap' in kwargs:
+        if backend_pools_map is None and 'backendPoolsMap' in kwargs:
             backend_pools_map = kwargs['backendPoolsMap']
-        if 'explicitResourceOrders' in kwargs:
+        if explicit_resource_orders is None and 'explicitResourceOrders' in kwargs:
             explicit_resource_orders = kwargs['explicitResourceOrders']
-        if 'friendlyName' in kwargs:
+        if friendly_name is None and 'friendlyName' in kwargs:
             friendly_name = kwargs['friendlyName']
-        if 'frontendEndpoints' in kwargs:
+        if frontend_endpoints is None and 'frontendEndpoints' in kwargs:
             frontend_endpoints = kwargs['frontendEndpoints']
-        if 'frontendEndpointsMap' in kwargs:
+        if frontend_endpoints_map is None and 'frontendEndpointsMap' in kwargs:
             frontend_endpoints_map = kwargs['frontendEndpointsMap']
-        if 'headerFrontdoorId' in kwargs:
+        if header_frontdoor_id is None and 'headerFrontdoorId' in kwargs:
             header_frontdoor_id = kwargs['headerFrontdoorId']
-        if 'loadBalancerEnabled' in kwargs:
+        if load_balancer_enabled is None and 'loadBalancerEnabled' in kwargs:
             load_balancer_enabled = kwargs['loadBalancerEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'routingRules' in kwargs:
+        if routing_rules is None and 'routingRules' in kwargs:
             routing_rules = kwargs['routingRules']
-        if 'routingRulesMap' in kwargs:
+        if routing_rules_map is None and 'routingRulesMap' in kwargs:
             routing_rules_map = kwargs['routingRulesMap']
 
         if backend_pool_health_probes is not None:
@@ -665,51 +677,6 @@ class Frontdoor(pulumi.CustomResource):
         * Use Front Door to improve application performance with SSL offload and routing requests to the fastest available application backend.
         * Use Front Door for application layer security and DDoS protection for your application.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_frontdoor = azure.frontdoor.Frontdoor("exampleFrontdoor",
-            resource_group_name=example_resource_group.name,
-            routing_rules=[azure.frontdoor.FrontdoorRoutingRuleArgs(
-                name="exampleRoutingRule1",
-                accepted_protocols=[
-                    "Http",
-                    "Https",
-                ],
-                patterns_to_matches=["/*"],
-                frontend_endpoints=["exampleFrontendEndpoint1"],
-                forwarding_configuration=azure.frontdoor.FrontdoorRoutingRuleForwardingConfigurationArgs(
-                    forwarding_protocol="MatchRequest",
-                    backend_pool_name="exampleBackendBing",
-                ),
-            )],
-            backend_pool_load_balancings=[azure.frontdoor.FrontdoorBackendPoolLoadBalancingArgs(
-                name="exampleLoadBalancingSettings1",
-            )],
-            backend_pool_health_probes=[azure.frontdoor.FrontdoorBackendPoolHealthProbeArgs(
-                name="exampleHealthProbeSetting1",
-            )],
-            backend_pools=[azure.frontdoor.FrontdoorBackendPoolArgs(
-                name="exampleBackendBing",
-                backends=[azure.frontdoor.FrontdoorBackendPoolBackendArgs(
-                    host_header="www.bing.com",
-                    address="www.bing.com",
-                    http_port=80,
-                    https_port=443,
-                )],
-                load_balancing_name="exampleLoadBalancingSettings1",
-                health_probe_name="exampleHealthProbeSetting1",
-            )],
-            frontend_endpoints=[azure.frontdoor.FrontdoorFrontendEndpointArgs(
-                name="exampleFrontendEndpoint1",
-                host_name="example-FrontDoor.azurefd.net",
-            )])
-        ```
-
         ## Import
 
         Front Doors can be imported using the `resource id`, e.g.
@@ -752,51 +719,6 @@ class Frontdoor(pulumi.CustomResource):
         * Use Front Door to improve application scale and availability with instant multi-region failover
         * Use Front Door to improve application performance with SSL offload and routing requests to the fastest available application backend.
         * Use Front Door for application layer security and DDoS protection for your application.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_frontdoor = azure.frontdoor.Frontdoor("exampleFrontdoor",
-            resource_group_name=example_resource_group.name,
-            routing_rules=[azure.frontdoor.FrontdoorRoutingRuleArgs(
-                name="exampleRoutingRule1",
-                accepted_protocols=[
-                    "Http",
-                    "Https",
-                ],
-                patterns_to_matches=["/*"],
-                frontend_endpoints=["exampleFrontendEndpoint1"],
-                forwarding_configuration=azure.frontdoor.FrontdoorRoutingRuleForwardingConfigurationArgs(
-                    forwarding_protocol="MatchRequest",
-                    backend_pool_name="exampleBackendBing",
-                ),
-            )],
-            backend_pool_load_balancings=[azure.frontdoor.FrontdoorBackendPoolLoadBalancingArgs(
-                name="exampleLoadBalancingSettings1",
-            )],
-            backend_pool_health_probes=[azure.frontdoor.FrontdoorBackendPoolHealthProbeArgs(
-                name="exampleHealthProbeSetting1",
-            )],
-            backend_pools=[azure.frontdoor.FrontdoorBackendPoolArgs(
-                name="exampleBackendBing",
-                backends=[azure.frontdoor.FrontdoorBackendPoolBackendArgs(
-                    host_header="www.bing.com",
-                    address="www.bing.com",
-                    http_port=80,
-                    https_port=443,
-                )],
-                load_balancing_name="exampleLoadBalancingSettings1",
-                health_probe_name="exampleHealthProbeSetting1",
-            )],
-            frontend_endpoints=[azure.frontdoor.FrontdoorFrontendEndpointArgs(
-                name="exampleFrontendEndpoint1",
-                host_name="example-FrontDoor.azurefd.net",
-            )])
-        ```
 
         ## Import
 

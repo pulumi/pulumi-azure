@@ -80,7 +80,7 @@ class DiagnosticSettingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             target_resource_id: pulumi.Input[str],
+             target_resource_id: Optional[pulumi.Input[str]] = None,
              enabled_logs: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingEnabledLogArgs']]]] = None,
              eventhub_authorization_rule_id: Optional[pulumi.Input[str]] = None,
              eventhub_name: Optional[pulumi.Input[str]] = None,
@@ -91,23 +91,25 @@ class DiagnosticSettingArgs:
              name: Optional[pulumi.Input[str]] = None,
              partner_solution_id: Optional[pulumi.Input[str]] = None,
              storage_account_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'targetResourceId' in kwargs:
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
-        if 'enabledLogs' in kwargs:
+        if target_resource_id is None:
+            raise TypeError("Missing 'target_resource_id' argument")
+        if enabled_logs is None and 'enabledLogs' in kwargs:
             enabled_logs = kwargs['enabledLogs']
-        if 'eventhubAuthorizationRuleId' in kwargs:
+        if eventhub_authorization_rule_id is None and 'eventhubAuthorizationRuleId' in kwargs:
             eventhub_authorization_rule_id = kwargs['eventhubAuthorizationRuleId']
-        if 'eventhubName' in kwargs:
+        if eventhub_name is None and 'eventhubName' in kwargs:
             eventhub_name = kwargs['eventhubName']
-        if 'logAnalyticsDestinationType' in kwargs:
+        if log_analytics_destination_type is None and 'logAnalyticsDestinationType' in kwargs:
             log_analytics_destination_type = kwargs['logAnalyticsDestinationType']
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'partnerSolutionId' in kwargs:
+        if partner_solution_id is None and 'partnerSolutionId' in kwargs:
             partner_solution_id = kwargs['partnerSolutionId']
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
 
         _setter("target_resource_id", target_resource_id)
@@ -371,23 +373,23 @@ class _DiagnosticSettingState:
              partner_solution_id: Optional[pulumi.Input[str]] = None,
              storage_account_id: Optional[pulumi.Input[str]] = None,
              target_resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'enabledLogs' in kwargs:
+        if enabled_logs is None and 'enabledLogs' in kwargs:
             enabled_logs = kwargs['enabledLogs']
-        if 'eventhubAuthorizationRuleId' in kwargs:
+        if eventhub_authorization_rule_id is None and 'eventhubAuthorizationRuleId' in kwargs:
             eventhub_authorization_rule_id = kwargs['eventhubAuthorizationRuleId']
-        if 'eventhubName' in kwargs:
+        if eventhub_name is None and 'eventhubName' in kwargs:
             eventhub_name = kwargs['eventhubName']
-        if 'logAnalyticsDestinationType' in kwargs:
+        if log_analytics_destination_type is None and 'logAnalyticsDestinationType' in kwargs:
             log_analytics_destination_type = kwargs['logAnalyticsDestinationType']
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'partnerSolutionId' in kwargs:
+        if partner_solution_id is None and 'partnerSolutionId' in kwargs:
             partner_solution_id = kwargs['partnerSolutionId']
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'targetResourceId' in kwargs:
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
 
         if enabled_logs is not None:
@@ -594,43 +596,6 @@ class DiagnosticSetting(pulumi.CustomResource):
         """
         Manages a Diagnostic Setting for an existing Resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        current = azure.core.get_client_config()
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            soft_delete_retention_days=7,
-            purge_protection_enabled=False,
-            sku_name="standard")
-        example_diagnostic_setting = azure.monitoring.DiagnosticSetting("exampleDiagnosticSetting",
-            target_resource_id=example_key_vault.id,
-            storage_account_id=example_account.id,
-            enabled_logs=[azure.monitoring.DiagnosticSettingEnabledLogArgs(
-                category="AuditEvent",
-                retention_policy=azure.monitoring.DiagnosticSettingEnabledLogRetentionPolicyArgs(
-                    enabled=False,
-                ),
-            )],
-            metrics=[azure.monitoring.DiagnosticSettingMetricArgs(
-                category="AllMetrics",
-                retention_policy=azure.monitoring.DiagnosticSettingMetricRetentionPolicyArgs(
-                    enabled=False,
-                ),
-            )])
-        ```
-
         ## Import
 
         Diagnostic Settings can be imported using the `resource id`, e.g.
@@ -683,43 +648,6 @@ class DiagnosticSetting(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Diagnostic Setting for an existing Resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        current = azure.core.get_client_config()
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            soft_delete_retention_days=7,
-            purge_protection_enabled=False,
-            sku_name="standard")
-        example_diagnostic_setting = azure.monitoring.DiagnosticSetting("exampleDiagnosticSetting",
-            target_resource_id=example_key_vault.id,
-            storage_account_id=example_account.id,
-            enabled_logs=[azure.monitoring.DiagnosticSettingEnabledLogArgs(
-                category="AuditEvent",
-                retention_policy=azure.monitoring.DiagnosticSettingEnabledLogRetentionPolicyArgs(
-                    enabled=False,
-                ),
-            )],
-            metrics=[azure.monitoring.DiagnosticSettingMetricArgs(
-                category="AllMetrics",
-                retention_policy=azure.monitoring.DiagnosticSettingMetricRetentionPolicyArgs(
-                    enabled=False,
-                ),
-            )])
-        ```
 
         ## Import
 

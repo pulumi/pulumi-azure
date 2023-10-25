@@ -12,39 +12,6 @@ namespace Pulumi.Azure.NetApp
     /// <summary>
     /// Manages a Pool within a NetApp Account.
     /// 
-    /// ## NetApp Pool Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleAccount = new Azure.NetApp.Account("exampleAccount", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///     });
-    /// 
-    ///     var examplePool = new Azure.NetApp.Pool("examplePool", new()
-    ///     {
-    ///         AccountName = exampleAccount.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         ServiceLevel = "Premium",
-    ///         SizeInTb = 4,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// NetApp Pool can be imported using the `resource id`, e.g.

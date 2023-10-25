@@ -32,15 +32,19 @@ class ExpressRoutePortAuthorizationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             express_route_port_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             express_route_port_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'expressRoutePortName' in kwargs:
+        if express_route_port_name is None and 'expressRoutePortName' in kwargs:
             express_route_port_name = kwargs['expressRoutePortName']
-        if 'resourceGroupName' in kwargs:
+        if express_route_port_name is None:
+            raise TypeError("Missing 'express_route_port_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("express_route_port_name", express_route_port_name)
         _setter("resource_group_name", resource_group_name)
@@ -116,15 +120,15 @@ class _ExpressRoutePortAuthorizationState:
              express_route_port_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'authorizationKey' in kwargs:
+        if authorization_key is None and 'authorizationKey' in kwargs:
             authorization_key = kwargs['authorizationKey']
-        if 'authorizationUseStatus' in kwargs:
+        if authorization_use_status is None and 'authorizationUseStatus' in kwargs:
             authorization_use_status = kwargs['authorizationUseStatus']
-        if 'expressRoutePortName' in kwargs:
+        if express_route_port_name is None and 'expressRoutePortName' in kwargs:
             express_route_port_name = kwargs['expressRoutePortName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if authorization_key is not None:
@@ -211,24 +215,6 @@ class ExpressRoutePortAuthorization(pulumi.CustomResource):
         """
         Manages an ExpressRoute Port Authorization.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_express_route_port = azure.network.ExpressRoutePort("exampleExpressRoutePort",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            peering_location="Airtel-Chennai-CLS",
-            bandwidth_in_gbps=10,
-            encapsulation="Dot1Q")
-        example_express_route_port_authorization = azure.network.ExpressRoutePortAuthorization("exampleExpressRoutePortAuthorization",
-            express_route_port_name=example_express_route_port.name,
-            resource_group_name=example_resource_group.name)
-        ```
-
         ## Import
 
         ExpressRoute Port Authorizations can be imported using the `resource id`, e.g.
@@ -251,24 +237,6 @@ class ExpressRoutePortAuthorization(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an ExpressRoute Port Authorization.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_express_route_port = azure.network.ExpressRoutePort("exampleExpressRoutePort",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            peering_location="Airtel-Chennai-CLS",
-            bandwidth_in_gbps=10,
-            encapsulation="Dot1Q")
-        example_express_route_port_authorization = azure.network.ExpressRoutePortAuthorization("exampleExpressRoutePortAuthorization",
-            express_route_port_name=example_express_route_port.name,
-            resource_group_name=example_resource_group.name)
-        ```
 
         ## Import
 

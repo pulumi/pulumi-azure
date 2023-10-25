@@ -54,7 +54,7 @@ class SpringCloudGatewayRouteConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             spring_cloud_gateway_id: pulumi.Input[str],
+             spring_cloud_gateway_id: Optional[pulumi.Input[str]] = None,
              filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              open_api: Optional[pulumi.Input['SpringCloudGatewayRouteConfigOpenApiArgs']] = None,
@@ -63,15 +63,17 @@ class SpringCloudGatewayRouteConfigArgs:
              routes: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudGatewayRouteConfigRouteArgs']]]] = None,
              spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
              sso_validation_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'springCloudGatewayId' in kwargs:
+        if spring_cloud_gateway_id is None and 'springCloudGatewayId' in kwargs:
             spring_cloud_gateway_id = kwargs['springCloudGatewayId']
-        if 'openApi' in kwargs:
+        if spring_cloud_gateway_id is None:
+            raise TypeError("Missing 'spring_cloud_gateway_id' argument")
+        if open_api is None and 'openApi' in kwargs:
             open_api = kwargs['openApi']
-        if 'springCloudAppId' in kwargs:
+        if spring_cloud_app_id is None and 'springCloudAppId' in kwargs:
             spring_cloud_app_id = kwargs['springCloudAppId']
-        if 'ssoValidationEnabled' in kwargs:
+        if sso_validation_enabled is None and 'ssoValidationEnabled' in kwargs:
             sso_validation_enabled = kwargs['ssoValidationEnabled']
 
         _setter("spring_cloud_gateway_id", spring_cloud_gateway_id)
@@ -253,15 +255,15 @@ class _SpringCloudGatewayRouteConfigState:
              spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
              spring_cloud_gateway_id: Optional[pulumi.Input[str]] = None,
              sso_validation_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'openApi' in kwargs:
+        if open_api is None and 'openApi' in kwargs:
             open_api = kwargs['openApi']
-        if 'springCloudAppId' in kwargs:
+        if spring_cloud_app_id is None and 'springCloudAppId' in kwargs:
             spring_cloud_app_id = kwargs['springCloudAppId']
-        if 'springCloudGatewayId' in kwargs:
+        if spring_cloud_gateway_id is None and 'springCloudGatewayId' in kwargs:
             spring_cloud_gateway_id = kwargs['springCloudGatewayId']
-        if 'ssoValidationEnabled' in kwargs:
+        if sso_validation_enabled is None and 'ssoValidationEnabled' in kwargs:
             sso_validation_enabled = kwargs['ssoValidationEnabled']
 
         if filters is not None:
@@ -414,44 +416,6 @@ class SpringCloudGatewayRouteConfig(pulumi.CustomResource):
 
         > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="E0")
-        example_spring_cloud_app = azure.appplatform.SpringCloudApp("exampleSpringCloudApp",
-            resource_group_name=example_resource_group.name,
-            service_name=example_spring_cloud_service.name)
-        example_spring_cloud_gateway = azure.appplatform.SpringCloudGateway("exampleSpringCloudGateway", spring_cloud_service_id=example_spring_cloud_service.id)
-        example_spring_cloud_gateway_route_config = azure.appplatform.SpringCloudGatewayRouteConfig("exampleSpringCloudGatewayRouteConfig",
-            spring_cloud_gateway_id=example_spring_cloud_gateway.id,
-            spring_cloud_app_id=example_spring_cloud_app.id,
-            protocol="HTTPS",
-            routes=[azure.appplatform.SpringCloudGatewayRouteConfigRouteArgs(
-                description="example description",
-                filters=[
-                    "StripPrefix=2",
-                    "RateLimit=1,1s",
-                ],
-                order=1,
-                predicates=["Path=/api5/customer/**"],
-                sso_validation_enabled=True,
-                title="myApp route config",
-                token_relay=True,
-                uri="https://www.example.com",
-                classification_tags=[
-                    "tag1",
-                    "tag2",
-                ],
-            )])
-        ```
-
         ## Import
 
         Spring Cloud Gateway Route Configs can be imported using the `resource id`, e.g.
@@ -484,44 +448,6 @@ class SpringCloudGatewayRouteConfig(pulumi.CustomResource):
         Manages a Spring Cloud Gateway Route Config.
 
         > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="E0")
-        example_spring_cloud_app = azure.appplatform.SpringCloudApp("exampleSpringCloudApp",
-            resource_group_name=example_resource_group.name,
-            service_name=example_spring_cloud_service.name)
-        example_spring_cloud_gateway = azure.appplatform.SpringCloudGateway("exampleSpringCloudGateway", spring_cloud_service_id=example_spring_cloud_service.id)
-        example_spring_cloud_gateway_route_config = azure.appplatform.SpringCloudGatewayRouteConfig("exampleSpringCloudGatewayRouteConfig",
-            spring_cloud_gateway_id=example_spring_cloud_gateway.id,
-            spring_cloud_app_id=example_spring_cloud_app.id,
-            protocol="HTTPS",
-            routes=[azure.appplatform.SpringCloudGatewayRouteConfigRouteArgs(
-                description="example description",
-                filters=[
-                    "StripPrefix=2",
-                    "RateLimit=1,1s",
-                ],
-                order=1,
-                predicates=["Path=/api5/customer/**"],
-                sso_validation_enabled=True,
-                title="myApp route config",
-                token_relay=True,
-                uri="https://www.example.com",
-                classification_tags=[
-                    "tag1",
-                    "tag2",
-                ],
-            )])
-        ```
 
         ## Import
 
@@ -570,11 +496,7 @@ class SpringCloudGatewayRouteConfig(pulumi.CustomResource):
 
             __props__.__dict__["filters"] = filters
             __props__.__dict__["name"] = name
-            if open_api is not None and not isinstance(open_api, SpringCloudGatewayRouteConfigOpenApiArgs):
-                open_api = open_api or {}
-                def _setter(key, value):
-                    open_api[key] = value
-                SpringCloudGatewayRouteConfigOpenApiArgs._configure(_setter, **open_api)
+            open_api = _utilities.configure(open_api, SpringCloudGatewayRouteConfigOpenApiArgs, True)
             __props__.__dict__["open_api"] = open_api
             __props__.__dict__["predicates"] = predicates
             __props__.__dict__["protocol"] = protocol

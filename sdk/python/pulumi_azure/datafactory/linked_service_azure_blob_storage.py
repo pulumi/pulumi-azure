@@ -83,7 +83,7 @@ class LinkedServiceAzureBlobStorageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_factory_id: pulumi.Input[str],
+             data_factory_id: Optional[pulumi.Input[str]] = None,
              additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              connection_string: Optional[pulumi.Input[str]] = None,
@@ -101,35 +101,37 @@ class LinkedServiceAzureBlobStorageArgs:
              storage_kind: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              use_managed_identity: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'additionalProperties' in kwargs:
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
-        if 'connectionStringInsecure' in kwargs:
+        if connection_string_insecure is None and 'connectionStringInsecure' in kwargs:
             connection_string_insecure = kwargs['connectionStringInsecure']
-        if 'integrationRuntimeName' in kwargs:
+        if integration_runtime_name is None and 'integrationRuntimeName' in kwargs:
             integration_runtime_name = kwargs['integrationRuntimeName']
-        if 'keyVaultSasToken' in kwargs:
+        if key_vault_sas_token is None and 'keyVaultSasToken' in kwargs:
             key_vault_sas_token = kwargs['keyVaultSasToken']
-        if 'sasUri' in kwargs:
+        if sas_uri is None and 'sasUri' in kwargs:
             sas_uri = kwargs['sasUri']
-        if 'serviceEndpoint' in kwargs:
+        if service_endpoint is None and 'serviceEndpoint' in kwargs:
             service_endpoint = kwargs['serviceEndpoint']
-        if 'servicePrincipalId' in kwargs:
+        if service_principal_id is None and 'servicePrincipalId' in kwargs:
             service_principal_id = kwargs['servicePrincipalId']
-        if 'servicePrincipalKey' in kwargs:
+        if service_principal_key is None and 'servicePrincipalKey' in kwargs:
             service_principal_key = kwargs['servicePrincipalKey']
-        if 'servicePrincipalLinkedKeyVaultKey' in kwargs:
+        if service_principal_linked_key_vault_key is None and 'servicePrincipalLinkedKeyVaultKey' in kwargs:
             service_principal_linked_key_vault_key = kwargs['servicePrincipalLinkedKeyVaultKey']
-        if 'storageKind' in kwargs:
+        if storage_kind is None and 'storageKind' in kwargs:
             storage_kind = kwargs['storageKind']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
-        if 'useManagedIdentity' in kwargs:
+        if use_managed_identity is None and 'useManagedIdentity' in kwargs:
             use_managed_identity = kwargs['useManagedIdentity']
 
         _setter("data_factory_id", data_factory_id)
@@ -477,35 +479,35 @@ class _LinkedServiceAzureBlobStorageState:
              storage_kind: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              use_managed_identity: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'additionalProperties' in kwargs:
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
-        if 'connectionStringInsecure' in kwargs:
+        if connection_string_insecure is None and 'connectionStringInsecure' in kwargs:
             connection_string_insecure = kwargs['connectionStringInsecure']
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'integrationRuntimeName' in kwargs:
+        if integration_runtime_name is None and 'integrationRuntimeName' in kwargs:
             integration_runtime_name = kwargs['integrationRuntimeName']
-        if 'keyVaultSasToken' in kwargs:
+        if key_vault_sas_token is None and 'keyVaultSasToken' in kwargs:
             key_vault_sas_token = kwargs['keyVaultSasToken']
-        if 'sasUri' in kwargs:
+        if sas_uri is None and 'sasUri' in kwargs:
             sas_uri = kwargs['sasUri']
-        if 'serviceEndpoint' in kwargs:
+        if service_endpoint is None and 'serviceEndpoint' in kwargs:
             service_endpoint = kwargs['serviceEndpoint']
-        if 'servicePrincipalId' in kwargs:
+        if service_principal_id is None and 'servicePrincipalId' in kwargs:
             service_principal_id = kwargs['servicePrincipalId']
-        if 'servicePrincipalKey' in kwargs:
+        if service_principal_key is None and 'servicePrincipalKey' in kwargs:
             service_principal_key = kwargs['servicePrincipalKey']
-        if 'servicePrincipalLinkedKeyVaultKey' in kwargs:
+        if service_principal_linked_key_vault_key is None and 'servicePrincipalLinkedKeyVaultKey' in kwargs:
             service_principal_linked_key_vault_key = kwargs['servicePrincipalLinkedKeyVaultKey']
-        if 'storageKind' in kwargs:
+        if storage_kind is None and 'storageKind' in kwargs:
             storage_kind = kwargs['storageKind']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
-        if 'useManagedIdentity' in kwargs:
+        if use_managed_identity is None and 'useManagedIdentity' in kwargs:
             use_managed_identity = kwargs['useManagedIdentity']
 
         if additional_properties is not None:
@@ -793,59 +795,6 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
         """
         Manages a Linked Service (connection) between an Azure Blob Storage Account and Azure Data Factory.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.get_account_output(name="storageaccountname",
-            resource_group_name=example_resource_group.name)
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_linked_service_azure_blob_storage = azure.datafactory.LinkedServiceAzureBlobStorage("exampleLinkedServiceAzureBlobStorage",
-            data_factory_id=example_factory.id,
-            connection_string=example_account.primary_connection_string)
-        ```
-        ### With SAS URI And SAS Token
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        current = azure.core.get_client_config()
-        test_factory = azure.datafactory.Factory("testFactory",
-            location=example.location,
-            resource_group_name=example.name)
-        test_key_vault = azure.keyvault.KeyVault("testKeyVault",
-            location=example.location,
-            resource_group_name=example.name,
-            tenant_id=current.tenant_id,
-            sku_name="standard")
-        test_linked_service_key_vault = azure.datafactory.LinkedServiceKeyVault("testLinkedServiceKeyVault",
-            data_factory_id=test_factory.id,
-            key_vault_id=test_key_vault.id)
-        test_linked_service_azure_blob_storage = azure.datafactory.LinkedServiceAzureBlobStorage("testLinkedServiceAzureBlobStorage",
-            data_factory_id=test_factory.id,
-            sas_uri="https://example.blob.core.windows.net",
-            key_vault_sas_token=azure.datafactory.LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs(
-                linked_service_name=test_linked_service_key_vault.name,
-                secret_name="secret",
-            ))
-        test_datafactory_linked_service_azure_blob_storage_linked_service_azure_blob_storage = azure.datafactory.LinkedServiceAzureBlobStorage("testDatafactory/linkedServiceAzureBlobStorageLinkedServiceAzureBlobStorage",
-            data_factory_id=test_factory.id,
-            service_endpoint="https://example.blob.core.windows.net",
-            service_principal_id="00000000-0000-0000-0000-000000000000",
-            tenant_id="00000000-0000-0000-0000-000000000000",
-            service_principal_linked_key_vault_key=azure.datafactory.LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs(
-                linked_service_name=test_linked_service_key_vault.name,
-                secret_name="secret",
-            ))
-        ```
-
         ## Import
 
         Data Factory Linked Service's can be imported using the `resource id`, e.g.
@@ -887,59 +836,6 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Linked Service (connection) between an Azure Blob Storage Account and Azure Data Factory.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.get_account_output(name="storageaccountname",
-            resource_group_name=example_resource_group.name)
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_linked_service_azure_blob_storage = azure.datafactory.LinkedServiceAzureBlobStorage("exampleLinkedServiceAzureBlobStorage",
-            data_factory_id=example_factory.id,
-            connection_string=example_account.primary_connection_string)
-        ```
-        ### With SAS URI And SAS Token
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        current = azure.core.get_client_config()
-        test_factory = azure.datafactory.Factory("testFactory",
-            location=example.location,
-            resource_group_name=example.name)
-        test_key_vault = azure.keyvault.KeyVault("testKeyVault",
-            location=example.location,
-            resource_group_name=example.name,
-            tenant_id=current.tenant_id,
-            sku_name="standard")
-        test_linked_service_key_vault = azure.datafactory.LinkedServiceKeyVault("testLinkedServiceKeyVault",
-            data_factory_id=test_factory.id,
-            key_vault_id=test_key_vault.id)
-        test_linked_service_azure_blob_storage = azure.datafactory.LinkedServiceAzureBlobStorage("testLinkedServiceAzureBlobStorage",
-            data_factory_id=test_factory.id,
-            sas_uri="https://example.blob.core.windows.net",
-            key_vault_sas_token=azure.datafactory.LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs(
-                linked_service_name=test_linked_service_key_vault.name,
-                secret_name="secret",
-            ))
-        test_datafactory_linked_service_azure_blob_storage_linked_service_azure_blob_storage = azure.datafactory.LinkedServiceAzureBlobStorage("testDatafactory/linkedServiceAzureBlobStorageLinkedServiceAzureBlobStorage",
-            data_factory_id=test_factory.id,
-            service_endpoint="https://example.blob.core.windows.net",
-            service_principal_id="00000000-0000-0000-0000-000000000000",
-            tenant_id="00000000-0000-0000-0000-000000000000",
-            service_principal_linked_key_vault_key=azure.datafactory.LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs(
-                linked_service_name=test_linked_service_key_vault.name,
-                secret_name="secret",
-            ))
-        ```
 
         ## Import
 
@@ -1004,11 +900,7 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
             __props__.__dict__["data_factory_id"] = data_factory_id
             __props__.__dict__["description"] = description
             __props__.__dict__["integration_runtime_name"] = integration_runtime_name
-            if key_vault_sas_token is not None and not isinstance(key_vault_sas_token, LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs):
-                key_vault_sas_token = key_vault_sas_token or {}
-                def _setter(key, value):
-                    key_vault_sas_token[key] = value
-                LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs._configure(_setter, **key_vault_sas_token)
+            key_vault_sas_token = _utilities.configure(key_vault_sas_token, LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs, True)
             __props__.__dict__["key_vault_sas_token"] = key_vault_sas_token
             __props__.__dict__["name"] = name
             __props__.__dict__["parameters"] = parameters
@@ -1016,11 +908,7 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
             __props__.__dict__["service_endpoint"] = None if service_endpoint is None else pulumi.Output.secret(service_endpoint)
             __props__.__dict__["service_principal_id"] = service_principal_id
             __props__.__dict__["service_principal_key"] = service_principal_key
-            if service_principal_linked_key_vault_key is not None and not isinstance(service_principal_linked_key_vault_key, LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs):
-                service_principal_linked_key_vault_key = service_principal_linked_key_vault_key or {}
-                def _setter(key, value):
-                    service_principal_linked_key_vault_key[key] = value
-                LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs._configure(_setter, **service_principal_linked_key_vault_key)
+            service_principal_linked_key_vault_key = _utilities.configure(service_principal_linked_key_vault_key, LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs, True)
             __props__.__dict__["service_principal_linked_key_vault_key"] = service_principal_linked_key_vault_key
             __props__.__dict__["storage_kind"] = storage_kind
             __props__.__dict__["tenant_id"] = tenant_id

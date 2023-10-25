@@ -15,54 +15,6 @@ import (
 
 // Manages a Linked Service (connection) between an Azure Table Storage and Azure Data Factory.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount := storage.LookupAccountOutput(ctx, storage.GetAccountOutputArgs{
-//				Name:              pulumi.String("storageaccountname"),
-//				ResourceGroupName: exampleResourceGroup.Name,
-//			}, nil)
-//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = datafactory.NewLinkedServiceAzureTableStorage(ctx, "exampleLinkedServiceAzureTableStorage", &datafactory.LinkedServiceAzureTableStorageArgs{
-//				DataFactoryId: exampleFactory.ID(),
-//				ConnectionString: exampleAccount.ApplyT(func(exampleAccount storage.GetAccountResult) (*string, error) {
-//					return &exampleAccount.PrimaryConnectionString, nil
-//				}).(pulumi.StringPtrOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Data Factory Linked Service's can be imported using the `resource id`, e.g.

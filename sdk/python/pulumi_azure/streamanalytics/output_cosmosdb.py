@@ -44,26 +44,34 @@ class OutputCosmosdbArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             container_name: pulumi.Input[str],
-             cosmosdb_account_key: pulumi.Input[str],
-             cosmosdb_sql_database_id: pulumi.Input[str],
-             stream_analytics_job_id: pulumi.Input[str],
+             container_name: Optional[pulumi.Input[str]] = None,
+             cosmosdb_account_key: Optional[pulumi.Input[str]] = None,
+             cosmosdb_sql_database_id: Optional[pulumi.Input[str]] = None,
+             stream_analytics_job_id: Optional[pulumi.Input[str]] = None,
              document_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              partition_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'containerName' in kwargs:
+        if container_name is None and 'containerName' in kwargs:
             container_name = kwargs['containerName']
-        if 'cosmosdbAccountKey' in kwargs:
+        if container_name is None:
+            raise TypeError("Missing 'container_name' argument")
+        if cosmosdb_account_key is None and 'cosmosdbAccountKey' in kwargs:
             cosmosdb_account_key = kwargs['cosmosdbAccountKey']
-        if 'cosmosdbSqlDatabaseId' in kwargs:
+        if cosmosdb_account_key is None:
+            raise TypeError("Missing 'cosmosdb_account_key' argument")
+        if cosmosdb_sql_database_id is None and 'cosmosdbSqlDatabaseId' in kwargs:
             cosmosdb_sql_database_id = kwargs['cosmosdbSqlDatabaseId']
-        if 'streamAnalyticsJobId' in kwargs:
+        if cosmosdb_sql_database_id is None:
+            raise TypeError("Missing 'cosmosdb_sql_database_id' argument")
+        if stream_analytics_job_id is None and 'streamAnalyticsJobId' in kwargs:
             stream_analytics_job_id = kwargs['streamAnalyticsJobId']
-        if 'documentId' in kwargs:
+        if stream_analytics_job_id is None:
+            raise TypeError("Missing 'stream_analytics_job_id' argument")
+        if document_id is None and 'documentId' in kwargs:
             document_id = kwargs['documentId']
-        if 'partitionKey' in kwargs:
+        if partition_key is None and 'partitionKey' in kwargs:
             partition_key = kwargs['partitionKey']
 
         _setter("container_name", container_name)
@@ -202,19 +210,19 @@ class _OutputCosmosdbState:
              name: Optional[pulumi.Input[str]] = None,
              partition_key: Optional[pulumi.Input[str]] = None,
              stream_analytics_job_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'containerName' in kwargs:
+        if container_name is None and 'containerName' in kwargs:
             container_name = kwargs['containerName']
-        if 'cosmosdbAccountKey' in kwargs:
+        if cosmosdb_account_key is None and 'cosmosdbAccountKey' in kwargs:
             cosmosdb_account_key = kwargs['cosmosdbAccountKey']
-        if 'cosmosdbSqlDatabaseId' in kwargs:
+        if cosmosdb_sql_database_id is None and 'cosmosdbSqlDatabaseId' in kwargs:
             cosmosdb_sql_database_id = kwargs['cosmosdbSqlDatabaseId']
-        if 'documentId' in kwargs:
+        if document_id is None and 'documentId' in kwargs:
             document_id = kwargs['documentId']
-        if 'partitionKey' in kwargs:
+        if partition_key is None and 'partitionKey' in kwargs:
             partition_key = kwargs['partitionKey']
-        if 'streamAnalyticsJobId' in kwargs:
+        if stream_analytics_job_id is None and 'streamAnalyticsJobId' in kwargs:
             stream_analytics_job_id = kwargs['streamAnalyticsJobId']
 
         if container_name is not None:
@@ -333,46 +341,6 @@ class OutputCosmosdb(pulumi.CustomResource):
         """
         Manages a Stream Analytics Output to CosmosDB.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_job = azure.streamanalytics.get_job_output(name="example-job",
-            resource_group_name=example_resource_group.name)
-        example_account = azure.cosmosdb.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            offer_type="Standard",
-            kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="BoundedStaleness",
-                max_interval_in_seconds=10,
-                max_staleness_prefix=200,
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example_resource_group.location,
-                failover_priority=0,
-            )])
-        example_sql_database = azure.cosmosdb.SqlDatabase("exampleSqlDatabase",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name,
-            throughput=400)
-        example_sql_container = azure.cosmosdb.SqlContainer("exampleSqlContainer",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name,
-            database_name=example_sql_database.name,
-            partition_key_path="foo")
-        example_output_cosmosdb = azure.streamanalytics.OutputCosmosdb("exampleOutputCosmosdb",
-            stream_analytics_job_id=example_job.id,
-            cosmosdb_account_key=example_account.primary_key,
-            cosmosdb_sql_database_id=example_sql_database.id,
-            container_name=example_sql_container.name,
-            document_id="exampledocumentid")
-        ```
-
         ## Import
 
         Stream Analytics Outputs for CosmosDB can be imported using the `resource id`, e.g.
@@ -399,46 +367,6 @@ class OutputCosmosdb(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Stream Analytics Output to CosmosDB.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_job = azure.streamanalytics.get_job_output(name="example-job",
-            resource_group_name=example_resource_group.name)
-        example_account = azure.cosmosdb.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            offer_type="Standard",
-            kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="BoundedStaleness",
-                max_interval_in_seconds=10,
-                max_staleness_prefix=200,
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example_resource_group.location,
-                failover_priority=0,
-            )])
-        example_sql_database = azure.cosmosdb.SqlDatabase("exampleSqlDatabase",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name,
-            throughput=400)
-        example_sql_container = azure.cosmosdb.SqlContainer("exampleSqlContainer",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name,
-            database_name=example_sql_database.name,
-            partition_key_path="foo")
-        example_output_cosmosdb = azure.streamanalytics.OutputCosmosdb("exampleOutputCosmosdb",
-            stream_analytics_job_id=example_job.id,
-            cosmosdb_account_key=example_account.primary_key,
-            cosmosdb_sql_database_id=example_sql_database.id,
-            container_name=example_sql_container.name,
-            document_id="exampledocumentid")
-        ```
 
         ## Import
 

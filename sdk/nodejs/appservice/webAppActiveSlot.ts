@@ -8,31 +8,6 @@ import * as utilities from "../utilities";
  * Manages a Web App Active Slot.
  *
  * ## Example Usage
- * ### Windows Web App
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleServicePlan = new azure.appservice.ServicePlan("exampleServicePlan", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     osType: "Windows",
- *     skuName: "P1v2",
- * });
- * const exampleWindowsWebApp = new azure.appservice.WindowsWebApp("exampleWindowsWebApp", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleServicePlan.location,
- *     servicePlanId: exampleServicePlan.id,
- *     siteConfig: {},
- * });
- * const exampleWindowsWebAppSlot = new azure.appservice.WindowsWebAppSlot("exampleWindowsWebAppSlot", {
- *     appServiceId: exampleWindowsWebApp.name,
- *     siteConfig: {},
- * });
- * const exampleWebAppActiveSlot = new azure.appservice.WebAppActiveSlot("exampleWebAppActiveSlot", {slotId: exampleWindowsWebAppSlot.id});
- * ```
  *
  * ## Import
  *

@@ -17,36 +17,6 @@ import (
 //
 // !>**IMPORTANT:** This resource has been deprecated and should not be used for new deployments. The `cdn.FrontdoorRouteDisableLinkToDefaultDomain` resource will be removed from the 4.0 AzureRM provider. Please use the `linkToDefaultDomain` field in the `cdn.FrontdoorRoute` resource to control this value.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cdn"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cdn.NewFrontdoorRouteDisableLinkToDefaultDomain(ctx, "example", &cdn.FrontdoorRouteDisableLinkToDefaultDomainArgs{
-//				CdnFrontdoorRouteId: pulumi.Any(azurerm_cdn_frontdoor_route.Example.Id),
-//				CdnFrontdoorCustomDomainIds: pulumi.StringArray{
-//					azurerm_cdn_frontdoor_custom_domain.Contoso.Id,
-//					azurerm_cdn_frontdoor_custom_domain.Fabrikam.Id,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // FrontDoor Route Disable Link To Default Domain can be imported using the `resource id`, e.g.

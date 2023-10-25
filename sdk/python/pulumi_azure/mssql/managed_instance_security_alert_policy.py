@@ -52,8 +52,8 @@ class ManagedInstanceSecurityAlertPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             managed_instance_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             managed_instance_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              disabled_alerts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              email_account_admins_enabled: Optional[pulumi.Input[bool]] = None,
              email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -61,23 +61,27 @@ class ManagedInstanceSecurityAlertPolicyArgs:
              retention_days: Optional[pulumi.Input[int]] = None,
              storage_account_access_key: Optional[pulumi.Input[str]] = None,
              storage_endpoint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'managedInstanceName' in kwargs:
+        if managed_instance_name is None and 'managedInstanceName' in kwargs:
             managed_instance_name = kwargs['managedInstanceName']
-        if 'resourceGroupName' in kwargs:
+        if managed_instance_name is None:
+            raise TypeError("Missing 'managed_instance_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'disabledAlerts' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if disabled_alerts is None and 'disabledAlerts' in kwargs:
             disabled_alerts = kwargs['disabledAlerts']
-        if 'emailAccountAdminsEnabled' in kwargs:
+        if email_account_admins_enabled is None and 'emailAccountAdminsEnabled' in kwargs:
             email_account_admins_enabled = kwargs['emailAccountAdminsEnabled']
-        if 'emailAddresses' in kwargs:
+        if email_addresses is None and 'emailAddresses' in kwargs:
             email_addresses = kwargs['emailAddresses']
-        if 'retentionDays' in kwargs:
+        if retention_days is None and 'retentionDays' in kwargs:
             retention_days = kwargs['retentionDays']
-        if 'storageAccountAccessKey' in kwargs:
+        if storage_account_access_key is None and 'storageAccountAccessKey' in kwargs:
             storage_account_access_key = kwargs['storageAccountAccessKey']
-        if 'storageEndpoint' in kwargs:
+        if storage_endpoint is None and 'storageEndpoint' in kwargs:
             storage_endpoint = kwargs['storageEndpoint']
 
         _setter("managed_instance_name", managed_instance_name)
@@ -258,23 +262,23 @@ class _ManagedInstanceSecurityAlertPolicyState:
              retention_days: Optional[pulumi.Input[int]] = None,
              storage_account_access_key: Optional[pulumi.Input[str]] = None,
              storage_endpoint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'disabledAlerts' in kwargs:
+        if disabled_alerts is None and 'disabledAlerts' in kwargs:
             disabled_alerts = kwargs['disabledAlerts']
-        if 'emailAccountAdminsEnabled' in kwargs:
+        if email_account_admins_enabled is None and 'emailAccountAdminsEnabled' in kwargs:
             email_account_admins_enabled = kwargs['emailAccountAdminsEnabled']
-        if 'emailAddresses' in kwargs:
+        if email_addresses is None and 'emailAddresses' in kwargs:
             email_addresses = kwargs['emailAddresses']
-        if 'managedInstanceName' in kwargs:
+        if managed_instance_name is None and 'managedInstanceName' in kwargs:
             managed_instance_name = kwargs['managedInstanceName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'retentionDays' in kwargs:
+        if retention_days is None and 'retentionDays' in kwargs:
             retention_days = kwargs['retentionDays']
-        if 'storageAccountAccessKey' in kwargs:
+        if storage_account_access_key is None and 'storageAccountAccessKey' in kwargs:
             storage_account_access_key = kwargs['storageAccountAccessKey']
-        if 'storageEndpoint' in kwargs:
+        if storage_endpoint is None and 'storageEndpoint' in kwargs:
             storage_endpoint = kwargs['storageEndpoint']
 
         if disabled_alerts is not None:
@@ -425,171 +429,6 @@ class ManagedInstanceSecurityAlertPolicy(pulumi.CustomResource):
         """
         Manages a Security Alert Policy for an MS SQL Managed Instance.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_network_security_group = azure.network.NetworkSecurityGroup("exampleNetworkSecurityGroup",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        allow_management_inbound = azure.network.NetworkSecurityRule("allowManagementInbound",
-            priority=106,
-            direction="Inbound",
-            access="Allow",
-            protocol="Tcp",
-            source_port_range="*",
-            destination_port_ranges=[
-                "9000",
-                "9003",
-                "1438",
-                "1440",
-                "1452",
-            ],
-            source_address_prefix="*",
-            destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
-            network_security_group_name=example_network_security_group.name)
-        allow_misubnet_inbound = azure.network.NetworkSecurityRule("allowMisubnetInbound",
-            priority=200,
-            direction="Inbound",
-            access="Allow",
-            protocol="*",
-            source_port_range="*",
-            destination_port_range="*",
-            source_address_prefix="10.0.0.0/24",
-            destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
-            network_security_group_name=example_network_security_group.name)
-        allow_health_probe_inbound = azure.network.NetworkSecurityRule("allowHealthProbeInbound",
-            priority=300,
-            direction="Inbound",
-            access="Allow",
-            protocol="*",
-            source_port_range="*",
-            destination_port_range="*",
-            source_address_prefix="AzureLoadBalancer",
-            destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
-            network_security_group_name=example_network_security_group.name)
-        allow_tds_inbound = azure.network.NetworkSecurityRule("allowTdsInbound",
-            priority=1000,
-            direction="Inbound",
-            access="Allow",
-            protocol="Tcp",
-            source_port_range="*",
-            destination_port_range="1433",
-            source_address_prefix="VirtualNetwork",
-            destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
-            network_security_group_name=example_network_security_group.name)
-        deny_all_inbound = azure.network.NetworkSecurityRule("denyAllInbound",
-            priority=4096,
-            direction="Inbound",
-            access="Deny",
-            protocol="*",
-            source_port_range="*",
-            destination_port_range="*",
-            source_address_prefix="*",
-            destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
-            network_security_group_name=example_network_security_group.name)
-        allow_management_outbound = azure.network.NetworkSecurityRule("allowManagementOutbound",
-            priority=102,
-            direction="Outbound",
-            access="Allow",
-            protocol="Tcp",
-            source_port_range="*",
-            destination_port_ranges=[
-                "80",
-                "443",
-                "12000",
-            ],
-            source_address_prefix="*",
-            destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
-            network_security_group_name=example_network_security_group.name)
-        allow_misubnet_outbound = azure.network.NetworkSecurityRule("allowMisubnetOutbound",
-            priority=200,
-            direction="Outbound",
-            access="Allow",
-            protocol="*",
-            source_port_range="*",
-            destination_port_range="*",
-            source_address_prefix="10.0.0.0/24",
-            destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
-            network_security_group_name=example_network_security_group.name)
-        deny_all_outbound = azure.network.NetworkSecurityRule("denyAllOutbound",
-            priority=4096,
-            direction="Outbound",
-            access="Deny",
-            protocol="*",
-            source_port_range="*",
-            destination_port_range="*",
-            source_address_prefix="*",
-            destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
-            network_security_group_name=example_network_security_group.name)
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            resource_group_name=example_resource_group.name,
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.0.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="managedinstancedelegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.Sql/managedInstances",
-                    actions=[
-                        "Microsoft.Network/virtualNetworks/subnets/join/action",
-                        "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
-                        "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action",
-                    ],
-                ),
-            )])
-        example_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("exampleSubnetNetworkSecurityGroupAssociation",
-            subnet_id=example_subnet.id,
-            network_security_group_id=example_network_security_group.id)
-        example_route_table = azure.network.RouteTable("exampleRouteTable",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            disable_bgp_route_propagation=False,
-            opts=pulumi.ResourceOptions(depends_on=[example_subnet]))
-        example_subnet_route_table_association = azure.network.SubnetRouteTableAssociation("exampleSubnetRouteTableAssociation",
-            subnet_id=example_subnet.id,
-            route_table_id=example_route_table.id)
-        example_managed_instance = azure.mssql.ManagedInstance("exampleManagedInstance",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            license_type="BasePrice",
-            sku_name="GP_Gen5",
-            storage_size_in_gb=32,
-            subnet_id=example_subnet.id,
-            vcores=4,
-            administrator_login="mradministrator",
-            administrator_login_password="thisIsDog11",
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example_subnet_network_security_group_association,
-                    example_subnet_route_table_association,
-                ]))
-        example_managed_instance_security_alert_policy = azure.mssql.ManagedInstanceSecurityAlertPolicy("exampleManagedInstanceSecurityAlertPolicy",
-            resource_group_name=example_resource_group.name,
-            managed_instance_name=example_managed_instance.name,
-            enabled=True,
-            storage_endpoint=azurerm_storage_account["example"]["primary_blob_endpoint"],
-            storage_account_access_key=azurerm_storage_account["example"]["primary_access_key"],
-            disabled_alerts=[
-                "Sql_Injection",
-                "Data_Exfiltration",
-            ],
-            retention_days=20)
-        ```
-
         ## Import
 
         MS SQL Managed Instance Security Alert Policy can be imported using the `resource id`, e.g.
@@ -620,171 +459,6 @@ class ManagedInstanceSecurityAlertPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Security Alert Policy for an MS SQL Managed Instance.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_network_security_group = azure.network.NetworkSecurityGroup("exampleNetworkSecurityGroup",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        allow_management_inbound = azure.network.NetworkSecurityRule("allowManagementInbound",
-            priority=106,
-            direction="Inbound",
-            access="Allow",
-            protocol="Tcp",
-            source_port_range="*",
-            destination_port_ranges=[
-                "9000",
-                "9003",
-                "1438",
-                "1440",
-                "1452",
-            ],
-            source_address_prefix="*",
-            destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
-            network_security_group_name=example_network_security_group.name)
-        allow_misubnet_inbound = azure.network.NetworkSecurityRule("allowMisubnetInbound",
-            priority=200,
-            direction="Inbound",
-            access="Allow",
-            protocol="*",
-            source_port_range="*",
-            destination_port_range="*",
-            source_address_prefix="10.0.0.0/24",
-            destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
-            network_security_group_name=example_network_security_group.name)
-        allow_health_probe_inbound = azure.network.NetworkSecurityRule("allowHealthProbeInbound",
-            priority=300,
-            direction="Inbound",
-            access="Allow",
-            protocol="*",
-            source_port_range="*",
-            destination_port_range="*",
-            source_address_prefix="AzureLoadBalancer",
-            destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
-            network_security_group_name=example_network_security_group.name)
-        allow_tds_inbound = azure.network.NetworkSecurityRule("allowTdsInbound",
-            priority=1000,
-            direction="Inbound",
-            access="Allow",
-            protocol="Tcp",
-            source_port_range="*",
-            destination_port_range="1433",
-            source_address_prefix="VirtualNetwork",
-            destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
-            network_security_group_name=example_network_security_group.name)
-        deny_all_inbound = azure.network.NetworkSecurityRule("denyAllInbound",
-            priority=4096,
-            direction="Inbound",
-            access="Deny",
-            protocol="*",
-            source_port_range="*",
-            destination_port_range="*",
-            source_address_prefix="*",
-            destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
-            network_security_group_name=example_network_security_group.name)
-        allow_management_outbound = azure.network.NetworkSecurityRule("allowManagementOutbound",
-            priority=102,
-            direction="Outbound",
-            access="Allow",
-            protocol="Tcp",
-            source_port_range="*",
-            destination_port_ranges=[
-                "80",
-                "443",
-                "12000",
-            ],
-            source_address_prefix="*",
-            destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
-            network_security_group_name=example_network_security_group.name)
-        allow_misubnet_outbound = azure.network.NetworkSecurityRule("allowMisubnetOutbound",
-            priority=200,
-            direction="Outbound",
-            access="Allow",
-            protocol="*",
-            source_port_range="*",
-            destination_port_range="*",
-            source_address_prefix="10.0.0.0/24",
-            destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
-            network_security_group_name=example_network_security_group.name)
-        deny_all_outbound = azure.network.NetworkSecurityRule("denyAllOutbound",
-            priority=4096,
-            direction="Outbound",
-            access="Deny",
-            protocol="*",
-            source_port_range="*",
-            destination_port_range="*",
-            source_address_prefix="*",
-            destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
-            network_security_group_name=example_network_security_group.name)
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            resource_group_name=example_resource_group.name,
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.0.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="managedinstancedelegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.Sql/managedInstances",
-                    actions=[
-                        "Microsoft.Network/virtualNetworks/subnets/join/action",
-                        "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
-                        "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action",
-                    ],
-                ),
-            )])
-        example_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("exampleSubnetNetworkSecurityGroupAssociation",
-            subnet_id=example_subnet.id,
-            network_security_group_id=example_network_security_group.id)
-        example_route_table = azure.network.RouteTable("exampleRouteTable",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            disable_bgp_route_propagation=False,
-            opts=pulumi.ResourceOptions(depends_on=[example_subnet]))
-        example_subnet_route_table_association = azure.network.SubnetRouteTableAssociation("exampleSubnetRouteTableAssociation",
-            subnet_id=example_subnet.id,
-            route_table_id=example_route_table.id)
-        example_managed_instance = azure.mssql.ManagedInstance("exampleManagedInstance",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            license_type="BasePrice",
-            sku_name="GP_Gen5",
-            storage_size_in_gb=32,
-            subnet_id=example_subnet.id,
-            vcores=4,
-            administrator_login="mradministrator",
-            administrator_login_password="thisIsDog11",
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example_subnet_network_security_group_association,
-                    example_subnet_route_table_association,
-                ]))
-        example_managed_instance_security_alert_policy = azure.mssql.ManagedInstanceSecurityAlertPolicy("exampleManagedInstanceSecurityAlertPolicy",
-            resource_group_name=example_resource_group.name,
-            managed_instance_name=example_managed_instance.name,
-            enabled=True,
-            storage_endpoint=azurerm_storage_account["example"]["primary_blob_endpoint"],
-            storage_account_access_key=azurerm_storage_account["example"]["primary_access_key"],
-            disabled_alerts=[
-                "Sql_Injection",
-                "Data_Exfiltration",
-            ],
-            retention_days=20)
-        ```
 
         ## Import
 

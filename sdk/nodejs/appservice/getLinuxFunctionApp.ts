@@ -8,19 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Linux Function App.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.appservice.getLinuxFunctionApp({
- *     name: "existing",
- *     resourceGroupName: "existing",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getLinuxFunctionApp(args: GetLinuxFunctionAppArgs, opts?: pulumi.InvokeOptions): Promise<GetLinuxFunctionAppResult> {
 
@@ -206,19 +193,6 @@ export interface GetLinuxFunctionAppResult {
 }
 /**
  * Use this data source to access information about an existing Linux Function App.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.appservice.getLinuxFunctionApp({
- *     name: "existing",
- *     resourceGroupName: "existing",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getLinuxFunctionAppOutput(args: GetLinuxFunctionAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinuxFunctionAppResult> {
     return pulumi.output(args).apply((a: any) => getLinuxFunctionApp(a, opts))

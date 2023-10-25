@@ -135,18 +135,6 @@ def get_api_version_set(api_management_name: Optional[str] = None,
     """
     Uses this data source to access information about an API Version Set within an API Management Service.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.apimanagement.get_api_version_set(resource_group_name="example-resources",
-        api_management_name="example-api",
-        name="example-api-version-set")
-    pulumi.export("apiManagementApiVersionSetId", example.id)
-    ```
-
 
     :param str api_management_name: The name of the API Management Service where the API Version Set exists.
     :param str name: The name of the API Version Set.
@@ -178,18 +166,6 @@ def get_api_version_set_output(api_management_name: Optional[pulumi.Input[str]] 
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiVersionSetResult]:
     """
     Uses this data source to access information about an API Version Set within an API Management Service.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.apimanagement.get_api_version_set(resource_group_name="example-resources",
-        api_management_name="example-api",
-        name="example-api-version-set")
-    pulumi.export("apiManagementApiVersionSetId", example.id)
-    ```
 
 
     :param str api_management_name: The name of the API Management Service where the API Version Set exists.

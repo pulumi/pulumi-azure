@@ -45,10 +45,12 @@ class LinkedServiceIntegrationRuntime(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              parameters: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
         if parameters is not None:
@@ -102,11 +104,13 @@ class SparkPoolAutoPause(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             delay_in_minutes: int,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             delay_in_minutes: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'delayInMinutes' in kwargs:
+        if delay_in_minutes is None and 'delayInMinutes' in kwargs:
             delay_in_minutes = kwargs['delayInMinutes']
+        if delay_in_minutes is None:
+            raise TypeError("Missing 'delay_in_minutes' argument")
 
         _setter("delay_in_minutes", delay_in_minutes)
 
@@ -155,14 +159,18 @@ class SparkPoolAutoScale(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             max_node_count: int,
-             min_node_count: int,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             max_node_count: Optional[int] = None,
+             min_node_count: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'maxNodeCount' in kwargs:
+        if max_node_count is None and 'maxNodeCount' in kwargs:
             max_node_count = kwargs['maxNodeCount']
-        if 'minNodeCount' in kwargs:
+        if max_node_count is None:
+            raise TypeError("Missing 'max_node_count' argument")
+        if min_node_count is None and 'minNodeCount' in kwargs:
             min_node_count = kwargs['minNodeCount']
+        if min_node_count is None:
+            raise TypeError("Missing 'min_node_count' argument")
 
         _setter("max_node_count", max_node_count)
         _setter("min_node_count", min_node_count)
@@ -201,10 +209,14 @@ class SparkPoolLibraryRequirement(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             content: str,
-             filename: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             content: Optional[str] = None,
+             filename: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if content is None:
+            raise TypeError("Missing 'content' argument")
+        if filename is None:
+            raise TypeError("Missing 'filename' argument")
 
         _setter("content", content)
         _setter("filename", filename)
@@ -243,10 +255,14 @@ class SparkPoolSparkConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             content: str,
-             filename: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             content: Optional[str] = None,
+             filename: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if content is None:
+            raise TypeError("Missing 'content' argument")
+        if filename is None:
+            raise TypeError("Missing 'filename' argument")
 
         _setter("content", content)
         _setter("filename", filename)
@@ -304,14 +320,18 @@ class SqlPoolRestore(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             point_in_time: str,
-             source_database_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             point_in_time: Optional[str] = None,
+             source_database_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'pointInTime' in kwargs:
+        if point_in_time is None and 'pointInTime' in kwargs:
             point_in_time = kwargs['pointInTime']
-        if 'sourceDatabaseId' in kwargs:
+        if point_in_time is None:
+            raise TypeError("Missing 'point_in_time' argument")
+        if source_database_id is None and 'sourceDatabaseId' in kwargs:
             source_database_id = kwargs['sourceDatabaseId']
+        if source_database_id is None:
+            raise TypeError("Missing 'source_database_id' argument")
 
         _setter("point_in_time", point_in_time)
         _setter("source_database_id", source_database_id)
@@ -347,9 +367,11 @@ class SqlPoolVulnerabilityAssessmentBaselineBaseline(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             results: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             results: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if results is None:
+            raise TypeError("Missing 'results' argument")
 
         _setter("results", results)
 
@@ -402,9 +424,9 @@ class SqlPoolVulnerabilityAssessmentRecurringScans(dict):
              email_subscription_admins_enabled: Optional[bool] = None,
              emails: Optional[Sequence[str]] = None,
              enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'emailSubscriptionAdminsEnabled' in kwargs:
+        if email_subscription_admins_enabled is None and 'emailSubscriptionAdminsEnabled' in kwargs:
             email_subscription_admins_enabled = kwargs['emailSubscriptionAdminsEnabled']
 
         if email_subscription_admins_enabled is not None:
@@ -478,15 +500,21 @@ class WorkspaceAadAdmin(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             login: str,
-             object_id: str,
-             tenant_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             login: Optional[str] = None,
+             object_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'objectId' in kwargs:
+        if login is None:
+            raise TypeError("Missing 'login' argument")
+        if object_id is None and 'objectId' in kwargs:
             object_id = kwargs['objectId']
-        if 'tenantId' in kwargs:
+        if object_id is None:
+            raise TypeError("Missing 'object_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
 
         _setter("login", login)
         _setter("object_id", object_id)
@@ -578,28 +606,38 @@ class WorkspaceAzureDevopsRepo(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             account_name: str,
-             branch_name: str,
-             project_name: str,
-             repository_name: str,
-             root_folder: str,
+             account_name: Optional[str] = None,
+             branch_name: Optional[str] = None,
+             project_name: Optional[str] = None,
+             repository_name: Optional[str] = None,
+             root_folder: Optional[str] = None,
              last_commit_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accountName' in kwargs:
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'branchName' in kwargs:
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if branch_name is None and 'branchName' in kwargs:
             branch_name = kwargs['branchName']
-        if 'projectName' in kwargs:
+        if branch_name is None:
+            raise TypeError("Missing 'branch_name' argument")
+        if project_name is None and 'projectName' in kwargs:
             project_name = kwargs['projectName']
-        if 'repositoryName' in kwargs:
+        if project_name is None:
+            raise TypeError("Missing 'project_name' argument")
+        if repository_name is None and 'repositoryName' in kwargs:
             repository_name = kwargs['repositoryName']
-        if 'rootFolder' in kwargs:
+        if repository_name is None:
+            raise TypeError("Missing 'repository_name' argument")
+        if root_folder is None and 'rootFolder' in kwargs:
             root_folder = kwargs['rootFolder']
-        if 'lastCommitId' in kwargs:
+        if root_folder is None:
+            raise TypeError("Missing 'root_folder' argument")
+        if last_commit_id is None and 'lastCommitId' in kwargs:
             last_commit_id = kwargs['lastCommitId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("account_name", account_name)
@@ -705,13 +743,15 @@ class WorkspaceCustomerManagedKey(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_versionless_id: str,
+             key_versionless_id: Optional[str] = None,
              key_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'keyVersionlessId' in kwargs:
+        if key_versionless_id is None and 'keyVersionlessId' in kwargs:
             key_versionless_id = kwargs['keyVersionlessId']
-        if 'keyName' in kwargs:
+        if key_versionless_id is None:
+            raise TypeError("Missing 'key_versionless_id' argument")
+        if key_name is None and 'keyName' in kwargs:
             key_name = kwargs['keyName']
 
         _setter("key_versionless_id", key_versionless_id)
@@ -793,25 +833,33 @@ class WorkspaceGithubRepo(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             account_name: str,
-             branch_name: str,
-             repository_name: str,
-             root_folder: str,
+             account_name: Optional[str] = None,
+             branch_name: Optional[str] = None,
+             repository_name: Optional[str] = None,
+             root_folder: Optional[str] = None,
              git_url: Optional[str] = None,
              last_commit_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accountName' in kwargs:
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'branchName' in kwargs:
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if branch_name is None and 'branchName' in kwargs:
             branch_name = kwargs['branchName']
-        if 'repositoryName' in kwargs:
+        if branch_name is None:
+            raise TypeError("Missing 'branch_name' argument")
+        if repository_name is None and 'repositoryName' in kwargs:
             repository_name = kwargs['repositoryName']
-        if 'rootFolder' in kwargs:
+        if repository_name is None:
+            raise TypeError("Missing 'repository_name' argument")
+        if root_folder is None and 'rootFolder' in kwargs:
             root_folder = kwargs['rootFolder']
-        if 'gitUrl' in kwargs:
+        if root_folder is None:
+            raise TypeError("Missing 'root_folder' argument")
+        if git_url is None and 'gitUrl' in kwargs:
             git_url = kwargs['gitUrl']
-        if 'lastCommitId' in kwargs:
+        if last_commit_id is None and 'lastCommitId' in kwargs:
             last_commit_id = kwargs['lastCommitId']
 
         _setter("account_name", account_name)
@@ -920,17 +968,19 @@ class WorkspaceIdentity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -1015,15 +1065,21 @@ class WorkspaceSqlAadAdmin(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             login: str,
-             object_id: str,
-             tenant_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             login: Optional[str] = None,
+             object_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'objectId' in kwargs:
+        if login is None:
+            raise TypeError("Missing 'login' argument")
+        if object_id is None and 'objectId' in kwargs:
             object_id = kwargs['objectId']
-        if 'tenantId' in kwargs:
+        if object_id is None:
+            raise TypeError("Missing 'object_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
 
         _setter("login", login)
         _setter("object_id", object_id)
@@ -1094,9 +1150,9 @@ class WorkspaceVulnerabilityAssessmentRecurringScans(dict):
              email_subscription_admins_enabled: Optional[bool] = None,
              emails: Optional[Sequence[str]] = None,
              enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'emailSubscriptionAdminsEnabled' in kwargs:
+        if email_subscription_admins_enabled is None and 'emailSubscriptionAdminsEnabled' in kwargs:
             email_subscription_admins_enabled = kwargs['emailSubscriptionAdminsEnabled']
 
         if email_subscription_admins_enabled is not None:
@@ -1153,18 +1209,26 @@ class GetWorkspaceIdentityResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             identity_ids: Sequence[str],
-             principal_id: str,
-             tenant_id: str,
-             type: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             identity_ids: Optional[Sequence[str]] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if identity_ids is None:
+            raise TypeError("Missing 'identity_ids' argument")
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("identity_ids", identity_ids)
         _setter("principal_id", principal_id)

@@ -82,9 +82,9 @@ class AlertRuleAnomalyBuiltInMultiSelectObservationArgs:
              name: Optional[pulumi.Input[str]] = None,
              supported_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'supportedValues' in kwargs:
+        if supported_values is None and 'supportedValues' in kwargs:
             supported_values = kwargs['supportedValues']
 
         if description is not None:
@@ -172,7 +172,7 @@ class AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArgs:
              exclude: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              prioritize: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
 
         if description is not None:
@@ -252,11 +252,11 @@ class AlertRuleAnomalyBuiltInRequiredDataConnectorArgs:
              _setter: Callable[[Any, Any], None],
              connector_id: Optional[pulumi.Input[str]] = None,
              data_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'connectorId' in kwargs:
+        if connector_id is None and 'connectorId' in kwargs:
             connector_id = kwargs['connectorId']
-        if 'dataTypes' in kwargs:
+        if data_types is None and 'dataTypes' in kwargs:
             data_types = kwargs['dataTypes']
 
         if connector_id is not None:
@@ -316,9 +316,9 @@ class AlertRuleAnomalyBuiltInSingleSelectObservationArgs:
              name: Optional[pulumi.Input[str]] = None,
              supported_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'supportedValues' in kwargs:
+        if supported_values is None and 'supportedValues' in kwargs:
             supported_values = kwargs['supportedValues']
 
         if description is not None:
@@ -410,7 +410,7 @@ class AlertRuleAnomalyBuiltInThresholdObservationArgs:
              min: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
 
         if description is not None:
@@ -508,13 +508,17 @@ class AlertRuleAnomalyDuplicateMultiSelectObservationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             name: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              supported_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'supportedValues' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+        if supported_values is None and 'supportedValues' in kwargs:
             supported_values = kwargs['supportedValues']
 
         _setter("name", name)
@@ -596,12 +600,14 @@ class AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              exclude: Optional[pulumi.Input[str]] = None,
              prioritize: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
         if description is not None:
@@ -679,11 +685,11 @@ class AlertRuleAnomalyDuplicateRequiredDataConnectorArgs:
              _setter: Callable[[Any, Any], None],
              connector_id: Optional[pulumi.Input[str]] = None,
              data_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'connectorId' in kwargs:
+        if connector_id is None and 'connectorId' in kwargs:
             connector_id = kwargs['connectorId']
-        if 'dataTypes' in kwargs:
+        if data_types is None and 'dataTypes' in kwargs:
             data_types = kwargs['dataTypes']
 
         if connector_id is not None:
@@ -739,13 +745,17 @@ class AlertRuleAnomalyDuplicateSingleSelectObservationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             value: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              supported_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'supportedValues' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+        if supported_values is None and 'supportedValues' in kwargs:
             supported_values = kwargs['supportedValues']
 
         _setter("name", name)
@@ -830,13 +840,17 @@ class AlertRuleAnomalyDuplicateThresholdObservationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             value: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              max: Optional[pulumi.Input[str]] = None,
              min: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("name", name)
         _setter("value", value)
@@ -928,12 +942,14 @@ class AlertRuleFusionSourceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              sub_types: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleFusionSourceSubTypeArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'subTypes' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if sub_types is None and 'subTypes' in kwargs:
             sub_types = kwargs['subTypes']
 
         _setter("name", name)
@@ -999,13 +1015,17 @@ class AlertRuleFusionSourceSubTypeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             severities_alloweds: pulumi.Input[Sequence[pulumi.Input[str]]],
+             name: Optional[pulumi.Input[str]] = None,
+             severities_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'severitiesAlloweds' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if severities_alloweds is None and 'severitiesAlloweds' in kwargs:
             severities_alloweds = kwargs['severitiesAlloweds']
+        if severities_alloweds is None:
+            raise TypeError("Missing 'severities_alloweds' argument")
 
         _setter("name", name)
         _setter("severities_alloweds", severities_alloweds)
@@ -1080,17 +1100,17 @@ class AlertRuleNrtAlertDetailsOverrideArgs:
              dynamic_properties: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs']]]] = None,
              severity_column_name: Optional[pulumi.Input[str]] = None,
              tactics_column_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'descriptionFormat' in kwargs:
+        if description_format is None and 'descriptionFormat' in kwargs:
             description_format = kwargs['descriptionFormat']
-        if 'displayNameFormat' in kwargs:
+        if display_name_format is None and 'displayNameFormat' in kwargs:
             display_name_format = kwargs['displayNameFormat']
-        if 'dynamicProperties' in kwargs:
+        if dynamic_properties is None and 'dynamicProperties' in kwargs:
             dynamic_properties = kwargs['dynamicProperties']
-        if 'severityColumnName' in kwargs:
+        if severity_column_name is None and 'severityColumnName' in kwargs:
             severity_column_name = kwargs['severityColumnName']
-        if 'tacticsColumnName' in kwargs:
+        if tactics_column_name is None and 'tacticsColumnName' in kwargs:
             tactics_column_name = kwargs['tacticsColumnName']
 
         if description_format is not None:
@@ -1182,10 +1202,14 @@ class AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("name", name)
         _setter("value", value)
@@ -1232,14 +1256,18 @@ class AlertRuleNrtEntityMappingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             entity_type: pulumi.Input[str],
-             field_mappings: pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtEntityMappingFieldMappingArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             entity_type: Optional[pulumi.Input[str]] = None,
+             field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtEntityMappingFieldMappingArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'entityType' in kwargs:
+        if entity_type is None and 'entityType' in kwargs:
             entity_type = kwargs['entityType']
-        if 'fieldMappings' in kwargs:
+        if entity_type is None:
+            raise TypeError("Missing 'entity_type' argument")
+        if field_mappings is None and 'fieldMappings' in kwargs:
             field_mappings = kwargs['fieldMappings']
+        if field_mappings is None:
+            raise TypeError("Missing 'field_mappings' argument")
 
         _setter("entity_type", entity_type)
         _setter("field_mappings", field_mappings)
@@ -1286,12 +1314,16 @@ class AlertRuleNrtEntityMappingFieldMappingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             column_name: pulumi.Input[str],
-             identifier: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             column_name: Optional[pulumi.Input[str]] = None,
+             identifier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'columnName' in kwargs:
+        if column_name is None and 'columnName' in kwargs:
             column_name = kwargs['columnName']
+        if column_name is None:
+            raise TypeError("Missing 'column_name' argument")
+        if identifier is None:
+            raise TypeError("Missing 'identifier' argument")
 
         _setter("column_name", column_name)
         _setter("identifier", identifier)
@@ -1335,11 +1367,13 @@ class AlertRuleNrtEventGroupingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             aggregation_method: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             aggregation_method: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'aggregationMethod' in kwargs:
+        if aggregation_method is None and 'aggregationMethod' in kwargs:
             aggregation_method = kwargs['aggregationMethod']
+        if aggregation_method is None:
+            raise TypeError("Missing 'aggregation_method' argument")
 
         _setter("aggregation_method", aggregation_method)
 
@@ -1373,12 +1407,16 @@ class AlertRuleNrtIncidentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             create_incident_enabled: pulumi.Input[bool],
-             grouping: pulumi.Input['AlertRuleNrtIncidentGroupingArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             create_incident_enabled: Optional[pulumi.Input[bool]] = None,
+             grouping: Optional[pulumi.Input['AlertRuleNrtIncidentGroupingArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'createIncidentEnabled' in kwargs:
+        if create_incident_enabled is None and 'createIncidentEnabled' in kwargs:
             create_incident_enabled = kwargs['createIncidentEnabled']
+        if create_incident_enabled is None:
+            raise TypeError("Missing 'create_incident_enabled' argument")
+        if grouping is None:
+            raise TypeError("Missing 'grouping' argument")
 
         _setter("create_incident_enabled", create_incident_enabled)
         _setter("grouping", grouping)
@@ -1447,19 +1485,19 @@ class AlertRuleNrtIncidentGroupingArgs:
              entity_matching_method: Optional[pulumi.Input[str]] = None,
              lookback_duration: Optional[pulumi.Input[str]] = None,
              reopen_closed_incidents: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'byAlertDetails' in kwargs:
+        if by_alert_details is None and 'byAlertDetails' in kwargs:
             by_alert_details = kwargs['byAlertDetails']
-        if 'byCustomDetails' in kwargs:
+        if by_custom_details is None and 'byCustomDetails' in kwargs:
             by_custom_details = kwargs['byCustomDetails']
-        if 'byEntities' in kwargs:
+        if by_entities is None and 'byEntities' in kwargs:
             by_entities = kwargs['byEntities']
-        if 'entityMatchingMethod' in kwargs:
+        if entity_matching_method is None and 'entityMatchingMethod' in kwargs:
             entity_matching_method = kwargs['entityMatchingMethod']
-        if 'lookbackDuration' in kwargs:
+        if lookback_duration is None and 'lookbackDuration' in kwargs:
             lookback_duration = kwargs['lookbackDuration']
-        if 'reopenClosedIncidents' in kwargs:
+        if reopen_closed_incidents is None and 'reopenClosedIncidents' in kwargs:
             reopen_closed_incidents = kwargs['reopenClosedIncidents']
 
         if by_alert_details is not None:
@@ -1576,11 +1614,13 @@ class AlertRuleNrtSentinelEntityMappingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             column_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             column_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'columnName' in kwargs:
+        if column_name is None and 'columnName' in kwargs:
             column_name = kwargs['columnName']
+        if column_name is None:
+            raise TypeError("Missing 'column_name' argument")
 
         _setter("column_name", column_name)
 
@@ -1628,17 +1668,17 @@ class AlertRuleScheduledAlertDetailsOverrideArgs:
              dynamic_properties: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs']]]] = None,
              severity_column_name: Optional[pulumi.Input[str]] = None,
              tactics_column_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'descriptionFormat' in kwargs:
+        if description_format is None and 'descriptionFormat' in kwargs:
             description_format = kwargs['descriptionFormat']
-        if 'displayNameFormat' in kwargs:
+        if display_name_format is None and 'displayNameFormat' in kwargs:
             display_name_format = kwargs['displayNameFormat']
-        if 'dynamicProperties' in kwargs:
+        if dynamic_properties is None and 'dynamicProperties' in kwargs:
             dynamic_properties = kwargs['dynamicProperties']
-        if 'severityColumnName' in kwargs:
+        if severity_column_name is None and 'severityColumnName' in kwargs:
             severity_column_name = kwargs['severityColumnName']
-        if 'tacticsColumnName' in kwargs:
+        if tactics_column_name is None and 'tacticsColumnName' in kwargs:
             tactics_column_name = kwargs['tacticsColumnName']
 
         if description_format is not None:
@@ -1730,10 +1770,14 @@ class AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("name", name)
         _setter("value", value)
@@ -1780,14 +1824,18 @@ class AlertRuleScheduledEntityMappingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             entity_type: pulumi.Input[str],
-             field_mappings: pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledEntityMappingFieldMappingArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             entity_type: Optional[pulumi.Input[str]] = None,
+             field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledEntityMappingFieldMappingArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'entityType' in kwargs:
+        if entity_type is None and 'entityType' in kwargs:
             entity_type = kwargs['entityType']
-        if 'fieldMappings' in kwargs:
+        if entity_type is None:
+            raise TypeError("Missing 'entity_type' argument")
+        if field_mappings is None and 'fieldMappings' in kwargs:
             field_mappings = kwargs['fieldMappings']
+        if field_mappings is None:
+            raise TypeError("Missing 'field_mappings' argument")
 
         _setter("entity_type", entity_type)
         _setter("field_mappings", field_mappings)
@@ -1834,12 +1882,16 @@ class AlertRuleScheduledEntityMappingFieldMappingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             column_name: pulumi.Input[str],
-             identifier: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             column_name: Optional[pulumi.Input[str]] = None,
+             identifier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'columnName' in kwargs:
+        if column_name is None and 'columnName' in kwargs:
             column_name = kwargs['columnName']
+        if column_name is None:
+            raise TypeError("Missing 'column_name' argument")
+        if identifier is None:
+            raise TypeError("Missing 'identifier' argument")
 
         _setter("column_name", column_name)
         _setter("identifier", identifier)
@@ -1883,11 +1935,13 @@ class AlertRuleScheduledEventGroupingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             aggregation_method: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             aggregation_method: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'aggregationMethod' in kwargs:
+        if aggregation_method is None and 'aggregationMethod' in kwargs:
             aggregation_method = kwargs['aggregationMethod']
+        if aggregation_method is None:
+            raise TypeError("Missing 'aggregation_method' argument")
 
         _setter("aggregation_method", aggregation_method)
 
@@ -1921,12 +1975,16 @@ class AlertRuleScheduledIncidentConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             create_incident: pulumi.Input[bool],
-             grouping: pulumi.Input['AlertRuleScheduledIncidentConfigurationGroupingArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             create_incident: Optional[pulumi.Input[bool]] = None,
+             grouping: Optional[pulumi.Input['AlertRuleScheduledIncidentConfigurationGroupingArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'createIncident' in kwargs:
+        if create_incident is None and 'createIncident' in kwargs:
             create_incident = kwargs['createIncident']
+        if create_incident is None:
+            raise TypeError("Missing 'create_incident' argument")
+        if grouping is None:
+            raise TypeError("Missing 'grouping' argument")
 
         _setter("create_incident", create_incident)
         _setter("grouping", grouping)
@@ -1995,19 +2053,19 @@ class AlertRuleScheduledIncidentConfigurationGroupingArgs:
              group_by_entities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              lookback_duration: Optional[pulumi.Input[str]] = None,
              reopen_closed_incidents: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'entityMatchingMethod' in kwargs:
+        if entity_matching_method is None and 'entityMatchingMethod' in kwargs:
             entity_matching_method = kwargs['entityMatchingMethod']
-        if 'groupByAlertDetails' in kwargs:
+        if group_by_alert_details is None and 'groupByAlertDetails' in kwargs:
             group_by_alert_details = kwargs['groupByAlertDetails']
-        if 'groupByCustomDetails' in kwargs:
+        if group_by_custom_details is None and 'groupByCustomDetails' in kwargs:
             group_by_custom_details = kwargs['groupByCustomDetails']
-        if 'groupByEntities' in kwargs:
+        if group_by_entities is None and 'groupByEntities' in kwargs:
             group_by_entities = kwargs['groupByEntities']
-        if 'lookbackDuration' in kwargs:
+        if lookback_duration is None and 'lookbackDuration' in kwargs:
             lookback_duration = kwargs['lookbackDuration']
-        if 'reopenClosedIncidents' in kwargs:
+        if reopen_closed_incidents is None and 'reopenClosedIncidents' in kwargs:
             reopen_closed_incidents = kwargs['reopenClosedIncidents']
 
         if enabled is not None:
@@ -2124,11 +2182,13 @@ class AlertRuleScheduledSentinelEntityMappingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             column_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             column_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'columnName' in kwargs:
+        if column_name is None and 'columnName' in kwargs:
             column_name = kwargs['columnName']
+        if column_name is None:
+            raise TypeError("Missing 'column_name' argument")
 
         _setter("column_name", column_name)
 
@@ -2183,18 +2243,20 @@ class AuthomationRuleActionIncidentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             order: pulumi.Input[int],
+             order: Optional[pulumi.Input[int]] = None,
              classification: Optional[pulumi.Input[str]] = None,
              classification_comment: Optional[pulumi.Input[str]] = None,
              labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              owner_id: Optional[pulumi.Input[str]] = None,
              severity: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'classificationComment' in kwargs:
+        if order is None:
+            raise TypeError("Missing 'order' argument")
+        if classification_comment is None and 'classificationComment' in kwargs:
             classification_comment = kwargs['classificationComment']
-        if 'ownerId' in kwargs:
+        if owner_id is None and 'ownerId' in kwargs:
             owner_id = kwargs['ownerId']
 
         _setter("order", order)
@@ -2322,14 +2384,18 @@ class AuthomationRuleActionPlaybookArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             logic_app_id: pulumi.Input[str],
-             order: pulumi.Input[int],
+             logic_app_id: Optional[pulumi.Input[str]] = None,
+             order: Optional[pulumi.Input[int]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'logicAppId' in kwargs:
+        if logic_app_id is None and 'logicAppId' in kwargs:
             logic_app_id = kwargs['logicAppId']
-        if 'tenantId' in kwargs:
+        if logic_app_id is None:
+            raise TypeError("Missing 'logic_app_id' argument")
+        if order is None:
+            raise TypeError("Missing 'order' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("logic_app_id", logic_app_id)
@@ -2394,11 +2460,17 @@ class AuthomationRuleConditionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: pulumi.Input[str],
-             property: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             operator: Optional[pulumi.Input[str]] = None,
+             property: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if property is None:
+            raise TypeError("Missing 'property' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("operator", operator)
         _setter("property", property)
@@ -2479,18 +2551,20 @@ class AutomationRuleActionIncidentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             order: pulumi.Input[int],
+             order: Optional[pulumi.Input[int]] = None,
              classification: Optional[pulumi.Input[str]] = None,
              classification_comment: Optional[pulumi.Input[str]] = None,
              labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              owner_id: Optional[pulumi.Input[str]] = None,
              severity: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'classificationComment' in kwargs:
+        if order is None:
+            raise TypeError("Missing 'order' argument")
+        if classification_comment is None and 'classificationComment' in kwargs:
             classification_comment = kwargs['classificationComment']
-        if 'ownerId' in kwargs:
+        if owner_id is None and 'ownerId' in kwargs:
             owner_id = kwargs['ownerId']
 
         _setter("order", order)
@@ -2618,14 +2692,18 @@ class AutomationRuleActionPlaybookArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             logic_app_id: pulumi.Input[str],
-             order: pulumi.Input[int],
+             logic_app_id: Optional[pulumi.Input[str]] = None,
+             order: Optional[pulumi.Input[int]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'logicAppId' in kwargs:
+        if logic_app_id is None and 'logicAppId' in kwargs:
             logic_app_id = kwargs['logicAppId']
-        if 'tenantId' in kwargs:
+        if logic_app_id is None:
+            raise TypeError("Missing 'logic_app_id' argument")
+        if order is None:
+            raise TypeError("Missing 'order' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("logic_app_id", logic_app_id)
@@ -2690,11 +2768,17 @@ class AutomationRuleConditionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: pulumi.Input[str],
-             property: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             operator: Optional[pulumi.Input[str]] = None,
+             property: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if property is None:
+            raise TypeError("Missing 'property' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("operator", operator)
         _setter("property", property)
@@ -2760,7 +2844,7 @@ class MetadataAuthorArgs:
              email: Optional[pulumi.Input[str]] = None,
              link: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
 
         if email is not None:
@@ -2826,7 +2910,7 @@ class MetadataCategoryArgs:
              _setter: Callable[[Any, Any], None],
              domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              verticals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
 
         if domains is not None:
@@ -2879,11 +2963,13 @@ class MetadataSourceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             kind: pulumi.Input[str],
+             kind: Optional[pulumi.Input[str]] = None,
              id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if kind is None:
+            raise TypeError("Missing 'kind' argument")
 
         _setter("kind", kind)
         if id is not None:
@@ -2951,12 +3037,14 @@ class MetadataSupportArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             tier: pulumi.Input[str],
+             tier: Optional[pulumi.Input[str]] = None,
              email: Optional[pulumi.Input[str]] = None,
              link: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if tier is None:
+            raise TypeError("Missing 'tier' argument")
 
         _setter("tier", tier)
         if email is not None:
@@ -3046,9 +3134,9 @@ class ThreatIntelligenceIndicatorExternalReferenceArgs:
              id: Optional[pulumi.Input[str]] = None,
              source_name: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'sourceName' in kwargs:
+        if source_name is None and 'sourceName' in kwargs:
             source_name = kwargs['sourceName']
 
         if description is not None:
@@ -3146,9 +3234,9 @@ class ThreatIntelligenceIndicatorGranularMarkingArgs:
              language: Optional[pulumi.Input[str]] = None,
              marking_ref: Optional[pulumi.Input[str]] = None,
              selectors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'markingRef' in kwargs:
+        if marking_ref is None and 'markingRef' in kwargs:
             marking_ref = kwargs['markingRef']
 
         if language is not None:
@@ -3210,7 +3298,7 @@ class ThreatIntelligenceIndicatorKillChainPhaseArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
 
         if name is not None:
@@ -3248,11 +3336,11 @@ class ThreatIntelligenceIndicatorParsedPatternArgs:
              _setter: Callable[[Any, Any], None],
              pattern_type_key: Optional[pulumi.Input[str]] = None,
              pattern_type_values: Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'patternTypeKey' in kwargs:
+        if pattern_type_key is None and 'patternTypeKey' in kwargs:
             pattern_type_key = kwargs['patternTypeKey']
-        if 'patternTypeValues' in kwargs:
+        if pattern_type_values is None and 'patternTypeValues' in kwargs:
             pattern_type_values = kwargs['patternTypeValues']
 
         if pattern_type_key is not None:
@@ -3304,9 +3392,9 @@ class ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArgs:
              _setter: Callable[[Any, Any], None],
              value: Optional[pulumi.Input[str]] = None,
              value_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'valueType' in kwargs:
+        if value_type is None and 'valueType' in kwargs:
             value_type = kwargs['valueType']
 
         if value is not None:

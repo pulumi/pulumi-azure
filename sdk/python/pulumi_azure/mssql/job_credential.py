@@ -35,14 +35,20 @@ class JobCredentialArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             job_agent_id: pulumi.Input[str],
-             password: pulumi.Input[str],
-             username: pulumi.Input[str],
+             job_agent_id: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'jobAgentId' in kwargs:
+        if job_agent_id is None and 'jobAgentId' in kwargs:
             job_agent_id = kwargs['jobAgentId']
+        if job_agent_id is None:
+            raise TypeError("Missing 'job_agent_id' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
 
         _setter("job_agent_id", job_agent_id)
         _setter("password", password)
@@ -127,9 +133,9 @@ class _JobCredentialState:
              name: Optional[pulumi.Input[str]] = None,
              password: Optional[pulumi.Input[str]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'jobAgentId' in kwargs:
+        if job_agent_id is None and 'jobAgentId' in kwargs:
             job_agent_id = kwargs['jobAgentId']
 
         if job_agent_id is not None:
@@ -203,32 +209,6 @@ class JobCredential(pulumi.CustomResource):
         """
         Manages an Elastic Job Credential.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="northeurope")
-        example_server = azure.mssql.Server("exampleServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            version="12.0",
-            administrator_login="4dm1n157r470r",
-            administrator_login_password="4-v3ry-53cr37-p455w0rd")
-        example_database = azure.mssql.Database("exampleDatabase",
-            server_id=example_server.id,
-            collation="SQL_Latin1_General_CP1_CI_AS",
-            sku_name="S1")
-        example_job_agent = azure.mssql.JobAgent("exampleJobAgent",
-            location=example_resource_group.location,
-            database_id=example_database.id)
-        example_job_credential = azure.mssql.JobCredential("exampleJobCredential",
-            job_agent_id=example_job_agent.id,
-            username="my-username",
-            password="MyP4ssw0rd!!!")
-        ```
-
         ## Import
 
         Elastic Job Credentials can be imported using the `resource id`, e.g.
@@ -252,32 +232,6 @@ class JobCredential(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Elastic Job Credential.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="northeurope")
-        example_server = azure.mssql.Server("exampleServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            version="12.0",
-            administrator_login="4dm1n157r470r",
-            administrator_login_password="4-v3ry-53cr37-p455w0rd")
-        example_database = azure.mssql.Database("exampleDatabase",
-            server_id=example_server.id,
-            collation="SQL_Latin1_General_CP1_CI_AS",
-            sku_name="S1")
-        example_job_agent = azure.mssql.JobAgent("exampleJobAgent",
-            location=example_resource_group.location,
-            database_id=example_database.id)
-        example_job_credential = azure.mssql.JobCredential("exampleJobCredential",
-            job_agent_id=example_job_agent.id,
-            username="my-username",
-            password="MyP4ssw0rd!!!")
-        ```
 
         ## Import
 

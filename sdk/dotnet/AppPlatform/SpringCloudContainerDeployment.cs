@@ -12,61 +12,6 @@ namespace Pulumi.Azure.AppPlatform
     /// <summary>
     /// Manages a Spring Cloud Container Deployment.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         SkuName = "E0",
-    ///     });
-    /// 
-    ///     var exampleSpringCloudApp = new Azure.AppPlatform.SpringCloudApp("exampleSpringCloudApp", new()
-    ///     {
-    ///         ResourceGroupName = exampleSpringCloudService.ResourceGroupName,
-    ///         ServiceName = exampleSpringCloudService.Name,
-    ///     });
-    /// 
-    ///     var exampleSpringCloudContainerDeployment = new Azure.AppPlatform.SpringCloudContainerDeployment("exampleSpringCloudContainerDeployment", new()
-    ///     {
-    ///         SpringCloudAppId = exampleSpringCloudApp.Id,
-    ///         InstanceCount = 2,
-    ///         Arguments = new[]
-    ///         {
-    ///             "-cp",
-    ///             "/app/resources:/app/classes:/app/libs/*",
-    ///             "hello.Application",
-    ///         },
-    ///         Commands = new[]
-    ///         {
-    ///             "java",
-    ///         },
-    ///         EnvironmentVariables = 
-    ///         {
-    ///             { "Foo", "Bar" },
-    ///             { "Env", "Staging" },
-    ///         },
-    ///         Server = "docker.io",
-    ///         Image = "springio/gs-spring-boot-docker",
-    ///         LanguageFramework = "springboot",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Spring Cloud Container Deployments can be imported using the `resource id`, e.g.

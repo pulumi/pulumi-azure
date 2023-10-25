@@ -49,24 +49,34 @@ class SpacecraftArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             links: pulumi.Input[Sequence[pulumi.Input['SpacecraftLinkArgs']]],
-             norad_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             title_line: pulumi.Input[str],
-             two_line_elements: pulumi.Input[Sequence[pulumi.Input[str]]],
+             links: Optional[pulumi.Input[Sequence[pulumi.Input['SpacecraftLinkArgs']]]] = None,
+             norad_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             title_line: Optional[pulumi.Input[str]] = None,
+             two_line_elements: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'noradId' in kwargs:
+        if links is None:
+            raise TypeError("Missing 'links' argument")
+        if norad_id is None and 'noradId' in kwargs:
             norad_id = kwargs['noradId']
-        if 'resourceGroupName' in kwargs:
+        if norad_id is None:
+            raise TypeError("Missing 'norad_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'titleLine' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if title_line is None and 'titleLine' in kwargs:
             title_line = kwargs['titleLine']
-        if 'twoLineElements' in kwargs:
+        if title_line is None:
+            raise TypeError("Missing 'title_line' argument")
+        if two_line_elements is None and 'twoLineElements' in kwargs:
             two_line_elements = kwargs['twoLineElements']
+        if two_line_elements is None:
+            raise TypeError("Missing 'two_line_elements' argument")
 
         _setter("links", links)
         _setter("norad_id", norad_id)
@@ -221,15 +231,15 @@ class _SpacecraftState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              title_line: Optional[pulumi.Input[str]] = None,
              two_line_elements: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'noradId' in kwargs:
+        if norad_id is None and 'noradId' in kwargs:
             norad_id = kwargs['noradId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'titleLine' in kwargs:
+        if title_line is None and 'titleLine' in kwargs:
             title_line = kwargs['titleLine']
-        if 'twoLineElements' in kwargs:
+        if two_line_elements is None and 'twoLineElements' in kwargs:
             two_line_elements = kwargs['twoLineElements']
 
         if links is not None:
@@ -363,34 +373,6 @@ class Spacecraft(pulumi.CustomResource):
         """
         Manages a Spacecraft.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_spacecraft = azure.orbital.Spacecraft("exampleSpacecraft",
-            resource_group_name=example_resource_group.name,
-            location="westeurope",
-            norad_id="12345",
-            links=[azure.orbital.SpacecraftLinkArgs(
-                bandwidth_mhz=100,
-                center_frequency_mhz=101,
-                direction="Uplink",
-                polarization="LHCP",
-                name="examplename",
-            )],
-            two_line_elements=[
-                "1 23455U 94089A   97320.90946019  .00000140  00000-0  10191-3 0  2621",
-                "2 23455  99.0090 272.6745 0008546 223.1686 136.8816 14.11711747148495",
-            ],
-            title_line="AQUA",
-            tags={
-                "aks-managed-cluster-name": "9a57225d-a405-4d40-aa46-f13d2342abef",
-            })
-        ```
-
         ## Import
 
         Spacecraft can be imported using the `resource id`, e.g.
@@ -418,34 +400,6 @@ class Spacecraft(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Spacecraft.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_spacecraft = azure.orbital.Spacecraft("exampleSpacecraft",
-            resource_group_name=example_resource_group.name,
-            location="westeurope",
-            norad_id="12345",
-            links=[azure.orbital.SpacecraftLinkArgs(
-                bandwidth_mhz=100,
-                center_frequency_mhz=101,
-                direction="Uplink",
-                polarization="LHCP",
-                name="examplename",
-            )],
-            two_line_elements=[
-                "1 23455U 94089A   97320.90946019  .00000140  00000-0  10191-3 0  2621",
-                "2 23455  99.0090 272.6745 0008546 223.1686 136.8816 14.11711747148495",
-            ],
-            title_line="AQUA",
-            tags={
-                "aks-managed-cluster-name": "9a57225d-a405-4d40-aa46-f13d2342abef",
-            })
-        ```
 
         ## Import
 

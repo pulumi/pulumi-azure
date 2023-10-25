@@ -9,32 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Mobile Network Slice.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleNetwork = new azure.mobile.Network("exampleNetwork", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     mobileCountryCode: "001",
- *     mobileNetworkCode: "01",
- * });
- * const exampleNetworkSlice = new azure.mobile.NetworkSlice("exampleNetworkSlice", {
- *     mobileNetworkId: exampleNetwork.id,
- *     location: exampleResourceGroup.location,
- *     description: "an example slice",
- *     singleNetworkSliceSelectionAssistanceInformation: {
- *         sliceServiceType: 1,
- *     },
- *     tags: {
- *         key: "value",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Mobile Network Slice can be imported using the `resource id`, e.g.

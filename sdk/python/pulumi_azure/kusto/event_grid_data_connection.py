@@ -71,12 +71,12 @@ class EventGridDataConnectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cluster_name: pulumi.Input[str],
-             database_name: pulumi.Input[str],
-             eventhub_consumer_group_name: pulumi.Input[str],
-             eventhub_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             storage_account_id: pulumi.Input[str],
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             eventhub_consumer_group_name: Optional[pulumi.Input[str]] = None,
+             eventhub_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             storage_account_id: Optional[pulumi.Input[str]] = None,
              blob_storage_event_type: Optional[pulumi.Input[str]] = None,
              data_format: Optional[pulumi.Input[str]] = None,
              database_routing_type: Optional[pulumi.Input[str]] = None,
@@ -87,35 +87,47 @@ class EventGridDataConnectionArgs:
              name: Optional[pulumi.Input[str]] = None,
              skip_first_record: Optional[pulumi.Input[bool]] = None,
              table_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'clusterName' in kwargs:
+        if cluster_name is None and 'clusterName' in kwargs:
             cluster_name = kwargs['clusterName']
-        if 'databaseName' in kwargs:
+        if cluster_name is None:
+            raise TypeError("Missing 'cluster_name' argument")
+        if database_name is None and 'databaseName' in kwargs:
             database_name = kwargs['databaseName']
-        if 'eventhubConsumerGroupName' in kwargs:
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if eventhub_consumer_group_name is None and 'eventhubConsumerGroupName' in kwargs:
             eventhub_consumer_group_name = kwargs['eventhubConsumerGroupName']
-        if 'eventhubId' in kwargs:
+        if eventhub_consumer_group_name is None:
+            raise TypeError("Missing 'eventhub_consumer_group_name' argument")
+        if eventhub_id is None and 'eventhubId' in kwargs:
             eventhub_id = kwargs['eventhubId']
-        if 'resourceGroupName' in kwargs:
+        if eventhub_id is None:
+            raise TypeError("Missing 'eventhub_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'storageAccountId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'blobStorageEventType' in kwargs:
+        if storage_account_id is None:
+            raise TypeError("Missing 'storage_account_id' argument")
+        if blob_storage_event_type is None and 'blobStorageEventType' in kwargs:
             blob_storage_event_type = kwargs['blobStorageEventType']
-        if 'dataFormat' in kwargs:
+        if data_format is None and 'dataFormat' in kwargs:
             data_format = kwargs['dataFormat']
-        if 'databaseRoutingType' in kwargs:
+        if database_routing_type is None and 'databaseRoutingType' in kwargs:
             database_routing_type = kwargs['databaseRoutingType']
-        if 'eventgridResourceId' in kwargs:
+        if eventgrid_resource_id is None and 'eventgridResourceId' in kwargs:
             eventgrid_resource_id = kwargs['eventgridResourceId']
-        if 'managedIdentityResourceId' in kwargs:
+        if managed_identity_resource_id is None and 'managedIdentityResourceId' in kwargs:
             managed_identity_resource_id = kwargs['managedIdentityResourceId']
-        if 'mappingRuleName' in kwargs:
+        if mapping_rule_name is None and 'mappingRuleName' in kwargs:
             mapping_rule_name = kwargs['mappingRuleName']
-        if 'skipFirstRecord' in kwargs:
+        if skip_first_record is None and 'skipFirstRecord' in kwargs:
             skip_first_record = kwargs['skipFirstRecord']
-        if 'tableName' in kwargs:
+        if table_name is None and 'tableName' in kwargs:
             table_name = kwargs['tableName']
 
         _setter("cluster_name", cluster_name)
@@ -414,35 +426,35 @@ class _EventGridDataConnectionState:
              skip_first_record: Optional[pulumi.Input[bool]] = None,
              storage_account_id: Optional[pulumi.Input[str]] = None,
              table_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'blobStorageEventType' in kwargs:
+        if blob_storage_event_type is None and 'blobStorageEventType' in kwargs:
             blob_storage_event_type = kwargs['blobStorageEventType']
-        if 'clusterName' in kwargs:
+        if cluster_name is None and 'clusterName' in kwargs:
             cluster_name = kwargs['clusterName']
-        if 'dataFormat' in kwargs:
+        if data_format is None and 'dataFormat' in kwargs:
             data_format = kwargs['dataFormat']
-        if 'databaseName' in kwargs:
+        if database_name is None and 'databaseName' in kwargs:
             database_name = kwargs['databaseName']
-        if 'databaseRoutingType' in kwargs:
+        if database_routing_type is None and 'databaseRoutingType' in kwargs:
             database_routing_type = kwargs['databaseRoutingType']
-        if 'eventgridResourceId' in kwargs:
+        if eventgrid_resource_id is None and 'eventgridResourceId' in kwargs:
             eventgrid_resource_id = kwargs['eventgridResourceId']
-        if 'eventhubConsumerGroupName' in kwargs:
+        if eventhub_consumer_group_name is None and 'eventhubConsumerGroupName' in kwargs:
             eventhub_consumer_group_name = kwargs['eventhubConsumerGroupName']
-        if 'eventhubId' in kwargs:
+        if eventhub_id is None and 'eventhubId' in kwargs:
             eventhub_id = kwargs['eventhubId']
-        if 'managedIdentityResourceId' in kwargs:
+        if managed_identity_resource_id is None and 'managedIdentityResourceId' in kwargs:
             managed_identity_resource_id = kwargs['managedIdentityResourceId']
-        if 'mappingRuleName' in kwargs:
+        if mapping_rule_name is None and 'mappingRuleName' in kwargs:
             mapping_rule_name = kwargs['mappingRuleName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skipFirstRecord' in kwargs:
+        if skip_first_record is None and 'skipFirstRecord' in kwargs:
             skip_first_record = kwargs['skipFirstRecord']
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'tableName' in kwargs:
+        if table_name is None and 'tableName' in kwargs:
             table_name = kwargs['tableName']
 
         if blob_storage_event_type is not None:
@@ -696,70 +708,6 @@ class EventGridDataConnection(pulumi.CustomResource):
         """
         Manages a Kusto (also known as Azure Data Explorer) Event Grid Data Connection
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_cluster = azure.kusto.Cluster("exampleCluster",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Standard_D13_v2",
-                capacity=2,
-            ))
-        example_database = azure.kusto.Database("exampleDatabase",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            cluster_name=example_cluster.name,
-            hot_cache_period="P7D",
-            soft_delete_period="P31D")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard")
-        example_event_hub = azure.eventhub.EventHub("exampleEventHub",
-            namespace_name=example_event_hub_namespace.name,
-            resource_group_name=example_resource_group.name,
-            partition_count=1,
-            message_retention=1)
-        example_consumer_group = azure.eventhub.ConsumerGroup("exampleConsumerGroup",
-            namespace_name=example_event_hub_namespace.name,
-            eventhub_name=example_event_hub.name,
-            resource_group_name=example_resource_group.name)
-        example_event_subscription = azure.eventgrid.EventSubscription("exampleEventSubscription",
-            scope=example_account.id,
-            eventhub_endpoint_id=example_event_hub.id,
-            event_delivery_schema="EventGridSchema",
-            included_event_types=[
-                "Microsoft.Storage.BlobCreated",
-                "Microsoft.Storage.BlobRenamed",
-            ],
-            retry_policy=azure.eventgrid.EventSubscriptionRetryPolicyArgs(
-                event_time_to_live=144,
-                max_delivery_attempts=10,
-            ))
-        example_event_grid_data_connection = azure.kusto.EventGridDataConnection("exampleEventGridDataConnection",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            cluster_name=example_cluster.name,
-            database_name=example_database.name,
-            storage_account_id=example_account.id,
-            eventhub_id=example_event_hub.id,
-            eventhub_consumer_group_name=example_consumer_group.name,
-            table_name="my-table",
-            mapping_rule_name="my-table-mapping",
-            data_format="JSON",
-            opts=pulumi.ResourceOptions(depends_on=[example_event_subscription]))
-        ```
-
         ## Import
 
         Kusto Event Grid Data Connections can be imported using the `resource id`, e.g.
@@ -795,70 +743,6 @@ class EventGridDataConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Kusto (also known as Azure Data Explorer) Event Grid Data Connection
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_cluster = azure.kusto.Cluster("exampleCluster",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Standard_D13_v2",
-                capacity=2,
-            ))
-        example_database = azure.kusto.Database("exampleDatabase",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            cluster_name=example_cluster.name,
-            hot_cache_period="P7D",
-            soft_delete_period="P31D")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard")
-        example_event_hub = azure.eventhub.EventHub("exampleEventHub",
-            namespace_name=example_event_hub_namespace.name,
-            resource_group_name=example_resource_group.name,
-            partition_count=1,
-            message_retention=1)
-        example_consumer_group = azure.eventhub.ConsumerGroup("exampleConsumerGroup",
-            namespace_name=example_event_hub_namespace.name,
-            eventhub_name=example_event_hub.name,
-            resource_group_name=example_resource_group.name)
-        example_event_subscription = azure.eventgrid.EventSubscription("exampleEventSubscription",
-            scope=example_account.id,
-            eventhub_endpoint_id=example_event_hub.id,
-            event_delivery_schema="EventGridSchema",
-            included_event_types=[
-                "Microsoft.Storage.BlobCreated",
-                "Microsoft.Storage.BlobRenamed",
-            ],
-            retry_policy=azure.eventgrid.EventSubscriptionRetryPolicyArgs(
-                event_time_to_live=144,
-                max_delivery_attempts=10,
-            ))
-        example_event_grid_data_connection = azure.kusto.EventGridDataConnection("exampleEventGridDataConnection",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            cluster_name=example_cluster.name,
-            database_name=example_database.name,
-            storage_account_id=example_account.id,
-            eventhub_id=example_event_hub.id,
-            eventhub_consumer_group_name=example_consumer_group.name,
-            table_name="my-table",
-            mapping_rule_name="my-table-mapping",
-            data_format="JSON",
-            opts=pulumi.ResourceOptions(depends_on=[example_event_subscription]))
-        ```
 
         ## Import
 

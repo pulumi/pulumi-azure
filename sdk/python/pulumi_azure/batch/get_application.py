@@ -117,18 +117,6 @@ def get_application(account_name: Optional[str] = None,
     """
     Use this data source to access information about an existing Batch Application instance.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.batch.get_application(name="testapplication",
-        resource_group_name="test",
-        account_name="testbatchaccount")
-    pulumi.export("batchApplicationId", example.id)
-    ```
-
 
     :param str account_name: The name of the Batch account.
     :param str name: The name of the Application.
@@ -158,18 +146,6 @@ def get_application_output(account_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
     """
     Use this data source to access information about an existing Batch Application instance.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.batch.get_application(name="testapplication",
-        resource_group_name="test",
-        account_name="testbatchaccount")
-    pulumi.export("batchApplicationId", example.id)
-    ```
 
 
     :param str account_name: The name of the Batch account.

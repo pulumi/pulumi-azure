@@ -13,35 +13,6 @@ import (
 )
 
 // Use this data source to access information about existing Public Maintenance Configurations.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/maintenance"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			existing, err := maintenance.GetPublicConfigurations(ctx, &maintenance.GetPublicConfigurationsArgs{
-//				Location:   pulumi.StringRef("West Europe"),
-//				Scope:      pulumi.StringRef("SQLManagedInstance"),
-//				RecurEvery: pulumi.StringRef("Monday-Thursday"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("name", existing.Configs[0].Name)
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetPublicConfigurations(ctx *pulumi.Context, args *GetPublicConfigurationsArgs, opts ...pulumi.InvokeOption) (*GetPublicConfigurationsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPublicConfigurationsResult

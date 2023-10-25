@@ -15,52 +15,6 @@ import (
 
 // Manages a MySQL Database within a MySQL Flexible Server
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mysql"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleFlexibleServer, err := mysql.NewFlexibleServer(ctx, "exampleFlexibleServer", &mysql.FlexibleServerArgs{
-//				ResourceGroupName:     exampleResourceGroup.Name,
-//				Location:              exampleResourceGroup.Location,
-//				AdministratorLogin:    pulumi.String("mysqladminun"),
-//				AdministratorPassword: pulumi.String("H@Sh1CoR3!"),
-//				SkuName:               pulumi.String("B_Standard_B1s"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mysql.NewFlexibleDatabase(ctx, "exampleFlexibleDatabase", &mysql.FlexibleDatabaseArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				ServerName:        exampleFlexibleServer.Name,
-//				Charset:           pulumi.String("utf8"),
-//				Collation:         pulumi.String("utf8_unicode_ci"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // MySQL Database's can be imported using the `resource id`, e.g.

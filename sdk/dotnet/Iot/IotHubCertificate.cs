@@ -12,48 +12,6 @@ namespace Pulumi.Azure.Iot
     /// <summary>
     /// Manages an IotHub Device Provisioning Service Certificate.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System;
-    /// using System.Collections.Generic;
-    /// using System.IO;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// 	private static string ReadFileBase64(string path) {
-    /// 		return Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(File.ReadAllText(path)));
-    /// 	}
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleIotHubDps = new Azure.Iot.IotHubDps("exampleIotHubDps", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         Sku = new Azure.Iot.Inputs.IotHubDpsSkuArgs
-    ///         {
-    ///             Name = "S1",
-    ///             Capacity = 1,
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleIotHubCertificate = new Azure.Iot.IotHubCertificate("exampleIotHubCertificate", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         IotDpsName = exampleIotHubDps.Name,
-    ///         CertificateContent = ReadFileBase64("example.cer"),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// IoTHub Device Provisioning Service Certificates can be imported using the `resource id`, e.g.

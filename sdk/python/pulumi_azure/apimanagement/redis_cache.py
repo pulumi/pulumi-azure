@@ -41,21 +41,25 @@ class RedisCacheArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_management_id: pulumi.Input[str],
-             connection_string: pulumi.Input[str],
+             api_management_id: Optional[pulumi.Input[str]] = None,
+             connection_string: Optional[pulumi.Input[str]] = None,
              cache_location: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              redis_cache_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementId' in kwargs:
+        if api_management_id is None and 'apiManagementId' in kwargs:
             api_management_id = kwargs['apiManagementId']
-        if 'connectionString' in kwargs:
+        if api_management_id is None:
+            raise TypeError("Missing 'api_management_id' argument")
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
-        if 'cacheLocation' in kwargs:
+        if connection_string is None:
+            raise TypeError("Missing 'connection_string' argument")
+        if cache_location is None and 'cacheLocation' in kwargs:
             cache_location = kwargs['cacheLocation']
-        if 'redisCacheId' in kwargs:
+        if redis_cache_id is None and 'redisCacheId' in kwargs:
             redis_cache_id = kwargs['redisCacheId']
 
         _setter("api_management_id", api_management_id)
@@ -178,15 +182,15 @@ class _RedisCacheState:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              redis_cache_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementId' in kwargs:
+        if api_management_id is None and 'apiManagementId' in kwargs:
             api_management_id = kwargs['apiManagementId']
-        if 'cacheLocation' in kwargs:
+        if cache_location is None and 'cacheLocation' in kwargs:
             cache_location = kwargs['cacheLocation']
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
-        if 'redisCacheId' in kwargs:
+        if redis_cache_id is None and 'redisCacheId' in kwargs:
             redis_cache_id = kwargs['redisCacheId']
 
         if api_management_id is not None:
@@ -290,36 +294,6 @@ class RedisCache(pulumi.CustomResource):
         """
         Manages a API Management Redis Cache.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            publisher_name="pub1",
-            publisher_email="pub1@email.com",
-            sku_name="Consumption_0")
-        example_cache = azure.redis.Cache("exampleCache",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            capacity=1,
-            family="C",
-            sku_name="Basic",
-            enable_non_ssl_port=False,
-            minimum_tls_version="1.2",
-            redis_configuration=azure.redis.CacheRedisConfigurationArgs())
-        example_redis_cache = azure.apimanagement.RedisCache("exampleRedisCache",
-            api_management_id=example_service.id,
-            connection_string=example_cache.primary_connection_string,
-            description="Redis cache instances",
-            redis_cache_id=example_cache.id,
-            cache_location="East Us")
-        ```
-
         ## Import
 
         API Management Redis Caches can be imported using the `resource id`, e.g.
@@ -345,36 +319,6 @@ class RedisCache(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a API Management Redis Cache.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            publisher_name="pub1",
-            publisher_email="pub1@email.com",
-            sku_name="Consumption_0")
-        example_cache = azure.redis.Cache("exampleCache",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            capacity=1,
-            family="C",
-            sku_name="Basic",
-            enable_non_ssl_port=False,
-            minimum_tls_version="1.2",
-            redis_configuration=azure.redis.CacheRedisConfigurationArgs())
-        example_redis_cache = azure.apimanagement.RedisCache("exampleRedisCache",
-            api_management_id=example_service.id,
-            connection_string=example_cache.primary_connection_string,
-            description="Redis cache instances",
-            redis_cache_id=example_cache.id,
-            cache_location="East Us")
-        ```
 
         ## Import
 

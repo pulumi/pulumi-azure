@@ -9,59 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages the Network ACL for a Web Pubsub.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "east us"});
- * const exampleService = new azure.webpubsub.Service("exampleService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "Standard_S1",
- *     capacity: 1,
- * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     addressSpaces: ["10.5.0.0/16"],
- * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.5.2.0/24"],
- *     enforcePrivateLinkEndpointNetworkPolicies: true,
- * });
- * const exampleEndpoint = new azure.privatelink.Endpoint("exampleEndpoint", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     subnetId: exampleSubnet.id,
- *     privateServiceConnection: {
- *         name: "psc-sig-test",
- *         isManualConnection: false,
- *         privateConnectionResourceId: exampleService.id,
- *         subresourceNames: ["webpubsub"],
- *     },
- * });
- * const exampleNetworkAcl = new azure.webpubsub.NetworkAcl("exampleNetworkAcl", {
- *     webPubsubId: exampleService.id,
- *     defaultAction: "Allow",
- *     publicNetwork: {
- *         deniedRequestTypes: ["ClientConnection"],
- *     },
- *     privateEndpoints: [{
- *         id: exampleEndpoint.id,
- *         deniedRequestTypes: [
- *             "RESTAPI",
- *             "ClientConnection",
- *         ],
- *     }],
- * }, {
- *     dependsOn: [exampleEndpoint],
- * });
- * ```
- *
  * ## Import
  *
  * Network ACLs for a Web Pubsub service can be imported using the `resource id`, e.g.

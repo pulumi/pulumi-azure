@@ -46,20 +46,26 @@ class CNameRecordArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             ttl: pulumi.Input[int],
-             zone_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             ttl: Optional[pulumi.Input[int]] = None,
+             zone_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              record: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              target_resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'zoneName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if ttl is None:
+            raise TypeError("Missing 'ttl' argument")
+        if zone_name is None and 'zoneName' in kwargs:
             zone_name = kwargs['zoneName']
-        if 'targetResourceId' in kwargs:
+        if zone_name is None:
+            raise TypeError("Missing 'zone_name' argument")
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
 
         _setter("resource_group_name", resource_group_name)
@@ -207,13 +213,13 @@ class _CNameRecordState:
              target_resource_id: Optional[pulumi.Input[str]] = None,
              ttl: Optional[pulumi.Input[int]] = None,
              zone_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'targetResourceId' in kwargs:
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
-        if 'zoneName' in kwargs:
+        if zone_name is None and 'zoneName' in kwargs:
             zone_name = kwargs['zoneName']
 
         if fqdn is not None:
@@ -346,40 +352,6 @@ class CNameRecord(pulumi.CustomResource):
                  zone_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_zone = azure.dns.Zone("exampleZone", resource_group_name=example_resource_group.name)
-        example_c_name_record = azure.dns.CNameRecord("exampleCNameRecord",
-            zone_name=example_zone.name,
-            resource_group_name=example_resource_group.name,
-            ttl=300,
-            record="contoso.com")
-        ```
-        ### Alias Record)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_zone = azure.dns.Zone("exampleZone", resource_group_name=example_resource_group.name)
-        target = azure.dns.CNameRecord("target",
-            zone_name=example_zone.name,
-            resource_group_name=example_resource_group.name,
-            ttl=300,
-            record="contoso.com")
-        example_c_name_record = azure.dns.CNameRecord("exampleCNameRecord",
-            zone_name=example_zone.name,
-            resource_group_name=example_resource_group.name,
-            ttl=300,
-            target_resource_id=target.id)
-        ```
-
         ## Import
 
         CNAME records can be imported using the `resource id`, e.g.
@@ -407,40 +379,6 @@ class CNameRecord(pulumi.CustomResource):
                  args: CNameRecordArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_zone = azure.dns.Zone("exampleZone", resource_group_name=example_resource_group.name)
-        example_c_name_record = azure.dns.CNameRecord("exampleCNameRecord",
-            zone_name=example_zone.name,
-            resource_group_name=example_resource_group.name,
-            ttl=300,
-            record="contoso.com")
-        ```
-        ### Alias Record)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_zone = azure.dns.Zone("exampleZone", resource_group_name=example_resource_group.name)
-        target = azure.dns.CNameRecord("target",
-            zone_name=example_zone.name,
-            resource_group_name=example_resource_group.name,
-            ttl=300,
-            record="contoso.com")
-        example_c_name_record = azure.dns.CNameRecord("exampleCNameRecord",
-            zone_name=example_zone.name,
-            resource_group_name=example_resource_group.name,
-            ttl=300,
-            target_resource_id=target.id)
-        ```
-
         ## Import
 
         CNAME records can be imported using the `resource id`, e.g.

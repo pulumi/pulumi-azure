@@ -15,61 +15,6 @@ namespace Pulumi.Azure.AppService
     /// !&gt; **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `azure.appservice.LinuxFunctionAppSlot` resources instead.
     /// 
     /// ## Example Usage
-    /// ### With App Service Plan)
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         AccountTier = "Standard",
-    ///         AccountReplicationType = "LRS",
-    ///     });
-    /// 
-    ///     var examplePlan = new Azure.AppService.Plan("examplePlan", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
-    ///         {
-    ///             Tier = "Standard",
-    ///             Size = "S1",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleFunctionApp = new Azure.AppService.FunctionApp("exampleFunctionApp", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         AppServicePlanId = examplePlan.Id,
-    ///         StorageAccountName = exampleAccount.Name,
-    ///         StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
-    ///     });
-    /// 
-    ///     var exampleFunctionAppSlot = new Azure.AppService.FunctionAppSlot("exampleFunctionAppSlot", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         AppServicePlanId = examplePlan.Id,
-    ///         FunctionAppName = exampleFunctionApp.Name,
-    ///         StorageAccountName = exampleAccount.Name,
-    ///         StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

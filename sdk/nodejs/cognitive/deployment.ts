@@ -9,32 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Cognitive Services Account Deployment.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.cognitive.Account("exampleAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     kind: "OpenAI",
- *     skuName: "S0",
- * });
- * const exampleDeployment = new azure.cognitive.Deployment("exampleDeployment", {
- *     cognitiveAccountId: exampleAccount.id,
- *     model: {
- *         format: "OpenAI",
- *         name: "text-curie-001",
- *         version: "1",
- *     },
- *     scale: {
- *         type: "Standard",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Cognitive Services Account Deployment can be imported using the `resource id`, e.g.

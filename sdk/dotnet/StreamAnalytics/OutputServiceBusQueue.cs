@@ -12,58 +12,6 @@ namespace Pulumi.Azure.StreamAnalytics
     /// <summary>
     /// Manages a Stream Analytics Output to a ServiceBus Queue.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleJob = Azure.StreamAnalytics.GetJob.Invoke(new()
-    ///     {
-    ///         Name = "example-job",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///     });
-    /// 
-    ///     var exampleNamespace = new Azure.ServiceBus.Namespace("exampleNamespace", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Sku = "Standard",
-    ///     });
-    /// 
-    ///     var exampleQueue = new Azure.ServiceBus.Queue("exampleQueue", new()
-    ///     {
-    ///         NamespaceId = exampleNamespace.Id,
-    ///         EnablePartitioning = true,
-    ///     });
-    /// 
-    ///     var exampleOutputServiceBusQueue = new Azure.StreamAnalytics.OutputServiceBusQueue("exampleOutputServiceBusQueue", new()
-    ///     {
-    ///         StreamAnalyticsJobName = exampleJob.Apply(getJobResult =&gt; getJobResult.Name),
-    ///         ResourceGroupName = exampleJob.Apply(getJobResult =&gt; getJobResult.ResourceGroupName),
-    ///         QueueName = exampleQueue.Name,
-    ///         ServicebusNamespace = exampleNamespace.Name,
-    ///         SharedAccessPolicyKey = exampleNamespace.DefaultPrimaryKey,
-    ///         SharedAccessPolicyName = "RootManageSharedAccessKey",
-    ///         Serialization = new Azure.StreamAnalytics.Inputs.OutputServiceBusQueueSerializationArgs
-    ///         {
-    ///             Type = "Csv",
-    ///             Format = "Array",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Stream Analytics Output ServiceBus Queue's can be imported using the `resource id`, e.g.

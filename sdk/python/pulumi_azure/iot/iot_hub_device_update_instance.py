@@ -43,21 +43,25 @@ class IotHubDeviceUpdateInstanceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             device_update_account_id: pulumi.Input[str],
-             iothub_id: pulumi.Input[str],
+             device_update_account_id: Optional[pulumi.Input[str]] = None,
+             iothub_id: Optional[pulumi.Input[str]] = None,
              diagnostic_enabled: Optional[pulumi.Input[bool]] = None,
              diagnostic_storage_account: Optional[pulumi.Input['IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'deviceUpdateAccountId' in kwargs:
+        if device_update_account_id is None and 'deviceUpdateAccountId' in kwargs:
             device_update_account_id = kwargs['deviceUpdateAccountId']
-        if 'iothubId' in kwargs:
+        if device_update_account_id is None:
+            raise TypeError("Missing 'device_update_account_id' argument")
+        if iothub_id is None and 'iothubId' in kwargs:
             iothub_id = kwargs['iothubId']
-        if 'diagnosticEnabled' in kwargs:
+        if iothub_id is None:
+            raise TypeError("Missing 'iothub_id' argument")
+        if diagnostic_enabled is None and 'diagnosticEnabled' in kwargs:
             diagnostic_enabled = kwargs['diagnosticEnabled']
-        if 'diagnosticStorageAccount' in kwargs:
+        if diagnostic_storage_account is None and 'diagnosticStorageAccount' in kwargs:
             diagnostic_storage_account = kwargs['diagnosticStorageAccount']
 
         _setter("device_update_account_id", device_update_account_id)
@@ -180,15 +184,15 @@ class _IotHubDeviceUpdateInstanceState:
              iothub_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'deviceUpdateAccountId' in kwargs:
+        if device_update_account_id is None and 'deviceUpdateAccountId' in kwargs:
             device_update_account_id = kwargs['deviceUpdateAccountId']
-        if 'diagnosticEnabled' in kwargs:
+        if diagnostic_enabled is None and 'diagnosticEnabled' in kwargs:
             diagnostic_enabled = kwargs['diagnosticEnabled']
-        if 'diagnosticStorageAccount' in kwargs:
+        if diagnostic_storage_account is None and 'diagnosticStorageAccount' in kwargs:
             diagnostic_storage_account = kwargs['diagnosticStorageAccount']
-        if 'iothubId' in kwargs:
+        if iothub_id is None and 'iothubId' in kwargs:
             iothub_id = kwargs['iothubId']
 
         if device_update_account_id is not None:
@@ -292,41 +296,6 @@ class IotHubDeviceUpdateInstance(pulumi.CustomResource):
         """
         Manages an IoT Hub Device Update Instance.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="East US")
-        example_iot_hub_device_update_account = azure.iot.IotHubDeviceUpdateAccount("exampleIotHubDeviceUpdateAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="S1",
-                capacity=1,
-            ))
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_iot_hub_device_update_instance = azure.iot.IotHubDeviceUpdateInstance("exampleIotHubDeviceUpdateInstance",
-            device_update_account_id=example_iot_hub_device_update_account.id,
-            iothub_id=example_io_t_hub.id,
-            diagnostic_enabled=True,
-            diagnostic_storage_account=azure.iot.IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs(
-                connection_string=example_account.primary_connection_string,
-                id=example_account.id,
-            ),
-            tags={
-                "key": "value",
-            })
-        ```
-
         ## Import
 
         IoT Hub Device Update Instance can be imported using the `resource id`, e.g.
@@ -352,41 +321,6 @@ class IotHubDeviceUpdateInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an IoT Hub Device Update Instance.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="East US")
-        example_iot_hub_device_update_account = azure.iot.IotHubDeviceUpdateAccount("exampleIotHubDeviceUpdateAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="S1",
-                capacity=1,
-            ))
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_iot_hub_device_update_instance = azure.iot.IotHubDeviceUpdateInstance("exampleIotHubDeviceUpdateInstance",
-            device_update_account_id=example_iot_hub_device_update_account.id,
-            iothub_id=example_io_t_hub.id,
-            diagnostic_enabled=True,
-            diagnostic_storage_account=azure.iot.IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs(
-                connection_string=example_account.primary_connection_string,
-                id=example_account.id,
-            ),
-            tags={
-                "key": "value",
-            })
-        ```
 
         ## Import
 
@@ -434,11 +368,7 @@ class IotHubDeviceUpdateInstance(pulumi.CustomResource):
                 raise TypeError("Missing required property 'device_update_account_id'")
             __props__.__dict__["device_update_account_id"] = device_update_account_id
             __props__.__dict__["diagnostic_enabled"] = diagnostic_enabled
-            if diagnostic_storage_account is not None and not isinstance(diagnostic_storage_account, IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs):
-                diagnostic_storage_account = diagnostic_storage_account or {}
-                def _setter(key, value):
-                    diagnostic_storage_account[key] = value
-                IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs._configure(_setter, **diagnostic_storage_account)
+            diagnostic_storage_account = _utilities.configure(diagnostic_storage_account, IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs, True)
             __props__.__dict__["diagnostic_storage_account"] = diagnostic_storage_account
             if iothub_id is None and not opts.urn:
                 raise TypeError("Missing required property 'iothub_id'")

@@ -47,23 +47,29 @@ class DscConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             automation_account_name: pulumi.Input[str],
-             content_embedded: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             automation_account_name: Optional[pulumi.Input[str]] = None,
+             content_embedded: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              log_verbose: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'automationAccountName' in kwargs:
+        if automation_account_name is None and 'automationAccountName' in kwargs:
             automation_account_name = kwargs['automationAccountName']
-        if 'contentEmbedded' in kwargs:
+        if automation_account_name is None:
+            raise TypeError("Missing 'automation_account_name' argument")
+        if content_embedded is None and 'contentEmbedded' in kwargs:
             content_embedded = kwargs['contentEmbedded']
-        if 'resourceGroupName' in kwargs:
+        if content_embedded is None:
+            raise TypeError("Missing 'content_embedded' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'logVerbose' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if log_verbose is None and 'logVerbose' in kwargs:
             log_verbose = kwargs['logVerbose']
 
         _setter("automation_account_name", automation_account_name)
@@ -224,15 +230,15 @@ class _DscConfigurationState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              state: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'automationAccountName' in kwargs:
+        if automation_account_name is None and 'automationAccountName' in kwargs:
             automation_account_name = kwargs['automationAccountName']
-        if 'contentEmbedded' in kwargs:
+        if content_embedded is None and 'contentEmbedded' in kwargs:
             content_embedded = kwargs['contentEmbedded']
-        if 'logVerbose' in kwargs:
+        if log_verbose is None and 'logVerbose' in kwargs:
             log_verbose = kwargs['logVerbose']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if automation_account_name is not None:
@@ -377,24 +383,6 @@ class DscConfiguration(pulumi.CustomResource):
         """
         Manages a Automation DSC Configuration.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.automation.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Basic")
-        example_dsc_configuration = azure.automation.DscConfiguration("exampleDscConfiguration",
-            resource_group_name=example_resource_group.name,
-            automation_account_name=example_account.name,
-            location=example_resource_group.location,
-            content_embedded="configuration test {}")
-        ```
-
         ## Import
 
         Automation DSC Configuration's can be imported using the `resource id`, e.g.
@@ -422,24 +410,6 @@ class DscConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Automation DSC Configuration.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.automation.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Basic")
-        example_dsc_configuration = azure.automation.DscConfiguration("exampleDscConfiguration",
-            resource_group_name=example_resource_group.name,
-            automation_account_name=example_account.name,
-            location=example_resource_group.location,
-            content_embedded="configuration test {}")
-        ```
 
         ## Import
 

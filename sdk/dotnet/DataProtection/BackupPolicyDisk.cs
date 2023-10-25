@@ -12,65 +12,6 @@ namespace Pulumi.Azure.DataProtection
     /// <summary>
     /// Manages a Backup Policy Disk.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleBackupVault = new Azure.DataProtection.BackupVault("exampleBackupVault", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         DatastoreType = "VaultStore",
-    ///         Redundancy = "LocallyRedundant",
-    ///     });
-    /// 
-    ///     var exampleBackupPolicyDisk = new Azure.DataProtection.BackupPolicyDisk("exampleBackupPolicyDisk", new()
-    ///     {
-    ///         VaultId = exampleBackupVault.Id,
-    ///         BackupRepeatingTimeIntervals = new[]
-    ///         {
-    ///             "R/2021-05-19T06:33:16+00:00/PT4H",
-    ///         },
-    ///         DefaultRetentionDuration = "P7D",
-    ///         RetentionRules = new[]
-    ///         {
-    ///             new Azure.DataProtection.Inputs.BackupPolicyDiskRetentionRuleArgs
-    ///             {
-    ///                 Name = "Daily",
-    ///                 Duration = "P7D",
-    ///                 Priority = 25,
-    ///                 Criteria = new Azure.DataProtection.Inputs.BackupPolicyDiskRetentionRuleCriteriaArgs
-    ///                 {
-    ///                     AbsoluteCriteria = "FirstOfDay",
-    ///                 },
-    ///             },
-    ///             new Azure.DataProtection.Inputs.BackupPolicyDiskRetentionRuleArgs
-    ///             {
-    ///                 Name = "Weekly",
-    ///                 Duration = "P7D",
-    ///                 Priority = 20,
-    ///                 Criteria = new Azure.DataProtection.Inputs.BackupPolicyDiskRetentionRuleCriteriaArgs
-    ///                 {
-    ///                     AbsoluteCriteria = "FirstOfWeek",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Backup Policy Disks can be imported using the `resource id`, e.g.

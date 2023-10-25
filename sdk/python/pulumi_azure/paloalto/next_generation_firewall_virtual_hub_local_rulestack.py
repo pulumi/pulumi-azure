@@ -39,24 +39,30 @@ class NextGenerationFirewallVirtualHubLocalRulestackArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             network_profile: pulumi.Input['NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileArgs'],
-             resource_group_name: pulumi.Input[str],
-             rulestack_id: pulumi.Input[str],
+             network_profile: Optional[pulumi.Input['NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             rulestack_id: Optional[pulumi.Input[str]] = None,
              destination_nats: Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArgs']]]] = None,
              dns_settings: Optional[pulumi.Input['NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'networkProfile' in kwargs:
+        if network_profile is None and 'networkProfile' in kwargs:
             network_profile = kwargs['networkProfile']
-        if 'resourceGroupName' in kwargs:
+        if network_profile is None:
+            raise TypeError("Missing 'network_profile' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'rulestackId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if rulestack_id is None and 'rulestackId' in kwargs:
             rulestack_id = kwargs['rulestackId']
-        if 'destinationNats' in kwargs:
+        if rulestack_id is None:
+            raise TypeError("Missing 'rulestack_id' argument")
+        if destination_nats is None and 'destinationNats' in kwargs:
             destination_nats = kwargs['destinationNats']
-        if 'dnsSettings' in kwargs:
+        if dns_settings is None and 'dnsSettings' in kwargs:
             dns_settings = kwargs['dnsSettings']
 
         _setter("network_profile", network_profile)
@@ -168,17 +174,17 @@ class _NextGenerationFirewallVirtualHubLocalRulestackState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              rulestack_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'destinationNats' in kwargs:
+        if destination_nats is None and 'destinationNats' in kwargs:
             destination_nats = kwargs['destinationNats']
-        if 'dnsSettings' in kwargs:
+        if dns_settings is None and 'dnsSettings' in kwargs:
             dns_settings = kwargs['dnsSettings']
-        if 'networkProfile' in kwargs:
+        if network_profile is None and 'networkProfile' in kwargs:
             network_profile = kwargs['networkProfile']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'rulestackId' in kwargs:
+        if rulestack_id is None and 'rulestackId' in kwargs:
             rulestack_id = kwargs['rulestackId']
 
         if destination_nats is not None:
@@ -322,18 +328,10 @@ class NextGenerationFirewallVirtualHubLocalRulestack(pulumi.CustomResource):
             __props__ = NextGenerationFirewallVirtualHubLocalRulestackArgs.__new__(NextGenerationFirewallVirtualHubLocalRulestackArgs)
 
             __props__.__dict__["destination_nats"] = destination_nats
-            if dns_settings is not None and not isinstance(dns_settings, NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsArgs):
-                dns_settings = dns_settings or {}
-                def _setter(key, value):
-                    dns_settings[key] = value
-                NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsArgs._configure(_setter, **dns_settings)
+            dns_settings = _utilities.configure(dns_settings, NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsArgs, True)
             __props__.__dict__["dns_settings"] = dns_settings
             __props__.__dict__["name"] = name
-            if network_profile is not None and not isinstance(network_profile, NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileArgs):
-                network_profile = network_profile or {}
-                def _setter(key, value):
-                    network_profile[key] = value
-                NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileArgs._configure(_setter, **network_profile)
+            network_profile = _utilities.configure(network_profile, NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileArgs, True)
             if network_profile is None and not opts.urn:
                 raise TypeError("Missing required property 'network_profile'")
             __props__.__dict__["network_profile"] = network_profile

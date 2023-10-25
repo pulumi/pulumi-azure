@@ -49,20 +49,24 @@ class ActionRuleActionGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action_group_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             action_group_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              condition: Optional[pulumi.Input['ActionRuleActionGroupConditionArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              scope: Optional[pulumi.Input['ActionRuleActionGroupScopeArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'actionGroupId' in kwargs:
+        if action_group_id is None and 'actionGroupId' in kwargs:
             action_group_id = kwargs['actionGroupId']
-        if 'resourceGroupName' in kwargs:
+        if action_group_id is None:
+            raise TypeError("Missing 'action_group_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("action_group_id", action_group_id)
         _setter("resource_group_name", resource_group_name)
@@ -220,11 +224,11 @@ class _ActionRuleActionGroupState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              scope: Optional[pulumi.Input['ActionRuleActionGroupScopeArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'actionGroupId' in kwargs:
+        if action_group_id is None and 'actionGroupId' in kwargs:
             action_group_id = kwargs['actionGroupId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if action_group_id is not None:
@@ -360,28 +364,6 @@ class ActionRuleActionGroup(pulumi.CustomResource):
 
         !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `monitoring.AlertProcessingRuleActionGroup` resource instead.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_action_group = azure.monitoring.ActionGroup("exampleActionGroup",
-            resource_group_name=example_resource_group.name,
-            short_name="example")
-        example_action_rule_action_group = azure.monitoring.ActionRuleActionGroup("exampleActionRuleActionGroup",
-            resource_group_name=example_resource_group.name,
-            action_group_id=example_action_group.id,
-            scope=azure.monitoring.ActionRuleActionGroupScopeArgs(
-                type="ResourceGroup",
-                resource_ids=[example_resource_group.id],
-            ),
-            tags={
-                "foo": "bar",
-            })
-        ```
-
         ## Import
 
         Monitor Action Rule can be imported using the `resource id`, e.g.
@@ -411,28 +393,6 @@ class ActionRuleActionGroup(pulumi.CustomResource):
         Manages a Monitor Action Rule which type is action group.
 
         !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `monitoring.AlertProcessingRuleActionGroup` resource instead.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_action_group = azure.monitoring.ActionGroup("exampleActionGroup",
-            resource_group_name=example_resource_group.name,
-            short_name="example")
-        example_action_rule_action_group = azure.monitoring.ActionRuleActionGroup("exampleActionRuleActionGroup",
-            resource_group_name=example_resource_group.name,
-            action_group_id=example_action_group.id,
-            scope=azure.monitoring.ActionRuleActionGroupScopeArgs(
-                type="ResourceGroup",
-                resource_ids=[example_resource_group.id],
-            ),
-            tags={
-                "foo": "bar",
-            })
-        ```
 
         ## Import
 
@@ -481,11 +441,7 @@ class ActionRuleActionGroup(pulumi.CustomResource):
             if action_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'action_group_id'")
             __props__.__dict__["action_group_id"] = action_group_id
-            if condition is not None and not isinstance(condition, ActionRuleActionGroupConditionArgs):
-                condition = condition or {}
-                def _setter(key, value):
-                    condition[key] = value
-                ActionRuleActionGroupConditionArgs._configure(_setter, **condition)
+            condition = _utilities.configure(condition, ActionRuleActionGroupConditionArgs, True)
             __props__.__dict__["condition"] = condition
             __props__.__dict__["description"] = description
             __props__.__dict__["enabled"] = enabled
@@ -493,11 +449,7 @@ class ActionRuleActionGroup(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if scope is not None and not isinstance(scope, ActionRuleActionGroupScopeArgs):
-                scope = scope or {}
-                def _setter(key, value):
-                    scope[key] = value
-                ActionRuleActionGroupScopeArgs._configure(_setter, **scope)
+            scope = _utilities.configure(scope, ActionRuleActionGroupScopeArgs, True)
             __props__.__dict__["scope"] = scope
             __props__.__dict__["tags"] = tags
         super(ActionRuleActionGroup, __self__).__init__(

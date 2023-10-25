@@ -12,40 +12,6 @@ namespace Pulumi.Azure.Lighthouse
     /// <summary>
     /// Manages a [Lighthouse](https://docs.microsoft.com/azure/lighthouse) Definition.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var contributor = Azure.Authorization.GetRoleDefinition.Invoke(new()
-    ///     {
-    ///         RoleDefinitionId = "b24988ac-6180-42a0-ab88-20f7382dd24c",
-    ///     });
-    /// 
-    ///     var example = new Azure.Lighthouse.Definition("example", new()
-    ///     {
-    ///         Description = "This is a lighthouse definition created IaC",
-    ///         ManagingTenantId = "00000000-0000-0000-0000-000000000000",
-    ///         Scope = "/subscriptions/00000000-0000-0000-0000-000000000000",
-    ///         Authorizations = new[]
-    ///         {
-    ///             new Azure.Lighthouse.Inputs.DefinitionAuthorizationArgs
-    ///             {
-    ///                 PrincipalId = "00000000-0000-0000-0000-000000000000",
-    ///                 RoleDefinitionId = contributor.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.RoleDefinitionId),
-    ///                 PrincipalDisplayName = "Tier 1 Support",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Lighthouse Definitions can be imported using the `resource id`, e.g.

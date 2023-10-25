@@ -125,18 +125,7 @@ def get_mx_record(name: Optional[str] = None,
                   zone_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMxRecordResult:
     """
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.privatedns.MxRecord("example",
-        zone_name="test-zone",
-        resource_group_name="test-rg")
-    pulumi.export("privateDnsMxRecordId", example.id)
-    ```
-
+    Use this data source to access information about an existing resource.
 
     :param str name: The name of the Private DNS MX Record.
     :param str resource_group_name: Specifies the resource group where the Private DNS Zone (parent resource) exists.
@@ -166,18 +155,7 @@ def get_mx_record_output(name: Optional[pulumi.Input[Optional[str]]] = None,
                          zone_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMxRecordResult]:
     """
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.privatedns.MxRecord("example",
-        zone_name="test-zone",
-        resource_group_name="test-rg")
-    pulumi.export("privateDnsMxRecordId", example.id)
-    ```
-
+    Use this data source to access information about an existing resource.
 
     :param str name: The name of the Private DNS MX Record.
     :param str resource_group_name: Specifies the resource group where the Private DNS Zone (parent resource) exists.

@@ -45,9 +45,9 @@ class HostPoolScheduledAgentUpdatesArgs:
              schedules: Optional[pulumi.Input[Sequence[pulumi.Input['HostPoolScheduledAgentUpdatesScheduleArgs']]]] = None,
              timezone: Optional[pulumi.Input[str]] = None,
              use_session_host_timezone: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'useSessionHostTimezone' in kwargs:
+        if use_session_host_timezone is None and 'useSessionHostTimezone' in kwargs:
             use_session_host_timezone = kwargs['useSessionHostTimezone']
 
         if enabled is not None:
@@ -127,14 +127,18 @@ class HostPoolScheduledAgentUpdatesScheduleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             day_of_week: pulumi.Input[str],
-             hour_of_day: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             day_of_week: Optional[pulumi.Input[str]] = None,
+             hour_of_day: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dayOfWeek' in kwargs:
+        if day_of_week is None and 'dayOfWeek' in kwargs:
             day_of_week = kwargs['dayOfWeek']
-        if 'hourOfDay' in kwargs:
+        if day_of_week is None:
+            raise TypeError("Missing 'day_of_week' argument")
+        if hour_of_day is None and 'hourOfDay' in kwargs:
             hour_of_day = kwargs['hourOfDay']
+        if hour_of_day is None:
+            raise TypeError("Missing 'hour_of_day' argument")
 
         _setter("day_of_week", day_of_week)
         _setter("hour_of_day", hour_of_day)
@@ -181,14 +185,18 @@ class ScalingPlanHostPoolArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             hostpool_id: pulumi.Input[str],
-             scaling_plan_enabled: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             hostpool_id: Optional[pulumi.Input[str]] = None,
+             scaling_plan_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'hostpoolId' in kwargs:
+        if hostpool_id is None and 'hostpoolId' in kwargs:
             hostpool_id = kwargs['hostpoolId']
-        if 'scalingPlanEnabled' in kwargs:
+        if hostpool_id is None:
+            raise TypeError("Missing 'hostpool_id' argument")
+        if scaling_plan_enabled is None and 'scalingPlanEnabled' in kwargs:
             scaling_plan_enabled = kwargs['scalingPlanEnabled']
+        if scaling_plan_enabled is None:
+            raise TypeError("Missing 'scaling_plan_enabled' argument")
 
         _setter("hostpool_id", hostpool_id)
         _setter("scaling_plan_enabled", scaling_plan_enabled)
@@ -283,59 +291,91 @@ class ScalingPlanScheduleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             days_of_weeks: pulumi.Input[Sequence[pulumi.Input[str]]],
-             name: pulumi.Input[str],
-             off_peak_load_balancing_algorithm: pulumi.Input[str],
-             off_peak_start_time: pulumi.Input[str],
-             peak_load_balancing_algorithm: pulumi.Input[str],
-             peak_start_time: pulumi.Input[str],
-             ramp_down_capacity_threshold_percent: pulumi.Input[int],
-             ramp_down_force_logoff_users: pulumi.Input[bool],
-             ramp_down_load_balancing_algorithm: pulumi.Input[str],
-             ramp_down_minimum_hosts_percent: pulumi.Input[int],
-             ramp_down_notification_message: pulumi.Input[str],
-             ramp_down_start_time: pulumi.Input[str],
-             ramp_down_stop_hosts_when: pulumi.Input[str],
-             ramp_down_wait_time_minutes: pulumi.Input[int],
-             ramp_up_load_balancing_algorithm: pulumi.Input[str],
-             ramp_up_start_time: pulumi.Input[str],
+             days_of_weeks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             off_peak_load_balancing_algorithm: Optional[pulumi.Input[str]] = None,
+             off_peak_start_time: Optional[pulumi.Input[str]] = None,
+             peak_load_balancing_algorithm: Optional[pulumi.Input[str]] = None,
+             peak_start_time: Optional[pulumi.Input[str]] = None,
+             ramp_down_capacity_threshold_percent: Optional[pulumi.Input[int]] = None,
+             ramp_down_force_logoff_users: Optional[pulumi.Input[bool]] = None,
+             ramp_down_load_balancing_algorithm: Optional[pulumi.Input[str]] = None,
+             ramp_down_minimum_hosts_percent: Optional[pulumi.Input[int]] = None,
+             ramp_down_notification_message: Optional[pulumi.Input[str]] = None,
+             ramp_down_start_time: Optional[pulumi.Input[str]] = None,
+             ramp_down_stop_hosts_when: Optional[pulumi.Input[str]] = None,
+             ramp_down_wait_time_minutes: Optional[pulumi.Input[int]] = None,
+             ramp_up_load_balancing_algorithm: Optional[pulumi.Input[str]] = None,
+             ramp_up_start_time: Optional[pulumi.Input[str]] = None,
              ramp_up_capacity_threshold_percent: Optional[pulumi.Input[int]] = None,
              ramp_up_minimum_hosts_percent: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'daysOfWeeks' in kwargs:
+        if days_of_weeks is None and 'daysOfWeeks' in kwargs:
             days_of_weeks = kwargs['daysOfWeeks']
-        if 'offPeakLoadBalancingAlgorithm' in kwargs:
+        if days_of_weeks is None:
+            raise TypeError("Missing 'days_of_weeks' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if off_peak_load_balancing_algorithm is None and 'offPeakLoadBalancingAlgorithm' in kwargs:
             off_peak_load_balancing_algorithm = kwargs['offPeakLoadBalancingAlgorithm']
-        if 'offPeakStartTime' in kwargs:
+        if off_peak_load_balancing_algorithm is None:
+            raise TypeError("Missing 'off_peak_load_balancing_algorithm' argument")
+        if off_peak_start_time is None and 'offPeakStartTime' in kwargs:
             off_peak_start_time = kwargs['offPeakStartTime']
-        if 'peakLoadBalancingAlgorithm' in kwargs:
+        if off_peak_start_time is None:
+            raise TypeError("Missing 'off_peak_start_time' argument")
+        if peak_load_balancing_algorithm is None and 'peakLoadBalancingAlgorithm' in kwargs:
             peak_load_balancing_algorithm = kwargs['peakLoadBalancingAlgorithm']
-        if 'peakStartTime' in kwargs:
+        if peak_load_balancing_algorithm is None:
+            raise TypeError("Missing 'peak_load_balancing_algorithm' argument")
+        if peak_start_time is None and 'peakStartTime' in kwargs:
             peak_start_time = kwargs['peakStartTime']
-        if 'rampDownCapacityThresholdPercent' in kwargs:
+        if peak_start_time is None:
+            raise TypeError("Missing 'peak_start_time' argument")
+        if ramp_down_capacity_threshold_percent is None and 'rampDownCapacityThresholdPercent' in kwargs:
             ramp_down_capacity_threshold_percent = kwargs['rampDownCapacityThresholdPercent']
-        if 'rampDownForceLogoffUsers' in kwargs:
+        if ramp_down_capacity_threshold_percent is None:
+            raise TypeError("Missing 'ramp_down_capacity_threshold_percent' argument")
+        if ramp_down_force_logoff_users is None and 'rampDownForceLogoffUsers' in kwargs:
             ramp_down_force_logoff_users = kwargs['rampDownForceLogoffUsers']
-        if 'rampDownLoadBalancingAlgorithm' in kwargs:
+        if ramp_down_force_logoff_users is None:
+            raise TypeError("Missing 'ramp_down_force_logoff_users' argument")
+        if ramp_down_load_balancing_algorithm is None and 'rampDownLoadBalancingAlgorithm' in kwargs:
             ramp_down_load_balancing_algorithm = kwargs['rampDownLoadBalancingAlgorithm']
-        if 'rampDownMinimumHostsPercent' in kwargs:
+        if ramp_down_load_balancing_algorithm is None:
+            raise TypeError("Missing 'ramp_down_load_balancing_algorithm' argument")
+        if ramp_down_minimum_hosts_percent is None and 'rampDownMinimumHostsPercent' in kwargs:
             ramp_down_minimum_hosts_percent = kwargs['rampDownMinimumHostsPercent']
-        if 'rampDownNotificationMessage' in kwargs:
+        if ramp_down_minimum_hosts_percent is None:
+            raise TypeError("Missing 'ramp_down_minimum_hosts_percent' argument")
+        if ramp_down_notification_message is None and 'rampDownNotificationMessage' in kwargs:
             ramp_down_notification_message = kwargs['rampDownNotificationMessage']
-        if 'rampDownStartTime' in kwargs:
+        if ramp_down_notification_message is None:
+            raise TypeError("Missing 'ramp_down_notification_message' argument")
+        if ramp_down_start_time is None and 'rampDownStartTime' in kwargs:
             ramp_down_start_time = kwargs['rampDownStartTime']
-        if 'rampDownStopHostsWhen' in kwargs:
+        if ramp_down_start_time is None:
+            raise TypeError("Missing 'ramp_down_start_time' argument")
+        if ramp_down_stop_hosts_when is None and 'rampDownStopHostsWhen' in kwargs:
             ramp_down_stop_hosts_when = kwargs['rampDownStopHostsWhen']
-        if 'rampDownWaitTimeMinutes' in kwargs:
+        if ramp_down_stop_hosts_when is None:
+            raise TypeError("Missing 'ramp_down_stop_hosts_when' argument")
+        if ramp_down_wait_time_minutes is None and 'rampDownWaitTimeMinutes' in kwargs:
             ramp_down_wait_time_minutes = kwargs['rampDownWaitTimeMinutes']
-        if 'rampUpLoadBalancingAlgorithm' in kwargs:
+        if ramp_down_wait_time_minutes is None:
+            raise TypeError("Missing 'ramp_down_wait_time_minutes' argument")
+        if ramp_up_load_balancing_algorithm is None and 'rampUpLoadBalancingAlgorithm' in kwargs:
             ramp_up_load_balancing_algorithm = kwargs['rampUpLoadBalancingAlgorithm']
-        if 'rampUpStartTime' in kwargs:
+        if ramp_up_load_balancing_algorithm is None:
+            raise TypeError("Missing 'ramp_up_load_balancing_algorithm' argument")
+        if ramp_up_start_time is None and 'rampUpStartTime' in kwargs:
             ramp_up_start_time = kwargs['rampUpStartTime']
-        if 'rampUpCapacityThresholdPercent' in kwargs:
+        if ramp_up_start_time is None:
+            raise TypeError("Missing 'ramp_up_start_time' argument")
+        if ramp_up_capacity_threshold_percent is None and 'rampUpCapacityThresholdPercent' in kwargs:
             ramp_up_capacity_threshold_percent = kwargs['rampUpCapacityThresholdPercent']
-        if 'rampUpMinimumHostsPercent' in kwargs:
+        if ramp_up_minimum_hosts_percent is None and 'rampUpMinimumHostsPercent' in kwargs:
             ramp_up_minimum_hosts_percent = kwargs['rampUpMinimumHostsPercent']
 
         _setter("days_of_weeks", days_of_weeks)

@@ -69,9 +69,9 @@ class FirewallArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             sku_name: pulumi.Input[str],
-             sku_tier: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             sku_tier: Optional[pulumi.Input[str]] = None,
              dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              firewall_policy_id: Optional[pulumi.Input[str]] = None,
              ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallIpConfigurationArgs']]]] = None,
@@ -83,27 +83,33 @@ class FirewallArgs:
              threat_intel_mode: Optional[pulumi.Input[str]] = None,
              virtual_hub: Optional[pulumi.Input['FirewallVirtualHubArgs']] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'skuTier' in kwargs:
+        if sku_name is None:
+            raise TypeError("Missing 'sku_name' argument")
+        if sku_tier is None and 'skuTier' in kwargs:
             sku_tier = kwargs['skuTier']
-        if 'dnsServers' in kwargs:
+        if sku_tier is None:
+            raise TypeError("Missing 'sku_tier' argument")
+        if dns_servers is None and 'dnsServers' in kwargs:
             dns_servers = kwargs['dnsServers']
-        if 'firewallPolicyId' in kwargs:
+        if firewall_policy_id is None and 'firewallPolicyId' in kwargs:
             firewall_policy_id = kwargs['firewallPolicyId']
-        if 'ipConfigurations' in kwargs:
+        if ip_configurations is None and 'ipConfigurations' in kwargs:
             ip_configurations = kwargs['ipConfigurations']
-        if 'managementIpConfiguration' in kwargs:
+        if management_ip_configuration is None and 'managementIpConfiguration' in kwargs:
             management_ip_configuration = kwargs['managementIpConfiguration']
-        if 'privateIpRanges' in kwargs:
+        if private_ip_ranges is None and 'privateIpRanges' in kwargs:
             private_ip_ranges = kwargs['privateIpRanges']
-        if 'threatIntelMode' in kwargs:
+        if threat_intel_mode is None and 'threatIntelMode' in kwargs:
             threat_intel_mode = kwargs['threatIntelMode']
-        if 'virtualHub' in kwargs:
+        if virtual_hub is None and 'virtualHub' in kwargs:
             virtual_hub = kwargs['virtualHub']
 
         _setter("resource_group_name", resource_group_name)
@@ -373,27 +379,27 @@ class _FirewallState:
              threat_intel_mode: Optional[pulumi.Input[str]] = None,
              virtual_hub: Optional[pulumi.Input['FirewallVirtualHubArgs']] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dnsServers' in kwargs:
+        if dns_servers is None and 'dnsServers' in kwargs:
             dns_servers = kwargs['dnsServers']
-        if 'firewallPolicyId' in kwargs:
+        if firewall_policy_id is None and 'firewallPolicyId' in kwargs:
             firewall_policy_id = kwargs['firewallPolicyId']
-        if 'ipConfigurations' in kwargs:
+        if ip_configurations is None and 'ipConfigurations' in kwargs:
             ip_configurations = kwargs['ipConfigurations']
-        if 'managementIpConfiguration' in kwargs:
+        if management_ip_configuration is None and 'managementIpConfiguration' in kwargs:
             management_ip_configuration = kwargs['managementIpConfiguration']
-        if 'privateIpRanges' in kwargs:
+        if private_ip_ranges is None and 'privateIpRanges' in kwargs:
             private_ip_ranges = kwargs['privateIpRanges']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'skuTier' in kwargs:
+        if sku_tier is None and 'skuTier' in kwargs:
             sku_tier = kwargs['skuTier']
-        if 'threatIntelMode' in kwargs:
+        if threat_intel_mode is None and 'threatIntelMode' in kwargs:
             threat_intel_mode = kwargs['threatIntelMode']
-        if 'virtualHub' in kwargs:
+        if virtual_hub is None and 'virtualHub' in kwargs:
             virtual_hub = kwargs['virtualHub']
 
         if dns_servers is not None:
@@ -619,38 +625,6 @@ class Firewall(pulumi.CustomResource):
         """
         Manages an Azure Firewall.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"])
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            allocation_method="Static",
-            sku="Standard")
-        example_firewall = azure.network.Firewall("exampleFirewall",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="AZFW_VNet",
-            sku_tier="Standard",
-            ip_configurations=[azure.network.FirewallIpConfigurationArgs(
-                name="configuration",
-                subnet_id=example_subnet.id,
-                public_ip_address_id=example_public_ip.id,
-            )])
-        ```
-
         ## Import
 
         Azure Firewalls can be imported using the `resource id`, e.g.
@@ -686,38 +660,6 @@ class Firewall(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Firewall.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"])
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            allocation_method="Static",
-            sku="Standard")
-        example_firewall = azure.network.Firewall("exampleFirewall",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="AZFW_VNet",
-            sku_tier="Standard",
-            ip_configurations=[azure.network.FirewallIpConfigurationArgs(
-                name="configuration",
-                subnet_id=example_subnet.id,
-                public_ip_address_id=example_public_ip.id,
-            )])
-        ```
 
         ## Import
 
@@ -773,11 +715,7 @@ class Firewall(pulumi.CustomResource):
             __props__.__dict__["firewall_policy_id"] = firewall_policy_id
             __props__.__dict__["ip_configurations"] = ip_configurations
             __props__.__dict__["location"] = location
-            if management_ip_configuration is not None and not isinstance(management_ip_configuration, FirewallManagementIpConfigurationArgs):
-                management_ip_configuration = management_ip_configuration or {}
-                def _setter(key, value):
-                    management_ip_configuration[key] = value
-                FirewallManagementIpConfigurationArgs._configure(_setter, **management_ip_configuration)
+            management_ip_configuration = _utilities.configure(management_ip_configuration, FirewallManagementIpConfigurationArgs, True)
             __props__.__dict__["management_ip_configuration"] = management_ip_configuration
             __props__.__dict__["name"] = name
             __props__.__dict__["private_ip_ranges"] = private_ip_ranges
@@ -792,11 +730,7 @@ class Firewall(pulumi.CustomResource):
             __props__.__dict__["sku_tier"] = sku_tier
             __props__.__dict__["tags"] = tags
             __props__.__dict__["threat_intel_mode"] = threat_intel_mode
-            if virtual_hub is not None and not isinstance(virtual_hub, FirewallVirtualHubArgs):
-                virtual_hub = virtual_hub or {}
-                def _setter(key, value):
-                    virtual_hub[key] = value
-                FirewallVirtualHubArgs._configure(_setter, **virtual_hub)
+            virtual_hub = _utilities.configure(virtual_hub, FirewallVirtualHubArgs, True)
             __props__.__dict__["virtual_hub"] = virtual_hub
             __props__.__dict__["zones"] = zones
         super(Firewall, __self__).__init__(

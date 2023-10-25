@@ -7,32 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages the Shared Private Link Service for an Azure Search Service.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const testResourceGroup = new azure.core.ResourceGroup("testResourceGroup", {location: "east us"});
- * const testService = new azure.search.Service("testService", {
- *     resourceGroupName: testResourceGroup.name,
- *     location: testResourceGroup.location,
- *     sku: "standard",
- * });
- * const testAccount = new azure.storage.Account("testAccount", {
- *     resourceGroupName: testResourceGroup.name,
- *     location: testResourceGroup.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "LRS",
- * });
- * const testSharedPrivateLinkService = new azure.search.SharedPrivateLinkService("testSharedPrivateLinkService", {
- *     searchServiceId: testService.id,
- *     subresourceName: "blob",
- *     targetResourceId: testAccount.id,
- *     requestMessage: "please approve",
- * });
- * ```
- *
  * ## Import
  *
  * Azure Search Shared Private Link Resource can be imported using the `resource id`, e.g.

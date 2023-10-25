@@ -9,60 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Contact profile.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     addressSpaces: ["10.0.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.1.0/24"],
- *     delegations: [{
- *         name: "orbitalgateway",
- *         serviceDelegation: {
- *             name: "Microsoft.Orbital/orbitalGateways",
- *             actions: [
- *                 "Microsoft.Network/publicIPAddresses/join/action",
- *                 "Microsoft.Network/virtualNetworks/subnets/join/action",
- *                 "Microsoft.Network/virtualNetworks/read",
- *                 "Microsoft.Network/publicIPAddresses/read",
- *             ],
- *         },
- *     }],
- * });
- * const exampleContactProfile = new azure.orbital.ContactProfile("exampleContactProfile", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     minimumVariableContactDuration: "PT1M",
- *     autoTracking: "disabled",
- *     links: [{
- *         channels: [{
- *             name: "channelname",
- *             bandwidthMhz: 100,
- *             centerFrequencyMhz: 101,
- *             endPoints: [{
- *                 endPointName: "AQUA_command",
- *                 ipAddress: "10.0.1.0",
- *                 port: "49513",
- *                 protocol: "TCP",
- *             }],
- *         }],
- *         direction: "Uplink",
- *         name: "RHCP_UL",
- *         polarization: "RHCP",
- *     }],
- *     networkConfigurationSubnetId: exampleSubnet.id,
- * });
- * ```
- *
  * ## Import
  *
  * Contact profile can be imported using the `resource id`, e.g.

@@ -50,21 +50,27 @@ class SystemTopicArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             source_arm_resource_id: pulumi.Input[str],
-             topic_type: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             source_arm_resource_id: Optional[pulumi.Input[str]] = None,
+             topic_type: Optional[pulumi.Input[str]] = None,
              identity: Optional[pulumi.Input['SystemTopicIdentityArgs']] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'sourceArmResourceId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if source_arm_resource_id is None and 'sourceArmResourceId' in kwargs:
             source_arm_resource_id = kwargs['sourceArmResourceId']
-        if 'topicType' in kwargs:
+        if source_arm_resource_id is None:
+            raise TypeError("Missing 'source_arm_resource_id' argument")
+        if topic_type is None and 'topicType' in kwargs:
             topic_type = kwargs['topicType']
+        if topic_type is None:
+            raise TypeError("Missing 'topic_type' argument")
 
         _setter("resource_group_name", resource_group_name)
         _setter("source_arm_resource_id", source_arm_resource_id)
@@ -215,15 +221,15 @@ class _SystemTopicState:
              source_arm_resource_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              topic_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'metricArmResourceId' in kwargs:
+        if metric_arm_resource_id is None and 'metricArmResourceId' in kwargs:
             metric_arm_resource_id = kwargs['metricArmResourceId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'sourceArmResourceId' in kwargs:
+        if source_arm_resource_id is None and 'sourceArmResourceId' in kwargs:
             source_arm_resource_id = kwargs['sourceArmResourceId']
-        if 'topicType' in kwargs:
+        if topic_type is None and 'topicType' in kwargs:
             topic_type = kwargs['topicType']
 
         if identity is not None:
@@ -360,28 +366,6 @@ class SystemTopic(pulumi.CustomResource):
         """
         Manages an Event Grid System Topic.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            tags={
-                "environment": "staging",
-            })
-        example_system_topic = azure.eventgrid.SystemTopic("exampleSystemTopic",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            source_arm_resource_id=example_account.id,
-            topic_type="Microsoft.Storage.StorageAccounts")
-        ```
-
         ## Import
 
         Event Grid System Topic can be imported using the `resource id`, e.g.
@@ -412,28 +396,6 @@ class SystemTopic(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Event Grid System Topic.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            tags={
-                "environment": "staging",
-            })
-        example_system_topic = azure.eventgrid.SystemTopic("exampleSystemTopic",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            source_arm_resource_id=example_account.id,
-            topic_type="Microsoft.Storage.StorageAccounts")
-        ```
 
         ## Import
 
@@ -478,11 +440,7 @@ class SystemTopic(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SystemTopicArgs.__new__(SystemTopicArgs)
 
-            if identity is not None and not isinstance(identity, SystemTopicIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                SystemTopicIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, SystemTopicIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name

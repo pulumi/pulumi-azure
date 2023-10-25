@@ -12,40 +12,6 @@ namespace Pulumi.Azure.SiteRecovery
     /// <summary>
     /// Manages a VMWare Replication Policy.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "eastus",
-    ///     });
-    /// 
-    ///     var exampleVault = new Azure.RecoveryServices.Vault("exampleVault", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Sku = "Standard",
-    ///         ClassicVmwareReplicationEnabled = true,
-    ///         SoftDeleteEnabled = false,
-    ///     });
-    /// 
-    ///     var exampleVMWareReplicationPolicy = new Azure.SiteRecovery.VMWareReplicationPolicy("exampleVMWareReplicationPolicy", new()
-    ///     {
-    ///         RecoveryVaultId = exampleVault.Id,
-    ///         RecoveryPointRetentionInMinutes = 1440,
-    ///         ApplicationConsistentSnapshotFrequencyInMinutes = 240,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// VMWare Replication Policy can be imported using the `resource id`, e.g.

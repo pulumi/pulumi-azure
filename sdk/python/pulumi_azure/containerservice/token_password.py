@@ -34,13 +34,17 @@ class TokenPasswordArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             container_registry_token_id: pulumi.Input[str],
-             password1: pulumi.Input['TokenPasswordPassword1Args'],
+             container_registry_token_id: Optional[pulumi.Input[str]] = None,
+             password1: Optional[pulumi.Input['TokenPasswordPassword1Args']] = None,
              password2: Optional[pulumi.Input['TokenPasswordPassword2Args']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'containerRegistryTokenId' in kwargs:
+        if container_registry_token_id is None and 'containerRegistryTokenId' in kwargs:
             container_registry_token_id = kwargs['containerRegistryTokenId']
+        if container_registry_token_id is None:
+            raise TypeError("Missing 'container_registry_token_id' argument")
+        if password1 is None:
+            raise TypeError("Missing 'password1' argument")
 
         _setter("container_registry_token_id", container_registry_token_id)
         _setter("password1", password1)
@@ -108,9 +112,9 @@ class _TokenPasswordState:
              container_registry_token_id: Optional[pulumi.Input[str]] = None,
              password1: Optional[pulumi.Input['TokenPasswordPassword1Args']] = None,
              password2: Optional[pulumi.Input['TokenPasswordPassword2Args']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'containerRegistryTokenId' in kwargs:
+        if container_registry_token_id is None and 'containerRegistryTokenId' in kwargs:
             container_registry_token_id = kwargs['containerRegistryTokenId']
 
         if container_registry_token_id is not None:
@@ -234,19 +238,11 @@ class TokenPassword(pulumi.CustomResource):
             if container_registry_token_id is None and not opts.urn:
                 raise TypeError("Missing required property 'container_registry_token_id'")
             __props__.__dict__["container_registry_token_id"] = container_registry_token_id
-            if password1 is not None and not isinstance(password1, TokenPasswordPassword1Args):
-                password1 = password1 or {}
-                def _setter(key, value):
-                    password1[key] = value
-                TokenPasswordPassword1Args._configure(_setter, **password1)
+            password1 = _utilities.configure(password1, TokenPasswordPassword1Args, True)
             if password1 is None and not opts.urn:
                 raise TypeError("Missing required property 'password1'")
             __props__.__dict__["password1"] = password1
-            if password2 is not None and not isinstance(password2, TokenPasswordPassword2Args):
-                password2 = password2 or {}
-                def _setter(key, value):
-                    password2[key] = value
-                TokenPasswordPassword2Args._configure(_setter, **password2)
+            password2 = _utilities.configure(password2, TokenPasswordPassword2Args, True)
             __props__.__dict__["password2"] = password2
         super(TokenPassword, __self__).__init__(
             'azure:containerservice/tokenPassword:TokenPassword',

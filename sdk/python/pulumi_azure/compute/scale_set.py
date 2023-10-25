@@ -113,12 +113,12 @@ class ScaleSetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             network_profiles: pulumi.Input[Sequence[pulumi.Input['ScaleSetNetworkProfileArgs']]],
-             os_profile: pulumi.Input['ScaleSetOsProfileArgs'],
-             resource_group_name: pulumi.Input[str],
-             sku: pulumi.Input['ScaleSetSkuArgs'],
-             storage_profile_os_disk: pulumi.Input['ScaleSetStorageProfileOsDiskArgs'],
-             upgrade_policy_mode: pulumi.Input[str],
+             network_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetNetworkProfileArgs']]]] = None,
+             os_profile: Optional[pulumi.Input['ScaleSetOsProfileArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['ScaleSetSkuArgs']] = None,
+             storage_profile_os_disk: Optional[pulumi.Input['ScaleSetStorageProfileOsDiskArgs']] = None,
+             upgrade_policy_mode: Optional[pulumi.Input[str]] = None,
              automatic_os_upgrade: Optional[pulumi.Input[bool]] = None,
              boot_diagnostics: Optional[pulumi.Input['ScaleSetBootDiagnosticsArgs']] = None,
              eviction_policy: Optional[pulumi.Input[str]] = None,
@@ -141,43 +141,55 @@ class ScaleSetArgs:
              storage_profile_image_reference: Optional[pulumi.Input['ScaleSetStorageProfileImageReferenceArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'networkProfiles' in kwargs:
+        if network_profiles is None and 'networkProfiles' in kwargs:
             network_profiles = kwargs['networkProfiles']
-        if 'osProfile' in kwargs:
+        if network_profiles is None:
+            raise TypeError("Missing 'network_profiles' argument")
+        if os_profile is None and 'osProfile' in kwargs:
             os_profile = kwargs['osProfile']
-        if 'resourceGroupName' in kwargs:
+        if os_profile is None:
+            raise TypeError("Missing 'os_profile' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'storageProfileOsDisk' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if storage_profile_os_disk is None and 'storageProfileOsDisk' in kwargs:
             storage_profile_os_disk = kwargs['storageProfileOsDisk']
-        if 'upgradePolicyMode' in kwargs:
+        if storage_profile_os_disk is None:
+            raise TypeError("Missing 'storage_profile_os_disk' argument")
+        if upgrade_policy_mode is None and 'upgradePolicyMode' in kwargs:
             upgrade_policy_mode = kwargs['upgradePolicyMode']
-        if 'automaticOsUpgrade' in kwargs:
+        if upgrade_policy_mode is None:
+            raise TypeError("Missing 'upgrade_policy_mode' argument")
+        if automatic_os_upgrade is None and 'automaticOsUpgrade' in kwargs:
             automatic_os_upgrade = kwargs['automaticOsUpgrade']
-        if 'bootDiagnostics' in kwargs:
+        if boot_diagnostics is None and 'bootDiagnostics' in kwargs:
             boot_diagnostics = kwargs['bootDiagnostics']
-        if 'evictionPolicy' in kwargs:
+        if eviction_policy is None and 'evictionPolicy' in kwargs:
             eviction_policy = kwargs['evictionPolicy']
-        if 'healthProbeId' in kwargs:
+        if health_probe_id is None and 'healthProbeId' in kwargs:
             health_probe_id = kwargs['healthProbeId']
-        if 'licenseType' in kwargs:
+        if license_type is None and 'licenseType' in kwargs:
             license_type = kwargs['licenseType']
-        if 'osProfileLinuxConfig' in kwargs:
+        if os_profile_linux_config is None and 'osProfileLinuxConfig' in kwargs:
             os_profile_linux_config = kwargs['osProfileLinuxConfig']
-        if 'osProfileSecrets' in kwargs:
+        if os_profile_secrets is None and 'osProfileSecrets' in kwargs:
             os_profile_secrets = kwargs['osProfileSecrets']
-        if 'osProfileWindowsConfig' in kwargs:
+        if os_profile_windows_config is None and 'osProfileWindowsConfig' in kwargs:
             os_profile_windows_config = kwargs['osProfileWindowsConfig']
-        if 'proximityPlacementGroupId' in kwargs:
+        if proximity_placement_group_id is None and 'proximityPlacementGroupId' in kwargs:
             proximity_placement_group_id = kwargs['proximityPlacementGroupId']
-        if 'rollingUpgradePolicy' in kwargs:
+        if rolling_upgrade_policy is None and 'rollingUpgradePolicy' in kwargs:
             rolling_upgrade_policy = kwargs['rollingUpgradePolicy']
-        if 'singlePlacementGroup' in kwargs:
+        if single_placement_group is None and 'singlePlacementGroup' in kwargs:
             single_placement_group = kwargs['singlePlacementGroup']
-        if 'storageProfileDataDisks' in kwargs:
+        if storage_profile_data_disks is None and 'storageProfileDataDisks' in kwargs:
             storage_profile_data_disks = kwargs['storageProfileDataDisks']
-        if 'storageProfileImageReference' in kwargs:
+        if storage_profile_image_reference is None and 'storageProfileImageReference' in kwargs:
             storage_profile_image_reference = kwargs['storageProfileImageReference']
 
         _setter("network_profiles", network_profiles)
@@ -700,43 +712,43 @@ class _ScaleSetState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              upgrade_policy_mode: Optional[pulumi.Input[str]] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'automaticOsUpgrade' in kwargs:
+        if automatic_os_upgrade is None and 'automaticOsUpgrade' in kwargs:
             automatic_os_upgrade = kwargs['automaticOsUpgrade']
-        if 'bootDiagnostics' in kwargs:
+        if boot_diagnostics is None and 'bootDiagnostics' in kwargs:
             boot_diagnostics = kwargs['bootDiagnostics']
-        if 'evictionPolicy' in kwargs:
+        if eviction_policy is None and 'evictionPolicy' in kwargs:
             eviction_policy = kwargs['evictionPolicy']
-        if 'healthProbeId' in kwargs:
+        if health_probe_id is None and 'healthProbeId' in kwargs:
             health_probe_id = kwargs['healthProbeId']
-        if 'licenseType' in kwargs:
+        if license_type is None and 'licenseType' in kwargs:
             license_type = kwargs['licenseType']
-        if 'networkProfiles' in kwargs:
+        if network_profiles is None and 'networkProfiles' in kwargs:
             network_profiles = kwargs['networkProfiles']
-        if 'osProfile' in kwargs:
+        if os_profile is None and 'osProfile' in kwargs:
             os_profile = kwargs['osProfile']
-        if 'osProfileLinuxConfig' in kwargs:
+        if os_profile_linux_config is None and 'osProfileLinuxConfig' in kwargs:
             os_profile_linux_config = kwargs['osProfileLinuxConfig']
-        if 'osProfileSecrets' in kwargs:
+        if os_profile_secrets is None and 'osProfileSecrets' in kwargs:
             os_profile_secrets = kwargs['osProfileSecrets']
-        if 'osProfileWindowsConfig' in kwargs:
+        if os_profile_windows_config is None and 'osProfileWindowsConfig' in kwargs:
             os_profile_windows_config = kwargs['osProfileWindowsConfig']
-        if 'proximityPlacementGroupId' in kwargs:
+        if proximity_placement_group_id is None and 'proximityPlacementGroupId' in kwargs:
             proximity_placement_group_id = kwargs['proximityPlacementGroupId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'rollingUpgradePolicy' in kwargs:
+        if rolling_upgrade_policy is None and 'rollingUpgradePolicy' in kwargs:
             rolling_upgrade_policy = kwargs['rollingUpgradePolicy']
-        if 'singlePlacementGroup' in kwargs:
+        if single_placement_group is None and 'singlePlacementGroup' in kwargs:
             single_placement_group = kwargs['singlePlacementGroup']
-        if 'storageProfileDataDisks' in kwargs:
+        if storage_profile_data_disks is None and 'storageProfileDataDisks' in kwargs:
             storage_profile_data_disks = kwargs['storageProfileDataDisks']
-        if 'storageProfileImageReference' in kwargs:
+        if storage_profile_image_reference is None and 'storageProfileImageReference' in kwargs:
             storage_profile_image_reference = kwargs['storageProfileImageReference']
-        if 'storageProfileOsDisk' in kwargs:
+        if storage_profile_os_disk is None and 'storageProfileOsDisk' in kwargs:
             storage_profile_os_disk = kwargs['storageProfileOsDisk']
-        if 'upgradePolicyMode' in kwargs:
+        if upgrade_policy_mode is None and 'upgradePolicyMode' in kwargs:
             upgrade_policy_mode = kwargs['upgradePolicyMode']
 
         if automatic_os_upgrade is not None:
@@ -1175,192 +1187,6 @@ class ScaleSet(pulumi.CustomResource):
         Manages a virtual machine scale set.
 
         ## Example Usage
-        ### With Managed Disks (Recommended)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            allocation_method="Static",
-            domain_name_label=example_resource_group.name,
-            tags={
-                "environment": "staging",
-            })
-        example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
-                name="PublicIPAddress",
-                public_ip_address_id=example_public_ip.id,
-            )])
-        bpepool = azure.lb.BackendAddressPool("bpepool", loadbalancer_id=example_load_balancer.id)
-        lbnatpool = azure.lb.NatPool("lbnatpool",
-            resource_group_name=example_resource_group.name,
-            loadbalancer_id=example_load_balancer.id,
-            protocol="Tcp",
-            frontend_port_start=50000,
-            frontend_port_end=50119,
-            backend_port=22,
-            frontend_ip_configuration_name="PublicIPAddress")
-        example_probe = azure.lb.Probe("exampleProbe",
-            loadbalancer_id=example_load_balancer.id,
-            protocol="Http",
-            request_path="/health",
-            port=8080)
-        example_scale_set = azure.compute.ScaleSet("exampleScaleSet",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            automatic_os_upgrade=True,
-            upgrade_policy_mode="Rolling",
-            rolling_upgrade_policy=azure.compute.ScaleSetRollingUpgradePolicyArgs(
-                max_batch_instance_percent=20,
-                max_unhealthy_instance_percent=20,
-                max_unhealthy_upgraded_instance_percent=5,
-                pause_time_between_batches="PT0S",
-            ),
-            health_probe_id=example_probe.id,
-            sku=azure.compute.ScaleSetSkuArgs(
-                name="Standard_F2",
-                tier="Standard",
-                capacity=2,
-            ),
-            storage_profile_image_reference=azure.compute.ScaleSetStorageProfileImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-focal",
-                sku="20_04-lts",
-                version="latest",
-            ),
-            storage_profile_os_disk=azure.compute.ScaleSetStorageProfileOsDiskArgs(
-                name="",
-                caching="ReadWrite",
-                create_option="FromImage",
-                managed_disk_type="Standard_LRS",
-            ),
-            storage_profile_data_disks=[azure.compute.ScaleSetStorageProfileDataDiskArgs(
-                lun=0,
-                caching="ReadWrite",
-                create_option="Empty",
-                disk_size_gb=10,
-            )],
-            os_profile=azure.compute.ScaleSetOsProfileArgs(
-                computer_name_prefix="testvm",
-                admin_username="myadmin",
-            ),
-            os_profile_linux_config=azure.compute.ScaleSetOsProfileLinuxConfigArgs(
-                disable_password_authentication=True,
-                ssh_keys=[azure.compute.ScaleSetOsProfileLinuxConfigSshKeyArgs(
-                    path="/home/myadmin/.ssh/authorized_keys",
-                    key_data=(lambda path: open(path).read())("~/.ssh/demo_key.pub"),
-                )],
-            ),
-            network_profiles=[azure.compute.ScaleSetNetworkProfileArgs(
-                name="mynetworkprofile",
-                primary=True,
-                ip_configurations=[azure.compute.ScaleSetNetworkProfileIpConfigurationArgs(
-                    name="TestIPConfiguration",
-                    primary=True,
-                    subnet_id=example_subnet.id,
-                    load_balancer_backend_address_pool_ids=[bpepool.id],
-                    load_balancer_inbound_nat_rules_ids=[lbnatpool.id],
-                )],
-            )],
-            tags={
-                "environment": "staging",
-            })
-        ```
-        ### With Unmanaged Disks
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            tags={
-                "environment": "staging",
-            })
-        example_container = azure.storage.Container("exampleContainer",
-            storage_account_name=example_account.name,
-            container_access_type="private")
-        example_scale_set = azure.compute.ScaleSet("exampleScaleSet",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            upgrade_policy_mode="Manual",
-            sku=azure.compute.ScaleSetSkuArgs(
-                name="Standard_F2",
-                tier="Standard",
-                capacity=2,
-            ),
-            os_profile=azure.compute.ScaleSetOsProfileArgs(
-                computer_name_prefix="testvm",
-                admin_username="myadmin",
-            ),
-            os_profile_linux_config=azure.compute.ScaleSetOsProfileLinuxConfigArgs(
-                disable_password_authentication=True,
-                ssh_keys=[azure.compute.ScaleSetOsProfileLinuxConfigSshKeyArgs(
-                    path="/home/myadmin/.ssh/authorized_keys",
-                    key_data=(lambda path: open(path).read())("~/.ssh/demo_key.pub"),
-                )],
-            ),
-            network_profiles=[azure.compute.ScaleSetNetworkProfileArgs(
-                name="TestNetworkProfile",
-                primary=True,
-                ip_configurations=[azure.compute.ScaleSetNetworkProfileIpConfigurationArgs(
-                    name="TestIPConfiguration",
-                    primary=True,
-                    subnet_id=example_subnet.id,
-                )],
-            )],
-            storage_profile_os_disk=azure.compute.ScaleSetStorageProfileOsDiskArgs(
-                name="osDiskProfile",
-                caching="ReadWrite",
-                create_option="FromImage",
-                vhd_containers=[pulumi.Output.all(example_account.primary_blob_endpoint, example_container.name).apply(lambda primary_blob_endpoint, name: f"{primary_blob_endpoint}{name}")],
-            ),
-            storage_profile_image_reference=azure.compute.ScaleSetStorageProfileImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-focal",
-                sku="20_04-lts",
-                version="latest",
-            ))
-        ```
-        ## Example of storage_profile_image_reference with id
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_image = azure.compute.Image("exampleImage")
-        # ...
-        example_scale_set = azure.compute.ScaleSet("exampleScaleSet", storage_profile_image_reference=azure.compute.ScaleSetStorageProfileImageReferenceArgs(
-            id=example_image.id,
-        ))
-        # ...
-        ```
 
         ## Import
 
@@ -1415,192 +1241,6 @@ class ScaleSet(pulumi.CustomResource):
         Manages a virtual machine scale set.
 
         ## Example Usage
-        ### With Managed Disks (Recommended)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            allocation_method="Static",
-            domain_name_label=example_resource_group.name,
-            tags={
-                "environment": "staging",
-            })
-        example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
-                name="PublicIPAddress",
-                public_ip_address_id=example_public_ip.id,
-            )])
-        bpepool = azure.lb.BackendAddressPool("bpepool", loadbalancer_id=example_load_balancer.id)
-        lbnatpool = azure.lb.NatPool("lbnatpool",
-            resource_group_name=example_resource_group.name,
-            loadbalancer_id=example_load_balancer.id,
-            protocol="Tcp",
-            frontend_port_start=50000,
-            frontend_port_end=50119,
-            backend_port=22,
-            frontend_ip_configuration_name="PublicIPAddress")
-        example_probe = azure.lb.Probe("exampleProbe",
-            loadbalancer_id=example_load_balancer.id,
-            protocol="Http",
-            request_path="/health",
-            port=8080)
-        example_scale_set = azure.compute.ScaleSet("exampleScaleSet",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            automatic_os_upgrade=True,
-            upgrade_policy_mode="Rolling",
-            rolling_upgrade_policy=azure.compute.ScaleSetRollingUpgradePolicyArgs(
-                max_batch_instance_percent=20,
-                max_unhealthy_instance_percent=20,
-                max_unhealthy_upgraded_instance_percent=5,
-                pause_time_between_batches="PT0S",
-            ),
-            health_probe_id=example_probe.id,
-            sku=azure.compute.ScaleSetSkuArgs(
-                name="Standard_F2",
-                tier="Standard",
-                capacity=2,
-            ),
-            storage_profile_image_reference=azure.compute.ScaleSetStorageProfileImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-focal",
-                sku="20_04-lts",
-                version="latest",
-            ),
-            storage_profile_os_disk=azure.compute.ScaleSetStorageProfileOsDiskArgs(
-                name="",
-                caching="ReadWrite",
-                create_option="FromImage",
-                managed_disk_type="Standard_LRS",
-            ),
-            storage_profile_data_disks=[azure.compute.ScaleSetStorageProfileDataDiskArgs(
-                lun=0,
-                caching="ReadWrite",
-                create_option="Empty",
-                disk_size_gb=10,
-            )],
-            os_profile=azure.compute.ScaleSetOsProfileArgs(
-                computer_name_prefix="testvm",
-                admin_username="myadmin",
-            ),
-            os_profile_linux_config=azure.compute.ScaleSetOsProfileLinuxConfigArgs(
-                disable_password_authentication=True,
-                ssh_keys=[azure.compute.ScaleSetOsProfileLinuxConfigSshKeyArgs(
-                    path="/home/myadmin/.ssh/authorized_keys",
-                    key_data=(lambda path: open(path).read())("~/.ssh/demo_key.pub"),
-                )],
-            ),
-            network_profiles=[azure.compute.ScaleSetNetworkProfileArgs(
-                name="mynetworkprofile",
-                primary=True,
-                ip_configurations=[azure.compute.ScaleSetNetworkProfileIpConfigurationArgs(
-                    name="TestIPConfiguration",
-                    primary=True,
-                    subnet_id=example_subnet.id,
-                    load_balancer_backend_address_pool_ids=[bpepool.id],
-                    load_balancer_inbound_nat_rules_ids=[lbnatpool.id],
-                )],
-            )],
-            tags={
-                "environment": "staging",
-            })
-        ```
-        ### With Unmanaged Disks
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            tags={
-                "environment": "staging",
-            })
-        example_container = azure.storage.Container("exampleContainer",
-            storage_account_name=example_account.name,
-            container_access_type="private")
-        example_scale_set = azure.compute.ScaleSet("exampleScaleSet",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            upgrade_policy_mode="Manual",
-            sku=azure.compute.ScaleSetSkuArgs(
-                name="Standard_F2",
-                tier="Standard",
-                capacity=2,
-            ),
-            os_profile=azure.compute.ScaleSetOsProfileArgs(
-                computer_name_prefix="testvm",
-                admin_username="myadmin",
-            ),
-            os_profile_linux_config=azure.compute.ScaleSetOsProfileLinuxConfigArgs(
-                disable_password_authentication=True,
-                ssh_keys=[azure.compute.ScaleSetOsProfileLinuxConfigSshKeyArgs(
-                    path="/home/myadmin/.ssh/authorized_keys",
-                    key_data=(lambda path: open(path).read())("~/.ssh/demo_key.pub"),
-                )],
-            ),
-            network_profiles=[azure.compute.ScaleSetNetworkProfileArgs(
-                name="TestNetworkProfile",
-                primary=True,
-                ip_configurations=[azure.compute.ScaleSetNetworkProfileIpConfigurationArgs(
-                    name="TestIPConfiguration",
-                    primary=True,
-                    subnet_id=example_subnet.id,
-                )],
-            )],
-            storage_profile_os_disk=azure.compute.ScaleSetStorageProfileOsDiskArgs(
-                name="osDiskProfile",
-                caching="ReadWrite",
-                create_option="FromImage",
-                vhd_containers=[pulumi.Output.all(example_account.primary_blob_endpoint, example_container.name).apply(lambda primary_blob_endpoint, name: f"{primary_blob_endpoint}{name}")],
-            ),
-            storage_profile_image_reference=azure.compute.ScaleSetStorageProfileImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-focal",
-                sku="20_04-lts",
-                version="latest",
-            ))
-        ```
-        ## Example of storage_profile_image_reference with id
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_image = azure.compute.Image("exampleImage")
-        # ...
-        example_scale_set = azure.compute.ScaleSet("exampleScaleSet", storage_profile_image_reference=azure.compute.ScaleSetStorageProfileImageReferenceArgs(
-            id=example_image.id,
-        ))
-        # ...
-        ```
 
         ## Import
 
@@ -1667,20 +1307,12 @@ class ScaleSet(pulumi.CustomResource):
             __props__ = ScaleSetArgs.__new__(ScaleSetArgs)
 
             __props__.__dict__["automatic_os_upgrade"] = automatic_os_upgrade
-            if boot_diagnostics is not None and not isinstance(boot_diagnostics, ScaleSetBootDiagnosticsArgs):
-                boot_diagnostics = boot_diagnostics or {}
-                def _setter(key, value):
-                    boot_diagnostics[key] = value
-                ScaleSetBootDiagnosticsArgs._configure(_setter, **boot_diagnostics)
+            boot_diagnostics = _utilities.configure(boot_diagnostics, ScaleSetBootDiagnosticsArgs, True)
             __props__.__dict__["boot_diagnostics"] = boot_diagnostics
             __props__.__dict__["eviction_policy"] = eviction_policy
             __props__.__dict__["extensions"] = extensions
             __props__.__dict__["health_probe_id"] = health_probe_id
-            if identity is not None and not isinstance(identity, ScaleSetIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                ScaleSetIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, ScaleSetIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["license_type"] = license_type
             __props__.__dict__["location"] = location
@@ -1688,66 +1320,34 @@ class ScaleSet(pulumi.CustomResource):
             if network_profiles is None and not opts.urn:
                 raise TypeError("Missing required property 'network_profiles'")
             __props__.__dict__["network_profiles"] = network_profiles
-            if os_profile is not None and not isinstance(os_profile, ScaleSetOsProfileArgs):
-                os_profile = os_profile or {}
-                def _setter(key, value):
-                    os_profile[key] = value
-                ScaleSetOsProfileArgs._configure(_setter, **os_profile)
+            os_profile = _utilities.configure(os_profile, ScaleSetOsProfileArgs, True)
             if os_profile is None and not opts.urn:
                 raise TypeError("Missing required property 'os_profile'")
             __props__.__dict__["os_profile"] = os_profile
-            if os_profile_linux_config is not None and not isinstance(os_profile_linux_config, ScaleSetOsProfileLinuxConfigArgs):
-                os_profile_linux_config = os_profile_linux_config or {}
-                def _setter(key, value):
-                    os_profile_linux_config[key] = value
-                ScaleSetOsProfileLinuxConfigArgs._configure(_setter, **os_profile_linux_config)
+            os_profile_linux_config = _utilities.configure(os_profile_linux_config, ScaleSetOsProfileLinuxConfigArgs, True)
             __props__.__dict__["os_profile_linux_config"] = os_profile_linux_config
             __props__.__dict__["os_profile_secrets"] = os_profile_secrets
-            if os_profile_windows_config is not None and not isinstance(os_profile_windows_config, ScaleSetOsProfileWindowsConfigArgs):
-                os_profile_windows_config = os_profile_windows_config or {}
-                def _setter(key, value):
-                    os_profile_windows_config[key] = value
-                ScaleSetOsProfileWindowsConfigArgs._configure(_setter, **os_profile_windows_config)
+            os_profile_windows_config = _utilities.configure(os_profile_windows_config, ScaleSetOsProfileWindowsConfigArgs, True)
             __props__.__dict__["os_profile_windows_config"] = os_profile_windows_config
             __props__.__dict__["overprovision"] = overprovision
-            if plan is not None and not isinstance(plan, ScaleSetPlanArgs):
-                plan = plan or {}
-                def _setter(key, value):
-                    plan[key] = value
-                ScaleSetPlanArgs._configure(_setter, **plan)
+            plan = _utilities.configure(plan, ScaleSetPlanArgs, True)
             __props__.__dict__["plan"] = plan
             __props__.__dict__["priority"] = priority
             __props__.__dict__["proximity_placement_group_id"] = proximity_placement_group_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if rolling_upgrade_policy is not None and not isinstance(rolling_upgrade_policy, ScaleSetRollingUpgradePolicyArgs):
-                rolling_upgrade_policy = rolling_upgrade_policy or {}
-                def _setter(key, value):
-                    rolling_upgrade_policy[key] = value
-                ScaleSetRollingUpgradePolicyArgs._configure(_setter, **rolling_upgrade_policy)
+            rolling_upgrade_policy = _utilities.configure(rolling_upgrade_policy, ScaleSetRollingUpgradePolicyArgs, True)
             __props__.__dict__["rolling_upgrade_policy"] = rolling_upgrade_policy
             __props__.__dict__["single_placement_group"] = single_placement_group
-            if sku is not None and not isinstance(sku, ScaleSetSkuArgs):
-                sku = sku or {}
-                def _setter(key, value):
-                    sku[key] = value
-                ScaleSetSkuArgs._configure(_setter, **sku)
+            sku = _utilities.configure(sku, ScaleSetSkuArgs, True)
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
             __props__.__dict__["storage_profile_data_disks"] = storage_profile_data_disks
-            if storage_profile_image_reference is not None and not isinstance(storage_profile_image_reference, ScaleSetStorageProfileImageReferenceArgs):
-                storage_profile_image_reference = storage_profile_image_reference or {}
-                def _setter(key, value):
-                    storage_profile_image_reference[key] = value
-                ScaleSetStorageProfileImageReferenceArgs._configure(_setter, **storage_profile_image_reference)
+            storage_profile_image_reference = _utilities.configure(storage_profile_image_reference, ScaleSetStorageProfileImageReferenceArgs, True)
             __props__.__dict__["storage_profile_image_reference"] = storage_profile_image_reference
-            if storage_profile_os_disk is not None and not isinstance(storage_profile_os_disk, ScaleSetStorageProfileOsDiskArgs):
-                storage_profile_os_disk = storage_profile_os_disk or {}
-                def _setter(key, value):
-                    storage_profile_os_disk[key] = value
-                ScaleSetStorageProfileOsDiskArgs._configure(_setter, **storage_profile_os_disk)
+            storage_profile_os_disk = _utilities.configure(storage_profile_os_disk, ScaleSetStorageProfileOsDiskArgs, True)
             if storage_profile_os_disk is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_profile_os_disk'")
             __props__.__dict__["storage_profile_os_disk"] = storage_profile_os_disk

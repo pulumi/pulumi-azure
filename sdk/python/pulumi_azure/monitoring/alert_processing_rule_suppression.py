@@ -49,18 +49,22 @@ class AlertProcessingRuleSuppressionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             scopes: pulumi.Input[Sequence[pulumi.Input[str]]],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              condition: Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              schedule: Optional[pulumi.Input['AlertProcessingRuleSuppressionScheduleArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if scopes is None:
+            raise TypeError("Missing 'scopes' argument")
 
         _setter("resource_group_name", resource_group_name)
         _setter("scopes", scopes)
@@ -218,9 +222,9 @@ class _AlertProcessingRuleSuppressionState:
              schedule: Optional[pulumi.Input['AlertProcessingRuleSuppressionScheduleArgs']] = None,
              scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if condition is not None:
@@ -354,52 +358,6 @@ class AlertProcessingRuleSuppression(pulumi.CustomResource):
         """
         Manages an Alert Processing Rule which suppress notifications.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_alert_processing_rule_suppression = azure.monitoring.AlertProcessingRuleSuppression("exampleAlertProcessingRuleSuppression",
-            resource_group_name="example",
-            scopes=[example_resource_group.id],
-            condition=azure.monitoring.AlertProcessingRuleSuppressionConditionArgs(
-                target_resource_type=azure.monitoring.AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs(
-                    operator="Equals",
-                    values=["Microsoft.Compute/VirtualMachines"],
-                ),
-                severity=azure.monitoring.AlertProcessingRuleSuppressionConditionSeverityArgs(
-                    operator="Equals",
-                    values=[
-                        "Sev0",
-                        "Sev1",
-                        "Sev2",
-                    ],
-                ),
-            ),
-            schedule=azure.monitoring.AlertProcessingRuleSuppressionScheduleArgs(
-                effective_from="2022-01-01T01:02:03",
-                effective_until="2022-02-02T01:02:03",
-                time_zone="Pacific Standard Time",
-                recurrence=azure.monitoring.AlertProcessingRuleSuppressionScheduleRecurrenceArgs(
-                    dailies=[azure.monitoring.AlertProcessingRuleSuppressionScheduleRecurrenceDailyArgs(
-                        start_time="17:00:00",
-                        end_time="09:00:00",
-                    )],
-                    weeklies=[azure.monitoring.AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs(
-                        days_of_weeks=[
-                            "Saturday",
-                            "Sunday",
-                        ],
-                    )],
-                ),
-            ),
-            tags={
-                "foo": "bar",
-            })
-        ```
-
         ## Import
 
         Alert Processing Rules can be imported using the `resource id`, e.g.
@@ -427,52 +385,6 @@ class AlertProcessingRuleSuppression(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Alert Processing Rule which suppress notifications.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_alert_processing_rule_suppression = azure.monitoring.AlertProcessingRuleSuppression("exampleAlertProcessingRuleSuppression",
-            resource_group_name="example",
-            scopes=[example_resource_group.id],
-            condition=azure.monitoring.AlertProcessingRuleSuppressionConditionArgs(
-                target_resource_type=azure.monitoring.AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs(
-                    operator="Equals",
-                    values=["Microsoft.Compute/VirtualMachines"],
-                ),
-                severity=azure.monitoring.AlertProcessingRuleSuppressionConditionSeverityArgs(
-                    operator="Equals",
-                    values=[
-                        "Sev0",
-                        "Sev1",
-                        "Sev2",
-                    ],
-                ),
-            ),
-            schedule=azure.monitoring.AlertProcessingRuleSuppressionScheduleArgs(
-                effective_from="2022-01-01T01:02:03",
-                effective_until="2022-02-02T01:02:03",
-                time_zone="Pacific Standard Time",
-                recurrence=azure.monitoring.AlertProcessingRuleSuppressionScheduleRecurrenceArgs(
-                    dailies=[azure.monitoring.AlertProcessingRuleSuppressionScheduleRecurrenceDailyArgs(
-                        start_time="17:00:00",
-                        end_time="09:00:00",
-                    )],
-                    weeklies=[azure.monitoring.AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs(
-                        days_of_weeks=[
-                            "Saturday",
-                            "Sunday",
-                        ],
-                    )],
-                ),
-            ),
-            tags={
-                "foo": "bar",
-            })
-        ```
 
         ## Import
 
@@ -518,11 +430,7 @@ class AlertProcessingRuleSuppression(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AlertProcessingRuleSuppressionArgs.__new__(AlertProcessingRuleSuppressionArgs)
 
-            if condition is not None and not isinstance(condition, AlertProcessingRuleSuppressionConditionArgs):
-                condition = condition or {}
-                def _setter(key, value):
-                    condition[key] = value
-                AlertProcessingRuleSuppressionConditionArgs._configure(_setter, **condition)
+            condition = _utilities.configure(condition, AlertProcessingRuleSuppressionConditionArgs, True)
             __props__.__dict__["condition"] = condition
             __props__.__dict__["description"] = description
             __props__.__dict__["enabled"] = enabled
@@ -530,11 +438,7 @@ class AlertProcessingRuleSuppression(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if schedule is not None and not isinstance(schedule, AlertProcessingRuleSuppressionScheduleArgs):
-                schedule = schedule or {}
-                def _setter(key, value):
-                    schedule[key] = value
-                AlertProcessingRuleSuppressionScheduleArgs._configure(_setter, **schedule)
+            schedule = _utilities.configure(schedule, AlertProcessingRuleSuppressionScheduleArgs, True)
             __props__.__dict__["schedule"] = schedule
             if scopes is None and not opts.urn:
                 raise TypeError("Missing required property 'scopes'")

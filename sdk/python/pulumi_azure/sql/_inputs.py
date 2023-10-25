@@ -54,28 +54,40 @@ class DatabaseImportArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             administrator_login: pulumi.Input[str],
-             administrator_login_password: pulumi.Input[str],
-             authentication_type: pulumi.Input[str],
-             storage_key: pulumi.Input[str],
-             storage_key_type: pulumi.Input[str],
-             storage_uri: pulumi.Input[str],
+             administrator_login: Optional[pulumi.Input[str]] = None,
+             administrator_login_password: Optional[pulumi.Input[str]] = None,
+             authentication_type: Optional[pulumi.Input[str]] = None,
+             storage_key: Optional[pulumi.Input[str]] = None,
+             storage_key_type: Optional[pulumi.Input[str]] = None,
+             storage_uri: Optional[pulumi.Input[str]] = None,
              operation_mode: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'administratorLogin' in kwargs:
+        if administrator_login is None and 'administratorLogin' in kwargs:
             administrator_login = kwargs['administratorLogin']
-        if 'administratorLoginPassword' in kwargs:
+        if administrator_login is None:
+            raise TypeError("Missing 'administrator_login' argument")
+        if administrator_login_password is None and 'administratorLoginPassword' in kwargs:
             administrator_login_password = kwargs['administratorLoginPassword']
-        if 'authenticationType' in kwargs:
+        if administrator_login_password is None:
+            raise TypeError("Missing 'administrator_login_password' argument")
+        if authentication_type is None and 'authenticationType' in kwargs:
             authentication_type = kwargs['authenticationType']
-        if 'storageKey' in kwargs:
+        if authentication_type is None:
+            raise TypeError("Missing 'authentication_type' argument")
+        if storage_key is None and 'storageKey' in kwargs:
             storage_key = kwargs['storageKey']
-        if 'storageKeyType' in kwargs:
+        if storage_key is None:
+            raise TypeError("Missing 'storage_key' argument")
+        if storage_key_type is None and 'storageKeyType' in kwargs:
             storage_key_type = kwargs['storageKeyType']
-        if 'storageUri' in kwargs:
+        if storage_key_type is None:
+            raise TypeError("Missing 'storage_key_type' argument")
+        if storage_uri is None and 'storageUri' in kwargs:
             storage_uri = kwargs['storageUri']
-        if 'operationMode' in kwargs:
+        if storage_uri is None:
+            raise TypeError("Missing 'storage_uri' argument")
+        if operation_mode is None and 'operationMode' in kwargs:
             operation_mode = kwargs['operationMode']
 
         _setter("administrator_login", administrator_login)
@@ -211,19 +223,19 @@ class DatabaseThreatDetectionPolicyArgs:
              state: Optional[pulumi.Input[str]] = None,
              storage_account_access_key: Optional[pulumi.Input[str]] = None,
              storage_endpoint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'disabledAlerts' in kwargs:
+        if disabled_alerts is None and 'disabledAlerts' in kwargs:
             disabled_alerts = kwargs['disabledAlerts']
-        if 'emailAccountAdmins' in kwargs:
+        if email_account_admins is None and 'emailAccountAdmins' in kwargs:
             email_account_admins = kwargs['emailAccountAdmins']
-        if 'emailAddresses' in kwargs:
+        if email_addresses is None and 'emailAddresses' in kwargs:
             email_addresses = kwargs['emailAddresses']
-        if 'retentionDays' in kwargs:
+        if retention_days is None and 'retentionDays' in kwargs:
             retention_days = kwargs['retentionDays']
-        if 'storageAccountAccessKey' in kwargs:
+        if storage_account_access_key is None and 'storageAccountAccessKey' in kwargs:
             storage_account_access_key = kwargs['storageAccountAccessKey']
-        if 'storageEndpoint' in kwargs:
+        if storage_endpoint is None and 'storageEndpoint' in kwargs:
             storage_endpoint = kwargs['storageEndpoint']
 
         if disabled_alerts is not None:
@@ -346,11 +358,13 @@ class FailoverGroupPartnerServerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             id: pulumi.Input[str],
+             id: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              role: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
 
         _setter("id", id)
         if location is not None:
@@ -412,11 +426,13 @@ class FailoverGroupReadWriteEndpointFailoverPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mode: pulumi.Input[str],
+             mode: Optional[pulumi.Input[str]] = None,
              grace_minutes: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'graceMinutes' in kwargs:
+        if mode is None:
+            raise TypeError("Missing 'mode' argument")
+        if grace_minutes is None and 'graceMinutes' in kwargs:
             grace_minutes = kwargs['graceMinutes']
 
         _setter("mode", mode)
@@ -462,9 +478,11 @@ class FailoverGroupReadonlyEndpointFailoverPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mode: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             mode: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if mode is None:
+            raise TypeError("Missing 'mode' argument")
 
         _setter("mode", mode)
 
@@ -500,7 +518,7 @@ class ManagedInstanceFailoverGroupPartnerRegionArgs:
              _setter: Callable[[Any, Any], None],
              location: Optional[pulumi.Input[str]] = None,
              role: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
 
         if location is not None:
@@ -550,11 +568,13 @@ class ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mode: pulumi.Input[str],
+             mode: Optional[pulumi.Input[str]] = None,
              grace_minutes: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'graceMinutes' in kwargs:
+        if mode is None:
+            raise TypeError("Missing 'mode' argument")
+        if grace_minutes is None and 'graceMinutes' in kwargs:
             grace_minutes = kwargs['graceMinutes']
 
         _setter("mode", mode)
@@ -606,14 +626,16 @@ class ManagedInstanceIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'principalId' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -681,14 +703,16 @@ class SqlServerIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'principalId' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -775,19 +799,19 @@ class SqlServerThreatDetectionPolicyArgs:
              state: Optional[pulumi.Input[str]] = None,
              storage_account_access_key: Optional[pulumi.Input[str]] = None,
              storage_endpoint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'disabledAlerts' in kwargs:
+        if disabled_alerts is None and 'disabledAlerts' in kwargs:
             disabled_alerts = kwargs['disabledAlerts']
-        if 'emailAccountAdmins' in kwargs:
+        if email_account_admins is None and 'emailAccountAdmins' in kwargs:
             email_account_admins = kwargs['emailAccountAdmins']
-        if 'emailAddresses' in kwargs:
+        if email_addresses is None and 'emailAddresses' in kwargs:
             email_addresses = kwargs['emailAddresses']
-        if 'retentionDays' in kwargs:
+        if retention_days is None and 'retentionDays' in kwargs:
             retention_days = kwargs['retentionDays']
-        if 'storageAccountAccessKey' in kwargs:
+        if storage_account_access_key is None and 'storageAccountAccessKey' in kwargs:
             storage_account_access_key = kwargs['storageAccountAccessKey']
-        if 'storageEndpoint' in kwargs:
+        if storage_endpoint is None and 'storageEndpoint' in kwargs:
             storage_endpoint = kwargs['storageEndpoint']
 
         if disabled_alerts is not None:

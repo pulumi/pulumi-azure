@@ -14,50 +14,6 @@ import (
 
 // Manages a Subscription Template Deployment.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := core.NewSubscriptionTemplateDeployment(ctx, "example", &core.SubscriptionTemplateDeploymentArgs{
-//				Location: pulumi.String("West Europe"),
-//				TemplateContent: pulumi.String(` {
-//	   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-//	   "contentVersion": "1.0.0.0",
-//	   "parameters": {},
-//	   "variables": {},
-//	   "resources": [
-//	     {
-//	       "type": "Microsoft.Resources/resourceGroups",
-//	       "apiVersion": "2018-05-01",
-//	       "location": "West Europe",
-//	       "name": "some-resource-group",
-//	       "properties": {}
-//	     }
-//	   ]
-//	 }
-//
-// `),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Subscription Template Deployments can be imported using the `resource id`, e.g.

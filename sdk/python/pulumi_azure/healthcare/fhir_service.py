@@ -64,9 +64,9 @@ class FhirServiceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             authentication: pulumi.Input['FhirServiceAuthenticationArgs'],
-             resource_group_name: pulumi.Input[str],
-             workspace_id: pulumi.Input[str],
+             authentication: Optional[pulumi.Input['FhirServiceAuthenticationArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
              access_policy_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              configuration_export_storage_account_name: Optional[pulumi.Input[str]] = None,
              container_registry_login_server_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -77,19 +77,25 @@ class FhirServiceArgs:
              name: Optional[pulumi.Input[str]] = None,
              oci_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input['FhirServiceOciArtifactArgs']]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if authentication is None:
+            raise TypeError("Missing 'authentication' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'workspaceId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
-        if 'accessPolicyObjectIds' in kwargs:
+        if workspace_id is None:
+            raise TypeError("Missing 'workspace_id' argument")
+        if access_policy_object_ids is None and 'accessPolicyObjectIds' in kwargs:
             access_policy_object_ids = kwargs['accessPolicyObjectIds']
-        if 'configurationExportStorageAccountName' in kwargs:
+        if configuration_export_storage_account_name is None and 'configurationExportStorageAccountName' in kwargs:
             configuration_export_storage_account_name = kwargs['configurationExportStorageAccountName']
-        if 'containerRegistryLoginServerUrls' in kwargs:
+        if container_registry_login_server_urls is None and 'containerRegistryLoginServerUrls' in kwargs:
             container_registry_login_server_urls = kwargs['containerRegistryLoginServerUrls']
-        if 'ociArtifacts' in kwargs:
+        if oci_artifacts is None and 'ociArtifacts' in kwargs:
             oci_artifacts = kwargs['ociArtifacts']
 
         _setter("authentication", authentication)
@@ -341,21 +347,21 @@ class _FhirServiceState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accessPolicyObjectIds' in kwargs:
+        if access_policy_object_ids is None and 'accessPolicyObjectIds' in kwargs:
             access_policy_object_ids = kwargs['accessPolicyObjectIds']
-        if 'configurationExportStorageAccountName' in kwargs:
+        if configuration_export_storage_account_name is None and 'configurationExportStorageAccountName' in kwargs:
             configuration_export_storage_account_name = kwargs['configurationExportStorageAccountName']
-        if 'containerRegistryLoginServerUrls' in kwargs:
+        if container_registry_login_server_urls is None and 'containerRegistryLoginServerUrls' in kwargs:
             container_registry_login_server_urls = kwargs['containerRegistryLoginServerUrls']
-        if 'ociArtifacts' in kwargs:
+        if oci_artifacts is None and 'ociArtifacts' in kwargs:
             oci_artifacts = kwargs['ociArtifacts']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'workspaceId' in kwargs:
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
 
         if access_policy_object_ids is not None:
@@ -578,48 +584,6 @@ class FhirService(pulumi.CustomResource):
         """
         Manages a Healthcare FHIR (Fast Healthcare Interoperability Resources) Service
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        current = azure.core.get_client_config()
-        example_workspace = azure.healthcare.Workspace("exampleWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_fhir_service = azure.healthcare.FhirService("exampleFhirService",
-            location="east us",
-            resource_group_name="tfex-resource_group",
-            workspace_id=example_workspace.id,
-            kind="fhir-R4",
-            authentication=azure.healthcare.FhirServiceAuthenticationArgs(
-                authority="https://login.microsoftonline.com/tenantId",
-                audience="https://tfexfhir.fhir.azurehealthcareapis.com",
-            ),
-            access_policy_object_ids=[current.object_id],
-            identity=azure.healthcare.FhirServiceIdentityArgs(
-                type="SystemAssigned",
-            ),
-            container_registry_login_server_urls=["tfex-container_registry_login_server"],
-            cors=azure.healthcare.FhirServiceCorsArgs(
-                allowed_origins=[
-                    "https://tfex.com:123",
-                    "https://tfex1.com:3389",
-                ],
-                allowed_headers=["*"],
-                allowed_methods=[
-                    "GET",
-                    "DELETE",
-                    "PUT",
-                ],
-                max_age_in_seconds=3600,
-                credentials_allowed=True,
-            ),
-            configuration_export_storage_account_name="storage_account_name")
-        ```
-
         ## Import
 
         Healthcare FHIR Service can be imported using the resource`id`, e.g.
@@ -652,48 +616,6 @@ class FhirService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Healthcare FHIR (Fast Healthcare Interoperability Resources) Service
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        current = azure.core.get_client_config()
-        example_workspace = azure.healthcare.Workspace("exampleWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_fhir_service = azure.healthcare.FhirService("exampleFhirService",
-            location="east us",
-            resource_group_name="tfex-resource_group",
-            workspace_id=example_workspace.id,
-            kind="fhir-R4",
-            authentication=azure.healthcare.FhirServiceAuthenticationArgs(
-                authority="https://login.microsoftonline.com/tenantId",
-                audience="https://tfexfhir.fhir.azurehealthcareapis.com",
-            ),
-            access_policy_object_ids=[current.object_id],
-            identity=azure.healthcare.FhirServiceIdentityArgs(
-                type="SystemAssigned",
-            ),
-            container_registry_login_server_urls=["tfex-container_registry_login_server"],
-            cors=azure.healthcare.FhirServiceCorsArgs(
-                allowed_origins=[
-                    "https://tfex.com:123",
-                    "https://tfex1.com:3389",
-                ],
-                allowed_headers=["*"],
-                allowed_methods=[
-                    "GET",
-                    "DELETE",
-                    "PUT",
-                ],
-                max_age_in_seconds=3600,
-                credentials_allowed=True,
-            ),
-            configuration_export_storage_account_name="storage_account_name")
-        ```
 
         ## Import
 
@@ -745,27 +667,15 @@ class FhirService(pulumi.CustomResource):
             __props__ = FhirServiceArgs.__new__(FhirServiceArgs)
 
             __props__.__dict__["access_policy_object_ids"] = access_policy_object_ids
-            if authentication is not None and not isinstance(authentication, FhirServiceAuthenticationArgs):
-                authentication = authentication or {}
-                def _setter(key, value):
-                    authentication[key] = value
-                FhirServiceAuthenticationArgs._configure(_setter, **authentication)
+            authentication = _utilities.configure(authentication, FhirServiceAuthenticationArgs, True)
             if authentication is None and not opts.urn:
                 raise TypeError("Missing required property 'authentication'")
             __props__.__dict__["authentication"] = authentication
             __props__.__dict__["configuration_export_storage_account_name"] = configuration_export_storage_account_name
             __props__.__dict__["container_registry_login_server_urls"] = container_registry_login_server_urls
-            if cors is not None and not isinstance(cors, FhirServiceCorsArgs):
-                cors = cors or {}
-                def _setter(key, value):
-                    cors[key] = value
-                FhirServiceCorsArgs._configure(_setter, **cors)
+            cors = _utilities.configure(cors, FhirServiceCorsArgs, True)
             __props__.__dict__["cors"] = cors
-            if identity is not None and not isinstance(identity, FhirServiceIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                FhirServiceIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, FhirServiceIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location

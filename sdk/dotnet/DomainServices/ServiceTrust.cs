@@ -12,37 +12,6 @@ namespace Pulumi.Azure.DomainServices
     /// <summary>
     /// Manages a Active Directory Domain Service Trust.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleService = Azure.DomainServices.GetService.Invoke(new()
-    ///     {
-    ///         Name = "example-ds",
-    ///         ResourceGroupName = "example-rg",
-    ///     });
-    /// 
-    ///     var exampleServiceTrust = new Azure.DomainServices.ServiceTrust("exampleServiceTrust", new()
-    ///     {
-    ///         DomainServiceId = exampleService.Apply(getServiceResult =&gt; getServiceResult.Id),
-    ///         TrustedDomainFqdn = "example.com",
-    ///         TrustedDomainDnsIps = new[]
-    ///         {
-    ///             "10.1.0.3",
-    ///             "10.1.0.4",
-    ///         },
-    ///         Password = "Password123",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Active Directory Domain Service Trusts can be imported using the `resource id`, e.g.

@@ -12,38 +12,6 @@ namespace Pulumi.Azure.MSSql
     /// <summary>
     /// Manages a MS SQL Server DNS Alias.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleServer = new Azure.MSSql.Server("exampleServer", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         Version = "12.0",
-    ///         AdministratorLogin = "missadministrator",
-    ///         AdministratorLoginPassword = "AdminPassword123!",
-    ///     });
-    /// 
-    ///     var exampleServerDnsAlias = new Azure.MSSql.ServerDnsAlias("exampleServerDnsAlias", new()
-    ///     {
-    ///         MssqlServerId = exampleServer.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// MSSQL Server DNS Aliass can be imported using the `resource id`, e.g.

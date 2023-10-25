@@ -32,12 +32,16 @@ class SourceCodeTokenArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             token: pulumi.Input[str],
-             type: pulumi.Input[str],
+             token: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              token_secret: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'tokenSecret' in kwargs:
+        if token is None:
+            raise TypeError("Missing 'token' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if token_secret is None and 'tokenSecret' in kwargs:
             token_secret = kwargs['tokenSecret']
 
         _setter("token", token)
@@ -106,9 +110,9 @@ class _SourceCodeTokenState:
              token: Optional[pulumi.Input[str]] = None,
              token_secret: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'tokenSecret' in kwargs:
+        if token_secret is None and 'tokenSecret' in kwargs:
             token_secret = kwargs['tokenSecret']
 
         if token is not None:
@@ -171,17 +175,6 @@ class SourceCodeToken(pulumi.CustomResource):
 
         > **NOTE:** Source Control Tokens are configured at the subscription level, not on each App Service - as such this can only be configured Subscription-wide
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.appservice.SourceCodeToken("example",
-            token="7e57735e77e577e57",
-            type="GitHub")
-        ```
-
         ## Import
 
         App Service Source Control Token's can be imported using the `type`, e.g.
@@ -208,17 +201,6 @@ class SourceCodeToken(pulumi.CustomResource):
         !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `appservice.ServicePlan` resource instead.
 
         > **NOTE:** Source Control Tokens are configured at the subscription level, not on each App Service - as such this can only be configured Subscription-wide
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.appservice.SourceCodeToken("example",
-            token="7e57735e77e577e57",
-            type="GitHub")
-        ```
 
         ## Import
 

@@ -37,9 +37,9 @@ class ActiveRoleAssignmentScheduleArgs:
              _setter: Callable[[Any, Any], None],
              expiration: Optional[pulumi.Input['ActiveRoleAssignmentScheduleExpirationArgs']] = None,
              start_date_time: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'startDateTime' in kwargs:
+        if start_date_time is None and 'startDateTime' in kwargs:
             start_date_time = kwargs['startDateTime']
 
         if expiration is not None:
@@ -95,13 +95,13 @@ class ActiveRoleAssignmentScheduleExpirationArgs:
              duration_days: Optional[pulumi.Input[int]] = None,
              duration_hours: Optional[pulumi.Input[int]] = None,
              end_date_time: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'durationDays' in kwargs:
+        if duration_days is None and 'durationDays' in kwargs:
             duration_days = kwargs['durationDays']
-        if 'durationHours' in kwargs:
+        if duration_hours is None and 'durationHours' in kwargs:
             duration_hours = kwargs['durationHours']
-        if 'endDateTime' in kwargs:
+        if end_date_time is None and 'endDateTime' in kwargs:
             end_date_time = kwargs['endDateTime']
 
         if duration_days is not None:
@@ -167,7 +167,7 @@ class ActiveRoleAssignmentTicketArgs:
              _setter: Callable[[Any, Any], None],
              number: Optional[pulumi.Input[str]] = None,
              system: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
 
         if number is not None:
@@ -219,9 +219,9 @@ class EligibleRoleAssignmentScheduleArgs:
              _setter: Callable[[Any, Any], None],
              expiration: Optional[pulumi.Input['EligibleRoleAssignmentScheduleExpirationArgs']] = None,
              start_date_time: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'startDateTime' in kwargs:
+        if start_date_time is None and 'startDateTime' in kwargs:
             start_date_time = kwargs['startDateTime']
 
         if expiration is not None:
@@ -277,13 +277,13 @@ class EligibleRoleAssignmentScheduleExpirationArgs:
              duration_days: Optional[pulumi.Input[int]] = None,
              duration_hours: Optional[pulumi.Input[int]] = None,
              end_date_time: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'durationDays' in kwargs:
+        if duration_days is None and 'durationDays' in kwargs:
             duration_days = kwargs['durationDays']
-        if 'durationHours' in kwargs:
+        if duration_hours is None and 'durationHours' in kwargs:
             duration_hours = kwargs['durationHours']
-        if 'endDateTime' in kwargs:
+        if end_date_time is None and 'endDateTime' in kwargs:
             end_date_time = kwargs['endDateTime']
 
         if duration_days is not None:
@@ -349,7 +349,7 @@ class EligibleRoleAssignmentTicketArgs:
              _setter: Callable[[Any, Any], None],
              number: Optional[pulumi.Input[str]] = None,
              system: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
 
         if number is not None:

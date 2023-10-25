@@ -15,63 +15,6 @@ import (
 
 // Manages a Log Analytics Query Pack Query.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/loganalytics"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleQueryPack, err := loganalytics.NewQueryPack(ctx, "exampleQueryPack", &loganalytics.QueryPackArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = operationalinsights.NewQueryPackQuery(ctx, "exampleQueryPackQuery", &operationalinsights.QueryPackQueryArgs{
-//				QueryPackId: exampleQueryPack.ID(),
-//				Body: pulumi.String(`let newExceptionsTimeRange = 1d;
-//
-// let timeRangeToCheckBefore = 7d;
-// exceptions
-// | where timestamp < ago(timeRangeToCheckBefore)
-// | summarize count() by problemId
-// | join kind= rightanti (
-// exceptions
-// | where timestamp >= ago(newExceptionsTimeRange)
-// | extend stack = tostring(details[0].rawStack)
-// | summarize count(), dcount(user_AuthenticatedId), min(timestamp), max(timestamp), any(stack) by problemId
-// ) on problemId
-// | order by  count_ desc
-// `),
-//
-//				DisplayName: pulumi.String("Exceptions - New in the last 24 hours"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Log Analytics Query Pack Queries can be imported using the `resource id`, e.g.

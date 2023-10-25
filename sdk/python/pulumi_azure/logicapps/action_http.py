@@ -51,19 +51,25 @@ class ActionHttpArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             logic_app_id: pulumi.Input[str],
-             method: pulumi.Input[str],
-             uri: pulumi.Input[str],
+             logic_app_id: Optional[pulumi.Input[str]] = None,
+             method: Optional[pulumi.Input[str]] = None,
+             uri: Optional[pulumi.Input[str]] = None,
              body: Optional[pulumi.Input[str]] = None,
              headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              queries: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              run_afters: Optional[pulumi.Input[Sequence[pulumi.Input['ActionHttpRunAfterArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'logicAppId' in kwargs:
+        if logic_app_id is None and 'logicAppId' in kwargs:
             logic_app_id = kwargs['logicAppId']
-        if 'runAfters' in kwargs:
+        if logic_app_id is None:
+            raise TypeError("Missing 'logic_app_id' argument")
+        if method is None:
+            raise TypeError("Missing 'method' argument")
+        if uri is None:
+            raise TypeError("Missing 'uri' argument")
+        if run_afters is None and 'runAfters' in kwargs:
             run_afters = kwargs['runAfters']
 
         _setter("logic_app_id", logic_app_id)
@@ -225,11 +231,11 @@ class _ActionHttpState:
              queries: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              run_afters: Optional[pulumi.Input[Sequence[pulumi.Input['ActionHttpRunAfterArgs']]]] = None,
              uri: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'logicAppId' in kwargs:
+        if logic_app_id is None and 'logicAppId' in kwargs:
             logic_app_id = kwargs['logicAppId']
-        if 'runAfters' in kwargs:
+        if run_afters is None and 'runAfters' in kwargs:
             run_afters = kwargs['runAfters']
 
         if body is not None:
@@ -365,22 +371,6 @@ class ActionHttp(pulumi.CustomResource):
         """
         Manages an HTTP Action within a Logic App Workflow
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_workflow = azure.logicapps.Workflow("exampleWorkflow",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_action_http = azure.logicapps.ActionHttp("exampleActionHttp",
-            logic_app_id=example_workflow.id,
-            method="GET",
-            uri="http://example.com/some-webhook")
-        ```
-
         ## Import
 
         Logic App HTTP Actions can be imported using the `resource id`, e.g.
@@ -410,22 +400,6 @@ class ActionHttp(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an HTTP Action within a Logic App Workflow
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_workflow = azure.logicapps.Workflow("exampleWorkflow",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_action_http = azure.logicapps.ActionHttp("exampleActionHttp",
-            logic_app_id=example_workflow.id,
-            method="GET",
-            uri="http://example.com/some-webhook")
-        ```
 
         ## Import
 

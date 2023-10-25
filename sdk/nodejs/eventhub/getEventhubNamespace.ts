@@ -6,19 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing EventHub Namespace.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.eventhub.getNamespace({
- *     name: "search-eventhubns",
- *     resourceGroupName: "search-service",
- * });
- * export const eventhubNamespaceId = example.then(example => example.id);
- * ```
  */
 /** @deprecated azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace */
 export function getEventhubNamespace(args: GetEventhubNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetEventhubNamespaceResult> {
@@ -119,19 +106,6 @@ export interface GetEventhubNamespaceResult {
 }
 /**
  * Use this data source to access information about an existing EventHub Namespace.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.eventhub.getNamespace({
- *     name: "search-eventhubns",
- *     resourceGroupName: "search-service",
- * });
- * export const eventhubNamespaceId = example.then(example => example.id);
- * ```
  */
 /** @deprecated azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace */
 export function getEventhubNamespaceOutput(args: GetEventhubNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventhubNamespaceResult> {

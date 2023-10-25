@@ -12,43 +12,6 @@ namespace Pulumi.Azure.PrivateDns
     /// <summary>
     /// Enables you to manage DNS TXT Records within Azure Private DNS.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleZone = new Azure.PrivateDns.Zone("exampleZone", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///     });
-    /// 
-    ///     var exampleTxtRecord = new Azure.PrivateDns.TxtRecord("exampleTxtRecord", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         ZoneName = exampleZone.Name,
-    ///         Ttl = 300,
-    ///         Records = new[]
-    ///         {
-    ///             new Azure.PrivateDns.Inputs.TxtRecordRecordArgs
-    ///             {
-    ///                 Value = "v=spf1 mx ~all",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Private DNS TXT Records can be imported using the `resource id`, e.g.

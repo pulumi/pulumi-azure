@@ -12,45 +12,6 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages the association between a NAT Gateway and a Public IP.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         AllocationMethod = "Static",
-    ///         Sku = "Standard",
-    ///     });
-    /// 
-    ///     var exampleNatGateway = new Azure.Network.NatGateway("exampleNatGateway", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         SkuName = "Standard",
-    ///     });
-    /// 
-    ///     var exampleNatGatewayPublicIpAssociation = new Azure.Network.NatGatewayPublicIpAssociation("exampleNatGatewayPublicIpAssociation", new()
-    ///     {
-    ///         NatGatewayId = exampleNatGateway.Id,
-    ///         PublicIpAddressId = examplePublicIp.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Associations between NAT Gateway and Public IP Addresses can be imported using the `resource id`, e.g.

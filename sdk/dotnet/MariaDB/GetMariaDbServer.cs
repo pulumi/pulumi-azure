@@ -13,66 +13,12 @@ namespace Pulumi.Azure.MariaDB
     {
         /// <summary>
         /// Use this data source to access information about an existing MariaDB Server.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var dbServer = Azure.MariaDB.GetMariaDbServer.Invoke(new()
-        ///     {
-        ///         Name = "mariadb-server",
-        ///         ResourceGroupName = azurerm_mariadb_server.Example.Resource_group_name,
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["mariadbServerId"] = data.Azurerm_mariadb_server.Example.Id,
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetMariaDbServerResult> InvokeAsync(GetMariaDbServerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMariaDbServerResult>("azure:mariadb/getMariaDbServer:getMariaDbServer", args ?? new GetMariaDbServerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing MariaDB Server.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var dbServer = Azure.MariaDB.GetMariaDbServer.Invoke(new()
-        ///     {
-        ///         Name = "mariadb-server",
-        ///         ResourceGroupName = azurerm_mariadb_server.Example.Resource_group_name,
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["mariadbServerId"] = data.Azurerm_mariadb_server.Example.Id,
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetMariaDbServerResult> Invoke(GetMariaDbServerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMariaDbServerResult>("azure:mariadb/getMariaDbServer:getMariaDbServer", args ?? new GetMariaDbServerInvokeArgs(), options.WithDefaults());

@@ -12,60 +12,6 @@ namespace Pulumi.Azure.Sentinel
     /// <summary>
     /// Manages a Duplicated Anomaly Alert Rule.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Sku = "PerGB2018",
-    ///     });
-    /// 
-    ///     var exampleLogAnalyticsWorkspaceOnboarding = new Azure.Sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", new()
-    ///     {
-    ///         WorkspaceId = exampleAnalyticsWorkspace.Id,
-    ///         CustomerManagedKeyEnabled = false,
-    ///     });
-    /// 
-    ///     var exampleAlertRuleAnomaly = Azure.Sentinel.GetAlertRuleAnomaly.Invoke(new()
-    ///     {
-    ///         LogAnalyticsWorkspaceId = exampleLogAnalyticsWorkspaceOnboarding.WorkspaceId,
-    ///         DisplayName = "UEBA Anomalous Sign In",
-    ///     });
-    /// 
-    ///     var exampleAlertRuleAnomalyDuplicate = new Azure.Sentinel.AlertRuleAnomalyDuplicate("exampleAlertRuleAnomalyDuplicate", new()
-    ///     {
-    ///         DisplayName = "example duplicated UEBA Anomalous Sign In",
-    ///         LogAnalyticsWorkspaceId = exampleAnalyticsWorkspace.Id,
-    ///         BuiltInRuleId = exampleAlertRuleAnomaly.Apply(getAlertRuleAnomalyResult =&gt; getAlertRuleAnomalyResult.Id),
-    ///         Enabled = true,
-    ///         Mode = "Flighting",
-    ///         ThresholdObservations = new[]
-    ///         {
-    ///             new Azure.Sentinel.Inputs.AlertRuleAnomalyDuplicateThresholdObservationArgs
-    ///             {
-    ///                 Name = "Anomaly score threshold",
-    ///                 Value = "0.6",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Built In Anomaly Alert Rules can be imported using the `resource id`, e.g.

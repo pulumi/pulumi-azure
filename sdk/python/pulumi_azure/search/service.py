@@ -79,8 +79,8 @@ class ServiceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             sku: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
              allowed_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              authentication_failure_mode: Optional[pulumi.Input[str]] = None,
              customer_managed_key_enforcement_enabled: Optional[pulumi.Input[bool]] = None,
@@ -93,25 +93,29 @@ class ServiceArgs:
              public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
              replica_count: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'allowedIps' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if allowed_ips is None and 'allowedIps' in kwargs:
             allowed_ips = kwargs['allowedIps']
-        if 'authenticationFailureMode' in kwargs:
+        if authentication_failure_mode is None and 'authenticationFailureMode' in kwargs:
             authentication_failure_mode = kwargs['authenticationFailureMode']
-        if 'customerManagedKeyEnforcementEnabled' in kwargs:
+        if customer_managed_key_enforcement_enabled is None and 'customerManagedKeyEnforcementEnabled' in kwargs:
             customer_managed_key_enforcement_enabled = kwargs['customerManagedKeyEnforcementEnabled']
-        if 'hostingMode' in kwargs:
+        if hosting_mode is None and 'hostingMode' in kwargs:
             hosting_mode = kwargs['hostingMode']
-        if 'localAuthenticationEnabled' in kwargs:
+        if local_authentication_enabled is None and 'localAuthenticationEnabled' in kwargs:
             local_authentication_enabled = kwargs['localAuthenticationEnabled']
-        if 'partitionCount' in kwargs:
+        if partition_count is None and 'partitionCount' in kwargs:
             partition_count = kwargs['partitionCount']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'replicaCount' in kwargs:
+        if replica_count is None and 'replicaCount' in kwargs:
             replica_count = kwargs['replicaCount']
 
         _setter("resource_group_name", resource_group_name)
@@ -414,31 +418,31 @@ class _ServiceState:
              secondary_key: Optional[pulumi.Input[str]] = None,
              sku: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'allowedIps' in kwargs:
+        if allowed_ips is None and 'allowedIps' in kwargs:
             allowed_ips = kwargs['allowedIps']
-        if 'authenticationFailureMode' in kwargs:
+        if authentication_failure_mode is None and 'authenticationFailureMode' in kwargs:
             authentication_failure_mode = kwargs['authenticationFailureMode']
-        if 'customerManagedKeyEnforcementEnabled' in kwargs:
+        if customer_managed_key_enforcement_enabled is None and 'customerManagedKeyEnforcementEnabled' in kwargs:
             customer_managed_key_enforcement_enabled = kwargs['customerManagedKeyEnforcementEnabled']
-        if 'hostingMode' in kwargs:
+        if hosting_mode is None and 'hostingMode' in kwargs:
             hosting_mode = kwargs['hostingMode']
-        if 'localAuthenticationEnabled' in kwargs:
+        if local_authentication_enabled is None and 'localAuthenticationEnabled' in kwargs:
             local_authentication_enabled = kwargs['localAuthenticationEnabled']
-        if 'partitionCount' in kwargs:
+        if partition_count is None and 'partitionCount' in kwargs:
             partition_count = kwargs['partitionCount']
-        if 'primaryKey' in kwargs:
+        if primary_key is None and 'primaryKey' in kwargs:
             primary_key = kwargs['primaryKey']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'queryKeys' in kwargs:
+        if query_keys is None and 'queryKeys' in kwargs:
             query_keys = kwargs['queryKeys']
-        if 'replicaCount' in kwargs:
+        if replica_count is None and 'replicaCount' in kwargs:
             replica_count = kwargs['replicaCount']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'secondaryKey' in kwargs:
+        if secondary_key is None and 'secondaryKey' in kwargs:
             secondary_key = kwargs['secondaryKey']
 
         if allowed_ips is not None:
@@ -717,45 +721,6 @@ class Service(pulumi.CustomResource):
         Manages a Search Service.
 
         ## Example Usage
-        ### Supporting API Keys)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.search.Service("exampleService",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku="standard")
-        ```
-        ### Using Both AzureAD And API Keys)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.search.Service("exampleService",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku="standard",
-            local_authentication_enabled=True,
-            authentication_failure_mode="http403")
-        ```
-        ### Supporting Only AzureAD Authentication)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.search.Service("exampleService",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku="standard",
-            local_authentication_enabled=False)
-        ```
 
         ## Import
 
@@ -804,45 +769,6 @@ class Service(pulumi.CustomResource):
         Manages a Search Service.
 
         ## Example Usage
-        ### Supporting API Keys)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.search.Service("exampleService",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku="standard")
-        ```
-        ### Using Both AzureAD And API Keys)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.search.Service("exampleService",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku="standard",
-            local_authentication_enabled=True,
-            authentication_failure_mode="http403")
-        ```
-        ### Supporting Only AzureAD Authentication)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.search.Service("exampleService",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku="standard",
-            local_authentication_enabled=False)
-        ```
 
         ## Import
 
@@ -898,11 +824,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["authentication_failure_mode"] = authentication_failure_mode
             __props__.__dict__["customer_managed_key_enforcement_enabled"] = customer_managed_key_enforcement_enabled
             __props__.__dict__["hosting_mode"] = hosting_mode
-            if identity is not None and not isinstance(identity, ServiceIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                ServiceIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, ServiceIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["local_authentication_enabled"] = local_authentication_enabled
             __props__.__dict__["location"] = location

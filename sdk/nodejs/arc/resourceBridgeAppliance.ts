@@ -9,27 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Arc Resource Bridge Appliance.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleResourceBridgeAppliance = new azure.arc.ResourceBridgeAppliance("exampleResourceBridgeAppliance", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     distro: "AKSEdge",
- *     infrastructureProvider: "VMWare",
- *     identity: {
- *         type: "SystemAssigned",
- *     },
- *     tags: {
- *         hello: "world",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Arc Resource Bridge Appliance can be imported using the `resource id`, e.g.

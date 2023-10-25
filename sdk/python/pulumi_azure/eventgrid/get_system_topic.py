@@ -138,16 +138,6 @@ def get_system_topic(name: Optional[str] = None,
     """
     Use this data source to access information about an existing EventGrid System Topic
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.eventgrid.get_system_topic(name="eventgrid-system-topic",
-        resource_group_name="example-resources")
-    ```
-
 
     :param str name: The name of the EventGrid System Topic resource.
     :param str resource_group_name: The name of the resource group in which the EventGrid System Topic exists.
@@ -176,16 +166,6 @@ def get_system_topic_output(name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSystemTopicResult]:
     """
     Use this data source to access information about an existing EventGrid System Topic
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.eventgrid.get_system_topic(name="eventgrid-system-topic",
-        resource_group_name="example-resources")
-    ```
 
 
     :param str name: The name of the EventGrid System Topic resource.

@@ -41,17 +41,21 @@ class MoverSourceEndpointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             host: pulumi.Input[str],
-             storage_mover_id: pulumi.Input[str],
+             host: Optional[pulumi.Input[str]] = None,
+             storage_mover_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              export: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              nfs_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'storageMoverId' in kwargs:
+        if host is None:
+            raise TypeError("Missing 'host' argument")
+        if storage_mover_id is None and 'storageMoverId' in kwargs:
             storage_mover_id = kwargs['storageMoverId']
-        if 'nfsVersion' in kwargs:
+        if storage_mover_id is None:
+            raise TypeError("Missing 'storage_mover_id' argument")
+        if nfs_version is None and 'nfsVersion' in kwargs:
             nfs_version = kwargs['nfsVersion']
 
         _setter("host", host)
@@ -174,11 +178,11 @@ class _MoverSourceEndpointState:
              name: Optional[pulumi.Input[str]] = None,
              nfs_version: Optional[pulumi.Input[str]] = None,
              storage_mover_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'nfsVersion' in kwargs:
+        if nfs_version is None and 'nfsVersion' in kwargs:
             nfs_version = kwargs['nfsVersion']
-        if 'storageMoverId' in kwargs:
+        if storage_mover_id is None and 'storageMoverId' in kwargs:
             storage_mover_id = kwargs['storageMoverId']
 
         if description is not None:
@@ -282,23 +286,6 @@ class MoverSourceEndpoint(pulumi.CustomResource):
         """
         Manages a Storage Mover Source Endpoint.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_mover = azure.storage.Mover("exampleMover",
-            resource_group_name=example_resource_group.name,
-            location="West Europe")
-        example_mover_source_endpoint = azure.storage.MoverSourceEndpoint("exampleMoverSourceEndpoint",
-            storage_mover_id=example_mover.id,
-            export="/",
-            host="192.168.0.1",
-            nfs_version="NFSv3")
-        ```
-
         ## Import
 
         Storage Mover Source Endpoint can be imported using the `resource id`, e.g.
@@ -324,23 +311,6 @@ class MoverSourceEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Storage Mover Source Endpoint.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_mover = azure.storage.Mover("exampleMover",
-            resource_group_name=example_resource_group.name,
-            location="West Europe")
-        example_mover_source_endpoint = azure.storage.MoverSourceEndpoint("exampleMoverSourceEndpoint",
-            storage_mover_id=example_mover.id,
-            export="/",
-            host="192.168.0.1",
-            nfs_version="NFSv3")
-        ```
 
         ## Import
 

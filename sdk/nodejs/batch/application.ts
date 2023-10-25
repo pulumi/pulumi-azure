@@ -7,32 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages Azure Batch Application instance.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "LRS",
- * });
- * const exampleBatch_accountAccount = new azure.batch.Account("exampleBatch/accountAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     poolAllocationMode: "BatchService",
- *     storageAccountId: exampleAccount.id,
- *     storageAccountAuthenticationMode: "StorageKeys",
- * });
- * const exampleApplication = new azure.batch.Application("exampleApplication", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     accountName: exampleBatch / accountAccount.name,
- * });
- * ```
- *
  * ## Import
  *
  * Batch Applications can be imported using the `resource id`, e.g.

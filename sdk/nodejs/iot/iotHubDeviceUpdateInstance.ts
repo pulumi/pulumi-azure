@@ -9,45 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an IoT Hub Device Update Instance.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "East US"});
- * const exampleIotHubDeviceUpdateAccount = new azure.iot.IotHubDeviceUpdateAccount("exampleIotHubDeviceUpdateAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- * });
- * const exampleIoTHub = new azure.iot.IoTHub("exampleIoTHub", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     sku: {
- *         name: "S1",
- *         capacity: 1,
- *     },
- * });
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "LRS",
- * });
- * const exampleIotHubDeviceUpdateInstance = new azure.iot.IotHubDeviceUpdateInstance("exampleIotHubDeviceUpdateInstance", {
- *     deviceUpdateAccountId: exampleIotHubDeviceUpdateAccount.id,
- *     iothubId: exampleIoTHub.id,
- *     diagnosticEnabled: true,
- *     diagnosticStorageAccount: {
- *         connectionString: exampleAccount.primaryConnectionString,
- *         id: exampleAccount.id,
- *     },
- *     tags: {
- *         key: "value",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * IoT Hub Device Update Instance can be imported using the `resource id`, e.g.

@@ -60,9 +60,9 @@ class SubscriptionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_management_name: pulumi.Input[str],
-             display_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              allow_tracing: Optional[pulumi.Input[bool]] = None,
              api_id: Optional[pulumi.Input[str]] = None,
              primary_key: Optional[pulumi.Input[str]] = None,
@@ -71,27 +71,33 @@ class SubscriptionArgs:
              state: Optional[pulumi.Input[str]] = None,
              subscription_id: Optional[pulumi.Input[str]] = None,
              user_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'displayName' in kwargs:
+        if api_management_name is None:
+            raise TypeError("Missing 'api_management_name' argument")
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'resourceGroupName' in kwargs:
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'allowTracing' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if allow_tracing is None and 'allowTracing' in kwargs:
             allow_tracing = kwargs['allowTracing']
-        if 'apiId' in kwargs:
+        if api_id is None and 'apiId' in kwargs:
             api_id = kwargs['apiId']
-        if 'primaryKey' in kwargs:
+        if primary_key is None and 'primaryKey' in kwargs:
             primary_key = kwargs['primaryKey']
-        if 'productId' in kwargs:
+        if product_id is None and 'productId' in kwargs:
             product_id = kwargs['productId']
-        if 'secondaryKey' in kwargs:
+        if secondary_key is None and 'secondaryKey' in kwargs:
             secondary_key = kwargs['secondaryKey']
-        if 'subscriptionId' in kwargs:
+        if subscription_id is None and 'subscriptionId' in kwargs:
             subscription_id = kwargs['subscriptionId']
-        if 'userId' in kwargs:
+        if user_id is None and 'userId' in kwargs:
             user_id = kwargs['userId']
 
         _setter("api_management_name", api_management_name)
@@ -311,27 +317,27 @@ class _SubscriptionState:
              state: Optional[pulumi.Input[str]] = None,
              subscription_id: Optional[pulumi.Input[str]] = None,
              user_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'allowTracing' in kwargs:
+        if allow_tracing is None and 'allowTracing' in kwargs:
             allow_tracing = kwargs['allowTracing']
-        if 'apiId' in kwargs:
+        if api_id is None and 'apiId' in kwargs:
             api_id = kwargs['apiId']
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'primaryKey' in kwargs:
+        if primary_key is None and 'primaryKey' in kwargs:
             primary_key = kwargs['primaryKey']
-        if 'productId' in kwargs:
+        if product_id is None and 'productId' in kwargs:
             product_id = kwargs['productId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'secondaryKey' in kwargs:
+        if secondary_key is None and 'secondaryKey' in kwargs:
             secondary_key = kwargs['secondaryKey']
-        if 'subscriptionId' in kwargs:
+        if subscription_id is None and 'subscriptionId' in kwargs:
             subscription_id = kwargs['subscriptionId']
-        if 'userId' in kwargs:
+        if user_id is None and 'userId' in kwargs:
             user_id = kwargs['userId']
 
         if allow_tracing is not None:
@@ -514,28 +520,6 @@ class Subscription(pulumi.CustomResource):
         """
         Manages a Subscription within a API Management Service.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_service = azure.apimanagement.get_service(name="example-apim",
-            resource_group_name="example-resources")
-        example_product = azure.apimanagement.get_product(product_id="00000000-0000-0000-0000-000000000000",
-            api_management_name=example_service.name,
-            resource_group_name=example_service.resource_group_name)
-        example_user = azure.apimanagement.get_user(user_id="11111111-1111-1111-1111-111111111111",
-            api_management_name=example_service.name,
-            resource_group_name=example_service.resource_group_name)
-        example_subscription = azure.apimanagement.Subscription("exampleSubscription",
-            api_management_name=example_service.name,
-            resource_group_name=example_service.resource_group_name,
-            user_id=example_user.id,
-            product_id=example_product.id,
-            display_name="Parser API")
-        ```
-
         ## Import
 
         API Management Subscriptions can be imported using the `resource id`, e.g.
@@ -570,28 +554,6 @@ class Subscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Subscription within a API Management Service.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_service = azure.apimanagement.get_service(name="example-apim",
-            resource_group_name="example-resources")
-        example_product = azure.apimanagement.get_product(product_id="00000000-0000-0000-0000-000000000000",
-            api_management_name=example_service.name,
-            resource_group_name=example_service.resource_group_name)
-        example_user = azure.apimanagement.get_user(user_id="11111111-1111-1111-1111-111111111111",
-            api_management_name=example_service.name,
-            resource_group_name=example_service.resource_group_name)
-        example_subscription = azure.apimanagement.Subscription("exampleSubscription",
-            api_management_name=example_service.name,
-            resource_group_name=example_service.resource_group_name,
-            user_id=example_user.id,
-            product_id=example_product.id,
-            display_name="Parser API")
-        ```
 
         ## Import
 

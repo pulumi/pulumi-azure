@@ -41,23 +41,29 @@ class DatasetDataLakeGen2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             file_system_name: pulumi.Input[str],
-             share_id: pulumi.Input[str],
-             storage_account_id: pulumi.Input[str],
+             file_system_name: Optional[pulumi.Input[str]] = None,
+             share_id: Optional[pulumi.Input[str]] = None,
+             storage_account_id: Optional[pulumi.Input[str]] = None,
              file_path: Optional[pulumi.Input[str]] = None,
              folder_path: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'fileSystemName' in kwargs:
+        if file_system_name is None and 'fileSystemName' in kwargs:
             file_system_name = kwargs['fileSystemName']
-        if 'shareId' in kwargs:
+        if file_system_name is None:
+            raise TypeError("Missing 'file_system_name' argument")
+        if share_id is None and 'shareId' in kwargs:
             share_id = kwargs['shareId']
-        if 'storageAccountId' in kwargs:
+        if share_id is None:
+            raise TypeError("Missing 'share_id' argument")
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'filePath' in kwargs:
+        if storage_account_id is None:
+            raise TypeError("Missing 'storage_account_id' argument")
+        if file_path is None and 'filePath' in kwargs:
             file_path = kwargs['filePath']
-        if 'folderPath' in kwargs:
+        if folder_path is None and 'folderPath' in kwargs:
             folder_path = kwargs['folderPath']
 
         _setter("file_system_name", file_system_name)
@@ -183,19 +189,19 @@ class _DatasetDataLakeGen2State:
              name: Optional[pulumi.Input[str]] = None,
              share_id: Optional[pulumi.Input[str]] = None,
              storage_account_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'filePath' in kwargs:
+        if file_path is None and 'filePath' in kwargs:
             file_path = kwargs['filePath']
-        if 'fileSystemName' in kwargs:
+        if file_system_name is None and 'fileSystemName' in kwargs:
             file_system_name = kwargs['fileSystemName']
-        if 'folderPath' in kwargs:
+        if folder_path is None and 'folderPath' in kwargs:
             folder_path = kwargs['folderPath']
-        if 'shareId' in kwargs:
+        if share_id is None and 'shareId' in kwargs:
             share_id = kwargs['shareId']
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
 
         if display_name is not None:
@@ -313,43 +319,6 @@ class DatasetDataLakeGen2(pulumi.CustomResource):
         """
         Manages a Data Share Data Lake Gen2 Dataset.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_azuread as azuread
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.datashare.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            identity=azure.datashare.AccountIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_share = azure.datashare.Share("exampleShare",
-            account_id=example_account.id,
-            kind="CopyBased")
-        example_storage_account_account = azure.storage.Account("exampleStorage/accountAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_kind="BlobStorage",
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_storage / account_account["id"])
-        example_service_principal = azuread.get_service_principal_output(display_name=example_account.name)
-        example_assignment = azure.authorization.Assignment("exampleAssignment",
-            scope=example_storage / account_account["id"],
-            role_definition_name="Storage Blob Data Reader",
-            principal_id=example_service_principal.object_id)
-        example_dataset_data_lake_gen2 = azure.datashare.DatasetDataLakeGen2("exampleDatasetDataLakeGen2",
-            share_id=example_share.id,
-            storage_account_id=example_storage / account_account["id"],
-            file_system_name=example_data_lake_gen2_filesystem.name,
-            file_path="myfile.txt",
-            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
-        ```
-
         ## Import
 
         Data Share Data Lake Gen2 Datasets can be imported using the `resource id`, e.g.
@@ -375,43 +344,6 @@ class DatasetDataLakeGen2(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Data Share Data Lake Gen2 Dataset.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_azuread as azuread
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.datashare.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            identity=azure.datashare.AccountIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_share = azure.datashare.Share("exampleShare",
-            account_id=example_account.id,
-            kind="CopyBased")
-        example_storage_account_account = azure.storage.Account("exampleStorage/accountAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_kind="BlobStorage",
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_storage / account_account["id"])
-        example_service_principal = azuread.get_service_principal_output(display_name=example_account.name)
-        example_assignment = azure.authorization.Assignment("exampleAssignment",
-            scope=example_storage / account_account["id"],
-            role_definition_name="Storage Blob Data Reader",
-            principal_id=example_service_principal.object_id)
-        example_dataset_data_lake_gen2 = azure.datashare.DatasetDataLakeGen2("exampleDatasetDataLakeGen2",
-            share_id=example_share.id,
-            storage_account_id=example_storage / account_account["id"],
-            file_system_name=example_data_lake_gen2_filesystem.name,
-            file_path="myfile.txt",
-            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
-        ```
 
         ## Import
 

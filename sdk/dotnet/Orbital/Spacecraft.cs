@@ -12,52 +12,6 @@ namespace Pulumi.Azure.Orbital
     /// <summary>
     /// Manages a Spacecraft.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleSpacecraft = new Azure.Orbital.Spacecraft("exampleSpacecraft", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = "westeurope",
-    ///         NoradId = "12345",
-    ///         Links = new[]
-    ///         {
-    ///             new Azure.Orbital.Inputs.SpacecraftLinkArgs
-    ///             {
-    ///                 BandwidthMhz = 100,
-    ///                 CenterFrequencyMhz = 101,
-    ///                 Direction = "Uplink",
-    ///                 Polarization = "LHCP",
-    ///                 Name = "examplename",
-    ///             },
-    ///         },
-    ///         TwoLineElements = new[]
-    ///         {
-    ///             "1 23455U 94089A   97320.90946019  .00000140  00000-0  10191-3 0  2621",
-    ///             "2 23455  99.0090 272.6745 0008546 223.1686 136.8816 14.11711747148495",
-    ///         },
-    ///         TitleLine = "AQUA",
-    ///         Tags = 
-    ///         {
-    ///             { "aks-managed-cluster-name", "9a57225d-a405-4d40-aa46-f13d2342abef" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Spacecraft can be imported using the `resource id`, e.g.

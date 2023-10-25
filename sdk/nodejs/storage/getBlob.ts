@@ -6,19 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Storage Blob.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.storage.getBlob({
- *     name: "example-blob-name",
- *     storageAccountName: "example-storage-account-name",
- *     storageContainerName: "example-storage-container-name",
- * });
- * ```
  */
 export function getBlob(args: GetBlobArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobResult> {
 
@@ -91,19 +78,6 @@ export interface GetBlobResult {
 }
 /**
  * Use this data source to access information about an existing Storage Blob.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.storage.getBlob({
- *     name: "example-blob-name",
- *     storageAccountName: "example-storage-account-name",
- *     storageContainerName: "example-storage-container-name",
- * });
- * ```
  */
 export function getBlobOutput(args: GetBlobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobResult> {
     return pulumi.output(args).apply((a: any) => getBlob(a, opts))

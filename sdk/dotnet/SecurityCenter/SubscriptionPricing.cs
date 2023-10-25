@@ -15,65 +15,6 @@ namespace Pulumi.Azure.SecurityCenter
     /// &gt; **NOTE:** Deletion of this resource will reset the pricing tier to `Free`
     /// 
     /// ## Example Usage
-    /// ### Basic usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.SecurityCenter.SubscriptionPricing("example", new()
-    ///     {
-    ///         ResourceType = "VirtualMachines",
-    ///         Tier = "Standard",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Using Extensions with Defender CSPM
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example1 = new Azure.SecurityCenter.SubscriptionPricing("example1", new()
-    ///     {
-    ///         Extensions = new[]
-    ///         {
-    ///             new Azure.SecurityCenter.Inputs.SubscriptionPricingExtensionArgs
-    ///             {
-    ///                 Name = "ContainerRegistriesVulnerabilityAssessments",
-    ///             },
-    ///             new Azure.SecurityCenter.Inputs.SubscriptionPricingExtensionArgs
-    ///             {
-    ///                 AdditionalExtensionProperties = 
-    ///                 {
-    ///                     { "ExclusionTags", "[]" },
-    ///                 },
-    ///                 Name = "AgentlessVmScanning",
-    ///             },
-    ///             new Azure.SecurityCenter.Inputs.SubscriptionPricingExtensionArgs
-    ///             {
-    ///                 Name = "AgentlessDiscoveryForKubernetes",
-    ///             },
-    ///             new Azure.SecurityCenter.Inputs.SubscriptionPricingExtensionArgs
-    ///             {
-    ///                 Name = "SensitiveDataDiscovery",
-    ///             },
-    ///         },
-    ///         ResourceType = "CloudPosture",
-    ///         Tier = "Standard",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

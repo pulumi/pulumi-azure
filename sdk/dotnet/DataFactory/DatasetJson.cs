@@ -12,50 +12,6 @@ namespace Pulumi.Azure.DataFactory
     /// <summary>
     /// Manages an Azure JSON Dataset inside an Azure Data Factory.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///     });
-    /// 
-    ///     var exampleLinkedServiceWeb = new Azure.DataFactory.LinkedServiceWeb("exampleLinkedServiceWeb", new()
-    ///     {
-    ///         DataFactoryId = exampleFactory.Id,
-    ///         AuthenticationType = "Anonymous",
-    ///         Url = "https://www.bing.com",
-    ///     });
-    /// 
-    ///     var exampleDatasetJson = new Azure.DataFactory.DatasetJson("exampleDatasetJson", new()
-    ///     {
-    ///         DataFactoryId = exampleFactory.Id,
-    ///         LinkedServiceName = exampleLinkedServiceWeb.Name,
-    ///         HttpServerLocation = new Azure.DataFactory.Inputs.DatasetJsonHttpServerLocationArgs
-    ///         {
-    ///             RelativeUrl = "/fizz/buzz/",
-    ///             Path = "foo/bar/",
-    ///             Filename = "foo.txt",
-    ///         },
-    ///         Encoding = "UTF-8",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Data Factory Datasets can be imported using the `resource id`, e.g.

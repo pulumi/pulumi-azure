@@ -64,7 +64,7 @@ class SpringCloudGatewayArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             spring_cloud_service_id: pulumi.Input[str],
+             spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
              api_metadata: Optional[pulumi.Input['SpringCloudGatewayApiMetadataArgs']] = None,
              application_performance_monitoring_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              client_authorization: Optional[pulumi.Input['SpringCloudGatewayClientAuthorizationArgs']] = None,
@@ -77,25 +77,27 @@ class SpringCloudGatewayArgs:
              quota: Optional[pulumi.Input['SpringCloudGatewayQuotaArgs']] = None,
              sensitive_environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              sso: Optional[pulumi.Input['SpringCloudGatewaySsoArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'springCloudServiceId' in kwargs:
+        if spring_cloud_service_id is None and 'springCloudServiceId' in kwargs:
             spring_cloud_service_id = kwargs['springCloudServiceId']
-        if 'apiMetadata' in kwargs:
+        if spring_cloud_service_id is None:
+            raise TypeError("Missing 'spring_cloud_service_id' argument")
+        if api_metadata is None and 'apiMetadata' in kwargs:
             api_metadata = kwargs['apiMetadata']
-        if 'applicationPerformanceMonitoringTypes' in kwargs:
+        if application_performance_monitoring_types is None and 'applicationPerformanceMonitoringTypes' in kwargs:
             application_performance_monitoring_types = kwargs['applicationPerformanceMonitoringTypes']
-        if 'clientAuthorization' in kwargs:
+        if client_authorization is None and 'clientAuthorization' in kwargs:
             client_authorization = kwargs['clientAuthorization']
-        if 'environmentVariables' in kwargs:
+        if environment_variables is None and 'environmentVariables' in kwargs:
             environment_variables = kwargs['environmentVariables']
-        if 'httpsOnly' in kwargs:
+        if https_only is None and 'httpsOnly' in kwargs:
             https_only = kwargs['httpsOnly']
-        if 'instanceCount' in kwargs:
+        if instance_count is None and 'instanceCount' in kwargs:
             instance_count = kwargs['instanceCount']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'sensitiveEnvironmentVariables' in kwargs:
+        if sensitive_environment_variables is None and 'sensitiveEnvironmentVariables' in kwargs:
             sensitive_environment_variables = kwargs['sensitiveEnvironmentVariables']
 
         _setter("spring_cloud_service_id", spring_cloud_service_id)
@@ -349,25 +351,25 @@ class _SpringCloudGatewayState:
              spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
              sso: Optional[pulumi.Input['SpringCloudGatewaySsoArgs']] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiMetadata' in kwargs:
+        if api_metadata is None and 'apiMetadata' in kwargs:
             api_metadata = kwargs['apiMetadata']
-        if 'applicationPerformanceMonitoringTypes' in kwargs:
+        if application_performance_monitoring_types is None and 'applicationPerformanceMonitoringTypes' in kwargs:
             application_performance_monitoring_types = kwargs['applicationPerformanceMonitoringTypes']
-        if 'clientAuthorization' in kwargs:
+        if client_authorization is None and 'clientAuthorization' in kwargs:
             client_authorization = kwargs['clientAuthorization']
-        if 'environmentVariables' in kwargs:
+        if environment_variables is None and 'environmentVariables' in kwargs:
             environment_variables = kwargs['environmentVariables']
-        if 'httpsOnly' in kwargs:
+        if https_only is None and 'httpsOnly' in kwargs:
             https_only = kwargs['httpsOnly']
-        if 'instanceCount' in kwargs:
+        if instance_count is None and 'instanceCount' in kwargs:
             instance_count = kwargs['instanceCount']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'sensitiveEnvironmentVariables' in kwargs:
+        if sensitive_environment_variables is None and 'sensitiveEnvironmentVariables' in kwargs:
             sensitive_environment_variables = kwargs['sensitiveEnvironmentVariables']
-        if 'springCloudServiceId' in kwargs:
+        if spring_cloud_service_id is None and 'springCloudServiceId' in kwargs:
             spring_cloud_service_id = kwargs['springCloudServiceId']
 
         if api_metadata is not None:
@@ -592,49 +594,6 @@ class SpringCloudGateway(pulumi.CustomResource):
 
         Manages a Spring Cloud Gateway.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="E0")
-        example_spring_cloud_gateway = azure.appplatform.SpringCloudGateway("exampleSpringCloudGateway",
-            spring_cloud_service_id=example_spring_cloud_service.id,
-            https_only=False,
-            public_network_access_enabled=True,
-            instance_count=2,
-            api_metadata=azure.appplatform.SpringCloudGatewayApiMetadataArgs(
-                description="example description",
-                documentation_url="https://www.example.com/docs",
-                server_url="https://wwww.example.com",
-                title="example title",
-                version="1.0",
-            ),
-            cors=azure.appplatform.SpringCloudGatewayCorsArgs(
-                credentials_allowed=False,
-                allowed_headers=["*"],
-                allowed_methods=["PUT"],
-                allowed_origins=["example.com"],
-                exposed_headers=["x-example-header"],
-                max_age_seconds=86400,
-            ),
-            quota=azure.appplatform.SpringCloudGatewayQuotaArgs(
-                cpu="1",
-                memory="2Gi",
-            ),
-            sso=azure.appplatform.SpringCloudGatewaySsoArgs(
-                client_id="example id",
-                client_secret="example secret",
-                issuer_uri="https://www.test.com/issueToken",
-                scopes=["read"],
-            ))
-        ```
-
         ## Import
 
         Spring Cloud Gateways can be imported using the `resource id`, e.g.
@@ -669,49 +628,6 @@ class SpringCloudGateway(pulumi.CustomResource):
         > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
 
         Manages a Spring Cloud Gateway.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="E0")
-        example_spring_cloud_gateway = azure.appplatform.SpringCloudGateway("exampleSpringCloudGateway",
-            spring_cloud_service_id=example_spring_cloud_service.id,
-            https_only=False,
-            public_network_access_enabled=True,
-            instance_count=2,
-            api_metadata=azure.appplatform.SpringCloudGatewayApiMetadataArgs(
-                description="example description",
-                documentation_url="https://www.example.com/docs",
-                server_url="https://wwww.example.com",
-                title="example title",
-                version="1.0",
-            ),
-            cors=azure.appplatform.SpringCloudGatewayCorsArgs(
-                credentials_allowed=False,
-                allowed_headers=["*"],
-                allowed_methods=["PUT"],
-                allowed_origins=["example.com"],
-                exposed_headers=["x-example-header"],
-                max_age_seconds=86400,
-            ),
-            quota=azure.appplatform.SpringCloudGatewayQuotaArgs(
-                cpu="1",
-                memory="2Gi",
-            ),
-            sso=azure.appplatform.SpringCloudGatewaySsoArgs(
-                client_id="example id",
-                client_secret="example secret",
-                issuer_uri="https://www.test.com/issueToken",
-                scopes=["read"],
-            ))
-        ```
 
         ## Import
 
@@ -762,45 +678,25 @@ class SpringCloudGateway(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SpringCloudGatewayArgs.__new__(SpringCloudGatewayArgs)
 
-            if api_metadata is not None and not isinstance(api_metadata, SpringCloudGatewayApiMetadataArgs):
-                api_metadata = api_metadata or {}
-                def _setter(key, value):
-                    api_metadata[key] = value
-                SpringCloudGatewayApiMetadataArgs._configure(_setter, **api_metadata)
+            api_metadata = _utilities.configure(api_metadata, SpringCloudGatewayApiMetadataArgs, True)
             __props__.__dict__["api_metadata"] = api_metadata
             __props__.__dict__["application_performance_monitoring_types"] = application_performance_monitoring_types
-            if client_authorization is not None and not isinstance(client_authorization, SpringCloudGatewayClientAuthorizationArgs):
-                client_authorization = client_authorization or {}
-                def _setter(key, value):
-                    client_authorization[key] = value
-                SpringCloudGatewayClientAuthorizationArgs._configure(_setter, **client_authorization)
+            client_authorization = _utilities.configure(client_authorization, SpringCloudGatewayClientAuthorizationArgs, True)
             __props__.__dict__["client_authorization"] = client_authorization
-            if cors is not None and not isinstance(cors, SpringCloudGatewayCorsArgs):
-                cors = cors or {}
-                def _setter(key, value):
-                    cors[key] = value
-                SpringCloudGatewayCorsArgs._configure(_setter, **cors)
+            cors = _utilities.configure(cors, SpringCloudGatewayCorsArgs, True)
             __props__.__dict__["cors"] = cors
             __props__.__dict__["environment_variables"] = environment_variables
             __props__.__dict__["https_only"] = https_only
             __props__.__dict__["instance_count"] = instance_count
             __props__.__dict__["name"] = name
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
-            if quota is not None and not isinstance(quota, SpringCloudGatewayQuotaArgs):
-                quota = quota or {}
-                def _setter(key, value):
-                    quota[key] = value
-                SpringCloudGatewayQuotaArgs._configure(_setter, **quota)
+            quota = _utilities.configure(quota, SpringCloudGatewayQuotaArgs, True)
             __props__.__dict__["quota"] = quota
             __props__.__dict__["sensitive_environment_variables"] = None if sensitive_environment_variables is None else pulumi.Output.secret(sensitive_environment_variables)
             if spring_cloud_service_id is None and not opts.urn:
                 raise TypeError("Missing required property 'spring_cloud_service_id'")
             __props__.__dict__["spring_cloud_service_id"] = spring_cloud_service_id
-            if sso is not None and not isinstance(sso, SpringCloudGatewaySsoArgs):
-                sso = sso or {}
-                def _setter(key, value):
-                    sso[key] = value
-                SpringCloudGatewaySsoArgs._configure(_setter, **sso)
+            sso = _utilities.configure(sso, SpringCloudGatewaySsoArgs, True)
             __props__.__dict__["sso"] = sso
             __props__.__dict__["url"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["sensitiveEnvironmentVariables"])

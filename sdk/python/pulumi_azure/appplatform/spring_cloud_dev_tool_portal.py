@@ -43,21 +43,23 @@ class SpringCloudDevToolPortalArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             spring_cloud_service_id: pulumi.Input[str],
+             spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
              application_accelerator_enabled: Optional[pulumi.Input[bool]] = None,
              application_live_view_enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
              sso: Optional[pulumi.Input['SpringCloudDevToolPortalSsoArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'springCloudServiceId' in kwargs:
+        if spring_cloud_service_id is None and 'springCloudServiceId' in kwargs:
             spring_cloud_service_id = kwargs['springCloudServiceId']
-        if 'applicationAcceleratorEnabled' in kwargs:
+        if spring_cloud_service_id is None:
+            raise TypeError("Missing 'spring_cloud_service_id' argument")
+        if application_accelerator_enabled is None and 'applicationAcceleratorEnabled' in kwargs:
             application_accelerator_enabled = kwargs['applicationAcceleratorEnabled']
-        if 'applicationLiveViewEnabled' in kwargs:
+        if application_live_view_enabled is None and 'applicationLiveViewEnabled' in kwargs:
             application_live_view_enabled = kwargs['applicationLiveViewEnabled']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
 
         _setter("spring_cloud_service_id", spring_cloud_service_id)
@@ -181,15 +183,15 @@ class _SpringCloudDevToolPortalState:
              public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
              spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
              sso: Optional[pulumi.Input['SpringCloudDevToolPortalSsoArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'applicationAcceleratorEnabled' in kwargs:
+        if application_accelerator_enabled is None and 'applicationAcceleratorEnabled' in kwargs:
             application_accelerator_enabled = kwargs['applicationAcceleratorEnabled']
-        if 'applicationLiveViewEnabled' in kwargs:
+        if application_live_view_enabled is None and 'applicationLiveViewEnabled' in kwargs:
             application_live_view_enabled = kwargs['applicationLiveViewEnabled']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'springCloudServiceId' in kwargs:
+        if spring_cloud_service_id is None and 'springCloudServiceId' in kwargs:
             spring_cloud_service_id = kwargs['springCloudServiceId']
 
         if application_accelerator_enabled is not None:
@@ -295,35 +297,6 @@ class SpringCloudDevToolPortal(pulumi.CustomResource):
 
         Manages a Spring Cloud Dev Tool Portal.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="E0")
-        example_spring_cloud_dev_tool_portal = azure.appplatform.SpringCloudDevToolPortal("exampleSpringCloudDevToolPortal",
-            spring_cloud_service_id=example_spring_cloud_service.id,
-            public_network_access_enabled=True,
-            sso=azure.appplatform.SpringCloudDevToolPortalSsoArgs(
-                client_id="example id",
-                client_secret="example secret",
-                metadata_url=f"https://login.microsoftonline.com/{current.tenant_id}/v2.0/.well-known/openid-configuration",
-                scopes=[
-                    "openid",
-                    "profile",
-                    "email",
-                ],
-            ),
-            application_accelerator_enabled=True,
-            application_live_view_enabled=True)
-        ```
-
         ## Import
 
         Spring Cloud Dev Tool Portals can be imported using the `resource id`, e.g.
@@ -351,35 +324,6 @@ class SpringCloudDevToolPortal(pulumi.CustomResource):
         > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
 
         Manages a Spring Cloud Dev Tool Portal.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="E0")
-        example_spring_cloud_dev_tool_portal = azure.appplatform.SpringCloudDevToolPortal("exampleSpringCloudDevToolPortal",
-            spring_cloud_service_id=example_spring_cloud_service.id,
-            public_network_access_enabled=True,
-            sso=azure.appplatform.SpringCloudDevToolPortalSsoArgs(
-                client_id="example id",
-                client_secret="example secret",
-                metadata_url=f"https://login.microsoftonline.com/{current.tenant_id}/v2.0/.well-known/openid-configuration",
-                scopes=[
-                    "openid",
-                    "profile",
-                    "email",
-                ],
-            ),
-            application_accelerator_enabled=True,
-            application_live_view_enabled=True)
-        ```
 
         ## Import
 
@@ -430,11 +374,7 @@ class SpringCloudDevToolPortal(pulumi.CustomResource):
             if spring_cloud_service_id is None and not opts.urn:
                 raise TypeError("Missing required property 'spring_cloud_service_id'")
             __props__.__dict__["spring_cloud_service_id"] = spring_cloud_service_id
-            if sso is not None and not isinstance(sso, SpringCloudDevToolPortalSsoArgs):
-                sso = sso or {}
-                def _setter(key, value):
-                    sso[key] = value
-                SpringCloudDevToolPortalSsoArgs._configure(_setter, **sso)
+            sso = _utilities.configure(sso, SpringCloudDevToolPortalSsoArgs, True)
             __props__.__dict__["sso"] = sso
         super(SpringCloudDevToolPortal, __self__).__init__(
             'azure:appplatform/springCloudDevToolPortal:SpringCloudDevToolPortal',

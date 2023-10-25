@@ -13,34 +13,6 @@ import (
 )
 
 // Use this data source to access information about an existing Healthcare Med Tech Service
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/healthcare"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := healthcare.LookupMedtechService(ctx, &healthcare.LookupMedtechServiceArgs{
-//				Name:        "tfexmedtech",
-//				WorkspaceId: "tfexwks",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("azurermHealthcareMedtechServiceId", example.Id)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupMedtechService(ctx *pulumi.Context, args *LookupMedtechServiceArgs, opts ...pulumi.InvokeOption) (*LookupMedtechServiceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupMedtechServiceResult

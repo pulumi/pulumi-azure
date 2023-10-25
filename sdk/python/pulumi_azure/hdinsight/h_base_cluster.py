@@ -84,12 +84,12 @@ class HBaseClusterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cluster_version: pulumi.Input[str],
-             component_version: pulumi.Input['HBaseClusterComponentVersionArgs'],
-             gateway: pulumi.Input['HBaseClusterGatewayArgs'],
-             resource_group_name: pulumi.Input[str],
-             roles: pulumi.Input['HBaseClusterRolesArgs'],
-             tier: pulumi.Input[str],
+             cluster_version: Optional[pulumi.Input[str]] = None,
+             component_version: Optional[pulumi.Input['HBaseClusterComponentVersionArgs']] = None,
+             gateway: Optional[pulumi.Input['HBaseClusterGatewayArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             roles: Optional[pulumi.Input['HBaseClusterRolesArgs']] = None,
+             tier: Optional[pulumi.Input[str]] = None,
              compute_isolation: Optional[pulumi.Input['HBaseClusterComputeIsolationArgs']] = None,
              disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterDiskEncryptionArgs']]]] = None,
              extension: Optional[pulumi.Input['HBaseClusterExtensionArgs']] = None,
@@ -103,25 +103,37 @@ class HBaseClusterArgs:
              storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterStorageAccountArgs']]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tls_min_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'clusterVersion' in kwargs:
+        if cluster_version is None and 'clusterVersion' in kwargs:
             cluster_version = kwargs['clusterVersion']
-        if 'componentVersion' in kwargs:
+        if cluster_version is None:
+            raise TypeError("Missing 'cluster_version' argument")
+        if component_version is None and 'componentVersion' in kwargs:
             component_version = kwargs['componentVersion']
-        if 'resourceGroupName' in kwargs:
+        if component_version is None:
+            raise TypeError("Missing 'component_version' argument")
+        if gateway is None:
+            raise TypeError("Missing 'gateway' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'computeIsolation' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if roles is None:
+            raise TypeError("Missing 'roles' argument")
+        if tier is None:
+            raise TypeError("Missing 'tier' argument")
+        if compute_isolation is None and 'computeIsolation' in kwargs:
             compute_isolation = kwargs['computeIsolation']
-        if 'diskEncryptions' in kwargs:
+        if disk_encryptions is None and 'diskEncryptions' in kwargs:
             disk_encryptions = kwargs['diskEncryptions']
-        if 'securityProfile' in kwargs:
+        if security_profile is None and 'securityProfile' in kwargs:
             security_profile = kwargs['securityProfile']
-        if 'storageAccountGen2' in kwargs:
+        if storage_account_gen2 is None and 'storageAccountGen2' in kwargs:
             storage_account_gen2 = kwargs['storageAccountGen2']
-        if 'storageAccounts' in kwargs:
+        if storage_accounts is None and 'storageAccounts' in kwargs:
             storage_accounts = kwargs['storageAccounts']
-        if 'tlsMinVersion' in kwargs:
+        if tls_min_version is None and 'tlsMinVersion' in kwargs:
             tls_min_version = kwargs['tlsMinVersion']
 
         _setter("cluster_version", cluster_version)
@@ -486,29 +498,29 @@ class _HBaseClusterState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tier: Optional[pulumi.Input[str]] = None,
              tls_min_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'clusterVersion' in kwargs:
+        if cluster_version is None and 'clusterVersion' in kwargs:
             cluster_version = kwargs['clusterVersion']
-        if 'componentVersion' in kwargs:
+        if component_version is None and 'componentVersion' in kwargs:
             component_version = kwargs['componentVersion']
-        if 'computeIsolation' in kwargs:
+        if compute_isolation is None and 'computeIsolation' in kwargs:
             compute_isolation = kwargs['computeIsolation']
-        if 'diskEncryptions' in kwargs:
+        if disk_encryptions is None and 'diskEncryptions' in kwargs:
             disk_encryptions = kwargs['diskEncryptions']
-        if 'httpsEndpoint' in kwargs:
+        if https_endpoint is None and 'httpsEndpoint' in kwargs:
             https_endpoint = kwargs['httpsEndpoint']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'securityProfile' in kwargs:
+        if security_profile is None and 'securityProfile' in kwargs:
             security_profile = kwargs['securityProfile']
-        if 'sshEndpoint' in kwargs:
+        if ssh_endpoint is None and 'sshEndpoint' in kwargs:
             ssh_endpoint = kwargs['sshEndpoint']
-        if 'storageAccountGen2' in kwargs:
+        if storage_account_gen2 is None and 'storageAccountGen2' in kwargs:
             storage_account_gen2 = kwargs['storageAccountGen2']
-        if 'storageAccounts' in kwargs:
+        if storage_accounts is None and 'storageAccounts' in kwargs:
             storage_accounts = kwargs['storageAccounts']
-        if 'tlsMinVersion' in kwargs:
+        if tls_min_version is None and 'tlsMinVersion' in kwargs:
             tls_min_version = kwargs['tlsMinVersion']
 
         if cluster_version is not None:
@@ -837,58 +849,6 @@ class HBaseCluster(pulumi.CustomResource):
         """
         Manages a HDInsight HBase Cluster.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("exampleContainer",
-            storage_account_name=example_account.name,
-            container_access_type="private")
-        example_h_base_cluster = azure.hdinsight.HBaseCluster("exampleHBaseCluster",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            cluster_version="3.6",
-            tier="Standard",
-            component_version=azure.hdinsight.HBaseClusterComponentVersionArgs(
-                hbase="1.1",
-            ),
-            gateway=azure.hdinsight.HBaseClusterGatewayArgs(
-                username="acctestusrgw",
-                password="Password123!",
-            ),
-            storage_accounts=[azure.hdinsight.HBaseClusterStorageAccountArgs(
-                storage_container_id=example_container.id,
-                storage_account_key=example_account.primary_access_key,
-                is_default=True,
-            )],
-            roles=azure.hdinsight.HBaseClusterRolesArgs(
-                head_node=azure.hdinsight.HBaseClusterRolesHeadNodeArgs(
-                    vm_size="Standard_D3_V2",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                ),
-                worker_node=azure.hdinsight.HBaseClusterRolesWorkerNodeArgs(
-                    vm_size="Standard_D3_V2",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                    target_instance_count=3,
-                ),
-                zookeeper_node=azure.hdinsight.HBaseClusterRolesZookeeperNodeArgs(
-                    vm_size="Standard_D3_V2",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                ),
-            ))
-        ```
-
         ## Import
 
         HDInsight HBase Clusters can be imported using the `resource id`, e.g.
@@ -929,58 +889,6 @@ class HBaseCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a HDInsight HBase Cluster.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("exampleContainer",
-            storage_account_name=example_account.name,
-            container_access_type="private")
-        example_h_base_cluster = azure.hdinsight.HBaseCluster("exampleHBaseCluster",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            cluster_version="3.6",
-            tier="Standard",
-            component_version=azure.hdinsight.HBaseClusterComponentVersionArgs(
-                hbase="1.1",
-            ),
-            gateway=azure.hdinsight.HBaseClusterGatewayArgs(
-                username="acctestusrgw",
-                password="Password123!",
-            ),
-            storage_accounts=[azure.hdinsight.HBaseClusterStorageAccountArgs(
-                storage_container_id=example_container.id,
-                storage_account_key=example_account.primary_access_key,
-                is_default=True,
-            )],
-            roles=azure.hdinsight.HBaseClusterRolesArgs(
-                head_node=azure.hdinsight.HBaseClusterRolesHeadNodeArgs(
-                    vm_size="Standard_D3_V2",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                ),
-                worker_node=azure.hdinsight.HBaseClusterRolesWorkerNodeArgs(
-                    vm_size="Standard_D3_V2",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                    target_instance_count=3,
-                ),
-                zookeeper_node=azure.hdinsight.HBaseClusterRolesZookeeperNodeArgs(
-                    vm_size="Standard_D3_V2",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                ),
-            ))
-        ```
 
         ## Import
 
@@ -1040,77 +948,37 @@ class HBaseCluster(pulumi.CustomResource):
             if cluster_version is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_version'")
             __props__.__dict__["cluster_version"] = cluster_version
-            if component_version is not None and not isinstance(component_version, HBaseClusterComponentVersionArgs):
-                component_version = component_version or {}
-                def _setter(key, value):
-                    component_version[key] = value
-                HBaseClusterComponentVersionArgs._configure(_setter, **component_version)
+            component_version = _utilities.configure(component_version, HBaseClusterComponentVersionArgs, True)
             if component_version is None and not opts.urn:
                 raise TypeError("Missing required property 'component_version'")
             __props__.__dict__["component_version"] = component_version
-            if compute_isolation is not None and not isinstance(compute_isolation, HBaseClusterComputeIsolationArgs):
-                compute_isolation = compute_isolation or {}
-                def _setter(key, value):
-                    compute_isolation[key] = value
-                HBaseClusterComputeIsolationArgs._configure(_setter, **compute_isolation)
+            compute_isolation = _utilities.configure(compute_isolation, HBaseClusterComputeIsolationArgs, True)
             __props__.__dict__["compute_isolation"] = compute_isolation
             __props__.__dict__["disk_encryptions"] = disk_encryptions
-            if extension is not None and not isinstance(extension, HBaseClusterExtensionArgs):
-                extension = extension or {}
-                def _setter(key, value):
-                    extension[key] = value
-                HBaseClusterExtensionArgs._configure(_setter, **extension)
+            extension = _utilities.configure(extension, HBaseClusterExtensionArgs, True)
             __props__.__dict__["extension"] = extension
-            if gateway is not None and not isinstance(gateway, HBaseClusterGatewayArgs):
-                gateway = gateway or {}
-                def _setter(key, value):
-                    gateway[key] = value
-                HBaseClusterGatewayArgs._configure(_setter, **gateway)
+            gateway = _utilities.configure(gateway, HBaseClusterGatewayArgs, True)
             if gateway is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway'")
             __props__.__dict__["gateway"] = gateway
             __props__.__dict__["location"] = location
-            if metastores is not None and not isinstance(metastores, HBaseClusterMetastoresArgs):
-                metastores = metastores or {}
-                def _setter(key, value):
-                    metastores[key] = value
-                HBaseClusterMetastoresArgs._configure(_setter, **metastores)
+            metastores = _utilities.configure(metastores, HBaseClusterMetastoresArgs, True)
             __props__.__dict__["metastores"] = metastores
-            if monitor is not None and not isinstance(monitor, HBaseClusterMonitorArgs):
-                monitor = monitor or {}
-                def _setter(key, value):
-                    monitor[key] = value
-                HBaseClusterMonitorArgs._configure(_setter, **monitor)
+            monitor = _utilities.configure(monitor, HBaseClusterMonitorArgs, True)
             __props__.__dict__["monitor"] = monitor
             __props__.__dict__["name"] = name
-            if network is not None and not isinstance(network, HBaseClusterNetworkArgs):
-                network = network or {}
-                def _setter(key, value):
-                    network[key] = value
-                HBaseClusterNetworkArgs._configure(_setter, **network)
+            network = _utilities.configure(network, HBaseClusterNetworkArgs, True)
             __props__.__dict__["network"] = network
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if roles is not None and not isinstance(roles, HBaseClusterRolesArgs):
-                roles = roles or {}
-                def _setter(key, value):
-                    roles[key] = value
-                HBaseClusterRolesArgs._configure(_setter, **roles)
+            roles = _utilities.configure(roles, HBaseClusterRolesArgs, True)
             if roles is None and not opts.urn:
                 raise TypeError("Missing required property 'roles'")
             __props__.__dict__["roles"] = roles
-            if security_profile is not None and not isinstance(security_profile, HBaseClusterSecurityProfileArgs):
-                security_profile = security_profile or {}
-                def _setter(key, value):
-                    security_profile[key] = value
-                HBaseClusterSecurityProfileArgs._configure(_setter, **security_profile)
+            security_profile = _utilities.configure(security_profile, HBaseClusterSecurityProfileArgs, True)
             __props__.__dict__["security_profile"] = security_profile
-            if storage_account_gen2 is not None and not isinstance(storage_account_gen2, HBaseClusterStorageAccountGen2Args):
-                storage_account_gen2 = storage_account_gen2 or {}
-                def _setter(key, value):
-                    storage_account_gen2[key] = value
-                HBaseClusterStorageAccountGen2Args._configure(_setter, **storage_account_gen2)
+            storage_account_gen2 = _utilities.configure(storage_account_gen2, HBaseClusterStorageAccountGen2Args, True)
             __props__.__dict__["storage_account_gen2"] = storage_account_gen2
             __props__.__dict__["storage_accounts"] = storage_accounts
             __props__.__dict__["tags"] = tags

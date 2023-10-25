@@ -9,52 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Automation Software Update Configuraion.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "East US"});
- * const exampleAccount = new azure.automation.Account("exampleAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "Basic",
- * });
- * const exampleRunBook = new azure.automation.RunBook("exampleRunBook", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     automationAccountName: exampleAccount.name,
- *     logVerbose: true,
- *     logProgress: true,
- *     description: "This is a example runbook for terraform acceptance example",
- *     runbookType: "Python3",
- *     content: `# Some example content
- * # for Terraform acceptance example
- * `,
- *     tags: {
- *         ENV: "runbook_test",
- *     },
- * });
- * const exampleSoftwareUpdateConfiguration = new azure.automation.SoftwareUpdateConfiguration("exampleSoftwareUpdateConfiguration", {
- *     automationAccountId: exampleAccount.id,
- *     operatingSystem: "Linux",
- *     linuxes: [{
- *         classificationIncluded: "Security",
- *         excludedPackages: ["apt"],
- *         includedPackages: ["vim"],
- *         reboot: "IfRequired",
- *     }],
- *     preTasks: [{
- *         source: exampleRunBook.name,
- *         parameters: {
- *             COMPUTER_NAME: "Foo",
- *         },
- *     }],
- *     duration: "PT2H2M2S",
- * });
- * ```
- *
  * ## Import
  *
  * Automations Software Update Configuration can be imported using the `resource id`, e.g.

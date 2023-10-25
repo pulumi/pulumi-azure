@@ -52,24 +52,30 @@ class FluxConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cluster_id: pulumi.Input[str],
-             kustomizations: pulumi.Input[Sequence[pulumi.Input['FluxConfigurationKustomizationArgs']]],
-             namespace: pulumi.Input[str],
+             cluster_id: Optional[pulumi.Input[str]] = None,
+             kustomizations: Optional[pulumi.Input[Sequence[pulumi.Input['FluxConfigurationKustomizationArgs']]]] = None,
+             namespace: Optional[pulumi.Input[str]] = None,
              blob_storage: Optional[pulumi.Input['FluxConfigurationBlobStorageArgs']] = None,
              bucket: Optional[pulumi.Input['FluxConfigurationBucketArgs']] = None,
              continuous_reconciliation_enabled: Optional[pulumi.Input[bool]] = None,
              git_repository: Optional[pulumi.Input['FluxConfigurationGitRepositoryArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              scope: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'clusterId' in kwargs:
+        if cluster_id is None and 'clusterId' in kwargs:
             cluster_id = kwargs['clusterId']
-        if 'blobStorage' in kwargs:
+        if cluster_id is None:
+            raise TypeError("Missing 'cluster_id' argument")
+        if kustomizations is None:
+            raise TypeError("Missing 'kustomizations' argument")
+        if namespace is None:
+            raise TypeError("Missing 'namespace' argument")
+        if blob_storage is None and 'blobStorage' in kwargs:
             blob_storage = kwargs['blobStorage']
-        if 'continuousReconciliationEnabled' in kwargs:
+        if continuous_reconciliation_enabled is None and 'continuousReconciliationEnabled' in kwargs:
             continuous_reconciliation_enabled = kwargs['continuousReconciliationEnabled']
-        if 'gitRepository' in kwargs:
+        if git_repository is None and 'gitRepository' in kwargs:
             git_repository = kwargs['gitRepository']
 
         _setter("cluster_id", cluster_id)
@@ -245,15 +251,15 @@ class _FluxConfigurationState:
              name: Optional[pulumi.Input[str]] = None,
              namespace: Optional[pulumi.Input[str]] = None,
              scope: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'blobStorage' in kwargs:
+        if blob_storage is None and 'blobStorage' in kwargs:
             blob_storage = kwargs['blobStorage']
-        if 'clusterId' in kwargs:
+        if cluster_id is None and 'clusterId' in kwargs:
             cluster_id = kwargs['clusterId']
-        if 'continuousReconciliationEnabled' in kwargs:
+        if continuous_reconciliation_enabled is None and 'continuousReconciliationEnabled' in kwargs:
             continuous_reconciliation_enabled = kwargs['continuousReconciliationEnabled']
-        if 'gitRepository' in kwargs:
+        if git_repository is None and 'gitRepository' in kwargs:
             git_repository = kwargs['gitRepository']
 
         if blob_storage is not None:
@@ -402,42 +408,6 @@ class FluxConfiguration(pulumi.CustomResource):
         """
         Manages a Kubernetes Flux Configuration.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_kubernetes_cluster = azure.containerservice.KubernetesCluster("exampleKubernetesCluster",
-            location="West Europe",
-            resource_group_name=example_resource_group.name,
-            dns_prefix="example-aks",
-            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
-                name="default",
-                node_count=1,
-                vm_size="Standard_DS2_v2",
-            ),
-            identity=azure.containerservice.KubernetesClusterIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_kubernetes_cluster_extension = azure.containerservice.KubernetesClusterExtension("exampleKubernetesClusterExtension",
-            cluster_id=azurerm_kubernetes_cluster["test"]["id"],
-            extension_type="microsoft.flux")
-        example_flux_configuration = azure.containerservice.FluxConfiguration("exampleFluxConfiguration",
-            cluster_id=azurerm_kubernetes_cluster["test"]["id"],
-            namespace="flux",
-            git_repository=azure.containerservice.FluxConfigurationGitRepositoryArgs(
-                url="https://github.com/Azure/arc-k8s-demo",
-                reference_type="branch",
-                reference_value="main",
-            ),
-            kustomizations=[azure.containerservice.FluxConfigurationKustomizationArgs(
-                name="kustomization-1",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[example_kubernetes_cluster_extension]))
-        ```
-
         ## Import
 
         Kubernetes Flux Configuration can be imported using the `resource id` for different `cluster_resource_name`, e.g.
@@ -466,42 +436,6 @@ class FluxConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Kubernetes Flux Configuration.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_kubernetes_cluster = azure.containerservice.KubernetesCluster("exampleKubernetesCluster",
-            location="West Europe",
-            resource_group_name=example_resource_group.name,
-            dns_prefix="example-aks",
-            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
-                name="default",
-                node_count=1,
-                vm_size="Standard_DS2_v2",
-            ),
-            identity=azure.containerservice.KubernetesClusterIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_kubernetes_cluster_extension = azure.containerservice.KubernetesClusterExtension("exampleKubernetesClusterExtension",
-            cluster_id=azurerm_kubernetes_cluster["test"]["id"],
-            extension_type="microsoft.flux")
-        example_flux_configuration = azure.containerservice.FluxConfiguration("exampleFluxConfiguration",
-            cluster_id=azurerm_kubernetes_cluster["test"]["id"],
-            namespace="flux",
-            git_repository=azure.containerservice.FluxConfigurationGitRepositoryArgs(
-                url="https://github.com/Azure/arc-k8s-demo",
-                reference_type="branch",
-                reference_value="main",
-            ),
-            kustomizations=[azure.containerservice.FluxConfigurationKustomizationArgs(
-                name="kustomization-1",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[example_kubernetes_cluster_extension]))
-        ```
 
         ## Import
 
@@ -548,27 +482,15 @@ class FluxConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FluxConfigurationArgs.__new__(FluxConfigurationArgs)
 
-            if blob_storage is not None and not isinstance(blob_storage, FluxConfigurationBlobStorageArgs):
-                blob_storage = blob_storage or {}
-                def _setter(key, value):
-                    blob_storage[key] = value
-                FluxConfigurationBlobStorageArgs._configure(_setter, **blob_storage)
+            blob_storage = _utilities.configure(blob_storage, FluxConfigurationBlobStorageArgs, True)
             __props__.__dict__["blob_storage"] = blob_storage
-            if bucket is not None and not isinstance(bucket, FluxConfigurationBucketArgs):
-                bucket = bucket or {}
-                def _setter(key, value):
-                    bucket[key] = value
-                FluxConfigurationBucketArgs._configure(_setter, **bucket)
+            bucket = _utilities.configure(bucket, FluxConfigurationBucketArgs, True)
             __props__.__dict__["bucket"] = bucket
             if cluster_id is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_id'")
             __props__.__dict__["cluster_id"] = cluster_id
             __props__.__dict__["continuous_reconciliation_enabled"] = continuous_reconciliation_enabled
-            if git_repository is not None and not isinstance(git_repository, FluxConfigurationGitRepositoryArgs):
-                git_repository = git_repository or {}
-                def _setter(key, value):
-                    git_repository[key] = value
-                FluxConfigurationGitRepositoryArgs._configure(_setter, **git_repository)
+            git_repository = _utilities.configure(git_repository, FluxConfigurationGitRepositoryArgs, True)
             __props__.__dict__["git_repository"] = git_repository
             if kustomizations is None and not opts.urn:
                 raise TypeError("Missing required property 'kustomizations'")

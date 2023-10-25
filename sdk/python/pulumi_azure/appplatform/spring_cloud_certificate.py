@@ -41,23 +41,27 @@ class SpringCloudCertificateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             service_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             service_name: Optional[pulumi.Input[str]] = None,
              certificate_content: Optional[pulumi.Input[str]] = None,
              exclude_private_key: Optional[pulumi.Input[bool]] = None,
              key_vault_certificate_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serviceName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if service_name is None and 'serviceName' in kwargs:
             service_name = kwargs['serviceName']
-        if 'certificateContent' in kwargs:
+        if service_name is None:
+            raise TypeError("Missing 'service_name' argument")
+        if certificate_content is None and 'certificateContent' in kwargs:
             certificate_content = kwargs['certificateContent']
-        if 'excludePrivateKey' in kwargs:
+        if exclude_private_key is None and 'excludePrivateKey' in kwargs:
             exclude_private_key = kwargs['excludePrivateKey']
-        if 'keyVaultCertificateId' in kwargs:
+        if key_vault_certificate_id is None and 'keyVaultCertificateId' in kwargs:
             key_vault_certificate_id = kwargs['keyVaultCertificateId']
 
         _setter("resource_group_name", resource_group_name)
@@ -184,17 +188,17 @@ class _SpringCloudCertificateState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              service_name: Optional[pulumi.Input[str]] = None,
              thumbprint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'certificateContent' in kwargs:
+        if certificate_content is None and 'certificateContent' in kwargs:
             certificate_content = kwargs['certificateContent']
-        if 'excludePrivateKey' in kwargs:
+        if exclude_private_key is None and 'excludePrivateKey' in kwargs:
             exclude_private_key = kwargs['excludePrivateKey']
-        if 'keyVaultCertificateId' in kwargs:
+        if key_vault_certificate_id is None and 'keyVaultCertificateId' in kwargs:
             key_vault_certificate_id = kwargs['keyVaultCertificateId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serviceName' in kwargs:
+        if service_name is None and 'serviceName' in kwargs:
             service_name = kwargs['serviceName']
 
         if certificate_content is not None:
@@ -312,92 +316,6 @@ class SpringCloudCertificate(pulumi.CustomResource):
         """
         Manages an Azure Spring Cloud Certificate.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_azuread as azuread
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        current = azure.core.get_client_config()
-        example_service_principal = azuread.get_service_principal(display_name="Azure Spring Cloud Resource Provider")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="standard",
-            access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=current.tenant_id,
-                    object_id=current.object_id,
-                    secret_permissions=["Set"],
-                    certificate_permissions=[
-                        "Create",
-                        "Delete",
-                        "Get",
-                        "Update",
-                    ],
-                ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=current.tenant_id,
-                    object_id=example_service_principal.object_id,
-                    secret_permissions=[
-                        "Get",
-                        "List",
-                    ],
-                    certificate_permissions=[
-                        "Get",
-                        "List",
-                    ],
-                ),
-            ])
-        example_certificate = azure.keyvault.Certificate("exampleCertificate",
-            key_vault_id=example_key_vault.id,
-            certificate_policy=azure.keyvault.CertificateCertificatePolicyArgs(
-                issuer_parameters=azure.keyvault.CertificateCertificatePolicyIssuerParametersArgs(
-                    name="Self",
-                ),
-                key_properties=azure.keyvault.CertificateCertificatePolicyKeyPropertiesArgs(
-                    exportable=True,
-                    key_size=2048,
-                    key_type="RSA",
-                    reuse_key=True,
-                ),
-                lifetime_actions=[azure.keyvault.CertificateCertificatePolicyLifetimeActionArgs(
-                    action=azure.keyvault.CertificateCertificatePolicyLifetimeActionActionArgs(
-                        action_type="AutoRenew",
-                    ),
-                    trigger=azure.keyvault.CertificateCertificatePolicyLifetimeActionTriggerArgs(
-                        days_before_expiry=30,
-                    ),
-                )],
-                secret_properties=azure.keyvault.CertificateCertificatePolicySecretPropertiesArgs(
-                    content_type="application/x-pkcs12",
-                ),
-                x509_certificate_properties=azure.keyvault.CertificateCertificatePolicyX509CertificatePropertiesArgs(
-                    key_usages=[
-                        "cRLSign",
-                        "dataEncipherment",
-                        "digitalSignature",
-                        "keyAgreement",
-                        "keyCertSign",
-                        "keyEncipherment",
-                    ],
-                    subject="CN=contoso.com",
-                    validity_in_months=12,
-                ),
-            ))
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_spring_cloud_certificate = azure.appplatform.SpringCloudCertificate("exampleSpringCloudCertificate",
-            resource_group_name=example_spring_cloud_service.resource_group_name,
-            service_name=example_spring_cloud_service.name,
-            key_vault_certificate_id=example_certificate.id,
-            exclude_private_key=True)
-        ```
-
         ## Import
 
         Spring Cloud Certificate can be imported using the `resource id`, e.g.
@@ -423,92 +341,6 @@ class SpringCloudCertificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Spring Cloud Certificate.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_azuread as azuread
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        current = azure.core.get_client_config()
-        example_service_principal = azuread.get_service_principal(display_name="Azure Spring Cloud Resource Provider")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="standard",
-            access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=current.tenant_id,
-                    object_id=current.object_id,
-                    secret_permissions=["Set"],
-                    certificate_permissions=[
-                        "Create",
-                        "Delete",
-                        "Get",
-                        "Update",
-                    ],
-                ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=current.tenant_id,
-                    object_id=example_service_principal.object_id,
-                    secret_permissions=[
-                        "Get",
-                        "List",
-                    ],
-                    certificate_permissions=[
-                        "Get",
-                        "List",
-                    ],
-                ),
-            ])
-        example_certificate = azure.keyvault.Certificate("exampleCertificate",
-            key_vault_id=example_key_vault.id,
-            certificate_policy=azure.keyvault.CertificateCertificatePolicyArgs(
-                issuer_parameters=azure.keyvault.CertificateCertificatePolicyIssuerParametersArgs(
-                    name="Self",
-                ),
-                key_properties=azure.keyvault.CertificateCertificatePolicyKeyPropertiesArgs(
-                    exportable=True,
-                    key_size=2048,
-                    key_type="RSA",
-                    reuse_key=True,
-                ),
-                lifetime_actions=[azure.keyvault.CertificateCertificatePolicyLifetimeActionArgs(
-                    action=azure.keyvault.CertificateCertificatePolicyLifetimeActionActionArgs(
-                        action_type="AutoRenew",
-                    ),
-                    trigger=azure.keyvault.CertificateCertificatePolicyLifetimeActionTriggerArgs(
-                        days_before_expiry=30,
-                    ),
-                )],
-                secret_properties=azure.keyvault.CertificateCertificatePolicySecretPropertiesArgs(
-                    content_type="application/x-pkcs12",
-                ),
-                x509_certificate_properties=azure.keyvault.CertificateCertificatePolicyX509CertificatePropertiesArgs(
-                    key_usages=[
-                        "cRLSign",
-                        "dataEncipherment",
-                        "digitalSignature",
-                        "keyAgreement",
-                        "keyCertSign",
-                        "keyEncipherment",
-                    ],
-                    subject="CN=contoso.com",
-                    validity_in_months=12,
-                ),
-            ))
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_spring_cloud_certificate = azure.appplatform.SpringCloudCertificate("exampleSpringCloudCertificate",
-            resource_group_name=example_spring_cloud_service.resource_group_name,
-            service_name=example_spring_cloud_service.name,
-            key_vault_certificate_id=example_certificate.id,
-            exclude_private_key=True)
-        ```
 
         ## Import
 

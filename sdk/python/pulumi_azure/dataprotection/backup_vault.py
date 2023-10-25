@@ -46,19 +46,25 @@ class BackupVaultArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             datastore_type: pulumi.Input[str],
-             redundancy: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             datastore_type: Optional[pulumi.Input[str]] = None,
+             redundancy: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              identity: Optional[pulumi.Input['BackupVaultIdentityArgs']] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'datastoreType' in kwargs:
+        if datastore_type is None and 'datastoreType' in kwargs:
             datastore_type = kwargs['datastoreType']
-        if 'resourceGroupName' in kwargs:
+        if datastore_type is None:
+            raise TypeError("Missing 'datastore_type' argument")
+        if redundancy is None:
+            raise TypeError("Missing 'redundancy' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("datastore_type", datastore_type)
         _setter("redundancy", redundancy)
@@ -197,11 +203,11 @@ class _BackupVaultState:
              redundancy: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'datastoreType' in kwargs:
+        if datastore_type is None and 'datastoreType' in kwargs:
             datastore_type = kwargs['datastoreType']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if datastore_type is not None:
@@ -320,20 +326,6 @@ class BackupVault(pulumi.CustomResource):
         """
         Manages a Backup Vault.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_backup_vault = azure.dataprotection.BackupVault("exampleBackupVault",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            datastore_type="VaultStore",
-            redundancy="LocallyRedundant")
-        ```
-
         ## Import
 
         Backup Vaults can be imported using the `resource id`, e.g.
@@ -360,20 +352,6 @@ class BackupVault(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Backup Vault.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_backup_vault = azure.dataprotection.BackupVault("exampleBackupVault",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            datastore_type="VaultStore",
-            redundancy="LocallyRedundant")
-        ```
 
         ## Import
 
@@ -421,11 +399,7 @@ class BackupVault(pulumi.CustomResource):
             if datastore_type is None and not opts.urn:
                 raise TypeError("Missing required property 'datastore_type'")
             __props__.__dict__["datastore_type"] = datastore_type
-            if identity is not None and not isinstance(identity, BackupVaultIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                BackupVaultIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, BackupVaultIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name

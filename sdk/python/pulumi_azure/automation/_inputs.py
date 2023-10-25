@@ -56,16 +56,18 @@ class AccountEncryptionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_vault_key_id: pulumi.Input[str],
+             key_vault_key_id: Optional[pulumi.Input[str]] = None,
              key_source: Optional[pulumi.Input[str]] = None,
              user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'keyVaultKeyId' in kwargs:
+        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
             key_vault_key_id = kwargs['keyVaultKeyId']
-        if 'keySource' in kwargs:
+        if key_vault_key_id is None:
+            raise TypeError("Missing 'key_vault_key_id' argument")
+        if key_source is None and 'keySource' in kwargs:
             key_source = kwargs['keySource']
-        if 'userAssignedIdentityId' in kwargs:
+        if user_assigned_identity_id is None and 'userAssignedIdentityId' in kwargs:
             user_assigned_identity_id = kwargs['userAssignedIdentityId']
 
         _setter("key_vault_key_id", key_vault_key_id)
@@ -139,17 +141,19 @@ class AccountIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -230,7 +234,7 @@ class AccountPrivateEndpointConnectionArgs:
              _setter: Callable[[Any, Any], None],
              id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
 
         if id is not None:
@@ -286,15 +290,19 @@ class ConnectionTypeFieldArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             type: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              is_encrypted: Optional[pulumi.Input[bool]] = None,
              is_optional: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'isEncrypted' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if is_encrypted is None and 'isEncrypted' in kwargs:
             is_encrypted = kwargs['isEncrypted']
-        if 'isOptional' in kwargs:
+        if is_optional is None and 'isOptional' in kwargs:
             is_optional = kwargs['isOptional']
 
         _setter("name", name)
@@ -370,10 +378,12 @@ class ModuleModuleLinkArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             uri: pulumi.Input[str],
+             uri: Optional[pulumi.Input[str]] = None,
              hash: Optional[pulumi.Input['ModuleModuleLinkHashArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if uri is None:
+            raise TypeError("Missing 'uri' argument")
 
         _setter("uri", uri)
         if hash is not None:
@@ -421,10 +431,14 @@ class ModuleModuleLinkHashArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             algorithm: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             algorithm: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if algorithm is None:
+            raise TypeError("Missing 'algorithm' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("algorithm", algorithm)
         _setter("value", value)
@@ -487,17 +501,17 @@ class RunBookDraftArgs:
              last_modified_time: Optional[pulumi.Input[str]] = None,
              output_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              parameters: Optional[pulumi.Input[Sequence[pulumi.Input['RunBookDraftParameterArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'contentLink' in kwargs:
+        if content_link is None and 'contentLink' in kwargs:
             content_link = kwargs['contentLink']
-        if 'creationTime' in kwargs:
+        if creation_time is None and 'creationTime' in kwargs:
             creation_time = kwargs['creationTime']
-        if 'editModeEnabled' in kwargs:
+        if edit_mode_enabled is None and 'editModeEnabled' in kwargs:
             edit_mode_enabled = kwargs['editModeEnabled']
-        if 'lastModifiedTime' in kwargs:
+        if last_modified_time is None and 'lastModifiedTime' in kwargs:
             last_modified_time = kwargs['lastModifiedTime']
-        if 'outputTypes' in kwargs:
+        if output_types is None and 'outputTypes' in kwargs:
             output_types = kwargs['outputTypes']
 
         if content_link is not None:
@@ -600,11 +614,13 @@ class RunBookDraftContentLinkArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             uri: pulumi.Input[str],
+             uri: Optional[pulumi.Input[str]] = None,
              hash: Optional[pulumi.Input['RunBookDraftContentLinkHashArgs']] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if uri is None:
+            raise TypeError("Missing 'uri' argument")
 
         _setter("uri", uri)
         if hash is not None:
@@ -666,10 +682,14 @@ class RunBookDraftContentLinkHashArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             algorithm: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             algorithm: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if algorithm is None:
+            raise TypeError("Missing 'algorithm' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("algorithm", algorithm)
         _setter("value", value)
@@ -725,14 +745,18 @@ class RunBookDraftParameterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             type: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              default_value: Optional[pulumi.Input[str]] = None,
              mandatory: Optional[pulumi.Input[bool]] = None,
              position: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'defaultValue' in kwargs:
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if default_value is None and 'defaultValue' in kwargs:
             default_value = kwargs['defaultValue']
 
         _setter("key", key)
@@ -825,17 +849,19 @@ class RunBookJobScheduleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             schedule_name: pulumi.Input[str],
+             schedule_name: Optional[pulumi.Input[str]] = None,
              job_schedule_id: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              run_on: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'scheduleName' in kwargs:
+        if schedule_name is None and 'scheduleName' in kwargs:
             schedule_name = kwargs['scheduleName']
-        if 'jobScheduleId' in kwargs:
+        if schedule_name is None:
+            raise TypeError("Missing 'schedule_name' argument")
+        if job_schedule_id is None and 'jobScheduleId' in kwargs:
             job_schedule_id = kwargs['jobScheduleId']
-        if 'runOn' in kwargs:
+        if run_on is None and 'runOn' in kwargs:
             run_on = kwargs['runOn']
 
         _setter("schedule_name", schedule_name)
@@ -906,11 +932,13 @@ class RunBookPublishContentLinkArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             uri: pulumi.Input[str],
+             uri: Optional[pulumi.Input[str]] = None,
              hash: Optional[pulumi.Input['RunBookPublishContentLinkHashArgs']] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if uri is None:
+            raise TypeError("Missing 'uri' argument")
 
         _setter("uri", uri)
         if hash is not None:
@@ -972,10 +1000,14 @@ class RunBookPublishContentLinkHashArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             algorithm: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             algorithm: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if algorithm is None:
+            raise TypeError("Missing 'algorithm' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("algorithm", algorithm)
         _setter("value", value)
@@ -1022,10 +1054,14 @@ class ScheduleMonthlyOccurrenceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             day: pulumi.Input[str],
-             occurrence: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             day: Optional[pulumi.Input[str]] = None,
+             occurrence: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if day is None:
+            raise TypeError("Missing 'day' argument")
+        if occurrence is None:
+            raise TypeError("Missing 'occurrence' argument")
 
         _setter("day", day)
         _setter("occurrence", occurrence)
@@ -1085,15 +1121,15 @@ class SoftwareUpdateConfigurationLinuxArgs:
              excluded_packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              included_packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              reboot: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'classificationIncluded' in kwargs:
+        if classification_included is None and 'classificationIncluded' in kwargs:
             classification_included = kwargs['classificationIncluded']
-        if 'classificationsIncludeds' in kwargs:
+        if classifications_includeds is None and 'classificationsIncludeds' in kwargs:
             classifications_includeds = kwargs['classificationsIncludeds']
-        if 'excludedPackages' in kwargs:
+        if excluded_packages is None and 'excludedPackages' in kwargs:
             excluded_packages = kwargs['excludedPackages']
-        if 'includedPackages' in kwargs:
+        if included_packages is None and 'includedPackages' in kwargs:
             included_packages = kwargs['includedPackages']
 
         if classification_included is not None:
@@ -1184,7 +1220,7 @@ class SoftwareUpdateConfigurationPostTaskArgs:
              _setter: Callable[[Any, Any], None],
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              source: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
 
         if parameters is not None:
@@ -1236,7 +1272,7 @@ class SoftwareUpdateConfigurationPreTaskArgs:
              _setter: Callable[[Any, Any], None],
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              source: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
 
         if parameters is not None:
@@ -1322,7 +1358,7 @@ class SoftwareUpdateConfigurationScheduleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             frequency: pulumi.Input[str],
+             frequency: Optional[pulumi.Input[str]] = None,
              advanced_month_days: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
              advanced_week_days: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              creation_time: Optional[pulumi.Input[str]] = None,
@@ -1338,33 +1374,35 @@ class SoftwareUpdateConfigurationScheduleArgs:
              start_time: Optional[pulumi.Input[str]] = None,
              start_time_offset_minutes: Optional[pulumi.Input[float]] = None,
              time_zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'advancedMonthDays' in kwargs:
+        if frequency is None:
+            raise TypeError("Missing 'frequency' argument")
+        if advanced_month_days is None and 'advancedMonthDays' in kwargs:
             advanced_month_days = kwargs['advancedMonthDays']
-        if 'advancedWeekDays' in kwargs:
+        if advanced_week_days is None and 'advancedWeekDays' in kwargs:
             advanced_week_days = kwargs['advancedWeekDays']
-        if 'creationTime' in kwargs:
+        if creation_time is None and 'creationTime' in kwargs:
             creation_time = kwargs['creationTime']
-        if 'expiryTime' in kwargs:
+        if expiry_time is None and 'expiryTime' in kwargs:
             expiry_time = kwargs['expiryTime']
-        if 'expiryTimeOffsetMinutes' in kwargs:
+        if expiry_time_offset_minutes is None and 'expiryTimeOffsetMinutes' in kwargs:
             expiry_time_offset_minutes = kwargs['expiryTimeOffsetMinutes']
-        if 'isEnabled' in kwargs:
+        if is_enabled is None and 'isEnabled' in kwargs:
             is_enabled = kwargs['isEnabled']
-        if 'lastModifiedTime' in kwargs:
+        if last_modified_time is None and 'lastModifiedTime' in kwargs:
             last_modified_time = kwargs['lastModifiedTime']
-        if 'monthlyOccurrences' in kwargs:
+        if monthly_occurrences is None and 'monthlyOccurrences' in kwargs:
             monthly_occurrences = kwargs['monthlyOccurrences']
-        if 'nextRun' in kwargs:
+        if next_run is None and 'nextRun' in kwargs:
             next_run = kwargs['nextRun']
-        if 'nextRunOffsetMinutes' in kwargs:
+        if next_run_offset_minutes is None and 'nextRunOffsetMinutes' in kwargs:
             next_run_offset_minutes = kwargs['nextRunOffsetMinutes']
-        if 'startTime' in kwargs:
+        if start_time is None and 'startTime' in kwargs:
             start_time = kwargs['startTime']
-        if 'startTimeOffsetMinutes' in kwargs:
+        if start_time_offset_minutes is None and 'startTimeOffsetMinutes' in kwargs:
             start_time_offset_minutes = kwargs['startTimeOffsetMinutes']
-        if 'timeZone' in kwargs:
+        if time_zone is None and 'timeZone' in kwargs:
             time_zone = kwargs['timeZone']
 
         _setter("frequency", frequency)
@@ -1591,10 +1629,14 @@ class SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             day: pulumi.Input[str],
-             occurrence: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             day: Optional[pulumi.Input[str]] = None,
+             occurrence: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if day is None:
+            raise TypeError("Missing 'day' argument")
+        if occurrence is None:
+            raise TypeError("Missing 'occurrence' argument")
 
         _setter("day", day)
         _setter("occurrence", occurrence)
@@ -1643,11 +1685,11 @@ class SoftwareUpdateConfigurationTargetArgs:
              _setter: Callable[[Any, Any], None],
              azure_queries: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetAzureQueryArgs']]]] = None,
              non_azure_queries: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetNonAzureQueryArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'azureQueries' in kwargs:
+        if azure_queries is None and 'azureQueries' in kwargs:
             azure_queries = kwargs['azureQueries']
-        if 'nonAzureQueries' in kwargs:
+        if non_azure_queries is None and 'nonAzureQueries' in kwargs:
             non_azure_queries = kwargs['nonAzureQueries']
 
         if azure_queries is not None:
@@ -1707,9 +1749,9 @@ class SoftwareUpdateConfigurationTargetAzureQueryArgs:
              scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tag_filter: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetAzureQueryTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'tagFilter' in kwargs:
+        if tag_filter is None and 'tagFilter' in kwargs:
             tag_filter = kwargs['tagFilter']
 
         if locations is not None:
@@ -1787,10 +1829,14 @@ class SoftwareUpdateConfigurationTargetAzureQueryTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             tag: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             tag: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if tag is None:
+            raise TypeError("Missing 'tag' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("tag", tag)
         _setter("values", values)
@@ -1839,11 +1885,11 @@ class SoftwareUpdateConfigurationTargetNonAzureQueryArgs:
              _setter: Callable[[Any, Any], None],
              function_alias: Optional[pulumi.Input[str]] = None,
              workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'functionAlias' in kwargs:
+        if function_alias is None and 'functionAlias' in kwargs:
             function_alias = kwargs['functionAlias']
-        if 'workspaceId' in kwargs:
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
 
         if function_alias is not None:
@@ -1906,15 +1952,15 @@ class SoftwareUpdateConfigurationWindowsArgs:
              excluded_knowledge_base_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              included_knowledge_base_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              reboot: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'classificationIncluded' in kwargs:
+        if classification_included is None and 'classificationIncluded' in kwargs:
             classification_included = kwargs['classificationIncluded']
-        if 'classificationsIncludeds' in kwargs:
+        if classifications_includeds is None and 'classificationsIncludeds' in kwargs:
             classifications_includeds = kwargs['classificationsIncludeds']
-        if 'excludedKnowledgeBaseNumbers' in kwargs:
+        if excluded_knowledge_base_numbers is None and 'excludedKnowledgeBaseNumbers' in kwargs:
             excluded_knowledge_base_numbers = kwargs['excludedKnowledgeBaseNumbers']
-        if 'includedKnowledgeBaseNumbers' in kwargs:
+        if included_knowledge_base_numbers is None and 'includedKnowledgeBaseNumbers' in kwargs:
             included_knowledge_base_numbers = kwargs['includedKnowledgeBaseNumbers']
 
         if classification_included is not None:
@@ -2012,14 +2058,18 @@ class SourceControlSecurityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             token: pulumi.Input[str],
-             token_type: pulumi.Input[str],
+             token: Optional[pulumi.Input[str]] = None,
+             token_type: Optional[pulumi.Input[str]] = None,
              refresh_token: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'tokenType' in kwargs:
+        if token is None:
+            raise TypeError("Missing 'token' argument")
+        if token_type is None and 'tokenType' in kwargs:
             token_type = kwargs['tokenType']
-        if 'refreshToken' in kwargs:
+        if token_type is None:
+            raise TypeError("Missing 'token_type' argument")
+        if refresh_token is None and 'refreshToken' in kwargs:
             refresh_token = kwargs['refreshToken']
 
         _setter("token", token)

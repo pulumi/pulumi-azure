@@ -67,12 +67,12 @@ class LinkedServiceSftpArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             authentication_type: pulumi.Input[str],
-             data_factory_id: pulumi.Input[str],
-             host: pulumi.Input[str],
-             password: pulumi.Input[str],
-             port: pulumi.Input[int],
-             username: pulumi.Input[str],
+             authentication_type: Optional[pulumi.Input[str]] = None,
+             data_factory_id: Optional[pulumi.Input[str]] = None,
+             host: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             username: Optional[pulumi.Input[str]] = None,
              additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -81,19 +81,31 @@ class LinkedServiceSftpArgs:
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              skip_host_key_validation: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'authenticationType' in kwargs:
+        if authentication_type is None and 'authenticationType' in kwargs:
             authentication_type = kwargs['authenticationType']
-        if 'dataFactoryId' in kwargs:
+        if authentication_type is None:
+            raise TypeError("Missing 'authentication_type' argument")
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'additionalProperties' in kwargs:
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if host is None:
+            raise TypeError("Missing 'host' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'hostKeyFingerprint' in kwargs:
+        if host_key_fingerprint is None and 'hostKeyFingerprint' in kwargs:
             host_key_fingerprint = kwargs['hostKeyFingerprint']
-        if 'integrationRuntimeName' in kwargs:
+        if integration_runtime_name is None and 'integrationRuntimeName' in kwargs:
             integration_runtime_name = kwargs['integrationRuntimeName']
-        if 'skipHostKeyValidation' in kwargs:
+        if skip_host_key_validation is None and 'skipHostKeyValidation' in kwargs:
             skip_host_key_validation = kwargs['skipHostKeyValidation']
 
         _setter("authentication_type", authentication_type)
@@ -360,19 +372,19 @@ class _LinkedServiceSftpState:
              port: Optional[pulumi.Input[int]] = None,
              skip_host_key_validation: Optional[pulumi.Input[bool]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'additionalProperties' in kwargs:
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'authenticationType' in kwargs:
+        if authentication_type is None and 'authenticationType' in kwargs:
             authentication_type = kwargs['authenticationType']
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'hostKeyFingerprint' in kwargs:
+        if host_key_fingerprint is None and 'hostKeyFingerprint' in kwargs:
             host_key_fingerprint = kwargs['hostKeyFingerprint']
-        if 'integrationRuntimeName' in kwargs:
+        if integration_runtime_name is None and 'integrationRuntimeName' in kwargs:
             integration_runtime_name = kwargs['integrationRuntimeName']
-        if 'skipHostKeyValidation' in kwargs:
+        if skip_host_key_validation is None and 'skipHostKeyValidation' in kwargs:
             skip_host_key_validation = kwargs['skipHostKeyValidation']
 
         if additional_properties is not None:
@@ -598,25 +610,6 @@ class LinkedServiceSftp(pulumi.CustomResource):
         """
         Manages a Linked Service (connection) between a SFTP Server and Azure Data Factory.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_linked_service_sftp = azure.datafactory.LinkedServiceSftp("exampleLinkedServiceSftp",
-            data_factory_id=example_factory.id,
-            authentication_type="Basic",
-            host="http://www.bing.com",
-            port=22,
-            username="foo",
-            password="bar")
-        ```
-
         ## Import
 
         Data Factory Linked Service's can be imported using the `resource id`, e.g.
@@ -652,25 +645,6 @@ class LinkedServiceSftp(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Linked Service (connection) between a SFTP Server and Azure Data Factory.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_linked_service_sftp = azure.datafactory.LinkedServiceSftp("exampleLinkedServiceSftp",
-            data_factory_id=example_factory.id,
-            authentication_type="Basic",
-            host="http://www.bing.com",
-            port=22,
-            username="foo",
-            password="bar")
-        ```
 
         ## Import
 

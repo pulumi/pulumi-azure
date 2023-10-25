@@ -16,25 +16,6 @@ namespace Pulumi.Azure.AppService
     /// 
     /// &gt; **NOTE:** Source Control Tokens are configured at the subscription level, not on each App Service - as such this can only be configured Subscription-wide
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.AppService.SourceCodeToken("example", new()
-    ///     {
-    ///         Token = "7e57735e77e577e57",
-    ///         Type = "GitHub",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// App Service Source Control Token's can be imported using the `type`, e.g.

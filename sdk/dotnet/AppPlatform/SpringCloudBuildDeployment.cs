@@ -14,54 +14,6 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     /// &gt; **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         SkuName = "E0",
-    ///     });
-    /// 
-    ///     var exampleSpringCloudApp = new Azure.AppPlatform.SpringCloudApp("exampleSpringCloudApp", new()
-    ///     {
-    ///         ResourceGroupName = exampleSpringCloudService.ResourceGroupName,
-    ///         ServiceName = exampleSpringCloudService.Name,
-    ///     });
-    /// 
-    ///     var exampleSpringCloudBuildDeployment = new Azure.AppPlatform.SpringCloudBuildDeployment("exampleSpringCloudBuildDeployment", new()
-    ///     {
-    ///         SpringCloudAppId = exampleSpringCloudApp.Id,
-    ///         BuildResultId = "&lt;default&gt;",
-    ///         InstanceCount = 2,
-    ///         EnvironmentVariables = 
-    ///         {
-    ///             { "Foo", "Bar" },
-    ///             { "Env", "Staging" },
-    ///         },
-    ///         Quota = new Azure.AppPlatform.Inputs.SpringCloudBuildDeploymentQuotaArgs
-    ///         {
-    ///             Cpu = "2",
-    ///             Memory = "4Gi",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Spring Cloud Build Deployments can be imported using the `resource id`, e.g.

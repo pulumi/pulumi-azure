@@ -38,21 +38,29 @@ class ManagedPrivateEndpointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             stream_analytics_cluster_name: pulumi.Input[str],
-             subresource_name: pulumi.Input[str],
-             target_resource_id: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             stream_analytics_cluster_name: Optional[pulumi.Input[str]] = None,
+             subresource_name: Optional[pulumi.Input[str]] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'streamAnalyticsClusterName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if stream_analytics_cluster_name is None and 'streamAnalyticsClusterName' in kwargs:
             stream_analytics_cluster_name = kwargs['streamAnalyticsClusterName']
-        if 'subresourceName' in kwargs:
+        if stream_analytics_cluster_name is None:
+            raise TypeError("Missing 'stream_analytics_cluster_name' argument")
+        if subresource_name is None and 'subresourceName' in kwargs:
             subresource_name = kwargs['subresourceName']
-        if 'targetResourceId' in kwargs:
+        if subresource_name is None:
+            raise TypeError("Missing 'subresource_name' argument")
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
+        if target_resource_id is None:
+            raise TypeError("Missing 'target_resource_id' argument")
 
         _setter("resource_group_name", resource_group_name)
         _setter("stream_analytics_cluster_name", stream_analytics_cluster_name)
@@ -154,15 +162,15 @@ class _ManagedPrivateEndpointState:
              stream_analytics_cluster_name: Optional[pulumi.Input[str]] = None,
              subresource_name: Optional[pulumi.Input[str]] = None,
              target_resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'streamAnalyticsClusterName' in kwargs:
+        if stream_analytics_cluster_name is None and 'streamAnalyticsClusterName' in kwargs:
             stream_analytics_cluster_name = kwargs['streamAnalyticsClusterName']
-        if 'subresourceName' in kwargs:
+        if subresource_name is None and 'subresourceName' in kwargs:
             subresource_name = kwargs['subresourceName']
-        if 'targetResourceId' in kwargs:
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
 
         if name is not None:
@@ -251,31 +259,6 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
         """
         Manages a Stream Analytics Managed Private Endpoint.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            account_kind="StorageV2",
-            is_hns_enabled=True)
-        example_cluster = azure.streamanalytics.Cluster("exampleCluster",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            streaming_capacity=36)
-        example_managed_private_endpoint = azure.streamanalytics.ManagedPrivateEndpoint("exampleManagedPrivateEndpoint",
-            resource_group_name=example_resource_group.name,
-            stream_analytics_cluster_name=example_cluster.name,
-            target_resource_id=example_account.id,
-            subresource_name="blob")
-        ```
-
         ## Import
 
         Stream Analytics Private Endpoints can be imported using the `resource id`, e.g.
@@ -300,31 +283,6 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Stream Analytics Managed Private Endpoint.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            account_kind="StorageV2",
-            is_hns_enabled=True)
-        example_cluster = azure.streamanalytics.Cluster("exampleCluster",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            streaming_capacity=36)
-        example_managed_private_endpoint = azure.streamanalytics.ManagedPrivateEndpoint("exampleManagedPrivateEndpoint",
-            resource_group_name=example_resource_group.name,
-            stream_analytics_cluster_name=example_cluster.name,
-            target_resource_id=example_account.id,
-            subresource_name="blob")
-        ```
 
         ## Import
 

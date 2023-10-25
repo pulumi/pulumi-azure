@@ -46,21 +46,29 @@ class GlobalVMShutdownScheduleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             daily_recurrence_time: pulumi.Input[str],
-             notification_settings: pulumi.Input['GlobalVMShutdownScheduleNotificationSettingsArgs'],
-             timezone: pulumi.Input[str],
-             virtual_machine_id: pulumi.Input[str],
+             daily_recurrence_time: Optional[pulumi.Input[str]] = None,
+             notification_settings: Optional[pulumi.Input['GlobalVMShutdownScheduleNotificationSettingsArgs']] = None,
+             timezone: Optional[pulumi.Input[str]] = None,
+             virtual_machine_id: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              location: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dailyRecurrenceTime' in kwargs:
+        if daily_recurrence_time is None and 'dailyRecurrenceTime' in kwargs:
             daily_recurrence_time = kwargs['dailyRecurrenceTime']
-        if 'notificationSettings' in kwargs:
+        if daily_recurrence_time is None:
+            raise TypeError("Missing 'daily_recurrence_time' argument")
+        if notification_settings is None and 'notificationSettings' in kwargs:
             notification_settings = kwargs['notificationSettings']
-        if 'virtualMachineId' in kwargs:
+        if notification_settings is None:
+            raise TypeError("Missing 'notification_settings' argument")
+        if timezone is None:
+            raise TypeError("Missing 'timezone' argument")
+        if virtual_machine_id is None and 'virtualMachineId' in kwargs:
             virtual_machine_id = kwargs['virtualMachineId']
+        if virtual_machine_id is None:
+            raise TypeError("Missing 'virtual_machine_id' argument")
 
         _setter("daily_recurrence_time", daily_recurrence_time)
         _setter("notification_settings", notification_settings)
@@ -198,13 +206,13 @@ class _GlobalVMShutdownScheduleState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              timezone: Optional[pulumi.Input[str]] = None,
              virtual_machine_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dailyRecurrenceTime' in kwargs:
+        if daily_recurrence_time is None and 'dailyRecurrenceTime' in kwargs:
             daily_recurrence_time = kwargs['dailyRecurrenceTime']
-        if 'notificationSettings' in kwargs:
+        if notification_settings is None and 'notificationSettings' in kwargs:
             notification_settings = kwargs['notificationSettings']
-        if 'virtualMachineId' in kwargs:
+        if virtual_machine_id is None and 'virtualMachineId' in kwargs:
             virtual_machine_id = kwargs['virtualMachineId']
 
         if daily_recurrence_time is not None:
@@ -325,61 +333,6 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
         this resource applies only to standard VMs, not DevTest Lab VMs. To manage automated shutdown schedules for DevTest Lab VMs, reference the
         `devtest.Schedule` resource
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="testconfiguration1",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
-        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("exampleLinuxVirtualMachine",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            network_interface_ids=[example_network_interface.id],
-            size="Standard_B2s",
-            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-focal",
-                sku="20_04-lts",
-                version="latest",
-            ),
-            os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
-                name="myosdisk-example",
-                caching="ReadWrite",
-                storage_account_type="Standard_LRS",
-            ),
-            admin_username="testadmin",
-            admin_password="Password1234!",
-            disable_password_authentication=False)
-        example_global_vm_shutdown_schedule = azure.devtest.GlobalVMShutdownSchedule("exampleGlobalVMShutdownSchedule",
-            virtual_machine_id=example_linux_virtual_machine.id,
-            location=example_resource_group.location,
-            enabled=True,
-            daily_recurrence_time="1100",
-            timezone="Pacific Standard Time",
-            notification_settings=azure.devtest.GlobalVMShutdownScheduleNotificationSettingsArgs(
-                enabled=True,
-                time_in_minutes=60,
-                webhook_url="https://sample-webhook-url.example.com",
-            ))
-        ```
-
         ## Import
 
         An existing Dev Test Global Shutdown Schedule can be imported using the `resource id`, e.g.
@@ -410,61 +363,6 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
         Manages automated shutdown schedules for Azure VMs that are not within an Azure DevTest Lab. While this is part of the DevTest Labs service in Azure,
         this resource applies only to standard VMs, not DevTest Lab VMs. To manage automated shutdown schedules for DevTest Lab VMs, reference the
         `devtest.Schedule` resource
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="testconfiguration1",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
-        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("exampleLinuxVirtualMachine",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            network_interface_ids=[example_network_interface.id],
-            size="Standard_B2s",
-            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-focal",
-                sku="20_04-lts",
-                version="latest",
-            ),
-            os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
-                name="myosdisk-example",
-                caching="ReadWrite",
-                storage_account_type="Standard_LRS",
-            ),
-            admin_username="testadmin",
-            admin_password="Password1234!",
-            disable_password_authentication=False)
-        example_global_vm_shutdown_schedule = azure.devtest.GlobalVMShutdownSchedule("exampleGlobalVMShutdownSchedule",
-            virtual_machine_id=example_linux_virtual_machine.id,
-            location=example_resource_group.location,
-            enabled=True,
-            daily_recurrence_time="1100",
-            timezone="Pacific Standard Time",
-            notification_settings=azure.devtest.GlobalVMShutdownScheduleNotificationSettingsArgs(
-                enabled=True,
-                time_in_minutes=60,
-                webhook_url="https://sample-webhook-url.example.com",
-            ))
-        ```
 
         ## Import
 
@@ -516,11 +414,7 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
             __props__.__dict__["daily_recurrence_time"] = daily_recurrence_time
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["location"] = location
-            if notification_settings is not None and not isinstance(notification_settings, GlobalVMShutdownScheduleNotificationSettingsArgs):
-                notification_settings = notification_settings or {}
-                def _setter(key, value):
-                    notification_settings[key] = value
-                GlobalVMShutdownScheduleNotificationSettingsArgs._configure(_setter, **notification_settings)
+            notification_settings = _utilities.configure(notification_settings, GlobalVMShutdownScheduleNotificationSettingsArgs, True)
             if notification_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'notification_settings'")
             __props__.__dict__["notification_settings"] = notification_settings

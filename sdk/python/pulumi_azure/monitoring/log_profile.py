@@ -43,19 +43,25 @@ class LogProfileArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             categories: pulumi.Input[Sequence[pulumi.Input[str]]],
-             locations: pulumi.Input[Sequence[pulumi.Input[str]]],
-             retention_policy: pulumi.Input['LogProfileRetentionPolicyArgs'],
+             categories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             retention_policy: Optional[pulumi.Input['LogProfileRetentionPolicyArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              servicebus_rule_id: Optional[pulumi.Input[str]] = None,
              storage_account_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'retentionPolicy' in kwargs:
+        if categories is None:
+            raise TypeError("Missing 'categories' argument")
+        if locations is None:
+            raise TypeError("Missing 'locations' argument")
+        if retention_policy is None and 'retentionPolicy' in kwargs:
             retention_policy = kwargs['retentionPolicy']
-        if 'servicebusRuleId' in kwargs:
+        if retention_policy is None:
+            raise TypeError("Missing 'retention_policy' argument")
+        if servicebus_rule_id is None and 'servicebusRuleId' in kwargs:
             servicebus_rule_id = kwargs['servicebusRuleId']
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
 
         _setter("categories", categories)
@@ -177,13 +183,13 @@ class _LogProfileState:
              retention_policy: Optional[pulumi.Input['LogProfileRetentionPolicyArgs']] = None,
              servicebus_rule_id: Optional[pulumi.Input[str]] = None,
              storage_account_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'retentionPolicy' in kwargs:
+        if retention_policy is None and 'retentionPolicy' in kwargs:
             retention_policy = kwargs['retentionPolicy']
-        if 'servicebusRuleId' in kwargs:
+        if servicebus_rule_id is None and 'servicebusRuleId' in kwargs:
             servicebus_rule_id = kwargs['servicebusRuleId']
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
 
         if categories is not None:
@@ -291,41 +297,6 @@ class LogProfile(pulumi.CustomResource):
 
         !> **NOTE:** Azure Log Profiles will be retired on 30th September 2026 and will be removed in v4.0 of the AzureRM Provider. More information on the deprecation can be found [in the Azure documentation](https://learn.microsoft.com/azure/azure-monitor/essentials/activity-log?tabs=powershell#legacy-collection-methods).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard",
-            capacity=2)
-        example_log_profile = azure.monitoring.LogProfile("exampleLogProfile",
-            categories=[
-                "Action",
-                "Delete",
-                "Write",
-            ],
-            locations=[
-                "westus",
-                "global",
-            ],
-            servicebus_rule_id=example_event_hub_namespace.id.apply(lambda id: f"{id}/authorizationrules/RootManageSharedAccessKey"),
-            storage_account_id=example_account.id,
-            retention_policy=azure.monitoring.LogProfileRetentionPolicyArgs(
-                enabled=True,
-                days=7,
-            ))
-        ```
-
         ## Import
 
         A Log Profile can be imported using the `resource id`, e.g.
@@ -355,41 +326,6 @@ class LogProfile(pulumi.CustomResource):
         > **NOTE:** It's only possible to configure one Log Profile per Subscription. If you are trying to create more than one Log Profile, an error with `StatusCode=409` will occur.
 
         !> **NOTE:** Azure Log Profiles will be retired on 30th September 2026 and will be removed in v4.0 of the AzureRM Provider. More information on the deprecation can be found [in the Azure documentation](https://learn.microsoft.com/azure/azure-monitor/essentials/activity-log?tabs=powershell#legacy-collection-methods).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard",
-            capacity=2)
-        example_log_profile = azure.monitoring.LogProfile("exampleLogProfile",
-            categories=[
-                "Action",
-                "Delete",
-                "Write",
-            ],
-            locations=[
-                "westus",
-                "global",
-            ],
-            servicebus_rule_id=example_event_hub_namespace.id.apply(lambda id: f"{id}/authorizationrules/RootManageSharedAccessKey"),
-            storage_account_id=example_account.id,
-            retention_policy=azure.monitoring.LogProfileRetentionPolicyArgs(
-                enabled=True,
-                days=7,
-            ))
-        ```
 
         ## Import
 
@@ -440,11 +376,7 @@ class LogProfile(pulumi.CustomResource):
                 raise TypeError("Missing required property 'locations'")
             __props__.__dict__["locations"] = locations
             __props__.__dict__["name"] = name
-            if retention_policy is not None and not isinstance(retention_policy, LogProfileRetentionPolicyArgs):
-                retention_policy = retention_policy or {}
-                def _setter(key, value):
-                    retention_policy[key] = value
-                LogProfileRetentionPolicyArgs._configure(_setter, **retention_policy)
+            retention_policy = _utilities.configure(retention_policy, LogProfileRetentionPolicyArgs, True)
             if retention_policy is None and not opts.urn:
                 raise TypeError("Missing required property 'retention_policy'")
             __props__.__dict__["retention_policy"] = retention_policy

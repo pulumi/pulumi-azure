@@ -43,18 +43,24 @@ class VirtualNetworkRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             server_name: pulumi.Input[str],
-             subnet_id: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serverName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if server_name is None and 'serverName' in kwargs:
             server_name = kwargs['serverName']
-        if 'subnetId' in kwargs:
+        if server_name is None:
+            raise TypeError("Missing 'server_name' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
 
         _setter("resource_group_name", resource_group_name)
         _setter("server_name", server_name)
@@ -155,13 +161,13 @@ class _VirtualNetworkRuleState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              server_name: Optional[pulumi.Input[str]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serverName' in kwargs:
+        if server_name is None and 'serverName' in kwargs:
             server_name = kwargs['serverName']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
 
         if name is not None:
@@ -245,39 +251,6 @@ class VirtualNetworkRule(pulumi.CustomResource):
 
         > **NOTE:** MySQL Virtual Network Rules [can only be used with SKU Tiers of `GeneralPurpose` or `MemoryOptimized`](https://docs.microsoft.com/azure/mysql/concepts-data-access-and-security-vnet)
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.7.29.0/29"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        internal = azure.network.Subnet("internal",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.7.29.0/29"],
-            service_endpoints=["Microsoft.Sql"])
-        example_server = azure.mysql.Server("exampleServer",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            administrator_login="mysqladminun",
-            administrator_login_password="H@Sh1CoR3!",
-            sku_name="GP_Gen5_2",
-            storage_mb=5120,
-            version="5.7",
-            backup_retention_days=7,
-            geo_redundant_backup_enabled=False,
-            ssl_enforcement_enabled=True)
-        example_virtual_network_rule = azure.mysql.VirtualNetworkRule("exampleVirtualNetworkRule",
-            resource_group_name=example_resource_group.name,
-            server_name=example_server.name,
-            subnet_id=internal.id)
-        ```
-
         ## Import
 
         MySQL Virtual Network Rules can be imported using the `resource id`, e.g.
@@ -311,39 +284,6 @@ class VirtualNetworkRule(pulumi.CustomResource):
         Manages a MySQL Virtual Network Rule.
 
         > **NOTE:** MySQL Virtual Network Rules [can only be used with SKU Tiers of `GeneralPurpose` or `MemoryOptimized`](https://docs.microsoft.com/azure/mysql/concepts-data-access-and-security-vnet)
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.7.29.0/29"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        internal = azure.network.Subnet("internal",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.7.29.0/29"],
-            service_endpoints=["Microsoft.Sql"])
-        example_server = azure.mysql.Server("exampleServer",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            administrator_login="mysqladminun",
-            administrator_login_password="H@Sh1CoR3!",
-            sku_name="GP_Gen5_2",
-            storage_mb=5120,
-            version="5.7",
-            backup_retention_days=7,
-            geo_redundant_backup_enabled=False,
-            ssl_enforcement_enabled=True)
-        example_virtual_network_rule = azure.mysql.VirtualNetworkRule("exampleVirtualNetworkRule",
-            resource_group_name=example_resource_group.name,
-            server_name=example_server.name,
-            subnet_id=internal.id)
-        ```
 
         ## Import
 

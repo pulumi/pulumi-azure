@@ -6,19 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to retrieve the version of Kubernetes supported by Azure Kubernetes Service.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const current = azure.containerservice.getKubernetesServiceVersions({
- *     location: "West Europe",
- * });
- * export const versions = current.then(current => current.versions);
- * export const latestVersion = current.then(current => current.latestVersion);
- * ```
  */
 export function getKubernetesServiceVersions(args: GetKubernetesServiceVersionsArgs, opts?: pulumi.InvokeOptions): Promise<GetKubernetesServiceVersionsResult> {
 
@@ -70,19 +57,6 @@ export interface GetKubernetesServiceVersionsResult {
 }
 /**
  * Use this data source to retrieve the version of Kubernetes supported by Azure Kubernetes Service.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const current = azure.containerservice.getKubernetesServiceVersions({
- *     location: "West Europe",
- * });
- * export const versions = current.then(current => current.versions);
- * export const latestVersion = current.then(current => current.latestVersion);
- * ```
  */
 export function getKubernetesServiceVersionsOutput(args: GetKubernetesServiceVersionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKubernetesServiceVersionsResult> {
     return pulumi.output(args).apply((a: any) => getKubernetesServiceVersions(a, opts))

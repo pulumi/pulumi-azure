@@ -64,7 +64,7 @@ class FactoryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              customer_managed_key_id: Optional[pulumi.Input[str]] = None,
              customer_managed_key_identity_id: Optional[pulumi.Input[str]] = None,
              github_configuration: Optional[pulumi.Input['FactoryGithubConfigurationArgs']] = None,
@@ -77,25 +77,27 @@ class FactoryArgs:
              purview_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              vsts_configuration: Optional[pulumi.Input['FactoryVstsConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'customerManagedKeyId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if customer_managed_key_id is None and 'customerManagedKeyId' in kwargs:
             customer_managed_key_id = kwargs['customerManagedKeyId']
-        if 'customerManagedKeyIdentityId' in kwargs:
+        if customer_managed_key_identity_id is None and 'customerManagedKeyIdentityId' in kwargs:
             customer_managed_key_identity_id = kwargs['customerManagedKeyIdentityId']
-        if 'githubConfiguration' in kwargs:
+        if github_configuration is None and 'githubConfiguration' in kwargs:
             github_configuration = kwargs['githubConfiguration']
-        if 'globalParameters' in kwargs:
+        if global_parameters is None and 'globalParameters' in kwargs:
             global_parameters = kwargs['globalParameters']
-        if 'managedVirtualNetworkEnabled' in kwargs:
+        if managed_virtual_network_enabled is None and 'managedVirtualNetworkEnabled' in kwargs:
             managed_virtual_network_enabled = kwargs['managedVirtualNetworkEnabled']
-        if 'publicNetworkEnabled' in kwargs:
+        if public_network_enabled is None and 'publicNetworkEnabled' in kwargs:
             public_network_enabled = kwargs['publicNetworkEnabled']
-        if 'purviewId' in kwargs:
+        if purview_id is None and 'purviewId' in kwargs:
             purview_id = kwargs['purviewId']
-        if 'vstsConfiguration' in kwargs:
+        if vsts_configuration is None and 'vstsConfiguration' in kwargs:
             vsts_configuration = kwargs['vstsConfiguration']
 
         _setter("resource_group_name", resource_group_name)
@@ -345,25 +347,25 @@ class _FactoryState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              vsts_configuration: Optional[pulumi.Input['FactoryVstsConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'customerManagedKeyId' in kwargs:
+        if customer_managed_key_id is None and 'customerManagedKeyId' in kwargs:
             customer_managed_key_id = kwargs['customerManagedKeyId']
-        if 'customerManagedKeyIdentityId' in kwargs:
+        if customer_managed_key_identity_id is None and 'customerManagedKeyIdentityId' in kwargs:
             customer_managed_key_identity_id = kwargs['customerManagedKeyIdentityId']
-        if 'githubConfiguration' in kwargs:
+        if github_configuration is None and 'githubConfiguration' in kwargs:
             github_configuration = kwargs['githubConfiguration']
-        if 'globalParameters' in kwargs:
+        if global_parameters is None and 'globalParameters' in kwargs:
             global_parameters = kwargs['globalParameters']
-        if 'managedVirtualNetworkEnabled' in kwargs:
+        if managed_virtual_network_enabled is None and 'managedVirtualNetworkEnabled' in kwargs:
             managed_virtual_network_enabled = kwargs['managedVirtualNetworkEnabled']
-        if 'publicNetworkEnabled' in kwargs:
+        if public_network_enabled is None and 'publicNetworkEnabled' in kwargs:
             public_network_enabled = kwargs['publicNetworkEnabled']
-        if 'purviewId' in kwargs:
+        if purview_id is None and 'purviewId' in kwargs:
             purview_id = kwargs['purviewId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'vstsConfiguration' in kwargs:
+        if vsts_configuration is None and 'vstsConfiguration' in kwargs:
             vsts_configuration = kwargs['vstsConfiguration']
 
         if customer_managed_key_id is not None:
@@ -572,18 +574,6 @@ class Factory(pulumi.CustomResource):
         """
         Manages an Azure Data Factory (Version 2).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        ```
-
         ## Import
 
         Data Factory can be imported using the `resource id`, e.g.
@@ -616,18 +606,6 @@ class Factory(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Data Factory (Version 2).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        ```
 
         ## Import
 
@@ -680,18 +658,10 @@ class Factory(pulumi.CustomResource):
 
             __props__.__dict__["customer_managed_key_id"] = customer_managed_key_id
             __props__.__dict__["customer_managed_key_identity_id"] = customer_managed_key_identity_id
-            if github_configuration is not None and not isinstance(github_configuration, FactoryGithubConfigurationArgs):
-                github_configuration = github_configuration or {}
-                def _setter(key, value):
-                    github_configuration[key] = value
-                FactoryGithubConfigurationArgs._configure(_setter, **github_configuration)
+            github_configuration = _utilities.configure(github_configuration, FactoryGithubConfigurationArgs, True)
             __props__.__dict__["github_configuration"] = github_configuration
             __props__.__dict__["global_parameters"] = global_parameters
-            if identity is not None and not isinstance(identity, FactoryIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                FactoryIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, FactoryIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["managed_virtual_network_enabled"] = managed_virtual_network_enabled
@@ -702,11 +672,7 @@ class Factory(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
-            if vsts_configuration is not None and not isinstance(vsts_configuration, FactoryVstsConfigurationArgs):
-                vsts_configuration = vsts_configuration or {}
-                def _setter(key, value):
-                    vsts_configuration[key] = value
-                FactoryVstsConfigurationArgs._configure(_setter, **vsts_configuration)
+            vsts_configuration = _utilities.configure(vsts_configuration, FactoryVstsConfigurationArgs, True)
             __props__.__dict__["vsts_configuration"] = vsts_configuration
         super(Factory, __self__).__init__(
             'azure:datafactory/factory:Factory',

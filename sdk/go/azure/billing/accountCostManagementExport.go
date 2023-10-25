@@ -15,66 +15,6 @@ import (
 
 // Manages a Cost Management Export for a Billing Account.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/billing"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				Location:               exampleResourceGroup.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
-//				StorageAccountName: exampleAccount.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = billing.NewAccountCostManagementExport(ctx, "exampleAccountCostManagementExport", &billing.AccountCostManagementExportArgs{
-//				BillingAccountId:          pulumi.String("example"),
-//				RecurrenceType:            pulumi.String("Monthly"),
-//				RecurrencePeriodStartDate: pulumi.String("2020-08-18T00:00:00Z"),
-//				RecurrencePeriodEndDate:   pulumi.String("2020-09-18T00:00:00Z"),
-//				ExportDataStorageLocation: &billing.AccountCostManagementExportExportDataStorageLocationArgs{
-//					ContainerId:    exampleContainer.ResourceManagerId,
-//					RootFolderPath: pulumi.String("/root/updated"),
-//				},
-//				ExportDataOptions: &billing.AccountCostManagementExportExportDataOptionsArgs{
-//					Type:      pulumi.String("Usage"),
-//					TimeFrame: pulumi.String("WeekToDate"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Billing Account Cost Management Exports can be imported using the `resource id`, e.g.

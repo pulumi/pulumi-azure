@@ -15,65 +15,6 @@ import (
 
 // Manages an Azure Spring Cloud Service.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				ApplicationType:   pulumi.String("web"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appplatform.NewSpringCloudService(ctx, "exampleSpringCloudService", &appplatform.SpringCloudServiceArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
-//				SkuName:           pulumi.String("S0"),
-//				ConfigServerGitSetting: &appplatform.SpringCloudServiceConfigServerGitSettingArgs{
-//					Uri:   pulumi.String("https://github.com/Azure-Samples/piggymetrics"),
-//					Label: pulumi.String("config"),
-//					SearchPaths: pulumi.StringArray{
-//						pulumi.String("dir1"),
-//						pulumi.String("dir2"),
-//					},
-//				},
-//				Trace: &appplatform.SpringCloudServiceTraceArgs{
-//					ConnectionString: exampleInsights.ConnectionString,
-//					SampleRate:       pulumi.Float64(10),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Env": pulumi.String("staging"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Spring Cloud services can be imported using the `resource id`, e.g.

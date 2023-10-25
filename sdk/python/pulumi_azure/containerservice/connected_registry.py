@@ -63,8 +63,8 @@ class ConnectedRegistryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             container_registry_id: pulumi.Input[str],
-             sync_token_id: pulumi.Input[str],
+             container_registry_id: Optional[pulumi.Input[str]] = None,
+             sync_token_id: Optional[pulumi.Input[str]] = None,
              audit_log_enabled: Optional[pulumi.Input[bool]] = None,
              client_token_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              log_level: Optional[pulumi.Input[str]] = None,
@@ -75,25 +75,29 @@ class ConnectedRegistryArgs:
              sync_message_ttl: Optional[pulumi.Input[str]] = None,
              sync_schedule: Optional[pulumi.Input[str]] = None,
              sync_window: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'containerRegistryId' in kwargs:
+        if container_registry_id is None and 'containerRegistryId' in kwargs:
             container_registry_id = kwargs['containerRegistryId']
-        if 'syncTokenId' in kwargs:
+        if container_registry_id is None:
+            raise TypeError("Missing 'container_registry_id' argument")
+        if sync_token_id is None and 'syncTokenId' in kwargs:
             sync_token_id = kwargs['syncTokenId']
-        if 'auditLogEnabled' in kwargs:
+        if sync_token_id is None:
+            raise TypeError("Missing 'sync_token_id' argument")
+        if audit_log_enabled is None and 'auditLogEnabled' in kwargs:
             audit_log_enabled = kwargs['auditLogEnabled']
-        if 'clientTokenIds' in kwargs:
+        if client_token_ids is None and 'clientTokenIds' in kwargs:
             client_token_ids = kwargs['clientTokenIds']
-        if 'logLevel' in kwargs:
+        if log_level is None and 'logLevel' in kwargs:
             log_level = kwargs['logLevel']
-        if 'parentRegistryId' in kwargs:
+        if parent_registry_id is None and 'parentRegistryId' in kwargs:
             parent_registry_id = kwargs['parentRegistryId']
-        if 'syncMessageTtl' in kwargs:
+        if sync_message_ttl is None and 'syncMessageTtl' in kwargs:
             sync_message_ttl = kwargs['syncMessageTtl']
-        if 'syncSchedule' in kwargs:
+        if sync_schedule is None and 'syncSchedule' in kwargs:
             sync_schedule = kwargs['syncSchedule']
-        if 'syncWindow' in kwargs:
+        if sync_window is None and 'syncWindow' in kwargs:
             sync_window = kwargs['syncWindow']
 
         _setter("container_registry_id", container_registry_id)
@@ -328,25 +332,25 @@ class _ConnectedRegistryState:
              sync_schedule: Optional[pulumi.Input[str]] = None,
              sync_token_id: Optional[pulumi.Input[str]] = None,
              sync_window: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'auditLogEnabled' in kwargs:
+        if audit_log_enabled is None and 'auditLogEnabled' in kwargs:
             audit_log_enabled = kwargs['auditLogEnabled']
-        if 'clientTokenIds' in kwargs:
+        if client_token_ids is None and 'clientTokenIds' in kwargs:
             client_token_ids = kwargs['clientTokenIds']
-        if 'containerRegistryId' in kwargs:
+        if container_registry_id is None and 'containerRegistryId' in kwargs:
             container_registry_id = kwargs['containerRegistryId']
-        if 'logLevel' in kwargs:
+        if log_level is None and 'logLevel' in kwargs:
             log_level = kwargs['logLevel']
-        if 'parentRegistryId' in kwargs:
+        if parent_registry_id is None and 'parentRegistryId' in kwargs:
             parent_registry_id = kwargs['parentRegistryId']
-        if 'syncMessageTtl' in kwargs:
+        if sync_message_ttl is None and 'syncMessageTtl' in kwargs:
             sync_message_ttl = kwargs['syncMessageTtl']
-        if 'syncSchedule' in kwargs:
+        if sync_schedule is None and 'syncSchedule' in kwargs:
             sync_schedule = kwargs['syncSchedule']
-        if 'syncTokenId' in kwargs:
+        if sync_token_id is None and 'syncTokenId' in kwargs:
             sync_token_id = kwargs['syncTokenId']
-        if 'syncWindow' in kwargs:
+        if sync_window is None and 'syncWindow' in kwargs:
             sync_window = kwargs['syncWindow']
 
         if audit_log_enabled is not None:
@@ -542,41 +546,6 @@ class ConnectedRegistry(pulumi.CustomResource):
         """
         Manages a Container Connected Registry.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_registry = azure.containerservice.Registry("exampleRegistry",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku="Premium",
-            data_endpoint_enabled=True)
-        example_registry_scope_map = azure.containerservice.RegistryScopeMap("exampleRegistryScopeMap",
-            container_registry_name=example_registry.name,
-            resource_group_name=example_registry.resource_group_name,
-            actions=[
-                "repositories/hello-world/content/delete",
-                "repositories/hello-world/content/read",
-                "repositories/hello-world/content/write",
-                "repositories/hello-world/metadata/read",
-                "repositories/hello-world/metadata/write",
-                "gateway/examplecr/config/read",
-                "gateway/examplecr/config/write",
-                "gateway/examplecr/message/read",
-                "gateway/examplecr/message/write",
-            ])
-        example_registry_token = azure.containerservice.RegistryToken("exampleRegistryToken",
-            container_registry_name=example_registry.name,
-            resource_group_name=example_registry.resource_group_name,
-            scope_map_id=example_registry_scope_map.id)
-        example_connected_registry = azure.containerservice.ConnectedRegistry("exampleConnectedRegistry",
-            container_registry_id=example_registry.id,
-            sync_token_id=example_registry_token.id)
-        ```
-
         ## Import
 
         Container Connected Registries can be imported using the `resource id`, e.g.
@@ -610,41 +579,6 @@ class ConnectedRegistry(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Container Connected Registry.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_registry = azure.containerservice.Registry("exampleRegistry",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku="Premium",
-            data_endpoint_enabled=True)
-        example_registry_scope_map = azure.containerservice.RegistryScopeMap("exampleRegistryScopeMap",
-            container_registry_name=example_registry.name,
-            resource_group_name=example_registry.resource_group_name,
-            actions=[
-                "repositories/hello-world/content/delete",
-                "repositories/hello-world/content/read",
-                "repositories/hello-world/content/write",
-                "repositories/hello-world/metadata/read",
-                "repositories/hello-world/metadata/write",
-                "gateway/examplecr/config/read",
-                "gateway/examplecr/config/write",
-                "gateway/examplecr/message/read",
-                "gateway/examplecr/message/write",
-            ])
-        example_registry_token = azure.containerservice.RegistryToken("exampleRegistryToken",
-            container_registry_name=example_registry.name,
-            resource_group_name=example_registry.resource_group_name,
-            scope_map_id=example_registry_scope_map.id)
-        example_connected_registry = azure.containerservice.ConnectedRegistry("exampleConnectedRegistry",
-            container_registry_id=example_registry.id,
-            sync_token_id=example_registry_token.id)
-        ```
 
         ## Import
 

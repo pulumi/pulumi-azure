@@ -40,21 +40,31 @@ class HubApnsCredentialArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_mode: pulumi.Input[str],
-             bundle_id: pulumi.Input[str],
-             key_id: pulumi.Input[str],
-             team_id: pulumi.Input[str],
-             token: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             application_mode: Optional[pulumi.Input[str]] = None,
+             bundle_id: Optional[pulumi.Input[str]] = None,
+             key_id: Optional[pulumi.Input[str]] = None,
+             team_id: Optional[pulumi.Input[str]] = None,
+             token: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'applicationMode' in kwargs:
+        if application_mode is None and 'applicationMode' in kwargs:
             application_mode = kwargs['applicationMode']
-        if 'bundleId' in kwargs:
+        if application_mode is None:
+            raise TypeError("Missing 'application_mode' argument")
+        if bundle_id is None and 'bundleId' in kwargs:
             bundle_id = kwargs['bundleId']
-        if 'keyId' in kwargs:
+        if bundle_id is None:
+            raise TypeError("Missing 'bundle_id' argument")
+        if key_id is None and 'keyId' in kwargs:
             key_id = kwargs['keyId']
-        if 'teamId' in kwargs:
+        if key_id is None:
+            raise TypeError("Missing 'key_id' argument")
+        if team_id is None and 'teamId' in kwargs:
             team_id = kwargs['teamId']
+        if team_id is None:
+            raise TypeError("Missing 'team_id' argument")
+        if token is None:
+            raise TypeError("Missing 'token' argument")
 
         _setter("application_mode", application_mode)
         _setter("bundle_id", bundle_id)
@@ -137,11 +147,13 @@ class HubGcmCredentialArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_key: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             api_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiKey' in kwargs:
+        if api_key is None and 'apiKey' in kwargs:
             api_key = kwargs['apiKey']
+        if api_key is None:
+            raise TypeError("Missing 'api_key' argument")
 
         _setter("api_key", api_key)
 

@@ -177,8 +177,8 @@ class KubernetesClusterNodePoolArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             kubernetes_cluster_id: pulumi.Input[str],
-             vm_size: pulumi.Input[str],
+             kubernetes_cluster_id: Optional[pulumi.Input[str]] = None,
+             vm_size: Optional[pulumi.Input[str]] = None,
              capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
              custom_ca_trust_enabled: Optional[pulumi.Input[bool]] = None,
              enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
@@ -219,81 +219,85 @@ class KubernetesClusterNodePoolArgs:
              windows_profile: Optional[pulumi.Input['KubernetesClusterNodePoolWindowsProfileArgs']] = None,
              workload_runtime: Optional[pulumi.Input[str]] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'kubernetesClusterId' in kwargs:
+        if kubernetes_cluster_id is None and 'kubernetesClusterId' in kwargs:
             kubernetes_cluster_id = kwargs['kubernetesClusterId']
-        if 'vmSize' in kwargs:
+        if kubernetes_cluster_id is None:
+            raise TypeError("Missing 'kubernetes_cluster_id' argument")
+        if vm_size is None and 'vmSize' in kwargs:
             vm_size = kwargs['vmSize']
-        if 'capacityReservationGroupId' in kwargs:
+        if vm_size is None:
+            raise TypeError("Missing 'vm_size' argument")
+        if capacity_reservation_group_id is None and 'capacityReservationGroupId' in kwargs:
             capacity_reservation_group_id = kwargs['capacityReservationGroupId']
-        if 'customCaTrustEnabled' in kwargs:
+        if custom_ca_trust_enabled is None and 'customCaTrustEnabled' in kwargs:
             custom_ca_trust_enabled = kwargs['customCaTrustEnabled']
-        if 'enableAutoScaling' in kwargs:
+        if enable_auto_scaling is None and 'enableAutoScaling' in kwargs:
             enable_auto_scaling = kwargs['enableAutoScaling']
-        if 'enableHostEncryption' in kwargs:
+        if enable_host_encryption is None and 'enableHostEncryption' in kwargs:
             enable_host_encryption = kwargs['enableHostEncryption']
-        if 'enableNodePublicIp' in kwargs:
+        if enable_node_public_ip is None and 'enableNodePublicIp' in kwargs:
             enable_node_public_ip = kwargs['enableNodePublicIp']
-        if 'evictionPolicy' in kwargs:
+        if eviction_policy is None and 'evictionPolicy' in kwargs:
             eviction_policy = kwargs['evictionPolicy']
-        if 'fipsEnabled' in kwargs:
+        if fips_enabled is None and 'fipsEnabled' in kwargs:
             fips_enabled = kwargs['fipsEnabled']
-        if 'hostGroupId' in kwargs:
+        if host_group_id is None and 'hostGroupId' in kwargs:
             host_group_id = kwargs['hostGroupId']
-        if 'kubeletConfig' in kwargs:
+        if kubelet_config is None and 'kubeletConfig' in kwargs:
             kubelet_config = kwargs['kubeletConfig']
-        if 'kubeletDiskType' in kwargs:
+        if kubelet_disk_type is None and 'kubeletDiskType' in kwargs:
             kubelet_disk_type = kwargs['kubeletDiskType']
-        if 'linuxOsConfig' in kwargs:
+        if linux_os_config is None and 'linuxOsConfig' in kwargs:
             linux_os_config = kwargs['linuxOsConfig']
-        if 'maxCount' in kwargs:
+        if max_count is None and 'maxCount' in kwargs:
             max_count = kwargs['maxCount']
-        if 'maxPods' in kwargs:
+        if max_pods is None and 'maxPods' in kwargs:
             max_pods = kwargs['maxPods']
-        if 'messageOfTheDay' in kwargs:
+        if message_of_the_day is None and 'messageOfTheDay' in kwargs:
             message_of_the_day = kwargs['messageOfTheDay']
-        if 'minCount' in kwargs:
+        if min_count is None and 'minCount' in kwargs:
             min_count = kwargs['minCount']
-        if 'nodeCount' in kwargs:
+        if node_count is None and 'nodeCount' in kwargs:
             node_count = kwargs['nodeCount']
-        if 'nodeLabels' in kwargs:
+        if node_labels is None and 'nodeLabels' in kwargs:
             node_labels = kwargs['nodeLabels']
-        if 'nodeNetworkProfile' in kwargs:
+        if node_network_profile is None and 'nodeNetworkProfile' in kwargs:
             node_network_profile = kwargs['nodeNetworkProfile']
-        if 'nodePublicIpPrefixId' in kwargs:
+        if node_public_ip_prefix_id is None and 'nodePublicIpPrefixId' in kwargs:
             node_public_ip_prefix_id = kwargs['nodePublicIpPrefixId']
-        if 'nodeTaints' in kwargs:
+        if node_taints is None and 'nodeTaints' in kwargs:
             node_taints = kwargs['nodeTaints']
-        if 'orchestratorVersion' in kwargs:
+        if orchestrator_version is None and 'orchestratorVersion' in kwargs:
             orchestrator_version = kwargs['orchestratorVersion']
-        if 'osDiskSizeGb' in kwargs:
+        if os_disk_size_gb is None and 'osDiskSizeGb' in kwargs:
             os_disk_size_gb = kwargs['osDiskSizeGb']
-        if 'osDiskType' in kwargs:
+        if os_disk_type is None and 'osDiskType' in kwargs:
             os_disk_type = kwargs['osDiskType']
-        if 'osSku' in kwargs:
+        if os_sku is None and 'osSku' in kwargs:
             os_sku = kwargs['osSku']
-        if 'osType' in kwargs:
+        if os_type is None and 'osType' in kwargs:
             os_type = kwargs['osType']
-        if 'podSubnetId' in kwargs:
+        if pod_subnet_id is None and 'podSubnetId' in kwargs:
             pod_subnet_id = kwargs['podSubnetId']
-        if 'proximityPlacementGroupId' in kwargs:
+        if proximity_placement_group_id is None and 'proximityPlacementGroupId' in kwargs:
             proximity_placement_group_id = kwargs['proximityPlacementGroupId']
-        if 'scaleDownMode' in kwargs:
+        if scale_down_mode is None and 'scaleDownMode' in kwargs:
             scale_down_mode = kwargs['scaleDownMode']
-        if 'snapshotId' in kwargs:
+        if snapshot_id is None and 'snapshotId' in kwargs:
             snapshot_id = kwargs['snapshotId']
-        if 'spotMaxPrice' in kwargs:
+        if spot_max_price is None and 'spotMaxPrice' in kwargs:
             spot_max_price = kwargs['spotMaxPrice']
-        if 'ultraSsdEnabled' in kwargs:
+        if ultra_ssd_enabled is None and 'ultraSsdEnabled' in kwargs:
             ultra_ssd_enabled = kwargs['ultraSsdEnabled']
-        if 'upgradeSettings' in kwargs:
+        if upgrade_settings is None and 'upgradeSettings' in kwargs:
             upgrade_settings = kwargs['upgradeSettings']
-        if 'vnetSubnetId' in kwargs:
+        if vnet_subnet_id is None and 'vnetSubnetId' in kwargs:
             vnet_subnet_id = kwargs['vnetSubnetId']
-        if 'windowsProfile' in kwargs:
+        if windows_profile is None and 'windowsProfile' in kwargs:
             windows_profile = kwargs['windowsProfile']
-        if 'workloadRuntime' in kwargs:
+        if workload_runtime is None and 'workloadRuntime' in kwargs:
             workload_runtime = kwargs['workloadRuntime']
 
         _setter("kubernetes_cluster_id", kubernetes_cluster_id)
@@ -1116,81 +1120,81 @@ class _KubernetesClusterNodePoolState:
              windows_profile: Optional[pulumi.Input['KubernetesClusterNodePoolWindowsProfileArgs']] = None,
              workload_runtime: Optional[pulumi.Input[str]] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'capacityReservationGroupId' in kwargs:
+        if capacity_reservation_group_id is None and 'capacityReservationGroupId' in kwargs:
             capacity_reservation_group_id = kwargs['capacityReservationGroupId']
-        if 'customCaTrustEnabled' in kwargs:
+        if custom_ca_trust_enabled is None and 'customCaTrustEnabled' in kwargs:
             custom_ca_trust_enabled = kwargs['customCaTrustEnabled']
-        if 'enableAutoScaling' in kwargs:
+        if enable_auto_scaling is None and 'enableAutoScaling' in kwargs:
             enable_auto_scaling = kwargs['enableAutoScaling']
-        if 'enableHostEncryption' in kwargs:
+        if enable_host_encryption is None and 'enableHostEncryption' in kwargs:
             enable_host_encryption = kwargs['enableHostEncryption']
-        if 'enableNodePublicIp' in kwargs:
+        if enable_node_public_ip is None and 'enableNodePublicIp' in kwargs:
             enable_node_public_ip = kwargs['enableNodePublicIp']
-        if 'evictionPolicy' in kwargs:
+        if eviction_policy is None and 'evictionPolicy' in kwargs:
             eviction_policy = kwargs['evictionPolicy']
-        if 'fipsEnabled' in kwargs:
+        if fips_enabled is None and 'fipsEnabled' in kwargs:
             fips_enabled = kwargs['fipsEnabled']
-        if 'hostGroupId' in kwargs:
+        if host_group_id is None and 'hostGroupId' in kwargs:
             host_group_id = kwargs['hostGroupId']
-        if 'kubeletConfig' in kwargs:
+        if kubelet_config is None and 'kubeletConfig' in kwargs:
             kubelet_config = kwargs['kubeletConfig']
-        if 'kubeletDiskType' in kwargs:
+        if kubelet_disk_type is None and 'kubeletDiskType' in kwargs:
             kubelet_disk_type = kwargs['kubeletDiskType']
-        if 'kubernetesClusterId' in kwargs:
+        if kubernetes_cluster_id is None and 'kubernetesClusterId' in kwargs:
             kubernetes_cluster_id = kwargs['kubernetesClusterId']
-        if 'linuxOsConfig' in kwargs:
+        if linux_os_config is None and 'linuxOsConfig' in kwargs:
             linux_os_config = kwargs['linuxOsConfig']
-        if 'maxCount' in kwargs:
+        if max_count is None and 'maxCount' in kwargs:
             max_count = kwargs['maxCount']
-        if 'maxPods' in kwargs:
+        if max_pods is None and 'maxPods' in kwargs:
             max_pods = kwargs['maxPods']
-        if 'messageOfTheDay' in kwargs:
+        if message_of_the_day is None and 'messageOfTheDay' in kwargs:
             message_of_the_day = kwargs['messageOfTheDay']
-        if 'minCount' in kwargs:
+        if min_count is None and 'minCount' in kwargs:
             min_count = kwargs['minCount']
-        if 'nodeCount' in kwargs:
+        if node_count is None and 'nodeCount' in kwargs:
             node_count = kwargs['nodeCount']
-        if 'nodeLabels' in kwargs:
+        if node_labels is None and 'nodeLabels' in kwargs:
             node_labels = kwargs['nodeLabels']
-        if 'nodeNetworkProfile' in kwargs:
+        if node_network_profile is None and 'nodeNetworkProfile' in kwargs:
             node_network_profile = kwargs['nodeNetworkProfile']
-        if 'nodePublicIpPrefixId' in kwargs:
+        if node_public_ip_prefix_id is None and 'nodePublicIpPrefixId' in kwargs:
             node_public_ip_prefix_id = kwargs['nodePublicIpPrefixId']
-        if 'nodeTaints' in kwargs:
+        if node_taints is None and 'nodeTaints' in kwargs:
             node_taints = kwargs['nodeTaints']
-        if 'orchestratorVersion' in kwargs:
+        if orchestrator_version is None and 'orchestratorVersion' in kwargs:
             orchestrator_version = kwargs['orchestratorVersion']
-        if 'osDiskSizeGb' in kwargs:
+        if os_disk_size_gb is None and 'osDiskSizeGb' in kwargs:
             os_disk_size_gb = kwargs['osDiskSizeGb']
-        if 'osDiskType' in kwargs:
+        if os_disk_type is None and 'osDiskType' in kwargs:
             os_disk_type = kwargs['osDiskType']
-        if 'osSku' in kwargs:
+        if os_sku is None and 'osSku' in kwargs:
             os_sku = kwargs['osSku']
-        if 'osType' in kwargs:
+        if os_type is None and 'osType' in kwargs:
             os_type = kwargs['osType']
-        if 'podSubnetId' in kwargs:
+        if pod_subnet_id is None and 'podSubnetId' in kwargs:
             pod_subnet_id = kwargs['podSubnetId']
-        if 'proximityPlacementGroupId' in kwargs:
+        if proximity_placement_group_id is None and 'proximityPlacementGroupId' in kwargs:
             proximity_placement_group_id = kwargs['proximityPlacementGroupId']
-        if 'scaleDownMode' in kwargs:
+        if scale_down_mode is None and 'scaleDownMode' in kwargs:
             scale_down_mode = kwargs['scaleDownMode']
-        if 'snapshotId' in kwargs:
+        if snapshot_id is None and 'snapshotId' in kwargs:
             snapshot_id = kwargs['snapshotId']
-        if 'spotMaxPrice' in kwargs:
+        if spot_max_price is None and 'spotMaxPrice' in kwargs:
             spot_max_price = kwargs['spotMaxPrice']
-        if 'ultraSsdEnabled' in kwargs:
+        if ultra_ssd_enabled is None and 'ultraSsdEnabled' in kwargs:
             ultra_ssd_enabled = kwargs['ultraSsdEnabled']
-        if 'upgradeSettings' in kwargs:
+        if upgrade_settings is None and 'upgradeSettings' in kwargs:
             upgrade_settings = kwargs['upgradeSettings']
-        if 'vmSize' in kwargs:
+        if vm_size is None and 'vmSize' in kwargs:
             vm_size = kwargs['vmSize']
-        if 'vnetSubnetId' in kwargs:
+        if vnet_subnet_id is None and 'vnetSubnetId' in kwargs:
             vnet_subnet_id = kwargs['vnetSubnetId']
-        if 'windowsProfile' in kwargs:
+        if windows_profile is None and 'windowsProfile' in kwargs:
             windows_profile = kwargs['windowsProfile']
-        if 'workloadRuntime' in kwargs:
+        if workload_runtime is None and 'workloadRuntime' in kwargs:
             workload_runtime = kwargs['workloadRuntime']
 
         if capacity_reservation_group_id is not None:
@@ -1862,37 +1866,6 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
 
         > **NOTE:** Multiple Node Pools are only supported when the Kubernetes Cluster is using Virtual Machine Scale Sets.
 
-        ## Example Usage
-
-        This example provisions a basic Kubernetes Node Pool.
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_kubernetes_cluster = azure.containerservice.KubernetesCluster("exampleKubernetesCluster",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            dns_prefix="exampleaks1",
-            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
-                name="default",
-                node_count=1,
-                vm_size="Standard_D2_v2",
-            ),
-            service_principal=azure.containerservice.KubernetesClusterServicePrincipalArgs(
-                client_id="00000000-0000-0000-0000-000000000000",
-                client_secret="00000000000000000000000000000000",
-            ))
-        example_kubernetes_cluster_node_pool = azure.containerservice.KubernetesClusterNodePool("exampleKubernetesClusterNodePool",
-            kubernetes_cluster_id=example_kubernetes_cluster.id,
-            vm_size="Standard_DS2_v2",
-            node_count=1,
-            tags={
-                "Environment": "Production",
-            })
-        ```
-
         ## Import
 
         Kubernetes Cluster Node Pools can be imported using the `resource id`, e.g.
@@ -1983,37 +1956,6 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
 
         > **NOTE:** Multiple Node Pools are only supported when the Kubernetes Cluster is using Virtual Machine Scale Sets.
 
-        ## Example Usage
-
-        This example provisions a basic Kubernetes Node Pool.
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_kubernetes_cluster = azure.containerservice.KubernetesCluster("exampleKubernetesCluster",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            dns_prefix="exampleaks1",
-            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
-                name="default",
-                node_count=1,
-                vm_size="Standard_D2_v2",
-            ),
-            service_principal=azure.containerservice.KubernetesClusterServicePrincipalArgs(
-                client_id="00000000-0000-0000-0000-000000000000",
-                client_secret="00000000000000000000000000000000",
-            ))
-        example_kubernetes_cluster_node_pool = azure.containerservice.KubernetesClusterNodePool("exampleKubernetesClusterNodePool",
-            kubernetes_cluster_id=example_kubernetes_cluster.id,
-            vm_size="Standard_DS2_v2",
-            node_count=1,
-            tags={
-                "Environment": "Production",
-            })
-        ```
-
         ## Import
 
         Kubernetes Cluster Node Pools can be imported using the `resource id`, e.g.
@@ -2100,21 +2042,13 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             __props__.__dict__["eviction_policy"] = eviction_policy
             __props__.__dict__["fips_enabled"] = fips_enabled
             __props__.__dict__["host_group_id"] = host_group_id
-            if kubelet_config is not None and not isinstance(kubelet_config, KubernetesClusterNodePoolKubeletConfigArgs):
-                kubelet_config = kubelet_config or {}
-                def _setter(key, value):
-                    kubelet_config[key] = value
-                KubernetesClusterNodePoolKubeletConfigArgs._configure(_setter, **kubelet_config)
+            kubelet_config = _utilities.configure(kubelet_config, KubernetesClusterNodePoolKubeletConfigArgs, True)
             __props__.__dict__["kubelet_config"] = kubelet_config
             __props__.__dict__["kubelet_disk_type"] = kubelet_disk_type
             if kubernetes_cluster_id is None and not opts.urn:
                 raise TypeError("Missing required property 'kubernetes_cluster_id'")
             __props__.__dict__["kubernetes_cluster_id"] = kubernetes_cluster_id
-            if linux_os_config is not None and not isinstance(linux_os_config, KubernetesClusterNodePoolLinuxOsConfigArgs):
-                linux_os_config = linux_os_config or {}
-                def _setter(key, value):
-                    linux_os_config[key] = value
-                KubernetesClusterNodePoolLinuxOsConfigArgs._configure(_setter, **linux_os_config)
+            linux_os_config = _utilities.configure(linux_os_config, KubernetesClusterNodePoolLinuxOsConfigArgs, True)
             __props__.__dict__["linux_os_config"] = linux_os_config
             __props__.__dict__["max_count"] = max_count
             __props__.__dict__["max_pods"] = max_pods
@@ -2124,11 +2058,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["node_count"] = node_count
             __props__.__dict__["node_labels"] = node_labels
-            if node_network_profile is not None and not isinstance(node_network_profile, KubernetesClusterNodePoolNodeNetworkProfileArgs):
-                node_network_profile = node_network_profile or {}
-                def _setter(key, value):
-                    node_network_profile[key] = value
-                KubernetesClusterNodePoolNodeNetworkProfileArgs._configure(_setter, **node_network_profile)
+            node_network_profile = _utilities.configure(node_network_profile, KubernetesClusterNodePoolNodeNetworkProfileArgs, True)
             __props__.__dict__["node_network_profile"] = node_network_profile
             __props__.__dict__["node_public_ip_prefix_id"] = node_public_ip_prefix_id
             __props__.__dict__["node_taints"] = node_taints
@@ -2145,21 +2075,13 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             __props__.__dict__["spot_max_price"] = spot_max_price
             __props__.__dict__["tags"] = tags
             __props__.__dict__["ultra_ssd_enabled"] = ultra_ssd_enabled
-            if upgrade_settings is not None and not isinstance(upgrade_settings, KubernetesClusterNodePoolUpgradeSettingsArgs):
-                upgrade_settings = upgrade_settings or {}
-                def _setter(key, value):
-                    upgrade_settings[key] = value
-                KubernetesClusterNodePoolUpgradeSettingsArgs._configure(_setter, **upgrade_settings)
+            upgrade_settings = _utilities.configure(upgrade_settings, KubernetesClusterNodePoolUpgradeSettingsArgs, True)
             __props__.__dict__["upgrade_settings"] = upgrade_settings
             if vm_size is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_size'")
             __props__.__dict__["vm_size"] = vm_size
             __props__.__dict__["vnet_subnet_id"] = vnet_subnet_id
-            if windows_profile is not None and not isinstance(windows_profile, KubernetesClusterNodePoolWindowsProfileArgs):
-                windows_profile = windows_profile or {}
-                def _setter(key, value):
-                    windows_profile[key] = value
-                KubernetesClusterNodePoolWindowsProfileArgs._configure(_setter, **windows_profile)
+            windows_profile = _utilities.configure(windows_profile, KubernetesClusterNodePoolWindowsProfileArgs, True)
             __props__.__dict__["windows_profile"] = windows_profile
             __props__.__dict__["workload_runtime"] = workload_runtime
             __props__.__dict__["zones"] = zones

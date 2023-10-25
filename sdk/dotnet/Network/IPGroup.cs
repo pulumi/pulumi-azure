@@ -12,40 +12,6 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages an IP group that contains a list of CIDRs and/or IP addresses.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleIPGroup = new Azure.Network.IPGroup("exampleIPGroup", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Cidrs = new[]
-    ///         {
-    ///             "192.168.0.1",
-    ///             "172.16.240.0/20",
-    ///             "10.48.0.0/12",
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "environment", "Production" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// IP Groups can be imported using the `resource id`, e.g.

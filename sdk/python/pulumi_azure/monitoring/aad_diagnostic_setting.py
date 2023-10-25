@@ -61,17 +61,17 @@ class AadDiagnosticSettingArgs:
              logs: Optional[pulumi.Input[Sequence[pulumi.Input['AadDiagnosticSettingLogArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              storage_account_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'enabledLogs' in kwargs:
+        if enabled_logs is None and 'enabledLogs' in kwargs:
             enabled_logs = kwargs['enabledLogs']
-        if 'eventhubAuthorizationRuleId' in kwargs:
+        if eventhub_authorization_rule_id is None and 'eventhubAuthorizationRuleId' in kwargs:
             eventhub_authorization_rule_id = kwargs['eventhubAuthorizationRuleId']
-        if 'eventhubName' in kwargs:
+        if eventhub_name is None and 'eventhubName' in kwargs:
             eventhub_name = kwargs['eventhubName']
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
 
         if enabled_logs is not None:
@@ -236,17 +236,17 @@ class _AadDiagnosticSettingState:
              logs: Optional[pulumi.Input[Sequence[pulumi.Input['AadDiagnosticSettingLogArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              storage_account_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'enabledLogs' in kwargs:
+        if enabled_logs is None and 'enabledLogs' in kwargs:
             enabled_logs = kwargs['enabledLogs']
-        if 'eventhubAuthorizationRuleId' in kwargs:
+        if eventhub_authorization_rule_id is None and 'eventhubAuthorizationRuleId' in kwargs:
             eventhub_authorization_rule_id = kwargs['eventhubAuthorizationRuleId']
-        if 'eventhubName' in kwargs:
+        if eventhub_name is None and 'eventhubName' in kwargs:
             eventhub_name = kwargs['eventhubName']
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
 
         if enabled_logs is not None:
@@ -381,53 +381,6 @@ class AadDiagnosticSetting(pulumi.CustomResource):
 
         !> **Authentication** The API for this resource does not support service principal authentication. This resource can only be used with Azure CLI authentication.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="west europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_kind="StorageV2",
-            account_replication_type="LRS")
-        example_aad_diagnostic_setting = azure.monitoring.AadDiagnosticSetting("exampleAadDiagnosticSetting",
-            storage_account_id=example_account.id,
-            enabled_logs=[
-                azure.monitoring.AadDiagnosticSettingEnabledLogArgs(
-                    category="SignInLogs",
-                    retention_policy=azure.monitoring.AadDiagnosticSettingEnabledLogRetentionPolicyArgs(
-                        enabled=True,
-                        days=1,
-                    ),
-                ),
-                azure.monitoring.AadDiagnosticSettingEnabledLogArgs(
-                    category="AuditLogs",
-                    retention_policy=azure.monitoring.AadDiagnosticSettingEnabledLogRetentionPolicyArgs(
-                        enabled=True,
-                        days=1,
-                    ),
-                ),
-                azure.monitoring.AadDiagnosticSettingEnabledLogArgs(
-                    category="NonInteractiveUserSignInLogs",
-                    retention_policy=azure.monitoring.AadDiagnosticSettingEnabledLogRetentionPolicyArgs(
-                        enabled=True,
-                        days=1,
-                    ),
-                ),
-                azure.monitoring.AadDiagnosticSettingEnabledLogArgs(
-                    category="ServicePrincipalSignInLogs",
-                    retention_policy=azure.monitoring.AadDiagnosticSettingEnabledLogRetentionPolicyArgs(
-                        enabled=True,
-                        days=1,
-                    ),
-                ),
-            ])
-        ```
-
         ## Import
 
         Monitor Azure Active Directory Diagnostic Settings can be imported using the `resource id`, e.g.
@@ -464,53 +417,6 @@ class AadDiagnosticSetting(pulumi.CustomResource):
         Manages an Azure Active Directory Diagnostic Setting for Azure Monitor.
 
         !> **Authentication** The API for this resource does not support service principal authentication. This resource can only be used with Azure CLI authentication.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="west europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_kind="StorageV2",
-            account_replication_type="LRS")
-        example_aad_diagnostic_setting = azure.monitoring.AadDiagnosticSetting("exampleAadDiagnosticSetting",
-            storage_account_id=example_account.id,
-            enabled_logs=[
-                azure.monitoring.AadDiagnosticSettingEnabledLogArgs(
-                    category="SignInLogs",
-                    retention_policy=azure.monitoring.AadDiagnosticSettingEnabledLogRetentionPolicyArgs(
-                        enabled=True,
-                        days=1,
-                    ),
-                ),
-                azure.monitoring.AadDiagnosticSettingEnabledLogArgs(
-                    category="AuditLogs",
-                    retention_policy=azure.monitoring.AadDiagnosticSettingEnabledLogRetentionPolicyArgs(
-                        enabled=True,
-                        days=1,
-                    ),
-                ),
-                azure.monitoring.AadDiagnosticSettingEnabledLogArgs(
-                    category="NonInteractiveUserSignInLogs",
-                    retention_policy=azure.monitoring.AadDiagnosticSettingEnabledLogRetentionPolicyArgs(
-                        enabled=True,
-                        days=1,
-                    ),
-                ),
-                azure.monitoring.AadDiagnosticSettingEnabledLogArgs(
-                    category="ServicePrincipalSignInLogs",
-                    retention_policy=azure.monitoring.AadDiagnosticSettingEnabledLogRetentionPolicyArgs(
-                        enabled=True,
-                        days=1,
-                    ),
-                ),
-            ])
-        ```
 
         ## Import
 

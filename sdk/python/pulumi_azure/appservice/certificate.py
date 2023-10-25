@@ -49,7 +49,7 @@ class CertificateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              app_service_plan_id: Optional[pulumi.Input[str]] = None,
              key_vault_secret_id: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
@@ -57,15 +57,17 @@ class CertificateArgs:
              password: Optional[pulumi.Input[str]] = None,
              pfx_blob: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'appServicePlanId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if app_service_plan_id is None and 'appServicePlanId' in kwargs:
             app_service_plan_id = kwargs['appServicePlanId']
-        if 'keyVaultSecretId' in kwargs:
+        if key_vault_secret_id is None and 'keyVaultSecretId' in kwargs:
             key_vault_secret_id = kwargs['keyVaultSecretId']
-        if 'pfxBlob' in kwargs:
+        if pfx_blob is None and 'pfxBlob' in kwargs:
             pfx_blob = kwargs['pfxBlob']
 
         _setter("resource_group_name", resource_group_name)
@@ -261,27 +263,27 @@ class _CertificateState:
              subject_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              thumbprint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'appServicePlanId' in kwargs:
+        if app_service_plan_id is None and 'appServicePlanId' in kwargs:
             app_service_plan_id = kwargs['appServicePlanId']
-        if 'expirationDate' in kwargs:
+        if expiration_date is None and 'expirationDate' in kwargs:
             expiration_date = kwargs['expirationDate']
-        if 'friendlyName' in kwargs:
+        if friendly_name is None and 'friendlyName' in kwargs:
             friendly_name = kwargs['friendlyName']
-        if 'hostNames' in kwargs:
+        if host_names is None and 'hostNames' in kwargs:
             host_names = kwargs['hostNames']
-        if 'hostingEnvironmentProfileId' in kwargs:
+        if hosting_environment_profile_id is None and 'hostingEnvironmentProfileId' in kwargs:
             hosting_environment_profile_id = kwargs['hostingEnvironmentProfileId']
-        if 'issueDate' in kwargs:
+        if issue_date is None and 'issueDate' in kwargs:
             issue_date = kwargs['issueDate']
-        if 'keyVaultSecretId' in kwargs:
+        if key_vault_secret_id is None and 'keyVaultSecretId' in kwargs:
             key_vault_secret_id = kwargs['keyVaultSecretId']
-        if 'pfxBlob' in kwargs:
+        if pfx_blob is None and 'pfxBlob' in kwargs:
             pfx_blob = kwargs['pfxBlob']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'subjectName' in kwargs:
+        if subject_name is None and 'subjectName' in kwargs:
             subject_name = kwargs['subjectName']
 
         if app_service_plan_id is not None:
@@ -529,23 +531,6 @@ class Certificate(pulumi.CustomResource):
         """
         Manages an App Service certificate.
 
-        ## Example Usage
-
-        This example provisions an App Service Certificate from a Local File.
-
-        ```python
-        import pulumi
-        import base64
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_certificate = azure.appservice.Certificate("exampleCertificate",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            pfx_blob=(lambda path: base64.b64encode(open(path).read().encode()).decode())("certificate.pfx"),
-            password="password123!")
-        ```
-
         ## Import
 
         App Service Certificates can be imported using the `resource id`, e.g.
@@ -575,23 +560,6 @@ class Certificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an App Service certificate.
-
-        ## Example Usage
-
-        This example provisions an App Service Certificate from a Local File.
-
-        ```python
-        import pulumi
-        import base64
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_certificate = azure.appservice.Certificate("exampleCertificate",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            pfx_blob=(lambda path: base64.b64encode(open(path).read().encode()).decode())("certificate.pfx"),
-            password="password123!")
-        ```
 
         ## Import
 

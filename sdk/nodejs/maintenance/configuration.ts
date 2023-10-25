@@ -9,23 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a maintenance configuration.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleConfiguration = new azure.maintenance.Configuration("exampleConfiguration", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     scope: "SQLDB",
- *     tags: {
- *         Env: "prod",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Maintenance Configuration can be imported using the `resource id`, e.g.

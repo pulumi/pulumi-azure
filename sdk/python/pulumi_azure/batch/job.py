@@ -41,21 +41,23 @@ class JobArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             batch_pool_id: pulumi.Input[str],
+             batch_pool_id: Optional[pulumi.Input[str]] = None,
              common_environment_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              display_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              priority: Optional[pulumi.Input[int]] = None,
              task_retry_maximum: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'batchPoolId' in kwargs:
+        if batch_pool_id is None and 'batchPoolId' in kwargs:
             batch_pool_id = kwargs['batchPoolId']
-        if 'commonEnvironmentProperties' in kwargs:
+        if batch_pool_id is None:
+            raise TypeError("Missing 'batch_pool_id' argument")
+        if common_environment_properties is None and 'commonEnvironmentProperties' in kwargs:
             common_environment_properties = kwargs['commonEnvironmentProperties']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'taskRetryMaximum' in kwargs:
+        if task_retry_maximum is None and 'taskRetryMaximum' in kwargs:
             task_retry_maximum = kwargs['taskRetryMaximum']
 
         _setter("batch_pool_id", batch_pool_id)
@@ -179,15 +181,15 @@ class _JobState:
              name: Optional[pulumi.Input[str]] = None,
              priority: Optional[pulumi.Input[int]] = None,
              task_retry_maximum: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'batchPoolId' in kwargs:
+        if batch_pool_id is None and 'batchPoolId' in kwargs:
             batch_pool_id = kwargs['batchPoolId']
-        if 'commonEnvironmentProperties' in kwargs:
+        if common_environment_properties is None and 'commonEnvironmentProperties' in kwargs:
             common_environment_properties = kwargs['commonEnvironmentProperties']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'taskRetryMaximum' in kwargs:
+        if task_retry_maximum is None and 'taskRetryMaximum' in kwargs:
             task_retry_maximum = kwargs['taskRetryMaximum']
 
         if batch_pool_id is not None:
@@ -291,33 +293,6 @@ class Job(pulumi.CustomResource):
         """
         Manages a Batch Job.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="west europe")
-        example_account = azure.batch.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_pool = azure.batch.Pool("examplePool",
-            resource_group_name=example_resource_group.name,
-            account_name=example_account.name,
-            node_agent_sku_id="batch.node.ubuntu 16.04",
-            vm_size="Standard_A1",
-            fixed_scale=azure.batch.PoolFixedScaleArgs(
-                target_dedicated_nodes=1,
-            ),
-            storage_image_reference=azure.batch.PoolStorageImageReferenceArgs(
-                publisher="Canonical",
-                offer="UbuntuServer",
-                sku="16.04.0-LTS",
-                version="latest",
-            ))
-        example_job = azure.batch.Job("exampleJob", batch_pool_id=example_pool.id)
-        ```
-
         ## Import
 
         Batch Jobs can be imported using the `resource id`, e.g.
@@ -343,33 +318,6 @@ class Job(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Batch Job.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="west europe")
-        example_account = azure.batch.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_pool = azure.batch.Pool("examplePool",
-            resource_group_name=example_resource_group.name,
-            account_name=example_account.name,
-            node_agent_sku_id="batch.node.ubuntu 16.04",
-            vm_size="Standard_A1",
-            fixed_scale=azure.batch.PoolFixedScaleArgs(
-                target_dedicated_nodes=1,
-            ),
-            storage_image_reference=azure.batch.PoolStorageImageReferenceArgs(
-                publisher="Canonical",
-                offer="UbuntuServer",
-                sku="16.04.0-LTS",
-                version="latest",
-            ))
-        example_job = azure.batch.Job("exampleJob", batch_pool_id=example_pool.id)
-        ```
 
         ## Import
 

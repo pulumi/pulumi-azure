@@ -52,26 +52,32 @@ class PolicySetDefinitionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             display_name: pulumi.Input[str],
-             policy_definition_references: pulumi.Input[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionReferenceArgs']]],
-             policy_type: pulumi.Input[str],
+             display_name: Optional[pulumi.Input[str]] = None,
+             policy_definition_references: Optional[pulumi.Input[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionReferenceArgs']]]] = None,
+             policy_type: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              management_group_id: Optional[pulumi.Input[str]] = None,
              metadata: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[str]] = None,
              policy_definition_groups: Optional[pulumi.Input[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionGroupArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'policyDefinitionReferences' in kwargs:
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if policy_definition_references is None and 'policyDefinitionReferences' in kwargs:
             policy_definition_references = kwargs['policyDefinitionReferences']
-        if 'policyType' in kwargs:
+        if policy_definition_references is None:
+            raise TypeError("Missing 'policy_definition_references' argument")
+        if policy_type is None and 'policyType' in kwargs:
             policy_type = kwargs['policyType']
-        if 'managementGroupId' in kwargs:
+        if policy_type is None:
+            raise TypeError("Missing 'policy_type' argument")
+        if management_group_id is None and 'managementGroupId' in kwargs:
             management_group_id = kwargs['managementGroupId']
-        if 'policyDefinitionGroups' in kwargs:
+        if policy_definition_groups is None and 'policyDefinitionGroups' in kwargs:
             policy_definition_groups = kwargs['policyDefinitionGroups']
 
         _setter("display_name", display_name)
@@ -247,17 +253,17 @@ class _PolicySetDefinitionState:
              policy_definition_groups: Optional[pulumi.Input[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionGroupArgs']]]] = None,
              policy_definition_references: Optional[pulumi.Input[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionReferenceArgs']]]] = None,
              policy_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'managementGroupId' in kwargs:
+        if management_group_id is None and 'managementGroupId' in kwargs:
             management_group_id = kwargs['managementGroupId']
-        if 'policyDefinitionGroups' in kwargs:
+        if policy_definition_groups is None and 'policyDefinitionGroups' in kwargs:
             policy_definition_groups = kwargs['policyDefinitionGroups']
-        if 'policyDefinitionReferences' in kwargs:
+        if policy_definition_references is None and 'policyDefinitionReferences' in kwargs:
             policy_definition_references = kwargs['policyDefinitionReferences']
-        if 'policyType' in kwargs:
+        if policy_type is None and 'policyType' in kwargs:
             policy_type = kwargs['policyType']
 
         if description is not None:
@@ -408,37 +414,6 @@ class PolicySetDefinition(pulumi.CustomResource):
 
         > **NOTE:**  Policy set definitions (also known as policy initiatives) do not take effect until they are assigned to a scope using a Policy Set Assignment.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.policy.PolicySetDefinition("example",
-            display_name="Test Policy Set",
-            parameters=\"\"\"    {
-                "allowedLocations": {
-                    "type": "Array",
-                    "metadata": {
-                        "description": "The list of allowed locations for resources.",
-                        "displayName": "Allowed locations",
-                        "strongType": "location"
-                    }
-                }
-            }
-
-        \"\"\",
-            policy_definition_references=[azure.policy.PolicySetDefinitionPolicyDefinitionReferenceArgs(
-                parameter_values=\"\"\"    {
-              "listOfAllowedLocations": {"value": "[parameters('allowedLocations')]"}
-            }
-            
-        \"\"\",
-                policy_definition_id="/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
-            )],
-            policy_type="Custom")
-        ```
-
         ## Import
 
         Policy Set Definitions can be imported using the `resource id`, e.g.
@@ -475,37 +450,6 @@ class PolicySetDefinition(pulumi.CustomResource):
         Manages a policy set definition.
 
         > **NOTE:**  Policy set definitions (also known as policy initiatives) do not take effect until they are assigned to a scope using a Policy Set Assignment.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.policy.PolicySetDefinition("example",
-            display_name="Test Policy Set",
-            parameters=\"\"\"    {
-                "allowedLocations": {
-                    "type": "Array",
-                    "metadata": {
-                        "description": "The list of allowed locations for resources.",
-                        "displayName": "Allowed locations",
-                        "strongType": "location"
-                    }
-                }
-            }
-
-        \"\"\",
-            policy_definition_references=[azure.policy.PolicySetDefinitionPolicyDefinitionReferenceArgs(
-                parameter_values=\"\"\"    {
-              "listOfAllowedLocations": {"value": "[parameters('allowedLocations')]"}
-            }
-            
-        \"\"\",
-                policy_definition_id="/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
-            )],
-            policy_type="Custom")
-        ```
 
         ## Import
 

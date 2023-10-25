@@ -60,24 +60,30 @@ class LinkedServiceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             synapse_workspace_id: pulumi.Input[str],
-             type: pulumi.Input[str],
-             type_properties_json: pulumi.Input[str],
+             synapse_workspace_id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             type_properties_json: Optional[pulumi.Input[str]] = None,
              additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              integration_runtime: Optional[pulumi.Input['LinkedServiceIntegrationRuntimeArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'synapseWorkspaceId' in kwargs:
+        if synapse_workspace_id is None and 'synapseWorkspaceId' in kwargs:
             synapse_workspace_id = kwargs['synapseWorkspaceId']
-        if 'typePropertiesJson' in kwargs:
+        if synapse_workspace_id is None:
+            raise TypeError("Missing 'synapse_workspace_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if type_properties_json is None and 'typePropertiesJson' in kwargs:
             type_properties_json = kwargs['typePropertiesJson']
-        if 'additionalProperties' in kwargs:
+        if type_properties_json is None:
+            raise TypeError("Missing 'type_properties_json' argument")
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'integrationRuntime' in kwargs:
+        if integration_runtime is None and 'integrationRuntime' in kwargs:
             integration_runtime = kwargs['integrationRuntime']
 
         _setter("synapse_workspace_id", synapse_workspace_id)
@@ -269,15 +275,15 @@ class _LinkedServiceState:
              synapse_workspace_id: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
              type_properties_json: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'additionalProperties' in kwargs:
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'integrationRuntime' in kwargs:
+        if integration_runtime is None and 'integrationRuntime' in kwargs:
             integration_runtime = kwargs['integrationRuntime']
-        if 'synapseWorkspaceId' in kwargs:
+        if synapse_workspace_id is None and 'synapseWorkspaceId' in kwargs:
             synapse_workspace_id = kwargs['synapseWorkspaceId']
-        if 'typePropertiesJson' in kwargs:
+        if type_properties_json is None and 'typePropertiesJson' in kwargs:
             type_properties_json = kwargs['typePropertiesJson']
 
         if additional_properties is not None:
@@ -434,50 +440,6 @@ class LinkedService(pulumi.CustomResource):
         """
         Manages a Synapse Linked Service.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_kind="BlobStorage",
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
-        example_workspace = azure.synapse.Workspace("exampleWorkspace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
-            sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!",
-            managed_virtual_network_enabled=True,
-            identity=azure.synapse.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_firewall_rule = azure.synapse.FirewallRule("exampleFirewallRule",
-            synapse_workspace_id=example_workspace.id,
-            start_ip_address="0.0.0.0",
-            end_ip_address="255.255.255.255")
-        example_integration_runtime_azure = azure.synapse.IntegrationRuntimeAzure("exampleIntegrationRuntimeAzure",
-            synapse_workspace_id=example_workspace.id,
-            location=example_resource_group.location)
-        example_linked_service = azure.synapse.LinkedService("exampleLinkedService",
-            synapse_workspace_id=example_workspace.id,
-            type="AzureBlobStorage",
-            type_properties_json=example_account.primary_connection_string.apply(lambda primary_connection_string: f\"\"\"{{
-          "connectionString": "{primary_connection_string}"
-        }}
-        \"\"\"),
-            integration_runtime=azure.synapse.LinkedServiceIntegrationRuntimeArgs(
-                name=example_integration_runtime_azure.name,
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[example_firewall_rule]))
-        ```
-
         ## Import
 
         Synapse Linked Services can be imported using the `resource id`, e.g.
@@ -514,50 +476,6 @@ class LinkedService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Synapse Linked Service.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_kind="BlobStorage",
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
-        example_workspace = azure.synapse.Workspace("exampleWorkspace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
-            sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!",
-            managed_virtual_network_enabled=True,
-            identity=azure.synapse.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_firewall_rule = azure.synapse.FirewallRule("exampleFirewallRule",
-            synapse_workspace_id=example_workspace.id,
-            start_ip_address="0.0.0.0",
-            end_ip_address="255.255.255.255")
-        example_integration_runtime_azure = azure.synapse.IntegrationRuntimeAzure("exampleIntegrationRuntimeAzure",
-            synapse_workspace_id=example_workspace.id,
-            location=example_resource_group.location)
-        example_linked_service = azure.synapse.LinkedService("exampleLinkedService",
-            synapse_workspace_id=example_workspace.id,
-            type="AzureBlobStorage",
-            type_properties_json=example_account.primary_connection_string.apply(lambda primary_connection_string: f\"\"\"{{
-          "connectionString": "{primary_connection_string}"
-        }}
-        \"\"\"),
-            integration_runtime=azure.synapse.LinkedServiceIntegrationRuntimeArgs(
-                name=example_integration_runtime_azure.name,
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[example_firewall_rule]))
-        ```
 
         ## Import
 
@@ -607,11 +525,7 @@ class LinkedService(pulumi.CustomResource):
             __props__.__dict__["additional_properties"] = additional_properties
             __props__.__dict__["annotations"] = annotations
             __props__.__dict__["description"] = description
-            if integration_runtime is not None and not isinstance(integration_runtime, LinkedServiceIntegrationRuntimeArgs):
-                integration_runtime = integration_runtime or {}
-                def _setter(key, value):
-                    integration_runtime[key] = value
-                LinkedServiceIntegrationRuntimeArgs._configure(_setter, **integration_runtime)
+            integration_runtime = _utilities.configure(integration_runtime, LinkedServiceIntegrationRuntimeArgs, True)
             __props__.__dict__["integration_runtime"] = integration_runtime
             __props__.__dict__["name"] = name
             __props__.__dict__["parameters"] = parameters

@@ -43,17 +43,21 @@ class ShareArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             account_id: pulumi.Input[str],
-             kind: pulumi.Input[str],
+             account_id: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              snapshot_schedule: Optional[pulumi.Input['ShareSnapshotScheduleArgs']] = None,
              terms: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accountId' in kwargs:
+        if account_id is None and 'accountId' in kwargs:
             account_id = kwargs['accountId']
-        if 'snapshotSchedule' in kwargs:
+        if account_id is None:
+            raise TypeError("Missing 'account_id' argument")
+        if kind is None:
+            raise TypeError("Missing 'kind' argument")
+        if snapshot_schedule is None and 'snapshotSchedule' in kwargs:
             snapshot_schedule = kwargs['snapshotSchedule']
 
         _setter("account_id", account_id)
@@ -176,11 +180,11 @@ class _ShareState:
              name: Optional[pulumi.Input[str]] = None,
              snapshot_schedule: Optional[pulumi.Input['ShareSnapshotScheduleArgs']] = None,
              terms: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accountId' in kwargs:
+        if account_id is None and 'accountId' in kwargs:
             account_id = kwargs['accountId']
-        if 'snapshotSchedule' in kwargs:
+        if snapshot_schedule is None and 'snapshotSchedule' in kwargs:
             snapshot_schedule = kwargs['snapshotSchedule']
 
         if account_id is not None:
@@ -284,34 +288,6 @@ class Share(pulumi.CustomResource):
         """
         Manages a Data Share.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.datashare.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            identity=azure.datashare.AccountIdentityArgs(
-                type="SystemAssigned",
-            ),
-            tags={
-                "foo": "bar",
-            })
-        example_share = azure.datashare.Share("exampleShare",
-            account_id=example_account.id,
-            kind="CopyBased",
-            description="example desc",
-            terms="example terms",
-            snapshot_schedule=azure.datashare.ShareSnapshotScheduleArgs(
-                name="example-ss",
-                recurrence="Day",
-                start_time="2020-04-17T04:47:52.9614956Z",
-            ))
-        ```
-
         ## Import
 
         Data Shares can be imported using the `resource id`, e.g.
@@ -337,34 +313,6 @@ class Share(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Data Share.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.datashare.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            identity=azure.datashare.AccountIdentityArgs(
-                type="SystemAssigned",
-            ),
-            tags={
-                "foo": "bar",
-            })
-        example_share = azure.datashare.Share("exampleShare",
-            account_id=example_account.id,
-            kind="CopyBased",
-            description="example desc",
-            terms="example terms",
-            snapshot_schedule=azure.datashare.ShareSnapshotScheduleArgs(
-                name="example-ss",
-                recurrence="Day",
-                start_time="2020-04-17T04:47:52.9614956Z",
-            ))
-        ```
 
         ## Import
 
@@ -416,11 +364,7 @@ class Share(pulumi.CustomResource):
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = kind
             __props__.__dict__["name"] = name
-            if snapshot_schedule is not None and not isinstance(snapshot_schedule, ShareSnapshotScheduleArgs):
-                snapshot_schedule = snapshot_schedule or {}
-                def _setter(key, value):
-                    snapshot_schedule[key] = value
-                ShareSnapshotScheduleArgs._configure(_setter, **snapshot_schedule)
+            snapshot_schedule = _utilities.configure(snapshot_schedule, ShareSnapshotScheduleArgs, True)
             __props__.__dict__["snapshot_schedule"] = snapshot_schedule
             __props__.__dict__["terms"] = terms
         super(Share, __self__).__init__(

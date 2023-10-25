@@ -81,16 +81,6 @@ def get_domain_topic(domain_name: Optional[str] = None,
     """
     Use this data source to access information about an existing EventGrid Domain Topic
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.eventgrid.get_domain_topic(name="my-eventgrid-domain-topic",
-        resource_group_name="example-resources")
-    ```
-
 
     :param str domain_name: The name of the EventGrid Domain Topic domain.
     :param str name: The name of the EventGrid Domain Topic resource.
@@ -117,16 +107,6 @@ def get_domain_topic_output(domain_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainTopicResult]:
     """
     Use this data source to access information about an existing EventGrid Domain Topic
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.eventgrid.get_domain_topic(name="my-eventgrid-domain-topic",
-        resource_group_name="example-resources")
-    ```
 
 
     :param str domain_name: The name of the EventGrid Domain Topic domain.

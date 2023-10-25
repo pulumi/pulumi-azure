@@ -39,9 +39,9 @@ class ResourceGroupArgs:
              managed_by: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'managedBy' in kwargs:
+        if managed_by is None and 'managedBy' in kwargs:
             managed_by = kwargs['managedBy']
 
         if location is not None:
@@ -130,9 +130,9 @@ class _ResourceGroupState:
              managed_by: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'managedBy' in kwargs:
+        if managed_by is None and 'managedBy' in kwargs:
             managed_by = kwargs['managedBy']
 
         if location is not None:
@@ -204,15 +204,6 @@ class ResourceGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        ```
-
         ## Import
 
         Resource Groups can be imported using the `resource id`, e.g.
@@ -235,15 +226,6 @@ class ResourceGroup(pulumi.CustomResource):
                  args: Optional[ResourceGroupArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        ```
-
         ## Import
 
         Resource Groups can be imported using the `resource id`, e.g.

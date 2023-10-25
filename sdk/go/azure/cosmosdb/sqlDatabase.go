@@ -15,41 +15,6 @@ import (
 
 // Manages a SQL Database within a Cosmos DB Account.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleAccount, err := cosmosdb.LookupAccount(ctx, &cosmosdb.LookupAccountArgs{
-//				Name:              "tfex-cosmosdb-account",
-//				ResourceGroupName: "tfex-cosmosdb-account-rg",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cosmosdb.NewSqlDatabase(ctx, "exampleSqlDatabase", &cosmosdb.SqlDatabaseArgs{
-//				ResourceGroupName: *pulumi.String(exampleAccount.ResourceGroupName),
-//				AccountName:       *pulumi.String(exampleAccount.Name),
-//				Throughput:        pulumi.Int(400),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Cosmos SQL Database can be imported using the `resource id`, e.g.

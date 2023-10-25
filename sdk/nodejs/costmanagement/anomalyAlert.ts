@@ -7,19 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Cost Anomaly Alert.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = new azure.costmanagement.AnomalyAlert("example", {
- *     displayName: "Alert DisplayName",
- *     emailAddresses: ["example@test.net"],
- *     emailSubject: "My Test Anomaly Alert",
- * });
- * ```
- *
  * ## Import
  *
  * Cost Anomaly Alerts can be imported using the `resource id`, e.g.

@@ -41,25 +41,33 @@ class ApiOperationPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_management_name: pulumi.Input[str],
-             api_name: pulumi.Input[str],
-             operation_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             api_name: Optional[pulumi.Input[str]] = None,
+             operation_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              xml_content: Optional[pulumi.Input[str]] = None,
              xml_link: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'apiName' in kwargs:
+        if api_management_name is None:
+            raise TypeError("Missing 'api_management_name' argument")
+        if api_name is None and 'apiName' in kwargs:
             api_name = kwargs['apiName']
-        if 'operationId' in kwargs:
+        if api_name is None:
+            raise TypeError("Missing 'api_name' argument")
+        if operation_id is None and 'operationId' in kwargs:
             operation_id = kwargs['operationId']
-        if 'resourceGroupName' in kwargs:
+        if operation_id is None:
+            raise TypeError("Missing 'operation_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'xmlContent' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if xml_content is None and 'xmlContent' in kwargs:
             xml_content = kwargs['xmlContent']
-        if 'xmlLink' in kwargs:
+        if xml_link is None and 'xmlLink' in kwargs:
             xml_link = kwargs['xmlLink']
 
         _setter("api_management_name", api_management_name)
@@ -180,19 +188,19 @@ class _ApiOperationPolicyState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              xml_content: Optional[pulumi.Input[str]] = None,
              xml_link: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'apiName' in kwargs:
+        if api_name is None and 'apiName' in kwargs:
             api_name = kwargs['apiName']
-        if 'operationId' in kwargs:
+        if operation_id is None and 'operationId' in kwargs:
             operation_id = kwargs['operationId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'xmlContent' in kwargs:
+        if xml_content is None and 'xmlContent' in kwargs:
             xml_content = kwargs['xmlContent']
-        if 'xmlLink' in kwargs:
+        if xml_link is None and 'xmlLink' in kwargs:
             xml_link = kwargs['xmlLink']
 
         if api_management_name is not None:
@@ -296,44 +304,6 @@ class ApiOperationPolicy(pulumi.CustomResource):
         """
         Manages an API Management API Operation Policy
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            publisher_name="My Company",
-            publisher_email="company@terraform.io",
-            sku_name="Developer_1")
-        example_api = azure.apimanagement.Api("exampleApi",
-            resource_group_name=example_resource_group.name,
-            api_management_name=example_service.name,
-            revision="1")
-        example_api_operation = azure.apimanagement.ApiOperation("exampleApiOperation",
-            operation_id="acctest-operation",
-            api_name=example_api.name,
-            api_management_name=example_service.name,
-            resource_group_name=example_resource_group.name,
-            display_name="DELETE Resource",
-            method="DELETE",
-            url_template="/resource")
-        example_api_operation_policy = azure.apimanagement.ApiOperationPolicy("exampleApiOperationPolicy",
-            api_name=example_api_operation.api_name,
-            api_management_name=example_api_operation.api_management_name,
-            resource_group_name=example_api_operation.resource_group_name,
-            operation_id=example_api_operation.operation_id,
-            xml_content=\"\"\"<policies>
-          <inbound>
-            <find-and-replace from="xyz" to="abc" />
-          </inbound>
-        </policies>
-        \"\"\")
-        ```
-
         ## Import
 
         API Management API Operation Policy can be imported using the `resource id`, e.g.
@@ -359,44 +329,6 @@ class ApiOperationPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an API Management API Operation Policy
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            publisher_name="My Company",
-            publisher_email="company@terraform.io",
-            sku_name="Developer_1")
-        example_api = azure.apimanagement.Api("exampleApi",
-            resource_group_name=example_resource_group.name,
-            api_management_name=example_service.name,
-            revision="1")
-        example_api_operation = azure.apimanagement.ApiOperation("exampleApiOperation",
-            operation_id="acctest-operation",
-            api_name=example_api.name,
-            api_management_name=example_service.name,
-            resource_group_name=example_resource_group.name,
-            display_name="DELETE Resource",
-            method="DELETE",
-            url_template="/resource")
-        example_api_operation_policy = azure.apimanagement.ApiOperationPolicy("exampleApiOperationPolicy",
-            api_name=example_api_operation.api_name,
-            api_management_name=example_api_operation.api_management_name,
-            resource_group_name=example_api_operation.resource_group_name,
-            operation_id=example_api_operation.operation_id,
-            xml_content=\"\"\"<policies>
-          <inbound>
-            <find-and-replace from="xyz" to="abc" />
-          </inbound>
-        </policies>
-        \"\"\")
-        ```
 
         ## Import
 

@@ -49,27 +49,31 @@ class ExpressRouteConnectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             express_route_circuit_peering_id: pulumi.Input[str],
-             express_route_gateway_id: pulumi.Input[str],
+             express_route_circuit_peering_id: Optional[pulumi.Input[str]] = None,
+             express_route_gateway_id: Optional[pulumi.Input[str]] = None,
              authorization_key: Optional[pulumi.Input[str]] = None,
              enable_internet_security: Optional[pulumi.Input[bool]] = None,
              express_route_gateway_bypass_enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              routing: Optional[pulumi.Input['ExpressRouteConnectionRoutingArgs']] = None,
              routing_weight: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'expressRouteCircuitPeeringId' in kwargs:
+        if express_route_circuit_peering_id is None and 'expressRouteCircuitPeeringId' in kwargs:
             express_route_circuit_peering_id = kwargs['expressRouteCircuitPeeringId']
-        if 'expressRouteGatewayId' in kwargs:
+        if express_route_circuit_peering_id is None:
+            raise TypeError("Missing 'express_route_circuit_peering_id' argument")
+        if express_route_gateway_id is None and 'expressRouteGatewayId' in kwargs:
             express_route_gateway_id = kwargs['expressRouteGatewayId']
-        if 'authorizationKey' in kwargs:
+        if express_route_gateway_id is None:
+            raise TypeError("Missing 'express_route_gateway_id' argument")
+        if authorization_key is None and 'authorizationKey' in kwargs:
             authorization_key = kwargs['authorizationKey']
-        if 'enableInternetSecurity' in kwargs:
+        if enable_internet_security is None and 'enableInternetSecurity' in kwargs:
             enable_internet_security = kwargs['enableInternetSecurity']
-        if 'expressRouteGatewayBypassEnabled' in kwargs:
+        if express_route_gateway_bypass_enabled is None and 'expressRouteGatewayBypassEnabled' in kwargs:
             express_route_gateway_bypass_enabled = kwargs['expressRouteGatewayBypassEnabled']
-        if 'routingWeight' in kwargs:
+        if routing_weight is None and 'routingWeight' in kwargs:
             routing_weight = kwargs['routingWeight']
 
         _setter("express_route_circuit_peering_id", express_route_circuit_peering_id)
@@ -228,19 +232,19 @@ class _ExpressRouteConnectionState:
              name: Optional[pulumi.Input[str]] = None,
              routing: Optional[pulumi.Input['ExpressRouteConnectionRoutingArgs']] = None,
              routing_weight: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'authorizationKey' in kwargs:
+        if authorization_key is None and 'authorizationKey' in kwargs:
             authorization_key = kwargs['authorizationKey']
-        if 'enableInternetSecurity' in kwargs:
+        if enable_internet_security is None and 'enableInternetSecurity' in kwargs:
             enable_internet_security = kwargs['enableInternetSecurity']
-        if 'expressRouteCircuitPeeringId' in kwargs:
+        if express_route_circuit_peering_id is None and 'expressRouteCircuitPeeringId' in kwargs:
             express_route_circuit_peering_id = kwargs['expressRouteCircuitPeeringId']
-        if 'expressRouteGatewayBypassEnabled' in kwargs:
+        if express_route_gateway_bypass_enabled is None and 'expressRouteGatewayBypassEnabled' in kwargs:
             express_route_gateway_bypass_enabled = kwargs['expressRouteGatewayBypassEnabled']
-        if 'expressRouteGatewayId' in kwargs:
+        if express_route_gateway_id is None and 'expressRouteGatewayId' in kwargs:
             express_route_gateway_id = kwargs['expressRouteGatewayId']
-        if 'routingWeight' in kwargs:
+        if routing_weight is None and 'routingWeight' in kwargs:
             routing_weight = kwargs['routingWeight']
 
         if authorization_key is not None:
@@ -376,55 +380,6 @@ class ExpressRouteConnection(pulumi.CustomResource):
 
         > **NOTE:** The provider status of the Express Route Circuit must be set as provisioned while creating the Express Route Connection. See more details [here](https://docs.microsoft.com/azure/expressroute/expressroute-howto-circuit-portal-resource-manager#send-the-service-key-to-your-connectivity-provider-for-provisioning).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_wan = azure.network.VirtualWan("exampleVirtualWan",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_virtual_hub = azure.network.VirtualHub("exampleVirtualHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            virtual_wan_id=example_virtual_wan.id,
-            address_prefix="10.0.1.0/24")
-        example_express_route_gateway = azure.network.ExpressRouteGateway("exampleExpressRouteGateway",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            virtual_hub_id=example_virtual_hub.id,
-            scale_units=1)
-        example_express_route_port = azure.network.ExpressRoutePort("exampleExpressRoutePort",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            peering_location="Equinix-Seattle-SE2",
-            bandwidth_in_gbps=10,
-            encapsulation="Dot1Q")
-        example_express_route_circuit = azure.network.ExpressRouteCircuit("exampleExpressRouteCircuit",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            express_route_port_id=example_express_route_port.id,
-            bandwidth_in_gbps=5,
-            sku=azure.network.ExpressRouteCircuitSkuArgs(
-                tier="Standard",
-                family="MeteredData",
-            ))
-        example_express_route_circuit_peering = azure.network.ExpressRouteCircuitPeering("exampleExpressRouteCircuitPeering",
-            peering_type="AzurePrivatePeering",
-            express_route_circuit_name=example_express_route_circuit.name,
-            resource_group_name=example_resource_group.name,
-            shared_key="ItsASecret",
-            peer_asn=100,
-            primary_peer_address_prefix="192.168.1.0/30",
-            secondary_peer_address_prefix="192.168.2.0/30",
-            vlan_id=100)
-        example_express_route_connection = azure.network.ExpressRouteConnection("exampleExpressRouteConnection",
-            express_route_gateway_id=example_express_route_gateway.id,
-            express_route_circuit_peering_id=example_express_route_circuit_peering.id)
-        ```
-
         ## Import
 
         Express Route Connections can be imported using the `resource id`, e.g.
@@ -454,55 +409,6 @@ class ExpressRouteConnection(pulumi.CustomResource):
         Manages an Express Route Connection.
 
         > **NOTE:** The provider status of the Express Route Circuit must be set as provisioned while creating the Express Route Connection. See more details [here](https://docs.microsoft.com/azure/expressroute/expressroute-howto-circuit-portal-resource-manager#send-the-service-key-to-your-connectivity-provider-for-provisioning).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_wan = azure.network.VirtualWan("exampleVirtualWan",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_virtual_hub = azure.network.VirtualHub("exampleVirtualHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            virtual_wan_id=example_virtual_wan.id,
-            address_prefix="10.0.1.0/24")
-        example_express_route_gateway = azure.network.ExpressRouteGateway("exampleExpressRouteGateway",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            virtual_hub_id=example_virtual_hub.id,
-            scale_units=1)
-        example_express_route_port = azure.network.ExpressRoutePort("exampleExpressRoutePort",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            peering_location="Equinix-Seattle-SE2",
-            bandwidth_in_gbps=10,
-            encapsulation="Dot1Q")
-        example_express_route_circuit = azure.network.ExpressRouteCircuit("exampleExpressRouteCircuit",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            express_route_port_id=example_express_route_port.id,
-            bandwidth_in_gbps=5,
-            sku=azure.network.ExpressRouteCircuitSkuArgs(
-                tier="Standard",
-                family="MeteredData",
-            ))
-        example_express_route_circuit_peering = azure.network.ExpressRouteCircuitPeering("exampleExpressRouteCircuitPeering",
-            peering_type="AzurePrivatePeering",
-            express_route_circuit_name=example_express_route_circuit.name,
-            resource_group_name=example_resource_group.name,
-            shared_key="ItsASecret",
-            peer_asn=100,
-            primary_peer_address_prefix="192.168.1.0/30",
-            secondary_peer_address_prefix="192.168.2.0/30",
-            vlan_id=100)
-        example_express_route_connection = azure.network.ExpressRouteConnection("exampleExpressRouteConnection",
-            express_route_gateway_id=example_express_route_gateway.id,
-            express_route_circuit_peering_id=example_express_route_circuit_peering.id)
-        ```
 
         ## Import
 
@@ -558,11 +464,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'express_route_gateway_id'")
             __props__.__dict__["express_route_gateway_id"] = express_route_gateway_id
             __props__.__dict__["name"] = name
-            if routing is not None and not isinstance(routing, ExpressRouteConnectionRoutingArgs):
-                routing = routing or {}
-                def _setter(key, value):
-                    routing[key] = value
-                ExpressRouteConnectionRoutingArgs._configure(_setter, **routing)
+            routing = _utilities.configure(routing, ExpressRouteConnectionRoutingArgs, True)
             __props__.__dict__["routing"] = routing
             __props__.__dict__["routing_weight"] = routing_weight
         super(ExpressRouteConnection, __self__).__init__(

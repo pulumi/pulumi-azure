@@ -12,55 +12,6 @@ namespace Pulumi.Azure.OperationalInsights
     /// <summary>
     /// Manages a Log Analytics (formally Operational Insights) Solution.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// using Random = Pulumi.Random;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var workspace = new Random.RandomId("workspace", new()
-    ///     {
-    ///         Keepers = 
-    ///         {
-    ///             { "group_name", exampleResourceGroup.Name },
-    ///         },
-    ///         ByteLength = 8,
-    ///     });
-    /// 
-    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Sku = "PerGB2018",
-    ///     });
-    /// 
-    ///     var exampleAnalyticsSolution = new Azure.OperationalInsights.AnalyticsSolution("exampleAnalyticsSolution", new()
-    ///     {
-    ///         SolutionName = "ContainerInsights",
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
-    ///         WorkspaceName = exampleAnalyticsWorkspace.Name,
-    ///         Plan = new Azure.OperationalInsights.Inputs.AnalyticsSolutionPlanArgs
-    ///         {
-    ///             Publisher = "Microsoft",
-    ///             Product = "OMSGallery/ContainerInsights",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Log Analytics Solutions can be imported using the `resource id`, e.g.

@@ -86,10 +86,10 @@ class MetadataArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             content_id: pulumi.Input[str],
-             kind: pulumi.Input[str],
-             parent_id: pulumi.Input[str],
-             workspace_id: pulumi.Input[str],
+             content_id: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             parent_id: Optional[pulumi.Input[str]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
              author: Optional[pulumi.Input['MetadataAuthorArgs']] = None,
              category: Optional[pulumi.Input['MetadataCategoryArgs']] = None,
              content_schema_version: Optional[pulumi.Input[str]] = None,
@@ -107,31 +107,39 @@ class MetadataArgs:
              threat_analysis_tactics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              threat_analysis_techniques: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'contentId' in kwargs:
+        if content_id is None and 'contentId' in kwargs:
             content_id = kwargs['contentId']
-        if 'parentId' in kwargs:
+        if content_id is None:
+            raise TypeError("Missing 'content_id' argument")
+        if kind is None:
+            raise TypeError("Missing 'kind' argument")
+        if parent_id is None and 'parentId' in kwargs:
             parent_id = kwargs['parentId']
-        if 'workspaceId' in kwargs:
+        if parent_id is None:
+            raise TypeError("Missing 'parent_id' argument")
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
-        if 'contentSchemaVersion' in kwargs:
+        if workspace_id is None:
+            raise TypeError("Missing 'workspace_id' argument")
+        if content_schema_version is None and 'contentSchemaVersion' in kwargs:
             content_schema_version = kwargs['contentSchemaVersion']
-        if 'customVersion' in kwargs:
+        if custom_version is None and 'customVersion' in kwargs:
             custom_version = kwargs['customVersion']
-        if 'firstPublishDate' in kwargs:
+        if first_publish_date is None and 'firstPublishDate' in kwargs:
             first_publish_date = kwargs['firstPublishDate']
-        if 'iconId' in kwargs:
+        if icon_id is None and 'iconId' in kwargs:
             icon_id = kwargs['iconId']
-        if 'lastPublishDate' in kwargs:
+        if last_publish_date is None and 'lastPublishDate' in kwargs:
             last_publish_date = kwargs['lastPublishDate']
-        if 'previewImages' in kwargs:
+        if preview_images is None and 'previewImages' in kwargs:
             preview_images = kwargs['previewImages']
-        if 'previewImagesDarks' in kwargs:
+        if preview_images_darks is None and 'previewImagesDarks' in kwargs:
             preview_images_darks = kwargs['previewImagesDarks']
-        if 'threatAnalysisTactics' in kwargs:
+        if threat_analysis_tactics is None and 'threatAnalysisTactics' in kwargs:
             threat_analysis_tactics = kwargs['threatAnalysisTactics']
-        if 'threatAnalysisTechniques' in kwargs:
+        if threat_analysis_techniques is None and 'threatAnalysisTechniques' in kwargs:
             threat_analysis_techniques = kwargs['threatAnalysisTechniques']
 
         _setter("content_id", content_id)
@@ -514,31 +522,31 @@ class _MetadataState:
              threat_analysis_techniques: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              version: Optional[pulumi.Input[str]] = None,
              workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'contentId' in kwargs:
+        if content_id is None and 'contentId' in kwargs:
             content_id = kwargs['contentId']
-        if 'contentSchemaVersion' in kwargs:
+        if content_schema_version is None and 'contentSchemaVersion' in kwargs:
             content_schema_version = kwargs['contentSchemaVersion']
-        if 'customVersion' in kwargs:
+        if custom_version is None and 'customVersion' in kwargs:
             custom_version = kwargs['customVersion']
-        if 'firstPublishDate' in kwargs:
+        if first_publish_date is None and 'firstPublishDate' in kwargs:
             first_publish_date = kwargs['firstPublishDate']
-        if 'iconId' in kwargs:
+        if icon_id is None and 'iconId' in kwargs:
             icon_id = kwargs['iconId']
-        if 'lastPublishDate' in kwargs:
+        if last_publish_date is None and 'lastPublishDate' in kwargs:
             last_publish_date = kwargs['lastPublishDate']
-        if 'parentId' in kwargs:
+        if parent_id is None and 'parentId' in kwargs:
             parent_id = kwargs['parentId']
-        if 'previewImages' in kwargs:
+        if preview_images is None and 'previewImages' in kwargs:
             preview_images = kwargs['previewImages']
-        if 'previewImagesDarks' in kwargs:
+        if preview_images_darks is None and 'previewImagesDarks' in kwargs:
             preview_images_darks = kwargs['previewImagesDarks']
-        if 'threatAnalysisTactics' in kwargs:
+        if threat_analysis_tactics is None and 'threatAnalysisTactics' in kwargs:
             threat_analysis_tactics = kwargs['threatAnalysisTactics']
-        if 'threatAnalysisTechniques' in kwargs:
+        if threat_analysis_techniques is None and 'threatAnalysisTechniques' in kwargs:
             threat_analysis_techniques = kwargs['threatAnalysisTechniques']
-        if 'workspaceId' in kwargs:
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
 
         if author is not None:
@@ -861,43 +869,6 @@ class Metadata(pulumi.CustomResource):
         """
         Manages a Sentinel Metadata.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="pergb2018")
-        example_analytics_solution = azure.operationalinsights.AnalyticsSolution("exampleAnalyticsSolution",
-            solution_name="SecurityInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            workspace_resource_id=example_analytics_workspace.id,
-            workspace_name=example_analytics_workspace.name,
-            plan=azure.operationalinsights.AnalyticsSolutionPlanArgs(
-                publisher="Microsoft",
-                product="OMSGallery/SecurityInsights",
-            ))
-        example_alert_rule_nrt = azure.sentinel.AlertRuleNrt("exampleAlertRuleNrt",
-            log_analytics_workspace_id=example_analytics_solution.workspace_resource_id,
-            display_name="example",
-            severity="High",
-            query=\"\"\"AzureActivity |
-          where OperationName == "Create or Update Virtual Machine" or OperationName =="Create Deployment" |
-          where ActivityStatus == "Succeeded" |
-          make-series dcount(ResourceId) default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
-        \"\"\")
-        example_metadata = azure.sentinel.Metadata("exampleMetadata",
-            workspace_id=example_analytics_solution.workspace_resource_id,
-            content_id=example_alert_rule_nrt.name,
-            kind="AnalyticsRule",
-            parent_id=example_alert_rule_nrt.id)
-        ```
-
         ## Import
 
         Sentinel Metadata can be imported using the `resource id`, e.g.
@@ -936,43 +907,6 @@ class Metadata(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Sentinel Metadata.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="pergb2018")
-        example_analytics_solution = azure.operationalinsights.AnalyticsSolution("exampleAnalyticsSolution",
-            solution_name="SecurityInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            workspace_resource_id=example_analytics_workspace.id,
-            workspace_name=example_analytics_workspace.name,
-            plan=azure.operationalinsights.AnalyticsSolutionPlanArgs(
-                publisher="Microsoft",
-                product="OMSGallery/SecurityInsights",
-            ))
-        example_alert_rule_nrt = azure.sentinel.AlertRuleNrt("exampleAlertRuleNrt",
-            log_analytics_workspace_id=example_analytics_solution.workspace_resource_id,
-            display_name="example",
-            severity="High",
-            query=\"\"\"AzureActivity |
-          where OperationName == "Create or Update Virtual Machine" or OperationName =="Create Deployment" |
-          where ActivityStatus == "Succeeded" |
-          make-series dcount(ResourceId) default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
-        \"\"\")
-        example_metadata = azure.sentinel.Metadata("exampleMetadata",
-            workspace_id=example_analytics_solution.workspace_resource_id,
-            content_id=example_alert_rule_nrt.name,
-            kind="AnalyticsRule",
-            parent_id=example_alert_rule_nrt.id)
-        ```
 
         ## Import
 
@@ -1031,17 +965,9 @@ class Metadata(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = MetadataArgs.__new__(MetadataArgs)
 
-            if author is not None and not isinstance(author, MetadataAuthorArgs):
-                author = author or {}
-                def _setter(key, value):
-                    author[key] = value
-                MetadataAuthorArgs._configure(_setter, **author)
+            author = _utilities.configure(author, MetadataAuthorArgs, True)
             __props__.__dict__["author"] = author
-            if category is not None and not isinstance(category, MetadataCategoryArgs):
-                category = category or {}
-                def _setter(key, value):
-                    category[key] = value
-                MetadataCategoryArgs._configure(_setter, **category)
+            category = _utilities.configure(category, MetadataCategoryArgs, True)
             __props__.__dict__["category"] = category
             if content_id is None and not opts.urn:
                 raise TypeError("Missing required property 'content_id'")
@@ -1062,17 +988,9 @@ class Metadata(pulumi.CustomResource):
             __props__.__dict__["preview_images"] = preview_images
             __props__.__dict__["preview_images_darks"] = preview_images_darks
             __props__.__dict__["providers"] = providers
-            if source is not None and not isinstance(source, MetadataSourceArgs):
-                source = source or {}
-                def _setter(key, value):
-                    source[key] = value
-                MetadataSourceArgs._configure(_setter, **source)
+            source = _utilities.configure(source, MetadataSourceArgs, True)
             __props__.__dict__["source"] = source
-            if support is not None and not isinstance(support, MetadataSupportArgs):
-                support = support or {}
-                def _setter(key, value):
-                    support[key] = value
-                MetadataSupportArgs._configure(_setter, **support)
+            support = _utilities.configure(support, MetadataSupportArgs, True)
             __props__.__dict__["support"] = support
             __props__.__dict__["threat_analysis_tactics"] = threat_analysis_tactics
             __props__.__dict__["threat_analysis_techniques"] = threat_analysis_techniques

@@ -36,15 +36,19 @@ class ServiceCustomCertificateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             custom_certificate_id: pulumi.Input[str],
-             signalr_service_id: pulumi.Input[str],
+             custom_certificate_id: Optional[pulumi.Input[str]] = None,
+             signalr_service_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'customCertificateId' in kwargs:
+        if custom_certificate_id is None and 'customCertificateId' in kwargs:
             custom_certificate_id = kwargs['customCertificateId']
-        if 'signalrServiceId' in kwargs:
+        if custom_certificate_id is None:
+            raise TypeError("Missing 'custom_certificate_id' argument")
+        if signalr_service_id is None and 'signalrServiceId' in kwargs:
             signalr_service_id = kwargs['signalrServiceId']
+        if signalr_service_id is None:
+            raise TypeError("Missing 'signalr_service_id' argument")
 
         _setter("custom_certificate_id", custom_certificate_id)
         _setter("signalr_service_id", signalr_service_id)
@@ -124,13 +128,13 @@ class _ServiceCustomCertificateState:
              custom_certificate_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              signalr_service_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'certificateVersion' in kwargs:
+        if certificate_version is None and 'certificateVersion' in kwargs:
             certificate_version = kwargs['certificateVersion']
-        if 'customCertificateId' in kwargs:
+        if custom_certificate_id is None and 'customCertificateId' in kwargs:
             custom_certificate_id = kwargs['customCertificateId']
-        if 'signalrServiceId' in kwargs:
+        if signalr_service_id is None and 'signalrServiceId' in kwargs:
             signalr_service_id = kwargs['signalrServiceId']
 
         if certificate_version is not None:
@@ -207,70 +211,6 @@ class ServiceCustomCertificate(pulumi.CustomResource):
         """
         Manages an Azure SignalR Custom Certificate.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import base64
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.signalr.Service("exampleService",
-            location=azurerm_resource_group["test"]["location"],
-            resource_group_name=azurerm_resource_group["test"]["name"],
-            sku=azure.signalr.ServiceSkuArgs(
-                name="Premium_P1",
-                capacity=1,
-            ),
-            identity=azure.signalr.ServiceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="premium",
-            access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=current.tenant_id,
-                    object_id=current.object_id,
-                    certificate_permissions=[
-                        "Create",
-                        "Get",
-                        "List",
-                    ],
-                    secret_permissions=[
-                        "Get",
-                        "List",
-                    ],
-                ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=current.tenant_id,
-                    object_id=azurerm_signalr_service["test"]["identity"][0]["principal_id"],
-                    certificate_permissions=[
-                        "Create",
-                        "Get",
-                        "List",
-                    ],
-                    secret_permissions=[
-                        "Get",
-                        "List",
-                    ],
-                ),
-            ])
-        example_certificate = azure.keyvault.Certificate("exampleCertificate",
-            key_vault_id=example_key_vault.id,
-            certificate=azure.keyvault.CertificateCertificateArgs(
-                contents=(lambda path: base64.b64encode(open(path).read().encode()).decode())("certificate-to-import.pfx"),
-                password="",
-            ))
-        test = azure.signalr.ServiceCustomCertificate("test",
-            signalr_service_id=example_service.id,
-            custom_certificate_id=example_certificate.id,
-            opts=pulumi.ResourceOptions(depends_on=[azurerm_key_vault_access_policy["example"]]))
-        ```
-
         ## Import
 
         Custom Certificate for a SignalR service can be imported using the `resource id`, e.g.
@@ -297,70 +237,6 @@ class ServiceCustomCertificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure SignalR Custom Certificate.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import base64
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.signalr.Service("exampleService",
-            location=azurerm_resource_group["test"]["location"],
-            resource_group_name=azurerm_resource_group["test"]["name"],
-            sku=azure.signalr.ServiceSkuArgs(
-                name="Premium_P1",
-                capacity=1,
-            ),
-            identity=azure.signalr.ServiceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="premium",
-            access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=current.tenant_id,
-                    object_id=current.object_id,
-                    certificate_permissions=[
-                        "Create",
-                        "Get",
-                        "List",
-                    ],
-                    secret_permissions=[
-                        "Get",
-                        "List",
-                    ],
-                ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=current.tenant_id,
-                    object_id=azurerm_signalr_service["test"]["identity"][0]["principal_id"],
-                    certificate_permissions=[
-                        "Create",
-                        "Get",
-                        "List",
-                    ],
-                    secret_permissions=[
-                        "Get",
-                        "List",
-                    ],
-                ),
-            ])
-        example_certificate = azure.keyvault.Certificate("exampleCertificate",
-            key_vault_id=example_key_vault.id,
-            certificate=azure.keyvault.CertificateCertificateArgs(
-                contents=(lambda path: base64.b64encode(open(path).read().encode()).decode())("certificate-to-import.pfx"),
-                password="",
-            ))
-        test = azure.signalr.ServiceCustomCertificate("test",
-            signalr_service_id=example_service.id,
-            custom_certificate_id=example_certificate.id,
-            opts=pulumi.ResourceOptions(depends_on=[azurerm_key_vault_access_policy["example"]]))
-        ```
 
         ## Import
 

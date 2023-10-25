@@ -41,17 +41,19 @@ class AccessConnectorIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -176,31 +178,31 @@ class WorkspaceCustomParametersArgs:
              storage_account_sku_name: Optional[pulumi.Input[str]] = None,
              virtual_network_id: Optional[pulumi.Input[str]] = None,
              vnet_address_prefix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'machineLearningWorkspaceId' in kwargs:
+        if machine_learning_workspace_id is None and 'machineLearningWorkspaceId' in kwargs:
             machine_learning_workspace_id = kwargs['machineLearningWorkspaceId']
-        if 'natGatewayName' in kwargs:
+        if nat_gateway_name is None and 'natGatewayName' in kwargs:
             nat_gateway_name = kwargs['natGatewayName']
-        if 'noPublicIp' in kwargs:
+        if no_public_ip is None and 'noPublicIp' in kwargs:
             no_public_ip = kwargs['noPublicIp']
-        if 'privateSubnetName' in kwargs:
+        if private_subnet_name is None and 'privateSubnetName' in kwargs:
             private_subnet_name = kwargs['privateSubnetName']
-        if 'privateSubnetNetworkSecurityGroupAssociationId' in kwargs:
+        if private_subnet_network_security_group_association_id is None and 'privateSubnetNetworkSecurityGroupAssociationId' in kwargs:
             private_subnet_network_security_group_association_id = kwargs['privateSubnetNetworkSecurityGroupAssociationId']
-        if 'publicIpName' in kwargs:
+        if public_ip_name is None and 'publicIpName' in kwargs:
             public_ip_name = kwargs['publicIpName']
-        if 'publicSubnetName' in kwargs:
+        if public_subnet_name is None and 'publicSubnetName' in kwargs:
             public_subnet_name = kwargs['publicSubnetName']
-        if 'publicSubnetNetworkSecurityGroupAssociationId' in kwargs:
+        if public_subnet_network_security_group_association_id is None and 'publicSubnetNetworkSecurityGroupAssociationId' in kwargs:
             public_subnet_network_security_group_association_id = kwargs['publicSubnetNetworkSecurityGroupAssociationId']
-        if 'storageAccountName' in kwargs:
+        if storage_account_name is None and 'storageAccountName' in kwargs:
             storage_account_name = kwargs['storageAccountName']
-        if 'storageAccountSkuName' in kwargs:
+        if storage_account_sku_name is None and 'storageAccountSkuName' in kwargs:
             storage_account_sku_name = kwargs['storageAccountSkuName']
-        if 'virtualNetworkId' in kwargs:
+        if virtual_network_id is None and 'virtualNetworkId' in kwargs:
             virtual_network_id = kwargs['virtualNetworkId']
-        if 'vnetAddressPrefix' in kwargs:
+        if vnet_address_prefix is None and 'vnetAddressPrefix' in kwargs:
             vnet_address_prefix = kwargs['vnetAddressPrefix']
 
         if machine_learning_workspace_id is not None:
@@ -400,11 +402,11 @@ class WorkspaceManagedDiskIdentityArgs:
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         if principal_id is not None:
@@ -474,11 +476,11 @@ class WorkspaceStorageAccountIdentityArgs:
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         if principal_id is not None:

@@ -35,18 +35,24 @@ class MonitorSsoConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             datadog_monitor_id: pulumi.Input[str],
-             enterprise_application_id: pulumi.Input[str],
-             single_sign_on_enabled: pulumi.Input[str],
+             datadog_monitor_id: Optional[pulumi.Input[str]] = None,
+             enterprise_application_id: Optional[pulumi.Input[str]] = None,
+             single_sign_on_enabled: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'datadogMonitorId' in kwargs:
+        if datadog_monitor_id is None and 'datadogMonitorId' in kwargs:
             datadog_monitor_id = kwargs['datadogMonitorId']
-        if 'enterpriseApplicationId' in kwargs:
+        if datadog_monitor_id is None:
+            raise TypeError("Missing 'datadog_monitor_id' argument")
+        if enterprise_application_id is None and 'enterpriseApplicationId' in kwargs:
             enterprise_application_id = kwargs['enterpriseApplicationId']
-        if 'singleSignOnEnabled' in kwargs:
+        if enterprise_application_id is None:
+            raise TypeError("Missing 'enterprise_application_id' argument")
+        if single_sign_on_enabled is None and 'singleSignOnEnabled' in kwargs:
             single_sign_on_enabled = kwargs['singleSignOnEnabled']
+        if single_sign_on_enabled is None:
+            raise TypeError("Missing 'single_sign_on_enabled' argument")
 
         _setter("datadog_monitor_id", datadog_monitor_id)
         _setter("enterprise_application_id", enterprise_application_id)
@@ -135,15 +141,15 @@ class _MonitorSsoConfigurationState:
              login_url: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              single_sign_on_enabled: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'datadogMonitorId' in kwargs:
+        if datadog_monitor_id is None and 'datadogMonitorId' in kwargs:
             datadog_monitor_id = kwargs['datadogMonitorId']
-        if 'enterpriseApplicationId' in kwargs:
+        if enterprise_application_id is None and 'enterpriseApplicationId' in kwargs:
             enterprise_application_id = kwargs['enterpriseApplicationId']
-        if 'loginUrl' in kwargs:
+        if login_url is None and 'loginUrl' in kwargs:
             login_url = kwargs['loginUrl']
-        if 'singleSignOnEnabled' in kwargs:
+        if single_sign_on_enabled is None and 'singleSignOnEnabled' in kwargs:
             single_sign_on_enabled = kwargs['singleSignOnEnabled']
 
         if datadog_monitor_id is not None:
@@ -232,32 +238,6 @@ class MonitorSsoConfiguration(pulumi.CustomResource):
         Manages SingleSignOn on the datadog Monitor.
 
         ## Example Usage
-        ### Enabling SSO on monitor
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US 2")
-        example_monitor = azure.datadog.Monitor("exampleMonitor",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            datadog_organization=azure.datadog.MonitorDatadogOrganizationArgs(
-                api_key="XXXX",
-                application_key="XXXX",
-            ),
-            user=azure.datadog.MonitorUserArgs(
-                name="Example",
-                email="abc@xyz.com",
-            ),
-            sku_name="Linked",
-            identity=azure.datadog.MonitorIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_monitor_sso_configuration = azure.datadog.MonitorSsoConfiguration("exampleMonitorSsoConfiguration",
-            datadog_monitor_id=example_monitor.id,
-            single_sign_on_enabled="Enable",
-            enterprise_application_id="XXXX")
-        ```
 
         ## Import
 
@@ -284,32 +264,6 @@ class MonitorSsoConfiguration(pulumi.CustomResource):
         Manages SingleSignOn on the datadog Monitor.
 
         ## Example Usage
-        ### Enabling SSO on monitor
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US 2")
-        example_monitor = azure.datadog.Monitor("exampleMonitor",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            datadog_organization=azure.datadog.MonitorDatadogOrganizationArgs(
-                api_key="XXXX",
-                application_key="XXXX",
-            ),
-            user=azure.datadog.MonitorUserArgs(
-                name="Example",
-                email="abc@xyz.com",
-            ),
-            sku_name="Linked",
-            identity=azure.datadog.MonitorIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_monitor_sso_configuration = azure.datadog.MonitorSsoConfiguration("exampleMonitorSsoConfiguration",
-            datadog_monitor_id=example_monitor.id,
-            single_sign_on_enabled="Enable",
-            enterprise_application_id="XXXX")
-        ```
 
         ## Import
 

@@ -58,7 +58,7 @@ class TopicArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              identity: Optional[pulumi.Input['TopicIdentityArgs']] = None,
              inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['TopicInboundIpRuleArgs']]]] = None,
              input_mapping_default_values: Optional[pulumi.Input['TopicInputMappingDefaultValuesArgs']] = None,
@@ -69,21 +69,23 @@ class TopicArgs:
              name: Optional[pulumi.Input[str]] = None,
              public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'inboundIpRules' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if inbound_ip_rules is None and 'inboundIpRules' in kwargs:
             inbound_ip_rules = kwargs['inboundIpRules']
-        if 'inputMappingDefaultValues' in kwargs:
+        if input_mapping_default_values is None and 'inputMappingDefaultValues' in kwargs:
             input_mapping_default_values = kwargs['inputMappingDefaultValues']
-        if 'inputMappingFields' in kwargs:
+        if input_mapping_fields is None and 'inputMappingFields' in kwargs:
             input_mapping_fields = kwargs['inputMappingFields']
-        if 'inputSchema' in kwargs:
+        if input_schema is None and 'inputSchema' in kwargs:
             input_schema = kwargs['inputSchema']
-        if 'localAuthEnabled' in kwargs:
+        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
             local_auth_enabled = kwargs['localAuthEnabled']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
 
         _setter("resource_group_name", resource_group_name)
@@ -309,25 +311,25 @@ class _TopicState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              secondary_access_key: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'inboundIpRules' in kwargs:
+        if inbound_ip_rules is None and 'inboundIpRules' in kwargs:
             inbound_ip_rules = kwargs['inboundIpRules']
-        if 'inputMappingDefaultValues' in kwargs:
+        if input_mapping_default_values is None and 'inputMappingDefaultValues' in kwargs:
             input_mapping_default_values = kwargs['inputMappingDefaultValues']
-        if 'inputMappingFields' in kwargs:
+        if input_mapping_fields is None and 'inputMappingFields' in kwargs:
             input_mapping_fields = kwargs['inputMappingFields']
-        if 'inputSchema' in kwargs:
+        if input_schema is None and 'inputSchema' in kwargs:
             input_schema = kwargs['inputSchema']
-        if 'localAuthEnabled' in kwargs:
+        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
             local_auth_enabled = kwargs['localAuthEnabled']
-        if 'primaryAccessKey' in kwargs:
+        if primary_access_key is None and 'primaryAccessKey' in kwargs:
             primary_access_key = kwargs['primaryAccessKey']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'secondaryAccessKey' in kwargs:
+        if secondary_access_key is None and 'secondaryAccessKey' in kwargs:
             secondary_access_key = kwargs['secondaryAccessKey']
 
         if endpoint is not None:
@@ -550,21 +552,6 @@ class Topic(pulumi.CustomResource):
 
         > **Note:** at this time EventGrid Topic's are only available in a limited number of regions.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_topic = azure.eventgrid.Topic("exampleTopic",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tags={
-                "environment": "Production",
-            })
-        ```
-
         ## Import
 
         EventGrid Topic's can be imported using the `resource id`, e.g.
@@ -597,21 +584,6 @@ class Topic(pulumi.CustomResource):
         Manages an EventGrid Topic
 
         > **Note:** at this time EventGrid Topic's are only available in a limited number of regions.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_topic = azure.eventgrid.Topic("exampleTopic",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tags={
-                "environment": "Production",
-            })
-        ```
 
         ## Import
 
@@ -660,24 +632,12 @@ class Topic(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TopicArgs.__new__(TopicArgs)
 
-            if identity is not None and not isinstance(identity, TopicIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                TopicIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, TopicIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["inbound_ip_rules"] = inbound_ip_rules
-            if input_mapping_default_values is not None and not isinstance(input_mapping_default_values, TopicInputMappingDefaultValuesArgs):
-                input_mapping_default_values = input_mapping_default_values or {}
-                def _setter(key, value):
-                    input_mapping_default_values[key] = value
-                TopicInputMappingDefaultValuesArgs._configure(_setter, **input_mapping_default_values)
+            input_mapping_default_values = _utilities.configure(input_mapping_default_values, TopicInputMappingDefaultValuesArgs, True)
             __props__.__dict__["input_mapping_default_values"] = input_mapping_default_values
-            if input_mapping_fields is not None and not isinstance(input_mapping_fields, TopicInputMappingFieldsArgs):
-                input_mapping_fields = input_mapping_fields or {}
-                def _setter(key, value):
-                    input_mapping_fields[key] = value
-                TopicInputMappingFieldsArgs._configure(_setter, **input_mapping_fields)
+            input_mapping_fields = _utilities.configure(input_mapping_fields, TopicInputMappingFieldsArgs, True)
             __props__.__dict__["input_mapping_fields"] = input_mapping_fields
             __props__.__dict__["input_schema"] = input_schema
             __props__.__dict__["local_auth_enabled"] = local_auth_enabled

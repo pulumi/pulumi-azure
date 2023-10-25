@@ -66,10 +66,10 @@ class StandardWebTestArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_insights_id: pulumi.Input[str],
-             geo_locations: pulumi.Input[Sequence[pulumi.Input[str]]],
-             request: pulumi.Input['StandardWebTestRequestArgs'],
-             resource_group_name: pulumi.Input[str],
+             application_insights_id: Optional[pulumi.Input[str]] = None,
+             geo_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             request: Optional[pulumi.Input['StandardWebTestRequestArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              frequency: Optional[pulumi.Input[int]] = None,
@@ -79,17 +79,25 @@ class StandardWebTestArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              timeout: Optional[pulumi.Input[int]] = None,
              validation_rules: Optional[pulumi.Input['StandardWebTestValidationRulesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'applicationInsightsId' in kwargs:
+        if application_insights_id is None and 'applicationInsightsId' in kwargs:
             application_insights_id = kwargs['applicationInsightsId']
-        if 'geoLocations' in kwargs:
+        if application_insights_id is None:
+            raise TypeError("Missing 'application_insights_id' argument")
+        if geo_locations is None and 'geoLocations' in kwargs:
             geo_locations = kwargs['geoLocations']
-        if 'resourceGroupName' in kwargs:
+        if geo_locations is None:
+            raise TypeError("Missing 'geo_locations' argument")
+        if request is None:
+            raise TypeError("Missing 'request' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'retryEnabled' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if retry_enabled is None and 'retryEnabled' in kwargs:
             retry_enabled = kwargs['retryEnabled']
-        if 'validationRules' in kwargs:
+        if validation_rules is None and 'validationRules' in kwargs:
             validation_rules = kwargs['validationRules']
 
         _setter("application_insights_id", application_insights_id)
@@ -344,19 +352,19 @@ class _StandardWebTestState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              timeout: Optional[pulumi.Input[int]] = None,
              validation_rules: Optional[pulumi.Input['StandardWebTestValidationRulesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'applicationInsightsId' in kwargs:
+        if application_insights_id is None and 'applicationInsightsId' in kwargs:
             application_insights_id = kwargs['applicationInsightsId']
-        if 'geoLocations' in kwargs:
+        if geo_locations is None and 'geoLocations' in kwargs:
             geo_locations = kwargs['geoLocations']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'retryEnabled' in kwargs:
+        if retry_enabled is None and 'retryEnabled' in kwargs:
             retry_enabled = kwargs['retryEnabled']
-        if 'syntheticMonitorId' in kwargs:
+        if synthetic_monitor_id is None and 'syntheticMonitorId' in kwargs:
             synthetic_monitor_id = kwargs['syntheticMonitorId']
-        if 'validationRules' in kwargs:
+        if validation_rules is None and 'validationRules' in kwargs:
             validation_rules = kwargs['validationRules']
 
         if application_insights_id is not None:
@@ -581,27 +589,6 @@ class StandardWebTest(pulumi.CustomResource):
         """
         Manages a Application Insights Standard WebTest.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="web")
-        example_standard_web_test = azure.appinsights.StandardWebTest("exampleStandardWebTest",
-            resource_group_name=example_resource_group.name,
-            location="West Europe",
-            application_insights_id=example_insights.id,
-            geo_locations=["example"],
-            request=azure.appinsights.StandardWebTestRequestArgs(
-                url="http://www.example.com",
-            ))
-        ```
-
         ## Import
 
         Application Insights Standard WebTests can be imported using the `resource id`, e.g.
@@ -636,27 +623,6 @@ class StandardWebTest(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Application Insights Standard WebTest.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="web")
-        example_standard_web_test = azure.appinsights.StandardWebTest("exampleStandardWebTest",
-            resource_group_name=example_resource_group.name,
-            location="West Europe",
-            application_insights_id=example_insights.id,
-            geo_locations=["example"],
-            request=azure.appinsights.StandardWebTestRequestArgs(
-                url="http://www.example.com",
-            ))
-        ```
 
         ## Import
 
@@ -718,11 +684,7 @@ class StandardWebTest(pulumi.CustomResource):
             __props__.__dict__["geo_locations"] = geo_locations
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
-            if request is not None and not isinstance(request, StandardWebTestRequestArgs):
-                request = request or {}
-                def _setter(key, value):
-                    request[key] = value
-                StandardWebTestRequestArgs._configure(_setter, **request)
+            request = _utilities.configure(request, StandardWebTestRequestArgs, True)
             if request is None and not opts.urn:
                 raise TypeError("Missing required property 'request'")
             __props__.__dict__["request"] = request
@@ -732,11 +694,7 @@ class StandardWebTest(pulumi.CustomResource):
             __props__.__dict__["retry_enabled"] = retry_enabled
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeout"] = timeout
-            if validation_rules is not None and not isinstance(validation_rules, StandardWebTestValidationRulesArgs):
-                validation_rules = validation_rules or {}
-                def _setter(key, value):
-                    validation_rules[key] = value
-                StandardWebTestValidationRulesArgs._configure(_setter, **validation_rules)
+            validation_rules = _utilities.configure(validation_rules, StandardWebTestValidationRulesArgs, True)
             __props__.__dict__["validation_rules"] = validation_rules
             __props__.__dict__["synthetic_monitor_id"] = None
         super(StandardWebTest, __self__).__init__(

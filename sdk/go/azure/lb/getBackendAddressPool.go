@@ -13,46 +13,6 @@ import (
 )
 
 // Use this data source to access information about an existing Load Balancer's Backend Address Pool.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/lb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleLB, err := lb.GetLB(ctx, &lb.GetLBArgs{
-//				Name:              "example-lb",
-//				ResourceGroupName: "example-resources",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleBackendAddressPool, err := lb.LookupBackendAddressPool(ctx, &lb.LookupBackendAddressPoolArgs{
-//				Name:           "first",
-//				LoadbalancerId: exampleLB.Id,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("backendAddressPoolId", exampleBackendAddressPool.Id)
-//			var splat0 []interface{}
-//			for _, val0 := range data.Azurerm_lb_backend_address_pool.Beap.Backend_ip_configurations {
-//				splat0 = append(splat0, val0.Id)
-//			}
-//			ctx.Export("backendIpConfigurationIds", splat0)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupBackendAddressPool(ctx *pulumi.Context, args *LookupBackendAddressPoolArgs, opts ...pulumi.InvokeOption) (*LookupBackendAddressPoolResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBackendAddressPoolResult

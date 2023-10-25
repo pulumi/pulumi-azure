@@ -13,35 +13,6 @@ import (
 )
 
 // Use this data source to access information about an existing Database Migration Project.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/databasemigration"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := databasemigration.LookupProject(ctx, &databasemigration.LookupProjectArgs{
-//				Name:              "example-dbms-project",
-//				ResourceGroupName: "example-rg",
-//				ServiceName:       "example-dbms",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("name", example.Name)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupProject(ctx *pulumi.Context, args *LookupProjectArgs, opts ...pulumi.InvokeOption) (*LookupProjectResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupProjectResult

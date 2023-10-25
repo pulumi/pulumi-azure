@@ -7,20 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a SSH Public Key.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as fs from "fs";
- *
- * const example = new azure.compute.SshPublicKey("example", {
- *     resourceGroupName: "example",
- *     location: "West Europe",
- *     publicKey: fs.readFileSync("~/.ssh/id_rsa.pub"),
- * });
- * ```
- *
  * ## Import
  *
  * SSH Public Keys can be imported using the `resource id`, e.g.

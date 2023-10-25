@@ -76,8 +76,8 @@ class ActionGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             short_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             short_name: Optional[pulumi.Input[str]] = None,
              arm_role_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['ActionGroupArmRoleReceiverArgs']]]] = None,
              automation_runbook_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['ActionGroupAutomationRunbookReceiverArgs']]]] = None,
              azure_app_push_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['ActionGroupAzureAppPushReceiverArgs']]]] = None,
@@ -93,33 +93,37 @@ class ActionGroupArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              voice_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['ActionGroupVoiceReceiverArgs']]]] = None,
              webhook_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['ActionGroupWebhookReceiverArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'shortName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if short_name is None and 'shortName' in kwargs:
             short_name = kwargs['shortName']
-        if 'armRoleReceivers' in kwargs:
+        if short_name is None:
+            raise TypeError("Missing 'short_name' argument")
+        if arm_role_receivers is None and 'armRoleReceivers' in kwargs:
             arm_role_receivers = kwargs['armRoleReceivers']
-        if 'automationRunbookReceivers' in kwargs:
+        if automation_runbook_receivers is None and 'automationRunbookReceivers' in kwargs:
             automation_runbook_receivers = kwargs['automationRunbookReceivers']
-        if 'azureAppPushReceivers' in kwargs:
+        if azure_app_push_receivers is None and 'azureAppPushReceivers' in kwargs:
             azure_app_push_receivers = kwargs['azureAppPushReceivers']
-        if 'azureFunctionReceivers' in kwargs:
+        if azure_function_receivers is None and 'azureFunctionReceivers' in kwargs:
             azure_function_receivers = kwargs['azureFunctionReceivers']
-        if 'emailReceivers' in kwargs:
+        if email_receivers is None and 'emailReceivers' in kwargs:
             email_receivers = kwargs['emailReceivers']
-        if 'eventHubReceivers' in kwargs:
+        if event_hub_receivers is None and 'eventHubReceivers' in kwargs:
             event_hub_receivers = kwargs['eventHubReceivers']
-        if 'itsmReceivers' in kwargs:
+        if itsm_receivers is None and 'itsmReceivers' in kwargs:
             itsm_receivers = kwargs['itsmReceivers']
-        if 'logicAppReceivers' in kwargs:
+        if logic_app_receivers is None and 'logicAppReceivers' in kwargs:
             logic_app_receivers = kwargs['logicAppReceivers']
-        if 'smsReceivers' in kwargs:
+        if sms_receivers is None and 'smsReceivers' in kwargs:
             sms_receivers = kwargs['smsReceivers']
-        if 'voiceReceivers' in kwargs:
+        if voice_receivers is None and 'voiceReceivers' in kwargs:
             voice_receivers = kwargs['voiceReceivers']
-        if 'webhookReceivers' in kwargs:
+        if webhook_receivers is None and 'webhookReceivers' in kwargs:
             webhook_receivers = kwargs['webhookReceivers']
 
         _setter("resource_group_name", resource_group_name)
@@ -440,33 +444,33 @@ class _ActionGroupState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              voice_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['ActionGroupVoiceReceiverArgs']]]] = None,
              webhook_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['ActionGroupWebhookReceiverArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'armRoleReceivers' in kwargs:
+        if arm_role_receivers is None and 'armRoleReceivers' in kwargs:
             arm_role_receivers = kwargs['armRoleReceivers']
-        if 'automationRunbookReceivers' in kwargs:
+        if automation_runbook_receivers is None and 'automationRunbookReceivers' in kwargs:
             automation_runbook_receivers = kwargs['automationRunbookReceivers']
-        if 'azureAppPushReceivers' in kwargs:
+        if azure_app_push_receivers is None and 'azureAppPushReceivers' in kwargs:
             azure_app_push_receivers = kwargs['azureAppPushReceivers']
-        if 'azureFunctionReceivers' in kwargs:
+        if azure_function_receivers is None and 'azureFunctionReceivers' in kwargs:
             azure_function_receivers = kwargs['azureFunctionReceivers']
-        if 'emailReceivers' in kwargs:
+        if email_receivers is None and 'emailReceivers' in kwargs:
             email_receivers = kwargs['emailReceivers']
-        if 'eventHubReceivers' in kwargs:
+        if event_hub_receivers is None and 'eventHubReceivers' in kwargs:
             event_hub_receivers = kwargs['eventHubReceivers']
-        if 'itsmReceivers' in kwargs:
+        if itsm_receivers is None and 'itsmReceivers' in kwargs:
             itsm_receivers = kwargs['itsmReceivers']
-        if 'logicAppReceivers' in kwargs:
+        if logic_app_receivers is None and 'logicAppReceivers' in kwargs:
             logic_app_receivers = kwargs['logicAppReceivers']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'shortName' in kwargs:
+        if short_name is None and 'shortName' in kwargs:
             short_name = kwargs['shortName']
-        if 'smsReceivers' in kwargs:
+        if sms_receivers is None and 'smsReceivers' in kwargs:
             sms_receivers = kwargs['smsReceivers']
-        if 'voiceReceivers' in kwargs:
+        if voice_receivers is None and 'voiceReceivers' in kwargs:
             voice_receivers = kwargs['voiceReceivers']
-        if 'webhookReceivers' in kwargs:
+        if webhook_receivers is None and 'webhookReceivers' in kwargs:
             webhook_receivers = kwargs['webhookReceivers']
 
         if arm_role_receivers is not None:
@@ -735,93 +739,6 @@ class ActionGroup(pulumi.CustomResource):
         """
         Manages an Action Group within Azure Monitor.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        current = azure.core.get_client_config()
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_action_group = azure.monitoring.ActionGroup("exampleActionGroup",
-            resource_group_name=example_resource_group.name,
-            short_name="p0action",
-            arm_role_receivers=[azure.monitoring.ActionGroupArmRoleReceiverArgs(
-                name="armroleaction",
-                role_id="de139f84-1756-47ae-9be6-808fbbe84772",
-                use_common_alert_schema=True,
-            )],
-            automation_runbook_receivers=[azure.monitoring.ActionGroupAutomationRunbookReceiverArgs(
-                name="action_name_1",
-                automation_account_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-runbooks/providers/Microsoft.Automation/automationAccounts/aaa001",
-                runbook_name="my runbook",
-                webhook_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-runbooks/providers/Microsoft.Automation/automationAccounts/aaa001/webHooks/webhook_alert",
-                is_global_runbook=True,
-                service_uri="https://s13events.azure-automation.net/webhooks?token=randomtoken",
-                use_common_alert_schema=True,
-            )],
-            azure_app_push_receivers=[azure.monitoring.ActionGroupAzureAppPushReceiverArgs(
-                name="pushtoadmin",
-                email_address="admin@contoso.com",
-            )],
-            azure_function_receivers=[azure.monitoring.ActionGroupAzureFunctionReceiverArgs(
-                name="funcaction",
-                function_app_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-funcapp/providers/Microsoft.Web/sites/funcapp",
-                function_name="myfunc",
-                http_trigger_url="https://example.com/trigger",
-                use_common_alert_schema=True,
-            )],
-            email_receivers=[
-                azure.monitoring.ActionGroupEmailReceiverArgs(
-                    name="sendtoadmin",
-                    email_address="admin@contoso.com",
-                ),
-                azure.monitoring.ActionGroupEmailReceiverArgs(
-                    name="sendtodevops",
-                    email_address="devops@contoso.com",
-                    use_common_alert_schema=True,
-                ),
-            ],
-            event_hub_receivers=[azure.monitoring.ActionGroupEventHubReceiverArgs(
-                name="sendtoeventhub",
-                event_hub_namespace="eventhubnamespace",
-                event_hub_name="eventhub1",
-                subscription_id="00000000-0000-0000-0000-000000000000",
-                use_common_alert_schema=False,
-            )],
-            itsm_receivers=[azure.monitoring.ActionGroupItsmReceiverArgs(
-                name="createorupdateticket",
-                workspace_id=example_analytics_workspace.workspace_id.apply(lambda workspace_id: f"{current.subscription_id}|{workspace_id}"),
-                connection_id="53de6956-42b4-41ba-be3c-b154cdf17b13",
-                ticket_configuration="{\\"PayloadRevision\\":0,\\"WorkItemType\\":\\"Incident\\",\\"UseTemplate\\":false,\\"WorkItemData\\":\\"{}\\",\\"CreateOneWIPerCI\\":false}",
-                region="southcentralus",
-            )],
-            logic_app_receivers=[azure.monitoring.ActionGroupLogicAppReceiverArgs(
-                name="logicappaction",
-                resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-logicapp/providers/Microsoft.Logic/workflows/logicapp",
-                callback_url="https://logicapptriggerurl/...",
-                use_common_alert_schema=True,
-            )],
-            sms_receivers=[azure.monitoring.ActionGroupSmsReceiverArgs(
-                name="oncallmsg",
-                country_code="1",
-                phone_number="1231231234",
-            )],
-            voice_receivers=[azure.monitoring.ActionGroupVoiceReceiverArgs(
-                name="remotesupport",
-                country_code="86",
-                phone_number="13888888888",
-            )],
-            webhook_receivers=[azure.monitoring.ActionGroupWebhookReceiverArgs(
-                name="callmyapiaswell",
-                service_uri="http://example.com/alert",
-                use_common_alert_schema=True,
-            )])
-        ```
-
         ## Import
 
         Action Groups can be imported using the `resource id`, e.g.
@@ -858,93 +775,6 @@ class ActionGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Action Group within Azure Monitor.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        current = azure.core.get_client_config()
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_action_group = azure.monitoring.ActionGroup("exampleActionGroup",
-            resource_group_name=example_resource_group.name,
-            short_name="p0action",
-            arm_role_receivers=[azure.monitoring.ActionGroupArmRoleReceiverArgs(
-                name="armroleaction",
-                role_id="de139f84-1756-47ae-9be6-808fbbe84772",
-                use_common_alert_schema=True,
-            )],
-            automation_runbook_receivers=[azure.monitoring.ActionGroupAutomationRunbookReceiverArgs(
-                name="action_name_1",
-                automation_account_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-runbooks/providers/Microsoft.Automation/automationAccounts/aaa001",
-                runbook_name="my runbook",
-                webhook_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-runbooks/providers/Microsoft.Automation/automationAccounts/aaa001/webHooks/webhook_alert",
-                is_global_runbook=True,
-                service_uri="https://s13events.azure-automation.net/webhooks?token=randomtoken",
-                use_common_alert_schema=True,
-            )],
-            azure_app_push_receivers=[azure.monitoring.ActionGroupAzureAppPushReceiverArgs(
-                name="pushtoadmin",
-                email_address="admin@contoso.com",
-            )],
-            azure_function_receivers=[azure.monitoring.ActionGroupAzureFunctionReceiverArgs(
-                name="funcaction",
-                function_app_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-funcapp/providers/Microsoft.Web/sites/funcapp",
-                function_name="myfunc",
-                http_trigger_url="https://example.com/trigger",
-                use_common_alert_schema=True,
-            )],
-            email_receivers=[
-                azure.monitoring.ActionGroupEmailReceiverArgs(
-                    name="sendtoadmin",
-                    email_address="admin@contoso.com",
-                ),
-                azure.monitoring.ActionGroupEmailReceiverArgs(
-                    name="sendtodevops",
-                    email_address="devops@contoso.com",
-                    use_common_alert_schema=True,
-                ),
-            ],
-            event_hub_receivers=[azure.monitoring.ActionGroupEventHubReceiverArgs(
-                name="sendtoeventhub",
-                event_hub_namespace="eventhubnamespace",
-                event_hub_name="eventhub1",
-                subscription_id="00000000-0000-0000-0000-000000000000",
-                use_common_alert_schema=False,
-            )],
-            itsm_receivers=[azure.monitoring.ActionGroupItsmReceiverArgs(
-                name="createorupdateticket",
-                workspace_id=example_analytics_workspace.workspace_id.apply(lambda workspace_id: f"{current.subscription_id}|{workspace_id}"),
-                connection_id="53de6956-42b4-41ba-be3c-b154cdf17b13",
-                ticket_configuration="{\\"PayloadRevision\\":0,\\"WorkItemType\\":\\"Incident\\",\\"UseTemplate\\":false,\\"WorkItemData\\":\\"{}\\",\\"CreateOneWIPerCI\\":false}",
-                region="southcentralus",
-            )],
-            logic_app_receivers=[azure.monitoring.ActionGroupLogicAppReceiverArgs(
-                name="logicappaction",
-                resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-logicapp/providers/Microsoft.Logic/workflows/logicapp",
-                callback_url="https://logicapptriggerurl/...",
-                use_common_alert_schema=True,
-            )],
-            sms_receivers=[azure.monitoring.ActionGroupSmsReceiverArgs(
-                name="oncallmsg",
-                country_code="1",
-                phone_number="1231231234",
-            )],
-            voice_receivers=[azure.monitoring.ActionGroupVoiceReceiverArgs(
-                name="remotesupport",
-                country_code="86",
-                phone_number="13888888888",
-            )],
-            webhook_receivers=[azure.monitoring.ActionGroupWebhookReceiverArgs(
-                name="callmyapiaswell",
-                service_uri="http://example.com/alert",
-                use_common_alert_schema=True,
-            )])
-        ```
 
         ## Import
 

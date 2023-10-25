@@ -97,11 +97,13 @@ class AccountAnalyticalStorage(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             schema_type: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             schema_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'schemaType' in kwargs:
+        if schema_type is None and 'schemaType' in kwargs:
             schema_type = kwargs['schemaType']
+        if schema_type is None:
+            raise TypeError("Missing 'schema_type' argument")
 
         _setter("schema_type", schema_type)
 
@@ -158,17 +160,19 @@ class AccountBackup(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              interval_in_minutes: Optional[int] = None,
              retention_in_hours: Optional[int] = None,
              storage_redundancy: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'intervalInMinutes' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if interval_in_minutes is None and 'intervalInMinutes' in kwargs:
             interval_in_minutes = kwargs['intervalInMinutes']
-        if 'retentionInHours' in kwargs:
+        if retention_in_hours is None and 'retentionInHours' in kwargs:
             retention_in_hours = kwargs['retentionInHours']
-        if 'storageRedundancy' in kwargs:
+        if storage_redundancy is None and 'storageRedundancy' in kwargs:
             storage_redundancy = kwargs['storageRedundancy']
 
         _setter("type", type)
@@ -226,9 +230,11 @@ class AccountCapability(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
 
@@ -272,11 +278,13 @@ class AccountCapacity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             total_throughput_limit: int,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             total_throughput_limit: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'totalThroughputLimit' in kwargs:
+        if total_throughput_limit is None and 'totalThroughputLimit' in kwargs:
             total_throughput_limit = kwargs['totalThroughputLimit']
+        if total_throughput_limit is None:
+            raise TypeError("Missing 'total_throughput_limit' argument")
 
         _setter("total_throughput_limit", total_throughput_limit)
 
@@ -332,16 +340,18 @@ class AccountConsistencyPolicy(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             consistency_level: str,
+             consistency_level: Optional[str] = None,
              max_interval_in_seconds: Optional[int] = None,
              max_staleness_prefix: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'consistencyLevel' in kwargs:
+        if consistency_level is None and 'consistencyLevel' in kwargs:
             consistency_level = kwargs['consistencyLevel']
-        if 'maxIntervalInSeconds' in kwargs:
+        if consistency_level is None:
+            raise TypeError("Missing 'consistency_level' argument")
+        if max_interval_in_seconds is None and 'maxIntervalInSeconds' in kwargs:
             max_interval_in_seconds = kwargs['maxIntervalInSeconds']
-        if 'maxStalenessPrefix' in kwargs:
+        if max_staleness_prefix is None and 'maxStalenessPrefix' in kwargs:
             max_staleness_prefix = kwargs['maxStalenessPrefix']
 
         _setter("consistency_level", consistency_level)
@@ -428,22 +438,30 @@ class AccountCorsRule(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             allowed_headers: Sequence[str],
-             allowed_methods: Sequence[str],
-             allowed_origins: Sequence[str],
-             exposed_headers: Sequence[str],
+             allowed_headers: Optional[Sequence[str]] = None,
+             allowed_methods: Optional[Sequence[str]] = None,
+             allowed_origins: Optional[Sequence[str]] = None,
+             exposed_headers: Optional[Sequence[str]] = None,
              max_age_in_seconds: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'allowedHeaders' in kwargs:
+        if allowed_headers is None and 'allowedHeaders' in kwargs:
             allowed_headers = kwargs['allowedHeaders']
-        if 'allowedMethods' in kwargs:
+        if allowed_headers is None:
+            raise TypeError("Missing 'allowed_headers' argument")
+        if allowed_methods is None and 'allowedMethods' in kwargs:
             allowed_methods = kwargs['allowedMethods']
-        if 'allowedOrigins' in kwargs:
+        if allowed_methods is None:
+            raise TypeError("Missing 'allowed_methods' argument")
+        if allowed_origins is None and 'allowedOrigins' in kwargs:
             allowed_origins = kwargs['allowedOrigins']
-        if 'exposedHeaders' in kwargs:
+        if allowed_origins is None:
+            raise TypeError("Missing 'allowed_origins' argument")
+        if exposed_headers is None and 'exposedHeaders' in kwargs:
             exposed_headers = kwargs['exposedHeaders']
-        if 'maxAgeInSeconds' in kwargs:
+        if exposed_headers is None:
+            raise TypeError("Missing 'exposed_headers' argument")
+        if max_age_in_seconds is None and 'maxAgeInSeconds' in kwargs:
             max_age_in_seconds = kwargs['maxAgeInSeconds']
 
         _setter("allowed_headers", allowed_headers)
@@ -536,15 +554,19 @@ class AccountGeoLocation(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             failover_priority: int,
-             location: str,
+             failover_priority: Optional[int] = None,
+             location: Optional[str] = None,
              id: Optional[str] = None,
              zone_redundant: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'failoverPriority' in kwargs:
+        if failover_priority is None and 'failoverPriority' in kwargs:
             failover_priority = kwargs['failoverPriority']
-        if 'zoneRedundant' in kwargs:
+        if failover_priority is None:
+            raise TypeError("Missing 'failover_priority' argument")
+        if location is None:
+            raise TypeError("Missing 'location' argument")
+        if zone_redundant is None and 'zoneRedundant' in kwargs:
             zone_redundant = kwargs['zoneRedundant']
 
         _setter("failover_priority", failover_priority)
@@ -631,17 +653,19 @@ class AccountIdentity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -726,15 +750,19 @@ class AccountRestore(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             restore_timestamp_in_utc: str,
-             source_cosmosdb_account_id: str,
+             restore_timestamp_in_utc: Optional[str] = None,
+             source_cosmosdb_account_id: Optional[str] = None,
              databases: Optional[Sequence['outputs.AccountRestoreDatabase']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'restoreTimestampInUtc' in kwargs:
+        if restore_timestamp_in_utc is None and 'restoreTimestampInUtc' in kwargs:
             restore_timestamp_in_utc = kwargs['restoreTimestampInUtc']
-        if 'sourceCosmosdbAccountId' in kwargs:
+        if restore_timestamp_in_utc is None:
+            raise TypeError("Missing 'restore_timestamp_in_utc' argument")
+        if source_cosmosdb_account_id is None and 'sourceCosmosdbAccountId' in kwargs:
             source_cosmosdb_account_id = kwargs['sourceCosmosdbAccountId']
+        if source_cosmosdb_account_id is None:
+            raise TypeError("Missing 'source_cosmosdb_account_id' argument")
 
         _setter("restore_timestamp_in_utc", restore_timestamp_in_utc)
         _setter("source_cosmosdb_account_id", source_cosmosdb_account_id)
@@ -802,11 +830,13 @@ class AccountRestoreDatabase(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              collection_names: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'collectionNames' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if collection_names is None and 'collectionNames' in kwargs:
             collection_names = kwargs['collectionNames']
 
         _setter("name", name)
@@ -864,11 +894,13 @@ class AccountVirtualNetworkRule(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             id: str,
+             id: Optional[str] = None,
              ignore_missing_vnet_service_endpoint: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'ignoreMissingVnetServiceEndpoint' in kwargs:
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if ignore_missing_vnet_service_endpoint is None and 'ignoreMissingVnetServiceEndpoint' in kwargs:
             ignore_missing_vnet_service_endpoint = kwargs['ignoreMissingVnetServiceEndpoint']
 
         _setter("id", id)
@@ -929,14 +961,16 @@ class CassandraClusterIdentity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'principalId' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -996,9 +1030,9 @@ class CassandraKeyspaceAutoscaleSettings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              max_throughput: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'maxThroughput' in kwargs:
+        if max_throughput is None and 'maxThroughput' in kwargs:
             max_throughput = kwargs['maxThroughput']
 
         if max_throughput is not None:
@@ -1045,9 +1079,9 @@ class CassandraTableAutoscaleSettings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              max_throughput: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'maxThroughput' in kwargs:
+        if max_throughput is None and 'maxThroughput' in kwargs:
             max_throughput = kwargs['maxThroughput']
 
         if max_throughput is not None:
@@ -1101,14 +1135,18 @@ class CassandraTableSchema(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             columns: Sequence['outputs.CassandraTableSchemaColumn'],
-             partition_keys: Sequence['outputs.CassandraTableSchemaPartitionKey'],
+             columns: Optional[Sequence['outputs.CassandraTableSchemaColumn']] = None,
+             partition_keys: Optional[Sequence['outputs.CassandraTableSchemaPartitionKey']] = None,
              cluster_keys: Optional[Sequence['outputs.CassandraTableSchemaClusterKey']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'partitionKeys' in kwargs:
+        if columns is None:
+            raise TypeError("Missing 'columns' argument")
+        if partition_keys is None and 'partitionKeys' in kwargs:
             partition_keys = kwargs['partitionKeys']
-        if 'clusterKeys' in kwargs:
+        if partition_keys is None:
+            raise TypeError("Missing 'partition_keys' argument")
+        if cluster_keys is None and 'clusterKeys' in kwargs:
             cluster_keys = kwargs['clusterKeys']
 
         _setter("columns", columns)
@@ -1175,12 +1213,16 @@ class CassandraTableSchemaClusterKey(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             order_by: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             name: Optional[str] = None,
+             order_by: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'orderBy' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if order_by is None and 'orderBy' in kwargs:
             order_by = kwargs['orderBy']
+        if order_by is None:
+            raise TypeError("Missing 'order_by' argument")
 
         _setter("name", name)
         _setter("order_by", order_by)
@@ -1219,10 +1261,14 @@ class CassandraTableSchemaColumn(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             type: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("name", name)
         _setter("type", type)
@@ -1258,9 +1304,11 @@ class CassandraTableSchemaPartitionKey(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
 
@@ -1305,9 +1353,9 @@ class GremlinDatabaseAutoscaleSettings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              max_throughput: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'maxThroughput' in kwargs:
+        if max_throughput is None and 'maxThroughput' in kwargs:
             max_throughput = kwargs['maxThroughput']
 
         if max_throughput is not None:
@@ -1354,9 +1402,9 @@ class GremlinGraphAutoscaleSettings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              max_throughput: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'maxThroughput' in kwargs:
+        if max_throughput is None and 'maxThroughput' in kwargs:
             max_throughput = kwargs['maxThroughput']
 
         if max_throughput is not None:
@@ -1410,14 +1458,16 @@ class GremlinGraphConflictResolutionPolicy(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mode: str,
+             mode: Optional[str] = None,
              conflict_resolution_path: Optional[str] = None,
              conflict_resolution_procedure: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'conflictResolutionPath' in kwargs:
+        if mode is None:
+            raise TypeError("Missing 'mode' argument")
+        if conflict_resolution_path is None and 'conflictResolutionPath' in kwargs:
             conflict_resolution_path = kwargs['conflictResolutionPath']
-        if 'conflictResolutionProcedure' in kwargs:
+        if conflict_resolution_procedure is None and 'conflictResolutionProcedure' in kwargs:
             conflict_resolution_procedure = kwargs['conflictResolutionProcedure']
 
         _setter("mode", mode)
@@ -1505,23 +1555,25 @@ class GremlinGraphIndexPolicy(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             indexing_mode: str,
+             indexing_mode: Optional[str] = None,
              automatic: Optional[bool] = None,
              composite_indices: Optional[Sequence['outputs.GremlinGraphIndexPolicyCompositeIndex']] = None,
              excluded_paths: Optional[Sequence[str]] = None,
              included_paths: Optional[Sequence[str]] = None,
              spatial_indices: Optional[Sequence['outputs.GremlinGraphIndexPolicySpatialIndex']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'indexingMode' in kwargs:
+        if indexing_mode is None and 'indexingMode' in kwargs:
             indexing_mode = kwargs['indexingMode']
-        if 'compositeIndices' in kwargs:
+        if indexing_mode is None:
+            raise TypeError("Missing 'indexing_mode' argument")
+        if composite_indices is None and 'compositeIndices' in kwargs:
             composite_indices = kwargs['compositeIndices']
-        if 'excludedPaths' in kwargs:
+        if excluded_paths is None and 'excludedPaths' in kwargs:
             excluded_paths = kwargs['excludedPaths']
-        if 'includedPaths' in kwargs:
+        if included_paths is None and 'includedPaths' in kwargs:
             included_paths = kwargs['includedPaths']
-        if 'spatialIndices' in kwargs:
+        if spatial_indices is None and 'spatialIndices' in kwargs:
             spatial_indices = kwargs['spatialIndices']
 
         _setter("indexing_mode", indexing_mode)
@@ -1599,9 +1651,11 @@ class GremlinGraphIndexPolicyCompositeIndex(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             indices: Sequence['outputs.GremlinGraphIndexPolicyCompositeIndexIndex'],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             indices: Optional[Sequence['outputs.GremlinGraphIndexPolicyCompositeIndexIndex']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if indices is None:
+            raise TypeError("Missing 'indices' argument")
 
         _setter("indices", indices)
 
@@ -1631,10 +1685,14 @@ class GremlinGraphIndexPolicyCompositeIndexIndex(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             order: str,
-             path: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             order: Optional[str] = None,
+             path: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if order is None:
+            raise TypeError("Missing 'order' argument")
+        if path is None:
+            raise TypeError("Missing 'path' argument")
 
         _setter("order", order)
         _setter("path", path)
@@ -1672,10 +1730,12 @@ class GremlinGraphIndexPolicySpatialIndex(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             path: str,
+             path: Optional[str] = None,
              types: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if path is None:
+            raise TypeError("Missing 'path' argument")
 
         _setter("path", path)
         if types is not None:
@@ -1709,9 +1769,11 @@ class GremlinGraphUniqueKey(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             paths: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             paths: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if paths is None:
+            raise TypeError("Missing 'paths' argument")
 
         _setter("paths", paths)
 
@@ -1756,9 +1818,9 @@ class MongoCollectionAutoscaleSettings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              max_throughput: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'maxThroughput' in kwargs:
+        if max_throughput is None and 'maxThroughput' in kwargs:
             max_throughput = kwargs['maxThroughput']
 
         if max_throughput is not None:
@@ -1792,10 +1854,12 @@ class MongoCollectionIndex(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             keys: Sequence[str],
+             keys: Optional[Sequence[str]] = None,
              unique: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if keys is None:
+            raise TypeError("Missing 'keys' argument")
 
         _setter("keys", keys)
         if unique is not None:
@@ -1841,7 +1905,7 @@ class MongoCollectionSystemIndex(dict):
              _setter: Callable[[Any, Any], None],
              keys: Optional[Sequence[str]] = None,
              unique: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
 
         if keys is not None:
@@ -1900,9 +1964,9 @@ class MongoDatabaseAutoscaleSettings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              max_throughput: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'maxThroughput' in kwargs:
+        if max_throughput is None and 'maxThroughput' in kwargs:
             max_throughput = kwargs['maxThroughput']
 
         if max_throughput is not None:
@@ -1934,10 +1998,14 @@ class MongoRoleDefinitionPrivilege(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             actions: Sequence[str],
-             resource: 'outputs.MongoRoleDefinitionPrivilegeResource',
-             opts: Optional[pulumi.ResourceOptions]=None,
+             actions: Optional[Sequence[str]] = None,
+             resource: Optional['outputs.MongoRoleDefinitionPrivilegeResource'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if actions is None:
+            raise TypeError("Missing 'actions' argument")
+        if resource is None:
+            raise TypeError("Missing 'resource' argument")
 
         _setter("actions", actions)
         _setter("resource", resource)
@@ -1997,11 +2065,11 @@ class MongoRoleDefinitionPrivilegeResource(dict):
              _setter: Callable[[Any, Any], None],
              collection_name: Optional[str] = None,
              db_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'collectionName' in kwargs:
+        if collection_name is None and 'collectionName' in kwargs:
             collection_name = kwargs['collectionName']
-        if 'dbName' in kwargs:
+        if db_name is None and 'dbName' in kwargs:
             db_name = kwargs['dbName']
 
         if collection_name is not None:
@@ -2070,13 +2138,13 @@ class PostgresqlClusterMaintenanceWindow(dict):
              day_of_week: Optional[int] = None,
              start_hour: Optional[int] = None,
              start_minute: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dayOfWeek' in kwargs:
+        if day_of_week is None and 'dayOfWeek' in kwargs:
             day_of_week = kwargs['dayOfWeek']
-        if 'startHour' in kwargs:
+        if start_hour is None and 'startHour' in kwargs:
             start_hour = kwargs['startHour']
-        if 'startMinute' in kwargs:
+        if start_minute is None and 'startMinute' in kwargs:
             start_minute = kwargs['startMinute']
 
         if day_of_week is not None:
@@ -2143,9 +2211,9 @@ class SqlContainerAutoscaleSettings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              max_throughput: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'maxThroughput' in kwargs:
+        if max_throughput is None and 'maxThroughput' in kwargs:
             max_throughput = kwargs['maxThroughput']
 
         if max_throughput is not None:
@@ -2199,14 +2267,16 @@ class SqlContainerConflictResolutionPolicy(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mode: str,
+             mode: Optional[str] = None,
              conflict_resolution_path: Optional[str] = None,
              conflict_resolution_procedure: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'conflictResolutionPath' in kwargs:
+        if mode is None:
+            raise TypeError("Missing 'mode' argument")
+        if conflict_resolution_path is None and 'conflictResolutionPath' in kwargs:
             conflict_resolution_path = kwargs['conflictResolutionPath']
-        if 'conflictResolutionProcedure' in kwargs:
+        if conflict_resolution_procedure is None and 'conflictResolutionProcedure' in kwargs:
             conflict_resolution_procedure = kwargs['conflictResolutionProcedure']
 
         _setter("mode", mode)
@@ -2296,17 +2366,17 @@ class SqlContainerIndexingPolicy(dict):
              included_paths: Optional[Sequence['outputs.SqlContainerIndexingPolicyIncludedPath']] = None,
              indexing_mode: Optional[str] = None,
              spatial_indices: Optional[Sequence['outputs.SqlContainerIndexingPolicySpatialIndex']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'compositeIndices' in kwargs:
+        if composite_indices is None and 'compositeIndices' in kwargs:
             composite_indices = kwargs['compositeIndices']
-        if 'excludedPaths' in kwargs:
+        if excluded_paths is None and 'excludedPaths' in kwargs:
             excluded_paths = kwargs['excludedPaths']
-        if 'includedPaths' in kwargs:
+        if included_paths is None and 'includedPaths' in kwargs:
             included_paths = kwargs['includedPaths']
-        if 'indexingMode' in kwargs:
+        if indexing_mode is None and 'indexingMode' in kwargs:
             indexing_mode = kwargs['indexingMode']
-        if 'spatialIndices' in kwargs:
+        if spatial_indices is None and 'spatialIndices' in kwargs:
             spatial_indices = kwargs['spatialIndices']
 
         if composite_indices is not None:
@@ -2375,9 +2445,11 @@ class SqlContainerIndexingPolicyCompositeIndex(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             indices: Sequence['outputs.SqlContainerIndexingPolicyCompositeIndexIndex'],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             indices: Optional[Sequence['outputs.SqlContainerIndexingPolicyCompositeIndexIndex']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if indices is None:
+            raise TypeError("Missing 'indices' argument")
 
         _setter("indices", indices)
 
@@ -2407,10 +2479,14 @@ class SqlContainerIndexingPolicyCompositeIndexIndex(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             order: str,
-             path: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             order: Optional[str] = None,
+             path: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if order is None:
+            raise TypeError("Missing 'order' argument")
+        if path is None:
+            raise TypeError("Missing 'path' argument")
 
         _setter("order", order)
         _setter("path", path)
@@ -2446,9 +2522,11 @@ class SqlContainerIndexingPolicyExcludedPath(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             path: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             path: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if path is None:
+            raise TypeError("Missing 'path' argument")
 
         _setter("path", path)
 
@@ -2475,9 +2553,11 @@ class SqlContainerIndexingPolicyIncludedPath(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             path: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             path: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if path is None:
+            raise TypeError("Missing 'path' argument")
 
         _setter("path", path)
 
@@ -2507,10 +2587,12 @@ class SqlContainerIndexingPolicySpatialIndex(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             path: str,
+             path: Optional[str] = None,
              types: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if path is None:
+            raise TypeError("Missing 'path' argument")
 
         _setter("path", path)
         if types is not None:
@@ -2547,9 +2629,11 @@ class SqlContainerUniqueKey(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             paths: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             paths: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if paths is None:
+            raise TypeError("Missing 'paths' argument")
 
         _setter("paths", paths)
 
@@ -2594,9 +2678,9 @@ class SqlDatabaseAutoscaleSettings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              max_throughput: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'maxThroughput' in kwargs:
+        if max_throughput is None and 'maxThroughput' in kwargs:
             max_throughput = kwargs['maxThroughput']
 
         if max_throughput is not None:
@@ -2642,11 +2726,13 @@ class SqlRoleDefinitionPermission(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_actions: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             data_actions: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dataActions' in kwargs:
+        if data_actions is None and 'dataActions' in kwargs:
             data_actions = kwargs['dataActions']
+        if data_actions is None:
+            raise TypeError("Missing 'data_actions' argument")
 
         _setter("data_actions", data_actions)
 
@@ -2691,9 +2777,9 @@ class TableAutoscaleSettings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              max_throughput: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'maxThroughput' in kwargs:
+        if max_throughput is None and 'maxThroughput' in kwargs:
             max_throughput = kwargs['maxThroughput']
 
         if max_throughput is not None:
@@ -2722,9 +2808,11 @@ class GetAccountCapabilityResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
 
@@ -2757,17 +2845,23 @@ class GetAccountConsistencyPolicyResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             consistency_level: str,
-             max_interval_in_seconds: int,
-             max_staleness_prefix: int,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             consistency_level: Optional[str] = None,
+             max_interval_in_seconds: Optional[int] = None,
+             max_staleness_prefix: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'consistencyLevel' in kwargs:
+        if consistency_level is None and 'consistencyLevel' in kwargs:
             consistency_level = kwargs['consistencyLevel']
-        if 'maxIntervalInSeconds' in kwargs:
+        if consistency_level is None:
+            raise TypeError("Missing 'consistency_level' argument")
+        if max_interval_in_seconds is None and 'maxIntervalInSeconds' in kwargs:
             max_interval_in_seconds = kwargs['maxIntervalInSeconds']
-        if 'maxStalenessPrefix' in kwargs:
+        if max_interval_in_seconds is None:
+            raise TypeError("Missing 'max_interval_in_seconds' argument")
+        if max_staleness_prefix is None and 'maxStalenessPrefix' in kwargs:
             max_staleness_prefix = kwargs['maxStalenessPrefix']
+        if max_staleness_prefix is None:
+            raise TypeError("Missing 'max_staleness_prefix' argument")
 
         _setter("consistency_level", consistency_level)
         _setter("max_interval_in_seconds", max_interval_in_seconds)
@@ -2817,13 +2911,19 @@ class GetAccountGeoLocationResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             failover_priority: int,
-             id: str,
-             location: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             failover_priority: Optional[int] = None,
+             id: Optional[str] = None,
+             location: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'failoverPriority' in kwargs:
+        if failover_priority is None and 'failoverPriority' in kwargs:
             failover_priority = kwargs['failoverPriority']
+        if failover_priority is None:
+            raise TypeError("Missing 'failover_priority' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if location is None:
+            raise TypeError("Missing 'location' argument")
 
         _setter("failover_priority", failover_priority)
         _setter("id", id)
@@ -2865,9 +2965,11 @@ class GetAccountVirtualNetworkRuleResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             id: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
 
         _setter("id", id)
 
@@ -2906,21 +3008,31 @@ class GetRestorableDatabaseAccountsAccountResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_type: str,
-             creation_time: str,
-             deletion_time: str,
-             id: str,
-             restorable_locations: Sequence['outputs.GetRestorableDatabaseAccountsAccountRestorableLocationResult'],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             api_type: Optional[str] = None,
+             creation_time: Optional[str] = None,
+             deletion_time: Optional[str] = None,
+             id: Optional[str] = None,
+             restorable_locations: Optional[Sequence['outputs.GetRestorableDatabaseAccountsAccountRestorableLocationResult']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiType' in kwargs:
+        if api_type is None and 'apiType' in kwargs:
             api_type = kwargs['apiType']
-        if 'creationTime' in kwargs:
+        if api_type is None:
+            raise TypeError("Missing 'api_type' argument")
+        if creation_time is None and 'creationTime' in kwargs:
             creation_time = kwargs['creationTime']
-        if 'deletionTime' in kwargs:
+        if creation_time is None:
+            raise TypeError("Missing 'creation_time' argument")
+        if deletion_time is None and 'deletionTime' in kwargs:
             deletion_time = kwargs['deletionTime']
-        if 'restorableLocations' in kwargs:
+        if deletion_time is None:
+            raise TypeError("Missing 'deletion_time' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if restorable_locations is None and 'restorableLocations' in kwargs:
             restorable_locations = kwargs['restorableLocations']
+        if restorable_locations is None:
+            raise TypeError("Missing 'restorable_locations' argument")
 
         _setter("api_type", api_type)
         _setter("creation_time", creation_time)
@@ -2992,18 +3104,26 @@ class GetRestorableDatabaseAccountsAccountRestorableLocationResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             creation_time: str,
-             deletion_time: str,
-             location: str,
-             regional_database_account_instance_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             creation_time: Optional[str] = None,
+             deletion_time: Optional[str] = None,
+             location: Optional[str] = None,
+             regional_database_account_instance_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'creationTime' in kwargs:
+        if creation_time is None and 'creationTime' in kwargs:
             creation_time = kwargs['creationTime']
-        if 'deletionTime' in kwargs:
+        if creation_time is None:
+            raise TypeError("Missing 'creation_time' argument")
+        if deletion_time is None and 'deletionTime' in kwargs:
             deletion_time = kwargs['deletionTime']
-        if 'regionalDatabaseAccountInstanceId' in kwargs:
+        if deletion_time is None:
+            raise TypeError("Missing 'deletion_time' argument")
+        if location is None:
+            raise TypeError("Missing 'location' argument")
+        if regional_database_account_instance_id is None and 'regionalDatabaseAccountInstanceId' in kwargs:
             regional_database_account_instance_id = kwargs['regionalDatabaseAccountInstanceId']
+        if regional_database_account_instance_id is None:
+            raise TypeError("Missing 'regional_database_account_instance_id' argument")
 
         _setter("creation_time", creation_time)
         _setter("deletion_time", deletion_time)
@@ -3057,11 +3177,13 @@ class GetSqlDatabaseAutoscaleSettingResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             max_throughput: int,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             max_throughput: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'maxThroughput' in kwargs:
+        if max_throughput is None and 'maxThroughput' in kwargs:
             max_throughput = kwargs['maxThroughput']
+        if max_throughput is None:
+            raise TypeError("Missing 'max_throughput' argument")
 
         _setter("max_throughput", max_throughput)
 
@@ -3088,11 +3210,13 @@ class GetSqlRoleDefinitionPermissionResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_actions: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             data_actions: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dataActions' in kwargs:
+        if data_actions is None and 'dataActions' in kwargs:
             data_actions = kwargs['dataActions']
+        if data_actions is None:
+            raise TypeError("Missing 'data_actions' argument")
 
         _setter("data_actions", data_actions)
 

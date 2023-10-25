@@ -44,26 +44,34 @@ class ClusterManagedPrivateEndpointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cluster_name: pulumi.Input[str],
-             group_id: pulumi.Input[str],
-             private_link_resource_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             group_id: Optional[pulumi.Input[str]] = None,
+             private_link_resource_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              private_link_resource_region: Optional[pulumi.Input[str]] = None,
              request_message: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'clusterName' in kwargs:
+        if cluster_name is None and 'clusterName' in kwargs:
             cluster_name = kwargs['clusterName']
-        if 'groupId' in kwargs:
+        if cluster_name is None:
+            raise TypeError("Missing 'cluster_name' argument")
+        if group_id is None and 'groupId' in kwargs:
             group_id = kwargs['groupId']
-        if 'privateLinkResourceId' in kwargs:
+        if group_id is None:
+            raise TypeError("Missing 'group_id' argument")
+        if private_link_resource_id is None and 'privateLinkResourceId' in kwargs:
             private_link_resource_id = kwargs['privateLinkResourceId']
-        if 'resourceGroupName' in kwargs:
+        if private_link_resource_id is None:
+            raise TypeError("Missing 'private_link_resource_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'privateLinkResourceRegion' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if private_link_resource_region is None and 'privateLinkResourceRegion' in kwargs:
             private_link_resource_region = kwargs['privateLinkResourceRegion']
-        if 'requestMessage' in kwargs:
+        if request_message is None and 'requestMessage' in kwargs:
             request_message = kwargs['requestMessage']
 
         _setter("cluster_name", cluster_name)
@@ -202,19 +210,19 @@ class _ClusterManagedPrivateEndpointState:
              private_link_resource_region: Optional[pulumi.Input[str]] = None,
              request_message: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'clusterName' in kwargs:
+        if cluster_name is None and 'clusterName' in kwargs:
             cluster_name = kwargs['clusterName']
-        if 'groupId' in kwargs:
+        if group_id is None and 'groupId' in kwargs:
             group_id = kwargs['groupId']
-        if 'privateLinkResourceId' in kwargs:
+        if private_link_resource_id is None and 'privateLinkResourceId' in kwargs:
             private_link_resource_id = kwargs['privateLinkResourceId']
-        if 'privateLinkResourceRegion' in kwargs:
+        if private_link_resource_region is None and 'privateLinkResourceRegion' in kwargs:
             private_link_resource_region = kwargs['privateLinkResourceRegion']
-        if 'requestMessage' in kwargs:
+        if request_message is None and 'requestMessage' in kwargs:
             request_message = kwargs['requestMessage']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if cluster_name is not None:
@@ -333,35 +341,6 @@ class ClusterManagedPrivateEndpoint(pulumi.CustomResource):
         """
         Manages a Managed Private Endpoint for a Kusto Cluster.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_cluster = azure.kusto.Cluster("exampleCluster",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Dev(No SLA)_Standard_D11_v2",
-                capacity=1,
-            ))
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_cluster_managed_private_endpoint = azure.kusto.ClusterManagedPrivateEndpoint("exampleClusterManagedPrivateEndpoint",
-            resource_group_name=example_resource_group.name,
-            cluster_name=example_cluster.name,
-            private_link_resource_id=example_account.id,
-            private_link_resource_region=example_account.location,
-            group_id="blob",
-            request_message="Please Approve")
-        ```
-
         ## Import
 
         Managed Private Endpoint for a Kusto Cluster can be imported using the `resource id`, e.g.
@@ -388,35 +367,6 @@ class ClusterManagedPrivateEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Managed Private Endpoint for a Kusto Cluster.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_cluster = azure.kusto.Cluster("exampleCluster",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Dev(No SLA)_Standard_D11_v2",
-                capacity=1,
-            ))
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_cluster_managed_private_endpoint = azure.kusto.ClusterManagedPrivateEndpoint("exampleClusterManagedPrivateEndpoint",
-            resource_group_name=example_resource_group.name,
-            cluster_name=example_cluster.name,
-            private_link_resource_id=example_account.id,
-            private_link_resource_region=example_account.location,
-            group_id="blob",
-            request_message="Please Approve")
-        ```
 
         ## Import
 

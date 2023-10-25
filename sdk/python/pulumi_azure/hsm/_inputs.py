@@ -31,14 +31,18 @@ class ModuleManagementNetworkProfileArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             network_interface_private_ip_addresses: pulumi.Input[Sequence[pulumi.Input[str]]],
-             subnet_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             network_interface_private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'networkInterfacePrivateIpAddresses' in kwargs:
+        if network_interface_private_ip_addresses is None and 'networkInterfacePrivateIpAddresses' in kwargs:
             network_interface_private_ip_addresses = kwargs['networkInterfacePrivateIpAddresses']
-        if 'subnetId' in kwargs:
+        if network_interface_private_ip_addresses is None:
+            raise TypeError("Missing 'network_interface_private_ip_addresses' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
 
         _setter("network_interface_private_ip_addresses", network_interface_private_ip_addresses)
         _setter("subnet_id", subnet_id)
@@ -85,14 +89,18 @@ class ModuleNetworkProfileArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             network_interface_private_ip_addresses: pulumi.Input[Sequence[pulumi.Input[str]]],
-             subnet_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             network_interface_private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'networkInterfacePrivateIpAddresses' in kwargs:
+        if network_interface_private_ip_addresses is None and 'networkInterfacePrivateIpAddresses' in kwargs:
             network_interface_private_ip_addresses = kwargs['networkInterfacePrivateIpAddresses']
-        if 'subnetId' in kwargs:
+        if network_interface_private_ip_addresses is None:
+            raise TypeError("Missing 'network_interface_private_ip_addresses' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
 
         _setter("network_interface_private_ip_addresses", network_interface_private_ip_addresses)
         _setter("subnet_id", subnet_id)

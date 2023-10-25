@@ -71,8 +71,8 @@ class NetworkInterfaceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ip_configurations: pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIpConfigurationArgs']]],
-             resource_group_name: pulumi.Input[str],
+             ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIpConfigurationArgs']]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              auxiliary_mode: Optional[pulumi.Input[str]] = None,
              auxiliary_sku: Optional[pulumi.Input[str]] = None,
              dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -83,25 +83,29 @@ class NetworkInterfaceArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'ipConfigurations' in kwargs:
+        if ip_configurations is None and 'ipConfigurations' in kwargs:
             ip_configurations = kwargs['ipConfigurations']
-        if 'resourceGroupName' in kwargs:
+        if ip_configurations is None:
+            raise TypeError("Missing 'ip_configurations' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'auxiliaryMode' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if auxiliary_mode is None and 'auxiliaryMode' in kwargs:
             auxiliary_mode = kwargs['auxiliaryMode']
-        if 'auxiliarySku' in kwargs:
+        if auxiliary_sku is None and 'auxiliarySku' in kwargs:
             auxiliary_sku = kwargs['auxiliarySku']
-        if 'dnsServers' in kwargs:
+        if dns_servers is None and 'dnsServers' in kwargs:
             dns_servers = kwargs['dnsServers']
-        if 'edgeZone' in kwargs:
+        if edge_zone is None and 'edgeZone' in kwargs:
             edge_zone = kwargs['edgeZone']
-        if 'enableAcceleratedNetworking' in kwargs:
+        if enable_accelerated_networking is None and 'enableAcceleratedNetworking' in kwargs:
             enable_accelerated_networking = kwargs['enableAcceleratedNetworking']
-        if 'enableIpForwarding' in kwargs:
+        if enable_ip_forwarding is None and 'enableIpForwarding' in kwargs:
             enable_ip_forwarding = kwargs['enableIpForwarding']
-        if 'internalDnsNameLabel' in kwargs:
+        if internal_dns_name_label is None and 'internalDnsNameLabel' in kwargs:
             internal_dns_name_label = kwargs['internalDnsNameLabel']
 
         _setter("ip_configurations", ip_configurations)
@@ -376,37 +380,37 @@ class _NetworkInterfaceState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              virtual_machine_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'appliedDnsServers' in kwargs:
+        if applied_dns_servers is None and 'appliedDnsServers' in kwargs:
             applied_dns_servers = kwargs['appliedDnsServers']
-        if 'auxiliaryMode' in kwargs:
+        if auxiliary_mode is None and 'auxiliaryMode' in kwargs:
             auxiliary_mode = kwargs['auxiliaryMode']
-        if 'auxiliarySku' in kwargs:
+        if auxiliary_sku is None and 'auxiliarySku' in kwargs:
             auxiliary_sku = kwargs['auxiliarySku']
-        if 'dnsServers' in kwargs:
+        if dns_servers is None and 'dnsServers' in kwargs:
             dns_servers = kwargs['dnsServers']
-        if 'edgeZone' in kwargs:
+        if edge_zone is None and 'edgeZone' in kwargs:
             edge_zone = kwargs['edgeZone']
-        if 'enableAcceleratedNetworking' in kwargs:
+        if enable_accelerated_networking is None and 'enableAcceleratedNetworking' in kwargs:
             enable_accelerated_networking = kwargs['enableAcceleratedNetworking']
-        if 'enableIpForwarding' in kwargs:
+        if enable_ip_forwarding is None and 'enableIpForwarding' in kwargs:
             enable_ip_forwarding = kwargs['enableIpForwarding']
-        if 'internalDnsNameLabel' in kwargs:
+        if internal_dns_name_label is None and 'internalDnsNameLabel' in kwargs:
             internal_dns_name_label = kwargs['internalDnsNameLabel']
-        if 'internalDomainNameSuffix' in kwargs:
+        if internal_domain_name_suffix is None and 'internalDomainNameSuffix' in kwargs:
             internal_domain_name_suffix = kwargs['internalDomainNameSuffix']
-        if 'ipConfigurations' in kwargs:
+        if ip_configurations is None and 'ipConfigurations' in kwargs:
             ip_configurations = kwargs['ipConfigurations']
-        if 'macAddress' in kwargs:
+        if mac_address is None and 'macAddress' in kwargs:
             mac_address = kwargs['macAddress']
-        if 'privateIpAddress' in kwargs:
+        if private_ip_address is None and 'privateIpAddress' in kwargs:
             private_ip_address = kwargs['privateIpAddress']
-        if 'privateIpAddresses' in kwargs:
+        if private_ip_addresses is None and 'privateIpAddresses' in kwargs:
             private_ip_addresses = kwargs['privateIpAddresses']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'virtualMachineId' in kwargs:
+        if virtual_machine_id is None and 'virtualMachineId' in kwargs:
             virtual_machine_id = kwargs['virtualMachineId']
 
         if applied_dns_servers is not None:
@@ -694,31 +698,6 @@ class NetworkInterface(pulumi.CustomResource):
         """
         Manages a Network Interface.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="internal",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
-        ```
-
         ## Import
 
         Network Interfaces can be imported using the `resource id`, e.g.
@@ -760,31 +739,6 @@ class NetworkInterface(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Network Interface.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="internal",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
-        ```
 
         ## Import
 

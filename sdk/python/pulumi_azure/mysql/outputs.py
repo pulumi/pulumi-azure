@@ -76,15 +76,15 @@ class FlexibleServerCustomerManagedKey(dict):
              geo_backup_user_assigned_identity_id: Optional[str] = None,
              key_vault_key_id: Optional[str] = None,
              primary_user_assigned_identity_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'geoBackupKeyVaultKeyId' in kwargs:
+        if geo_backup_key_vault_key_id is None and 'geoBackupKeyVaultKeyId' in kwargs:
             geo_backup_key_vault_key_id = kwargs['geoBackupKeyVaultKeyId']
-        if 'geoBackupUserAssignedIdentityId' in kwargs:
+        if geo_backup_user_assigned_identity_id is None and 'geoBackupUserAssignedIdentityId' in kwargs:
             geo_backup_user_assigned_identity_id = kwargs['geoBackupUserAssignedIdentityId']
-        if 'keyVaultKeyId' in kwargs:
+        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
             key_vault_key_id = kwargs['keyVaultKeyId']
-        if 'primaryUserAssignedIdentityId' in kwargs:
+        if primary_user_assigned_identity_id is None and 'primaryUserAssignedIdentityId' in kwargs:
             primary_user_assigned_identity_id = kwargs['primaryUserAssignedIdentityId']
 
         if geo_backup_key_vault_key_id is not None:
@@ -166,11 +166,13 @@ class FlexibleServerHighAvailability(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mode: str,
+             mode: Optional[str] = None,
              standby_availability_zone: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'standbyAvailabilityZone' in kwargs:
+        if mode is None:
+            raise TypeError("Missing 'mode' argument")
+        if standby_availability_zone is None and 'standbyAvailabilityZone' in kwargs:
             standby_availability_zone = kwargs['standbyAvailabilityZone']
 
         _setter("mode", mode)
@@ -227,12 +229,16 @@ class FlexibleServerIdentity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             identity_ids: Sequence[str],
-             type: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             identity_ids: Optional[Sequence[str]] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
+        if identity_ids is None:
+            raise TypeError("Missing 'identity_ids' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("identity_ids", identity_ids)
         _setter("type", type)
@@ -298,13 +304,13 @@ class FlexibleServerMaintenanceWindow(dict):
              day_of_week: Optional[int] = None,
              start_hour: Optional[int] = None,
              start_minute: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dayOfWeek' in kwargs:
+        if day_of_week is None and 'dayOfWeek' in kwargs:
             day_of_week = kwargs['dayOfWeek']
-        if 'startHour' in kwargs:
+        if start_hour is None and 'startHour' in kwargs:
             start_hour = kwargs['startHour']
-        if 'startMinute' in kwargs:
+        if start_minute is None and 'startMinute' in kwargs:
             start_minute = kwargs['startMinute']
 
         if day_of_week is not None:
@@ -387,13 +393,13 @@ class FlexibleServerStorage(dict):
              io_scaling_enabled: Optional[bool] = None,
              iops: Optional[int] = None,
              size_gb: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'autoGrowEnabled' in kwargs:
+        if auto_grow_enabled is None and 'autoGrowEnabled' in kwargs:
             auto_grow_enabled = kwargs['autoGrowEnabled']
-        if 'ioScalingEnabled' in kwargs:
+        if io_scaling_enabled is None and 'ioScalingEnabled' in kwargs:
             io_scaling_enabled = kwargs['ioScalingEnabled']
-        if 'sizeGb' in kwargs:
+        if size_gb is None and 'sizeGb' in kwargs:
             size_gb = kwargs['sizeGb']
 
         if auto_grow_enabled is not None:
@@ -477,14 +483,16 @@ class ServerIdentity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'principalId' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -584,19 +592,19 @@ class ServerThreatDetectionPolicy(dict):
              retention_days: Optional[int] = None,
              storage_account_access_key: Optional[str] = None,
              storage_endpoint: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'disabledAlerts' in kwargs:
+        if disabled_alerts is None and 'disabledAlerts' in kwargs:
             disabled_alerts = kwargs['disabledAlerts']
-        if 'emailAccountAdmins' in kwargs:
+        if email_account_admins is None and 'emailAccountAdmins' in kwargs:
             email_account_admins = kwargs['emailAccountAdmins']
-        if 'emailAddresses' in kwargs:
+        if email_addresses is None and 'emailAddresses' in kwargs:
             email_addresses = kwargs['emailAddresses']
-        if 'retentionDays' in kwargs:
+        if retention_days is None and 'retentionDays' in kwargs:
             retention_days = kwargs['retentionDays']
-        if 'storageAccountAccessKey' in kwargs:
+        if storage_account_access_key is None and 'storageAccountAccessKey' in kwargs:
             storage_account_access_key = kwargs['storageAccountAccessKey']
-        if 'storageEndpoint' in kwargs:
+        if storage_endpoint is None and 'storageEndpoint' in kwargs:
             storage_endpoint = kwargs['storageEndpoint']
 
         if disabled_alerts is not None:
@@ -688,12 +696,16 @@ class GetFlexibleServerHighAvailabilityResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mode: str,
-             standby_availability_zone: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             mode: Optional[str] = None,
+             standby_availability_zone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'standbyAvailabilityZone' in kwargs:
+        if mode is None:
+            raise TypeError("Missing 'mode' argument")
+        if standby_availability_zone is None and 'standbyAvailabilityZone' in kwargs:
             standby_availability_zone = kwargs['standbyAvailabilityZone']
+        if standby_availability_zone is None:
+            raise TypeError("Missing 'standby_availability_zone' argument")
 
         _setter("mode", mode)
         _setter("standby_availability_zone", standby_availability_zone)
@@ -735,17 +747,23 @@ class GetFlexibleServerMaintenanceWindowResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             day_of_week: int,
-             start_hour: int,
-             start_minute: int,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             day_of_week: Optional[int] = None,
+             start_hour: Optional[int] = None,
+             start_minute: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dayOfWeek' in kwargs:
+        if day_of_week is None and 'dayOfWeek' in kwargs:
             day_of_week = kwargs['dayOfWeek']
-        if 'startHour' in kwargs:
+        if day_of_week is None:
+            raise TypeError("Missing 'day_of_week' argument")
+        if start_hour is None and 'startHour' in kwargs:
             start_hour = kwargs['startHour']
-        if 'startMinute' in kwargs:
+        if start_hour is None:
+            raise TypeError("Missing 'start_hour' argument")
+        if start_minute is None and 'startMinute' in kwargs:
             start_minute = kwargs['startMinute']
+        if start_minute is None:
+            raise TypeError("Missing 'start_minute' argument")
 
         _setter("day_of_week", day_of_week)
         _setter("start_hour", start_hour)
@@ -799,18 +817,26 @@ class GetFlexibleServerStorageResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             auto_grow_enabled: bool,
-             io_scaling_enabled: bool,
-             iops: int,
-             size_gb: int,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             auto_grow_enabled: Optional[bool] = None,
+             io_scaling_enabled: Optional[bool] = None,
+             iops: Optional[int] = None,
+             size_gb: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'autoGrowEnabled' in kwargs:
+        if auto_grow_enabled is None and 'autoGrowEnabled' in kwargs:
             auto_grow_enabled = kwargs['autoGrowEnabled']
-        if 'ioScalingEnabled' in kwargs:
+        if auto_grow_enabled is None:
+            raise TypeError("Missing 'auto_grow_enabled' argument")
+        if io_scaling_enabled is None and 'ioScalingEnabled' in kwargs:
             io_scaling_enabled = kwargs['ioScalingEnabled']
-        if 'sizeGb' in kwargs:
+        if io_scaling_enabled is None:
+            raise TypeError("Missing 'io_scaling_enabled' argument")
+        if iops is None:
+            raise TypeError("Missing 'iops' argument")
+        if size_gb is None and 'sizeGb' in kwargs:
             size_gb = kwargs['sizeGb']
+        if size_gb is None:
+            raise TypeError("Missing 'size_gb' argument")
 
         _setter("auto_grow_enabled", auto_grow_enabled)
         _setter("io_scaling_enabled", io_scaling_enabled)
@@ -870,15 +896,21 @@ class GetServerIdentityResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             principal_id: str,
-             tenant_id: str,
-             type: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("principal_id", principal_id)
         _setter("tenant_id", tenant_id)
@@ -941,27 +973,41 @@ class GetServerThreatDetectionPolicyResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             disabled_alerts: Sequence[str],
-             email_account_admins: bool,
-             email_addresses: Sequence[str],
-             enabled: bool,
-             retention_days: int,
-             storage_account_access_key: str,
-             storage_endpoint: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             disabled_alerts: Optional[Sequence[str]] = None,
+             email_account_admins: Optional[bool] = None,
+             email_addresses: Optional[Sequence[str]] = None,
+             enabled: Optional[bool] = None,
+             retention_days: Optional[int] = None,
+             storage_account_access_key: Optional[str] = None,
+             storage_endpoint: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'disabledAlerts' in kwargs:
+        if disabled_alerts is None and 'disabledAlerts' in kwargs:
             disabled_alerts = kwargs['disabledAlerts']
-        if 'emailAccountAdmins' in kwargs:
+        if disabled_alerts is None:
+            raise TypeError("Missing 'disabled_alerts' argument")
+        if email_account_admins is None and 'emailAccountAdmins' in kwargs:
             email_account_admins = kwargs['emailAccountAdmins']
-        if 'emailAddresses' in kwargs:
+        if email_account_admins is None:
+            raise TypeError("Missing 'email_account_admins' argument")
+        if email_addresses is None and 'emailAddresses' in kwargs:
             email_addresses = kwargs['emailAddresses']
-        if 'retentionDays' in kwargs:
+        if email_addresses is None:
+            raise TypeError("Missing 'email_addresses' argument")
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if retention_days is None and 'retentionDays' in kwargs:
             retention_days = kwargs['retentionDays']
-        if 'storageAccountAccessKey' in kwargs:
+        if retention_days is None:
+            raise TypeError("Missing 'retention_days' argument")
+        if storage_account_access_key is None and 'storageAccountAccessKey' in kwargs:
             storage_account_access_key = kwargs['storageAccountAccessKey']
-        if 'storageEndpoint' in kwargs:
+        if storage_account_access_key is None:
+            raise TypeError("Missing 'storage_account_access_key' argument")
+        if storage_endpoint is None and 'storageEndpoint' in kwargs:
             storage_endpoint = kwargs['storageEndpoint']
+        if storage_endpoint is None:
+            raise TypeError("Missing 'storage_endpoint' argument")
 
         _setter("disabled_alerts", disabled_alerts)
         _setter("email_account_admins", email_account_admins)

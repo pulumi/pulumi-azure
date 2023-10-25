@@ -39,15 +39,17 @@ class ZoneArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              soa_record: Optional[pulumi.Input['ZoneSoaRecordArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'soaRecord' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if soa_record is None and 'soaRecord' in kwargs:
             soa_record = kwargs['soaRecord']
 
         _setter("resource_group_name", resource_group_name)
@@ -155,19 +157,19 @@ class _ZoneState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              soa_record: Optional[pulumi.Input['ZoneSoaRecordArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'maxNumberOfRecordSets' in kwargs:
+        if max_number_of_record_sets is None and 'maxNumberOfRecordSets' in kwargs:
             max_number_of_record_sets = kwargs['maxNumberOfRecordSets']
-        if 'maxNumberOfVirtualNetworkLinks' in kwargs:
+        if max_number_of_virtual_network_links is None and 'maxNumberOfVirtualNetworkLinks' in kwargs:
             max_number_of_virtual_network_links = kwargs['maxNumberOfVirtualNetworkLinks']
-        if 'maxNumberOfVirtualNetworkLinksWithRegistration' in kwargs:
+        if max_number_of_virtual_network_links_with_registration is None and 'maxNumberOfVirtualNetworkLinksWithRegistration' in kwargs:
             max_number_of_virtual_network_links_with_registration = kwargs['maxNumberOfVirtualNetworkLinksWithRegistration']
-        if 'numberOfRecordSets' in kwargs:
+        if number_of_record_sets is None and 'numberOfRecordSets' in kwargs:
             number_of_record_sets = kwargs['numberOfRecordSets']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'soaRecord' in kwargs:
+        if soa_record is None and 'soaRecord' in kwargs:
             soa_record = kwargs['soaRecord']
 
         if max_number_of_record_sets is not None:
@@ -299,16 +301,6 @@ class Zone(pulumi.CustomResource):
         """
         Enables you to manage Private DNS zones within Azure DNS. These zones are hosted on Azure's name servers.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_zone = azure.privatedns.Zone("exampleZone", resource_group_name=example_resource_group.name)
-        ```
-
         ## Import
 
         Private DNS Zones can be imported using the `resource id`, e.g.
@@ -334,16 +326,6 @@ class Zone(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Enables you to manage Private DNS zones within Azure DNS. These zones are hosted on Azure's name servers.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_zone = azure.privatedns.Zone("exampleZone", resource_group_name=example_resource_group.name)
-        ```
 
         ## Import
 
@@ -389,11 +371,7 @@ class Zone(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if soa_record is not None and not isinstance(soa_record, ZoneSoaRecordArgs):
-                soa_record = soa_record or {}
-                def _setter(key, value):
-                    soa_record[key] = value
-                ZoneSoaRecordArgs._configure(_setter, **soa_record)
+            soa_record = _utilities.configure(soa_record, ZoneSoaRecordArgs, True)
             __props__.__dict__["soa_record"] = soa_record
             __props__.__dict__["tags"] = tags
             __props__.__dict__["max_number_of_record_sets"] = None

@@ -9,39 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Duplicated Anomaly Alert Rule.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "PerGB2018",
- * });
- * const exampleLogAnalyticsWorkspaceOnboarding = new azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", {
- *     workspaceId: exampleAnalyticsWorkspace.id,
- *     customerManagedKeyEnabled: false,
- * });
- * const exampleAlertRuleAnomaly = azure.sentinel.getAlertRuleAnomalyOutput({
- *     logAnalyticsWorkspaceId: exampleLogAnalyticsWorkspaceOnboarding.workspaceId,
- *     displayName: "UEBA Anomalous Sign In",
- * });
- * const exampleAlertRuleAnomalyDuplicate = new azure.sentinel.AlertRuleAnomalyDuplicate("exampleAlertRuleAnomalyDuplicate", {
- *     displayName: "example duplicated UEBA Anomalous Sign In",
- *     logAnalyticsWorkspaceId: exampleAnalyticsWorkspace.id,
- *     builtInRuleId: exampleAlertRuleAnomaly.apply(exampleAlertRuleAnomaly => exampleAlertRuleAnomaly.id),
- *     enabled: true,
- *     mode: "Flighting",
- *     thresholdObservations: [{
- *         name: "Anomaly score threshold",
- *         value: "0.6",
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * Built In Anomaly Alert Rules can be imported using the `resource id`, e.g.

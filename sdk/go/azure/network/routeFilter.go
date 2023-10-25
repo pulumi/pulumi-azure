@@ -15,41 +15,6 @@ import (
 
 // Manages a Route Filter.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := network.NewRouteFilter(ctx, "example", &network.RouteFilterArgs{
-//				Location:          pulumi.String("East US"),
-//				ResourceGroupName: pulumi.String("example"),
-//				Rule: &network.RouteFilterRuleArgs{
-//					Access: pulumi.String("Allow"),
-//					Communities: pulumi.StringArray{
-//						pulumi.String("12076:52004"),
-//					},
-//					Name:     pulumi.String("rule"),
-//					RuleType: pulumi.String("Community"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Route Filters can be imported using the `resource id`, e.g.

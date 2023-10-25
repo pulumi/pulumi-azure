@@ -38,21 +38,29 @@ class CertificateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             certificate_virtual_path: pulumi.Input[str],
-             key_vault_secret_id: pulumi.Input[str],
-             key_virtual_path: pulumi.Input[str],
-             nginx_deployment_id: pulumi.Input[str],
+             certificate_virtual_path: Optional[pulumi.Input[str]] = None,
+             key_vault_secret_id: Optional[pulumi.Input[str]] = None,
+             key_virtual_path: Optional[pulumi.Input[str]] = None,
+             nginx_deployment_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'certificateVirtualPath' in kwargs:
+        if certificate_virtual_path is None and 'certificateVirtualPath' in kwargs:
             certificate_virtual_path = kwargs['certificateVirtualPath']
-        if 'keyVaultSecretId' in kwargs:
+        if certificate_virtual_path is None:
+            raise TypeError("Missing 'certificate_virtual_path' argument")
+        if key_vault_secret_id is None and 'keyVaultSecretId' in kwargs:
             key_vault_secret_id = kwargs['keyVaultSecretId']
-        if 'keyVirtualPath' in kwargs:
+        if key_vault_secret_id is None:
+            raise TypeError("Missing 'key_vault_secret_id' argument")
+        if key_virtual_path is None and 'keyVirtualPath' in kwargs:
             key_virtual_path = kwargs['keyVirtualPath']
-        if 'nginxDeploymentId' in kwargs:
+        if key_virtual_path is None:
+            raise TypeError("Missing 'key_virtual_path' argument")
+        if nginx_deployment_id is None and 'nginxDeploymentId' in kwargs:
             nginx_deployment_id = kwargs['nginxDeploymentId']
+        if nginx_deployment_id is None:
+            raise TypeError("Missing 'nginx_deployment_id' argument")
 
         _setter("certificate_virtual_path", certificate_virtual_path)
         _setter("key_vault_secret_id", key_vault_secret_id)
@@ -154,15 +162,15 @@ class _CertificateState:
              key_virtual_path: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              nginx_deployment_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'certificateVirtualPath' in kwargs:
+        if certificate_virtual_path is None and 'certificateVirtualPath' in kwargs:
             certificate_virtual_path = kwargs['certificateVirtualPath']
-        if 'keyVaultSecretId' in kwargs:
+        if key_vault_secret_id is None and 'keyVaultSecretId' in kwargs:
             key_vault_secret_id = kwargs['keyVaultSecretId']
-        if 'keyVirtualPath' in kwargs:
+        if key_virtual_path is None and 'keyVirtualPath' in kwargs:
             key_virtual_path = kwargs['keyVirtualPath']
-        if 'nginxDeploymentId' in kwargs:
+        if nginx_deployment_id is None and 'nginxDeploymentId' in kwargs:
             nginx_deployment_id = kwargs['nginxDeploymentId']
 
         if certificate_virtual_path is not None:
@@ -251,86 +259,6 @@ class Certificate(pulumi.CustomResource):
         """
         Manages a Certificate for an NGinx Deployment.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import base64
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            allocation_method="Static",
-            sku="Standard",
-            tags={
-                "environment": "Production",
-            })
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="delegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="NGINX.NGINXPLUS/nginxDeployments",
-                    actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
-                ),
-            )])
-        example_deployment = azure.nginx.Deployment("exampleDeployment",
-            resource_group_name=example_resource_group.name,
-            sku="publicpreview_Monthly_gmz7xq9ge3py",
-            location=example_resource_group.location,
-            managed_resource_group="example",
-            diagnose_support_enabled=True,
-            frontend_public=azure.nginx.DeploymentFrontendPublicArgs(
-                ip_addresses=[example_public_ip.id],
-            ),
-            network_interfaces=[azure.nginx.DeploymentNetworkInterfaceArgs(
-                subnet_id=example_subnet.id,
-            )])
-        current = azure.core.get_client_config()
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="premium",
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
-                tenant_id=current.tenant_id,
-                object_id=current.object_id,
-                certificate_permissions=[
-                    "Create",
-                    "Delete",
-                    "DeleteIssuers",
-                    "Get",
-                    "GetIssuers",
-                    "Import",
-                    "List",
-                    "ListIssuers",
-                    "ManageContacts",
-                    "ManageIssuers",
-                    "SetIssuers",
-                    "Update",
-                ],
-            )])
-        example_certificate = azure.keyvault.Certificate("exampleCertificate",
-            key_vault_id=example_key_vault.id,
-            certificate=azure.keyvault.CertificateCertificateArgs(
-                contents=(lambda path: base64.b64encode(open(path).read().encode()).decode())("certificate-to-import.pfx"),
-                password="",
-            ))
-        example_nginx_certificate_certificate = azure.nginx.Certificate("exampleNginx/certificateCertificate",
-            nginx_deployment_id=example_deployment.id,
-            key_virtual_path="/src/cert/soservermekey.key",
-            certificate_virtual_path="/src/cert/server.cert",
-            key_vault_secret_id=example_certificate.secret_id)
-        ```
-
         ## Import
 
         An Nginx Certificate can be imported using the `resource id`, e.g.
@@ -355,86 +283,6 @@ class Certificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Certificate for an NGinx Deployment.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import base64
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            allocation_method="Static",
-            sku="Standard",
-            tags={
-                "environment": "Production",
-            })
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="delegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="NGINX.NGINXPLUS/nginxDeployments",
-                    actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
-                ),
-            )])
-        example_deployment = azure.nginx.Deployment("exampleDeployment",
-            resource_group_name=example_resource_group.name,
-            sku="publicpreview_Monthly_gmz7xq9ge3py",
-            location=example_resource_group.location,
-            managed_resource_group="example",
-            diagnose_support_enabled=True,
-            frontend_public=azure.nginx.DeploymentFrontendPublicArgs(
-                ip_addresses=[example_public_ip.id],
-            ),
-            network_interfaces=[azure.nginx.DeploymentNetworkInterfaceArgs(
-                subnet_id=example_subnet.id,
-            )])
-        current = azure.core.get_client_config()
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="premium",
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
-                tenant_id=current.tenant_id,
-                object_id=current.object_id,
-                certificate_permissions=[
-                    "Create",
-                    "Delete",
-                    "DeleteIssuers",
-                    "Get",
-                    "GetIssuers",
-                    "Import",
-                    "List",
-                    "ListIssuers",
-                    "ManageContacts",
-                    "ManageIssuers",
-                    "SetIssuers",
-                    "Update",
-                ],
-            )])
-        example_certificate = azure.keyvault.Certificate("exampleCertificate",
-            key_vault_id=example_key_vault.id,
-            certificate=azure.keyvault.CertificateCertificateArgs(
-                contents=(lambda path: base64.b64encode(open(path).read().encode()).decode())("certificate-to-import.pfx"),
-                password="",
-            ))
-        example_nginx_certificate_certificate = azure.nginx.Certificate("exampleNginx/certificateCertificate",
-            nginx_deployment_id=example_deployment.id,
-            key_virtual_path="/src/cert/soservermekey.key",
-            certificate_virtual_path="/src/cert/server.cert",
-            key_vault_secret_id=example_certificate.secret_id)
-        ```
 
         ## Import
 

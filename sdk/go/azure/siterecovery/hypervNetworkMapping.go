@@ -15,62 +15,6 @@ import (
 
 // Manages a HyperV site recovery network mapping on Azure. A HyperV network mapping decides how to translate connected networks when a VM is migrated from HyperV VMM Center to Azure.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/recoveryservices"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/siterecovery"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			targetResourceGroup, err := core.NewResourceGroup(ctx, "targetResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("East US"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			vault, err := recoveryservices.NewVault(ctx, "vault", &recoveryservices.VaultArgs{
-//				Location:          targetResourceGroup.Location,
-//				ResourceGroupName: targetResourceGroup.Name,
-//				Sku:               pulumi.String("Standard"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			targetVirtualNetwork, err := network.NewVirtualNetwork(ctx, "targetVirtualNetwork", &network.VirtualNetworkArgs{
-//				ResourceGroupName: targetResourceGroup.Name,
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("192.168.2.0/24"),
-//				},
-//				Location: targetResourceGroup.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = siterecovery.NewHypervNetworkMapping(ctx, "recovery-mapping", &siterecovery.HypervNetworkMappingArgs{
-//				RecoveryVaultId: vault.ID(),
-//				SourceSystemCenterVirtualMachineManagerName: pulumi.String("my-vmm-server"),
-//				SourceNetworkName: pulumi.String("my-vmm-network"),
-//				TargetNetworkId:   targetVirtualNetwork.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Site Recovery Network Mapping can be imported using the `resource id`, e.g.

@@ -84,12 +84,12 @@ class LocalRulestackRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action: pulumi.Input[str],
-             applications: pulumi.Input[Sequence[pulumi.Input[str]]],
-             destination: pulumi.Input['LocalRulestackRuleDestinationArgs'],
-             priority: pulumi.Input[int],
-             rulestack_id: pulumi.Input[str],
-             source: pulumi.Input['LocalRulestackRuleSourceArgs'],
+             action: Optional[pulumi.Input[str]] = None,
+             applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             destination: Optional[pulumi.Input['LocalRulestackRuleDestinationArgs']] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             rulestack_id: Optional[pulumi.Input[str]] = None,
+             source: Optional[pulumi.Input['LocalRulestackRuleSourceArgs']] = None,
              audit_comment: Optional[pulumi.Input[str]] = None,
              category: Optional[pulumi.Input['LocalRulestackRuleCategoryArgs']] = None,
              decryption_rule_type: Optional[pulumi.Input[str]] = None,
@@ -103,23 +103,35 @@ class LocalRulestackRuleArgs:
              protocol: Optional[pulumi.Input[str]] = None,
              protocol_ports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'rulestackId' in kwargs:
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if applications is None:
+            raise TypeError("Missing 'applications' argument")
+        if destination is None:
+            raise TypeError("Missing 'destination' argument")
+        if priority is None:
+            raise TypeError("Missing 'priority' argument")
+        if rulestack_id is None and 'rulestackId' in kwargs:
             rulestack_id = kwargs['rulestackId']
-        if 'auditComment' in kwargs:
+        if rulestack_id is None:
+            raise TypeError("Missing 'rulestack_id' argument")
+        if source is None:
+            raise TypeError("Missing 'source' argument")
+        if audit_comment is None and 'auditComment' in kwargs:
             audit_comment = kwargs['auditComment']
-        if 'decryptionRuleType' in kwargs:
+        if decryption_rule_type is None and 'decryptionRuleType' in kwargs:
             decryption_rule_type = kwargs['decryptionRuleType']
-        if 'inspectionCertificateId' in kwargs:
+        if inspection_certificate_id is None and 'inspectionCertificateId' in kwargs:
             inspection_certificate_id = kwargs['inspectionCertificateId']
-        if 'loggingEnabled' in kwargs:
+        if logging_enabled is None and 'loggingEnabled' in kwargs:
             logging_enabled = kwargs['loggingEnabled']
-        if 'negateDestination' in kwargs:
+        if negate_destination is None and 'negateDestination' in kwargs:
             negate_destination = kwargs['negateDestination']
-        if 'negateSource' in kwargs:
+        if negate_source is None and 'negateSource' in kwargs:
             negate_source = kwargs['negateSource']
-        if 'protocolPorts' in kwargs:
+        if protocol_ports is None and 'protocolPorts' in kwargs:
             protocol_ports = kwargs['protocolPorts']
 
         _setter("action", action)
@@ -476,23 +488,23 @@ class _LocalRulestackRuleState:
              rulestack_id: Optional[pulumi.Input[str]] = None,
              source: Optional[pulumi.Input['LocalRulestackRuleSourceArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'auditComment' in kwargs:
+        if audit_comment is None and 'auditComment' in kwargs:
             audit_comment = kwargs['auditComment']
-        if 'decryptionRuleType' in kwargs:
+        if decryption_rule_type is None and 'decryptionRuleType' in kwargs:
             decryption_rule_type = kwargs['decryptionRuleType']
-        if 'inspectionCertificateId' in kwargs:
+        if inspection_certificate_id is None and 'inspectionCertificateId' in kwargs:
             inspection_certificate_id = kwargs['inspectionCertificateId']
-        if 'loggingEnabled' in kwargs:
+        if logging_enabled is None and 'loggingEnabled' in kwargs:
             logging_enabled = kwargs['loggingEnabled']
-        if 'negateDestination' in kwargs:
+        if negate_destination is None and 'negateDestination' in kwargs:
             negate_destination = kwargs['negateDestination']
-        if 'negateSource' in kwargs:
+        if negate_source is None and 'negateSource' in kwargs:
             negate_source = kwargs['negateSource']
-        if 'protocolPorts' in kwargs:
+        if protocol_ports is None and 'protocolPorts' in kwargs:
             protocol_ports = kwargs['protocolPorts']
-        if 'rulestackId' in kwargs:
+        if rulestack_id is None and 'rulestackId' in kwargs:
             rulestack_id = kwargs['rulestackId']
 
         if action is not None:
@@ -793,29 +805,6 @@ class LocalRulestackRule(pulumi.CustomResource):
         """
         Manages a Palo Alto Local Rulestack Rule.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_local_rulestack = azure.paloalto.LocalRulestack("exampleLocalRulestack",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_local_rulestack_rule = azure.paloalto.LocalRulestackRule("exampleLocalRulestackRule",
-            rulestack_id=example_local_rulestack.id,
-            priority=1000,
-            action="Allow",
-            applications=["any"],
-            source=azure.paloalto.LocalRulestackRuleSourceArgs(
-                cidrs=["10.0.0.0/8"],
-            ),
-            destination=azure.paloalto.LocalRulestackRuleDestinationArgs(
-                cidrs=["192.168.16.0/24"],
-            ))
-        ```
-
         ## Import
 
         Palo Alto Local Rulestack Rules can be imported using the `resource id`, e.g.
@@ -856,29 +845,6 @@ class LocalRulestackRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Palo Alto Local Rulestack Rule.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_local_rulestack = azure.paloalto.LocalRulestack("exampleLocalRulestack",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_local_rulestack_rule = azure.paloalto.LocalRulestackRule("exampleLocalRulestackRule",
-            rulestack_id=example_local_rulestack.id,
-            priority=1000,
-            action="Allow",
-            applications=["any"],
-            source=azure.paloalto.LocalRulestackRuleSourceArgs(
-                cidrs=["10.0.0.0/8"],
-            ),
-            destination=azure.paloalto.LocalRulestackRuleDestinationArgs(
-                cidrs=["192.168.16.0/24"],
-            ))
-        ```
 
         ## Import
 
@@ -942,19 +908,11 @@ class LocalRulestackRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'applications'")
             __props__.__dict__["applications"] = applications
             __props__.__dict__["audit_comment"] = audit_comment
-            if category is not None and not isinstance(category, LocalRulestackRuleCategoryArgs):
-                category = category or {}
-                def _setter(key, value):
-                    category[key] = value
-                LocalRulestackRuleCategoryArgs._configure(_setter, **category)
+            category = _utilities.configure(category, LocalRulestackRuleCategoryArgs, True)
             __props__.__dict__["category"] = category
             __props__.__dict__["decryption_rule_type"] = decryption_rule_type
             __props__.__dict__["description"] = description
-            if destination is not None and not isinstance(destination, LocalRulestackRuleDestinationArgs):
-                destination = destination or {}
-                def _setter(key, value):
-                    destination[key] = value
-                LocalRulestackRuleDestinationArgs._configure(_setter, **destination)
+            destination = _utilities.configure(destination, LocalRulestackRuleDestinationArgs, True)
             if destination is None and not opts.urn:
                 raise TypeError("Missing required property 'destination'")
             __props__.__dict__["destination"] = destination
@@ -972,11 +930,7 @@ class LocalRulestackRule(pulumi.CustomResource):
             if rulestack_id is None and not opts.urn:
                 raise TypeError("Missing required property 'rulestack_id'")
             __props__.__dict__["rulestack_id"] = rulestack_id
-            if source is not None and not isinstance(source, LocalRulestackRuleSourceArgs):
-                source = source or {}
-                def _setter(key, value):
-                    source[key] = value
-                LocalRulestackRuleSourceArgs._configure(_setter, **source)
+            source = _utilities.configure(source, LocalRulestackRuleSourceArgs, True)
             if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")
             __props__.__dict__["source"] = source

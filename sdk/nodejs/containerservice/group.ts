@@ -11,45 +11,6 @@ import * as utilities from "../utilities";
  *
  * > **Note** `networkProfileId` is [deprecated](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-vnet) by Azure. For users who want to continue to manage existing `azure.containerservice.Group` that rely on `networkProfileId`, please stay on provider versions prior to v3.16.0. Otherwise, use `subnetIds` instead.
  *
- * ## Example Usage
- *
- * This example provisions a Basic Container.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleGroup = new azure.containerservice.Group("exampleGroup", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     ipAddressType: "Public",
- *     dnsNameLabel: "aci-label",
- *     osType: "Linux",
- *     containers: [
- *         {
- *             name: "hello-world",
- *             image: "mcr.microsoft.com/azuredocs/aci-helloworld:latest",
- *             cpu: 0.5,
- *             memory: 1.5,
- *             ports: [{
- *                 port: 443,
- *                 protocol: "TCP",
- *             }],
- *         },
- *         {
- *             name: "sidecar",
- *             image: "mcr.microsoft.com/azuredocs/aci-tutorial-sidecar",
- *             cpu: 0.5,
- *             memory: 1.5,
- *         },
- *     ],
- *     tags: {
- *         environment: "testing",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Container Group's can be imported using the `resource id`, e.g.

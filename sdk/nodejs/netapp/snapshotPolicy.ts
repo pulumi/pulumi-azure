@@ -9,54 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a NetApp Snapshot Policy.
  *
- * ## NetApp Snapshot Policy Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "East US"});
- * const exampleAccount = new azure.netapp.Account("exampleAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleSnapshotPolicy = new azure.netapp.SnapshotPolicy("exampleSnapshotPolicy", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     accountName: exampleAccount.name,
- *     enabled: true,
- *     hourlySchedule: {
- *         snapshotsToKeep: 4,
- *         minute: 15,
- *     },
- *     dailySchedule: {
- *         snapshotsToKeep: 2,
- *         hour: 20,
- *         minute: 15,
- *     },
- *     weeklySchedule: {
- *         snapshotsToKeep: 1,
- *         daysOfWeeks: [
- *             "Monday",
- *             "Friday",
- *         ],
- *         hour: 23,
- *         minute: 0,
- *     },
- *     monthlySchedule: {
- *         snapshotsToKeep: 1,
- *         daysOfMonths: [
- *             1,
- *             15,
- *             20,
- *             30,
- *         ],
- *         hour: 5,
- *         minute: 45,
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * NetApp Snapshot Policy can be imported using the `resource id`, e.g.

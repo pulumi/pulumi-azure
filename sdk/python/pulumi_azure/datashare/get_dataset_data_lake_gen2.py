@@ -128,17 +128,6 @@ def get_dataset_data_lake_gen2(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Data Share Data Lake Gen2 Dataset.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.datashare.get_dataset_data_lake_gen2(name="example-dsdlg2ds",
-        share_id="example-share-id")
-    pulumi.export("id", example.id)
-    ```
-
 
     :param str name: The name of this Data Share Data Lake Gen2 Dataset.
     :param str share_id: The resource ID of the Data Share where this Data Share Data Lake Gen2 Dataset should be created.
@@ -166,17 +155,6 @@ def get_dataset_data_lake_gen2_output(name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatasetDataLakeGen2Result]:
     """
     Use this data source to access information about an existing Data Share Data Lake Gen2 Dataset.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.datashare.get_dataset_data_lake_gen2(name="example-dsdlg2ds",
-        share_id="example-share-id")
-    pulumi.export("id", example.id)
-    ```
 
 
     :param str name: The name of this Data Share Data Lake Gen2 Dataset.

@@ -44,20 +44,24 @@ class ProjectArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             dev_center_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             dev_center_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              maximum_dev_boxes_per_user: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'devCenterId' in kwargs:
+        if dev_center_id is None and 'devCenterId' in kwargs:
             dev_center_id = kwargs['devCenterId']
-        if 'resourceGroupName' in kwargs:
+        if dev_center_id is None:
+            raise TypeError("Missing 'dev_center_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'maximumDevBoxesPerUser' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if maximum_dev_boxes_per_user is None and 'maximumDevBoxesPerUser' in kwargs:
             maximum_dev_boxes_per_user = kwargs['maximumDevBoxesPerUser']
 
         _setter("dev_center_id", dev_center_id)
@@ -202,15 +206,15 @@ class _ProjectState:
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'devCenterId' in kwargs:
+        if dev_center_id is None and 'devCenterId' in kwargs:
             dev_center_id = kwargs['devCenterId']
-        if 'devCenterUri' in kwargs:
+        if dev_center_uri is None and 'devCenterUri' in kwargs:
             dev_center_uri = kwargs['devCenterUri']
-        if 'maximumDevBoxesPerUser' in kwargs:
+        if maximum_dev_boxes_per_user is None and 'maximumDevBoxesPerUser' in kwargs:
             maximum_dev_boxes_per_user = kwargs['maximumDevBoxesPerUser']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if description is not None:
@@ -345,25 +349,6 @@ class Project(pulumi.CustomResource):
 
         Manages a Dev Center Project.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_dev_center = azure.devcenter.DevCenter("exampleDevCenter",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            identity=azure.devcenter.DevCenterIdentityArgs(
-                type="example-value",
-            ))
-        example_project = azure.devcenter.Project("exampleProject",
-            dev_center_id=example_dev_center.id,
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        ```
-
         ## Import
 
         An existing Dev Center Project can be imported into Terraform using the `resource id`, e.g.
@@ -394,25 +379,6 @@ class Project(pulumi.CustomResource):
         <!-- Note: This documentation is generated. Any manual changes will be overwritten -->
 
         Manages a Dev Center Project.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_dev_center = azure.devcenter.DevCenter("exampleDevCenter",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            identity=azure.devcenter.DevCenterIdentityArgs(
-                type="example-value",
-            ))
-        example_project = azure.devcenter.Project("exampleProject",
-            dev_center_id=example_dev_center.id,
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        ```
 
         ## Import
 

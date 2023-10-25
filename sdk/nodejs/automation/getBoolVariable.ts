@@ -6,20 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Automation Bool Variable.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.automation.getBoolVariable({
- *     name: "tfex-example-var",
- *     resourceGroupName: "tfex-example-rg",
- *     automationAccountName: "tfex-example-account",
- * });
- * export const variableId = example.then(example => example.id);
- * ```
  */
 export function getBoolVariable(args: GetBoolVariableArgs, opts?: pulumi.InvokeOptions): Promise<GetBoolVariableResult> {
 
@@ -75,20 +61,6 @@ export interface GetBoolVariableResult {
 }
 /**
  * Use this data source to access information about an existing Automation Bool Variable.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.automation.getBoolVariable({
- *     name: "tfex-example-var",
- *     resourceGroupName: "tfex-example-rg",
- *     automationAccountName: "tfex-example-account",
- * });
- * export const variableId = example.then(example => example.id);
- * ```
  */
 export function getBoolVariableOutput(args: GetBoolVariableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBoolVariableResult> {
     return pulumi.output(args).apply((a: any) => getBoolVariable(a, opts))

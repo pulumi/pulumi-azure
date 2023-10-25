@@ -50,26 +50,34 @@ class WebhookArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             automation_account_name: pulumi.Input[str],
-             expiry_time: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             runbook_name: pulumi.Input[str],
+             automation_account_name: Optional[pulumi.Input[str]] = None,
+             expiry_time: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             runbook_name: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              run_on_worker_group: Optional[pulumi.Input[str]] = None,
              uri: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'automationAccountName' in kwargs:
+        if automation_account_name is None and 'automationAccountName' in kwargs:
             automation_account_name = kwargs['automationAccountName']
-        if 'expiryTime' in kwargs:
+        if automation_account_name is None:
+            raise TypeError("Missing 'automation_account_name' argument")
+        if expiry_time is None and 'expiryTime' in kwargs:
             expiry_time = kwargs['expiryTime']
-        if 'resourceGroupName' in kwargs:
+        if expiry_time is None:
+            raise TypeError("Missing 'expiry_time' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'runbookName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if runbook_name is None and 'runbookName' in kwargs:
             runbook_name = kwargs['runbookName']
-        if 'runOnWorkerGroup' in kwargs:
+        if runbook_name is None:
+            raise TypeError("Missing 'runbook_name' argument")
+        if run_on_worker_group is None and 'runOnWorkerGroup' in kwargs:
             run_on_worker_group = kwargs['runOnWorkerGroup']
 
         _setter("automation_account_name", automation_account_name)
@@ -244,17 +252,17 @@ class _WebhookState:
              run_on_worker_group: Optional[pulumi.Input[str]] = None,
              runbook_name: Optional[pulumi.Input[str]] = None,
              uri: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'automationAccountName' in kwargs:
+        if automation_account_name is None and 'automationAccountName' in kwargs:
             automation_account_name = kwargs['automationAccountName']
-        if 'expiryTime' in kwargs:
+        if expiry_time is None and 'expiryTime' in kwargs:
             expiry_time = kwargs['expiryTime']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'runOnWorkerGroup' in kwargs:
+        if run_on_worker_group is None and 'runOnWorkerGroup' in kwargs:
             run_on_worker_group = kwargs['runOnWorkerGroup']
-        if 'runbookName' in kwargs:
+        if runbook_name is None and 'runbookName' in kwargs:
             runbook_name = kwargs['runbookName']
 
         if automation_account_name is not None:
@@ -403,39 +411,6 @@ class Webhook(pulumi.CustomResource):
         """
         Manages an Automation Runbook's Webhook.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.automation.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Basic")
-        example_run_book = azure.automation.RunBook("exampleRunBook",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            automation_account_name=example_account.name,
-            log_verbose=True,
-            log_progress=True,
-            description="This is an example runbook",
-            runbook_type="PowerShellWorkflow",
-            publish_content_link=azure.automation.RunBookPublishContentLinkArgs(
-                uri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
-            ))
-        example_webhook = azure.automation.Webhook("exampleWebhook",
-            resource_group_name=example_resource_group.name,
-            automation_account_name=example_account.name,
-            expiry_time="2021-12-31T00:00:00Z",
-            enabled=True,
-            runbook_name=example_run_book.name,
-            parameters={
-                "input": "parameter",
-            })
-        ```
-
         ## Import
 
         Automation Webhooks can be imported using the `resource id`, e.g.
@@ -464,39 +439,6 @@ class Webhook(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Automation Runbook's Webhook.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.automation.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Basic")
-        example_run_book = azure.automation.RunBook("exampleRunBook",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            automation_account_name=example_account.name,
-            log_verbose=True,
-            log_progress=True,
-            description="This is an example runbook",
-            runbook_type="PowerShellWorkflow",
-            publish_content_link=azure.automation.RunBookPublishContentLinkArgs(
-                uri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
-            ))
-        example_webhook = azure.automation.Webhook("exampleWebhook",
-            resource_group_name=example_resource_group.name,
-            automation_account_name=example_account.name,
-            expiry_time="2021-12-31T00:00:00Z",
-            enabled=True,
-            runbook_name=example_run_book.name,
-            parameters={
-                "input": "parameter",
-            })
-        ```
 
         ## Import
 

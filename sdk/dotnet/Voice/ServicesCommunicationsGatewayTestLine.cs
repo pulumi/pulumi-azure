@@ -12,41 +12,6 @@ namespace Pulumi.Azure.Voice
     /// <summary>
     /// Manages a Voice Services Communications Gateway Test Line.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Central US",
-    ///     });
-    /// 
-    ///     var exampleServicesCommunicationsGateway = new Azure.Voice.ServicesCommunicationsGateway("exampleServicesCommunicationsGateway", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///     });
-    /// 
-    ///     var exampleServicesCommunicationsGatewayTestLine = new Azure.Voice.ServicesCommunicationsGatewayTestLine("exampleServicesCommunicationsGatewayTestLine", new()
-    ///     {
-    ///         Location = "West Central US",
-    ///         VoiceServicesCommunicationsGatewayId = exampleServicesCommunicationsGateway.Id,
-    ///         PhoneNumber = "123456789",
-    ///         Purpose = "Automated",
-    ///         Tags = 
-    ///         {
-    ///             { "key", "value" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Voice Services Communications Gateway Test Line can be imported using the `resource id`, e.g.

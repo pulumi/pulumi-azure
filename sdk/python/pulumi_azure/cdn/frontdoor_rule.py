@@ -45,17 +45,23 @@ class FrontdoorRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             actions: pulumi.Input['FrontdoorRuleActionsArgs'],
-             cdn_frontdoor_rule_set_id: pulumi.Input[str],
-             order: pulumi.Input[int],
+             actions: Optional[pulumi.Input['FrontdoorRuleActionsArgs']] = None,
+             cdn_frontdoor_rule_set_id: Optional[pulumi.Input[str]] = None,
+             order: Optional[pulumi.Input[int]] = None,
              behavior_on_match: Optional[pulumi.Input[str]] = None,
              conditions: Optional[pulumi.Input['FrontdoorRuleConditionsArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'cdnFrontdoorRuleSetId' in kwargs:
+        if actions is None:
+            raise TypeError("Missing 'actions' argument")
+        if cdn_frontdoor_rule_set_id is None and 'cdnFrontdoorRuleSetId' in kwargs:
             cdn_frontdoor_rule_set_id = kwargs['cdnFrontdoorRuleSetId']
-        if 'behaviorOnMatch' in kwargs:
+        if cdn_frontdoor_rule_set_id is None:
+            raise TypeError("Missing 'cdn_frontdoor_rule_set_id' argument")
+        if order is None:
+            raise TypeError("Missing 'order' argument")
+        if behavior_on_match is None and 'behaviorOnMatch' in kwargs:
             behavior_on_match = kwargs['behaviorOnMatch']
 
         _setter("actions", actions)
@@ -185,13 +191,13 @@ class _FrontdoorRuleState:
              conditions: Optional[pulumi.Input['FrontdoorRuleConditionsArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              order: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'behaviorOnMatch' in kwargs:
+        if behavior_on_match is None and 'behaviorOnMatch' in kwargs:
             behavior_on_match = kwargs['behaviorOnMatch']
-        if 'cdnFrontdoorRuleSetId' in kwargs:
+        if cdn_frontdoor_rule_set_id is None and 'cdnFrontdoorRuleSetId' in kwargs:
             cdn_frontdoor_rule_set_id = kwargs['cdnFrontdoorRuleSetId']
-        if 'cdnFrontdoorRuleSetName' in kwargs:
+        if cdn_frontdoor_rule_set_name is None and 'cdnFrontdoorRuleSetName' in kwargs:
             cdn_frontdoor_rule_set_name = kwargs['cdnFrontdoorRuleSetName']
 
         if actions is not None:
@@ -627,11 +633,7 @@ class FrontdoorRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FrontdoorRuleArgs.__new__(FrontdoorRuleArgs)
 
-            if actions is not None and not isinstance(actions, FrontdoorRuleActionsArgs):
-                actions = actions or {}
-                def _setter(key, value):
-                    actions[key] = value
-                FrontdoorRuleActionsArgs._configure(_setter, **actions)
+            actions = _utilities.configure(actions, FrontdoorRuleActionsArgs, True)
             if actions is None and not opts.urn:
                 raise TypeError("Missing required property 'actions'")
             __props__.__dict__["actions"] = actions
@@ -639,11 +641,7 @@ class FrontdoorRule(pulumi.CustomResource):
             if cdn_frontdoor_rule_set_id is None and not opts.urn:
                 raise TypeError("Missing required property 'cdn_frontdoor_rule_set_id'")
             __props__.__dict__["cdn_frontdoor_rule_set_id"] = cdn_frontdoor_rule_set_id
-            if conditions is not None and not isinstance(conditions, FrontdoorRuleConditionsArgs):
-                conditions = conditions or {}
-                def _setter(key, value):
-                    conditions[key] = value
-                FrontdoorRuleConditionsArgs._configure(_setter, **conditions)
+            conditions = _utilities.configure(conditions, FrontdoorRuleConditionsArgs, True)
             __props__.__dict__["conditions"] = conditions
             __props__.__dict__["name"] = name
             if order is None and not opts.urn:

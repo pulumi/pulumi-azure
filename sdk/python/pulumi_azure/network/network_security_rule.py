@@ -77,12 +77,12 @@ class NetworkSecurityRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             access: pulumi.Input[str],
-             direction: pulumi.Input[str],
-             network_security_group_name: pulumi.Input[str],
-             priority: pulumi.Input[int],
-             protocol: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             access: Optional[pulumi.Input[str]] = None,
+             direction: Optional[pulumi.Input[str]] = None,
+             network_security_group_name: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              destination_address_prefix: Optional[pulumi.Input[str]] = None,
              destination_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -95,31 +95,43 @@ class NetworkSecurityRuleArgs:
              source_application_security_group_ids: Optional[pulumi.Input[str]] = None,
              source_port_range: Optional[pulumi.Input[str]] = None,
              source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'networkSecurityGroupName' in kwargs:
+        if access is None:
+            raise TypeError("Missing 'access' argument")
+        if direction is None:
+            raise TypeError("Missing 'direction' argument")
+        if network_security_group_name is None and 'networkSecurityGroupName' in kwargs:
             network_security_group_name = kwargs['networkSecurityGroupName']
-        if 'resourceGroupName' in kwargs:
+        if network_security_group_name is None:
+            raise TypeError("Missing 'network_security_group_name' argument")
+        if priority is None:
+            raise TypeError("Missing 'priority' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'destinationAddressPrefix' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if destination_address_prefix is None and 'destinationAddressPrefix' in kwargs:
             destination_address_prefix = kwargs['destinationAddressPrefix']
-        if 'destinationAddressPrefixes' in kwargs:
+        if destination_address_prefixes is None and 'destinationAddressPrefixes' in kwargs:
             destination_address_prefixes = kwargs['destinationAddressPrefixes']
-        if 'destinationApplicationSecurityGroupIds' in kwargs:
+        if destination_application_security_group_ids is None and 'destinationApplicationSecurityGroupIds' in kwargs:
             destination_application_security_group_ids = kwargs['destinationApplicationSecurityGroupIds']
-        if 'destinationPortRange' in kwargs:
+        if destination_port_range is None and 'destinationPortRange' in kwargs:
             destination_port_range = kwargs['destinationPortRange']
-        if 'destinationPortRanges' in kwargs:
+        if destination_port_ranges is None and 'destinationPortRanges' in kwargs:
             destination_port_ranges = kwargs['destinationPortRanges']
-        if 'sourceAddressPrefix' in kwargs:
+        if source_address_prefix is None and 'sourceAddressPrefix' in kwargs:
             source_address_prefix = kwargs['sourceAddressPrefix']
-        if 'sourceAddressPrefixes' in kwargs:
+        if source_address_prefixes is None and 'sourceAddressPrefixes' in kwargs:
             source_address_prefixes = kwargs['sourceAddressPrefixes']
-        if 'sourceApplicationSecurityGroupIds' in kwargs:
+        if source_application_security_group_ids is None and 'sourceApplicationSecurityGroupIds' in kwargs:
             source_application_security_group_ids = kwargs['sourceApplicationSecurityGroupIds']
-        if 'sourcePortRange' in kwargs:
+        if source_port_range is None and 'sourcePortRange' in kwargs:
             source_port_range = kwargs['sourcePortRange']
-        if 'sourcePortRanges' in kwargs:
+        if source_port_ranges is None and 'sourcePortRanges' in kwargs:
             source_port_ranges = kwargs['sourcePortRanges']
 
         _setter("access", access)
@@ -454,31 +466,31 @@ class _NetworkSecurityRuleState:
              source_application_security_group_ids: Optional[pulumi.Input[str]] = None,
              source_port_range: Optional[pulumi.Input[str]] = None,
              source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'destinationAddressPrefix' in kwargs:
+        if destination_address_prefix is None and 'destinationAddressPrefix' in kwargs:
             destination_address_prefix = kwargs['destinationAddressPrefix']
-        if 'destinationAddressPrefixes' in kwargs:
+        if destination_address_prefixes is None and 'destinationAddressPrefixes' in kwargs:
             destination_address_prefixes = kwargs['destinationAddressPrefixes']
-        if 'destinationApplicationSecurityGroupIds' in kwargs:
+        if destination_application_security_group_ids is None and 'destinationApplicationSecurityGroupIds' in kwargs:
             destination_application_security_group_ids = kwargs['destinationApplicationSecurityGroupIds']
-        if 'destinationPortRange' in kwargs:
+        if destination_port_range is None and 'destinationPortRange' in kwargs:
             destination_port_range = kwargs['destinationPortRange']
-        if 'destinationPortRanges' in kwargs:
+        if destination_port_ranges is None and 'destinationPortRanges' in kwargs:
             destination_port_ranges = kwargs['destinationPortRanges']
-        if 'networkSecurityGroupName' in kwargs:
+        if network_security_group_name is None and 'networkSecurityGroupName' in kwargs:
             network_security_group_name = kwargs['networkSecurityGroupName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'sourceAddressPrefix' in kwargs:
+        if source_address_prefix is None and 'sourceAddressPrefix' in kwargs:
             source_address_prefix = kwargs['sourceAddressPrefix']
-        if 'sourceAddressPrefixes' in kwargs:
+        if source_address_prefixes is None and 'sourceAddressPrefixes' in kwargs:
             source_address_prefixes = kwargs['sourceAddressPrefixes']
-        if 'sourceApplicationSecurityGroupIds' in kwargs:
+        if source_application_security_group_ids is None and 'sourceApplicationSecurityGroupIds' in kwargs:
             source_application_security_group_ids = kwargs['sourceApplicationSecurityGroupIds']
-        if 'sourcePortRange' in kwargs:
+        if source_port_range is None and 'sourcePortRange' in kwargs:
             source_port_range = kwargs['sourcePortRange']
-        if 'sourcePortRanges' in kwargs:
+        if source_port_ranges is None and 'sourcePortRanges' in kwargs:
             source_port_ranges = kwargs['sourcePortRanges']
 
         if access is not None:
@@ -766,29 +778,6 @@ class NetworkSecurityRule(pulumi.CustomResource):
         provides both a standalone Network Security Rule resource, and allows for Network Security Rules to be defined in-line within the Network Security Group resource.
         At this time you cannot use a Network Security Group with in-line Network Security Rules in conjunction with any Network Security Rule resources. Doing so will cause a conflict of rule settings and will overwrite rules.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_network_security_group = azure.network.NetworkSecurityGroup("exampleNetworkSecurityGroup",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_network_security_rule = azure.network.NetworkSecurityRule("exampleNetworkSecurityRule",
-            priority=100,
-            direction="Outbound",
-            access="Allow",
-            protocol="Tcp",
-            source_port_range="*",
-            destination_port_range="*",
-            source_address_prefix="*",
-            destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
-            network_security_group_name=example_network_security_group.name)
-        ```
-
         ## Import
 
         Network Security Rules can be imported using the `resource id`, e.g.
@@ -830,29 +819,6 @@ class NetworkSecurityRule(pulumi.CustomResource):
         > **NOTE on Network Security Groups and Network Security Rules:** This provider currently
         provides both a standalone Network Security Rule resource, and allows for Network Security Rules to be defined in-line within the Network Security Group resource.
         At this time you cannot use a Network Security Group with in-line Network Security Rules in conjunction with any Network Security Rule resources. Doing so will cause a conflict of rule settings and will overwrite rules.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_network_security_group = azure.network.NetworkSecurityGroup("exampleNetworkSecurityGroup",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_network_security_rule = azure.network.NetworkSecurityRule("exampleNetworkSecurityRule",
-            priority=100,
-            direction="Outbound",
-            access="Allow",
-            protocol="Tcp",
-            source_port_range="*",
-            destination_port_range="*",
-            source_address_prefix="*",
-            destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
-            network_security_group_name=example_network_security_group.name)
-        ```
 
         ## Import
 

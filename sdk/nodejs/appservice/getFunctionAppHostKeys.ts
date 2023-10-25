@@ -6,18 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to fetch the Host Keys of an existing Function App
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.appservice.getFunctionAppHostKeys({
- *     name: "example-function",
- *     resourceGroupName: azurerm_resource_group.example.name,
- * });
- * ```
  */
 export function getFunctionAppHostKeys(args: GetFunctionAppHostKeysArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionAppHostKeysResult> {
 
@@ -83,18 +71,6 @@ export interface GetFunctionAppHostKeysResult {
 }
 /**
  * Use this data source to fetch the Host Keys of an existing Function App
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.appservice.getFunctionAppHostKeys({
- *     name: "example-function",
- *     resourceGroupName: azurerm_resource_group.example.name,
- * });
- * ```
  */
 export function getFunctionAppHostKeysOutput(args: GetFunctionAppHostKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionAppHostKeysResult> {
     return pulumi.output(args).apply((a: any) => getFunctionAppHostKeys(a, opts))

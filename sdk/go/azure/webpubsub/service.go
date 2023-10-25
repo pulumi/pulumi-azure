@@ -15,51 +15,6 @@ import (
 
 // Manages an Azure Web PubSub Service.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/webpubsub"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("east us"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = webpubsub.NewService(ctx, "exampleService", &webpubsub.ServiceArgs{
-//				Location:                   exampleResourceGroup.Location,
-//				ResourceGroupName:          exampleResourceGroup.Name,
-//				Sku:                        pulumi.String("Standard_S1"),
-//				Capacity:                   pulumi.Int(1),
-//				PublicNetworkAccessEnabled: pulumi.Bool(false),
-//				LiveTrace: &webpubsub.ServiceLiveTraceArgs{
-//					Enabled:                 pulumi.Bool(true),
-//					MessagingLogsEnabled:    pulumi.Bool(true),
-//					ConnectivityLogsEnabled: pulumi.Bool(false),
-//				},
-//				Identity: &webpubsub.ServiceIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Web PubSub services can be imported using the `resource id`, e.g.

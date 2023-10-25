@@ -35,20 +35,28 @@ class IdentityProviderFacebookArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_management_name: pulumi.Input[str],
-             app_id: pulumi.Input[str],
-             app_secret: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             app_id: Optional[pulumi.Input[str]] = None,
+             app_secret: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'appId' in kwargs:
+        if api_management_name is None:
+            raise TypeError("Missing 'api_management_name' argument")
+        if app_id is None and 'appId' in kwargs:
             app_id = kwargs['appId']
-        if 'appSecret' in kwargs:
+        if app_id is None:
+            raise TypeError("Missing 'app_id' argument")
+        if app_secret is None and 'appSecret' in kwargs:
             app_secret = kwargs['appSecret']
-        if 'resourceGroupName' in kwargs:
+        if app_secret is None:
+            raise TypeError("Missing 'app_secret' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("api_management_name", api_management_name)
         _setter("app_id", app_id)
@@ -132,15 +140,15 @@ class _IdentityProviderFacebookState:
              app_id: Optional[pulumi.Input[str]] = None,
              app_secret: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'appId' in kwargs:
+        if app_id is None and 'appId' in kwargs:
             app_id = kwargs['appId']
-        if 'appSecret' in kwargs:
+        if app_secret is None and 'appSecret' in kwargs:
             app_secret = kwargs['appSecret']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if api_management_name is not None:
@@ -214,26 +222,6 @@ class IdentityProviderFacebook(pulumi.CustomResource):
         """
         Manages an API Management Facebook Identity Provider.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            publisher_name="My Company",
-            publisher_email="company@mycompany.io",
-            sku_name="Developer_1")
-        example_identity_provider_facebook = azure.apimanagement.IdentityProviderFacebook("exampleIdentityProviderFacebook",
-            resource_group_name=example_resource_group.name,
-            api_management_name=example_service.name,
-            app_id="00000000000000000000000000000000",
-            app_secret="00000000000000000000000000000000")
-        ```
-
         ## Import
 
         API Management Facebook Identity Provider can be imported using the `resource id`, e.g.
@@ -257,26 +245,6 @@ class IdentityProviderFacebook(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an API Management Facebook Identity Provider.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            publisher_name="My Company",
-            publisher_email="company@mycompany.io",
-            sku_name="Developer_1")
-        example_identity_provider_facebook = azure.apimanagement.IdentityProviderFacebook("exampleIdentityProviderFacebook",
-            resource_group_name=example_resource_group.name,
-            api_management_name=example_service.name,
-            app_id="00000000000000000000000000000000",
-            app_secret="00000000000000000000000000000000")
-        ```
 
         ## Import
 

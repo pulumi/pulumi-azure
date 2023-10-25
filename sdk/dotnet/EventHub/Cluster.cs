@@ -12,31 +12,6 @@ namespace Pulumi.Azure.EventHub
     /// <summary>
     /// Manages an EventHub Cluster
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var test = new Azure.EventHub.Cluster("test", new()
-    ///     {
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         SkuName = "Dedicated_1",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// EventHub Cluster's can be imported using the `resource id`, e.g.

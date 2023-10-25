@@ -12,32 +12,6 @@ namespace Pulumi.Azure.DesktopVirtualization
     /// <summary>
     /// Manages a Virtual Desktop Workspace.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var workspace = new Azure.DesktopVirtualization.Workspace("workspace", new()
-    ///     {
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         FriendlyName = "FriendlyName",
-    ///         Description = "A description of my workspace",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Virtual Desktop Workspaces can be imported using the `resource id`, e.g.

@@ -78,17 +78,6 @@ def get_policy_fileshare(name: Optional[str] = None,
     """
     Use this data source to access information about an existing File Share Backup Policy.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    policy = azure.backup.get_policy_fileshare(name="policy",
-        recovery_vault_name="recovery_vault",
-        resource_group_name="resource_group")
-    ```
-
 
     :param str name: Specifies the name of the File Share Backup Policy.
     :param str recovery_vault_name: Specifies the name of the Recovery Services Vault.
@@ -115,17 +104,6 @@ def get_policy_fileshare_output(name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyFileshareResult]:
     """
     Use this data source to access information about an existing File Share Backup Policy.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    policy = azure.backup.get_policy_fileshare(name="policy",
-        recovery_vault_name="recovery_vault",
-        resource_group_name="resource_group")
-    ```
 
 
     :param str name: Specifies the name of the File Share Backup Policy.

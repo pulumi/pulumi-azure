@@ -15,59 +15,6 @@ import (
 
 // Manages a Front Door (standard/premium) Origin Group.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cdn"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleFrontdoorProfile, err := cdn.NewFrontdoorProfile(ctx, "exampleFrontdoorProfile", &cdn.FrontdoorProfileArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				SkuName:           pulumi.String("Standard_AzureFrontDoor"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cdn.NewFrontdoorOriginGroup(ctx, "exampleFrontdoorOriginGroup", &cdn.FrontdoorOriginGroupArgs{
-//				CdnFrontdoorProfileId:                            exampleFrontdoorProfile.ID(),
-//				SessionAffinityEnabled:                           pulumi.Bool(true),
-//				RestoreTrafficTimeToHealedOrNewEndpointInMinutes: pulumi.Int(10),
-//				HealthProbe: &cdn.FrontdoorOriginGroupHealthProbeArgs{
-//					IntervalInSeconds: pulumi.Int(240),
-//					Path:              pulumi.String("/healthProbe"),
-//					Protocol:          pulumi.String("Https"),
-//					RequestType:       pulumi.String("HEAD"),
-//				},
-//				LoadBalancing: &cdn.FrontdoorOriginGroupLoadBalancingArgs{
-//					AdditionalLatencyInMilliseconds: pulumi.Int(0),
-//					SampleSize:                      pulumi.Int(16),
-//					SuccessfulSamplesRequired:       pulumi.Int(3),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Front Door Origin Groups can be imported using the `resource id`, e.g.

@@ -46,22 +46,28 @@ class NetworkServiceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mobile_network_id: pulumi.Input[str],
-             pcc_rules: pulumi.Input[Sequence[pulumi.Input['NetworkServicePccRuleArgs']]],
-             service_precedence: pulumi.Input[int],
+             mobile_network_id: Optional[pulumi.Input[str]] = None,
+             pcc_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkServicePccRuleArgs']]]] = None,
+             service_precedence: Optional[pulumi.Input[int]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              service_qos_policy: Optional[pulumi.Input['NetworkServiceServiceQosPolicyArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'mobileNetworkId' in kwargs:
+        if mobile_network_id is None and 'mobileNetworkId' in kwargs:
             mobile_network_id = kwargs['mobileNetworkId']
-        if 'pccRules' in kwargs:
+        if mobile_network_id is None:
+            raise TypeError("Missing 'mobile_network_id' argument")
+        if pcc_rules is None and 'pccRules' in kwargs:
             pcc_rules = kwargs['pccRules']
-        if 'servicePrecedence' in kwargs:
+        if pcc_rules is None:
+            raise TypeError("Missing 'pcc_rules' argument")
+        if service_precedence is None and 'servicePrecedence' in kwargs:
             service_precedence = kwargs['servicePrecedence']
-        if 'serviceQosPolicy' in kwargs:
+        if service_precedence is None:
+            raise TypeError("Missing 'service_precedence' argument")
+        if service_qos_policy is None and 'serviceQosPolicy' in kwargs:
             service_qos_policy = kwargs['serviceQosPolicy']
 
         _setter("mobile_network_id", mobile_network_id)
@@ -201,15 +207,15 @@ class _NetworkServiceState:
              service_precedence: Optional[pulumi.Input[int]] = None,
              service_qos_policy: Optional[pulumi.Input['NetworkServiceServiceQosPolicyArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'mobileNetworkId' in kwargs:
+        if mobile_network_id is None and 'mobileNetworkId' in kwargs:
             mobile_network_id = kwargs['mobileNetworkId']
-        if 'pccRules' in kwargs:
+        if pcc_rules is None and 'pccRules' in kwargs:
             pcc_rules = kwargs['pccRules']
-        if 'servicePrecedence' in kwargs:
+        if service_precedence is None and 'servicePrecedence' in kwargs:
             service_precedence = kwargs['servicePrecedence']
-        if 'serviceQosPolicy' in kwargs:
+        if service_qos_policy is None and 'serviceQosPolicy' in kwargs:
             service_qos_policy = kwargs['serviceQosPolicy']
 
         if location is not None:
@@ -328,63 +334,6 @@ class NetworkService(pulumi.CustomResource):
         """
         Manages a Mobile Network Service.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="east us")
-        example_network = azure.mobile.Network("exampleNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            mobile_country_code="001",
-            mobile_network_code="01")
-        example_network_service = azure.mobile.NetworkService("exampleNetworkService",
-            mobile_network_id=example_network.id,
-            location=example_resource_group.location,
-            service_precedence=0,
-            pcc_rules=[azure.mobile.NetworkServicePccRuleArgs(
-                name="default-rule",
-                precedence=1,
-                traffic_control_enabled=True,
-                qos_policy=azure.mobile.NetworkServicePccRuleQosPolicyArgs(
-                    allocation_and_retention_priority_level=9,
-                    qos_indicator=9,
-                    preemption_capability="NotPreempt",
-                    preemption_vulnerability="Preemptable",
-                    guaranteed_bit_rate=azure.mobile.NetworkServicePccRuleQosPolicyGuaranteedBitRateArgs(
-                        downlink="100 Mbps",
-                        uplink="10 Mbps",
-                    ),
-                    maximum_bit_rate=azure.mobile.NetworkServicePccRuleQosPolicyMaximumBitRateArgs(
-                        downlink="1 Gbps",
-                        uplink="100 Mbps",
-                    ),
-                ),
-                service_data_flow_templates=[azure.mobile.NetworkServicePccRuleServiceDataFlowTemplateArgs(
-                    direction="Uplink",
-                    name="IP-to-server",
-                    ports=[],
-                    protocols=["ip"],
-                    remote_ip_lists=["10.3.4.0/24"],
-                )],
-            )],
-            service_qos_policy=azure.mobile.NetworkServiceServiceQosPolicyArgs(
-                allocation_and_retention_priority_level=9,
-                qos_indicator=9,
-                preemption_capability="NotPreempt",
-                preemption_vulnerability="Preemptable",
-                maximum_bit_rate=azure.mobile.NetworkServiceServiceQosPolicyMaximumBitRateArgs(
-                    downlink="1 Gbps",
-                    uplink="100 Mbps",
-                ),
-            ),
-            tags={
-                "key": "value",
-            })
-        ```
-
         ## Import
 
         Mobile Network Service can be imported using the `resource id`, e.g.
@@ -411,63 +360,6 @@ class NetworkService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Mobile Network Service.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="east us")
-        example_network = azure.mobile.Network("exampleNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            mobile_country_code="001",
-            mobile_network_code="01")
-        example_network_service = azure.mobile.NetworkService("exampleNetworkService",
-            mobile_network_id=example_network.id,
-            location=example_resource_group.location,
-            service_precedence=0,
-            pcc_rules=[azure.mobile.NetworkServicePccRuleArgs(
-                name="default-rule",
-                precedence=1,
-                traffic_control_enabled=True,
-                qos_policy=azure.mobile.NetworkServicePccRuleQosPolicyArgs(
-                    allocation_and_retention_priority_level=9,
-                    qos_indicator=9,
-                    preemption_capability="NotPreempt",
-                    preemption_vulnerability="Preemptable",
-                    guaranteed_bit_rate=azure.mobile.NetworkServicePccRuleQosPolicyGuaranteedBitRateArgs(
-                        downlink="100 Mbps",
-                        uplink="10 Mbps",
-                    ),
-                    maximum_bit_rate=azure.mobile.NetworkServicePccRuleQosPolicyMaximumBitRateArgs(
-                        downlink="1 Gbps",
-                        uplink="100 Mbps",
-                    ),
-                ),
-                service_data_flow_templates=[azure.mobile.NetworkServicePccRuleServiceDataFlowTemplateArgs(
-                    direction="Uplink",
-                    name="IP-to-server",
-                    ports=[],
-                    protocols=["ip"],
-                    remote_ip_lists=["10.3.4.0/24"],
-                )],
-            )],
-            service_qos_policy=azure.mobile.NetworkServiceServiceQosPolicyArgs(
-                allocation_and_retention_priority_level=9,
-                qos_indicator=9,
-                preemption_capability="NotPreempt",
-                preemption_vulnerability="Preemptable",
-                maximum_bit_rate=azure.mobile.NetworkServiceServiceQosPolicyMaximumBitRateArgs(
-                    downlink="1 Gbps",
-                    uplink="100 Mbps",
-                ),
-            ),
-            tags={
-                "key": "value",
-            })
-        ```
 
         ## Import
 
@@ -523,11 +415,7 @@ class NetworkService(pulumi.CustomResource):
             if service_precedence is None and not opts.urn:
                 raise TypeError("Missing required property 'service_precedence'")
             __props__.__dict__["service_precedence"] = service_precedence
-            if service_qos_policy is not None and not isinstance(service_qos_policy, NetworkServiceServiceQosPolicyArgs):
-                service_qos_policy = service_qos_policy or {}
-                def _setter(key, value):
-                    service_qos_policy[key] = value
-                NetworkServiceServiceQosPolicyArgs._configure(_setter, **service_qos_policy)
+            service_qos_policy = _utilities.configure(service_qos_policy, NetworkServiceServiceQosPolicyArgs, True)
             __props__.__dict__["service_qos_policy"] = service_qos_policy
             __props__.__dict__["tags"] = tags
         super(NetworkService, __self__).__init__(

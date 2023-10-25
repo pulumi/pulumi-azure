@@ -6,19 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing IP Group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.network.getIpGroup({
- *     name: "example1-ipgroup",
- *     resourceGroupName: "example-rg",
- * });
- * export const cidrs = example.then(example => example.cidrs);
- * ```
  */
 export function getIpGroup(args: GetIpGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetIpGroupResult> {
 
@@ -68,19 +55,6 @@ export interface GetIpGroupResult {
 }
 /**
  * Use this data source to access information about an existing IP Group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.network.getIpGroup({
- *     name: "example1-ipgroup",
- *     resourceGroupName: "example-rg",
- * });
- * export const cidrs = example.then(example => example.cidrs);
- * ```
  */
 export function getIpGroupOutput(args: GetIpGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpGroupResult> {
     return pulumi.output(args).apply((a: any) => getIpGroup(a, opts))

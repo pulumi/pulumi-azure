@@ -37,17 +37,23 @@ class AssessmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             assessment_policy_id: pulumi.Input[str],
-             status: pulumi.Input['AssessmentStatusArgs'],
-             target_resource_id: pulumi.Input[str],
+             assessment_policy_id: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input['AssessmentStatusArgs']] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
              additional_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'assessmentPolicyId' in kwargs:
+        if assessment_policy_id is None and 'assessmentPolicyId' in kwargs:
             assessment_policy_id = kwargs['assessmentPolicyId']
-        if 'targetResourceId' in kwargs:
+        if assessment_policy_id is None:
+            raise TypeError("Missing 'assessment_policy_id' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
-        if 'additionalData' in kwargs:
+        if target_resource_id is None:
+            raise TypeError("Missing 'target_resource_id' argument")
+        if additional_data is None and 'additionalData' in kwargs:
             additional_data = kwargs['additionalData']
 
         _setter("assessment_policy_id", assessment_policy_id)
@@ -133,13 +139,13 @@ class _AssessmentState:
              assessment_policy_id: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input['AssessmentStatusArgs']] = None,
              target_resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'additionalData' in kwargs:
+        if additional_data is None and 'additionalData' in kwargs:
             additional_data = kwargs['additionalData']
-        if 'assessmentPolicyId' in kwargs:
+        if assessment_policy_id is None and 'assessmentPolicyId' in kwargs:
             assessment_policy_id = kwargs['assessmentPolicyId']
-        if 'targetResourceId' in kwargs:
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
 
         if additional_data is not None:
@@ -213,62 +219,6 @@ class Assessment(pulumi.CustomResource):
         """
         Manages the Security Center Assessment for Azure Security Center.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            address_spaces=["10.0.0.0/16"])
-        internal = azure.network.Subnet("internal",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku="Standard_F2",
-            instances=1,
-            admin_username="adminuser",
-            admin_ssh_keys=[azure.compute.LinuxVirtualMachineScaleSetAdminSshKeyArgs(
-                username="adminuser",
-                public_key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"),
-            )],
-            source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-focal",
-                sku="20_04-lts",
-                version="latest",
-            ),
-            os_disk=azure.compute.LinuxVirtualMachineScaleSetOsDiskArgs(
-                storage_account_type="Standard_LRS",
-                caching="ReadWrite",
-            ),
-            network_interfaces=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs(
-                name="example",
-                primary=True,
-                ip_configurations=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs(
-                    name="internal",
-                    primary=True,
-                    subnet_id=internal.id,
-                )],
-            )])
-        example_assessment_policy = azure.securitycenter.AssessmentPolicy("exampleAssessmentPolicy",
-            display_name="Test Display Name",
-            severity="Medium",
-            description="Test Description")
-        example_assessment = azure.securitycenter.Assessment("exampleAssessment",
-            assessment_policy_id=example_assessment_policy.id,
-            target_resource_id=example_linux_virtual_machine_scale_set.id,
-            status=azure.securitycenter.AssessmentStatusArgs(
-                code="Healthy",
-            ))
-        ```
-
         ## Import
 
         Security Assessment can be imported using the `resource id`, e.g.
@@ -292,62 +242,6 @@ class Assessment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages the Security Center Assessment for Azure Security Center.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            address_spaces=["10.0.0.0/16"])
-        internal = azure.network.Subnet("internal",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku="Standard_F2",
-            instances=1,
-            admin_username="adminuser",
-            admin_ssh_keys=[azure.compute.LinuxVirtualMachineScaleSetAdminSshKeyArgs(
-                username="adminuser",
-                public_key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"),
-            )],
-            source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-focal",
-                sku="20_04-lts",
-                version="latest",
-            ),
-            os_disk=azure.compute.LinuxVirtualMachineScaleSetOsDiskArgs(
-                storage_account_type="Standard_LRS",
-                caching="ReadWrite",
-            ),
-            network_interfaces=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs(
-                name="example",
-                primary=True,
-                ip_configurations=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs(
-                    name="internal",
-                    primary=True,
-                    subnet_id=internal.id,
-                )],
-            )])
-        example_assessment_policy = azure.securitycenter.AssessmentPolicy("exampleAssessmentPolicy",
-            display_name="Test Display Name",
-            severity="Medium",
-            description="Test Description")
-        example_assessment = azure.securitycenter.Assessment("exampleAssessment",
-            assessment_policy_id=example_assessment_policy.id,
-            target_resource_id=example_linux_virtual_machine_scale_set.id,
-            status=azure.securitycenter.AssessmentStatusArgs(
-                code="Healthy",
-            ))
-        ```
 
         ## Import
 
@@ -393,11 +287,7 @@ class Assessment(pulumi.CustomResource):
             if assessment_policy_id is None and not opts.urn:
                 raise TypeError("Missing required property 'assessment_policy_id'")
             __props__.__dict__["assessment_policy_id"] = assessment_policy_id
-            if status is not None and not isinstance(status, AssessmentStatusArgs):
-                status = status or {}
-                def _setter(key, value):
-                    status[key] = value
-                AssessmentStatusArgs._configure(_setter, **status)
+            status = _utilities.configure(status, AssessmentStatusArgs, True)
             if status is None and not opts.urn:
                 raise TypeError("Missing required property 'status'")
             __props__.__dict__["status"] = status

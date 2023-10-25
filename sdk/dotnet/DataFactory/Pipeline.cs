@@ -12,69 +12,6 @@ namespace Pulumi.Azure.DataFactory
     /// <summary>
     /// Manages a Pipeline inside a Azure Data Factory.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///     });
-    /// 
-    ///     var examplePipeline = new Azure.DataFactory.Pipeline("examplePipeline", new()
-    ///     {
-    ///         DataFactoryId = exampleFactory.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### With Activities
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Azure.DataFactory.Pipeline("test", new()
-    ///     {
-    ///         DataFactoryId = azurerm_data_factory.Test.Id,
-    ///         Variables = 
-    ///         {
-    ///             { "bob", "item1" },
-    ///         },
-    ///         ActivitiesJson = @"[
-    ///     {
-    ///         ""name"": ""Append variable1"",
-    ///         ""type"": ""AppendVariable"",
-    ///         ""dependsOn"": [],
-    ///         ""userProperties"": [],
-    ///         ""typeProperties"": {
-    ///           ""variableName"": ""bob"",
-    ///           ""value"": ""something""
-    ///         }
-    ///     }
-    /// ]
-    /// ",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Data Factory Pipeline's can be imported using the `resource id`, e.g.

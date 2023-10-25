@@ -19,55 +19,6 @@ import (
 // provides both a standalone Network Security Rule resource, and allows for Network Security Rules to be defined in-line within the Network Security Group resource.
 // At this time you cannot use a Network Security Group with in-line Network Security Rules in conjunction with any Network Security Rule resources. Doing so will cause a conflict of rule settings and will overwrite rules.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleNetworkSecurityGroup, err := network.NewNetworkSecurityGroup(ctx, "exampleNetworkSecurityGroup", &network.NetworkSecurityGroupArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewNetworkSecurityRule(ctx, "exampleNetworkSecurityRule", &network.NetworkSecurityRuleArgs{
-//				Priority:                 pulumi.Int(100),
-//				Direction:                pulumi.String("Outbound"),
-//				Access:                   pulumi.String("Allow"),
-//				Protocol:                 pulumi.String("Tcp"),
-//				SourcePortRange:          pulumi.String("*"),
-//				DestinationPortRange:     pulumi.String("*"),
-//				SourceAddressPrefix:      pulumi.String("*"),
-//				DestinationAddressPrefix: pulumi.String("*"),
-//				ResourceGroupName:        exampleResourceGroup.Name,
-//				NetworkSecurityGroupName: exampleNetworkSecurityGroup.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Network Security Rules can be imported using the `resource id`, e.g.

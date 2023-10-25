@@ -9,45 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Native New Relic Tag Rule.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "East US"});
- * const exampleMonitor = new azure.newrelic.Monitor("exampleMonitor", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     plan: {
- *         effectiveDate: "2023-06-06T00:00:00Z",
- *     },
- *     user: {
- *         email: "user@example.com",
- *         firstName: "Example",
- *         lastName: "User",
- *         phoneNumber: "+12313803556",
- *     },
- * });
- * const exampleTagRule = new azure.newrelic.TagRule("exampleTagRule", {
- *     monitorId: exampleMonitor.id,
- *     azureActiveDirectoryLogEnabled: true,
- *     activityLogEnabled: true,
- *     metricEnabled: true,
- *     subscriptionLogEnabled: true,
- *     logTagFilters: [{
- *         name: "key",
- *         action: "Include",
- *         value: "value",
- *     }],
- *     metricTagFilters: [{
- *         name: "key",
- *         action: "Exclude",
- *         value: "value",
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * Azure Native New Relic Tag Rule can be imported using the `resource id`, e.g.

@@ -38,17 +38,25 @@ class DatabaseArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             charset: pulumi.Input[str],
-             collation: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             server_name: pulumi.Input[str],
+             charset: Optional[pulumi.Input[str]] = None,
+             collation: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if charset is None:
+            raise TypeError("Missing 'charset' argument")
+        if collation is None:
+            raise TypeError("Missing 'collation' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serverName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if server_name is None and 'serverName' in kwargs:
             server_name = kwargs['serverName']
+        if server_name is None:
+            raise TypeError("Missing 'server_name' argument")
 
         _setter("charset", charset)
         _setter("collation", collation)
@@ -150,11 +158,11 @@ class _DatabaseState:
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              server_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serverName' in kwargs:
+        if server_name is None and 'serverName' in kwargs:
             server_name = kwargs['serverName']
 
         if charset is not None:
@@ -243,31 +251,6 @@ class Database(pulumi.CustomResource):
         """
         Manages a MariaDB Database within a MariaDB Server
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_server = azure.mariadb.Server("exampleServer",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="B_Gen5_2",
-            storage_mb=51200,
-            backup_retention_days=7,
-            geo_redundant_backup_enabled=False,
-            administrator_login="acctestun",
-            administrator_login_password="H@Sh1CoR3!",
-            version="10.2",
-            ssl_enforcement_enabled=True)
-        example_database = azure.mariadb.Database("exampleDatabase",
-            resource_group_name=example_resource_group.name,
-            server_name=example_server.name,
-            charset="utf8mb4",
-            collation="utf8mb4_unicode_520_ci")
-        ```
-
         ## Import
 
         MariaDB Database's can be imported using the `resource id`, e.g.
@@ -292,31 +275,6 @@ class Database(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a MariaDB Database within a MariaDB Server
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_server = azure.mariadb.Server("exampleServer",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="B_Gen5_2",
-            storage_mb=51200,
-            backup_retention_days=7,
-            geo_redundant_backup_enabled=False,
-            administrator_login="acctestun",
-            administrator_login_password="H@Sh1CoR3!",
-            version="10.2",
-            ssl_enforcement_enabled=True)
-        example_database = azure.mariadb.Database("exampleDatabase",
-            resource_group_name=example_resource_group.name,
-            server_name=example_server.name,
-            charset="utf8mb4",
-            collation="utf8mb4_unicode_520_ci")
-        ```
 
         ## Import
 

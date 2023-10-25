@@ -52,32 +52,42 @@ class NetworkSimArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             authentication_key: pulumi.Input[str],
-             integrated_circuit_card_identifier: pulumi.Input[str],
-             international_mobile_subscriber_identity: pulumi.Input[str],
-             mobile_network_sim_group_id: pulumi.Input[str],
-             operator_key_code: pulumi.Input[str],
+             authentication_key: Optional[pulumi.Input[str]] = None,
+             integrated_circuit_card_identifier: Optional[pulumi.Input[str]] = None,
+             international_mobile_subscriber_identity: Optional[pulumi.Input[str]] = None,
+             mobile_network_sim_group_id: Optional[pulumi.Input[str]] = None,
+             operator_key_code: Optional[pulumi.Input[str]] = None,
              device_type: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              sim_policy_id: Optional[pulumi.Input[str]] = None,
              static_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSimStaticIpConfigurationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'authenticationKey' in kwargs:
+        if authentication_key is None and 'authenticationKey' in kwargs:
             authentication_key = kwargs['authenticationKey']
-        if 'integratedCircuitCardIdentifier' in kwargs:
+        if authentication_key is None:
+            raise TypeError("Missing 'authentication_key' argument")
+        if integrated_circuit_card_identifier is None and 'integratedCircuitCardIdentifier' in kwargs:
             integrated_circuit_card_identifier = kwargs['integratedCircuitCardIdentifier']
-        if 'internationalMobileSubscriberIdentity' in kwargs:
+        if integrated_circuit_card_identifier is None:
+            raise TypeError("Missing 'integrated_circuit_card_identifier' argument")
+        if international_mobile_subscriber_identity is None and 'internationalMobileSubscriberIdentity' in kwargs:
             international_mobile_subscriber_identity = kwargs['internationalMobileSubscriberIdentity']
-        if 'mobileNetworkSimGroupId' in kwargs:
+        if international_mobile_subscriber_identity is None:
+            raise TypeError("Missing 'international_mobile_subscriber_identity' argument")
+        if mobile_network_sim_group_id is None and 'mobileNetworkSimGroupId' in kwargs:
             mobile_network_sim_group_id = kwargs['mobileNetworkSimGroupId']
-        if 'operatorKeyCode' in kwargs:
+        if mobile_network_sim_group_id is None:
+            raise TypeError("Missing 'mobile_network_sim_group_id' argument")
+        if operator_key_code is None and 'operatorKeyCode' in kwargs:
             operator_key_code = kwargs['operatorKeyCode']
-        if 'deviceType' in kwargs:
+        if operator_key_code is None:
+            raise TypeError("Missing 'operator_key_code' argument")
+        if device_type is None and 'deviceType' in kwargs:
             device_type = kwargs['deviceType']
-        if 'simPolicyId' in kwargs:
+        if sim_policy_id is None and 'simPolicyId' in kwargs:
             sim_policy_id = kwargs['simPolicyId']
-        if 'staticIpConfigurations' in kwargs:
+        if static_ip_configurations is None and 'staticIpConfigurations' in kwargs:
             static_ip_configurations = kwargs['staticIpConfigurations']
 
         _setter("authentication_key", authentication_key)
@@ -263,29 +273,29 @@ class _NetworkSimState:
              static_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSimStaticIpConfigurationArgs']]]] = None,
              vendor_key_fingerprint: Optional[pulumi.Input[str]] = None,
              vendor_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'authenticationKey' in kwargs:
+        if authentication_key is None and 'authenticationKey' in kwargs:
             authentication_key = kwargs['authenticationKey']
-        if 'deviceType' in kwargs:
+        if device_type is None and 'deviceType' in kwargs:
             device_type = kwargs['deviceType']
-        if 'integratedCircuitCardIdentifier' in kwargs:
+        if integrated_circuit_card_identifier is None and 'integratedCircuitCardIdentifier' in kwargs:
             integrated_circuit_card_identifier = kwargs['integratedCircuitCardIdentifier']
-        if 'internationalMobileSubscriberIdentity' in kwargs:
+        if international_mobile_subscriber_identity is None and 'internationalMobileSubscriberIdentity' in kwargs:
             international_mobile_subscriber_identity = kwargs['internationalMobileSubscriberIdentity']
-        if 'mobileNetworkSimGroupId' in kwargs:
+        if mobile_network_sim_group_id is None and 'mobileNetworkSimGroupId' in kwargs:
             mobile_network_sim_group_id = kwargs['mobileNetworkSimGroupId']
-        if 'operatorKeyCode' in kwargs:
+        if operator_key_code is None and 'operatorKeyCode' in kwargs:
             operator_key_code = kwargs['operatorKeyCode']
-        if 'simPolicyId' in kwargs:
+        if sim_policy_id is None and 'simPolicyId' in kwargs:
             sim_policy_id = kwargs['simPolicyId']
-        if 'simState' in kwargs:
+        if sim_state is None and 'simState' in kwargs:
             sim_state = kwargs['simState']
-        if 'staticIpConfigurations' in kwargs:
+        if static_ip_configurations is None and 'staticIpConfigurations' in kwargs:
             static_ip_configurations = kwargs['staticIpConfigurations']
-        if 'vendorKeyFingerprint' in kwargs:
+        if vendor_key_fingerprint is None and 'vendorKeyFingerprint' in kwargs:
             vendor_key_fingerprint = kwargs['vendorKeyFingerprint']
-        if 'vendorName' in kwargs:
+        if vendor_name is None and 'vendorName' in kwargs:
             vendor_name = kwargs['vendorName']
 
         if authentication_key is not None:
@@ -476,51 +486,6 @@ class NetworkSim(pulumi.CustomResource):
         """
         Manages a Mobile Network Sim.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_network = azure.mobile.Network("exampleNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            mobile_country_code="001",
-            mobile_network_code="01")
-        example_network_sim_group = azure.mobile.NetworkSimGroup("exampleNetworkSimGroup",
-            location=example_resource_group.location,
-            mobile_network_id=example_network.id)
-        example_network_slice = azure.mobile.NetworkSlice("exampleNetworkSlice",
-            mobile_network_id=example_network.id,
-            location=example_resource_group.location,
-            single_network_slice_selection_assistance_information=azure.mobile.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs(
-                slice_service_type=1,
-            ))
-        example_network_attached_data_network = azure.mobile.NetworkAttachedDataNetwork("exampleNetworkAttachedDataNetwork",
-            mobile_network_data_network_name=azurerm_mobile_network_data_network["example"]["name"],
-            mobile_network_packet_core_data_plane_id=azurerm_mobile_network_packet_core_data_plane["example"]["id"],
-            location=example_resource_group.location,
-            dns_addresses=["1.1.1.1"],
-            user_equipment_address_pool_prefixes=["2.4.0.0/24"],
-            user_equipment_static_address_pool_prefixes=["2.4.1.0/24"],
-            user_plane_access_name="test",
-            user_plane_access_ipv4_address="10.204.141.4",
-            user_plane_access_ipv4_gateway="10.204.141.1",
-            user_plane_access_ipv4_subnet="10.204.141.0/24")
-        example_network_sim = azure.mobile.NetworkSim("exampleNetworkSim",
-            mobile_network_sim_group_id=example_network_sim_group.id,
-            authentication_key="00000000000000000000000000000000",
-            integrated_circuit_card_identifier="8900000000000000000",
-            international_mobile_subscriber_identity="000000000000000",
-            operator_key_code="00000000000000000000000000000000",
-            static_ip_configurations=[azure.mobile.NetworkSimStaticIpConfigurationArgs(
-                attached_data_network_id=data["azurerm_mobile_network_attached_data_network"]["test"]["id"],
-                slice_id=azurerm_mobile_network_slice["test"]["id"],
-                static_ipv4_address="2.4.0.1",
-            )])
-        ```
-
         ## Import
 
         Mobile Network Sim can be imported using the `resource id`, e.g.
@@ -549,51 +514,6 @@ class NetworkSim(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Mobile Network Sim.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_network = azure.mobile.Network("exampleNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            mobile_country_code="001",
-            mobile_network_code="01")
-        example_network_sim_group = azure.mobile.NetworkSimGroup("exampleNetworkSimGroup",
-            location=example_resource_group.location,
-            mobile_network_id=example_network.id)
-        example_network_slice = azure.mobile.NetworkSlice("exampleNetworkSlice",
-            mobile_network_id=example_network.id,
-            location=example_resource_group.location,
-            single_network_slice_selection_assistance_information=azure.mobile.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs(
-                slice_service_type=1,
-            ))
-        example_network_attached_data_network = azure.mobile.NetworkAttachedDataNetwork("exampleNetworkAttachedDataNetwork",
-            mobile_network_data_network_name=azurerm_mobile_network_data_network["example"]["name"],
-            mobile_network_packet_core_data_plane_id=azurerm_mobile_network_packet_core_data_plane["example"]["id"],
-            location=example_resource_group.location,
-            dns_addresses=["1.1.1.1"],
-            user_equipment_address_pool_prefixes=["2.4.0.0/24"],
-            user_equipment_static_address_pool_prefixes=["2.4.1.0/24"],
-            user_plane_access_name="test",
-            user_plane_access_ipv4_address="10.204.141.4",
-            user_plane_access_ipv4_gateway="10.204.141.1",
-            user_plane_access_ipv4_subnet="10.204.141.0/24")
-        example_network_sim = azure.mobile.NetworkSim("exampleNetworkSim",
-            mobile_network_sim_group_id=example_network_sim_group.id,
-            authentication_key="00000000000000000000000000000000",
-            integrated_circuit_card_identifier="8900000000000000000",
-            international_mobile_subscriber_identity="000000000000000",
-            operator_key_code="00000000000000000000000000000000",
-            static_ip_configurations=[azure.mobile.NetworkSimStaticIpConfigurationArgs(
-                attached_data_network_id=data["azurerm_mobile_network_attached_data_network"]["test"]["id"],
-                slice_id=azurerm_mobile_network_slice["test"]["id"],
-                static_ipv4_address="2.4.0.1",
-            )])
-        ```
 
         ## Import
 

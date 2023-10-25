@@ -54,20 +54,24 @@ class ShareArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             quota: pulumi.Input[int],
-             storage_account_name: pulumi.Input[str],
+             quota: Optional[pulumi.Input[int]] = None,
+             storage_account_name: Optional[pulumi.Input[str]] = None,
              access_tier: Optional[pulumi.Input[str]] = None,
              acls: Optional[pulumi.Input[Sequence[pulumi.Input['ShareAclArgs']]]] = None,
              enabled_protocol: Optional[pulumi.Input[str]] = None,
              metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'storageAccountName' in kwargs:
+        if quota is None:
+            raise TypeError("Missing 'quota' argument")
+        if storage_account_name is None and 'storageAccountName' in kwargs:
             storage_account_name = kwargs['storageAccountName']
-        if 'accessTier' in kwargs:
+        if storage_account_name is None:
+            raise TypeError("Missing 'storage_account_name' argument")
+        if access_tier is None and 'accessTier' in kwargs:
             access_tier = kwargs['accessTier']
-        if 'enabledProtocol' in kwargs:
+        if enabled_protocol is None and 'enabledProtocol' in kwargs:
             enabled_protocol = kwargs['enabledProtocol']
 
         _setter("quota", quota)
@@ -232,15 +236,15 @@ class _ShareState:
              resource_manager_id: Optional[pulumi.Input[str]] = None,
              storage_account_name: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accessTier' in kwargs:
+        if access_tier is None and 'accessTier' in kwargs:
             access_tier = kwargs['accessTier']
-        if 'enabledProtocol' in kwargs:
+        if enabled_protocol is None and 'enabledProtocol' in kwargs:
             enabled_protocol = kwargs['enabledProtocol']
-        if 'resourceManagerId' in kwargs:
+        if resource_manager_id is None and 'resourceManagerId' in kwargs:
             resource_manager_id = kwargs['resourceManagerId']
-        if 'storageAccountName' in kwargs:
+        if storage_account_name is None and 'storageAccountName' in kwargs:
             storage_account_name = kwargs['storageAccountName']
 
         if access_tier is not None:
@@ -397,31 +401,6 @@ class Share(pulumi.CustomResource):
 
         > **Note:** The storage share supports two storage tiers: premium and standard. Standard file shares are created in general purpose (GPv1 or GPv2) storage accounts and premium file shares are created in FileStorage storage accounts. For further information, refer to the section "What storage tiers are supported in Azure Files?" of [documentation](https://docs.microsoft.com/azure/storage/files/storage-files-faq#general).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_share = azure.storage.Share("exampleShare",
-            storage_account_name=example_account.name,
-            quota=50,
-            acls=[azure.storage.ShareAclArgs(
-                id="MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI",
-                access_policies=[azure.storage.ShareAclAccessPolicyArgs(
-                    permissions="rwdl",
-                    start="2019-07-02T09:38:21.0000000Z",
-                    expiry="2019-07-02T10:38:21.0000000Z",
-                )],
-            )])
-        ```
-
         ## Import
 
         Storage Shares can be imported using the `resource id`, e.g.
@@ -458,31 +437,6 @@ class Share(pulumi.CustomResource):
         Manages a File Share within Azure Storage.
 
         > **Note:** The storage share supports two storage tiers: premium and standard. Standard file shares are created in general purpose (GPv1 or GPv2) storage accounts and premium file shares are created in FileStorage storage accounts. For further information, refer to the section "What storage tiers are supported in Azure Files?" of [documentation](https://docs.microsoft.com/azure/storage/files/storage-files-faq#general).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_share = azure.storage.Share("exampleShare",
-            storage_account_name=example_account.name,
-            quota=50,
-            acls=[azure.storage.ShareAclArgs(
-                id="MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI",
-                access_policies=[azure.storage.ShareAclAccessPolicyArgs(
-                    permissions="rwdl",
-                    start="2019-07-02T09:38:21.0000000Z",
-                    expiry="2019-07-02T10:38:21.0000000Z",
-                )],
-            )])
-        ```
 
         ## Import
 

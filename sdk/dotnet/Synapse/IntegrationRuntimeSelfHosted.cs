@@ -12,69 +12,6 @@ namespace Pulumi.Azure.Synapse
     /// <summary>
     /// Manages a Synapse Self-hosted Integration Runtime.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         AccountTier = "Standard",
-    ///         AccountReplicationType = "LRS",
-    ///     });
-    /// 
-    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
-    ///     {
-    ///         StorageAccountName = exampleAccount.Name,
-    ///         ContainerAccessType = "private",
-    ///     });
-    /// 
-    ///     var exampleDataLakeGen2Filesystem = new Azure.Storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", new()
-    ///     {
-    ///         StorageAccountId = exampleAccount.Id,
-    ///     });
-    /// 
-    ///     var exampleWorkspace = new Azure.Synapse.Workspace("exampleWorkspace", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         StorageDataLakeGen2FilesystemId = exampleDataLakeGen2Filesystem.Id,
-    ///         SqlAdministratorLogin = "sqladminuser",
-    ///         SqlAdministratorLoginPassword = "H@Sh1CoR3!",
-    ///         ManagedVirtualNetworkEnabled = true,
-    ///         Identity = new Azure.Synapse.Inputs.WorkspaceIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleFirewallRule = new Azure.Synapse.FirewallRule("exampleFirewallRule", new()
-    ///     {
-    ///         SynapseWorkspaceId = exampleWorkspace.Id,
-    ///         StartIpAddress = "0.0.0.0",
-    ///         EndIpAddress = "255.255.255.255",
-    ///     });
-    /// 
-    ///     var exampleIntegrationRuntimeSelfHosted = new Azure.Synapse.IntegrationRuntimeSelfHosted("exampleIntegrationRuntimeSelfHosted", new()
-    ///     {
-    ///         SynapseWorkspaceId = exampleWorkspace.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Synapse Self-hosted Integration Runtimes can be imported using the `resource id`, e.g.

@@ -29,14 +29,18 @@ class GroupSubscriptionAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             management_group_id: pulumi.Input[str],
-             subscription_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             management_group_id: Optional[pulumi.Input[str]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'managementGroupId' in kwargs:
+        if management_group_id is None and 'managementGroupId' in kwargs:
             management_group_id = kwargs['managementGroupId']
-        if 'subscriptionId' in kwargs:
+        if management_group_id is None:
+            raise TypeError("Missing 'management_group_id' argument")
+        if subscription_id is None and 'subscriptionId' in kwargs:
             subscription_id = kwargs['subscriptionId']
+        if subscription_id is None:
+            raise TypeError("Missing 'subscription_id' argument")
 
         _setter("management_group_id", management_group_id)
         _setter("subscription_id", subscription_id)
@@ -86,11 +90,11 @@ class _GroupSubscriptionAssociationState:
              _setter: Callable[[Any, Any], None],
              management_group_id: Optional[pulumi.Input[str]] = None,
              subscription_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'managementGroupId' in kwargs:
+        if management_group_id is None and 'managementGroupId' in kwargs:
             management_group_id = kwargs['managementGroupId']
-        if 'subscriptionId' in kwargs:
+        if subscription_id is None and 'subscriptionId' in kwargs:
             subscription_id = kwargs['subscriptionId']
 
         if management_group_id is not None:
@@ -136,19 +140,6 @@ class GroupSubscriptionAssociation(pulumi.CustomResource):
 
         !> **Note:** When using this resource, configuring `subscription_ids` on the `management.Group` resource is not supported.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_group = azure.management.get_group(name="exampleManagementGroup")
-        example_subscription = azure.core.get_subscription(subscription_id="12345678-1234-1234-1234-123456789012")
-        example_group_subscription_association = azure.management.GroupSubscriptionAssociation("exampleGroupSubscriptionAssociation",
-            management_group_id=example_group.id,
-            subscription_id=example_subscription.id)
-        ```
-
         ## Import
 
         Managements can be imported using the `resource id`, e.g.
@@ -172,19 +163,6 @@ class GroupSubscriptionAssociation(pulumi.CustomResource):
         Manages a Management Group Subscription Association.
 
         !> **Note:** When using this resource, configuring `subscription_ids` on the `management.Group` resource is not supported.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_group = azure.management.get_group(name="exampleManagementGroup")
-        example_subscription = azure.core.get_subscription(subscription_id="12345678-1234-1234-1234-123456789012")
-        example_group_subscription_association = azure.management.GroupSubscriptionAssociation("exampleGroupSubscriptionAssociation",
-            management_group_id=example_group.id,
-            subscription_id=example_subscription.id)
-        ```
 
         ## Import
 

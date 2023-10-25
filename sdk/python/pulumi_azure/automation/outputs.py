@@ -87,16 +87,18 @@ class AccountEncryption(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_vault_key_id: str,
+             key_vault_key_id: Optional[str] = None,
              key_source: Optional[str] = None,
              user_assigned_identity_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'keyVaultKeyId' in kwargs:
+        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
             key_vault_key_id = kwargs['keyVaultKeyId']
-        if 'keySource' in kwargs:
+        if key_vault_key_id is None:
+            raise TypeError("Missing 'key_vault_key_id' argument")
+        if key_source is None and 'keySource' in kwargs:
             key_source = kwargs['keySource']
-        if 'userAssignedIdentityId' in kwargs:
+        if user_assigned_identity_id is None and 'userAssignedIdentityId' in kwargs:
             user_assigned_identity_id = kwargs['userAssignedIdentityId']
 
         _setter("key_vault_key_id", key_vault_key_id)
@@ -176,17 +178,19 @@ class AccountIdentity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -251,7 +255,7 @@ class AccountPrivateEndpointConnection(dict):
              _setter: Callable[[Any, Any], None],
              id: Optional[str] = None,
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
 
         if id is not None:
@@ -318,15 +322,19 @@ class ConnectionTypeField(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             type: str,
+             name: Optional[str] = None,
+             type: Optional[str] = None,
              is_encrypted: Optional[bool] = None,
              is_optional: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'isEncrypted' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if is_encrypted is None and 'isEncrypted' in kwargs:
             is_encrypted = kwargs['isEncrypted']
-        if 'isOptional' in kwargs:
+        if is_optional is None and 'isOptional' in kwargs:
             is_optional = kwargs['isOptional']
 
         _setter("name", name)
@@ -386,10 +394,12 @@ class ModuleModuleLink(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             uri: str,
+             uri: Optional[str] = None,
              hash: Optional['outputs.ModuleModuleLinkHash'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if uri is None:
+            raise TypeError("Missing 'uri' argument")
 
         _setter("uri", uri)
         if hash is not None:
@@ -429,10 +439,14 @@ class ModuleModuleLinkHash(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             algorithm: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             algorithm: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if algorithm is None:
+            raise TypeError("Missing 'algorithm' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("algorithm", algorithm)
         _setter("value", value)
@@ -512,17 +526,17 @@ class RunBookDraft(dict):
              last_modified_time: Optional[str] = None,
              output_types: Optional[Sequence[str]] = None,
              parameters: Optional[Sequence['outputs.RunBookDraftParameter']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'contentLink' in kwargs:
+        if content_link is None and 'contentLink' in kwargs:
             content_link = kwargs['contentLink']
-        if 'creationTime' in kwargs:
+        if creation_time is None and 'creationTime' in kwargs:
             creation_time = kwargs['creationTime']
-        if 'editModeEnabled' in kwargs:
+        if edit_mode_enabled is None and 'editModeEnabled' in kwargs:
             edit_mode_enabled = kwargs['editModeEnabled']
-        if 'lastModifiedTime' in kwargs:
+        if last_modified_time is None and 'lastModifiedTime' in kwargs:
             last_modified_time = kwargs['lastModifiedTime']
-        if 'outputTypes' in kwargs:
+        if output_types is None and 'outputTypes' in kwargs:
             output_types = kwargs['outputTypes']
 
         if content_link is not None:
@@ -601,11 +615,13 @@ class RunBookDraftContentLink(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             uri: str,
+             uri: Optional[str] = None,
              hash: Optional['outputs.RunBookDraftContentLinkHash'] = None,
              version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if uri is None:
+            raise TypeError("Missing 'uri' argument")
 
         _setter("uri", uri)
         if hash is not None:
@@ -655,10 +671,14 @@ class RunBookDraftContentLinkHash(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             algorithm: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             algorithm: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if algorithm is None:
+            raise TypeError("Missing 'algorithm' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("algorithm", algorithm)
         _setter("value", value)
@@ -723,14 +743,18 @@ class RunBookDraftParameter(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             type: str,
+             key: Optional[str] = None,
+             type: Optional[str] = None,
              default_value: Optional[str] = None,
              mandatory: Optional[bool] = None,
              position: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'defaultValue' in kwargs:
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if default_value is None and 'defaultValue' in kwargs:
             default_value = kwargs['defaultValue']
 
         _setter("key", key)
@@ -824,17 +848,19 @@ class RunBookJobSchedule(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             schedule_name: str,
+             schedule_name: Optional[str] = None,
              job_schedule_id: Optional[str] = None,
              parameters: Optional[Mapping[str, str]] = None,
              run_on: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'scheduleName' in kwargs:
+        if schedule_name is None and 'scheduleName' in kwargs:
             schedule_name = kwargs['scheduleName']
-        if 'jobScheduleId' in kwargs:
+        if schedule_name is None:
+            raise TypeError("Missing 'schedule_name' argument")
+        if job_schedule_id is None and 'jobScheduleId' in kwargs:
             job_schedule_id = kwargs['jobScheduleId']
-        if 'runOn' in kwargs:
+        if run_on is None and 'runOn' in kwargs:
             run_on = kwargs['runOn']
 
         _setter("schedule_name", schedule_name)
@@ -889,11 +915,13 @@ class RunBookPublishContentLink(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             uri: str,
+             uri: Optional[str] = None,
              hash: Optional['outputs.RunBookPublishContentLinkHash'] = None,
              version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if uri is None:
+            raise TypeError("Missing 'uri' argument")
 
         _setter("uri", uri)
         if hash is not None:
@@ -943,10 +971,14 @@ class RunBookPublishContentLinkHash(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             algorithm: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             algorithm: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if algorithm is None:
+            raise TypeError("Missing 'algorithm' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("algorithm", algorithm)
         _setter("value", value)
@@ -985,10 +1017,14 @@ class ScheduleMonthlyOccurrence(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             day: str,
-             occurrence: int,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             day: Optional[str] = None,
+             occurrence: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if day is None:
+            raise TypeError("Missing 'day' argument")
+        if occurrence is None:
+            raise TypeError("Missing 'occurrence' argument")
 
         _setter("day", day)
         _setter("occurrence", occurrence)
@@ -1063,15 +1099,15 @@ class SoftwareUpdateConfigurationLinux(dict):
              excluded_packages: Optional[Sequence[str]] = None,
              included_packages: Optional[Sequence[str]] = None,
              reboot: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'classificationIncluded' in kwargs:
+        if classification_included is None and 'classificationIncluded' in kwargs:
             classification_included = kwargs['classificationIncluded']
-        if 'classificationsIncludeds' in kwargs:
+        if classifications_includeds is None and 'classificationsIncludeds' in kwargs:
             classifications_includeds = kwargs['classificationsIncludeds']
-        if 'excludedPackages' in kwargs:
+        if excluded_packages is None and 'excludedPackages' in kwargs:
             excluded_packages = kwargs['excludedPackages']
-        if 'includedPackages' in kwargs:
+        if included_packages is None and 'includedPackages' in kwargs:
             included_packages = kwargs['includedPackages']
 
         if classification_included is not None:
@@ -1142,7 +1178,7 @@ class SoftwareUpdateConfigurationPostTask(dict):
              _setter: Callable[[Any, Any], None],
              parameters: Optional[Mapping[str, str]] = None,
              source: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
 
         if parameters is not None:
@@ -1186,7 +1222,7 @@ class SoftwareUpdateConfigurationPreTask(dict):
              _setter: Callable[[Any, Any], None],
              parameters: Optional[Mapping[str, str]] = None,
              source: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
 
         if parameters is not None:
@@ -1305,7 +1341,7 @@ class SoftwareUpdateConfigurationSchedule(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             frequency: str,
+             frequency: Optional[str] = None,
              advanced_month_days: Optional[Sequence[int]] = None,
              advanced_week_days: Optional[Sequence[str]] = None,
              creation_time: Optional[str] = None,
@@ -1321,33 +1357,35 @@ class SoftwareUpdateConfigurationSchedule(dict):
              start_time: Optional[str] = None,
              start_time_offset_minutes: Optional[float] = None,
              time_zone: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'advancedMonthDays' in kwargs:
+        if frequency is None:
+            raise TypeError("Missing 'frequency' argument")
+        if advanced_month_days is None and 'advancedMonthDays' in kwargs:
             advanced_month_days = kwargs['advancedMonthDays']
-        if 'advancedWeekDays' in kwargs:
+        if advanced_week_days is None and 'advancedWeekDays' in kwargs:
             advanced_week_days = kwargs['advancedWeekDays']
-        if 'creationTime' in kwargs:
+        if creation_time is None and 'creationTime' in kwargs:
             creation_time = kwargs['creationTime']
-        if 'expiryTime' in kwargs:
+        if expiry_time is None and 'expiryTime' in kwargs:
             expiry_time = kwargs['expiryTime']
-        if 'expiryTimeOffsetMinutes' in kwargs:
+        if expiry_time_offset_minutes is None and 'expiryTimeOffsetMinutes' in kwargs:
             expiry_time_offset_minutes = kwargs['expiryTimeOffsetMinutes']
-        if 'isEnabled' in kwargs:
+        if is_enabled is None and 'isEnabled' in kwargs:
             is_enabled = kwargs['isEnabled']
-        if 'lastModifiedTime' in kwargs:
+        if last_modified_time is None and 'lastModifiedTime' in kwargs:
             last_modified_time = kwargs['lastModifiedTime']
-        if 'monthlyOccurrences' in kwargs:
+        if monthly_occurrences is None and 'monthlyOccurrences' in kwargs:
             monthly_occurrences = kwargs['monthlyOccurrences']
-        if 'nextRun' in kwargs:
+        if next_run is None and 'nextRun' in kwargs:
             next_run = kwargs['nextRun']
-        if 'nextRunOffsetMinutes' in kwargs:
+        if next_run_offset_minutes is None and 'nextRunOffsetMinutes' in kwargs:
             next_run_offset_minutes = kwargs['nextRunOffsetMinutes']
-        if 'startTime' in kwargs:
+        if start_time is None and 'startTime' in kwargs:
             start_time = kwargs['startTime']
-        if 'startTimeOffsetMinutes' in kwargs:
+        if start_time_offset_minutes is None and 'startTimeOffsetMinutes' in kwargs:
             start_time_offset_minutes = kwargs['startTimeOffsetMinutes']
-        if 'timeZone' in kwargs:
+        if time_zone is None and 'timeZone' in kwargs:
             time_zone = kwargs['timeZone']
 
         _setter("frequency", frequency)
@@ -1510,10 +1548,14 @@ class SoftwareUpdateConfigurationScheduleMonthlyOccurrence(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             day: str,
-             occurrence: int,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             day: Optional[str] = None,
+             occurrence: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if day is None:
+            raise TypeError("Missing 'day' argument")
+        if occurrence is None:
+            raise TypeError("Missing 'occurrence' argument")
 
         _setter("day", day)
         _setter("occurrence", occurrence)
@@ -1573,11 +1615,11 @@ class SoftwareUpdateConfigurationTarget(dict):
              _setter: Callable[[Any, Any], None],
              azure_queries: Optional[Sequence['outputs.SoftwareUpdateConfigurationTargetAzureQuery']] = None,
              non_azure_queries: Optional[Sequence['outputs.SoftwareUpdateConfigurationTargetNonAzureQuery']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'azureQueries' in kwargs:
+        if azure_queries is None and 'azureQueries' in kwargs:
             azure_queries = kwargs['azureQueries']
-        if 'nonAzureQueries' in kwargs:
+        if non_azure_queries is None and 'nonAzureQueries' in kwargs:
             non_azure_queries = kwargs['nonAzureQueries']
 
         if azure_queries is not None:
@@ -1646,9 +1688,9 @@ class SoftwareUpdateConfigurationTargetAzureQuery(dict):
              scopes: Optional[Sequence[str]] = None,
              tag_filter: Optional[str] = None,
              tags: Optional[Sequence['outputs.SoftwareUpdateConfigurationTargetAzureQueryTag']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'tagFilter' in kwargs:
+        if tag_filter is None and 'tagFilter' in kwargs:
             tag_filter = kwargs['tagFilter']
 
         if locations is not None:
@@ -1710,10 +1752,14 @@ class SoftwareUpdateConfigurationTargetAzureQueryTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             tag: str,
-             values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             tag: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if tag is None:
+            raise TypeError("Missing 'tag' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("tag", tag)
         _setter("values", values)
@@ -1773,11 +1819,11 @@ class SoftwareUpdateConfigurationTargetNonAzureQuery(dict):
              _setter: Callable[[Any, Any], None],
              function_alias: Optional[str] = None,
              workspace_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'functionAlias' in kwargs:
+        if function_alias is None and 'functionAlias' in kwargs:
             function_alias = kwargs['functionAlias']
-        if 'workspaceId' in kwargs:
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
 
         if function_alias is not None:
@@ -1855,15 +1901,15 @@ class SoftwareUpdateConfigurationWindows(dict):
              excluded_knowledge_base_numbers: Optional[Sequence[str]] = None,
              included_knowledge_base_numbers: Optional[Sequence[str]] = None,
              reboot: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'classificationIncluded' in kwargs:
+        if classification_included is None and 'classificationIncluded' in kwargs:
             classification_included = kwargs['classificationIncluded']
-        if 'classificationsIncludeds' in kwargs:
+        if classifications_includeds is None and 'classificationsIncludeds' in kwargs:
             classifications_includeds = kwargs['classificationsIncludeds']
-        if 'excludedKnowledgeBaseNumbers' in kwargs:
+        if excluded_knowledge_base_numbers is None and 'excludedKnowledgeBaseNumbers' in kwargs:
             excluded_knowledge_base_numbers = kwargs['excludedKnowledgeBaseNumbers']
-        if 'includedKnowledgeBaseNumbers' in kwargs:
+        if included_knowledge_base_numbers is None and 'includedKnowledgeBaseNumbers' in kwargs:
             included_knowledge_base_numbers = kwargs['includedKnowledgeBaseNumbers']
 
         if classification_included is not None:
@@ -1957,14 +2003,18 @@ class SourceControlSecurity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             token: str,
-             token_type: str,
+             token: Optional[str] = None,
+             token_type: Optional[str] = None,
              refresh_token: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'tokenType' in kwargs:
+        if token is None:
+            raise TypeError("Missing 'token' argument")
+        if token_type is None and 'tokenType' in kwargs:
             token_type = kwargs['tokenType']
-        if 'refreshToken' in kwargs:
+        if token_type is None:
+            raise TypeError("Missing 'token_type' argument")
+        if refresh_token is None and 'refreshToken' in kwargs:
             refresh_token = kwargs['refreshToken']
 
         _setter("token", token)
@@ -2020,18 +2070,26 @@ class GetAccountIdentityResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             identity_ids: Sequence[str],
-             principal_id: str,
-             tenant_id: str,
-             type: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             identity_ids: Optional[Sequence[str]] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if identity_ids is None:
+            raise TypeError("Missing 'identity_ids' argument")
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("identity_ids", identity_ids)
         _setter("principal_id", principal_id)
@@ -2088,10 +2146,14 @@ class GetAccountPrivateEndpointConnectionResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             id: str,
-             name: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("id", id)
         _setter("name", name)
@@ -2138,13 +2200,23 @@ class GetVariablesBoolResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             description: str,
-             encrypted: bool,
-             id: str,
-             name: str,
-             value: bool,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             description: Optional[str] = None,
+             encrypted: Optional[bool] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             value: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if encrypted is None:
+            raise TypeError("Missing 'encrypted' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("description", description)
         _setter("encrypted", encrypted)
@@ -2215,13 +2287,23 @@ class GetVariablesDatetimeResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             description: str,
-             encrypted: bool,
-             id: str,
-             name: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             description: Optional[str] = None,
+             encrypted: Optional[bool] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if encrypted is None:
+            raise TypeError("Missing 'encrypted' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("description", description)
         _setter("encrypted", encrypted)
@@ -2292,13 +2374,23 @@ class GetVariablesEncryptedResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             description: str,
-             encrypted: bool,
-             id: str,
-             name: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             description: Optional[str] = None,
+             encrypted: Optional[bool] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if encrypted is None:
+            raise TypeError("Missing 'encrypted' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("description", description)
         _setter("encrypted", encrypted)
@@ -2369,13 +2461,23 @@ class GetVariablesIntResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             description: str,
-             encrypted: bool,
-             id: str,
-             name: str,
-             value: int,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             description: Optional[str] = None,
+             encrypted: Optional[bool] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             value: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if encrypted is None:
+            raise TypeError("Missing 'encrypted' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("description", description)
         _setter("encrypted", encrypted)
@@ -2446,13 +2548,23 @@ class GetVariablesNullResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             description: str,
-             encrypted: bool,
-             id: str,
-             name: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             description: Optional[str] = None,
+             encrypted: Optional[bool] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if encrypted is None:
+            raise TypeError("Missing 'encrypted' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("description", description)
         _setter("encrypted", encrypted)
@@ -2523,13 +2635,23 @@ class GetVariablesObjectResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             description: str,
-             encrypted: bool,
-             id: str,
-             name: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             description: Optional[str] = None,
+             encrypted: Optional[bool] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if encrypted is None:
+            raise TypeError("Missing 'encrypted' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("description", description)
         _setter("encrypted", encrypted)
@@ -2600,13 +2722,23 @@ class GetVariablesStringResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             description: str,
-             encrypted: bool,
-             id: str,
-             name: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             description: Optional[str] = None,
+             encrypted: Optional[bool] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if encrypted is None:
+            raise TypeError("Missing 'encrypted' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("description", description)
         _setter("encrypted", encrypted)

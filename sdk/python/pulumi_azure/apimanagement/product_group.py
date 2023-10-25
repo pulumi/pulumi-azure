@@ -35,20 +35,28 @@ class ProductGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_management_name: pulumi.Input[str],
-             group_name: pulumi.Input[str],
-             product_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             group_name: Optional[pulumi.Input[str]] = None,
+             product_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'groupName' in kwargs:
+        if api_management_name is None:
+            raise TypeError("Missing 'api_management_name' argument")
+        if group_name is None and 'groupName' in kwargs:
             group_name = kwargs['groupName']
-        if 'productId' in kwargs:
+        if group_name is None:
+            raise TypeError("Missing 'group_name' argument")
+        if product_id is None and 'productId' in kwargs:
             product_id = kwargs['productId']
-        if 'resourceGroupName' in kwargs:
+        if product_id is None:
+            raise TypeError("Missing 'product_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("api_management_name", api_management_name)
         _setter("group_name", group_name)
@@ -132,15 +140,15 @@ class _ProductGroupState:
              group_name: Optional[pulumi.Input[str]] = None,
              product_id: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'groupName' in kwargs:
+        if group_name is None and 'groupName' in kwargs:
             group_name = kwargs['groupName']
-        if 'productId' in kwargs:
+        if product_id is None and 'productId' in kwargs:
             product_id = kwargs['productId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if api_management_name is not None:
@@ -214,27 +222,6 @@ class ProductGroup(pulumi.CustomResource):
         """
         Manages an API Management Product Assignment to a Group.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_service = azure.apimanagement.get_service(name="example-api",
-            resource_group_name="example-resources")
-        example_product = azure.apimanagement.get_product(product_id="my-product",
-            api_management_name=example_service.name,
-            resource_group_name=example_service.resource_group_name)
-        example_group = azure.apimanagement.get_group(name="my-group",
-            api_management_name=example_service.name,
-            resource_group_name=example_service.resource_group_name)
-        example_product_group = azure.apimanagement.ProductGroup("exampleProductGroup",
-            product_id=example_product.product_id,
-            group_name=example_group.name,
-            api_management_name=example_service.name,
-            resource_group_name=example_service.resource_group_name)
-        ```
-
         ## Import
 
         API Management Product Groups can be imported using the `resource id`, e.g.
@@ -258,27 +245,6 @@ class ProductGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an API Management Product Assignment to a Group.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_service = azure.apimanagement.get_service(name="example-api",
-            resource_group_name="example-resources")
-        example_product = azure.apimanagement.get_product(product_id="my-product",
-            api_management_name=example_service.name,
-            resource_group_name=example_service.resource_group_name)
-        example_group = azure.apimanagement.get_group(name="my-group",
-            api_management_name=example_service.name,
-            resource_group_name=example_service.resource_group_name)
-        example_product_group = azure.apimanagement.ProductGroup("exampleProductGroup",
-            product_id=example_product.product_id,
-            group_name=example_group.name,
-            api_management_name=example_service.name,
-            resource_group_name=example_service.resource_group_name)
-        ```
 
         ## Import
 

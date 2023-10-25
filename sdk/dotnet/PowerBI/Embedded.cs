@@ -12,35 +12,6 @@ namespace Pulumi.Azure.PowerBI
     /// <summary>
     /// Manages a PowerBI Embedded.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleEmbedded = new Azure.PowerBI.Embedded("exampleEmbedded", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         SkuName = "A1",
-    ///         Administrators = new[]
-    ///         {
-    ///             "azsdktest@microsoft.com",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// PowerBI Embedded can be imported using the `resource id`, e.g.

@@ -37,21 +37,29 @@ class HyperVReplicationPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_consistent_snapshot_frequency_in_hours: pulumi.Input[int],
-             recovery_point_retention_in_hours: pulumi.Input[int],
-             recovery_vault_id: pulumi.Input[str],
-             replication_interval_in_seconds: pulumi.Input[int],
+             application_consistent_snapshot_frequency_in_hours: Optional[pulumi.Input[int]] = None,
+             recovery_point_retention_in_hours: Optional[pulumi.Input[int]] = None,
+             recovery_vault_id: Optional[pulumi.Input[str]] = None,
+             replication_interval_in_seconds: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'applicationConsistentSnapshotFrequencyInHours' in kwargs:
+        if application_consistent_snapshot_frequency_in_hours is None and 'applicationConsistentSnapshotFrequencyInHours' in kwargs:
             application_consistent_snapshot_frequency_in_hours = kwargs['applicationConsistentSnapshotFrequencyInHours']
-        if 'recoveryPointRetentionInHours' in kwargs:
+        if application_consistent_snapshot_frequency_in_hours is None:
+            raise TypeError("Missing 'application_consistent_snapshot_frequency_in_hours' argument")
+        if recovery_point_retention_in_hours is None and 'recoveryPointRetentionInHours' in kwargs:
             recovery_point_retention_in_hours = kwargs['recoveryPointRetentionInHours']
-        if 'recoveryVaultId' in kwargs:
+        if recovery_point_retention_in_hours is None:
+            raise TypeError("Missing 'recovery_point_retention_in_hours' argument")
+        if recovery_vault_id is None and 'recoveryVaultId' in kwargs:
             recovery_vault_id = kwargs['recoveryVaultId']
-        if 'replicationIntervalInSeconds' in kwargs:
+        if recovery_vault_id is None:
+            raise TypeError("Missing 'recovery_vault_id' argument")
+        if replication_interval_in_seconds is None and 'replicationIntervalInSeconds' in kwargs:
             replication_interval_in_seconds = kwargs['replicationIntervalInSeconds']
+        if replication_interval_in_seconds is None:
+            raise TypeError("Missing 'replication_interval_in_seconds' argument")
 
         _setter("application_consistent_snapshot_frequency_in_hours", application_consistent_snapshot_frequency_in_hours)
         _setter("recovery_point_retention_in_hours", recovery_point_retention_in_hours)
@@ -149,15 +157,15 @@ class _HyperVReplicationPolicyState:
              recovery_point_retention_in_hours: Optional[pulumi.Input[int]] = None,
              recovery_vault_id: Optional[pulumi.Input[str]] = None,
              replication_interval_in_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'applicationConsistentSnapshotFrequencyInHours' in kwargs:
+        if application_consistent_snapshot_frequency_in_hours is None and 'applicationConsistentSnapshotFrequencyInHours' in kwargs:
             application_consistent_snapshot_frequency_in_hours = kwargs['applicationConsistentSnapshotFrequencyInHours']
-        if 'recoveryPointRetentionInHours' in kwargs:
+        if recovery_point_retention_in_hours is None and 'recoveryPointRetentionInHours' in kwargs:
             recovery_point_retention_in_hours = kwargs['recoveryPointRetentionInHours']
-        if 'recoveryVaultId' in kwargs:
+        if recovery_vault_id is None and 'recoveryVaultId' in kwargs:
             recovery_vault_id = kwargs['recoveryVaultId']
-        if 'replicationIntervalInSeconds' in kwargs:
+        if replication_interval_in_seconds is None and 'replicationIntervalInSeconds' in kwargs:
             replication_interval_in_seconds = kwargs['replicationIntervalInSeconds']
 
         if application_consistent_snapshot_frequency_in_hours is not None:
@@ -243,24 +251,6 @@ class HyperVReplicationPolicy(pulumi.CustomResource):
         """
         Manages a Azure Site Recovery replication policy for HyperV within a Recovery Vault. Replication policies define the frequency at which recovery points are created and how long they are stored.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example", location="East US")
-        vault = azure.recoveryservices.Vault("vault",
-            location=example.location,
-            resource_group_name=example.name,
-            sku="Standard")
-        policy = azure.siterecovery.HyperVReplicationPolicy("policy",
-            recovery_vault_id=vault.id,
-            recovery_point_retention_in_hours=2,
-            application_consistent_snapshot_frequency_in_hours=1,
-            replication_interval_in_seconds=300)
-        ```
-
         ## Import
 
         Site Recovery Replication Policies can be imported using the `resource id`, e.g.
@@ -284,24 +274,6 @@ class HyperVReplicationPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Azure Site Recovery replication policy for HyperV within a Recovery Vault. Replication policies define the frequency at which recovery points are created and how long they are stored.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example", location="East US")
-        vault = azure.recoveryservices.Vault("vault",
-            location=example.location,
-            resource_group_name=example.name,
-            sku="Standard")
-        policy = azure.siterecovery.HyperVReplicationPolicy("policy",
-            recovery_vault_id=vault.id,
-            recovery_point_retention_in_hours=2,
-            application_consistent_snapshot_frequency_in_hours=1,
-            replication_interval_in_seconds=300)
-        ```
 
         ## Import
 

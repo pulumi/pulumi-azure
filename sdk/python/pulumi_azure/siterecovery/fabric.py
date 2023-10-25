@@ -35,16 +35,20 @@ class FabricArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             recovery_vault_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             recovery_vault_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'recoveryVaultName' in kwargs:
+        if recovery_vault_name is None and 'recoveryVaultName' in kwargs:
             recovery_vault_name = kwargs['recoveryVaultName']
-        if 'resourceGroupName' in kwargs:
+        if recovery_vault_name is None:
+            raise TypeError("Missing 'recovery_vault_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("recovery_vault_name", recovery_vault_name)
         _setter("resource_group_name", resource_group_name)
@@ -130,11 +134,11 @@ class _FabricState:
              name: Optional[pulumi.Input[str]] = None,
              recovery_vault_name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'recoveryVaultName' in kwargs:
+        if recovery_vault_name is None and 'recoveryVaultName' in kwargs:
             recovery_vault_name = kwargs['recoveryVaultName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if location is not None:
@@ -208,24 +212,6 @@ class Fabric(pulumi.CustomResource):
         """
         Manages a Azure Site Recovery Replication Fabric within a Recovery Services vault. Only Azure fabrics are supported at this time. Replication Fabrics serve as a container within an Azure region for other Site Recovery resources such as protection containers, protected items, network mappings.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        primary = azure.core.ResourceGroup("primary", location="West US")
-        secondary = azure.core.ResourceGroup("secondary", location="East US")
-        vault = azure.recoveryservices.Vault("vault",
-            location=secondary.location,
-            resource_group_name=secondary.name,
-            sku="Standard")
-        fabric = azure.siterecovery.Fabric("fabric",
-            resource_group_name=secondary.name,
-            recovery_vault_name=vault.name,
-            location=primary.location)
-        ```
-
         ## Import
 
         Site Recovery Fabric can be imported using the `resource id`, e.g.
@@ -249,24 +235,6 @@ class Fabric(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Azure Site Recovery Replication Fabric within a Recovery Services vault. Only Azure fabrics are supported at this time. Replication Fabrics serve as a container within an Azure region for other Site Recovery resources such as protection containers, protected items, network mappings.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        primary = azure.core.ResourceGroup("primary", location="West US")
-        secondary = azure.core.ResourceGroup("secondary", location="East US")
-        vault = azure.recoveryservices.Vault("vault",
-            location=secondary.location,
-            resource_group_name=secondary.name,
-            sku="Standard")
-        fabric = azure.siterecovery.Fabric("fabric",
-            resource_group_name=secondary.name,
-            recovery_vault_name=vault.name,
-            location=primary.location)
-        ```
 
         ## Import
 

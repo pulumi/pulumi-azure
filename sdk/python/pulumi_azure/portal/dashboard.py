@@ -40,16 +40,18 @@ class DashboardArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              dashboard_properties: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'dashboardProperties' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if dashboard_properties is None and 'dashboardProperties' in kwargs:
             dashboard_properties = kwargs['dashboardProperties']
 
         _setter("resource_group_name", resource_group_name)
@@ -159,11 +161,11 @@ class _DashboardState:
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dashboardProperties' in kwargs:
+        if dashboard_properties is None and 'dashboardProperties' in kwargs:
             dashboard_properties = kwargs['dashboardProperties']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if dashboard_properties is not None:
@@ -256,141 +258,6 @@ class Dashboard(pulumi.CustomResource):
 
         !> **Note:** The `portal.Dashboard` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `portal.PortalDashboard` resource instead.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        config = pulumi.Config()
-        md_content = config.get("mdContent")
-        if md_content is None:
-            md_content = "# Hello all :)"
-        video_link = config.get("videoLink")
-        if video_link is None:
-            video_link = "https://www.youtube.com/watch?v=......"
-        current = azure.core.get_subscription()
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        my_board = azure.portal.Dashboard("my-board",
-            resource_group_name=example.name,
-            location=example.location,
-            tags={
-                "source": "managed",
-            },
-            dashboard_properties=f\"\"\"{{
-           "lenses": {{
-                "0": {{
-                    "order": 0,
-                    "parts": {{
-                        "0": {{
-                            "position": {{
-                                "x": 0,
-                                "y": 0,
-                                "rowSpan": 2,
-                                "colSpan": 3
-                            }},
-                            "metadata": {{
-                                "inputs": [],
-                                "type": "Extension/HubsExtension/PartType/MarkdownPart",
-                                "settings": {{
-                                    "content": {{
-                                        "settings": {{
-                                            "content": "{md_content}",
-                                            "subtitle": "",
-                                            "title": ""
-                                        }}
-                                    }}
-                                }}
-                            }}
-                        }},               
-                        "1": {{
-                            "position": {{
-                                "x": 5,
-                                "y": 0,
-                                "rowSpan": 4,
-                                "colSpan": 6
-                            }},
-                            "metadata": {{
-                                "inputs": [],
-                                "type": "Extension/HubsExtension/PartType/VideoPart",
-                                "settings": {{
-                                    "content": {{
-                                        "settings": {{
-                                            "title": "Important Information",
-                                            "subtitle": "",
-                                            "src": "{video_link}",
-                                            "autoplay": true
-                                        }}
-                                    }}
-                                }}
-                            }}
-                        }},
-                        "2": {{
-                            "position": {{
-                                "x": 0,
-                                "y": 4,
-                                "rowSpan": 4,
-                                "colSpan": 6
-                            }},
-                            "metadata": {{
-                                "inputs": [
-                                    {{
-                                        "name": "ComponentId",
-                                        "value": "/subscriptions/{current.subscription_id}/resourceGroups/myRG/providers/microsoft.insights/components/myWebApp"
-                                    }}
-                                ],
-                                "type": "Extension/AppInsightsExtension/PartType/AppMapGalPt",
-                                "settings": {{}},
-                                "asset": {{
-                                    "idInputName": "ComponentId",
-                                    "type": "ApplicationInsights"
-                                }}
-                            }}
-                        }}              
-                    }}
-                }}
-            }},
-            "metadata": {{
-                "model": {{
-                    "timeRange": {{
-                        "value": {{
-                            "relative": {{
-                                "duration": 24,
-                                "timeUnit": 1
-                            }}
-                        }},
-                        "type": "MsPortalFx.Composition.Configuration.ValueTypes.TimeRange"
-                    }},
-                    "filterLocale": {{
-                        "value": "en-us"
-                    }},
-                    "filters": {{
-                        "value": {{
-                            "MsPortalFx_TimeRange": {{
-                                "model": {{
-                                    "format": "utc",
-                                    "granularity": "auto",
-                                    "relative": "24h"
-                                }},
-                                "displayCache": {{
-                                    "name": "UTC Time",
-                                    "value": "Past 24 hours"
-                                }},
-                                "filteredPartIds": [
-                                    "StartboardPart-UnboundPart-ae44fef5-76b8-46b0-86f0-2b3f47bad1c7"
-                                ]
-                            }}
-                        }}
-                    }}
-                }}
-            }}
-        }}
-        \"\"\")
-        ```
-
-        It is recommended to follow the steps outlined
-        [here](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards-create-programmatically#fetch-the-json-representation-of-the-dashboard) to create a Dashboard in the Portal and extract the relevant JSON to use in this resource. From the extracted JSON, the contents of the `properties: {}` object can used. Variables can be injected as needed - see above example.
-
         ## Import
 
         Dashboards can be imported using the `resource id`, e.g.
@@ -421,141 +288,6 @@ class Dashboard(pulumi.CustomResource):
         Manages a shared dashboard in the Azure Portal.
 
         !> **Note:** The `portal.Dashboard` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `portal.PortalDashboard` resource instead.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        config = pulumi.Config()
-        md_content = config.get("mdContent")
-        if md_content is None:
-            md_content = "# Hello all :)"
-        video_link = config.get("videoLink")
-        if video_link is None:
-            video_link = "https://www.youtube.com/watch?v=......"
-        current = azure.core.get_subscription()
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        my_board = azure.portal.Dashboard("my-board",
-            resource_group_name=example.name,
-            location=example.location,
-            tags={
-                "source": "managed",
-            },
-            dashboard_properties=f\"\"\"{{
-           "lenses": {{
-                "0": {{
-                    "order": 0,
-                    "parts": {{
-                        "0": {{
-                            "position": {{
-                                "x": 0,
-                                "y": 0,
-                                "rowSpan": 2,
-                                "colSpan": 3
-                            }},
-                            "metadata": {{
-                                "inputs": [],
-                                "type": "Extension/HubsExtension/PartType/MarkdownPart",
-                                "settings": {{
-                                    "content": {{
-                                        "settings": {{
-                                            "content": "{md_content}",
-                                            "subtitle": "",
-                                            "title": ""
-                                        }}
-                                    }}
-                                }}
-                            }}
-                        }},               
-                        "1": {{
-                            "position": {{
-                                "x": 5,
-                                "y": 0,
-                                "rowSpan": 4,
-                                "colSpan": 6
-                            }},
-                            "metadata": {{
-                                "inputs": [],
-                                "type": "Extension/HubsExtension/PartType/VideoPart",
-                                "settings": {{
-                                    "content": {{
-                                        "settings": {{
-                                            "title": "Important Information",
-                                            "subtitle": "",
-                                            "src": "{video_link}",
-                                            "autoplay": true
-                                        }}
-                                    }}
-                                }}
-                            }}
-                        }},
-                        "2": {{
-                            "position": {{
-                                "x": 0,
-                                "y": 4,
-                                "rowSpan": 4,
-                                "colSpan": 6
-                            }},
-                            "metadata": {{
-                                "inputs": [
-                                    {{
-                                        "name": "ComponentId",
-                                        "value": "/subscriptions/{current.subscription_id}/resourceGroups/myRG/providers/microsoft.insights/components/myWebApp"
-                                    }}
-                                ],
-                                "type": "Extension/AppInsightsExtension/PartType/AppMapGalPt",
-                                "settings": {{}},
-                                "asset": {{
-                                    "idInputName": "ComponentId",
-                                    "type": "ApplicationInsights"
-                                }}
-                            }}
-                        }}              
-                    }}
-                }}
-            }},
-            "metadata": {{
-                "model": {{
-                    "timeRange": {{
-                        "value": {{
-                            "relative": {{
-                                "duration": 24,
-                                "timeUnit": 1
-                            }}
-                        }},
-                        "type": "MsPortalFx.Composition.Configuration.ValueTypes.TimeRange"
-                    }},
-                    "filterLocale": {{
-                        "value": "en-us"
-                    }},
-                    "filters": {{
-                        "value": {{
-                            "MsPortalFx_TimeRange": {{
-                                "model": {{
-                                    "format": "utc",
-                                    "granularity": "auto",
-                                    "relative": "24h"
-                                }},
-                                "displayCache": {{
-                                    "name": "UTC Time",
-                                    "value": "Past 24 hours"
-                                }},
-                                "filteredPartIds": [
-                                    "StartboardPart-UnboundPart-ae44fef5-76b8-46b0-86f0-2b3f47bad1c7"
-                                ]
-                            }}
-                        }}
-                    }}
-                }}
-            }}
-        }}
-        \"\"\")
-        ```
-
-        It is recommended to follow the steps outlined
-        [here](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards-create-programmatically#fetch-the-json-representation-of-the-dashboard) to create a Dashboard in the Portal and extract the relevant JSON to use in this resource. From the extracted JSON, the contents of the `properties: {}` object can used. Variables can be injected as needed - see above example.
 
         ## Import
 

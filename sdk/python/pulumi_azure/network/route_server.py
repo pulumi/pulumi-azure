@@ -49,23 +49,31 @@ class RouteServerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             public_ip_address_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             sku: pulumi.Input[str],
-             subnet_id: pulumi.Input[str],
+             public_ip_address_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
              branch_to_branch_traffic_enabled: Optional[pulumi.Input[bool]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'publicIpAddressId' in kwargs:
+        if public_ip_address_id is None and 'publicIpAddressId' in kwargs:
             public_ip_address_id = kwargs['publicIpAddressId']
-        if 'resourceGroupName' in kwargs:
+        if public_ip_address_id is None:
+            raise TypeError("Missing 'public_ip_address_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'subnetId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'branchToBranchTrafficEnabled' in kwargs:
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if branch_to_branch_traffic_enabled is None and 'branchToBranchTrafficEnabled' in kwargs:
             branch_to_branch_traffic_enabled = kwargs['branchToBranchTrafficEnabled']
 
         _setter("public_ip_address_id", public_ip_address_id)
@@ -235,21 +243,21 @@ class _RouteServerState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              virtual_router_asn: Optional[pulumi.Input[int]] = None,
              virtual_router_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'branchToBranchTrafficEnabled' in kwargs:
+        if branch_to_branch_traffic_enabled is None and 'branchToBranchTrafficEnabled' in kwargs:
             branch_to_branch_traffic_enabled = kwargs['branchToBranchTrafficEnabled']
-        if 'publicIpAddressId' in kwargs:
+        if public_ip_address_id is None and 'publicIpAddressId' in kwargs:
             public_ip_address_id = kwargs['publicIpAddressId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'routingState' in kwargs:
+        if routing_state is None and 'routingState' in kwargs:
             routing_state = kwargs['routingState']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'virtualRouterAsn' in kwargs:
+        if virtual_router_asn is None and 'virtualRouterAsn' in kwargs:
             virtual_router_asn = kwargs['virtualRouterAsn']
-        if 'virtualRouterIps' in kwargs:
+        if virtual_router_ips is None and 'virtualRouterIps' in kwargs:
             virtual_router_ips = kwargs['virtualRouterIps']
 
         if branch_to_branch_traffic_enabled is not None:
@@ -418,38 +426,6 @@ class RouteServer(pulumi.CustomResource):
         """
         Manages an Azure Route Server
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            tags={
-                "environment": "Production",
-            })
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            virtual_network_name=example_virtual_network.name,
-            resource_group_name=example_resource_group.name,
-            address_prefixes=["10.0.1.0/24"])
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            allocation_method="Static",
-            sku="Standard")
-        example_route_server = azure.network.RouteServer("exampleRouteServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku="Standard",
-            public_ip_address_id=example_public_ip.id,
-            subnet_id=example_subnet.id,
-            branch_to_branch_traffic_enabled=True)
-        ```
-
         ## Import
 
         Route Server can be imported using the `resource id`, e.g.
@@ -479,38 +455,6 @@ class RouteServer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Route Server
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            tags={
-                "environment": "Production",
-            })
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            virtual_network_name=example_virtual_network.name,
-            resource_group_name=example_resource_group.name,
-            address_prefixes=["10.0.1.0/24"])
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            allocation_method="Static",
-            sku="Standard")
-        example_route_server = azure.network.RouteServer("exampleRouteServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku="Standard",
-            public_ip_address_id=example_public_ip.id,
-            subnet_id=example_subnet.id,
-            branch_to_branch_traffic_enabled=True)
-        ```
 
         ## Import
 

@@ -13,50 +13,6 @@ namespace Pulumi.Azure.AppService
     /// Manages a Web App Active Slot.
     /// 
     /// ## Example Usage
-    /// ### Windows Web App
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleServicePlan = new Azure.AppService.ServicePlan("exampleServicePlan", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         OsType = "Windows",
-    ///         SkuName = "P1v2",
-    ///     });
-    /// 
-    ///     var exampleWindowsWebApp = new Azure.AppService.WindowsWebApp("exampleWindowsWebApp", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleServicePlan.Location,
-    ///         ServicePlanId = exampleServicePlan.Id,
-    ///         SiteConfig = null,
-    ///     });
-    /// 
-    ///     var exampleWindowsWebAppSlot = new Azure.AppService.WindowsWebAppSlot("exampleWindowsWebAppSlot", new()
-    ///     {
-    ///         AppServiceId = exampleWindowsWebApp.Name,
-    ///         SiteConfig = null,
-    ///     });
-    /// 
-    ///     var exampleWebAppActiveSlot = new Azure.AppService.WebAppActiveSlot("exampleWebAppActiveSlot", new()
-    ///     {
-    ///         SlotId = exampleWindowsWebAppSlot.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

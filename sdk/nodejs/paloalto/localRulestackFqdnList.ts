@@ -7,23 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Palo Alto Local Rulestack FQDN List.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleLocalRulestack = new azure.paloalto.LocalRulestack("exampleLocalRulestack", {
- *     resourceGroupName: azurerm_resrouce_group.example.name,
- *     location: exampleResourceGroup.location,
- * });
- * const exampleLocalRulestackFqdnList = new azure.paloalto.LocalRulestackFqdnList("exampleLocalRulestackFqdnList", {
- *     rulestackId: exampleLocalRulestack.id,
- *     fullyQualifiedDomainNames: ["contoso.com"],
- * });
- * ```
- *
  * ## Import
  *
  * Palo Alto Local Rulestack FQDN Lists can be imported using the `resource id`, e.g.

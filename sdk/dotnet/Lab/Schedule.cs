@@ -12,62 +12,6 @@ namespace Pulumi.Azure.Lab
     /// <summary>
     /// Manages a Lab Service Schedule.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleLab = new Azure.Lab.Lab("exampleLab", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         Title = "Test Title",
-    ///         Security = new Azure.Lab.Inputs.LabSecurityArgs
-    ///         {
-    ///             OpenAccessEnabled = false,
-    ///         },
-    ///         VirtualMachine = new Azure.Lab.Inputs.LabVirtualMachineArgs
-    ///         {
-    ///             AdminUser = new Azure.Lab.Inputs.LabVirtualMachineAdminUserArgs
-    ///             {
-    ///                 Username = "testadmin",
-    ///                 Password = "Password1234!",
-    ///             },
-    ///             ImageReference = new Azure.Lab.Inputs.LabVirtualMachineImageReferenceArgs
-    ///             {
-    ///                 Offer = "0001-com-ubuntu-server-focal",
-    ///                 Publisher = "canonical",
-    ///                 Sku = "20_04-lts",
-    ///                 Version = "latest",
-    ///             },
-    ///             Sku = new Azure.Lab.Inputs.LabVirtualMachineSkuArgs
-    ///             {
-    ///                 Name = "Classic_Fsv2_2_4GB_128_S_SSD",
-    ///                 Capacity = 1,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleSchedule = new Azure.Lab.Schedule("exampleSchedule", new()
-    ///     {
-    ///         LabId = exampleLab.Id,
-    ///         StopTime = "2022-11-28T00:00:00Z",
-    ///         TimeZone = "America/Los_Angeles",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Lab Service Schedules can be imported using the `resource id`, e.g.

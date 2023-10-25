@@ -9,40 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **Note:** The `azure.sql.ManagedDatabase` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.ManagedDatabase` resource instead.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     addressSpaces: ["10.0.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.2.0/24"],
- * });
- * const exampleManagedInstance = new azure.sql.ManagedInstance("exampleManagedInstance", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     administratorLogin: "mradministrator",
- *     administratorLoginPassword: "thisIsDog11",
- *     licenseType: "BasePrice",
- *     subnetId: exampleSubnet.id,
- *     skuName: "GP_Gen5",
- *     vcores: 4,
- *     storageSizeInGb: 32,
- * });
- * const exampleManagedDatabase = new azure.sql.ManagedDatabase("exampleManagedDatabase", {
- *     sqlManagedInstanceId: exampleManagedInstance.id,
- *     location: exampleResourceGroup.location,
- * });
- * ```
- *
  * ## Import
  *
  * SQL Managed Databases can be imported using the `resource id`, e.g.

@@ -9,41 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Spring Cloud Container Deployment.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("exampleSpringCloudService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "E0",
- * });
- * const exampleSpringCloudApp = new azure.appplatform.SpringCloudApp("exampleSpringCloudApp", {
- *     resourceGroupName: exampleSpringCloudService.resourceGroupName,
- *     serviceName: exampleSpringCloudService.name,
- * });
- * const exampleSpringCloudContainerDeployment = new azure.appplatform.SpringCloudContainerDeployment("exampleSpringCloudContainerDeployment", {
- *     springCloudAppId: exampleSpringCloudApp.id,
- *     instanceCount: 2,
- *     arguments: [
- *         "-cp",
- *         "/app/resources:/app/classes:/app/libs/*",
- *         "hello.Application",
- *     ],
- *     commands: ["java"],
- *     environmentVariables: {
- *         Foo: "Bar",
- *         Env: "Staging",
- *     },
- *     server: "docker.io",
- *     image: "springio/gs-spring-boot-docker",
- *     languageFramework: "springboot",
- * });
- * ```
- *
  * ## Import
  *
  * Spring Cloud Container Deployments can be imported using the `resource id`, e.g.

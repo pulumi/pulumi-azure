@@ -57,8 +57,8 @@ class ApplicationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             sub_domain: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sub_domain: Optional[pulumi.Input[str]] = None,
              display_name: Optional[pulumi.Input[str]] = None,
              identity: Optional[pulumi.Input['ApplicationIdentityArgs']] = None,
              location: Optional[pulumi.Input[str]] = None,
@@ -67,15 +67,19 @@ class ApplicationArgs:
              sku: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              template: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'subDomain' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sub_domain is None and 'subDomain' in kwargs:
             sub_domain = kwargs['subDomain']
-        if 'displayName' in kwargs:
+        if sub_domain is None:
+            raise TypeError("Missing 'sub_domain' argument")
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
 
         _setter("resource_group_name", resource_group_name)
@@ -274,15 +278,15 @@ class _ApplicationState:
              sub_domain: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              template: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'subDomain' in kwargs:
+        if sub_domain is None and 'subDomain' in kwargs:
             sub_domain = kwargs['subDomain']
 
         if display_name is not None:
@@ -448,25 +452,6 @@ class Application(pulumi.CustomResource):
         """
         Manages an IoT Central Application
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_application = azure.iotcentral.Application("exampleApplication",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sub_domain="example-iotcentral-app-subdomain",
-            display_name="example-iotcentral-app-display-name",
-            sku="ST1",
-            template="iotc-default@1.0.0",
-            tags={
-                "Foo": "Bar",
-            })
-        ```
-
         ## Import
 
         The IoT Central Application can be imported using the `resource id`, e.g.
@@ -498,25 +483,6 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an IoT Central Application
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_application = azure.iotcentral.Application("exampleApplication",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sub_domain="example-iotcentral-app-subdomain",
-            display_name="example-iotcentral-app-display-name",
-            sku="ST1",
-            template="iotc-default@1.0.0",
-            tags={
-                "Foo": "Bar",
-            })
-        ```
 
         ## Import
 
@@ -565,11 +531,7 @@ class Application(pulumi.CustomResource):
             __props__ = ApplicationArgs.__new__(ApplicationArgs)
 
             __props__.__dict__["display_name"] = display_name
-            if identity is not None and not isinstance(identity, ApplicationIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                ApplicationIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, ApplicationIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name

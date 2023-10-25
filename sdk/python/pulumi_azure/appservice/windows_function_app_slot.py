@@ -114,8 +114,8 @@ class WindowsFunctionAppSlotArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             function_app_id: pulumi.Input[str],
-             site_config: pulumi.Input['WindowsFunctionAppSlotSiteConfigArgs'],
+             function_app_id: Optional[pulumi.Input[str]] = None,
+             site_config: Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigArgs']] = None,
              app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              auth_settings: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsArgs']] = None,
              auth_settings_v2: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2Args']] = None,
@@ -142,53 +142,57 @@ class WindowsFunctionAppSlotArgs:
              storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'functionAppId' in kwargs:
+        if function_app_id is None and 'functionAppId' in kwargs:
             function_app_id = kwargs['functionAppId']
-        if 'siteConfig' in kwargs:
+        if function_app_id is None:
+            raise TypeError("Missing 'function_app_id' argument")
+        if site_config is None and 'siteConfig' in kwargs:
             site_config = kwargs['siteConfig']
-        if 'appSettings' in kwargs:
+        if site_config is None:
+            raise TypeError("Missing 'site_config' argument")
+        if app_settings is None and 'appSettings' in kwargs:
             app_settings = kwargs['appSettings']
-        if 'authSettings' in kwargs:
+        if auth_settings is None and 'authSettings' in kwargs:
             auth_settings = kwargs['authSettings']
-        if 'authSettingsV2' in kwargs:
+        if auth_settings_v2 is None and 'authSettingsV2' in kwargs:
             auth_settings_v2 = kwargs['authSettingsV2']
-        if 'builtinLoggingEnabled' in kwargs:
+        if builtin_logging_enabled is None and 'builtinLoggingEnabled' in kwargs:
             builtin_logging_enabled = kwargs['builtinLoggingEnabled']
-        if 'clientCertificateEnabled' in kwargs:
+        if client_certificate_enabled is None and 'clientCertificateEnabled' in kwargs:
             client_certificate_enabled = kwargs['clientCertificateEnabled']
-        if 'clientCertificateExclusionPaths' in kwargs:
+        if client_certificate_exclusion_paths is None and 'clientCertificateExclusionPaths' in kwargs:
             client_certificate_exclusion_paths = kwargs['clientCertificateExclusionPaths']
-        if 'clientCertificateMode' in kwargs:
+        if client_certificate_mode is None and 'clientCertificateMode' in kwargs:
             client_certificate_mode = kwargs['clientCertificateMode']
-        if 'connectionStrings' in kwargs:
+        if connection_strings is None and 'connectionStrings' in kwargs:
             connection_strings = kwargs['connectionStrings']
-        if 'contentShareForceDisabled' in kwargs:
+        if content_share_force_disabled is None and 'contentShareForceDisabled' in kwargs:
             content_share_force_disabled = kwargs['contentShareForceDisabled']
-        if 'dailyMemoryTimeQuota' in kwargs:
+        if daily_memory_time_quota is None and 'dailyMemoryTimeQuota' in kwargs:
             daily_memory_time_quota = kwargs['dailyMemoryTimeQuota']
-        if 'functionsExtensionVersion' in kwargs:
+        if functions_extension_version is None and 'functionsExtensionVersion' in kwargs:
             functions_extension_version = kwargs['functionsExtensionVersion']
-        if 'httpsOnly' in kwargs:
+        if https_only is None and 'httpsOnly' in kwargs:
             https_only = kwargs['httpsOnly']
-        if 'keyVaultReferenceIdentityId' in kwargs:
+        if key_vault_reference_identity_id is None and 'keyVaultReferenceIdentityId' in kwargs:
             key_vault_reference_identity_id = kwargs['keyVaultReferenceIdentityId']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'servicePlanId' in kwargs:
+        if service_plan_id is None and 'servicePlanId' in kwargs:
             service_plan_id = kwargs['servicePlanId']
-        if 'storageAccountAccessKey' in kwargs:
+        if storage_account_access_key is None and 'storageAccountAccessKey' in kwargs:
             storage_account_access_key = kwargs['storageAccountAccessKey']
-        if 'storageAccountName' in kwargs:
+        if storage_account_name is None and 'storageAccountName' in kwargs:
             storage_account_name = kwargs['storageAccountName']
-        if 'storageAccounts' in kwargs:
+        if storage_accounts is None and 'storageAccounts' in kwargs:
             storage_accounts = kwargs['storageAccounts']
-        if 'storageKeyVaultSecretId' in kwargs:
+        if storage_key_vault_secret_id is None and 'storageKeyVaultSecretId' in kwargs:
             storage_key_vault_secret_id = kwargs['storageKeyVaultSecretId']
-        if 'storageUsesManagedIdentity' in kwargs:
+        if storage_uses_managed_identity is None and 'storageUsesManagedIdentity' in kwargs:
             storage_uses_managed_identity = kwargs['storageUsesManagedIdentity']
-        if 'virtualNetworkSubnetId' in kwargs:
+        if virtual_network_subnet_id is None and 'virtualNetworkSubnetId' in kwargs:
             virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
 
         _setter("function_app_id", function_app_id)
@@ -751,69 +755,69 @@ class _WindowsFunctionAppSlotState:
              storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'appSettings' in kwargs:
+        if app_settings is None and 'appSettings' in kwargs:
             app_settings = kwargs['appSettings']
-        if 'authSettings' in kwargs:
+        if auth_settings is None and 'authSettings' in kwargs:
             auth_settings = kwargs['authSettings']
-        if 'authSettingsV2' in kwargs:
+        if auth_settings_v2 is None and 'authSettingsV2' in kwargs:
             auth_settings_v2 = kwargs['authSettingsV2']
-        if 'builtinLoggingEnabled' in kwargs:
+        if builtin_logging_enabled is None and 'builtinLoggingEnabled' in kwargs:
             builtin_logging_enabled = kwargs['builtinLoggingEnabled']
-        if 'clientCertificateEnabled' in kwargs:
+        if client_certificate_enabled is None and 'clientCertificateEnabled' in kwargs:
             client_certificate_enabled = kwargs['clientCertificateEnabled']
-        if 'clientCertificateExclusionPaths' in kwargs:
+        if client_certificate_exclusion_paths is None and 'clientCertificateExclusionPaths' in kwargs:
             client_certificate_exclusion_paths = kwargs['clientCertificateExclusionPaths']
-        if 'clientCertificateMode' in kwargs:
+        if client_certificate_mode is None and 'clientCertificateMode' in kwargs:
             client_certificate_mode = kwargs['clientCertificateMode']
-        if 'connectionStrings' in kwargs:
+        if connection_strings is None and 'connectionStrings' in kwargs:
             connection_strings = kwargs['connectionStrings']
-        if 'contentShareForceDisabled' in kwargs:
+        if content_share_force_disabled is None and 'contentShareForceDisabled' in kwargs:
             content_share_force_disabled = kwargs['contentShareForceDisabled']
-        if 'customDomainVerificationId' in kwargs:
+        if custom_domain_verification_id is None and 'customDomainVerificationId' in kwargs:
             custom_domain_verification_id = kwargs['customDomainVerificationId']
-        if 'dailyMemoryTimeQuota' in kwargs:
+        if daily_memory_time_quota is None and 'dailyMemoryTimeQuota' in kwargs:
             daily_memory_time_quota = kwargs['dailyMemoryTimeQuota']
-        if 'defaultHostname' in kwargs:
+        if default_hostname is None and 'defaultHostname' in kwargs:
             default_hostname = kwargs['defaultHostname']
-        if 'functionAppId' in kwargs:
+        if function_app_id is None and 'functionAppId' in kwargs:
             function_app_id = kwargs['functionAppId']
-        if 'functionsExtensionVersion' in kwargs:
+        if functions_extension_version is None and 'functionsExtensionVersion' in kwargs:
             functions_extension_version = kwargs['functionsExtensionVersion']
-        if 'hostingEnvironmentId' in kwargs:
+        if hosting_environment_id is None and 'hostingEnvironmentId' in kwargs:
             hosting_environment_id = kwargs['hostingEnvironmentId']
-        if 'httpsOnly' in kwargs:
+        if https_only is None and 'httpsOnly' in kwargs:
             https_only = kwargs['httpsOnly']
-        if 'keyVaultReferenceIdentityId' in kwargs:
+        if key_vault_reference_identity_id is None and 'keyVaultReferenceIdentityId' in kwargs:
             key_vault_reference_identity_id = kwargs['keyVaultReferenceIdentityId']
-        if 'outboundIpAddressLists' in kwargs:
+        if outbound_ip_address_lists is None and 'outboundIpAddressLists' in kwargs:
             outbound_ip_address_lists = kwargs['outboundIpAddressLists']
-        if 'outboundIpAddresses' in kwargs:
+        if outbound_ip_addresses is None and 'outboundIpAddresses' in kwargs:
             outbound_ip_addresses = kwargs['outboundIpAddresses']
-        if 'possibleOutboundIpAddressLists' in kwargs:
+        if possible_outbound_ip_address_lists is None and 'possibleOutboundIpAddressLists' in kwargs:
             possible_outbound_ip_address_lists = kwargs['possibleOutboundIpAddressLists']
-        if 'possibleOutboundIpAddresses' in kwargs:
+        if possible_outbound_ip_addresses is None and 'possibleOutboundIpAddresses' in kwargs:
             possible_outbound_ip_addresses = kwargs['possibleOutboundIpAddresses']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'servicePlanId' in kwargs:
+        if service_plan_id is None and 'servicePlanId' in kwargs:
             service_plan_id = kwargs['servicePlanId']
-        if 'siteConfig' in kwargs:
+        if site_config is None and 'siteConfig' in kwargs:
             site_config = kwargs['siteConfig']
-        if 'siteCredentials' in kwargs:
+        if site_credentials is None and 'siteCredentials' in kwargs:
             site_credentials = kwargs['siteCredentials']
-        if 'storageAccountAccessKey' in kwargs:
+        if storage_account_access_key is None and 'storageAccountAccessKey' in kwargs:
             storage_account_access_key = kwargs['storageAccountAccessKey']
-        if 'storageAccountName' in kwargs:
+        if storage_account_name is None and 'storageAccountName' in kwargs:
             storage_account_name = kwargs['storageAccountName']
-        if 'storageAccounts' in kwargs:
+        if storage_accounts is None and 'storageAccounts' in kwargs:
             storage_accounts = kwargs['storageAccounts']
-        if 'storageKeyVaultSecretId' in kwargs:
+        if storage_key_vault_secret_id is None and 'storageKeyVaultSecretId' in kwargs:
             storage_key_vault_secret_id = kwargs['storageKeyVaultSecretId']
-        if 'storageUsesManagedIdentity' in kwargs:
+        if storage_uses_managed_identity is None and 'storageUsesManagedIdentity' in kwargs:
             storage_uses_managed_identity = kwargs['storageUsesManagedIdentity']
-        if 'virtualNetworkSubnetId' in kwargs:
+        if virtual_network_subnet_id is None and 'virtualNetworkSubnetId' in kwargs:
             virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
 
         if app_settings is not None:
@@ -1376,35 +1380,6 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
         """
         Manages a Windows Function App Slot.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            os_type="Windows",
-            sku_name="Y1")
-        example_windows_function_app = azure.appservice.WindowsFunctionApp("exampleWindowsFunctionApp",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            storage_account_name=example_account.name,
-            service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.WindowsFunctionAppSiteConfigArgs())
-        example_windows_function_app_slot = azure.appservice.WindowsFunctionAppSlot("exampleWindowsFunctionAppSlot",
-            function_app_id=example_windows_function_app.id,
-            storage_account_name=example_account.name,
-            site_config=azure.appservice.WindowsFunctionAppSlotSiteConfigArgs())
-        ```
-
         ## Import
 
         A Windows Function App Slot can be imported using the `resource id`, e.g.
@@ -1457,35 +1432,6 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Windows Function App Slot.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            os_type="Windows",
-            sku_name="Y1")
-        example_windows_function_app = azure.appservice.WindowsFunctionApp("exampleWindowsFunctionApp",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            storage_account_name=example_account.name,
-            service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.WindowsFunctionAppSiteConfigArgs())
-        example_windows_function_app_slot = azure.appservice.WindowsFunctionAppSlot("exampleWindowsFunctionAppSlot",
-            function_app_id=example_windows_function_app.id,
-            storage_account_name=example_account.name,
-            site_config=azure.appservice.WindowsFunctionAppSlotSiteConfigArgs())
-        ```
 
         ## Import
 
@@ -1552,23 +1498,11 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
             __props__ = WindowsFunctionAppSlotArgs.__new__(WindowsFunctionAppSlotArgs)
 
             __props__.__dict__["app_settings"] = app_settings
-            if auth_settings is not None and not isinstance(auth_settings, WindowsFunctionAppSlotAuthSettingsArgs):
-                auth_settings = auth_settings or {}
-                def _setter(key, value):
-                    auth_settings[key] = value
-                WindowsFunctionAppSlotAuthSettingsArgs._configure(_setter, **auth_settings)
+            auth_settings = _utilities.configure(auth_settings, WindowsFunctionAppSlotAuthSettingsArgs, True)
             __props__.__dict__["auth_settings"] = auth_settings
-            if auth_settings_v2 is not None and not isinstance(auth_settings_v2, WindowsFunctionAppSlotAuthSettingsV2Args):
-                auth_settings_v2 = auth_settings_v2 or {}
-                def _setter(key, value):
-                    auth_settings_v2[key] = value
-                WindowsFunctionAppSlotAuthSettingsV2Args._configure(_setter, **auth_settings_v2)
+            auth_settings_v2 = _utilities.configure(auth_settings_v2, WindowsFunctionAppSlotAuthSettingsV2Args, True)
             __props__.__dict__["auth_settings_v2"] = auth_settings_v2
-            if backup is not None and not isinstance(backup, WindowsFunctionAppSlotBackupArgs):
-                backup = backup or {}
-                def _setter(key, value):
-                    backup[key] = value
-                WindowsFunctionAppSlotBackupArgs._configure(_setter, **backup)
+            backup = _utilities.configure(backup, WindowsFunctionAppSlotBackupArgs, True)
             __props__.__dict__["backup"] = backup
             __props__.__dict__["builtin_logging_enabled"] = builtin_logging_enabled
             __props__.__dict__["client_certificate_enabled"] = client_certificate_enabled
@@ -1583,21 +1517,13 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
             __props__.__dict__["function_app_id"] = function_app_id
             __props__.__dict__["functions_extension_version"] = functions_extension_version
             __props__.__dict__["https_only"] = https_only
-            if identity is not None and not isinstance(identity, WindowsFunctionAppSlotIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                WindowsFunctionAppSlotIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, WindowsFunctionAppSlotIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["key_vault_reference_identity_id"] = key_vault_reference_identity_id
             __props__.__dict__["name"] = name
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             __props__.__dict__["service_plan_id"] = service_plan_id
-            if site_config is not None and not isinstance(site_config, WindowsFunctionAppSlotSiteConfigArgs):
-                site_config = site_config or {}
-                def _setter(key, value):
-                    site_config[key] = value
-                WindowsFunctionAppSlotSiteConfigArgs._configure(_setter, **site_config)
+            site_config = _utilities.configure(site_config, WindowsFunctionAppSlotSiteConfigArgs, True)
             if site_config is None and not opts.urn:
                 raise TypeError("Missing required property 'site_config'")
             __props__.__dict__["site_config"] = site_config

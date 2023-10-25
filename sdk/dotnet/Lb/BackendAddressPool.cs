@@ -14,50 +14,6 @@ namespace Pulumi.Azure.Lb
     /// 
     /// &gt; **NOTE:** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         AllocationMethod = "Static",
-    ///     });
-    /// 
-    ///     var exampleLoadBalancer = new Azure.Lb.LoadBalancer("exampleLoadBalancer", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         FrontendIpConfigurations = new[]
-    ///         {
-    ///             new Azure.Lb.Inputs.LoadBalancerFrontendIpConfigurationArgs
-    ///             {
-    ///                 Name = "PublicIPAddress",
-    ///                 PublicIpAddressId = examplePublicIp.Id,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleBackendAddressPool = new Azure.Lb.BackendAddressPool("exampleBackendAddressPool", new()
-    ///     {
-    ///         LoadbalancerId = exampleLoadBalancer.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Load Balancer Backend Address Pools can be imported using the `resource id`, e.g.

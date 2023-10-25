@@ -36,20 +36,28 @@ class GetMariaDbServerStorageProfileResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             auto_grow: str,
-             backup_retention_days: int,
-             geo_redundant_backup: str,
-             storage_mb: int,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             auto_grow: Optional[str] = None,
+             backup_retention_days: Optional[int] = None,
+             geo_redundant_backup: Optional[str] = None,
+             storage_mb: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'autoGrow' in kwargs:
+        if auto_grow is None and 'autoGrow' in kwargs:
             auto_grow = kwargs['autoGrow']
-        if 'backupRetentionDays' in kwargs:
+        if auto_grow is None:
+            raise TypeError("Missing 'auto_grow' argument")
+        if backup_retention_days is None and 'backupRetentionDays' in kwargs:
             backup_retention_days = kwargs['backupRetentionDays']
-        if 'geoRedundantBackup' in kwargs:
+        if backup_retention_days is None:
+            raise TypeError("Missing 'backup_retention_days' argument")
+        if geo_redundant_backup is None and 'geoRedundantBackup' in kwargs:
             geo_redundant_backup = kwargs['geoRedundantBackup']
-        if 'storageMb' in kwargs:
+        if geo_redundant_backup is None:
+            raise TypeError("Missing 'geo_redundant_backup' argument")
+        if storage_mb is None and 'storageMb' in kwargs:
             storage_mb = kwargs['storageMb']
+        if storage_mb is None:
+            raise TypeError("Missing 'storage_mb' argument")
 
         _setter("auto_grow", auto_grow)
         _setter("backup_retention_days", backup_retention_days)

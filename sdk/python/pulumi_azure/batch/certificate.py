@@ -44,21 +44,33 @@ class CertificateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             account_name: pulumi.Input[str],
-             certificate: pulumi.Input[str],
-             format: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             thumbprint: pulumi.Input[str],
-             thumbprint_algorithm: pulumi.Input[str],
+             account_name: Optional[pulumi.Input[str]] = None,
+             certificate: Optional[pulumi.Input[str]] = None,
+             format: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             thumbprint: Optional[pulumi.Input[str]] = None,
+             thumbprint_algorithm: Optional[pulumi.Input[str]] = None,
              password: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accountName' in kwargs:
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'resourceGroupName' in kwargs:
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if certificate is None:
+            raise TypeError("Missing 'certificate' argument")
+        if format is None:
+            raise TypeError("Missing 'format' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'thumbprintAlgorithm' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if thumbprint is None:
+            raise TypeError("Missing 'thumbprint' argument")
+        if thumbprint_algorithm is None and 'thumbprintAlgorithm' in kwargs:
             thumbprint_algorithm = kwargs['thumbprintAlgorithm']
+        if thumbprint_algorithm is None:
+            raise TypeError("Missing 'thumbprint_algorithm' argument")
 
         _setter("account_name", account_name)
         _setter("certificate", certificate)
@@ -202,15 +214,15 @@ class _CertificateState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              thumbprint: Optional[pulumi.Input[str]] = None,
              thumbprint_algorithm: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accountName' in kwargs:
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'publicData' in kwargs:
+        if public_data is None and 'publicData' in kwargs:
             public_data = kwargs['publicData']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'thumbprintAlgorithm' in kwargs:
+        if thumbprint_algorithm is None and 'thumbprintAlgorithm' in kwargs:
             thumbprint_algorithm = kwargs['thumbprintAlgorithm']
 
         if account_name is not None:
@@ -357,38 +369,6 @@ class Certificate(pulumi.CustomResource):
         """
         Manages a certificate in an Azure Batch account.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import base64
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_batch_account_account = azure.batch.Account("exampleBatch/accountAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            pool_allocation_mode="BatchService",
-            storage_account_id=example_account.id,
-            storage_account_authentication_mode="StorageKeys",
-            tags={
-                "env": "test",
-            })
-        example_certificate = azure.batch.Certificate("exampleCertificate",
-            resource_group_name=example_resource_group.name,
-            account_name=example_batch / account_account["name"],
-            certificate=(lambda path: base64.b64encode(open(path).read().encode()).decode())("certificate.pfx"),
-            format="Pfx",
-            password="password",
-            thumbprint="42C107874FD0E4A9583292A2F1098E8FE4B2EDDA",
-            thumbprint_algorithm="SHA1")
-        ```
-
         ## Import
 
         Batch Certificates can be imported using the `resource id`, e.g.
@@ -415,38 +395,6 @@ class Certificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a certificate in an Azure Batch account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import base64
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_batch_account_account = azure.batch.Account("exampleBatch/accountAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            pool_allocation_mode="BatchService",
-            storage_account_id=example_account.id,
-            storage_account_authentication_mode="StorageKeys",
-            tags={
-                "env": "test",
-            })
-        example_certificate = azure.batch.Certificate("exampleCertificate",
-            resource_group_name=example_resource_group.name,
-            account_name=example_batch / account_account["name"],
-            certificate=(lambda path: base64.b64encode(open(path).read().encode()).decode())("certificate.pfx"),
-            format="Pfx",
-            password="password",
-            thumbprint="42C107874FD0E4A9583292A2F1098E8FE4B2EDDA",
-            thumbprint_algorithm="SHA1")
-        ```
 
         ## Import
 

@@ -81,7 +81,7 @@ class QueueArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             namespace_id: pulumi.Input[str],
+             namespace_id: Optional[pulumi.Input[str]] = None,
              auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
              dead_lettering_on_message_expiration: Optional[pulumi.Input[bool]] = None,
              default_message_ttl: Optional[pulumi.Input[str]] = None,
@@ -99,39 +99,41 @@ class QueueArgs:
              requires_duplicate_detection: Optional[pulumi.Input[bool]] = None,
              requires_session: Optional[pulumi.Input[bool]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'namespaceId' in kwargs:
+        if namespace_id is None and 'namespaceId' in kwargs:
             namespace_id = kwargs['namespaceId']
-        if 'autoDeleteOnIdle' in kwargs:
+        if namespace_id is None:
+            raise TypeError("Missing 'namespace_id' argument")
+        if auto_delete_on_idle is None and 'autoDeleteOnIdle' in kwargs:
             auto_delete_on_idle = kwargs['autoDeleteOnIdle']
-        if 'deadLetteringOnMessageExpiration' in kwargs:
+        if dead_lettering_on_message_expiration is None and 'deadLetteringOnMessageExpiration' in kwargs:
             dead_lettering_on_message_expiration = kwargs['deadLetteringOnMessageExpiration']
-        if 'defaultMessageTtl' in kwargs:
+        if default_message_ttl is None and 'defaultMessageTtl' in kwargs:
             default_message_ttl = kwargs['defaultMessageTtl']
-        if 'duplicateDetectionHistoryTimeWindow' in kwargs:
+        if duplicate_detection_history_time_window is None and 'duplicateDetectionHistoryTimeWindow' in kwargs:
             duplicate_detection_history_time_window = kwargs['duplicateDetectionHistoryTimeWindow']
-        if 'enableBatchedOperations' in kwargs:
+        if enable_batched_operations is None and 'enableBatchedOperations' in kwargs:
             enable_batched_operations = kwargs['enableBatchedOperations']
-        if 'enableExpress' in kwargs:
+        if enable_express is None and 'enableExpress' in kwargs:
             enable_express = kwargs['enableExpress']
-        if 'enablePartitioning' in kwargs:
+        if enable_partitioning is None and 'enablePartitioning' in kwargs:
             enable_partitioning = kwargs['enablePartitioning']
-        if 'forwardDeadLetteredMessagesTo' in kwargs:
+        if forward_dead_lettered_messages_to is None and 'forwardDeadLetteredMessagesTo' in kwargs:
             forward_dead_lettered_messages_to = kwargs['forwardDeadLetteredMessagesTo']
-        if 'forwardTo' in kwargs:
+        if forward_to is None and 'forwardTo' in kwargs:
             forward_to = kwargs['forwardTo']
-        if 'lockDuration' in kwargs:
+        if lock_duration is None and 'lockDuration' in kwargs:
             lock_duration = kwargs['lockDuration']
-        if 'maxDeliveryCount' in kwargs:
+        if max_delivery_count is None and 'maxDeliveryCount' in kwargs:
             max_delivery_count = kwargs['maxDeliveryCount']
-        if 'maxMessageSizeInKilobytes' in kwargs:
+        if max_message_size_in_kilobytes is None and 'maxMessageSizeInKilobytes' in kwargs:
             max_message_size_in_kilobytes = kwargs['maxMessageSizeInKilobytes']
-        if 'maxSizeInMegabytes' in kwargs:
+        if max_size_in_megabytes is None and 'maxSizeInMegabytes' in kwargs:
             max_size_in_megabytes = kwargs['maxSizeInMegabytes']
-        if 'requiresDuplicateDetection' in kwargs:
+        if requires_duplicate_detection is None and 'requiresDuplicateDetection' in kwargs:
             requires_duplicate_detection = kwargs['requiresDuplicateDetection']
-        if 'requiresSession' in kwargs:
+        if requires_session is None and 'requiresSession' in kwargs:
             requires_session = kwargs['requiresSession']
 
         _setter("namespace_id", namespace_id)
@@ -485,43 +487,43 @@ class _QueueState:
              requires_session: Optional[pulumi.Input[bool]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'autoDeleteOnIdle' in kwargs:
+        if auto_delete_on_idle is None and 'autoDeleteOnIdle' in kwargs:
             auto_delete_on_idle = kwargs['autoDeleteOnIdle']
-        if 'deadLetteringOnMessageExpiration' in kwargs:
+        if dead_lettering_on_message_expiration is None and 'deadLetteringOnMessageExpiration' in kwargs:
             dead_lettering_on_message_expiration = kwargs['deadLetteringOnMessageExpiration']
-        if 'defaultMessageTtl' in kwargs:
+        if default_message_ttl is None and 'defaultMessageTtl' in kwargs:
             default_message_ttl = kwargs['defaultMessageTtl']
-        if 'duplicateDetectionHistoryTimeWindow' in kwargs:
+        if duplicate_detection_history_time_window is None and 'duplicateDetectionHistoryTimeWindow' in kwargs:
             duplicate_detection_history_time_window = kwargs['duplicateDetectionHistoryTimeWindow']
-        if 'enableBatchedOperations' in kwargs:
+        if enable_batched_operations is None and 'enableBatchedOperations' in kwargs:
             enable_batched_operations = kwargs['enableBatchedOperations']
-        if 'enableExpress' in kwargs:
+        if enable_express is None and 'enableExpress' in kwargs:
             enable_express = kwargs['enableExpress']
-        if 'enablePartitioning' in kwargs:
+        if enable_partitioning is None and 'enablePartitioning' in kwargs:
             enable_partitioning = kwargs['enablePartitioning']
-        if 'forwardDeadLetteredMessagesTo' in kwargs:
+        if forward_dead_lettered_messages_to is None and 'forwardDeadLetteredMessagesTo' in kwargs:
             forward_dead_lettered_messages_to = kwargs['forwardDeadLetteredMessagesTo']
-        if 'forwardTo' in kwargs:
+        if forward_to is None and 'forwardTo' in kwargs:
             forward_to = kwargs['forwardTo']
-        if 'lockDuration' in kwargs:
+        if lock_duration is None and 'lockDuration' in kwargs:
             lock_duration = kwargs['lockDuration']
-        if 'maxDeliveryCount' in kwargs:
+        if max_delivery_count is None and 'maxDeliveryCount' in kwargs:
             max_delivery_count = kwargs['maxDeliveryCount']
-        if 'maxMessageSizeInKilobytes' in kwargs:
+        if max_message_size_in_kilobytes is None and 'maxMessageSizeInKilobytes' in kwargs:
             max_message_size_in_kilobytes = kwargs['maxMessageSizeInKilobytes']
-        if 'maxSizeInMegabytes' in kwargs:
+        if max_size_in_megabytes is None and 'maxSizeInMegabytes' in kwargs:
             max_size_in_megabytes = kwargs['maxSizeInMegabytes']
-        if 'namespaceId' in kwargs:
+        if namespace_id is None and 'namespaceId' in kwargs:
             namespace_id = kwargs['namespaceId']
-        if 'namespaceName' in kwargs:
+        if namespace_name is None and 'namespaceName' in kwargs:
             namespace_name = kwargs['namespaceName']
-        if 'requiresDuplicateDetection' in kwargs:
+        if requires_duplicate_detection is None and 'requiresDuplicateDetection' in kwargs:
             requires_duplicate_detection = kwargs['requiresDuplicateDetection']
-        if 'requiresSession' in kwargs:
+        if requires_session is None and 'requiresSession' in kwargs:
             requires_session = kwargs['requiresSession']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if auto_delete_on_idle is not None:
@@ -836,25 +838,6 @@ class Queue(pulumi.CustomResource):
         """
         Manages a ServiceBus Queue.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_namespace = azure.servicebus.Namespace("exampleNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard",
-            tags={
-                "source": "example",
-            })
-        example_queue = azure.servicebus.Queue("exampleQueue",
-            namespace_id=example_namespace.id,
-            enable_partitioning=True)
-        ```
-
         ## Import
 
         Service Bus Queue can be imported using the `resource id`, e.g.
@@ -896,25 +879,6 @@ class Queue(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a ServiceBus Queue.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_namespace = azure.servicebus.Namespace("exampleNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard",
-            tags={
-                "source": "example",
-            })
-        example_queue = azure.servicebus.Queue("exampleQueue",
-            namespace_id=example_namespace.id,
-            enable_partitioning=True)
-        ```
 
         ## Import
 

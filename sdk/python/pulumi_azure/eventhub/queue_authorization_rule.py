@@ -40,15 +40,17 @@ class QueueAuthorizationRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             queue_id: pulumi.Input[str],
+             queue_id: Optional[pulumi.Input[str]] = None,
              listen: Optional[pulumi.Input[bool]] = None,
              manage: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              send: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'queueId' in kwargs:
+        if queue_id is None and 'queueId' in kwargs:
             queue_id = kwargs['queueId']
+        if queue_id is None:
+            raise TypeError("Missing 'queue_id' argument")
 
         _setter("queue_id", queue_id)
         if listen is not None:
@@ -181,21 +183,21 @@ class _QueueAuthorizationRuleState:
              secondary_connection_string_alias: Optional[pulumi.Input[str]] = None,
              secondary_key: Optional[pulumi.Input[str]] = None,
              send: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'primaryConnectionString' in kwargs:
+        if primary_connection_string is None and 'primaryConnectionString' in kwargs:
             primary_connection_string = kwargs['primaryConnectionString']
-        if 'primaryConnectionStringAlias' in kwargs:
+        if primary_connection_string_alias is None and 'primaryConnectionStringAlias' in kwargs:
             primary_connection_string_alias = kwargs['primaryConnectionStringAlias']
-        if 'primaryKey' in kwargs:
+        if primary_key is None and 'primaryKey' in kwargs:
             primary_key = kwargs['primaryKey']
-        if 'queueId' in kwargs:
+        if queue_id is None and 'queueId' in kwargs:
             queue_id = kwargs['queueId']
-        if 'secondaryConnectionString' in kwargs:
+        if secondary_connection_string is None and 'secondaryConnectionString' in kwargs:
             secondary_connection_string = kwargs['secondaryConnectionString']
-        if 'secondaryConnectionStringAlias' in kwargs:
+        if secondary_connection_string_alias is None and 'secondaryConnectionStringAlias' in kwargs:
             secondary_connection_string_alias = kwargs['secondaryConnectionStringAlias']
-        if 'secondaryKey' in kwargs:
+        if secondary_key is None and 'secondaryKey' in kwargs:
             secondary_key = kwargs['secondaryKey']
 
         if listen is not None:
@@ -375,30 +377,6 @@ class QueueAuthorizationRule(pulumi.CustomResource):
         """
         Manages an Authorization Rule for a ServiceBus Queue.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
-        example_namespace = azure.servicebus.Namespace("exampleNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard",
-            tags={
-                "source": "example",
-            })
-        example_queue = azure.servicebus.Queue("exampleQueue",
-            namespace_id=example_namespace.id,
-            enable_partitioning=True)
-        example_queue_authorization_rule = azure.servicebus.QueueAuthorizationRule("exampleQueueAuthorizationRule",
-            queue_id=example_queue.id,
-            listen=True,
-            send=True,
-            manage=False)
-        ```
-
         ## Import
 
         ServiceBus Queue Authorization Rules can be imported using the `resource id`, e.g.
@@ -425,30 +403,6 @@ class QueueAuthorizationRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Authorization Rule for a ServiceBus Queue.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
-        example_namespace = azure.servicebus.Namespace("exampleNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard",
-            tags={
-                "source": "example",
-            })
-        example_queue = azure.servicebus.Queue("exampleQueue",
-            namespace_id=example_namespace.id,
-            enable_partitioning=True)
-        example_queue_authorization_rule = azure.servicebus.QueueAuthorizationRule("exampleQueueAuthorizationRule",
-            queue_id=example_queue.id,
-            listen=True,
-            send=True,
-            manage=False)
-        ```
 
         ## Import
 

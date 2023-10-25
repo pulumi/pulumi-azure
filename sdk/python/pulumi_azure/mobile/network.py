@@ -41,20 +41,26 @@ class NetworkArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mobile_country_code: pulumi.Input[str],
-             mobile_network_code: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             mobile_country_code: Optional[pulumi.Input[str]] = None,
+             mobile_network_code: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'mobileCountryCode' in kwargs:
+        if mobile_country_code is None and 'mobileCountryCode' in kwargs:
             mobile_country_code = kwargs['mobileCountryCode']
-        if 'mobileNetworkCode' in kwargs:
+        if mobile_country_code is None:
+            raise TypeError("Missing 'mobile_country_code' argument")
+        if mobile_network_code is None and 'mobileNetworkCode' in kwargs:
             mobile_network_code = kwargs['mobileNetworkCode']
-        if 'resourceGroupName' in kwargs:
+        if mobile_network_code is None:
+            raise TypeError("Missing 'mobile_network_code' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("mobile_country_code", mobile_country_code)
         _setter("mobile_network_code", mobile_network_code)
@@ -179,15 +185,15 @@ class _NetworkState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              service_key: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'mobileCountryCode' in kwargs:
+        if mobile_country_code is None and 'mobileCountryCode' in kwargs:
             mobile_country_code = kwargs['mobileCountryCode']
-        if 'mobileNetworkCode' in kwargs:
+        if mobile_network_code is None and 'mobileNetworkCode' in kwargs:
             mobile_network_code = kwargs['mobileNetworkCode']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serviceKey' in kwargs:
+        if service_key is None and 'serviceKey' in kwargs:
             service_key = kwargs['serviceKey']
 
         if location is not None:
@@ -305,23 +311,6 @@ class Network(pulumi.CustomResource):
         """
         Manages a Mobile Network.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="east us")
-        example_network = azure.mobile.Network("exampleNetwork",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            mobile_country_code="001",
-            mobile_network_code="01",
-            tags={
-                "key": "value",
-            })
-        ```
-
         ## Import
 
         Mobile Network can be imported using the `resource id`, e.g.
@@ -347,23 +336,6 @@ class Network(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Mobile Network.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="east us")
-        example_network = azure.mobile.Network("exampleNetwork",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            mobile_country_code="001",
-            mobile_network_code="01",
-            tags={
-                "key": "value",
-            })
-        ```
 
         ## Import
 

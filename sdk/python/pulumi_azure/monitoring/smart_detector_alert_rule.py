@@ -58,28 +58,40 @@ class SmartDetectorAlertRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action_group: pulumi.Input['SmartDetectorAlertRuleActionGroupArgs'],
-             detector_type: pulumi.Input[str],
-             frequency: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             scope_resource_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             severity: pulumi.Input[str],
+             action_group: Optional[pulumi.Input['SmartDetectorAlertRuleActionGroupArgs']] = None,
+             detector_type: Optional[pulumi.Input[str]] = None,
+             frequency: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             scope_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             severity: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              throttling_duration: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'actionGroup' in kwargs:
+        if action_group is None and 'actionGroup' in kwargs:
             action_group = kwargs['actionGroup']
-        if 'detectorType' in kwargs:
+        if action_group is None:
+            raise TypeError("Missing 'action_group' argument")
+        if detector_type is None and 'detectorType' in kwargs:
             detector_type = kwargs['detectorType']
-        if 'resourceGroupName' in kwargs:
+        if detector_type is None:
+            raise TypeError("Missing 'detector_type' argument")
+        if frequency is None:
+            raise TypeError("Missing 'frequency' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'scopeResourceIds' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if scope_resource_ids is None and 'scopeResourceIds' in kwargs:
             scope_resource_ids = kwargs['scopeResourceIds']
-        if 'throttlingDuration' in kwargs:
+        if scope_resource_ids is None:
+            raise TypeError("Missing 'scope_resource_ids' argument")
+        if severity is None:
+            raise TypeError("Missing 'severity' argument")
+        if throttling_duration is None and 'throttlingDuration' in kwargs:
             throttling_duration = kwargs['throttlingDuration']
 
         _setter("action_group", action_group)
@@ -288,17 +300,17 @@ class _SmartDetectorAlertRuleState:
              severity: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              throttling_duration: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'actionGroup' in kwargs:
+        if action_group is None and 'actionGroup' in kwargs:
             action_group = kwargs['actionGroup']
-        if 'detectorType' in kwargs:
+        if detector_type is None and 'detectorType' in kwargs:
             detector_type = kwargs['detectorType']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'scopeResourceIds' in kwargs:
+        if scope_resource_ids is None and 'scopeResourceIds' in kwargs:
             scope_resource_ids = kwargs['scopeResourceIds']
-        if 'throttlingDuration' in kwargs:
+        if throttling_duration is None and 'throttlingDuration' in kwargs:
             throttling_duration = kwargs['throttlingDuration']
 
         if action_group is not None:
@@ -477,31 +489,6 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
         """
         Manages an Monitor Smart Detector Alert Rule.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="web")
-        example_action_group = azure.monitoring.ActionGroup("exampleActionGroup",
-            resource_group_name=example_resource_group.name,
-            short_name="example")
-        example_smart_detector_alert_rule = azure.monitoring.SmartDetectorAlertRule("exampleSmartDetectorAlertRule",
-            resource_group_name=example_resource_group.name,
-            severity="Sev0",
-            scope_resource_ids=[example_insights.id],
-            frequency="PT1M",
-            detector_type="FailureAnomaliesDetector",
-            action_group=azure.monitoring.SmartDetectorAlertRuleActionGroupArgs(
-                ids=[example_action_group.id],
-            ))
-        ```
-
         ## Import
 
         Monitor Smart Detector Alert Rule can be imported using the `resource id`, e.g.
@@ -532,31 +519,6 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Monitor Smart Detector Alert Rule.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="web")
-        example_action_group = azure.monitoring.ActionGroup("exampleActionGroup",
-            resource_group_name=example_resource_group.name,
-            short_name="example")
-        example_smart_detector_alert_rule = azure.monitoring.SmartDetectorAlertRule("exampleSmartDetectorAlertRule",
-            resource_group_name=example_resource_group.name,
-            severity="Sev0",
-            scope_resource_ids=[example_insights.id],
-            frequency="PT1M",
-            detector_type="FailureAnomaliesDetector",
-            action_group=azure.monitoring.SmartDetectorAlertRuleActionGroupArgs(
-                ids=[example_action_group.id],
-            ))
-        ```
 
         ## Import
 
@@ -605,11 +567,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SmartDetectorAlertRuleArgs.__new__(SmartDetectorAlertRuleArgs)
 
-            if action_group is not None and not isinstance(action_group, SmartDetectorAlertRuleActionGroupArgs):
-                action_group = action_group or {}
-                def _setter(key, value):
-                    action_group[key] = value
-                SmartDetectorAlertRuleActionGroupArgs._configure(_setter, **action_group)
+            action_group = _utilities.configure(action_group, SmartDetectorAlertRuleActionGroupArgs, True)
             if action_group is None and not opts.urn:
                 raise TypeError("Missing required property 'action_group'")
             __props__.__dict__["action_group"] = action_group

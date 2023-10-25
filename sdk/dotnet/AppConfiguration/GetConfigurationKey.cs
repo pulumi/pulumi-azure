@@ -15,34 +15,6 @@ namespace Pulumi.Azure.AppConfiguration
         /// Use this data source to access information about an existing Azure App Configuration Key.
         /// 
         /// &gt; **Note:** App Configuration Keys are provisioned using a Data Plane API which requires the role `App Configuration Data Owner` on either the App Configuration or a parent scope (such as the Resource Group/Subscription). [More information can be found in the Azure Documentation for App Configuration](https://docs.microsoft.com/azure/azure-app-configuration/concept-enable-rbac#azure-built-in-roles-for-azure-app-configuration).
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Azure.AppConfiguration.GetConfigurationKey.Invoke(new()
-        ///     {
-        ///         ConfigurationStoreId = azurerm_app_configuration.Appconf.Id,
-        ///         Key = "appConfKey1",
-        ///         Label = "somelabel",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["value"] = test.Apply(getConfigurationKeyResult =&gt; getConfigurationKeyResult.Value),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetConfigurationKeyResult> InvokeAsync(GetConfigurationKeyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationKeyResult>("azure:appconfiguration/getConfigurationKey:getConfigurationKey", args ?? new GetConfigurationKeyArgs(), options.WithDefaults());
@@ -51,34 +23,6 @@ namespace Pulumi.Azure.AppConfiguration
         /// Use this data source to access information about an existing Azure App Configuration Key.
         /// 
         /// &gt; **Note:** App Configuration Keys are provisioned using a Data Plane API which requires the role `App Configuration Data Owner` on either the App Configuration or a parent scope (such as the Resource Group/Subscription). [More information can be found in the Azure Documentation for App Configuration](https://docs.microsoft.com/azure/azure-app-configuration/concept-enable-rbac#azure-built-in-roles-for-azure-app-configuration).
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Azure.AppConfiguration.GetConfigurationKey.Invoke(new()
-        ///     {
-        ///         ConfigurationStoreId = azurerm_app_configuration.Appconf.Id,
-        ///         Key = "appConfKey1",
-        ///         Label = "somelabel",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["value"] = test.Apply(getConfigurationKeyResult =&gt; getConfigurationKeyResult.Value),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetConfigurationKeyResult> Invoke(GetConfigurationKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationKeyResult>("azure:appconfiguration/getConfigurationKey:getConfigurationKey", args ?? new GetConfigurationKeyInvokeArgs(), options.WithDefaults());

@@ -47,7 +47,7 @@ class GroupTemplateDeploymentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             management_group_id: pulumi.Input[str],
+             management_group_id: Optional[pulumi.Input[str]] = None,
              debug_level: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
@@ -55,17 +55,19 @@ class GroupTemplateDeploymentArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              template_content: Optional[pulumi.Input[str]] = None,
              template_spec_version_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'managementGroupId' in kwargs:
+        if management_group_id is None and 'managementGroupId' in kwargs:
             management_group_id = kwargs['managementGroupId']
-        if 'debugLevel' in kwargs:
+        if management_group_id is None:
+            raise TypeError("Missing 'management_group_id' argument")
+        if debug_level is None and 'debugLevel' in kwargs:
             debug_level = kwargs['debugLevel']
-        if 'parametersContent' in kwargs:
+        if parameters_content is None and 'parametersContent' in kwargs:
             parameters_content = kwargs['parametersContent']
-        if 'templateContent' in kwargs:
+        if template_content is None and 'templateContent' in kwargs:
             template_content = kwargs['templateContent']
-        if 'templateSpecVersionId' in kwargs:
+        if template_spec_version_id is None and 'templateSpecVersionId' in kwargs:
             template_spec_version_id = kwargs['templateSpecVersionId']
 
         _setter("management_group_id", management_group_id)
@@ -229,19 +231,19 @@ class _GroupTemplateDeploymentState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              template_content: Optional[pulumi.Input[str]] = None,
              template_spec_version_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'debugLevel' in kwargs:
+        if debug_level is None and 'debugLevel' in kwargs:
             debug_level = kwargs['debugLevel']
-        if 'managementGroupId' in kwargs:
+        if management_group_id is None and 'managementGroupId' in kwargs:
             management_group_id = kwargs['managementGroupId']
-        if 'outputContent' in kwargs:
+        if output_content is None and 'outputContent' in kwargs:
             output_content = kwargs['outputContent']
-        if 'parametersContent' in kwargs:
+        if parameters_content is None and 'parametersContent' in kwargs:
             parameters_content = kwargs['parametersContent']
-        if 'templateContent' in kwargs:
+        if template_content is None and 'templateContent' in kwargs:
             template_content = kwargs['templateContent']
-        if 'templateSpecVersionId' in kwargs:
+        if template_spec_version_id is None and 'templateSpecVersionId' in kwargs:
             template_spec_version_id = kwargs['templateSpecVersionId']
 
         if debug_level is not None:
@@ -393,85 +395,6 @@ class GroupTemplateDeployment(pulumi.CustomResource):
 
         > **Note:** Deployments to a Management Group are always Incrementally applied. Existing resources that are not part of the template will not be removed.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_group = azure.management.get_group(name="00000000-0000-0000-0000-000000000000")
-        example_group_template_deployment = azure.management.GroupTemplateDeployment("exampleGroupTemplateDeployment",
-            location="West Europe",
-            management_group_id=example_group.id,
-            template_content=\"\"\"{
-          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "parameters": {
-            "policyAssignmentName": {
-              "type": "string",
-              "defaultValue": "[guid(parameters('policyDefinitionID'), resourceGroup().name)]",
-              "metadata": {
-                "description": "Specifies the name of the policy assignment, can be used defined or an idempotent name as the defaultValue provides."
-              }
-            },
-            "policyDefinitionID": {
-              "type": "string",
-              "metadata": {
-                "description": "Specifies the ID of the policy definition or policy set definition being assigned."
-              }
-            }
-          },
-          "resources": [
-            {
-              "type": "Microsoft.Authorization/policyAssignments",
-              "name": "[parameters('policyAssignmentName')]",
-              "apiVersion": "2019-09-01",
-              "properties": {
-                "scope": "[subscriptionResourceId('Microsoft.Resources/resourceGroups', resourceGroup().name)]",
-                "policyDefinitionId": "[parameters('policyDefinitionID')]"
-              }
-            }
-          ]
-        }
-        \"\"\",
-            parameters_content=\"\"\"{
-          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-          "contentVersion": "1.0.0.0",
-          "parameters": {
-            "policyDefinitionID": {
-              "value": "/providers/Microsoft.Authorization/policyDefinitions/0a914e76-4921-4c19-b460-a2d36003525a"
-            }
-          }
-        }
-        \"\"\")
-        ```
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_group = azure.management.get_group(name="00000000-0000-0000-0000-000000000000")
-        example_group_template_deployment = azure.management.GroupTemplateDeployment("exampleGroupTemplateDeployment",
-            location="West Europe",
-            management_group_id=example_group.id,
-            template_content=(lambda path: open(path).read())("templates/example-deploy-template.json"),
-            parameters_content=(lambda path: open(path).read())("templates/example-deploy-params.json"))
-        ```
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_group = azure.management.get_group(name="00000000-0000-0000-0000-000000000000")
-        example_template_spec_version = azure.core.get_template_spec_version(name="exampleTemplateForManagementGroup",
-            resource_group_name="exampleResourceGroup",
-            version="v1.0.9")
-        example_group_template_deployment = azure.management.GroupTemplateDeployment("exampleGroupTemplateDeployment",
-            location="West Europe",
-            management_group_id=example_group.id,
-            template_spec_version_id=example_template_spec_version.id)
-        ```
-
         ## Import
 
         Management Group Template Deployments can be imported using the `resource id`, e.g.
@@ -503,85 +426,6 @@ class GroupTemplateDeployment(pulumi.CustomResource):
         > **Note:** Deleting a Deployment at the Management Group Scope will not delete any resources created by the deployment.
 
         > **Note:** Deployments to a Management Group are always Incrementally applied. Existing resources that are not part of the template will not be removed.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_group = azure.management.get_group(name="00000000-0000-0000-0000-000000000000")
-        example_group_template_deployment = azure.management.GroupTemplateDeployment("exampleGroupTemplateDeployment",
-            location="West Europe",
-            management_group_id=example_group.id,
-            template_content=\"\"\"{
-          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "parameters": {
-            "policyAssignmentName": {
-              "type": "string",
-              "defaultValue": "[guid(parameters('policyDefinitionID'), resourceGroup().name)]",
-              "metadata": {
-                "description": "Specifies the name of the policy assignment, can be used defined or an idempotent name as the defaultValue provides."
-              }
-            },
-            "policyDefinitionID": {
-              "type": "string",
-              "metadata": {
-                "description": "Specifies the ID of the policy definition or policy set definition being assigned."
-              }
-            }
-          },
-          "resources": [
-            {
-              "type": "Microsoft.Authorization/policyAssignments",
-              "name": "[parameters('policyAssignmentName')]",
-              "apiVersion": "2019-09-01",
-              "properties": {
-                "scope": "[subscriptionResourceId('Microsoft.Resources/resourceGroups', resourceGroup().name)]",
-                "policyDefinitionId": "[parameters('policyDefinitionID')]"
-              }
-            }
-          ]
-        }
-        \"\"\",
-            parameters_content=\"\"\"{
-          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-          "contentVersion": "1.0.0.0",
-          "parameters": {
-            "policyDefinitionID": {
-              "value": "/providers/Microsoft.Authorization/policyDefinitions/0a914e76-4921-4c19-b460-a2d36003525a"
-            }
-          }
-        }
-        \"\"\")
-        ```
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_group = azure.management.get_group(name="00000000-0000-0000-0000-000000000000")
-        example_group_template_deployment = azure.management.GroupTemplateDeployment("exampleGroupTemplateDeployment",
-            location="West Europe",
-            management_group_id=example_group.id,
-            template_content=(lambda path: open(path).read())("templates/example-deploy-template.json"),
-            parameters_content=(lambda path: open(path).read())("templates/example-deploy-params.json"))
-        ```
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_group = azure.management.get_group(name="00000000-0000-0000-0000-000000000000")
-        example_template_spec_version = azure.core.get_template_spec_version(name="exampleTemplateForManagementGroup",
-            resource_group_name="exampleResourceGroup",
-            version="v1.0.9")
-        example_group_template_deployment = azure.management.GroupTemplateDeployment("exampleGroupTemplateDeployment",
-            location="West Europe",
-            management_group_id=example_group.id,
-            template_spec_version_id=example_template_spec_version.id)
-        ```
 
         ## Import
 

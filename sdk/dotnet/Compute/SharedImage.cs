@@ -12,50 +12,6 @@ namespace Pulumi.Azure.Compute
     /// <summary>
     /// Manages a Shared Image within a Shared Image Gallery.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleSharedImageGallery = new Azure.Compute.SharedImageGallery("exampleSharedImageGallery", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         Description = "Shared images and things.",
-    ///         Tags = 
-    ///         {
-    ///             { "Hello", "There" },
-    ///             { "World", "Example" },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleSharedImage = new Azure.Compute.SharedImage("exampleSharedImage", new()
-    ///     {
-    ///         GalleryName = exampleSharedImageGallery.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         OsType = "Linux",
-    ///         Identifier = new Azure.Compute.Inputs.SharedImageIdentifierArgs
-    ///         {
-    ///             Publisher = "PublisherName",
-    ///             Offer = "OfferName",
-    ///             Sku = "ExampleSku",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Shared Images can be imported using the `resource id`, e.g.

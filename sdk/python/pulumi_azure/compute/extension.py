@@ -35,10 +35,6 @@ class ExtensionArgs:
         :param pulumi.Input[str] type: The type of extension, available types for a publisher can be found using the Azure CLI.
                
                > **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
-               
-               ```python
-               import pulumi
-               ```
         :param pulumi.Input[str] type_handler_version: Specifies the version of the extension to use, available versions can be found using the Azure CLI.
         :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine. Changing this forces a new resource to be created
         :param pulumi.Input[bool] auto_upgrade_minor_version: Specifies if the platform deploys the latest minor version update to the `type_handler_version` specified.
@@ -78,10 +74,10 @@ class ExtensionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             publisher: pulumi.Input[str],
-             type: pulumi.Input[str],
-             type_handler_version: pulumi.Input[str],
-             virtual_machine_id: pulumi.Input[str],
+             publisher: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             type_handler_version: Optional[pulumi.Input[str]] = None,
+             virtual_machine_id: Optional[pulumi.Input[str]] = None,
              auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
              automatic_upgrade_enabled: Optional[pulumi.Input[bool]] = None,
              failure_suppression_enabled: Optional[pulumi.Input[bool]] = None,
@@ -91,23 +87,31 @@ class ExtensionArgs:
              provision_after_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              settings: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'typeHandlerVersion' in kwargs:
+        if publisher is None:
+            raise TypeError("Missing 'publisher' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if type_handler_version is None and 'typeHandlerVersion' in kwargs:
             type_handler_version = kwargs['typeHandlerVersion']
-        if 'virtualMachineId' in kwargs:
+        if type_handler_version is None:
+            raise TypeError("Missing 'type_handler_version' argument")
+        if virtual_machine_id is None and 'virtualMachineId' in kwargs:
             virtual_machine_id = kwargs['virtualMachineId']
-        if 'autoUpgradeMinorVersion' in kwargs:
+        if virtual_machine_id is None:
+            raise TypeError("Missing 'virtual_machine_id' argument")
+        if auto_upgrade_minor_version is None and 'autoUpgradeMinorVersion' in kwargs:
             auto_upgrade_minor_version = kwargs['autoUpgradeMinorVersion']
-        if 'automaticUpgradeEnabled' in kwargs:
+        if automatic_upgrade_enabled is None and 'automaticUpgradeEnabled' in kwargs:
             automatic_upgrade_enabled = kwargs['automaticUpgradeEnabled']
-        if 'failureSuppressionEnabled' in kwargs:
+        if failure_suppression_enabled is None and 'failureSuppressionEnabled' in kwargs:
             failure_suppression_enabled = kwargs['failureSuppressionEnabled']
-        if 'protectedSettings' in kwargs:
+        if protected_settings is None and 'protectedSettings' in kwargs:
             protected_settings = kwargs['protectedSettings']
-        if 'protectedSettingsFromKeyVault' in kwargs:
+        if protected_settings_from_key_vault is None and 'protectedSettingsFromKeyVault' in kwargs:
             protected_settings_from_key_vault = kwargs['protectedSettingsFromKeyVault']
-        if 'provisionAfterExtensions' in kwargs:
+        if provision_after_extensions is None and 'provisionAfterExtensions' in kwargs:
             provision_after_extensions = kwargs['provisionAfterExtensions']
 
         _setter("publisher", publisher)
@@ -152,10 +156,6 @@ class ExtensionArgs:
         The type of extension, available types for a publisher can be found using the Azure CLI.
 
         > **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
-
-        ```python
-        import pulumi
-        ```
         """
         return pulumi.get(self, "type")
 
@@ -343,10 +343,6 @@ class _ExtensionState:
         :param pulumi.Input[str] type: The type of extension, available types for a publisher can be found using the Azure CLI.
                
                > **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
-               
-               ```python
-               import pulumi
-               ```
         :param pulumi.Input[str] type_handler_version: Specifies the version of the extension to use, available versions can be found using the Azure CLI.
         :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine. Changing this forces a new resource to be created
         """
@@ -382,23 +378,23 @@ class _ExtensionState:
              type: Optional[pulumi.Input[str]] = None,
              type_handler_version: Optional[pulumi.Input[str]] = None,
              virtual_machine_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'autoUpgradeMinorVersion' in kwargs:
+        if auto_upgrade_minor_version is None and 'autoUpgradeMinorVersion' in kwargs:
             auto_upgrade_minor_version = kwargs['autoUpgradeMinorVersion']
-        if 'automaticUpgradeEnabled' in kwargs:
+        if automatic_upgrade_enabled is None and 'automaticUpgradeEnabled' in kwargs:
             automatic_upgrade_enabled = kwargs['automaticUpgradeEnabled']
-        if 'failureSuppressionEnabled' in kwargs:
+        if failure_suppression_enabled is None and 'failureSuppressionEnabled' in kwargs:
             failure_suppression_enabled = kwargs['failureSuppressionEnabled']
-        if 'protectedSettings' in kwargs:
+        if protected_settings is None and 'protectedSettings' in kwargs:
             protected_settings = kwargs['protectedSettings']
-        if 'protectedSettingsFromKeyVault' in kwargs:
+        if protected_settings_from_key_vault is None and 'protectedSettingsFromKeyVault' in kwargs:
             protected_settings_from_key_vault = kwargs['protectedSettingsFromKeyVault']
-        if 'provisionAfterExtensions' in kwargs:
+        if provision_after_extensions is None and 'provisionAfterExtensions' in kwargs:
             provision_after_extensions = kwargs['provisionAfterExtensions']
-        if 'typeHandlerVersion' in kwargs:
+        if type_handler_version is None and 'typeHandlerVersion' in kwargs:
             type_handler_version = kwargs['typeHandlerVersion']
-        if 'virtualMachineId' in kwargs:
+        if virtual_machine_id is None and 'virtualMachineId' in kwargs:
             virtual_machine_id = kwargs['virtualMachineId']
 
         if auto_upgrade_minor_version is not None:
@@ -563,10 +559,6 @@ class _ExtensionState:
         The type of extension, available types for a publisher can be found using the Azure CLI.
 
         > **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
-
-        ```python
-        import pulumi
-        ```
         """
         return pulumi.get(self, "type")
 
@@ -626,63 +618,6 @@ class Extension(pulumi.CustomResource):
 
         > **NOTE:** Custom Script Extensions require that the Azure Virtual Machine Guest Agent is running on the Virtual Machine.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="testconfiguration1",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
-        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("exampleLinuxVirtualMachine",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            size="Standard_F2",
-            admin_username="adminuser",
-            network_interface_ids=[example_network_interface.id],
-            admin_ssh_keys=[azure.compute.LinuxVirtualMachineAdminSshKeyArgs(
-                username="adminuser",
-                public_key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"),
-            )],
-            os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
-                caching="ReadWrite",
-                storage_account_type="Standard_LRS",
-            ),
-            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-focal",
-                sku="20_04-lts",
-                version="latest",
-            ))
-        example_extension = azure.compute.Extension("exampleExtension",
-            virtual_machine_id=example_linux_virtual_machine.id,
-            publisher="Microsoft.Azure.Extensions",
-            type="CustomScript",
-            type_handler_version="2.0",
-            settings=\"\"\" {
-          "commandToExecute": "hostname && uptime"
-         }
-        \"\"\",
-            tags={
-                "environment": "Production",
-            })
-        ```
-
         ## Import
 
         Virtual Machine Extensions can be imported using the `resource id`, e.g.
@@ -714,10 +649,6 @@ class Extension(pulumi.CustomResource):
         :param pulumi.Input[str] type: The type of extension, available types for a publisher can be found using the Azure CLI.
                
                > **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
-               
-               ```python
-               import pulumi
-               ```
         :param pulumi.Input[str] type_handler_version: Specifies the version of the extension to use, available versions can be found using the Azure CLI.
         :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine. Changing this forces a new resource to be created
         """
@@ -734,63 +665,6 @@ class Extension(pulumi.CustomResource):
         > **NOTE:** Custom Script Extensions for Linux & Windows require that the `commandToExecute` returns a `0` exit code to be classified as successfully deployed. You can achieve this by appending `exit 0` to the end of your `commandToExecute`.
 
         > **NOTE:** Custom Script Extensions require that the Azure Virtual Machine Guest Agent is running on the Virtual Machine.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="testconfiguration1",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
-        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("exampleLinuxVirtualMachine",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            size="Standard_F2",
-            admin_username="adminuser",
-            network_interface_ids=[example_network_interface.id],
-            admin_ssh_keys=[azure.compute.LinuxVirtualMachineAdminSshKeyArgs(
-                username="adminuser",
-                public_key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"),
-            )],
-            os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
-                caching="ReadWrite",
-                storage_account_type="Standard_LRS",
-            ),
-            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-focal",
-                sku="20_04-lts",
-                version="latest",
-            ))
-        example_extension = azure.compute.Extension("exampleExtension",
-            virtual_machine_id=example_linux_virtual_machine.id,
-            publisher="Microsoft.Azure.Extensions",
-            type="CustomScript",
-            type_handler_version="2.0",
-            settings=\"\"\" {
-          "commandToExecute": "hostname && uptime"
-         }
-        \"\"\",
-            tags={
-                "environment": "Production",
-            })
-        ```
 
         ## Import
 
@@ -846,11 +720,7 @@ class Extension(pulumi.CustomResource):
             __props__.__dict__["failure_suppression_enabled"] = failure_suppression_enabled
             __props__.__dict__["name"] = name
             __props__.__dict__["protected_settings"] = None if protected_settings is None else pulumi.Output.secret(protected_settings)
-            if protected_settings_from_key_vault is not None and not isinstance(protected_settings_from_key_vault, ExtensionProtectedSettingsFromKeyVaultArgs):
-                protected_settings_from_key_vault = protected_settings_from_key_vault or {}
-                def _setter(key, value):
-                    protected_settings_from_key_vault[key] = value
-                ExtensionProtectedSettingsFromKeyVaultArgs._configure(_setter, **protected_settings_from_key_vault)
+            protected_settings_from_key_vault = _utilities.configure(protected_settings_from_key_vault, ExtensionProtectedSettingsFromKeyVaultArgs, True)
             __props__.__dict__["protected_settings_from_key_vault"] = protected_settings_from_key_vault
             __props__.__dict__["provision_after_extensions"] = provision_after_extensions
             if publisher is None and not opts.urn:
@@ -920,10 +790,6 @@ class Extension(pulumi.CustomResource):
         :param pulumi.Input[str] type: The type of extension, available types for a publisher can be found using the Azure CLI.
                
                > **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
-               
-               ```python
-               import pulumi
-               ```
         :param pulumi.Input[str] type_handler_version: Specifies the version of the extension to use, available versions can be found using the Azure CLI.
         :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine. Changing this forces a new resource to be created
         """
@@ -1041,10 +907,6 @@ class Extension(pulumi.CustomResource):
         The type of extension, available types for a publisher can be found using the Azure CLI.
 
         > **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
-
-        ```python
-        import pulumi
-        ```
         """
         return pulumi.get(self, "type")
 

@@ -12,41 +12,6 @@ namespace Pulumi.Azure.PrivateDns
     /// <summary>
     /// Enables you to manage DNS AAAA Records within Azure Private DNS.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var testZone = new Azure.PrivateDns.Zone("testZone", new()
-    ///     {
-    ///         ResourceGroupName = example.Name,
-    ///     });
-    /// 
-    ///     var testAAAARecord = new Azure.PrivateDns.AAAARecord("testAAAARecord", new()
-    ///     {
-    ///         ZoneName = testZone.Name,
-    ///         ResourceGroupName = example.Name,
-    ///         Ttl = 300,
-    ///         Records = new[]
-    ///         {
-    ///             "fd5d:70bc:930e:d008:0000:0000:0000:7334",
-    ///             "fd5d:70bc:930e:d008::7335",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Private DNS AAAA Records can be imported using the `resource id`, e.g.

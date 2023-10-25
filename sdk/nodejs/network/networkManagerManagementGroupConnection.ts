@@ -7,45 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Network Manager Management Group Connection which may cross tenants.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleGroup = new azure.management.Group("exampleGroup", {});
- * const alt = azure.core.getSubscription({
- *     subscriptionId: "00000000-0000-0000-0000-000000000000",
- * });
- * const exampleGroupSubscriptionAssociation = new azure.management.GroupSubscriptionAssociation("exampleGroupSubscriptionAssociation", {
- *     managementGroupId: exampleGroup.id,
- *     subscriptionId: alt.then(alt => alt.id),
- * });
- * const currentSubscription = azure.core.getSubscription({});
- * const currentClientConfig = azure.core.getClientConfig({});
- * const networkContributor = new azure.authorization.Assignment("networkContributor", {
- *     scope: exampleGroup.id,
- *     roleDefinitionName: "Network Contributor",
- *     principalId: currentClientConfig.then(currentClientConfig => currentClientConfig.objectId),
- * });
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleNetworkManager = new azure.network.NetworkManager("exampleNetworkManager", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     scope: {
- *         subscriptionIds: [currentSubscription.then(currentSubscription => currentSubscription.id)],
- *     },
- *     scopeAccesses: ["SecurityAdmin"],
- * });
- * const exampleNetworkManagerManagementGroupConnection = new azure.network.NetworkManagerManagementGroupConnection("exampleNetworkManagerManagementGroupConnection", {
- *     managementGroupId: exampleGroup.id,
- *     networkManagerId: exampleNetworkManager.id,
- *     description: "example",
- * }, {
- *     dependsOn: [networkContributor],
- * });
- * ```
- *
  * ## Import
  *
  * Network Manager Management Group Connection can be imported using the `resource id`, e.g.

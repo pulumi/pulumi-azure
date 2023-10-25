@@ -8,19 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Automation Account.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.automation.getAccount({
- *     name: "example-account",
- *     resourceGroupName: "example-resources",
- * });
- * export const automationAccountId = example.then(example => example.id);
- * ```
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
 
@@ -79,19 +66,6 @@ export interface GetAccountResult {
 }
 /**
  * Use this data source to access information about an existing Automation Account.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.automation.getAccount({
- *     name: "example-account",
- *     resourceGroupName: "example-resources",
- * });
- * export const automationAccountId = example.then(example => example.id);
- * ```
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
     return pulumi.output(args).apply((a: any) => getAccount(a, opts))

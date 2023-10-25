@@ -9,39 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Container App.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "PerGB2018",
- *     retentionInDays: 30,
- * });
- * const exampleEnvironment = new azure.containerapp.Environment("exampleEnvironment", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     logAnalyticsWorkspaceId: exampleAnalyticsWorkspace.id,
- * });
- * const exampleApp = new azure.containerapp.App("exampleApp", {
- *     containerAppEnvironmentId: exampleEnvironment.id,
- *     resourceGroupName: exampleResourceGroup.name,
- *     revisionMode: "Single",
- *     template: {
- *         containers: [{
- *             name: "examplecontainerapp",
- *             image: "mcr.microsoft.com/azuredocs/containerapps-helloworld:latest",
- *             cpu: 0.25,
- *             memory: "0.5Gi",
- *         }],
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * A Container App can be imported using the `resource id`, e.g.

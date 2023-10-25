@@ -13,76 +13,12 @@ namespace Pulumi.Azure.Automation
     {
         /// <summary>
         /// Use this data source to get all variables in an Automation Account.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var exampleAccount = Azure.Automation.GetAccount.Invoke(new()
-        ///     {
-        ///         Name = "example-account",
-        ///         ResourceGroupName = "example-resources",
-        ///     });
-        /// 
-        ///     var exampleVariables = Azure.Automation.GetVariables.Invoke(new()
-        ///     {
-        ///         AutomationAccountId = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Id),
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["stringVars"] = data.Azurerm_automation_variable_string.Example.String,
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetVariablesResult> InvokeAsync(GetVariablesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVariablesResult>("azure:automation/getVariables:getVariables", args ?? new GetVariablesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get all variables in an Automation Account.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var exampleAccount = Azure.Automation.GetAccount.Invoke(new()
-        ///     {
-        ///         Name = "example-account",
-        ///         ResourceGroupName = "example-resources",
-        ///     });
-        /// 
-        ///     var exampleVariables = Azure.Automation.GetVariables.Invoke(new()
-        ///     {
-        ///         AutomationAccountId = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Id),
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["stringVars"] = data.Azurerm_automation_variable_string.Example.String,
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetVariablesResult> Invoke(GetVariablesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVariablesResult>("azure:automation/getVariables:getVariables", args ?? new GetVariablesInvokeArgs(), options.WithDefaults());

@@ -26,11 +26,13 @@ class AutoProvisioningArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             auto_provision: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             auto_provision: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'autoProvision' in kwargs:
+        if auto_provision is None and 'autoProvision' in kwargs:
             auto_provision = kwargs['autoProvision']
+        if auto_provision is None:
+            raise TypeError("Missing 'auto_provision' argument")
 
         _setter("auto_provision", auto_provision)
 
@@ -63,9 +65,9 @@ class _AutoProvisioningState:
     def _configure(
              _setter: Callable[[Any, Any], None],
              auto_provision: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'autoProvision' in kwargs:
+        if auto_provision is None and 'autoProvision' in kwargs:
             auto_provision = kwargs['autoProvision']
 
         if auto_provision is not None:
@@ -96,15 +98,6 @@ class AutoProvisioning(pulumi.CustomResource):
 
         > **NOTE:** There is no resource name required, it will always be "default"
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.securitycenter.AutoProvisioning("example", auto_provision="On")
-        ```
-
         ## Import
 
         Security Center Auto Provisioning can be imported using the `resource id`, e.g.
@@ -127,15 +120,6 @@ class AutoProvisioning(pulumi.CustomResource):
         Enables or disables the Security Center Auto Provisioning feature for the subscription
 
         > **NOTE:** There is no resource name required, it will always be "default"
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.securitycenter.AutoProvisioning("example", auto_provision="On")
-        ```
 
         ## Import
 

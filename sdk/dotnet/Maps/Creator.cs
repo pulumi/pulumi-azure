@@ -12,45 +12,6 @@ namespace Pulumi.Azure.Maps
     /// <summary>
     /// Manages an Azure Maps Creator.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleAccount = new Azure.Maps.Account("exampleAccount", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         SkuName = "G2",
-    ///         Tags = 
-    ///         {
-    ///             { "environment", "Test" },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleCreator = new Azure.Maps.Creator("exampleCreator", new()
-    ///     {
-    ///         MapsAccountId = exampleAccount.Id,
-    ///         Location = exampleResourceGroup.Location,
-    ///         StorageUnits = 1,
-    ///         Tags = 
-    ///         {
-    ///             { "environment", "Test" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// An Azure Maps Creators can be imported using the `resource id`, e.g.

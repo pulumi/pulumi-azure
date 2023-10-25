@@ -32,13 +32,15 @@ class SpringCloudApiPortalCustomDomainArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             spring_cloud_api_portal_id: pulumi.Input[str],
+             spring_cloud_api_portal_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              thumbprint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'springCloudApiPortalId' in kwargs:
+        if spring_cloud_api_portal_id is None and 'springCloudApiPortalId' in kwargs:
             spring_cloud_api_portal_id = kwargs['springCloudApiPortalId']
+        if spring_cloud_api_portal_id is None:
+            raise TypeError("Missing 'spring_cloud_api_portal_id' argument")
 
         _setter("spring_cloud_api_portal_id", spring_cloud_api_portal_id)
         if name is not None:
@@ -107,9 +109,9 @@ class _SpringCloudApiPortalCustomDomainState:
              name: Optional[pulumi.Input[str]] = None,
              spring_cloud_api_portal_id: Optional[pulumi.Input[str]] = None,
              thumbprint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'springCloudApiPortalId' in kwargs:
+        if spring_cloud_api_portal_id is None and 'springCloudApiPortalId' in kwargs:
             spring_cloud_api_portal_id = kwargs['springCloudApiPortalId']
 
         if name is not None:
@@ -170,24 +172,6 @@ class SpringCloudApiPortalCustomDomain(pulumi.CustomResource):
 
         > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="E0")
-        example_spring_cloud_gateway = azure.appplatform.SpringCloudGateway("exampleSpringCloudGateway", spring_cloud_service_id=example_spring_cloud_service.id)
-        example_spring_cloud_api_portal = azure.appplatform.SpringCloudApiPortal("exampleSpringCloudApiPortal",
-            spring_cloud_service_id=example_spring_cloud_service.id,
-            gateway_ids=[example_spring_cloud_gateway.id])
-        example_spring_cloud_api_portal_custom_domain = azure.appplatform.SpringCloudApiPortalCustomDomain("exampleSpringCloudApiPortalCustomDomain", spring_cloud_api_portal_id=example_spring_cloud_api_portal.id)
-        ```
-
         ## Import
 
         Spring Cloud API Portal Domains can be imported using the `resource id`, e.g.
@@ -212,24 +196,6 @@ class SpringCloudApiPortalCustomDomain(pulumi.CustomResource):
         Manages a Spring Cloud API Portal Domain.
 
         > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="E0")
-        example_spring_cloud_gateway = azure.appplatform.SpringCloudGateway("exampleSpringCloudGateway", spring_cloud_service_id=example_spring_cloud_service.id)
-        example_spring_cloud_api_portal = azure.appplatform.SpringCloudApiPortal("exampleSpringCloudApiPortal",
-            spring_cloud_service_id=example_spring_cloud_service.id,
-            gateway_ids=[example_spring_cloud_gateway.id])
-        example_spring_cloud_api_portal_custom_domain = azure.appplatform.SpringCloudApiPortalCustomDomain("exampleSpringCloudApiPortalCustomDomain", spring_cloud_api_portal_id=example_spring_cloud_api_portal.id)
-        ```
 
         ## Import
 

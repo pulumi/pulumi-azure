@@ -12,37 +12,6 @@ namespace Pulumi.Azure.Storage
     /// <summary>
     /// Manages a Storage Mover Agent.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "East US",
-    ///     });
-    /// 
-    ///     var exampleMover = new Azure.Storage.Mover("exampleMover", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///     });
-    /// 
-    ///     var exampleMoverAgent = new Azure.Storage.MoverAgent("exampleMoverAgent", new()
-    ///     {
-    ///         StorageMoverId = exampleMover.Id,
-    ///         ArcVirtualMachineId = exampleResourceGroup.Id.Apply(id =&gt; $"{id}/providers/Microsoft.HybridCompute/machines/examples-hybridComputeName"),
-    ///         ArcVirtualMachineUuid = "3bb2c024-eba9-4d18-9e7a-1d772fcc5fe9",
-    ///         Description = "Example Agent Description",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Storage Mover Agent can be imported using the `resource id`, e.g.

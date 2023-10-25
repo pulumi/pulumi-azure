@@ -133,55 +133,55 @@ class ProviderArgs:
              use_cli: Optional[pulumi.Input[bool]] = None,
              use_msi: Optional[pulumi.Input[bool]] = None,
              use_oidc: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'auxiliaryTenantIds' in kwargs:
+        if auxiliary_tenant_ids is None and 'auxiliaryTenantIds' in kwargs:
             auxiliary_tenant_ids = kwargs['auxiliaryTenantIds']
-        if 'clientCertificate' in kwargs:
+        if client_certificate is None and 'clientCertificate' in kwargs:
             client_certificate = kwargs['clientCertificate']
-        if 'clientCertificatePassword' in kwargs:
+        if client_certificate_password is None and 'clientCertificatePassword' in kwargs:
             client_certificate_password = kwargs['clientCertificatePassword']
-        if 'clientCertificatePath' in kwargs:
+        if client_certificate_path is None and 'clientCertificatePath' in kwargs:
             client_certificate_path = kwargs['clientCertificatePath']
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientIdFilePath' in kwargs:
+        if client_id_file_path is None and 'clientIdFilePath' in kwargs:
             client_id_file_path = kwargs['clientIdFilePath']
-        if 'clientSecret' in kwargs:
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'clientSecretFilePath' in kwargs:
+        if client_secret_file_path is None and 'clientSecretFilePath' in kwargs:
             client_secret_file_path = kwargs['clientSecretFilePath']
-        if 'disableCorrelationRequestId' in kwargs:
+        if disable_correlation_request_id is None and 'disableCorrelationRequestId' in kwargs:
             disable_correlation_request_id = kwargs['disableCorrelationRequestId']
-        if 'disableTerraformPartnerId' in kwargs:
+        if disable_terraform_partner_id is None and 'disableTerraformPartnerId' in kwargs:
             disable_terraform_partner_id = kwargs['disableTerraformPartnerId']
-        if 'metadataHost' in kwargs:
+        if metadata_host is None and 'metadataHost' in kwargs:
             metadata_host = kwargs['metadataHost']
-        if 'msiEndpoint' in kwargs:
+        if msi_endpoint is None and 'msiEndpoint' in kwargs:
             msi_endpoint = kwargs['msiEndpoint']
-        if 'oidcRequestToken' in kwargs:
+        if oidc_request_token is None and 'oidcRequestToken' in kwargs:
             oidc_request_token = kwargs['oidcRequestToken']
-        if 'oidcRequestUrl' in kwargs:
+        if oidc_request_url is None and 'oidcRequestUrl' in kwargs:
             oidc_request_url = kwargs['oidcRequestUrl']
-        if 'oidcToken' in kwargs:
+        if oidc_token is None and 'oidcToken' in kwargs:
             oidc_token = kwargs['oidcToken']
-        if 'oidcTokenFilePath' in kwargs:
+        if oidc_token_file_path is None and 'oidcTokenFilePath' in kwargs:
             oidc_token_file_path = kwargs['oidcTokenFilePath']
-        if 'partnerId' in kwargs:
+        if partner_id is None and 'partnerId' in kwargs:
             partner_id = kwargs['partnerId']
-        if 'skipProviderRegistration' in kwargs:
+        if skip_provider_registration is None and 'skipProviderRegistration' in kwargs:
             skip_provider_registration = kwargs['skipProviderRegistration']
-        if 'storageUseAzuread' in kwargs:
+        if storage_use_azuread is None and 'storageUseAzuread' in kwargs:
             storage_use_azuread = kwargs['storageUseAzuread']
-        if 'subscriptionId' in kwargs:
+        if subscription_id is None and 'subscriptionId' in kwargs:
             subscription_id = kwargs['subscriptionId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
-        if 'useCli' in kwargs:
+        if use_cli is None and 'useCli' in kwargs:
             use_cli = kwargs['useCli']
-        if 'useMsi' in kwargs:
+        if use_msi is None and 'useMsi' in kwargs:
             use_msi = kwargs['useMsi']
-        if 'useOidc' in kwargs:
+        if use_oidc is None and 'useOidc' in kwargs:
             use_oidc = kwargs['useOidc']
 
         if auxiliary_tenant_ids is not None:
@@ -712,11 +712,7 @@ class Provider(pulumi.ProviderResource):
             if environment is None:
                 environment = (_utilities.get_env('AZURE_ENVIRONMENT', 'ARM_ENVIRONMENT') or 'public')
             __props__.__dict__["environment"] = environment
-            if features is not None and not isinstance(features, ProviderFeaturesArgs):
-                features = features or {}
-                def _setter(key, value):
-                    features[key] = value
-                ProviderFeaturesArgs._configure(_setter, **features)
+            features = _utilities.configure(features, ProviderFeaturesArgs, True)
             __props__.__dict__["features"] = pulumi.Output.from_input(features).apply(pulumi.runtime.to_json) if features is not None else None
             if metadata_host is None:
                 metadata_host = _utilities.get_env('ARM_METADATA_HOSTNAME')

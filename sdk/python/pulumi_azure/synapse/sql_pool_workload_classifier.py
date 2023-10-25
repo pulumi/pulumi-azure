@@ -47,23 +47,27 @@ class SqlPoolWorkloadClassifierArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             member_name: pulumi.Input[str],
-             workload_group_id: pulumi.Input[str],
+             member_name: Optional[pulumi.Input[str]] = None,
+             workload_group_id: Optional[pulumi.Input[str]] = None,
              context: Optional[pulumi.Input[str]] = None,
              end_time: Optional[pulumi.Input[str]] = None,
              importance: Optional[pulumi.Input[str]] = None,
              label: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              start_time: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'memberName' in kwargs:
+        if member_name is None and 'memberName' in kwargs:
             member_name = kwargs['memberName']
-        if 'workloadGroupId' in kwargs:
+        if member_name is None:
+            raise TypeError("Missing 'member_name' argument")
+        if workload_group_id is None and 'workloadGroupId' in kwargs:
             workload_group_id = kwargs['workloadGroupId']
-        if 'endTime' in kwargs:
+        if workload_group_id is None:
+            raise TypeError("Missing 'workload_group_id' argument")
+        if end_time is None and 'endTime' in kwargs:
             end_time = kwargs['endTime']
-        if 'startTime' in kwargs:
+        if start_time is None and 'startTime' in kwargs:
             start_time = kwargs['startTime']
 
         _setter("member_name", member_name)
@@ -222,15 +226,15 @@ class _SqlPoolWorkloadClassifierState:
              name: Optional[pulumi.Input[str]] = None,
              start_time: Optional[pulumi.Input[str]] = None,
              workload_group_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'endTime' in kwargs:
+        if end_time is None and 'endTime' in kwargs:
             end_time = kwargs['endTime']
-        if 'memberName' in kwargs:
+        if member_name is None and 'memberName' in kwargs:
             member_name = kwargs['memberName']
-        if 'startTime' in kwargs:
+        if start_time is None and 'startTime' in kwargs:
             start_time = kwargs['startTime']
-        if 'workloadGroupId' in kwargs:
+        if workload_group_id is None and 'workloadGroupId' in kwargs:
             workload_group_id = kwargs['workloadGroupId']
 
         if context is not None:
@@ -364,51 +368,6 @@ class SqlPoolWorkloadClassifier(pulumi.CustomResource):
         """
         Manages a Synapse SQL Pool Workload Classifier.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_kind="BlobStorage",
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
-        example_workspace = azure.synapse.Workspace("exampleWorkspace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
-            sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!",
-            identity=azure.synapse.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_sql_pool = azure.synapse.SqlPool("exampleSqlPool",
-            synapse_workspace_id=example_workspace.id,
-            sku_name="DW100c",
-            create_mode="Default")
-        example_sql_pool_workload_group = azure.synapse.SqlPoolWorkloadGroup("exampleSqlPoolWorkloadGroup",
-            sql_pool_id=example_sql_pool.id,
-            importance="normal",
-            max_resource_percent=100,
-            min_resource_percent=0,
-            max_resource_percent_per_request=3,
-            min_resource_percent_per_request=3,
-            query_execution_timeout_in_seconds=0)
-        example_sql_pool_workload_classifier = azure.synapse.SqlPoolWorkloadClassifier("exampleSqlPoolWorkloadClassifier",
-            workload_group_id=example_sql_pool_workload_group.id,
-            context="example_context",
-            end_time="14:00",
-            importance="high",
-            label="example_label",
-            member_name="dbo",
-            start_time="12:00")
-        ```
-
         ## Import
 
         Synapse SQL Pool Workload Classifiers can be imported using the `resource id`, e.g.
@@ -436,51 +395,6 @@ class SqlPoolWorkloadClassifier(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Synapse SQL Pool Workload Classifier.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_kind="BlobStorage",
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
-        example_workspace = azure.synapse.Workspace("exampleWorkspace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
-            sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!",
-            identity=azure.synapse.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_sql_pool = azure.synapse.SqlPool("exampleSqlPool",
-            synapse_workspace_id=example_workspace.id,
-            sku_name="DW100c",
-            create_mode="Default")
-        example_sql_pool_workload_group = azure.synapse.SqlPoolWorkloadGroup("exampleSqlPoolWorkloadGroup",
-            sql_pool_id=example_sql_pool.id,
-            importance="normal",
-            max_resource_percent=100,
-            min_resource_percent=0,
-            max_resource_percent_per_request=3,
-            min_resource_percent_per_request=3,
-            query_execution_timeout_in_seconds=0)
-        example_sql_pool_workload_classifier = azure.synapse.SqlPoolWorkloadClassifier("exampleSqlPoolWorkloadClassifier",
-            workload_group_id=example_sql_pool_workload_group.id,
-            context="example_context",
-            end_time="14:00",
-            importance="high",
-            label="example_label",
-            member_name="dbo",
-            start_time="12:00")
-        ```
 
         ## Import
 

@@ -51,7 +51,7 @@ class LocalNetworkGatewayArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              address_spaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              bgp_settings: Optional[pulumi.Input['LocalNetworkGatewayBgpSettingsArgs']] = None,
              gateway_address: Optional[pulumi.Input[str]] = None,
@@ -59,17 +59,19 @@ class LocalNetworkGatewayArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'addressSpaces' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if address_spaces is None and 'addressSpaces' in kwargs:
             address_spaces = kwargs['addressSpaces']
-        if 'bgpSettings' in kwargs:
+        if bgp_settings is None and 'bgpSettings' in kwargs:
             bgp_settings = kwargs['bgpSettings']
-        if 'gatewayAddress' in kwargs:
+        if gateway_address is None and 'gatewayAddress' in kwargs:
             gateway_address = kwargs['gatewayAddress']
-        if 'gatewayFqdn' in kwargs:
+        if gateway_fqdn is None and 'gatewayFqdn' in kwargs:
             gateway_fqdn = kwargs['gatewayFqdn']
 
         _setter("resource_group_name", resource_group_name)
@@ -233,17 +235,17 @@ class _LocalNetworkGatewayState:
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'addressSpaces' in kwargs:
+        if address_spaces is None and 'addressSpaces' in kwargs:
             address_spaces = kwargs['addressSpaces']
-        if 'bgpSettings' in kwargs:
+        if bgp_settings is None and 'bgpSettings' in kwargs:
             bgp_settings = kwargs['bgpSettings']
-        if 'gatewayAddress' in kwargs:
+        if gateway_address is None and 'gatewayAddress' in kwargs:
             gateway_address = kwargs['gatewayAddress']
-        if 'gatewayFqdn' in kwargs:
+        if gateway_fqdn is None and 'gatewayFqdn' in kwargs:
             gateway_fqdn = kwargs['gatewayFqdn']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if address_spaces is not None:
@@ -379,20 +381,6 @@ class LocalNetworkGateway(pulumi.CustomResource):
         """
         Manages a local network gateway connection over which specific connections can be configured.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        home = azure.network.LocalNetworkGateway("home",
-            resource_group_name=example.name,
-            location=example.location,
-            gateway_address="12.13.14.15",
-            address_spaces=["10.0.0.0/16"])
-        ```
-
         ## Import
 
         Local Network Gateways can be imported using the `resource id`, e.g.
@@ -422,20 +410,6 @@ class LocalNetworkGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a local network gateway connection over which specific connections can be configured.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        home = azure.network.LocalNetworkGateway("home",
-            resource_group_name=example.name,
-            location=example.location,
-            gateway_address="12.13.14.15",
-            address_spaces=["10.0.0.0/16"])
-        ```
 
         ## Import
 
@@ -482,11 +456,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
             __props__ = LocalNetworkGatewayArgs.__new__(LocalNetworkGatewayArgs)
 
             __props__.__dict__["address_spaces"] = address_spaces
-            if bgp_settings is not None and not isinstance(bgp_settings, LocalNetworkGatewayBgpSettingsArgs):
-                bgp_settings = bgp_settings or {}
-                def _setter(key, value):
-                    bgp_settings[key] = value
-                LocalNetworkGatewayBgpSettingsArgs._configure(_setter, **bgp_settings)
+            bgp_settings = _utilities.configure(bgp_settings, LocalNetworkGatewayBgpSettingsArgs, True)
             __props__.__dict__["bgp_settings"] = bgp_settings
             __props__.__dict__["gateway_address"] = gateway_address
             __props__.__dict__["gateway_fqdn"] = gateway_fqdn

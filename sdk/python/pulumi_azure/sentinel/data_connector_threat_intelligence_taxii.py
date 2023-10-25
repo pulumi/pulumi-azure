@@ -55,33 +55,41 @@ class DataConnectorThreatIntelligenceTaxiiArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_root_url: pulumi.Input[str],
-             collection_id: pulumi.Input[str],
-             display_name: pulumi.Input[str],
-             log_analytics_workspace_id: pulumi.Input[str],
+             api_root_url: Optional[pulumi.Input[str]] = None,
+             collection_id: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
              lookback_date: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              password: Optional[pulumi.Input[str]] = None,
              polling_frequency: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              user_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiRootUrl' in kwargs:
+        if api_root_url is None and 'apiRootUrl' in kwargs:
             api_root_url = kwargs['apiRootUrl']
-        if 'collectionId' in kwargs:
+        if api_root_url is None:
+            raise TypeError("Missing 'api_root_url' argument")
+        if collection_id is None and 'collectionId' in kwargs:
             collection_id = kwargs['collectionId']
-        if 'displayName' in kwargs:
+        if collection_id is None:
+            raise TypeError("Missing 'collection_id' argument")
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'lookbackDate' in kwargs:
+        if log_analytics_workspace_id is None:
+            raise TypeError("Missing 'log_analytics_workspace_id' argument")
+        if lookback_date is None and 'lookbackDate' in kwargs:
             lookback_date = kwargs['lookbackDate']
-        if 'pollingFrequency' in kwargs:
+        if polling_frequency is None and 'pollingFrequency' in kwargs:
             polling_frequency = kwargs['pollingFrequency']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
-        if 'userName' in kwargs:
+        if user_name is None and 'userName' in kwargs:
             user_name = kwargs['userName']
 
         _setter("api_root_url", api_root_url)
@@ -278,23 +286,23 @@ class _DataConnectorThreatIntelligenceTaxiiState:
              polling_frequency: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              user_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiRootUrl' in kwargs:
+        if api_root_url is None and 'apiRootUrl' in kwargs:
             api_root_url = kwargs['apiRootUrl']
-        if 'collectionId' in kwargs:
+        if collection_id is None and 'collectionId' in kwargs:
             collection_id = kwargs['collectionId']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'lookbackDate' in kwargs:
+        if lookback_date is None and 'lookbackDate' in kwargs:
             lookback_date = kwargs['lookbackDate']
-        if 'pollingFrequency' in kwargs:
+        if polling_frequency is None and 'pollingFrequency' in kwargs:
             polling_frequency = kwargs['pollingFrequency']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
-        if 'userName' in kwargs:
+        if user_name is None and 'userName' in kwargs:
             user_name = kwargs['userName']
 
         if api_root_url is not None:
@@ -460,25 +468,6 @@ class DataConnectorThreatIntelligenceTaxii(pulumi.CustomResource):
         """
         Manages an Threat Intelligence TAXII Data Connector.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018")
-        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", workspace_id=example_analytics_workspace.id)
-        example_data_connector_threat_intelligence_taxii = azure.sentinel.DataConnectorThreatIntelligenceTaxii("exampleDataConnectorThreatIntelligenceTaxii",
-            log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
-            display_name="example",
-            api_root_url="https://foo/taxii2/api2/",
-            collection_id="someid")
-        ```
-
         ## Import
 
         Threat Intelligence TAXII Data Connectors can be imported using the `resource id`, e.g.
@@ -510,25 +499,6 @@ class DataConnectorThreatIntelligenceTaxii(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Threat Intelligence TAXII Data Connector.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018")
-        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", workspace_id=example_analytics_workspace.id)
-        example_data_connector_threat_intelligence_taxii = azure.sentinel.DataConnectorThreatIntelligenceTaxii("exampleDataConnectorThreatIntelligenceTaxii",
-            log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
-            display_name="example",
-            api_root_url="https://foo/taxii2/api2/",
-            collection_id="someid")
-        ```
 
         ## Import
 

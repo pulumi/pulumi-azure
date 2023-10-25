@@ -64,10 +64,10 @@ class LabArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             security: pulumi.Input['LabSecurityArgs'],
-             title: pulumi.Input[str],
-             virtual_machine: pulumi.Input['LabVirtualMachineArgs'],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             security: Optional[pulumi.Input['LabSecurityArgs']] = None,
+             title: Optional[pulumi.Input[str]] = None,
+             virtual_machine: Optional[pulumi.Input['LabVirtualMachineArgs']] = None,
              auto_shutdown: Optional[pulumi.Input['LabAutoShutdownArgs']] = None,
              connection_setting: Optional[pulumi.Input['LabConnectionSettingArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -77,17 +77,25 @@ class LabArgs:
              network: Optional[pulumi.Input['LabNetworkArgs']] = None,
              roster: Optional[pulumi.Input['LabRosterArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'virtualMachine' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if security is None:
+            raise TypeError("Missing 'security' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if virtual_machine is None and 'virtualMachine' in kwargs:
             virtual_machine = kwargs['virtualMachine']
-        if 'autoShutdown' in kwargs:
+        if virtual_machine is None:
+            raise TypeError("Missing 'virtual_machine' argument")
+        if auto_shutdown is None and 'autoShutdown' in kwargs:
             auto_shutdown = kwargs['autoShutdown']
-        if 'connectionSetting' in kwargs:
+        if connection_setting is None and 'connectionSetting' in kwargs:
             connection_setting = kwargs['connectionSetting']
-        if 'labPlanId' in kwargs:
+        if lab_plan_id is None and 'labPlanId' in kwargs:
             lab_plan_id = kwargs['labPlanId']
 
         _setter("resource_group_name", resource_group_name)
@@ -334,17 +342,17 @@ class _LabState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              title: Optional[pulumi.Input[str]] = None,
              virtual_machine: Optional[pulumi.Input['LabVirtualMachineArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'autoShutdown' in kwargs:
+        if auto_shutdown is None and 'autoShutdown' in kwargs:
             auto_shutdown = kwargs['autoShutdown']
-        if 'connectionSetting' in kwargs:
+        if connection_setting is None and 'connectionSetting' in kwargs:
             connection_setting = kwargs['connectionSetting']
-        if 'labPlanId' in kwargs:
+        if lab_plan_id is None and 'labPlanId' in kwargs:
             lab_plan_id = kwargs['labPlanId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'virtualMachine' in kwargs:
+        if virtual_machine is None and 'virtualMachine' in kwargs:
             virtual_machine = kwargs['virtualMachine']
 
         if auto_shutdown is not None:
@@ -553,38 +561,6 @@ class Lab(pulumi.CustomResource):
         """
         Manages a Lab Service Lab.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_lab = azure.lab.Lab("exampleLab",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            title="Test Title",
-            security=azure.lab.LabSecurityArgs(
-                open_access_enabled=False,
-            ),
-            virtual_machine=azure.lab.LabVirtualMachineArgs(
-                admin_user=azure.lab.LabVirtualMachineAdminUserArgs(
-                    username="testadmin",
-                    password="Password1234!",
-                ),
-                image_reference=azure.lab.LabVirtualMachineImageReferenceArgs(
-                    offer="0001-com-ubuntu-server-focal",
-                    publisher="canonical",
-                    sku="20_04-lts",
-                    version="latest",
-                ),
-                sku=azure.lab.LabVirtualMachineSkuArgs(
-                    name="Classic_Fsv2_2_4GB_128_S_SSD",
-                    capacity=0,
-                ),
-            ))
-        ```
-
         ## Import
 
         Lab Service Labs can be imported using the `resource id`, e.g.
@@ -617,38 +593,6 @@ class Lab(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Lab Service Lab.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_lab = azure.lab.Lab("exampleLab",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            title="Test Title",
-            security=azure.lab.LabSecurityArgs(
-                open_access_enabled=False,
-            ),
-            virtual_machine=azure.lab.LabVirtualMachineArgs(
-                admin_user=azure.lab.LabVirtualMachineAdminUserArgs(
-                    username="testadmin",
-                    password="Password1234!",
-                ),
-                image_reference=azure.lab.LabVirtualMachineImageReferenceArgs(
-                    offer="0001-com-ubuntu-server-focal",
-                    publisher="canonical",
-                    sku="20_04-lts",
-                    version="latest",
-                ),
-                sku=azure.lab.LabVirtualMachineSkuArgs(
-                    name="Classic_Fsv2_2_4GB_128_S_SSD",
-                    capacity=0,
-                ),
-            ))
-        ```
 
         ## Import
 
@@ -699,42 +643,22 @@ class Lab(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LabArgs.__new__(LabArgs)
 
-            if auto_shutdown is not None and not isinstance(auto_shutdown, LabAutoShutdownArgs):
-                auto_shutdown = auto_shutdown or {}
-                def _setter(key, value):
-                    auto_shutdown[key] = value
-                LabAutoShutdownArgs._configure(_setter, **auto_shutdown)
+            auto_shutdown = _utilities.configure(auto_shutdown, LabAutoShutdownArgs, True)
             __props__.__dict__["auto_shutdown"] = auto_shutdown
-            if connection_setting is not None and not isinstance(connection_setting, LabConnectionSettingArgs):
-                connection_setting = connection_setting or {}
-                def _setter(key, value):
-                    connection_setting[key] = value
-                LabConnectionSettingArgs._configure(_setter, **connection_setting)
+            connection_setting = _utilities.configure(connection_setting, LabConnectionSettingArgs, True)
             __props__.__dict__["connection_setting"] = connection_setting
             __props__.__dict__["description"] = description
             __props__.__dict__["lab_plan_id"] = lab_plan_id
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
-            if network is not None and not isinstance(network, LabNetworkArgs):
-                network = network or {}
-                def _setter(key, value):
-                    network[key] = value
-                LabNetworkArgs._configure(_setter, **network)
+            network = _utilities.configure(network, LabNetworkArgs, True)
             __props__.__dict__["network"] = network
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if roster is not None and not isinstance(roster, LabRosterArgs):
-                roster = roster or {}
-                def _setter(key, value):
-                    roster[key] = value
-                LabRosterArgs._configure(_setter, **roster)
+            roster = _utilities.configure(roster, LabRosterArgs, True)
             __props__.__dict__["roster"] = roster
-            if security is not None and not isinstance(security, LabSecurityArgs):
-                security = security or {}
-                def _setter(key, value):
-                    security[key] = value
-                LabSecurityArgs._configure(_setter, **security)
+            security = _utilities.configure(security, LabSecurityArgs, True)
             if security is None and not opts.urn:
                 raise TypeError("Missing required property 'security'")
             __props__.__dict__["security"] = security
@@ -742,11 +666,7 @@ class Lab(pulumi.CustomResource):
             if title is None and not opts.urn:
                 raise TypeError("Missing required property 'title'")
             __props__.__dict__["title"] = title
-            if virtual_machine is not None and not isinstance(virtual_machine, LabVirtualMachineArgs):
-                virtual_machine = virtual_machine or {}
-                def _setter(key, value):
-                    virtual_machine[key] = value
-                LabVirtualMachineArgs._configure(_setter, **virtual_machine)
+            virtual_machine = _utilities.configure(virtual_machine, LabVirtualMachineArgs, True)
             if virtual_machine is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_machine'")
             __props__.__dict__["virtual_machine"] = virtual_machine

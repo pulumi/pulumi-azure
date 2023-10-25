@@ -58,24 +58,34 @@ class NetworkManagerAdminRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action: pulumi.Input[str],
-             admin_rule_collection_id: pulumi.Input[str],
-             direction: pulumi.Input[str],
-             priority: pulumi.Input[int],
-             protocol: pulumi.Input[str],
+             action: Optional[pulumi.Input[str]] = None,
+             admin_rule_collection_id: Optional[pulumi.Input[str]] = None,
+             direction: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              destination_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              destinations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkManagerAdminRuleDestinationArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              sources: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkManagerAdminRuleSourceArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'adminRuleCollectionId' in kwargs:
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if admin_rule_collection_id is None and 'adminRuleCollectionId' in kwargs:
             admin_rule_collection_id = kwargs['adminRuleCollectionId']
-        if 'destinationPortRanges' in kwargs:
+        if admin_rule_collection_id is None:
+            raise TypeError("Missing 'admin_rule_collection_id' argument")
+        if direction is None:
+            raise TypeError("Missing 'direction' argument")
+        if priority is None:
+            raise TypeError("Missing 'priority' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if destination_port_ranges is None and 'destinationPortRanges' in kwargs:
             destination_port_ranges = kwargs['destinationPortRanges']
-        if 'sourcePortRanges' in kwargs:
+        if source_port_ranges is None and 'sourcePortRanges' in kwargs:
             source_port_ranges = kwargs['sourcePortRanges']
 
         _setter("action", action)
@@ -285,13 +295,13 @@ class _NetworkManagerAdminRuleState:
              protocol: Optional[pulumi.Input[str]] = None,
              source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              sources: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkManagerAdminRuleSourceArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'adminRuleCollectionId' in kwargs:
+        if admin_rule_collection_id is None and 'adminRuleCollectionId' in kwargs:
             admin_rule_collection_id = kwargs['adminRuleCollectionId']
-        if 'destinationPortRanges' in kwargs:
+        if destination_port_ranges is None and 'destinationPortRanges' in kwargs:
             destination_port_ranges = kwargs['destinationPortRanges']
-        if 'sourcePortRanges' in kwargs:
+        if source_port_ranges is None and 'sourcePortRanges' in kwargs:
             source_port_ranges = kwargs['sourcePortRanges']
 
         if action is not None:
@@ -470,58 +480,6 @@ class NetworkManagerAdminRule(pulumi.CustomResource):
         """
         Manages a Network Manager Admin Rule.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        current = azure.core.get_subscription()
-        example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            scope=azure.network.NetworkManagerScopeArgs(
-                subscription_ids=[current.id],
-            ),
-            scope_accesses=[
-                "Connectivity",
-                "SecurityAdmin",
-            ],
-            description="example network manager")
-        example_network_manager_network_group = azure.network.NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup", network_manager_id=example_network_manager.id)
-        example_network_manager_security_admin_configuration = azure.network.NetworkManagerSecurityAdminConfiguration("exampleNetworkManagerSecurityAdminConfiguration", network_manager_id=example_network_manager.id)
-        example_network_manager_admin_rule_collection = azure.network.NetworkManagerAdminRuleCollection("exampleNetworkManagerAdminRuleCollection",
-            security_admin_configuration_id=example_network_manager_security_admin_configuration.id,
-            network_group_ids=[example_network_manager_network_group.id])
-        example_network_manager_admin_rule = azure.network.NetworkManagerAdminRule("exampleNetworkManagerAdminRule",
-            admin_rule_collection_id=example_network_manager_admin_rule_collection.id,
-            action="Deny",
-            direction="Outbound",
-            priority=1,
-            protocol="Tcp",
-            source_port_ranges=[
-                "80",
-                "1024-65535",
-            ],
-            destination_port_ranges=["80"],
-            sources=[azure.network.NetworkManagerAdminRuleSourceArgs(
-                address_prefix_type="ServiceTag",
-                address_prefix="Internet",
-            )],
-            destinations=[
-                azure.network.NetworkManagerAdminRuleDestinationArgs(
-                    address_prefix_type="IPPrefix",
-                    address_prefix="10.1.0.1",
-                ),
-                azure.network.NetworkManagerAdminRuleDestinationArgs(
-                    address_prefix_type="IPPrefix",
-                    address_prefix="10.0.0.0/24",
-                ),
-            ],
-            description="example admin rule")
-        ```
-
         ## Import
 
         Network Manager Admin Rule can be imported using the `resource id`, e.g.
@@ -552,58 +510,6 @@ class NetworkManagerAdminRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Network Manager Admin Rule.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        current = azure.core.get_subscription()
-        example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            scope=azure.network.NetworkManagerScopeArgs(
-                subscription_ids=[current.id],
-            ),
-            scope_accesses=[
-                "Connectivity",
-                "SecurityAdmin",
-            ],
-            description="example network manager")
-        example_network_manager_network_group = azure.network.NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup", network_manager_id=example_network_manager.id)
-        example_network_manager_security_admin_configuration = azure.network.NetworkManagerSecurityAdminConfiguration("exampleNetworkManagerSecurityAdminConfiguration", network_manager_id=example_network_manager.id)
-        example_network_manager_admin_rule_collection = azure.network.NetworkManagerAdminRuleCollection("exampleNetworkManagerAdminRuleCollection",
-            security_admin_configuration_id=example_network_manager_security_admin_configuration.id,
-            network_group_ids=[example_network_manager_network_group.id])
-        example_network_manager_admin_rule = azure.network.NetworkManagerAdminRule("exampleNetworkManagerAdminRule",
-            admin_rule_collection_id=example_network_manager_admin_rule_collection.id,
-            action="Deny",
-            direction="Outbound",
-            priority=1,
-            protocol="Tcp",
-            source_port_ranges=[
-                "80",
-                "1024-65535",
-            ],
-            destination_port_ranges=["80"],
-            sources=[azure.network.NetworkManagerAdminRuleSourceArgs(
-                address_prefix_type="ServiceTag",
-                address_prefix="Internet",
-            )],
-            destinations=[
-                azure.network.NetworkManagerAdminRuleDestinationArgs(
-                    address_prefix_type="IPPrefix",
-                    address_prefix="10.1.0.1",
-                ),
-                azure.network.NetworkManagerAdminRuleDestinationArgs(
-                    address_prefix_type="IPPrefix",
-                    address_prefix="10.0.0.0/24",
-                ),
-            ],
-            description="example admin rule")
-        ```
 
         ## Import
 

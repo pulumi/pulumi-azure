@@ -12,42 +12,6 @@ namespace Pulumi.Azure.DataFactory
     /// <summary>
     /// Manages a SQL Server Table Dataset inside a Azure Data Factory.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///     });
-    /// 
-    ///     var exampleLinkedServiceSqlServer = new Azure.DataFactory.LinkedServiceSqlServer("exampleLinkedServiceSqlServer", new()
-    ///     {
-    ///         DataFactoryId = exampleFactory.Id,
-    ///         ConnectionString = "Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;Password=test",
-    ///     });
-    /// 
-    ///     var exampleDatasetSqlServerTable = new Azure.DataFactory.DatasetSqlServerTable("exampleDatasetSqlServerTable", new()
-    ///     {
-    ///         DataFactoryId = exampleFactory.Id,
-    ///         LinkedServiceName = exampleLinkedServiceSqlServer.Name,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Data Factory SQL Server Table Datasets can be imported using the `resource id`, e.g.

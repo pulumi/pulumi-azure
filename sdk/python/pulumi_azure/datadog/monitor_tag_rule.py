@@ -37,14 +37,16 @@ class MonitorTagRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             datadog_monitor_id: pulumi.Input[str],
+             datadog_monitor_id: Optional[pulumi.Input[str]] = None,
              logs: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleLogArgs']]]] = None,
              metrics: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleMetricArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'datadogMonitorId' in kwargs:
+        if datadog_monitor_id is None and 'datadogMonitorId' in kwargs:
             datadog_monitor_id = kwargs['datadogMonitorId']
+        if datadog_monitor_id is None:
+            raise TypeError("Missing 'datadog_monitor_id' argument")
 
         _setter("datadog_monitor_id", datadog_monitor_id)
         if logs is not None:
@@ -131,9 +133,9 @@ class _MonitorTagRuleState:
              logs: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleLogArgs']]]] = None,
              metrics: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleMetricArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'datadogMonitorId' in kwargs:
+        if datadog_monitor_id is None and 'datadogMonitorId' in kwargs:
             datadog_monitor_id = kwargs['datadogMonitorId']
 
         if datadog_monitor_id is not None:
@@ -208,40 +210,6 @@ class MonitorTagRule(pulumi.CustomResource):
         Manages TagRules on the datadog Monitor.
 
         ## Example Usage
-        ### Adding TagRules on monitor
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US 2")
-        example_monitor = azure.datadog.Monitor("exampleMonitor",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            datadog_organization=azure.datadog.MonitorDatadogOrganizationArgs(
-                api_key="XXXX",
-                application_key="XXXX",
-            ),
-            user=azure.datadog.MonitorUserArgs(
-                name="Example",
-                email="abc@xyz.com",
-            ),
-            sku_name="Linked",
-            identity=azure.datadog.MonitorIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_monitor_tag_rule = azure.datadog.MonitorTagRule("exampleMonitorTagRule",
-            datadog_monitor_id=example_monitor.id,
-            logs=[azure.datadog.MonitorTagRuleLogArgs(
-                subscription_log_enabled=True,
-            )],
-            metrics=[azure.datadog.MonitorTagRuleMetricArgs(
-                filters=[azure.datadog.MonitorTagRuleMetricFilterArgs(
-                    name="Test",
-                    value="Logs",
-                    action="Include",
-                )],
-            )])
-        ```
 
         ## Import
 
@@ -268,40 +236,6 @@ class MonitorTagRule(pulumi.CustomResource):
         Manages TagRules on the datadog Monitor.
 
         ## Example Usage
-        ### Adding TagRules on monitor
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US 2")
-        example_monitor = azure.datadog.Monitor("exampleMonitor",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            datadog_organization=azure.datadog.MonitorDatadogOrganizationArgs(
-                api_key="XXXX",
-                application_key="XXXX",
-            ),
-            user=azure.datadog.MonitorUserArgs(
-                name="Example",
-                email="abc@xyz.com",
-            ),
-            sku_name="Linked",
-            identity=azure.datadog.MonitorIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_monitor_tag_rule = azure.datadog.MonitorTagRule("exampleMonitorTagRule",
-            datadog_monitor_id=example_monitor.id,
-            logs=[azure.datadog.MonitorTagRuleLogArgs(
-                subscription_log_enabled=True,
-            )],
-            metrics=[azure.datadog.MonitorTagRuleMetricArgs(
-                filters=[azure.datadog.MonitorTagRuleMetricFilterArgs(
-                    name="Test",
-                    value="Logs",
-                    action="Include",
-                )],
-            )])
-        ```
 
         ## Import
 

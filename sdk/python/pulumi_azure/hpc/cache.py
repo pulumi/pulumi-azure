@@ -82,10 +82,10 @@ class CacheArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cache_size_in_gb: pulumi.Input[int],
-             resource_group_name: pulumi.Input[str],
-             sku_name: pulumi.Input[str],
-             subnet_id: pulumi.Input[str],
+             cache_size_in_gb: Optional[pulumi.Input[int]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
              automatically_rotate_key_to_latest_enabled: Optional[pulumi.Input[bool]] = None,
              default_access_policy: Optional[pulumi.Input['CacheDefaultAccessPolicyArgs']] = None,
              directory_active_directory: Optional[pulumi.Input['CacheDirectoryActiveDirectoryArgs']] = None,
@@ -99,29 +99,37 @@ class CacheArgs:
              name: Optional[pulumi.Input[str]] = None,
              ntp_server: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'cacheSizeInGb' in kwargs:
+        if cache_size_in_gb is None and 'cacheSizeInGb' in kwargs:
             cache_size_in_gb = kwargs['cacheSizeInGb']
-        if 'resourceGroupName' in kwargs:
+        if cache_size_in_gb is None:
+            raise TypeError("Missing 'cache_size_in_gb' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'subnetId' in kwargs:
+        if sku_name is None:
+            raise TypeError("Missing 'sku_name' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'automaticallyRotateKeyToLatestEnabled' in kwargs:
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if automatically_rotate_key_to_latest_enabled is None and 'automaticallyRotateKeyToLatestEnabled' in kwargs:
             automatically_rotate_key_to_latest_enabled = kwargs['automaticallyRotateKeyToLatestEnabled']
-        if 'defaultAccessPolicy' in kwargs:
+        if default_access_policy is None and 'defaultAccessPolicy' in kwargs:
             default_access_policy = kwargs['defaultAccessPolicy']
-        if 'directoryActiveDirectory' in kwargs:
+        if directory_active_directory is None and 'directoryActiveDirectory' in kwargs:
             directory_active_directory = kwargs['directoryActiveDirectory']
-        if 'directoryFlatFile' in kwargs:
+        if directory_flat_file is None and 'directoryFlatFile' in kwargs:
             directory_flat_file = kwargs['directoryFlatFile']
-        if 'directoryLdap' in kwargs:
+        if directory_ldap is None and 'directoryLdap' in kwargs:
             directory_ldap = kwargs['directoryLdap']
-        if 'keyVaultKeyId' in kwargs:
+        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
             key_vault_key_id = kwargs['keyVaultKeyId']
-        if 'ntpServer' in kwargs:
+        if ntp_server is None and 'ntpServer' in kwargs:
             ntp_server = kwargs['ntpServer']
 
         _setter("cache_size_in_gb", cache_size_in_gb)
@@ -456,31 +464,31 @@ class _CacheState:
              sku_name: Optional[pulumi.Input[str]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'automaticallyRotateKeyToLatestEnabled' in kwargs:
+        if automatically_rotate_key_to_latest_enabled is None and 'automaticallyRotateKeyToLatestEnabled' in kwargs:
             automatically_rotate_key_to_latest_enabled = kwargs['automaticallyRotateKeyToLatestEnabled']
-        if 'cacheSizeInGb' in kwargs:
+        if cache_size_in_gb is None and 'cacheSizeInGb' in kwargs:
             cache_size_in_gb = kwargs['cacheSizeInGb']
-        if 'defaultAccessPolicy' in kwargs:
+        if default_access_policy is None and 'defaultAccessPolicy' in kwargs:
             default_access_policy = kwargs['defaultAccessPolicy']
-        if 'directoryActiveDirectory' in kwargs:
+        if directory_active_directory is None and 'directoryActiveDirectory' in kwargs:
             directory_active_directory = kwargs['directoryActiveDirectory']
-        if 'directoryFlatFile' in kwargs:
+        if directory_flat_file is None and 'directoryFlatFile' in kwargs:
             directory_flat_file = kwargs['directoryFlatFile']
-        if 'directoryLdap' in kwargs:
+        if directory_ldap is None and 'directoryLdap' in kwargs:
             directory_ldap = kwargs['directoryLdap']
-        if 'keyVaultKeyId' in kwargs:
+        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
             key_vault_key_id = kwargs['keyVaultKeyId']
-        if 'mountAddresses' in kwargs:
+        if mount_addresses is None and 'mountAddresses' in kwargs:
             mount_addresses = kwargs['mountAddresses']
-        if 'ntpServer' in kwargs:
+        if ntp_server is None and 'ntpServer' in kwargs:
             ntp_server = kwargs['ntpServer']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
 
         if automatically_rotate_key_to_latest_enabled is not None:
@@ -771,29 +779,6 @@ class Cache(pulumi.CustomResource):
 
         > **Note:** By request of the service team the provider no longer automatically registering the `Microsoft.StorageCache` Resource Provider for this resource. To register it you can run `az provider register --namespace 'Microsoft.StorageCache'`.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"])
-        example_cache = azure.hpc.Cache("exampleCache",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            cache_size_in_gb=3072,
-            subnet_id=example_subnet.id,
-            sku_name="Standard_2G")
-        ```
-
         ## Import
 
         HPC Caches can be imported using the `resource id`, e.g.
@@ -838,29 +823,6 @@ class Cache(pulumi.CustomResource):
         Manages a HPC Cache.
 
         > **Note:** By request of the service team the provider no longer automatically registering the `Microsoft.StorageCache` Resource Provider for this resource. To register it you can run `az provider register --namespace 'Microsoft.StorageCache'`.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"])
-        example_cache = azure.hpc.Cache("exampleCache",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            cache_size_in_gb=3072,
-            subnet_id=example_subnet.id,
-            sku_name="Standard_2G")
-        ```
 
         ## Import
 
@@ -919,41 +881,17 @@ class Cache(pulumi.CustomResource):
             if cache_size_in_gb is None and not opts.urn:
                 raise TypeError("Missing required property 'cache_size_in_gb'")
             __props__.__dict__["cache_size_in_gb"] = cache_size_in_gb
-            if default_access_policy is not None and not isinstance(default_access_policy, CacheDefaultAccessPolicyArgs):
-                default_access_policy = default_access_policy or {}
-                def _setter(key, value):
-                    default_access_policy[key] = value
-                CacheDefaultAccessPolicyArgs._configure(_setter, **default_access_policy)
+            default_access_policy = _utilities.configure(default_access_policy, CacheDefaultAccessPolicyArgs, True)
             __props__.__dict__["default_access_policy"] = default_access_policy
-            if directory_active_directory is not None and not isinstance(directory_active_directory, CacheDirectoryActiveDirectoryArgs):
-                directory_active_directory = directory_active_directory or {}
-                def _setter(key, value):
-                    directory_active_directory[key] = value
-                CacheDirectoryActiveDirectoryArgs._configure(_setter, **directory_active_directory)
+            directory_active_directory = _utilities.configure(directory_active_directory, CacheDirectoryActiveDirectoryArgs, True)
             __props__.__dict__["directory_active_directory"] = directory_active_directory
-            if directory_flat_file is not None and not isinstance(directory_flat_file, CacheDirectoryFlatFileArgs):
-                directory_flat_file = directory_flat_file or {}
-                def _setter(key, value):
-                    directory_flat_file[key] = value
-                CacheDirectoryFlatFileArgs._configure(_setter, **directory_flat_file)
+            directory_flat_file = _utilities.configure(directory_flat_file, CacheDirectoryFlatFileArgs, True)
             __props__.__dict__["directory_flat_file"] = directory_flat_file
-            if directory_ldap is not None and not isinstance(directory_ldap, CacheDirectoryLdapArgs):
-                directory_ldap = directory_ldap or {}
-                def _setter(key, value):
-                    directory_ldap[key] = value
-                CacheDirectoryLdapArgs._configure(_setter, **directory_ldap)
+            directory_ldap = _utilities.configure(directory_ldap, CacheDirectoryLdapArgs, True)
             __props__.__dict__["directory_ldap"] = directory_ldap
-            if dns is not None and not isinstance(dns, CacheDnsArgs):
-                dns = dns or {}
-                def _setter(key, value):
-                    dns[key] = value
-                CacheDnsArgs._configure(_setter, **dns)
+            dns = _utilities.configure(dns, CacheDnsArgs, True)
             __props__.__dict__["dns"] = dns
-            if identity is not None and not isinstance(identity, CacheIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                CacheIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, CacheIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["key_vault_key_id"] = key_vault_key_id
             __props__.__dict__["location"] = location

@@ -47,28 +47,40 @@ class OpenIdConnectProviderArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_management_name: pulumi.Input[str],
-             client_id: pulumi.Input[str],
-             client_secret: pulumi.Input[str],
-             display_name: pulumi.Input[str],
-             metadata_endpoint: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             metadata_endpoint: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'clientId' in kwargs:
+        if api_management_name is None:
+            raise TypeError("Missing 'api_management_name' argument")
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecret' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'displayName' in kwargs:
+        if client_secret is None:
+            raise TypeError("Missing 'client_secret' argument")
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'metadataEndpoint' in kwargs:
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if metadata_endpoint is None and 'metadataEndpoint' in kwargs:
             metadata_endpoint = kwargs['metadataEndpoint']
-        if 'resourceGroupName' in kwargs:
+        if metadata_endpoint is None:
+            raise TypeError("Missing 'metadata_endpoint' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("api_management_name", api_management_name)
         _setter("client_id", client_id)
@@ -222,19 +234,19 @@ class _OpenIdConnectProviderState:
              metadata_endpoint: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecret' in kwargs:
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'metadataEndpoint' in kwargs:
+        if metadata_endpoint is None and 'metadataEndpoint' in kwargs:
             metadata_endpoint = kwargs['metadataEndpoint']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if api_management_name is not None:
@@ -368,28 +380,6 @@ class OpenIdConnectProvider(pulumi.CustomResource):
         """
         Manages an OpenID Connect Provider within a API Management Service.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            publisher_name="My Company",
-            publisher_email="company@exmaple.com",
-            sku_name="Developer_1")
-        example_open_id_connect_provider = azure.apimanagement.OpenIdConnectProvider("exampleOpenIdConnectProvider",
-            api_management_name=example_service.name,
-            resource_group_name=example_resource_group.name,
-            client_id="00001111-2222-3333-4444-555566667777",
-            client_secret="00001111-423egvwdcsjx-00001111",
-            display_name="Example Provider",
-            metadata_endpoint="https://example.com/example")
-        ```
-
         ## Import
 
         API Management OpenID Connect Providers can be imported using the `resource id`, e.g.
@@ -417,28 +407,6 @@ class OpenIdConnectProvider(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an OpenID Connect Provider within a API Management Service.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            publisher_name="My Company",
-            publisher_email="company@exmaple.com",
-            sku_name="Developer_1")
-        example_open_id_connect_provider = azure.apimanagement.OpenIdConnectProvider("exampleOpenIdConnectProvider",
-            api_management_name=example_service.name,
-            resource_group_name=example_resource_group.name,
-            client_id="00001111-2222-3333-4444-555566667777",
-            client_secret="00001111-423egvwdcsjx-00001111",
-            display_name="Example Provider",
-            metadata_endpoint="https://example.com/example")
-        ```
 
         ## Import
 

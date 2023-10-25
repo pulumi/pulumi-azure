@@ -12,43 +12,6 @@ namespace Pulumi.Azure.Iot
     /// <summary>
     /// Manages an IotHub Device Provisioning Service Shared Access Policy
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleIotHubDps = new Azure.Iot.IotHubDps("exampleIotHubDps", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         Sku = new Azure.Iot.Inputs.IotHubDpsSkuArgs
-    ///         {
-    ///             Name = "S1",
-    ///             Capacity = 1,
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleDpsSharedAccessPolicy = new Azure.Iot.DpsSharedAccessPolicy("exampleDpsSharedAccessPolicy", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         IothubDpsName = exampleIotHubDps.Name,
-    ///         EnrollmentWrite = true,
-    ///         EnrollmentRead = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// IoTHub Device Provisioning Service Shared Access Policies can be imported using the `resource id`, e.g.

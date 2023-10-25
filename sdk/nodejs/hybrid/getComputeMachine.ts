@@ -12,19 +12,6 @@ import * as utilities from "../utilities";
  * ## Disclaimers
  *
  * > **Note:** The  Data Source `azure.hybrid.getComputeMachine` is deprecated will be removed in v4.0 of the Azure Provider - a replacement can be found in the form of the `azure.arcmachine.get` Data Source.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.hybrid.getComputeMachine({
- *     name: "existing-hcmachine",
- *     resourceGroupName: "existing-rg",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getComputeMachine(args: GetComputeMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetComputeMachineResult> {
 
@@ -181,19 +168,6 @@ export interface GetComputeMachineResult {
  * ## Disclaimers
  *
  * > **Note:** The  Data Source `azure.hybrid.getComputeMachine` is deprecated will be removed in v4.0 of the Azure Provider - a replacement can be found in the form of the `azure.arcmachine.get` Data Source.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.hybrid.getComputeMachine({
- *     name: "existing-hcmachine",
- *     resourceGroupName: "existing-rg",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getComputeMachineOutput(args: GetComputeMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComputeMachineResult> {
     return pulumi.output(args).apply((a: any) => getComputeMachine(a, opts))

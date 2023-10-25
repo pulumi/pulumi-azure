@@ -9,40 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE** Security Alert Policy is currently only available for MS SQL databases.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleSqlServer = new azure.sql.SqlServer("exampleSqlServer", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     version: "12.0",
- *     administratorLogin: "4dm1n157r470r",
- *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
- * });
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "GRS",
- * });
- * const exampleServerSecurityAlertPolicy = new azure.mssql.ServerSecurityAlertPolicy("exampleServerSecurityAlertPolicy", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     serverName: exampleSqlServer.name,
- *     state: "Enabled",
- *     storageEndpoint: exampleAccount.primaryBlobEndpoint,
- *     storageAccountAccessKey: exampleAccount.primaryAccessKey,
- *     disabledAlerts: [
- *         "Sql_Injection",
- *         "Data_Exfiltration",
- *     ],
- *     retentionDays: 20,
- * });
- * ```
- *
  * ## Import
  *
  * MS SQL Server Security Alert Policy can be imported using the `resource id`, e.g.

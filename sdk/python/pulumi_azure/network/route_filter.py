@@ -40,15 +40,17 @@ class RouteFilterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              rule: Optional[pulumi.Input['RouteFilterRuleArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("resource_group_name", resource_group_name)
         if location is not None:
@@ -153,9 +155,9 @@ class _RouteFilterState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              rule: Optional[pulumi.Input['RouteFilterRuleArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if location is not None:
@@ -244,23 +246,6 @@ class RouteFilter(pulumi.CustomResource):
         """
         Manages a Route Filter.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.network.RouteFilter("example",
-            location="East US",
-            resource_group_name="example",
-            rule=azure.network.RouteFilterRuleArgs(
-                access="Allow",
-                communities=["12076:52004"],
-                name="rule",
-                rule_type="Community",
-            ))
-        ```
-
         ## Import
 
         Route Filters can be imported using the `resource id`, e.g.
@@ -285,23 +270,6 @@ class RouteFilter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Route Filter.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.network.RouteFilter("example",
-            location="East US",
-            resource_group_name="example",
-            rule=azure.network.RouteFilterRuleArgs(
-                access="Allow",
-                communities=["12076:52004"],
-                name="rule",
-                rule_type="Community",
-            ))
-        ```
 
         ## Import
 
@@ -349,11 +317,7 @@ class RouteFilter(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if rule is not None and not isinstance(rule, RouteFilterRuleArgs):
-                rule = rule or {}
-                def _setter(key, value):
-                    rule[key] = value
-                RouteFilterRuleArgs._configure(_setter, **rule)
+            rule = _utilities.configure(rule, RouteFilterRuleArgs, True)
             __props__.__dict__["rule"] = rule
             __props__.__dict__["tags"] = tags
         super(RouteFilter, __self__).__init__(

@@ -35,16 +35,20 @@ class EmailServiceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_location: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             data_location: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dataLocation' in kwargs:
+        if data_location is None and 'dataLocation' in kwargs:
             data_location = kwargs['dataLocation']
-        if 'resourceGroupName' in kwargs:
+        if data_location is None:
+            raise TypeError("Missing 'data_location' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("data_location", data_location)
         _setter("resource_group_name", resource_group_name)
@@ -130,11 +134,11 @@ class _EmailServiceState:
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dataLocation' in kwargs:
+        if data_location is None and 'dataLocation' in kwargs:
             data_location = kwargs['dataLocation']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if data_location is not None:
@@ -208,18 +212,6 @@ class EmailService(pulumi.CustomResource):
         """
         Manages an Email Communication Service.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_email_service = azure.communication.EmailService("exampleEmailService",
-            resource_group_name=example_resource_group.name,
-            data_location="United States")
-        ```
-
         ## Import
 
         Communication Services can be imported using the `resource id`, e.g.
@@ -243,18 +235,6 @@ class EmailService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Email Communication Service.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_email_service = azure.communication.EmailService("exampleEmailService",
-            resource_group_name=example_resource_group.name,
-            data_location="United States")
-        ```
 
         ## Import
 

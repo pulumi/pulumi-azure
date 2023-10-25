@@ -57,8 +57,8 @@ class DatasetCosmosDBApiArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_factory_id: pulumi.Input[str],
-             linked_service_name: pulumi.Input[str],
+             data_factory_id: Optional[pulumi.Input[str]] = None,
+             linked_service_name: Optional[pulumi.Input[str]] = None,
              additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              collection_name: Optional[pulumi.Input[str]] = None,
@@ -67,17 +67,21 @@ class DatasetCosmosDBApiArgs:
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetCosmosDBApiSchemaColumnArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'linkedServiceName' in kwargs:
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if linked_service_name is None and 'linkedServiceName' in kwargs:
             linked_service_name = kwargs['linkedServiceName']
-        if 'additionalProperties' in kwargs:
+        if linked_service_name is None:
+            raise TypeError("Missing 'linked_service_name' argument")
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'collectionName' in kwargs:
+        if collection_name is None and 'collectionName' in kwargs:
             collection_name = kwargs['collectionName']
-        if 'schemaColumns' in kwargs:
+        if schema_columns is None and 'schemaColumns' in kwargs:
             schema_columns = kwargs['schemaColumns']
 
         _setter("data_factory_id", data_factory_id)
@@ -276,17 +280,17 @@ class _DatasetCosmosDBApiState:
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetCosmosDBApiSchemaColumnArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'additionalProperties' in kwargs:
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'collectionName' in kwargs:
+        if collection_name is None and 'collectionName' in kwargs:
             collection_name = kwargs['collectionName']
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'linkedServiceName' in kwargs:
+        if linked_service_name is None and 'linkedServiceName' in kwargs:
             linked_service_name = kwargs['linkedServiceName']
-        if 'schemaColumns' in kwargs:
+        if schema_columns is None and 'schemaColumns' in kwargs:
             schema_columns = kwargs['schemaColumns']
 
         if additional_properties is not None:
@@ -452,28 +456,6 @@ class DatasetCosmosDBApi(pulumi.CustomResource):
         """
         Manages an Azure Cosmos DB SQL API Dataset inside an Azure Data Factory.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
-            resource_group_name="tfex-cosmosdb-account-rg")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_linked_service_cosmos_db = azure.datafactory.LinkedServiceCosmosDb("exampleLinkedServiceCosmosDb",
-            data_factory_id=example_factory.id,
-            account_endpoint=example_account.endpoint,
-            database="foo")
-        example_dataset_cosmos_db_api = azure.datafactory.DatasetCosmosDBApi("exampleDatasetCosmosDBApi",
-            data_factory_id=example_factory.id,
-            linked_service_name=example_linked_service_cosmos_db.name,
-            collection_name="bar")
-        ```
-
         ## Import
 
         Data Factory Datasets can be imported using the `resource id`, e.g.
@@ -505,28 +487,6 @@ class DatasetCosmosDBApi(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Cosmos DB SQL API Dataset inside an Azure Data Factory.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
-            resource_group_name="tfex-cosmosdb-account-rg")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_linked_service_cosmos_db = azure.datafactory.LinkedServiceCosmosDb("exampleLinkedServiceCosmosDb",
-            data_factory_id=example_factory.id,
-            account_endpoint=example_account.endpoint,
-            database="foo")
-        example_dataset_cosmos_db_api = azure.datafactory.DatasetCosmosDBApi("exampleDatasetCosmosDBApi",
-            data_factory_id=example_factory.id,
-            linked_service_name=example_linked_service_cosmos_db.name,
-            collection_name="bar")
-        ```
 
         ## Import
 

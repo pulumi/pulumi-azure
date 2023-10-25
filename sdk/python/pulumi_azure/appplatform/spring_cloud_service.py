@@ -70,7 +70,7 @@ class SpringCloudServiceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              build_agent_pool_size: Optional[pulumi.Input[str]] = None,
              config_server_git_setting: Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingArgs']] = None,
              container_registries: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceContainerRegistryArgs']]]] = None,
@@ -85,25 +85,27 @@ class SpringCloudServiceArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              trace: Optional[pulumi.Input['SpringCloudServiceTraceArgs']] = None,
              zone_redundant: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'buildAgentPoolSize' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if build_agent_pool_size is None and 'buildAgentPoolSize' in kwargs:
             build_agent_pool_size = kwargs['buildAgentPoolSize']
-        if 'configServerGitSetting' in kwargs:
+        if config_server_git_setting is None and 'configServerGitSetting' in kwargs:
             config_server_git_setting = kwargs['configServerGitSetting']
-        if 'containerRegistries' in kwargs:
+        if container_registries is None and 'containerRegistries' in kwargs:
             container_registries = kwargs['containerRegistries']
-        if 'defaultBuildService' in kwargs:
+        if default_build_service is None and 'defaultBuildService' in kwargs:
             default_build_service = kwargs['defaultBuildService']
-        if 'logStreamPublicEndpointEnabled' in kwargs:
+        if log_stream_public_endpoint_enabled is None and 'logStreamPublicEndpointEnabled' in kwargs:
             log_stream_public_endpoint_enabled = kwargs['logStreamPublicEndpointEnabled']
-        if 'serviceRegistryEnabled' in kwargs:
+        if service_registry_enabled is None and 'serviceRegistryEnabled' in kwargs:
             service_registry_enabled = kwargs['serviceRegistryEnabled']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'zoneRedundant' in kwargs:
+        if zone_redundant is None and 'zoneRedundant' in kwargs:
             zone_redundant = kwargs['zoneRedundant']
 
         _setter("resource_group_name", resource_group_name)
@@ -401,31 +403,31 @@ class _SpringCloudServiceState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              trace: Optional[pulumi.Input['SpringCloudServiceTraceArgs']] = None,
              zone_redundant: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'buildAgentPoolSize' in kwargs:
+        if build_agent_pool_size is None and 'buildAgentPoolSize' in kwargs:
             build_agent_pool_size = kwargs['buildAgentPoolSize']
-        if 'configServerGitSetting' in kwargs:
+        if config_server_git_setting is None and 'configServerGitSetting' in kwargs:
             config_server_git_setting = kwargs['configServerGitSetting']
-        if 'containerRegistries' in kwargs:
+        if container_registries is None and 'containerRegistries' in kwargs:
             container_registries = kwargs['containerRegistries']
-        if 'defaultBuildService' in kwargs:
+        if default_build_service is None and 'defaultBuildService' in kwargs:
             default_build_service = kwargs['defaultBuildService']
-        if 'logStreamPublicEndpointEnabled' in kwargs:
+        if log_stream_public_endpoint_enabled is None and 'logStreamPublicEndpointEnabled' in kwargs:
             log_stream_public_endpoint_enabled = kwargs['logStreamPublicEndpointEnabled']
-        if 'outboundPublicIpAddresses' in kwargs:
+        if outbound_public_ip_addresses is None and 'outboundPublicIpAddresses' in kwargs:
             outbound_public_ip_addresses = kwargs['outboundPublicIpAddresses']
-        if 'requiredNetworkTrafficRules' in kwargs:
+        if required_network_traffic_rules is None and 'requiredNetworkTrafficRules' in kwargs:
             required_network_traffic_rules = kwargs['requiredNetworkTrafficRules']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serviceRegistryEnabled' in kwargs:
+        if service_registry_enabled is None and 'serviceRegistryEnabled' in kwargs:
             service_registry_enabled = kwargs['serviceRegistryEnabled']
-        if 'serviceRegistryId' in kwargs:
+        if service_registry_id is None and 'serviceRegistryId' in kwargs:
             service_registry_id = kwargs['serviceRegistryId']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'zoneRedundant' in kwargs:
+        if zone_redundant is None and 'zoneRedundant' in kwargs:
             zone_redundant = kwargs['zoneRedundant']
 
         if build_agent_pool_size is not None:
@@ -706,38 +708,6 @@ class SpringCloudService(pulumi.CustomResource):
         """
         Manages an Azure Spring Cloud Service.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="web")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku_name="S0",
-            config_server_git_setting=azure.appplatform.SpringCloudServiceConfigServerGitSettingArgs(
-                uri="https://github.com/Azure-Samples/piggymetrics",
-                label="config",
-                search_paths=[
-                    "dir1",
-                    "dir2",
-                ],
-            ),
-            trace=azure.appplatform.SpringCloudServiceTraceArgs(
-                connection_string=example_insights.connection_string,
-                sample_rate=10,
-            ),
-            tags={
-                "Env": "staging",
-            })
-        ```
-
         ## Import
 
         Spring Cloud services can be imported using the `resource id`, e.g.
@@ -772,38 +742,6 @@ class SpringCloudService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Spring Cloud Service.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="web")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku_name="S0",
-            config_server_git_setting=azure.appplatform.SpringCloudServiceConfigServerGitSettingArgs(
-                uri="https://github.com/Azure-Samples/piggymetrics",
-                label="config",
-                search_paths=[
-                    "dir1",
-                    "dir2",
-                ],
-            ),
-            trace=azure.appplatform.SpringCloudServiceTraceArgs(
-                connection_string=example_insights.connection_string,
-                sample_rate=10,
-            ),
-            tags={
-                "Env": "staging",
-            })
-        ```
 
         ## Import
 
@@ -857,33 +795,17 @@ class SpringCloudService(pulumi.CustomResource):
             __props__ = SpringCloudServiceArgs.__new__(SpringCloudServiceArgs)
 
             __props__.__dict__["build_agent_pool_size"] = build_agent_pool_size
-            if config_server_git_setting is not None and not isinstance(config_server_git_setting, SpringCloudServiceConfigServerGitSettingArgs):
-                config_server_git_setting = config_server_git_setting or {}
-                def _setter(key, value):
-                    config_server_git_setting[key] = value
-                SpringCloudServiceConfigServerGitSettingArgs._configure(_setter, **config_server_git_setting)
+            config_server_git_setting = _utilities.configure(config_server_git_setting, SpringCloudServiceConfigServerGitSettingArgs, True)
             __props__.__dict__["config_server_git_setting"] = config_server_git_setting
             __props__.__dict__["container_registries"] = container_registries
-            if default_build_service is not None and not isinstance(default_build_service, SpringCloudServiceDefaultBuildServiceArgs):
-                default_build_service = default_build_service or {}
-                def _setter(key, value):
-                    default_build_service[key] = value
-                SpringCloudServiceDefaultBuildServiceArgs._configure(_setter, **default_build_service)
+            default_build_service = _utilities.configure(default_build_service, SpringCloudServiceDefaultBuildServiceArgs, True)
             __props__.__dict__["default_build_service"] = default_build_service
             __props__.__dict__["location"] = location
             __props__.__dict__["log_stream_public_endpoint_enabled"] = log_stream_public_endpoint_enabled
-            if marketplace is not None and not isinstance(marketplace, SpringCloudServiceMarketplaceArgs):
-                marketplace = marketplace or {}
-                def _setter(key, value):
-                    marketplace[key] = value
-                SpringCloudServiceMarketplaceArgs._configure(_setter, **marketplace)
+            marketplace = _utilities.configure(marketplace, SpringCloudServiceMarketplaceArgs, True)
             __props__.__dict__["marketplace"] = marketplace
             __props__.__dict__["name"] = name
-            if network is not None and not isinstance(network, SpringCloudServiceNetworkArgs):
-                network = network or {}
-                def _setter(key, value):
-                    network[key] = value
-                SpringCloudServiceNetworkArgs._configure(_setter, **network)
+            network = _utilities.configure(network, SpringCloudServiceNetworkArgs, True)
             __props__.__dict__["network"] = network
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -891,11 +813,7 @@ class SpringCloudService(pulumi.CustomResource):
             __props__.__dict__["service_registry_enabled"] = service_registry_enabled
             __props__.__dict__["sku_name"] = sku_name
             __props__.__dict__["tags"] = tags
-            if trace is not None and not isinstance(trace, SpringCloudServiceTraceArgs):
-                trace = trace or {}
-                def _setter(key, value):
-                    trace[key] = value
-                SpringCloudServiceTraceArgs._configure(_setter, **trace)
+            trace = _utilities.configure(trace, SpringCloudServiceTraceArgs, True)
             __props__.__dict__["trace"] = trace
             __props__.__dict__["zone_redundant"] = zone_redundant
             __props__.__dict__["outbound_public_ip_addresses"] = None

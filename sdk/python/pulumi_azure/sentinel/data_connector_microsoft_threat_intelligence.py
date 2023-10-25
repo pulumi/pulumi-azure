@@ -46,20 +46,22 @@ class DataConnectorMicrosoftThreatIntelligenceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             log_analytics_workspace_id: pulumi.Input[str],
+             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
              bing_safety_phishing_url_lookback_date: Optional[pulumi.Input[str]] = None,
              microsoft_emerging_threat_feed_lookback_date: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'bingSafetyPhishingUrlLookbackDate' in kwargs:
+        if log_analytics_workspace_id is None:
+            raise TypeError("Missing 'log_analytics_workspace_id' argument")
+        if bing_safety_phishing_url_lookback_date is None and 'bingSafetyPhishingUrlLookbackDate' in kwargs:
             bing_safety_phishing_url_lookback_date = kwargs['bingSafetyPhishingUrlLookbackDate']
-        if 'microsoftEmergingThreatFeedLookbackDate' in kwargs:
+        if microsoft_emerging_threat_feed_lookback_date is None and 'microsoftEmergingThreatFeedLookbackDate' in kwargs:
             microsoft_emerging_threat_feed_lookback_date = kwargs['microsoftEmergingThreatFeedLookbackDate']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("log_analytics_workspace_id", log_analytics_workspace_id)
@@ -187,15 +189,15 @@ class _DataConnectorMicrosoftThreatIntelligenceState:
              microsoft_emerging_threat_feed_lookback_date: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'bingSafetyPhishingUrlLookbackDate' in kwargs:
+        if bing_safety_phishing_url_lookback_date is None and 'bingSafetyPhishingUrlLookbackDate' in kwargs:
             bing_safety_phishing_url_lookback_date = kwargs['bingSafetyPhishingUrlLookbackDate']
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'microsoftEmergingThreatFeedLookbackDate' in kwargs:
+        if microsoft_emerging_threat_feed_lookback_date is None and 'microsoftEmergingThreatFeedLookbackDate' in kwargs:
             microsoft_emerging_threat_feed_lookback_date = kwargs['microsoftEmergingThreatFeedLookbackDate']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         if bing_safety_phishing_url_lookback_date is not None:
@@ -298,23 +300,6 @@ class DataConnectorMicrosoftThreatIntelligence(pulumi.CustomResource):
         """
         Manages a Microsoft Threat Intelligence Data Connector.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="east us")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018")
-        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", workspace_id=example_analytics_workspace.id)
-        example_data_connector_microsoft_threat_intelligence = azure.sentinel.DataConnectorMicrosoftThreatIntelligence("exampleDataConnectorMicrosoftThreatIntelligence",
-            log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
-            microsoft_emerging_threat_feed_lookback_date="1970-01-01T00:00:00Z")
-        ```
-
         ## Import
 
         sentinels can be imported using the `resource id`, e.g.
@@ -347,23 +332,6 @@ class DataConnectorMicrosoftThreatIntelligence(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Microsoft Threat Intelligence Data Connector.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="east us")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018")
-        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", workspace_id=example_analytics_workspace.id)
-        example_data_connector_microsoft_threat_intelligence = azure.sentinel.DataConnectorMicrosoftThreatIntelligence("exampleDataConnectorMicrosoftThreatIntelligence",
-            log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
-            microsoft_emerging_threat_feed_lookback_date="1970-01-01T00:00:00Z")
-        ```
 
         ## Import
 

@@ -85,10 +85,10 @@ class VirtualNetworkGatewayArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ip_configurations: pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayIpConfigurationArgs']]],
-             resource_group_name: pulumi.Input[str],
-             sku: pulumi.Input[str],
-             type: pulumi.Input[str],
+             ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayIpConfigurationArgs']]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              active_active: Optional[pulumi.Input[bool]] = None,
              bgp_settings: Optional[pulumi.Input['VirtualNetworkGatewayBgpSettingsArgs']] = None,
              custom_route: Optional[pulumi.Input['VirtualNetworkGatewayCustomRouteArgs']] = None,
@@ -102,29 +102,37 @@ class VirtualNetworkGatewayArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              vpn_client_configuration: Optional[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationArgs']] = None,
              vpn_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'ipConfigurations' in kwargs:
+        if ip_configurations is None and 'ipConfigurations' in kwargs:
             ip_configurations = kwargs['ipConfigurations']
-        if 'resourceGroupName' in kwargs:
+        if ip_configurations is None:
+            raise TypeError("Missing 'ip_configurations' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'activeActive' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if active_active is None and 'activeActive' in kwargs:
             active_active = kwargs['activeActive']
-        if 'bgpSettings' in kwargs:
+        if bgp_settings is None and 'bgpSettings' in kwargs:
             bgp_settings = kwargs['bgpSettings']
-        if 'customRoute' in kwargs:
+        if custom_route is None and 'customRoute' in kwargs:
             custom_route = kwargs['customRoute']
-        if 'defaultLocalNetworkGatewayId' in kwargs:
+        if default_local_network_gateway_id is None and 'defaultLocalNetworkGatewayId' in kwargs:
             default_local_network_gateway_id = kwargs['defaultLocalNetworkGatewayId']
-        if 'edgeZone' in kwargs:
+        if edge_zone is None and 'edgeZone' in kwargs:
             edge_zone = kwargs['edgeZone']
-        if 'enableBgp' in kwargs:
+        if enable_bgp is None and 'enableBgp' in kwargs:
             enable_bgp = kwargs['enableBgp']
-        if 'privateIpAddressEnabled' in kwargs:
+        if private_ip_address_enabled is None and 'privateIpAddressEnabled' in kwargs:
             private_ip_address_enabled = kwargs['privateIpAddressEnabled']
-        if 'vpnClientConfiguration' in kwargs:
+        if vpn_client_configuration is None and 'vpnClientConfiguration' in kwargs:
             vpn_client_configuration = kwargs['vpnClientConfiguration']
-        if 'vpnType' in kwargs:
+        if vpn_type is None and 'vpnType' in kwargs:
             vpn_type = kwargs['vpnType']
 
         _setter("ip_configurations", ip_configurations)
@@ -461,29 +469,29 @@ class _VirtualNetworkGatewayState:
              type: Optional[pulumi.Input[str]] = None,
              vpn_client_configuration: Optional[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationArgs']] = None,
              vpn_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'activeActive' in kwargs:
+        if active_active is None and 'activeActive' in kwargs:
             active_active = kwargs['activeActive']
-        if 'bgpSettings' in kwargs:
+        if bgp_settings is None and 'bgpSettings' in kwargs:
             bgp_settings = kwargs['bgpSettings']
-        if 'customRoute' in kwargs:
+        if custom_route is None and 'customRoute' in kwargs:
             custom_route = kwargs['customRoute']
-        if 'defaultLocalNetworkGatewayId' in kwargs:
+        if default_local_network_gateway_id is None and 'defaultLocalNetworkGatewayId' in kwargs:
             default_local_network_gateway_id = kwargs['defaultLocalNetworkGatewayId']
-        if 'edgeZone' in kwargs:
+        if edge_zone is None and 'edgeZone' in kwargs:
             edge_zone = kwargs['edgeZone']
-        if 'enableBgp' in kwargs:
+        if enable_bgp is None and 'enableBgp' in kwargs:
             enable_bgp = kwargs['enableBgp']
-        if 'ipConfigurations' in kwargs:
+        if ip_configurations is None and 'ipConfigurations' in kwargs:
             ip_configurations = kwargs['ipConfigurations']
-        if 'privateIpAddressEnabled' in kwargs:
+        if private_ip_address_enabled is None and 'privateIpAddressEnabled' in kwargs:
             private_ip_address_enabled = kwargs['privateIpAddressEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'vpnClientConfiguration' in kwargs:
+        if vpn_client_configuration is None and 'vpnClientConfiguration' in kwargs:
             vpn_client_configuration = kwargs['vpnClientConfiguration']
-        if 'vpnType' in kwargs:
+        if vpn_type is None and 'vpnType' in kwargs:
             vpn_type = kwargs['vpnType']
 
         if active_active is not None:
@@ -763,72 +771,6 @@ class VirtualNetworkGateway(pulumi.CustomResource):
 
         > **Note:** Please be aware that provisioning a Virtual Network Gateway takes a long time (between 30 minutes and 1 hour)
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            address_spaces=["10.0.0.0/16"])
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"])
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            allocation_method="Dynamic")
-        example_virtual_network_gateway = azure.network.VirtualNetworkGateway("exampleVirtualNetworkGateway",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            type="Vpn",
-            vpn_type="RouteBased",
-            active_active=False,
-            enable_bgp=False,
-            sku="Basic",
-            ip_configurations=[azure.network.VirtualNetworkGatewayIpConfigurationArgs(
-                name="vnetGatewayConfig",
-                public_ip_address_id=example_public_ip.id,
-                private_ip_address_allocation="Dynamic",
-                subnet_id=example_subnet.id,
-            )],
-            vpn_client_configuration=azure.network.VirtualNetworkGatewayVpnClientConfigurationArgs(
-                address_spaces=["10.2.0.0/24"],
-                root_certificates=[azure.network.VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs(
-                    name="DigiCert-Federated-ID-Root-CA",
-                    public_cert_data=\"\"\"MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
-        MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
-        d3cuZGlnaWNlcnQuY29tMSYwJAYDVQQDEx1EaWdpQ2VydCBGZWRlcmF0ZWQgSUQg
-        Um9vdCBDQTAeFw0xMzAxMTUxMjAwMDBaFw0zMzAxMTUxMjAwMDBaMGcxCzAJBgNV
-        BAYTAlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdp
-        Y2VydC5jb20xJjAkBgNVBAMTHURpZ2lDZXJ0IEZlZGVyYXRlZCBJRCBSb290IENB
-        MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvAEB4pcCqnNNOWE6Ur5j
-        QPUH+1y1F9KdHTRSza6k5iDlXq1kGS1qAkuKtw9JsiNRrjltmFnzMZRBbX8Tlfl8
-        zAhBmb6dDduDGED01kBsTkgywYPxXVTKec0WxYEEF0oMn4wSYNl0lt2eJAKHXjNf
-        GTwiibdP8CUR2ghSM2sUTI8Nt1Omfc4SMHhGhYD64uJMbX98THQ/4LMGuYegou+d
-        GTiahfHtjn7AboSEknwAMJHCh5RlYZZ6B1O4QbKJ+34Q0eKgnI3X6Vc9u0zf6DH8
-        Dk+4zQDYRRTqTnVO3VT8jzqDlCRuNtq6YvryOWN74/dq8LQhUnXHvFyrsdMaE1X2
-        DwIDAQABo2MwYTAPBgNVHRMBAf8EBTADAQH/MA4GA1UdDwEB/wQEAwIBhjAdBgNV
-        HQ4EFgQUGRdkFnbGt1EWjKwbUne+5OaZvRYwHwYDVR0jBBgwFoAUGRdkFnbGt1EW
-        jKwbUne+5OaZvRYwDQYJKoZIhvcNAQELBQADggEBAHcqsHkrjpESqfuVTRiptJfP
-        9JbdtWqRTmOf6uJi2c8YVqI6XlKXsD8C1dUUaaHKLUJzvKiazibVuBwMIT84AyqR
-        QELn3e0BtgEymEygMU569b01ZPxoFSnNXc7qDZBDef8WfqAV/sxkTi8L9BkmFYfL
-        uGLOhRJOFprPdoDIUBB+tmCl3oDcBy3vnUeOEioz8zAkprcb3GHwHAK+vHmmfgcn
-        WsfMLH4JCLa/tRYL+Rw/N3ybCkDp00s0WUZ+AoDywSl0Q/ZEnNY0MsFiw6LyIdbq
-        M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
-        \"\"\",
-                )],
-                revoked_certificates=[azure.network.VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs(
-                    name="Verizon-Global-Root-CA",
-                    thumbprint="912198EEF23DCAC40939312FEE97DD560BAE49B1",
-                )],
-            ))
-        ```
-
         ## Import
 
         Virtual Network Gateways can be imported using the `resource id`, e.g.
@@ -876,72 +818,6 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         Manages a Virtual Network Gateway to establish secure, cross-premises connectivity.
 
         > **Note:** Please be aware that provisioning a Virtual Network Gateway takes a long time (between 30 minutes and 1 hour)
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            address_spaces=["10.0.0.0/16"])
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"])
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            allocation_method="Dynamic")
-        example_virtual_network_gateway = azure.network.VirtualNetworkGateway("exampleVirtualNetworkGateway",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            type="Vpn",
-            vpn_type="RouteBased",
-            active_active=False,
-            enable_bgp=False,
-            sku="Basic",
-            ip_configurations=[azure.network.VirtualNetworkGatewayIpConfigurationArgs(
-                name="vnetGatewayConfig",
-                public_ip_address_id=example_public_ip.id,
-                private_ip_address_allocation="Dynamic",
-                subnet_id=example_subnet.id,
-            )],
-            vpn_client_configuration=azure.network.VirtualNetworkGatewayVpnClientConfigurationArgs(
-                address_spaces=["10.2.0.0/24"],
-                root_certificates=[azure.network.VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs(
-                    name="DigiCert-Federated-ID-Root-CA",
-                    public_cert_data=\"\"\"MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
-        MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
-        d3cuZGlnaWNlcnQuY29tMSYwJAYDVQQDEx1EaWdpQ2VydCBGZWRlcmF0ZWQgSUQg
-        Um9vdCBDQTAeFw0xMzAxMTUxMjAwMDBaFw0zMzAxMTUxMjAwMDBaMGcxCzAJBgNV
-        BAYTAlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdp
-        Y2VydC5jb20xJjAkBgNVBAMTHURpZ2lDZXJ0IEZlZGVyYXRlZCBJRCBSb290IENB
-        MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvAEB4pcCqnNNOWE6Ur5j
-        QPUH+1y1F9KdHTRSza6k5iDlXq1kGS1qAkuKtw9JsiNRrjltmFnzMZRBbX8Tlfl8
-        zAhBmb6dDduDGED01kBsTkgywYPxXVTKec0WxYEEF0oMn4wSYNl0lt2eJAKHXjNf
-        GTwiibdP8CUR2ghSM2sUTI8Nt1Omfc4SMHhGhYD64uJMbX98THQ/4LMGuYegou+d
-        GTiahfHtjn7AboSEknwAMJHCh5RlYZZ6B1O4QbKJ+34Q0eKgnI3X6Vc9u0zf6DH8
-        Dk+4zQDYRRTqTnVO3VT8jzqDlCRuNtq6YvryOWN74/dq8LQhUnXHvFyrsdMaE1X2
-        DwIDAQABo2MwYTAPBgNVHRMBAf8EBTADAQH/MA4GA1UdDwEB/wQEAwIBhjAdBgNV
-        HQ4EFgQUGRdkFnbGt1EWjKwbUne+5OaZvRYwHwYDVR0jBBgwFoAUGRdkFnbGt1EW
-        jKwbUne+5OaZvRYwDQYJKoZIhvcNAQELBQADggEBAHcqsHkrjpESqfuVTRiptJfP
-        9JbdtWqRTmOf6uJi2c8YVqI6XlKXsD8C1dUUaaHKLUJzvKiazibVuBwMIT84AyqR
-        QELn3e0BtgEymEygMU569b01ZPxoFSnNXc7qDZBDef8WfqAV/sxkTi8L9BkmFYfL
-        uGLOhRJOFprPdoDIUBB+tmCl3oDcBy3vnUeOEioz8zAkprcb3GHwHAK+vHmmfgcn
-        WsfMLH4JCLa/tRYL+Rw/N3ybCkDp00s0WUZ+AoDywSl0Q/ZEnNY0MsFiw6LyIdbq
-        M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
-        \"\"\",
-                )],
-                revoked_certificates=[azure.network.VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs(
-                    name="Verizon-Global-Root-CA",
-                    thumbprint="912198EEF23DCAC40939312FEE97DD560BAE49B1",
-                )],
-            ))
-        ```
 
         ## Import
 
@@ -997,17 +873,9 @@ class VirtualNetworkGateway(pulumi.CustomResource):
             __props__ = VirtualNetworkGatewayArgs.__new__(VirtualNetworkGatewayArgs)
 
             __props__.__dict__["active_active"] = active_active
-            if bgp_settings is not None and not isinstance(bgp_settings, VirtualNetworkGatewayBgpSettingsArgs):
-                bgp_settings = bgp_settings or {}
-                def _setter(key, value):
-                    bgp_settings[key] = value
-                VirtualNetworkGatewayBgpSettingsArgs._configure(_setter, **bgp_settings)
+            bgp_settings = _utilities.configure(bgp_settings, VirtualNetworkGatewayBgpSettingsArgs, True)
             __props__.__dict__["bgp_settings"] = bgp_settings
-            if custom_route is not None and not isinstance(custom_route, VirtualNetworkGatewayCustomRouteArgs):
-                custom_route = custom_route or {}
-                def _setter(key, value):
-                    custom_route[key] = value
-                VirtualNetworkGatewayCustomRouteArgs._configure(_setter, **custom_route)
+            custom_route = _utilities.configure(custom_route, VirtualNetworkGatewayCustomRouteArgs, True)
             __props__.__dict__["custom_route"] = custom_route
             __props__.__dict__["default_local_network_gateway_id"] = default_local_network_gateway_id
             __props__.__dict__["edge_zone"] = edge_zone
@@ -1029,11 +897,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
-            if vpn_client_configuration is not None and not isinstance(vpn_client_configuration, VirtualNetworkGatewayVpnClientConfigurationArgs):
-                vpn_client_configuration = vpn_client_configuration or {}
-                def _setter(key, value):
-                    vpn_client_configuration[key] = value
-                VirtualNetworkGatewayVpnClientConfigurationArgs._configure(_setter, **vpn_client_configuration)
+            vpn_client_configuration = _utilities.configure(vpn_client_configuration, VirtualNetworkGatewayVpnClientConfigurationArgs, True)
             __props__.__dict__["vpn_client_configuration"] = vpn_client_configuration
             __props__.__dict__["vpn_type"] = vpn_type
         super(VirtualNetworkGateway, __self__).__init__(

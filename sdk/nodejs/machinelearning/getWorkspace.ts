@@ -8,19 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Machine Learning Workspace.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const existing = azure.machinelearning.getWorkspace({
- *     name: "example-workspace",
- *     resourceGroupName: "example-resources",
- * });
- * export const id = azurerm_machine_learning_workspace.existing.id;
- * ```
  */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
 
@@ -70,19 +57,6 @@ export interface GetWorkspaceResult {
 }
 /**
  * Use this data source to access information about an existing Machine Learning Workspace.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const existing = azure.machinelearning.getWorkspace({
- *     name: "example-workspace",
- *     resourceGroupName: "example-resources",
- * });
- * export const id = azurerm_machine_learning_workspace.existing.id;
- * ```
  */
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
     return pulumi.output(args).apply((a: any) => getWorkspace(a, opts))

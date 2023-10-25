@@ -7,29 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Directory within an Azure Storage File Share.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "LRS",
- * });
- * const exampleShare = new azure.storage.Share("exampleShare", {
- *     storageAccountName: exampleAccount.name,
- *     quota: 50,
- * });
- * const exampleShareDirectory = new azure.storage.ShareDirectory("exampleShareDirectory", {
- *     shareName: exampleShare.name,
- *     storageAccountName: exampleAccount.name,
- * });
- * ```
- *
  * ## Import
  *
  * Directories within an Azure Storage File Share can be imported using the `resource id`, e.g.

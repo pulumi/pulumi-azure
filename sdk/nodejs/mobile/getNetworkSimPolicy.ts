@@ -8,22 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Get information about a Mobile Network Sim Policy.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleNetwork = azure.mobile.getNetwork({
- *     name: "example-mn",
- *     resourceGroupName: "example-rg",
- * });
- * const exampleNetworkSimPolicy = exampleNetwork.then(exampleNetwork => azure.mobile.getNetworkSimPolicy({
- *     name: "example-mnsp",
- *     mobileNetworkId: exampleNetwork.id,
- * }));
- * ```
  */
 export function getNetworkSimPolicy(args: GetNetworkSimPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkSimPolicyResult> {
 
@@ -89,22 +73,6 @@ export interface GetNetworkSimPolicyResult {
 }
 /**
  * Get information about a Mobile Network Sim Policy.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleNetwork = azure.mobile.getNetwork({
- *     name: "example-mn",
- *     resourceGroupName: "example-rg",
- * });
- * const exampleNetworkSimPolicy = exampleNetwork.then(exampleNetwork => azure.mobile.getNetworkSimPolicy({
- *     name: "example-mnsp",
- *     mobileNetworkId: exampleNetwork.id,
- * }));
- * ```
  */
 export function getNetworkSimPolicyOutput(args: GetNetworkSimPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkSimPolicyResult> {
     return pulumi.output(args).apply((a: any) => getNetworkSimPolicy(a, opts))

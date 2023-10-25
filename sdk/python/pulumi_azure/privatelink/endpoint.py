@@ -52,28 +52,34 @@ class EndpointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             private_service_connection: pulumi.Input['EndpointPrivateServiceConnectionArgs'],
-             resource_group_name: pulumi.Input[str],
-             subnet_id: pulumi.Input[str],
+             private_service_connection: Optional[pulumi.Input['EndpointPrivateServiceConnectionArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
              custom_network_interface_name: Optional[pulumi.Input[str]] = None,
              ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointIpConfigurationArgs']]]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              private_dns_zone_group: Optional[pulumi.Input['EndpointPrivateDnsZoneGroupArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'privateServiceConnection' in kwargs:
+        if private_service_connection is None and 'privateServiceConnection' in kwargs:
             private_service_connection = kwargs['privateServiceConnection']
-        if 'resourceGroupName' in kwargs:
+        if private_service_connection is None:
+            raise TypeError("Missing 'private_service_connection' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'subnetId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'customNetworkInterfaceName' in kwargs:
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if custom_network_interface_name is None and 'customNetworkInterfaceName' in kwargs:
             custom_network_interface_name = kwargs['customNetworkInterfaceName']
-        if 'ipConfigurations' in kwargs:
+        if ip_configurations is None and 'ipConfigurations' in kwargs:
             ip_configurations = kwargs['ipConfigurations']
-        if 'privateDnsZoneGroup' in kwargs:
+        if private_dns_zone_group is None and 'privateDnsZoneGroup' in kwargs:
             private_dns_zone_group = kwargs['privateDnsZoneGroup']
 
         _setter("private_service_connection", private_service_connection)
@@ -261,25 +267,25 @@ class _EndpointState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'customDnsConfigs' in kwargs:
+        if custom_dns_configs is None and 'customDnsConfigs' in kwargs:
             custom_dns_configs = kwargs['customDnsConfigs']
-        if 'customNetworkInterfaceName' in kwargs:
+        if custom_network_interface_name is None and 'customNetworkInterfaceName' in kwargs:
             custom_network_interface_name = kwargs['customNetworkInterfaceName']
-        if 'ipConfigurations' in kwargs:
+        if ip_configurations is None and 'ipConfigurations' in kwargs:
             ip_configurations = kwargs['ipConfigurations']
-        if 'networkInterfaces' in kwargs:
+        if network_interfaces is None and 'networkInterfaces' in kwargs:
             network_interfaces = kwargs['networkInterfaces']
-        if 'privateDnsZoneConfigs' in kwargs:
+        if private_dns_zone_configs is None and 'privateDnsZoneConfigs' in kwargs:
             private_dns_zone_configs = kwargs['privateDnsZoneConfigs']
-        if 'privateDnsZoneGroup' in kwargs:
+        if private_dns_zone_group is None and 'privateDnsZoneGroup' in kwargs:
             private_dns_zone_group = kwargs['privateDnsZoneGroup']
-        if 'privateServiceConnection' in kwargs:
+        if private_service_connection is None and 'privateServiceConnection' in kwargs:
             private_service_connection = kwargs['privateServiceConnection']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
 
         if custom_dns_configs is not None:
@@ -544,17 +550,9 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["ip_configurations"] = ip_configurations
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
-            if private_dns_zone_group is not None and not isinstance(private_dns_zone_group, EndpointPrivateDnsZoneGroupArgs):
-                private_dns_zone_group = private_dns_zone_group or {}
-                def _setter(key, value):
-                    private_dns_zone_group[key] = value
-                EndpointPrivateDnsZoneGroupArgs._configure(_setter, **private_dns_zone_group)
+            private_dns_zone_group = _utilities.configure(private_dns_zone_group, EndpointPrivateDnsZoneGroupArgs, True)
             __props__.__dict__["private_dns_zone_group"] = private_dns_zone_group
-            if private_service_connection is not None and not isinstance(private_service_connection, EndpointPrivateServiceConnectionArgs):
-                private_service_connection = private_service_connection or {}
-                def _setter(key, value):
-                    private_service_connection[key] = value
-                EndpointPrivateServiceConnectionArgs._configure(_setter, **private_service_connection)
+            private_service_connection = _utilities.configure(private_service_connection, EndpointPrivateServiceConnectionArgs, True)
             if private_service_connection is None and not opts.urn:
                 raise TypeError("Missing required property 'private_service_connection'")
             __props__.__dict__["private_service_connection"] = private_service_connection

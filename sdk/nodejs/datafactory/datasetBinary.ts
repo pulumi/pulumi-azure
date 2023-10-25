@@ -9,35 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Data Factory Binary Dataset inside an Azure Data Factory.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleLinkedServiceSftp = new azure.datafactory.LinkedServiceSftp("exampleLinkedServiceSftp", {
- *     dataFactoryId: exampleFactory.id,
- *     authenticationType: "Basic",
- *     host: "http://www.bing.com",
- *     port: 22,
- *     username: "foo",
- *     password: "bar",
- * });
- * const exampleDatasetBinary = new azure.datafactory.DatasetBinary("exampleDatasetBinary", {
- *     dataFactoryId: exampleFactory.id,
- *     linkedServiceName: exampleLinkedServiceSftp.name,
- *     sftpServerLocation: {
- *         path: "/test/",
- *         filename: "**",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Data Factory Binary Datasets can be imported using the `resource id`, e.g.

@@ -70,9 +70,9 @@ class LiveEventArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             input: pulumi.Input['LiveEventInputArgs'],
-             media_services_account_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             input: Optional[pulumi.Input['LiveEventInputArgs']] = None,
+             media_services_account_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              auto_start_enabled: Optional[pulumi.Input[bool]] = None,
              cross_site_access_policy: Optional[pulumi.Input['LiveEventCrossSiteAccessPolicyArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -85,23 +85,29 @@ class LiveEventArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              transcription_languages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              use_static_hostname: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'mediaServicesAccountName' in kwargs:
+        if input is None:
+            raise TypeError("Missing 'input' argument")
+        if media_services_account_name is None and 'mediaServicesAccountName' in kwargs:
             media_services_account_name = kwargs['mediaServicesAccountName']
-        if 'resourceGroupName' in kwargs:
+        if media_services_account_name is None:
+            raise TypeError("Missing 'media_services_account_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'autoStartEnabled' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if auto_start_enabled is None and 'autoStartEnabled' in kwargs:
             auto_start_enabled = kwargs['autoStartEnabled']
-        if 'crossSiteAccessPolicy' in kwargs:
+        if cross_site_access_policy is None and 'crossSiteAccessPolicy' in kwargs:
             cross_site_access_policy = kwargs['crossSiteAccessPolicy']
-        if 'hostnamePrefix' in kwargs:
+        if hostname_prefix is None and 'hostnamePrefix' in kwargs:
             hostname_prefix = kwargs['hostnamePrefix']
-        if 'streamOptions' in kwargs:
+        if stream_options is None and 'streamOptions' in kwargs:
             stream_options = kwargs['streamOptions']
-        if 'transcriptionLanguages' in kwargs:
+        if transcription_languages is None and 'transcriptionLanguages' in kwargs:
             transcription_languages = kwargs['transcriptionLanguages']
-        if 'useStaticHostname' in kwargs:
+        if use_static_hostname is None and 'useStaticHostname' in kwargs:
             use_static_hostname = kwargs['useStaticHostname']
 
         _setter("input", input)
@@ -385,23 +391,23 @@ class _LiveEventState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              transcription_languages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              use_static_hostname: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'autoStartEnabled' in kwargs:
+        if auto_start_enabled is None and 'autoStartEnabled' in kwargs:
             auto_start_enabled = kwargs['autoStartEnabled']
-        if 'crossSiteAccessPolicy' in kwargs:
+        if cross_site_access_policy is None and 'crossSiteAccessPolicy' in kwargs:
             cross_site_access_policy = kwargs['crossSiteAccessPolicy']
-        if 'hostnamePrefix' in kwargs:
+        if hostname_prefix is None and 'hostnamePrefix' in kwargs:
             hostname_prefix = kwargs['hostnamePrefix']
-        if 'mediaServicesAccountName' in kwargs:
+        if media_services_account_name is None and 'mediaServicesAccountName' in kwargs:
             media_services_account_name = kwargs['mediaServicesAccountName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'streamOptions' in kwargs:
+        if stream_options is None and 'streamOptions' in kwargs:
             stream_options = kwargs['streamOptions']
-        if 'transcriptionLanguages' in kwargs:
+        if transcription_languages is None and 'transcriptionLanguages' in kwargs:
             transcription_languages = kwargs['transcriptionLanguages']
-        if 'useStaticHostname' in kwargs:
+        if use_static_hostname is None and 'useStaticHostname' in kwargs:
             use_static_hostname = kwargs['useStaticHostname']
 
         if auto_start_enabled is not None:
@@ -640,57 +646,6 @@ class LiveEvent(pulumi.CustomResource):
         """
         Manages a Live Event.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
-                id=example_account.id,
-                is_primary=True,
-            )])
-        example_live_event = azure.media.LiveEvent("exampleLiveEvent",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            media_services_account_name=example_service_account.name,
-            description="My Event Description",
-            input=azure.media.LiveEventInputArgs(
-                streaming_protocol="RTMP",
-                ip_access_control_allows=[azure.media.LiveEventInputIpAccessControlAllowArgs(
-                    name="AllowAll",
-                    address="0.0.0.0",
-                    subnet_prefix_length=0,
-                )],
-            ),
-            encoding=azure.media.LiveEventEncodingArgs(
-                type="Standard",
-                preset_name="Default720p",
-                stretch_mode="AutoFit",
-                key_frame_interval="PT2S",
-            ),
-            preview=azure.media.LiveEventPreviewArgs(
-                ip_access_control_allows=[azure.media.LiveEventPreviewIpAccessControlAllowArgs(
-                    name="AllowAll",
-                    address="0.0.0.0",
-                    subnet_prefix_length=0,
-                )],
-            ),
-            stream_options=["LowLatency"],
-            use_static_hostname=True,
-            hostname_prefix="special-event",
-            transcription_languages=["en-US"])
-        ```
-
         ## Import
 
         Live Events can be imported using the `resource id`, e.g.
@@ -725,57 +680,6 @@ class LiveEvent(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Live Event.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
-                id=example_account.id,
-                is_primary=True,
-            )])
-        example_live_event = azure.media.LiveEvent("exampleLiveEvent",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            media_services_account_name=example_service_account.name,
-            description="My Event Description",
-            input=azure.media.LiveEventInputArgs(
-                streaming_protocol="RTMP",
-                ip_access_control_allows=[azure.media.LiveEventInputIpAccessControlAllowArgs(
-                    name="AllowAll",
-                    address="0.0.0.0",
-                    subnet_prefix_length=0,
-                )],
-            ),
-            encoding=azure.media.LiveEventEncodingArgs(
-                type="Standard",
-                preset_name="Default720p",
-                stretch_mode="AutoFit",
-                key_frame_interval="PT2S",
-            ),
-            preview=azure.media.LiveEventPreviewArgs(
-                ip_access_control_allows=[azure.media.LiveEventPreviewIpAccessControlAllowArgs(
-                    name="AllowAll",
-                    address="0.0.0.0",
-                    subnet_prefix_length=0,
-                )],
-            ),
-            stream_options=["LowLatency"],
-            use_static_hostname=True,
-            hostname_prefix="special-event",
-            transcription_languages=["en-US"])
-        ```
 
         ## Import
 
@@ -829,25 +733,13 @@ class LiveEvent(pulumi.CustomResource):
             __props__ = LiveEventArgs.__new__(LiveEventArgs)
 
             __props__.__dict__["auto_start_enabled"] = auto_start_enabled
-            if cross_site_access_policy is not None and not isinstance(cross_site_access_policy, LiveEventCrossSiteAccessPolicyArgs):
-                cross_site_access_policy = cross_site_access_policy or {}
-                def _setter(key, value):
-                    cross_site_access_policy[key] = value
-                LiveEventCrossSiteAccessPolicyArgs._configure(_setter, **cross_site_access_policy)
+            cross_site_access_policy = _utilities.configure(cross_site_access_policy, LiveEventCrossSiteAccessPolicyArgs, True)
             __props__.__dict__["cross_site_access_policy"] = cross_site_access_policy
             __props__.__dict__["description"] = description
-            if encoding is not None and not isinstance(encoding, LiveEventEncodingArgs):
-                encoding = encoding or {}
-                def _setter(key, value):
-                    encoding[key] = value
-                LiveEventEncodingArgs._configure(_setter, **encoding)
+            encoding = _utilities.configure(encoding, LiveEventEncodingArgs, True)
             __props__.__dict__["encoding"] = encoding
             __props__.__dict__["hostname_prefix"] = hostname_prefix
-            if input is not None and not isinstance(input, LiveEventInputArgs):
-                input = input or {}
-                def _setter(key, value):
-                    input[key] = value
-                LiveEventInputArgs._configure(_setter, **input)
+            input = _utilities.configure(input, LiveEventInputArgs, True)
             if input is None and not opts.urn:
                 raise TypeError("Missing required property 'input'")
             __props__.__dict__["input"] = input
@@ -856,11 +748,7 @@ class LiveEvent(pulumi.CustomResource):
                 raise TypeError("Missing required property 'media_services_account_name'")
             __props__.__dict__["media_services_account_name"] = media_services_account_name
             __props__.__dict__["name"] = name
-            if preview is not None and not isinstance(preview, LiveEventPreviewArgs):
-                preview = preview or {}
-                def _setter(key, value):
-                    preview[key] = value
-                LiveEventPreviewArgs._configure(_setter, **preview)
+            preview = _utilities.configure(preview, LiveEventPreviewArgs, True)
             __props__.__dict__["preview"] = preview
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
