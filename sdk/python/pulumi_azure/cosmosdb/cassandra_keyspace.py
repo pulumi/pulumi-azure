@@ -263,6 +263,33 @@ class CassandraKeyspace(pulumi.CustomResource):
         """
         Manages a Cassandra KeySpace within a Cosmos DB Account.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.cosmosdb.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            offer_type="Standard",
+            capabilities=[azure.cosmosdb.AccountCapabilityArgs(
+                name="EnableCassandra",
+            )],
+            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
+                consistency_level="Strong",
+            ),
+            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
+                location=example_resource_group.location,
+                failover_priority=0,
+            )])
+        example_cassandra_keyspace = azure.cosmosdb.CassandraKeyspace("exampleCassandraKeyspace",
+            resource_group_name=example_account.resource_group_name,
+            account_name=example_account.name,
+            throughput=400)
+        ```
+
         ## Import
 
         Cosmos Cassandra KeySpace can be imported using the `resource id`, e.g.
@@ -289,6 +316,33 @@ class CassandraKeyspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Cassandra KeySpace within a Cosmos DB Account.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.cosmosdb.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            offer_type="Standard",
+            capabilities=[azure.cosmosdb.AccountCapabilityArgs(
+                name="EnableCassandra",
+            )],
+            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
+                consistency_level="Strong",
+            ),
+            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
+                location=example_resource_group.location,
+                failover_priority=0,
+            )])
+        example_cassandra_keyspace = azure.cosmosdb.CassandraKeyspace("exampleCassandraKeyspace",
+            resource_group_name=example_account.resource_group_name,
+            account_name=example_account.name,
+            throughput=400)
+        ```
 
         ## Import
 

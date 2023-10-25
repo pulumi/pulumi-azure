@@ -12,6 +12,49 @@ namespace Pulumi.Azure.StreamAnalytics
     /// <summary>
     /// Manages a Stream Analytics Managed Private Endpoint.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///         AccountKind = "StorageV2",
+    ///         IsHnsEnabled = true,
+    ///     });
+    /// 
+    ///     var exampleCluster = new Azure.StreamAnalytics.Cluster("exampleCluster", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         StreamingCapacity = 36,
+    ///     });
+    /// 
+    ///     var exampleManagedPrivateEndpoint = new Azure.StreamAnalytics.ManagedPrivateEndpoint("exampleManagedPrivateEndpoint", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         StreamAnalyticsClusterName = exampleCluster.Name,
+    ///         TargetResourceId = exampleAccount.Id,
+    ///         SubresourceName = "blob",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Stream Analytics Private Endpoints can be imported using the `resource id`, e.g.

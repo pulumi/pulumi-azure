@@ -12,6 +12,32 @@ namespace Pulumi.Azure.AppService
     /// <summary>
     /// Manages an App Service Certificate Order.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleCertificateOrder = new Azure.AppService.CertificateOrder("exampleCertificateOrder", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = "global",
+    ///         DistinguishedName = "CN=example.com",
+    ///         ProductType = "Standard",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// App Service Certificate Orders can be imported using the `resource id`, e.g.

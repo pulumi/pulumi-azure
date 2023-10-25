@@ -6,6 +6,18 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Front Door (standard/premium) Profile.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.cdn.getFrontdoorProfile({
+ *     name: "existing-cdn-profile",
+ *     resourceGroupName: "existing-resources",
+ * });
+ * ```
  */
 export function getFrontdoorProfile(args: GetFrontdoorProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetFrontdoorProfileResult> {
 
@@ -59,6 +71,18 @@ export interface GetFrontdoorProfileResult {
 }
 /**
  * Use this data source to access information about an existing Front Door (standard/premium) Profile.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.cdn.getFrontdoorProfile({
+ *     name: "existing-cdn-profile",
+ *     resourceGroupName: "existing-resources",
+ * });
+ * ```
  */
 export function getFrontdoorProfileOutput(args: GetFrontdoorProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrontdoorProfileResult> {
     return pulumi.output(args).apply((a: any) => getFrontdoorProfile(a, opts))

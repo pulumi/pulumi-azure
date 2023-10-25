@@ -86,6 +86,17 @@ def get_placement_group(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Proximity Placement Group.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.proximity.get_placement_group(name="tf-appsecuritygroup",
+        resource_group_name="my-resource-group")
+    pulumi.export("proximityPlacementGroupId", example.id)
+    ```
+
 
     :param str name: The name of the Proximity Placement Group.
     :param str resource_group_name: The name of the resource group in which the Proximity Placement Group exists.
@@ -110,6 +121,17 @@ def get_placement_group_output(name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPlacementGroupResult]:
     """
     Use this data source to access information about an existing Proximity Placement Group.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.proximity.get_placement_group(name="tf-appsecuritygroup",
+        resource_group_name="my-resource-group")
+    pulumi.export("proximityPlacementGroupId", example.id)
+    ```
 
 
     :param str name: The name of the Proximity Placement Group.

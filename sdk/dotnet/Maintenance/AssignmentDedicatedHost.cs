@@ -12,6 +12,53 @@ namespace Pulumi.Azure.Maintenance
     /// <summary>
     /// Manages a maintenance assignment to Dedicated Host.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleDedicatedHostGroup = new Azure.Compute.DedicatedHostGroup("exampleDedicatedHostGroup", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         PlatformFaultDomainCount = 2,
+    ///     });
+    /// 
+    ///     var exampleDedicatedHost = new Azure.Compute.DedicatedHost("exampleDedicatedHost", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         DedicatedHostGroupId = exampleDedicatedHostGroup.Id,
+    ///         SkuName = "DSv3-Type1",
+    ///         PlatformFaultDomain = 1,
+    ///     });
+    /// 
+    ///     var exampleConfiguration = new Azure.Maintenance.Configuration("exampleConfiguration", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Scope = "Host",
+    ///     });
+    /// 
+    ///     var exampleAssignmentDedicatedHost = new Azure.Maintenance.AssignmentDedicatedHost("exampleAssignmentDedicatedHost", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         MaintenanceConfigurationId = exampleConfiguration.Id,
+    ///         DedicatedHostId = exampleDedicatedHost.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Maintenance Assignment can be imported using the `resource id`, e.g.

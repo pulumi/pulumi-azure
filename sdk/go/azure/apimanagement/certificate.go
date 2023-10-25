@@ -16,6 +16,175 @@ import (
 // Manages an Certificate within an API Management Service.
 //
 // ## Example Usage
+// ### With Base64 Certificate)
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/base64"
+//	"os"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func filebase64OrPanic(path string) pulumi.StringPtrInput {
+//		if fileData, err := os.ReadFile(path); err == nil {
+//			return pulumi.String(base64.StdEncoding.EncodeToString(fileData[:]))
+//		} else {
+//			panic(err.Error())
+//		}
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				PublisherName:     pulumi.String("My Company"),
+//				PublisherEmail:    pulumi.String("company@exmaple.com"),
+//				SkuName:           pulumi.String("Developer_1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apimanagement.NewCertificate(ctx, "exampleCertificate", &apimanagement.CertificateArgs{
+//				ApiManagementName: exampleService.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Data:              filebase64OrPanic("example.pfx"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### With Key Vault Certificate)
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/base64"
+//	"os"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func filebase64OrPanic(path string) pulumi.StringPtrInput {
+//		if fileData, err := os.ReadFile(path); err == nil {
+//			return pulumi.String(base64.StdEncoding.EncodeToString(fileData[:]))
+//		} else {
+//			panic(err.Error())
+//		}
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				PublisherName:     pulumi.String("My Company"),
+//				PublisherEmail:    pulumi.String("company@terraform.io"),
+//				SkuName:           pulumi.String("Developer_1"),
+//				Identity: &apimanagement.ServiceIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				TenantId:          *pulumi.String(current.TenantId),
+//				SkuName:           pulumi.String("standard"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = keyvault.NewAccessPolicy(ctx, "exampleAccessPolicy", &keyvault.AccessPolicyArgs{
+//				KeyVaultId: exampleKeyVault.ID(),
+//				TenantId: exampleService.Identity.ApplyT(func(identity apimanagement.ServiceIdentity) (*string, error) {
+//					return &identity.TenantId, nil
+//				}).(pulumi.StringPtrOutput),
+//				ObjectId: exampleService.Identity.ApplyT(func(identity apimanagement.ServiceIdentity) (*string, error) {
+//					return &identity.PrincipalId, nil
+//				}).(pulumi.StringPtrOutput),
+//				SecretPermissions: pulumi.StringArray{
+//					pulumi.String("Get"),
+//				},
+//				CertificatePermissions: pulumi.StringArray{
+//					pulumi.String("Get"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleCertificate, err := keyvault.NewCertificate(ctx, "exampleCertificate", &keyvault.CertificateArgs{
+//				KeyVaultId: exampleKeyVault.ID(),
+//				Certificate: &keyvault.CertificateCertificateArgs{
+//					Contents: filebase64OrPanic("example_cert.pfx"),
+//					Password: pulumi.String("terraform"),
+//				},
+//				CertificatePolicy: &keyvault.CertificateCertificatePolicyArgs{
+//					IssuerParameters: &keyvault.CertificateCertificatePolicyIssuerParametersArgs{
+//						Name: pulumi.String("Self"),
+//					},
+//					KeyProperties: &keyvault.CertificateCertificatePolicyKeyPropertiesArgs{
+//						Exportable: pulumi.Bool(true),
+//						KeySize:    pulumi.Int(2048),
+//						KeyType:    pulumi.String("RSA"),
+//						ReuseKey:   pulumi.Bool(false),
+//					},
+//					SecretProperties: &keyvault.CertificateCertificatePolicySecretPropertiesArgs{
+//						ContentType: pulumi.String("application/x-pkcs12"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apimanagement.NewCertificate(ctx, "exampleApimanagement/certificateCertificate", &apimanagement.CertificateArgs{
+//				ApiManagementName: exampleService.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				KeyVaultSecretId:  exampleCertificate.SecretId,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //

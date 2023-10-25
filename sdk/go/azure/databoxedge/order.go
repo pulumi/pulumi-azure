@@ -17,6 +17,65 @@ import (
 //
 // !> Creation of Databox Edge Order is not supported by the Azure API - as such the `databoxedge.Order` resource is deprecated and will be removed in v4.0 of the AzureRM Provider.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/databoxedge"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDevice, err := databoxedge.NewDevice(ctx, "exampleDevice", &databoxedge.DeviceArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				SkuName:           pulumi.String("EdgeP_Base-Standard"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = databoxedge.NewOrder(ctx, "exampleOrder", &databoxedge.OrderArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				DeviceName:        exampleDevice.Name,
+//				Contact: &databoxedge.OrderContactArgs{
+//					Name: pulumi.String("TerraForm Test"),
+//					Emails: pulumi.StringArray{
+//						pulumi.String("creator4983@FlynnsArcade.com"),
+//					},
+//					CompanyName: pulumi.String("Flynn's Arcade"),
+//					PhoneNumber: pulumi.String("(800) 555-1234"),
+//				},
+//				ShipmentAddress: &databoxedge.OrderShipmentAddressArgs{
+//					Addresses: pulumi.StringArray{
+//						pulumi.String("One Microsoft Way"),
+//					},
+//					City:       pulumi.String("Redmond"),
+//					PostalCode: pulumi.String("98052"),
+//					State:      pulumi.String("WA"),
+//					Country:    pulumi.String("United States"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Databox Edge Orders can be imported using the `resource id`, e.g.

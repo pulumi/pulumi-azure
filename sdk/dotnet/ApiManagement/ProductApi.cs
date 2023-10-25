@@ -12,6 +12,48 @@ namespace Pulumi.Azure.ApiManagement
     /// <summary>
     /// Manages an API Management API Assignment to a Product.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleService = Azure.ApiManagement.GetService.Invoke(new()
+    ///     {
+    ///         Name = "example-api",
+    ///         ResourceGroupName = "example-resources",
+    ///     });
+    /// 
+    ///     var exampleApi = Azure.ApiManagement.GetApi.Invoke(new()
+    ///     {
+    ///         Name = "search-api",
+    ///         ApiManagementName = exampleService.Apply(getServiceResult =&gt; getServiceResult.Name),
+    ///         ResourceGroupName = exampleService.Apply(getServiceResult =&gt; getServiceResult.ResourceGroupName),
+    ///         Revision = "2",
+    ///     });
+    /// 
+    ///     var exampleProduct = Azure.ApiManagement.GetProduct.Invoke(new()
+    ///     {
+    ///         ProductId = "my-product",
+    ///         ApiManagementName = exampleService.Apply(getServiceResult =&gt; getServiceResult.Name),
+    ///         ResourceGroupName = exampleService.Apply(getServiceResult =&gt; getServiceResult.ResourceGroupName),
+    ///     });
+    /// 
+    ///     var exampleProductApi = new Azure.ApiManagement.ProductApi("exampleProductApi", new()
+    ///     {
+    ///         ApiName = exampleApi.Apply(getApiResult =&gt; getApiResult.Name),
+    ///         ProductId = exampleProduct.Apply(getProductResult =&gt; getProductResult.ProductId),
+    ///         ApiManagementName = exampleService.Apply(getServiceResult =&gt; getServiceResult.Name),
+    ///         ResourceGroupName = exampleService.Apply(getServiceResult =&gt; getServiceResult.ResourceGroupName),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// API Management Product API's can be imported using the `resource id`, e.g.

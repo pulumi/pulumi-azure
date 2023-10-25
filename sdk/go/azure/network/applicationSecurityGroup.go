@@ -15,6 +15,43 @@ import (
 
 // Manages an Application Security Group.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewApplicationSecurityGroup(ctx, "exampleApplicationSecurityGroup", &network.ApplicationSecurityGroupArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Tags: pulumi.StringMap{
+//					"Hello": pulumi.String("World"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Application Security Groups can be imported using the `resource id`, e.g.

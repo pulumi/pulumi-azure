@@ -12,6 +12,77 @@ namespace Pulumi.Azure.DataFactory
     /// <summary>
     /// Manages a Custom Event Trigger inside an Azure Data Factory.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var examplePipeline = new Azure.DataFactory.Pipeline("examplePipeline", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///     });
+    /// 
+    ///     var exampleTopic = new Azure.EventGrid.Topic("exampleTopic", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleTriggerCustomEvent = new Azure.DataFactory.TriggerCustomEvent("exampleTriggerCustomEvent", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         EventgridTopicId = exampleTopic.Id,
+    ///         Events = new[]
+    ///         {
+    ///             "event1",
+    ///             "event2",
+    ///         },
+    ///         SubjectBeginsWith = "abc",
+    ///         SubjectEndsWith = "xyz",
+    ///         Annotations = new[]
+    ///         {
+    ///             "example1",
+    ///             "example2",
+    ///             "example3",
+    ///         },
+    ///         Description = "example description",
+    ///         Pipelines = new[]
+    ///         {
+    ///             new Azure.DataFactory.Inputs.TriggerCustomEventPipelineArgs
+    ///             {
+    ///                 Name = examplePipeline.Name,
+    ///                 Parameters = 
+    ///                 {
+    ///                     { "Env", "Prod" },
+    ///                 },
+    ///             },
+    ///         },
+    ///         AdditionalProperties = 
+    ///         {
+    ///             { "foo", "foo1" },
+    ///             { "bar", "bar2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Data Factory Custom Event Trigger can be imported using the `resource id`, e.g.

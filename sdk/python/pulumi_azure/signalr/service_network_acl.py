@@ -223,6 +223,51 @@ class ServiceNetworkAcl(pulumi.CustomResource):
         """
         Manages the Network ACL for a SignalR service.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_service = azure.signalr.Service("exampleService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku=azure.signalr.ServiceSkuArgs(
+                name="Standard_S1",
+                capacity=1,
+            ))
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            address_spaces=["10.5.0.0/16"])
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.5.2.0/24"],
+            enforce_private_link_endpoint_network_policies=True)
+        example_endpoint = azure.privatelink.Endpoint("exampleEndpoint",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            subnet_id=example_subnet.id,
+            private_service_connection=azure.privatelink.EndpointPrivateServiceConnectionArgs(
+                name="psc-sig-test",
+                is_manual_connection=False,
+                private_connection_resource_id=example_service.id,
+                subresource_names=["signalr"],
+            ))
+        example_service_network_acl = azure.signalr.ServiceNetworkAcl("exampleServiceNetworkAcl",
+            signalr_service_id=example_service.id,
+            default_action="Deny",
+            public_network=azure.signalr.ServiceNetworkAclPublicNetworkArgs(
+                allowed_request_types=["ClientConnection"],
+            ),
+            private_endpoints=[azure.signalr.ServiceNetworkAclPrivateEndpointArgs(
+                id=example_endpoint.id,
+                allowed_request_types=["ServerConnection"],
+            )])
+        ```
+
         ## Import
 
         Network ACLs for a SignalR service can be imported using the `resource id`, e.g.
@@ -246,6 +291,51 @@ class ServiceNetworkAcl(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages the Network ACL for a SignalR service.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_service = azure.signalr.Service("exampleService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku=azure.signalr.ServiceSkuArgs(
+                name="Standard_S1",
+                capacity=1,
+            ))
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            address_spaces=["10.5.0.0/16"])
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.5.2.0/24"],
+            enforce_private_link_endpoint_network_policies=True)
+        example_endpoint = azure.privatelink.Endpoint("exampleEndpoint",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            subnet_id=example_subnet.id,
+            private_service_connection=azure.privatelink.EndpointPrivateServiceConnectionArgs(
+                name="psc-sig-test",
+                is_manual_connection=False,
+                private_connection_resource_id=example_service.id,
+                subresource_names=["signalr"],
+            ))
+        example_service_network_acl = azure.signalr.ServiceNetworkAcl("exampleServiceNetworkAcl",
+            signalr_service_id=example_service.id,
+            default_action="Deny",
+            public_network=azure.signalr.ServiceNetworkAclPublicNetworkArgs(
+                allowed_request_types=["ClientConnection"],
+            ),
+            private_endpoints=[azure.signalr.ServiceNetworkAclPrivateEndpointArgs(
+                id=example_endpoint.id,
+                allowed_request_types=["ServerConnection"],
+            )])
+        ```
 
         ## Import
 

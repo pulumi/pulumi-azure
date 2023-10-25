@@ -11,6 +11,92 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** You can create Guest Configuration Policies without defining a `azure.compute.Extension` resource, however the policies will not be executed until a `azure.compute.Extension` has been provisioned to the virtual machine.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     addressSpaces: ["10.0.0.0/16"],
+ * });
+ * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.2.0/24"],
+ * });
+ * const exampleNetworkInterface = new azure.network.NetworkInterface("exampleNetworkInterface", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     ipConfigurations: [{
+ *         name: "internal",
+ *         subnetId: exampleSubnet.id,
+ *         privateIpAddressAllocation: "Dynamic",
+ *     }],
+ * });
+ * const exampleWindowsVirtualMachine = new azure.compute.WindowsVirtualMachine("exampleWindowsVirtualMachine", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     size: "Standard_F2",
+ *     adminUsername: "adminuser",
+ *     adminPassword: "P@$$w0rd1234!",
+ *     networkInterfaceIds: [exampleNetworkInterface.id],
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ *     osDisk: {
+ *         caching: "ReadWrite",
+ *         storageAccountType: "Standard_LRS",
+ *     },
+ *     sourceImageReference: {
+ *         publisher: "MicrosoftWindowsServer",
+ *         offer: "WindowsServer",
+ *         sku: "2019-Datacenter",
+ *         version: "latest",
+ *     },
+ * });
+ * const exampleExtension = new azure.compute.Extension("exampleExtension", {
+ *     virtualMachineId: exampleWindowsVirtualMachine.id,
+ *     publisher: "Microsoft.GuestConfiguration",
+ *     type: "ConfigurationforWindows",
+ *     typeHandlerVersion: "1.29",
+ *     autoUpgradeMinorVersion: true,
+ * });
+ * const exampleVirtualMachineConfigurationAssignment = new azure.policy.VirtualMachineConfigurationAssignment("exampleVirtualMachineConfigurationAssignment", {
+ *     location: exampleWindowsVirtualMachine.location,
+ *     virtualMachineId: exampleWindowsVirtualMachine.id,
+ *     configuration: {
+ *         assignmentType: "ApplyAndMonitor",
+ *         version: "1.*",
+ *         parameters: [
+ *             {
+ *                 name: "Minimum Password Length;ExpectedValue",
+ *                 value: "16",
+ *             },
+ *             {
+ *                 name: "Minimum Password Age;ExpectedValue",
+ *                 value: "0",
+ *             },
+ *             {
+ *                 name: "Maximum Password Age;ExpectedValue",
+ *                 value: "30,45",
+ *             },
+ *             {
+ *                 name: "Enforce Password History;ExpectedValue",
+ *                 value: "10",
+ *             },
+ *             {
+ *                 name: "Password Must Meet Complexity Requirements;ExpectedValue",
+ *                 value: "1",
+ *             },
+ *         ],
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Policy Virtual Machine Configuration Assignments can be imported using the `resource id`, e.g.

@@ -9,6 +9,56 @@ import * as utilities from "../utilities";
 /**
  * Manages the Network ACL for a SignalR service.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleService = new azure.signalr.Service("exampleService", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: {
+ *         name: "Standard_S1",
+ *         capacity: 1,
+ *     },
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     addressSpaces: ["10.5.0.0/16"],
+ * });
+ * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.5.2.0/24"],
+ *     enforcePrivateLinkEndpointNetworkPolicies: true,
+ * });
+ * const exampleEndpoint = new azure.privatelink.Endpoint("exampleEndpoint", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     subnetId: exampleSubnet.id,
+ *     privateServiceConnection: {
+ *         name: "psc-sig-test",
+ *         isManualConnection: false,
+ *         privateConnectionResourceId: exampleService.id,
+ *         subresourceNames: ["signalr"],
+ *     },
+ * });
+ * const exampleServiceNetworkAcl = new azure.signalr.ServiceNetworkAcl("exampleServiceNetworkAcl", {
+ *     signalrServiceId: exampleService.id,
+ *     defaultAction: "Deny",
+ *     publicNetwork: {
+ *         allowedRequestTypes: ["ClientConnection"],
+ *     },
+ *     privateEndpoints: [{
+ *         id: exampleEndpoint.id,
+ *         allowedRequestTypes: ["ServerConnection"],
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Network ACLs for a SignalR service can be imported using the `resource id`, e.g.

@@ -12,6 +12,53 @@ namespace Pulumi.Azure.MSSql
     /// <summary>
     /// Manages an Elastic Job Credential.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "northeurope",
+    ///     });
+    /// 
+    ///     var exampleServer = new Azure.MSSql.Server("exampleServer", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Version = "12.0",
+    ///         AdministratorLogin = "4dm1n157r470r",
+    ///         AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
+    ///     });
+    /// 
+    ///     var exampleDatabase = new Azure.MSSql.Database("exampleDatabase", new()
+    ///     {
+    ///         ServerId = exampleServer.Id,
+    ///         Collation = "SQL_Latin1_General_CP1_CI_AS",
+    ///         SkuName = "S1",
+    ///     });
+    /// 
+    ///     var exampleJobAgent = new Azure.MSSql.JobAgent("exampleJobAgent", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         DatabaseId = exampleDatabase.Id,
+    ///     });
+    /// 
+    ///     var exampleJobCredential = new Azure.MSSql.JobCredential("exampleJobCredential", new()
+    ///     {
+    ///         JobAgentId = exampleJobAgent.Id,
+    ///         Username = "my-username",
+    ///         Password = "MyP4ssw0rd!!!",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Elastic Job Credentials can be imported using the `resource id`, e.g.

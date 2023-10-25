@@ -308,6 +308,33 @@ class FrontdoorOriginGroup(pulumi.CustomResource):
         """
         Manages a Front Door (standard/premium) Origin Group.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_frontdoor_profile = azure.cdn.FrontdoorProfile("exampleFrontdoorProfile",
+            resource_group_name=example_resource_group.name,
+            sku_name="Standard_AzureFrontDoor")
+        example_frontdoor_origin_group = azure.cdn.FrontdoorOriginGroup("exampleFrontdoorOriginGroup",
+            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
+            session_affinity_enabled=True,
+            restore_traffic_time_to_healed_or_new_endpoint_in_minutes=10,
+            health_probe=azure.cdn.FrontdoorOriginGroupHealthProbeArgs(
+                interval_in_seconds=240,
+                path="/healthProbe",
+                protocol="Https",
+                request_type="HEAD",
+            ),
+            load_balancing=azure.cdn.FrontdoorOriginGroupLoadBalancingArgs(
+                additional_latency_in_milliseconds=0,
+                sample_size=16,
+                successful_samples_required=3,
+            ))
+        ```
+
         ## Import
 
         Front Door Origin Groups can be imported using the `resource id`, e.g.
@@ -335,6 +362,33 @@ class FrontdoorOriginGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Front Door (standard/premium) Origin Group.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_frontdoor_profile = azure.cdn.FrontdoorProfile("exampleFrontdoorProfile",
+            resource_group_name=example_resource_group.name,
+            sku_name="Standard_AzureFrontDoor")
+        example_frontdoor_origin_group = azure.cdn.FrontdoorOriginGroup("exampleFrontdoorOriginGroup",
+            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
+            session_affinity_enabled=True,
+            restore_traffic_time_to_healed_or_new_endpoint_in_minutes=10,
+            health_probe=azure.cdn.FrontdoorOriginGroupHealthProbeArgs(
+                interval_in_seconds=240,
+                path="/healthProbe",
+                protocol="Https",
+                request_type="HEAD",
+            ),
+            load_balancing=azure.cdn.FrontdoorOriginGroupLoadBalancingArgs(
+                additional_latency_in_milliseconds=0,
+                sample_size=16,
+                successful_samples_required=3,
+            ))
+        ```
 
         ## Import
 

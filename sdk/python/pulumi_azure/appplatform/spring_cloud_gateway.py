@@ -594,6 +594,49 @@ class SpringCloudGateway(pulumi.CustomResource):
 
         Manages a Spring Cloud Gateway.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="E0")
+        example_spring_cloud_gateway = azure.appplatform.SpringCloudGateway("exampleSpringCloudGateway",
+            spring_cloud_service_id=example_spring_cloud_service.id,
+            https_only=False,
+            public_network_access_enabled=True,
+            instance_count=2,
+            api_metadata=azure.appplatform.SpringCloudGatewayApiMetadataArgs(
+                description="example description",
+                documentation_url="https://www.example.com/docs",
+                server_url="https://wwww.example.com",
+                title="example title",
+                version="1.0",
+            ),
+            cors=azure.appplatform.SpringCloudGatewayCorsArgs(
+                credentials_allowed=False,
+                allowed_headers=["*"],
+                allowed_methods=["PUT"],
+                allowed_origins=["example.com"],
+                exposed_headers=["x-example-header"],
+                max_age_seconds=86400,
+            ),
+            quota=azure.appplatform.SpringCloudGatewayQuotaArgs(
+                cpu="1",
+                memory="2Gi",
+            ),
+            sso=azure.appplatform.SpringCloudGatewaySsoArgs(
+                client_id="example id",
+                client_secret="example secret",
+                issuer_uri="https://www.test.com/issueToken",
+                scopes=["read"],
+            ))
+        ```
+
         ## Import
 
         Spring Cloud Gateways can be imported using the `resource id`, e.g.
@@ -628,6 +671,49 @@ class SpringCloudGateway(pulumi.CustomResource):
         > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
 
         Manages a Spring Cloud Gateway.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="E0")
+        example_spring_cloud_gateway = azure.appplatform.SpringCloudGateway("exampleSpringCloudGateway",
+            spring_cloud_service_id=example_spring_cloud_service.id,
+            https_only=False,
+            public_network_access_enabled=True,
+            instance_count=2,
+            api_metadata=azure.appplatform.SpringCloudGatewayApiMetadataArgs(
+                description="example description",
+                documentation_url="https://www.example.com/docs",
+                server_url="https://wwww.example.com",
+                title="example title",
+                version="1.0",
+            ),
+            cors=azure.appplatform.SpringCloudGatewayCorsArgs(
+                credentials_allowed=False,
+                allowed_headers=["*"],
+                allowed_methods=["PUT"],
+                allowed_origins=["example.com"],
+                exposed_headers=["x-example-header"],
+                max_age_seconds=86400,
+            ),
+            quota=azure.appplatform.SpringCloudGatewayQuotaArgs(
+                cpu="1",
+                memory="2Gi",
+            ),
+            sso=azure.appplatform.SpringCloudGatewaySsoArgs(
+                client_id="example id",
+                client_secret="example secret",
+                issuer_uri="https://www.test.com/issueToken",
+                scopes=["read"],
+            ))
+        ```
 
         ## Import
 

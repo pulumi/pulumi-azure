@@ -373,6 +373,34 @@ class Spacecraft(pulumi.CustomResource):
         """
         Manages a Spacecraft.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_spacecraft = azure.orbital.Spacecraft("exampleSpacecraft",
+            resource_group_name=example_resource_group.name,
+            location="westeurope",
+            norad_id="12345",
+            links=[azure.orbital.SpacecraftLinkArgs(
+                bandwidth_mhz=100,
+                center_frequency_mhz=101,
+                direction="Uplink",
+                polarization="LHCP",
+                name="examplename",
+            )],
+            two_line_elements=[
+                "1 23455U 94089A   97320.90946019  .00000140  00000-0  10191-3 0  2621",
+                "2 23455  99.0090 272.6745 0008546 223.1686 136.8816 14.11711747148495",
+            ],
+            title_line="AQUA",
+            tags={
+                "aks-managed-cluster-name": "9a57225d-a405-4d40-aa46-f13d2342abef",
+            })
+        ```
+
         ## Import
 
         Spacecraft can be imported using the `resource id`, e.g.
@@ -400,6 +428,34 @@ class Spacecraft(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Spacecraft.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_spacecraft = azure.orbital.Spacecraft("exampleSpacecraft",
+            resource_group_name=example_resource_group.name,
+            location="westeurope",
+            norad_id="12345",
+            links=[azure.orbital.SpacecraftLinkArgs(
+                bandwidth_mhz=100,
+                center_frequency_mhz=101,
+                direction="Uplink",
+                polarization="LHCP",
+                name="examplename",
+            )],
+            two_line_elements=[
+                "1 23455U 94089A   97320.90946019  .00000140  00000-0  10191-3 0  2621",
+                "2 23455  99.0090 272.6745 0008546 223.1686 136.8816 14.11711747148495",
+            ],
+            title_line="AQUA",
+            tags={
+                "aks-managed-cluster-name": "9a57225d-a405-4d40-aa46-f13d2342abef",
+            })
+        ```
 
         ## Import
 

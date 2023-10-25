@@ -13,6 +13,33 @@ import (
 )
 
 // Use this data source to access information about an existing Container App.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerapp"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := containerapp.LookupApp(ctx, &containerapp.LookupAppArgs{
+//				Name:              "example-app",
+//				ResourceGroupName: "example-resources",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupApp(ctx *pulumi.Context, args *LookupAppArgs, opts ...pulumi.InvokeOption) (*LookupAppResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAppResult

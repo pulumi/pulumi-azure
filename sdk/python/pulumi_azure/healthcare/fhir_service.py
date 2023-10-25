@@ -584,6 +584,48 @@ class FhirService(pulumi.CustomResource):
         """
         Manages a Healthcare FHIR (Fast Healthcare Interoperability Resources) Service
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        current = azure.core.get_client_config()
+        example_workspace = azure.healthcare.Workspace("exampleWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_fhir_service = azure.healthcare.FhirService("exampleFhirService",
+            location="east us",
+            resource_group_name="tfex-resource_group",
+            workspace_id=example_workspace.id,
+            kind="fhir-R4",
+            authentication=azure.healthcare.FhirServiceAuthenticationArgs(
+                authority="https://login.microsoftonline.com/tenantId",
+                audience="https://tfexfhir.fhir.azurehealthcareapis.com",
+            ),
+            access_policy_object_ids=[current.object_id],
+            identity=azure.healthcare.FhirServiceIdentityArgs(
+                type="SystemAssigned",
+            ),
+            container_registry_login_server_urls=["tfex-container_registry_login_server"],
+            cors=azure.healthcare.FhirServiceCorsArgs(
+                allowed_origins=[
+                    "https://tfex.com:123",
+                    "https://tfex1.com:3389",
+                ],
+                allowed_headers=["*"],
+                allowed_methods=[
+                    "GET",
+                    "DELETE",
+                    "PUT",
+                ],
+                max_age_in_seconds=3600,
+                credentials_allowed=True,
+            ),
+            configuration_export_storage_account_name="storage_account_name")
+        ```
+
         ## Import
 
         Healthcare FHIR Service can be imported using the resource`id`, e.g.
@@ -616,6 +658,48 @@ class FhirService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Healthcare FHIR (Fast Healthcare Interoperability Resources) Service
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        current = azure.core.get_client_config()
+        example_workspace = azure.healthcare.Workspace("exampleWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_fhir_service = azure.healthcare.FhirService("exampleFhirService",
+            location="east us",
+            resource_group_name="tfex-resource_group",
+            workspace_id=example_workspace.id,
+            kind="fhir-R4",
+            authentication=azure.healthcare.FhirServiceAuthenticationArgs(
+                authority="https://login.microsoftonline.com/tenantId",
+                audience="https://tfexfhir.fhir.azurehealthcareapis.com",
+            ),
+            access_policy_object_ids=[current.object_id],
+            identity=azure.healthcare.FhirServiceIdentityArgs(
+                type="SystemAssigned",
+            ),
+            container_registry_login_server_urls=["tfex-container_registry_login_server"],
+            cors=azure.healthcare.FhirServiceCorsArgs(
+                allowed_origins=[
+                    "https://tfex.com:123",
+                    "https://tfex1.com:3389",
+                ],
+                allowed_headers=["*"],
+                allowed_methods=[
+                    "GET",
+                    "DELETE",
+                    "PUT",
+                ],
+                max_age_in_seconds=3600,
+                credentials_allowed=True,
+            ),
+            configuration_export_storage_account_name="storage_account_name")
+        ```
 
         ## Import
 

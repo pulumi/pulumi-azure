@@ -12,6 +12,92 @@ namespace Pulumi.Azure.AppService
     /// <summary>
     /// Manages an App Service Slot's Virtual Network Association (this is for the [Regional VNet Integration](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration) which is still in preview).
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.1.0/24",
+    ///         },
+    ///         Delegations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.SubnetDelegationArgs
+    ///             {
+    ///                 Name = "example-delegation",
+    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                 {
+    ///                     Name = "Microsoft.Web/serverFarms",
+    ///                     Actions = new[]
+    ///                     {
+    ///                         "Microsoft.Network/virtualNetworks/subnets/action",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var examplePlan = new Azure.AppService.Plan("examplePlan", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
+    ///         {
+    ///             Tier = "Standard",
+    ///             Size = "S1",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAppService = new Azure.AppService.AppService("exampleAppService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AppServicePlanId = examplePlan.Id,
+    ///     });
+    /// 
+    ///     var example_staging = new Azure.AppService.Slot("example-staging", new()
+    ///     {
+    ///         AppServiceName = exampleAppService.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AppServicePlanId = examplePlan.Id,
+    ///     });
+    /// 
+    ///     var exampleSlotVirtualNetworkSwiftConnection = new Azure.AppService.SlotVirtualNetworkSwiftConnection("exampleSlotVirtualNetworkSwiftConnection", new()
+    ///     {
+    ///         SlotName = example_staging.Name,
+    ///         AppServiceId = exampleAppService.Id,
+    ///         SubnetId = exampleSubnet.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// App Service Slot Virtual Network Associations can be imported using the `resource id`, e.g.

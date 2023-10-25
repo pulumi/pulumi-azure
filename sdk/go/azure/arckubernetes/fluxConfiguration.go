@@ -15,6 +15,84 @@ import (
 
 // Manages an Arc Kubernetes Flux Configuration.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/base64"
+//	"os"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/arckubernetes"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func filebase64OrPanic(path string) pulumi.StringPtrInput {
+//		if fileData, err := os.ReadFile(path); err == nil {
+//			return pulumi.String(base64.StdEncoding.EncodeToString(fileData[:]))
+//		} else {
+//			panic(err.Error())
+//		}
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = arckubernetes.NewCluster(ctx, "exampleCluster", &arckubernetes.ClusterArgs{
+//				ResourceGroupName:         exampleResourceGroup.Name,
+//				Location:                  pulumi.String("West Europe"),
+//				AgentPublicKeyCertificate: filebase64OrPanic("testdata/public.cer"),
+//				Identity: &arckubernetes.ClusterIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//				Tags: pulumi.StringMap{
+//					"ENV": pulumi.String("Test"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleClusterExtension, err := arckubernetes.NewClusterExtension(ctx, "exampleClusterExtension", &arckubernetes.ClusterExtensionArgs{
+//				ClusterId:     pulumi.Any(azurerm_arc_kubernetes_cluster.Test.Id),
+//				ExtensionType: pulumi.String("microsoft.flux"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = arckubernetes.NewFluxConfiguration(ctx, "exampleFluxConfiguration", &arckubernetes.FluxConfigurationArgs{
+//				ClusterId: pulumi.Any(azurerm_arc_kubernetes_cluster.Test.Id),
+//				Namespace: pulumi.String("flux"),
+//				GitRepository: &arckubernetes.FluxConfigurationGitRepositoryArgs{
+//					Url:            pulumi.String("https://github.com/Azure/arc-k8s-demo"),
+//					ReferenceType:  pulumi.String("branch"),
+//					ReferenceValue: pulumi.String("main"),
+//				},
+//				Kustomizations: arckubernetes.FluxConfigurationKustomizationArray{
+//					&arckubernetes.FluxConfigurationKustomizationArgs{
+//						Name: pulumi.String("kustomization-1"),
+//					},
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleClusterExtension,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Arc Kubernetes Flux Configuration can be imported using the `resource id` for different `cluster_resource_name`, e.g.

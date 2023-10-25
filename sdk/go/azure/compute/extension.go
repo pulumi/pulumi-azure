@@ -20,6 +20,119 @@ import (
 //
 // > **NOTE:** Custom Script Extensions require that the Azure Virtual Machine Guest Agent is running on the Virtual Machine.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"os"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := os.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.2.0/24"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "exampleNetworkInterface", &network.NetworkInterfaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
+//					&network.NetworkInterfaceIpConfigurationArgs{
+//						Name:                       pulumi.String("testconfiguration1"),
+//						SubnetId:                   exampleSubnet.ID(),
+//						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLinuxVirtualMachine, err := compute.NewLinuxVirtualMachine(ctx, "exampleLinuxVirtualMachine", &compute.LinuxVirtualMachineArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Size:              pulumi.String("Standard_F2"),
+//				AdminUsername:     pulumi.String("adminuser"),
+//				NetworkInterfaceIds: pulumi.StringArray{
+//					exampleNetworkInterface.ID(),
+//				},
+//				AdminSshKeys: compute.LinuxVirtualMachineAdminSshKeyArray{
+//					&compute.LinuxVirtualMachineAdminSshKeyArgs{
+//						Username:  pulumi.String("adminuser"),
+//						PublicKey: readFileOrPanic("~/.ssh/id_rsa.pub"),
+//					},
+//				},
+//				OsDisk: &compute.LinuxVirtualMachineOsDiskArgs{
+//					Caching:            pulumi.String("ReadWrite"),
+//					StorageAccountType: pulumi.String("Standard_LRS"),
+//				},
+//				SourceImageReference: &compute.LinuxVirtualMachineSourceImageReferenceArgs{
+//					Publisher: pulumi.String("Canonical"),
+//					Offer:     pulumi.String("0001-com-ubuntu-server-focal"),
+//					Sku:       pulumi.String("20_04-lts"),
+//					Version:   pulumi.String("latest"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = compute.NewExtension(ctx, "exampleExtension", &compute.ExtensionArgs{
+//				VirtualMachineId:   exampleLinuxVirtualMachine.ID(),
+//				Publisher:          pulumi.String("Microsoft.Azure.Extensions"),
+//				Type:               pulumi.String("CustomScript"),
+//				TypeHandlerVersion: pulumi.String("2.0"),
+//				Settings:           pulumi.String(" {\n  \"commandToExecute\": \"hostname && uptime\"\n }\n"),
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("Production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Virtual Machine Extensions can be imported using the `resource id`, e.g.
@@ -63,6 +176,20 @@ type Extension struct {
 	// The type of extension, available types for a publisher can be found using the Azure CLI.
 	//
 	// > **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
 	TypeHandlerVersion pulumi.StringOutput `pulumi:"typeHandlerVersion"`
@@ -150,6 +277,20 @@ type extensionState struct {
 	// The type of extension, available types for a publisher can be found using the Azure CLI.
 	//
 	// > **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Type *string `pulumi:"type"`
 	// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
 	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
@@ -189,6 +330,20 @@ type ExtensionState struct {
 	// The type of extension, available types for a publisher can be found using the Azure CLI.
 	//
 	// > **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Type pulumi.StringPtrInput
 	// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
 	TypeHandlerVersion pulumi.StringPtrInput
@@ -232,6 +387,20 @@ type extensionArgs struct {
 	// The type of extension, available types for a publisher can be found using the Azure CLI.
 	//
 	// > **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Type string `pulumi:"type"`
 	// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
 	TypeHandlerVersion string `pulumi:"typeHandlerVersion"`
@@ -272,6 +441,20 @@ type ExtensionArgs struct {
 	// The type of extension, available types for a publisher can be found using the Azure CLI.
 	//
 	// > **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Type pulumi.StringInput
 	// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
 	TypeHandlerVersion pulumi.StringInput
@@ -453,6 +636,23 @@ func (o ExtensionOutput) Tags() pulumi.StringMapOutput {
 // The type of extension, available types for a publisher can be found using the Azure CLI.
 //
 // > **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o ExtensionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

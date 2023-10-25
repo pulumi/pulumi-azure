@@ -12,6 +12,61 @@ namespace Pulumi.Azure.DesktopVirtualization
     /// <summary>
     /// Manages a Virtual Desktop Application Group.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var pooledbreadthfirst = new Azure.DesktopVirtualization.HostPool("pooledbreadthfirst", new()
+    ///     {
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Type = "Pooled",
+    ///         LoadBalancerType = "BreadthFirst",
+    ///     });
+    /// 
+    ///     var personalautomatic = new Azure.DesktopVirtualization.HostPool("personalautomatic", new()
+    ///     {
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Type = "Personal",
+    ///         PersonalDesktopAssignmentType = "Automatic",
+    ///         LoadBalancerType = "BreadthFirst",
+    ///     });
+    /// 
+    ///     var remoteapp = new Azure.DesktopVirtualization.ApplicationGroup("remoteapp", new()
+    ///     {
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Type = "RemoteApp",
+    ///         HostPoolId = pooledbreadthfirst.Id,
+    ///         FriendlyName = "TestAppGroup",
+    ///         Description = "Acceptance Test: An application group",
+    ///     });
+    /// 
+    ///     var desktopapp = new Azure.DesktopVirtualization.ApplicationGroup("desktopapp", new()
+    ///     {
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Type = "Desktop",
+    ///         HostPoolId = personalautomatic.Id,
+    ///         FriendlyName = "TestAppGroup",
+    ///         Description = "Acceptance Test: An application group",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Virtual Desktop Application Groups can be imported using the `resource id`, e.g.

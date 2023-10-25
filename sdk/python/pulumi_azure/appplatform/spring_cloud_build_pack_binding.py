@@ -215,6 +215,42 @@ class SpringCloudBuildPackBinding(pulumi.CustomResource):
 
         > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku_name="E0")
+        example_spring_cloud_builder = azure.appplatform.SpringCloudBuilder("exampleSpringCloudBuilder",
+            spring_cloud_service_id=example_spring_cloud_service.id,
+            build_pack_groups=[azure.appplatform.SpringCloudBuilderBuildPackGroupArgs(
+                name="mix",
+                build_pack_ids=["tanzu-Build Packs/java-azure"],
+            )],
+            stack=azure.appplatform.SpringCloudBuilderStackArgs(
+                id="io.Build Packs.stacks.bionic",
+                version="base",
+            ))
+        example_spring_cloud_build_pack_binding = azure.appplatform.SpringCloudBuildPackBinding("exampleSpringCloudBuildPackBinding",
+            spring_cloud_builder_id=example_spring_cloud_builder.id,
+            binding_type="ApplicationInsights",
+            launch=azure.appplatform.SpringCloudBuildPackBindingLaunchArgs(
+                properties={
+                    "abc": "def",
+                    "any-string": "any-string",
+                    "sampling-rate": "12.0",
+                },
+                secrets={
+                    "connection-string": "XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXX;XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXXXXXXXX",
+                },
+            ))
+        ```
+
         ## Import
 
         Spring Cloud Build Pack Bindings can be imported using the `resource id`, e.g.
@@ -240,6 +276,42 @@ class SpringCloudBuildPackBinding(pulumi.CustomResource):
         Manages a Spring Cloud Build Pack Binding.
 
         > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku_name="E0")
+        example_spring_cloud_builder = azure.appplatform.SpringCloudBuilder("exampleSpringCloudBuilder",
+            spring_cloud_service_id=example_spring_cloud_service.id,
+            build_pack_groups=[azure.appplatform.SpringCloudBuilderBuildPackGroupArgs(
+                name="mix",
+                build_pack_ids=["tanzu-Build Packs/java-azure"],
+            )],
+            stack=azure.appplatform.SpringCloudBuilderStackArgs(
+                id="io.Build Packs.stacks.bionic",
+                version="base",
+            ))
+        example_spring_cloud_build_pack_binding = azure.appplatform.SpringCloudBuildPackBinding("exampleSpringCloudBuildPackBinding",
+            spring_cloud_builder_id=example_spring_cloud_builder.id,
+            binding_type="ApplicationInsights",
+            launch=azure.appplatform.SpringCloudBuildPackBindingLaunchArgs(
+                properties={
+                    "abc": "def",
+                    "any-string": "any-string",
+                    "sampling-rate": "12.0",
+                },
+                secrets={
+                    "connection-string": "XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXX;XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXXXXXXXX",
+                },
+            ))
+        ```
 
         ## Import
 

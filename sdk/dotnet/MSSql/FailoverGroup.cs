@@ -12,6 +12,76 @@ namespace Pulumi.Azure.MSSql
     /// <summary>
     /// Manages a Microsoft Azure SQL Failover Group.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var primary = new Azure.MSSql.Server("primary", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Version = "12.0",
+    ///         AdministratorLogin = "missadministrator",
+    ///         AdministratorLoginPassword = "thisIsKat11",
+    ///     });
+    /// 
+    ///     var secondary = new Azure.MSSql.Server("secondary", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Version = "12.0",
+    ///         AdministratorLogin = "missadministrator",
+    ///         AdministratorLoginPassword = "thisIsKat12",
+    ///     });
+    /// 
+    ///     var exampleDatabase = new Azure.MSSql.Database("exampleDatabase", new()
+    ///     {
+    ///         ServerId = primary.Id,
+    ///         SkuName = "S1",
+    ///         Collation = "SQL_Latin1_General_CP1_CI_AS",
+    ///         MaxSizeGb = 200,
+    ///     });
+    /// 
+    ///     var exampleFailoverGroup = new Azure.MSSql.FailoverGroup("exampleFailoverGroup", new()
+    ///     {
+    ///         ServerId = primary.Id,
+    ///         Databases = new[]
+    ///         {
+    ///             exampleDatabase.Id,
+    ///         },
+    ///         PartnerServers = new[]
+    ///         {
+    ///             new Azure.MSSql.Inputs.FailoverGroupPartnerServerArgs
+    ///             {
+    ///                 Id = secondary.Id,
+    ///             },
+    ///         },
+    ///         ReadWriteEndpointFailoverPolicy = new Azure.MSSql.Inputs.FailoverGroupReadWriteEndpointFailoverPolicyArgs
+    ///         {
+    ///             Mode = "Automatic",
+    ///             GraceMinutes = 80,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "prod" },
+    ///             { "database", "example" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Failover Groups can be imported using the `resource id`, e.g.

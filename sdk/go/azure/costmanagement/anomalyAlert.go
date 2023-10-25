@@ -15,6 +15,36 @@ import (
 
 // Manages a Cost Anomaly Alert.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/costmanagement"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := costmanagement.NewAnomalyAlert(ctx, "example", &costmanagement.AnomalyAlertArgs{
+//				DisplayName: pulumi.String("Alert DisplayName"),
+//				EmailAddresses: pulumi.StringArray{
+//					pulumi.String("example@test.net"),
+//				},
+//				EmailSubject: pulumi.String("My Test Anomaly Alert"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Cost Anomaly Alerts can be imported using the `resource id`, e.g.

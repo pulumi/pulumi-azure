@@ -12,6 +12,43 @@ namespace Pulumi.Azure.SiteRecovery
     /// <summary>
     /// Manages a Azure Site Recovery Replication Fabric within a Recovery Services vault. Only Azure fabrics are supported at this time. Replication Fabrics serve as a container within an Azure region for other Site Recovery resources such as protection containers, protected items, network mappings.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var primary = new Azure.Core.ResourceGroup("primary", new()
+    ///     {
+    ///         Location = "West US",
+    ///     });
+    /// 
+    ///     var secondary = new Azure.Core.ResourceGroup("secondary", new()
+    ///     {
+    ///         Location = "East US",
+    ///     });
+    /// 
+    ///     var vault = new Azure.RecoveryServices.Vault("vault", new()
+    ///     {
+    ///         Location = secondary.Location,
+    ///         ResourceGroupName = secondary.Name,
+    ///         Sku = "Standard",
+    ///     });
+    /// 
+    ///     var fabric = new Azure.SiteRecovery.Fabric("fabric", new()
+    ///     {
+    ///         ResourceGroupName = secondary.Name,
+    ///         RecoveryVaultName = vault.Name,
+    ///         Location = primary.Location,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Site Recovery Fabric can be imported using the `resource id`, e.g.

@@ -180,6 +180,31 @@ class SqlDedicatedGateway(pulumi.CustomResource):
         """
         Manages a SQL Dedicated Gateway within a Cosmos DB Account.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.cosmosdb.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            offer_type="Standard",
+            kind="GlobalDocumentDB",
+            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
+                consistency_level="BoundedStaleness",
+            ),
+            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
+                location=example_resource_group.location,
+                failover_priority=0,
+            )])
+        example_sql_dedicated_gateway = azure.cosmosdb.SqlDedicatedGateway("exampleSqlDedicatedGateway",
+            cosmosdb_account_id=example_account.id,
+            instance_count=1,
+            instance_size="Cosmos.D4s")
+        ```
+
         ## Import
 
         CosmosDB SQL Dedicated Gateways can be imported using the `resource id`, e.g.
@@ -202,6 +227,31 @@ class SqlDedicatedGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a SQL Dedicated Gateway within a Cosmos DB Account.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.cosmosdb.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            offer_type="Standard",
+            kind="GlobalDocumentDB",
+            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
+                consistency_level="BoundedStaleness",
+            ),
+            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
+                location=example_resource_group.location,
+                failover_priority=0,
+            )])
+        example_sql_dedicated_gateway = azure.cosmosdb.SqlDedicatedGateway("exampleSqlDedicatedGateway",
+            cosmosdb_account_id=example_account.id,
+            instance_count=1,
+            instance_size="Cosmos.D4s")
+        ```
 
         ## Import
 

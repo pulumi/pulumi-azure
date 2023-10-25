@@ -12,6 +12,30 @@ namespace Pulumi.Azure.AppConfiguration
     /// <summary>
     /// Manages an Application Gateway for Containers (ALB).
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleLicationLoadBalancer = new Azure.AppConfiguration.LicationLoadBalancer("exampleLicationLoadBalancer", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Application Gateway for Containers (ALB) can be imported using the `resource id`, e.g.

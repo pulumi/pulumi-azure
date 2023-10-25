@@ -15,6 +15,123 @@ import (
 
 // Manages the linked service to link an Azure Machine learning workspace to an Azure Synapse workspace.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/machinelearning"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/synapse"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("west europe"),
+//				Tags: pulumi.StringMap{
+//					"stage": pulumi.String("example"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ApplicationType:   pulumi.String("web"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
+//				Location:               exampleResourceGroup.Location,
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				TenantId:               *pulumi.String(current.TenantId),
+//				SkuName:                pulumi.String("standard"),
+//				PurgeProtectionEnabled: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				Location:               exampleResourceGroup.Location,
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleWorkspace, err := machinelearning.NewWorkspace(ctx, "exampleWorkspace", &machinelearning.WorkspaceArgs{
+//				Location:              exampleResourceGroup.Location,
+//				ResourceGroupName:     exampleResourceGroup.Name,
+//				ApplicationInsightsId: exampleInsights.ID(),
+//				KeyVaultId:            exampleKeyVault.ID(),
+//				StorageAccountId:      exampleAccount.ID(),
+//				Identity: &machinelearning.WorkspaceIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDataLakeGen2Filesystem, err := storage.NewDataLakeGen2Filesystem(ctx, "exampleDataLakeGen2Filesystem", &storage.DataLakeGen2FilesystemArgs{
+//				StorageAccountId: exampleAccount.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = synapse.NewWorkspace(ctx, "exampleSynapse/workspaceWorkspace", &synapse.WorkspaceArgs{
+//				ResourceGroupName:               exampleResourceGroup.Name,
+//				Location:                        exampleResourceGroup.Location,
+//				StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID(),
+//				SqlAdministratorLogin:           pulumi.String("sqladminuser"),
+//				SqlAdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
+//				Identity: &synapse.WorkspaceIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSparkPool, err := synapse.NewSparkPool(ctx, "exampleSparkPool", &synapse.SparkPoolArgs{
+//				SynapseWorkspaceId: exampleSynapse / workspaceWorkspace.Id,
+//				NodeSizeFamily:     pulumi.String("MemoryOptimized"),
+//				NodeSize:           pulumi.String("Small"),
+//				NodeCount:          pulumi.Int(3),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = machinelearning.NewSynapseSpark(ctx, "exampleSynapseSpark", &machinelearning.SynapseSparkArgs{
+//				MachineLearningWorkspaceId: exampleWorkspace.ID(),
+//				Location:                   exampleResourceGroup.Location,
+//				SynapseSparkPoolId:         exampleSparkPool.ID(),
+//				Identity: &machinelearning.SynapseSparkIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Machine Learning Synapse Sparks can be imported using the `resource id`, e.g.

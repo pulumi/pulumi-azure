@@ -13,6 +13,57 @@ namespace Pulumi.Azure.Network
     /// Manages a virtual network peering which allows resources to access other
     /// resources in the linked virtual network.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var example_1VirtualNetwork = new Azure.Network.VirtualNetwork("example-1VirtualNetwork", new()
+    ///     {
+    ///         ResourceGroupName = example.Name,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.1.0/24",
+    ///         },
+    ///         Location = example.Location,
+    ///     });
+    /// 
+    ///     var example_2VirtualNetwork = new Azure.Network.VirtualNetwork("example-2VirtualNetwork", new()
+    ///     {
+    ///         ResourceGroupName = example.Name,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.2.0/24",
+    ///         },
+    ///         Location = example.Location,
+    ///     });
+    /// 
+    ///     var example_1VirtualNetworkPeering = new Azure.Network.VirtualNetworkPeering("example-1VirtualNetworkPeering", new()
+    ///     {
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = example_1VirtualNetwork.Name,
+    ///         RemoteVirtualNetworkId = example_2VirtualNetwork.Id,
+    ///     });
+    /// 
+    ///     var example_2VirtualNetworkPeering = new Azure.Network.VirtualNetworkPeering("example-2VirtualNetworkPeering", new()
+    ///     {
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = example_2VirtualNetwork.Name,
+    ///         RemoteVirtualNetworkId = example_1VirtualNetwork.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ## Note
     /// 
     /// Virtual Network peerings cannot be created, updated or deleted concurrently.

@@ -13,6 +13,35 @@ import (
 )
 
 // Use this data source to access information about an existing Kubernetes Cluster Node Pool.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := containerservice.GetClusterNodePool(ctx, &containerservice.GetClusterNodePoolArgs{
+//				Name:                  "existing",
+//				KubernetesClusterName: "existing-cluster",
+//				ResourceGroupName:     "existing-resource-group",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("id", example.Id)
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetClusterNodePool(ctx *pulumi.Context, args *GetClusterNodePoolArgs, opts ...pulumi.InvokeOption) (*GetClusterNodePoolResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetClusterNodePoolResult

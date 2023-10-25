@@ -12,6 +12,76 @@ namespace Pulumi.Azure.StreamAnalytics
     /// <summary>
     /// Manages a Stream Analytics Output Function.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var examplePlan = new Azure.AppService.Plan("examplePlan", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Kind = "FunctionApp",
+    ///         Reserved = true,
+    ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
+    ///         {
+    ///             Tier = "Dynamic",
+    ///             Size = "Y1",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleFunctionApp = new Azure.AppService.FunctionApp("exampleFunctionApp", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AppServicePlanId = examplePlan.Id,
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
+    ///         OsType = "linux",
+    ///         Version = "~3",
+    ///     });
+    /// 
+    ///     var exampleJob = new Azure.StreamAnalytics.Job("exampleJob", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         StreamingUnits = 3,
+    ///         TransformationQuery = @"    SELECT *
+    ///     INTO [YourOutputAlias]
+    ///     FROM [YourInputAlias]
+    /// ",
+    ///     });
+    /// 
+    ///     var exampleOutputFunction = new Azure.StreamAnalytics.OutputFunction("exampleOutputFunction", new()
+    ///     {
+    ///         ResourceGroupName = exampleJob.ResourceGroupName,
+    ///         StreamAnalyticsJobName = exampleJob.Name,
+    ///         FunctionApp = exampleFunctionApp.Name,
+    ///         FunctionName = "examplefunctionname",
+    ///         ApiKey = "exampleapikey",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Stream Analytics Output Functions can be imported using the `resource id`, e.g.

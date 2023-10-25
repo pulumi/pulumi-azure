@@ -491,6 +491,49 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
                  version: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example", location="West Europe")
+        test_network_security_group = azure.network.NetworkSecurityGroup("testNetworkSecurityGroup",
+            location=example.location,
+            resource_group_name=example.name)
+        test_network_watcher = azure.network.NetworkWatcher("testNetworkWatcher",
+            location=example.location,
+            resource_group_name=example.name)
+        test_account = azure.storage.Account("testAccount",
+            resource_group_name=example.name,
+            location=example.location,
+            account_tier="Standard",
+            account_kind="StorageV2",
+            account_replication_type="LRS",
+            enable_https_traffic_only=True)
+        test_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("testAnalyticsWorkspace",
+            location=example.location,
+            resource_group_name=example.name,
+            sku="PerGB2018")
+        test_network_watcher_flow_log = azure.network.NetworkWatcherFlowLog("testNetworkWatcherFlowLog",
+            network_watcher_name=test_network_watcher.name,
+            resource_group_name=example.name,
+            network_security_group_id=test_network_security_group.id,
+            storage_account_id=test_account.id,
+            enabled=True,
+            retention_policy=azure.network.NetworkWatcherFlowLogRetentionPolicyArgs(
+                enabled=True,
+                days=7,
+            ),
+            traffic_analytics=azure.network.NetworkWatcherFlowLogTrafficAnalyticsArgs(
+                enabled=True,
+                workspace_id=test_analytics_workspace.workspace_id,
+                workspace_region=test_analytics_workspace.location,
+                workspace_resource_id=test_analytics_workspace.id,
+                interval_in_minutes=10,
+            ))
+        ```
+
         ## Import
 
         Network Watcher Flow Logs can be imported using the `resource id`, e.g.
@@ -520,6 +563,49 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
                  args: NetworkWatcherFlowLogArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example", location="West Europe")
+        test_network_security_group = azure.network.NetworkSecurityGroup("testNetworkSecurityGroup",
+            location=example.location,
+            resource_group_name=example.name)
+        test_network_watcher = azure.network.NetworkWatcher("testNetworkWatcher",
+            location=example.location,
+            resource_group_name=example.name)
+        test_account = azure.storage.Account("testAccount",
+            resource_group_name=example.name,
+            location=example.location,
+            account_tier="Standard",
+            account_kind="StorageV2",
+            account_replication_type="LRS",
+            enable_https_traffic_only=True)
+        test_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("testAnalyticsWorkspace",
+            location=example.location,
+            resource_group_name=example.name,
+            sku="PerGB2018")
+        test_network_watcher_flow_log = azure.network.NetworkWatcherFlowLog("testNetworkWatcherFlowLog",
+            network_watcher_name=test_network_watcher.name,
+            resource_group_name=example.name,
+            network_security_group_id=test_network_security_group.id,
+            storage_account_id=test_account.id,
+            enabled=True,
+            retention_policy=azure.network.NetworkWatcherFlowLogRetentionPolicyArgs(
+                enabled=True,
+                days=7,
+            ),
+            traffic_analytics=azure.network.NetworkWatcherFlowLogTrafficAnalyticsArgs(
+                enabled=True,
+                workspace_id=test_analytics_workspace.workspace_id,
+                workspace_region=test_analytics_workspace.location,
+                workspace_resource_id=test_analytics_workspace.id,
+                interval_in_minutes=10,
+            ))
+        ```
+
         ## Import
 
         Network Watcher Flow Logs can be imported using the `resource id`, e.g.

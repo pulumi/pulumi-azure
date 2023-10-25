@@ -255,6 +255,30 @@ class VirtualHubConnection(pulumi.CustomResource):
         """
         Manages a Connection for a Virtual Hub.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["172.16.0.0/12"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_virtual_wan = azure.network.VirtualWan("exampleVirtualWan",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        example_virtual_hub = azure.network.VirtualHub("exampleVirtualHub",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            virtual_wan_id=example_virtual_wan.id,
+            address_prefix="10.0.1.0/24")
+        example_virtual_hub_connection = azure.network.VirtualHubConnection("exampleVirtualHubConnection",
+            virtual_hub_id=example_virtual_hub.id,
+            remote_virtual_network_id=example_virtual_network.id)
+        ```
+
         ## Import
 
         Virtual Hub Connection's can be imported using the `resource id`, e.g.
@@ -279,6 +303,30 @@ class VirtualHubConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Connection for a Virtual Hub.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["172.16.0.0/12"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_virtual_wan = azure.network.VirtualWan("exampleVirtualWan",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        example_virtual_hub = azure.network.VirtualHub("exampleVirtualHub",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            virtual_wan_id=example_virtual_wan.id,
+            address_prefix="10.0.1.0/24")
+        example_virtual_hub_connection = azure.network.VirtualHubConnection("exampleVirtualHubConnection",
+            virtual_hub_id=example_virtual_hub.id,
+            remote_virtual_network_id=example_virtual_network.id)
+        ```
 
         ## Import
 

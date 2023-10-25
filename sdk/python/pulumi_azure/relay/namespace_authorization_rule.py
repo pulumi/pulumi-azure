@@ -366,6 +366,28 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         """
         Manages an Azure Relay Namespace Authorization Rule.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_namespace = azure.relay.Namespace("exampleNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="Standard",
+            tags={
+                "source": "terraform",
+            })
+        example_namespace_authorization_rule = azure.relay.NamespaceAuthorizationRule("exampleNamespaceAuthorizationRule",
+            resource_group_name=example_resource_group.name,
+            namespace_name=example_namespace.name,
+            listen=True,
+            send=True,
+            manage=False)
+        ```
+
         ## Import
 
         Azure Relay Namespace Authorization Rules can be imported using the `resource id`, e.g.
@@ -391,6 +413,28 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Relay Namespace Authorization Rule.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_namespace = azure.relay.Namespace("exampleNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="Standard",
+            tags={
+                "source": "terraform",
+            })
+        example_namespace_authorization_rule = azure.relay.NamespaceAuthorizationRule("exampleNamespaceAuthorizationRule",
+            resource_group_name=example_resource_group.name,
+            namespace_name=example_namespace.name,
+            listen=True,
+            send=True,
+            manage=False)
+        ```
 
         ## Import
 

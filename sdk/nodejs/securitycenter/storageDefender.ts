@@ -7,6 +7,22 @@ import * as utilities from "../utilities";
 /**
  * Manages the Defender for Storage.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "westus2"});
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ * });
+ * const exampleStorageDefender = new azure.securitycenter.StorageDefender("exampleStorageDefender", {storageAccountId: exampleAccount.id});
+ * ```
+ *
  * ## Import
  *
  * The setting can be imported using the `resource id`, e.g.

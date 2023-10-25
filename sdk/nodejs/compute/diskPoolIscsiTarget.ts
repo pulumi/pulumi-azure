@@ -11,6 +11,77 @@ import * as utilities from "../utilities";
  *
  * !> **Note:** Each Disk Pool can have a maximum of 1 iSCSI Target.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as azuread from "@pulumi/azuread";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     addressSpaces: ["10.0.0.0/16"],
+ * });
+ * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.0.0/24"],
+ *     delegations: [{
+ *         name: "diskspool",
+ *         serviceDelegation: {
+ *             actions: ["Microsoft.Network/virtualNetworks/read"],
+ *             name: "Microsoft.StoragePool/diskPools",
+ *         },
+ *     }],
+ * });
+ * const exampleDiskPool = new azure.compute.DiskPool("exampleDiskPool", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     subnetId: exampleSubnet.id,
+ *     zones: ["1"],
+ *     skuName: "Basic_B1",
+ * });
+ * const exampleManagedDisk = new azure.compute.ManagedDisk("exampleManagedDisk", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     createOption: "Empty",
+ *     storageAccountType: "Premium_LRS",
+ *     diskSizeGb: 4,
+ *     maxShares: 2,
+ *     zone: "1",
+ * });
+ * const exampleServicePrincipal = azuread.getServicePrincipal({
+ *     displayName: "StoragePool Resource Provider",
+ * });
+ * const roles = [
+ *     "Disk Pool Operator",
+ *     "Virtual Machine Contributor",
+ * ];
+ * const exampleAssignment: azure.authorization.Assignment[] = [];
+ * for (const range = {value: 0}; range.value < roles.length; range.value++) {
+ *     exampleAssignment.push(new azure.authorization.Assignment(`exampleAssignment-${range.value}`, {
+ *         principalId: exampleServicePrincipal.then(exampleServicePrincipal => exampleServicePrincipal.id),
+ *         roleDefinitionName: roles[range.value],
+ *         scope: exampleManagedDisk.id,
+ *     }));
+ * }
+ * const exampleDiskPoolManagedDiskAttachment = new azure.compute.DiskPoolManagedDiskAttachment("exampleDiskPoolManagedDiskAttachment", {
+ *     diskPoolId: exampleDiskPool.id,
+ *     managedDiskId: exampleManagedDisk.id,
+ * }, {
+ *     dependsOn: [exampleAssignment],
+ * });
+ * const exampleDiskPoolIscsiTarget = new azure.compute.DiskPoolIscsiTarget("exampleDiskPoolIscsiTarget", {
+ *     aclMode: "Dynamic",
+ *     disksPoolId: exampleDiskPool.id,
+ *     targetIqn: "iqn.2021-11.com.microsoft:test",
+ * }, {
+ *     dependsOn: [exampleDiskPoolManagedDiskAttachment],
+ * });
+ * ```
+ *
  * ## Import
  *
  * iSCSI Targets can be imported using the `resource id`, e.g.

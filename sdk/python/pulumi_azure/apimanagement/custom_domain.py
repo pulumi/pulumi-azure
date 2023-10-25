@@ -291,6 +291,75 @@ class CustomDomain(pulumi.CustomResource):
 
         > **Note:** It's possible to define Custom Domains both within the `apimanagement.Service` resource via the `hostname_configurations` block and by using this resource. However it's not possible to use both methods to manage Custom Domains within an API Management Service, since there will be conflicts.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_key_vault = azure.keyvault.get_key_vault(name="mykeyvault",
+            resource_group_name="some-resource-group")
+        example_service = azure.apimanagement.Service("exampleService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            publisher_name="pub1",
+            publisher_email="pub1@email.com",
+            sku_name="Developer_1")
+        example_certificate = azure.keyvault.Certificate("exampleCertificate",
+            key_vault_id=example_key_vault.id,
+            certificate_policy=azure.keyvault.CertificateCertificatePolicyArgs(
+                issuer_parameters=azure.keyvault.CertificateCertificatePolicyIssuerParametersArgs(
+                    name="Self",
+                ),
+                key_properties=azure.keyvault.CertificateCertificatePolicyKeyPropertiesArgs(
+                    exportable=True,
+                    key_size=2048,
+                    key_type="RSA",
+                    reuse_key=True,
+                ),
+                lifetime_actions=[azure.keyvault.CertificateCertificatePolicyLifetimeActionArgs(
+                    action=azure.keyvault.CertificateCertificatePolicyLifetimeActionActionArgs(
+                        action_type="AutoRenew",
+                    ),
+                    trigger=azure.keyvault.CertificateCertificatePolicyLifetimeActionTriggerArgs(
+                        days_before_expiry=30,
+                    ),
+                )],
+                secret_properties=azure.keyvault.CertificateCertificatePolicySecretPropertiesArgs(
+                    content_type="application/x-pkcs12",
+                ),
+                x509_certificate_properties=azure.keyvault.CertificateCertificatePolicyX509CertificatePropertiesArgs(
+                    key_usages=[
+                        "cRLSign",
+                        "dataEncipherment",
+                        "digitalSignature",
+                        "keyAgreement",
+                        "keyCertSign",
+                        "keyEncipherment",
+                    ],
+                    subject="CN=api.example.com",
+                    validity_in_months=12,
+                    subject_alternative_names=azure.keyvault.CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs(
+                        dns_names=[
+                            "api.example.com",
+                            "portal.example.com",
+                        ],
+                    ),
+                ),
+            ))
+        example_custom_domain = azure.apimanagement.CustomDomain("exampleCustomDomain",
+            api_management_id=example_service.id,
+            gateways=[azure.apimanagement.CustomDomainGatewayArgs(
+                host_name="api.example.com",
+                key_vault_id=example_certificate.versionless_secret_id,
+            )],
+            developer_portals=[azure.apimanagement.CustomDomainDeveloperPortalArgs(
+                host_name="portal.example.com",
+                key_vault_id=example_certificate.versionless_secret_id,
+            )])
+        ```
+
         ## Import
 
         API Management Custom Domains can be imported using the `resource id`, e.g.
@@ -320,6 +389,75 @@ class CustomDomain(pulumi.CustomResource):
         ## Disclaimers
 
         > **Note:** It's possible to define Custom Domains both within the `apimanagement.Service` resource via the `hostname_configurations` block and by using this resource. However it's not possible to use both methods to manage Custom Domains within an API Management Service, since there will be conflicts.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_key_vault = azure.keyvault.get_key_vault(name="mykeyvault",
+            resource_group_name="some-resource-group")
+        example_service = azure.apimanagement.Service("exampleService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            publisher_name="pub1",
+            publisher_email="pub1@email.com",
+            sku_name="Developer_1")
+        example_certificate = azure.keyvault.Certificate("exampleCertificate",
+            key_vault_id=example_key_vault.id,
+            certificate_policy=azure.keyvault.CertificateCertificatePolicyArgs(
+                issuer_parameters=azure.keyvault.CertificateCertificatePolicyIssuerParametersArgs(
+                    name="Self",
+                ),
+                key_properties=azure.keyvault.CertificateCertificatePolicyKeyPropertiesArgs(
+                    exportable=True,
+                    key_size=2048,
+                    key_type="RSA",
+                    reuse_key=True,
+                ),
+                lifetime_actions=[azure.keyvault.CertificateCertificatePolicyLifetimeActionArgs(
+                    action=azure.keyvault.CertificateCertificatePolicyLifetimeActionActionArgs(
+                        action_type="AutoRenew",
+                    ),
+                    trigger=azure.keyvault.CertificateCertificatePolicyLifetimeActionTriggerArgs(
+                        days_before_expiry=30,
+                    ),
+                )],
+                secret_properties=azure.keyvault.CertificateCertificatePolicySecretPropertiesArgs(
+                    content_type="application/x-pkcs12",
+                ),
+                x509_certificate_properties=azure.keyvault.CertificateCertificatePolicyX509CertificatePropertiesArgs(
+                    key_usages=[
+                        "cRLSign",
+                        "dataEncipherment",
+                        "digitalSignature",
+                        "keyAgreement",
+                        "keyCertSign",
+                        "keyEncipherment",
+                    ],
+                    subject="CN=api.example.com",
+                    validity_in_months=12,
+                    subject_alternative_names=azure.keyvault.CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs(
+                        dns_names=[
+                            "api.example.com",
+                            "portal.example.com",
+                        ],
+                    ),
+                ),
+            ))
+        example_custom_domain = azure.apimanagement.CustomDomain("exampleCustomDomain",
+            api_management_id=example_service.id,
+            gateways=[azure.apimanagement.CustomDomainGatewayArgs(
+                host_name="api.example.com",
+                key_vault_id=example_certificate.versionless_secret_id,
+            )],
+            developer_portals=[azure.apimanagement.CustomDomainDeveloperPortalArgs(
+                host_name="portal.example.com",
+                key_vault_id=example_certificate.versionless_secret_id,
+            )])
+        ```
 
         ## Import
 

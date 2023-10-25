@@ -546,6 +546,33 @@ class Subnet(pulumi.CustomResource):
         provides both a standalone Subnet resource, and allows for Subnets to be defined in-line within the Virtual Network resource.
         At this time you cannot use a Virtual Network with in-line Subnets in conjunction with any Subnet resources. Doing so will cause a conflict of Subnet configurations and will overwrite Subnets.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.1.0/24"],
+            delegations=[azure.network.SubnetDelegationArgs(
+                name="delegation",
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                    name="Microsoft.ContainerInstance/containerGroups",
+                    actions=[
+                        "Microsoft.Network/virtualNetworks/subnets/join/action",
+                        "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
+                    ],
+                ),
+            )])
+        ```
+
         ## Import
 
         Subnets can be imported using the `resource id`, e.g.
@@ -586,6 +613,33 @@ class Subnet(pulumi.CustomResource):
         > **NOTE on Virtual Networks and Subnet's:** This provider currently
         provides both a standalone Subnet resource, and allows for Subnets to be defined in-line within the Virtual Network resource.
         At this time you cannot use a Virtual Network with in-line Subnets in conjunction with any Subnet resources. Doing so will cause a conflict of Subnet configurations and will overwrite Subnets.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.1.0/24"],
+            delegations=[azure.network.SubnetDelegationArgs(
+                name="delegation",
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                    name="Microsoft.ContainerInstance/containerGroups",
+                    actions=[
+                        "Microsoft.Network/virtualNetworks/subnets/join/action",
+                        "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
+                    ],
+                ),
+            )])
+        ```
 
         ## Import
 

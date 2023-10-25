@@ -8,6 +8,19 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Load Balancer
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.lb.getLB({
+ *     name: "example-lb",
+ *     resourceGroupName: "example-resources",
+ * });
+ * export const loadbalancerId = example.then(example => example.id);
+ * ```
  */
 export function getLB(args: GetLBArgs, opts?: pulumi.InvokeOptions): Promise<GetLBResult> {
 
@@ -72,6 +85,19 @@ export interface GetLBResult {
 }
 /**
  * Use this data source to access information about an existing Load Balancer
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.lb.getLB({
+ *     name: "example-lb",
+ *     resourceGroupName: "example-resources",
+ * });
+ * export const loadbalancerId = example.then(example => example.id);
+ * ```
  */
 export function getLBOutput(args: GetLBOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLBResult> {
     return pulumi.output(args).apply((a: any) => getLB(a, opts))

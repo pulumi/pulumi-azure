@@ -260,6 +260,42 @@ class BackupPolicyDisk(pulumi.CustomResource):
         """
         Manages a Backup Policy Disk.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_backup_vault = azure.dataprotection.BackupVault("exampleBackupVault",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            datastore_type="VaultStore",
+            redundancy="LocallyRedundant")
+        example_backup_policy_disk = azure.dataprotection.BackupPolicyDisk("exampleBackupPolicyDisk",
+            vault_id=example_backup_vault.id,
+            backup_repeating_time_intervals=["R/2021-05-19T06:33:16+00:00/PT4H"],
+            default_retention_duration="P7D",
+            retention_rules=[
+                azure.dataprotection.BackupPolicyDiskRetentionRuleArgs(
+                    name="Daily",
+                    duration="P7D",
+                    priority=25,
+                    criteria=azure.dataprotection.BackupPolicyDiskRetentionRuleCriteriaArgs(
+                        absolute_criteria="FirstOfDay",
+                    ),
+                ),
+                azure.dataprotection.BackupPolicyDiskRetentionRuleArgs(
+                    name="Weekly",
+                    duration="P7D",
+                    priority=20,
+                    criteria=azure.dataprotection.BackupPolicyDiskRetentionRuleCriteriaArgs(
+                        absolute_criteria="FirstOfWeek",
+                    ),
+                ),
+            ])
+        ```
+
         ## Import
 
         Backup Policy Disks can be imported using the `resource id`, e.g.
@@ -284,6 +320,42 @@ class BackupPolicyDisk(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Backup Policy Disk.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_backup_vault = azure.dataprotection.BackupVault("exampleBackupVault",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            datastore_type="VaultStore",
+            redundancy="LocallyRedundant")
+        example_backup_policy_disk = azure.dataprotection.BackupPolicyDisk("exampleBackupPolicyDisk",
+            vault_id=example_backup_vault.id,
+            backup_repeating_time_intervals=["R/2021-05-19T06:33:16+00:00/PT4H"],
+            default_retention_duration="P7D",
+            retention_rules=[
+                azure.dataprotection.BackupPolicyDiskRetentionRuleArgs(
+                    name="Daily",
+                    duration="P7D",
+                    priority=25,
+                    criteria=azure.dataprotection.BackupPolicyDiskRetentionRuleCriteriaArgs(
+                        absolute_criteria="FirstOfDay",
+                    ),
+                ),
+                azure.dataprotection.BackupPolicyDiskRetentionRuleArgs(
+                    name="Weekly",
+                    duration="P7D",
+                    priority=20,
+                    criteria=azure.dataprotection.BackupPolicyDiskRetentionRuleCriteriaArgs(
+                        absolute_criteria="FirstOfWeek",
+                    ),
+                ),
+            ])
+        ```
 
         ## Import
 

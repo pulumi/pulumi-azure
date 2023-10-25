@@ -401,6 +401,31 @@ class Share(pulumi.CustomResource):
 
         > **Note:** The storage share supports two storage tiers: premium and standard. Standard file shares are created in general purpose (GPv1 or GPv2) storage accounts and premium file shares are created in FileStorage storage accounts. For further information, refer to the section "What storage tiers are supported in Azure Files?" of [documentation](https://docs.microsoft.com/azure/storage/files/storage-files-faq#general).
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_share = azure.storage.Share("exampleShare",
+            storage_account_name=example_account.name,
+            quota=50,
+            acls=[azure.storage.ShareAclArgs(
+                id="MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI",
+                access_policies=[azure.storage.ShareAclAccessPolicyArgs(
+                    permissions="rwdl",
+                    start="2019-07-02T09:38:21.0000000Z",
+                    expiry="2019-07-02T10:38:21.0000000Z",
+                )],
+            )])
+        ```
+
         ## Import
 
         Storage Shares can be imported using the `resource id`, e.g.
@@ -437,6 +462,31 @@ class Share(pulumi.CustomResource):
         Manages a File Share within Azure Storage.
 
         > **Note:** The storage share supports two storage tiers: premium and standard. Standard file shares are created in general purpose (GPv1 or GPv2) storage accounts and premium file shares are created in FileStorage storage accounts. For further information, refer to the section "What storage tiers are supported in Azure Files?" of [documentation](https://docs.microsoft.com/azure/storage/files/storage-files-faq#general).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_share = azure.storage.Share("exampleShare",
+            storage_account_name=example_account.name,
+            quota=50,
+            acls=[azure.storage.ShareAclArgs(
+                id="MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI",
+                access_policies=[azure.storage.ShareAclAccessPolicyArgs(
+                    permissions="rwdl",
+                    start="2019-07-02T09:38:21.0000000Z",
+                    expiry="2019-07-02T10:38:21.0000000Z",
+                )],
+            )])
+        ```
 
         ## Import
 

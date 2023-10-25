@@ -362,6 +362,24 @@ class DataCollectionEndpoint(pulumi.CustomResource):
         """
         Manages a Data Collection Endpoint.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_data_collection_endpoint = azure.monitoring.DataCollectionEndpoint("exampleDataCollectionEndpoint",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            kind="Windows",
+            public_network_access_enabled=True,
+            description="monitor_data_collection_endpoint example",
+            tags={
+                "foo": "bar",
+            })
+        ```
+
         ## Import
 
         Data Collection Endpoints can be imported using the `resource id`, e.g.
@@ -388,6 +406,24 @@ class DataCollectionEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Data Collection Endpoint.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_data_collection_endpoint = azure.monitoring.DataCollectionEndpoint("exampleDataCollectionEndpoint",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            kind="Windows",
+            public_network_access_enabled=True,
+            description="monitor_data_collection_endpoint example",
+            tags={
+                "foo": "bar",
+            })
+        ```
 
         ## Import
 

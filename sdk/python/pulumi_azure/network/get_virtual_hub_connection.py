@@ -130,6 +130,18 @@ def get_virtual_hub_connection(name: Optional[str] = None,
     """
     Uses this data source to access information about an existing Virtual Hub Connection.
 
+    ## Virtual Hub Connection Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.network.get_virtual_hub_connection(name="example-connection",
+        resource_group_name="example-resources",
+        virtual_hub_name="example-hub-name")
+    pulumi.export("virtualHubConnectionId", example.id)
+    ```
+
 
     :param str name: The name of the Connection which should be retrieved.
     :param str resource_group_name: The Name of the Resource Group where the Virtual Hub Connection exists.
@@ -160,6 +172,18 @@ def get_virtual_hub_connection_output(name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualHubConnectionResult]:
     """
     Uses this data source to access information about an existing Virtual Hub Connection.
+
+    ## Virtual Hub Connection Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.network.get_virtual_hub_connection(name="example-connection",
+        resource_group_name="example-resources",
+        virtual_hub_name="example-hub-name")
+    pulumi.export("virtualHubConnectionId", example.id)
+    ```
 
 
     :param str name: The name of the Connection which should be retrieved.

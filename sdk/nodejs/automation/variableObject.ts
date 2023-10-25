@@ -7,6 +7,28 @@ import * as utilities from "../utilities";
 /**
  * Manages an object variable in Azure Automation
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAccount = new azure.automation.Account("exampleAccount", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     skuName: "Basic",
+ * });
+ * const exampleVariableObject = new azure.automation.VariableObject("exampleVariableObject", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     automationAccountName: exampleAccount.name,
+ *     value: JSON.stringify({
+ *         greeting: "Hello, Terraform Basic Test.",
+ *         language: "en",
+ *     }),
+ * });
+ * ```
+ *
  * ## Import
  *
  * Automation Object Variable can be imported using the `resource id`, e.g.

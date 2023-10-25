@@ -12,6 +12,54 @@ namespace Pulumi.Azure.AppPlatform
     /// <summary>
     /// Associates a Spring Cloud Application with a Redis Cache.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleSpringCloudApp = new Azure.AppPlatform.SpringCloudApp("exampleSpringCloudApp", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ServiceName = exampleSpringCloudService.Name,
+    ///     });
+    /// 
+    ///     var exampleCache = new Azure.Redis.Cache("exampleCache", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Capacity = 0,
+    ///         Family = "C",
+    ///         SkuName = "Basic",
+    ///         EnableNonSslPort = true,
+    ///     });
+    /// 
+    ///     var exampleSpringCloudAppRedisAssociation = new Azure.AppPlatform.SpringCloudAppRedisAssociation("exampleSpringCloudAppRedisAssociation", new()
+    ///     {
+    ///         SpringCloudAppId = exampleSpringCloudApp.Id,
+    ///         RedisCacheId = exampleCache.Id,
+    ///         RedisAccessKey = exampleCache.PrimaryAccessKey,
+    ///         SslEnabled = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Spring Cloud Application Redis Association can be imported using the `resource id`, e.g.

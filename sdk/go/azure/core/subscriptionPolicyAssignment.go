@@ -15,6 +15,60 @@ import (
 
 // Manages a Subscription Policy Assignment.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/policy"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.LookupSubscription(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleDefinition, err := policy.NewDefinition(ctx, "exampleDefinition", &policy.DefinitionArgs{
+//				PolicyType:  pulumi.String("Custom"),
+//				Mode:        pulumi.String("All"),
+//				DisplayName: pulumi.String("Allowed resource types"),
+//				PolicyRule: pulumi.String(` {
+//	    "if": {
+//	      "not": {
+//	        "field": "location",
+//	        "equals": "westeurope"
+//	      }
+//	    },
+//	    "then": {
+//	      "effect": "Deny"
+//	    }
+//	  }
+//
+// `),
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = core.NewSubscriptionPolicyAssignment(ctx, "exampleSubscriptionPolicyAssignment", &core.SubscriptionPolicyAssignmentArgs{
+//				PolicyDefinitionId: exampleDefinition.ID(),
+//				SubscriptionId:     *pulumi.String(current.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Subscription Policy Assignments can be imported using the `resource id`, e.g.

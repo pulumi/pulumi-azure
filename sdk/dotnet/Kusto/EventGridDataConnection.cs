@@ -12,6 +12,111 @@ namespace Pulumi.Azure.Kusto
     /// <summary>
     /// Manages a Kusto (also known as Azure Data Explorer) Event Grid Data Connection
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleCluster = new Azure.Kusto.Cluster("exampleCluster", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
+    ///         {
+    ///             Name = "Standard_D13_v2",
+    ///             Capacity = 2,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleDatabase = new Azure.Kusto.Database("exampleDatabase", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ClusterName = exampleCluster.Name,
+    ///         HotCachePeriod = "P7D",
+    ///         SoftDeletePeriod = "P31D",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "GRS",
+    ///     });
+    /// 
+    ///     var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Standard",
+    ///     });
+    /// 
+    ///     var exampleEventHub = new Azure.EventHub.EventHub("exampleEventHub", new()
+    ///     {
+    ///         NamespaceName = exampleEventHubNamespace.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PartitionCount = 1,
+    ///         MessageRetention = 1,
+    ///     });
+    /// 
+    ///     var exampleConsumerGroup = new Azure.EventHub.ConsumerGroup("exampleConsumerGroup", new()
+    ///     {
+    ///         NamespaceName = exampleEventHubNamespace.Name,
+    ///         EventhubName = exampleEventHub.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleEventSubscription = new Azure.EventGrid.EventSubscription("exampleEventSubscription", new()
+    ///     {
+    ///         Scope = exampleAccount.Id,
+    ///         EventhubEndpointId = exampleEventHub.Id,
+    ///         EventDeliverySchema = "EventGridSchema",
+    ///         IncludedEventTypes = new[]
+    ///         {
+    ///             "Microsoft.Storage.BlobCreated",
+    ///             "Microsoft.Storage.BlobRenamed",
+    ///         },
+    ///         RetryPolicy = new Azure.EventGrid.Inputs.EventSubscriptionRetryPolicyArgs
+    ///         {
+    ///             EventTimeToLive = 144,
+    ///             MaxDeliveryAttempts = 10,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleEventGridDataConnection = new Azure.Kusto.EventGridDataConnection("exampleEventGridDataConnection", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ClusterName = exampleCluster.Name,
+    ///         DatabaseName = exampleDatabase.Name,
+    ///         StorageAccountId = exampleAccount.Id,
+    ///         EventhubId = exampleEventHub.Id,
+    ///         EventhubConsumerGroupName = exampleConsumerGroup.Name,
+    ///         TableName = "my-table",
+    ///         MappingRuleName = "my-table-mapping",
+    ///         DataFormat = "JSON",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleEventSubscription,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Kusto Event Grid Data Connections can be imported using the `resource id`, e.g.

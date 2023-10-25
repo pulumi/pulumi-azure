@@ -13,6 +13,41 @@ import (
 )
 
 // Use this data source to access information about an existing Key Vault Certificate.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleKeyVault, err := keyvault.LookupKeyVault(ctx, &keyvault.LookupKeyVaultArgs{
+//				Name:              "examplekv",
+//				ResourceGroupName: "some-resource-group",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleCertificate, err := keyvault.LookupCertificate(ctx, &keyvault.LookupCertificateArgs{
+//				Name:       "secret-sauce",
+//				KeyVaultId: exampleKeyVault.Id,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("certificateThumbprint", exampleCertificate.Thumbprint)
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ...pulumi.InvokeOption) (*LookupCertificateResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCertificateResult

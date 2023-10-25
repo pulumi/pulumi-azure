@@ -117,6 +117,16 @@ def get_device(name: Optional[str] = None,
     """
     Get information about a Databox Edge Device.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.databoxedge.get_device(name="example-device",
+        resource_group_name="example-rg")
+    ```
+
 
     :param str name: The name which should be used for this Databox Edge Device. Changing this forces a new Databox Edge Device to be created.
     :param str resource_group_name: The name of the Resource Group where the Databox Edge Device should exist. Changing this forces a new Databox Edge Device to be created.
@@ -143,6 +153,16 @@ def get_device_output(name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeviceResult]:
     """
     Get information about a Databox Edge Device.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.databoxedge.get_device(name="example-device",
+        resource_group_name="example-rg")
+    ```
 
 
     :param str name: The name which should be used for this Databox Edge Device. Changing this forces a new Databox Edge Device to be created.

@@ -15,6 +15,57 @@ import (
 
 // Manages a VPN Site.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualWan, err := network.NewVirtualWan(ctx, "exampleVirtualWan", &network.VirtualWanArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewVpnSite(ctx, "exampleVpnSite", &network.VpnSiteArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				VirtualWanId:      exampleVirtualWan.ID(),
+//				AddressCidrs: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/24"),
+//				},
+//				Links: network.VpnSiteLinkArray{
+//					&network.VpnSiteLinkArgs{
+//						Name:      pulumi.String("link1"),
+//						IpAddress: pulumi.String("10.0.0.1"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // VPN Sites can be imported using the `resource id`, e.g.

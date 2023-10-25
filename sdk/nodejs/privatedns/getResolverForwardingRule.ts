@@ -8,6 +8,18 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about an existing Private DNS Resolver Forwarding Rule.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.privatedns.getResolverForwardingRule({
+ *     dnsForwardingRulesetId: "example-forwarding-rulset-id",
+ *     name: "example-rule",
+ * });
+ * ```
  */
 export function getResolverForwardingRule(args: GetResolverForwardingRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverForwardingRuleResult> {
 
@@ -61,6 +73,18 @@ export interface GetResolverForwardingRuleResult {
 }
 /**
  * Gets information about an existing Private DNS Resolver Forwarding Rule.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.privatedns.getResolverForwardingRule({
+ *     dnsForwardingRulesetId: "example-forwarding-rulset-id",
+ *     name: "example-rule",
+ * });
+ * ```
  */
 export function getResolverForwardingRuleOutput(args: GetResolverForwardingRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverForwardingRuleResult> {
     return pulumi.output(args).apply((a: any) => getResolverForwardingRule(a, opts))

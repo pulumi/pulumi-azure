@@ -15,6 +15,88 @@ import (
 
 // Manages a Linked Service (connection) between a Kusto Cluster and Azure Data Factory.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/kusto"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Identity: &datafactory.FactoryIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleCluster, err := kusto.NewCluster(ctx, "exampleCluster", &kusto.ClusterArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku: &kusto.ClusterSkuArgs{
+//					Name:     pulumi.String("Standard_D13_v2"),
+//					Capacity: pulumi.Int(2),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDatabase, err := kusto.NewDatabase(ctx, "exampleDatabase", &kusto.DatabaseArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				ClusterName:       exampleCluster.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datafactory.NewLinkedServiceKusto(ctx, "exampleLinkedServiceKusto", &datafactory.LinkedServiceKustoArgs{
+//				DataFactoryId:      exampleFactory.ID(),
+//				KustoEndpoint:      exampleCluster.Uri,
+//				KustoDatabaseName:  exampleDatabase.Name,
+//				UseManagedIdentity: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = kusto.NewDatabasePrincipalAssignment(ctx, "exampleDatabasePrincipalAssignment", &kusto.DatabasePrincipalAssignmentArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ClusterName:       exampleCluster.Name,
+//				DatabaseName:      exampleDatabase.Name,
+//				TenantId: exampleFactory.Identity.ApplyT(func(identity datafactory.FactoryIdentity) (*string, error) {
+//					return &identity.TenantId, nil
+//				}).(pulumi.StringPtrOutput),
+//				PrincipalId: exampleFactory.Identity.ApplyT(func(identity datafactory.FactoryIdentity) (*string, error) {
+//					return &identity.PrincipalId, nil
+//				}).(pulumi.StringPtrOutput),
+//				PrincipalType: pulumi.String("App"),
+//				Role:          pulumi.String("Viewer"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Data Factory Linked Service's can be imported using the `resource id`, e.g.

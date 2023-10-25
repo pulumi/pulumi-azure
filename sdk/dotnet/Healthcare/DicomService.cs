@@ -12,6 +12,39 @@ namespace Pulumi.Azure.Healthcare
     /// <summary>
     /// Manages a Healthcare DICOM Service
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var testWorkspace = new Azure.Healthcare.Workspace("testWorkspace", new()
+    ///     {
+    ///         ResourceGroupName = "tfex-resource_group",
+    ///         Location = "east us",
+    ///     });
+    /// 
+    ///     var testDicomService = new Azure.Healthcare.DicomService("testDicomService", new()
+    ///     {
+    ///         WorkspaceId = testWorkspace.Id,
+    ///         Location = "east us",
+    ///         Identity = new Azure.Healthcare.Inputs.DicomServiceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "None" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Healthcare DICOM Service can be imported using the resource`id`, e.g.

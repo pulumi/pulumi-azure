@@ -15,6 +15,260 @@ import (
 
 // Manages a Security Alert Policy for an MS SQL Managed Instance.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleNetworkSecurityGroup, err := network.NewNetworkSecurityGroup(ctx, "exampleNetworkSecurityGroup", &network.NetworkSecurityGroupArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewNetworkSecurityRule(ctx, "allowManagementInbound", &network.NetworkSecurityRuleArgs{
+//				Priority:        pulumi.Int(106),
+//				Direction:       pulumi.String("Inbound"),
+//				Access:          pulumi.String("Allow"),
+//				Protocol:        pulumi.String("Tcp"),
+//				SourcePortRange: pulumi.String("*"),
+//				DestinationPortRanges: pulumi.StringArray{
+//					pulumi.String("9000"),
+//					pulumi.String("9003"),
+//					pulumi.String("1438"),
+//					pulumi.String("1440"),
+//					pulumi.String("1452"),
+//				},
+//				SourceAddressPrefix:      pulumi.String("*"),
+//				DestinationAddressPrefix: pulumi.String("*"),
+//				ResourceGroupName:        exampleResourceGroup.Name,
+//				NetworkSecurityGroupName: exampleNetworkSecurityGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewNetworkSecurityRule(ctx, "allowMisubnetInbound", &network.NetworkSecurityRuleArgs{
+//				Priority:                 pulumi.Int(200),
+//				Direction:                pulumi.String("Inbound"),
+//				Access:                   pulumi.String("Allow"),
+//				Protocol:                 pulumi.String("*"),
+//				SourcePortRange:          pulumi.String("*"),
+//				DestinationPortRange:     pulumi.String("*"),
+//				SourceAddressPrefix:      pulumi.String("10.0.0.0/24"),
+//				DestinationAddressPrefix: pulumi.String("*"),
+//				ResourceGroupName:        exampleResourceGroup.Name,
+//				NetworkSecurityGroupName: exampleNetworkSecurityGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewNetworkSecurityRule(ctx, "allowHealthProbeInbound", &network.NetworkSecurityRuleArgs{
+//				Priority:                 pulumi.Int(300),
+//				Direction:                pulumi.String("Inbound"),
+//				Access:                   pulumi.String("Allow"),
+//				Protocol:                 pulumi.String("*"),
+//				SourcePortRange:          pulumi.String("*"),
+//				DestinationPortRange:     pulumi.String("*"),
+//				SourceAddressPrefix:      pulumi.String("AzureLoadBalancer"),
+//				DestinationAddressPrefix: pulumi.String("*"),
+//				ResourceGroupName:        exampleResourceGroup.Name,
+//				NetworkSecurityGroupName: exampleNetworkSecurityGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewNetworkSecurityRule(ctx, "allowTdsInbound", &network.NetworkSecurityRuleArgs{
+//				Priority:                 pulumi.Int(1000),
+//				Direction:                pulumi.String("Inbound"),
+//				Access:                   pulumi.String("Allow"),
+//				Protocol:                 pulumi.String("Tcp"),
+//				SourcePortRange:          pulumi.String("*"),
+//				DestinationPortRange:     pulumi.String("1433"),
+//				SourceAddressPrefix:      pulumi.String("VirtualNetwork"),
+//				DestinationAddressPrefix: pulumi.String("*"),
+//				ResourceGroupName:        exampleResourceGroup.Name,
+//				NetworkSecurityGroupName: exampleNetworkSecurityGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewNetworkSecurityRule(ctx, "denyAllInbound", &network.NetworkSecurityRuleArgs{
+//				Priority:                 pulumi.Int(4096),
+//				Direction:                pulumi.String("Inbound"),
+//				Access:                   pulumi.String("Deny"),
+//				Protocol:                 pulumi.String("*"),
+//				SourcePortRange:          pulumi.String("*"),
+//				DestinationPortRange:     pulumi.String("*"),
+//				SourceAddressPrefix:      pulumi.String("*"),
+//				DestinationAddressPrefix: pulumi.String("*"),
+//				ResourceGroupName:        exampleResourceGroup.Name,
+//				NetworkSecurityGroupName: exampleNetworkSecurityGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewNetworkSecurityRule(ctx, "allowManagementOutbound", &network.NetworkSecurityRuleArgs{
+//				Priority:        pulumi.Int(102),
+//				Direction:       pulumi.String("Outbound"),
+//				Access:          pulumi.String("Allow"),
+//				Protocol:        pulumi.String("Tcp"),
+//				SourcePortRange: pulumi.String("*"),
+//				DestinationPortRanges: pulumi.StringArray{
+//					pulumi.String("80"),
+//					pulumi.String("443"),
+//					pulumi.String("12000"),
+//				},
+//				SourceAddressPrefix:      pulumi.String("*"),
+//				DestinationAddressPrefix: pulumi.String("*"),
+//				ResourceGroupName:        exampleResourceGroup.Name,
+//				NetworkSecurityGroupName: exampleNetworkSecurityGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewNetworkSecurityRule(ctx, "allowMisubnetOutbound", &network.NetworkSecurityRuleArgs{
+//				Priority:                 pulumi.Int(200),
+//				Direction:                pulumi.String("Outbound"),
+//				Access:                   pulumi.String("Allow"),
+//				Protocol:                 pulumi.String("*"),
+//				SourcePortRange:          pulumi.String("*"),
+//				DestinationPortRange:     pulumi.String("*"),
+//				SourceAddressPrefix:      pulumi.String("10.0.0.0/24"),
+//				DestinationAddressPrefix: pulumi.String("*"),
+//				ResourceGroupName:        exampleResourceGroup.Name,
+//				NetworkSecurityGroupName: exampleNetworkSecurityGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewNetworkSecurityRule(ctx, "denyAllOutbound", &network.NetworkSecurityRuleArgs{
+//				Priority:                 pulumi.Int(4096),
+//				Direction:                pulumi.String("Outbound"),
+//				Access:                   pulumi.String("Deny"),
+//				Protocol:                 pulumi.String("*"),
+//				SourcePortRange:          pulumi.String("*"),
+//				DestinationPortRange:     pulumi.String("*"),
+//				SourceAddressPrefix:      pulumi.String("*"),
+//				DestinationAddressPrefix: pulumi.String("*"),
+//				ResourceGroupName:        exampleResourceGroup.Name,
+//				NetworkSecurityGroupName: exampleNetworkSecurityGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//				Location: exampleResourceGroup.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/24"),
+//				},
+//				Delegations: network.SubnetDelegationArray{
+//					&network.SubnetDelegationArgs{
+//						Name: pulumi.String("managedinstancedelegation"),
+//						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
+//							Name: pulumi.String("Microsoft.Sql/managedInstances"),
+//							Actions: pulumi.StringArray{
+//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
+//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action"),
+//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnetNetworkSecurityGroupAssociation, err := network.NewSubnetNetworkSecurityGroupAssociation(ctx, "exampleSubnetNetworkSecurityGroupAssociation", &network.SubnetNetworkSecurityGroupAssociationArgs{
+//				SubnetId:               exampleSubnet.ID(),
+//				NetworkSecurityGroupId: exampleNetworkSecurityGroup.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleRouteTable, err := network.NewRouteTable(ctx, "exampleRouteTable", &network.RouteTableArgs{
+//				Location:                   exampleResourceGroup.Location,
+//				ResourceGroupName:          exampleResourceGroup.Name,
+//				DisableBgpRoutePropagation: pulumi.Bool(false),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleSubnet,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnetRouteTableAssociation, err := network.NewSubnetRouteTableAssociation(ctx, "exampleSubnetRouteTableAssociation", &network.SubnetRouteTableAssociationArgs{
+//				SubnetId:     exampleSubnet.ID(),
+//				RouteTableId: exampleRouteTable.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleManagedInstance, err := mssql.NewManagedInstance(ctx, "exampleManagedInstance", &mssql.ManagedInstanceArgs{
+//				ResourceGroupName:          exampleResourceGroup.Name,
+//				Location:                   exampleResourceGroup.Location,
+//				LicenseType:                pulumi.String("BasePrice"),
+//				SkuName:                    pulumi.String("GP_Gen5"),
+//				StorageSizeInGb:            pulumi.Int(32),
+//				SubnetId:                   exampleSubnet.ID(),
+//				Vcores:                     pulumi.Int(4),
+//				AdministratorLogin:         pulumi.String("mradministrator"),
+//				AdministratorLoginPassword: pulumi.String("thisIsDog11"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleSubnetNetworkSecurityGroupAssociation,
+//				exampleSubnetRouteTableAssociation,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = mssql.NewManagedInstanceSecurityAlertPolicy(ctx, "exampleManagedInstanceSecurityAlertPolicy", &mssql.ManagedInstanceSecurityAlertPolicyArgs{
+//				ResourceGroupName:       exampleResourceGroup.Name,
+//				ManagedInstanceName:     exampleManagedInstance.Name,
+//				Enabled:                 pulumi.Bool(true),
+//				StorageEndpoint:         pulumi.Any(azurerm_storage_account.Example.Primary_blob_endpoint),
+//				StorageAccountAccessKey: pulumi.Any(azurerm_storage_account.Example.Primary_access_key),
+//				DisabledAlerts: pulumi.StringArray{
+//					pulumi.String("Sql_Injection"),
+//					pulumi.String("Data_Exfiltration"),
+//				},
+//				RetentionDays: pulumi.Int(20),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // MS SQL Managed Instance Security Alert Policy can be imported using the `resource id`, e.g.

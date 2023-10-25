@@ -13,12 +13,60 @@ namespace Pulumi.Azure.Cdn
     {
         /// <summary>
         /// Use this data source to access information about an existing Front Door (standard/premium) Endpoint.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Cdn.GetFrontdoorEndpoint.Invoke(new()
+        ///     {
+        ///         Name = "existing-endpoint",
+        ///         ProfileName = "existing-cdn-profile",
+        ///         ResourceGroupName = "existing-resources",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetFrontdoorEndpointResult> InvokeAsync(GetFrontdoorEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFrontdoorEndpointResult>("azure:cdn/getFrontdoorEndpoint:getFrontdoorEndpoint", args ?? new GetFrontdoorEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Front Door (standard/premium) Endpoint.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Cdn.GetFrontdoorEndpoint.Invoke(new()
+        ///     {
+        ///         Name = "existing-endpoint",
+        ///         ProfileName = "existing-cdn-profile",
+        ///         ResourceGroupName = "existing-resources",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetFrontdoorEndpointResult> Invoke(GetFrontdoorEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFrontdoorEndpointResult>("azure:cdn/getFrontdoorEndpoint:getFrontdoorEndpoint", args ?? new GetFrontdoorEndpointInvokeArgs(), options.WithDefaults());

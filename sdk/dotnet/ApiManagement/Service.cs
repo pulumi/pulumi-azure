@@ -10,6 +10,33 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ApiManagement
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PublisherName = "My Company",
+    ///         PublisherEmail = "company@exmaple.com",
+    ///         SkuName = "Developer_1",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// API Management Services can be imported using the `resource id`, e.g.

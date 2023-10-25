@@ -299,6 +299,49 @@ class PolicyVMWorkload(pulumi.CustomResource):
         """
         Manages an Azure VM Workload Backup Policy within a Recovery Services vault.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_vault = azure.recoveryservices.Vault("exampleVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard",
+            soft_delete_enabled=False)
+        example_policy_vm_workload = azure.backup.PolicyVMWorkload("examplePolicyVMWorkload",
+            resource_group_name=example_resource_group.name,
+            recovery_vault_name=example_vault.name,
+            workload_type="SQLDataBase",
+            settings=azure.backup.PolicyVMWorkloadSettingsArgs(
+                time_zone="UTC",
+                compression_enabled=False,
+            ),
+            protection_policies=[
+                azure.backup.PolicyVMWorkloadProtectionPolicyArgs(
+                    policy_type="Full",
+                    backup=azure.backup.PolicyVMWorkloadProtectionPolicyBackupArgs(
+                        frequency="Daily",
+                        time="15:00",
+                    ),
+                    retention_daily=azure.backup.PolicyVMWorkloadProtectionPolicyRetentionDailyArgs(
+                        count=8,
+                    ),
+                ),
+                azure.backup.PolicyVMWorkloadProtectionPolicyArgs(
+                    policy_type="Log",
+                    backup=azure.backup.PolicyVMWorkloadProtectionPolicyBackupArgs(
+                        frequency_in_minutes=15,
+                    ),
+                    simple_retention=azure.backup.PolicyVMWorkloadProtectionPolicySimpleRetentionArgs(
+                        count=8,
+                    ),
+                ),
+            ])
+        ```
+
         ## Import
 
         Azure VM Workload Backup Policies can be imported using the `resource id`, e.g.
@@ -324,6 +367,49 @@ class PolicyVMWorkload(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure VM Workload Backup Policy within a Recovery Services vault.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_vault = azure.recoveryservices.Vault("exampleVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard",
+            soft_delete_enabled=False)
+        example_policy_vm_workload = azure.backup.PolicyVMWorkload("examplePolicyVMWorkload",
+            resource_group_name=example_resource_group.name,
+            recovery_vault_name=example_vault.name,
+            workload_type="SQLDataBase",
+            settings=azure.backup.PolicyVMWorkloadSettingsArgs(
+                time_zone="UTC",
+                compression_enabled=False,
+            ),
+            protection_policies=[
+                azure.backup.PolicyVMWorkloadProtectionPolicyArgs(
+                    policy_type="Full",
+                    backup=azure.backup.PolicyVMWorkloadProtectionPolicyBackupArgs(
+                        frequency="Daily",
+                        time="15:00",
+                    ),
+                    retention_daily=azure.backup.PolicyVMWorkloadProtectionPolicyRetentionDailyArgs(
+                        count=8,
+                    ),
+                ),
+                azure.backup.PolicyVMWorkloadProtectionPolicyArgs(
+                    policy_type="Log",
+                    backup=azure.backup.PolicyVMWorkloadProtectionPolicyBackupArgs(
+                        frequency_in_minutes=15,
+                    ),
+                    simple_retention=azure.backup.PolicyVMWorkloadProtectionPolicySimpleRetentionArgs(
+                        count=8,
+                    ),
+                ),
+            ])
+        ```
 
         ## Import
 

@@ -11,6 +11,91 @@ import * as utilities from "../utilities";
  *
  * Manages an Azure Front Door (classic) Rules Engine configuration and rules.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleFrontdoor = new azure.frontdoor.Frontdoor("exampleFrontdoor", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     backendPools: [{
+ *         name: "exampleBackendBing",
+ *         loadBalancingName: "exampleLoadBalancingSettings1",
+ *         healthProbeName: "exampleHealthProbeSetting1",
+ *         backends: [{
+ *             hostHeader: "www.bing.com",
+ *             address: "www.bing.com",
+ *             httpPort: 80,
+ *             httpsPort: 443,
+ *         }],
+ *     }],
+ *     backendPoolHealthProbes: [{
+ *         name: "exampleHealthProbeSetting1",
+ *     }],
+ *     backendPoolLoadBalancings: [{
+ *         name: "exampleLoadBalancingSettings1",
+ *     }],
+ *     frontendEndpoints: [{
+ *         name: "exampleFrontendEndpoint1",
+ *         hostName: "example-FrontDoor.azurefd.net",
+ *     }],
+ *     routingRules: [{
+ *         name: "exampleRoutingRule1",
+ *         acceptedProtocols: [
+ *             "Http",
+ *             "Https",
+ *         ],
+ *         patternsToMatches: ["/*"],
+ *         frontendEndpoints: ["exampleFrontendEndpoint1"],
+ *     }],
+ * });
+ * const exampleRulesEngine = new azure.frontdoor.RulesEngine("exampleRulesEngine", {
+ *     frontdoorName: exampleFrontdoor.name,
+ *     resourceGroupName: exampleFrontdoor.resourceGroupName,
+ *     rules: [
+ *         {
+ *             name: "debuggingoutput",
+ *             priority: 1,
+ *             action: {
+ *                 responseHeaders: [{
+ *                     headerActionType: "Append",
+ *                     headerName: "X-TEST-HEADER",
+ *                     value: "Append Header Rule",
+ *                 }],
+ *             },
+ *         },
+ *         {
+ *             name: "overwriteorigin",
+ *             priority: 2,
+ *             matchConditions: [{
+ *                 variable: "RequestMethod",
+ *                 operator: "Equal",
+ *                 values: [
+ *                     "GET",
+ *                     "POST",
+ *                 ],
+ *             }],
+ *             action: {
+ *                 responseHeaders: [
+ *                     {
+ *                         headerActionType: "Overwrite",
+ *                         headerName: "Access-Control-Allow-Origin",
+ *                         value: "*",
+ *                     },
+ *                     {
+ *                         headerActionType: "Overwrite",
+ *                         headerName: "Access-Control-Allow-Credentials",
+ *                         value: "true",
+ *                     },
+ *                 ],
+ *             },
+ *         },
+ *     ],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Azure Front Door Rules Engine's can be imported using the `resource id`, e.g.

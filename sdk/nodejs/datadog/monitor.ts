@@ -10,9 +10,50 @@ import * as utilities from "../utilities";
  * Manages a datadog Monitor.
  *
  * ## Example Usage
+ * ### Monitor creation with linking to Datadog organization
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US 2"});
+ * const exampleMonitor = new azure.datadog.Monitor("exampleMonitor", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     datadogOrganization: {
+ *         apiKey: "XXXX",
+ *         applicationKey: "XXXX",
+ *     },
+ *     user: {
+ *         name: "Example",
+ *         email: "abc@xyz.com",
+ *     },
+ *     skuName: "Linked",
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ * });
+ * ```
  * ## Role Assignment
  *
  * To enable metrics flow, perform role assignment on the identity created above. `Monitoring reader(43d0d8ad-25c7-4714-9337-8ba259a9fe05)` role is required .
+ *
+ * ### Role assignment on the monitor created
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const primary = azure.core.getSubscription({});
+ * const monitoringReader = azure.authorization.getRoleDefinition({
+ *     name: "Monitoring Reader",
+ * });
+ * const example = new azure.authorization.Assignment("example", {
+ *     scope: primary.then(primary => primary.id),
+ *     roleDefinitionId: monitoringReader.then(monitoringReader => monitoringReader.roleDefinitionId),
+ *     principalId: azurerm_datadog_monitor.example.identity[0].principal_id,
+ * });
+ * ```
  *
  * ## Import
  *

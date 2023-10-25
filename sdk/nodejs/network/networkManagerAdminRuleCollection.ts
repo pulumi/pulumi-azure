@@ -7,6 +7,34 @@ import * as utilities from "../utilities";
 /**
  * Manages a Network Manager Admin Rule Collection.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const current = azure.core.getSubscription({});
+ * const exampleNetworkManager = new azure.network.NetworkManager("exampleNetworkManager", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     scope: {
+ *         subscriptionIds: [current.then(current => current.id)],
+ *     },
+ *     scopeAccesses: [
+ *         "Connectivity",
+ *         "SecurityAdmin",
+ *     ],
+ *     description: "example network manager",
+ * });
+ * const exampleNetworkManagerNetworkGroup = new azure.network.NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup", {networkManagerId: exampleNetworkManager.id});
+ * const exampleNetworkManagerSecurityAdminConfiguration = new azure.network.NetworkManagerSecurityAdminConfiguration("exampleNetworkManagerSecurityAdminConfiguration", {networkManagerId: exampleNetworkManager.id});
+ * const exampleNetworkManagerAdminRuleCollection = new azure.network.NetworkManagerAdminRuleCollection("exampleNetworkManagerAdminRuleCollection", {
+ *     securityAdminConfigurationId: exampleNetworkManagerSecurityAdminConfiguration.id,
+ *     networkGroupIds: [exampleNetworkManagerNetworkGroup.id],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Network Manager Admin Rule Collection can be imported using the `resource id`, e.g.

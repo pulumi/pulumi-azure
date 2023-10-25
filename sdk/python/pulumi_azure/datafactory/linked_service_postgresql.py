@@ -368,6 +368,21 @@ class LinkedServicePostgresql(pulumi.CustomResource):
         """
         Manages a Linked Service (connection) between PostgreSQL and Azure Data Factory.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_factory = azure.datafactory.Factory("exampleFactory",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_linked_service_postgresql = azure.datafactory.LinkedServicePostgresql("exampleLinkedServicePostgresql",
+            data_factory_id=example_factory.id,
+            connection_string="Host=example;Port=5432;Database=example;UID=example;EncryptionMethod=0;Password=example")
+        ```
+
         ## Import
 
         Data Factory PostgreSQL Linked Service's can be imported using the `resource id`, e.g.
@@ -395,6 +410,21 @@ class LinkedServicePostgresql(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Linked Service (connection) between PostgreSQL and Azure Data Factory.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_factory = azure.datafactory.Factory("exampleFactory",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_linked_service_postgresql = azure.datafactory.LinkedServicePostgresql("exampleLinkedServicePostgresql",
+            data_factory_id=example_factory.id,
+            connection_string="Host=example;Port=5432;Database=example;UID=example;EncryptionMethod=0;Password=example")
+        ```
 
         ## Import
 

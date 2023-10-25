@@ -18,6 +18,78 @@ import (
 //
 // Note that this is an [Account SAS](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas)
 // and *not* a [Service SAS](https://docs.microsoft.com/rest/api/storageservices/constructing-a-service-sas).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("GRS"),
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("staging"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccountSAS := storage.GetAccountSASOutput(ctx, storage.GetAccountSASOutputArgs{
+//				ConnectionString: exampleAccount.PrimaryConnectionString,
+//				HttpsOnly:        pulumi.Bool(true),
+//				SignedVersion:    pulumi.String("2017-07-29"),
+//				ResourceTypes: &storage.GetAccountSASResourceTypesArgs{
+//					Service:   pulumi.Bool(true),
+//					Container: pulumi.Bool(false),
+//					Object:    pulumi.Bool(false),
+//				},
+//				Services: &storage.GetAccountSASServicesArgs{
+//					Blob:  pulumi.Bool(true),
+//					Queue: pulumi.Bool(false),
+//					Table: pulumi.Bool(false),
+//					File:  pulumi.Bool(false),
+//				},
+//				Start:  pulumi.String("2018-03-21T00:00:00Z"),
+//				Expiry: pulumi.String("2020-03-21T00:00:00Z"),
+//				Permissions: &storage.GetAccountSASPermissionsArgs{
+//					Read:    pulumi.Bool(true),
+//					Write:   pulumi.Bool(true),
+//					Delete:  pulumi.Bool(false),
+//					List:    pulumi.Bool(false),
+//					Add:     pulumi.Bool(true),
+//					Create:  pulumi.Bool(true),
+//					Update:  pulumi.Bool(false),
+//					Process: pulumi.Bool(false),
+//					Tag:     pulumi.Bool(false),
+//					Filter:  pulumi.Bool(false),
+//				},
+//			}, nil)
+//			ctx.Export("sasUrlQueryString", exampleAccountSAS.ApplyT(func(exampleAccountSAS storage.GetAccountSASResult) (*string, error) {
+//				return &exampleAccountSAS.Sas, nil
+//			}).(pulumi.StringPtrOutput))
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetAccountSAS(ctx *pulumi.Context, args *GetAccountSASArgs, opts ...pulumi.InvokeOption) (*GetAccountSASResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAccountSASResult

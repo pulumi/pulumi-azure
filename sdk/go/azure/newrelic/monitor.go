@@ -15,6 +15,49 @@ import (
 
 // Manages an Azure Native New Relic Monitor.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("East US"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = newrelic.NewMonitor(ctx, "exampleMonitor", &newrelic.MonitorArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Plan: &newrelic.MonitorPlanArgs{
+//					EffectiveDate: pulumi.String("2023-06-06T00:00:00Z"),
+//				},
+//				User: &newrelic.MonitorUserArgs{
+//					Email:       pulumi.String("user@example.com"),
+//					FirstName:   pulumi.String("Example"),
+//					LastName:    pulumi.String("User"),
+//					PhoneNumber: pulumi.String("+12313803556"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Azure Native New Relic Monitor can be imported using the `resource id`, e.g.

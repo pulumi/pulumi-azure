@@ -13,12 +13,66 @@ namespace Pulumi.Azure.KeyVault
     {
         /// <summary>
         /// Use this data source to access information about an existing Key Vault.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.KeyVault.GetKeyVault.Invoke(new()
+        ///     {
+        ///         Name = "mykeyvault",
+        ///         ResourceGroupName = "some-resource-group",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["vaultUri"] = example.Apply(getKeyVaultResult =&gt; getKeyVaultResult.VaultUri),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetKeyVaultResult> InvokeAsync(GetKeyVaultArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKeyVaultResult>("azure:keyvault/getKeyVault:getKeyVault", args ?? new GetKeyVaultArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Key Vault.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.KeyVault.GetKeyVault.Invoke(new()
+        ///     {
+        ///         Name = "mykeyvault",
+        ///         ResourceGroupName = "some-resource-group",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["vaultUri"] = example.Apply(getKeyVaultResult =&gt; getKeyVaultResult.VaultUri),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetKeyVaultResult> Invoke(GetKeyVaultInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKeyVaultResult>("azure:keyvault/getKeyVault:getKeyVault", args ?? new GetKeyVaultInvokeArgs(), options.WithDefaults());

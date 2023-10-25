@@ -349,6 +349,25 @@ class JobSchedule(pulumi.CustomResource):
         """
         Links an Automation Runbook and Schedule.
 
+        ## Example Usage
+
+        This is an example of just the Job Schedule.
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.automation.JobSchedule("example",
+            automation_account_name="tf-automation-account",
+            parameters={
+                "resourcegroup": "tf-rgr-vm",
+                "vmname": "TF-VM-01",
+            },
+            resource_group_name="tf-rgr-automation",
+            runbook_name="Get-VirtualMachine",
+            schedule_name="hour")
+        ```
+
         ## Import
 
         Automation Job Schedules can be imported using the `resource id`, e.g.
@@ -377,6 +396,25 @@ class JobSchedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Links an Automation Runbook and Schedule.
+
+        ## Example Usage
+
+        This is an example of just the Job Schedule.
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.automation.JobSchedule("example",
+            automation_account_name="tf-automation-account",
+            parameters={
+                "resourcegroup": "tf-rgr-vm",
+                "vmname": "TF-VM-01",
+            },
+            resource_group_name="tf-rgr-automation",
+            runbook_name="Get-VirtualMachine",
+            schedule_name="hour")
+        ```
 
         ## Import
 

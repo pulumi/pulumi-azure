@@ -9,6 +9,39 @@ import * as utilities from "../utilities";
 /**
  * Manages a Linux Function App Slot.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ * });
+ * const exampleServicePlan = new azure.appservice.ServicePlan("exampleServicePlan", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     osType: "Linux",
+ *     skuName: "Y1",
+ * });
+ * const exampleLinuxFunctionApp = new azure.appservice.LinuxFunctionApp("exampleLinuxFunctionApp", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     servicePlanId: exampleServicePlan.id,
+ *     storageAccountName: exampleAccount.name,
+ *     siteConfig: {},
+ * });
+ * const exampleLinuxFunctionAppSlot = new azure.appservice.LinuxFunctionAppSlot("exampleLinuxFunctionAppSlot", {
+ *     functionAppId: exampleLinuxFunctionApp.id,
+ *     storageAccountName: exampleAccount.name,
+ *     siteConfig: {},
+ * });
+ * ```
+ *
  * ## Import
  *
  * A Linux Function App Slot can be imported using the `resource id`, e.g.

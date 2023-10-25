@@ -423,6 +423,44 @@ class GatewayHostNameConfiguration(pulumi.CustomResource):
         """
         Manages an API Management Gateway Host Name Configuration.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import base64
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_service = azure.apimanagement.Service("exampleService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            publisher_name="pub1",
+            publisher_email="pub1@email.com",
+            sku_name="Consumption_0")
+        example_gateway = azure.apimanagement.Gateway("exampleGateway",
+            api_management_id=example_service.id,
+            description="Example API Management gateway",
+            location_data=azure.apimanagement.GatewayLocationDataArgs(
+                name="example name",
+                city="example city",
+                district="example district",
+                region="example region",
+            ))
+        example_certificate = azure.apimanagement.Certificate("exampleCertificate",
+            api_management_name=example_service.name,
+            resource_group_name=example_resource_group.name,
+            data=(lambda path: base64.b64encode(open(path).read().encode()).decode())("example.pfx"))
+        example_gateway_host_name_configuration = azure.apimanagement.GatewayHostNameConfiguration("exampleGatewayHostNameConfiguration",
+            api_management_id=example_service.id,
+            gateway_name=example_gateway.name,
+            certificate_id=example_certificate.id,
+            host_name="example-host-name",
+            request_client_certificate_enabled=True,
+            http2_enabled=True,
+            tls10_enabled=True,
+            tls11_enabled=False)
+        ```
+
         ## Import
 
         API Management Gateway Host Name Configuration can be imported using the `resource id`, e.g.
@@ -451,6 +489,44 @@ class GatewayHostNameConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an API Management Gateway Host Name Configuration.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import base64
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_service = azure.apimanagement.Service("exampleService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            publisher_name="pub1",
+            publisher_email="pub1@email.com",
+            sku_name="Consumption_0")
+        example_gateway = azure.apimanagement.Gateway("exampleGateway",
+            api_management_id=example_service.id,
+            description="Example API Management gateway",
+            location_data=azure.apimanagement.GatewayLocationDataArgs(
+                name="example name",
+                city="example city",
+                district="example district",
+                region="example region",
+            ))
+        example_certificate = azure.apimanagement.Certificate("exampleCertificate",
+            api_management_name=example_service.name,
+            resource_group_name=example_resource_group.name,
+            data=(lambda path: base64.b64encode(open(path).read().encode()).decode())("example.pfx"))
+        example_gateway_host_name_configuration = azure.apimanagement.GatewayHostNameConfiguration("exampleGatewayHostNameConfiguration",
+            api_management_id=example_service.id,
+            gateway_name=example_gateway.name,
+            certificate_id=example_certificate.id,
+            host_name="example-host-name",
+            request_client_certificate_enabled=True,
+            http2_enabled=True,
+            tls10_enabled=True,
+            tls11_enabled=False)
+        ```
 
         ## Import
 

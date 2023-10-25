@@ -7,6 +7,24 @@ import * as utilities from "../utilities";
 /**
  * Manages an Application Insights Smart Detection Rule.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleInsights = new azure.appinsights.Insights("exampleInsights", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     applicationType: "web",
+ * });
+ * const exampleSmartDetectionRule = new azure.appinsights.SmartDetectionRule("exampleSmartDetectionRule", {
+ *     applicationInsightsId: exampleInsights.id,
+ *     enabled: false,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Application Insights Smart Detection Rules can be imported using the `resource id`, e.g.

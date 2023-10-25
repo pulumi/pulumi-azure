@@ -13,12 +13,68 @@ namespace Pulumi.Azure.EventHub
     {
         /// <summary>
         /// Use this data source to access information about an Authorization Rule for an Event Hub Namespace.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.EventHub.GetNamespaceAuthorizationRule.Invoke(new()
+        ///     {
+        ///         Name = "navi",
+        ///         ResourceGroupName = "example-resources",
+        ///         NamespaceName = "example-ns",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["eventhubAuthorizationRuleId"] = data.Azurem_eventhub_namespace_authorization_rule.Example.Id,
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetNamespaceAuthorizationRuleResult> InvokeAsync(GetNamespaceAuthorizationRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceAuthorizationRuleResult>("azure:eventhub/getNamespaceAuthorizationRule:getNamespaceAuthorizationRule", args ?? new GetNamespaceAuthorizationRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an Authorization Rule for an Event Hub Namespace.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.EventHub.GetNamespaceAuthorizationRule.Invoke(new()
+        ///     {
+        ///         Name = "navi",
+        ///         ResourceGroupName = "example-resources",
+        ///         NamespaceName = "example-ns",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["eventhubAuthorizationRuleId"] = data.Azurem_eventhub_namespace_authorization_rule.Example.Id,
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetNamespaceAuthorizationRuleResult> Invoke(GetNamespaceAuthorizationRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceAuthorizationRuleResult>("azure:eventhub/getNamespaceAuthorizationRule:getNamespaceAuthorizationRule", args ?? new GetNamespaceAuthorizationRuleInvokeArgs(), options.WithDefaults());

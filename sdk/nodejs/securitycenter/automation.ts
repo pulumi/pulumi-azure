@@ -9,6 +9,57 @@ import * as utilities from "../utilities";
 /**
  * Manages Security Center Automation and Continuous Export. This resource supports three types of destination in the `action`, Logic Apps, Log Analytics and Event Hubs
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const current = azure.core.getClientConfig({});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("exampleEventHubNamespace", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "Standard",
+ *     capacity: 2,
+ * });
+ * const exampleEventHub = new azure.eventhub.EventHub("exampleEventHub", {
+ *     namespaceName: exampleEventHubNamespace.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     partitionCount: 2,
+ *     messageRetention: 2,
+ * });
+ * const exampleAuthorizationRule = new azure.eventhub.AuthorizationRule("exampleAuthorizationRule", {
+ *     namespaceName: exampleEventHubNamespace.name,
+ *     eventhubName: exampleEventHub.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     listen: true,
+ *     send: false,
+ *     manage: false,
+ * });
+ * const exampleAutomation = new azure.securitycenter.Automation("exampleAutomation", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     actions: [{
+ *         type: "EventHub",
+ *         resourceId: exampleEventHub.id,
+ *         connectionString: exampleAuthorizationRule.primaryConnectionString,
+ *     }],
+ *     sources: [{
+ *         eventSource: "Alerts",
+ *         ruleSets: [{
+ *             rules: [{
+ *                 propertyPath: "properties.metadata.severity",
+ *                 operator: "Equals",
+ *                 expectedValue: "High",
+ *                 propertyType: "String",
+ *             }],
+ *         }],
+ *     }],
+ *     scopes: [current.then(current => `/subscriptions/${current.subscriptionId}`)],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Security Center Automations can be imported using the `resource id`, e.g.

@@ -17,6 +17,77 @@ import (
 //
 // !> **Note:** Azure are officially [halting](https://learn.microsoft.com/en-us/azure/azure-vmware/attach-disk-pools-to-azure-vmware-solution-hosts?tabs=azure-cli) the preview of Azure Disk Pools, and it **will not** be made generally available. New customers will not be able to register the Microsoft.StoragePool resource provider on their subscription and deploy new Disk Pools. Existing subscriptions registered with Microsoft.StoragePool may continue to deploy and manage disk pools for the time being.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				ResourceGroupName:  exampleVirtualNetwork.ResourceGroupName,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/24"),
+//				},
+//				Delegations: network.SubnetDelegationArray{
+//					&network.SubnetDelegationArgs{
+//						Name: pulumi.String("diskspool"),
+//						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
+//							Actions: pulumi.StringArray{
+//								pulumi.String("Microsoft.Network/virtualNetworks/read"),
+//							},
+//							Name: pulumi.String("Microsoft.StoragePool/diskPools"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = compute.NewDiskPool(ctx, "exampleDiskPool", &compute.DiskPoolArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				SkuName:           pulumi.String("Basic_B1"),
+//				SubnetId:          exampleSubnet.ID(),
+//				Zones: pulumi.StringArray{
+//					pulumi.String("1"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Disk Pools can be imported using the `resource id`, e.g.

@@ -15,6 +15,74 @@ import (
 
 // Manages a VPN Gateway NAT Rule.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualWan, err := network.NewVirtualWan(ctx, "exampleVirtualWan", &network.VirtualWanArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualHub, err := network.NewVirtualHub(ctx, "exampleVirtualHub", &network.VirtualHubArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				AddressPrefix:     pulumi.String("10.0.1.0/24"),
+//				VirtualWanId:      exampleVirtualWan.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVpnGateway, err := network.NewVpnGateway(ctx, "exampleVpnGateway", &network.VpnGatewayArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				VirtualHubId:      exampleVirtualHub.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewVnpGatewayNatRule(ctx, "exampleVnpGatewayNatRule", &network.VnpGatewayNatRuleArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				VpnGatewayId:      exampleVpnGateway.ID(),
+//				ExternalMappings: network.VnpGatewayNatRuleExternalMappingArray{
+//					&network.VnpGatewayNatRuleExternalMappingArgs{
+//						AddressSpace: pulumi.String("192.168.21.0/26"),
+//					},
+//				},
+//				InternalMappings: network.VnpGatewayNatRuleInternalMappingArray{
+//					&network.VnpGatewayNatRuleInternalMappingArgs{
+//						AddressSpace: pulumi.String("10.4.0.0/26"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // VPN Gateway NAT Rules can be imported using the `resource id`, e.g.

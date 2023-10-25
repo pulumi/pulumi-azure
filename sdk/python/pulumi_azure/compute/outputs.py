@@ -7513,6 +7513,32 @@ class ScaleSetIdentity(dict):
         """
         :param str type: Specifies the identity type to be assigned to the scale set. Allowable values are `SystemAssigned` and `UserAssigned`. For the `SystemAssigned` identity the scale set's Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
         :param Sequence[str] identity_ids: Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
+               
+               ```python
+               import pulumi
+               import pulumi_azure as azure
+               
+               example = azure.compute.ScaleSet("example",
+                   resource_group_name=azurerm_resource_group["example"]["name"],
+                   location=azurerm_resource_group["example"]["location"],
+                   sku=azure.compute.ScaleSetSkuArgs(
+                       name=var["vm_sku"],
+                       tier="Standard",
+                       capacity=var["instance_count"],
+                   ),
+                   identity=azure.compute.ScaleSetIdentityArgs(
+                       type="SystemAssigned",
+                   ),
+                   extensions=[azure.compute.ScaleSetExtensionArgs(
+                       name="MSILinuxExtension",
+                       publisher="Microsoft.ManagedIdentity",
+                       type="ManagedIdentityExtensionForLinux",
+                       type_handler_version="1.0",
+                       settings="{\\"port\\": 50342}",
+                   )])
+               # ...
+               pulumi.export("principalId", example.identity.principal_id)
+               ```
         """
         ScaleSetIdentity._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -7554,6 +7580,32 @@ class ScaleSetIdentity(dict):
     def identity_ids(self) -> Optional[Sequence[str]]:
         """
         Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.compute.ScaleSet("example",
+            resource_group_name=azurerm_resource_group["example"]["name"],
+            location=azurerm_resource_group["example"]["location"],
+            sku=azure.compute.ScaleSetSkuArgs(
+                name=var["vm_sku"],
+                tier="Standard",
+                capacity=var["instance_count"],
+            ),
+            identity=azure.compute.ScaleSetIdentityArgs(
+                type="SystemAssigned",
+            ),
+            extensions=[azure.compute.ScaleSetExtensionArgs(
+                name="MSILinuxExtension",
+                publisher="Microsoft.ManagedIdentity",
+                type="ManagedIdentityExtensionForLinux",
+                type_handler_version="1.0",
+                settings="{\\"port\\": 50342}",
+            )])
+        # ...
+        pulumi.export("principalId", example.identity.principal_id)
+        ```
         """
         return pulumi.get(self, "identity_ids")
 

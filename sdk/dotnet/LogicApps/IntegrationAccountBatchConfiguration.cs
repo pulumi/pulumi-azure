@@ -12,6 +12,42 @@ namespace Pulumi.Azure.LogicApps
     /// <summary>
     /// Manages a Logic App Integration Account Batch Configuration.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleIntegrationAccount = new Azure.LogicApps.IntegrationAccount("exampleIntegrationAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Standard",
+    ///     });
+    /// 
+    ///     var exampleIntegrationAccountBatchConfiguration = new Azure.LogicApps.IntegrationAccountBatchConfiguration("exampleIntegrationAccountBatchConfiguration", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         IntegrationAccountName = exampleIntegrationAccount.Name,
+    ///         BatchGroupName = "TestBatchGroup",
+    ///         ReleaseCriteria = new Azure.LogicApps.Inputs.IntegrationAccountBatchConfigurationReleaseCriteriaArgs
+    ///         {
+    ///             MessageCount = 80,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Logic App Integration Account Batch Configurations can be imported using the `resource id`, e.g.

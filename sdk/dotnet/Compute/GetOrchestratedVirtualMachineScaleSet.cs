@@ -13,12 +13,66 @@ namespace Pulumi.Azure.Compute
     {
         /// <summary>
         /// Use this data source to access information about an existing Orchestrated Virtual Machine Scale Set.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Compute.GetOrchestratedVirtualMachineScaleSet.Invoke(new()
+        ///     {
+        ///         Name = "existing",
+        ///         ResourceGroupName = "existing",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getOrchestratedVirtualMachineScaleSetResult =&gt; getOrchestratedVirtualMachineScaleSetResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetOrchestratedVirtualMachineScaleSetResult> InvokeAsync(GetOrchestratedVirtualMachineScaleSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrchestratedVirtualMachineScaleSetResult>("azure:compute/getOrchestratedVirtualMachineScaleSet:getOrchestratedVirtualMachineScaleSet", args ?? new GetOrchestratedVirtualMachineScaleSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Orchestrated Virtual Machine Scale Set.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Compute.GetOrchestratedVirtualMachineScaleSet.Invoke(new()
+        ///     {
+        ///         Name = "existing",
+        ///         ResourceGroupName = "existing",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getOrchestratedVirtualMachineScaleSetResult =&gt; getOrchestratedVirtualMachineScaleSetResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetOrchestratedVirtualMachineScaleSetResult> Invoke(GetOrchestratedVirtualMachineScaleSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrchestratedVirtualMachineScaleSetResult>("azure:compute/getOrchestratedVirtualMachineScaleSet:getOrchestratedVirtualMachineScaleSet", args ?? new GetOrchestratedVirtualMachineScaleSetInvokeArgs(), options.WithDefaults());

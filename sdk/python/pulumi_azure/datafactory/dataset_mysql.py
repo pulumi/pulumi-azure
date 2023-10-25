@@ -456,6 +456,24 @@ class DatasetMysql(pulumi.CustomResource):
         """
         Manages a MySQL Dataset inside a Azure Data Factory.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_factory = azure.datafactory.Factory("exampleFactory",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_linked_service_mysql = azure.datafactory.LinkedServiceMysql("exampleLinkedServiceMysql",
+            data_factory_id=example_factory.id,
+            connection_string="Server=test;Port=3306;Database=test;User=test;SSLMode=1;UseSystemTrustStore=0;Password=test")
+        example_dataset_mysql = azure.datafactory.DatasetMysql("exampleDatasetMysql",
+            data_factory_id=example_factory.id,
+            linked_service_name=example_linked_service_mysql.name)
+        ```
+
         ## Import
 
         Data Factory MySQL Datasets can be imported using the `resource id`, e.g.
@@ -487,6 +505,24 @@ class DatasetMysql(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a MySQL Dataset inside a Azure Data Factory.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_factory = azure.datafactory.Factory("exampleFactory",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_linked_service_mysql = azure.datafactory.LinkedServiceMysql("exampleLinkedServiceMysql",
+            data_factory_id=example_factory.id,
+            connection_string="Server=test;Port=3306;Database=test;User=test;SSLMode=1;UseSystemTrustStore=0;Password=test")
+        example_dataset_mysql = azure.datafactory.DatasetMysql("exampleDatasetMysql",
+            data_factory_id=example_factory.id,
+            linked_service_name=example_linked_service_mysql.name)
+        ```
 
         ## Import
 

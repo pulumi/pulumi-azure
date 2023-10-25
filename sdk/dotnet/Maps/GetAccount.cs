@@ -13,12 +13,66 @@ namespace Pulumi.Azure.Maps
     {
         /// <summary>
         /// Use this data source to access information about an existing Azure Maps Account.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Maps.GetAccount.Invoke(new()
+        ///     {
+        ///         Name = "production",
+        ///         ResourceGroupName = "maps",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["mapsAccountId"] = example.Apply(getAccountResult =&gt; getAccountResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure:maps/getAccount:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Azure Maps Account.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Maps.GetAccount.Invoke(new()
+        ///     {
+        ///         Name = "production",
+        ///         ResourceGroupName = "maps",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["mapsAccountId"] = example.Apply(getAccountResult =&gt; getAccountResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure:maps/getAccount:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());

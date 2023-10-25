@@ -7,6 +7,29 @@ import * as utilities from "../utilities";
 /**
  * Manages a PostgreSQL Flexible Server Firewall Rule.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleFlexibleServer = new azure.postgresql.FlexibleServer("exampleFlexibleServer", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     version: "12",
+ *     administratorLogin: "psqladmin",
+ *     administratorPassword: "H@Sh1CoR3!",
+ *     storageMb: 32768,
+ *     skuName: "GP_Standard_D4s_v3",
+ * });
+ * const exampleFlexibleServerFirewallRule = new azure.postgresql.FlexibleServerFirewallRule("exampleFlexibleServerFirewallRule", {
+ *     serverId: exampleFlexibleServer.id,
+ *     startIpAddress: "122.122.0.0",
+ *     endIpAddress: "122.122.0.0",
+ * });
+ * ```
+ *
  * ## Import
  *
  * PostgreSQL Flexible Server Firewall Rules can be imported using the `resource id`, e.g.

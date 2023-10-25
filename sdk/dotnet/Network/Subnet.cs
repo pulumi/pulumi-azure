@@ -16,6 +16,60 @@ namespace Pulumi.Azure.Network
     /// provides both a standalone Subnet resource, and allows for Subnets to be defined in-line within the Virtual Network resource.
     /// At this time you cannot use a Virtual Network with in-line Subnets in conjunction with any Subnet resources. Doing so will cause a conflict of Subnet configurations and will overwrite Subnets.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.1.0/24",
+    ///         },
+    ///         Delegations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.SubnetDelegationArgs
+    ///             {
+    ///                 Name = "delegation",
+    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                 {
+    ///                     Name = "Microsoft.ContainerInstance/containerGroups",
+    ///                     Actions = new[]
+    ///                     {
+    ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
+    ///                         "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Subnets can be imported using the `resource id`, e.g.

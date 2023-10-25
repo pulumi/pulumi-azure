@@ -12,6 +12,65 @@ namespace Pulumi.Azure.Iot
     /// <summary>
     /// Manages an IoT Hub Device Update Instance.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "East US",
+    ///     });
+    /// 
+    ///     var exampleIotHubDeviceUpdateAccount = new Azure.Iot.IotHubDeviceUpdateAccount("exampleIotHubDeviceUpdateAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleIoTHub = new Azure.Iot.IoTHub("exampleIoTHub", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Sku = new Azure.Iot.Inputs.IoTHubSkuArgs
+    ///         {
+    ///             Name = "S1",
+    ///             Capacity = 1,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleIotHubDeviceUpdateInstance = new Azure.Iot.IotHubDeviceUpdateInstance("exampleIotHubDeviceUpdateInstance", new()
+    ///     {
+    ///         DeviceUpdateAccountId = exampleIotHubDeviceUpdateAccount.Id,
+    ///         IothubId = exampleIoTHub.Id,
+    ///         DiagnosticEnabled = true,
+    ///         DiagnosticStorageAccount = new Azure.Iot.Inputs.IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs
+    ///         {
+    ///             ConnectionString = exampleAccount.PrimaryConnectionString,
+    ///             Id = exampleAccount.Id,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key", "value" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// IoT Hub Device Update Instance can be imported using the `resource id`, e.g.

@@ -15,6 +15,81 @@ import (
 
 // Associates a Spring Cloud Application with a MySQL Database.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mysql"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "exampleSpringCloudService", &appplatform.SpringCloudServiceArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSpringCloudApp, err := appplatform.NewSpringCloudApp(ctx, "exampleSpringCloudApp", &appplatform.SpringCloudAppArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ServiceName:       exampleSpringCloudService.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleServer, err := mysql.NewServer(ctx, "exampleServer", &mysql.ServerArgs{
+//				Location:                     exampleResourceGroup.Location,
+//				ResourceGroupName:            exampleResourceGroup.Name,
+//				AdministratorLogin:           pulumi.String("mysqladminun"),
+//				AdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
+//				SkuName:                      pulumi.String("B_Gen5_2"),
+//				StorageMb:                    pulumi.Int(5120),
+//				Version:                      pulumi.String("5.7"),
+//				SslEnforcementEnabled:        pulumi.Bool(true),
+//				SslMinimalTlsVersionEnforced: pulumi.String("TLS1_2"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDatabase, err := mysql.NewDatabase(ctx, "exampleDatabase", &mysql.DatabaseArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ServerName:        exampleServer.Name,
+//				Charset:           pulumi.String("utf8"),
+//				Collation:         pulumi.String("utf8_unicode_ci"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appplatform.NewSpringCloudAppMysqlAssociation(ctx, "exampleSpringCloudAppMysqlAssociation", &appplatform.SpringCloudAppMysqlAssociationArgs{
+//				SpringCloudAppId: exampleSpringCloudApp.ID(),
+//				MysqlServerId:    exampleServer.ID(),
+//				DatabaseName:     exampleDatabase.Name,
+//				Username:         exampleServer.AdministratorLogin,
+//				Password:         exampleServer.AdministratorLoginPassword,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Spring Cloud Application MySQL Association can be imported using the `resource id`, e.g.

@@ -19,6 +19,104 @@ import (
 // This means that when deleting the `core.TemplateDeployment` resource, this provider will only remove the reference to the deployment, whilst leaving any resources created by that ARM Template Deployment.
 // One workaround for this is to use a unique Resource Group for each ARM Template Deployment, which means deleting the Resource Group would contain any resources created within it - however this isn't ideal. [More information](https://docs.microsoft.com/en-us/rest/api/resources/deployments#Deployments_Delete).
 //
+// ## Example Usage
+//
+// > **Note:** This example uses Storage Accounts and Public IP's which are natively supported by this provider - we'd highly recommend using the Native Resources where possible instead rather than an ARM Template, for the reasons outlined above.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleTemplateDeployment, err := core.NewTemplateDeployment(ctx, "exampleTemplateDeployment", &core.TemplateDeploymentArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				TemplateBody: pulumi.String(`{
+//	  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+//	  "contentVersion": "1.0.0.0",
+//	  "parameters": {
+//	    "storageAccountType": {
+//	      "type": "string",
+//	      "defaultValue": "Standard_LRS",
+//	      "allowedValues": [
+//	        "Standard_LRS",
+//	        "Standard_GRS",
+//	        "Standard_ZRS"
+//	      ],
+//	      "metadata": {
+//	        "description": "Storage Account type"
+//	      }
+//	    }
+//	  },
+//	  "variables": {
+//	    "location": "[resourceGroup().location]",
+//	    "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'storage')]",
+//	    "publicIPAddressName": "[concat('myPublicIp', uniquestring(resourceGroup().id))]",
+//	    "publicIPAddressType": "Dynamic",
+//	    "apiVersion": "2015-06-15",
+//	    "dnsLabelPrefix": "example-acctest"
+//	  },
+//	  "resources": [
+//	    {
+//	      "type": "Microsoft.Storage/storageAccounts",
+//	      "name": "[variables('storageAccountName')]",
+//	      "apiVersion": "[variables('apiVersion')]",
+//	      "location": "[variables('location')]",
+//	      "properties": {
+//	        "accountType": "[parameters('storageAccountType')]"
+//	      }
+//	    },
+//	    {
+//	      "type": "Microsoft.Network/publicIPAddresses",
+//	      "apiVersion": "[variables('apiVersion')]",
+//	      "name": "[variables('publicIPAddressName')]",
+//	      "location": "[variables('location')]",
+//	      "properties": {
+//	        "publicIPAllocationMethod": "[variables('publicIPAddressType')]",
+//	        "dnsSettings": {
+//	          "domainNameLabel": "[variables('dnsLabelPrefix')]"
+//	        }
+//	      }
+//	    }
+//	  ],
+//	  "outputs": {
+//	    "storageAccountName": {
+//	      "type": "string",
+//	      "value": "[variables('storageAccountName')]"
+//	    }
+//	  }
+//	}
+//
+// `),
+//
+//				Parameters: pulumi.StringMap{
+//					"storageAccountType": pulumi.String("Standard_GRS"),
+//				},
+//				DeploymentMode: pulumi.String("Incremental"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("storageAccountName", exampleTemplateDeployment.Outputs.ApplyT(func(outputs map[string]string) (string, error) {
+//				return outputs.StorageAccountName, nil
+//			}).(pulumi.StringOutput))
+//			return nil
+//		})
+//	}
+//
+// ```
 // ## Note
 //
 // This provider does not know about the individual resources created by Azure using a deployment template and therefore cannot delete these resources during a destroy. Destroying a template deployment removes the associated deployment operations, but will not delete the Azure resources created by the deployment. In order to delete these resources, the containing resource group must also be destroyed. [More information](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_Delete).

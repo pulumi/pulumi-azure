@@ -13,12 +13,66 @@ namespace Pulumi.Azure.DatabaseMigration
     {
         /// <summary>
         /// Use this data source to access information about an existing Database Migration Service.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.DatabaseMigration.GetService.Invoke(new()
+        ///     {
+        ///         Name = "example-dms",
+        ///         ResourceGroupName = "example-rg",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["azurermDmsId"] = example.Apply(getServiceResult =&gt; getServiceResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure:databasemigration/getService:getService", args ?? new GetServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Database Migration Service.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.DatabaseMigration.GetService.Invoke(new()
+        ///     {
+        ///         Name = "example-dms",
+        ///         ResourceGroupName = "example-rg",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["azurermDmsId"] = example.Apply(getServiceResult =&gt; getServiceResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure:databasemigration/getService:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());

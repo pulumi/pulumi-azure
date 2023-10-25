@@ -7,6 +7,26 @@ import * as utilities from "../utilities";
 /**
  * Links an Automation Runbook and Schedule.
  *
+ * ## Example Usage
+ *
+ * This is an example of just the Job Schedule.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.automation.JobSchedule("example", {
+ *     automationAccountName: "tf-automation-account",
+ *     parameters: {
+ *         resourcegroup: "tf-rgr-vm",
+ *         vmname: "TF-VM-01",
+ *     },
+ *     resourceGroupName: "tf-rgr-automation",
+ *     runbookName: "Get-VirtualMachine",
+ *     scheduleName: "hour",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Automation Job Schedules can be imported using the `resource id`, e.g.

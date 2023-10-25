@@ -247,6 +247,30 @@ class SqlTrigger(pulumi.CustomResource):
         """
         Manages an SQL Trigger.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_account = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
+            resource_group_name="tfex-cosmosdb-account-rg")
+        example_sql_database = azure.cosmosdb.SqlDatabase("exampleSqlDatabase",
+            resource_group_name=example_account.resource_group_name,
+            account_name=example_account.name,
+            throughput=400)
+        example_sql_container = azure.cosmosdb.SqlContainer("exampleSqlContainer",
+            resource_group_name=example_account.resource_group_name,
+            account_name=example_account.name,
+            database_name=example_sql_database.name,
+            partition_key_path="/id")
+        example_sql_trigger = azure.cosmosdb.SqlTrigger("exampleSqlTrigger",
+            container_id=example_sql_container.id,
+            body="function trigger(){}",
+            operation="Delete",
+            type="Post")
+        ```
+
         ## Import
 
         SQL Triggers can be imported using the `resource id`, e.g.
@@ -271,6 +295,30 @@ class SqlTrigger(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an SQL Trigger.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_account = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
+            resource_group_name="tfex-cosmosdb-account-rg")
+        example_sql_database = azure.cosmosdb.SqlDatabase("exampleSqlDatabase",
+            resource_group_name=example_account.resource_group_name,
+            account_name=example_account.name,
+            throughput=400)
+        example_sql_container = azure.cosmosdb.SqlContainer("exampleSqlContainer",
+            resource_group_name=example_account.resource_group_name,
+            account_name=example_account.name,
+            database_name=example_sql_database.name,
+            partition_key_path="/id")
+        example_sql_trigger = azure.cosmosdb.SqlTrigger("exampleSqlTrigger",
+            container_id=example_sql_container.id,
+            body="function trigger(){}",
+            operation="Delete",
+            type="Post")
+        ```
 
         ## Import
 

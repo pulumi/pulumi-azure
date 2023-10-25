@@ -77,6 +77,17 @@ def get_managed_api(location: Optional[str] = None,
     """
     Uses this data source to access information about an existing Managed API.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.connections.get_managed_api(name="servicebus",
+        location="West Europe")
+    pulumi.export("id", example.id)
+    ```
+
 
     :param str location: The Azure location for this Managed API.
     :param str name: Specifies the name of the Managed API.
@@ -100,6 +111,17 @@ def get_managed_api_output(location: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedApiResult]:
     """
     Uses this data source to access information about an existing Managed API.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.connections.get_managed_api(name="servicebus",
+        location="West Europe")
+    pulumi.export("id", example.id)
+    ```
 
 
     :param str location: The Azure location for this Managed API.

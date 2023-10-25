@@ -1380,6 +1380,35 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
         """
         Manages a Windows Function App Slot.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            os_type="Windows",
+            sku_name="Y1")
+        example_windows_function_app = azure.appservice.WindowsFunctionApp("exampleWindowsFunctionApp",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            storage_account_name=example_account.name,
+            service_plan_id=example_service_plan.id,
+            site_config=azure.appservice.WindowsFunctionAppSiteConfigArgs())
+        example_windows_function_app_slot = azure.appservice.WindowsFunctionAppSlot("exampleWindowsFunctionAppSlot",
+            function_app_id=example_windows_function_app.id,
+            storage_account_name=example_account.name,
+            site_config=azure.appservice.WindowsFunctionAppSlotSiteConfigArgs())
+        ```
+
         ## Import
 
         A Windows Function App Slot can be imported using the `resource id`, e.g.
@@ -1432,6 +1461,35 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Windows Function App Slot.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            os_type="Windows",
+            sku_name="Y1")
+        example_windows_function_app = azure.appservice.WindowsFunctionApp("exampleWindowsFunctionApp",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            storage_account_name=example_account.name,
+            service_plan_id=example_service_plan.id,
+            site_config=azure.appservice.WindowsFunctionAppSiteConfigArgs())
+        example_windows_function_app_slot = azure.appservice.WindowsFunctionAppSlot("exampleWindowsFunctionAppSlot",
+            function_app_id=example_windows_function_app.id,
+            storage_account_name=example_account.name,
+            site_config=azure.appservice.WindowsFunctionAppSlotSiteConfigArgs())
+        ```
 
         ## Import
 

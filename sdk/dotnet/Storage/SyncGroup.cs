@@ -12,6 +12,35 @@ namespace Pulumi.Azure.Storage
     /// <summary>
     /// Manages a Storage Sync Group.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleSync = new Azure.Storage.Sync("exampleSync", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleSyncGroup = new Azure.Storage.SyncGroup("exampleSyncGroup", new()
+    ///     {
+    ///         StorageSyncId = exampleSync.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Storage Sync Groups can be imported using the `resource id`, e.g.

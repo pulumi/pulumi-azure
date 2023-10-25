@@ -9,6 +9,29 @@ import * as utilities from "../utilities";
 /**
  * Manages a Application Insights Standard WebTest.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleInsights = new azure.appinsights.Insights("exampleInsights", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     applicationType: "web",
+ * });
+ * const exampleStandardWebTest = new azure.appinsights.StandardWebTest("exampleStandardWebTest", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: "West Europe",
+ *     applicationInsightsId: exampleInsights.id,
+ *     geoLocations: ["example"],
+ *     request: {
+ *         url: "http://www.example.com",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Application Insights Standard WebTests can be imported using the `resource id`, e.g.

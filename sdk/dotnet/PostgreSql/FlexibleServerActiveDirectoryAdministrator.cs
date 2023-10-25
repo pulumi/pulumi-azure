@@ -12,6 +12,59 @@ namespace Pulumi.Azure.PostgreSql
     /// <summary>
     /// Allows you to set a user or group as the AD administrator for a PostgreSQL Flexible Server.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using AzureAD = Pulumi.AzureAD;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleServicePrincipal = AzureAD.GetServicePrincipal.Invoke(new()
+    ///     {
+    ///         ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///     });
+    /// 
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleFlexibleServer = new Azure.PostgreSql.FlexibleServer("exampleFlexibleServer", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AdministratorLogin = "adminTerraform",
+    ///         AdministratorPassword = "QAZwsx123",
+    ///         StorageMb = 32768,
+    ///         Version = "12",
+    ///         SkuName = "GP_Standard_D2s_v3",
+    ///         Zone = "2",
+    ///         Authentication = new Azure.PostgreSql.Inputs.FlexibleServerAuthenticationArgs
+    ///         {
+    ///             ActiveDirectoryAuthEnabled = true,
+    ///             TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleFlexibleServerActiveDirectoryAdministrator = new Azure.PostgreSql.FlexibleServerActiveDirectoryAdministrator("exampleFlexibleServerActiveDirectoryAdministrator", new()
+    ///     {
+    ///         ServerName = exampleFlexibleServer.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         ObjectId = exampleServicePrincipal.Apply(getServicePrincipalResult =&gt; getServicePrincipalResult.ObjectId),
+    ///         PrincipalName = exampleServicePrincipal.Apply(getServicePrincipalResult =&gt; getServicePrincipalResult.DisplayName),
+    ///         PrincipalType = "ServicePrincipal",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// A PostgreSQL Flexible Server Active Directory Administrator can be imported using the `resource id`, e.g.

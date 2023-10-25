@@ -368,6 +368,62 @@ class BudgetResourceGroup(pulumi.CustomResource):
         """
         Manages a Resource Group Consumption Budget.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="eastus")
+        example_action_group = azure.monitoring.ActionGroup("exampleActionGroup",
+            resource_group_name=example_resource_group.name,
+            short_name="example")
+        example_budget_resource_group = azure.consumption.BudgetResourceGroup("exampleBudgetResourceGroup",
+            resource_group_id=example_resource_group.id,
+            amount=1000,
+            time_grain="Monthly",
+            time_period=azure.consumption.BudgetResourceGroupTimePeriodArgs(
+                start_date="2022-06-01T00:00:00Z",
+                end_date="2022-07-01T00:00:00Z",
+            ),
+            filter=azure.consumption.BudgetResourceGroupFilterArgs(
+                dimensions=[azure.consumption.BudgetResourceGroupFilterDimensionArgs(
+                    name="ResourceId",
+                    values=[example_action_group.id],
+                )],
+                tags=[azure.consumption.BudgetResourceGroupFilterTagArgs(
+                    name="foo",
+                    values=[
+                        "bar",
+                        "baz",
+                    ],
+                )],
+            ),
+            notifications=[
+                azure.consumption.BudgetResourceGroupNotificationArgs(
+                    enabled=True,
+                    threshold=90,
+                    operator="EqualTo",
+                    threshold_type="Forecasted",
+                    contact_emails=[
+                        "foo@example.com",
+                        "bar@example.com",
+                    ],
+                    contact_groups=[example_action_group.id],
+                    contact_roles=["Owner"],
+                ),
+                azure.consumption.BudgetResourceGroupNotificationArgs(
+                    enabled=False,
+                    threshold=100,
+                    operator="GreaterThan",
+                    contact_emails=[
+                        "foo@example.com",
+                        "bar@example.com",
+                    ],
+                ),
+            ])
+        ```
+
         ## Import
 
         Resource Group Consumption Budgets can be imported using the `resource id`, e.g.
@@ -395,6 +451,62 @@ class BudgetResourceGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Resource Group Consumption Budget.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="eastus")
+        example_action_group = azure.monitoring.ActionGroup("exampleActionGroup",
+            resource_group_name=example_resource_group.name,
+            short_name="example")
+        example_budget_resource_group = azure.consumption.BudgetResourceGroup("exampleBudgetResourceGroup",
+            resource_group_id=example_resource_group.id,
+            amount=1000,
+            time_grain="Monthly",
+            time_period=azure.consumption.BudgetResourceGroupTimePeriodArgs(
+                start_date="2022-06-01T00:00:00Z",
+                end_date="2022-07-01T00:00:00Z",
+            ),
+            filter=azure.consumption.BudgetResourceGroupFilterArgs(
+                dimensions=[azure.consumption.BudgetResourceGroupFilterDimensionArgs(
+                    name="ResourceId",
+                    values=[example_action_group.id],
+                )],
+                tags=[azure.consumption.BudgetResourceGroupFilterTagArgs(
+                    name="foo",
+                    values=[
+                        "bar",
+                        "baz",
+                    ],
+                )],
+            ),
+            notifications=[
+                azure.consumption.BudgetResourceGroupNotificationArgs(
+                    enabled=True,
+                    threshold=90,
+                    operator="EqualTo",
+                    threshold_type="Forecasted",
+                    contact_emails=[
+                        "foo@example.com",
+                        "bar@example.com",
+                    ],
+                    contact_groups=[example_action_group.id],
+                    contact_roles=["Owner"],
+                ),
+                azure.consumption.BudgetResourceGroupNotificationArgs(
+                    enabled=False,
+                    threshold=100,
+                    operator="GreaterThan",
+                    contact_emails=[
+                        "foo@example.com",
+                        "bar@example.com",
+                    ],
+                ),
+            ])
+        ```
 
         ## Import
 

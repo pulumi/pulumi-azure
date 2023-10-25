@@ -14,6 +14,48 @@ namespace Pulumi.Azure.Monitoring
     /// 
     /// !&gt; **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `azure.monitoring.AlertProcessingRuleActionGroup` resource instead.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleActionGroup = new Azure.Monitoring.ActionGroup("exampleActionGroup", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ShortName = "example",
+    ///     });
+    /// 
+    ///     var exampleActionRuleActionGroup = new Azure.Monitoring.ActionRuleActionGroup("exampleActionRuleActionGroup", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ActionGroupId = exampleActionGroup.Id,
+    ///         Scope = new Azure.Monitoring.Inputs.ActionRuleActionGroupScopeArgs
+    ///         {
+    ///             Type = "ResourceGroup",
+    ///             ResourceIds = new[]
+    ///             {
+    ///                 exampleResourceGroup.Id,
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "foo", "bar" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Monitor Action Rule can be imported using the `resource id`, e.g.

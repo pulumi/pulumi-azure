@@ -9,6 +9,36 @@ import * as utilities from "../utilities";
 /**
  * Manages a Cost Management Export for a Resource Group.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ * });
+ * const exampleContainer = new azure.storage.Container("exampleContainer", {storageAccountName: exampleAccount.name});
+ * const exampleResourceGroupCostManagementExport = new azure.core.ResourceGroupCostManagementExport("exampleResourceGroupCostManagementExport", {
+ *     resourceGroupId: exampleResourceGroup.id,
+ *     recurrenceType: "Monthly",
+ *     recurrencePeriodStartDate: "2020-08-18T00:00:00Z",
+ *     recurrencePeriodEndDate: "2020-09-18T00:00:00Z",
+ *     exportDataStorageLocation: {
+ *         containerId: exampleContainer.resourceManagerId,
+ *         rootFolderPath: "/root/updated",
+ *     },
+ *     exportDataOptions: {
+ *         type: "Usage",
+ *         timeFrame: "WeekToDate",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Cost Management Export for a Resource Group can be imported using the `resource id`, e.g.

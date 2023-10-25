@@ -12,6 +12,85 @@ namespace Pulumi.Azure.CosmosDB
     /// <summary>
     /// Manages a Cassandra Table within a Cosmos DB Cassandra Keyspace.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.CosmosDB.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         OfferType = "Standard",
+    ///         Capabilities = new[]
+    ///         {
+    ///             new Azure.CosmosDB.Inputs.AccountCapabilityArgs
+    ///             {
+    ///                 Name = "EnableCassandra",
+    ///             },
+    ///         },
+    ///         ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
+    ///         {
+    ///             ConsistencyLevel = "Strong",
+    ///         },
+    ///         GeoLocations = new[]
+    ///         {
+    ///             new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
+    ///             {
+    ///                 Location = exampleResourceGroup.Location,
+    ///                 FailoverPriority = 0,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleCassandraKeyspace = new Azure.CosmosDB.CassandraKeyspace("exampleCassandraKeyspace", new()
+    ///     {
+    ///         ResourceGroupName = exampleAccount.ResourceGroupName,
+    ///         AccountName = exampleAccount.Name,
+    ///         Throughput = 400,
+    ///     });
+    /// 
+    ///     var exampleCassandraTable = new Azure.CosmosDB.CassandraTable("exampleCassandraTable", new()
+    ///     {
+    ///         CassandraKeyspaceId = exampleCassandraKeyspace.Id,
+    ///         Schema = new Azure.CosmosDB.Inputs.CassandraTableSchemaArgs
+    ///         {
+    ///             Columns = new[]
+    ///             {
+    ///                 new Azure.CosmosDB.Inputs.CassandraTableSchemaColumnArgs
+    ///                 {
+    ///                     Name = "test1",
+    ///                     Type = "ascii",
+    ///                 },
+    ///                 new Azure.CosmosDB.Inputs.CassandraTableSchemaColumnArgs
+    ///                 {
+    ///                     Name = "test2",
+    ///                     Type = "int",
+    ///                 },
+    ///             },
+    ///             PartitionKeys = new[]
+    ///             {
+    ///                 new Azure.CosmosDB.Inputs.CassandraTableSchemaPartitionKeyArgs
+    ///                 {
+    ///                     Name = "test1",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Cosmos Cassandra Table can be imported using the `resource id`, e.g.

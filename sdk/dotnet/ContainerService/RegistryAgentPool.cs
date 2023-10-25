@@ -12,6 +12,38 @@ namespace Pulumi.Azure.ContainerService
     /// <summary>
     /// Manages an Azure Container Registry Agent Pool.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europ",
+    ///     });
+    /// 
+    ///     var exampleRegistry = new Azure.ContainerService.Registry("exampleRegistry", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Sku = "Premium",
+    ///     });
+    /// 
+    ///     var exampleRegistryAgentPool = new Azure.ContainerService.RegistryAgentPool("exampleRegistryAgentPool", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ContainerRegistryName = exampleRegistry.Name,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Azure Container Registry Agent Pool can be imported using the `resource id`, e.g.

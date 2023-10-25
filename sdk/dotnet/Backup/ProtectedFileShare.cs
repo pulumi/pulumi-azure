@@ -12,6 +12,76 @@ namespace Pulumi.Azure.Backup
     /// <summary>
     /// Manages an Azure Backup Protected File Share to enable backups for file shares within an Azure Storage Account
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var vault = new Azure.RecoveryServices.Vault("vault", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Standard",
+    ///     });
+    /// 
+    ///     var sa = new Azure.Storage.Account("sa", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleShare = new Azure.Storage.Share("exampleShare", new()
+    ///     {
+    ///         StorageAccountName = sa.Name,
+    ///         Quota = 1,
+    ///     });
+    /// 
+    ///     var protection_container = new Azure.Backup.ContainerStorageAccount("protection-container", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         RecoveryVaultName = vault.Name,
+    ///         StorageAccountId = sa.Id,
+    ///     });
+    /// 
+    ///     var examplePolicyFileShare = new Azure.Backup.PolicyFileShare("examplePolicyFileShare", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         RecoveryVaultName = vault.Name,
+    ///         Backup = new Azure.Backup.Inputs.PolicyFileShareBackupArgs
+    ///         {
+    ///             Frequency = "Daily",
+    ///             Time = "23:00",
+    ///         },
+    ///         RetentionDaily = new Azure.Backup.Inputs.PolicyFileShareRetentionDailyArgs
+    ///         {
+    ///             Count = 10,
+    ///         },
+    ///     });
+    /// 
+    ///     var share1 = new Azure.Backup.ProtectedFileShare("share1", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         RecoveryVaultName = vault.Name,
+    ///         SourceStorageAccountId = protection_container.StorageAccountId,
+    ///         SourceFileShareName = exampleShare.Name,
+    ///         BackupPolicyId = examplePolicyFileShare.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Azure Backup Protected File Shares can be imported using the `resource id`, e.g.

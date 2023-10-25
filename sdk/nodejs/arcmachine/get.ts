@@ -8,6 +8,19 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Azure Arc machine.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.arcmachine.get({
+ *     name: "existing-hcmachine",
+ *     resourceGroupName: "existing-rg",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
  */
 export function get(args: GetArgs, opts?: pulumi.InvokeOptions): Promise<GetResult> {
 
@@ -156,6 +169,19 @@ export interface GetResult {
 }
 /**
  * Use this data source to access information about an existing Azure Arc machine.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.arcmachine.get({
+ *     name: "existing-hcmachine",
+ *     resourceGroupName: "existing-rg",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
  */
 export function getOutput(args: GetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResult> {
     return pulumi.output(args).apply((a: any) => get(a, opts))

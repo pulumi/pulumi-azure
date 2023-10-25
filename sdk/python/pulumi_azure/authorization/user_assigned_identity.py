@@ -269,6 +269,18 @@ class UserAssignedIdentity(pulumi.CustomResource):
 
         Manages a User Assigned Identity.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        ```
+
         ## Import
 
         An existing User Assigned Identity can be imported into Terraform using the `resource id`, e.g.
@@ -296,6 +308,18 @@ class UserAssignedIdentity(pulumi.CustomResource):
         <!-- Note: This documentation is generated. Any manual changes will be overwritten -->
 
         Manages a User Assigned Identity.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        ```
 
         ## Import
 

@@ -12,6 +12,86 @@ namespace Pulumi.Azure.DataFactory
     /// <summary>
     /// Manages a Linked Service (connection) between Synapse and Azure Data Factory.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleLinkedServiceSynapse = new Azure.DataFactory.LinkedServiceSynapse("exampleLinkedServiceSynapse", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         ConnectionString = "Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;Password=test",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### With Password In Key Vault
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "standard",
+    ///     });
+    /// 
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleLinkedServiceKeyVault = new Azure.DataFactory.LinkedServiceKeyVault("exampleLinkedServiceKeyVault", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///     });
+    /// 
+    ///     var exampleLinkedServiceSynapse = new Azure.DataFactory.LinkedServiceSynapse("exampleLinkedServiceSynapse", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         ConnectionString = "Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;",
+    ///         KeyVaultPassword = new Azure.DataFactory.Inputs.LinkedServiceSynapseKeyVaultPasswordArgs
+    ///         {
+    ///             LinkedServiceName = exampleLinkedServiceKeyVault.Name,
+    ///             SecretName = "secret",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Data Factory Synapse Linked Service's can be imported using the `resource id`, e.g.

@@ -9,6 +9,45 @@ import * as utilities from "../utilities";
 /**
  * Manages a Resource Group Policy Assignment.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleDefinition = new azure.policy.Definition("exampleDefinition", {
+ *     policyType: "Custom",
+ *     mode: "All",
+ *     displayName: "my-policy-definition",
+ *     policyRule: ` {
+ *     "if": {
+ *       "not": {
+ *         "field": "location",
+ *         "equals": "westeurope"
+ *       }
+ *     },
+ *     "then": {
+ *       "effect": "Deny"
+ *     }
+ *   }
+ * `,
+ * });
+ * const exampleResourceGroupPolicyAssignment = new azure.core.ResourceGroupPolicyAssignment("exampleResourceGroupPolicyAssignment", {
+ *     resourceGroupId: exampleResourceGroup.id,
+ *     policyDefinitionId: exampleDefinition.id,
+ *     parameters: `    {
+ *       "tagName": {
+ *         "value": "Business Unit"
+ *       },
+ *       "tagValue": {
+ *         "value": "BU"
+ *       }
+ *     }
+ * `,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Resource Group Policy Assignments can be imported using the `resource id`, e.g.

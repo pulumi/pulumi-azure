@@ -14,6 +14,69 @@ namespace Pulumi.Azure.MySql
     /// 
     /// &gt; **NOTE:** MySQL Virtual Network Rules [can only be used with SKU Tiers of `GeneralPurpose` or `MemoryOptimized`](https://docs.microsoft.com/azure/mysql/concepts-data-access-and-security-vnet)
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.7.29.0/29",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var @internal = new Azure.Network.Subnet("internal", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.7.29.0/29",
+    ///         },
+    ///         ServiceEndpoints = new[]
+    ///         {
+    ///             "Microsoft.Sql",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleServer = new Azure.MySql.Server("exampleServer", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AdministratorLogin = "mysqladminun",
+    ///         AdministratorLoginPassword = "H@Sh1CoR3!",
+    ///         SkuName = "GP_Gen5_2",
+    ///         StorageMb = 5120,
+    ///         Version = "5.7",
+    ///         BackupRetentionDays = 7,
+    ///         GeoRedundantBackupEnabled = false,
+    ///         SslEnforcementEnabled = true,
+    ///     });
+    /// 
+    ///     var exampleVirtualNetworkRule = new Azure.MySql.VirtualNetworkRule("exampleVirtualNetworkRule", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ServerName = exampleServer.Name,
+    ///         SubnetId = @internal.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// MySQL Virtual Network Rules can be imported using the `resource id`, e.g.

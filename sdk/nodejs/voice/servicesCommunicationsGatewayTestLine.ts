@@ -7,6 +7,25 @@ import * as utilities from "../utilities";
 /**
  * Manages a Voice Services Communications Gateway Test Line.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Central US"});
+ * const exampleServicesCommunicationsGateway = new azure.voice.ServicesCommunicationsGateway("exampleServicesCommunicationsGateway", {resourceGroupName: exampleResourceGroup.name});
+ * const exampleServicesCommunicationsGatewayTestLine = new azure.voice.ServicesCommunicationsGatewayTestLine("exampleServicesCommunicationsGatewayTestLine", {
+ *     location: "West Central US",
+ *     voiceServicesCommunicationsGatewayId: exampleServicesCommunicationsGateway.id,
+ *     phoneNumber: "123456789",
+ *     purpose: "Automated",
+ *     tags: {
+ *         key: "value",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Voice Services Communications Gateway Test Line can be imported using the `resource id`, e.g.

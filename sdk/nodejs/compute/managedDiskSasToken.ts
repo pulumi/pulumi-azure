@@ -13,6 +13,27 @@ import * as utilities from "../utilities";
  *
  * With the help of this resource, data from the disk can be copied from managed disk to a storage blob or to some other system without the need of azcopy.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const testResourceGroup = new azure.core.ResourceGroup("testResourceGroup", {location: "West Europe"});
+ * const testManagedDisk = new azure.compute.ManagedDisk("testManagedDisk", {
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
+ *     storageAccountType: "Standard_LRS",
+ *     createOption: "Empty",
+ *     diskSizeGb: 1,
+ * });
+ * const testManagedDiskSasToken = new azure.compute.ManagedDiskSasToken("testManagedDiskSasToken", {
+ *     managedDiskId: testManagedDisk.id,
+ *     durationInSeconds: 300,
+ *     accessLevel: "Read",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Disk SAS Token can be imported using the `resource id`, e.g.

@@ -8,6 +8,20 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Spring Cloud Application.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.appplatform.getSpringCloudApp({
+ *     name: azurerm_spring_cloud_app.example.name,
+ *     resourceGroupName: azurerm_spring_cloud_app.example.resource_group_name,
+ *     serviceName: azurerm_spring_cloud_app.example.service_name,
+ * });
+ * export const springCloudAppId = example.then(example => example.id);
+ * ```
  */
 export function getSpringCloudApp(args: GetSpringCloudAppArgs, opts?: pulumi.InvokeOptions): Promise<GetSpringCloudAppResult> {
 
@@ -79,6 +93,20 @@ export interface GetSpringCloudAppResult {
 }
 /**
  * Use this data source to access information about an existing Spring Cloud Application.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.appplatform.getSpringCloudApp({
+ *     name: azurerm_spring_cloud_app.example.name,
+ *     resourceGroupName: azurerm_spring_cloud_app.example.resource_group_name,
+ *     serviceName: azurerm_spring_cloud_app.example.service_name,
+ * });
+ * export const springCloudAppId = example.then(example => example.id);
+ * ```
  */
 export function getSpringCloudAppOutput(args: GetSpringCloudAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSpringCloudAppResult> {
     return pulumi.output(args).apply((a: any) => getSpringCloudApp(a, opts))

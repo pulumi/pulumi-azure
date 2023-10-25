@@ -7,6 +7,28 @@ import * as utilities from "../utilities";
 /**
  * Manages an Automation Certificate.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as fs from "fs";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAccount = new azure.automation.Account("exampleAccount", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     skuName: "Basic",
+ * });
+ * const exampleCertificate = new azure.automation.Certificate("exampleCertificate", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     automationAccountName: exampleAccount.name,
+ *     description: "This is an example certificate",
+ *     base64: Buffer.from(fs.readFileSync("certificate.pfx"), 'binary').toString('base64'),
+ *     exportable: true,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Automation Certificates can be imported using the `resource id`, e.g.

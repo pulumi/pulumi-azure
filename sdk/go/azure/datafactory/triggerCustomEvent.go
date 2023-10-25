@@ -15,6 +15,85 @@ import (
 
 // Manages a Custom Event Trigger inside an Azure Data Factory.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventgrid"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePipeline, err := datafactory.NewPipeline(ctx, "examplePipeline", &datafactory.PipelineArgs{
+//				DataFactoryId: exampleFactory.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleTopic, err := eventgrid.NewTopic(ctx, "exampleTopic", &eventgrid.TopicArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datafactory.NewTriggerCustomEvent(ctx, "exampleTriggerCustomEvent", &datafactory.TriggerCustomEventArgs{
+//				DataFactoryId:    exampleFactory.ID(),
+//				EventgridTopicId: exampleTopic.ID(),
+//				Events: pulumi.StringArray{
+//					pulumi.String("event1"),
+//					pulumi.String("event2"),
+//				},
+//				SubjectBeginsWith: pulumi.String("abc"),
+//				SubjectEndsWith:   pulumi.String("xyz"),
+//				Annotations: pulumi.StringArray{
+//					pulumi.String("example1"),
+//					pulumi.String("example2"),
+//					pulumi.String("example3"),
+//				},
+//				Description: pulumi.String("example description"),
+//				Pipelines: datafactory.TriggerCustomEventPipelineArray{
+//					&datafactory.TriggerCustomEventPipelineArgs{
+//						Name: examplePipeline.Name,
+//						Parameters: pulumi.StringMap{
+//							"Env": pulumi.String("Prod"),
+//						},
+//					},
+//				},
+//				AdditionalProperties: pulumi.StringMap{
+//					"foo": pulumi.String("foo1"),
+//					"bar": pulumi.String("bar2"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Data Factory Custom Event Trigger can be imported using the `resource id`, e.g.

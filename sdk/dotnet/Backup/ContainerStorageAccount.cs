@@ -12,6 +12,46 @@ namespace Pulumi.Azure.Backup
     /// <summary>
     /// Manages registration of a storage account with Azure Backup. Storage accounts must be registered with an Azure Recovery Vault in order to backup file shares within the storage account. Registering a storage account with a vault creates what is known as a protection container within Azure Recovery Services. Once the container is created, Azure file shares within the storage account can be backed up using the `azure.backup.ProtectedFileShare` resource.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var vault = new Azure.RecoveryServices.Vault("vault", new()
+    ///     {
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Sku = "Standard",
+    ///     });
+    /// 
+    ///     var sa = new Azure.Storage.Account("sa", new()
+    ///     {
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var container = new Azure.Backup.ContainerStorageAccount("container", new()
+    ///     {
+    ///         ResourceGroupName = example.Name,
+    ///         RecoveryVaultName = vault.Name,
+    ///         StorageAccountId = sa.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Backup Storage Account Containers can be imported using the `resource id`, e.g.

@@ -248,6 +248,21 @@ class Workspace(pulumi.CustomResource):
         """
         Manages an Azure Monitor Workspace.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_workspace = azure.monitoring.Workspace("exampleWorkspace",
+            resource_group_name=example_resource_group.name,
+            location="West Europe",
+            tags={
+                "key": "value",
+            })
+        ```
+
         ## Import
 
         Azure Monitor Workspace can be imported using the `resource id`, e.g.
@@ -272,6 +287,21 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Monitor Workspace.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_workspace = azure.monitoring.Workspace("exampleWorkspace",
+            resource_group_name=example_resource_group.name,
+            location="West Europe",
+            tags={
+                "key": "value",
+            })
+        ```
 
         ## Import
 

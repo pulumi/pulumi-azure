@@ -9,6 +9,31 @@ import * as utilities from "../utilities";
 /**
  * Manages a MySQL Server.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleServer = new azure.mysql.Server("exampleServer", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     administratorLogin: "mysqladminun",
+ *     administratorLoginPassword: "H@Sh1CoR3!",
+ *     skuName: "B_Gen5_2",
+ *     storageMb: 5120,
+ *     version: "5.7",
+ *     autoGrowEnabled: true,
+ *     backupRetentionDays: 7,
+ *     geoRedundantBackupEnabled: false,
+ *     infrastructureEncryptionEnabled: false,
+ *     publicNetworkAccessEnabled: true,
+ *     sslEnforcementEnabled: true,
+ *     sslMinimalTlsVersionEnforced: "TLS1_2",
+ * });
+ * ```
+ *
  * ## Import
  *
  * MySQL Server's can be imported using the `resource id`, e.g.

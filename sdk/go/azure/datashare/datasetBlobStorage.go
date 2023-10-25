@@ -15,6 +15,97 @@ import (
 
 // Manages a Data Share Blob Storage Dataset.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datashare"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi-azuread/sdk/v5/go/azuread"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := datashare.NewAccount(ctx, "exampleAccount", &datashare.AccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Identity: &datashare.AccountIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleShare, err := datashare.NewShare(ctx, "exampleShare", &datashare.ShareArgs{
+//				AccountId: exampleAccount.ID(),
+//				Kind:      pulumi.String("CopyBased"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = storage.NewAccount(ctx, "exampleStorage/accountAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("RAGRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
+//				StorageAccountName:  exampleStorage / accountAccount.Name,
+//				ContainerAccessType: pulumi.String("container"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleServicePrincipal := azuread.LookupServicePrincipalOutput(ctx, azuread.GetServicePrincipalOutputArgs{
+//				DisplayName: exampleAccount.Name,
+//			}, nil)
+//			exampleAssignment, err := authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
+//				Scope:              exampleStorage / accountAccount.Id,
+//				RoleDefinitionName: pulumi.String("Storage Blob Data Reader"),
+//				PrincipalId: exampleServicePrincipal.ApplyT(func(exampleServicePrincipal azuread.GetServicePrincipalResult) (*string, error) {
+//					return &exampleServicePrincipal.ObjectId, nil
+//				}).(pulumi.StringPtrOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datashare.NewDatasetBlobStorage(ctx, "exampleDatasetBlobStorage", &datashare.DatasetBlobStorageArgs{
+//				DataShareId:   exampleShare.ID(),
+//				ContainerName: exampleContainer.Name,
+//				StorageAccount: &datashare.DatasetBlobStorageStorageAccountArgs{
+//					Name:              exampleStorage / accountAccount.Name,
+//					ResourceGroupName: exampleStorage / accountAccount.ResourceGroupName,
+//					SubscriptionId:    pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				},
+//				FilePath: pulumi.String("myfile.txt"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAssignment,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Data Share Blob Storage Datasets can be imported using the `resource id`, e.g.

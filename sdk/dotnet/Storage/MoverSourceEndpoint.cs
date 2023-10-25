@@ -12,6 +12,38 @@ namespace Pulumi.Azure.Storage
     /// <summary>
     /// Manages a Storage Mover Source Endpoint.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleMover = new Azure.Storage.Mover("exampleMover", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleMoverSourceEndpoint = new Azure.Storage.MoverSourceEndpoint("exampleMoverSourceEndpoint", new()
+    ///     {
+    ///         StorageMoverId = exampleMover.Id,
+    ///         Export = "/",
+    ///         Host = "192.168.0.1",
+    ///         NfsVersion = "NFSv3",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Storage Mover Source Endpoint can be imported using the `resource id`, e.g.

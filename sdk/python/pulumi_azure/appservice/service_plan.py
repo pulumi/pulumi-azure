@@ -564,6 +564,20 @@ class ServicePlan(pulumi.CustomResource):
         """
         Manages an App Service: Service Plan.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            os_type="Linux",
+            sku_name="P1v2")
+        ```
+
         ## Import
 
         AppServices can be imported using the `resource id`, e.g.
@@ -602,6 +616,20 @@ class ServicePlan(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an App Service: Service Plan.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            os_type="Linux",
+            sku_name="P1v2")
+        ```
 
         ## Import
 

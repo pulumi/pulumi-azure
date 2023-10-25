@@ -15,6 +15,64 @@ import (
 
 // Enables you to manage DNS SRV Records within Azure Private DNS.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleZone, err := privatedns.NewZone(ctx, "exampleZone", &privatedns.ZoneArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = privatedns.NewSRVRecord(ctx, "exampleSRVRecord", &privatedns.SRVRecordArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ZoneName:          exampleZone.Name,
+//				Ttl:               pulumi.Int(300),
+//				Records: privatedns.SRVRecordRecordArray{
+//					&privatedns.SRVRecordRecordArgs{
+//						Priority: pulumi.Int(1),
+//						Weight:   pulumi.Int(5),
+//						Port:     pulumi.Int(8080),
+//						Target:   pulumi.String("target1.contoso.com"),
+//					},
+//					&privatedns.SRVRecordRecordArgs{
+//						Priority: pulumi.Int(10),
+//						Weight:   pulumi.Int(10),
+//						Port:     pulumi.Int(8080),
+//						Target:   pulumi.String("target2.contoso.com"),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Environment": pulumi.String("Production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Private DNS SRV Records can be imported using the `resource id`, e.g.

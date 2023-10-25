@@ -12,6 +12,65 @@ namespace Pulumi.Azure.Sentinel
     /// <summary>
     /// Manages a Sentinel Metadata.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "pergb2018",
+    ///     });
+    /// 
+    ///     var exampleAnalyticsSolution = new Azure.OperationalInsights.AnalyticsSolution("exampleAnalyticsSolution", new()
+    ///     {
+    ///         SolutionName = "SecurityInsights",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
+    ///         WorkspaceName = exampleAnalyticsWorkspace.Name,
+    ///         Plan = new Azure.OperationalInsights.Inputs.AnalyticsSolutionPlanArgs
+    ///         {
+    ///             Publisher = "Microsoft",
+    ///             Product = "OMSGallery/SecurityInsights",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAlertRuleNrt = new Azure.Sentinel.AlertRuleNrt("exampleAlertRuleNrt", new()
+    ///     {
+    ///         LogAnalyticsWorkspaceId = exampleAnalyticsSolution.WorkspaceResourceId,
+    ///         DisplayName = "example",
+    ///         Severity = "High",
+    ///         Query = @"AzureActivity |
+    ///   where OperationName == ""Create or Update Virtual Machine"" or OperationName ==""Create Deployment"" |
+    ///   where ActivityStatus == ""Succeeded"" |
+    ///   make-series dcount(ResourceId) default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
+    /// ",
+    ///     });
+    /// 
+    ///     var exampleMetadata = new Azure.Sentinel.Metadata("exampleMetadata", new()
+    ///     {
+    ///         WorkspaceId = exampleAnalyticsSolution.WorkspaceResourceId,
+    ///         ContentId = exampleAlertRuleNrt.Name,
+    ///         Kind = "AnalyticsRule",
+    ///         ParentId = exampleAlertRuleNrt.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Sentinel Metadata can be imported using the `resource id`, e.g.

@@ -12,6 +12,205 @@ namespace Pulumi.Azure.Maintenance
     /// <summary>
     /// Manages a maintenance assignment to a virtual machine scale set.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AllocationMethod = "Static",
+    ///     });
+    /// 
+    ///     var exampleLoadBalancer = new Azure.Lb.LoadBalancer("exampleLoadBalancer", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         FrontendIpConfigurations = new[]
+    ///         {
+    ///             new Azure.Lb.Inputs.LoadBalancerFrontendIpConfigurationArgs
+    ///             {
+    ///                 Name = "internal",
+    ///                 PublicIpAddressId = examplePublicIp.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleBackendAddressPool = new Azure.Lb.BackendAddressPool("exampleBackendAddressPool", new()
+    ///     {
+    ///         LoadbalancerId = exampleLoadBalancer.Id,
+    ///     });
+    /// 
+    ///     var exampleProbe = new Azure.Lb.Probe("exampleProbe", new()
+    ///     {
+    ///         LoadbalancerId = exampleLoadBalancer.Id,
+    ///         Port = 22,
+    ///         Protocol = "Tcp",
+    ///     });
+    /// 
+    ///     var exampleRule = new Azure.Lb.Rule("exampleRule", new()
+    ///     {
+    ///         LoadbalancerId = exampleLoadBalancer.Id,
+    ///         ProbeId = exampleProbe.Id,
+    ///         FrontendIpConfigurationName = "internal",
+    ///         Protocol = "Tcp",
+    ///         FrontendPort = 22,
+    ///         BackendPort = 22,
+    ///     });
+    /// 
+    ///     var exampleConfiguration = new Azure.Maintenance.Configuration("exampleConfiguration", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Scope = "OSImage",
+    ///         Visibility = "Custom",
+    ///         Window = new Azure.Maintenance.Inputs.ConfigurationWindowArgs
+    ///         {
+    ///             StartDateTime = "2021-12-31 00:00",
+    ///             ExpirationDateTime = "9999-12-31 00:00",
+    ///             Duration = "06:00",
+    ///             TimeZone = "Pacific Standard Time",
+    ///             RecurEvery = "1Days",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("exampleNetworkInterface", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         IpConfigurations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
+    ///             {
+    ///                 Name = "testconfiguration1",
+    ///                 PrivateIpAddressAllocation = "Dynamic",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleLinuxVirtualMachine = new Azure.Compute.LinuxVirtualMachine("exampleLinuxVirtualMachine", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Size = "Standard_F2",
+    ///         AdminUsername = "adminuser",
+    ///         NetworkInterfaceIds = new[]
+    ///         {
+    ///             exampleNetworkInterface.Id,
+    ///         },
+    ///         OsDisk = new Azure.Compute.Inputs.LinuxVirtualMachineOsDiskArgs
+    ///         {
+    ///             Caching = "ReadWrite",
+    ///             StorageAccountType = "Standard_LRS",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleLinuxVirtualMachineScaleSet = new Azure.Compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Sku = "Standard_F2",
+    ///         Instances = 1,
+    ///         AdminUsername = "adminuser",
+    ///         AdminPassword = "P@ssword1234!",
+    ///         UpgradeMode = "Automatic",
+    ///         HealthProbeId = exampleProbe.Id,
+    ///         DisablePasswordAuthentication = false,
+    ///         SourceImageReference = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetSourceImageReferenceArgs
+    ///         {
+    ///             Publisher = "Canonical",
+    ///             Offer = "0001-com-ubuntu-server-focal",
+    ///             Sku = "20_04-lts",
+    ///             Version = "latest",
+    ///         },
+    ///         OsDisk = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetOsDiskArgs
+    ///         {
+    ///             StorageAccountType = "Standard_LRS",
+    ///             Caching = "ReadWrite",
+    ///         },
+    ///         NetworkInterfaces = new[]
+    ///         {
+    ///             new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetNetworkInterfaceArgs
+    ///             {
+    ///                 Name = "example",
+    ///                 Primary = true,
+    ///                 IpConfigurations = new[]
+    ///                 {
+    ///                     new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs
+    ///                     {
+    ///                         Name = "internal",
+    ///                         Primary = true,
+    ///                         SubnetId = exampleSubnet.Id,
+    ///                         LoadBalancerBackendAddressPoolIds = new[]
+    ///                         {
+    ///                             exampleBackendAddressPool.Id,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         AutomaticOsUpgradePolicy = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs
+    ///         {
+    ///             DisableAutomaticRollback = true,
+    ///             EnableAutomaticOsUpgrade = true,
+    ///         },
+    ///         RollingUpgradePolicy = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs
+    ///         {
+    ///             MaxBatchInstancePercent = 20,
+    ///             MaxUnhealthyInstancePercent = 20,
+    ///             MaxUnhealthyUpgradedInstancePercent = 20,
+    ///             PauseTimeBetweenBatches = "PT0S",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             "azurerm_lb_rule.example",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAssignmentVirtualMachineScaleSet = new Azure.Maintenance.AssignmentVirtualMachineScaleSet("exampleAssignmentVirtualMachineScaleSet", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         MaintenanceConfigurationId = exampleConfiguration.Id,
+    ///         VirtualMachineScaleSetId = exampleLinuxVirtualMachine.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Maintenance Assignment can be imported using the `resource id`, e.g.

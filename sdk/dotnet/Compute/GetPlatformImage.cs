@@ -13,12 +13,70 @@ namespace Pulumi.Azure.Compute
     {
         /// <summary>
         /// Use this data source to access information about a Platform Image.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Compute.GetPlatformImage.Invoke(new()
+        ///     {
+        ///         Location = "West Europe",
+        ///         Publisher = "Canonical",
+        ///         Offer = "0001-com-ubuntu-server-focal",
+        ///         Sku = "20_04-lts",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getPlatformImageResult =&gt; getPlatformImageResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetPlatformImageResult> InvokeAsync(GetPlatformImageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPlatformImageResult>("azure:compute/getPlatformImage:getPlatformImage", args ?? new GetPlatformImageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about a Platform Image.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Compute.GetPlatformImage.Invoke(new()
+        ///     {
+        ///         Location = "West Europe",
+        ///         Publisher = "Canonical",
+        ///         Offer = "0001-com-ubuntu-server-focal",
+        ///         Sku = "20_04-lts",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getPlatformImageResult =&gt; getPlatformImageResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetPlatformImageResult> Invoke(GetPlatformImageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPlatformImageResult>("azure:compute/getPlatformImage:getPlatformImage", args ?? new GetPlatformImageInvokeArgs(), options.WithDefaults());

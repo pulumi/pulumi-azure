@@ -219,6 +219,62 @@ class Assessment(pulumi.CustomResource):
         """
         Manages the Security Center Assessment for Azure Security Center.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            address_spaces=["10.0.0.0/16"])
+        internal = azure.network.Subnet("internal",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku="Standard_F2",
+            instances=1,
+            admin_username="adminuser",
+            admin_ssh_keys=[azure.compute.LinuxVirtualMachineScaleSetAdminSshKeyArgs(
+                username="adminuser",
+                public_key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"),
+            )],
+            source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
+                publisher="Canonical",
+                offer="0001-com-ubuntu-server-focal",
+                sku="20_04-lts",
+                version="latest",
+            ),
+            os_disk=azure.compute.LinuxVirtualMachineScaleSetOsDiskArgs(
+                storage_account_type="Standard_LRS",
+                caching="ReadWrite",
+            ),
+            network_interfaces=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs(
+                name="example",
+                primary=True,
+                ip_configurations=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs(
+                    name="internal",
+                    primary=True,
+                    subnet_id=internal.id,
+                )],
+            )])
+        example_assessment_policy = azure.securitycenter.AssessmentPolicy("exampleAssessmentPolicy",
+            display_name="Test Display Name",
+            severity="Medium",
+            description="Test Description")
+        example_assessment = azure.securitycenter.Assessment("exampleAssessment",
+            assessment_policy_id=example_assessment_policy.id,
+            target_resource_id=example_linux_virtual_machine_scale_set.id,
+            status=azure.securitycenter.AssessmentStatusArgs(
+                code="Healthy",
+            ))
+        ```
+
         ## Import
 
         Security Assessment can be imported using the `resource id`, e.g.
@@ -242,6 +298,62 @@ class Assessment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages the Security Center Assessment for Azure Security Center.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            address_spaces=["10.0.0.0/16"])
+        internal = azure.network.Subnet("internal",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku="Standard_F2",
+            instances=1,
+            admin_username="adminuser",
+            admin_ssh_keys=[azure.compute.LinuxVirtualMachineScaleSetAdminSshKeyArgs(
+                username="adminuser",
+                public_key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"),
+            )],
+            source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
+                publisher="Canonical",
+                offer="0001-com-ubuntu-server-focal",
+                sku="20_04-lts",
+                version="latest",
+            ),
+            os_disk=azure.compute.LinuxVirtualMachineScaleSetOsDiskArgs(
+                storage_account_type="Standard_LRS",
+                caching="ReadWrite",
+            ),
+            network_interfaces=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs(
+                name="example",
+                primary=True,
+                ip_configurations=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs(
+                    name="internal",
+                    primary=True,
+                    subnet_id=internal.id,
+                )],
+            )])
+        example_assessment_policy = azure.securitycenter.AssessmentPolicy("exampleAssessmentPolicy",
+            display_name="Test Display Name",
+            severity="Medium",
+            description="Test Description")
+        example_assessment = azure.securitycenter.Assessment("exampleAssessment",
+            assessment_policy_id=example_assessment_policy.id,
+            target_resource_id=example_linux_virtual_machine_scale_set.id,
+            status=azure.securitycenter.AssessmentStatusArgs(
+                code="Healthy",
+            ))
+        ```
 
         ## Import
 

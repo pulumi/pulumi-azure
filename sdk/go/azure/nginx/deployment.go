@@ -15,6 +15,99 @@ import (
 
 // Manages a Nginx Deployment.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/nginx"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				AllocationMethod:  pulumi.String("Static"),
+//				Sku:               pulumi.String("Standard"),
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("Production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.2.0/24"),
+//				},
+//				Delegations: network.SubnetDelegationArray{
+//					&network.SubnetDelegationArgs{
+//						Name: pulumi.String("delegation"),
+//						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
+//							Name: pulumi.String("NGINX.NGINXPLUS/nginxDeployments"),
+//							Actions: pulumi.StringArray{
+//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = nginx.NewDeployment(ctx, "exampleDeployment", &nginx.DeploymentArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Sku:                    pulumi.String("publicpreview_Monthly_gmz7xq9ge3py"),
+//				Location:               exampleResourceGroup.Location,
+//				ManagedResourceGroup:   pulumi.String("example"),
+//				DiagnoseSupportEnabled: pulumi.Bool(true),
+//				FrontendPublic: &nginx.DeploymentFrontendPublicArgs{
+//					IpAddresses: pulumi.StringArray{
+//						examplePublicIp.ID(),
+//					},
+//				},
+//				NetworkInterfaces: nginx.DeploymentNetworkInterfaceArray{
+//					&nginx.DeploymentNetworkInterfaceArgs{
+//						SubnetId: exampleSubnet.ID(),
+//					},
+//				},
+//				Capacity: pulumi.Int(20),
+//				Email:    pulumi.String("user@test.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Nginx Deployments can be imported using the `resource id`, e.g.

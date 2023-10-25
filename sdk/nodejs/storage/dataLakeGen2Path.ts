@@ -11,6 +11,30 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** This resource requires some `Storage` specific roles which are not granted by default. Some of the built-ins roles that can be attributed are [`Storage Account Contributor`](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor), [`Storage Blob Data Owner`](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner), [`Storage Blob Data Contributor`](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor), [`Storage Blob Data Reader`](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader).
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ *     accountKind: "StorageV2",
+ *     isHnsEnabled: true,
+ * });
+ * const exampleDataLakeGen2Filesystem = new azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", {storageAccountId: exampleAccount.id});
+ * const exampleDataLakeGen2Path = new azure.storage.DataLakeGen2Path("exampleDataLakeGen2Path", {
+ *     path: "example",
+ *     filesystemName: exampleDataLakeGen2Filesystem.name,
+ *     storageAccountId: exampleAccount.id,
+ *     resource: "directory",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Data Lake Gen2 Paths can be imported using the `resource id`, e.g.

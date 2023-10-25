@@ -7,6 +7,38 @@ import * as utilities from "../utilities";
 /**
  * Manages a Hostname Binding within an App Service Slot.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const examplePlan = new azure.appservice.Plan("examplePlan", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: {
+ *         tier: "Standard",
+ *         size: "S1",
+ *     },
+ * });
+ * const exampleAppService = new azure.appservice.AppService("exampleAppService", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     appServicePlanId: examplePlan.id,
+ * });
+ * const exampleSlot = new azure.appservice.Slot("exampleSlot", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     appServiceName: exampleAppService.name,
+ *     appServicePlanId: examplePlan.id,
+ * });
+ * const exampleSlotCustomHostnameBinding = new azure.appservice.SlotCustomHostnameBinding("exampleSlotCustomHostnameBinding", {
+ *     appServiceSlotId: exampleSlot.id,
+ *     hostname: "www.mywebsite.com",
+ * });
+ * ```
+ *
  * ## Import
  *
  * App Service Custom Hostname Bindings can be imported using the `resource id`, e.g.

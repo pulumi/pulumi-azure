@@ -12,6 +12,88 @@ namespace Pulumi.Azure.Backup
     /// <summary>
     /// Manages an Azure File Share Backup Policy within a Recovery Services vault.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVault = new Azure.RecoveryServices.Vault("exampleVault", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Standard",
+    ///     });
+    /// 
+    ///     var policy = new Azure.Backup.PolicyFileShare("policy", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         RecoveryVaultName = exampleVault.Name,
+    ///         Timezone = "UTC",
+    ///         Backup = new Azure.Backup.Inputs.PolicyFileShareBackupArgs
+    ///         {
+    ///             Frequency = "Daily",
+    ///             Time = "23:00",
+    ///         },
+    ///         RetentionDaily = new Azure.Backup.Inputs.PolicyFileShareRetentionDailyArgs
+    ///         {
+    ///             Count = 10,
+    ///         },
+    ///         RetentionWeekly = new Azure.Backup.Inputs.PolicyFileShareRetentionWeeklyArgs
+    ///         {
+    ///             Count = 7,
+    ///             Weekdays = new[]
+    ///             {
+    ///                 "Sunday",
+    ///                 "Wednesday",
+    ///                 "Friday",
+    ///                 "Saturday",
+    ///             },
+    ///         },
+    ///         RetentionMonthly = new Azure.Backup.Inputs.PolicyFileShareRetentionMonthlyArgs
+    ///         {
+    ///             Count = 7,
+    ///             Weekdays = new[]
+    ///             {
+    ///                 "Sunday",
+    ///                 "Wednesday",
+    ///             },
+    ///             Weeks = new[]
+    ///             {
+    ///                 "First",
+    ///                 "Last",
+    ///             },
+    ///         },
+    ///         RetentionYearly = new Azure.Backup.Inputs.PolicyFileShareRetentionYearlyArgs
+    ///         {
+    ///             Count = 7,
+    ///             Weekdays = new[]
+    ///             {
+    ///                 "Sunday",
+    ///             },
+    ///             Weeks = new[]
+    ///             {
+    ///                 "Last",
+    ///             },
+    ///             Months = new[]
+    ///             {
+    ///                 "January",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Azure File Share Backup Policies can be imported using the `resource id`, e.g.

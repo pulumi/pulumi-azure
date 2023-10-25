@@ -380,6 +380,28 @@ class OpenIdConnectProvider(pulumi.CustomResource):
         """
         Manages an OpenID Connect Provider within a API Management Service.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_service = azure.apimanagement.Service("exampleService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            publisher_name="My Company",
+            publisher_email="company@exmaple.com",
+            sku_name="Developer_1")
+        example_open_id_connect_provider = azure.apimanagement.OpenIdConnectProvider("exampleOpenIdConnectProvider",
+            api_management_name=example_service.name,
+            resource_group_name=example_resource_group.name,
+            client_id="00001111-2222-3333-4444-555566667777",
+            client_secret="00001111-423egvwdcsjx-00001111",
+            display_name="Example Provider",
+            metadata_endpoint="https://example.com/example")
+        ```
+
         ## Import
 
         API Management OpenID Connect Providers can be imported using the `resource id`, e.g.
@@ -407,6 +429,28 @@ class OpenIdConnectProvider(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an OpenID Connect Provider within a API Management Service.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_service = azure.apimanagement.Service("exampleService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            publisher_name="My Company",
+            publisher_email="company@exmaple.com",
+            sku_name="Developer_1")
+        example_open_id_connect_provider = azure.apimanagement.OpenIdConnectProvider("exampleOpenIdConnectProvider",
+            api_management_name=example_service.name,
+            resource_group_name=example_resource_group.name,
+            client_id="00001111-2222-3333-4444-555566667777",
+            client_secret="00001111-423egvwdcsjx-00001111",
+            display_name="Example Provider",
+            metadata_endpoint="https://example.com/example")
+        ```
 
         ## Import
 

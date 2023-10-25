@@ -334,6 +334,63 @@ class NetworkService(pulumi.CustomResource):
         """
         Manages a Mobile Network Service.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="east us")
+        example_network = azure.mobile.Network("exampleNetwork",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            mobile_country_code="001",
+            mobile_network_code="01")
+        example_network_service = azure.mobile.NetworkService("exampleNetworkService",
+            mobile_network_id=example_network.id,
+            location=example_resource_group.location,
+            service_precedence=0,
+            pcc_rules=[azure.mobile.NetworkServicePccRuleArgs(
+                name="default-rule",
+                precedence=1,
+                traffic_control_enabled=True,
+                qos_policy=azure.mobile.NetworkServicePccRuleQosPolicyArgs(
+                    allocation_and_retention_priority_level=9,
+                    qos_indicator=9,
+                    preemption_capability="NotPreempt",
+                    preemption_vulnerability="Preemptable",
+                    guaranteed_bit_rate=azure.mobile.NetworkServicePccRuleQosPolicyGuaranteedBitRateArgs(
+                        downlink="100 Mbps",
+                        uplink="10 Mbps",
+                    ),
+                    maximum_bit_rate=azure.mobile.NetworkServicePccRuleQosPolicyMaximumBitRateArgs(
+                        downlink="1 Gbps",
+                        uplink="100 Mbps",
+                    ),
+                ),
+                service_data_flow_templates=[azure.mobile.NetworkServicePccRuleServiceDataFlowTemplateArgs(
+                    direction="Uplink",
+                    name="IP-to-server",
+                    ports=[],
+                    protocols=["ip"],
+                    remote_ip_lists=["10.3.4.0/24"],
+                )],
+            )],
+            service_qos_policy=azure.mobile.NetworkServiceServiceQosPolicyArgs(
+                allocation_and_retention_priority_level=9,
+                qos_indicator=9,
+                preemption_capability="NotPreempt",
+                preemption_vulnerability="Preemptable",
+                maximum_bit_rate=azure.mobile.NetworkServiceServiceQosPolicyMaximumBitRateArgs(
+                    downlink="1 Gbps",
+                    uplink="100 Mbps",
+                ),
+            ),
+            tags={
+                "key": "value",
+            })
+        ```
+
         ## Import
 
         Mobile Network Service can be imported using the `resource id`, e.g.
@@ -360,6 +417,63 @@ class NetworkService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Mobile Network Service.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="east us")
+        example_network = azure.mobile.Network("exampleNetwork",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            mobile_country_code="001",
+            mobile_network_code="01")
+        example_network_service = azure.mobile.NetworkService("exampleNetworkService",
+            mobile_network_id=example_network.id,
+            location=example_resource_group.location,
+            service_precedence=0,
+            pcc_rules=[azure.mobile.NetworkServicePccRuleArgs(
+                name="default-rule",
+                precedence=1,
+                traffic_control_enabled=True,
+                qos_policy=azure.mobile.NetworkServicePccRuleQosPolicyArgs(
+                    allocation_and_retention_priority_level=9,
+                    qos_indicator=9,
+                    preemption_capability="NotPreempt",
+                    preemption_vulnerability="Preemptable",
+                    guaranteed_bit_rate=azure.mobile.NetworkServicePccRuleQosPolicyGuaranteedBitRateArgs(
+                        downlink="100 Mbps",
+                        uplink="10 Mbps",
+                    ),
+                    maximum_bit_rate=azure.mobile.NetworkServicePccRuleQosPolicyMaximumBitRateArgs(
+                        downlink="1 Gbps",
+                        uplink="100 Mbps",
+                    ),
+                ),
+                service_data_flow_templates=[azure.mobile.NetworkServicePccRuleServiceDataFlowTemplateArgs(
+                    direction="Uplink",
+                    name="IP-to-server",
+                    ports=[],
+                    protocols=["ip"],
+                    remote_ip_lists=["10.3.4.0/24"],
+                )],
+            )],
+            service_qos_policy=azure.mobile.NetworkServiceServiceQosPolicyArgs(
+                allocation_and_retention_priority_level=9,
+                qos_indicator=9,
+                preemption_capability="NotPreempt",
+                preemption_vulnerability="Preemptable",
+                maximum_bit_rate=azure.mobile.NetworkServiceServiceQosPolicyMaximumBitRateArgs(
+                    downlink="1 Gbps",
+                    uplink="100 Mbps",
+                ),
+            ),
+            tags={
+                "key": "value",
+            })
+        ```
 
         ## Import
 

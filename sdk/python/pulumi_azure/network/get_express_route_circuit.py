@@ -141,6 +141,18 @@ def get_express_route_circuit(name: Optional[str] = None,
     """
     Use this data source to access information about an existing ExpressRoute circuit.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.network.get_express_route_circuit(resource_group_name=azurerm_resource_group["example"]["name"],
+        name=azurerm_express_route_circuit["example"]["name"])
+    pulumi.export("expressRouteCircuitId", example.id)
+    pulumi.export("serviceKey", example.service_key)
+    ```
+
 
     :param str name: The name of the ExpressRoute circuit.
     :param str resource_group_name: The Name of the Resource Group where the ExpressRoute circuit exists.
@@ -169,6 +181,18 @@ def get_express_route_circuit_output(name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExpressRouteCircuitResult]:
     """
     Use this data source to access information about an existing ExpressRoute circuit.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.network.get_express_route_circuit(resource_group_name=azurerm_resource_group["example"]["name"],
+        name=azurerm_express_route_circuit["example"]["name"])
+    pulumi.export("expressRouteCircuitId", example.id)
+    pulumi.export("serviceKey", example.service_key)
+    ```
 
 
     :param str name: The name of the ExpressRoute circuit.

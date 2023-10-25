@@ -254,6 +254,18 @@ class AnomalyAlert(pulumi.CustomResource):
         """
         Manages a Cost Anomaly Alert.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.costmanagement.AnomalyAlert("example",
+            display_name="Alert DisplayName",
+            email_addresses=["example@test.net"],
+            email_subject="My Test Anomaly Alert")
+        ```
+
         ## Import
 
         Cost Anomaly Alerts can be imported using the `resource id`, e.g.
@@ -278,6 +290,18 @@ class AnomalyAlert(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Cost Anomaly Alert.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.costmanagement.AnomalyAlert("example",
+            display_name="Alert DisplayName",
+            email_addresses=["example@test.net"],
+            email_subject="My Test Anomaly Alert")
+        ```
 
         ## Import
 

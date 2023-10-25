@@ -585,6 +585,59 @@ class IotHubDataConnection(pulumi.CustomResource):
         """
         Manages a Kusto (also known as Azure Data Explorer) IotHub Data Connection
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_cluster = azure.kusto.Cluster("exampleCluster",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku=azure.kusto.ClusterSkuArgs(
+                name="Standard_D13_v2",
+                capacity=2,
+            ))
+        example_database = azure.kusto.Database("exampleDatabase",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            cluster_name=example_cluster.name,
+            hot_cache_period="P7D",
+            soft_delete_period="P31D")
+        example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku=azure.iot.IoTHubSkuArgs(
+                name="B1",
+                capacity=1,
+            ))
+        example_shared_access_policy = azure.iot.SharedAccessPolicy("exampleSharedAccessPolicy",
+            resource_group_name=example_resource_group.name,
+            iothub_name=example_io_t_hub.name,
+            registry_read=True)
+        example_consumer_group = azure.iot.ConsumerGroup("exampleConsumerGroup",
+            resource_group_name=example_resource_group.name,
+            iothub_name=example_io_t_hub.name,
+            eventhub_endpoint_name="events")
+        example_iot_hub_data_connection = azure.kusto.IotHubDataConnection("exampleIotHubDataConnection",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            cluster_name=example_cluster.name,
+            database_name=example_database.name,
+            iothub_id=example_io_t_hub.id,
+            consumer_group=example_consumer_group.name,
+            shared_access_policy_name=example_shared_access_policy.name,
+            event_system_properties=[
+                "message-id",
+                "sequence-number",
+                "to",
+            ],
+            table_name="my-table",
+            mapping_rule_name="my-table-mapping",
+            data_format="JSON")
+        ```
+
         ## Import
 
         Kusto IotHub Data Connections can be imported using the `resource id`, e.g.
@@ -617,6 +670,59 @@ class IotHubDataConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Kusto (also known as Azure Data Explorer) IotHub Data Connection
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_cluster = azure.kusto.Cluster("exampleCluster",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku=azure.kusto.ClusterSkuArgs(
+                name="Standard_D13_v2",
+                capacity=2,
+            ))
+        example_database = azure.kusto.Database("exampleDatabase",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            cluster_name=example_cluster.name,
+            hot_cache_period="P7D",
+            soft_delete_period="P31D")
+        example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku=azure.iot.IoTHubSkuArgs(
+                name="B1",
+                capacity=1,
+            ))
+        example_shared_access_policy = azure.iot.SharedAccessPolicy("exampleSharedAccessPolicy",
+            resource_group_name=example_resource_group.name,
+            iothub_name=example_io_t_hub.name,
+            registry_read=True)
+        example_consumer_group = azure.iot.ConsumerGroup("exampleConsumerGroup",
+            resource_group_name=example_resource_group.name,
+            iothub_name=example_io_t_hub.name,
+            eventhub_endpoint_name="events")
+        example_iot_hub_data_connection = azure.kusto.IotHubDataConnection("exampleIotHubDataConnection",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            cluster_name=example_cluster.name,
+            database_name=example_database.name,
+            iothub_id=example_io_t_hub.id,
+            consumer_group=example_consumer_group.name,
+            shared_access_policy_name=example_shared_access_policy.name,
+            event_system_properties=[
+                "message-id",
+                "sequence-number",
+                "to",
+            ],
+            table_name="my-table",
+            mapping_rule_name="my-table-mapping",
+            data_format="JSON")
+        ```
 
         ## Import
 

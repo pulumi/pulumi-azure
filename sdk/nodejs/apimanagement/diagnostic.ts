@@ -9,6 +9,77 @@ import * as utilities from "../utilities";
 /**
  * Manages an API Management Service Diagnostic.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleInsights = new azure.appinsights.Insights("exampleInsights", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     applicationType: "web",
+ * });
+ * const exampleService = new azure.apimanagement.Service("exampleService", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     publisherName: "My Company",
+ *     publisherEmail: "company@mycompany.io",
+ *     skuName: "Developer_1",
+ * });
+ * const exampleLogger = new azure.apimanagement.Logger("exampleLogger", {
+ *     apiManagementName: exampleService.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     applicationInsights: {
+ *         instrumentationKey: exampleInsights.instrumentationKey,
+ *     },
+ * });
+ * const exampleDiagnostic = new azure.apimanagement.Diagnostic("exampleDiagnostic", {
+ *     identifier: "applicationinsights",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     apiManagementName: exampleService.name,
+ *     apiManagementLoggerId: exampleLogger.id,
+ *     samplingPercentage: 5,
+ *     alwaysLogErrors: true,
+ *     logClientIp: true,
+ *     verbosity: "verbose",
+ *     httpCorrelationProtocol: "W3C",
+ *     frontendRequest: {
+ *         bodyBytes: 32,
+ *         headersToLogs: [
+ *             "content-type",
+ *             "accept",
+ *             "origin",
+ *         ],
+ *     },
+ *     frontendResponse: {
+ *         bodyBytes: 32,
+ *         headersToLogs: [
+ *             "content-type",
+ *             "content-length",
+ *             "origin",
+ *         ],
+ *     },
+ *     backendRequest: {
+ *         bodyBytes: 32,
+ *         headersToLogs: [
+ *             "content-type",
+ *             "accept",
+ *             "origin",
+ *         ],
+ *     },
+ *     backendResponse: {
+ *         bodyBytes: 32,
+ *         headersToLogs: [
+ *             "content-type",
+ *             "content-length",
+ *             "origin",
+ *         ],
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * API Management Diagnostics can be imported using the `resource id`, e.g.

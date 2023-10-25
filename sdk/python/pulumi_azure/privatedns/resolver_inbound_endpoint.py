@@ -251,6 +251,44 @@ class ResolverInboundEndpoint(pulumi.CustomResource):
         """
         Manages a Private DNS Resolver Inbound Endpoint.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            address_spaces=["10.0.0.0/16"])
+        example_resolver = azure.privatedns.Resolver("exampleResolver",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            virtual_network_id=example_virtual_network.id)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.0.0/28"],
+            delegations=[azure.network.SubnetDelegationArgs(
+                name="Microsoft.Network.dnsResolvers",
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                    actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
+                    name="Microsoft.Network/dnsResolvers",
+                ),
+            )])
+        example_resolver_inbound_endpoint = azure.privatedns.ResolverInboundEndpoint("exampleResolverInboundEndpoint",
+            private_dns_resolver_id=example_resolver.id,
+            location=example_resolver.location,
+            ip_configurations=[azure.privatedns.ResolverInboundEndpointIpConfigurationArgs(
+                private_ip_allocation_method="Dynamic",
+                subnet_id=example_subnet.id,
+            )],
+            tags={
+                "key": "value",
+            })
+        ```
+
         ## Import
 
         Private DNS Resolver Inbound Endpoint can be imported using the `resource id`, e.g.
@@ -275,6 +313,44 @@ class ResolverInboundEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Private DNS Resolver Inbound Endpoint.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            address_spaces=["10.0.0.0/16"])
+        example_resolver = azure.privatedns.Resolver("exampleResolver",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            virtual_network_id=example_virtual_network.id)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.0.0/28"],
+            delegations=[azure.network.SubnetDelegationArgs(
+                name="Microsoft.Network.dnsResolvers",
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                    actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
+                    name="Microsoft.Network/dnsResolvers",
+                ),
+            )])
+        example_resolver_inbound_endpoint = azure.privatedns.ResolverInboundEndpoint("exampleResolverInboundEndpoint",
+            private_dns_resolver_id=example_resolver.id,
+            location=example_resolver.location,
+            ip_configurations=[azure.privatedns.ResolverInboundEndpointIpConfigurationArgs(
+                private_ip_allocation_method="Dynamic",
+                subnet_id=example_subnet.id,
+            )],
+            tags={
+                "key": "value",
+            })
+        ```
 
         ## Import
 

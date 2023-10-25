@@ -15,6 +15,63 @@ import (
 
 // Manages a Global Schema within an API Management Service.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"os"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := os.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				PublisherName:     pulumi.String("pub1"),
+//				PublisherEmail:    pulumi.String("pub1@email.com"),
+//				SkuName:           pulumi.String("Consumption_0"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apimanagement.NewGlobalSchema(ctx, "exampleGlobalSchema", &apimanagement.GlobalSchemaArgs{
+//				SchemaId:          pulumi.String("example-schema1"),
+//				ApiManagementName: exampleService.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Type:              pulumi.String("xml"),
+//				Value:             readFileOrPanic("api_management_api_schema.xml"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // API Management API Schema's can be imported using the `resource id`, e.g.

@@ -15,6 +15,76 @@ import (
 
 // Manages a Linked Service (connection) between a resource and Azure Data Factory. This is a generic resource that supports all different Linked Service Types.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Identity: &datafactory.FactoryIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountKind:            pulumi.String("BlobStorage"),
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datafactory.NewLinkedCustomService(ctx, "exampleLinkedCustomService", &datafactory.LinkedCustomServiceArgs{
+//				DataFactoryId: exampleFactory.ID(),
+//				Type:          pulumi.String("AzureBlobStorage"),
+//				Description:   pulumi.String("test description"),
+//				TypePropertiesJson: exampleAccount.PrimaryConnectionString.ApplyT(func(primaryConnectionString string) (string, error) {
+//					return fmt.Sprintf("{\n  \"connectionString\":\"%v\"\n}\n", primaryConnectionString), nil
+//				}).(pulumi.StringOutput),
+//				Parameters: pulumi.StringMap{
+//					"foo": pulumi.String("bar"),
+//					"Env": pulumi.String("Test"),
+//				},
+//				Annotations: pulumi.StringArray{
+//					pulumi.String("test1"),
+//					pulumi.String("test2"),
+//					pulumi.String("test3"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Data Factory Linked Service's can be imported using the `resource id`, e.g.

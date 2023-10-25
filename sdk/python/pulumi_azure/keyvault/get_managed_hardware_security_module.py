@@ -164,6 +164,17 @@ def get_managed_hardware_security_module(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Key Vault Managed Hardware Security Module.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.keyvault.get_managed_hardware_security_module(name="mykeyvaultHsm",
+        resource_group_name="some-resource-group")
+    pulumi.export("hsmUri", example.hsm_uri)
+    ```
+
 
     :param str name: The name of the Key Vault Managed Hardware Security Module.
     :param str resource_group_name: The name of the Resource Group in which the Key Vault Managed Hardware Security Module exists.
@@ -194,6 +205,17 @@ def get_managed_hardware_security_module_output(name: Optional[pulumi.Input[str]
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedHardwareSecurityModuleResult]:
     """
     Use this data source to access information about an existing Key Vault Managed Hardware Security Module.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.keyvault.get_managed_hardware_security_module(name="mykeyvaultHsm",
+        resource_group_name="some-resource-group")
+    pulumi.export("hsmUri", example.hsm_uri)
+    ```
 
 
     :param str name: The name of the Key Vault Managed Hardware Security Module.

@@ -14,6 +14,49 @@ namespace Pulumi.Azure.Policy
     /// 
     /// &gt; **NOTE:**  Policy set definitions (also known as policy initiatives) do not take effect until they are assigned to a scope using a Policy Set Assignment.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Policy.PolicySetDefinition("example", new()
+    ///     {
+    ///         DisplayName = "Test Policy Set",
+    ///         Parameters = @"    {
+    ///         ""allowedLocations"": {
+    ///             ""type"": ""Array"",
+    ///             ""metadata"": {
+    ///                 ""description"": ""The list of allowed locations for resources."",
+    ///                 ""displayName"": ""Allowed locations"",
+    ///                 ""strongType"": ""location""
+    ///             }
+    ///         }
+    ///     }
+    /// 
+    /// ",
+    ///         PolicyDefinitionReferences = new[]
+    ///         {
+    ///             new Azure.Policy.Inputs.PolicySetDefinitionPolicyDefinitionReferenceArgs
+    ///             {
+    ///                 ParameterValues = @"    {
+    ///       ""listOfAllowedLocations"": {""value"": ""[parameters('allowedLocations')]""}
+    ///     }
+    ///     
+    /// ",
+    ///                 PolicyDefinitionId = "/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
+    ///             },
+    ///         },
+    ///         PolicyType = "Custom",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Policy Set Definitions can be imported using the `resource id`, e.g.

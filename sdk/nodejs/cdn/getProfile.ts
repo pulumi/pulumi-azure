@@ -6,6 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing CDN Profile.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.cdn.getProfile({
+ *     name: "myfirstcdnprofile",
+ *     resourceGroupName: "example-resources",
+ * });
+ * export const cdnProfileId = example.then(example => example.id);
+ * ```
  */
 export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileResult> {
 
@@ -55,6 +68,19 @@ export interface GetProfileResult {
 }
 /**
  * Use this data source to access information about an existing CDN Profile.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.cdn.getProfile({
+ *     name: "myfirstcdnprofile",
+ *     resourceGroupName: "example-resources",
+ * });
+ * export const cdnProfileId = example.then(example => example.id);
+ * ```
  */
 export function getProfileOutput(args: GetProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfileResult> {
     return pulumi.output(args).apply((a: any) => getProfile(a, opts))

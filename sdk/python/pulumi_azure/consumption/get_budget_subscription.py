@@ -132,6 +132,17 @@ def get_budget_subscription(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Consumption Budget for a specific subscription.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.consumption.get_budget_subscription(name="existing",
+        subscription_id="/subscriptions/00000000-0000-0000-0000-000000000000/")
+    pulumi.export("id", data["azurerm_consumption_budget"]["example"]["id"])
+    ```
+
 
     :param str name: The name of this Consumption Budget.
     :param str subscription_id: The ID of the subscription.
@@ -159,6 +170,17 @@ def get_budget_subscription_output(name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBudgetSubscriptionResult]:
     """
     Use this data source to access information about an existing Consumption Budget for a specific subscription.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.consumption.get_budget_subscription(name="existing",
+        subscription_id="/subscriptions/00000000-0000-0000-0000-000000000000/")
+    pulumi.export("id", data["azurerm_consumption_budget"]["example"]["id"])
+    ```
 
 
     :param str name: The name of this Consumption Budget.

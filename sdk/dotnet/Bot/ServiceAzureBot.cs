@@ -12,6 +12,61 @@ namespace Pulumi.Azure.Bot
     /// <summary>
     /// Manages an Azure Bot Service.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApplicationType = "web",
+    ///     });
+    /// 
+    ///     var exampleApiKey = new Azure.AppInsights.ApiKey("exampleApiKey", new()
+    ///     {
+    ///         ApplicationInsightsId = exampleInsights.Id,
+    ///         ReadPermissions = new[]
+    ///         {
+    ///             "aggregate",
+    ///             "api",
+    ///             "draft",
+    ///             "extendqueries",
+    ///             "search",
+    ///         },
+    ///     });
+    /// 
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleServiceAzureBot = new Azure.Bot.ServiceAzureBot("exampleServiceAzureBot", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = "global",
+    ///         MicrosoftAppId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ClientId),
+    ///         Sku = "F0",
+    ///         Endpoint = "https://example.com",
+    ///         DeveloperAppInsightsApiKey = exampleApiKey.ApiKey,
+    ///         DeveloperAppInsightsApplicationId = exampleInsights.AppId,
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "test" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Azure Bot Services can be imported using the `resource id`, e.g.

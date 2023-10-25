@@ -12,6 +12,58 @@ namespace Pulumi.Azure.Core
     /// <summary>
     /// Manages a Resource Group Policy Assignment.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleDefinition = new Azure.Policy.Definition("exampleDefinition", new()
+    ///     {
+    ///         PolicyType = "Custom",
+    ///         Mode = "All",
+    ///         DisplayName = "my-policy-definition",
+    ///         PolicyRule = @" {
+    ///     ""if"": {
+    ///       ""not"": {
+    ///         ""field"": ""location"",
+    ///         ""equals"": ""westeurope""
+    ///       }
+    ///     },
+    ///     ""then"": {
+    ///       ""effect"": ""Deny""
+    ///     }
+    ///   }
+    /// ",
+    ///     });
+    /// 
+    ///     var exampleResourceGroupPolicyAssignment = new Azure.Core.ResourceGroupPolicyAssignment("exampleResourceGroupPolicyAssignment", new()
+    ///     {
+    ///         ResourceGroupId = exampleResourceGroup.Id,
+    ///         PolicyDefinitionId = exampleDefinition.Id,
+    ///         Parameters = @"    {
+    ///       ""tagName"": {
+    ///         ""value"": ""Business Unit""
+    ///       },
+    ///       ""tagValue"": {
+    ///         ""value"": ""BU""
+    ///       }
+    ///     }
+    /// ",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Resource Group Policy Assignments can be imported using the `resource id`, e.g.

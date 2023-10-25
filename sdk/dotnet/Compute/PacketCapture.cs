@@ -12,6 +12,135 @@ namespace Pulumi.Azure.Compute
     /// <summary>
     /// Configures Network Packet Capturing against a Virtual Machine using a Network Watcher.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleNetworkWatcher = new Azure.Network.NetworkWatcher("exampleNetworkWatcher", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("exampleNetworkInterface", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         IpConfigurations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
+    ///             {
+    ///                 Name = "testconfiguration1",
+    ///                 SubnetId = exampleSubnet.Id,
+    ///                 PrivateIpAddressAllocation = "Dynamic",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleVirtualMachine = new Azure.Compute.VirtualMachine("exampleVirtualMachine", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         NetworkInterfaceIds = new[]
+    ///         {
+    ///             exampleNetworkInterface.Id,
+    ///         },
+    ///         VmSize = "Standard_F2",
+    ///         StorageImageReference = new Azure.Compute.Inputs.VirtualMachineStorageImageReferenceArgs
+    ///         {
+    ///             Publisher = "Canonical",
+    ///             Offer = "0001-com-ubuntu-server-focal",
+    ///             Sku = "20_04-lts",
+    ///             Version = "latest",
+    ///         },
+    ///         StorageOsDisk = new Azure.Compute.Inputs.VirtualMachineStorageOsDiskArgs
+    ///         {
+    ///             Name = "osdisk",
+    ///             Caching = "ReadWrite",
+    ///             CreateOption = "FromImage",
+    ///             ManagedDiskType = "Standard_LRS",
+    ///         },
+    ///         OsProfile = new Azure.Compute.Inputs.VirtualMachineOsProfileArgs
+    ///         {
+    ///             ComputerName = "pctest-vm",
+    ///             AdminUsername = "testadmin",
+    ///             AdminPassword = "Password1234!",
+    ///         },
+    ///         OsProfileLinuxConfig = new Azure.Compute.Inputs.VirtualMachineOsProfileLinuxConfigArgs
+    ///         {
+    ///             DisablePasswordAuthentication = false,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleExtension = new Azure.Compute.Extension("exampleExtension", new()
+    ///     {
+    ///         VirtualMachineId = exampleVirtualMachine.Id,
+    ///         Publisher = "Microsoft.Azure.NetworkWatcher",
+    ///         Type = "NetworkWatcherAgentLinux",
+    ///         TypeHandlerVersion = "1.4",
+    ///         AutoUpgradeMinorVersion = true,
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var examplePacketCapture = new Azure.Compute.PacketCapture("examplePacketCapture", new()
+    ///     {
+    ///         NetworkWatcherId = exampleNetworkWatcher.Id,
+    ///         VirtualMachineId = exampleVirtualMachine.Id,
+    ///         StorageLocation = new Azure.Compute.Inputs.PacketCaptureStorageLocationArgs
+    ///         {
+    ///             StorageAccountId = exampleAccount.Id,
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleExtension,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// &gt; **NOTE:** This Resource requires that [the Network Watcher Virtual Machine Extension](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-manage-portal#before-you-begin) is installed on the Virtual Machine before capturing can be enabled which can be installed via the `azure.compute.Extension` resource.
+    /// 
     /// ## Import
     /// 
     /// Virtual Machine Packet Captures can be imported using the `resource id`, e.g.

@@ -15,6 +15,33 @@ namespace Pulumi.Azure.AppService
         /// Use this data source to access information about an existing App Service.
         /// 
         /// !&gt; **Note:** The `azure.appservice.AppService` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxWebApp` data sources instead.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.AppService.GetAppService.Invoke(new()
+        ///     {
+        ///         Name = "search-app-service",
+        ///         ResourceGroupName = "search-service",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["appServiceId"] = example.Apply(getAppServiceResult =&gt; getAppServiceResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAppServiceResult> InvokeAsync(GetAppServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppServiceResult>("azure:appservice/getAppService:getAppService", args ?? new GetAppServiceArgs(), options.WithDefaults());
@@ -23,6 +50,33 @@ namespace Pulumi.Azure.AppService
         /// Use this data source to access information about an existing App Service.
         /// 
         /// !&gt; **Note:** The `azure.appservice.AppService` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxWebApp` data sources instead.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.AppService.GetAppService.Invoke(new()
+        ///     {
+        ///         Name = "search-app-service",
+        ///         ResourceGroupName = "search-service",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["appServiceId"] = example.Apply(getAppServiceResult =&gt; getAppServiceResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetAppServiceResult> Invoke(GetAppServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppServiceResult>("azure:appservice/getAppService:getAppService", args ?? new GetAppServiceInvokeArgs(), options.WithDefaults());

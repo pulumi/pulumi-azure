@@ -381,6 +381,53 @@ class AadDiagnosticSetting(pulumi.CustomResource):
 
         !> **Authentication** The API for this resource does not support service principal authentication. This resource can only be used with Azure CLI authentication.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="west europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_kind="StorageV2",
+            account_replication_type="LRS")
+        example_aad_diagnostic_setting = azure.monitoring.AadDiagnosticSetting("exampleAadDiagnosticSetting",
+            storage_account_id=example_account.id,
+            enabled_logs=[
+                azure.monitoring.AadDiagnosticSettingEnabledLogArgs(
+                    category="SignInLogs",
+                    retention_policy=azure.monitoring.AadDiagnosticSettingEnabledLogRetentionPolicyArgs(
+                        enabled=True,
+                        days=1,
+                    ),
+                ),
+                azure.monitoring.AadDiagnosticSettingEnabledLogArgs(
+                    category="AuditLogs",
+                    retention_policy=azure.monitoring.AadDiagnosticSettingEnabledLogRetentionPolicyArgs(
+                        enabled=True,
+                        days=1,
+                    ),
+                ),
+                azure.monitoring.AadDiagnosticSettingEnabledLogArgs(
+                    category="NonInteractiveUserSignInLogs",
+                    retention_policy=azure.monitoring.AadDiagnosticSettingEnabledLogRetentionPolicyArgs(
+                        enabled=True,
+                        days=1,
+                    ),
+                ),
+                azure.monitoring.AadDiagnosticSettingEnabledLogArgs(
+                    category="ServicePrincipalSignInLogs",
+                    retention_policy=azure.monitoring.AadDiagnosticSettingEnabledLogRetentionPolicyArgs(
+                        enabled=True,
+                        days=1,
+                    ),
+                ),
+            ])
+        ```
+
         ## Import
 
         Monitor Azure Active Directory Diagnostic Settings can be imported using the `resource id`, e.g.
@@ -417,6 +464,53 @@ class AadDiagnosticSetting(pulumi.CustomResource):
         Manages an Azure Active Directory Diagnostic Setting for Azure Monitor.
 
         !> **Authentication** The API for this resource does not support service principal authentication. This resource can only be used with Azure CLI authentication.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="west europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_kind="StorageV2",
+            account_replication_type="LRS")
+        example_aad_diagnostic_setting = azure.monitoring.AadDiagnosticSetting("exampleAadDiagnosticSetting",
+            storage_account_id=example_account.id,
+            enabled_logs=[
+                azure.monitoring.AadDiagnosticSettingEnabledLogArgs(
+                    category="SignInLogs",
+                    retention_policy=azure.monitoring.AadDiagnosticSettingEnabledLogRetentionPolicyArgs(
+                        enabled=True,
+                        days=1,
+                    ),
+                ),
+                azure.monitoring.AadDiagnosticSettingEnabledLogArgs(
+                    category="AuditLogs",
+                    retention_policy=azure.monitoring.AadDiagnosticSettingEnabledLogRetentionPolicyArgs(
+                        enabled=True,
+                        days=1,
+                    ),
+                ),
+                azure.monitoring.AadDiagnosticSettingEnabledLogArgs(
+                    category="NonInteractiveUserSignInLogs",
+                    retention_policy=azure.monitoring.AadDiagnosticSettingEnabledLogRetentionPolicyArgs(
+                        enabled=True,
+                        days=1,
+                    ),
+                ),
+                azure.monitoring.AadDiagnosticSettingEnabledLogArgs(
+                    category="ServicePrincipalSignInLogs",
+                    retention_policy=azure.monitoring.AadDiagnosticSettingEnabledLogRetentionPolicyArgs(
+                        enabled=True,
+                        days=1,
+                    ),
+                ),
+            ])
+        ```
 
         ## Import
 

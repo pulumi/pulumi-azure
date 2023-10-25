@@ -13,12 +13,82 @@ namespace Pulumi.Azure.WebPubSub
     {
         /// <summary>
         /// Use this data source to access information about the Private Link Resource supported by the Web Pubsub Resource.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var testResourceGroup = new Azure.Core.ResourceGroup("testResourceGroup", new()
+        ///     {
+        ///         Location = "east us",
+        ///     });
+        /// 
+        ///     var testService = new Azure.WebPubSub.Service("testService", new()
+        ///     {
+        ///         Location = testResourceGroup.Location,
+        ///         ResourceGroupName = testResourceGroup.Name,
+        ///         Sku = "Standard_S1",
+        ///         Capacity = 1,
+        ///     });
+        /// 
+        ///     var testPrivateLinkResource = Azure.WebPubSub.GetPrivateLinkResource.Invoke(new()
+        ///     {
+        ///         WebPubsubId = testService.Id,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetPrivateLinkResourceResult> InvokeAsync(GetPrivateLinkResourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkResourceResult>("azure:webpubsub/getPrivateLinkResource:getPrivateLinkResource", args ?? new GetPrivateLinkResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about the Private Link Resource supported by the Web Pubsub Resource.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var testResourceGroup = new Azure.Core.ResourceGroup("testResourceGroup", new()
+        ///     {
+        ///         Location = "east us",
+        ///     });
+        /// 
+        ///     var testService = new Azure.WebPubSub.Service("testService", new()
+        ///     {
+        ///         Location = testResourceGroup.Location,
+        ///         ResourceGroupName = testResourceGroup.Name,
+        ///         Sku = "Standard_S1",
+        ///         Capacity = 1,
+        ///     });
+        /// 
+        ///     var testPrivateLinkResource = Azure.WebPubSub.GetPrivateLinkResource.Invoke(new()
+        ///     {
+        ///         WebPubsubId = testService.Id,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetPrivateLinkResourceResult> Invoke(GetPrivateLinkResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkResourceResult>("azure:webpubsub/getPrivateLinkResource:getPrivateLinkResource", args ?? new GetPrivateLinkResourceInvokeArgs(), options.WithDefaults());

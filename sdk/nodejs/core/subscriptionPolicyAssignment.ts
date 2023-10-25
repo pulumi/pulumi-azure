@@ -9,6 +9,36 @@ import * as utilities from "../utilities";
 /**
  * Manages a Subscription Policy Assignment.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const current = azure.core.getSubscription({});
+ * const exampleDefinition = new azure.policy.Definition("exampleDefinition", {
+ *     policyType: "Custom",
+ *     mode: "All",
+ *     displayName: "Allowed resource types",
+ *     policyRule: ` {
+ *     "if": {
+ *       "not": {
+ *         "field": "location",
+ *         "equals": "westeurope"
+ *       }
+ *     },
+ *     "then": {
+ *       "effect": "Deny"
+ *     }
+ *   }
+ * `,
+ * });
+ * const exampleSubscriptionPolicyAssignment = new azure.core.SubscriptionPolicyAssignment("exampleSubscriptionPolicyAssignment", {
+ *     policyDefinitionId: exampleDefinition.id,
+ *     subscriptionId: current.then(current => current.id),
+ * });
+ * ```
+ *
  * ## Import
  *
  * Subscription Policy Assignments can be imported using the `resource id`, e.g.

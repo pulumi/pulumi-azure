@@ -8,6 +8,21 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing API Management API.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.apimanagement.getApi({
+ *     name: "search-api",
+ *     apiManagementName: "search-api-management",
+ *     resourceGroupName: "search-service",
+ *     revision: "2",
+ * });
+ * export const apiManagementApiId = example.then(example => example.id);
+ * ```
  */
 export function getApi(args: GetApiArgs, opts?: pulumi.InvokeOptions): Promise<GetApiResult> {
 
@@ -105,6 +120,21 @@ export interface GetApiResult {
 }
 /**
  * Use this data source to access information about an existing API Management API.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.apimanagement.getApi({
+ *     name: "search-api",
+ *     apiManagementName: "search-api-management",
+ *     resourceGroupName: "search-service",
+ *     revision: "2",
+ * });
+ * export const apiManagementApiId = example.then(example => example.id);
+ * ```
  */
 export function getApiOutput(args: GetApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiResult> {
     return pulumi.output(args).apply((a: any) => getApi(a, opts))

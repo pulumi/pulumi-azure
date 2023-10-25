@@ -213,6 +213,10 @@ class CacheRedisConfigurationArgs:
         :param pulumi.Input[str] aof_storage_connection_string1: Second Storage Account connection string for AOF persistence.
                
                Example usage:
+               
+               ```python
+               import pulumi
+               ```
         :param pulumi.Input[bool] enable_authentication: If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
                
                > **NOTE:** `enable_authentication` can only be set to `false` if a `subnet_id` is specified; and only works if there aren't existing instances within the subnet with `enable_authentication` set to `true`.
@@ -222,6 +226,10 @@ class CacheRedisConfigurationArgs:
         :param pulumi.Input[str] maxmemory_policy: How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below. Defaults to `volatile-lru`.
         :param pulumi.Input[int] maxmemory_reserved: Value in megabytes reserved for non-cache usage e.g. failover. Defaults are shown below.
         :param pulumi.Input[str] notify_keyspace_events: Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
+               
+               ```python
+               import pulumi
+               ```
         :param pulumi.Input[bool] rdb_backup_enabled: Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
                
                > **NOTE:** If `rdb_backup_enabled` set to `true`, `rdb_storage_connection_string` must also be set.
@@ -356,6 +364,10 @@ class CacheRedisConfigurationArgs:
         Second Storage Account connection string for AOF persistence.
 
         Example usage:
+
+        ```python
+        import pulumi
+        ```
         """
         return pulumi.get(self, "aof_storage_connection_string1")
 
@@ -442,6 +454,10 @@ class CacheRedisConfigurationArgs:
     def notify_keyspace_events(self) -> Optional[pulumi.Input[str]]:
         """
         Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
+
+        ```python
+        import pulumi
+        ```
         """
         return pulumi.get(self, "notify_keyspace_events")
 

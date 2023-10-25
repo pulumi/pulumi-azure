@@ -8,6 +8,19 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing CosmosDB SQL Database.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.cosmosdb.getSqlDatabase({
+ *     accountName: "tfex-cosmosdb-sql-database-account-name",
+ *     name: "tfex-cosmosdb-sql-database",
+ *     resourceGroupName: "tfex-cosmosdb-sql-database-rg",
+ * });
+ * ```
  */
 export function getSqlDatabase(args: GetSqlDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlDatabaseResult> {
 
@@ -59,6 +72,19 @@ export interface GetSqlDatabaseResult {
 }
 /**
  * Use this data source to access information about an existing CosmosDB SQL Database.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.cosmosdb.getSqlDatabase({
+ *     accountName: "tfex-cosmosdb-sql-database-account-name",
+ *     name: "tfex-cosmosdb-sql-database",
+ *     resourceGroupName: "tfex-cosmosdb-sql-database-rg",
+ * });
+ * ```
  */
 export function getSqlDatabaseOutput(args: GetSqlDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlDatabaseResult> {
     return pulumi.output(args).apply((a: any) => getSqlDatabase(a, opts))

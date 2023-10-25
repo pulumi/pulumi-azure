@@ -180,6 +180,33 @@ class NotificationRecipientUser(pulumi.CustomResource):
         """
         Manages a API Management Notification Recipient User.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_service = azure.apimanagement.Service("exampleService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            publisher_name="My Company",
+            publisher_email="company@terraform.io",
+            sku_name="Developer_1")
+        example_user = azure.apimanagement.User("exampleUser",
+            user_id="123",
+            api_management_name=example_service.name,
+            resource_group_name=example_resource_group.name,
+            first_name="Example",
+            last_name="User",
+            email="foo@bar.com",
+            state="active")
+        example_notification_recipient_user = azure.apimanagement.NotificationRecipientUser("exampleNotificationRecipientUser",
+            api_management_id=example_service.id,
+            notification_type="AccountClosedPublisher",
+            user_id=example_user.user_id)
+        ```
+
         ## Import
 
         API Management Notification Recipient Users can be imported using the `resource id`, e.g.
@@ -202,6 +229,33 @@ class NotificationRecipientUser(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a API Management Notification Recipient User.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_service = azure.apimanagement.Service("exampleService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            publisher_name="My Company",
+            publisher_email="company@terraform.io",
+            sku_name="Developer_1")
+        example_user = azure.apimanagement.User("exampleUser",
+            user_id="123",
+            api_management_name=example_service.name,
+            resource_group_name=example_resource_group.name,
+            first_name="Example",
+            last_name="User",
+            email="foo@bar.com",
+            state="active")
+        example_notification_recipient_user = azure.apimanagement.NotificationRecipientUser("exampleNotificationRecipientUser",
+            api_management_id=example_service.id,
+            notification_type="AccountClosedPublisher",
+            user_id=example_user.user_id)
+        ```
 
         ## Import
 

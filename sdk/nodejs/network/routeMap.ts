@@ -9,6 +9,42 @@ import * as utilities from "../utilities";
 /**
  * Manages a Route Map.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleVirtualWan = new azure.network.VirtualWan("exampleVirtualWan", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ * });
+ * const exampleVirtualHub = new azure.network.VirtualHub("exampleVirtualHub", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     virtualWanId: exampleVirtualWan.id,
+ *     addressPrefix: "10.0.1.0/24",
+ * });
+ * const exampleRouteMap = new azure.network.RouteMap("exampleRouteMap", {
+ *     virtualHubId: exampleVirtualHub.id,
+ *     rules: [{
+ *         name: "rule1",
+ *         nextStepIfMatched: "Continue",
+ *         actions: [{
+ *             type: "Add",
+ *             parameters: [{
+ *                 asPaths: ["22334"],
+ *             }],
+ *         }],
+ *         matchCriterions: [{
+ *             matchCondition: "Contains",
+ *             routePrefixes: ["10.0.0.0/8"],
+ *         }],
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Route Maps can be imported using the `resource id`, e.g.

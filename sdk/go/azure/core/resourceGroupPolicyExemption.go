@@ -15,6 +15,71 @@ import (
 
 // Manages a Resource Group Policy Exemption.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/policy"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("westus"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePolicyDefintion, err := policy.GetPolicyDefintion(ctx, &policy.GetPolicyDefintionArgs{
+//				DisplayName: pulumi.StringRef("Allowed locations"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroupPolicyAssignment, err := core.NewResourceGroupPolicyAssignment(ctx, "exampleResourceGroupPolicyAssignment", &core.ResourceGroupPolicyAssignmentArgs{
+//				ResourceGroupId:    exampleResourceGroup.ID(),
+//				PolicyDefinitionId: *pulumi.String(examplePolicyDefintion.Id),
+//				Parameters: exampleResourceGroup.Location.ApplyT(func(location string) (pulumi.String, error) {
+//					var _zero pulumi.String
+//					tmpJSON0, err := json.Marshal(map[string]interface{}{
+//						"listOfAllowedLocations": map[string]interface{}{
+//							"value": []string{
+//								location,
+//							},
+//						},
+//					})
+//					if err != nil {
+//						return _zero, err
+//					}
+//					json0 := string(tmpJSON0)
+//					return pulumi.String(json0), nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = core.NewResourceGroupPolicyExemption(ctx, "exampleResourceGroupPolicyExemption", &core.ResourceGroupPolicyExemptionArgs{
+//				ResourceGroupId:    exampleResourceGroup.ID(),
+//				PolicyAssignmentId: exampleResourceGroupPolicyAssignment.ID(),
+//				ExemptionCategory:  pulumi.String("Mitigated"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Policy Exemptions can be imported using the `resource id`, e.g.

@@ -416,6 +416,44 @@ class SpringCloudGatewayRouteConfig(pulumi.CustomResource):
 
         > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="E0")
+        example_spring_cloud_app = azure.appplatform.SpringCloudApp("exampleSpringCloudApp",
+            resource_group_name=example_resource_group.name,
+            service_name=example_spring_cloud_service.name)
+        example_spring_cloud_gateway = azure.appplatform.SpringCloudGateway("exampleSpringCloudGateway", spring_cloud_service_id=example_spring_cloud_service.id)
+        example_spring_cloud_gateway_route_config = azure.appplatform.SpringCloudGatewayRouteConfig("exampleSpringCloudGatewayRouteConfig",
+            spring_cloud_gateway_id=example_spring_cloud_gateway.id,
+            spring_cloud_app_id=example_spring_cloud_app.id,
+            protocol="HTTPS",
+            routes=[azure.appplatform.SpringCloudGatewayRouteConfigRouteArgs(
+                description="example description",
+                filters=[
+                    "StripPrefix=2",
+                    "RateLimit=1,1s",
+                ],
+                order=1,
+                predicates=["Path=/api5/customer/**"],
+                sso_validation_enabled=True,
+                title="myApp route config",
+                token_relay=True,
+                uri="https://www.example.com",
+                classification_tags=[
+                    "tag1",
+                    "tag2",
+                ],
+            )])
+        ```
+
         ## Import
 
         Spring Cloud Gateway Route Configs can be imported using the `resource id`, e.g.
@@ -448,6 +486,44 @@ class SpringCloudGatewayRouteConfig(pulumi.CustomResource):
         Manages a Spring Cloud Gateway Route Config.
 
         > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="E0")
+        example_spring_cloud_app = azure.appplatform.SpringCloudApp("exampleSpringCloudApp",
+            resource_group_name=example_resource_group.name,
+            service_name=example_spring_cloud_service.name)
+        example_spring_cloud_gateway = azure.appplatform.SpringCloudGateway("exampleSpringCloudGateway", spring_cloud_service_id=example_spring_cloud_service.id)
+        example_spring_cloud_gateway_route_config = azure.appplatform.SpringCloudGatewayRouteConfig("exampleSpringCloudGatewayRouteConfig",
+            spring_cloud_gateway_id=example_spring_cloud_gateway.id,
+            spring_cloud_app_id=example_spring_cloud_app.id,
+            protocol="HTTPS",
+            routes=[azure.appplatform.SpringCloudGatewayRouteConfigRouteArgs(
+                description="example description",
+                filters=[
+                    "StripPrefix=2",
+                    "RateLimit=1,1s",
+                ],
+                order=1,
+                predicates=["Path=/api5/customer/**"],
+                sso_validation_enabled=True,
+                title="myApp route config",
+                token_relay=True,
+                uri="https://www.example.com",
+                classification_tags=[
+                    "tag1",
+                    "tag2",
+                ],
+            )])
+        ```
 
         ## Import
 

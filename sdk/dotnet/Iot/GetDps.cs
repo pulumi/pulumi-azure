@@ -13,12 +13,58 @@ namespace Pulumi.Azure.Iot
     {
         /// <summary>
         /// Use this data source to access information about an existing IotHub Device Provisioning Service.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Iot.GetDps.Invoke(new()
+        ///     {
+        ///         Name = "iot_hub_dps_test",
+        ///         ResourceGroupName = "iothub_dps_rg",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetDpsResult> InvokeAsync(GetDpsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDpsResult>("azure:iot/getDps:getDps", args ?? new GetDpsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing IotHub Device Provisioning Service.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Iot.GetDps.Invoke(new()
+        ///     {
+        ///         Name = "iot_hub_dps_test",
+        ///         ResourceGroupName = "iothub_dps_rg",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetDpsResult> Invoke(GetDpsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDpsResult>("azure:iot/getDps:getDps", args ?? new GetDpsInvokeArgs(), options.WithDefaults());

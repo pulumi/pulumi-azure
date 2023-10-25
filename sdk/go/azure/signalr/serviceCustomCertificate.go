@@ -15,6 +15,119 @@ import (
 
 // Manages an Azure SignalR Custom Certificate.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/base64"
+//	"os"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/signalr"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func filebase64OrPanic(path string) pulumi.StringPtrInput {
+//		if fileData, err := os.ReadFile(path); err == nil {
+//			return pulumi.String(base64.StdEncoding.EncodeToString(fileData[:]))
+//		} else {
+//			panic(err.Error())
+//		}
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleService, err := signalr.NewService(ctx, "exampleService", &signalr.ServiceArgs{
+//				Location:          pulumi.Any(azurerm_resource_group.Test.Location),
+//				ResourceGroupName: pulumi.Any(azurerm_resource_group.Test.Name),
+//				Sku: &signalr.ServiceSkuArgs{
+//					Name:     pulumi.String("Premium_P1"),
+//					Capacity: pulumi.Int(1),
+//				},
+//				Identity: &signalr.ServiceIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				TenantId:          *pulumi.String(current.TenantId),
+//				SkuName:           pulumi.String("premium"),
+//				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
+//					&keyvault.KeyVaultAccessPolicyArgs{
+//						TenantId: *pulumi.String(current.TenantId),
+//						ObjectId: *pulumi.String(current.ObjectId),
+//						CertificatePermissions: pulumi.StringArray{
+//							pulumi.String("Create"),
+//							pulumi.String("Get"),
+//							pulumi.String("List"),
+//						},
+//						SecretPermissions: pulumi.StringArray{
+//							pulumi.String("Get"),
+//							pulumi.String("List"),
+//						},
+//					},
+//					&keyvault.KeyVaultAccessPolicyArgs{
+//						TenantId: *pulumi.String(current.TenantId),
+//						ObjectId: pulumi.Any(azurerm_signalr_service.Test.Identity[0].Principal_id),
+//						CertificatePermissions: pulumi.StringArray{
+//							pulumi.String("Create"),
+//							pulumi.String("Get"),
+//							pulumi.String("List"),
+//						},
+//						SecretPermissions: pulumi.StringArray{
+//							pulumi.String("Get"),
+//							pulumi.String("List"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleCertificate, err := keyvault.NewCertificate(ctx, "exampleCertificate", &keyvault.CertificateArgs{
+//				KeyVaultId: exampleKeyVault.ID(),
+//				Certificate: &keyvault.CertificateCertificateArgs{
+//					Contents: filebase64OrPanic("certificate-to-import.pfx"),
+//					Password: pulumi.String(""),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = signalr.NewServiceCustomCertificate(ctx, "test", &signalr.ServiceCustomCertificateArgs{
+//				SignalrServiceId:    exampleService.ID(),
+//				CustomCertificateId: exampleCertificate.ID(),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				azurerm_key_vault_access_policy.Example,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Custom Certificate for a SignalR service can be imported using the `resource id`, e.g.

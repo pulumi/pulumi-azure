@@ -15,6 +15,32 @@ namespace Pulumi.Azure.Blueprint
         /// Use this data source to access information about an existing Blueprint Published Version
         /// 
         /// &gt; **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var current = Azure.Core.GetSubscription.Invoke();
+        /// 
+        ///     var test = Azure.Blueprint.GetPublishedVersion.Invoke(new()
+        ///     {
+        ///         ScopeId = current.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
+        ///         BlueprintName = "exampleBluePrint",
+        ///         Version = "dev_v2.3",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetPublishedVersionResult> InvokeAsync(GetPublishedVersionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPublishedVersionResult>("azure:blueprint/getPublishedVersion:getPublishedVersion", args ?? new GetPublishedVersionArgs(), options.WithDefaults());
@@ -23,6 +49,32 @@ namespace Pulumi.Azure.Blueprint
         /// Use this data source to access information about an existing Blueprint Published Version
         /// 
         /// &gt; **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var current = Azure.Core.GetSubscription.Invoke();
+        /// 
+        ///     var test = Azure.Blueprint.GetPublishedVersion.Invoke(new()
+        ///     {
+        ///         ScopeId = current.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
+        ///         BlueprintName = "exampleBluePrint",
+        ///         Version = "dev_v2.3",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetPublishedVersionResult> Invoke(GetPublishedVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublishedVersionResult>("azure:blueprint/getPublishedVersion:getPublishedVersion", args ?? new GetPublishedVersionInvokeArgs(), options.WithDefaults());

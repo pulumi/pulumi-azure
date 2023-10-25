@@ -12,6 +12,44 @@ namespace Pulumi.Azure.DataFactory
     /// <summary>
     /// Manages a Snowflake Dataset inside an Azure Data Factory.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleLinkedServiceSnowflake = new Azure.DataFactory.LinkedServiceSnowflake("exampleLinkedServiceSnowflake", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         ConnectionString = "jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&amp;db=db&amp;warehouse=wh",
+    ///     });
+    /// 
+    ///     var exampleDatasetSnowflake = new Azure.DataFactory.DatasetSnowflake("exampleDatasetSnowflake", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         LinkedServiceName = exampleLinkedServiceSnowflake.Name,
+    ///         SchemaName = "foo_schema",
+    ///         TableName = "foo_table",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Data Factory Snowflake Datasets can be imported using the `resource id`,

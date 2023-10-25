@@ -253,6 +253,19 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
         """
         Manages a Data Factory Self-hosted Integration Runtime.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_factory = azure.datafactory.Factory("exampleFactory",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_integration_runtime_self_hosted = azure.datafactory.IntegrationRuntimeSelfHosted("exampleIntegrationRuntimeSelfHosted", data_factory_id=example_factory.id)
+        ```
+
         ## Import
 
         Data Factories can be imported using the `resource id`, e.g.
@@ -276,6 +289,19 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Data Factory Self-hosted Integration Runtime.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_factory = azure.datafactory.Factory("exampleFactory",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_integration_runtime_self_hosted = azure.datafactory.IntegrationRuntimeSelfHosted("exampleIntegrationRuntimeSelfHosted", data_factory_id=example_factory.id)
+        ```
 
         ## Import
 

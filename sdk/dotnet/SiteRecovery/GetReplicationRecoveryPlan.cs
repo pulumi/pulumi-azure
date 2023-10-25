@@ -13,12 +13,70 @@ namespace Pulumi.Azure.SiteRecovery
     {
         /// <summary>
         /// Get information about an Azure Site Recovery Plan within a Recovery Services vault. A recovery plan gathers machines into recovery groups for the purpose of failover.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var vault = Azure.RecoveryServices.GetVault.Invoke(new()
+        ///     {
+        ///         Name = "tfex-recovery_vault",
+        ///         ResourceGroupName = "tfex-resource_group",
+        ///     });
+        /// 
+        ///     var example = Azure.SiteRecovery.GetReplicationRecoveryPlan.Invoke(new()
+        ///     {
+        ///         Name = "example-recovery-plan",
+        ///         RecoveryVaultId = vault.Apply(getVaultResult =&gt; getVaultResult.Id),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetReplicationRecoveryPlanResult> InvokeAsync(GetReplicationRecoveryPlanArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicationRecoveryPlanResult>("azure:siterecovery/getReplicationRecoveryPlan:getReplicationRecoveryPlan", args ?? new GetReplicationRecoveryPlanArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get information about an Azure Site Recovery Plan within a Recovery Services vault. A recovery plan gathers machines into recovery groups for the purpose of failover.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var vault = Azure.RecoveryServices.GetVault.Invoke(new()
+        ///     {
+        ///         Name = "tfex-recovery_vault",
+        ///         ResourceGroupName = "tfex-resource_group",
+        ///     });
+        /// 
+        ///     var example = Azure.SiteRecovery.GetReplicationRecoveryPlan.Invoke(new()
+        ///     {
+        ///         Name = "example-recovery-plan",
+        ///         RecoveryVaultId = vault.Apply(getVaultResult =&gt; getVaultResult.Id),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetReplicationRecoveryPlanResult> Invoke(GetReplicationRecoveryPlanInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationRecoveryPlanResult>("azure:siterecovery/getReplicationRecoveryPlan:getReplicationRecoveryPlan", args ?? new GetReplicationRecoveryPlanInvokeArgs(), options.WithDefaults());

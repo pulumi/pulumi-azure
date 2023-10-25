@@ -7,6 +7,112 @@ import * as utilities from "../utilities";
 /**
  * Manages a MS SQL Server Microsoft Support Auditing Policy.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleServer = new azure.mssql.Server("exampleServer", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     version: "12.0",
+ *     administratorLogin: "missadministrator",
+ *     administratorLoginPassword: "AdminPassword123!",
+ * });
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ * });
+ * const exampleServerMicrosoftSupportAuditingPolicy = new azure.mssql.ServerMicrosoftSupportAuditingPolicy("exampleServerMicrosoftSupportAuditingPolicy", {
+ *     serverId: exampleServer.id,
+ *     blobStorageEndpoint: exampleAccount.primaryBlobEndpoint,
+ *     storageAccountAccessKey: exampleAccount.primaryAccessKey,
+ * });
+ * ```
+ * ### With Storage Account Behind VNet And Firewall
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const primary = azure.core.getSubscription({});
+ * const exampleClientConfig = azure.core.getClientConfig({});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.2.0/24"],
+ *     serviceEndpoints: [
+ *         "Microsoft.Sql",
+ *         "Microsoft.Storage",
+ *     ],
+ *     enforcePrivateLinkEndpointNetworkPolicies: true,
+ * });
+ * const exampleServer = new azure.mssql.Server("exampleServer", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     version: "12.0",
+ *     administratorLogin: "missadministrator",
+ *     administratorLoginPassword: "AdminPassword123!",
+ *     minimumTlsVersion: "1.2",
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ * });
+ * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
+ *     scope: primary.then(primary => primary.id),
+ *     roleDefinitionName: "Storage Blob Data Contributor",
+ *     principalId: exampleServer.identity.apply(identity => identity?.principalId),
+ * });
+ * const sqlvnetrule = new azure.sql.VirtualNetworkRule("sqlvnetrule", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     serverName: exampleServer.name,
+ *     subnetId: exampleSubnet.id,
+ * });
+ * const exampleFirewallRule = new azure.sql.FirewallRule("exampleFirewallRule", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     serverName: exampleServer.name,
+ *     startIpAddress: "0.0.0.0",
+ *     endIpAddress: "0.0.0.0",
+ * });
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ *     accountKind: "StorageV2",
+ *     allowNestedItemsToBePublic: false,
+ *     networkRules: {
+ *         defaultAction: "Deny",
+ *         ipRules: ["127.0.0.1"],
+ *         virtualNetworkSubnetIds: [exampleSubnet.id],
+ *         bypasses: ["AzureServices"],
+ *     },
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ * });
+ * const exampleServerMicrosoftSupportAuditingPolicy = new azure.mssql.ServerMicrosoftSupportAuditingPolicy("exampleServerMicrosoftSupportAuditingPolicy", {
+ *     blobStorageEndpoint: exampleAccount.primaryBlobEndpoint,
+ *     serverId: exampleServer.id,
+ *     logMonitoringEnabled: false,
+ *     storageAccountSubscriptionId: azurerm_subscription.primary.subscription_id,
+ * }, {
+ *     dependsOn: [
+ *         exampleAssignment,
+ *         exampleAccount,
+ *     ],
+ * });
+ * ```
+ *
  * ## Import
  *
  * MS SQL Server Microsoft Support Auditing Policies can be imported using the `resource id`, e.g.

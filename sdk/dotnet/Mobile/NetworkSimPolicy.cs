@@ -12,6 +12,127 @@ namespace Pulumi.Azure.Mobile
     /// <summary>
     /// Manages a Mobile Network Sim Policy.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleNetwork = new Azure.Mobile.Network("exampleNetwork", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         MobileCountryCode = "001",
+    ///         MobileNetworkCode = "01",
+    ///     });
+    /// 
+    ///     var exampleNetworkDataNetwork = new Azure.Mobile.NetworkDataNetwork("exampleNetworkDataNetwork", new()
+    ///     {
+    ///         MobileNetworkId = exampleNetwork.Id,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleNetworkService = new Azure.Mobile.NetworkService("exampleNetworkService", new()
+    ///     {
+    ///         MobileNetworkId = exampleNetwork.Id,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ServicePrecedence = 0,
+    ///         PccRules = new[]
+    ///         {
+    ///             new Azure.Mobile.Inputs.NetworkServicePccRuleArgs
+    ///             {
+    ///                 Name = "default-rule",
+    ///                 Precedence = 1,
+    ///                 TrafficControlEnabled = true,
+    ///                 ServiceDataFlowTemplates = new[]
+    ///                 {
+    ///                     new Azure.Mobile.Inputs.NetworkServicePccRuleServiceDataFlowTemplateArgs
+    ///                     {
+    ///                         Direction = "Uplink",
+    ///                         Name = "IP-to-server",
+    ///                         Ports = new() { },
+    ///                         Protocols = new[]
+    ///                         {
+    ///                             "ip",
+    ///                         },
+    ///                         RemoteIpLists = new[]
+    ///                         {
+    ///                             "10.3.4.0/24",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleNetworkSlice = new Azure.Mobile.NetworkSlice("exampleNetworkSlice", new()
+    ///     {
+    ///         MobileNetworkId = exampleNetwork.Id,
+    ///         Location = exampleResourceGroup.Location,
+    ///         SingleNetworkSliceSelectionAssistanceInformation = new Azure.Mobile.Inputs.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs
+    ///         {
+    ///             SliceServiceType = 1,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleNetworkSimPolicy = new Azure.Mobile.NetworkSimPolicy("exampleNetworkSimPolicy", new()
+    ///     {
+    ///         MobileNetworkId = exampleNetwork.Id,
+    ///         Location = exampleResourceGroup.Location,
+    ///         RegistrationTimerInSeconds = 3240,
+    ///         DefaultSliceId = exampleNetworkSlice.Id,
+    ///         Slices = new[]
+    ///         {
+    ///             new Azure.Mobile.Inputs.NetworkSimPolicySliceArgs
+    ///             {
+    ///                 DefaultDataNetworkId = exampleNetworkDataNetwork.Id,
+    ///                 SliceId = exampleNetworkSlice.Id,
+    ///                 DataNetworks = new[]
+    ///                 {
+    ///                     new Azure.Mobile.Inputs.NetworkSimPolicySliceDataNetworkArgs
+    ///                     {
+    ///                         DataNetworkId = exampleNetworkDataNetwork.Id,
+    ///                         AllocationAndRetentionPriorityLevel = 9,
+    ///                         DefaultSessionType = "IPv4",
+    ///                         QosIndicator = 9,
+    ///                         PreemptionCapability = "NotPreempt",
+    ///                         PreemptionVulnerability = "Preemptable",
+    ///                         AllowedServicesIds = new[]
+    ///                         {
+    ///                             exampleNetworkService.Id,
+    ///                         },
+    ///                         SessionAggregateMaximumBitRate = new Azure.Mobile.Inputs.NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs
+    ///                         {
+    ///                             Downlink = "1 Gbps",
+    ///                             Uplink = "500 Mbps",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         UserEquipmentAggregateMaximumBitRate = new Azure.Mobile.Inputs.NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs
+    ///         {
+    ///             Downlink = "1 Gbps",
+    ///             Uplink = "500 Mbps",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key", "value" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Mobile Network Sim Policies can be imported using the `resource id`, e.g.

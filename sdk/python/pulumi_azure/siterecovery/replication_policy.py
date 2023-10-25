@@ -267,6 +267,24 @@ class ReplicationPolicy(pulumi.CustomResource):
         """
         Manages a Azure Site Recovery replication policy within a recovery vault. Replication policies define the frequency at which recovery points are created and how long they are stored.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example", location="East US")
+        vault = azure.recoveryservices.Vault("vault",
+            location=example.location,
+            resource_group_name=example.name,
+            sku="Standard")
+        policy = azure.siterecovery.ReplicationPolicy("policy",
+            resource_group_name=example.name,
+            recovery_vault_name=vault.name,
+            recovery_point_retention_in_minutes=24 * 60,
+            application_consistent_snapshot_frequency_in_minutes=4 * 60)
+        ```
+
         ## Import
 
         Site Recovery Replication Policies can be imported using the `resource id`, e.g.
@@ -293,6 +311,24 @@ class ReplicationPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Azure Site Recovery replication policy within a recovery vault. Replication policies define the frequency at which recovery points are created and how long they are stored.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example", location="East US")
+        vault = azure.recoveryservices.Vault("vault",
+            location=example.location,
+            resource_group_name=example.name,
+            sku="Standard")
+        policy = azure.siterecovery.ReplicationPolicy("policy",
+            resource_group_name=example.name,
+            recovery_vault_name=vault.name,
+            recovery_point_retention_in_minutes=24 * 60,
+            application_consistent_snapshot_frequency_in_minutes=4 * 60)
+        ```
 
         ## Import
 

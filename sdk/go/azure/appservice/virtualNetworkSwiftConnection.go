@@ -37,6 +37,186 @@ import (
 // Multiple apps in the same App Service plan can use the same VNet.
 //
 // ## Example Usage
+// ### With App Service)
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.1.0/24"),
+//				},
+//				Delegations: network.SubnetDelegationArray{
+//					&network.SubnetDelegationArgs{
+//						Name: pulumi.String("example-delegation"),
+//						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
+//							Name: pulumi.String("Microsoft.Web/serverFarms"),
+//							Actions: pulumi.StringArray{
+//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/action"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePlan, err := appservice.NewPlan(ctx, "examplePlan", &appservice.PlanArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku: &appservice.PlanSkuArgs{
+//					Tier: pulumi.String("Standard"),
+//					Size: pulumi.String("S1"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAppService, err := appservice.NewAppService(ctx, "exampleAppService", &appservice.AppServiceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				AppServicePlanId:  examplePlan.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appservice.NewVirtualNetworkSwiftConnection(ctx, "exampleVirtualNetworkSwiftConnection", &appservice.VirtualNetworkSwiftConnectionArgs{
+//				AppServiceId: exampleAppService.ID(),
+//				SubnetId:     exampleSubnet.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### With Function App)
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.1.0/24"),
+//				},
+//				Delegations: network.SubnetDelegationArray{
+//					&network.SubnetDelegationArgs{
+//						Name: pulumi.String("example-delegation"),
+//						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
+//							Name: pulumi.String("Microsoft.Web/serverFarms"),
+//							Actions: pulumi.StringArray{
+//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/action"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePlan, err := appservice.NewPlan(ctx, "examplePlan", &appservice.PlanArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku: &appservice.PlanSkuArgs{
+//					Tier: pulumi.String("Standard"),
+//					Size: pulumi.String("S1"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFunctionApp, err := appservice.NewFunctionApp(ctx, "exampleFunctionApp", &appservice.FunctionAppArgs{
+//				Location:                exampleResourceGroup.Location,
+//				ResourceGroupName:       exampleResourceGroup.Name,
+//				AppServicePlanId:        examplePlan.ID(),
+//				StorageAccountName:      exampleAccount.Name,
+//				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appservice.NewVirtualNetworkSwiftConnection(ctx, "exampleVirtualNetworkSwiftConnection", &appservice.VirtualNetworkSwiftConnectionArgs{
+//				AppServiceId: exampleFunctionApp.ID(),
+//				SubnetId:     exampleSubnet.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //

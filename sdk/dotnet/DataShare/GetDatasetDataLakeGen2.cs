@@ -13,12 +13,66 @@ namespace Pulumi.Azure.DataShare
     {
         /// <summary>
         /// Use this data source to access information about an existing Data Share Data Lake Gen2 Dataset.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.DataShare.GetDatasetDataLakeGen2.Invoke(new()
+        ///     {
+        ///         Name = "example-dsdlg2ds",
+        ///         ShareId = "example-share-id",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getDatasetDataLakeGen2Result =&gt; getDatasetDataLakeGen2Result.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetDatasetDataLakeGen2Result> InvokeAsync(GetDatasetDataLakeGen2Args args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatasetDataLakeGen2Result>("azure:datashare/getDatasetDataLakeGen2:getDatasetDataLakeGen2", args ?? new GetDatasetDataLakeGen2Args(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Data Share Data Lake Gen2 Dataset.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.DataShare.GetDatasetDataLakeGen2.Invoke(new()
+        ///     {
+        ///         Name = "example-dsdlg2ds",
+        ///         ShareId = "example-share-id",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getDatasetDataLakeGen2Result =&gt; getDatasetDataLakeGen2Result.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetDatasetDataLakeGen2Result> Invoke(GetDatasetDataLakeGen2InvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatasetDataLakeGen2Result>("azure:datashare/getDatasetDataLakeGen2:getDatasetDataLakeGen2", args ?? new GetDatasetDataLakeGen2InvokeArgs(), options.WithDefaults());

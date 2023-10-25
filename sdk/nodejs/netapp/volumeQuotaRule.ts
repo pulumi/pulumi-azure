@@ -7,6 +7,87 @@ import * as utilities from "../utilities";
 /**
  * Manages a Volume Quota Rule.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     addressSpaces: ["10.0.0.0/16"],
+ * });
+ * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.2.0/24"],
+ *     delegations: [{
+ *         name: "netapp",
+ *         serviceDelegation: {
+ *             name: "Microsoft.Netapp/volumes",
+ *             actions: [
+ *                 "Microsoft.Network/networkinterfaces/*",
+ *                 "Microsoft.Network/virtualNetworks/subnets/join/action",
+ *             ],
+ *         },
+ *     }],
+ * });
+ * const exampleAccount = new azure.netapp.Account("exampleAccount", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const examplePool = new azure.netapp.Pool("examplePool", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     accountName: exampleAccount.name,
+ *     serviceLevel: "Premium",
+ *     sizeInTb: 4,
+ * });
+ * const exampleVolume = new azure.netapp.Volume("exampleVolume", {
+ *     location: exampleResourceGroup.location,
+ *     zone: "1",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     accountName: exampleAccount.name,
+ *     poolName: examplePool.name,
+ *     volumePath: "my-unique-file-path",
+ *     serviceLevel: "Premium",
+ *     subnetId: exampleSubnet.id,
+ *     networkFeatures: "Basic",
+ *     protocols: ["NFSv4.1"],
+ *     securityStyle: "unix",
+ *     storageQuotaInGb: 100,
+ *     snapshotDirectoryVisible: false,
+ * });
+ * const quota1 = new azure.netapp.VolumeQuotaRule("quota1", {
+ *     location: exampleResourceGroup.location,
+ *     volumeId: exampleVolume.id,
+ *     quotaTarget: "3001",
+ *     quotaSizeInKib: 1024,
+ *     quotaType: "IndividualGroupQuota",
+ * });
+ * const quota2 = new azure.netapp.VolumeQuotaRule("quota2", {
+ *     location: exampleResourceGroup.location,
+ *     volumeId: exampleVolume.id,
+ *     quotaTarget: "2001",
+ *     quotaSizeInKib: 1024,
+ *     quotaType: "IndividualUserQuota",
+ * });
+ * const quota3 = new azure.netapp.VolumeQuotaRule("quota3", {
+ *     location: exampleResourceGroup.location,
+ *     volumeId: exampleVolume.id,
+ *     quotaSizeInKib: 1024,
+ *     quotaType: "DefaultUserQuota",
+ * });
+ * const quota4 = new azure.netapp.VolumeQuotaRule("quota4", {
+ *     location: exampleResourceGroup.location,
+ *     volumeId: exampleVolume.id,
+ *     quotaSizeInKib: 1024,
+ *     quotaType: "DefaultGroupQuota",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Volume Quota Rules can be imported using the `resource id`, e.g.

@@ -12,6 +12,42 @@ namespace Pulumi.Azure.LogAnalytics
     /// <summary>
     /// Manages a Log Analytics Windows Event DataSource.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "PerGB2018",
+    ///     });
+    /// 
+    ///     var exampleDataSourceWindowsEvent = new Azure.LogAnalytics.DataSourceWindowsEvent("exampleDataSourceWindowsEvent", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         WorkspaceName = exampleAnalyticsWorkspace.Name,
+    ///         EventLogName = "Application",
+    ///         EventTypes = new[]
+    ///         {
+    ///             "Error",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Log Analytics Windows Event DataSources can be imported using the `resource id`, e.g.

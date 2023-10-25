@@ -621,6 +621,52 @@ class EventhubDataConnection(pulumi.CustomResource):
         """
         Manages a Kusto (also known as Azure Data Explorer) EventHub Data Connection
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example", location="West Europe")
+        cluster = azure.kusto.Cluster("cluster",
+            location=example.location,
+            resource_group_name=example.name,
+            sku=azure.kusto.ClusterSkuArgs(
+                name="Standard_D13_v2",
+                capacity=2,
+            ))
+        database = azure.kusto.Database("database",
+            resource_group_name=example.name,
+            location=example.location,
+            cluster_name=cluster.name,
+            hot_cache_period="P7D",
+            soft_delete_period="P31D")
+        eventhub_ns = azure.eventhub.EventHubNamespace("eventhubNs",
+            location=example.location,
+            resource_group_name=example.name,
+            sku="Standard")
+        eventhub = azure.eventhub.EventHub("eventhub",
+            namespace_name=eventhub_ns.name,
+            resource_group_name=example.name,
+            partition_count=1,
+            message_retention=1)
+        consumer_group = azure.eventhub.ConsumerGroup("consumerGroup",
+            namespace_name=eventhub_ns.name,
+            eventhub_name=eventhub.name,
+            resource_group_name=example.name)
+        eventhub_connection = azure.kusto.EventhubDataConnection("eventhubConnection",
+            resource_group_name=example.name,
+            location=example.location,
+            cluster_name=cluster.name,
+            database_name=database.name,
+            eventhub_id=eventhub.id,
+            consumer_group=consumer_group.name,
+            table_name="my-table",
+            mapping_rule_name="my-table-mapping",
+            data_format="JSON")
+        #(Optional)
+        ```
+
         ## Import
 
         Kusto EventHub Data Connections can be imported using the `resource id`, e.g.
@@ -654,6 +700,52 @@ class EventhubDataConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Kusto (also known as Azure Data Explorer) EventHub Data Connection
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example", location="West Europe")
+        cluster = azure.kusto.Cluster("cluster",
+            location=example.location,
+            resource_group_name=example.name,
+            sku=azure.kusto.ClusterSkuArgs(
+                name="Standard_D13_v2",
+                capacity=2,
+            ))
+        database = azure.kusto.Database("database",
+            resource_group_name=example.name,
+            location=example.location,
+            cluster_name=cluster.name,
+            hot_cache_period="P7D",
+            soft_delete_period="P31D")
+        eventhub_ns = azure.eventhub.EventHubNamespace("eventhubNs",
+            location=example.location,
+            resource_group_name=example.name,
+            sku="Standard")
+        eventhub = azure.eventhub.EventHub("eventhub",
+            namespace_name=eventhub_ns.name,
+            resource_group_name=example.name,
+            partition_count=1,
+            message_retention=1)
+        consumer_group = azure.eventhub.ConsumerGroup("consumerGroup",
+            namespace_name=eventhub_ns.name,
+            eventhub_name=eventhub.name,
+            resource_group_name=example.name)
+        eventhub_connection = azure.kusto.EventhubDataConnection("eventhubConnection",
+            resource_group_name=example.name,
+            location=example.location,
+            cluster_name=cluster.name,
+            database_name=database.name,
+            eventhub_id=eventhub.id,
+            consumer_group=consumer_group.name,
+            table_name="my-table",
+            mapping_rule_name="my-table-mapping",
+            data_format="JSON")
+        #(Optional)
+        ```
 
         ## Import
 

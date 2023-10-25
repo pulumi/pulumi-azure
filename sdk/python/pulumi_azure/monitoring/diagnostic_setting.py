@@ -596,6 +596,43 @@ class DiagnosticSetting(pulumi.CustomResource):
         """
         Manages a Diagnostic Setting for an existing Resource.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        current = azure.core.get_client_config()
+        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tenant_id=current.tenant_id,
+            soft_delete_retention_days=7,
+            purge_protection_enabled=False,
+            sku_name="standard")
+        example_diagnostic_setting = azure.monitoring.DiagnosticSetting("exampleDiagnosticSetting",
+            target_resource_id=example_key_vault.id,
+            storage_account_id=example_account.id,
+            enabled_logs=[azure.monitoring.DiagnosticSettingEnabledLogArgs(
+                category="AuditEvent",
+                retention_policy=azure.monitoring.DiagnosticSettingEnabledLogRetentionPolicyArgs(
+                    enabled=False,
+                ),
+            )],
+            metrics=[azure.monitoring.DiagnosticSettingMetricArgs(
+                category="AllMetrics",
+                retention_policy=azure.monitoring.DiagnosticSettingMetricRetentionPolicyArgs(
+                    enabled=False,
+                ),
+            )])
+        ```
+
         ## Import
 
         Diagnostic Settings can be imported using the `resource id`, e.g.
@@ -648,6 +685,43 @@ class DiagnosticSetting(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Diagnostic Setting for an existing Resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        current = azure.core.get_client_config()
+        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tenant_id=current.tenant_id,
+            soft_delete_retention_days=7,
+            purge_protection_enabled=False,
+            sku_name="standard")
+        example_diagnostic_setting = azure.monitoring.DiagnosticSetting("exampleDiagnosticSetting",
+            target_resource_id=example_key_vault.id,
+            storage_account_id=example_account.id,
+            enabled_logs=[azure.monitoring.DiagnosticSettingEnabledLogArgs(
+                category="AuditEvent",
+                retention_policy=azure.monitoring.DiagnosticSettingEnabledLogRetentionPolicyArgs(
+                    enabled=False,
+                ),
+            )],
+            metrics=[azure.monitoring.DiagnosticSettingMetricArgs(
+                category="AllMetrics",
+                retention_policy=azure.monitoring.DiagnosticSettingMetricRetentionPolicyArgs(
+                    enabled=False,
+                ),
+            )])
+        ```
 
         ## Import
 

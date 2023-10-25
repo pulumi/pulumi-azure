@@ -12,6 +12,42 @@ namespace Pulumi.Azure.MySql
     /// <summary>
     /// Manages a MySQL Server.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleServer = new Azure.MySql.Server("exampleServer", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AdministratorLogin = "mysqladminun",
+    ///         AdministratorLoginPassword = "H@Sh1CoR3!",
+    ///         SkuName = "B_Gen5_2",
+    ///         StorageMb = 5120,
+    ///         Version = "5.7",
+    ///         AutoGrowEnabled = true,
+    ///         BackupRetentionDays = 7,
+    ///         GeoRedundantBackupEnabled = false,
+    ///         InfrastructureEncryptionEnabled = false,
+    ///         PublicNetworkAccessEnabled = true,
+    ///         SslEnforcementEnabled = true,
+    ///         SslMinimalTlsVersionEnforced = "TLS1_2",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// MySQL Server's can be imported using the `resource id`, e.g.

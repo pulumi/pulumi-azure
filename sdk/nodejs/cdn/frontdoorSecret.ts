@@ -9,6 +9,69 @@ import * as utilities from "../utilities";
 /**
  * Manages a Front Door (standard/premium) Secret.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as azuread from "@pulumi/azuread";
+ * import * as fs from "fs";
+ *
+ * const current = azure.core.getClientConfig({});
+ * const frontdoor = azuread.getServicePrincipal({
+ *     displayName: "Microsoft.Azure.Cdn",
+ * });
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "premium",
+ *     softDeleteRetentionDays: 7,
+ *     networkAcls: {
+ *         defaultAction: "Deny",
+ *         bypass: "AzureServices",
+ *         ipRules: ["10.0.0.0/24"],
+ *     },
+ *     accessPolicies: [
+ *         {
+ *             tenantId: current.then(current => current.tenantId),
+ *             objectId: frontdoor.then(frontdoor => frontdoor.objectId),
+ *             secretPermissions: ["Get"],
+ *         },
+ *         {
+ *             tenantId: current.then(current => current.tenantId),
+ *             objectId: current.then(current => current.objectId),
+ *             certificatePermissions: [
+ *                 "Get",
+ *                 "Import",
+ *                 "Delete",
+ *                 "Purge",
+ *             ],
+ *             secretPermissions: ["Get"],
+ *         },
+ *     ],
+ * });
+ * const exampleCertificate = new azure.keyvault.Certificate("exampleCertificate", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     certificate: {
+ *         contents: Buffer.from(fs.readFileSync("my-certificate.pfx"), 'binary').toString('base64'),
+ *     },
+ * });
+ * const exampleFrontdoorProfile = new azure.cdn.FrontdoorProfile("exampleFrontdoorProfile", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     skuName: "Standard_AzureFrontDoor",
+ * });
+ * const exampleFrontdoorSecret = new azure.cdn.FrontdoorSecret("exampleFrontdoorSecret", {
+ *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
+ *     secret: {
+ *         customerCertificates: [{
+ *             keyVaultCertificateId: exampleCertificate.id,
+ *         }],
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Front Door Secrets can be imported using the `resource id`, e.g.

@@ -12,6 +12,37 @@ namespace Pulumi.Azure.Compute
     /// <summary>
     /// Manages a Gallery Application.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleSharedImageGallery = new Azure.Compute.SharedImageGallery("exampleSharedImageGallery", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleGalleryApplication = new Azure.Compute.GalleryApplication("exampleGalleryApplication", new()
+    ///     {
+    ///         GalleryId = exampleSharedImageGallery.Id,
+    ///         Location = exampleResourceGroup.Location,
+    ///         SupportedOsType = "Linux",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Gallery Applications can be imported using the `resource id`, e.g.

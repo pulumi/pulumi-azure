@@ -12,6 +12,54 @@ namespace Pulumi.Azure.Batch
     /// <summary>
     /// Manages a Batch Job.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "west europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Batch.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var examplePool = new Azure.Batch.Pool("examplePool", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AccountName = exampleAccount.Name,
+    ///         NodeAgentSkuId = "batch.node.ubuntu 16.04",
+    ///         VmSize = "Standard_A1",
+    ///         FixedScale = new Azure.Batch.Inputs.PoolFixedScaleArgs
+    ///         {
+    ///             TargetDedicatedNodes = 1,
+    ///         },
+    ///         StorageImageReference = new Azure.Batch.Inputs.PoolStorageImageReferenceArgs
+    ///         {
+    ///             Publisher = "Canonical",
+    ///             Offer = "UbuntuServer",
+    ///             Sku = "16.04.0-LTS",
+    ///             Version = "latest",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleJob = new Azure.Batch.Job("exampleJob", new()
+    ///     {
+    ///         BatchPoolId = examplePool.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Batch Jobs can be imported using the `resource id`, e.g.

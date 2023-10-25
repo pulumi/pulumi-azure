@@ -376,6 +376,46 @@ class LocalUser(pulumi.CustomResource):
         """
         Manages a Storage Account Local User.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="WestEurope")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_kind="StorageV2",
+            account_tier="Standard",
+            account_replication_type="LRS",
+            is_hns_enabled=True)
+        example_container = azure.storage.Container("exampleContainer", storage_account_name=example_account.name)
+        example_local_user = azure.storage.LocalUser("exampleLocalUser",
+            storage_account_id=example_account.id,
+            ssh_key_enabled=True,
+            ssh_password_enabled=True,
+            home_directory="example_path",
+            ssh_authorized_keys=[
+                azure.storage.LocalUserSshAuthorizedKeyArgs(
+                    description="key1",
+                    key=local["first_public_key"],
+                ),
+                azure.storage.LocalUserSshAuthorizedKeyArgs(
+                    description="key2",
+                    key=local["second_public_key"],
+                ),
+            ],
+            permission_scopes=[azure.storage.LocalUserPermissionScopeArgs(
+                permissions=azure.storage.LocalUserPermissionScopePermissionsArgs(
+                    read=True,
+                    create=True,
+                ),
+                service="blob",
+                resource_name=example_container.name,
+            )])
+        ```
+
         ## Import
 
         Storage Account Local Users can be imported using the `resource id`, e.g.
@@ -402,6 +442,46 @@ class LocalUser(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Storage Account Local User.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="WestEurope")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_kind="StorageV2",
+            account_tier="Standard",
+            account_replication_type="LRS",
+            is_hns_enabled=True)
+        example_container = azure.storage.Container("exampleContainer", storage_account_name=example_account.name)
+        example_local_user = azure.storage.LocalUser("exampleLocalUser",
+            storage_account_id=example_account.id,
+            ssh_key_enabled=True,
+            ssh_password_enabled=True,
+            home_directory="example_path",
+            ssh_authorized_keys=[
+                azure.storage.LocalUserSshAuthorizedKeyArgs(
+                    description="key1",
+                    key=local["first_public_key"],
+                ),
+                azure.storage.LocalUserSshAuthorizedKeyArgs(
+                    description="key2",
+                    key=local["second_public_key"],
+                ),
+            ],
+            permission_scopes=[azure.storage.LocalUserPermissionScopeArgs(
+                permissions=azure.storage.LocalUserPermissionScopePermissionsArgs(
+                    read=True,
+                    create=True,
+                ),
+                service="blob",
+                resource_name=example_container.name,
+            )])
+        ```
 
         ## Import
 

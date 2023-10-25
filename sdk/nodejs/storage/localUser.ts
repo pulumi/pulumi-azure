@@ -9,6 +9,48 @@ import * as utilities from "../utilities";
 /**
  * Manages a Storage Account Local User.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "WestEurope"});
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountKind: "StorageV2",
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ *     isHnsEnabled: true,
+ * });
+ * const exampleContainer = new azure.storage.Container("exampleContainer", {storageAccountName: exampleAccount.name});
+ * const exampleLocalUser = new azure.storage.LocalUser("exampleLocalUser", {
+ *     storageAccountId: exampleAccount.id,
+ *     sshKeyEnabled: true,
+ *     sshPasswordEnabled: true,
+ *     homeDirectory: "example_path",
+ *     sshAuthorizedKeys: [
+ *         {
+ *             description: "key1",
+ *             key: local.first_public_key,
+ *         },
+ *         {
+ *             description: "key2",
+ *             key: local.second_public_key,
+ *         },
+ *     ],
+ *     permissionScopes: [{
+ *         permissions: {
+ *             read: true,
+ *             create: true,
+ *         },
+ *         service: "blob",
+ *         resourceName: exampleContainer.name,
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Storage Account Local Users can be imported using the `resource id`, e.g.

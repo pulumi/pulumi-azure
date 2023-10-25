@@ -247,6 +247,24 @@ class Account(pulumi.CustomResource):
         """
         Manages a Data Share Account.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.datashare.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            identity=azure.datashare.AccountIdentityArgs(
+                type="SystemAssigned",
+            ),
+            tags={
+                "foo": "bar",
+            })
+        ```
+
         ## Import
 
         Data Share Accounts can be imported using the `resource id`, e.g.
@@ -271,6 +289,24 @@ class Account(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Data Share Account.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.datashare.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            identity=azure.datashare.AccountIdentityArgs(
+                type="SystemAssigned",
+            ),
+            tags={
+                "foo": "bar",
+            })
+        ```
 
         ## Import
 

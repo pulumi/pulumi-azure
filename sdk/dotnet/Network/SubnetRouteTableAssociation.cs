@@ -12,6 +12,66 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Associates a Route Table with a Subnet within a Virtual Network.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleRouteTable = new Azure.Network.RouteTable("exampleRouteTable", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Routes = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.RouteTableRouteArgs
+    ///             {
+    ///                 Name = "example",
+    ///                 AddressPrefix = "10.100.0.0/14",
+    ///                 NextHopType = "VirtualAppliance",
+    ///                 NextHopInIpAddress = "10.10.1.1",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSubnetRouteTableAssociation = new Azure.Network.SubnetRouteTableAssociation("exampleSubnetRouteTableAssociation", new()
+    ///     {
+    ///         SubnetId = exampleSubnet.Id,
+    ///         RouteTableId = exampleRouteTable.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Subnet Route Table Associations can be imported using the `resource id` of the Subnet, e.g.

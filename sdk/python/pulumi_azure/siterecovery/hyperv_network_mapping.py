@@ -259,6 +259,28 @@ class HypervNetworkMapping(pulumi.CustomResource):
         """
         Manages a HyperV site recovery network mapping on Azure. A HyperV network mapping decides how to translate connected networks when a VM is migrated from HyperV VMM Center to Azure.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        target_resource_group = azure.core.ResourceGroup("targetResourceGroup", location="East US")
+        vault = azure.recoveryservices.Vault("vault",
+            location=target_resource_group.location,
+            resource_group_name=target_resource_group.name,
+            sku="Standard")
+        target_virtual_network = azure.network.VirtualNetwork("targetVirtualNetwork",
+            resource_group_name=target_resource_group.name,
+            address_spaces=["192.168.2.0/24"],
+            location=target_resource_group.location)
+        recovery_mapping = azure.siterecovery.HypervNetworkMapping("recovery-mapping",
+            recovery_vault_id=vault.id,
+            source_system_center_virtual_machine_manager_name="my-vmm-server",
+            source_network_name="my-vmm-network",
+            target_network_id=target_virtual_network.id)
+        ```
+
         ## Import
 
         Site Recovery Network Mapping can be imported using the `resource id`, e.g.
@@ -283,6 +305,28 @@ class HypervNetworkMapping(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a HyperV site recovery network mapping on Azure. A HyperV network mapping decides how to translate connected networks when a VM is migrated from HyperV VMM Center to Azure.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        target_resource_group = azure.core.ResourceGroup("targetResourceGroup", location="East US")
+        vault = azure.recoveryservices.Vault("vault",
+            location=target_resource_group.location,
+            resource_group_name=target_resource_group.name,
+            sku="Standard")
+        target_virtual_network = azure.network.VirtualNetwork("targetVirtualNetwork",
+            resource_group_name=target_resource_group.name,
+            address_spaces=["192.168.2.0/24"],
+            location=target_resource_group.location)
+        recovery_mapping = azure.siterecovery.HypervNetworkMapping("recovery-mapping",
+            recovery_vault_id=vault.id,
+            source_system_center_virtual_machine_manager_name="my-vmm-server",
+            source_network_name="my-vmm-network",
+            target_network_id=target_virtual_network.id)
+        ```
 
         ## Import
 

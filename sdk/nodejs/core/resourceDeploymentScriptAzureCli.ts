@@ -9,6 +9,37 @@ import * as utilities from "../utilities";
 /**
  * Manages a Resource Deployment Script of Azure Cli.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleResourceDeploymentScriptAzureCli = new azure.core.ResourceDeploymentScriptAzureCli("exampleResourceDeploymentScriptAzureCli", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: "West Europe",
+ *     version: "2.40.0",
+ *     retentionInterval: "P1D",
+ *     commandLine: "'foo' 'bar'",
+ *     cleanupPreference: "OnSuccess",
+ *     forceUpdateTag: "1",
+ *     timeout: "PT30M",
+ *     scriptContent: "            echo \"{\\\"name\\\":{\\\"displayName\\\":\\\"$1 $2\\\"}}\" > $AZ_SCRIPTS_OUTPUT_PATH\n",
+ *     identity: {
+ *         type: "UserAssigned",
+ *         identityIds: [exampleUserAssignedIdentity.id],
+ *     },
+ *     tags: {
+ *         key: "value",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Resource Deployment Script can be imported using the `resource id`, e.g.

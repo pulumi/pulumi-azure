@@ -13,6 +13,128 @@ namespace Pulumi.Azure.Network
     /// Manages an ExpressRoute Circuit Peering.
     /// 
     /// ## Example Usage
+    /// ### Creating A Microsoft Peering)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleExpressRouteCircuit = new Azure.Network.ExpressRouteCircuit("exampleExpressRouteCircuit", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ServiceProviderName = "Equinix",
+    ///         PeeringLocation = "Silicon Valley",
+    ///         BandwidthInMbps = 50,
+    ///         Sku = new Azure.Network.Inputs.ExpressRouteCircuitSkuArgs
+    ///         {
+    ///             Tier = "Standard",
+    ///             Family = "MeteredData",
+    ///         },
+    ///         AllowClassicOperations = false,
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleExpressRouteCircuitPeering = new Azure.Network.ExpressRouteCircuitPeering("exampleExpressRouteCircuitPeering", new()
+    ///     {
+    ///         PeeringType = "MicrosoftPeering",
+    ///         ExpressRouteCircuitName = exampleExpressRouteCircuit.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PeerAsn = 100,
+    ///         PrimaryPeerAddressPrefix = "123.0.0.0/30",
+    ///         SecondaryPeerAddressPrefix = "123.0.0.4/30",
+    ///         Ipv4Enabled = true,
+    ///         VlanId = 300,
+    ///         MicrosoftPeeringConfig = new Azure.Network.Inputs.ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs
+    ///         {
+    ///             AdvertisedPublicPrefixes = new[]
+    ///             {
+    ///                 "123.1.0.0/24",
+    ///             },
+    ///         },
+    ///         Ipv6 = new Azure.Network.Inputs.ExpressRouteCircuitPeeringIpv6Args
+    ///         {
+    ///             PrimaryPeerAddressPrefix = "2002:db01::/126",
+    ///             SecondaryPeerAddressPrefix = "2003:db01::/126",
+    ///             Enabled = true,
+    ///             MicrosoftPeering = new Azure.Network.Inputs.ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs
+    ///             {
+    ///                 AdvertisedPublicPrefixes = new[]
+    ///                 {
+    ///                     "2002:db01::/126",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Creating Azure Private Peering)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleExpressRouteCircuit = new Azure.Network.ExpressRouteCircuit("exampleExpressRouteCircuit", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ServiceProviderName = "Equinix",
+    ///         PeeringLocation = "Silicon Valley",
+    ///         BandwidthInMbps = 50,
+    ///         Sku = new Azure.Network.Inputs.ExpressRouteCircuitSkuArgs
+    ///         {
+    ///             Tier = "Standard",
+    ///             Family = "MeteredData",
+    ///         },
+    ///         AllowClassicOperations = false,
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleExpressRouteCircuitPeering = new Azure.Network.ExpressRouteCircuitPeering("exampleExpressRouteCircuitPeering", new()
+    ///     {
+    ///         PeeringType = "AzurePrivatePeering",
+    ///         ExpressRouteCircuitName = exampleExpressRouteCircuit.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PeerAsn = 100,
+    ///         PrimaryPeerAddressPrefix = "123.0.0.0/30",
+    ///         SecondaryPeerAddressPrefix = "123.0.0.4/30",
+    ///         Ipv4Enabled = true,
+    ///         VlanId = 300,
+    ///         Ipv6 = new Azure.Network.Inputs.ExpressRouteCircuitPeeringIpv6Args
+    ///         {
+    ///             PrimaryPeerAddressPrefix = "2002:db01::/126",
+    ///             SecondaryPeerAddressPrefix = "2003:db01::/126",
+    ///             Enabled = true,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

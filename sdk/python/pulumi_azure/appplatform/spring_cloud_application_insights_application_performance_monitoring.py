@@ -381,6 +381,31 @@ class SpringCloudApplicationInsightsApplicationPerformanceMonitoring(pulumi.Cust
 
         Manages a Spring Cloud Application Performance Monitoring resource for Application Insights.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_insights = azure.appinsights.Insights("exampleInsights",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            application_type="web")
+        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="E0")
+        example_spring_cloud_application_insights_application_performance_monitoring = azure.appplatform.SpringCloudApplicationInsightsApplicationPerformanceMonitoring("exampleSpringCloudApplicationInsightsApplicationPerformanceMonitoring",
+            spring_cloud_service_id=example_spring_cloud_service.id,
+            connection_string=example_insights.instrumentation_key,
+            globally_enabled=True,
+            role_name="test-role",
+            role_instance="test-instance",
+            sampling_percentage=50,
+            sampling_requests_per_second=10)
+        ```
+
         ## Import
 
         Spring Cloud Application Performance Monitoring resource for Application Insights can be imported using the `resource id`, e.g.
@@ -410,6 +435,31 @@ class SpringCloudApplicationInsightsApplicationPerformanceMonitoring(pulumi.Cust
         > **NOTE:** This resource is only applicable for Spring Cloud Service enterprise tier
 
         Manages a Spring Cloud Application Performance Monitoring resource for Application Insights.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_insights = azure.appinsights.Insights("exampleInsights",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            application_type="web")
+        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="E0")
+        example_spring_cloud_application_insights_application_performance_monitoring = azure.appplatform.SpringCloudApplicationInsightsApplicationPerformanceMonitoring("exampleSpringCloudApplicationInsightsApplicationPerformanceMonitoring",
+            spring_cloud_service_id=example_spring_cloud_service.id,
+            connection_string=example_insights.instrumentation_key,
+            globally_enabled=True,
+            role_name="test-role",
+            role_instance="test-instance",
+            sampling_percentage=50,
+            sampling_requests_per_second=10)
+        ```
 
         ## Import
 

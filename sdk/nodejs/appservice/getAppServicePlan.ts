@@ -10,6 +10,19 @@ import * as utilities from "../utilities";
  * Use this data source to access information about an existing App Service Plan (formerly known as a `Server Farm`).
  *
  * !> **Note:** The `azure.appservice.Plan` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.ServicePlan` data source instead.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.appservice.getAppServicePlan({
+ *     name: "search-app-service-plan",
+ *     resourceGroupName: "search-service",
+ * });
+ * export const appServicePlanId = example.then(example => example.id);
+ * ```
  */
 export function getAppServicePlan(args: GetAppServicePlanArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServicePlanResult> {
 
@@ -93,6 +106,19 @@ export interface GetAppServicePlanResult {
  * Use this data source to access information about an existing App Service Plan (formerly known as a `Server Farm`).
  *
  * !> **Note:** The `azure.appservice.Plan` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.ServicePlan` data source instead.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.appservice.getAppServicePlan({
+ *     name: "search-app-service-plan",
+ *     resourceGroupName: "search-service",
+ * });
+ * export const appServicePlanId = example.then(example => example.id);
+ * ```
  */
 export function getAppServicePlanOutput(args: GetAppServicePlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServicePlanResult> {
     return pulumi.output(args).apply((a: any) => getAppServicePlan(a, opts))

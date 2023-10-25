@@ -290,6 +290,22 @@ class IntegrationAccount(pulumi.CustomResource):
         """
         Manages a Logic App Integration Account.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_integration_account = azure.logicapps.IntegrationAccount("exampleIntegrationAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku_name="Standard",
+            tags={
+                "foo": "bar",
+            })
+        ```
+
         ## Import
 
         Logic App Integration Accounts can be imported using the `resource id`, e.g.
@@ -315,6 +331,22 @@ class IntegrationAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Logic App Integration Account.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_integration_account = azure.logicapps.IntegrationAccount("exampleIntegrationAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku_name="Standard",
+            tags={
+                "foo": "bar",
+            })
+        ```
 
         ## Import
 

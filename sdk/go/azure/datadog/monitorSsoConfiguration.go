@@ -16,6 +16,58 @@ import (
 // Manages SingleSignOn on the datadog Monitor.
 //
 // ## Example Usage
+// ### Enabling SSO on monitor
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West US 2"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleMonitor, err := datadog.NewMonitor(ctx, "exampleMonitor", &datadog.MonitorArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				DatadogOrganization: &datadog.MonitorDatadogOrganizationArgs{
+//					ApiKey:         pulumi.String("XXXX"),
+//					ApplicationKey: pulumi.String("XXXX"),
+//				},
+//				User: &datadog.MonitorUserArgs{
+//					Name:  pulumi.String("Example"),
+//					Email: pulumi.String("abc@xyz.com"),
+//				},
+//				SkuName: pulumi.String("Linked"),
+//				Identity: &datadog.MonitorIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datadog.NewMonitorSsoConfiguration(ctx, "exampleMonitorSsoConfiguration", &datadog.MonitorSsoConfigurationArgs{
+//				DatadogMonitorId:        exampleMonitor.ID(),
+//				SingleSignOnEnabled:     pulumi.String("Enable"),
+//				EnterpriseApplicationId: pulumi.String("XXXX"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //

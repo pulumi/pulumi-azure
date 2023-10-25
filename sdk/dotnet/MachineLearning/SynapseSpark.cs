@@ -12,6 +12,104 @@ namespace Pulumi.Azure.MachineLearning
     /// <summary>
     /// Manages the linked service to link an Azure Machine learning workspace to an Azure Synapse workspace.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "west europe",
+    ///         Tags = 
+    ///         {
+    ///             { "stage", "example" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApplicationType = "web",
+    ///     });
+    /// 
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "standard",
+    ///         PurgeProtectionEnabled = true,
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleWorkspace = new Azure.MachineLearning.Workspace("exampleWorkspace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApplicationInsightsId = exampleInsights.Id,
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         StorageAccountId = exampleAccount.Id,
+    ///         Identity = new Azure.MachineLearning.Inputs.WorkspaceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleDataLakeGen2Filesystem = new Azure.Storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", new()
+    ///     {
+    ///         StorageAccountId = exampleAccount.Id,
+    ///     });
+    /// 
+    ///     var exampleSynapse_workspaceWorkspace = new Azure.Synapse.Workspace("exampleSynapse/workspaceWorkspace", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         StorageDataLakeGen2FilesystemId = exampleDataLakeGen2Filesystem.Id,
+    ///         SqlAdministratorLogin = "sqladminuser",
+    ///         SqlAdministratorLoginPassword = "H@Sh1CoR3!",
+    ///         Identity = new Azure.Synapse.Inputs.WorkspaceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSparkPool = new Azure.Synapse.SparkPool("exampleSparkPool", new()
+    ///     {
+    ///         SynapseWorkspaceId = exampleSynapse / workspaceWorkspace.Id,
+    ///         NodeSizeFamily = "MemoryOptimized",
+    ///         NodeSize = "Small",
+    ///         NodeCount = 3,
+    ///     });
+    /// 
+    ///     var exampleSynapseSpark = new Azure.MachineLearning.SynapseSpark("exampleSynapseSpark", new()
+    ///     {
+    ///         MachineLearningWorkspaceId = exampleWorkspace.Id,
+    ///         Location = exampleResourceGroup.Location,
+    ///         SynapseSparkPoolId = exampleSparkPool.Id,
+    ///         Identity = new Azure.MachineLearning.Inputs.SynapseSparkIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Machine Learning Synapse Sparks can be imported using the `resource id`, e.g.

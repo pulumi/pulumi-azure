@@ -171,6 +171,18 @@ class Assignment(pulumi.CustomResource):
         """
         Manages a [Lighthouse](https://docs.microsoft.com/azure/lighthouse) Assignment to a subscription, or to a resource group.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        primary = azure.core.get_subscription()
+        example = azure.lighthouse.Assignment("example",
+            scope=primary.id,
+            lighthouse_definition_id="/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedServices/registrationDefinitions/00000000-0000-0000-0000-000000000000")
+        ```
+
         ## Import
 
         Lighthouse Assignments can be imported using the `resource id`, e.g.
@@ -193,6 +205,18 @@ class Assignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a [Lighthouse](https://docs.microsoft.com/azure/lighthouse) Assignment to a subscription, or to a resource group.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        primary = azure.core.get_subscription()
+        example = azure.lighthouse.Assignment("example",
+            scope=primary.id,
+            lighthouse_definition_id="/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedServices/registrationDefinitions/00000000-0000-0000-0000-000000000000")
+        ```
 
         ## Import
 

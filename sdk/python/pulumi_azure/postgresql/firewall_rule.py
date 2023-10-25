@@ -268,6 +268,40 @@ class FirewallRule(pulumi.CustomResource):
         Manages a Firewall Rule for a PostgreSQL Server
 
         ## Example Usage
+        ### Single IP Address)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_server = azure.postgresql.Server("exampleServer",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="GP_Gen5_2",
+            version="11",
+            ssl_enforcement_enabled=True)
+        example_firewall_rule = azure.postgresql.FirewallRule("exampleFirewallRule",
+            resource_group_name=example_resource_group.name,
+            server_name=example_server.name,
+            start_ip_address="40.112.8.12",
+            end_ip_address="40.112.8.12")
+        ```
+        ### IP Range)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_server = azure.postgresql.Server("exampleServer")
+        # ...
+        example_firewall_rule = azure.postgresql.FirewallRule("exampleFirewallRule",
+            resource_group_name=example_resource_group.name,
+            server_name=example_server.name,
+            start_ip_address="40.112.0.0",
+            end_ip_address="40.112.255.255")
+        ```
 
         ## Import
 
@@ -297,6 +331,40 @@ class FirewallRule(pulumi.CustomResource):
         Manages a Firewall Rule for a PostgreSQL Server
 
         ## Example Usage
+        ### Single IP Address)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_server = azure.postgresql.Server("exampleServer",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="GP_Gen5_2",
+            version="11",
+            ssl_enforcement_enabled=True)
+        example_firewall_rule = azure.postgresql.FirewallRule("exampleFirewallRule",
+            resource_group_name=example_resource_group.name,
+            server_name=example_server.name,
+            start_ip_address="40.112.8.12",
+            end_ip_address="40.112.8.12")
+        ```
+        ### IP Range)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_server = azure.postgresql.Server("exampleServer")
+        # ...
+        example_firewall_rule = azure.postgresql.FirewallRule("exampleFirewallRule",
+            resource_group_name=example_resource_group.name,
+            server_name=example_server.name,
+            start_ip_address="40.112.0.0",
+            end_ip_address="40.112.255.255")
+        ```
 
         ## Import
 

@@ -12,6 +12,100 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages an Express Route Circuit Connection.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleExpressRoutePort = new Azure.Network.ExpressRoutePort("exampleExpressRoutePort", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         PeeringLocation = "Equinix-Seattle-SE2",
+    ///         BandwidthInGbps = 10,
+    ///         Encapsulation = "Dot1Q",
+    ///     });
+    /// 
+    ///     var exampleExpressRouteCircuit = new Azure.Network.ExpressRouteCircuit("exampleExpressRouteCircuit", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ExpressRoutePortId = exampleExpressRoutePort.Id,
+    ///         BandwidthInGbps = 5,
+    ///         Sku = new Azure.Network.Inputs.ExpressRouteCircuitSkuArgs
+    ///         {
+    ///             Tier = "Standard",
+    ///             Family = "MeteredData",
+    ///         },
+    ///     });
+    /// 
+    ///     var example2ExpressRoutePort = new Azure.Network.ExpressRoutePort("example2ExpressRoutePort", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         PeeringLocation = "Allied-Toronto-King-West",
+    ///         BandwidthInGbps = 10,
+    ///         Encapsulation = "Dot1Q",
+    ///     });
+    /// 
+    ///     var example2ExpressRouteCircuit = new Azure.Network.ExpressRouteCircuit("example2ExpressRouteCircuit", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ExpressRoutePortId = example2ExpressRoutePort.Id,
+    ///         BandwidthInGbps = 5,
+    ///         Sku = new Azure.Network.Inputs.ExpressRouteCircuitSkuArgs
+    ///         {
+    ///             Tier = "Standard",
+    ///             Family = "MeteredData",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleExpressRouteCircuitPeering = new Azure.Network.ExpressRouteCircuitPeering("exampleExpressRouteCircuitPeering", new()
+    ///     {
+    ///         PeeringType = "AzurePrivatePeering",
+    ///         ExpressRouteCircuitName = exampleExpressRouteCircuit.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SharedKey = "ItsASecret",
+    ///         PeerAsn = 100,
+    ///         PrimaryPeerAddressPrefix = "192.168.1.0/30",
+    ///         SecondaryPeerAddressPrefix = "192.168.1.0/30",
+    ///         VlanId = 100,
+    ///     });
+    /// 
+    ///     var example2ExpressRouteCircuitPeering = new Azure.Network.ExpressRouteCircuitPeering("example2ExpressRouteCircuitPeering", new()
+    ///     {
+    ///         PeeringType = "AzurePrivatePeering",
+    ///         ExpressRouteCircuitName = example2ExpressRouteCircuit.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SharedKey = "ItsASecret",
+    ///         PeerAsn = 100,
+    ///         PrimaryPeerAddressPrefix = "192.168.1.0/30",
+    ///         SecondaryPeerAddressPrefix = "192.168.1.0/30",
+    ///         VlanId = 100,
+    ///     });
+    /// 
+    ///     var exampleExpressRouteCircuitConnection = new Azure.Network.ExpressRouteCircuitConnection("exampleExpressRouteCircuitConnection", new()
+    ///     {
+    ///         PeeringId = exampleExpressRouteCircuitPeering.Id,
+    ///         PeerPeeringId = example2ExpressRouteCircuitPeering.Id,
+    ///         AddressPrefixIpv4 = "192.169.9.0/29",
+    ///         AuthorizationKey = "846a1918-b7a2-4917-b43c-8c4cdaee006a",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Express Route Circuit Connections can be imported using the `resource id`, e.g.

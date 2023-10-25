@@ -6,6 +6,20 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.dns.TxtRecord("example", {
+ *     zoneName: "test-zone",
+ *     resourceGroupName: "test-rg",
+ * });
+ * export const dnsTxtRecordId = example.id;
+ * ```
+ */
 export function getTxtRecord(args: GetTxtRecordArgs, opts?: pulumi.InvokeOptions): Promise<GetTxtRecordResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -62,6 +76,20 @@ export interface GetTxtRecordResult {
     readonly ttl: number;
     readonly zoneName: string;
 }
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.dns.TxtRecord("example", {
+ *     zoneName: "test-zone",
+ *     resourceGroupName: "test-rg",
+ * });
+ * export const dnsTxtRecordId = example.id;
+ * ```
+ */
 export function getTxtRecordOutput(args: GetTxtRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTxtRecordResult> {
     return pulumi.output(args).apply((a: any) => getTxtRecord(a, opts))
 }

@@ -136,6 +136,22 @@ class Workspace(pulumi.CustomResource):
 
         > **NOTE:** Owner access permission is required.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="PerGB2018")
+        example_workspace = azure.securitycenter.Workspace("exampleWorkspace",
+            scope="/subscriptions/00000000-0000-0000-0000-000000000000",
+            workspace_id=example_analytics_workspace.id)
+        ```
+
         ## Import
 
         The contact can be imported using the `resource id`, e.g.
@@ -159,6 +175,22 @@ class Workspace(pulumi.CustomResource):
         Manages the subscription's Security Center Workspace.
 
         > **NOTE:** Owner access permission is required.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="PerGB2018")
+        example_workspace = azure.securitycenter.Workspace("exampleWorkspace",
+            scope="/subscriptions/00000000-0000-0000-0000-000000000000",
+            workspace_id=example_analytics_workspace.id)
+        ```
 
         ## Import
 

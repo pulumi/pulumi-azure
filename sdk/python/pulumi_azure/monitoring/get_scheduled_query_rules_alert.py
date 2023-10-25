@@ -234,6 +234,17 @@ def get_scheduled_query_rules_alert(name: Optional[str] = None,
     """
     Use this data source to access the properties of an AlertingAction scheduled query rule.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.monitoring.get_scheduled_query_rules_alert(resource_group_name="example-rg",
+        name="tfex-queryrule")
+    pulumi.export("queryRuleId", example.id)
+    ```
+
 
     :param str name: Specifies the name of the scheduled query rule.
     :param str resource_group_name: Specifies the name of the resource group where the scheduled query rule is located.
@@ -270,6 +281,17 @@ def get_scheduled_query_rules_alert_output(name: Optional[pulumi.Input[str]] = N
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduledQueryRulesAlertResult]:
     """
     Use this data source to access the properties of an AlertingAction scheduled query rule.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.monitoring.get_scheduled_query_rules_alert(resource_group_name="example-rg",
+        name="tfex-queryrule")
+    pulumi.export("queryRuleId", example.id)
+    ```
 
 
     :param str name: Specifies the name of the scheduled query rule.

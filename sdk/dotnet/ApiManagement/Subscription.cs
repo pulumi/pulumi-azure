@@ -12,6 +12,48 @@ namespace Pulumi.Azure.ApiManagement
     /// <summary>
     /// Manages a Subscription within a API Management Service.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleService = Azure.ApiManagement.GetService.Invoke(new()
+    ///     {
+    ///         Name = "example-apim",
+    ///         ResourceGroupName = "example-resources",
+    ///     });
+    /// 
+    ///     var exampleProduct = Azure.ApiManagement.GetProduct.Invoke(new()
+    ///     {
+    ///         ProductId = "00000000-0000-0000-0000-000000000000",
+    ///         ApiManagementName = exampleService.Apply(getServiceResult =&gt; getServiceResult.Name),
+    ///         ResourceGroupName = exampleService.Apply(getServiceResult =&gt; getServiceResult.ResourceGroupName),
+    ///     });
+    /// 
+    ///     var exampleUser = Azure.ApiManagement.GetUser.Invoke(new()
+    ///     {
+    ///         UserId = "11111111-1111-1111-1111-111111111111",
+    ///         ApiManagementName = exampleService.Apply(getServiceResult =&gt; getServiceResult.Name),
+    ///         ResourceGroupName = exampleService.Apply(getServiceResult =&gt; getServiceResult.ResourceGroupName),
+    ///     });
+    /// 
+    ///     var exampleSubscription = new Azure.ApiManagement.Subscription("exampleSubscription", new()
+    ///     {
+    ///         ApiManagementName = exampleService.Apply(getServiceResult =&gt; getServiceResult.Name),
+    ///         ResourceGroupName = exampleService.Apply(getServiceResult =&gt; getServiceResult.ResourceGroupName),
+    ///         UserId = exampleUser.Apply(getUserResult =&gt; getUserResult.Id),
+    ///         ProductId = exampleProduct.Apply(getProductResult =&gt; getProductResult.Id),
+    ///         DisplayName = "Parser API",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// API Management Subscriptions can be imported using the `resource id`, e.g.

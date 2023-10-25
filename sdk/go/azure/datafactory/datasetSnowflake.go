@@ -15,6 +15,56 @@ import (
 
 // Manages a Snowflake Dataset inside an Azure Data Factory.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLinkedServiceSnowflake, err := datafactory.NewLinkedServiceSnowflake(ctx, "exampleLinkedServiceSnowflake", &datafactory.LinkedServiceSnowflakeArgs{
+//				DataFactoryId:    exampleFactory.ID(),
+//				ConnectionString: pulumi.String("jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datafactory.NewDatasetSnowflake(ctx, "exampleDatasetSnowflake", &datafactory.DatasetSnowflakeArgs{
+//				DataFactoryId:     exampleFactory.ID(),
+//				LinkedServiceName: exampleLinkedServiceSnowflake.Name,
+//				SchemaName:        pulumi.String("foo_schema"),
+//				TableName:         pulumi.String("foo_table"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Data Factory Snowflake Datasets can be imported using the `resource id`,

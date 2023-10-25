@@ -12,6 +12,86 @@ namespace Pulumi.Azure.HDInsight
     /// <summary>
     /// Manages a HDInsight Interactive Query Cluster.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
+    ///     {
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         ContainerAccessType = "private",
+    ///     });
+    /// 
+    ///     var exampleInteractiveQueryCluster = new Azure.HDInsight.InteractiveQueryCluster("exampleInteractiveQueryCluster", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ClusterVersion = "3.6",
+    ///         Tier = "Standard",
+    ///         ComponentVersion = new Azure.HDInsight.Inputs.InteractiveQueryClusterComponentVersionArgs
+    ///         {
+    ///             InteractiveHive = "2.1",
+    ///         },
+    ///         Gateway = new Azure.HDInsight.Inputs.InteractiveQueryClusterGatewayArgs
+    ///         {
+    ///             Username = "acctestusrgw",
+    ///             Password = "Password!",
+    ///         },
+    ///         StorageAccounts = new[]
+    ///         {
+    ///             new Azure.HDInsight.Inputs.InteractiveQueryClusterStorageAccountArgs
+    ///             {
+    ///                 StorageContainerId = exampleContainer.Id,
+    ///                 StorageAccountKey = exampleAccount.PrimaryAccessKey,
+    ///                 IsDefault = true,
+    ///             },
+    ///         },
+    ///         Roles = new Azure.HDInsight.Inputs.InteractiveQueryClusterRolesArgs
+    ///         {
+    ///             HeadNode = new Azure.HDInsight.Inputs.InteractiveQueryClusterRolesHeadNodeArgs
+    ///             {
+    ///                 VmSize = "Standard_D13_V2",
+    ///                 Username = "acctestusrvm",
+    ///                 Password = "AccTestvdSC4daf986!",
+    ///             },
+    ///             WorkerNode = new Azure.HDInsight.Inputs.InteractiveQueryClusterRolesWorkerNodeArgs
+    ///             {
+    ///                 VmSize = "Standard_D14_V2",
+    ///                 Username = "acctestusrvm",
+    ///                 Password = "AccTestvdSC4daf986!",
+    ///                 TargetInstanceCount = 3,
+    ///             },
+    ///             ZookeeperNode = new Azure.HDInsight.Inputs.InteractiveQueryClusterRolesZookeeperNodeArgs
+    ///             {
+    ///                 VmSize = "Standard_A4_V2",
+    ///                 Username = "acctestusrvm",
+    ///                 Password = "AccTestvdSC4daf986!",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// HDInsight Interactive Query Clusters can be imported using the `resource id`, e.g.

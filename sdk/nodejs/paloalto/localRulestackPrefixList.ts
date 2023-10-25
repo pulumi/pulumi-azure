@@ -7,6 +7,23 @@ import * as utilities from "../utilities";
 /**
  * Manages a Palo Alto Local Rulestack Prefix List.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleLocalRulestack = new azure.paloalto.LocalRulestack("exampleLocalRulestack", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ * });
+ * const exampleLocalRulestackPrefixList = new azure.paloalto.LocalRulestackPrefixList("exampleLocalRulestackPrefixList", {
+ *     rulestackId: exampleLocalRulestack.id,
+ *     prefixLists: ["10.0.1.0/24"],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Palo Alto Local Rulestack Prefix Lists can be imported using the `resource id`, e.g.

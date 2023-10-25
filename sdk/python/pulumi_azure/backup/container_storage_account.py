@@ -188,6 +188,28 @@ class ContainerStorageAccount(pulumi.CustomResource):
         """
         Manages registration of a storage account with Azure Backup. Storage accounts must be registered with an Azure Recovery Vault in order to backup file shares within the storage account. Registering a storage account with a vault creates what is known as a protection container within Azure Recovery Services. Once the container is created, Azure file shares within the storage account can be backed up using the `backup.ProtectedFileShare` resource.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example", location="West Europe")
+        vault = azure.recoveryservices.Vault("vault",
+            location=example.location,
+            resource_group_name=example.name,
+            sku="Standard")
+        sa = azure.storage.Account("sa",
+            location=example.location,
+            resource_group_name=example.name,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        container = azure.backup.ContainerStorageAccount("container",
+            resource_group_name=example.name,
+            recovery_vault_name=vault.name,
+            storage_account_id=sa.id)
+        ```
+
         ## Import
 
         Backup Storage Account Containers can be imported using the `resource id`, e.g.
@@ -214,6 +236,28 @@ class ContainerStorageAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages registration of a storage account with Azure Backup. Storage accounts must be registered with an Azure Recovery Vault in order to backup file shares within the storage account. Registering a storage account with a vault creates what is known as a protection container within Azure Recovery Services. Once the container is created, Azure file shares within the storage account can be backed up using the `backup.ProtectedFileShare` resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example", location="West Europe")
+        vault = azure.recoveryservices.Vault("vault",
+            location=example.location,
+            resource_group_name=example.name,
+            sku="Standard")
+        sa = azure.storage.Account("sa",
+            location=example.location,
+            resource_group_name=example.name,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        container = azure.backup.ContainerStorageAccount("container",
+            resource_group_name=example.name,
+            recovery_vault_name=vault.name,
+            storage_account_id=sa.id)
+        ```
 
         ## Import
 

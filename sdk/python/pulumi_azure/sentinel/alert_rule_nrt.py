@@ -823,6 +823,29 @@ class AlertRuleNrt(pulumi.CustomResource):
         """
         Manages a Sentinel NRT Alert Rule.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="pergb2018")
+        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", workspace_id=example_analytics_workspace.id)
+        example_alert_rule_nrt = azure.sentinel.AlertRuleNrt("exampleAlertRuleNrt",
+            log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
+            display_name="example",
+            severity="High",
+            query=\"\"\"AzureActivity |
+          where OperationName == "Create or Update Virtual Machine" or OperationName =="Create Deployment" |
+          where ActivityStatus == "Succeeded" |
+          make-series dcount(ResourceId) default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
+        \"\"\")
+        ```
+
         ## Import
 
         Sentinel NRT Alert Rules can be imported using the `resource id`, e.g.
@@ -865,6 +888,29 @@ class AlertRuleNrt(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Sentinel NRT Alert Rule.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="pergb2018")
+        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", workspace_id=example_analytics_workspace.id)
+        example_alert_rule_nrt = azure.sentinel.AlertRuleNrt("exampleAlertRuleNrt",
+            log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
+            display_name="example",
+            severity="High",
+            query=\"\"\"AzureActivity |
+          where OperationName == "Create or Update Virtual Machine" or OperationName =="Create Deployment" |
+          where ActivityStatus == "Succeeded" |
+          make-series dcount(ResourceId) default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
+        \"\"\")
+        ```
 
         ## Import
 

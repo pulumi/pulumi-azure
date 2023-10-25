@@ -571,6 +571,28 @@ class DatasetAzureBlob(pulumi.CustomResource):
         """
         Manages an Azure Blob Dataset inside an Azure Data Factory.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.get_account_output(name="storageaccountname",
+            resource_group_name=example_resource_group.name)
+        example_factory = azure.datafactory.Factory("exampleFactory",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_linked_service_azure_blob_storage = azure.datafactory.LinkedServiceAzureBlobStorage("exampleLinkedServiceAzureBlobStorage",
+            data_factory_id=example_factory.id,
+            connection_string=example_account.primary_connection_string)
+        example_dataset_azure_blob = azure.datafactory.DatasetAzureBlob("exampleDatasetAzureBlob",
+            data_factory_id=example_factory.id,
+            linked_service_name=example_linked_service_azure_blob_storage.name,
+            path="foo",
+            filename="bar.png")
+        ```
+
         ## Import
 
         Data Factory Datasets can be imported using the `resource id`, e.g.
@@ -605,6 +627,28 @@ class DatasetAzureBlob(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Blob Dataset inside an Azure Data Factory.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.get_account_output(name="storageaccountname",
+            resource_group_name=example_resource_group.name)
+        example_factory = azure.datafactory.Factory("exampleFactory",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_linked_service_azure_blob_storage = azure.datafactory.LinkedServiceAzureBlobStorage("exampleLinkedServiceAzureBlobStorage",
+            data_factory_id=example_factory.id,
+            connection_string=example_account.primary_connection_string)
+        example_dataset_azure_blob = azure.datafactory.DatasetAzureBlob("exampleDatasetAzureBlob",
+            data_factory_id=example_factory.id,
+            linked_service_name=example_linked_service_azure_blob_storage.name,
+            path="foo",
+            filename="bar.png")
+        ```
 
         ## Import
 

@@ -13,6 +13,34 @@ import (
 )
 
 // Use this data source to access information about an existing Microsoft SQL Server.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := mssql.LookupServer(ctx, &mssql.LookupServerArgs{
+//				Name:              "existingMsSqlServer",
+//				ResourceGroupName: "existingResGroup",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("id", example.Id)
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupServer(ctx *pulumi.Context, args *LookupServerArgs, opts ...pulumi.InvokeOption) (*LookupServerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServerResult

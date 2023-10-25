@@ -7,6 +7,45 @@ import * as utilities from "../utilities";
 /**
  * Manages a Cosmos DB Mongo User Definition.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAccount = new azure.cosmosdb.Account("exampleAccount", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     offerType: "Standard",
+ *     kind: "MongoDB",
+ *     capabilities: [
+ *         {
+ *             name: "EnableMongo",
+ *         },
+ *         {
+ *             name: "EnableMongoRoleBasedAccessControl",
+ *         },
+ *     ],
+ *     consistencyPolicy: {
+ *         consistencyLevel: "Strong",
+ *     },
+ *     geoLocations: [{
+ *         location: exampleResourceGroup.location,
+ *         failoverPriority: 0,
+ *     }],
+ * });
+ * const exampleMongoDatabase = new azure.cosmosdb.MongoDatabase("exampleMongoDatabase", {
+ *     resourceGroupName: exampleAccount.resourceGroupName,
+ *     accountName: exampleAccount.name,
+ * });
+ * const exampleMongoUserDefinition = new azure.cosmosdb.MongoUserDefinition("exampleMongoUserDefinition", {
+ *     cosmosMongoDatabaseId: exampleMongoDatabase.id,
+ *     username: "myUserName",
+ *     password: "myPassword",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Cosmos DB Mongo User Definitions can be imported using the `resource id`, e.g.

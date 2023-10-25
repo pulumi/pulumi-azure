@@ -19,6 +19,96 @@ import (
 //
 // > **NOTE:** This provider will automatically update & reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` setting within the Provider block.
 //
+// ## Example Usage
+//
+// This example provisions a basic Linux Virtual Machine Scale Set on an internal network.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			firstPublicKey := "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC+wWK73dCr+jgQOAxNsHAnNNNMEMWOHYEccp6wJm2gotpr9katuF/ZAdou5AaW1C61slRkHRkpRRX9FA9CYBiitZgvCCz+3nWNN7l/Up54Zps/pHWGZLHNJZRYyAB6j5yVLMVHIHriY49d/GZTZVNB8GoJv9Gakwc/fuEZYYl4YDFiGMBP///TzlI4jhiJzjKnEvqPFki5p2ZRJqcbCiF4pJrxUQR/RXqVFQdbRLZgYfJ8xGB878RENq3yQ39d8dVOkq4edbkzwcUmwwwkYVPIoDGsYLaRHnG+To7FvMeyO7xDVQkMKzopTQV8AuKpyvpqu0a9pWOMaiCyDytO7GGN you@me.com"
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			internal, err := network.NewSubnet(ctx, "internal", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.2.0/24"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = compute.NewLinuxVirtualMachineScaleSet(ctx, "exampleLinuxVirtualMachineScaleSet", &compute.LinuxVirtualMachineScaleSetArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Sku:               pulumi.String("Standard_F2"),
+//				Instances:         pulumi.Int(1),
+//				AdminUsername:     pulumi.String("adminuser"),
+//				AdminSshKeys: compute.LinuxVirtualMachineScaleSetAdminSshKeyArray{
+//					&compute.LinuxVirtualMachineScaleSetAdminSshKeyArgs{
+//						Username:  pulumi.String("adminuser"),
+//						PublicKey: pulumi.String(firstPublicKey),
+//					},
+//				},
+//				SourceImageReference: &compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs{
+//					Publisher: pulumi.String("Canonical"),
+//					Offer:     pulumi.String("0001-com-ubuntu-server-focal"),
+//					Sku:       pulumi.String("20_04-lts"),
+//					Version:   pulumi.String("latest"),
+//				},
+//				OsDisk: &compute.LinuxVirtualMachineScaleSetOsDiskArgs{
+//					StorageAccountType: pulumi.String("Standard_LRS"),
+//					Caching:            pulumi.String("ReadWrite"),
+//				},
+//				NetworkInterfaces: compute.LinuxVirtualMachineScaleSetNetworkInterfaceArray{
+//					&compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs{
+//						Name:    pulumi.String("example"),
+//						Primary: pulumi.Bool(true),
+//						IpConfigurations: compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray{
+//							&compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{
+//								Name:     pulumi.String("internal"),
+//								Primary:  pulumi.Bool(true),
+//								SubnetId: internal.ID(),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Linux Virtual Machine Scale Sets can be imported using the `resource id`, e.g.

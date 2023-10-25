@@ -12,6 +12,43 @@ namespace Pulumi.Azure.ApiManagement
     /// <summary>
     /// Manages an OpenID Connect Provider within a API Management Service.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PublisherName = "My Company",
+    ///         PublisherEmail = "company@exmaple.com",
+    ///         SkuName = "Developer_1",
+    ///     });
+    /// 
+    ///     var exampleOpenIdConnectProvider = new Azure.ApiManagement.OpenIdConnectProvider("exampleOpenIdConnectProvider", new()
+    ///     {
+    ///         ApiManagementName = exampleService.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ClientId = "00001111-2222-3333-4444-555566667777",
+    ///         ClientSecret = "00001111-423egvwdcsjx-00001111",
+    ///         DisplayName = "Example Provider",
+    ///         MetadataEndpoint = "https://example.com/example",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// API Management OpenID Connect Providers can be imported using the `resource id`, e.g.

@@ -13,6 +13,101 @@ namespace Pulumi.Azure.Pim
     /// Manages a Pim Active Role Assignment.
     /// 
     /// ## Example Usage
+    /// ### Subscription)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using Time = Pulumiverse.Time;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var primary = Azure.Core.GetSubscription.Invoke();
+    /// 
+    ///     var exampleClientConfig = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleRoleDefinition = Azure.Authorization.GetRoleDefinition.Invoke(new()
+    ///     {
+    ///         Name = "Reader",
+    ///     });
+    /// 
+    ///     var exampleStatic = new Time.Static("exampleStatic");
+    /// 
+    ///     var exampleActiveRoleAssignment = new Azure.Pim.ActiveRoleAssignment("exampleActiveRoleAssignment", new()
+    ///     {
+    ///         Scope = primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
+    ///         RoleDefinitionId = Output.Tuple(primary, exampleRoleDefinition).Apply(values =&gt;
+    ///         {
+    ///             var primary = values.Item1;
+    ///             var exampleRoleDefinition = values.Item2;
+    ///             return $"{primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id)}{exampleRoleDefinition.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.Id)}";
+    ///         }),
+    ///         PrincipalId = exampleClientConfig.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///         Schedule = new Azure.Pim.Inputs.ActiveRoleAssignmentScheduleArgs
+    ///         {
+    ///             StartDateTime = exampleStatic.Rfc3339,
+    ///             Expiration = new Azure.Pim.Inputs.ActiveRoleAssignmentScheduleExpirationArgs
+    ///             {
+    ///                 DurationHours = 8,
+    ///             },
+    ///         },
+    ///         Justification = "Expiration Duration Set",
+    ///         Ticket = new Azure.Pim.Inputs.ActiveRoleAssignmentTicketArgs
+    ///         {
+    ///             Number = "1",
+    ///             System = "example ticket system",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Management Group)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using Time = Pulumiverse.Time;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleClientConfig = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleRoleDefinition = Azure.Authorization.GetRoleDefinition.Invoke(new()
+    ///     {
+    ///         Name = "Reader",
+    ///     });
+    /// 
+    ///     var exampleGroup = new Azure.Management.Group("exampleGroup");
+    /// 
+    ///     var exampleStatic = new Time.Static("exampleStatic");
+    /// 
+    ///     var exampleActiveRoleAssignment = new Azure.Pim.ActiveRoleAssignment("exampleActiveRoleAssignment", new()
+    ///     {
+    ///         Scope = exampleGroup.Id,
+    ///         RoleDefinitionId = exampleRoleDefinition.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.Id),
+    ///         PrincipalId = exampleClientConfig.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///         Schedule = new Azure.Pim.Inputs.ActiveRoleAssignmentScheduleArgs
+    ///         {
+    ///             StartDateTime = exampleStatic.Rfc3339,
+    ///             Expiration = new Azure.Pim.Inputs.ActiveRoleAssignmentScheduleExpirationArgs
+    ///             {
+    ///                 DurationHours = 8,
+    ///             },
+    ///         },
+    ///         Justification = "Expiration Duration Set",
+    ///         Ticket = new Azure.Pim.Inputs.ActiveRoleAssignmentTicketArgs
+    ///         {
+    ///             Number = "1",
+    ///             System = "example ticket system",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

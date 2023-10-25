@@ -15,6 +15,83 @@ import (
 
 // Manages a Cosmos DB SQL Role Assignment.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := cosmosdb.NewAccount(ctx, "exampleAccount", &cosmosdb.AccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				OfferType:         pulumi.String("Standard"),
+//				Kind:              pulumi.String("GlobalDocumentDB"),
+//				ConsistencyPolicy: &cosmosdb.AccountConsistencyPolicyArgs{
+//					ConsistencyLevel: pulumi.String("Strong"),
+//				},
+//				GeoLocations: cosmosdb.AccountGeoLocationArray{
+//					&cosmosdb.AccountGeoLocationArgs{
+//						Location:         exampleResourceGroup.Location,
+//						FailoverPriority: pulumi.Int(0),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSqlRoleDefinition, err := cosmosdb.NewSqlRoleDefinition(ctx, "exampleSqlRoleDefinition", &cosmosdb.SqlRoleDefinitionArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				AccountName:       exampleAccount.Name,
+//				Type:              pulumi.String("CustomRole"),
+//				AssignableScopes: pulumi.StringArray{
+//					exampleAccount.ID(),
+//				},
+//				Permissions: cosmosdb.SqlRoleDefinitionPermissionArray{
+//					&cosmosdb.SqlRoleDefinitionPermissionArgs{
+//						DataActions: pulumi.StringArray{
+//							pulumi.String("Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cosmosdb.NewSqlRoleAssignment(ctx, "exampleSqlRoleAssignment", &cosmosdb.SqlRoleAssignmentArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				AccountName:       exampleAccount.Name,
+//				RoleDefinitionId:  exampleSqlRoleDefinition.ID(),
+//				PrincipalId:       *pulumi.String(current.ObjectId),
+//				Scope:             exampleAccount.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Cosmos DB SQL Role Assignments can be imported using the `resource id`, e.g.

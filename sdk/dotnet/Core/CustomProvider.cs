@@ -12,6 +12,38 @@ namespace Pulumi.Azure.Core
     /// <summary>
     /// Manages an Azure Custom Provider.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleCustomProvider = new Azure.Core.CustomProvider("exampleCustomProvider", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceTypes = new[]
+    ///         {
+    ///             new Azure.Core.Inputs.CustomProviderResourceTypeArgs
+    ///             {
+    ///                 Name = "dEf1",
+    ///                 Endpoint = "https://testendpoint.com/",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Custom Provider can be imported using the `resource id`, e.g.

@@ -360,6 +360,37 @@ class ActionRuleSuppression(pulumi.CustomResource):
 
         !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `monitoring.AlertProcessingRuleSuppression` resource instead.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_action_rule_suppression = azure.monitoring.ActionRuleSuppression("exampleActionRuleSuppression",
+            resource_group_name=example_resource_group.name,
+            scope=azure.monitoring.ActionRuleSuppressionScopeArgs(
+                type="ResourceGroup",
+                resource_ids=[example_resource_group.id],
+            ),
+            suppression=azure.monitoring.ActionRuleSuppressionSuppressionArgs(
+                recurrence_type="Weekly",
+                schedule=azure.monitoring.ActionRuleSuppressionSuppressionScheduleArgs(
+                    start_date_utc="2019-01-01T01:02:03Z",
+                    end_date_utc="2019-01-03T15:02:07Z",
+                    recurrence_weeklies=[
+                        "Sunday",
+                        "Monday",
+                        "Friday",
+                        "Saturday",
+                    ],
+                ),
+            ),
+            tags={
+                "foo": "bar",
+            })
+        ```
+
         ## Import
 
         Monitor Action Rule can be imported using the `resource id`, e.g.
@@ -389,6 +420,37 @@ class ActionRuleSuppression(pulumi.CustomResource):
         Manages a Monitor Action Rule which type is suppression.
 
         !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `monitoring.AlertProcessingRuleSuppression` resource instead.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_action_rule_suppression = azure.monitoring.ActionRuleSuppression("exampleActionRuleSuppression",
+            resource_group_name=example_resource_group.name,
+            scope=azure.monitoring.ActionRuleSuppressionScopeArgs(
+                type="ResourceGroup",
+                resource_ids=[example_resource_group.id],
+            ),
+            suppression=azure.monitoring.ActionRuleSuppressionSuppressionArgs(
+                recurrence_type="Weekly",
+                schedule=azure.monitoring.ActionRuleSuppressionSuppressionScheduleArgs(
+                    start_date_utc="2019-01-01T01:02:03Z",
+                    end_date_utc="2019-01-03T15:02:07Z",
+                    recurrence_weeklies=[
+                        "Sunday",
+                        "Monday",
+                        "Friday",
+                        "Saturday",
+                    ],
+                ),
+            ),
+            tags={
+                "foo": "bar",
+            })
+        ```
 
         ## Import
 

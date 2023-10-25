@@ -7,6 +7,27 @@ import * as utilities from "../utilities";
 /**
  * Manages a Active Directory Domain Service Trust.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleService = azure.domainservices.getService({
+ *     name: "example-ds",
+ *     resourceGroupName: "example-rg",
+ * });
+ * const exampleServiceTrust = new azure.domainservices.ServiceTrust("exampleServiceTrust", {
+ *     domainServiceId: exampleService.then(exampleService => exampleService.id),
+ *     trustedDomainFqdn: "example.com",
+ *     trustedDomainDnsIps: [
+ *         "10.1.0.3",
+ *         "10.1.0.4",
+ *     ],
+ *     password: "Password123",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Active Directory Domain Service Trusts can be imported using the `resource id`, e.g.

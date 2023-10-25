@@ -7,6 +7,64 @@ import * as utilities from "../utilities";
 /**
  * Manages a Security Alert Policy for a Synapse SQL Pool.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ *     accountKind: "StorageV2",
+ *     isHnsEnabled: true,
+ * });
+ * const exampleDataLakeGen2Filesystem = new azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", {storageAccountId: exampleAccount.id});
+ * const exampleWorkspace = new azure.synapse.Workspace("exampleWorkspace", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     storageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.id,
+ *     sqlAdministratorLogin: "sqladminuser",
+ *     sqlAdministratorLoginPassword: "H@Sh1CoR3!",
+ *     aadAdmin: {
+ *         login: "AzureAD Admin",
+ *         objectId: "00000000-0000-0000-0000-000000000000",
+ *         tenantId: "00000000-0000-0000-0000-000000000000",
+ *     },
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ *     tags: {
+ *         Env: "production",
+ *     },
+ * });
+ * const exampleSqlPool = new azure.synapse.SqlPool("exampleSqlPool", {
+ *     synapseWorkspaceId: exampleWorkspace.id,
+ *     skuName: "DW100c",
+ *     createMode: "Default",
+ * });
+ * const auditLogs = new azure.storage.Account("auditLogs", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ * });
+ * const exampleSqlPoolSecurityAlertPolicy = new azure.synapse.SqlPoolSecurityAlertPolicy("exampleSqlPoolSecurityAlertPolicy", {
+ *     sqlPoolId: exampleSqlPool.id,
+ *     policyState: "Enabled",
+ *     storageEndpoint: auditLogs.primaryBlobEndpoint,
+ *     storageAccountAccessKey: auditLogs.primaryAccessKey,
+ *     disabledAlerts: [
+ *         "Sql_Injection",
+ *         "Data_Exfiltration",
+ *     ],
+ *     retentionDays: 20,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Synapse SQL Pool Security Alert Policies can be imported using the `resource id`, e.g.

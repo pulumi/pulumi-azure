@@ -12,6 +12,36 @@ namespace Pulumi.Azure.Mobile
     /// <summary>
     /// Manages a Mobile Network.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "east us",
+    ///     });
+    /// 
+    ///     var exampleNetwork = new Azure.Mobile.Network("exampleNetwork", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         MobileCountryCode = "001",
+    ///         MobileNetworkCode = "01",
+    ///         Tags = 
+    ///         {
+    ///             { "key", "value" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Mobile Network can be imported using the `resource id`, e.g.

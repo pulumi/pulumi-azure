@@ -102,6 +102,17 @@ def get_replication_policy(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Azure Site Recovery replication policy.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    policy = azure.siterecovery.get_replication_policy(name="replication-policy",
+        recovery_vault_name="tfex-recovery_vault",
+        resource_group_name="tfex-resource_group")
+    ```
+
 
     :param str name: Specifies the name of the Azure Site Recovery replication policy.
     :param str recovery_vault_name: The name of the Recovery Services Vault that the Azure Site Recovery replication policy is associated witth.
@@ -130,6 +141,17 @@ def get_replication_policy_output(name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationPolicyResult]:
     """
     Use this data source to access information about an existing Azure Site Recovery replication policy.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    policy = azure.siterecovery.get_replication_policy(name="replication-policy",
+        recovery_vault_name="tfex-recovery_vault",
+        resource_group_name="tfex-resource_group")
+    ```
 
 
     :param str name: Specifies the name of the Azure Site Recovery replication policy.

@@ -12,6 +12,36 @@ namespace Pulumi.Azure.Storage
     /// <summary>
     /// Manages a Storage Mover Project.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleMover = new Azure.Storage.Mover("exampleMover", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleMoverProject = new Azure.Storage.MoverProject("exampleMoverProject", new()
+    ///     {
+    ///         StorageMoverId = exampleMover.Id,
+    ///         Description = "Example Project Description",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Storage Mover Project can be imported using the `resource id`, e.g.

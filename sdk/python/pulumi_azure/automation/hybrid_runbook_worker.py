@@ -362,6 +362,63 @@ class HybridRunbookWorker(pulumi.CustomResource):
         """
         Manages a Automation Hybrid Runbook Worker.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.automation.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="Basic")
+        example_hybrid_runbook_worker_group = azure.automation.HybridRunbookWorkerGroup("exampleHybridRunbookWorkerGroup",
+            resource_group_name=example_resource_group.name,
+            automation_account_name=example_account.name)
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            resource_group_name=example_resource_group.name,
+            address_spaces=["192.168.1.0/24"],
+            location=example_resource_group.location)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["192.168.1.0/24"])
+        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
+                name="vm-example",
+                subnet_id=example_subnet.id,
+                private_ip_address_allocation="Dynamic",
+            )])
+        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("exampleLinuxVirtualMachine",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            size="Standard_B1s",
+            admin_username="testadmin",
+            admin_password="Password1234!",
+            disable_password_authentication=False,
+            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
+                publisher="OpenLogic",
+                offer="CentOS",
+                sku="7.5",
+                version="latest",
+            ),
+            os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
+                caching="ReadWrite",
+                storage_account_type="Standard_LRS",
+            ),
+            network_interface_ids=[example_network_interface.id])
+        example_hybrid_runbook_worker = azure.automation.HybridRunbookWorker("exampleHybridRunbookWorker",
+            resource_group_name=example_resource_group.name,
+            automation_account_name=example_account.name,
+            worker_group_name=example_hybrid_runbook_worker_group.name,
+            vm_resource_id=example_linux_virtual_machine.id,
+            worker_id="00000000-0000-0000-0000-000000000000")
+        #unique uuid
+        ```
+
         ## Import
 
         Automations can be imported using the `resource id`, e.g.
@@ -386,6 +443,63 @@ class HybridRunbookWorker(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Automation Hybrid Runbook Worker.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.automation.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="Basic")
+        example_hybrid_runbook_worker_group = azure.automation.HybridRunbookWorkerGroup("exampleHybridRunbookWorkerGroup",
+            resource_group_name=example_resource_group.name,
+            automation_account_name=example_account.name)
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            resource_group_name=example_resource_group.name,
+            address_spaces=["192.168.1.0/24"],
+            location=example_resource_group.location)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["192.168.1.0/24"])
+        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
+                name="vm-example",
+                subnet_id=example_subnet.id,
+                private_ip_address_allocation="Dynamic",
+            )])
+        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("exampleLinuxVirtualMachine",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            size="Standard_B1s",
+            admin_username="testadmin",
+            admin_password="Password1234!",
+            disable_password_authentication=False,
+            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
+                publisher="OpenLogic",
+                offer="CentOS",
+                sku="7.5",
+                version="latest",
+            ),
+            os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
+                caching="ReadWrite",
+                storage_account_type="Standard_LRS",
+            ),
+            network_interface_ids=[example_network_interface.id])
+        example_hybrid_runbook_worker = azure.automation.HybridRunbookWorker("exampleHybridRunbookWorker",
+            resource_group_name=example_resource_group.name,
+            automation_account_name=example_account.name,
+            worker_group_name=example_hybrid_runbook_worker_group.name,
+            vm_resource_id=example_linux_virtual_machine.id,
+            worker_id="00000000-0000-0000-0000-000000000000")
+        #unique uuid
+        ```
 
         ## Import
 

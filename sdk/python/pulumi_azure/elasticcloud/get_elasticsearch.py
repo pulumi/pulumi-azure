@@ -218,6 +218,18 @@ def get_elasticsearch(logs: Optional[Sequence[pulumi.InputType['GetElasticsearch
     """
     Use this data source to access information about an existing Elasticsearch resource.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.elasticcloud.get_elasticsearch(name="my-elastic-search",
+        resource_group_name="example-resources")
+    pulumi.export("elasticsearchEndpoint", example.elasticsearch_service_url)
+    pulumi.export("kibanaEndpoint", example.kibana_service_url)
+    ```
+
 
     :param Sequence[pulumi.InputType['GetElasticsearchLogArgs']] logs: A `logs` block as defined below.
     :param str name: The name of the Elasticsearch resource.
@@ -255,6 +267,18 @@ def get_elasticsearch_output(logs: Optional[pulumi.Input[Optional[Sequence[pulum
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetElasticsearchResult]:
     """
     Use this data source to access information about an existing Elasticsearch resource.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.elasticcloud.get_elasticsearch(name="my-elastic-search",
+        resource_group_name="example-resources")
+    pulumi.export("elasticsearchEndpoint", example.elasticsearch_service_url)
+    pulumi.export("kibanaEndpoint", example.kibana_service_url)
+    ```
 
 
     :param Sequence[pulumi.InputType['GetElasticsearchLogArgs']] logs: A `logs` block as defined below.

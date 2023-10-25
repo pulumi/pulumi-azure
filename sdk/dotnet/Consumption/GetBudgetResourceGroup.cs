@@ -13,12 +13,66 @@ namespace Pulumi.Azure.Consumption
     {
         /// <summary>
         /// Use this data source to access information about an existing Consumption Budget for a specific resource group.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Consumption.GetBudgetResourceGroup.Invoke(new()
+        ///     {
+        ///         Name = "existing",
+        ///         ResourceGroupId = azurerm_resource_group.Example.Id,
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getBudgetResourceGroupResult =&gt; getBudgetResourceGroupResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetBudgetResourceGroupResult> InvokeAsync(GetBudgetResourceGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBudgetResourceGroupResult>("azure:consumption/getBudgetResourceGroup:getBudgetResourceGroup", args ?? new GetBudgetResourceGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Consumption Budget for a specific resource group.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Consumption.GetBudgetResourceGroup.Invoke(new()
+        ///     {
+        ///         Name = "existing",
+        ///         ResourceGroupId = azurerm_resource_group.Example.Id,
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getBudgetResourceGroupResult =&gt; getBudgetResourceGroupResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetBudgetResourceGroupResult> Invoke(GetBudgetResourceGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBudgetResourceGroupResult>("azure:consumption/getBudgetResourceGroup:getBudgetResourceGroup", args ?? new GetBudgetResourceGroupInvokeArgs(), options.WithDefaults());

@@ -12,6 +12,25 @@ namespace Pulumi.Azure.Compute
     /// <summary>
     /// Manages a Disk Access.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Compute.DiskAccess("example", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///         ResourceGroupName = "example",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Disk Access resource can be imported using the `resource id`, e.g.

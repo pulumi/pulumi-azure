@@ -7,6 +7,20 @@ import * as utilities from "../utilities";
 /**
  * Manages a Storage Sync Group.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleSync = new azure.storage.Sync("exampleSync", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ * });
+ * const exampleSyncGroup = new azure.storage.SyncGroup("exampleSyncGroup", {storageSyncId: exampleSync.id});
+ * ```
+ *
  * ## Import
  *
  * Storage Sync Groups can be imported using the `resource id`, e.g.

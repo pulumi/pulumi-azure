@@ -779,6 +779,32 @@ class Job(pulumi.CustomResource):
         """
         Manages a Stream Analytics Job.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_job = azure.streamanalytics.Job("exampleJob",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            compatibility_level="1.2",
+            data_locale="en-GB",
+            events_late_arrival_max_delay_in_seconds=60,
+            events_out_of_order_max_delay_in_seconds=50,
+            events_out_of_order_policy="Adjust",
+            output_error_policy="Drop",
+            streaming_units=3,
+            tags={
+                "environment": "Example",
+            },
+            transformation_query=\"\"\"    SELECT *
+            INTO [YourOutputAlias]
+            FROM [YourInputAlias]
+        \"\"\")
+        ```
+
         ## Import
 
         Stream Analytics Job's can be imported using the `resource id`, e.g.
@@ -821,6 +847,32 @@ class Job(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Stream Analytics Job.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_job = azure.streamanalytics.Job("exampleJob",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            compatibility_level="1.2",
+            data_locale="en-GB",
+            events_late_arrival_max_delay_in_seconds=60,
+            events_out_of_order_max_delay_in_seconds=50,
+            events_out_of_order_policy="Adjust",
+            output_error_policy="Drop",
+            streaming_units=3,
+            tags={
+                "environment": "Example",
+            },
+            transformation_query=\"\"\"    SELECT *
+            INTO [YourOutputAlias]
+            FROM [YourInputAlias]
+        \"\"\")
+        ```
 
         ## Import
 

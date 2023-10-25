@@ -12,6 +12,39 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages an ExpressRoute Port Authorization.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleExpressRoutePort = new Azure.Network.ExpressRoutePort("exampleExpressRoutePort", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         PeeringLocation = "Airtel-Chennai-CLS",
+    ///         BandwidthInGbps = 10,
+    ///         Encapsulation = "Dot1Q",
+    ///     });
+    /// 
+    ///     var exampleExpressRoutePortAuthorization = new Azure.Network.ExpressRoutePortAuthorization("exampleExpressRoutePortAuthorization", new()
+    ///     {
+    ///         ExpressRoutePortName = exampleExpressRoutePort.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ExpressRoute Port Authorizations can be imported using the `resource id`, e.g.

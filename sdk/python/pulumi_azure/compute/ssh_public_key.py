@@ -249,6 +249,18 @@ class SshPublicKey(pulumi.CustomResource):
         """
         Manages a SSH Public Key.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.compute.SshPublicKey("example",
+            resource_group_name="example",
+            location="West Europe",
+            public_key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"))
+        ```
+
         ## Import
 
         SSH Public Keys can be imported using the `resource id`, e.g.
@@ -273,6 +285,18 @@ class SshPublicKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a SSH Public Key.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.compute.SshPublicKey("example",
+            resource_group_name="example",
+            location="West Europe",
+            public_key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"))
+        ```
 
         ## Import
 

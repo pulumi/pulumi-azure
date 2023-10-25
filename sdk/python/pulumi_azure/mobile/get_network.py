@@ -128,6 +128,16 @@ def get_network(name: Optional[str] = None,
     """
     Get information about an Azure Mobile Network.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.mobile.get_network(name="example-mn",
+        resource_group_name=azurerm_resource_group["example"]["name"])
+    ```
+
 
     :param str name: Specifies the name which should be used for this Mobile Network.
     :param str resource_group_name: Specifies the name of the Resource Group where the Mobile Network should exist.
@@ -155,6 +165,16 @@ def get_network_output(name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkResult]:
     """
     Get information about an Azure Mobile Network.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.mobile.get_network(name="example-mn",
+        resource_group_name=azurerm_resource_group["example"]["name"])
+    ```
 
 
     :param str name: Specifies the name which should be used for this Mobile Network.

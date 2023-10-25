@@ -278,6 +278,68 @@ class Hub(pulumi.CustomResource):
         """
         Manages the hub settings for a Web Pubsub.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="east us")
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        example_service = azure.webpubsub.Service("exampleService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard_S1",
+            capacity=1)
+        example_hub = azure.webpubsub.Hub("exampleHub",
+            web_pubsub_id=example_service.id,
+            event_handlers=[
+                azure.webpubsub.HubEventHandlerArgs(
+                    url_template="https://test.com/api/{hub}/{event}",
+                    user_event_pattern="*",
+                    system_events=[
+                        "connect",
+                        "connected",
+                    ],
+                ),
+                azure.webpubsub.HubEventHandlerArgs(
+                    url_template="https://test.com/api/{hub}/{event}",
+                    user_event_pattern="event1, event2",
+                    system_events=["connected"],
+                    auth=azure.webpubsub.HubEventHandlerAuthArgs(
+                        managed_identity_id=example_user_assigned_identity.id,
+                    ),
+                ),
+            ],
+            event_listeners=[
+                azure.webpubsub.HubEventListenerArgs(
+                    system_event_name_filters=["connected"],
+                    user_event_name_filters=[
+                        "event1",
+                        "event2",
+                    ],
+                    eventhub_namespace_name=azurerm_eventhub_namespace["test"]["name"],
+                    eventhub_name=azurerm_eventhub["test1"]["name"],
+                ),
+                azure.webpubsub.HubEventListenerArgs(
+                    system_event_name_filters=["connected"],
+                    user_event_name_filters=["*"],
+                    eventhub_namespace_name=azurerm_eventhub_namespace["test"]["name"],
+                    eventhub_name=azurerm_eventhub["test1"]["name"],
+                ),
+                azure.webpubsub.HubEventListenerArgs(
+                    system_event_name_filters=["connected"],
+                    user_event_name_filters=["event1"],
+                    eventhub_namespace_name=azurerm_eventhub_namespace["test"]["name"],
+                    eventhub_name=azurerm_eventhub["test1"]["name"],
+                ),
+            ],
+            anonymous_connections_enabled=True,
+            opts=pulumi.ResourceOptions(depends_on=[example_service]))
+        ```
+
         ## Import
 
         Web Pubsub Hub can be imported using the `resource id`, e.g.
@@ -307,6 +369,68 @@ class Hub(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages the hub settings for a Web Pubsub.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="east us")
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        example_service = azure.webpubsub.Service("exampleService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard_S1",
+            capacity=1)
+        example_hub = azure.webpubsub.Hub("exampleHub",
+            web_pubsub_id=example_service.id,
+            event_handlers=[
+                azure.webpubsub.HubEventHandlerArgs(
+                    url_template="https://test.com/api/{hub}/{event}",
+                    user_event_pattern="*",
+                    system_events=[
+                        "connect",
+                        "connected",
+                    ],
+                ),
+                azure.webpubsub.HubEventHandlerArgs(
+                    url_template="https://test.com/api/{hub}/{event}",
+                    user_event_pattern="event1, event2",
+                    system_events=["connected"],
+                    auth=azure.webpubsub.HubEventHandlerAuthArgs(
+                        managed_identity_id=example_user_assigned_identity.id,
+                    ),
+                ),
+            ],
+            event_listeners=[
+                azure.webpubsub.HubEventListenerArgs(
+                    system_event_name_filters=["connected"],
+                    user_event_name_filters=[
+                        "event1",
+                        "event2",
+                    ],
+                    eventhub_namespace_name=azurerm_eventhub_namespace["test"]["name"],
+                    eventhub_name=azurerm_eventhub["test1"]["name"],
+                ),
+                azure.webpubsub.HubEventListenerArgs(
+                    system_event_name_filters=["connected"],
+                    user_event_name_filters=["*"],
+                    eventhub_namespace_name=azurerm_eventhub_namespace["test"]["name"],
+                    eventhub_name=azurerm_eventhub["test1"]["name"],
+                ),
+                azure.webpubsub.HubEventListenerArgs(
+                    system_event_name_filters=["connected"],
+                    user_event_name_filters=["event1"],
+                    eventhub_namespace_name=azurerm_eventhub_namespace["test"]["name"],
+                    eventhub_name=azurerm_eventhub["test1"]["name"],
+                ),
+            ],
+            anonymous_connections_enabled=True,
+            opts=pulumi.ResourceOptions(depends_on=[example_service]))
+        ```
 
         ## Import
 

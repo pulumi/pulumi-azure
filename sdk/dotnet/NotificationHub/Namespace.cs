@@ -12,6 +12,32 @@ namespace Pulumi.Azure.NotificationHub
     /// <summary>
     /// Manages a Notification Hub Namespace.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleNamespace = new Azure.NotificationHub.Namespace("exampleNamespace", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         NamespaceType = "NotificationHub",
+    ///         SkuName = "Free",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Notification Hub Namespaces can be imported using the `resource id`, e.g.

@@ -14,6 +14,75 @@ import {Kind} from "./index";
  * !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `azure.appservice.ServicePlan` resource instead.
  *
  * ## Example Usage
+ * ### Dedicated)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const examplePlan = new azure.appservice.Plan("examplePlan", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: {
+ *         tier: "Standard",
+ *         size: "S1",
+ *     },
+ * });
+ * ```
+ * ### Shared / Consumption Plan)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const examplePlan = new azure.appservice.Plan("examplePlan", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     kind: "FunctionApp",
+ *     sku: {
+ *         tier: "Dynamic",
+ *         size: "Y1",
+ *     },
+ * });
+ * ```
+ * ### Linux)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const examplePlan = new azure.appservice.Plan("examplePlan", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     kind: "Linux",
+ *     reserved: true,
+ *     sku: {
+ *         tier: "Standard",
+ *         size: "S1",
+ *     },
+ * });
+ * ```
+ * ### Windows Container)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const examplePlan = new azure.appservice.Plan("examplePlan", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     kind: "xenon",
+ *     isXenon: true,
+ *     sku: {
+ *         tier: "PremiumContainer",
+ *         size: "PC2",
+ *     },
+ * });
+ * ```
  *
  * ## Import
  *

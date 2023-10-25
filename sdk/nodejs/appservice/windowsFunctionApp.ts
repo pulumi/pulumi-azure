@@ -9,6 +9,35 @@ import * as utilities from "../utilities";
 /**
  * Manages a Windows Function App.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ * });
+ * const exampleServicePlan = new azure.appservice.ServicePlan("exampleServicePlan", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     osType: "Windows",
+ *     skuName: "Y1",
+ * });
+ * const exampleWindowsFunctionApp = new azure.appservice.WindowsFunctionApp("exampleWindowsFunctionApp", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     storageAccountName: exampleAccount.name,
+ *     storageAccountAccessKey: exampleAccount.primaryAccessKey,
+ *     servicePlanId: exampleServicePlan.id,
+ *     siteConfig: {},
+ * });
+ * ```
+ *
  * ## Import
  *
  * Windows Function Apps can be imported using the `resource id`, e.g.

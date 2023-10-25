@@ -15,6 +15,78 @@ import (
 
 // Manages a NetApp Snapshot Policy.
 //
+// ## NetApp Snapshot Policy Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/netapp"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("East US"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := netapp.NewAccount(ctx, "exampleAccount", &netapp.AccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = netapp.NewSnapshotPolicy(ctx, "exampleSnapshotPolicy", &netapp.SnapshotPolicyArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				AccountName:       exampleAccount.Name,
+//				Enabled:           pulumi.Bool(true),
+//				HourlySchedule: &netapp.SnapshotPolicyHourlyScheduleArgs{
+//					SnapshotsToKeep: pulumi.Int(4),
+//					Minute:          pulumi.Int(15),
+//				},
+//				DailySchedule: &netapp.SnapshotPolicyDailyScheduleArgs{
+//					SnapshotsToKeep: pulumi.Int(2),
+//					Hour:            pulumi.Int(20),
+//					Minute:          pulumi.Int(15),
+//				},
+//				WeeklySchedule: &netapp.SnapshotPolicyWeeklyScheduleArgs{
+//					SnapshotsToKeep: pulumi.Int(1),
+//					DaysOfWeeks: pulumi.StringArray{
+//						pulumi.String("Monday"),
+//						pulumi.String("Friday"),
+//					},
+//					Hour:   pulumi.Int(23),
+//					Minute: pulumi.Int(0),
+//				},
+//				MonthlySchedule: &netapp.SnapshotPolicyMonthlyScheduleArgs{
+//					SnapshotsToKeep: pulumi.Int(1),
+//					DaysOfMonths: pulumi.IntArray{
+//						pulumi.Int(1),
+//						pulumi.Int(15),
+//						pulumi.Int(20),
+//						pulumi.Int(30),
+//					},
+//					Hour:   pulumi.Int(5),
+//					Minute: pulumi.Int(45),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // NetApp Snapshot Policy can be imported using the `resource id`, e.g.

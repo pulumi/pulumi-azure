@@ -11,6 +11,18 @@ import * as utilities from "../utilities";
  *
  * ->**NOTE:** After the Static Site is provisioned, you'll need to associate your target repository, which contains your web app, to the Static Site, by following the [Azure Static Site document](https://docs.microsoft.com/azure/static-web-apps/github-actions-workflow).
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.appservice.StaticSite("example", {
+ *     location: "West Europe",
+ *     resourceGroupName: "example",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Static Web Apps can be imported using the `resource id`, e.g.

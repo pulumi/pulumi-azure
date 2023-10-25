@@ -12,6 +12,34 @@ namespace Pulumi.Azure.NetworkFunction
     /// <summary>
     /// Manages a Network Function Azure Traffic Collector.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West US",
+    ///     });
+    /// 
+    ///     var exampleAzureTrafficCollector = new Azure.NetworkFunction.AzureTrafficCollector("exampleAzureTrafficCollector", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = "West US",
+    ///         Tags = 
+    ///         {
+    ///             { "key", "value" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Network Function Azure Traffic Collector can be imported using the `resource id`, e.g.

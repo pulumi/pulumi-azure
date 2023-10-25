@@ -429,6 +429,32 @@ class SourceControlSlot(pulumi.CustomResource):
         """
         Manages an App Service Source Control Slot.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            os_type="Linux",
+            sku_name="P1v2")
+        example_linux_web_app = azure.appservice.LinuxWebApp("exampleLinuxWebApp",
+            resource_group_name=example_resource_group.name,
+            location=example_service_plan.location,
+            service_plan_id=example_service_plan.id,
+            site_config=azure.appservice.LinuxWebAppSiteConfigArgs())
+        example_linux_web_app_slot = azure.appservice.LinuxWebAppSlot("exampleLinuxWebAppSlot",
+            app_service_id=example_linux_web_app.id,
+            site_config=azure.appservice.LinuxWebAppSlotSiteConfigArgs())
+        example_source_control_slot = azure.appservice.SourceControlSlot("exampleSourceControlSlot",
+            slot_id=example_linux_web_app_slot.id,
+            repo_url="https://github.com/Azure-Samples/python-docs-hello-world",
+            branch="master")
+        ```
+
         ## Import
 
         an App Service Source Control Slot can be imported using the `resource id`, e.g.
@@ -458,6 +484,32 @@ class SourceControlSlot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an App Service Source Control Slot.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            os_type="Linux",
+            sku_name="P1v2")
+        example_linux_web_app = azure.appservice.LinuxWebApp("exampleLinuxWebApp",
+            resource_group_name=example_resource_group.name,
+            location=example_service_plan.location,
+            service_plan_id=example_service_plan.id,
+            site_config=azure.appservice.LinuxWebAppSiteConfigArgs())
+        example_linux_web_app_slot = azure.appservice.LinuxWebAppSlot("exampleLinuxWebAppSlot",
+            app_service_id=example_linux_web_app.id,
+            site_config=azure.appservice.LinuxWebAppSlotSiteConfigArgs())
+        example_source_control_slot = azure.appservice.SourceControlSlot("exampleSourceControlSlot",
+            slot_id=example_linux_web_app_slot.id,
+            repo_url="https://github.com/Azure-Samples/python-docs-hello-world",
+            branch="master")
+        ```
 
         ## Import
 

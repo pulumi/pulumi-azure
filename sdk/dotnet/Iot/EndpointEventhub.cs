@@ -14,6 +14,71 @@ namespace Pulumi.Azure.Iot
     /// 
     /// &gt; **NOTE:** Endpoints can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azurerm_iothub_endpoint_*` resources - but the two ways of defining the endpoints cannot be used together. If both are used against the same IoTHub, spurious changes will occur. Also, defining a `azurerm_iothub_endpoint_*` resource and another endpoint of a different type directly on the `azure.iot.IoTHub` resource is not supported.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Basic",
+    ///     });
+    /// 
+    ///     var exampleEventHub = new Azure.EventHub.EventHub("exampleEventHub", new()
+    ///     {
+    ///         NamespaceName = exampleEventHubNamespace.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PartitionCount = 2,
+    ///         MessageRetention = 1,
+    ///     });
+    /// 
+    ///     var exampleAuthorizationRule = new Azure.EventHub.AuthorizationRule("exampleAuthorizationRule", new()
+    ///     {
+    ///         NamespaceName = exampleEventHubNamespace.Name,
+    ///         EventhubName = exampleEventHub.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Listen = false,
+    ///         Send = true,
+    ///         Manage = false,
+    ///     });
+    /// 
+    ///     var exampleIoTHub = new Azure.Iot.IoTHub("exampleIoTHub", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Sku = new Azure.Iot.Inputs.IoTHubSkuArgs
+    ///         {
+    ///             Name = "B1",
+    ///             Capacity = 1,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "purpose", "example" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleEndpointEventhub = new Azure.Iot.EndpointEventhub("exampleEndpointEventhub", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         IothubId = exampleIoTHub.Id,
+    ///         ConnectionString = exampleAuthorizationRule.PrimaryConnectionString,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// IoTHub EventHub Endpoint can be imported using the `resource id`, e.g.

@@ -7,6 +7,31 @@ import * as utilities from "../utilities";
 /**
  * Manages a HyperV site recovery network mapping on Azure. A HyperV network mapping decides how to translate connected networks when a VM is migrated from HyperV VMM Center to Azure.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const targetResourceGroup = new azure.core.ResourceGroup("targetResourceGroup", {location: "East US"});
+ * const vault = new azure.recoveryservices.Vault("vault", {
+ *     location: targetResourceGroup.location,
+ *     resourceGroupName: targetResourceGroup.name,
+ *     sku: "Standard",
+ * });
+ * const targetVirtualNetwork = new azure.network.VirtualNetwork("targetVirtualNetwork", {
+ *     resourceGroupName: targetResourceGroup.name,
+ *     addressSpaces: ["192.168.2.0/24"],
+ *     location: targetResourceGroup.location,
+ * });
+ * const recovery_mapping = new azure.siterecovery.HypervNetworkMapping("recovery-mapping", {
+ *     recoveryVaultId: vault.id,
+ *     sourceSystemCenterVirtualMachineManagerName: "my-vmm-server",
+ *     sourceNetworkName: "my-vmm-network",
+ *     targetNetworkId: targetVirtualNetwork.id,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Site Recovery Network Mapping can be imported using the `resource id`, e.g.

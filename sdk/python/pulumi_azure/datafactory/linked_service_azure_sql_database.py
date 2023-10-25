@@ -615,6 +615,21 @@ class LinkedServiceAzureSqlDatabase(pulumi.CustomResource):
         """
         Manages a Linked Service (connection) between Azure SQL Database and Azure Data Factory.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_factory = azure.datafactory.Factory("exampleFactory",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_linked_service_azure_sql_database = azure.datafactory.LinkedServiceAzureSqlDatabase("exampleLinkedServiceAzureSqlDatabase",
+            data_factory_id=example_factory.id,
+            connection_string="data source=serverhostname;initial catalog=master;user id=testUser;Password=test;integrated security=False;encrypt=True;connection timeout=30")
+        ```
+
         ## Import
 
         Data Factory Azure SQL Database Linked Service's can be imported using the `resource id`, e.g.
@@ -648,6 +663,21 @@ class LinkedServiceAzureSqlDatabase(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Linked Service (connection) between Azure SQL Database and Azure Data Factory.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_factory = azure.datafactory.Factory("exampleFactory",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_linked_service_azure_sql_database = azure.datafactory.LinkedServiceAzureSqlDatabase("exampleLinkedServiceAzureSqlDatabase",
+            data_factory_id=example_factory.id,
+            connection_string="data source=serverhostname;initial catalog=master;user id=testUser;Password=test;integrated security=False;encrypt=True;connection timeout=30")
+        ```
 
         ## Import
 

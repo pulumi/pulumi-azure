@@ -12,6 +12,63 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages an Azure Endpoint within a Traffic Manager Profile.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AllocationMethod = "Static",
+    ///         DomainNameLabel = "example-public-ip",
+    ///     });
+    /// 
+    ///     var exampleTrafficManagerProfile = new Azure.Network.TrafficManagerProfile("exampleTrafficManagerProfile", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         TrafficRoutingMethod = "Weighted",
+    ///         DnsConfig = new Azure.Network.Inputs.TrafficManagerProfileDnsConfigArgs
+    ///         {
+    ///             RelativeName = "example-profile",
+    ///             Ttl = 100,
+    ///         },
+    ///         MonitorConfig = new Azure.Network.Inputs.TrafficManagerProfileMonitorConfigArgs
+    ///         {
+    ///             Protocol = "HTTP",
+    ///             Port = 80,
+    ///             Path = "/",
+    ///             IntervalInSeconds = 30,
+    ///             TimeoutInSeconds = 9,
+    ///             ToleratedNumberOfFailures = 3,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleTrafficManagerAzureEndpoint = new Azure.Network.TrafficManagerAzureEndpoint("exampleTrafficManagerAzureEndpoint", new()
+    ///     {
+    ///         ProfileId = exampleTrafficManagerProfile.Id,
+    ///         Weight = 100,
+    ///         TargetResourceId = examplePublicIp.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Azure Endpoints can be imported using the `resource id`, e.g.

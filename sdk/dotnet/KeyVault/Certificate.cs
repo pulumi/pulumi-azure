@@ -18,6 +18,249 @@ namespace Pulumi.Azure.KeyVault
     /// =======
     /// &gt; &gt; &gt; &gt; &gt; &gt; &gt; 8d78c87098 (Update-documentation)
     /// ## Example Usage
+    /// ### Importing A PFX)
+    /// 
+    /// &gt; **Note:** this example assumed the PFX file is located in the same directory at `certificate-to-import.pfx`.
+    /// 
+    /// ```csharp
+    /// using System;
+    /// using System.Collections.Generic;
+    /// using System.IO;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// 	private static string ReadFileBase64(string path) {
+    /// 		return Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(File.ReadAllText(path)));
+    /// 	}
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "premium",
+    ///         AccessPolicies = new[]
+    ///         {
+    ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
+    ///             {
+    ///                 TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///                 ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///                 CertificatePermissions = new[]
+    ///                 {
+    ///                     "Create",
+    ///                     "Delete",
+    ///                     "DeleteIssuers",
+    ///                     "Get",
+    ///                     "GetIssuers",
+    ///                     "Import",
+    ///                     "List",
+    ///                     "ListIssuers",
+    ///                     "ManageContacts",
+    ///                     "ManageIssuers",
+    ///                     "SetIssuers",
+    ///                     "Update",
+    ///                 },
+    ///                 KeyPermissions = new[]
+    ///                 {
+    ///                     "Backup",
+    ///                     "Create",
+    ///                     "Decrypt",
+    ///                     "Delete",
+    ///                     "Encrypt",
+    ///                     "Get",
+    ///                     "Import",
+    ///                     "List",
+    ///                     "Purge",
+    ///                     "Recover",
+    ///                     "Restore",
+    ///                     "Sign",
+    ///                     "UnwrapKey",
+    ///                     "Update",
+    ///                     "Verify",
+    ///                     "WrapKey",
+    ///                 },
+    ///                 SecretPermissions = new[]
+    ///                 {
+    ///                     "Backup",
+    ///                     "Delete",
+    ///                     "Get",
+    ///                     "List",
+    ///                     "Purge",
+    ///                     "Recover",
+    ///                     "Restore",
+    ///                     "Set",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleCertificate = new Azure.KeyVault.Certificate("exampleCertificate", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         KeyVaultCertificate = new Azure.KeyVault.Inputs.CertificateCertificateArgs
+    ///         {
+    ///             Contents = ReadFileBase64("certificate-to-import.pfx"),
+    ///             Password = "",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Generating a new certificate
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "standard",
+    ///         SoftDeleteRetentionDays = 7,
+    ///         AccessPolicies = new[]
+    ///         {
+    ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
+    ///             {
+    ///                 TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///                 ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///                 CertificatePermissions = new[]
+    ///                 {
+    ///                     "Create",
+    ///                     "Delete",
+    ///                     "DeleteIssuers",
+    ///                     "Get",
+    ///                     "GetIssuers",
+    ///                     "Import",
+    ///                     "List",
+    ///                     "ListIssuers",
+    ///                     "ManageContacts",
+    ///                     "ManageIssuers",
+    ///                     "Purge",
+    ///                     "SetIssuers",
+    ///                     "Update",
+    ///                 },
+    ///                 KeyPermissions = new[]
+    ///                 {
+    ///                     "Backup",
+    ///                     "Create",
+    ///                     "Decrypt",
+    ///                     "Delete",
+    ///                     "Encrypt",
+    ///                     "Get",
+    ///                     "Import",
+    ///                     "List",
+    ///                     "Purge",
+    ///                     "Recover",
+    ///                     "Restore",
+    ///                     "Sign",
+    ///                     "UnwrapKey",
+    ///                     "Update",
+    ///                     "Verify",
+    ///                     "WrapKey",
+    ///                 },
+    ///                 SecretPermissions = new[]
+    ///                 {
+    ///                     "Backup",
+    ///                     "Delete",
+    ///                     "Get",
+    ///                     "List",
+    ///                     "Purge",
+    ///                     "Recover",
+    ///                     "Restore",
+    ///                     "Set",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleCertificate = new Azure.KeyVault.Certificate("exampleCertificate", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         CertificatePolicy = new Azure.KeyVault.Inputs.CertificateCertificatePolicyArgs
+    ///         {
+    ///             IssuerParameters = new Azure.KeyVault.Inputs.CertificateCertificatePolicyIssuerParametersArgs
+    ///             {
+    ///                 Name = "Self",
+    ///             },
+    ///             KeyProperties = new Azure.KeyVault.Inputs.CertificateCertificatePolicyKeyPropertiesArgs
+    ///             {
+    ///                 Exportable = true,
+    ///                 KeySize = 2048,
+    ///                 KeyType = "RSA",
+    ///                 ReuseKey = true,
+    ///             },
+    ///             LifetimeActions = new[]
+    ///             {
+    ///                 new Azure.KeyVault.Inputs.CertificateCertificatePolicyLifetimeActionArgs
+    ///                 {
+    ///                     Action = new Azure.KeyVault.Inputs.CertificateCertificatePolicyLifetimeActionActionArgs
+    ///                     {
+    ///                         ActionType = "AutoRenew",
+    ///                     },
+    ///                     Trigger = new Azure.KeyVault.Inputs.CertificateCertificatePolicyLifetimeActionTriggerArgs
+    ///                     {
+    ///                         DaysBeforeExpiry = 30,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             SecretProperties = new Azure.KeyVault.Inputs.CertificateCertificatePolicySecretPropertiesArgs
+    ///             {
+    ///                 ContentType = "application/x-pkcs12",
+    ///             },
+    ///             X509CertificateProperties = new Azure.KeyVault.Inputs.CertificateCertificatePolicyX509CertificatePropertiesArgs
+    ///             {
+    ///                 ExtendedKeyUsages = new[]
+    ///                 {
+    ///                     "1.3.6.1.5.5.7.3.1",
+    ///                 },
+    ///                 KeyUsages = new[]
+    ///                 {
+    ///                     "cRLSign",
+    ///                     "dataEncipherment",
+    ///                     "digitalSignature",
+    ///                     "keyAgreement",
+    ///                     "keyCertSign",
+    ///                     "keyEncipherment",
+    ///                 },
+    ///                 SubjectAlternativeNames = new Azure.KeyVault.Inputs.CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs
+    ///                 {
+    ///                     DnsNames = new[]
+    ///                     {
+    ///                         "internal.contoso.com",
+    ///                         "domain.hello.world",
+    ///                     },
+    ///                 },
+    ///                 Subject = "CN=hello-world",
+    ///                 ValidityInMonths = 12,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

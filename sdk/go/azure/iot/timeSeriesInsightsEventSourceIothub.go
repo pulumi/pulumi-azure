@@ -15,6 +15,93 @@ import (
 
 // Manages an Azure IoT Time Series Insights IoTHub Event Source.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleIoTHub, err := iot.NewIoTHub(ctx, "exampleIoTHub", &iot.IoTHubArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Sku: &iot.IoTHubSkuArgs{
+//					Name:     pulumi.String("B1"),
+//					Capacity: pulumi.Int(1),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleConsumerGroup, err := iot.NewConsumerGroup(ctx, "exampleConsumerGroup", &iot.ConsumerGroupArgs{
+//				IothubName:           exampleIoTHub.Name,
+//				EventhubEndpointName: pulumi.String("events"),
+//				ResourceGroupName:    exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			storage, err := storage.NewAccount(ctx, "storage", &storage.AccountArgs{
+//				Location:               exampleResourceGroup.Location,
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleTimeSeriesInsightsGen2Environment, err := iot.NewTimeSeriesInsightsGen2Environment(ctx, "exampleTimeSeriesInsightsGen2Environment", &iot.TimeSeriesInsightsGen2EnvironmentArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("L1"),
+//				IdProperties: pulumi.StringArray{
+//					pulumi.String("id"),
+//				},
+//				Storage: &iot.TimeSeriesInsightsGen2EnvironmentStorageArgs{
+//					Name: storage.Name,
+//					Key:  storage.PrimaryAccessKey,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iot.NewTimeSeriesInsightsEventSourceIothub(ctx, "exampleTimeSeriesInsightsEventSourceIothub", &iot.TimeSeriesInsightsEventSourceIothubArgs{
+//				Location:      exampleResourceGroup.Location,
+//				EnvironmentId: exampleTimeSeriesInsightsGen2Environment.ID(),
+//				IothubName:    exampleIoTHub.Name,
+//				SharedAccessKey: exampleIoTHub.SharedAccessPolicies.ApplyT(func(sharedAccessPolicies []iot.IoTHubSharedAccessPolicy) (*string, error) {
+//					return &sharedAccessPolicies[0].PrimaryKey, nil
+//				}).(pulumi.StringPtrOutput),
+//				SharedAccessKeyName: exampleIoTHub.SharedAccessPolicies.ApplyT(func(sharedAccessPolicies []iot.IoTHubSharedAccessPolicy) (*string, error) {
+//					return &sharedAccessPolicies[0].KeyName, nil
+//				}).(pulumi.StringPtrOutput),
+//				ConsumerGroupName:     exampleConsumerGroup.Name,
+//				EventSourceResourceId: exampleIoTHub.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Azure IoT Time Series Insights IoTHub Event Source can be imported using the `resource id`, e.g.

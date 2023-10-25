@@ -14,6 +14,106 @@ import * as utilities from "../utilities";
  * > **Note:** When using Slots - the `appSettings`, `connectionString` and `siteConfig` blocks on the `azure.appservice.AppService` resource will be overwritten when promoting a Slot using the `azure.appservice.ActiveSlot` resource.
  *
  * ## Example Usage
+ * ### NET 4.X)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as random from "@pulumi/random";
+ *
+ * const server = new random.RandomId("server", {
+ *     keepers: {
+ *         azi_id: 1,
+ *     },
+ *     byteLength: 8,
+ * });
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const examplePlan = new azure.appservice.Plan("examplePlan", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: {
+ *         tier: "Standard",
+ *         size: "S1",
+ *     },
+ * });
+ * const exampleAppService = new azure.appservice.AppService("exampleAppService", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     appServicePlanId: examplePlan.id,
+ *     siteConfig: {
+ *         dotnetFrameworkVersion: "v4.0",
+ *     },
+ *     appSettings: {
+ *         SOME_KEY: "some-value",
+ *     },
+ *     connectionStrings: [{
+ *         name: "Database",
+ *         type: "SQLServer",
+ *         value: "Server=some-server.mydomain.com;Integrated Security=SSPI",
+ *     }],
+ * });
+ * const exampleSlot = new azure.appservice.Slot("exampleSlot", {
+ *     appServiceName: exampleAppService.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     appServicePlanId: examplePlan.id,
+ *     siteConfig: {
+ *         dotnetFrameworkVersion: "v4.0",
+ *     },
+ *     appSettings: {
+ *         SOME_KEY: "some-value",
+ *     },
+ *     connectionStrings: [{
+ *         name: "Database",
+ *         type: "SQLServer",
+ *         value: "Server=some-server.mydomain.com;Integrated Security=SSPI",
+ *     }],
+ * });
+ * ```
+ * ### Java 1.8)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as random from "@pulumi/random";
+ *
+ * const server = new random.RandomId("server", {
+ *     keepers: {
+ *         azi_id: 1,
+ *     },
+ *     byteLength: 8,
+ * });
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const examplePlan = new azure.appservice.Plan("examplePlan", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: {
+ *         tier: "Standard",
+ *         size: "S1",
+ *     },
+ * });
+ * const exampleAppService = new azure.appservice.AppService("exampleAppService", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     appServicePlanId: examplePlan.id,
+ *     siteConfig: {
+ *         javaVersion: "1.8",
+ *         javaContainer: "JETTY",
+ *         javaContainerVersion: "9.3",
+ *     },
+ * });
+ * const exampleSlot = new azure.appservice.Slot("exampleSlot", {
+ *     appServiceName: exampleAppService.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     appServicePlanId: examplePlan.id,
+ *     siteConfig: {
+ *         javaVersion: "1.8",
+ *         javaContainer: "JETTY",
+ *         javaContainerVersion: "9.3",
+ *     },
+ * });
+ * ```
  *
  * ## Import
  *

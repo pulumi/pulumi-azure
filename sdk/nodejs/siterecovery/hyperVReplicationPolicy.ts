@@ -7,6 +7,26 @@ import * as utilities from "../utilities";
 /**
  * Manages a Azure Site Recovery replication policy for HyperV within a Recovery Vault. Replication policies define the frequency at which recovery points are created and how long they are stored.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {location: "East US"});
+ * const vault = new azure.recoveryservices.Vault("vault", {
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     sku: "Standard",
+ * });
+ * const policy = new azure.siterecovery.HyperVReplicationPolicy("policy", {
+ *     recoveryVaultId: vault.id,
+ *     recoveryPointRetentionInHours: 2,
+ *     applicationConsistentSnapshotFrequencyInHours: 1,
+ *     replicationIntervalInSeconds: 300,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Site Recovery Replication Policies can be imported using the `resource id`, e.g.

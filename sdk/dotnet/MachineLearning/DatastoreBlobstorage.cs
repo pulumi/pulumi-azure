@@ -13,6 +13,74 @@ namespace Pulumi.Azure.MachineLearning
     /// Manages a Machine Learning Blob Storage DataStore.
     /// 
     /// ## Example Usage
+    /// ### With Azure Blob
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApplicationType = "web",
+    ///     });
+    /// 
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "premium",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "GRS",
+    ///     });
+    /// 
+    ///     var exampleWorkspace = new Azure.MachineLearning.Workspace("exampleWorkspace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApplicationInsightsId = exampleInsights.Id,
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         StorageAccountId = exampleAccount.Id,
+    ///         Identity = new Azure.MachineLearning.Inputs.WorkspaceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
+    ///     {
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         ContainerAccessType = "private",
+    ///     });
+    /// 
+    ///     var exampleDatastoreBlobstorage = new Azure.MachineLearning.DatastoreBlobstorage("exampleDatastoreBlobstorage", new()
+    ///     {
+    ///         WorkspaceId = exampleWorkspace.Id,
+    ///         StorageContainerId = exampleContainer.ResourceManagerId,
+    ///         AccountKey = exampleAccount.PrimaryAccessKey,
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

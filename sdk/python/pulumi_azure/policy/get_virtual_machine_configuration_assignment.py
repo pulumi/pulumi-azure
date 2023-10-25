@@ -150,6 +150,18 @@ def get_virtual_machine_configuration_assignment(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Guest Configuration Policy.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.policy.get_virtual_machine_configuration_assignment(name="AzureWindowsBaseline",
+        resource_group_name="example-RG",
+        virtual_machine_name="example-vm")
+    pulumi.export("complianceStatus", example.compliance_status)
+    ```
+
 
     :param str name: Specifies the name of the Guest Configuration Assignment.
     :param str resource_group_name: Specifies the Name of the Resource Group where the Guest Configuration Assignment exists.
@@ -182,6 +194,18 @@ def get_virtual_machine_configuration_assignment_output(name: Optional[pulumi.In
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineConfigurationAssignmentResult]:
     """
     Use this data source to access information about an existing Guest Configuration Policy.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.policy.get_virtual_machine_configuration_assignment(name="AzureWindowsBaseline",
+        resource_group_name="example-RG",
+        virtual_machine_name="example-vm")
+    pulumi.export("complianceStatus", example.compliance_status)
+    ```
 
 
     :param str name: Specifies the name of the Guest Configuration Assignment.

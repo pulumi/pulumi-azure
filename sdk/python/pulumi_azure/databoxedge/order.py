@@ -338,6 +338,35 @@ class Order(pulumi.CustomResource):
 
         !> Creation of Databox Edge Order is not supported by the Azure API - as such the `databoxedge.Order` resource is deprecated and will be removed in v4.0 of the AzureRM Provider.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_device = azure.databoxedge.Device("exampleDevice",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku_name="EdgeP_Base-Standard")
+        example_order = azure.databoxedge.Order("exampleOrder",
+            resource_group_name=example_resource_group.name,
+            device_name=example_device.name,
+            contact=azure.databoxedge.OrderContactArgs(
+                name="TerraForm Test",
+                emails=["creator4983@FlynnsArcade.com"],
+                company_name="Flynn's Arcade",
+                phone_number="(800) 555-1234",
+            ),
+            shipment_address=azure.databoxedge.OrderShipmentAddressArgs(
+                addresses=["One Microsoft Way"],
+                city="Redmond",
+                postal_code="98052",
+                state="WA",
+                country="United States",
+            ))
+        ```
+
         ## Import
 
         Databox Edge Orders can be imported using the `resource id`, e.g.
@@ -363,6 +392,35 @@ class Order(pulumi.CustomResource):
         Manages a Databox Edge Order.
 
         !> Creation of Databox Edge Order is not supported by the Azure API - as such the `databoxedge.Order` resource is deprecated and will be removed in v4.0 of the AzureRM Provider.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_device = azure.databoxedge.Device("exampleDevice",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku_name="EdgeP_Base-Standard")
+        example_order = azure.databoxedge.Order("exampleOrder",
+            resource_group_name=example_resource_group.name,
+            device_name=example_device.name,
+            contact=azure.databoxedge.OrderContactArgs(
+                name="TerraForm Test",
+                emails=["creator4983@FlynnsArcade.com"],
+                company_name="Flynn's Arcade",
+                phone_number="(800) 555-1234",
+            ),
+            shipment_address=azure.databoxedge.OrderShipmentAddressArgs(
+                addresses=["One Microsoft Way"],
+                city="Redmond",
+                postal_code="98052",
+                state="WA",
+                country="United States",
+            ))
+        ```
 
         ## Import
 

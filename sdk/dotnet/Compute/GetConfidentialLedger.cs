@@ -13,12 +13,66 @@ namespace Pulumi.Azure.Compute
     {
         /// <summary>
         /// Gets information about an existing Confidential Ledger.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var current = Azure.Compute.GetConfidentialLedger.Invoke(new()
+        ///     {
+        ///         Name = "example-ledger",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["ledgerEndpoint"] = current.Apply(getConfidentialLedgerResult =&gt; getConfidentialLedgerResult.LedgerEndpoint),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetConfidentialLedgerResult> InvokeAsync(GetConfidentialLedgerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfidentialLedgerResult>("azure:compute/getConfidentialLedger:getConfidentialLedger", args ?? new GetConfidentialLedgerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about an existing Confidential Ledger.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var current = Azure.Compute.GetConfidentialLedger.Invoke(new()
+        ///     {
+        ///         Name = "example-ledger",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["ledgerEndpoint"] = current.Apply(getConfidentialLedgerResult =&gt; getConfidentialLedgerResult.LedgerEndpoint),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetConfidentialLedgerResult> Invoke(GetConfidentialLedgerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfidentialLedgerResult>("azure:compute/getConfidentialLedger:getConfidentialLedger", args ?? new GetConfidentialLedgerInvokeArgs(), options.WithDefaults());

@@ -12,6 +12,50 @@ namespace Pulumi.Azure.Cdn
     /// <summary>
     /// Manages a Front Door (standard/premium) Origin Group.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleFrontdoorProfile = new Azure.Cdn.FrontdoorProfile("exampleFrontdoorProfile", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Standard_AzureFrontDoor",
+    ///     });
+    /// 
+    ///     var exampleFrontdoorOriginGroup = new Azure.Cdn.FrontdoorOriginGroup("exampleFrontdoorOriginGroup", new()
+    ///     {
+    ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
+    ///         SessionAffinityEnabled = true,
+    ///         RestoreTrafficTimeToHealedOrNewEndpointInMinutes = 10,
+    ///         HealthProbe = new Azure.Cdn.Inputs.FrontdoorOriginGroupHealthProbeArgs
+    ///         {
+    ///             IntervalInSeconds = 240,
+    ///             Path = "/healthProbe",
+    ///             Protocol = "Https",
+    ///             RequestType = "HEAD",
+    ///         },
+    ///         LoadBalancing = new Azure.Cdn.Inputs.FrontdoorOriginGroupLoadBalancingArgs
+    ///         {
+    ///             AdditionalLatencyInMilliseconds = 0,
+    ///             SampleSize = 16,
+    ///             SuccessfulSamplesRequired = 3,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Front Door Origin Groups can be imported using the `resource id`, e.g.

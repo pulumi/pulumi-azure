@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.privatedns.AAAARecord("example", {
+ *     zoneName: "test-zone",
+ *     resourceGroupName: "test-rg",
+ * });
+ * export const privateDnsAaaaRecordId = example.id;
+ * ```
+ */
 export function getAAAARecord(args: GetAAAARecordArgs, opts?: pulumi.InvokeOptions): Promise<GetAAAARecordResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -60,6 +74,20 @@ export interface GetAAAARecordResult {
     readonly ttl: number;
     readonly zoneName: string;
 }
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.privatedns.AAAARecord("example", {
+ *     zoneName: "test-zone",
+ *     resourceGroupName: "test-rg",
+ * });
+ * export const privateDnsAaaaRecordId = example.id;
+ * ```
+ */
 export function getAAAARecordOutput(args: GetAAAARecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAAAARecordResult> {
     return pulumi.output(args).apply((a: any) => getAAAARecord(a, opts))
 }

@@ -92,6 +92,16 @@ def get_resolver_virtual_network_link(dns_forwarding_ruleset_id: Optional[str] =
     """
     Gets information about an existing Private DNS Resolver Virtual Network Link.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.privatedns.get_resolver_virtual_network_link(dns_forwarding_ruleset_id="example-dns-forwarding-ruleset-id",
+        name="example-link")
+    ```
+
 
     :param str dns_forwarding_ruleset_id: ID of the Private DNS Resolver DNS Forwarding Ruleset.
     :param str name: Name of the Private DNS Resolver Virtual Network Link.
@@ -116,6 +126,16 @@ def get_resolver_virtual_network_link_output(dns_forwarding_ruleset_id: Optional
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverVirtualNetworkLinkResult]:
     """
     Gets information about an existing Private DNS Resolver Virtual Network Link.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.privatedns.get_resolver_virtual_network_link(dns_forwarding_ruleset_id="example-dns-forwarding-ruleset-id",
+        name="example-link")
+    ```
 
 
     :param str dns_forwarding_ruleset_id: ID of the Private DNS Resolver DNS Forwarding Ruleset.

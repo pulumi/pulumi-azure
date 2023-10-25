@@ -12,6 +12,152 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages an Application Gateway.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.254.0.0/16",
+    ///         },
+    ///     });
+    /// 
+    ///     var frontend = new Azure.Network.Subnet("frontend", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.254.0.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var backend = new Azure.Network.Subnet("backend", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.254.2.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AllocationMethod = "Dynamic",
+    ///     });
+    /// 
+    ///     var backendAddressPoolName = exampleVirtualNetwork.Name.Apply(name =&gt; $"{name}-beap");
+    /// 
+    ///     var frontendPortName = exampleVirtualNetwork.Name.Apply(name =&gt; $"{name}-feport");
+    /// 
+    ///     var frontendIpConfigurationName = exampleVirtualNetwork.Name.Apply(name =&gt; $"{name}-feip");
+    /// 
+    ///     var httpSettingName = exampleVirtualNetwork.Name.Apply(name =&gt; $"{name}-be-htst");
+    /// 
+    ///     var listenerName = exampleVirtualNetwork.Name.Apply(name =&gt; $"{name}-httplstn");
+    /// 
+    ///     var requestRoutingRuleName = exampleVirtualNetwork.Name.Apply(name =&gt; $"{name}-rqrt");
+    /// 
+    ///     var redirectConfigurationName = exampleVirtualNetwork.Name.Apply(name =&gt; $"{name}-rdrcfg");
+    /// 
+    ///     var network = new Azure.Network.ApplicationGateway("network", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Sku = new Azure.Network.Inputs.ApplicationGatewaySkuArgs
+    ///         {
+    ///             Name = "Standard_v2",
+    ///             Tier = "Standard_v2",
+    ///             Capacity = 2,
+    ///         },
+    ///         GatewayIpConfigurations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.ApplicationGatewayGatewayIpConfigurationArgs
+    ///             {
+    ///                 Name = "my-gateway-ip-configuration",
+    ///                 SubnetId = frontend.Id,
+    ///             },
+    ///         },
+    ///         FrontendPorts = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.ApplicationGatewayFrontendPortArgs
+    ///             {
+    ///                 Name = frontendPortName,
+    ///                 Port = 80,
+    ///             },
+    ///         },
+    ///         FrontendIpConfigurations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.ApplicationGatewayFrontendIpConfigurationArgs
+    ///             {
+    ///                 Name = frontendIpConfigurationName,
+    ///                 PublicIpAddressId = examplePublicIp.Id,
+    ///             },
+    ///         },
+    ///         BackendAddressPools = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.ApplicationGatewayBackendAddressPoolArgs
+    ///             {
+    ///                 Name = backendAddressPoolName,
+    ///             },
+    ///         },
+    ///         BackendHttpSettings = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.ApplicationGatewayBackendHttpSettingArgs
+    ///             {
+    ///                 Name = httpSettingName,
+    ///                 CookieBasedAffinity = "Disabled",
+    ///                 Path = "/path1/",
+    ///                 Port = 80,
+    ///                 Protocol = "Http",
+    ///                 RequestTimeout = 60,
+    ///             },
+    ///         },
+    ///         HttpListeners = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.ApplicationGatewayHttpListenerArgs
+    ///             {
+    ///                 Name = listenerName,
+    ///                 FrontendIpConfigurationName = frontendIpConfigurationName,
+    ///                 FrontendPortName = frontendPortName,
+    ///                 Protocol = "Http",
+    ///             },
+    ///         },
+    ///         RequestRoutingRules = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.ApplicationGatewayRequestRoutingRuleArgs
+    ///             {
+    ///                 Name = requestRoutingRuleName,
+    ///                 Priority = 9,
+    ///                 RuleType = "Basic",
+    ///                 HttpListenerName = listenerName,
+    ///                 BackendAddressPoolName = backendAddressPoolName,
+    ///                 BackendHttpSettingsName = httpSettingName,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Application Gateway's can be imported using the `resource id`, e.g.

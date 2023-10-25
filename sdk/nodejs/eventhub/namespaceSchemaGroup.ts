@@ -5,6 +5,25 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {location: "East US"});
+ * const testEventHubNamespace = new azure.eventhub.EventHubNamespace("testEventHubNamespace", {
+ *     location: azurerm_resource_group.test.location,
+ *     resourceGroupName: azurerm_resource_group.test.name,
+ *     sku: "Standard",
+ * });
+ * const testNamespaceSchemaGroup = new azure.eventhub.NamespaceSchemaGroup("testNamespaceSchemaGroup", {
+ *     namespaceId: testEventHubNamespace.id,
+ *     schemaCompatibility: "Forward",
+ *     schemaType: "Avro",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Schema Group for a EventHub Namespace can be imported using the `resource id`, e.g.

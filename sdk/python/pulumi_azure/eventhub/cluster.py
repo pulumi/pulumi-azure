@@ -249,6 +249,19 @@ class Cluster(pulumi.CustomResource):
         """
         Manages an EventHub Cluster
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example", location="West Europe")
+        test = azure.eventhub.Cluster("test",
+            resource_group_name=example.name,
+            location=example.location,
+            sku_name="Dedicated_1")
+        ```
+
         ## Import
 
         EventHub Cluster's can be imported using the `resource id`, e.g.
@@ -273,6 +286,19 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an EventHub Cluster
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example", location="West Europe")
+        test = azure.eventhub.Cluster("test",
+            resource_group_name=example.name,
+            location=example.location,
+            sku_name="Dedicated_1")
+        ```
 
         ## Import
 

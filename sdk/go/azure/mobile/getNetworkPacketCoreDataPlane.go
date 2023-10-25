@@ -13,6 +13,40 @@ import (
 )
 
 // Get information a Mobile Network Packet Core Data Plane.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mobile"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleNetworkPacketCoreControlPlane, err := mobile.LookupNetworkPacketCoreControlPlane(ctx, &mobile.LookupNetworkPacketCoreControlPlaneArgs{
+//				Name:              "example-mnpccp",
+//				ResourceGroupName: "example-rg",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = mobile.LookupNetworkPacketCoreDataPlane(ctx, &mobile.LookupNetworkPacketCoreDataPlaneArgs{
+//				Name:                                  "example-mnpcdp",
+//				MobileNetworkPacketCoreControlPlaneId: exampleNetworkPacketCoreControlPlane.Id,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupNetworkPacketCoreDataPlane(ctx *pulumi.Context, args *LookupNetworkPacketCoreDataPlaneArgs, opts ...pulumi.InvokeOption) (*LookupNetworkPacketCoreDataPlaneResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNetworkPacketCoreDataPlaneResult

@@ -12,6 +12,31 @@ namespace Pulumi.Azure.Redis
     /// <summary>
     /// Manages a Redis Enterprise Cluster.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleEnterpriseCluster = new Azure.Redis.EnterpriseCluster("exampleEnterpriseCluster", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         SkuName = "EnterpriseFlash_F300-3",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Redis Enterprise Clusters can be imported using the `resource id`, e.g.

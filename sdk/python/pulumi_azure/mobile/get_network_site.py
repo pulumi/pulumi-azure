@@ -104,6 +104,18 @@ def get_network_site(mobile_network_id: Optional[str] = None,
     """
     Get information about a Mobile Network Site.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example_network = azure.mobile.get_network(name="example-mn",
+        resource_group_name="example-rg")
+    example_network_site = azure.mobile.get_network_site(name="example-mns",
+        mobile_network_id=example_network.id)
+    ```
+
 
     :param str mobile_network_id: the ID of the Mobile Network which the Mobile Network Site belongs to.
     :param str name: The name which should be used for this Mobile Network Site.
@@ -129,6 +141,18 @@ def get_network_site_output(mobile_network_id: Optional[pulumi.Input[str]] = Non
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkSiteResult]:
     """
     Get information about a Mobile Network Site.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example_network = azure.mobile.get_network(name="example-mn",
+        resource_group_name="example-rg")
+    example_network_site = azure.mobile.get_network_site(name="example-mns",
+        mobile_network_id=example_network.id)
+    ```
 
 
     :param str mobile_network_id: the ID of the Mobile Network which the Mobile Network Site belongs to.

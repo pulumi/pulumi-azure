@@ -13,12 +13,58 @@ namespace Pulumi.Azure.NetApp
     {
         /// <summary>
         /// Uses this data source to access information about an existing NetApp Account.
+        /// 
+        /// ## NetApp Account Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.NetApp.GetAccount.Invoke(new()
+        ///     {
+        ///         ResourceGroupName = "acctestRG",
+        ///         Name = "acctestnetappaccount",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["netappAccountId"] = example.Apply(getAccountResult =&gt; getAccountResult.Id),
+        ///     };
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure:netapp/getAccount:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// Uses this data source to access information about an existing NetApp Account.
+        /// 
+        /// ## NetApp Account Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.NetApp.GetAccount.Invoke(new()
+        ///     {
+        ///         ResourceGroupName = "acctestRG",
+        ///         Name = "acctestnetappaccount",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["netappAccountId"] = example.Apply(getAccountResult =&gt; getAccountResult.Id),
+        ///     };
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure:netapp/getAccount:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());

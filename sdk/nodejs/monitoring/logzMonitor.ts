@@ -9,6 +9,30 @@ import * as utilities from "../utilities";
 /**
  * Manages a logz Monitor.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleLogzMonitor = new azure.monitoring.LogzMonitor("exampleLogzMonitor", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     plan: {
+ *         billingCycle: "MONTHLY",
+ *         effectiveDate: "2022-06-06T00:00:00Z",
+ *         usageType: "COMMITTED",
+ *     },
+ *     user: {
+ *         email: "user@example.com",
+ *         firstName: "Example",
+ *         lastName: "User",
+ *         phoneNumber: "+12313803556",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * logz Monitors can be imported using the `resource id`, e.g.

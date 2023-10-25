@@ -12,6 +12,42 @@ namespace Pulumi.Azure.Storage
     /// <summary>
     /// Manages a Container within an Azure Storage Account.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "staging" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
+    ///     {
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         ContainerAccessType = "private",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Storage Containers can be imported using the `resource id`, e.g.

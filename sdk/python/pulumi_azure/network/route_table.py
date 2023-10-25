@@ -316,6 +316,27 @@ class RouteTable(pulumi.CustomResource):
         > **NOTE on Route Tables and Routes:** There is both a standalone `route` resource, and allows for Routes to be defined in-line within the `route_table` resource.
         At this time you cannot use a Route Table with in-line Routes in conjunction with any Route resources. Doing so will cause a conflict of Route configurations and will overwrite Routes.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_route_table = azure.network.RouteTable("exampleRouteTable",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            disable_bgp_route_propagation=False,
+            routes=[azure.network.RouteTableRouteArgs(
+                name="route1",
+                address_prefix="10.1.0.0/16",
+                next_hop_type="VnetLocal",
+            )],
+            tags={
+                "environment": "Production",
+            })
+        ```
+
         ## Import
 
         Route Tables can be imported using the `resource id`, e.g.
@@ -346,6 +367,27 @@ class RouteTable(pulumi.CustomResource):
 
         > **NOTE on Route Tables and Routes:** There is both a standalone `route` resource, and allows for Routes to be defined in-line within the `route_table` resource.
         At this time you cannot use a Route Table with in-line Routes in conjunction with any Route resources. Doing so will cause a conflict of Route configurations and will overwrite Routes.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_route_table = azure.network.RouteTable("exampleRouteTable",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            disable_bgp_route_propagation=False,
+            routes=[azure.network.RouteTableRouteArgs(
+                name="route1",
+                address_prefix="10.1.0.0/16",
+                next_hop_type="VnetLocal",
+            )],
+            tags={
+                "environment": "Production",
+            })
+        ```
 
         ## Import
 

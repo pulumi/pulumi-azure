@@ -6,6 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Cognitive Services Account.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const test = azure.cognitive.getAccount({
+ *     name: "example-account",
+ *     resourceGroupName: "cognitive_account_rg",
+ * });
+ * export const primaryAccessKey = test.then(test => test.primaryAccessKey);
+ * ```
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
 
@@ -80,6 +93,19 @@ export interface GetAccountResult {
 }
 /**
  * Use this data source to access information about an existing Cognitive Services Account.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const test = azure.cognitive.getAccount({
+ *     name: "example-account",
+ *     resourceGroupName: "cognitive_account_rg",
+ * });
+ * export const primaryAccessKey = test.then(test => test.primaryAccessKey);
+ * ```
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
     return pulumi.output(args).apply((a: any) => getAccount(a, opts))

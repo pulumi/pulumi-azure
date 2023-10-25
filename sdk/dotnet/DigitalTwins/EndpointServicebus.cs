@@ -12,6 +12,57 @@ namespace Pulumi.Azure.DigitalTwins
     /// <summary>
     /// Manages a Digital Twins Service Bus Endpoint.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleInstance = new Azure.DigitalTwins.Instance("exampleInstance", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleNamespace = new Azure.ServiceBus.Namespace("exampleNamespace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Standard",
+    ///     });
+    /// 
+    ///     var exampleTopic = new Azure.ServiceBus.Topic("exampleTopic", new()
+    ///     {
+    ///         NamespaceId = exampleNamespace.Id,
+    ///     });
+    /// 
+    ///     var exampleTopicAuthorizationRule = new Azure.ServiceBus.TopicAuthorizationRule("exampleTopicAuthorizationRule", new()
+    ///     {
+    ///         TopicId = exampleTopic.Id,
+    ///         Listen = false,
+    ///         Send = true,
+    ///         Manage = false,
+    ///     });
+    /// 
+    ///     var exampleEndpointServicebus = new Azure.DigitalTwins.EndpointServicebus("exampleEndpointServicebus", new()
+    ///     {
+    ///         DigitalTwinsId = exampleInstance.Id,
+    ///         ServicebusPrimaryConnectionString = exampleTopicAuthorizationRule.PrimaryConnectionString,
+    ///         ServicebusSecondaryConnectionString = exampleTopicAuthorizationRule.SecondaryConnectionString,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Digital Twins Service Bus Endpoints can be imported using the `resource id`, e.g.

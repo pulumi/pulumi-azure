@@ -15,6 +15,55 @@ import (
 
 // Manages a Automation Python3 Package.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("%[2]s"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("Basic"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = automation.NewPython3Package(ctx, "examplePython3Package", &automation.Python3PackageArgs{
+//				ResourceGroupName:     exampleResourceGroup.Name,
+//				AutomationAccountName: exampleAccount.Name,
+//				ContentUri:            pulumi.String("https://pypi.org/packages/source/r/requests/requests-2.31.0.tar.gz"),
+//				ContentVersion:        pulumi.String("2.31.0"),
+//				HashAlgorithm:         pulumi.String("sha256"),
+//				HashValue:             pulumi.String("942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"),
+//				Tags: pulumi.StringMap{
+//					"key": pulumi.String("foo"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Automation Python3 Packages can be imported using the `resource id`, e.g.

@@ -12,6 +12,52 @@ namespace Pulumi.Azure.ApiManagement
     /// <summary>
     /// Manages a API Management API Operation Tag.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleApi = Azure.ApiManagement.GetApi.Invoke(new()
+    ///     {
+    ///         Name = "search-api",
+    ///         ApiManagementName = "search-api-management",
+    ///         ResourceGroupName = "search-service",
+    ///         Revision = "2",
+    ///     });
+    /// 
+    ///     var exampleApiOperation = new Azure.ApiManagement.ApiOperation("exampleApiOperation", new()
+    ///     {
+    ///         OperationId = "user-delete",
+    ///         ApiName = exampleApi.Apply(getApiResult =&gt; getApiResult.Name),
+    ///         ApiManagementName = exampleApi.Apply(getApiResult =&gt; getApiResult.ApiManagementName),
+    ///         ResourceGroupName = exampleApi.Apply(getApiResult =&gt; getApiResult.ResourceGroupName),
+    ///         DisplayName = "Delete User Operation",
+    ///         Method = "DELETE",
+    ///         UrlTemplate = "/users/{id}/delete",
+    ///         Description = "This can only be done by the logged in user.",
+    ///         Responses = new[]
+    ///         {
+    ///             new Azure.ApiManagement.Inputs.ApiOperationResponseArgs
+    ///             {
+    ///                 StatusCode = 200,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleApiOperationTag = new Azure.ApiManagement.ApiOperationTag("exampleApiOperationTag", new()
+    ///     {
+    ///         ApiOperationId = exampleApiOperation.Id,
+    ///         DisplayName = "example-Tag",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// API Management API Operation Tags can be imported using the `resource id`, e.g.

@@ -15,6 +15,55 @@ import (
 
 // Manages a Microsoft Threat Intelligence Data Connector.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sentinel"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("east us"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("PerGB2018"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLogAnalyticsWorkspaceOnboarding, err := sentinel.NewLogAnalyticsWorkspaceOnboarding(ctx, "exampleLogAnalyticsWorkspaceOnboarding", &sentinel.LogAnalyticsWorkspaceOnboardingArgs{
+//				WorkspaceId: exampleAnalyticsWorkspace.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = sentinel.NewDataConnectorMicrosoftThreatIntelligence(ctx, "exampleDataConnectorMicrosoftThreatIntelligence", &sentinel.DataConnectorMicrosoftThreatIntelligenceArgs{
+//				LogAnalyticsWorkspaceId:                 exampleLogAnalyticsWorkspaceOnboarding.WorkspaceId,
+//				MicrosoftEmergingThreatFeedLookbackDate: pulumi.String("1970-01-01T00:00:00Z"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // sentinels can be imported using the `resource id`, e.g.

@@ -377,6 +377,29 @@ class Python3Package(pulumi.CustomResource):
         """
         Manages a Automation Python3 Package.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="%[2]s")
+        example_account = azure.automation.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="Basic")
+        example_python3_package = azure.automation.Python3Package("examplePython3Package",
+            resource_group_name=example_resource_group.name,
+            automation_account_name=example_account.name,
+            content_uri="https://pypi.org/packages/source/r/requests/requests-2.31.0.tar.gz",
+            content_version="2.31.0",
+            hash_algorithm="sha256",
+            hash_value="942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1",
+            tags={
+                "key": "foo",
+            })
+        ```
+
         ## Import
 
         Automation Python3 Packages can be imported using the `resource id`, e.g.
@@ -404,6 +427,29 @@ class Python3Package(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Automation Python3 Package.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="%[2]s")
+        example_account = azure.automation.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="Basic")
+        example_python3_package = azure.automation.Python3Package("examplePython3Package",
+            resource_group_name=example_resource_group.name,
+            automation_account_name=example_account.name,
+            content_uri="https://pypi.org/packages/source/r/requests/requests-2.31.0.tar.gz",
+            content_version="2.31.0",
+            hash_algorithm="sha256",
+            hash_value="942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1",
+            tags={
+                "key": "foo",
+            })
+        ```
 
         ## Import
 

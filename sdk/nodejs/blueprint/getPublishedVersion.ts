@@ -8,6 +8,20 @@ import * as utilities from "../utilities";
  * Use this data source to access information about an existing Blueprint Published Version
  *
  * > **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const current = azure.core.getSubscription({});
+ * const test = current.then(current => azure.blueprint.getPublishedVersion({
+ *     scopeId: current.id,
+ *     blueprintName: "exampleBluePrint",
+ *     version: "dev_v2.3",
+ * }));
+ * ```
  */
 export function getPublishedVersion(args: GetPublishedVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetPublishedVersionResult> {
 
@@ -71,6 +85,20 @@ export interface GetPublishedVersionResult {
  * Use this data source to access information about an existing Blueprint Published Version
  *
  * > **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const current = azure.core.getSubscription({});
+ * const test = current.then(current => azure.blueprint.getPublishedVersion({
+ *     scopeId: current.id,
+ *     blueprintName: "exampleBluePrint",
+ *     version: "dev_v2.3",
+ * }));
+ * ```
  */
 export function getPublishedVersionOutput(args: GetPublishedVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublishedVersionResult> {
     return pulumi.output(args).apply((a: any) => getPublishedVersion(a, opts))

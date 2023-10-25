@@ -511,6 +511,19 @@ class Provider(pulumi.CustomResource):
         """
         Manages an Attestation Provider.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_provider = azure.attestation.Provider("exampleProvider",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            policy_signing_certificate_data=(lambda path: open(path).read())("./example/cert.pem"))
+        ```
+
         ## Import
 
         Attestation Providers can be imported using the `resource id`, e.g.
@@ -543,6 +556,19 @@ class Provider(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Attestation Provider.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_provider = azure.attestation.Provider("exampleProvider",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            policy_signing_certificate_data=(lambda path: open(path).read())("./example/cert.pem"))
+        ```
 
         ## Import
 

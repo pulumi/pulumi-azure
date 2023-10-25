@@ -288,6 +288,25 @@ class Credential(pulumi.CustomResource):
         """
         Manages a Automation Credential.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.automation.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="Basic")
+        example_credential = azure.automation.Credential("exampleCredential",
+            resource_group_name=example_resource_group.name,
+            automation_account_name=example_account.name,
+            username="example_user",
+            password="example_pwd",
+            description="This is an example credential")
+        ```
+
         ## Import
 
         Automation Credentials can be imported using the `resource id`, e.g.
@@ -313,6 +332,25 @@ class Credential(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Automation Credential.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.automation.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="Basic")
+        example_credential = azure.automation.Credential("exampleCredential",
+            resource_group_name=example_resource_group.name,
+            automation_account_name=example_account.name,
+            username="example_user",
+            password="example_pwd",
+            description="This is an example credential")
+        ```
 
         ## Import
 

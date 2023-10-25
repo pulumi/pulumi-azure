@@ -258,6 +258,33 @@ class ConsumerGroup(pulumi.CustomResource):
         """
         Manages a Event Hubs Consumer Group as a nested resource within an Event Hub.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Basic",
+            capacity=2,
+            tags={
+                "environment": "Production",
+            })
+        example_event_hub = azure.eventhub.EventHub("exampleEventHub",
+            namespace_name=example_event_hub_namespace.name,
+            resource_group_name=example_resource_group.name,
+            partition_count=2,
+            message_retention=2)
+        example_consumer_group = azure.eventhub.ConsumerGroup("exampleConsumerGroup",
+            namespace_name=example_event_hub_namespace.name,
+            eventhub_name=example_event_hub.name,
+            resource_group_name=example_resource_group.name,
+            user_metadata="some-meta-data")
+        ```
+
         ## Import
 
         EventHub Consumer Groups can be imported using the `resource id`, e.g.
@@ -282,6 +309,33 @@ class ConsumerGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Event Hubs Consumer Group as a nested resource within an Event Hub.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Basic",
+            capacity=2,
+            tags={
+                "environment": "Production",
+            })
+        example_event_hub = azure.eventhub.EventHub("exampleEventHub",
+            namespace_name=example_event_hub_namespace.name,
+            resource_group_name=example_resource_group.name,
+            partition_count=2,
+            message_retention=2)
+        example_consumer_group = azure.eventhub.ConsumerGroup("exampleConsumerGroup",
+            namespace_name=example_event_hub_namespace.name,
+            eventhub_name=example_event_hub.name,
+            resource_group_name=example_resource_group.name,
+            user_metadata="some-meta-data")
+        ```
 
         ## Import
 

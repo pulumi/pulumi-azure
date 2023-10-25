@@ -312,6 +312,60 @@ class EligibleRoleAssignment(pulumi.CustomResource):
         Manages a Pim Eligible Role Assignment.
 
         ## Example Usage
+        ### Subscription)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumiverse_time as time
+
+        primary = azure.core.get_subscription()
+        example_client_config = azure.core.get_client_config()
+        example_role_definition = azure.authorization.get_role_definition(name="Reader")
+        example_static = time.Static("exampleStatic")
+        example_eligible_role_assignment = azure.pim.EligibleRoleAssignment("exampleEligibleRoleAssignment",
+            scope=primary.id,
+            role_definition_id=f"{primary.id}{example_role_definition.id}",
+            principal_id=example_client_config.object_id,
+            schedule=azure.pim.EligibleRoleAssignmentScheduleArgs(
+                start_date_time=example_static.rfc3339,
+                expiration=azure.pim.EligibleRoleAssignmentScheduleExpirationArgs(
+                    duration_hours=8,
+                ),
+            ),
+            justification="Expiration Duration Set",
+            ticket=azure.pim.EligibleRoleAssignmentTicketArgs(
+                number="1",
+                system="example ticket system",
+            ))
+        ```
+        ### Management Group)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumiverse_time as time
+
+        example_client_config = azure.core.get_client_config()
+        example_role_definition = azure.authorization.get_role_definition(name="Reader")
+        example_group = azure.management.Group("exampleGroup")
+        example_static = time.Static("exampleStatic")
+        example_eligible_role_assignment = azure.pim.EligibleRoleAssignment("exampleEligibleRoleAssignment",
+            scope=example_group.id,
+            role_definition_id=example_role_definition.id,
+            principal_id=example_client_config.object_id,
+            schedule=azure.pim.EligibleRoleAssignmentScheduleArgs(
+                start_date_time=example_static.rfc3339,
+                expiration=azure.pim.EligibleRoleAssignmentScheduleExpirationArgs(
+                    duration_hours=8,
+                ),
+            ),
+            justification="Expiration Duration Set",
+            ticket=azure.pim.EligibleRoleAssignmentTicketArgs(
+                number="1",
+                system="example ticket system",
+            ))
+        ```
 
         ## Import
 
@@ -340,6 +394,60 @@ class EligibleRoleAssignment(pulumi.CustomResource):
         Manages a Pim Eligible Role Assignment.
 
         ## Example Usage
+        ### Subscription)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumiverse_time as time
+
+        primary = azure.core.get_subscription()
+        example_client_config = azure.core.get_client_config()
+        example_role_definition = azure.authorization.get_role_definition(name="Reader")
+        example_static = time.Static("exampleStatic")
+        example_eligible_role_assignment = azure.pim.EligibleRoleAssignment("exampleEligibleRoleAssignment",
+            scope=primary.id,
+            role_definition_id=f"{primary.id}{example_role_definition.id}",
+            principal_id=example_client_config.object_id,
+            schedule=azure.pim.EligibleRoleAssignmentScheduleArgs(
+                start_date_time=example_static.rfc3339,
+                expiration=azure.pim.EligibleRoleAssignmentScheduleExpirationArgs(
+                    duration_hours=8,
+                ),
+            ),
+            justification="Expiration Duration Set",
+            ticket=azure.pim.EligibleRoleAssignmentTicketArgs(
+                number="1",
+                system="example ticket system",
+            ))
+        ```
+        ### Management Group)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumiverse_time as time
+
+        example_client_config = azure.core.get_client_config()
+        example_role_definition = azure.authorization.get_role_definition(name="Reader")
+        example_group = azure.management.Group("exampleGroup")
+        example_static = time.Static("exampleStatic")
+        example_eligible_role_assignment = azure.pim.EligibleRoleAssignment("exampleEligibleRoleAssignment",
+            scope=example_group.id,
+            role_definition_id=example_role_definition.id,
+            principal_id=example_client_config.object_id,
+            schedule=azure.pim.EligibleRoleAssignmentScheduleArgs(
+                start_date_time=example_static.rfc3339,
+                expiration=azure.pim.EligibleRoleAssignmentScheduleExpirationArgs(
+                    duration_hours=8,
+                ),
+            ),
+            justification="Expiration Duration Set",
+            ticket=azure.pim.EligibleRoleAssignmentTicketArgs(
+                number="1",
+                system="example ticket system",
+            ))
+        ```
 
         ## Import
 

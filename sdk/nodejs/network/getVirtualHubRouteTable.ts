@@ -8,6 +8,20 @@ import * as utilities from "../utilities";
 
 /**
  * Uses this data source to access information about an existing Virtual Hub Route Table.
+ *
+ * ## Virtual Hub Route Table Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.network.getVirtualHubRouteTable({
+ *     name: "example-hub-route-table",
+ *     resourceGroupName: "example-resources",
+ *     virtualHubName: "example-hub-name",
+ * });
+ * export const virtualHubRouteTableId = example.then(example => example.id);
+ * ```
  */
 export function getVirtualHubRouteTable(args: GetVirtualHubRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualHubRouteTableResult> {
 
@@ -66,6 +80,20 @@ export interface GetVirtualHubRouteTableResult {
 }
 /**
  * Uses this data source to access information about an existing Virtual Hub Route Table.
+ *
+ * ## Virtual Hub Route Table Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.network.getVirtualHubRouteTable({
+ *     name: "example-hub-route-table",
+ *     resourceGroupName: "example-resources",
+ *     virtualHubName: "example-hub-name",
+ * });
+ * export const virtualHubRouteTableId = example.then(example => example.id);
+ * ```
  */
 export function getVirtualHubRouteTableOutput(args: GetVirtualHubRouteTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualHubRouteTableResult> {
     return pulumi.output(args).apply((a: any) => getVirtualHubRouteTable(a, opts))

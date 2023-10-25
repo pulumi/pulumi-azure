@@ -12,6 +12,47 @@ namespace Pulumi.Azure.DataFactory
     /// <summary>
     /// Manages a Data Factory Managed Private Endpoint.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ManagedVirtualNetworkEnabled = true,
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountKind = "BlobStorage",
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleManagedPrivateEndpoint = new Azure.DataFactory.ManagedPrivateEndpoint("exampleManagedPrivateEndpoint", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         TargetResourceId = exampleAccount.Id,
+    ///         SubresourceName = "blob",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Data Factory Managed Private Endpoint can be imported using the `resource id`, e.g.

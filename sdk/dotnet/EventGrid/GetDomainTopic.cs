@@ -13,12 +13,58 @@ namespace Pulumi.Azure.EventGrid
     {
         /// <summary>
         /// Use this data source to access information about an existing EventGrid Domain Topic
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.EventGrid.GetDomainTopic.Invoke(new()
+        ///     {
+        ///         Name = "my-eventgrid-domain-topic",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetDomainTopicResult> InvokeAsync(GetDomainTopicArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainTopicResult>("azure:eventgrid/getDomainTopic:getDomainTopic", args ?? new GetDomainTopicArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing EventGrid Domain Topic
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.EventGrid.GetDomainTopic.Invoke(new()
+        ///     {
+        ///         Name = "my-eventgrid-domain-topic",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetDomainTopicResult> Invoke(GetDomainTopicInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainTopicResult>("azure:eventgrid/getDomainTopic:getDomainTopic", args ?? new GetDomainTopicInvokeArgs(), options.WithDefaults());

@@ -13,6 +13,56 @@ import (
 )
 
 // Use this data source to access information about an existing Anomaly Alert Rule.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sentinel"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("PerGB2018"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLogAnalyticsWorkspaceOnboarding, err := sentinel.NewLogAnalyticsWorkspaceOnboarding(ctx, "exampleLogAnalyticsWorkspaceOnboarding", &sentinel.LogAnalyticsWorkspaceOnboardingArgs{
+//				WorkspaceId:               exampleAnalyticsWorkspace.ID(),
+//				CustomerManagedKeyEnabled: pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAlertRuleAnomaly := sentinel.GetAlertRuleAnomalyOutput(ctx, sentinel.GetAlertRuleAnomalyOutputArgs{
+//				LogAnalyticsWorkspaceId: exampleLogAnalyticsWorkspaceOnboarding.WorkspaceId,
+//				DisplayName:             pulumi.String("Potential data staging"),
+//			}, nil)
+//			ctx.Export("id", exampleAlertRuleAnomaly.ApplyT(func(exampleAlertRuleAnomaly sentinel.GetAlertRuleAnomalyResult) (*string, error) {
+//				return &exampleAlertRuleAnomaly.Id, nil
+//			}).(pulumi.StringPtrOutput))
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetAlertRuleAnomaly(ctx *pulumi.Context, args *GetAlertRuleAnomalyArgs, opts ...pulumi.InvokeOption) (*GetAlertRuleAnomalyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAlertRuleAnomalyResult

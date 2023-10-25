@@ -11,6 +11,31 @@ import * as utilities from "../utilities";
  *
  * > **Note:** All arguments including the connectionString will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const anonymous = new azure.datafactory.LinkedServiceOdata("anonymous", {
+ *     dataFactoryId: exampleFactory.id,
+ *     url: "https://services.odata.org/v4/TripPinServiceRW/People",
+ * });
+ * const basicAuth = new azure.datafactory.LinkedServiceOdata("basicAuth", {
+ *     dataFactoryId: exampleFactory.id,
+ *     url: "https://services.odata.org/v4/TripPinServiceRW/People",
+ *     basicAuthentication: {
+ *         username: "emma",
+ *         password: "Ch4ngeM3!",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Data Factory OData Linked Service's can be imported using the `resource id`, e.g.

@@ -355,6 +355,37 @@ class WebAppHybridConnection(pulumi.CustomResource):
         """
         Manages a Web App Hybrid Connection.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            os_type="Windows",
+            sku_name="S1")
+        example_namespace = azure.relay.Namespace("exampleNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="Standard")
+        example_hybrid_connection = azure.relay.HybridConnection("exampleHybridConnection",
+            resource_group_name=example_resource_group.name,
+            relay_namespace_name=example_namespace.name)
+        example_windows_web_app = azure.appservice.WindowsWebApp("exampleWindowsWebApp",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            service_plan_id=example_service_plan.id,
+            site_config=azure.appservice.WindowsWebAppSiteConfigArgs())
+        example_web_app_hybrid_connection = azure.appservice.WebAppHybridConnection("exampleWebAppHybridConnection",
+            web_app_id=example_windows_web_app.id,
+            relay_id=example_hybrid_connection.id,
+            hostname="myhostname.example",
+            port=8081)
+        ```
+
         ## Import
 
         a Web App Hybrid Connection can be imported using the `resource id`, e.g.
@@ -379,6 +410,37 @@ class WebAppHybridConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Web App Hybrid Connection.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            os_type="Windows",
+            sku_name="S1")
+        example_namespace = azure.relay.Namespace("exampleNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="Standard")
+        example_hybrid_connection = azure.relay.HybridConnection("exampleHybridConnection",
+            resource_group_name=example_resource_group.name,
+            relay_namespace_name=example_namespace.name)
+        example_windows_web_app = azure.appservice.WindowsWebApp("exampleWindowsWebApp",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            service_plan_id=example_service_plan.id,
+            site_config=azure.appservice.WindowsWebAppSiteConfigArgs())
+        example_web_app_hybrid_connection = azure.appservice.WebAppHybridConnection("exampleWebAppHybridConnection",
+            web_app_id=example_windows_web_app.id,
+            relay_id=example_hybrid_connection.id,
+            hostname="myhostname.example",
+            port=8081)
+        ```
 
         ## Import
 

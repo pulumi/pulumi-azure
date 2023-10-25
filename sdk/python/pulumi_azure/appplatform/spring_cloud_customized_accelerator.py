@@ -337,6 +337,34 @@ class SpringCloudCustomizedAccelerator(pulumi.CustomResource):
         """
         Manages a Spring Cloud Customized Accelerator.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="west europe")
+        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="E0")
+        example_spring_cloud_accelerator = azure.appplatform.SpringCloudAccelerator("exampleSpringCloudAccelerator", spring_cloud_service_id=example_spring_cloud_service.id)
+        example_spring_cloud_customized_accelerator = azure.appplatform.SpringCloudCustomizedAccelerator("exampleSpringCloudCustomizedAccelerator",
+            spring_cloud_accelerator_id=example_spring_cloud_accelerator.id,
+            git_repository=azure.appplatform.SpringCloudCustomizedAcceleratorGitRepositoryArgs(
+                url="https://github.com/Azure-Samples/piggymetrics",
+                git_tag="spring.version.2.0.3",
+                interval_in_seconds=100,
+            ),
+            accelerator_tags=[
+                "tag-a",
+                "tag-b",
+            ],
+            description="example description",
+            display_name="example name",
+            icon_url="https://images.freecreatives.com/wp-content/uploads/2015/05/smiley-559124_640.jpg")
+        ```
+
         ## Import
 
         Spring Cloud Customized Accelerators can be imported using the `resource id`, e.g.
@@ -363,6 +391,34 @@ class SpringCloudCustomizedAccelerator(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Spring Cloud Customized Accelerator.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="west europe")
+        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="E0")
+        example_spring_cloud_accelerator = azure.appplatform.SpringCloudAccelerator("exampleSpringCloudAccelerator", spring_cloud_service_id=example_spring_cloud_service.id)
+        example_spring_cloud_customized_accelerator = azure.appplatform.SpringCloudCustomizedAccelerator("exampleSpringCloudCustomizedAccelerator",
+            spring_cloud_accelerator_id=example_spring_cloud_accelerator.id,
+            git_repository=azure.appplatform.SpringCloudCustomizedAcceleratorGitRepositoryArgs(
+                url="https://github.com/Azure-Samples/piggymetrics",
+                git_tag="spring.version.2.0.3",
+                interval_in_seconds=100,
+            ),
+            accelerator_tags=[
+                "tag-a",
+                "tag-b",
+            ],
+            description="example description",
+            display_name="example name",
+            icon_url="https://images.freecreatives.com/wp-content/uploads/2015/05/smiley-559124_640.jpg")
+        ```
 
         ## Import
 

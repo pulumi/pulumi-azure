@@ -7,6 +7,20 @@ import * as utilities from "../utilities";
 /**
  * Manages a Stream Analytics Cluster.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleCluster = new azure.streamanalytics.Cluster("exampleCluster", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     streamingCapacity: 36,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Stream Analytics Clusters can be imported using the `resource id`, e.g.

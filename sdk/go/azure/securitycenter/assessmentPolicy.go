@@ -15,6 +15,34 @@ import (
 
 // Manages the Security Center Assessment Metadata for Azure Security Center.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/securitycenter"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := securitycenter.NewAssessmentPolicy(ctx, "example", &securitycenter.AssessmentPolicyArgs{
+//				Description: pulumi.String("Test Description"),
+//				DisplayName: pulumi.String("Test Display Name"),
+//				Severity:    pulumi.String("Medium"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Security Assessments Policy can be imported using the `resource id`, e.g.

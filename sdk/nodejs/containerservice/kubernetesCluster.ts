@@ -9,6 +9,35 @@ import * as utilities from "../utilities";
 /**
  * Manages a Managed Kubernetes Cluster (also known as AKS / Azure Kubernetes Service)
  *
+ * ## Example Usage
+ *
+ * This example provisions a basic Managed Kubernetes Cluster.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleKubernetesCluster = new azure.containerservice.KubernetesCluster("exampleKubernetesCluster", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     dnsPrefix: "exampleaks1",
+ *     defaultNodePool: {
+ *         name: "default",
+ *         nodeCount: 1,
+ *         vmSize: "Standard_D2_v2",
+ *     },
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ *     tags: {
+ *         Environment: "Production",
+ *     },
+ * });
+ * export const clientCertificate = exampleKubernetesCluster.kubeConfigs.apply(kubeConfigs => kubeConfigs[0].clientCertificate);
+ * export const kubeConfig = exampleKubernetesCluster.kubeConfigRaw;
+ * ```
+ *
  * ## Import
  *
  * Managed Kubernetes Clusters can be imported using the `resource id`, e.g.
@@ -279,6 +308,32 @@ export class KubernetesCluster extends pulumi.CustomResource {
      * Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
      *
      * > **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * import * as azure from "@pulumi/azure";
+     *
+     * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+     * const exampleZone = new azure.privatedns.Zone("exampleZone", {resourceGroupName: exampleResourceGroup.name});
+     * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity", {
+     *     resourceGroupName: exampleResourceGroup.name,
+     *     location: exampleResourceGroup.location,
+     * });
+     * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
+     *     scope: exampleZone.id,
+     *     roleDefinitionName: "Private DNS Zone Contributor",
+     *     principalId: exampleUserAssignedIdentity.principalId,
+     * });
+     * const exampleKubernetesCluster = new azure.containerservice.KubernetesCluster("exampleKubernetesCluster", {
+     *     location: exampleResourceGroup.location,
+     *     resourceGroupName: exampleResourceGroup.name,
+     *     dnsPrefix: "aksexamplednsprefix1",
+     *     privateClusterEnabled: true,
+     *     privateDnsZoneId: exampleZone.id,
+     * }, {
+     *     dependsOn: [exampleAssignment],
+     * });
+     * ```
      */
     public readonly privateClusterPublicFqdnEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -755,6 +810,32 @@ export interface KubernetesClusterState {
      * Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
      *
      * > **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * import * as azure from "@pulumi/azure";
+     *
+     * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+     * const exampleZone = new azure.privatedns.Zone("exampleZone", {resourceGroupName: exampleResourceGroup.name});
+     * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity", {
+     *     resourceGroupName: exampleResourceGroup.name,
+     *     location: exampleResourceGroup.location,
+     * });
+     * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
+     *     scope: exampleZone.id,
+     *     roleDefinitionName: "Private DNS Zone Contributor",
+     *     principalId: exampleUserAssignedIdentity.principalId,
+     * });
+     * const exampleKubernetesCluster = new azure.containerservice.KubernetesCluster("exampleKubernetesCluster", {
+     *     location: exampleResourceGroup.location,
+     *     resourceGroupName: exampleResourceGroup.name,
+     *     dnsPrefix: "aksexamplednsprefix1",
+     *     privateClusterEnabled: true,
+     *     privateDnsZoneId: exampleZone.id,
+     * }, {
+     *     dependsOn: [exampleAssignment],
+     * });
+     * ```
      */
     privateClusterPublicFqdnEnabled?: pulumi.Input<boolean>;
     /**
@@ -1035,6 +1116,32 @@ export interface KubernetesClusterArgs {
      * Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
      *
      * > **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * import * as azure from "@pulumi/azure";
+     *
+     * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+     * const exampleZone = new azure.privatedns.Zone("exampleZone", {resourceGroupName: exampleResourceGroup.name});
+     * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity", {
+     *     resourceGroupName: exampleResourceGroup.name,
+     *     location: exampleResourceGroup.location,
+     * });
+     * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
+     *     scope: exampleZone.id,
+     *     roleDefinitionName: "Private DNS Zone Contributor",
+     *     principalId: exampleUserAssignedIdentity.principalId,
+     * });
+     * const exampleKubernetesCluster = new azure.containerservice.KubernetesCluster("exampleKubernetesCluster", {
+     *     location: exampleResourceGroup.location,
+     *     resourceGroupName: exampleResourceGroup.name,
+     *     dnsPrefix: "aksexamplednsprefix1",
+     *     privateClusterEnabled: true,
+     *     privateDnsZoneId: exampleZone.id,
+     * }, {
+     *     dependsOn: [exampleAssignment],
+     * });
+     * ```
      */
     privateClusterPublicFqdnEnabled?: pulumi.Input<boolean>;
     /**

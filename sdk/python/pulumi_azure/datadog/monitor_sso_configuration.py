@@ -238,6 +238,32 @@ class MonitorSsoConfiguration(pulumi.CustomResource):
         Manages SingleSignOn on the datadog Monitor.
 
         ## Example Usage
+        ### Enabling SSO on monitor
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US 2")
+        example_monitor = azure.datadog.Monitor("exampleMonitor",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            datadog_organization=azure.datadog.MonitorDatadogOrganizationArgs(
+                api_key="XXXX",
+                application_key="XXXX",
+            ),
+            user=azure.datadog.MonitorUserArgs(
+                name="Example",
+                email="abc@xyz.com",
+            ),
+            sku_name="Linked",
+            identity=azure.datadog.MonitorIdentityArgs(
+                type="SystemAssigned",
+            ))
+        example_monitor_sso_configuration = azure.datadog.MonitorSsoConfiguration("exampleMonitorSsoConfiguration",
+            datadog_monitor_id=example_monitor.id,
+            single_sign_on_enabled="Enable",
+            enterprise_application_id="XXXX")
+        ```
 
         ## Import
 
@@ -264,6 +290,32 @@ class MonitorSsoConfiguration(pulumi.CustomResource):
         Manages SingleSignOn on the datadog Monitor.
 
         ## Example Usage
+        ### Enabling SSO on monitor
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US 2")
+        example_monitor = azure.datadog.Monitor("exampleMonitor",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            datadog_organization=azure.datadog.MonitorDatadogOrganizationArgs(
+                api_key="XXXX",
+                application_key="XXXX",
+            ),
+            user=azure.datadog.MonitorUserArgs(
+                name="Example",
+                email="abc@xyz.com",
+            ),
+            sku_name="Linked",
+            identity=azure.datadog.MonitorIdentityArgs(
+                type="SystemAssigned",
+            ))
+        example_monitor_sso_configuration = azure.datadog.MonitorSsoConfiguration("exampleMonitorSsoConfiguration",
+            datadog_monitor_id=example_monitor.id,
+            single_sign_on_enabled="Enable",
+            enterprise_application_id="XXXX")
+        ```
 
         ## Import
 

@@ -462,6 +462,48 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
         """
         Manages a Logic App Integration Account Agreement.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example", location="West Europe")
+        test_integration_account = azure.logicapps.IntegrationAccount("testIntegrationAccount",
+            location=example.location,
+            resource_group_name=example.name,
+            sku_name="Standard")
+        host = azure.logicapps.IntegrationAccountPartner("host",
+            resource_group_name=example.name,
+            integration_account_name=test_integration_account.name,
+            business_identities=[azure.logicapps.IntegrationAccountPartnerBusinessIdentityArgs(
+                qualifier="AS2Identity",
+                value="FabrikamNY",
+            )])
+        guest = azure.logicapps.IntegrationAccountPartner("guest",
+            resource_group_name=example.name,
+            integration_account_name=test_integration_account.name,
+            business_identities=[azure.logicapps.IntegrationAccountPartnerBusinessIdentityArgs(
+                qualifier="AS2Identity",
+                value="FabrikamDC",
+            )])
+        test_integration_account_agreement = azure.logicapps.IntegrationAccountAgreement("testIntegrationAccountAgreement",
+            resource_group_name=example.name,
+            integration_account_name=test_integration_account.name,
+            agreement_type="AS2",
+            host_partner_name=host.name,
+            guest_partner_name=guest.name,
+            content=(lambda path: open(path).read())("testdata/integration_account_agreement_content_as2.json"),
+            host_identity=azure.logicapps.IntegrationAccountAgreementHostIdentityArgs(
+                qualifier="AS2Identity",
+                value="FabrikamNY",
+            ),
+            guest_identity=azure.logicapps.IntegrationAccountAgreementGuestIdentityArgs(
+                qualifier="AS2Identity",
+                value="FabrikamDC",
+            ))
+        ```
+
         ## Import
 
         Logic App Integration Account Agreements can be imported using the `resource id`, e.g.
@@ -491,6 +533,48 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Logic App Integration Account Agreement.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example", location="West Europe")
+        test_integration_account = azure.logicapps.IntegrationAccount("testIntegrationAccount",
+            location=example.location,
+            resource_group_name=example.name,
+            sku_name="Standard")
+        host = azure.logicapps.IntegrationAccountPartner("host",
+            resource_group_name=example.name,
+            integration_account_name=test_integration_account.name,
+            business_identities=[azure.logicapps.IntegrationAccountPartnerBusinessIdentityArgs(
+                qualifier="AS2Identity",
+                value="FabrikamNY",
+            )])
+        guest = azure.logicapps.IntegrationAccountPartner("guest",
+            resource_group_name=example.name,
+            integration_account_name=test_integration_account.name,
+            business_identities=[azure.logicapps.IntegrationAccountPartnerBusinessIdentityArgs(
+                qualifier="AS2Identity",
+                value="FabrikamDC",
+            )])
+        test_integration_account_agreement = azure.logicapps.IntegrationAccountAgreement("testIntegrationAccountAgreement",
+            resource_group_name=example.name,
+            integration_account_name=test_integration_account.name,
+            agreement_type="AS2",
+            host_partner_name=host.name,
+            guest_partner_name=guest.name,
+            content=(lambda path: open(path).read())("testdata/integration_account_agreement_content_as2.json"),
+            host_identity=azure.logicapps.IntegrationAccountAgreementHostIdentityArgs(
+                qualifier="AS2Identity",
+                value="FabrikamNY",
+            ),
+            guest_identity=azure.logicapps.IntegrationAccountAgreementGuestIdentityArgs(
+                qualifier="AS2Identity",
+                value="FabrikamDC",
+            ))
+        ```
 
         ## Import
 

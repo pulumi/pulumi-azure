@@ -12,6 +12,54 @@ namespace Pulumi.Azure.ApiManagement
     /// <summary>
     /// Manages a API Management Redis Cache.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PublisherName = "pub1",
+    ///         PublisherEmail = "pub1@email.com",
+    ///         SkuName = "Consumption_0",
+    ///     });
+    /// 
+    ///     var exampleCache = new Azure.Redis.Cache("exampleCache", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Capacity = 1,
+    ///         Family = "C",
+    ///         SkuName = "Basic",
+    ///         EnableNonSslPort = false,
+    ///         MinimumTlsVersion = "1.2",
+    ///         RedisConfiguration = null,
+    ///     });
+    /// 
+    ///     var exampleRedisCache = new Azure.ApiManagement.RedisCache("exampleRedisCache", new()
+    ///     {
+    ///         ApiManagementId = exampleService.Id,
+    ///         ConnectionString = exampleCache.PrimaryConnectionString,
+    ///         Description = "Redis cache instances",
+    ///         RedisCacheId = exampleCache.Id,
+    ///         CacheLocation = "East Us",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// API Management Redis Caches can be imported using the `resource id`, e.g.

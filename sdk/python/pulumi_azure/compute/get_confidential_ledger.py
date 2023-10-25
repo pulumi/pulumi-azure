@@ -147,6 +147,17 @@ def get_confidential_ledger(name: Optional[str] = None,
     """
     Gets information about an existing Confidential Ledger.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    current = azure.compute.get_confidential_ledger(name="example-ledger",
+        resource_group_name="example-resources")
+    pulumi.export("ledgerEndpoint", current.ledger_endpoint)
+    ```
+
 
     :param str name: Specifies the name of this Confidential Ledger.
     :param str resource_group_name: Specifies the name of the Resource Group where this Confidential Ledger exists.
@@ -176,6 +187,17 @@ def get_confidential_ledger_output(name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfidentialLedgerResult]:
     """
     Gets information about an existing Confidential Ledger.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    current = azure.compute.get_confidential_ledger(name="example-ledger",
+        resource_group_name="example-resources")
+    pulumi.export("ledgerEndpoint", current.ledger_endpoint)
+    ```
 
 
     :param str name: Specifies the name of this Confidential Ledger.

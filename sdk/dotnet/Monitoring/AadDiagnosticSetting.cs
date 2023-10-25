@@ -14,6 +14,77 @@ namespace Pulumi.Azure.Monitoring
     /// 
     /// !&gt; **Authentication** The API for this resource does not support service principal authentication. This resource can only be used with Azure CLI authentication.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "west europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountKind = "StorageV2",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleAadDiagnosticSetting = new Azure.Monitoring.AadDiagnosticSetting("exampleAadDiagnosticSetting", new()
+    ///     {
+    ///         StorageAccountId = exampleAccount.Id,
+    ///         EnabledLogs = new[]
+    ///         {
+    ///             new Azure.Monitoring.Inputs.AadDiagnosticSettingEnabledLogArgs
+    ///             {
+    ///                 Category = "SignInLogs",
+    ///                 RetentionPolicy = new Azure.Monitoring.Inputs.AadDiagnosticSettingEnabledLogRetentionPolicyArgs
+    ///                 {
+    ///                     Enabled = true,
+    ///                     Days = 1,
+    ///                 },
+    ///             },
+    ///             new Azure.Monitoring.Inputs.AadDiagnosticSettingEnabledLogArgs
+    ///             {
+    ///                 Category = "AuditLogs",
+    ///                 RetentionPolicy = new Azure.Monitoring.Inputs.AadDiagnosticSettingEnabledLogRetentionPolicyArgs
+    ///                 {
+    ///                     Enabled = true,
+    ///                     Days = 1,
+    ///                 },
+    ///             },
+    ///             new Azure.Monitoring.Inputs.AadDiagnosticSettingEnabledLogArgs
+    ///             {
+    ///                 Category = "NonInteractiveUserSignInLogs",
+    ///                 RetentionPolicy = new Azure.Monitoring.Inputs.AadDiagnosticSettingEnabledLogRetentionPolicyArgs
+    ///                 {
+    ///                     Enabled = true,
+    ///                     Days = 1,
+    ///                 },
+    ///             },
+    ///             new Azure.Monitoring.Inputs.AadDiagnosticSettingEnabledLogArgs
+    ///             {
+    ///                 Category = "ServicePrincipalSignInLogs",
+    ///                 RetentionPolicy = new Azure.Monitoring.Inputs.AadDiagnosticSettingEnabledLogRetentionPolicyArgs
+    ///                 {
+    ///                     Enabled = true,
+    ///                     Days = 1,
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Monitor Azure Active Directory Diagnostic Settings can be imported using the `resource id`, e.g.

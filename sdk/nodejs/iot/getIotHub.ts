@@ -8,6 +8,19 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing IoTHub.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.iot.getIotHub({
+ *     name: "existing",
+ *     resourceGroupName: "existing",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
  */
 export function getIotHub(args: GetIotHubArgs, opts?: pulumi.InvokeOptions): Promise<GetIotHubResult> {
 
@@ -59,6 +72,19 @@ export interface GetIotHubResult {
 }
 /**
  * Use this data source to access information about an existing IoTHub.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.iot.getIotHub({
+ *     name: "existing",
+ *     resourceGroupName: "existing",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
  */
 export function getIotHubOutput(args: GetIotHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotHubResult> {
     return pulumi.output(args).apply((a: any) => getIotHub(a, opts))

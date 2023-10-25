@@ -12,6 +12,39 @@ namespace Pulumi.Azure.AppInsights
     /// <summary>
     /// Manages an Application Insights Analytics Item component.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApplicationType = "web",
+    ///     });
+    /// 
+    ///     var exampleAnalyticsItem = new Azure.AppInsights.AnalyticsItem("exampleAnalyticsItem", new()
+    ///     {
+    ///         ApplicationInsightsId = exampleInsights.Id,
+    ///         Content = "requests //simple example query",
+    ///         Scope = "shared",
+    ///         Type = "query",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Application Insights Analytics Items can be imported using the `resource id`, e.g.

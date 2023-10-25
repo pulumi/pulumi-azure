@@ -15,6 +15,62 @@ import (
 
 // Manages an API Connection.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/connections"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicebus"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleManagedApi := connections.GetManagedApiOutput(ctx, connections.GetManagedApiOutputArgs{
+//				Name:     pulumi.String("servicebus"),
+//				Location: exampleResourceGroup.Location,
+//			}, nil)
+//			exampleNamespace, err := servicebus.NewNamespace(ctx, "exampleNamespace", &servicebus.NamespaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("Basic"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = connections.NewApiConnection(ctx, "exampleApiConnection", &connections.ApiConnectionArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ManagedApiId: exampleManagedApi.ApplyT(func(exampleManagedApi connections.GetManagedApiResult) (*string, error) {
+//					return &exampleManagedApi.Id, nil
+//				}).(pulumi.StringPtrOutput),
+//				DisplayName: pulumi.String("Example 1"),
+//				ParameterValues: pulumi.StringMap{
+//					"connectionString": exampleNamespace.DefaultPrimaryConnectionString,
+//				},
+//				Tags: pulumi.StringMap{
+//					"Hello": pulumi.String("World"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // API Connections can be imported using the `resource id`, e.g.

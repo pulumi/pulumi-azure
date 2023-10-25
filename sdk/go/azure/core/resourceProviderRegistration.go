@@ -20,6 +20,60 @@ import (
 //
 // > **Note:** Adding or Removing a Preview Feature will re-register the Resource Provider.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := core.NewResourceProviderRegistration(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Registering A Preview Feature)
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := core.NewResourceProviderRegistration(ctx, "example", &core.ResourceProviderRegistrationArgs{
+//				Features: core.ResourceProviderRegistrationFeatureArray{
+//					&core.ResourceProviderRegistrationFeatureArgs{
+//						Name:       pulumi.String("AKS-DataPlaneAutoApprove"),
+//						Registered: pulumi.Bool(true),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Resource Provider Registrations can be imported using the `resource id`, e.g.

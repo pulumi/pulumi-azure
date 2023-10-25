@@ -15,6 +15,79 @@ import (
 
 // Manages an Activity Log Alert within Azure Monitor.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			mainActionGroup, err := monitoring.NewActionGroup(ctx, "mainActionGroup", &monitoring.ActionGroupArgs{
+//				ResourceGroupName: example.Name,
+//				ShortName:         pulumi.String("p0action"),
+//				WebhookReceivers: monitoring.ActionGroupWebhookReceiverArray{
+//					&monitoring.ActionGroupWebhookReceiverArgs{
+//						Name:       pulumi.String("callmyapi"),
+//						ServiceUri: pulumi.String("http://example.com/alert"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			toMonitor, err := storage.NewAccount(ctx, "toMonitor", &storage.AccountArgs{
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("GRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = monitoring.NewActivityLogAlert(ctx, "mainActivityLogAlert", &monitoring.ActivityLogAlertArgs{
+//				ResourceGroupName: example.Name,
+//				Scopes: pulumi.StringArray{
+//					example.ID(),
+//				},
+//				Description: pulumi.String("This alert will monitor a specific storage account updates."),
+//				Criteria: &monitoring.ActivityLogAlertCriteriaArgs{
+//					ResourceId:    toMonitor.ID(),
+//					OperationName: pulumi.String("Microsoft.Storage/storageAccounts/write"),
+//					Category:      pulumi.String("Recommendation"),
+//				},
+//				Actions: monitoring.ActivityLogAlertActionArray{
+//					&monitoring.ActivityLogAlertActionArgs{
+//						ActionGroupId: mainActionGroup.ID(),
+//						WebhookProperties: pulumi.StringMap{
+//							"from": pulumi.String("source"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Activity log alerts can be imported using the `resource id`, e.g.

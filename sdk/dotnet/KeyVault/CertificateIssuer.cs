@@ -12,6 +12,43 @@ namespace Pulumi.Azure.KeyVault
     /// <summary>
     /// Manages a Key Vault Certificate Issuer.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "standard",
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///     });
+    /// 
+    ///     var exampleCertificateIssuer = new Azure.KeyVault.CertificateIssuer("exampleCertificateIssuer", new()
+    ///     {
+    ///         OrgId = "ExampleOrgName",
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         ProviderName = "DigiCert",
+    ///         AccountId = "0000",
+    ///         Password = "example-password",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Key Vault Certificate Issuers can be imported using the `resource id`, e.g.

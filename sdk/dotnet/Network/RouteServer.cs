@@ -12,6 +12,66 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages an Azure Route Server
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.1.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AllocationMethod = "Static",
+    ///         Sku = "Standard",
+    ///     });
+    /// 
+    ///     var exampleRouteServer = new Azure.Network.RouteServer("exampleRouteServer", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Sku = "Standard",
+    ///         PublicIpAddressId = examplePublicIp.Id,
+    ///         SubnetId = exampleSubnet.Id,
+    ///         BranchToBranchTrafficEnabled = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Route Server can be imported using the `resource id`, e.g.

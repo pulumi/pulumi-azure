@@ -14,6 +14,91 @@ namespace Pulumi.Azure.Network
     /// 
     /// &gt; **NOTE on Virtual Network Peering:** Using Network Manager Deployment to deploy Connectivity Configuration may modify or delete existing Virtual Network Peering. At this time you should not use Network Peering resource in conjunction with Network Manager Deployment. Doing so may cause a conflict of Peering configurations.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var current = Azure.Core.GetSubscription.Invoke();
+    /// 
+    ///     var exampleNetworkManager = new Azure.Network.NetworkManager("exampleNetworkManager", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Scope = new Azure.Network.Inputs.NetworkManagerScopeArgs
+    ///         {
+    ///             SubscriptionIds = new[]
+    ///             {
+    ///                 current.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
+    ///             },
+    ///         },
+    ///         ScopeAccesses = new[]
+    ///         {
+    ///             "Connectivity",
+    ///             "SecurityAdmin",
+    ///         },
+    ///         Description = "example network manager",
+    ///     });
+    /// 
+    ///     var exampleNetworkManagerNetworkGroup = new Azure.Network.NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup", new()
+    ///     {
+    ///         NetworkManagerId = exampleNetworkManager.Id,
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         FlowTimeoutInMinutes = 10,
+    ///     });
+    /// 
+    ///     var exampleNetworkManagerConnectivityConfiguration = new Azure.Network.NetworkManagerConnectivityConfiguration("exampleNetworkManagerConnectivityConfiguration", new()
+    ///     {
+    ///         NetworkManagerId = exampleNetworkManager.Id,
+    ///         ConnectivityTopology = "HubAndSpoke",
+    ///         AppliesToGroups = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.NetworkManagerConnectivityConfigurationAppliesToGroupArgs
+    ///             {
+    ///                 GroupConnectivity = "None",
+    ///                 NetworkGroupId = exampleNetworkManagerNetworkGroup.Id,
+    ///             },
+    ///         },
+    ///         Hub = new Azure.Network.Inputs.NetworkManagerConnectivityConfigurationHubArgs
+    ///         {
+    ///             ResourceId = exampleVirtualNetwork.Id,
+    ///             ResourceType = "Microsoft.Network/virtualNetworks",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleNetworkManagerDeployment = new Azure.Network.NetworkManagerDeployment("exampleNetworkManagerDeployment", new()
+    ///     {
+    ///         NetworkManagerId = exampleNetworkManager.Id,
+    ///         Location = "eastus",
+    ///         ScopeAccess = "Connectivity",
+    ///         ConfigurationIds = new[]
+    ///         {
+    ///             exampleNetworkManagerConnectivityConfiguration.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Network Manager Deployment can be imported using the `resource id`, e.g.

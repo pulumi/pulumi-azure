@@ -217,6 +217,29 @@ class SpringCloudBuilder(pulumi.CustomResource):
 
         > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku_name="E0")
+        example_spring_cloud_builder = azure.appplatform.SpringCloudBuilder("exampleSpringCloudBuilder",
+            spring_cloud_service_id=example_spring_cloud_service.id,
+            build_pack_groups=[azure.appplatform.SpringCloudBuilderBuildPackGroupArgs(
+                name="mix",
+                build_pack_ids=["tanzu-buildpacks/java-azure"],
+            )],
+            stack=azure.appplatform.SpringCloudBuilderStackArgs(
+                id="io.buildpacks.stacks.bionic",
+                version="base",
+            ))
+        ```
+
         ## Import
 
         Spring Cloud Builders can be imported using the `resource id`, e.g.
@@ -242,6 +265,29 @@ class SpringCloudBuilder(pulumi.CustomResource):
         Manages a Spring Cloud Builder.
 
         > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku_name="E0")
+        example_spring_cloud_builder = azure.appplatform.SpringCloudBuilder("exampleSpringCloudBuilder",
+            spring_cloud_service_id=example_spring_cloud_service.id,
+            build_pack_groups=[azure.appplatform.SpringCloudBuilderBuildPackGroupArgs(
+                name="mix",
+                build_pack_ids=["tanzu-buildpacks/java-azure"],
+            )],
+            stack=azure.appplatform.SpringCloudBuilderStackArgs(
+                id="io.buildpacks.stacks.bionic",
+                version="base",
+            ))
+        ```
 
         ## Import
 

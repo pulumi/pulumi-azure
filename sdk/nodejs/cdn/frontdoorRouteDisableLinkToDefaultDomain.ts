@@ -9,6 +9,21 @@ import * as utilities from "../utilities";
  *
  * !>**IMPORTANT:** This resource has been deprecated and should not be used for new deployments. The `azure.cdn.FrontdoorRouteDisableLinkToDefaultDomain` resource will be removed from the 4.0 AzureRM provider. Please use the `linkToDefaultDomain` field in the `azure.cdn.FrontdoorRoute` resource to control this value.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.cdn.FrontdoorRouteDisableLinkToDefaultDomain("example", {
+ *     cdnFrontdoorRouteId: azurerm_cdn_frontdoor_route.example.id,
+ *     cdnFrontdoorCustomDomainIds: [
+ *         azurerm_cdn_frontdoor_custom_domain.contoso.id,
+ *         azurerm_cdn_frontdoor_custom_domain.fabrikam.id,
+ *     ],
+ * });
+ * ```
+ *
  * ## Import
  *
  * FrontDoor Route Disable Link To Default Domain can be imported using the `resource id`, e.g.

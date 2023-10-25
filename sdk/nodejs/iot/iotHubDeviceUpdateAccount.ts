@@ -9,6 +9,25 @@ import * as utilities from "../utilities";
 /**
  * Manages an IoT Hub Device Update Account.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "East US"});
+ * const exampleIotHubDeviceUpdateAccount = new azure.iot.IotHubDeviceUpdateAccount("exampleIotHubDeviceUpdateAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ *     tags: {
+ *         key: "value",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * IoT Hub Device Update Account can be imported using the `resource id`, e.g.

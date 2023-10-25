@@ -296,6 +296,57 @@ class Snapshot(pulumi.CustomResource):
         """
         Manages a NetApp Snapshot.
 
+        ## NetApp Snapshot Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"],
+            delegations=[azure.network.SubnetDelegationArgs(
+                name="netapp",
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                    name="Microsoft.Netapp/volumes",
+                    actions=[
+                        "Microsoft.Network/networkinterfaces/*",
+                        "Microsoft.Network/virtualNetworks/subnets/join/action",
+                    ],
+                ),
+            )])
+        example_account = azure.netapp.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_pool = azure.netapp.Pool("examplePool",
+            account_name=example_account.name,
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            service_level="Premium",
+            size_in_tb=4)
+        example_volume = azure.netapp.Volume("exampleVolume",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            account_name=example_account.name,
+            pool_name=example_pool.name,
+            volume_path="my-unique-file-path",
+            service_level="Premium",
+            subnet_id=example_subnet.id,
+            storage_quota_in_gb=100)
+        example_snapshot = azure.netapp.Snapshot("exampleSnapshot",
+            account_name=example_account.name,
+            pool_name=example_pool.name,
+            volume_name=example_volume.name,
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        ```
+
         ## Import
 
         NetApp Snapshot can be imported using the `resource id`, e.g.
@@ -321,6 +372,57 @@ class Snapshot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a NetApp Snapshot.
+
+        ## NetApp Snapshot Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"],
+            delegations=[azure.network.SubnetDelegationArgs(
+                name="netapp",
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                    name="Microsoft.Netapp/volumes",
+                    actions=[
+                        "Microsoft.Network/networkinterfaces/*",
+                        "Microsoft.Network/virtualNetworks/subnets/join/action",
+                    ],
+                ),
+            )])
+        example_account = azure.netapp.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_pool = azure.netapp.Pool("examplePool",
+            account_name=example_account.name,
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            service_level="Premium",
+            size_in_tb=4)
+        example_volume = azure.netapp.Volume("exampleVolume",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            account_name=example_account.name,
+            pool_name=example_pool.name,
+            volume_path="my-unique-file-path",
+            service_level="Premium",
+            subnet_id=example_subnet.id,
+            storage_quota_in_gb=100)
+        example_snapshot = azure.netapp.Snapshot("exampleSnapshot",
+            account_name=example_account.name,
+            pool_name=example_pool.name,
+            volume_name=example_volume.name,
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        ```
 
         ## Import
 

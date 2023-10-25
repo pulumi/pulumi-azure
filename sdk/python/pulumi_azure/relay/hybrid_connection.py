@@ -257,6 +257,27 @@ class HybridConnection(pulumi.CustomResource):
         """
         Manages an Azure Relay Hybrid Connection.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_namespace = azure.relay.Namespace("exampleNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="Standard",
+            tags={
+                "source": "managed",
+            })
+        example_hybrid_connection = azure.relay.HybridConnection("exampleHybridConnection",
+            resource_group_name=example_resource_group.name,
+            relay_namespace_name=example_namespace.name,
+            requires_client_authorization=False,
+            user_metadata="testmetadata")
+        ```
+
         ## Import
 
         Relay Hybrid Connection's can be imported using the `resource id`, e.g.
@@ -281,6 +302,27 @@ class HybridConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Relay Hybrid Connection.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_namespace = azure.relay.Namespace("exampleNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="Standard",
+            tags={
+                "source": "managed",
+            })
+        example_hybrid_connection = azure.relay.HybridConnection("exampleHybridConnection",
+            resource_group_name=example_resource_group.name,
+            relay_namespace_name=example_namespace.name,
+            requires_client_authorization=False,
+            user_metadata="testmetadata")
+        ```
 
         ## Import
 

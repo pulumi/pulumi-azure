@@ -1498,6 +1498,20 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
 
         > **NOTE:** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_orchestrated_virtual_machine_scale_set = azure.compute.OrchestratedVirtualMachineScaleSet("exampleOrchestratedVirtualMachineScaleSet",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            platform_fault_domain_count=1,
+            zones=["1"])
+        ```
+
         ## Import
 
         An Orchestrated Virtual Machine Scale Set can be imported using the `resource id`, e.g.
@@ -1571,6 +1585,20 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         > **NOTE:** As of the **v2.86.0** (November 19, 2021) release of the provider this resource will only create Virtual Machine Scale Sets with the **Flexible** Orchestration Mode.
 
         > **NOTE:** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_orchestrated_virtual_machine_scale_set = azure.compute.OrchestratedVirtualMachineScaleSet("exampleOrchestratedVirtualMachineScaleSet",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            platform_fault_domain_count=1,
+            zones=["1"])
+        ```
 
         ## Import
 

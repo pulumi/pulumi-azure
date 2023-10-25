@@ -12,6 +12,50 @@ namespace Pulumi.Azure.LogAnalytics
     /// <summary>
     /// Manages a Log Analytics Linked Service.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Automation.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Basic",
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "development" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "PerGB2018",
+    ///         RetentionInDays = 30,
+    ///     });
+    /// 
+    ///     var exampleLinkedService = new Azure.LogAnalytics.LinkedService("exampleLinkedService", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         WorkspaceId = exampleAnalyticsWorkspace.Id,
+    ///         ReadAccessId = exampleAccount.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Log Analytics Workspaces can be imported using the `resource id`, e.g.

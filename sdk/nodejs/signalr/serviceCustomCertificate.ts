@@ -7,6 +7,75 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure SignalR Custom Certificate.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as fs from "fs";
+ *
+ * const current = azure.core.getClientConfig({});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleService = new azure.signalr.Service("exampleService", {
+ *     location: azurerm_resource_group.test.location,
+ *     resourceGroupName: azurerm_resource_group.test.name,
+ *     sku: {
+ *         name: "Premium_P1",
+ *         capacity: 1,
+ *     },
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ * });
+ * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "premium",
+ *     accessPolicies: [
+ *         {
+ *             tenantId: current.then(current => current.tenantId),
+ *             objectId: current.then(current => current.objectId),
+ *             certificatePermissions: [
+ *                 "Create",
+ *                 "Get",
+ *                 "List",
+ *             ],
+ *             secretPermissions: [
+ *                 "Get",
+ *                 "List",
+ *             ],
+ *         },
+ *         {
+ *             tenantId: current.then(current => current.tenantId),
+ *             objectId: azurerm_signalr_service.test.identity[0].principal_id,
+ *             certificatePermissions: [
+ *                 "Create",
+ *                 "Get",
+ *                 "List",
+ *             ],
+ *             secretPermissions: [
+ *                 "Get",
+ *                 "List",
+ *             ],
+ *         },
+ *     ],
+ * });
+ * const exampleCertificate = new azure.keyvault.Certificate("exampleCertificate", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     certificate: {
+ *         contents: Buffer.from(fs.readFileSync("certificate-to-import.pfx"), 'binary').toString('base64'),
+ *         password: "",
+ *     },
+ * });
+ * const test = new azure.signalr.ServiceCustomCertificate("test", {
+ *     signalrServiceId: exampleService.id,
+ *     customCertificateId: exampleCertificate.id,
+ * }, {
+ *     dependsOn: [azurerm_key_vault_access_policy.example],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Custom Certificate for a SignalR service can be imported using the `resource id`, e.g.

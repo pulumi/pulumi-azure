@@ -13,12 +13,68 @@ namespace Pulumi.Azure.PrivateDns
     {
         /// <summary>
         /// Use this data source to access information about an existing Private DNS zone Virtual Network Link. These Links enable DNS resolution and registration inside Azure Virtual Networks using Azure Private DNS.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.PrivateDns.GetZoneVirtualNetworkLink.Invoke(new()
+        ///     {
+        ///         Name = "test",
+        ///         ResourceGroupName = "test-rg",
+        ///         PrivateDnsZoneName = "test-zone",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["privateDnsARecordId"] = example.Apply(getZoneVirtualNetworkLinkResult =&gt; getZoneVirtualNetworkLinkResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetZoneVirtualNetworkLinkResult> InvokeAsync(GetZoneVirtualNetworkLinkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetZoneVirtualNetworkLinkResult>("azure:privatedns/getZoneVirtualNetworkLink:getZoneVirtualNetworkLink", args ?? new GetZoneVirtualNetworkLinkArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Private DNS zone Virtual Network Link. These Links enable DNS resolution and registration inside Azure Virtual Networks using Azure Private DNS.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.PrivateDns.GetZoneVirtualNetworkLink.Invoke(new()
+        ///     {
+        ///         Name = "test",
+        ///         ResourceGroupName = "test-rg",
+        ///         PrivateDnsZoneName = "test-zone",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["privateDnsARecordId"] = example.Apply(getZoneVirtualNetworkLinkResult =&gt; getZoneVirtualNetworkLinkResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetZoneVirtualNetworkLinkResult> Invoke(GetZoneVirtualNetworkLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetZoneVirtualNetworkLinkResult>("azure:privatedns/getZoneVirtualNetworkLink:getZoneVirtualNetworkLink", args ?? new GetZoneVirtualNetworkLinkInvokeArgs(), options.WithDefaults());

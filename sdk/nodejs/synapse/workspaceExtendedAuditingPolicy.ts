@@ -7,6 +7,46 @@ import * as utilities from "../utilities";
 /**
  * Manages a Synapse Workspace Extended Auditing Policy.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ *     accountKind: "BlobStorage",
+ * });
+ * const exampleDataLakeGen2Filesystem = new azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", {storageAccountId: exampleAccount.id});
+ * const exampleWorkspace = new azure.synapse.Workspace("exampleWorkspace", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     storageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.id,
+ *     sqlAdministratorLogin: "sqladminuser",
+ *     sqlAdministratorLoginPassword: "H@Sh1CoR3!",
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ * });
+ * const auditLogs = new azure.storage.Account("auditLogs", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ * });
+ * const exampleWorkspaceExtendedAuditingPolicy = new azure.synapse.WorkspaceExtendedAuditingPolicy("exampleWorkspaceExtendedAuditingPolicy", {
+ *     synapseWorkspaceId: exampleWorkspace.id,
+ *     storageEndpoint: auditLogs.primaryBlobEndpoint,
+ *     storageAccountAccessKey: auditLogs.primaryAccessKey,
+ *     storageAccountAccessKeyIsSecondary: false,
+ *     retentionInDays: 6,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Synapse Workspace Extended Auditing Policies can be imported using the `resource id`, e.g.

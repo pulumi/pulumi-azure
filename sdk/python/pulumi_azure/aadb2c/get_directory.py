@@ -140,6 +140,17 @@ def get_directory(domain_name: Optional[str] = None,
     """
     Use this data source to access information about an existing AAD B2C Directory.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.aadb2c.get_directory(resource_group_name="example-rg",
+        domain_name="exampleb2ctenant.onmicrosoft.com")
+    pulumi.export("tenantId", example.tenant_id)
+    ```
+
 
     :param str domain_name: Domain name of the B2C tenant, including the `.onmicrosoft.com` suffix.
     :param str resource_group_name: The name of the Resource Group where the AAD B2C Directory exists.
@@ -168,6 +179,17 @@ def get_directory_output(domain_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDirectoryResult]:
     """
     Use this data source to access information about an existing AAD B2C Directory.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.aadb2c.get_directory(resource_group_name="example-rg",
+        domain_name="exampleb2ctenant.onmicrosoft.com")
+    pulumi.export("tenantId", example.tenant_id)
+    ```
 
 
     :param str domain_name: Domain name of the B2C tenant, including the `.onmicrosoft.com` suffix.

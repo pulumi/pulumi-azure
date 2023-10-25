@@ -12,6 +12,39 @@ namespace Pulumi.Azure.SiteRecovery
     /// <summary>
     /// Manages a Azure Site Recovery replication policy within a recovery vault. Replication policies define the frequency at which recovery points are created and how long they are stored.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Location = "East US",
+    ///     });
+    /// 
+    ///     var vault = new Azure.RecoveryServices.Vault("vault", new()
+    ///     {
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Sku = "Standard",
+    ///     });
+    /// 
+    ///     var policy = new Azure.SiteRecovery.ReplicationPolicy("policy", new()
+    ///     {
+    ///         ResourceGroupName = example.Name,
+    ///         RecoveryVaultName = vault.Name,
+    ///         RecoveryPointRetentionInMinutes = 24 * 60,
+    ///         ApplicationConsistentSnapshotFrequencyInMinutes = 4 * 60,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Site Recovery Replication Policies can be imported using the `resource id`, e.g.

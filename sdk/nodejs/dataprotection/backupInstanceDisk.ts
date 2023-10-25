@@ -7,6 +7,53 @@ import * as utilities from "../utilities";
 /**
  * Manages a Backup Instance to back up Disk.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleManagedDisk = new azure.compute.ManagedDisk("exampleManagedDisk", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     storageAccountType: "Standard_LRS",
+ *     createOption: "Empty",
+ *     diskSizeGb: 1,
+ * });
+ * const exampleBackupVault = new azure.dataprotection.BackupVault("exampleBackupVault", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     datastoreType: "VaultStore",
+ *     redundancy: "LocallyRedundant",
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ * });
+ * const example1 = new azure.authorization.Assignment("example1", {
+ *     scope: exampleResourceGroup.id,
+ *     roleDefinitionName: "Disk Snapshot Contributor",
+ *     principalId: exampleBackupVault.identity.apply(identity => identity?.principalId),
+ * });
+ * const example2 = new azure.authorization.Assignment("example2", {
+ *     scope: exampleManagedDisk.id,
+ *     roleDefinitionName: "Disk Backup Reader",
+ *     principalId: exampleBackupVault.identity.apply(identity => identity?.principalId),
+ * });
+ * const exampleBackupPolicyDisk = new azure.dataprotection.BackupPolicyDisk("exampleBackupPolicyDisk", {
+ *     vaultId: exampleBackupVault.id,
+ *     backupRepeatingTimeIntervals: ["R/2021-05-19T06:33:16+00:00/PT4H"],
+ *     defaultRetentionDuration: "P7D",
+ * });
+ * const exampleBackupInstanceDisk = new azure.dataprotection.BackupInstanceDisk("exampleBackupInstanceDisk", {
+ *     location: exampleBackupVault.location,
+ *     vaultId: exampleBackupVault.id,
+ *     diskId: exampleManagedDisk.id,
+ *     snapshotResourceGroupName: exampleResourceGroup.name,
+ *     backupPolicyId: exampleBackupPolicyDisk.id,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Backup Instance Disks can be imported using the `resource id`, e.g.

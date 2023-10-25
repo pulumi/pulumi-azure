@@ -12,6 +12,54 @@ namespace Pulumi.Azure.EventHub
     /// <summary>
     /// Manages a Event Hubs authorization Rule within an Event Hub.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Basic",
+    ///         Capacity = 2,
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleEventHub = new Azure.EventHub.EventHub("exampleEventHub", new()
+    ///     {
+    ///         NamespaceName = exampleEventHubNamespace.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PartitionCount = 2,
+    ///         MessageRetention = 2,
+    ///     });
+    /// 
+    ///     var exampleAuthorizationRule = new Azure.EventHub.AuthorizationRule("exampleAuthorizationRule", new()
+    ///     {
+    ///         NamespaceName = exampleEventHubNamespace.Name,
+    ///         EventhubName = exampleEventHub.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Listen = true,
+    ///         Send = false,
+    ///         Manage = false,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// EventHub Authorization Rules can be imported using the `resource id`, e.g.

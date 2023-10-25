@@ -448,6 +448,22 @@ class Configuration(pulumi.CustomResource):
         """
         Manages a maintenance configuration.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_configuration = azure.maintenance.Configuration("exampleConfiguration",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            scope="SQLDB",
+            tags={
+                "Env": "prod",
+            })
+        ```
+
         ## Import
 
         Maintenance Configuration can be imported using the `resource id`, e.g.
@@ -479,6 +495,22 @@ class Configuration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a maintenance configuration.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_configuration = azure.maintenance.Configuration("exampleConfiguration",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            scope="SQLDB",
+            tags={
+                "Env": "prod",
+            })
+        ```
 
         ## Import
 

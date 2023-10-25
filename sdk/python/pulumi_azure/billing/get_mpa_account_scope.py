@@ -68,6 +68,17 @@ def get_mpa_account_scope(billing_account_name: Optional[str] = None,
     """
     Use this data source to access an ID for your MPA Account billing scope.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.billing.get_mpa_account_scope(billing_account_name="e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31",
+        customer_name="2281f543-7321-4cf9-1e23-edb4Oc31a31c")
+    pulumi.export("id", example.id)
+    ```
+
 
     :param str billing_account_name: The Billing Account Name of the MPA account.
     :param str customer_name: The Customer Name in the above Billing Account.
@@ -90,6 +101,17 @@ def get_mpa_account_scope_output(billing_account_name: Optional[pulumi.Input[str
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMpaAccountScopeResult]:
     """
     Use this data source to access an ID for your MPA Account billing scope.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.billing.get_mpa_account_scope(billing_account_name="e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31",
+        customer_name="2281f543-7321-4cf9-1e23-edb4Oc31a31c")
+    pulumi.export("id", example.id)
+    ```
 
 
     :param str billing_account_name: The Billing Account Name of the MPA account.

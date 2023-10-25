@@ -12,6 +12,56 @@ namespace Pulumi.Azure.Monitoring
     /// <summary>
     /// Manages an Monitor Smart Detector Alert Rule.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApplicationType = "web",
+    ///     });
+    /// 
+    ///     var exampleActionGroup = new Azure.Monitoring.ActionGroup("exampleActionGroup", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ShortName = "example",
+    ///     });
+    /// 
+    ///     var exampleSmartDetectorAlertRule = new Azure.Monitoring.SmartDetectorAlertRule("exampleSmartDetectorAlertRule", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Severity = "Sev0",
+    ///         ScopeResourceIds = new[]
+    ///         {
+    ///             exampleInsights.Id,
+    ///         },
+    ///         Frequency = "PT1M",
+    ///         DetectorType = "FailureAnomaliesDetector",
+    ///         ActionGroup = new Azure.Monitoring.Inputs.SmartDetectorAlertRuleActionGroupArgs
+    ///         {
+    ///             Ids = new[]
+    ///             {
+    ///                 exampleActionGroup.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Monitor Smart Detector Alert Rule can be imported using the `resource id`, e.g.

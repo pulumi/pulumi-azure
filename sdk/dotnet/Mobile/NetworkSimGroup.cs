@@ -12,6 +12,69 @@ namespace Pulumi.Azure.Mobile
     /// <summary>
     /// Manages a Mobile Network Sim Group.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleNetwork = new Azure.Mobile.Network("exampleNetwork", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         MobileCountryCode = "001",
+    ///         MobileNetworkCode = "01",
+    ///     });
+    /// 
+    ///     var exampleUserAssignedIdentity = Azure.Authorization.GetUserAssignedIdentity.Invoke(new()
+    ///     {
+    ///         Name = "name_of_user_assigned_identity",
+    ///         ResourceGroupName = "name_of_resource_group",
+    ///     });
+    /// 
+    ///     var exampleKeyVault = Azure.KeyVault.GetKeyVault.Invoke(new()
+    ///     {
+    ///         Name = "example-kv",
+    ///         ResourceGroupName = "some-resource-group",
+    ///     });
+    /// 
+    ///     var exampleKey = Azure.KeyVault.GetKey.Invoke(new()
+    ///     {
+    ///         Name = "example-key",
+    ///         KeyVaultId = exampleKeyVault.Apply(getKeyVaultResult =&gt; getKeyVaultResult.Id),
+    ///     });
+    /// 
+    ///     var exampleNetworkSimGroup = new Azure.Mobile.NetworkSimGroup("exampleNetworkSimGroup", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         MobileNetworkId = exampleNetwork.Id,
+    ///         EncryptionKeyUrl = exampleKey.Apply(getKeyResult =&gt; getKeyResult.Id),
+    ///         Identity = new Azure.Mobile.Inputs.NetworkSimGroupIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned, UserAssigned",
+    ///             IdentityIds = new[]
+    ///             {
+    ///                 exampleUserAssignedIdentity.Apply(getUserAssignedIdentityResult =&gt; getUserAssignedIdentityResult.Id),
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key", "value" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Mobile Network Sim Groups can be imported using the `resource id`, e.g.

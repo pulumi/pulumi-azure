@@ -7,6 +7,27 @@ import * as utilities from "../utilities";
 /**
  * Manages a Automation Credential.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAccount = new azure.automation.Account("exampleAccount", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     skuName: "Basic",
+ * });
+ * const exampleCredential = new azure.automation.Credential("exampleCredential", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     automationAccountName: exampleAccount.name,
+ *     username: "example_user",
+ *     password: "example_pwd",
+ *     description: "This is an example credential",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Automation Credentials can be imported using the `resource id`, e.g.

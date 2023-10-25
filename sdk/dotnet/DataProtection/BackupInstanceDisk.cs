@@ -12,6 +12,78 @@ namespace Pulumi.Azure.DataProtection
     /// <summary>
     /// Manages a Backup Instance to back up Disk.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleManagedDisk = new Azure.Compute.ManagedDisk("exampleManagedDisk", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         StorageAccountType = "Standard_LRS",
+    ///         CreateOption = "Empty",
+    ///         DiskSizeGb = 1,
+    ///     });
+    /// 
+    ///     var exampleBackupVault = new Azure.DataProtection.BackupVault("exampleBackupVault", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         DatastoreType = "VaultStore",
+    ///         Redundancy = "LocallyRedundant",
+    ///         Identity = new Azure.DataProtection.Inputs.BackupVaultIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var example1 = new Azure.Authorization.Assignment("example1", new()
+    ///     {
+    ///         Scope = exampleResourceGroup.Id,
+    ///         RoleDefinitionName = "Disk Snapshot Contributor",
+    ///         PrincipalId = exampleBackupVault.Identity.Apply(identity =&gt; identity?.PrincipalId),
+    ///     });
+    /// 
+    ///     var example2 = new Azure.Authorization.Assignment("example2", new()
+    ///     {
+    ///         Scope = exampleManagedDisk.Id,
+    ///         RoleDefinitionName = "Disk Backup Reader",
+    ///         PrincipalId = exampleBackupVault.Identity.Apply(identity =&gt; identity?.PrincipalId),
+    ///     });
+    /// 
+    ///     var exampleBackupPolicyDisk = new Azure.DataProtection.BackupPolicyDisk("exampleBackupPolicyDisk", new()
+    ///     {
+    ///         VaultId = exampleBackupVault.Id,
+    ///         BackupRepeatingTimeIntervals = new[]
+    ///         {
+    ///             "R/2021-05-19T06:33:16+00:00/PT4H",
+    ///         },
+    ///         DefaultRetentionDuration = "P7D",
+    ///     });
+    /// 
+    ///     var exampleBackupInstanceDisk = new Azure.DataProtection.BackupInstanceDisk("exampleBackupInstanceDisk", new()
+    ///     {
+    ///         Location = exampleBackupVault.Location,
+    ///         VaultId = exampleBackupVault.Id,
+    ///         DiskId = exampleManagedDisk.Id,
+    ///         SnapshotResourceGroupName = exampleResourceGroup.Name,
+    ///         BackupPolicyId = exampleBackupPolicyDisk.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Backup Instance Disks can be imported using the `resource id`, e.g.

@@ -7,6 +7,29 @@ import * as utilities from "../utilities";
 /**
  * Manages an API Management AAD Identity Provider.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleService = new azure.apimanagement.Service("exampleService", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     publisherName: "My Company",
+ *     publisherEmail: "company@mycompany.io",
+ *     skuName: "Developer_1",
+ * });
+ * const exampleIdentityProviderAad = new azure.apimanagement.IdentityProviderAad("exampleIdentityProviderAad", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     apiManagementName: exampleService.name,
+ *     clientId: "00000000-0000-0000-0000-000000000000",
+ *     clientSecret: "00000000000000000000000000000000",
+ *     allowedTenants: ["00000000-0000-0000-0000-000000000000"],
+ * });
+ * ```
+ *
  * ## Import
  *
  * API Management AAD Identity Provider can be imported using the `resource id`, e.g.

@@ -567,6 +567,69 @@ class ComputeInstance(pulumi.CustomResource):
         """
         Manages a Machine Learning Compute Instance.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup",
+            location="west europe",
+            tags={
+                "stage": "example",
+            })
+        example_insights = azure.appinsights.Insights("exampleInsights",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            application_type="web")
+        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tenant_id=current.tenant_id,
+            sku_name="standard",
+            purge_protection_enabled=True)
+        example_account = azure.storage.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_workspace = azure.machinelearning.Workspace("exampleWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            application_insights_id=example_insights.id,
+            key_vault_id=example_key_vault.id,
+            storage_account_id=example_account.id,
+            identity=azure.machinelearning.WorkspaceIdentityArgs(
+                type="SystemAssigned",
+            ))
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.1.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.1.0.0/24"])
+        config = pulumi.Config()
+        ssh_key = config.get("sshKey")
+        if ssh_key is None:
+            ssh_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCqaZoyiz1qbdOQ8xEf6uEu1cCwYowo5FHtsBhqLoDnnp7KUTEBN+L2NxRIfQ781rxV6Iq5jSav6b2Q8z5KiseOlvKA/RF2wqU0UPYqQviQhLmW6THTpmrv/YkUCuzxDpsH7DUDhZcwySLKVVe0Qm3+5N2Ta6UYH3lsDf9R9wTP2K/+vAnflKebuypNlmocIvakFWoZda18FOmsOoIVXQ8HWFNCuw9ZCunMSN62QGamCe3dL5cXlkgHYv7ekJE15IA9aOJcM7e90oeTqo+7HTcWfdu0qQqPWY5ujyMw/llas8tsXY85LFqRnr3gJ02bAscjc477+X+j/gkpFoN1QEmt terraform@demo.tld"
+        example_compute_instance = azure.machinelearning.ComputeInstance("exampleComputeInstance",
+            location=example_resource_group.location,
+            machine_learning_workspace_id=example_workspace.id,
+            virtual_machine_size="STANDARD_DS2_V2",
+            authorization_type="personal",
+            ssh=azure.machinelearning.ComputeInstanceSshArgs(
+                public_key=ssh_key,
+            ),
+            subnet_resource_id=example_subnet.id,
+            description="foo",
+            tags={
+                "foo": "bar",
+            })
+        ```
+
         ## Import
 
         Machine Learning Compute Instances can be imported using the `resource id`, e.g.
@@ -599,6 +662,69 @@ class ComputeInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Machine Learning Compute Instance.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup",
+            location="west europe",
+            tags={
+                "stage": "example",
+            })
+        example_insights = azure.appinsights.Insights("exampleInsights",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            application_type="web")
+        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tenant_id=current.tenant_id,
+            sku_name="standard",
+            purge_protection_enabled=True)
+        example_account = azure.storage.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_workspace = azure.machinelearning.Workspace("exampleWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            application_insights_id=example_insights.id,
+            key_vault_id=example_key_vault.id,
+            storage_account_id=example_account.id,
+            identity=azure.machinelearning.WorkspaceIdentityArgs(
+                type="SystemAssigned",
+            ))
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.1.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.1.0.0/24"])
+        config = pulumi.Config()
+        ssh_key = config.get("sshKey")
+        if ssh_key is None:
+            ssh_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCqaZoyiz1qbdOQ8xEf6uEu1cCwYowo5FHtsBhqLoDnnp7KUTEBN+L2NxRIfQ781rxV6Iq5jSav6b2Q8z5KiseOlvKA/RF2wqU0UPYqQviQhLmW6THTpmrv/YkUCuzxDpsH7DUDhZcwySLKVVe0Qm3+5N2Ta6UYH3lsDf9R9wTP2K/+vAnflKebuypNlmocIvakFWoZda18FOmsOoIVXQ8HWFNCuw9ZCunMSN62QGamCe3dL5cXlkgHYv7ekJE15IA9aOJcM7e90oeTqo+7HTcWfdu0qQqPWY5ujyMw/llas8tsXY85LFqRnr3gJ02bAscjc477+X+j/gkpFoN1QEmt terraform@demo.tld"
+        example_compute_instance = azure.machinelearning.ComputeInstance("exampleComputeInstance",
+            location=example_resource_group.location,
+            machine_learning_workspace_id=example_workspace.id,
+            virtual_machine_size="STANDARD_DS2_V2",
+            authorization_type="personal",
+            ssh=azure.machinelearning.ComputeInstanceSshArgs(
+                public_key=ssh_key,
+            ),
+            subnet_resource_id=example_subnet.id,
+            description="foo",
+            tags={
+                "foo": "bar",
+            })
+        ```
 
         ## Import
 

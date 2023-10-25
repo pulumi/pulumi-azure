@@ -308,6 +308,23 @@ class TxtRecord(pulumi.CustomResource):
         """
         Enables you to manage DNS TXT Records within Azure Private DNS.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_zone = azure.privatedns.Zone("exampleZone", resource_group_name=example_resource_group.name)
+        example_txt_record = azure.privatedns.TxtRecord("exampleTxtRecord",
+            resource_group_name=example_resource_group.name,
+            zone_name=example_zone.name,
+            ttl=300,
+            records=[azure.privatedns.TxtRecordRecordArgs(
+                value="v=spf1 mx ~all",
+            )])
+        ```
+
         ## Import
 
         Private DNS TXT Records can be imported using the `resource id`, e.g.
@@ -333,6 +350,23 @@ class TxtRecord(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Enables you to manage DNS TXT Records within Azure Private DNS.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_zone = azure.privatedns.Zone("exampleZone", resource_group_name=example_resource_group.name)
+        example_txt_record = azure.privatedns.TxtRecord("exampleTxtRecord",
+            resource_group_name=example_resource_group.name,
+            zone_name=example_zone.name,
+            ttl=300,
+            records=[azure.privatedns.TxtRecordRecordArgs(
+                value="v=spf1 mx ~all",
+            )])
+        ```
 
         ## Import
 

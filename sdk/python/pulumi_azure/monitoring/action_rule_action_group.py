@@ -364,6 +364,28 @@ class ActionRuleActionGroup(pulumi.CustomResource):
 
         !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `monitoring.AlertProcessingRuleActionGroup` resource instead.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_action_group = azure.monitoring.ActionGroup("exampleActionGroup",
+            resource_group_name=example_resource_group.name,
+            short_name="example")
+        example_action_rule_action_group = azure.monitoring.ActionRuleActionGroup("exampleActionRuleActionGroup",
+            resource_group_name=example_resource_group.name,
+            action_group_id=example_action_group.id,
+            scope=azure.monitoring.ActionRuleActionGroupScopeArgs(
+                type="ResourceGroup",
+                resource_ids=[example_resource_group.id],
+            ),
+            tags={
+                "foo": "bar",
+            })
+        ```
+
         ## Import
 
         Monitor Action Rule can be imported using the `resource id`, e.g.
@@ -393,6 +415,28 @@ class ActionRuleActionGroup(pulumi.CustomResource):
         Manages a Monitor Action Rule which type is action group.
 
         !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `monitoring.AlertProcessingRuleActionGroup` resource instead.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_action_group = azure.monitoring.ActionGroup("exampleActionGroup",
+            resource_group_name=example_resource_group.name,
+            short_name="example")
+        example_action_rule_action_group = azure.monitoring.ActionRuleActionGroup("exampleActionRuleActionGroup",
+            resource_group_name=example_resource_group.name,
+            action_group_id=example_action_group.id,
+            scope=azure.monitoring.ActionRuleActionGroupScopeArgs(
+                type="ResourceGroup",
+                resource_ids=[example_resource_group.id],
+            ),
+            tags={
+                "foo": "bar",
+            })
+        ```
 
         ## Import
 

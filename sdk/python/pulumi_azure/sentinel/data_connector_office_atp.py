@@ -182,6 +182,21 @@ class DataConnectorOfficeAtp(pulumi.CustomResource):
         """
         Manages a Office ATP Data Connector.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="PerGB2018")
+        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", workspace_id=example_analytics_workspace.id)
+        example_data_connector_office_atp = azure.sentinel.DataConnectorOfficeAtp("exampleDataConnectorOfficeAtp", log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id)
+        ```
+
         ## Import
 
         Office ATP Data Connectors can be imported using the `resource id`, e.g.
@@ -206,6 +221,21 @@ class DataConnectorOfficeAtp(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Office ATP Data Connector.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="PerGB2018")
+        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", workspace_id=example_analytics_workspace.id)
+        example_data_connector_office_atp = azure.sentinel.DataConnectorOfficeAtp("exampleDataConnectorOfficeAtp", log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id)
+        ```
 
         ## Import
 

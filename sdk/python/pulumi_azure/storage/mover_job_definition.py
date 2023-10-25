@@ -419,6 +419,48 @@ class MoverJobDefinition(pulumi.CustomResource):
         """
         Manages a Storage Mover Job Definition.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_mover = azure.storage.Mover("exampleMover",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        example_mover_agent = azure.storage.MoverAgent("exampleMoverAgent",
+            storage_mover_id=example_mover.id,
+            arc_virtual_machine_id=example_resource_group.id.apply(lambda id: f"{id}/providers/Microsoft.HybridCompute/machines/examples-hybridComputeName"),
+            arc_virtual_machine_uuid="3bb2c024-eba9-4d18-9e7a-1d772fcc5fe9")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS",
+            allow_nested_items_to_be_public=True)
+        example_container = azure.storage.Container("exampleContainer",
+            storage_account_name=example_account.name,
+            container_access_type="blob")
+        example_mover_target_endpoint = azure.storage.MoverTargetEndpoint("exampleMoverTargetEndpoint",
+            storage_mover_id=example_mover.id,
+            storage_account_id=example_account.id,
+            storage_container_name=example_container.name)
+        example_mover_source_endpoint = azure.storage.MoverSourceEndpoint("exampleMoverSourceEndpoint",
+            storage_mover_id=example_mover.id,
+            host="192.168.0.1")
+        example_mover_project = azure.storage.MoverProject("exampleMoverProject", storage_mover_id=example_mover.id)
+        example_mover_job_definition = azure.storage.MoverJobDefinition("exampleMoverJobDefinition",
+            storage_mover_project_id=example_mover_project.id,
+            agent_name=example_mover_agent.name,
+            copy_mode="Additive",
+            source_name=example_mover_source_endpoint.name,
+            source_sub_path="/",
+            target_name=example_mover_target_endpoint.name,
+            target_sub_path="/",
+            description="Example Job Definition Description")
+        ```
+
         ## Import
 
         Storage Mover Job Definition can be imported using the `resource id`, e.g.
@@ -447,6 +489,48 @@ class MoverJobDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Storage Mover Job Definition.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_mover = azure.storage.Mover("exampleMover",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        example_mover_agent = azure.storage.MoverAgent("exampleMoverAgent",
+            storage_mover_id=example_mover.id,
+            arc_virtual_machine_id=example_resource_group.id.apply(lambda id: f"{id}/providers/Microsoft.HybridCompute/machines/examples-hybridComputeName"),
+            arc_virtual_machine_uuid="3bb2c024-eba9-4d18-9e7a-1d772fcc5fe9")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS",
+            allow_nested_items_to_be_public=True)
+        example_container = azure.storage.Container("exampleContainer",
+            storage_account_name=example_account.name,
+            container_access_type="blob")
+        example_mover_target_endpoint = azure.storage.MoverTargetEndpoint("exampleMoverTargetEndpoint",
+            storage_mover_id=example_mover.id,
+            storage_account_id=example_account.id,
+            storage_container_name=example_container.name)
+        example_mover_source_endpoint = azure.storage.MoverSourceEndpoint("exampleMoverSourceEndpoint",
+            storage_mover_id=example_mover.id,
+            host="192.168.0.1")
+        example_mover_project = azure.storage.MoverProject("exampleMoverProject", storage_mover_id=example_mover.id)
+        example_mover_job_definition = azure.storage.MoverJobDefinition("exampleMoverJobDefinition",
+            storage_mover_project_id=example_mover_project.id,
+            agent_name=example_mover_agent.name,
+            copy_mode="Additive",
+            source_name=example_mover_source_endpoint.name,
+            source_sub_path="/",
+            target_name=example_mover_target_endpoint.name,
+            target_sub_path="/",
+            description="Example Job Definition Description")
+        ```
 
         ## Import
 

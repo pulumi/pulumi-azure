@@ -197,6 +197,19 @@ def get_queue_authorization_rule(name: Optional[str] = None,
     """
     Use this data source to access information about an existing ServiceBus Queue Authorisation Rule within a ServiceBus Queue.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.servicebus.get_queue_authorization_rule(name="example-tfex_name",
+        resource_group_name="example-resources",
+        queue_name="example-servicebus_queue",
+        namespace_name="example-namespace")
+    pulumi.export("id", example.id)
+    ```
+
 
     :param str name: The name of this ServiceBus Queue Authorisation Rule.
     :param str namespace_name: The name of the ServiceBus Namespace.
@@ -239,6 +252,19 @@ def get_queue_authorization_rule_output(name: Optional[pulumi.Input[str]] = None
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQueueAuthorizationRuleResult]:
     """
     Use this data source to access information about an existing ServiceBus Queue Authorisation Rule within a ServiceBus Queue.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.servicebus.get_queue_authorization_rule(name="example-tfex_name",
+        resource_group_name="example-resources",
+        queue_name="example-servicebus_queue",
+        namespace_name="example-namespace")
+    pulumi.export("id", example.id)
+    ```
 
 
     :param str name: The name of this ServiceBus Queue Authorisation Rule.

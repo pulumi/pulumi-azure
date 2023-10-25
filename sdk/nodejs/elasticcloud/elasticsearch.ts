@@ -9,6 +9,21 @@ import * as utilities from "../utilities";
 /**
  * Manages an Elasticsearch in Elastic Cloud.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const testResourceGroup = new azure.core.ResourceGroup("testResourceGroup", {location: "West Europe"});
+ * const testElasticsearch = new azure.elasticcloud.Elasticsearch("testElasticsearch", {
+ *     resourceGroupName: testResourceGroup.name,
+ *     location: testResourceGroup.location,
+ *     skuName: "ess-monthly-consumption_Monthly",
+ *     elasticCloudEmailAddress: "user@example.com",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Elasticsearch's can be imported using the `resource id`, e.g.

@@ -13,6 +13,34 @@ import (
 )
 
 // Use this data source to access information about an existing Storage Sync Group.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := storage.LookupSyncGroup(ctx, &storage.LookupSyncGroupArgs{
+//				Name:          "existing-ss-group",
+//				StorageSyncId: "existing-ss-id",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("id", example.Id)
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupSyncGroup(ctx *pulumi.Context, args *LookupSyncGroupArgs, opts ...pulumi.InvokeOption) (*LookupSyncGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSyncGroupResult

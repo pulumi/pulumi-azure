@@ -12,6 +12,46 @@ namespace Pulumi.Azure.Iot
     /// <summary>
     /// Manages a Consumer Group within an IotHub
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleIoTHub = new Azure.Iot.IoTHub("exampleIoTHub", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Sku = new Azure.Iot.Inputs.IoTHubSkuArgs
+    ///         {
+    ///             Name = "S1",
+    ///             Capacity = 1,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "purpose", "testing" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleConsumerGroup = new Azure.Iot.ConsumerGroup("exampleConsumerGroup", new()
+    ///     {
+    ///         IothubName = exampleIoTHub.Name,
+    ///         EventhubEndpointName = "events",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// IoTHub Consumer Groups can be imported using the `resource id`, e.g.

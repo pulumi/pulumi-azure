@@ -12,6 +12,52 @@ namespace Pulumi.Azure.ApiManagement
     /// <summary>
     /// Manages a API Management Email Template.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PublisherName = "My Company",
+    ///         PublisherEmail = "company@terraform.io",
+    ///         SkuName = "Developer_1",
+    ///     });
+    /// 
+    ///     var exampleEmailTemplate = new Azure.ApiManagement.EmailTemplate("exampleEmailTemplate", new()
+    ///     {
+    ///         TemplateName = "ConfirmSignUpIdentityDefault",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApiManagementName = exampleService.Name,
+    ///         Subject = "Customized confirmation email for your new $OrganizationName API account",
+    ///         Body = @"&lt;!DOCTYPE html &gt;
+    /// &lt;html&gt;
+    /// &lt;head&gt;
+    ///   &lt;meta charset=""UTF-8"" /&gt;
+    ///   &lt;title&gt;Customized Letter Title&lt;/title&gt;
+    /// &lt;/head&gt;
+    /// &lt;body&gt;
+    ///   &lt;p style=""font-size:12pt;font-family:'Segoe UI'""&gt;Dear $DevFirstName $DevLastName,&lt;/p&gt;
+    /// &lt;/body&gt;
+    /// &lt;/html&gt;
+    /// ",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// API Management Email Templates can be imported using the `resource id`, e.g.

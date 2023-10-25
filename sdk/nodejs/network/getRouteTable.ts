@@ -8,6 +8,18 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Route Table.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.network.getRouteTable({
+ *     name: "myroutetable",
+ *     resourceGroupName: "some-resource-group",
+ * });
+ * ```
  */
 export function getRouteTable(args: GetRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTableResult> {
 
@@ -68,6 +80,18 @@ export interface GetRouteTableResult {
 }
 /**
  * Use this data source to access information about an existing Route Table.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.network.getRouteTable({
+ *     name: "myroutetable",
+ *     resourceGroupName: "some-resource-group",
+ * });
+ * ```
  */
 export function getRouteTableOutput(args: GetRouteTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteTableResult> {
     return pulumi.output(args).apply((a: any) => getRouteTable(a, opts))

@@ -135,6 +135,20 @@ class SpringCloudAccelerator(pulumi.CustomResource):
 
         Manages a Spring Cloud Accelerator.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="E0")
+        example_spring_cloud_accelerator = azure.appplatform.SpringCloudAccelerator("exampleSpringCloudAccelerator", spring_cloud_service_id=example_spring_cloud_service.id)
+        ```
+
         ## Import
 
         Spring Cloud Accelerators can be imported using the `resource id`, e.g.
@@ -158,6 +172,20 @@ class SpringCloudAccelerator(pulumi.CustomResource):
         > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
 
         Manages a Spring Cloud Accelerator.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="E0")
+        example_spring_cloud_accelerator = azure.appplatform.SpringCloudAccelerator("exampleSpringCloudAccelerator", spring_cloud_service_id=example_spring_cloud_service.id)
+        ```
 
         ## Import
 

@@ -118,6 +118,18 @@ def get_virtual_hub_route_table(name: Optional[str] = None,
     """
     Uses this data source to access information about an existing Virtual Hub Route Table.
 
+    ## Virtual Hub Route Table Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.network.get_virtual_hub_route_table(name="example-hub-route-table",
+        resource_group_name="example-resources",
+        virtual_hub_name="example-hub-name")
+    pulumi.export("virtualHubRouteTableId", example.id)
+    ```
+
 
     :param str name: The name of the Virtual Hub Route Table.
     :param str resource_group_name: The Name of the Resource Group where the Virtual Hub Route Table exists.
@@ -147,6 +159,18 @@ def get_virtual_hub_route_table_output(name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualHubRouteTableResult]:
     """
     Uses this data source to access information about an existing Virtual Hub Route Table.
+
+    ## Virtual Hub Route Table Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.network.get_virtual_hub_route_table(name="example-hub-route-table",
+        resource_group_name="example-resources",
+        virtual_hub_name="example-hub-name")
+    pulumi.export("virtualHubRouteTableId", example.id)
+    ```
 
 
     :param str name: The name of the Virtual Hub Route Table.

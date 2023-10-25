@@ -116,6 +116,16 @@ def get_frontdoor_profile(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Front Door (standard/premium) Profile.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.cdn.get_frontdoor_profile(name="existing-cdn-profile",
+        resource_group_name="existing-resources")
+    ```
+
 
     :param str name: Specifies the name of the Front Door Profile.
     :param str resource_group_name: The name of the Resource Group where this Front Door Profile exists.
@@ -142,6 +152,16 @@ def get_frontdoor_profile_output(name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFrontdoorProfileResult]:
     """
     Use this data source to access information about an existing Front Door (standard/premium) Profile.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.cdn.get_frontdoor_profile(name="existing-cdn-profile",
+        resource_group_name="existing-resources")
+    ```
 
 
     :param str name: Specifies the name of the Front Door Profile.

@@ -459,6 +459,63 @@ class PointToPointVpnGateway(pulumi.CustomResource):
         """
         Manages a Point-to-Site VPN Gateway.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_wan = azure.network.VirtualWan("exampleVirtualWan",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        example_virtual_hub = azure.network.VirtualHub("exampleVirtualHub",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            virtual_wan_id=example_virtual_wan.id,
+            address_prefix="10.0.0.0/23")
+        example_vpn_server_configuration = azure.network.VpnServerConfiguration("exampleVpnServerConfiguration",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            vpn_authentication_types=["Certificate"],
+            client_root_certificates=[azure.network.VpnServerConfigurationClientRootCertificateArgs(
+                name="DigiCert-Federated-ID-Root-CA",
+                public_cert_data=\"\"\"MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
+        MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
+        d3cuZGlnaWNlcnQuY29tMSYwJAYDVQQDEx1EaWdpQ2VydCBGZWRlcmF0ZWQgSUQg
+        Um9vdCBDQTAeFw0xMzAxMTUxMjAwMDBaFw0zMzAxMTUxMjAwMDBaMGcxCzAJBgNV
+        BAYTAlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdp
+        Y2VydC5jb20xJjAkBgNVBAMTHURpZ2lDZXJ0IEZlZGVyYXRlZCBJRCBSb290IENB
+        MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvAEB4pcCqnNNOWE6Ur5j
+        QPUH+1y1F9KdHTRSza6k5iDlXq1kGS1qAkuKtw9JsiNRrjltmFnzMZRBbX8Tlfl8
+        zAhBmb6dDduDGED01kBsTkgywYPxXVTKec0WxYEEF0oMn4wSYNl0lt2eJAKHXjNf
+        GTwiibdP8CUR2ghSM2sUTI8Nt1Omfc4SMHhGhYD64uJMbX98THQ/4LMGuYegou+d
+        GTiahfHtjn7AboSEknwAMJHCh5RlYZZ6B1O4QbKJ+34Q0eKgnI3X6Vc9u0zf6DH8
+        Dk+4zQDYRRTqTnVO3VT8jzqDlCRuNtq6YvryOWN74/dq8LQhUnXHvFyrsdMaE1X2
+        DwIDAQABo2MwYTAPBgNVHRMBAf8EBTADAQH/MA4GA1UdDwEB/wQEAwIBhjAdBgNV
+        HQ4EFgQUGRdkFnbGt1EWjKwbUne+5OaZvRYwHwYDVR0jBBgwFoAUGRdkFnbGt1EW
+        jKwbUne+5OaZvRYwDQYJKoZIhvcNAQELBQADggEBAHcqsHkrjpESqfuVTRiptJfP
+        9JbdtWqRTmOf6uJi2c8YVqI6XlKXsD8C1dUUaaHKLUJzvKiazibVuBwMIT84AyqR
+        QELn3e0BtgEymEygMU569b01ZPxoFSnNXc7qDZBDef8WfqAV/sxkTi8L9BkmFYfL
+        uGLOhRJOFprPdoDIUBB+tmCl3oDcBy3vnUeOEioz8zAkprcb3GHwHAK+vHmmfgcn
+        WsfMLH4JCLa/tRYL+Rw/N3ybCkDp00s0WUZ+AoDywSl0Q/ZEnNY0MsFiw6LyIdbq
+        M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
+        \"\"\",
+            )])
+        example_point_to_point_vpn_gateway = azure.network.PointToPointVpnGateway("examplePointToPointVpnGateway",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            virtual_hub_id=example_virtual_hub.id,
+            vpn_server_configuration_id=example_vpn_server_configuration.id,
+            scale_unit=1,
+            connection_configuration=azure.network.PointToPointVpnGatewayConnectionConfigurationArgs(
+                name="example-gateway-config",
+                vpn_client_address_pool=azure.network.PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs(
+                    address_prefixes=["10.0.2.0/24"],
+                ),
+            ))
+        ```
+
         ## Import
 
         Point-to-Site VPN Gateway's can be imported using the `resource id`, e.g.
@@ -488,6 +545,63 @@ class PointToPointVpnGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Point-to-Site VPN Gateway.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_wan = azure.network.VirtualWan("exampleVirtualWan",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        example_virtual_hub = azure.network.VirtualHub("exampleVirtualHub",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            virtual_wan_id=example_virtual_wan.id,
+            address_prefix="10.0.0.0/23")
+        example_vpn_server_configuration = azure.network.VpnServerConfiguration("exampleVpnServerConfiguration",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            vpn_authentication_types=["Certificate"],
+            client_root_certificates=[azure.network.VpnServerConfigurationClientRootCertificateArgs(
+                name="DigiCert-Federated-ID-Root-CA",
+                public_cert_data=\"\"\"MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
+        MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
+        d3cuZGlnaWNlcnQuY29tMSYwJAYDVQQDEx1EaWdpQ2VydCBGZWRlcmF0ZWQgSUQg
+        Um9vdCBDQTAeFw0xMzAxMTUxMjAwMDBaFw0zMzAxMTUxMjAwMDBaMGcxCzAJBgNV
+        BAYTAlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdp
+        Y2VydC5jb20xJjAkBgNVBAMTHURpZ2lDZXJ0IEZlZGVyYXRlZCBJRCBSb290IENB
+        MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvAEB4pcCqnNNOWE6Ur5j
+        QPUH+1y1F9KdHTRSza6k5iDlXq1kGS1qAkuKtw9JsiNRrjltmFnzMZRBbX8Tlfl8
+        zAhBmb6dDduDGED01kBsTkgywYPxXVTKec0WxYEEF0oMn4wSYNl0lt2eJAKHXjNf
+        GTwiibdP8CUR2ghSM2sUTI8Nt1Omfc4SMHhGhYD64uJMbX98THQ/4LMGuYegou+d
+        GTiahfHtjn7AboSEknwAMJHCh5RlYZZ6B1O4QbKJ+34Q0eKgnI3X6Vc9u0zf6DH8
+        Dk+4zQDYRRTqTnVO3VT8jzqDlCRuNtq6YvryOWN74/dq8LQhUnXHvFyrsdMaE1X2
+        DwIDAQABo2MwYTAPBgNVHRMBAf8EBTADAQH/MA4GA1UdDwEB/wQEAwIBhjAdBgNV
+        HQ4EFgQUGRdkFnbGt1EWjKwbUne+5OaZvRYwHwYDVR0jBBgwFoAUGRdkFnbGt1EW
+        jKwbUne+5OaZvRYwDQYJKoZIhvcNAQELBQADggEBAHcqsHkrjpESqfuVTRiptJfP
+        9JbdtWqRTmOf6uJi2c8YVqI6XlKXsD8C1dUUaaHKLUJzvKiazibVuBwMIT84AyqR
+        QELn3e0BtgEymEygMU569b01ZPxoFSnNXc7qDZBDef8WfqAV/sxkTi8L9BkmFYfL
+        uGLOhRJOFprPdoDIUBB+tmCl3oDcBy3vnUeOEioz8zAkprcb3GHwHAK+vHmmfgcn
+        WsfMLH4JCLa/tRYL+Rw/N3ybCkDp00s0WUZ+AoDywSl0Q/ZEnNY0MsFiw6LyIdbq
+        M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
+        \"\"\",
+            )])
+        example_point_to_point_vpn_gateway = azure.network.PointToPointVpnGateway("examplePointToPointVpnGateway",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            virtual_hub_id=example_virtual_hub.id,
+            vpn_server_configuration_id=example_vpn_server_configuration.id,
+            scale_unit=1,
+            connection_configuration=azure.network.PointToPointVpnGatewayConnectionConfigurationArgs(
+                name="example-gateway-config",
+                vpn_client_address_pool=azure.network.PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs(
+                    address_prefixes=["10.0.2.0/24"],
+                ),
+            ))
+        ```
 
         ## Import
 

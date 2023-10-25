@@ -102,6 +102,17 @@ def get_kubernetes_service_versions(include_preview: Optional[bool] = None,
     """
     Use this data source to retrieve the version of Kubernetes supported by Azure Kubernetes Service.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    current = azure.containerservice.get_kubernetes_service_versions(location="West Europe")
+    pulumi.export("versions", current.versions)
+    pulumi.export("latestVersion", current.latest_version)
+    ```
+
 
     :param bool include_preview: Should Preview versions of Kubernetes in AKS be included? Defaults to `true`
     :param str location: Specifies the location in which to query for versions.
@@ -130,6 +141,17 @@ def get_kubernetes_service_versions_output(include_preview: Optional[pulumi.Inpu
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKubernetesServiceVersionsResult]:
     """
     Use this data source to retrieve the version of Kubernetes supported by Azure Kubernetes Service.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    current = azure.containerservice.get_kubernetes_service_versions(location="West Europe")
+    pulumi.export("versions", current.versions)
+    pulumi.export("latestVersion", current.latest_version)
+    ```
 
 
     :param bool include_preview: Should Preview versions of Kubernetes in AKS be included? Defaults to `true`

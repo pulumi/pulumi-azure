@@ -7,6 +7,36 @@ import * as utilities from "../utilities";
 /**
  * Manages an Elastic Job Credential.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "northeurope"});
+ * const exampleServer = new azure.mssql.Server("exampleServer", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     version: "12.0",
+ *     administratorLogin: "4dm1n157r470r",
+ *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
+ * });
+ * const exampleDatabase = new azure.mssql.Database("exampleDatabase", {
+ *     serverId: exampleServer.id,
+ *     collation: "SQL_Latin1_General_CP1_CI_AS",
+ *     skuName: "S1",
+ * });
+ * const exampleJobAgent = new azure.mssql.JobAgent("exampleJobAgent", {
+ *     location: exampleResourceGroup.location,
+ *     databaseId: exampleDatabase.id,
+ * });
+ * const exampleJobCredential = new azure.mssql.JobCredential("exampleJobCredential", {
+ *     jobAgentId: exampleJobAgent.id,
+ *     username: "my-username",
+ *     password: "MyP4ssw0rd!!!",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Elastic Job Credentials can be imported using the `resource id`, e.g.

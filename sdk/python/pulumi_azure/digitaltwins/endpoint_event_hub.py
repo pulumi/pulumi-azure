@@ -258,6 +258,38 @@ class EndpointEventHub(pulumi.CustomResource):
         """
         Manages a Digital Twins Event Hub Endpoint.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_instance = azure.digitaltwins.Instance("exampleInstance",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard")
+        example_event_hub = azure.eventhub.EventHub("exampleEventHub",
+            namespace_name=example_event_hub_namespace.name,
+            resource_group_name=example_resource_group.name,
+            partition_count=2,
+            message_retention=1)
+        example_authorization_rule = azure.eventhub.AuthorizationRule("exampleAuthorizationRule",
+            namespace_name=example_event_hub_namespace.name,
+            eventhub_name=example_event_hub.name,
+            resource_group_name=example_resource_group.name,
+            listen=False,
+            send=True,
+            manage=False)
+        example_endpoint_event_hub = azure.digitaltwins.EndpointEventHub("exampleEndpointEventHub",
+            digital_twins_id=example_instance.id,
+            eventhub_primary_connection_string=example_authorization_rule.primary_connection_string,
+            eventhub_secondary_connection_string=example_authorization_rule.secondary_connection_string)
+        ```
+
         ## Import
 
         Digital Twins Eventhub Endpoints can be imported using the `resource id`, e.g.
@@ -282,6 +314,38 @@ class EndpointEventHub(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Digital Twins Event Hub Endpoint.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_instance = azure.digitaltwins.Instance("exampleInstance",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard")
+        example_event_hub = azure.eventhub.EventHub("exampleEventHub",
+            namespace_name=example_event_hub_namespace.name,
+            resource_group_name=example_resource_group.name,
+            partition_count=2,
+            message_retention=1)
+        example_authorization_rule = azure.eventhub.AuthorizationRule("exampleAuthorizationRule",
+            namespace_name=example_event_hub_namespace.name,
+            eventhub_name=example_event_hub.name,
+            resource_group_name=example_resource_group.name,
+            listen=False,
+            send=True,
+            manage=False)
+        example_endpoint_event_hub = azure.digitaltwins.EndpointEventHub("exampleEndpointEventHub",
+            digital_twins_id=example_instance.id,
+            eventhub_primary_connection_string=example_authorization_rule.primary_connection_string,
+            eventhub_secondary_connection_string=example_authorization_rule.secondary_connection_string)
+        ```
 
         ## Import
 

@@ -256,6 +256,49 @@ class NetworkManagerDeployment(pulumi.CustomResource):
 
         > **NOTE on Virtual Network Peering:** Using Network Manager Deployment to deploy Connectivity Configuration may modify or delete existing Virtual Network Peering. At this time you should not use Network Peering resource in conjunction with Network Manager Deployment. Doing so may cause a conflict of Peering configurations.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        current = azure.core.get_subscription()
+        example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            scope=azure.network.NetworkManagerScopeArgs(
+                subscription_ids=[current.id],
+            ),
+            scope_accesses=[
+                "Connectivity",
+                "SecurityAdmin",
+            ],
+            description="example network manager")
+        example_network_manager_network_group = azure.network.NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup", network_manager_id=example_network_manager.id)
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            address_spaces=["10.0.0.0/16"],
+            flow_timeout_in_minutes=10)
+        example_network_manager_connectivity_configuration = azure.network.NetworkManagerConnectivityConfiguration("exampleNetworkManagerConnectivityConfiguration",
+            network_manager_id=example_network_manager.id,
+            connectivity_topology="HubAndSpoke",
+            applies_to_groups=[azure.network.NetworkManagerConnectivityConfigurationAppliesToGroupArgs(
+                group_connectivity="None",
+                network_group_id=example_network_manager_network_group.id,
+            )],
+            hub=azure.network.NetworkManagerConnectivityConfigurationHubArgs(
+                resource_id=example_virtual_network.id,
+                resource_type="Microsoft.Network/virtualNetworks",
+            ))
+        example_network_manager_deployment = azure.network.NetworkManagerDeployment("exampleNetworkManagerDeployment",
+            network_manager_id=example_network_manager.id,
+            location="eastus",
+            scope_access="Connectivity",
+            configuration_ids=[example_network_manager_connectivity_configuration.id])
+        ```
+
         ## Import
 
         Network Manager Deployment can be imported using the `resource id`, e.g.
@@ -282,6 +325,49 @@ class NetworkManagerDeployment(pulumi.CustomResource):
         Manages a Network Manager Deployment.
 
         > **NOTE on Virtual Network Peering:** Using Network Manager Deployment to deploy Connectivity Configuration may modify or delete existing Virtual Network Peering. At this time you should not use Network Peering resource in conjunction with Network Manager Deployment. Doing so may cause a conflict of Peering configurations.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        current = azure.core.get_subscription()
+        example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            scope=azure.network.NetworkManagerScopeArgs(
+                subscription_ids=[current.id],
+            ),
+            scope_accesses=[
+                "Connectivity",
+                "SecurityAdmin",
+            ],
+            description="example network manager")
+        example_network_manager_network_group = azure.network.NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup", network_manager_id=example_network_manager.id)
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            address_spaces=["10.0.0.0/16"],
+            flow_timeout_in_minutes=10)
+        example_network_manager_connectivity_configuration = azure.network.NetworkManagerConnectivityConfiguration("exampleNetworkManagerConnectivityConfiguration",
+            network_manager_id=example_network_manager.id,
+            connectivity_topology="HubAndSpoke",
+            applies_to_groups=[azure.network.NetworkManagerConnectivityConfigurationAppliesToGroupArgs(
+                group_connectivity="None",
+                network_group_id=example_network_manager_network_group.id,
+            )],
+            hub=azure.network.NetworkManagerConnectivityConfigurationHubArgs(
+                resource_id=example_virtual_network.id,
+                resource_type="Microsoft.Network/virtualNetworks",
+            ))
+        example_network_manager_deployment = azure.network.NetworkManagerDeployment("exampleNetworkManagerDeployment",
+            network_manager_id=example_network_manager.id,
+            location="eastus",
+            scope_access="Connectivity",
+            configuration_ids=[example_network_manager_connectivity_configuration.id])
+        ```
 
         ## Import
 

@@ -69,6 +69,9 @@ class CertifiateCertificate(dict):
                > **NOTE:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a private_key in pkcs8 format. There should only be linux style `\\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
                
                To convert a private key to pkcs8 format with openssl use:
+               ```python
+               import pulumi
+               ```
                
                The PEM content should look something like:
         """
@@ -108,6 +111,9 @@ class CertifiateCertificate(dict):
         > **NOTE:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a private_key in pkcs8 format. There should only be linux style `\\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
 
         To convert a private key to pkcs8 format with openssl use:
+        ```python
+        import pulumi
+        ```
 
         The PEM content should look something like:
         """
@@ -930,6 +936,9 @@ class CertificateCertificate(dict):
                > **NOTE:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a private_key in pkcs8 format. There should only be linux style `\\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
                
                To convert a private key to pkcs8 format with openssl use:
+               ```python
+               import pulumi
+               ```
                
                The PEM content should look something like:
         """
@@ -969,6 +978,9 @@ class CertificateCertificate(dict):
         > **NOTE:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a private_key in pkcs8 format. There should only be linux style `\\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
 
         To convert a private key to pkcs8 format with openssl use:
+        ```python
+        import pulumi
+        ```
 
         The PEM content should look something like:
         """

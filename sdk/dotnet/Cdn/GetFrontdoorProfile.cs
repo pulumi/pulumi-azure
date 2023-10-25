@@ -13,12 +13,58 @@ namespace Pulumi.Azure.Cdn
     {
         /// <summary>
         /// Use this data source to access information about an existing Front Door (standard/premium) Profile.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Cdn.GetFrontdoorProfile.Invoke(new()
+        ///     {
+        ///         Name = "existing-cdn-profile",
+        ///         ResourceGroupName = "existing-resources",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetFrontdoorProfileResult> InvokeAsync(GetFrontdoorProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFrontdoorProfileResult>("azure:cdn/getFrontdoorProfile:getFrontdoorProfile", args ?? new GetFrontdoorProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Front Door (standard/premium) Profile.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Cdn.GetFrontdoorProfile.Invoke(new()
+        ///     {
+        ///         Name = "existing-cdn-profile",
+        ///         ResourceGroupName = "existing-resources",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetFrontdoorProfileResult> Invoke(GetFrontdoorProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFrontdoorProfileResult>("azure:cdn/getFrontdoorProfile:getFrontdoorProfile", args ?? new GetFrontdoorProfileInvokeArgs(), options.WithDefaults());

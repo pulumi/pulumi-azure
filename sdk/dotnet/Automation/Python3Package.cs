@@ -12,6 +12,45 @@ namespace Pulumi.Azure.Automation
     /// <summary>
     /// Manages a Automation Python3 Package.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "%[2]s",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Automation.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Basic",
+    ///     });
+    /// 
+    ///     var examplePython3Package = new Azure.Automation.Python3Package("examplePython3Package", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AutomationAccountName = exampleAccount.Name,
+    ///         ContentUri = "https://pypi.org/packages/source/r/requests/requests-2.31.0.tar.gz",
+    ///         ContentVersion = "2.31.0",
+    ///         HashAlgorithm = "sha256",
+    ///         HashValue = "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1",
+    ///         Tags = 
+    ///         {
+    ///             { "key", "foo" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Automation Python3 Packages can be imported using the `resource id`, e.g.

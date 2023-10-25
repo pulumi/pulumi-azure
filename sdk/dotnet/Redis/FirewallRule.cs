@@ -12,6 +12,58 @@ namespace Pulumi.Azure.Redis
     /// <summary>
     /// Manages a Firewall Rule associated with a Redis Cache.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using Random = Pulumi.Random;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var server = new Random.RandomId("server", new()
+    ///     {
+    ///         Keepers = 
+    ///         {
+    ///             { "azi_id", 1 },
+    ///         },
+    ///         ByteLength = 8,
+    ///     });
+    /// 
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleCache = new Azure.Redis.Cache("exampleCache", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Capacity = 1,
+    ///         Family = "P",
+    ///         SkuName = "Premium",
+    ///         EnableNonSslPort = false,
+    ///         RedisConfiguration = new Azure.Redis.Inputs.CacheRedisConfigurationArgs
+    ///         {
+    ///             MaxmemoryReserved = 2,
+    ///             MaxmemoryDelta = 2,
+    ///             MaxmemoryPolicy = "allkeys-lru",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleFirewallRule = new Azure.Redis.FirewallRule("exampleFirewallRule", new()
+    ///     {
+    ///         RedisCacheName = exampleCache.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         StartIp = "1.2.3.4",
+    ///         EndIp = "2.3.4.5",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Redis Firewall Rules can be imported using the `resource id`, e.g.

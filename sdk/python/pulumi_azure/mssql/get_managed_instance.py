@@ -282,6 +282,16 @@ def get_managed_instance(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Microsoft SQL Azure Managed Instance.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.mssql.get_managed_instance(name="managedsqlinstance",
+        resource_group_name=azurerm_resource_group["example"]["name"])
+    ```
+
 
     :param str name: The name of the SQL Managed Instance.
     :param str resource_group_name: The name of the resource group where the SQL Managed Instance exists.
@@ -322,6 +332,16 @@ def get_managed_instance_output(name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedInstanceResult]:
     """
     Use this data source to access information about an existing Microsoft SQL Azure Managed Instance.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.mssql.get_managed_instance(name="managedsqlinstance",
+        resource_group_name=azurerm_resource_group["example"]["name"])
+    ```
 
 
     :param str name: The name of the SQL Managed Instance.

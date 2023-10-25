@@ -12,6 +12,73 @@ namespace Pulumi.Azure.Storage
     /// <summary>
     /// Manages a Storage Account Local User.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "WestEurope",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountKind = "StorageV2",
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///         IsHnsEnabled = true,
+    ///     });
+    /// 
+    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
+    ///     {
+    ///         StorageAccountName = exampleAccount.Name,
+    ///     });
+    /// 
+    ///     var exampleLocalUser = new Azure.Storage.LocalUser("exampleLocalUser", new()
+    ///     {
+    ///         StorageAccountId = exampleAccount.Id,
+    ///         SshKeyEnabled = true,
+    ///         SshPasswordEnabled = true,
+    ///         HomeDirectory = "example_path",
+    ///         SshAuthorizedKeys = new[]
+    ///         {
+    ///             new Azure.Storage.Inputs.LocalUserSshAuthorizedKeyArgs
+    ///             {
+    ///                 Description = "key1",
+    ///                 Key = local.First_public_key,
+    ///             },
+    ///             new Azure.Storage.Inputs.LocalUserSshAuthorizedKeyArgs
+    ///             {
+    ///                 Description = "key2",
+    ///                 Key = local.Second_public_key,
+    ///             },
+    ///         },
+    ///         PermissionScopes = new[]
+    ///         {
+    ///             new Azure.Storage.Inputs.LocalUserPermissionScopeArgs
+    ///             {
+    ///                 Permissions = new Azure.Storage.Inputs.LocalUserPermissionScopePermissionsArgs
+    ///                 {
+    ///                     Read = true,
+    ///                     Create = true,
+    ///                 },
+    ///                 Service = "blob",
+    ///                 ResourceName = exampleContainer.Name,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Storage Account Local Users can be imported using the `resource id`, e.g.

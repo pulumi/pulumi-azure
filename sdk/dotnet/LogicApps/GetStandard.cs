@@ -13,12 +13,66 @@ namespace Pulumi.Azure.LogicApps
     {
         /// <summary>
         /// Use this data source to access information about an existing Logic App Standard instance.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.LogicApps.GetStandard.Invoke(new()
+        ///     {
+        ///         Name = "logicappstd",
+        ///         ResourceGroupName = "example-rg",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getStandardResult =&gt; getStandardResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetStandardResult> InvokeAsync(GetStandardArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStandardResult>("azure:logicapps/getStandard:getStandard", args ?? new GetStandardArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Logic App Standard instance.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.LogicApps.GetStandard.Invoke(new()
+        ///     {
+        ///         Name = "logicappstd",
+        ///         ResourceGroupName = "example-rg",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getStandardResult =&gt; getStandardResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetStandardResult> Invoke(GetStandardInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStandardResult>("azure:logicapps/getStandard:getStandard", args ?? new GetStandardInvokeArgs(), options.WithDefaults());

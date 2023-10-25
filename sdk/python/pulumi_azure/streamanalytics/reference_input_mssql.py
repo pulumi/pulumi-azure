@@ -530,6 +530,37 @@ class ReferenceInputMssql(pulumi.CustomResource):
         """
         Manages a Stream Analytics Reference Input from MS SQL. Reference data (also known as a lookup table) is a finite data set that is static or slowly changing in nature, used to perform a lookup or to correlate with your data stream. Learn more [here](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-use-reference-data#azure-sql-database).
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_job = azure.streamanalytics.get_job_output(name="example-job",
+            resource_group_name=example_resource_group.name)
+        example_server = azure.mssql.Server("exampleServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            version="12.0",
+            administrator_login="admin",
+            administrator_login_password="password")
+        example_database = azure.mssql.Database("exampleDatabase", server_id=example_server.id)
+        example_reference_input_mssql = azure.streamanalytics.ReferenceInputMssql("exampleReferenceInputMssql",
+            resource_group_name=example_job.resource_group_name,
+            stream_analytics_job_name=example_job.name,
+            server=example_server.fully_qualified_domain_name,
+            database=example_database.name,
+            username="exampleuser",
+            password="examplepassword",
+            refresh_type="RefreshPeriodicallyWithFull",
+            refresh_interval_duration="00:20:00",
+            full_snapshot_query=\"\"\"    SELECT *
+            INTO [YourOutputAlias]
+            FROM [YourInputAlias]
+        \"\"\")
+        ```
+
         ## Import
 
         Stream Analytics can be imported using the `resource id`, e.g.
@@ -561,6 +592,37 @@ class ReferenceInputMssql(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Stream Analytics Reference Input from MS SQL. Reference data (also known as a lookup table) is a finite data set that is static or slowly changing in nature, used to perform a lookup or to correlate with your data stream. Learn more [here](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-use-reference-data#azure-sql-database).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_job = azure.streamanalytics.get_job_output(name="example-job",
+            resource_group_name=example_resource_group.name)
+        example_server = azure.mssql.Server("exampleServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            version="12.0",
+            administrator_login="admin",
+            administrator_login_password="password")
+        example_database = azure.mssql.Database("exampleDatabase", server_id=example_server.id)
+        example_reference_input_mssql = azure.streamanalytics.ReferenceInputMssql("exampleReferenceInputMssql",
+            resource_group_name=example_job.resource_group_name,
+            stream_analytics_job_name=example_job.name,
+            server=example_server.fully_qualified_domain_name,
+            database=example_database.name,
+            username="exampleuser",
+            password="examplepassword",
+            refresh_type="RefreshPeriodicallyWithFull",
+            refresh_interval_duration="00:20:00",
+            full_snapshot_query=\"\"\"    SELECT *
+            INTO [YourOutputAlias]
+            FROM [YourInputAlias]
+        \"\"\")
+        ```
 
         ## Import
 

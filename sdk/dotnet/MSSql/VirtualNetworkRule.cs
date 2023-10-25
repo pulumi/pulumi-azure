@@ -12,6 +12,63 @@ namespace Pulumi.Azure.MSSql
     /// <summary>
     /// Allows you to manage rules for allowing traffic between an Azure SQL server and a subnet of a virtual network.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.7.29.0/29",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.7.29.0/29",
+    ///         },
+    ///         ServiceEndpoints = new[]
+    ///         {
+    ///             "Microsoft.Sql",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleServer = new Azure.MSSql.Server("exampleServer", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Version = "12.0",
+    ///         AdministratorLogin = "4dm1n157r470r",
+    ///         AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetworkRule = new Azure.MSSql.VirtualNetworkRule("exampleVirtualNetworkRule", new()
+    ///     {
+    ///         ServerId = exampleServer.Id,
+    ///         SubnetId = exampleSubnet.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// SQL Virtual Network Rules can be imported using the `resource id`, e.g.

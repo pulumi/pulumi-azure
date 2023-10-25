@@ -12,6 +12,95 @@ namespace Pulumi.Azure.PostgreSql
     /// <summary>
     /// Manages a PostgreSQL Flexible Server.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
+    ///         },
+    ///         ServiceEndpoints = new[]
+    ///         {
+    ///             "Microsoft.Storage",
+    ///         },
+    ///         Delegations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.SubnetDelegationArgs
+    ///             {
+    ///                 Name = "fs",
+    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                 {
+    ///                     Name = "Microsoft.DBforPostgreSQL/flexibleServers",
+    ///                     Actions = new[]
+    ///                     {
+    ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleZone = new Azure.PrivateDns.Zone("exampleZone", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleZoneVirtualNetworkLink = new Azure.PrivateDns.ZoneVirtualNetworkLink("exampleZoneVirtualNetworkLink", new()
+    ///     {
+    ///         PrivateDnsZoneName = exampleZone.Name,
+    ///         VirtualNetworkId = exampleVirtualNetwork.Id,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleFlexibleServer = new Azure.PostgreSql.FlexibleServer("exampleFlexibleServer", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Version = "12",
+    ///         DelegatedSubnetId = exampleSubnet.Id,
+    ///         PrivateDnsZoneId = exampleZone.Id,
+    ///         AdministratorLogin = "psqladmin",
+    ///         AdministratorPassword = "H@Sh1CoR3!",
+    ///         Zone = "1",
+    ///         StorageMb = 32768,
+    ///         SkuName = "GP_Standard_D4s_v3",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleZoneVirtualNetworkLink,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// PostgreSQL Flexible Servers can be imported using the `resource id`, e.g.

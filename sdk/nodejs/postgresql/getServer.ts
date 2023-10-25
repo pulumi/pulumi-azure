@@ -8,6 +8,19 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing PostgreSQL Azure Database Server.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.postgresql.getServer({
+ *     name: "postgresql-server-1",
+ *     resourceGroupName: "api-rg-pro",
+ * });
+ * export const postgresqlServerId = example.then(example => example.id);
+ * ```
  */
 export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
 
@@ -73,6 +86,19 @@ export interface GetServerResult {
 }
 /**
  * Use this data source to access information about an existing PostgreSQL Azure Database Server.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.postgresql.getServer({
+ *     name: "postgresql-server-1",
+ *     resourceGroupName: "api-rg-pro",
+ * });
+ * export const postgresqlServerId = example.then(example => example.id);
+ * ```
  */
 export function getServerOutput(args: GetServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerResult> {
     return pulumi.output(args).apply((a: any) => getServer(a, opts))

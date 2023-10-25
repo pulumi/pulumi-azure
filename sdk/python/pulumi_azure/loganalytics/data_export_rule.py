@@ -316,6 +316,31 @@ class DataExportRule(pulumi.CustomResource):
         """
         Manages a Log Analytics Data Export Rule.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="PerGB2018",
+            retention_in_days=30)
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_data_export_rule = azure.loganalytics.DataExportRule("exampleDataExportRule",
+            resource_group_name=example_resource_group.name,
+            workspace_resource_id=example_analytics_workspace.id,
+            destination_resource_id=example_account.id,
+            table_names=["Heartbeat"],
+            enabled=True)
+        ```
+
         ## Import
 
         Log Analytics Data Export Rule can be imported using the `resource id`, e.g.
@@ -341,6 +366,31 @@ class DataExportRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Log Analytics Data Export Rule.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="PerGB2018",
+            retention_in_days=30)
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_data_export_rule = azure.loganalytics.DataExportRule("exampleDataExportRule",
+            resource_group_name=example_resource_group.name,
+            workspace_resource_id=example_analytics_workspace.id,
+            destination_resource_id=example_account.id,
+            table_names=["Heartbeat"],
+            enabled=True)
+        ```
 
         ## Import
 

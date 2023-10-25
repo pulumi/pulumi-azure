@@ -17,6 +17,50 @@ import (
 //
 // !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `graph.ServicesAccount` resource instead.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/graph"
+//	"github.com/pulumi/pulumi-azuread/sdk/v5/go/azuread"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleApplication, err := azuread.NewApplication(ctx, "exampleApplication", &azuread.ApplicationArgs{
+//				DisplayName: pulumi.String("example-app"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = graph.NewAccount(ctx, "exampleAccount", &graph.AccountArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ApplicationId:     exampleApplication.ApplicationId,
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("Production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // An existing Account can be imported into Terraform using the `resource id`, e.g.

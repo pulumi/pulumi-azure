@@ -7,6 +7,22 @@ import * as utilities from "../utilities";
 /**
  * Manages a HyperV Site in Recovery Service Vault.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "eastus"});
+ * const exampleVault = new azure.recoveryservices.Vault("exampleVault", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "Standard",
+ *     softDeleteEnabled: false,
+ * });
+ * const exampleHyperVSite = new azure.siterecovery.HyperVSite("exampleHyperVSite", {recoveryVaultId: exampleVault.id});
+ * ```
+ *
  * ## Import
  *
  * Recovery Services can be imported using the `resource id`, e.g.

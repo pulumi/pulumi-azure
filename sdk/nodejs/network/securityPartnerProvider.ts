@@ -7,6 +7,41 @@ import * as utilities from "../utilities";
 /**
  * Manages a Security Partner Provider which could be associated to virtual hub.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleVirtualWan = new azure.network.VirtualWan("exampleVirtualWan", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ * });
+ * const exampleVirtualHub = new azure.network.VirtualHub("exampleVirtualHub", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     virtualWanId: exampleVirtualWan.id,
+ *     addressPrefix: "10.0.2.0/24",
+ * });
+ * const exampleVpnGateway = new azure.network.VpnGateway("exampleVpnGateway", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualHubId: exampleVirtualHub.id,
+ * });
+ * const exampleSecurityPartnerProvider = new azure.network.SecurityPartnerProvider("exampleSecurityPartnerProvider", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     virtualHubId: exampleVirtualHub.id,
+ *     securityProviderName: "IBoss",
+ *     tags: {
+ *         ENV: "Prod",
+ *     },
+ * }, {
+ *     dependsOn: [exampleVpnGateway],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Security Partner Providers can be imported using the `resource id`, e.g.

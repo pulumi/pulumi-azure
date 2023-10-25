@@ -214,6 +214,28 @@ class Configuration(pulumi.CustomResource):
         """
         Sets a MariaDB Configuration value on a MariaDB Server.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_server = azure.mariadb.Server("exampleServer",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="B_Gen5_2",
+            ssl_enforcement_enabled=True,
+            administrator_login="mariadbadmin",
+            administrator_login_password="H@Sh1CoR3!",
+            version="10.2")
+        example_configuration = azure.mariadb.Configuration("exampleConfiguration",
+            name="interactive_timeout",
+            resource_group_name=example_resource_group.name,
+            server_name=example_server.name,
+            value="600")
+        ```
+
         ## Import
 
         MariaDB Configurations can be imported using the `resource id`, e.g.
@@ -237,6 +259,28 @@ class Configuration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Sets a MariaDB Configuration value on a MariaDB Server.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_server = azure.mariadb.Server("exampleServer",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="B_Gen5_2",
+            ssl_enforcement_enabled=True,
+            administrator_login="mariadbadmin",
+            administrator_login_password="H@Sh1CoR3!",
+            version="10.2")
+        example_configuration = azure.mariadb.Configuration("exampleConfiguration",
+            name="interactive_timeout",
+            resource_group_name=example_resource_group.name,
+            server_name=example_server.name,
+            value="600")
+        ```
 
         ## Import
 

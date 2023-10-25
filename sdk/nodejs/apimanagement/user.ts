@@ -7,6 +7,31 @@ import * as utilities from "../utilities";
 /**
  * Manages an API Management User.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleService = new azure.apimanagement.Service("exampleService", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     publisherName: "My Company",
+ *     publisherEmail: "company@exmaple.com",
+ *     skuName: "Developer_1",
+ * });
+ * const exampleUser = new azure.apimanagement.User("exampleUser", {
+ *     userId: "5931a75ae4bbd512288c680b",
+ *     apiManagementName: exampleService.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     firstName: "Example",
+ *     lastName: "User",
+ *     email: "user@example.com",
+ *     state: "active",
+ * });
+ * ```
+ *
  * ## Import
  *
  * API Management Users can be imported using the `resource id`, e.g.

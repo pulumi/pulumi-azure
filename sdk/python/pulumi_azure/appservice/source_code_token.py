@@ -175,6 +175,17 @@ class SourceCodeToken(pulumi.CustomResource):
 
         > **NOTE:** Source Control Tokens are configured at the subscription level, not on each App Service - as such this can only be configured Subscription-wide
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.appservice.SourceCodeToken("example",
+            token="7e57735e77e577e57",
+            type="GitHub")
+        ```
+
         ## Import
 
         App Service Source Control Token's can be imported using the `type`, e.g.
@@ -201,6 +212,17 @@ class SourceCodeToken(pulumi.CustomResource):
         !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `appservice.ServicePlan` resource instead.
 
         > **NOTE:** Source Control Tokens are configured at the subscription level, not on each App Service - as such this can only be configured Subscription-wide
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.appservice.SourceCodeToken("example",
+            token="7e57735e77e577e57",
+            type="GitHub")
+        ```
 
         ## Import
 

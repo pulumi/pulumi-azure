@@ -15,6 +15,52 @@ import (
 
 // Manages a VMWare Replication Policy.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/recoveryservices"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/siterecovery"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("eastus"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVault, err := recoveryservices.NewVault(ctx, "exampleVault", &recoveryservices.VaultArgs{
+//				Location:                        exampleResourceGroup.Location,
+//				ResourceGroupName:               exampleResourceGroup.Name,
+//				Sku:                             pulumi.String("Standard"),
+//				ClassicVmwareReplicationEnabled: pulumi.Bool(true),
+//				SoftDeleteEnabled:               pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = siterecovery.NewVMWareReplicationPolicy(ctx, "exampleVMWareReplicationPolicy", &siterecovery.VMWareReplicationPolicyArgs{
+//				RecoveryVaultId:                                 exampleVault.ID(),
+//				RecoveryPointRetentionInMinutes:                 pulumi.Int(1440),
+//				ApplicationConsistentSnapshotFrequencyInMinutes: pulumi.Int(240),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // VMWare Replication Policy can be imported using the `resource id`, e.g.

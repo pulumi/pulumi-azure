@@ -6,6 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Container Registry.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.containerservice.getRegistry({
+ *     name: "testacr",
+ *     resourceGroupName: "test",
+ * });
+ * export const loginServer = example.then(example => example.loginServer);
+ * ```
  */
 export function getRegistry(args: GetRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryResult> {
 
@@ -75,6 +88,19 @@ export interface GetRegistryResult {
 }
 /**
  * Use this data source to access information about an existing Container Registry.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.containerservice.getRegistry({
+ *     name: "testacr",
+ *     resourceGroupName: "test",
+ * });
+ * export const loginServer = example.then(example => example.loginServer);
+ * ```
  */
 export function getRegistryOutput(args: GetRegistryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryResult> {
     return pulumi.output(args).apply((a: any) => getRegistry(a, opts))

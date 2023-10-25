@@ -12,6 +12,54 @@ namespace Pulumi.Azure.Sentinel
     /// <summary>
     /// Manages a Sentinel Threat Intelligence Indicator.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "east us",
+    ///     });
+    /// 
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "PerGB2018",
+    ///         RetentionInDays = 30,
+    ///     });
+    /// 
+    ///     var exampleLogAnalyticsWorkspaceOnboarding = new Azure.Sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         WorkspaceName = exampleAnalyticsWorkspace.Name,
+    ///     });
+    /// 
+    ///     var exampleThreatIntelligenceIndicator = new Azure.Sentinel.ThreatIntelligenceIndicator("exampleThreatIntelligenceIndicator", new()
+    ///     {
+    ///         WorkspaceId = exampleAnalyticsWorkspace.Id,
+    ///         PatternType = "domain-name",
+    ///         Pattern = "http://example.com",
+    ///         Source = "Microsoft Sentinel",
+    ///         ValidateFromUtc = "2022-12-14T16:00:00Z",
+    ///         DisplayName = "example-indicator",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             azurerm_sentinel_log_analytics_workspace_onboarding.Test,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Sentinel Threat Intelligence Indicators can be imported using the `resource id`, e.g.

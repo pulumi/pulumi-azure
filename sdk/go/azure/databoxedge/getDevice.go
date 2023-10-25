@@ -13,6 +13,33 @@ import (
 )
 
 // Get information about a Databox Edge Device.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/databoxedge"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := databoxedge.LookupDevice(ctx, &databoxedge.LookupDeviceArgs{
+//				Name:              "example-device",
+//				ResourceGroupName: "example-rg",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupDevice(ctx *pulumi.Context, args *LookupDeviceArgs, opts ...pulumi.InvokeOption) (*LookupDeviceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDeviceResult

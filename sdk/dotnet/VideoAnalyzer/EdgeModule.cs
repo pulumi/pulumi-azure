@@ -14,6 +14,89 @@ namespace Pulumi.Azure.VideoAnalyzer
     /// 
     /// !&gt; Video Analyzer (Preview) is now Deprecated and will be Retired on 2022-11-30 - as such the `azure.videoanalyzer.EdgeModule` resource is deprecated and will be removed in v4.0 of the AzureRM Provider.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "GRS",
+    ///     });
+    /// 
+    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("exampleUserAssignedIdentity", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var contributor = new Azure.Authorization.Assignment("contributor", new()
+    ///     {
+    ///         Scope = exampleAccount.Id,
+    ///         RoleDefinitionName = "Storage Blob Data Contributor",
+    ///         PrincipalId = exampleUserAssignedIdentity.PrincipalId,
+    ///     });
+    /// 
+    ///     var reader = new Azure.Authorization.Assignment("reader", new()
+    ///     {
+    ///         Scope = exampleAccount.Id,
+    ///         RoleDefinitionName = "Reader",
+    ///         PrincipalId = exampleUserAssignedIdentity.PrincipalId,
+    ///     });
+    /// 
+    ///     var exampleAnalyzer = new Azure.VideoAnalyzer.Analyzer("exampleAnalyzer", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         StorageAccount = new Azure.VideoAnalyzer.Inputs.AnalyzerStorageAccountArgs
+    ///         {
+    ///             Id = exampleAccount.Id,
+    ///             UserAssignedIdentityId = exampleUserAssignedIdentity.Id,
+    ///         },
+    ///         Identity = new Azure.VideoAnalyzer.Inputs.AnalyzerIdentityArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             IdentityIds = new[]
+    ///             {
+    ///                 exampleUserAssignedIdentity.Id,
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "staging" },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleUserAssignedIdentity,
+    ///             contributor,
+    ///             reader,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleEdgeModule = new Azure.VideoAnalyzer.EdgeModule("exampleEdgeModule", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VideoAnalyzerName = exampleAnalyzer.Name,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Video Analyzer Edge Module can be imported using the `resource id`, e.g.

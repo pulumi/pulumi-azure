@@ -7,6 +7,31 @@ import * as utilities from "../utilities";
 /**
  * Manages a Management Group Policy Exemption.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleGroup = new azure.management.Group("exampleGroup", {displayName: "Example MgmtGroup"});
+ * const examplePolicySetDefinition = azure.policy.getPolicySetDefinition({
+ *     displayName: "Audit machines with insecure password security settings",
+ * });
+ * const exampleGroupPolicyAssignment = new azure.management.GroupPolicyAssignment("exampleGroupPolicyAssignment", {
+ *     managementGroupId: exampleGroup.id,
+ *     policyDefinitionId: examplePolicySetDefinition.then(examplePolicySetDefinition => examplePolicySetDefinition.id),
+ *     location: "westus",
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ * });
+ * const exampleGroupPolicyExemption = new azure.management.GroupPolicyExemption("exampleGroupPolicyExemption", {
+ *     managementGroupId: exampleGroup.id,
+ *     policyAssignmentId: exampleGroupPolicyAssignment.id,
+ *     exemptionCategory: "Mitigated",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Policy Exemptions can be imported using the `resource id`, e.g.

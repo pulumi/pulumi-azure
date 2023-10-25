@@ -89,6 +89,16 @@ def get_kubernetes_node_pool_snapshot(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Kubernetes Node Pool Snapshot.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.containerservice.get_kubernetes_node_pool_snapshot(name="example",
+        resource_group_name="example-resources")
+    ```
+
 
     :param str name: The name of the Kubernetes Node Pool Snapshot.
     :param str resource_group_name: The name of the Resource Group in which the Kubernetes Node Pool Snapshot exists.
@@ -113,6 +123,16 @@ def get_kubernetes_node_pool_snapshot_output(name: Optional[pulumi.Input[str]] =
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKubernetesNodePoolSnapshotResult]:
     """
     Use this data source to access information about an existing Kubernetes Node Pool Snapshot.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.containerservice.get_kubernetes_node_pool_snapshot(name="example",
+        resource_group_name="example-resources")
+    ```
 
 
     :param str name: The name of the Kubernetes Node Pool Snapshot.

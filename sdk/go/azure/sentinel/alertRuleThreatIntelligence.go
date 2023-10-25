@@ -15,6 +15,69 @@ import (
 
 // Manages a Sentinel Threat Intelligence Alert Rule.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sentinel"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("pergb2018"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAnalyticsSolution, err := operationalinsights.NewAnalyticsSolution(ctx, "exampleAnalyticsSolution", &operationalinsights.AnalyticsSolutionArgs{
+//				SolutionName:        pulumi.String("SecurityInsights"),
+//				Location:            exampleResourceGroup.Location,
+//				ResourceGroupName:   exampleResourceGroup.Name,
+//				WorkspaceResourceId: exampleAnalyticsWorkspace.ID(),
+//				WorkspaceName:       exampleAnalyticsWorkspace.Name,
+//				Plan: &operationalinsights.AnalyticsSolutionPlanArgs{
+//					Publisher: pulumi.String("Microsoft"),
+//					Product:   pulumi.String("OMSGallery/SecurityInsights"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAlertRuleTemplate := sentinel.GetAlertRuleTemplateOutput(ctx, sentinel.GetAlertRuleTemplateOutputArgs{
+//				DisplayName:             pulumi.String("(Preview) Microsoft Defender Threat Intelligence Analytics"),
+//				LogAnalyticsWorkspaceId: exampleAnalyticsSolution.WorkspaceResourceId,
+//			}, nil)
+//			_, err = sentinel.NewAlertRuleThreatIntelligence(ctx, "exampleAlertRuleThreatIntelligence", &sentinel.AlertRuleThreatIntelligenceArgs{
+//				LogAnalyticsWorkspaceId: exampleAnalyticsSolution.WorkspaceResourceId,
+//				AlertRuleTemplateGuid: exampleAlertRuleTemplate.ApplyT(func(exampleAlertRuleTemplate sentinel.GetAlertRuleTemplateResult) (*string, error) {
+//					return &exampleAlertRuleTemplate.Name, nil
+//				}).(pulumi.StringPtrOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Sentinel Threat Intelligence Alert Rules can be imported using the `resource id`, e.g.

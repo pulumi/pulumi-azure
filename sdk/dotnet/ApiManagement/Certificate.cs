@@ -13,6 +13,141 @@ namespace Pulumi.Azure.ApiManagement
     /// Manages an Certificate within an API Management Service.
     /// 
     /// ## Example Usage
+    /// ### With Base64 Certificate)
+    /// 
+    /// ```csharp
+    /// using System;
+    /// using System.Collections.Generic;
+    /// using System.IO;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// 	private static string ReadFileBase64(string path) {
+    /// 		return Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(File.ReadAllText(path)));
+    /// 	}
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PublisherName = "My Company",
+    ///         PublisherEmail = "company@exmaple.com",
+    ///         SkuName = "Developer_1",
+    ///     });
+    /// 
+    ///     var exampleCertificate = new Azure.ApiManagement.Certificate("exampleCertificate", new()
+    ///     {
+    ///         ApiManagementName = exampleService.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Data = ReadFileBase64("example.pfx"),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### With Key Vault Certificate)
+    /// 
+    /// ```csharp
+    /// using System;
+    /// using System.Collections.Generic;
+    /// using System.IO;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// 	private static string ReadFileBase64(string path) {
+    /// 		return Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(File.ReadAllText(path)));
+    /// 	}
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PublisherName = "My Company",
+    ///         PublisherEmail = "company@terraform.io",
+    ///         SkuName = "Developer_1",
+    ///         Identity = new Azure.ApiManagement.Inputs.ServiceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "standard",
+    ///     });
+    /// 
+    ///     var exampleAccessPolicy = new Azure.KeyVault.AccessPolicy("exampleAccessPolicy", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         TenantId = exampleService.Identity.Apply(identity =&gt; identity?.TenantId),
+    ///         ObjectId = exampleService.Identity.Apply(identity =&gt; identity?.PrincipalId),
+    ///         SecretPermissions = new[]
+    ///         {
+    ///             "Get",
+    ///         },
+    ///         CertificatePermissions = new[]
+    ///         {
+    ///             "Get",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleCertificate = new Azure.KeyVault.Certificate("exampleCertificate", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         KeyVaultCertificate = new Azure.KeyVault.Inputs.CertificateCertificateArgs
+    ///         {
+    ///             Contents = ReadFileBase64("example_cert.pfx"),
+    ///             Password = "terraform",
+    ///         },
+    ///         CertificatePolicy = new Azure.KeyVault.Inputs.CertificateCertificatePolicyArgs
+    ///         {
+    ///             IssuerParameters = new Azure.KeyVault.Inputs.CertificateCertificatePolicyIssuerParametersArgs
+    ///             {
+    ///                 Name = "Self",
+    ///             },
+    ///             KeyProperties = new Azure.KeyVault.Inputs.CertificateCertificatePolicyKeyPropertiesArgs
+    ///             {
+    ///                 Exportable = true,
+    ///                 KeySize = 2048,
+    ///                 KeyType = "RSA",
+    ///                 ReuseKey = false,
+    ///             },
+    ///             SecretProperties = new Azure.KeyVault.Inputs.CertificateCertificatePolicySecretPropertiesArgs
+    ///             {
+    ///                 ContentType = "application/x-pkcs12",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleApimanagement_certificateCertificate = new Azure.ApiManagement.Certificate("exampleApimanagement/certificateCertificate", new()
+    ///     {
+    ///         ApiManagementName = exampleService.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         KeyVaultSecretId = exampleCertificate.SecretId,
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

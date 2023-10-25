@@ -7,6 +7,55 @@ import * as utilities from "../utilities";
 /**
  * Manages a Storage Mover Job Definition.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleMover = new azure.storage.Mover("exampleMover", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ * });
+ * const exampleMoverAgent = new azure.storage.MoverAgent("exampleMoverAgent", {
+ *     storageMoverId: exampleMover.id,
+ *     arcVirtualMachineId: pulumi.interpolate`${exampleResourceGroup.id}/providers/Microsoft.HybridCompute/machines/examples-hybridComputeName`,
+ *     arcVirtualMachineUuid: "3bb2c024-eba9-4d18-9e7a-1d772fcc5fe9",
+ * });
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ *     allowNestedItemsToBePublic: true,
+ * });
+ * const exampleContainer = new azure.storage.Container("exampleContainer", {
+ *     storageAccountName: exampleAccount.name,
+ *     containerAccessType: "blob",
+ * });
+ * const exampleMoverTargetEndpoint = new azure.storage.MoverTargetEndpoint("exampleMoverTargetEndpoint", {
+ *     storageMoverId: exampleMover.id,
+ *     storageAccountId: exampleAccount.id,
+ *     storageContainerName: exampleContainer.name,
+ * });
+ * const exampleMoverSourceEndpoint = new azure.storage.MoverSourceEndpoint("exampleMoverSourceEndpoint", {
+ *     storageMoverId: exampleMover.id,
+ *     host: "192.168.0.1",
+ * });
+ * const exampleMoverProject = new azure.storage.MoverProject("exampleMoverProject", {storageMoverId: exampleMover.id});
+ * const exampleMoverJobDefinition = new azure.storage.MoverJobDefinition("exampleMoverJobDefinition", {
+ *     storageMoverProjectId: exampleMoverProject.id,
+ *     agentName: exampleMoverAgent.name,
+ *     copyMode: "Additive",
+ *     sourceName: exampleMoverSourceEndpoint.name,
+ *     sourceSubPath: "/",
+ *     targetName: exampleMoverTargetEndpoint.name,
+ *     targetSubPath: "/",
+ *     description: "Example Job Definition Description",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Storage Mover Job Definition can be imported using the `resource id`, e.g.

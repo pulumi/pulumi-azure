@@ -14,6 +14,42 @@ namespace Pulumi.Azure.Storage
     /// 
     /// &gt; **Note:** Storage Encryption Scopes are in Preview [more information can be found here](https://docs.microsoft.com/azure/storage/blobs/encryption-scope-manage).
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///         Identity = new Azure.Storage.Inputs.AccountIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleEncryptionScope = new Azure.Storage.EncryptionScope("exampleEncryptionScope", new()
+    ///     {
+    ///         StorageAccountId = exampleAccount.Id,
+    ///         Source = "Microsoft.Storage",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Storage Encryption Scopes can be imported using the `resource id`, e.g.

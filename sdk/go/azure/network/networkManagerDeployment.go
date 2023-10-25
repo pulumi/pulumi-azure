@@ -17,6 +17,99 @@ import (
 //
 // > **NOTE on Virtual Network Peering:** Using Network Manager Deployment to deploy Connectivity Configuration may modify or delete existing Virtual Network Peering. At this time you should not use Network Peering resource in conjunction with Network Manager Deployment. Doing so may cause a conflict of Peering configurations.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			current, err := core.LookupSubscription(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleNetworkManager, err := network.NewNetworkManager(ctx, "exampleNetworkManager", &network.NetworkManagerArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Scope: &network.NetworkManagerScopeArgs{
+//					SubscriptionIds: pulumi.StringArray{
+//						*pulumi.String(current.Id),
+//					},
+//				},
+//				ScopeAccesses: pulumi.StringArray{
+//					pulumi.String("Connectivity"),
+//					pulumi.String("SecurityAdmin"),
+//				},
+//				Description: pulumi.String("example network manager"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleNetworkManagerNetworkGroup, err := network.NewNetworkManagerNetworkGroup(ctx, "exampleNetworkManagerNetworkGroup", &network.NetworkManagerNetworkGroupArgs{
+//				NetworkManagerId: exampleNetworkManager.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//				FlowTimeoutInMinutes: pulumi.Int(10),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleNetworkManagerConnectivityConfiguration, err := network.NewNetworkManagerConnectivityConfiguration(ctx, "exampleNetworkManagerConnectivityConfiguration", &network.NetworkManagerConnectivityConfigurationArgs{
+//				NetworkManagerId:     exampleNetworkManager.ID(),
+//				ConnectivityTopology: pulumi.String("HubAndSpoke"),
+//				AppliesToGroups: network.NetworkManagerConnectivityConfigurationAppliesToGroupArray{
+//					&network.NetworkManagerConnectivityConfigurationAppliesToGroupArgs{
+//						GroupConnectivity: pulumi.String("None"),
+//						NetworkGroupId:    exampleNetworkManagerNetworkGroup.ID(),
+//					},
+//				},
+//				Hub: &network.NetworkManagerConnectivityConfigurationHubArgs{
+//					ResourceId:   exampleVirtualNetwork.ID(),
+//					ResourceType: pulumi.String("Microsoft.Network/virtualNetworks"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewNetworkManagerDeployment(ctx, "exampleNetworkManagerDeployment", &network.NetworkManagerDeploymentArgs{
+//				NetworkManagerId: exampleNetworkManager.ID(),
+//				Location:         pulumi.String("eastus"),
+//				ScopeAccess:      pulumi.String("Connectivity"),
+//				ConfigurationIds: pulumi.StringArray{
+//					exampleNetworkManagerConnectivityConfiguration.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Network Manager Deployment can be imported using the `resource id`, e.g.

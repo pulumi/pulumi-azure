@@ -19,6 +19,33 @@ import (
 //
 // > **NOTE:** Deletion of this resource disables the setting.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/securitycenter"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := securitycenter.NewSetting(ctx, "example", &securitycenter.SettingArgs{
+//				Enabled:     pulumi.Bool(true),
+//				SettingName: pulumi.String("MCAS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // The setting can be imported using the `resource id`, e.g.

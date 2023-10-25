@@ -15,6 +15,107 @@ import (
 
 // Manages a Media Services Account Filter.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/media"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("GRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = media.NewServiceAccount(ctx, "exampleServiceAccount", &media.ServiceAccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				StorageAccounts: media.ServiceAccountStorageAccountArray{
+//					&media.ServiceAccountStorageAccountArgs{
+//						Id:        exampleAccount.ID(),
+//						IsPrimary: pulumi.Bool(true),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = media.NewAccountFilter(ctx, "exampleAccountFilter", &media.AccountFilterArgs{
+//				ResourceGroupName:        pulumi.Any(azurerm_resource_group.Test.Name),
+//				MediaServicesAccountName: pulumi.Any(azurerm_media_services_account.Test.Name),
+//				FirstQualityBitrate:      pulumi.Int(128000),
+//				PresentationTimeRange: &media.AccountFilterPresentationTimeRangeArgs{
+//					StartInUnits:                pulumi.Int(0),
+//					EndInUnits:                  pulumi.Int(15),
+//					PresentationWindowInUnits:   pulumi.Int(90),
+//					LiveBackoffInUnits:          pulumi.Int(0),
+//					UnitTimescaleInMilliseconds: pulumi.Int(1000),
+//					ForceEnd:                    pulumi.Bool(false),
+//				},
+//				TrackSelections: media.AccountFilterTrackSelectionArray{
+//					&media.AccountFilterTrackSelectionArgs{
+//						Conditions: media.AccountFilterTrackSelectionConditionArray{
+//							&media.AccountFilterTrackSelectionConditionArgs{
+//								Property:  pulumi.String("Type"),
+//								Operation: pulumi.String("Equal"),
+//								Value:     pulumi.String("Audio"),
+//							},
+//							&media.AccountFilterTrackSelectionConditionArgs{
+//								Property:  pulumi.String("Language"),
+//								Operation: pulumi.String("NotEqual"),
+//								Value:     pulumi.String("en"),
+//							},
+//							&media.AccountFilterTrackSelectionConditionArgs{
+//								Property:  pulumi.String("FourCC"),
+//								Operation: pulumi.String("NotEqual"),
+//								Value:     pulumi.String("EC-3"),
+//							},
+//						},
+//					},
+//					&media.AccountFilterTrackSelectionArgs{
+//						Conditions: media.AccountFilterTrackSelectionConditionArray{
+//							&media.AccountFilterTrackSelectionConditionArgs{
+//								Property:  pulumi.String("Type"),
+//								Operation: pulumi.String("Equal"),
+//								Value:     pulumi.String("Video"),
+//							},
+//							&media.AccountFilterTrackSelectionConditionArgs{
+//								Property:  pulumi.String("Bitrate"),
+//								Operation: pulumi.String("Equal"),
+//								Value:     pulumi.String("3000000-5000000"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Account Filters can be imported using the `resource id`, e.g.

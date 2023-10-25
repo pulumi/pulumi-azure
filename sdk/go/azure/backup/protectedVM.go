@@ -15,6 +15,72 @@ import (
 
 // Manages Azure Backup for an Azure VM
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/backup"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/recoveryservices"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVault, err := recoveryservices.NewVault(ctx, "exampleVault", &recoveryservices.VaultArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("Standard"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePolicyVM, err := backup.NewPolicyVM(ctx, "examplePolicyVM", &backup.PolicyVMArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				RecoveryVaultName: exampleVault.Name,
+//				Backup: &backup.PolicyVMBackupArgs{
+//					Frequency: pulumi.String("Daily"),
+//					Time:      pulumi.String("23:00"),
+//				},
+//				RetentionDaily: &backup.PolicyVMRetentionDailyArgs{
+//					Count: pulumi.Int(10),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualMachine := compute.LookupVirtualMachineOutput(ctx, compute.GetVirtualMachineOutputArgs{
+//				Name:              pulumi.String("example-vm"),
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			}, nil)
+//			_, err = backup.NewProtectedVM(ctx, "vm1", &backup.ProtectedVMArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				RecoveryVaultName: exampleVault.Name,
+//				SourceVmId: exampleVirtualMachine.ApplyT(func(exampleVirtualMachine compute.GetVirtualMachineResult) (*string, error) {
+//					return &exampleVirtualMachine.Id, nil
+//				}).(pulumi.StringPtrOutput),
+//				BackupPolicyId: examplePolicyVM.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Recovery Services Protected VMs can be imported using the `resource id`, e.g.

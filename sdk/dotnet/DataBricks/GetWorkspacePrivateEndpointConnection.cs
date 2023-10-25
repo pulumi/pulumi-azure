@@ -13,12 +13,66 @@ namespace Pulumi.Azure.DataBricks
     {
         /// <summary>
         /// Use this data source to access information on an existing Databricks Workspace private endpoint connection state.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.DataBricks.GetWorkspacePrivateEndpointConnection.Invoke(new()
+        ///     {
+        ///         WorkspaceId = azurerm_databricks_workspace.Example.Id,
+        ///         PrivateEndpointId = azurerm_private_endpoint.Example.Id,
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["databricksWorkspacePrivateEndpointConnectionStatus"] = example.Apply(getWorkspacePrivateEndpointConnectionResult =&gt; getWorkspacePrivateEndpointConnectionResult.Connections[0]?.Status),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetWorkspacePrivateEndpointConnectionResult> InvokeAsync(GetWorkspacePrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspacePrivateEndpointConnectionResult>("azure:databricks/getWorkspacePrivateEndpointConnection:getWorkspacePrivateEndpointConnection", args ?? new GetWorkspacePrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information on an existing Databricks Workspace private endpoint connection state.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.DataBricks.GetWorkspacePrivateEndpointConnection.Invoke(new()
+        ///     {
+        ///         WorkspaceId = azurerm_databricks_workspace.Example.Id,
+        ///         PrivateEndpointId = azurerm_private_endpoint.Example.Id,
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["databricksWorkspacePrivateEndpointConnectionStatus"] = example.Apply(getWorkspacePrivateEndpointConnectionResult =&gt; getWorkspacePrivateEndpointConnectionResult.Connections[0]?.Status),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetWorkspacePrivateEndpointConnectionResult> Invoke(GetWorkspacePrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspacePrivateEndpointConnectionResult>("azure:databricks/getWorkspacePrivateEndpointConnection:getWorkspacePrivateEndpointConnection", args ?? new GetWorkspacePrivateEndpointConnectionInvokeArgs(), options.WithDefaults());

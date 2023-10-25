@@ -746,6 +746,40 @@ class ResourceDeploymentScriptPowerShell(pulumi.CustomResource):
         """
         Manages a Resource Deployment Script of Azure PowerShell.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_resource_deployment_script_power_shell = azure.core.ResourceDeploymentScriptPowerShell("exampleResourceDeploymentScriptPowerShell",
+            resource_group_name=example_resource_group.name,
+            location="West Europe",
+            version="8.3",
+            retention_interval="P1D",
+            command_line="-name \\"John Dole\\"",
+            cleanup_preference="OnSuccess",
+            force_update_tag="1",
+            timeout="PT30M",
+            script_content=\"\"\"          param([string] $name)
+                    $output = 'Hello {0}.' -f $name
+                    Write-Output $output
+                    $DeploymentScriptOutputs = @{}
+                    $DeploymentScriptOutputs['text'] = $output
+        \"\"\",
+            identity=azure.core.ResourceDeploymentScriptPowerShellIdentityArgs(
+                type="UserAssigned",
+                identity_ids=[example_user_assigned_identity.id],
+            ),
+            tags={
+                "key": "value",
+            })
+        ```
+
         ## Import
 
         Resource Deployment Script can be imported using the `resource id`, e.g.
@@ -782,6 +816,40 @@ class ResourceDeploymentScriptPowerShell(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Resource Deployment Script of Azure PowerShell.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_resource_deployment_script_power_shell = azure.core.ResourceDeploymentScriptPowerShell("exampleResourceDeploymentScriptPowerShell",
+            resource_group_name=example_resource_group.name,
+            location="West Europe",
+            version="8.3",
+            retention_interval="P1D",
+            command_line="-name \\"John Dole\\"",
+            cleanup_preference="OnSuccess",
+            force_update_tag="1",
+            timeout="PT30M",
+            script_content=\"\"\"          param([string] $name)
+                    $output = 'Hello {0}.' -f $name
+                    Write-Output $output
+                    $DeploymentScriptOutputs = @{}
+                    $DeploymentScriptOutputs['text'] = $output
+        \"\"\",
+            identity=azure.core.ResourceDeploymentScriptPowerShellIdentityArgs(
+                type="UserAssigned",
+                identity_ids=[example_user_assigned_identity.id],
+            ),
+            tags={
+                "key": "value",
+            })
+        ```
 
         ## Import
 

@@ -7,6 +7,28 @@ import * as utilities from "../utilities";
 /**
  * Manages a resources Advanced Threat Protection setting.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ *     tags: {
+ *         environment: "example",
+ *     },
+ * });
+ * const exampleAdvancedThreatProtection = new azure.securitycenter.AdvancedThreatProtection("exampleAdvancedThreatProtection", {
+ *     targetResourceId: exampleAccount.id,
+ *     enabled: true,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Advanced Threat Protection can be imported using the `resource id`, e.g.

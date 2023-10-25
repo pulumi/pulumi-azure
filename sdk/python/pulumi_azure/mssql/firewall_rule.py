@@ -225,6 +225,25 @@ class FirewallRule(pulumi.CustomResource):
         """
         Allows you to manage an Azure SQL Firewall Rule.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_server = azure.mssql.Server("exampleServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            version="12.0",
+            administrator_login="4dm1n157r470r",
+            administrator_login_password="4-v3ry-53cr37-p455w0rd")
+        example_firewall_rule = azure.mssql.FirewallRule("exampleFirewallRule",
+            server_id=example_server.id,
+            start_ip_address="10.0.17.62",
+            end_ip_address="10.0.17.62")
+        ```
+
         ## Import
 
         SQL Firewall Rules can be imported using the `resource id`, e.g.
@@ -250,6 +269,25 @@ class FirewallRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Allows you to manage an Azure SQL Firewall Rule.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_server = azure.mssql.Server("exampleServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            version="12.0",
+            administrator_login="4dm1n157r470r",
+            administrator_login_password="4-v3ry-53cr37-p455w0rd")
+        example_firewall_rule = azure.mssql.FirewallRule("exampleFirewallRule",
+            server_id=example_server.id,
+            start_ip_address="10.0.17.62",
+            end_ip_address="10.0.17.62")
+        ```
 
         ## Import
 

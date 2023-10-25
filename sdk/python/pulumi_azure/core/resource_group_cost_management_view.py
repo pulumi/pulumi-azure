@@ -449,6 +449,29 @@ class ResourceGroupCostManagementView(pulumi.CustomResource):
         """
         Manages an Azure Cost Management View for a Resource Group.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_resource_group_cost_management_view = azure.core.ResourceGroupCostManagementView("exampleResourceGroupCostManagementView",
+            display_name="Cost View per Month",
+            chart_type="StackedColumn",
+            accumulated=False,
+            resource_group_id=example_resource_group.id,
+            report_type="Usage",
+            timeframe="MonthToDate",
+            dataset=azure.core.ResourceGroupCostManagementViewDatasetArgs(
+                granularity="Monthly",
+                aggregations=[azure.core.ResourceGroupCostManagementViewDatasetAggregationArgs(
+                    name="totalCost",
+                    column_name="Cost",
+                )],
+            ))
+        ```
+
         ## Import
 
         Cost Management View for a Resource Groups can be imported using the `resource id`, e.g.
@@ -478,6 +501,29 @@ class ResourceGroupCostManagementView(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Cost Management View for a Resource Group.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_resource_group_cost_management_view = azure.core.ResourceGroupCostManagementView("exampleResourceGroupCostManagementView",
+            display_name="Cost View per Month",
+            chart_type="StackedColumn",
+            accumulated=False,
+            resource_group_id=example_resource_group.id,
+            report_type="Usage",
+            timeframe="MonthToDate",
+            dataset=azure.core.ResourceGroupCostManagementViewDatasetArgs(
+                granularity="Monthly",
+                aggregations=[azure.core.ResourceGroupCostManagementViewDatasetAggregationArgs(
+                    name="totalCost",
+                    column_name="Cost",
+                )],
+            ))
+        ```
 
         ## Import
 

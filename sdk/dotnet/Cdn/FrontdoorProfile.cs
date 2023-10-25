@@ -12,6 +12,34 @@ namespace Pulumi.Azure.Cdn
     /// <summary>
     /// Manages a Front Door (standard/premium) Profile which contains a collection of endpoints and origin groups.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleFrontdoorProfile = new Azure.Cdn.FrontdoorProfile("exampleFrontdoorProfile", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Standard_AzureFrontDoor",
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Front Door Profiles can be imported using the `resource id`, e.g.

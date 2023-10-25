@@ -7,6 +7,56 @@ import * as utilities from "../utilities";
 /**
  * Manages a Synapse SQL Pool Workload Classifier.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountKind: "BlobStorage",
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ * });
+ * const exampleDataLakeGen2Filesystem = new azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", {storageAccountId: exampleAccount.id});
+ * const exampleWorkspace = new azure.synapse.Workspace("exampleWorkspace", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     storageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.id,
+ *     sqlAdministratorLogin: "sqladminuser",
+ *     sqlAdministratorLoginPassword: "H@Sh1CoR3!",
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ * });
+ * const exampleSqlPool = new azure.synapse.SqlPool("exampleSqlPool", {
+ *     synapseWorkspaceId: exampleWorkspace.id,
+ *     skuName: "DW100c",
+ *     createMode: "Default",
+ * });
+ * const exampleSqlPoolWorkloadGroup = new azure.synapse.SqlPoolWorkloadGroup("exampleSqlPoolWorkloadGroup", {
+ *     sqlPoolId: exampleSqlPool.id,
+ *     importance: "normal",
+ *     maxResourcePercent: 100,
+ *     minResourcePercent: 0,
+ *     maxResourcePercentPerRequest: 3,
+ *     minResourcePercentPerRequest: 3,
+ *     queryExecutionTimeoutInSeconds: 0,
+ * });
+ * const exampleSqlPoolWorkloadClassifier = new azure.synapse.SqlPoolWorkloadClassifier("exampleSqlPoolWorkloadClassifier", {
+ *     workloadGroupId: exampleSqlPoolWorkloadGroup.id,
+ *     context: "example_context",
+ *     endTime: "14:00",
+ *     importance: "high",
+ *     label: "example_label",
+ *     memberName: "dbo",
+ *     startTime: "12:00",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Synapse SQL Pool Workload Classifiers can be imported using the `resource id`, e.g.

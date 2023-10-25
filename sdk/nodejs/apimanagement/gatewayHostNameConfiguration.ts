@@ -7,6 +7,48 @@ import * as utilities from "../utilities";
 /**
  * Manages an API Management Gateway Host Name Configuration.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as fs from "fs";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleService = new azure.apimanagement.Service("exampleService", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     publisherName: "pub1",
+ *     publisherEmail: "pub1@email.com",
+ *     skuName: "Consumption_0",
+ * });
+ * const exampleGateway = new azure.apimanagement.Gateway("exampleGateway", {
+ *     apiManagementId: exampleService.id,
+ *     description: "Example API Management gateway",
+ *     locationData: {
+ *         name: "example name",
+ *         city: "example city",
+ *         district: "example district",
+ *         region: "example region",
+ *     },
+ * });
+ * const exampleCertificate = new azure.apimanagement.Certificate("exampleCertificate", {
+ *     apiManagementName: exampleService.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     data: Buffer.from(fs.readFileSync("example.pfx"), 'binary').toString('base64'),
+ * });
+ * const exampleGatewayHostNameConfiguration = new azure.apimanagement.GatewayHostNameConfiguration("exampleGatewayHostNameConfiguration", {
+ *     apiManagementId: exampleService.id,
+ *     gatewayName: exampleGateway.name,
+ *     certificateId: exampleCertificate.id,
+ *     hostName: "example-host-name",
+ *     requestClientCertificateEnabled: true,
+ *     http2Enabled: true,
+ *     tls10Enabled: true,
+ *     tls11Enabled: false,
+ * });
+ * ```
+ *
  * ## Import
  *
  * API Management Gateway Host Name Configuration can be imported using the `resource id`, e.g.

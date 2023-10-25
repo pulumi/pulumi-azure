@@ -12,6 +12,53 @@ namespace Pulumi.Azure.AppService
     /// <summary>
     /// Manages an App Service Source Control Slot.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleServicePlan = new Azure.AppService.ServicePlan("exampleServicePlan", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         OsType = "Linux",
+    ///         SkuName = "P1v2",
+    ///     });
+    /// 
+    ///     var exampleLinuxWebApp = new Azure.AppService.LinuxWebApp("exampleLinuxWebApp", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleServicePlan.Location,
+    ///         ServicePlanId = exampleServicePlan.Id,
+    ///         SiteConfig = null,
+    ///     });
+    /// 
+    ///     var exampleLinuxWebAppSlot = new Azure.AppService.LinuxWebAppSlot("exampleLinuxWebAppSlot", new()
+    ///     {
+    ///         AppServiceId = exampleLinuxWebApp.Id,
+    ///         SiteConfig = null,
+    ///     });
+    /// 
+    ///     var exampleSourceControlSlot = new Azure.AppService.SourceControlSlot("exampleSourceControlSlot", new()
+    ///     {
+    ///         SlotId = exampleLinuxWebAppSlot.Id,
+    ///         RepoUrl = "https://github.com/Azure-Samples/python-docs-hello-world",
+    ///         Branch = "master",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// an App Service Source Control Slot can be imported using the `resource id`, e.g.

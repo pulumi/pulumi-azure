@@ -12,6 +12,113 @@ namespace Pulumi.Azure.Media
     /// <summary>
     /// Manages an Azure Media Asset Filter.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "GRS",
+    ///     });
+    /// 
+    ///     var exampleServiceAccount = new Azure.Media.ServiceAccount("exampleServiceAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         StorageAccounts = new[]
+    ///         {
+    ///             new Azure.Media.Inputs.ServiceAccountStorageAccountArgs
+    ///             {
+    ///                 Id = exampleAccount.Id,
+    ///                 IsPrimary = true,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAsset = new Azure.Media.Asset("exampleAsset", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         MediaServicesAccountName = exampleServiceAccount.Name,
+    ///         Description = "Asset description",
+    ///     });
+    /// 
+    ///     var exampleAssetFilter = new Azure.Media.AssetFilter("exampleAssetFilter", new()
+    ///     {
+    ///         AssetId = exampleAsset.Id,
+    ///         FirstQualityBitrate = 128000,
+    ///         PresentationTimeRange = new Azure.Media.Inputs.AssetFilterPresentationTimeRangeArgs
+    ///         {
+    ///             StartInUnits = 0,
+    ///             EndInUnits = 15,
+    ///             PresentationWindowInUnits = 90,
+    ///             LiveBackoffInUnits = 0,
+    ///             UnitTimescaleInMiliseconds = 1000,
+    ///             ForceEnd = false,
+    ///         },
+    ///         TrackSelections = new[]
+    ///         {
+    ///             new Azure.Media.Inputs.AssetFilterTrackSelectionArgs
+    ///             {
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Azure.Media.Inputs.AssetFilterTrackSelectionConditionArgs
+    ///                     {
+    ///                         Property = "Type",
+    ///                         Operation = "Equal",
+    ///                         Value = "Audio",
+    ///                     },
+    ///                     new Azure.Media.Inputs.AssetFilterTrackSelectionConditionArgs
+    ///                     {
+    ///                         Property = "Language",
+    ///                         Operation = "NotEqual",
+    ///                         Value = "en",
+    ///                     },
+    ///                     new Azure.Media.Inputs.AssetFilterTrackSelectionConditionArgs
+    ///                     {
+    ///                         Property = "FourCC",
+    ///                         Operation = "NotEqual",
+    ///                         Value = "EC-3",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Azure.Media.Inputs.AssetFilterTrackSelectionArgs
+    ///             {
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Azure.Media.Inputs.AssetFilterTrackSelectionConditionArgs
+    ///                     {
+    ///                         Property = "Type",
+    ///                         Operation = "Equal",
+    ///                         Value = "Video",
+    ///                     },
+    ///                     new Azure.Media.Inputs.AssetFilterTrackSelectionConditionArgs
+    ///                     {
+    ///                         Property = "Bitrate",
+    ///                         Operation = "Equal",
+    ///                         Value = "3000000-5000000",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Asset Filters can be imported using the `resource id`, e.g.

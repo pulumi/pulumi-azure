@@ -360,6 +360,40 @@ class ARecord(pulumi.CustomResource):
                  zone_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_zone = azure.dns.Zone("exampleZone", resource_group_name=example_resource_group.name)
+        example_a_record = azure.dns.ARecord("exampleARecord",
+            zone_name=example_zone.name,
+            resource_group_name=example_resource_group.name,
+            ttl=300,
+            records=["10.0.180.17"])
+        ```
+        ### Alias Record)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_zone = azure.dns.Zone("exampleZone", resource_group_name=example_resource_group.name)
+        example_public_ip = azure.network.PublicIp("examplePublicIp",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            allocation_method="Dynamic",
+            ip_version="IPv4")
+        example_a_record = azure.dns.ARecord("exampleARecord",
+            zone_name=example_zone.name,
+            resource_group_name=example_resource_group.name,
+            ttl=300,
+            target_resource_id=example_public_ip.id)
+        ```
+
         ## Import
 
         A records can be imported using the `resource id`, e.g.
@@ -389,6 +423,40 @@ class ARecord(pulumi.CustomResource):
                  args: ARecordArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_zone = azure.dns.Zone("exampleZone", resource_group_name=example_resource_group.name)
+        example_a_record = azure.dns.ARecord("exampleARecord",
+            zone_name=example_zone.name,
+            resource_group_name=example_resource_group.name,
+            ttl=300,
+            records=["10.0.180.17"])
+        ```
+        ### Alias Record)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_zone = azure.dns.Zone("exampleZone", resource_group_name=example_resource_group.name)
+        example_public_ip = azure.network.PublicIp("examplePublicIp",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            allocation_method="Dynamic",
+            ip_version="IPv4")
+        example_a_record = azure.dns.ARecord("exampleARecord",
+            zone_name=example_zone.name,
+            resource_group_name=example_resource_group.name,
+            ttl=300,
+            target_resource_id=example_public_ip.id)
+        ```
+
         ## Import
 
         A records can be imported using the `resource id`, e.g.

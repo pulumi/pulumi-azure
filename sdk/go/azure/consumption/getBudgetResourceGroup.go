@@ -13,6 +13,34 @@ import (
 )
 
 // Use this data source to access information about an existing Consumption Budget for a specific resource group.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/consumption"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := consumption.LookupBudgetResourceGroup(ctx, &consumption.LookupBudgetResourceGroupArgs{
+//				Name:            "existing",
+//				ResourceGroupId: azurerm_resource_group.Example.Id,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("id", example.Id)
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupBudgetResourceGroup(ctx *pulumi.Context, args *LookupBudgetResourceGroupArgs, opts ...pulumi.InvokeOption) (*LookupBudgetResourceGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBudgetResourceGroupResult

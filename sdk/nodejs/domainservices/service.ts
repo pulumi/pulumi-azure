@@ -7,6 +7,127 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as azuread from "@pulumi/azuread";
+ *
+ * const deployResourceGroup = new azure.core.ResourceGroup("deployResourceGroup", {location: "West Europe"});
+ * const deployVirtualNetwork = new azure.network.VirtualNetwork("deployVirtualNetwork", {
+ *     location: deployResourceGroup.location,
+ *     resourceGroupName: deployResourceGroup.name,
+ *     addressSpaces: ["10.0.1.0/16"],
+ * });
+ * const deploySubnet = new azure.network.Subnet("deploySubnet", {
+ *     resourceGroupName: deployResourceGroup.name,
+ *     virtualNetworkName: deployVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.1.0/24"],
+ * });
+ * const deployNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("deployNetworkSecurityGroup", {
+ *     location: deployResourceGroup.location,
+ *     resourceGroupName: deployResourceGroup.name,
+ *     securityRules: [
+ *         {
+ *             name: "AllowSyncWithAzureAD",
+ *             priority: 101,
+ *             direction: "Inbound",
+ *             access: "Allow",
+ *             protocol: "Tcp",
+ *             sourcePortRange: "*",
+ *             destinationPortRange: "443",
+ *             sourceAddressPrefix: "AzureActiveDirectoryDomainServices",
+ *             destinationAddressPrefix: "*",
+ *         },
+ *         {
+ *             name: "AllowRD",
+ *             priority: 201,
+ *             direction: "Inbound",
+ *             access: "Allow",
+ *             protocol: "Tcp",
+ *             sourcePortRange: "*",
+ *             destinationPortRange: "3389",
+ *             sourceAddressPrefix: "CorpNetSaw",
+ *             destinationAddressPrefix: "*",
+ *         },
+ *         {
+ *             name: "AllowPSRemoting",
+ *             priority: 301,
+ *             direction: "Inbound",
+ *             access: "Allow",
+ *             protocol: "Tcp",
+ *             sourcePortRange: "*",
+ *             destinationPortRange: "5986",
+ *             sourceAddressPrefix: "AzureActiveDirectoryDomainServices",
+ *             destinationAddressPrefix: "*",
+ *         },
+ *         {
+ *             name: "AllowLDAPS",
+ *             priority: 401,
+ *             direction: "Inbound",
+ *             access: "Allow",
+ *             protocol: "Tcp",
+ *             sourcePortRange: "*",
+ *             destinationPortRange: "636",
+ *             sourceAddressPrefix: "*",
+ *             destinationAddressPrefix: "*",
+ *         },
+ *     ],
+ * });
+ * const deploySubnetNetworkSecurityGroupAssociation = new azure.network.SubnetNetworkSecurityGroupAssociation("deploySubnetNetworkSecurityGroupAssociation", {
+ *     subnetId: deploySubnet.id,
+ *     networkSecurityGroupId: deployNetworkSecurityGroup.id,
+ * });
+ * const dcAdmins = new azuread.Group("dcAdmins", {
+ *     displayName: "AAD DC Administrators",
+ *     securityEnabled: true,
+ * });
+ * const adminUser = new azuread.User("adminUser", {
+ *     userPrincipalName: "dc-admin@hashicorp-example.com",
+ *     displayName: "DC Administrator",
+ *     password: "Pa55w0Rd!!1",
+ * });
+ * const adminGroupMember = new azuread.GroupMember("adminGroupMember", {
+ *     groupObjectId: dcAdmins.objectId,
+ *     memberObjectId: adminUser.objectId,
+ * });
+ * const exampleServicePrincipal = new azuread.ServicePrincipal("exampleServicePrincipal", {applicationId: "2565bd9d-da50-47d4-8b85-4c97f669dc36"});
+ * // published app for domain services
+ * const aadds = new azure.core.ResourceGroup("aadds", {location: "westeurope"});
+ * const exampleService = new azure.domainservices.Service("exampleService", {
+ *     location: aadds.location,
+ *     resourceGroupName: aadds.name,
+ *     domainName: "widgetslogin.net",
+ *     sku: "Enterprise",
+ *     filteredSyncEnabled: false,
+ *     initialReplicaSet: {
+ *         subnetId: deploySubnet.id,
+ *     },
+ *     notifications: {
+ *         additionalRecipients: [
+ *             "notifyA@example.net",
+ *             "notifyB@example.org",
+ *         ],
+ *         notifyDcAdmins: true,
+ *         notifyGlobalAdmins: true,
+ *     },
+ *     security: {
+ *         syncKerberosPasswords: true,
+ *         syncNtlmPasswords: true,
+ *         syncOnPremPasswords: true,
+ *     },
+ *     tags: {
+ *         Environment: "prod",
+ *     },
+ * }, {
+ *     dependsOn: [
+ *         exampleServicePrincipal,
+ *         deploySubnetNetworkSecurityGroupAssociation,
+ *     ],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Domain Services can be imported using the resource ID, together with the Replica Set ID that you wish to designate as the initial replica set, e.g.

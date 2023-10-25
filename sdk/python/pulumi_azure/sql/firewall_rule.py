@@ -269,6 +269,26 @@ class FirewallRule(pulumi.CustomResource):
 
         > **Note:** The `sql.FirewallRule` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.FirewallRule` resource instead.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_sql_server = azure.sql.SqlServer("exampleSqlServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            version="12.0",
+            administrator_login="4dm1n157r470r",
+            administrator_login_password="4-v3ry-53cr37-p455w0rd")
+        example_firewall_rule = azure.sql.FirewallRule("exampleFirewallRule",
+            resource_group_name=example_resource_group.name,
+            server_name=example_sql_server.name,
+            start_ip_address="10.0.17.62",
+            end_ip_address="10.0.17.62")
+        ```
+
         ## Import
 
         SQL Firewall Rules can be imported using the `resource id`, e.g.
@@ -297,6 +317,26 @@ class FirewallRule(pulumi.CustomResource):
         Allows you to manage an Azure SQL Firewall Rule.
 
         > **Note:** The `sql.FirewallRule` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.FirewallRule` resource instead.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_sql_server = azure.sql.SqlServer("exampleSqlServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            version="12.0",
+            administrator_login="4dm1n157r470r",
+            administrator_login_password="4-v3ry-53cr37-p455w0rd")
+        example_firewall_rule = azure.sql.FirewallRule("exampleFirewallRule",
+            resource_group_name=example_resource_group.name,
+            server_name=example_sql_server.name,
+            start_ip_address="10.0.17.62",
+            end_ip_address="10.0.17.62")
+        ```
 
         ## Import
 

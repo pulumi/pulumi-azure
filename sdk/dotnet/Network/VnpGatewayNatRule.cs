@@ -12,6 +12,65 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages a VPN Gateway NAT Rule.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualWan = new Azure.Network.VirtualWan("exampleVirtualWan", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleVirtualHub = new Azure.Network.VirtualHub("exampleVirtualHub", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AddressPrefix = "10.0.1.0/24",
+    ///         VirtualWanId = exampleVirtualWan.Id,
+    ///     });
+    /// 
+    ///     var exampleVpnGateway = new Azure.Network.VpnGateway("exampleVpnGateway", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualHubId = exampleVirtualHub.Id,
+    ///     });
+    /// 
+    ///     var exampleVnpGatewayNatRule = new Azure.Network.VnpGatewayNatRule("exampleVnpGatewayNatRule", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VpnGatewayId = exampleVpnGateway.Id,
+    ///         ExternalMappings = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.VnpGatewayNatRuleExternalMappingArgs
+    ///             {
+    ///                 AddressSpace = "192.168.21.0/26",
+    ///             },
+    ///         },
+    ///         InternalMappings = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.VnpGatewayNatRuleInternalMappingArgs
+    ///             {
+    ///                 AddressSpace = "10.4.0.0/26",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// VPN Gateway NAT Rules can be imported using the `resource id`, e.g.

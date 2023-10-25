@@ -14,6 +14,68 @@ namespace Pulumi.Azure.Network
     /// 
     /// &gt; **NOTE** Virtual Hub IP only supports Standard Virtual Hub without Virtual Wan.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualHub = new Azure.Network.VirtualHub("exampleVirtualHub", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Sku = "Standard",
+    ///     });
+    /// 
+    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AllocationMethod = "Static",
+    ///         Sku = "Standard",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.5.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.5.1.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleVirtualHubIp = new Azure.Network.VirtualHubIp("exampleVirtualHubIp", new()
+    ///     {
+    ///         VirtualHubId = exampleVirtualHub.Id,
+    ///         PrivateIpAddress = "10.5.1.18",
+    ///         PrivateIpAllocationMethod = "Static",
+    ///         PublicIpAddressId = examplePublicIp.Id,
+    ///         SubnetId = exampleSubnet.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Virtual Hub IPs can be imported using the `resource id`, e.g.

@@ -9,6 +9,118 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** It's possible to define a Customer Managed Key both within the `azure.cognitive.Account` resource via the `customerManagedKey` block and by using the `azure.cognitive.AccountCustomerManagedKey` resource. However it's not possible to use both methods to manage a Customer Managed Key for a Cognitive Account, since there'll be conflicts.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const current = azure.core.getClientConfig({});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
+ * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ * });
+ * const exampleAccount = new azure.cognitive.Account("exampleAccount", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     kind: "Face",
+ *     skuName: "E0",
+ *     customSubdomainName: "example-account",
+ *     identity: {
+ *         type: "SystemAssigned, UserAssigned",
+ *         identityIds: [exampleUserAssignedIdentity.id],
+ *     },
+ * });
+ * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "standard",
+ *     purgeProtectionEnabled: true,
+ *     accessPolicies: [
+ *         {
+ *             tenantId: exampleAccount.identity.apply(identity => identity?.tenantId),
+ *             objectId: exampleAccount.identity.apply(identity => identity?.principalId),
+ *             keyPermissions: [
+ *                 "Get",
+ *                 "Create",
+ *                 "List",
+ *                 "Restore",
+ *                 "Recover",
+ *                 "UnwrapKey",
+ *                 "WrapKey",
+ *                 "Purge",
+ *                 "Encrypt",
+ *                 "Decrypt",
+ *                 "Sign",
+ *                 "Verify",
+ *             ],
+ *             secretPermissions: ["Get"],
+ *         },
+ *         {
+ *             tenantId: current.then(current => current.tenantId),
+ *             objectId: current.then(current => current.objectId),
+ *             keyPermissions: [
+ *                 "Get",
+ *                 "Create",
+ *                 "Delete",
+ *                 "List",
+ *                 "Restore",
+ *                 "Recover",
+ *                 "UnwrapKey",
+ *                 "WrapKey",
+ *                 "Purge",
+ *                 "Encrypt",
+ *                 "Decrypt",
+ *                 "Sign",
+ *                 "Verify",
+ *                 "GetRotationPolicy",
+ *             ],
+ *             secretPermissions: ["Get"],
+ *         },
+ *         {
+ *             tenantId: exampleUserAssignedIdentity.tenantId,
+ *             objectId: exampleUserAssignedIdentity.principalId,
+ *             keyPermissions: [
+ *                 "Get",
+ *                 "Create",
+ *                 "Delete",
+ *                 "List",
+ *                 "Restore",
+ *                 "Recover",
+ *                 "UnwrapKey",
+ *                 "WrapKey",
+ *                 "Purge",
+ *                 "Encrypt",
+ *                 "Decrypt",
+ *                 "Sign",
+ *                 "Verify",
+ *             ],
+ *             secretPermissions: ["Get"],
+ *         },
+ *     ],
+ * });
+ * const exampleKey = new azure.keyvault.Key("exampleKey", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     keyType: "RSA",
+ *     keySize: 2048,
+ *     keyOpts: [
+ *         "decrypt",
+ *         "encrypt",
+ *         "sign",
+ *         "unwrapKey",
+ *         "verify",
+ *         "wrapKey",
+ *     ],
+ * });
+ * const exampleAccountCustomerManagedKey = new azure.cognitive.AccountCustomerManagedKey("exampleAccountCustomerManagedKey", {
+ *     cognitiveAccountId: exampleAccount.id,
+ *     keyVaultKeyId: exampleKey.id,
+ *     identityClientId: exampleUserAssignedIdentity.clientId,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Customer Managed Keys for a Cognitive Account can be imported using the `resource id`, e.g.

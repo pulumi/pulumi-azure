@@ -587,6 +587,27 @@ class Grafana(pulumi.CustomResource):
         """
         Manages a Dashboard Grafana.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_grafana = azure.dashboard.Grafana("exampleGrafana",
+            resource_group_name=example_resource_group.name,
+            location="West Europe",
+            api_key_enabled=True,
+            deterministic_outbound_ip_enabled=True,
+            public_network_access_enabled=False,
+            identity=azure.dashboard.GrafanaIdentityArgs(
+                type="SystemAssigned",
+            ),
+            tags={
+                "key": "value",
+            })
+        ```
+
         ## Import
 
         Dashboard Grafana can be imported using the `resource id`, e.g.
@@ -618,6 +639,27 @@ class Grafana(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Dashboard Grafana.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_grafana = azure.dashboard.Grafana("exampleGrafana",
+            resource_group_name=example_resource_group.name,
+            location="West Europe",
+            api_key_enabled=True,
+            deterministic_outbound_ip_enabled=True,
+            public_network_access_enabled=False,
+            identity=azure.dashboard.GrafanaIdentityArgs(
+                type="SystemAssigned",
+            ),
+            tags={
+                "key": "value",
+            })
+        ```
 
         ## Import
 

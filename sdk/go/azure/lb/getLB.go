@@ -13,6 +13,34 @@ import (
 )
 
 // Use this data source to access information about an existing Load Balancer
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/lb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := lb.GetLB(ctx, &lb.GetLBArgs{
+//				Name:              "example-lb",
+//				ResourceGroupName: "example-resources",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("loadbalancerId", example.Id)
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetLB(ctx *pulumi.Context, args *GetLBArgs, opts ...pulumi.InvokeOption) (*GetLBResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLBResult

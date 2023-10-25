@@ -12,6 +12,57 @@ namespace Pulumi.Azure.AppService
     /// <summary>
     /// Manages an App Service Public Certificate.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System;
+    /// using System.Collections.Generic;
+    /// using System.IO;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// 	private static string ReadFileBase64(string path) {
+    /// 		return Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(File.ReadAllText(path)));
+    /// 	}
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var examplePlan = new Azure.AppService.Plan("examplePlan", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
+    ///         {
+    ///             Tier = "Standard",
+    ///             Size = "S1",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAppService = new Azure.AppService.AppService("exampleAppService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AppServicePlanId = examplePlan.Id,
+    ///     });
+    /// 
+    ///     var examplePublicCertificate = new Azure.AppService.PublicCertificate("examplePublicCertificate", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AppServiceName = exampleAppService.Name,
+    ///         CertificateName = "example-public-certificate",
+    ///         CertificateLocation = "Unknown",
+    ///         Blob = ReadFileBase64("app_service_public_certificate.cer"),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// App Service Public Certificates can be imported using the `resource id`, e.g.

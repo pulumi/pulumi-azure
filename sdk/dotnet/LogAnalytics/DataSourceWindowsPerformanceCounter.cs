@@ -12,6 +12,41 @@ namespace Pulumi.Azure.LogAnalytics
     /// <summary>
     /// Manages a Log Analytics (formally Operational Insights) Windows Performance Counter DataSource.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "PerGB2018",
+    ///     });
+    /// 
+    ///     var exampleDataSourceWindowsPerformanceCounter = new Azure.LogAnalytics.DataSourceWindowsPerformanceCounter("exampleDataSourceWindowsPerformanceCounter", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         WorkspaceName = exampleAnalyticsWorkspace.Name,
+    ///         ObjectName = "CPU",
+    ///         InstanceName = "*",
+    ///         CounterName = "CPU",
+    ///         IntervalSeconds = 10,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Log Analytics Windows Performance Counter DataSources can be imported using the `resource id`, e.g.

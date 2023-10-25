@@ -7,6 +7,24 @@ import * as utilities from "../utilities";
 /**
  * Manages a Automation Hybrid Runbook Worker Group.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAccount = new azure.automation.Account("exampleAccount", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     skuName: "Basic",
+ * });
+ * const exampleHybridRunbookWorkerGroup = new azure.automation.HybridRunbookWorkerGroup("exampleHybridRunbookWorkerGroup", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     automationAccountName: exampleAccount.name,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Automations can be imported using the `resource id`, e.g.

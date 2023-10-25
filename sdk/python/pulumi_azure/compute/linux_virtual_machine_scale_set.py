@@ -2456,6 +2456,55 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
 
         > **NOTE:** This provider will automatically update & reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` setting within the Provider block.
 
+        ## Example Usage
+
+        This example provisions a basic Linux Virtual Machine Scale Set on an internal network.
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        first_public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC+wWK73dCr+jgQOAxNsHAnNNNMEMWOHYEccp6wJm2gotpr9katuF/ZAdou5AaW1C61slRkHRkpRRX9FA9CYBiitZgvCCz+3nWNN7l/Up54Zps/pHWGZLHNJZRYyAB6j5yVLMVHIHriY49d/GZTZVNB8GoJv9Gakwc/fuEZYYl4YDFiGMBP///TzlI4jhiJzjKnEvqPFki5p2ZRJqcbCiF4pJrxUQR/RXqVFQdbRLZgYfJ8xGB878RENq3yQ39d8dVOkq4edbkzwcUmwwwkYVPIoDGsYLaRHnG+To7FvMeyO7xDVQkMKzopTQV8AuKpyvpqu0a9pWOMaiCyDytO7GGN you@me.com"
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            address_spaces=["10.0.0.0/16"])
+        internal = azure.network.Subnet("internal",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku="Standard_F2",
+            instances=1,
+            admin_username="adminuser",
+            admin_ssh_keys=[azure.compute.LinuxVirtualMachineScaleSetAdminSshKeyArgs(
+                username="adminuser",
+                public_key=first_public_key,
+            )],
+            source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
+                publisher="Canonical",
+                offer="0001-com-ubuntu-server-focal",
+                sku="20_04-lts",
+                version="latest",
+            ),
+            os_disk=azure.compute.LinuxVirtualMachineScaleSetOsDiskArgs(
+                storage_account_type="Standard_LRS",
+                caching="ReadWrite",
+            ),
+            network_interfaces=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs(
+                name="example",
+                primary=True,
+                ip_configurations=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs(
+                    name="internal",
+                    primary=True,
+                    subnet_id=internal.id,
+                )],
+            )])
+        ```
+
         ## Import
 
         Linux Virtual Machine Scale Sets can be imported using the `resource id`, e.g.
@@ -2569,6 +2618,55 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         ## Disclaimers
 
         > **NOTE:** This provider will automatically update & reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` setting within the Provider block.
+
+        ## Example Usage
+
+        This example provisions a basic Linux Virtual Machine Scale Set on an internal network.
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        first_public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC+wWK73dCr+jgQOAxNsHAnNNNMEMWOHYEccp6wJm2gotpr9katuF/ZAdou5AaW1C61slRkHRkpRRX9FA9CYBiitZgvCCz+3nWNN7l/Up54Zps/pHWGZLHNJZRYyAB6j5yVLMVHIHriY49d/GZTZVNB8GoJv9Gakwc/fuEZYYl4YDFiGMBP///TzlI4jhiJzjKnEvqPFki5p2ZRJqcbCiF4pJrxUQR/RXqVFQdbRLZgYfJ8xGB878RENq3yQ39d8dVOkq4edbkzwcUmwwwkYVPIoDGsYLaRHnG+To7FvMeyO7xDVQkMKzopTQV8AuKpyvpqu0a9pWOMaiCyDytO7GGN you@me.com"
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            address_spaces=["10.0.0.0/16"])
+        internal = azure.network.Subnet("internal",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku="Standard_F2",
+            instances=1,
+            admin_username="adminuser",
+            admin_ssh_keys=[azure.compute.LinuxVirtualMachineScaleSetAdminSshKeyArgs(
+                username="adminuser",
+                public_key=first_public_key,
+            )],
+            source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
+                publisher="Canonical",
+                offer="0001-com-ubuntu-server-focal",
+                sku="20_04-lts",
+                version="latest",
+            ),
+            os_disk=azure.compute.LinuxVirtualMachineScaleSetOsDiskArgs(
+                storage_account_type="Standard_LRS",
+                caching="ReadWrite",
+            ),
+            network_interfaces=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs(
+                name="example",
+                primary=True,
+                ip_configurations=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs(
+                    name="internal",
+                    primary=True,
+                    subnet_id=internal.id,
+                )],
+            )])
+        ```
 
         ## Import
 

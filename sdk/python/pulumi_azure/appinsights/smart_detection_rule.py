@@ -260,6 +260,22 @@ class SmartDetectionRule(pulumi.CustomResource):
         """
         Manages an Application Insights Smart Detection Rule.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_insights = azure.appinsights.Insights("exampleInsights",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            application_type="web")
+        example_smart_detection_rule = azure.appinsights.SmartDetectionRule("exampleSmartDetectionRule",
+            application_insights_id=example_insights.id,
+            enabled=False)
+        ```
+
         ## Import
 
         Application Insights Smart Detection Rules can be imported using the `resource id`, e.g.
@@ -286,6 +302,22 @@ class SmartDetectionRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Application Insights Smart Detection Rule.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_insights = azure.appinsights.Insights("exampleInsights",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            application_type="web")
+        example_smart_detection_rule = azure.appinsights.SmartDetectionRule("exampleSmartDetectionRule",
+            application_insights_id=example_insights.id,
+            enabled=False)
+        ```
 
         ## Import
 

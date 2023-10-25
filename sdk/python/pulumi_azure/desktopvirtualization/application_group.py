@@ -406,6 +406,40 @@ class ApplicationGroup(pulumi.CustomResource):
         """
         Manages a Virtual Desktop Application Group.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example", location="West Europe")
+        pooledbreadthfirst = azure.desktopvirtualization.HostPool("pooledbreadthfirst",
+            location=example.location,
+            resource_group_name=example.name,
+            type="Pooled",
+            load_balancer_type="BreadthFirst")
+        personalautomatic = azure.desktopvirtualization.HostPool("personalautomatic",
+            location=example.location,
+            resource_group_name=example.name,
+            type="Personal",
+            personal_desktop_assignment_type="Automatic",
+            load_balancer_type="BreadthFirst")
+        remoteapp = azure.desktopvirtualization.ApplicationGroup("remoteapp",
+            location=example.location,
+            resource_group_name=example.name,
+            type="RemoteApp",
+            host_pool_id=pooledbreadthfirst.id,
+            friendly_name="TestAppGroup",
+            description="Acceptance Test: An application group")
+        desktopapp = azure.desktopvirtualization.ApplicationGroup("desktopapp",
+            location=example.location,
+            resource_group_name=example.name,
+            type="Desktop",
+            host_pool_id=personalautomatic.id,
+            friendly_name="TestAppGroup",
+            description="Acceptance Test: An application group")
+        ```
+
         ## Import
 
         Virtual Desktop Application Groups can be imported using the `resource id`, e.g.
@@ -434,6 +468,40 @@ class ApplicationGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Virtual Desktop Application Group.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example", location="West Europe")
+        pooledbreadthfirst = azure.desktopvirtualization.HostPool("pooledbreadthfirst",
+            location=example.location,
+            resource_group_name=example.name,
+            type="Pooled",
+            load_balancer_type="BreadthFirst")
+        personalautomatic = azure.desktopvirtualization.HostPool("personalautomatic",
+            location=example.location,
+            resource_group_name=example.name,
+            type="Personal",
+            personal_desktop_assignment_type="Automatic",
+            load_balancer_type="BreadthFirst")
+        remoteapp = azure.desktopvirtualization.ApplicationGroup("remoteapp",
+            location=example.location,
+            resource_group_name=example.name,
+            type="RemoteApp",
+            host_pool_id=pooledbreadthfirst.id,
+            friendly_name="TestAppGroup",
+            description="Acceptance Test: An application group")
+        desktopapp = azure.desktopvirtualization.ApplicationGroup("desktopapp",
+            location=example.location,
+            resource_group_name=example.name,
+            type="Desktop",
+            host_pool_id=personalautomatic.id,
+            friendly_name="TestAppGroup",
+            description="Acceptance Test: An application group")
+        ```
 
         ## Import
 

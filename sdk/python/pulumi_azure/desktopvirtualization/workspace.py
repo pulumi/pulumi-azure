@@ -326,6 +326,20 @@ class Workspace(pulumi.CustomResource):
         """
         Manages a Virtual Desktop Workspace.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example", location="West Europe")
+        workspace = azure.desktopvirtualization.Workspace("workspace",
+            location=example.location,
+            resource_group_name=example.name,
+            friendly_name="FriendlyName",
+            description="A description of my workspace")
+        ```
+
         ## Import
 
         Virtual Desktop Workspaces can be imported using the `resource id`, e.g.
@@ -352,6 +366,20 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Virtual Desktop Workspace.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example", location="West Europe")
+        workspace = azure.desktopvirtualization.Workspace("workspace",
+            location=example.location,
+            resource_group_name=example.name,
+            friendly_name="FriendlyName",
+            description="A description of my workspace")
+        ```
 
         ## Import
 

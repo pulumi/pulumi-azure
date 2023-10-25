@@ -12,6 +12,32 @@ namespace Pulumi.Azure.DataProtection
     /// <summary>
     /// Manages a Backup Vault.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleBackupVault = new Azure.DataProtection.BackupVault("exampleBackupVault", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         DatastoreType = "VaultStore",
+    ///         Redundancy = "LocallyRedundant",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Backup Vaults can be imported using the `resource id`, e.g.

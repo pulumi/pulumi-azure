@@ -9,6 +9,32 @@ import * as utilities from "../utilities";
 /**
  * Manages a Container Registry Task.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleRegistry = new azure.containerservice.Registry("exampleRegistry", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     sku: "Basic",
+ * });
+ * const exampleRegistryTask = new azure.containerservice.RegistryTask("exampleRegistryTask", {
+ *     containerRegistryId: exampleRegistry.id,
+ *     platform: {
+ *         os: "Linux",
+ *     },
+ *     dockerStep: {
+ *         dockerfilePath: "Dockerfile",
+ *         contextPath: "https://github.com/<username>/<repository>#<branch>:<folder>",
+ *         contextAccessToken: "<github personal access token>",
+ *         imageNames: ["helloworld:{{.Run.ID}}"],
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Container Registry Tasks can be imported using the `resource id`, e.g.

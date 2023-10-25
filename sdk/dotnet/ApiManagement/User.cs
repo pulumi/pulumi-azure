@@ -12,6 +12,44 @@ namespace Pulumi.Azure.ApiManagement
     /// <summary>
     /// Manages an API Management User.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PublisherName = "My Company",
+    ///         PublisherEmail = "company@exmaple.com",
+    ///         SkuName = "Developer_1",
+    ///     });
+    /// 
+    ///     var exampleUser = new Azure.ApiManagement.User("exampleUser", new()
+    ///     {
+    ///         UserId = "5931a75ae4bbd512288c680b",
+    ///         ApiManagementName = exampleService.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         FirstName = "Example",
+    ///         LastName = "User",
+    ///         Email = "user@example.com",
+    ///         State = "active",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// API Management Users can be imported using the `resource id`, e.g.

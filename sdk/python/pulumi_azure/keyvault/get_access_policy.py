@@ -94,6 +94,16 @@ def get_access_policy(name: Optional[str] = None,
     """
     Use this data source to access information about the permissions from the Management Key Vault Templates.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    contributor = azure.keyvault.get_access_policy(name="Key Management")
+    pulumi.export("accessPolicyKeyPermissions", contributor.key_permissions)
+    ```
+
 
     :param str name: Specifies the name of the Management Template. Possible values are: `Key Management`,
            `Secret Management`, `Certificate Management`, `Key & Secret Management`, `Key & Certificate Management`,
@@ -117,6 +127,16 @@ def get_access_policy_output(name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessPolicyResult]:
     """
     Use this data source to access information about the permissions from the Management Key Vault Templates.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    contributor = azure.keyvault.get_access_policy(name="Key Management")
+    pulumi.export("accessPolicyKeyPermissions", contributor.key_permissions)
+    ```
 
 
     :param str name: Specifies the name of the Management Template. Possible values are: `Key Management`,

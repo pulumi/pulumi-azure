@@ -15,6 +15,108 @@ import (
 
 // Manages an Azure IoT Time Series Insights EventHub Event Source.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventhub"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleEventHubNamespace, err := eventhub.NewEventHubNamespace(ctx, "exampleEventHubNamespace", &eventhub.EventHubNamespaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("Standard"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleEventHub, err := eventhub.NewEventHub(ctx, "exampleEventHub", &eventhub.EventHubArgs{
+//				NamespaceName:     exampleEventHubNamespace.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				PartitionCount:    pulumi.Int(2),
+//				MessageRetention:  pulumi.Int(7),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleConsumerGroup, err := eventhub.NewConsumerGroup(ctx, "exampleConsumerGroup", &eventhub.ConsumerGroupArgs{
+//				NamespaceName:     exampleEventHubNamespace.Name,
+//				EventhubName:      exampleEventHub.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAuthorizationRule, err := eventhub.NewAuthorizationRule(ctx, "exampleAuthorizationRule", &eventhub.AuthorizationRuleArgs{
+//				NamespaceName:     exampleEventHubNamespace.Name,
+//				EventhubName:      exampleEventHub.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Listen:            pulumi.Bool(true),
+//				Send:              pulumi.Bool(false),
+//				Manage:            pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				Location:               exampleResourceGroup.Location,
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleTimeSeriesInsightsGen2Environment, err := iot.NewTimeSeriesInsightsGen2Environment(ctx, "exampleTimeSeriesInsightsGen2Environment", &iot.TimeSeriesInsightsGen2EnvironmentArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("L1"),
+//				IdProperties: pulumi.StringArray{
+//					pulumi.String("id"),
+//				},
+//				Storage: &iot.TimeSeriesInsightsGen2EnvironmentStorageArgs{
+//					Name: exampleAccount.Name,
+//					Key:  exampleAccount.PrimaryAccessKey,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iot.NewTimeSeriesInsightsEventSourceEventhub(ctx, "exampleTimeSeriesInsightsEventSourceEventhub", &iot.TimeSeriesInsightsEventSourceEventhubArgs{
+//				Location:              exampleResourceGroup.Location,
+//				EnvironmentId:         exampleTimeSeriesInsightsGen2Environment.ID(),
+//				EventhubName:          exampleEventHub.Name,
+//				NamespaceName:         exampleEventHubNamespace.Name,
+//				SharedAccessKey:       exampleAuthorizationRule.PrimaryKey,
+//				SharedAccessKeyName:   exampleAuthorizationRule.Name,
+//				ConsumerGroupName:     exampleConsumerGroup.Name,
+//				EventSourceResourceId: exampleEventHub.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Azure IoT Time Series Insights EventHub Event Source can be imported using the `resource id`, e.g.

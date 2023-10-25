@@ -425,6 +425,39 @@ class Secret(pulumi.CustomResource):
 
         =======
         > > > > > > > 8d78c87098 (Update-documentation)
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tenant_id=current.tenant_id,
+            sku_name="premium",
+            soft_delete_retention_days=7,
+            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
+                tenant_id=current.tenant_id,
+                object_id=current.object_id,
+                key_permissions=[
+                    "Create",
+                    "Get",
+                ],
+                secret_permissions=[
+                    "Set",
+                    "Get",
+                    "Delete",
+                    "Purge",
+                    "Recover",
+                ],
+            )])
+        example_secret = azure.keyvault.Secret("exampleSecret",
+            value="szechuan",
+            key_vault_id=example_key_vault.id)
+        ```
 
         ## Import
 
@@ -463,6 +496,39 @@ class Secret(pulumi.CustomResource):
 
         =======
         > > > > > > > 8d78c87098 (Update-documentation)
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tenant_id=current.tenant_id,
+            sku_name="premium",
+            soft_delete_retention_days=7,
+            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
+                tenant_id=current.tenant_id,
+                object_id=current.object_id,
+                key_permissions=[
+                    "Create",
+                    "Get",
+                ],
+                secret_permissions=[
+                    "Set",
+                    "Get",
+                    "Delete",
+                    "Purge",
+                    "Recover",
+                ],
+            )])
+        example_secret = azure.keyvault.Secret("exampleSecret",
+            value="szechuan",
+            key_vault_id=example_key_vault.id)
+        ```
 
         ## Import
 

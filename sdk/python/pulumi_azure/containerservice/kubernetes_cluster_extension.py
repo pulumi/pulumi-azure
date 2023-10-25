@@ -496,6 +496,30 @@ class KubernetesClusterExtension(pulumi.CustomResource):
         """
         Manages a Kubernetes Cluster Extension.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_kubernetes_cluster = azure.containerservice.KubernetesCluster("exampleKubernetesCluster",
+            location="West Europe",
+            resource_group_name=example_resource_group.name,
+            dns_prefix="example-aks",
+            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
+                name="default",
+                node_count=1,
+                vm_size="Standard_DS2_v2",
+            ),
+            identity=azure.containerservice.KubernetesClusterIdentityArgs(
+                type="SystemAssigned",
+            ))
+        example_kubernetes_cluster_extension = azure.containerservice.KubernetesClusterExtension("exampleKubernetesClusterExtension",
+            cluster_id=example_kubernetes_cluster.id,
+            extension_type="microsoft.flux")
+        ```
+
         ## Import
 
         Kubernetes Cluster Extension can be imported using the `resource id` for different `cluster_resource_name`, e.g.
@@ -525,6 +549,30 @@ class KubernetesClusterExtension(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Kubernetes Cluster Extension.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_kubernetes_cluster = azure.containerservice.KubernetesCluster("exampleKubernetesCluster",
+            location="West Europe",
+            resource_group_name=example_resource_group.name,
+            dns_prefix="example-aks",
+            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
+                name="default",
+                node_count=1,
+                vm_size="Standard_DS2_v2",
+            ),
+            identity=azure.containerservice.KubernetesClusterIdentityArgs(
+                type="SystemAssigned",
+            ))
+        example_kubernetes_cluster_extension = azure.containerservice.KubernetesClusterExtension("exampleKubernetesClusterExtension",
+            cluster_id=example_kubernetes_cluster.id,
+            extension_type="microsoft.flux")
+        ```
 
         ## Import
 

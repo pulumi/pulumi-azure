@@ -13,6 +13,83 @@ namespace Pulumi.Azure.Management
     /// Manages a Management Lock which is scoped to a Subscription, Resource Group or Resource.
     /// 
     /// ## Example Usage
+    /// ### Subscription Level Lock)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Azure.Core.GetSubscription.Invoke();
+    /// 
+    ///     var subscription_level = new Azure.Management.Lock("subscription-level", new()
+    ///     {
+    ///         Scope = current.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
+    ///         LockLevel = "CanNotDelete",
+    ///         Notes = "Items can't be deleted in this subscription!",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Resource Group Level Lock)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var resource_group_level = new Azure.Management.Lock("resource-group-level", new()
+    ///     {
+    ///         Scope = example.Id,
+    ///         LockLevel = "ReadOnly",
+    ///         Notes = "This Resource Group is Read-Only",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Resource Level Lock)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AllocationMethod = "Static",
+    ///         IdleTimeoutInMinutes = 30,
+    ///     });
+    /// 
+    ///     var public_ip = new Azure.Management.Lock("public-ip", new()
+    ///     {
+    ///         Scope = examplePublicIp.Id,
+    ///         LockLevel = "CanNotDelete",
+    ///         Notes = "Locked because it's needed by a third-party",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

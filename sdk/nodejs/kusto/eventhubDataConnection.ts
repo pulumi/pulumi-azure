@@ -7,6 +7,58 @@ import * as utilities from "../utilities";
 /**
  * Manages a Kusto (also known as Azure Data Explorer) EventHub Data Connection
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
+ * const cluster = new azure.kusto.Cluster("cluster", {
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     sku: {
+ *         name: "Standard_D13_v2",
+ *         capacity: 2,
+ *     },
+ * });
+ * const database = new azure.kusto.Database("database", {
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     clusterName: cluster.name,
+ *     hotCachePeriod: "P7D",
+ *     softDeletePeriod: "P31D",
+ * });
+ * const eventhubNs = new azure.eventhub.EventHubNamespace("eventhubNs", {
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     sku: "Standard",
+ * });
+ * const eventhub = new azure.eventhub.EventHub("eventhub", {
+ *     namespaceName: eventhubNs.name,
+ *     resourceGroupName: example.name,
+ *     partitionCount: 1,
+ *     messageRetention: 1,
+ * });
+ * const consumerGroup = new azure.eventhub.ConsumerGroup("consumerGroup", {
+ *     namespaceName: eventhubNs.name,
+ *     eventhubName: eventhub.name,
+ *     resourceGroupName: example.name,
+ * });
+ * const eventhubConnection = new azure.kusto.EventhubDataConnection("eventhubConnection", {
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     clusterName: cluster.name,
+ *     databaseName: database.name,
+ *     eventhubId: eventhub.id,
+ *     consumerGroup: consumerGroup.name,
+ *     tableName: "my-table",
+ *     mappingRuleName: "my-table-mapping",
+ *     dataFormat: "JSON",
+ * });
+ * //(Optional)
+ * ```
+ *
  * ## Import
  *
  * Kusto EventHub Data Connections can be imported using the `resource id`, e.g.

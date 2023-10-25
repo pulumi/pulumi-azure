@@ -12,6 +12,108 @@ namespace Pulumi.Azure.SecurityCenter
     /// <summary>
     /// Manages the Security Center Assessment for Azure Security Center.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.IO;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///     });
+    /// 
+    ///     var @internal = new Azure.Network.Subnet("internal", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleLinuxVirtualMachineScaleSet = new Azure.Compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Sku = "Standard_F2",
+    ///         Instances = 1,
+    ///         AdminUsername = "adminuser",
+    ///         AdminSshKeys = new[]
+    ///         {
+    ///             new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetAdminSshKeyArgs
+    ///             {
+    ///                 Username = "adminuser",
+    ///                 PublicKey = File.ReadAllText("~/.ssh/id_rsa.pub"),
+    ///             },
+    ///         },
+    ///         SourceImageReference = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetSourceImageReferenceArgs
+    ///         {
+    ///             Publisher = "Canonical",
+    ///             Offer = "0001-com-ubuntu-server-focal",
+    ///             Sku = "20_04-lts",
+    ///             Version = "latest",
+    ///         },
+    ///         OsDisk = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetOsDiskArgs
+    ///         {
+    ///             StorageAccountType = "Standard_LRS",
+    ///             Caching = "ReadWrite",
+    ///         },
+    ///         NetworkInterfaces = new[]
+    ///         {
+    ///             new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetNetworkInterfaceArgs
+    ///             {
+    ///                 Name = "example",
+    ///                 Primary = true,
+    ///                 IpConfigurations = new[]
+    ///                 {
+    ///                     new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs
+    ///                     {
+    ///                         Name = "internal",
+    ///                         Primary = true,
+    ///                         SubnetId = @internal.Id,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAssessmentPolicy = new Azure.SecurityCenter.AssessmentPolicy("exampleAssessmentPolicy", new()
+    ///     {
+    ///         DisplayName = "Test Display Name",
+    ///         Severity = "Medium",
+    ///         Description = "Test Description",
+    ///     });
+    /// 
+    ///     var exampleAssessment = new Azure.SecurityCenter.Assessment("exampleAssessment", new()
+    ///     {
+    ///         AssessmentPolicyId = exampleAssessmentPolicy.Id,
+    ///         TargetResourceId = exampleLinuxVirtualMachineScaleSet.Id,
+    ///         Status = new Azure.SecurityCenter.Inputs.AssessmentStatusArgs
+    ///         {
+    ///             Code = "Healthy",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Security Assessment can be imported using the `resource id`, e.g.

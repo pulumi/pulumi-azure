@@ -8,6 +8,20 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Dev Test Lab Virtual Network.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.devtest.getVirtualNetwork({
+ *     name: "example-network",
+ *     labName: "examplelab",
+ *     resourceGroupName: "example-resource",
+ * });
+ * export const labSubnetName = example.then(example => example.allowedSubnets?.[0]?.labSubnetName);
+ * ```
  */
 export function getVirtualNetwork(args: GetVirtualNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkResult> {
 
@@ -63,6 +77,20 @@ export interface GetVirtualNetworkResult {
 }
 /**
  * Use this data source to access information about an existing Dev Test Lab Virtual Network.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.devtest.getVirtualNetwork({
+ *     name: "example-network",
+ *     labName: "examplelab",
+ *     resourceGroupName: "example-resource",
+ * });
+ * export const labSubnetName = example.then(example => example.allowedSubnets?.[0]?.labSubnetName);
+ * ```
  */
 export function getVirtualNetworkOutput(args: GetVirtualNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNetwork(a, opts))

@@ -17,6 +17,49 @@ namespace Pulumi.Azure.Compute.Inputs
 
         /// <summary>
         /// Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = new Azure.Compute.ScaleSet("example", new()
+        ///     {
+        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///         Location = azurerm_resource_group.Example.Location,
+        ///         Sku = new Azure.Compute.Inputs.ScaleSetSkuArgs
+        ///         {
+        ///             Name = @var.Vm_sku,
+        ///             Tier = "Standard",
+        ///             Capacity = @var.Instance_count,
+        ///         },
+        ///         Identity = new Azure.Compute.Inputs.ScaleSetIdentityArgs
+        ///         {
+        ///             Type = "SystemAssigned",
+        ///         },
+        ///         Extensions = new[]
+        ///         {
+        ///             new Azure.Compute.Inputs.ScaleSetExtensionArgs
+        ///             {
+        ///                 Name = "MSILinuxExtension",
+        ///                 Publisher = "Microsoft.ManagedIdentity",
+        ///                 Type = "ManagedIdentityExtensionForLinux",
+        ///                 TypeHandlerVersion = "1.0",
+        ///                 Settings = "{\"port\": 50342}",
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     // ...
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["principalId"] = example.Identity.Apply(identity =&gt; identity.PrincipalId),
+        ///     };
+        /// });
+        /// ```
         /// </summary>
         public InputList<string> IdentityIds
         {

@@ -243,6 +243,49 @@ class ApiKey(pulumi.CustomResource):
         """
         Manages an Application Insights API key.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_insights = azure.appinsights.Insights("exampleInsights",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            application_type="web")
+        read_telemetry = azure.appinsights.ApiKey("readTelemetry",
+            application_insights_id=example_insights.id,
+            read_permissions=[
+                "aggregate",
+                "api",
+                "draft",
+                "extendqueries",
+                "search",
+            ])
+        write_annotations = azure.appinsights.ApiKey("writeAnnotations",
+            application_insights_id=example_insights.id,
+            write_permissions=["annotations"])
+        authenticate_sdk_control_channel_api_key = azure.appinsights.ApiKey("authenticateSdkControlChannelApiKey",
+            application_insights_id=example_insights.id,
+            read_permissions=["agentconfig"])
+        full_permissions = azure.appinsights.ApiKey("fullPermissions",
+            application_insights_id=example_insights.id,
+            read_permissions=[
+                "agentconfig",
+                "aggregate",
+                "api",
+                "draft",
+                "extendqueries",
+                "search",
+            ],
+            write_permissions=["annotations"])
+        pulumi.export("readTelemetryApiKey", read_telemetry.api_key)
+        pulumi.export("writeAnnotationsApiKey", write_annotations.api_key)
+        pulumi.export("authenticateSdkControlChannel", authenticate_sdk_control_channel_api_key.api_key)
+        pulumi.export("fullPermissionsApiKey", full_permissions.api_key)
+        ```
+
         ## Import
 
         Application Insights API keys can be imported using the `resource id`, e.g.
@@ -268,6 +311,49 @@ class ApiKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Application Insights API key.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_insights = azure.appinsights.Insights("exampleInsights",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            application_type="web")
+        read_telemetry = azure.appinsights.ApiKey("readTelemetry",
+            application_insights_id=example_insights.id,
+            read_permissions=[
+                "aggregate",
+                "api",
+                "draft",
+                "extendqueries",
+                "search",
+            ])
+        write_annotations = azure.appinsights.ApiKey("writeAnnotations",
+            application_insights_id=example_insights.id,
+            write_permissions=["annotations"])
+        authenticate_sdk_control_channel_api_key = azure.appinsights.ApiKey("authenticateSdkControlChannelApiKey",
+            application_insights_id=example_insights.id,
+            read_permissions=["agentconfig"])
+        full_permissions = azure.appinsights.ApiKey("fullPermissions",
+            application_insights_id=example_insights.id,
+            read_permissions=[
+                "agentconfig",
+                "aggregate",
+                "api",
+                "draft",
+                "extendqueries",
+                "search",
+            ],
+            write_permissions=["annotations"])
+        pulumi.export("readTelemetryApiKey", read_telemetry.api_key)
+        pulumi.export("writeAnnotationsApiKey", write_annotations.api_key)
+        pulumi.export("authenticateSdkControlChannel", authenticate_sdk_control_channel_api_key.api_key)
+        pulumi.export("fullPermissionsApiKey", full_permissions.api_key)
+        ```
 
         ## Import
 

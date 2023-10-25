@@ -217,6 +217,39 @@ class SecurityDeviceGroup(pulumi.CustomResource):
         """
         Manages a Iot Security Device Group.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku=azure.iot.IoTHubSkuArgs(
+                name="S1",
+                capacity=1,
+            ))
+        example_security_solution = azure.iot.SecuritySolution("exampleSecuritySolution",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            display_name="Iot Security Solution",
+            iothub_ids=[example_io_t_hub.id])
+        example_security_device_group = azure.iot.SecurityDeviceGroup("exampleSecurityDeviceGroup",
+            iothub_id=example_io_t_hub.id,
+            allow_rule=azure.iot.SecurityDeviceGroupAllowRuleArgs(
+                connection_to_ips_not_alloweds=["10.0.0.0/24"],
+            ),
+            range_rules=[azure.iot.SecurityDeviceGroupRangeRuleArgs(
+                type="ActiveConnectionsNotInAllowedRange",
+                min=0,
+                max=30,
+                duration="PT5M",
+            )],
+            opts=pulumi.ResourceOptions(depends_on=[example_security_solution]))
+        ```
+
         ## Import
 
         Iot Security Device Group can be imported using the `resource id`, e.g.
@@ -240,6 +273,39 @@ class SecurityDeviceGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Iot Security Device Group.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku=azure.iot.IoTHubSkuArgs(
+                name="S1",
+                capacity=1,
+            ))
+        example_security_solution = azure.iot.SecuritySolution("exampleSecuritySolution",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            display_name="Iot Security Solution",
+            iothub_ids=[example_io_t_hub.id])
+        example_security_device_group = azure.iot.SecurityDeviceGroup("exampleSecurityDeviceGroup",
+            iothub_id=example_io_t_hub.id,
+            allow_rule=azure.iot.SecurityDeviceGroupAllowRuleArgs(
+                connection_to_ips_not_alloweds=["10.0.0.0/24"],
+            ),
+            range_rules=[azure.iot.SecurityDeviceGroupRangeRuleArgs(
+                type="ActiveConnectionsNotInAllowedRange",
+                min=0,
+                max=30,
+                duration="PT5M",
+            )],
+            opts=pulumi.ResourceOptions(depends_on=[example_security_solution]))
+        ```
 
         ## Import
 

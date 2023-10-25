@@ -13,6 +13,35 @@ import (
 )
 
 // Uses this data source to access information about an existing Marketplace Agreement.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/marketplace"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := marketplace.LookupAgreement(ctx, &marketplace.LookupAgreementArgs{
+//				Publisher: "barracudanetworks",
+//				Offer:     "waf",
+//				Plan:      "hourly",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("azurermMarketplaceAgreementId", data.Azurerm_marketplace_agreement.Id)
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupAgreement(ctx *pulumi.Context, args *LookupAgreementArgs, opts ...pulumi.InvokeOption) (*LookupAgreementResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAgreementResult

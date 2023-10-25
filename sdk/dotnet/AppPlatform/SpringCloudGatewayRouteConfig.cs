@@ -14,6 +14,75 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     /// &gt; **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "E0",
+    ///     });
+    /// 
+    ///     var exampleSpringCloudApp = new Azure.AppPlatform.SpringCloudApp("exampleSpringCloudApp", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ServiceName = exampleSpringCloudService.Name,
+    ///     });
+    /// 
+    ///     var exampleSpringCloudGateway = new Azure.AppPlatform.SpringCloudGateway("exampleSpringCloudGateway", new()
+    ///     {
+    ///         SpringCloudServiceId = exampleSpringCloudService.Id,
+    ///     });
+    /// 
+    ///     var exampleSpringCloudGatewayRouteConfig = new Azure.AppPlatform.SpringCloudGatewayRouteConfig("exampleSpringCloudGatewayRouteConfig", new()
+    ///     {
+    ///         SpringCloudGatewayId = exampleSpringCloudGateway.Id,
+    ///         SpringCloudAppId = exampleSpringCloudApp.Id,
+    ///         Protocol = "HTTPS",
+    ///         Routes = new[]
+    ///         {
+    ///             new Azure.AppPlatform.Inputs.SpringCloudGatewayRouteConfigRouteArgs
+    ///             {
+    ///                 Description = "example description",
+    ///                 Filters = new[]
+    ///                 {
+    ///                     "StripPrefix=2",
+    ///                     "RateLimit=1,1s",
+    ///                 },
+    ///                 Order = 1,
+    ///                 Predicates = new[]
+    ///                 {
+    ///                     "Path=/api5/customer/**",
+    ///                 },
+    ///                 SsoValidationEnabled = true,
+    ///                 Title = "myApp route config",
+    ///                 TokenRelay = true,
+    ///                 Uri = "https://www.example.com",
+    ///                 ClassificationTags = new[]
+    ///                 {
+    ///                     "tag1",
+    ///                     "tag2",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Spring Cloud Gateway Route Configs can be imported using the `resource id`, e.g.

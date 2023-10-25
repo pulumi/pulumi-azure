@@ -12,6 +12,310 @@ namespace Pulumi.Azure.DomainServices
     /// <summary>
     /// Manages a Replica Set for an Active Directory Domain Service.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using AzureAD = Pulumi.AzureAD;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var primaryResourceGroup = new Azure.Core.ResourceGroup("primaryResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var primaryVirtualNetwork = new Azure.Network.VirtualNetwork("primaryVirtualNetwork", new()
+    ///     {
+    ///         Location = primaryResourceGroup.Location,
+    ///         ResourceGroupName = primaryResourceGroup.Name,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.1.0/16",
+    ///         },
+    ///     });
+    /// 
+    ///     var primarySubnet = new Azure.Network.Subnet("primarySubnet", new()
+    ///     {
+    ///         ResourceGroupName = primaryResourceGroup.Name,
+    ///         VirtualNetworkName = primaryVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.1.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var primaryNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup("primaryNetworkSecurityGroup", new()
+    ///     {
+    ///         Location = primaryResourceGroup.Location,
+    ///         ResourceGroupName = primaryResourceGroup.Name,
+    ///         SecurityRules = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.NetworkSecurityGroupSecurityRuleArgs
+    ///             {
+    ///                 Name = "AllowSyncWithAzureAD",
+    ///                 Priority = 101,
+    ///                 Direction = "Inbound",
+    ///                 Access = "Allow",
+    ///                 Protocol = "Tcp",
+    ///                 SourcePortRange = "*",
+    ///                 DestinationPortRange = "443",
+    ///                 SourceAddressPrefix = "AzureActiveDirectoryDomainServices",
+    ///                 DestinationAddressPrefix = "*",
+    ///             },
+    ///             new Azure.Network.Inputs.NetworkSecurityGroupSecurityRuleArgs
+    ///             {
+    ///                 Name = "AllowRD",
+    ///                 Priority = 201,
+    ///                 Direction = "Inbound",
+    ///                 Access = "Allow",
+    ///                 Protocol = "Tcp",
+    ///                 SourcePortRange = "*",
+    ///                 DestinationPortRange = "3389",
+    ///                 SourceAddressPrefix = "CorpNetSaw",
+    ///                 DestinationAddressPrefix = "*",
+    ///             },
+    ///             new Azure.Network.Inputs.NetworkSecurityGroupSecurityRuleArgs
+    ///             {
+    ///                 Name = "AllowPSRemoting",
+    ///                 Priority = 301,
+    ///                 Direction = "Inbound",
+    ///                 Access = "Allow",
+    ///                 Protocol = "Tcp",
+    ///                 SourcePortRange = "*",
+    ///                 DestinationPortRange = "5986",
+    ///                 SourceAddressPrefix = "AzureActiveDirectoryDomainServices",
+    ///                 DestinationAddressPrefix = "*",
+    ///             },
+    ///             new Azure.Network.Inputs.NetworkSecurityGroupSecurityRuleArgs
+    ///             {
+    ///                 Name = "AllowLDAPS",
+    ///                 Priority = 401,
+    ///                 Direction = "Inbound",
+    ///                 Access = "Allow",
+    ///                 Protocol = "Tcp",
+    ///                 SourcePortRange = "*",
+    ///                 DestinationPortRange = "636",
+    ///                 SourceAddressPrefix = "*",
+    ///                 DestinationAddressPrefix = "*",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var primarySubnetNetworkSecurityGroupAssociation = new Azure.Network.SubnetNetworkSecurityGroupAssociation("primarySubnetNetworkSecurityGroupAssociation", new()
+    ///     {
+    ///         SubnetId = primarySubnet.Id,
+    ///         NetworkSecurityGroupId = primaryNetworkSecurityGroup.Id,
+    ///     });
+    /// 
+    ///     var dcAdmins = new AzureAD.Group("dcAdmins", new()
+    ///     {
+    ///         DisplayName = "aad-dc-administrators",
+    ///         SecurityEnabled = true,
+    ///     });
+    /// 
+    ///     var adminUser = new AzureAD.User("adminUser", new()
+    ///     {
+    ///         UserPrincipalName = "dc-admin@hashicorp-example.net",
+    ///         DisplayName = "DC Administrator",
+    ///         Password = "Pa55w0Rd!!1",
+    ///     });
+    /// 
+    ///     var adminGroupMember = new AzureAD.GroupMember("adminGroupMember", new()
+    ///     {
+    ///         GroupObjectId = dcAdmins.ObjectId,
+    ///         MemberObjectId = adminUser.ObjectId,
+    ///     });
+    /// 
+    ///     var exampleServicePrincipal = new AzureAD.ServicePrincipal("exampleServicePrincipal", new()
+    ///     {
+    ///         ApplicationId = "2565bd9d-da50-47d4-8b85-4c97f669dc36",
+    ///     });
+    /// 
+    ///     // published app for domain services
+    ///     var aadds = new Azure.Core.ResourceGroup("aadds", new()
+    ///     {
+    ///         Location = "westeurope",
+    ///     });
+    /// 
+    ///     var exampleService = new Azure.DomainServices.Service("exampleService", new()
+    ///     {
+    ///         Location = aadds.Location,
+    ///         ResourceGroupName = aadds.Name,
+    ///         DomainName = "widgetslogin.net",
+    ///         Sku = "Enterprise",
+    ///         FilteredSyncEnabled = false,
+    ///         InitialReplicaSet = new Azure.DomainServices.Inputs.ServiceInitialReplicaSetArgs
+    ///         {
+    ///             Location = primaryVirtualNetwork.Location,
+    ///             SubnetId = primarySubnet.Id,
+    ///         },
+    ///         Notifications = new Azure.DomainServices.Inputs.ServiceNotificationsArgs
+    ///         {
+    ///             AdditionalRecipients = new[]
+    ///             {
+    ///                 "notifyA@example.net",
+    ///                 "notifyB@example.org",
+    ///             },
+    ///             NotifyDcAdmins = true,
+    ///             NotifyGlobalAdmins = true,
+    ///         },
+    ///         Security = new Azure.DomainServices.Inputs.ServiceSecurityArgs
+    ///         {
+    ///             SyncKerberosPasswords = true,
+    ///             SyncNtlmPasswords = true,
+    ///             SyncOnPremPasswords = true,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "prod" },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleServicePrincipal,
+    ///             primarySubnetNetworkSecurityGroupAssociation,
+    ///         },
+    ///     });
+    /// 
+    ///     var replicaResourceGroup = new Azure.Core.ResourceGroup("replicaResourceGroup", new()
+    ///     {
+    ///         Location = "North Europe",
+    ///     });
+    /// 
+    ///     var replicaVirtualNetwork = new Azure.Network.VirtualNetwork("replicaVirtualNetwork", new()
+    ///     {
+    ///         Location = replicaResourceGroup.Location,
+    ///         ResourceGroupName = replicaResourceGroup.Name,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.20.0.0/16",
+    ///         },
+    ///     });
+    /// 
+    ///     var aaddsReplicaSubnet = new Azure.Network.Subnet("aaddsReplicaSubnet", new()
+    ///     {
+    ///         ResourceGroupName = replicaResourceGroup.Name,
+    ///         VirtualNetworkName = replicaVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.20.0.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var aaddsReplicaNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup("aaddsReplicaNetworkSecurityGroup", new()
+    ///     {
+    ///         Location = replicaResourceGroup.Location,
+    ///         ResourceGroupName = replicaResourceGroup.Name,
+    ///         SecurityRules = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.NetworkSecurityGroupSecurityRuleArgs
+    ///             {
+    ///                 Name = "AllowSyncWithAzureAD",
+    ///                 Priority = 101,
+    ///                 Direction = "Inbound",
+    ///                 Access = "Allow",
+    ///                 Protocol = "Tcp",
+    ///                 SourcePortRange = "*",
+    ///                 DestinationPortRange = "443",
+    ///                 SourceAddressPrefix = "AzureActiveDirectoryDomainServices",
+    ///                 DestinationAddressPrefix = "*",
+    ///             },
+    ///             new Azure.Network.Inputs.NetworkSecurityGroupSecurityRuleArgs
+    ///             {
+    ///                 Name = "AllowRD",
+    ///                 Priority = 201,
+    ///                 Direction = "Inbound",
+    ///                 Access = "Allow",
+    ///                 Protocol = "Tcp",
+    ///                 SourcePortRange = "*",
+    ///                 DestinationPortRange = "3389",
+    ///                 SourceAddressPrefix = "CorpNetSaw",
+    ///                 DestinationAddressPrefix = "*",
+    ///             },
+    ///             new Azure.Network.Inputs.NetworkSecurityGroupSecurityRuleArgs
+    ///             {
+    ///                 Name = "AllowPSRemoting",
+    ///                 Priority = 301,
+    ///                 Direction = "Inbound",
+    ///                 Access = "Allow",
+    ///                 Protocol = "Tcp",
+    ///                 SourcePortRange = "*",
+    ///                 DestinationPortRange = "5986",
+    ///                 SourceAddressPrefix = "AzureActiveDirectoryDomainServices",
+    ///                 DestinationAddressPrefix = "*",
+    ///             },
+    ///             new Azure.Network.Inputs.NetworkSecurityGroupSecurityRuleArgs
+    ///             {
+    ///                 Name = "AllowLDAPS",
+    ///                 Priority = 401,
+    ///                 Direction = "Inbound",
+    ///                 Access = "Allow",
+    ///                 Protocol = "Tcp",
+    ///                 SourcePortRange = "*",
+    ///                 DestinationPortRange = "636",
+    ///                 SourceAddressPrefix = "*",
+    ///                 DestinationAddressPrefix = "*",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var replicaSubnetNetworkSecurityGroupAssociation = new Azure.Network.SubnetNetworkSecurityGroupAssociation("replicaSubnetNetworkSecurityGroupAssociation", new()
+    ///     {
+    ///         SubnetId = aaddsReplicaSubnet.Id,
+    ///         NetworkSecurityGroupId = aaddsReplicaNetworkSecurityGroup.Id,
+    ///     });
+    /// 
+    ///     var primaryReplica = new Azure.Network.VirtualNetworkPeering("primaryReplica", new()
+    ///     {
+    ///         ResourceGroupName = primaryVirtualNetwork.ResourceGroupName,
+    ///         VirtualNetworkName = primaryVirtualNetwork.Name,
+    ///         RemoteVirtualNetworkId = replicaVirtualNetwork.Id,
+    ///         AllowForwardedTraffic = true,
+    ///         AllowGatewayTransit = false,
+    ///         AllowVirtualNetworkAccess = true,
+    ///         UseRemoteGateways = false,
+    ///     });
+    /// 
+    ///     var replicaPrimary = new Azure.Network.VirtualNetworkPeering("replicaPrimary", new()
+    ///     {
+    ///         ResourceGroupName = replicaVirtualNetwork.ResourceGroupName,
+    ///         VirtualNetworkName = replicaVirtualNetwork.Name,
+    ///         RemoteVirtualNetworkId = primaryVirtualNetwork.Id,
+    ///         AllowForwardedTraffic = true,
+    ///         AllowGatewayTransit = false,
+    ///         AllowVirtualNetworkAccess = true,
+    ///         UseRemoteGateways = false,
+    ///     });
+    /// 
+    ///     var replicaVirtualNetworkDnsServers = new Azure.Network.VirtualNetworkDnsServers("replicaVirtualNetworkDnsServers", new()
+    ///     {
+    ///         VirtualNetworkId = replicaVirtualNetwork.Id,
+    ///         DnsServers = exampleService.InitialReplicaSet.Apply(initialReplicaSet =&gt; initialReplicaSet.DomainControllerIpAddresses),
+    ///     });
+    /// 
+    ///     var replicaReplicaSet = new Azure.DomainServices.ReplicaSet("replicaReplicaSet", new()
+    ///     {
+    ///         DomainServiceId = exampleService.Id,
+    ///         Location = replicaResourceGroup.Location,
+    ///         SubnetId = aaddsReplicaSubnet.Id,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             replicaSubnetNetworkSecurityGroupAssociation,
+    ///             primaryReplica,
+    ///             replicaPrimary,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Domain Service Replica Sets can be imported using the resource ID of the parent Domain Service and the Replica Set ID, e.g.

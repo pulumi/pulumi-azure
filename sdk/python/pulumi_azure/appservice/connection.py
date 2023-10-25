@@ -346,6 +346,54 @@ class Connection(pulumi.CustomResource):
         """
         Manages a service connector for app service.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.cosmosdb.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            offer_type="Standard",
+            kind="GlobalDocumentDB",
+            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
+                consistency_level="BoundedStaleness",
+                max_interval_in_seconds=10,
+                max_staleness_prefix=200,
+            ),
+            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
+                location=example_resource_group.location,
+                failover_priority=0,
+            )])
+        example_sql_database = azure.cosmosdb.SqlDatabase("exampleSqlDatabase",
+            resource_group_name=example_account.resource_group_name,
+            account_name=example_account.name,
+            throughput=400)
+        example_sql_container = azure.cosmosdb.SqlContainer("exampleSqlContainer",
+            resource_group_name=example_account.resource_group_name,
+            account_name=example_account.name,
+            database_name=example_sql_database.name,
+            partition_key_path="/definition")
+        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="P1v2",
+            os_type="Linux")
+        example_linux_web_app = azure.appservice.LinuxWebApp("exampleLinuxWebApp",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            service_plan_id=example_service_plan.id,
+            site_config=azure.appservice.LinuxWebAppSiteConfigArgs())
+        example_connection = azure.appservice.Connection("exampleConnection",
+            app_service_id=example_linux_web_app.id,
+            target_resource_id=example_sql_database.id,
+            authentication=azure.appservice.ConnectionAuthenticationArgs(
+                type="systemAssignedIdentity",
+            ))
+        ```
+
         ## Import
 
         Service Connector for app service can be imported using the `resource id`, e.g.
@@ -374,6 +422,54 @@ class Connection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a service connector for app service.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.cosmosdb.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            offer_type="Standard",
+            kind="GlobalDocumentDB",
+            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
+                consistency_level="BoundedStaleness",
+                max_interval_in_seconds=10,
+                max_staleness_prefix=200,
+            ),
+            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
+                location=example_resource_group.location,
+                failover_priority=0,
+            )])
+        example_sql_database = azure.cosmosdb.SqlDatabase("exampleSqlDatabase",
+            resource_group_name=example_account.resource_group_name,
+            account_name=example_account.name,
+            throughput=400)
+        example_sql_container = azure.cosmosdb.SqlContainer("exampleSqlContainer",
+            resource_group_name=example_account.resource_group_name,
+            account_name=example_account.name,
+            database_name=example_sql_database.name,
+            partition_key_path="/definition")
+        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="P1v2",
+            os_type="Linux")
+        example_linux_web_app = azure.appservice.LinuxWebApp("exampleLinuxWebApp",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            service_plan_id=example_service_plan.id,
+            site_config=azure.appservice.LinuxWebAppSiteConfigArgs())
+        example_connection = azure.appservice.Connection("exampleConnection",
+            app_service_id=example_linux_web_app.id,
+            target_resource_id=example_sql_database.id,
+            authentication=azure.appservice.ConnectionAuthenticationArgs(
+                type="systemAssignedIdentity",
+            ))
+        ```
 
         ## Import
 

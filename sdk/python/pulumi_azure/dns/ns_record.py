@@ -304,6 +304,27 @@ class NsRecord(pulumi.CustomResource):
                  zone_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_zone = azure.dns.Zone("exampleZone", resource_group_name=example_resource_group.name)
+        example_ns_record = azure.dns.NsRecord("exampleNsRecord",
+            zone_name=example_zone.name,
+            resource_group_name=example_resource_group.name,
+            ttl=300,
+            records=[
+                "ns1.contoso.com.",
+                "ns2.contoso.com.",
+            ],
+            tags={
+                "Environment": "Production",
+            })
+        ```
+
         ## Import
 
         NS records can be imported using the `resource id`, e.g.
@@ -328,6 +349,27 @@ class NsRecord(pulumi.CustomResource):
                  args: NsRecordArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_zone = azure.dns.Zone("exampleZone", resource_group_name=example_resource_group.name)
+        example_ns_record = azure.dns.NsRecord("exampleNsRecord",
+            zone_name=example_zone.name,
+            resource_group_name=example_resource_group.name,
+            ttl=300,
+            records=[
+                "ns1.contoso.com.",
+                "ns2.contoso.com.",
+            ],
+            tags={
+                "Environment": "Production",
+            })
+        ```
+
         ## Import
 
         NS records can be imported using the `resource id`, e.g.

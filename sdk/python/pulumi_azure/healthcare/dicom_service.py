@@ -341,6 +341,26 @@ class DicomService(pulumi.CustomResource):
         """
         Manages a Healthcare DICOM Service
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        test_workspace = azure.healthcare.Workspace("testWorkspace",
+            resource_group_name="tfex-resource_group",
+            location="east us")
+        test_dicom_service = azure.healthcare.DicomService("testDicomService",
+            workspace_id=test_workspace.id,
+            location="east us",
+            identity=azure.healthcare.DicomServiceIdentityArgs(
+                type="SystemAssigned",
+            ),
+            tags={
+                "environment": "None",
+            })
+        ```
+
         ## Import
 
         Healthcare DICOM Service can be imported using the resource`id`, e.g.
@@ -366,6 +386,26 @@ class DicomService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Healthcare DICOM Service
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        test_workspace = azure.healthcare.Workspace("testWorkspace",
+            resource_group_name="tfex-resource_group",
+            location="east us")
+        test_dicom_service = azure.healthcare.DicomService("testDicomService",
+            workspace_id=test_workspace.id,
+            location="east us",
+            identity=azure.healthcare.DicomServiceIdentityArgs(
+                type="SystemAssigned",
+            ),
+            tags={
+                "environment": "None",
+            })
+        ```
 
         ## Import
 

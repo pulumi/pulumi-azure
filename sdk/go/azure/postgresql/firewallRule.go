@@ -16,6 +16,90 @@ import (
 // Manages a Firewall Rule for a PostgreSQL Server
 //
 // ## Example Usage
+// ### Single IP Address)
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/postgresql"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleServer, err := postgresql.NewServer(ctx, "exampleServer", &postgresql.ServerArgs{
+//				Location:              exampleResourceGroup.Location,
+//				ResourceGroupName:     exampleResourceGroup.Name,
+//				SkuName:               pulumi.String("GP_Gen5_2"),
+//				Version:               pulumi.String("11"),
+//				SslEnforcementEnabled: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = postgresql.NewFirewallRule(ctx, "exampleFirewallRule", &postgresql.FirewallRuleArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ServerName:        exampleServer.Name,
+//				StartIpAddress:    pulumi.String("40.112.8.12"),
+//				EndIpAddress:      pulumi.String("40.112.8.12"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### IP Range)
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/postgresql"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleServer, err := postgresql.NewServer(ctx, "exampleServer", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = postgresql.NewFirewallRule(ctx, "exampleFirewallRule", &postgresql.FirewallRuleArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ServerName:        exampleServer.Name,
+//				StartIpAddress:    pulumi.String("40.112.0.0"),
+//				EndIpAddress:      pulumi.String("40.112.255.255"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //

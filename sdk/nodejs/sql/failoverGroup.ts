@@ -11,6 +11,46 @@ import * as utilities from "../utilities";
  *
  * > **Note:** The `azure.sql.FailoverGroup` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.FailoverGroup` resource instead.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const primary = new azure.sql.SqlServer("primary", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     version: "12.0",
+ *     administratorLogin: "sqladmin",
+ *     administratorLoginPassword: "pa$$w0rd",
+ * });
+ * const secondary = new azure.sql.SqlServer("secondary", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     version: "12.0",
+ *     administratorLogin: "sqladmin",
+ *     administratorLoginPassword: "pa$$w0rd",
+ * });
+ * const db1 = new azure.sql.Database("db1", {
+ *     resourceGroupName: primary.resourceGroupName,
+ *     location: primary.location,
+ *     serverName: primary.name,
+ * });
+ * const exampleFailoverGroup = new azure.sql.FailoverGroup("exampleFailoverGroup", {
+ *     resourceGroupName: primary.resourceGroupName,
+ *     serverName: primary.name,
+ *     databases: [db1.id],
+ *     partnerServers: [{
+ *         id: secondary.id,
+ *     }],
+ *     readWriteEndpointFailoverPolicy: {
+ *         mode: "Automatic",
+ *         graceMinutes: 60,
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * SQL Failover Groups can be imported using the `resource id`, e.g.

@@ -16,6 +16,62 @@ namespace Pulumi.Azure.AppService
     /// 
     /// &gt; **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `azure.appservice.AppService` resource will be overwritten when promoting a Slot using the `azure.appservice.ActiveSlot` resource.
     /// 
+    /// ## Example Usage
+    /// 
+    /// This example provisions a Windows App Service.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var examplePlan = new Azure.AppService.Plan("examplePlan", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
+    ///         {
+    ///             Tier = "Standard",
+    ///             Size = "S1",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAppService = new Azure.AppService.AppService("exampleAppService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AppServicePlanId = examplePlan.Id,
+    ///         SiteConfig = new Azure.AppService.Inputs.AppServiceSiteConfigArgs
+    ///         {
+    ///             DotnetFrameworkVersion = "v4.0",
+    ///             ScmType = "LocalGit",
+    ///         },
+    ///         AppSettings = 
+    ///         {
+    ///             { "SOME_KEY", "some-value" },
+    ///         },
+    ///         ConnectionStrings = new[]
+    ///         {
+    ///             new Azure.AppService.Inputs.AppServiceConnectionStringArgs
+    ///             {
+    ///                 Name = "Database",
+    ///                 Type = "SQLServer",
+    ///                 Value = "Server=some-server.mydomain.com;Integrated Security=SSPI",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// App Services can be imported using the `resource id`, e.g.

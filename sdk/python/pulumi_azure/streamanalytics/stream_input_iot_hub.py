@@ -421,6 +421,36 @@ class StreamInputIotHub(pulumi.CustomResource):
         """
         Manages a Stream Analytics Stream Input IoTHub.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_job = azure.streamanalytics.get_job_output(name="example-job",
+            resource_group_name=example_resource_group.name)
+        example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku=azure.iot.IoTHubSkuArgs(
+                name="S1",
+                capacity=1,
+            ))
+        example_stream_input_iot_hub = azure.streamanalytics.StreamInputIotHub("exampleStreamInputIotHub",
+            stream_analytics_job_name=example_job.name,
+            resource_group_name=example_job.resource_group_name,
+            endpoint="messages/events",
+            eventhub_consumer_group_name="$Default",
+            iothub_namespace=example_io_t_hub.name,
+            shared_access_policy_key=example_io_t_hub.shared_access_policies[0].primary_key,
+            shared_access_policy_name="iothubowner",
+            serialization=azure.streamanalytics.StreamInputIotHubSerializationArgs(
+                type="Json",
+                encoding="UTF8",
+            ))
+        ```
+
         ## Import
 
         Stream Analytics Stream Input IoTHub's can be imported using the `resource id`, e.g.
@@ -449,6 +479,36 @@ class StreamInputIotHub(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Stream Analytics Stream Input IoTHub.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_job = azure.streamanalytics.get_job_output(name="example-job",
+            resource_group_name=example_resource_group.name)
+        example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku=azure.iot.IoTHubSkuArgs(
+                name="S1",
+                capacity=1,
+            ))
+        example_stream_input_iot_hub = azure.streamanalytics.StreamInputIotHub("exampleStreamInputIotHub",
+            stream_analytics_job_name=example_job.name,
+            resource_group_name=example_job.resource_group_name,
+            endpoint="messages/events",
+            eventhub_consumer_group_name="$Default",
+            iothub_namespace=example_io_t_hub.name,
+            shared_access_policy_key=example_io_t_hub.shared_access_policies[0].primary_key,
+            shared_access_policy_name="iothubowner",
+            serialization=azure.streamanalytics.StreamInputIotHubSerializationArgs(
+                type="Json",
+                encoding="UTF8",
+            ))
+        ```
 
         ## Import
 

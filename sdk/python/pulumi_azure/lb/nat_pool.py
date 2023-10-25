@@ -524,6 +524,34 @@ class NatPool(pulumi.CustomResource):
 
         > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_public_ip = azure.network.PublicIp("examplePublicIp",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            allocation_method="Static")
+        example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
+                name="PublicIPAddress",
+                public_ip_address_id=example_public_ip.id,
+            )])
+        example_nat_pool = azure.lb.NatPool("exampleNatPool",
+            resource_group_name=example_resource_group.name,
+            loadbalancer_id=example_load_balancer.id,
+            protocol="Tcp",
+            frontend_port_start=80,
+            frontend_port_end=81,
+            backend_port=8080,
+            frontend_ip_configuration_name="PublicIPAddress")
+        ```
+
         ## Import
 
         Load Balancer NAT Pools can be imported using the `resource id`, e.g.
@@ -558,6 +586,34 @@ class NatPool(pulumi.CustomResource):
         > **NOTE:** This resource cannot be used with with virtual machines, instead use the `lb.NatRule` resource.
 
         > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_public_ip = azure.network.PublicIp("examplePublicIp",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            allocation_method="Static")
+        example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
+                name="PublicIPAddress",
+                public_ip_address_id=example_public_ip.id,
+            )])
+        example_nat_pool = azure.lb.NatPool("exampleNatPool",
+            resource_group_name=example_resource_group.name,
+            loadbalancer_id=example_load_balancer.id,
+            protocol="Tcp",
+            frontend_port_start=80,
+            frontend_port_end=81,
+            backend_port=8080,
+            frontend_ip_configuration_name="PublicIPAddress")
+        ```
 
         ## Import
 

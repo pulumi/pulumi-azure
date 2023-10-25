@@ -13,12 +13,66 @@ namespace Pulumi.Azure.MachineLearning
     {
         /// <summary>
         /// Use this data source to access information about an existing Machine Learning Workspace.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var existing = Azure.MachineLearning.GetWorkspace.Invoke(new()
+        ///     {
+        ///         Name = "example-workspace",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = azurerm_machine_learning_workspace.Existing.Id,
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure:machinelearning/getWorkspace:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Machine Learning Workspace.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var existing = Azure.MachineLearning.GetWorkspace.Invoke(new()
+        ///     {
+        ///         Name = "example-workspace",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = azurerm_machine_learning_workspace.Existing.Id,
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("azure:machinelearning/getWorkspace:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());

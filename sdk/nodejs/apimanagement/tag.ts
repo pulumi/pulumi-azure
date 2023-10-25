@@ -7,6 +7,23 @@ import * as utilities from "../utilities";
 /**
  * Manages a API Management Tag.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleService = new azure.apimanagement.Service("exampleService", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     publisherName: "My Company",
+ *     publisherEmail: "company@terraform.io",
+ *     skuName: "Consumption_0",
+ * });
+ * const exampleTag = new azure.apimanagement.Tag("exampleTag", {apiManagementId: exampleService.id});
+ * ```
+ *
  * ## Import
  *
  * API Management Tags can be imported using the `resource id`, e.g.

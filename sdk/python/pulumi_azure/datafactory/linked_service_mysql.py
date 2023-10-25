@@ -368,6 +368,21 @@ class LinkedServiceMysql(pulumi.CustomResource):
         """
         Manages a Linked Service (connection) between MySQL and Azure Data Factory.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_factory = azure.datafactory.Factory("exampleFactory",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_linked_service_mysql = azure.datafactory.LinkedServiceMysql("exampleLinkedServiceMysql",
+            data_factory_id=example_factory.id,
+            connection_string="Server=test;Port=3306;Database=test;User=test;SSLMode=1;UseSystemTrustStore=0;Password=test")
+        ```
+
         ## Import
 
         Data Factory MySQL Linked Service's can be imported using the `resource id`, e.g.
@@ -395,6 +410,21 @@ class LinkedServiceMysql(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Linked Service (connection) between MySQL and Azure Data Factory.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_factory = azure.datafactory.Factory("exampleFactory",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_linked_service_mysql = azure.datafactory.LinkedServiceMysql("exampleLinkedServiceMysql",
+            data_factory_id=example_factory.id,
+            connection_string="Server=test;Port=3306;Database=test;User=test;SSLMode=1;UseSystemTrustStore=0;Password=test")
+        ```
 
         ## Import
 

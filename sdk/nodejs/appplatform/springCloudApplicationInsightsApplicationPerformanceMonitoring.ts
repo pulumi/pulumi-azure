@@ -9,6 +9,34 @@ import * as utilities from "../utilities";
  *
  * Manages a Spring Cloud Application Performance Monitoring resource for Application Insights.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleInsights = new azure.appinsights.Insights("exampleInsights", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     applicationType: "web",
+ * });
+ * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("exampleSpringCloudService", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     skuName: "E0",
+ * });
+ * const exampleSpringCloudApplicationInsightsApplicationPerformanceMonitoring = new azure.appplatform.SpringCloudApplicationInsightsApplicationPerformanceMonitoring("exampleSpringCloudApplicationInsightsApplicationPerformanceMonitoring", {
+ *     springCloudServiceId: exampleSpringCloudService.id,
+ *     connectionString: exampleInsights.instrumentationKey,
+ *     globallyEnabled: true,
+ *     roleName: "test-role",
+ *     roleInstance: "test-instance",
+ *     samplingPercentage: 50,
+ *     samplingRequestsPerSecond: 10,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Spring Cloud Application Performance Monitoring resource for Application Insights can be imported using the `resource id`, e.g.

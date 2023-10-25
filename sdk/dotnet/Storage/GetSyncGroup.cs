@@ -13,12 +13,66 @@ namespace Pulumi.Azure.Storage
     {
         /// <summary>
         /// Use this data source to access information about an existing Storage Sync Group.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Storage.GetSyncGroup.Invoke(new()
+        ///     {
+        ///         Name = "existing-ss-group",
+        ///         StorageSyncId = "existing-ss-id",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getSyncGroupResult =&gt; getSyncGroupResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetSyncGroupResult> InvokeAsync(GetSyncGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSyncGroupResult>("azure:storage/getSyncGroup:getSyncGroup", args ?? new GetSyncGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Storage Sync Group.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Storage.GetSyncGroup.Invoke(new()
+        ///     {
+        ///         Name = "existing-ss-group",
+        ///         StorageSyncId = "existing-ss-id",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getSyncGroupResult =&gt; getSyncGroupResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetSyncGroupResult> Invoke(GetSyncGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSyncGroupResult>("azure:storage/getSyncGroup:getSyncGroup", args ?? new GetSyncGroupInvokeArgs(), options.WithDefaults());

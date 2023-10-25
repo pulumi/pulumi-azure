@@ -8,6 +8,18 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Managed Kubernetes Cluster (AKS).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.containerservice.getKubernetesCluster({
+ *     name: "myakscluster",
+ *     resourceGroupName: "my-example-resource-group",
+ * });
+ * ```
  */
 export function getKubernetesCluster(args: GetKubernetesClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetKubernetesClusterResult> {
 
@@ -205,6 +217,18 @@ export interface GetKubernetesClusterResult {
 }
 /**
  * Use this data source to access information about an existing Managed Kubernetes Cluster (AKS).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.containerservice.getKubernetesCluster({
+ *     name: "myakscluster",
+ *     resourceGroupName: "my-example-resource-group",
+ * });
+ * ```
  */
 export function getKubernetesClusterOutput(args: GetKubernetesClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKubernetesClusterResult> {
     return pulumi.output(args).apply((a: any) => getKubernetesCluster(a, opts))

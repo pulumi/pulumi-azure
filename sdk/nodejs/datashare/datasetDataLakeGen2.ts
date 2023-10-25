@@ -7,6 +7,51 @@ import * as utilities from "../utilities";
 /**
  * Manages a Data Share Data Lake Gen2 Dataset.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as azuread from "@pulumi/azuread";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAccount = new azure.datashare.Account("exampleAccount", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ * });
+ * const exampleShare = new azure.datashare.Share("exampleShare", {
+ *     accountId: exampleAccount.id,
+ *     kind: "CopyBased",
+ * });
+ * const exampleStorage_accountAccount = new azure.storage.Account("exampleStorage/accountAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountKind: "BlobStorage",
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ * });
+ * const exampleDataLakeGen2Filesystem = new azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", {storageAccountId: exampleStorage / accountAccount.id});
+ * const exampleServicePrincipal = azuread.getServicePrincipalOutput({
+ *     displayName: exampleAccount.name,
+ * });
+ * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
+ *     scope: exampleStorage / accountAccount.id,
+ *     roleDefinitionName: "Storage Blob Data Reader",
+ *     principalId: exampleServicePrincipal.apply(exampleServicePrincipal => exampleServicePrincipal.objectId),
+ * });
+ * const exampleDatasetDataLakeGen2 = new azure.datashare.DatasetDataLakeGen2("exampleDatasetDataLakeGen2", {
+ *     shareId: exampleShare.id,
+ *     storageAccountId: exampleStorage / accountAccount.id,
+ *     fileSystemName: exampleDataLakeGen2Filesystem.name,
+ *     filePath: "myfile.txt",
+ * }, {
+ *     dependsOn: [exampleAssignment],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Data Share Data Lake Gen2 Datasets can be imported using the `resource id`, e.g.

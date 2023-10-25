@@ -295,6 +295,24 @@ class ZoneVirtualNetworkLink(pulumi.CustomResource):
         """
         Enables you to manage Private DNS zone Virtual Network Links. These Links enable DNS resolution and registration inside Azure Virtual Networks using Azure Private DNS.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_zone = azure.privatedns.Zone("exampleZone", resource_group_name=example_resource_group.name)
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_zone_virtual_network_link = azure.privatedns.ZoneVirtualNetworkLink("exampleZoneVirtualNetworkLink",
+            resource_group_name=example_resource_group.name,
+            private_dns_zone_name=example_zone.name,
+            virtual_network_id=example_virtual_network.id)
+        ```
+
         ## Import
 
         Private DNS Zone Virtual Network Links can be imported using the `resource id`, e.g.
@@ -320,6 +338,24 @@ class ZoneVirtualNetworkLink(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Enables you to manage Private DNS zone Virtual Network Links. These Links enable DNS resolution and registration inside Azure Virtual Networks using Azure Private DNS.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_zone = azure.privatedns.Zone("exampleZone", resource_group_name=example_resource_group.name)
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_zone_virtual_network_link = azure.privatedns.ZoneVirtualNetworkLink("exampleZoneVirtualNetworkLink",
+            resource_group_name=example_resource_group.name,
+            private_dns_zone_name=example_zone.name,
+            virtual_network_id=example_virtual_network.id)
+        ```
 
         ## Import
 

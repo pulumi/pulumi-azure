@@ -12,6 +12,50 @@ namespace Pulumi.Azure.DataFactory
     /// <summary>
     /// Manages an Azure Blob Dataset inside an Azure Data Factory.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = Azure.Storage.GetAccount.Invoke(new()
+    ///     {
+    ///         Name = "storageaccountname",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleLinkedServiceAzureBlobStorage = new Azure.DataFactory.LinkedServiceAzureBlobStorage("exampleLinkedServiceAzureBlobStorage", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         ConnectionString = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.PrimaryConnectionString),
+    ///     });
+    /// 
+    ///     var exampleDatasetAzureBlob = new Azure.DataFactory.DatasetAzureBlob("exampleDatasetAzureBlob", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         LinkedServiceName = exampleLinkedServiceAzureBlobStorage.Name,
+    ///         Path = "foo",
+    ///         Filename = "bar.png",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Data Factory Datasets can be imported using the `resource id`, e.g.

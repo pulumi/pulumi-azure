@@ -246,6 +246,23 @@ class RouteFilter(pulumi.CustomResource):
         """
         Manages a Route Filter.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.network.RouteFilter("example",
+            location="East US",
+            resource_group_name="example",
+            rule=azure.network.RouteFilterRuleArgs(
+                access="Allow",
+                communities=["12076:52004"],
+                name="rule",
+                rule_type="Community",
+            ))
+        ```
+
         ## Import
 
         Route Filters can be imported using the `resource id`, e.g.
@@ -270,6 +287,23 @@ class RouteFilter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Route Filter.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.network.RouteFilter("example",
+            location="East US",
+            resource_group_name="example",
+            rule=azure.network.RouteFilterRuleArgs(
+                access="Allow",
+                communities=["12076:52004"],
+                name="rule",
+                rule_type="Community",
+            ))
+        ```
 
         ## Import
 

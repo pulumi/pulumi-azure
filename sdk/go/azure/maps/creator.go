@@ -15,6 +15,54 @@ import (
 
 // Manages an Azure Maps Creator.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/maps"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := maps.NewAccount(ctx, "exampleAccount", &maps.AccountArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("G2"),
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("Test"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = maps.NewCreator(ctx, "exampleCreator", &maps.CreatorArgs{
+//				MapsAccountId: exampleAccount.ID(),
+//				Location:      exampleResourceGroup.Location,
+//				StorageUnits:  pulumi.Int(1),
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("Test"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // An Azure Maps Creators can be imported using the `resource id`, e.g.

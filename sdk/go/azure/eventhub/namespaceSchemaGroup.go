@@ -13,6 +13,49 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventhub"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Location: pulumi.String("East US"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testEventHubNamespace, err := eventhub.NewEventHubNamespace(ctx, "testEventHubNamespace", &eventhub.EventHubNamespaceArgs{
+//				Location:          pulumi.Any(azurerm_resource_group.Test.Location),
+//				ResourceGroupName: pulumi.Any(azurerm_resource_group.Test.Name),
+//				Sku:               pulumi.String("Standard"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = eventhub.NewNamespaceSchemaGroup(ctx, "testNamespaceSchemaGroup", &eventhub.NamespaceSchemaGroupArgs{
+//				NamespaceId:         testEventHubNamespace.ID(),
+//				SchemaCompatibility: pulumi.String("Forward"),
+//				SchemaType:          pulumi.String("Avro"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Schema Group for a EventHub Namespace can be imported using the `resource id`, e.g.

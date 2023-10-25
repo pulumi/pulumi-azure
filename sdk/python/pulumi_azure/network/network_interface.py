@@ -698,6 +698,31 @@ class NetworkInterface(pulumi.CustomResource):
         """
         Manages a Network Interface.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
+                name="internal",
+                subnet_id=example_subnet.id,
+                private_ip_address_allocation="Dynamic",
+            )])
+        ```
+
         ## Import
 
         Network Interfaces can be imported using the `resource id`, e.g.
@@ -739,6 +764,31 @@ class NetworkInterface(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Network Interface.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
+                name="internal",
+                subnet_id=example_subnet.id,
+                private_ip_address_allocation="Dynamic",
+            )])
+        ```
 
         ## Import
 

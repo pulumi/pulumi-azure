@@ -22,6 +22,109 @@ import (
 // > **Note:** Data Disks can be attached either directly on the `compute.VirtualMachine` resource, or using the `compute.DataDiskAttachment` resource - but the two cannot be used together. If both are used against the same Virtual Machine, spurious changes will occur.
 //
 // ## Example Usage
+// ### From An Azure Platform Image)
+//
+// This example provisions a Virtual Machine with Managed Disks.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			cfg := config.New(ctx, "")
+//			prefix := "tfvmex"
+//			if param := cfg.Get("prefix"); param != "" {
+//				prefix = param
+//			}
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			mainVirtualNetwork, err := network.NewVirtualNetwork(ctx, "mainVirtualNetwork", &network.VirtualNetworkArgs{
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			internal, err := network.NewSubnet(ctx, "internal", &network.SubnetArgs{
+//				ResourceGroupName:  example.Name,
+//				VirtualNetworkName: mainVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.2.0/24"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			mainNetworkInterface, err := network.NewNetworkInterface(ctx, "mainNetworkInterface", &network.NetworkInterfaceArgs{
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
+//					&network.NetworkInterfaceIpConfigurationArgs{
+//						Name:                       pulumi.String("testconfiguration1"),
+//						SubnetId:                   internal.ID(),
+//						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = compute.NewVirtualMachine(ctx, "mainVirtualMachine", &compute.VirtualMachineArgs{
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				NetworkInterfaceIds: pulumi.StringArray{
+//					mainNetworkInterface.ID(),
+//				},
+//				VmSize: pulumi.String("Standard_DS1_v2"),
+//				StorageImageReference: &compute.VirtualMachineStorageImageReferenceArgs{
+//					Publisher: pulumi.String("Canonical"),
+//					Offer:     pulumi.String("0001-com-ubuntu-server-focal"),
+//					Sku:       pulumi.String("20_04-lts"),
+//					Version:   pulumi.String("latest"),
+//				},
+//				StorageOsDisk: &compute.VirtualMachineStorageOsDiskArgs{
+//					Name:            pulumi.String("myosdisk1"),
+//					Caching:         pulumi.String("ReadWrite"),
+//					CreateOption:    pulumi.String("FromImage"),
+//					ManagedDiskType: pulumi.String("Standard_LRS"),
+//				},
+//				OsProfile: &compute.VirtualMachineOsProfileArgs{
+//					ComputerName:  pulumi.String("hostname"),
+//					AdminUsername: pulumi.String("testadmin"),
+//					AdminPassword: pulumi.String("Password1234!"),
+//				},
+//				OsProfileLinuxConfig: &compute.VirtualMachineOsProfileLinuxConfigArgs{
+//					DisablePasswordAuthentication: pulumi.Bool(false),
+//				},
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("staging"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //

@@ -15,6 +15,76 @@ import (
 
 // Manages an IoT Hub Device Update Instance.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("East US"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleIotHubDeviceUpdateAccount, err := iot.NewIotHubDeviceUpdateAccount(ctx, "exampleIotHubDeviceUpdateAccount", &iot.IotHubDeviceUpdateAccountArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleIoTHub, err := iot.NewIoTHub(ctx, "exampleIoTHub", &iot.IoTHubArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Sku: &iot.IoTHubSkuArgs{
+//					Name:     pulumi.String("S1"),
+//					Capacity: pulumi.Int(1),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iot.NewIotHubDeviceUpdateInstance(ctx, "exampleIotHubDeviceUpdateInstance", &iot.IotHubDeviceUpdateInstanceArgs{
+//				DeviceUpdateAccountId: exampleIotHubDeviceUpdateAccount.ID(),
+//				IothubId:              exampleIoTHub.ID(),
+//				DiagnosticEnabled:     pulumi.Bool(true),
+//				DiagnosticStorageAccount: &iot.IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs{
+//					ConnectionString: exampleAccount.PrimaryConnectionString,
+//					Id:               exampleAccount.ID(),
+//				},
+//				Tags: pulumi.StringMap{
+//					"key": pulumi.String("value"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // IoT Hub Device Update Instance can be imported using the `resource id`, e.g.

@@ -12,6 +12,49 @@ namespace Pulumi.Azure.NotificationHub
     /// <summary>
     /// Manages an Authorization Rule associated with a Notification Hub within a Notification Hub Namespace.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleNamespace = new Azure.NotificationHub.Namespace("exampleNamespace", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         NamespaceType = "NotificationHub",
+    ///         SkuName = "Free",
+    ///     });
+    /// 
+    ///     var exampleHub = new Azure.NotificationHub.Hub("exampleHub", new()
+    ///     {
+    ///         NamespaceName = exampleNamespace.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleAuthorizationRule = new Azure.NotificationHub.AuthorizationRule("exampleAuthorizationRule", new()
+    ///     {
+    ///         NotificationHubName = exampleHub.Name,
+    ///         NamespaceName = exampleNamespace.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Manage = true,
+    ///         Send = true,
+    ///         Listen = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Notification Hub Authorization Rule can be imported using the `resource id`, e.g.

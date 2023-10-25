@@ -559,6 +559,28 @@ class AutomationRule(pulumi.CustomResource):
         """
         Manages a Sentinel Automation Rule.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="west europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="PerGB2018")
+        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", workspace_id=example_analytics_workspace.id)
+        example_automation_rule = azure.sentinel.AutomationRule("exampleAutomationRule",
+            log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
+            display_name="automation_rule1",
+            order=1,
+            action_incidents=[azure.sentinel.AutomationRuleActionIncidentArgs(
+                order=1,
+                status="Active",
+            )])
+        ```
+
         ## Import
 
         Sentinel Automation Rules can be imported using the `resource id`, e.g.
@@ -594,6 +616,28 @@ class AutomationRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Sentinel Automation Rule.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="west europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="PerGB2018")
+        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", workspace_id=example_analytics_workspace.id)
+        example_automation_rule = azure.sentinel.AutomationRule("exampleAutomationRule",
+            log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
+            display_name="automation_rule1",
+            order=1,
+            action_incidents=[azure.sentinel.AutomationRuleActionIncidentArgs(
+                order=1,
+                status="Active",
+            )])
+        ```
 
         ## Import
 

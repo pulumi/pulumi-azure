@@ -168,6 +168,17 @@ def get_service(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Private Link Service.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.privatelink.get_service(name="myPrivateLinkService",
+        resource_group_name="PrivateLinkServiceRG")
+    pulumi.export("privateLinkServiceId", example.id)
+    ```
+
 
     :param str name: The name of the private link service.
     :param str resource_group_name: The name of the resource group in which the private link service resides.
@@ -198,6 +209,17 @@ def get_service_output(name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
     """
     Use this data source to access information about an existing Private Link Service.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.privatelink.get_service(name="myPrivateLinkService",
+        resource_group_name="PrivateLinkServiceRG")
+    pulumi.export("privateLinkServiceId", example.id)
+    ```
 
 
     :param str name: The name of the private link service.

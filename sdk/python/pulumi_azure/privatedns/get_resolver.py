@@ -104,6 +104,16 @@ def get_resolver(name: Optional[str] = None,
     """
     Gets information about an existing Private DNS Resolver.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    test = azure.privatedns.get_resolver(name="example",
+        resource_group_name="example-resourcegroup-name")
+    ```
+
 
     :param str name: Name of the Private DNS Resolver.
     :param str resource_group_name: Name of the Resource Group where the Private DNS Resolver exists.
@@ -129,6 +139,16 @@ def get_resolver_output(name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverResult]:
     """
     Gets information about an existing Private DNS Resolver.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    test = azure.privatedns.get_resolver(name="example",
+        resource_group_name="example-resourcegroup-name")
+    ```
 
 
     :param str name: Name of the Private DNS Resolver.

@@ -371,6 +371,22 @@ class ActionHttp(pulumi.CustomResource):
         """
         Manages an HTTP Action within a Logic App Workflow
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_workflow = azure.logicapps.Workflow("exampleWorkflow",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_action_http = azure.logicapps.ActionHttp("exampleActionHttp",
+            logic_app_id=example_workflow.id,
+            method="GET",
+            uri="http://example.com/some-webhook")
+        ```
+
         ## Import
 
         Logic App HTTP Actions can be imported using the `resource id`, e.g.
@@ -400,6 +416,22 @@ class ActionHttp(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an HTTP Action within a Logic App Workflow
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_workflow = azure.logicapps.Workflow("exampleWorkflow",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_action_http = azure.logicapps.ActionHttp("exampleActionHttp",
+            logic_app_id=example_workflow.id,
+            method="GET",
+            uri="http://example.com/some-webhook")
+        ```
 
         ## Import
 

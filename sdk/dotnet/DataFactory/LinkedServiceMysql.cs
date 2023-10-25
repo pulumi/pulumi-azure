@@ -12,6 +12,36 @@ namespace Pulumi.Azure.DataFactory
     /// <summary>
     /// Manages a Linked Service (connection) between MySQL and Azure Data Factory.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleLinkedServiceMysql = new Azure.DataFactory.LinkedServiceMysql("exampleLinkedServiceMysql", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         ConnectionString = "Server=test;Port=3306;Database=test;User=test;SSLMode=1;UseSystemTrustStore=0;Password=test",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Data Factory MySQL Linked Service's can be imported using the `resource id`, e.g.

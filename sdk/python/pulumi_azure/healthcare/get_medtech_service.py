@@ -129,6 +129,17 @@ def get_medtech_service(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Healthcare Med Tech Service
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.healthcare.get_medtech_service(name="tfexmedtech",
+        workspace_id="tfexwks")
+    pulumi.export("azurermHealthcareMedtechServiceId", example.id)
+    ```
+
 
     :param str name: The name of the Healthcare Med Tech Service.
     :param str workspace_id: The id of the Healthcare Workspace in which the Healthcare Med Tech Service exists.
@@ -156,6 +167,17 @@ def get_medtech_service_output(name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMedtechServiceResult]:
     """
     Use this data source to access information about an existing Healthcare Med Tech Service
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.healthcare.get_medtech_service(name="tfexmedtech",
+        workspace_id="tfexwks")
+    pulumi.export("azurermHealthcareMedtechServiceId", example.id)
+    ```
 
 
     :param str name: The name of the Healthcare Med Tech Service.

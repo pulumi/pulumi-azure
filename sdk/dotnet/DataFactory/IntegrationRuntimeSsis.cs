@@ -12,6 +12,37 @@ namespace Pulumi.Azure.DataFactory
     /// <summary>
     /// Manages a Data Factory Azure-SSIS Integration Runtime.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleIntegrationRuntimeSsis = new Azure.DataFactory.IntegrationRuntimeSsis("exampleIntegrationRuntimeSsis", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         Location = exampleResourceGroup.Location,
+    ///         NodeSize = "Standard_D8_v3",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Data Factory Azure-SSIS Integration Runtimes can be imported using the `resource id`, e.g.

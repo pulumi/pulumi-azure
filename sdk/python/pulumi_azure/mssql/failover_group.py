@@ -334,6 +334,46 @@ class FailoverGroup(pulumi.CustomResource):
         """
         Manages a Microsoft Azure SQL Failover Group.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        primary = azure.mssql.Server("primary",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            version="12.0",
+            administrator_login="missadministrator",
+            administrator_login_password="thisIsKat11")
+        secondary = azure.mssql.Server("secondary",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            version="12.0",
+            administrator_login="missadministrator",
+            administrator_login_password="thisIsKat12")
+        example_database = azure.mssql.Database("exampleDatabase",
+            server_id=primary.id,
+            sku_name="S1",
+            collation="SQL_Latin1_General_CP1_CI_AS",
+            max_size_gb=200)
+        example_failover_group = azure.mssql.FailoverGroup("exampleFailoverGroup",
+            server_id=primary.id,
+            databases=[example_database.id],
+            partner_servers=[azure.mssql.FailoverGroupPartnerServerArgs(
+                id=secondary.id,
+            )],
+            read_write_endpoint_failover_policy=azure.mssql.FailoverGroupReadWriteEndpointFailoverPolicyArgs(
+                mode="Automatic",
+                grace_minutes=80,
+            ),
+            tags={
+                "environment": "prod",
+                "database": "example",
+            })
+        ```
+
         ## Import
 
         Failover Groups can be imported using the `resource id`, e.g.
@@ -360,6 +400,46 @@ class FailoverGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Microsoft Azure SQL Failover Group.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        primary = azure.mssql.Server("primary",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            version="12.0",
+            administrator_login="missadministrator",
+            administrator_login_password="thisIsKat11")
+        secondary = azure.mssql.Server("secondary",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            version="12.0",
+            administrator_login="missadministrator",
+            administrator_login_password="thisIsKat12")
+        example_database = azure.mssql.Database("exampleDatabase",
+            server_id=primary.id,
+            sku_name="S1",
+            collation="SQL_Latin1_General_CP1_CI_AS",
+            max_size_gb=200)
+        example_failover_group = azure.mssql.FailoverGroup("exampleFailoverGroup",
+            server_id=primary.id,
+            databases=[example_database.id],
+            partner_servers=[azure.mssql.FailoverGroupPartnerServerArgs(
+                id=secondary.id,
+            )],
+            read_write_endpoint_failover_policy=azure.mssql.FailoverGroupReadWriteEndpointFailoverPolicyArgs(
+                mode="Automatic",
+                grace_minutes=80,
+            ),
+            tags={
+                "environment": "prod",
+                "database": "example",
+            })
+        ```
 
         ## Import
 

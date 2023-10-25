@@ -10,6 +10,51 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Sentinel
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "PerGB2018",
+    ///     });
+    /// 
+    ///     var exampleLogAnalyticsWorkspaceOnboarding = new Azure.Sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", new()
+    ///     {
+    ///         WorkspaceId = exampleAnalyticsWorkspace.Id,
+    ///         CustomerManagedKeyEnabled = false,
+    ///     });
+    /// 
+    ///     var exampleAlertRuleAnomaly = Azure.Sentinel.GetAlertRuleAnomaly.Invoke(new()
+    ///     {
+    ///         LogAnalyticsWorkspaceId = exampleLogAnalyticsWorkspaceOnboarding.WorkspaceId,
+    ///         DisplayName = "Potential data staging",
+    ///     });
+    /// 
+    ///     var exampleAlertRuleAnomalyBuiltIn = new Azure.Sentinel.AlertRuleAnomalyBuiltIn("exampleAlertRuleAnomalyBuiltIn", new()
+    ///     {
+    ///         DisplayName = "Potential data staging",
+    ///         LogAnalyticsWorkspaceId = exampleAnalyticsWorkspace.Id,
+    ///         Mode = "Production",
+    ///         Enabled = false,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Built In Anomaly Alert Rules can be imported using the `resource id`, e.g.

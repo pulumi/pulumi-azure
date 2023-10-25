@@ -422,6 +422,55 @@ class InterationServiceEnvironment(pulumi.CustomResource):
 
         !> **NOTE:** The `logicapps.InterationServiceEnvironment` resource is deprecated and will be removed in v4.0 of the Azure Provider. The underlying Azure Service is being retired on 2024-08-31 and new instances cannot be provisioned by default after 2022-11-01. More information on the retirement and how to migrate to Logic Apps Standard [can be found here](https://aka.ms/isedeprecation).
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            address_spaces=["10.0.0.0/22"])
+        isesubnet1 = azure.network.Subnet("isesubnet1",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.1.0/27"],
+            delegations=[azure.network.SubnetDelegationArgs(
+                name="integrationServiceEnvironments",
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                    name="Microsoft.Logic/integrationServiceEnvironments",
+                ),
+            )])
+        isesubnet2 = azure.network.Subnet("isesubnet2",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.1.32/27"])
+        isesubnet3 = azure.network.Subnet("isesubnet3",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.1.64/27"])
+        isesubnet4 = azure.network.Subnet("isesubnet4",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.1.96/27"])
+        example_interation_service_environment = azure.logicapps.InterationServiceEnvironment("exampleInterationServiceEnvironment",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="Developer_0",
+            access_endpoint_type="Internal",
+            virtual_network_subnet_ids=[
+                isesubnet1.id,
+                isesubnet2.id,
+                isesubnet3.id,
+                isesubnet4.id,
+            ],
+            tags={
+                "environment": "development",
+            })
+        ```
+
         ## Import
 
         Integration Service Environments can be imported using the `resource id`, e.g.
@@ -452,6 +501,55 @@ class InterationServiceEnvironment(pulumi.CustomResource):
         Manages private and isolated Logic App instances within an Azure virtual network.
 
         !> **NOTE:** The `logicapps.InterationServiceEnvironment` resource is deprecated and will be removed in v4.0 of the Azure Provider. The underlying Azure Service is being retired on 2024-08-31 and new instances cannot be provisioned by default after 2022-11-01. More information on the retirement and how to migrate to Logic Apps Standard [can be found here](https://aka.ms/isedeprecation).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            address_spaces=["10.0.0.0/22"])
+        isesubnet1 = azure.network.Subnet("isesubnet1",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.1.0/27"],
+            delegations=[azure.network.SubnetDelegationArgs(
+                name="integrationServiceEnvironments",
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                    name="Microsoft.Logic/integrationServiceEnvironments",
+                ),
+            )])
+        isesubnet2 = azure.network.Subnet("isesubnet2",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.1.32/27"])
+        isesubnet3 = azure.network.Subnet("isesubnet3",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.1.64/27"])
+        isesubnet4 = azure.network.Subnet("isesubnet4",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.1.96/27"])
+        example_interation_service_environment = azure.logicapps.InterationServiceEnvironment("exampleInterationServiceEnvironment",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="Developer_0",
+            access_endpoint_type="Internal",
+            virtual_network_subnet_ids=[
+                isesubnet1.id,
+                isesubnet2.id,
+                isesubnet3.id,
+                isesubnet4.id,
+            ],
+            tags={
+                "environment": "development",
+            })
+        ```
 
         ## Import
 

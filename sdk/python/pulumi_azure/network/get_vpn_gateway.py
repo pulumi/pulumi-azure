@@ -129,6 +129,17 @@ def get_vpn_gateway(name: Optional[str] = None,
     """
     Use this data source to access information about an existing VPN Gateway within a Virtual Hub.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.network.get_vpn_gateway(name="existing-local-vpn_gateway",
+        resource_group_name="existing-vpn_gateway")
+    pulumi.export("azurermVpnGatewayId", example.id)
+    ```
+
 
     :param str name: The Name of the VPN Gateway.
     :param str resource_group_name: The name of the Resource Group where the VPN Gateway exists.
@@ -156,6 +167,17 @@ def get_vpn_gateway_output(name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpnGatewayResult]:
     """
     Use this data source to access information about an existing VPN Gateway within a Virtual Hub.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.network.get_vpn_gateway(name="existing-local-vpn_gateway",
+        resource_group_name="existing-vpn_gateway")
+    pulumi.export("azurermVpnGatewayId", example.id)
+    ```
 
 
     :param str name: The Name of the VPN Gateway.

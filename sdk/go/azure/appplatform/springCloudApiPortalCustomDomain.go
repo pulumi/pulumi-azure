@@ -17,6 +17,62 @@ import (
 //
 // > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "exampleSpringCloudService", &appplatform.SpringCloudServiceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("E0"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSpringCloudGateway, err := appplatform.NewSpringCloudGateway(ctx, "exampleSpringCloudGateway", &appplatform.SpringCloudGatewayArgs{
+//				SpringCloudServiceId: exampleSpringCloudService.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSpringCloudApiPortal, err := appplatform.NewSpringCloudApiPortal(ctx, "exampleSpringCloudApiPortal", &appplatform.SpringCloudApiPortalArgs{
+//				SpringCloudServiceId: exampleSpringCloudService.ID(),
+//				GatewayIds: pulumi.StringArray{
+//					exampleSpringCloudGateway.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appplatform.NewSpringCloudApiPortalCustomDomain(ctx, "exampleSpringCloudApiPortalCustomDomain", &appplatform.SpringCloudApiPortalCustomDomainArgs{
+//				SpringCloudApiPortalId: exampleSpringCloudApiPortal.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Spring Cloud API Portal Domains can be imported using the `resource id`, e.g.

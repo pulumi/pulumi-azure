@@ -12,6 +12,38 @@ namespace Pulumi.Azure.ApiManagement
     /// <summary>
     /// Manages a API Management Tag.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PublisherName = "My Company",
+    ///         PublisherEmail = "company@terraform.io",
+    ///         SkuName = "Consumption_0",
+    ///     });
+    /// 
+    ///     var exampleTag = new Azure.ApiManagement.Tag("exampleTag", new()
+    ///     {
+    ///         ApiManagementId = exampleService.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// API Management Tags can be imported using the `resource id`, e.g.

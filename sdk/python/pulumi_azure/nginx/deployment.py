@@ -652,6 +652,52 @@ class Deployment(pulumi.CustomResource):
         """
         Manages a Nginx Deployment.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_public_ip = azure.network.PublicIp("examplePublicIp",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            allocation_method="Static",
+            sku="Standard",
+            tags={
+                "environment": "Production",
+            })
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"],
+            delegations=[azure.network.SubnetDelegationArgs(
+                name="delegation",
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                    name="NGINX.NGINXPLUS/nginxDeployments",
+                    actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
+                ),
+            )])
+        example_deployment = azure.nginx.Deployment("exampleDeployment",
+            resource_group_name=example_resource_group.name,
+            sku="publicpreview_Monthly_gmz7xq9ge3py",
+            location=example_resource_group.location,
+            managed_resource_group="example",
+            diagnose_support_enabled=True,
+            frontend_public=azure.nginx.DeploymentFrontendPublicArgs(
+                ip_addresses=[example_public_ip.id],
+            ),
+            network_interfaces=[azure.nginx.DeploymentNetworkInterfaceArgs(
+                subnet_id=example_subnet.id,
+            )],
+            capacity=20,
+            email="user@test.com")
+        ```
+
         ## Import
 
         Nginx Deployments can be imported using the `resource id`, e.g.
@@ -687,6 +733,52 @@ class Deployment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Nginx Deployment.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_public_ip = azure.network.PublicIp("examplePublicIp",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            allocation_method="Static",
+            sku="Standard",
+            tags={
+                "environment": "Production",
+            })
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"],
+            delegations=[azure.network.SubnetDelegationArgs(
+                name="delegation",
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                    name="NGINX.NGINXPLUS/nginxDeployments",
+                    actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
+                ),
+            )])
+        example_deployment = azure.nginx.Deployment("exampleDeployment",
+            resource_group_name=example_resource_group.name,
+            sku="publicpreview_Monthly_gmz7xq9ge3py",
+            location=example_resource_group.location,
+            managed_resource_group="example",
+            diagnose_support_enabled=True,
+            frontend_public=azure.nginx.DeploymentFrontendPublicArgs(
+                ip_addresses=[example_public_ip.id],
+            ),
+            network_interfaces=[azure.nginx.DeploymentNetworkInterfaceArgs(
+                subnet_id=example_subnet.id,
+            )],
+            capacity=20,
+            email="user@test.com")
+        ```
 
         ## Import
 

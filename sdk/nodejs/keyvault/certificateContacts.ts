@@ -13,6 +13,45 @@ import * as utilities from "../utilities";
  *
  * > **Note:** It's possible to define Key Vault Certificate Contacts both within the `azure.keyvault.KeyVault` resource via the `contact` block and by using the `azure.keyvault.CertificateContacts` resource. However it's not possible to use both methods to manage Certificate Contacts within a KeyVault, since there'll be conflicts.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const current = azure.core.getClientConfig({});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "premium",
+ * });
+ * const exampleAccessPolicy = new azure.keyvault.AccessPolicy("exampleAccessPolicy", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     tenantId: current.then(current => current.tenantId),
+ *     objectId: current.then(current => current.objectId),
+ *     certificatePermissions: ["ManageContacts"],
+ *     keyPermissions: ["Create"],
+ *     secretPermissions: ["Set"],
+ * });
+ * const exampleCertificateContacts = new azure.keyvault.CertificateContacts("exampleCertificateContacts", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     contacts: [
+ *         {
+ *             email: "example@example.com",
+ *             name: "example",
+ *             phone: "01234567890",
+ *         },
+ *         {
+ *             email: "example2@example.com",
+ *         },
+ *     ],
+ * }, {
+ *     dependsOn: [exampleAccessPolicy],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Key Vault Certificate Contacts can be imported using the `resource id`, e.g.

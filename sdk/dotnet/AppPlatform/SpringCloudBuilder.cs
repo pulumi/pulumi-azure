@@ -14,6 +14,52 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     /// &gt; **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         SkuName = "E0",
+    ///     });
+    /// 
+    ///     var exampleSpringCloudBuilder = new Azure.AppPlatform.SpringCloudBuilder("exampleSpringCloudBuilder", new()
+    ///     {
+    ///         SpringCloudServiceId = exampleSpringCloudService.Id,
+    ///         BuildPackGroups = new[]
+    ///         {
+    ///             new Azure.AppPlatform.Inputs.SpringCloudBuilderBuildPackGroupArgs
+    ///             {
+    ///                 Name = "mix",
+    ///                 BuildPackIds = new[]
+    ///                 {
+    ///                     "tanzu-buildpacks/java-azure",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Stack = new Azure.AppPlatform.Inputs.SpringCloudBuilderStackArgs
+    ///         {
+    ///             Id = "io.buildpacks.stacks.bionic",
+    ///             Version = "base",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Spring Cloud Builders can be imported using the `resource id`, e.g.

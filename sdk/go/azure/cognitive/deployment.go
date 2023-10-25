@@ -15,6 +15,56 @@ import (
 
 // Manages a Cognitive Services Account Deployment.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cognitive"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := cognitive.NewAccount(ctx, "exampleAccount", &cognitive.AccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Kind:              pulumi.String("OpenAI"),
+//				SkuName:           pulumi.String("S0"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cognitive.NewDeployment(ctx, "exampleDeployment", &cognitive.DeploymentArgs{
+//				CognitiveAccountId: exampleAccount.ID(),
+//				Model: &cognitive.DeploymentModelArgs{
+//					Format:  pulumi.String("OpenAI"),
+//					Name:    pulumi.String("text-curie-001"),
+//					Version: pulumi.String("1"),
+//				},
+//				Scale: &cognitive.DeploymentScaleArgs{
+//					Type: pulumi.String("Standard"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Cognitive Services Account Deployment can be imported using the `resource id`, e.g.

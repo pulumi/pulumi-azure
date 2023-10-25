@@ -12,6 +12,71 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages the association between a Network Interface and a Network Security Group.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup("exampleNetworkSecurityGroup", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("exampleNetworkInterface", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         IpConfigurations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
+    ///             {
+    ///                 Name = "testconfiguration1",
+    ///                 SubnetId = exampleSubnet.Id,
+    ///                 PrivateIpAddressAllocation = "Dynamic",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleNetworkInterfaceSecurityGroupAssociation = new Azure.Network.NetworkInterfaceSecurityGroupAssociation("exampleNetworkInterfaceSecurityGroupAssociation", new()
+    ///     {
+    ///         NetworkInterfaceId = exampleNetworkInterface.Id,
+    ///         NetworkSecurityGroupId = exampleNetworkSecurityGroup.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Associations between Network Interfaces and Network Security Group can be imported using the `resource id`, e.g.

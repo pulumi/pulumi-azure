@@ -124,7 +124,18 @@ def get_aaaa_record(name: Optional[str] = None,
                     zone_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAAAARecordResult:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.privatedns.AAAARecord("example",
+        zone_name="test-zone",
+        resource_group_name="test-rg")
+    pulumi.export("privateDnsAaaaRecordId", example.id)
+    ```
+
 
     :param str name: The name of the Private DNS AAAA Record.
     :param str resource_group_name: Specifies the resource group where the Private DNS Zone (parent resource) exists.
@@ -154,7 +165,18 @@ def get_aaaa_record_output(name: Optional[pulumi.Input[str]] = None,
                            zone_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAAAARecordResult]:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.privatedns.AAAARecord("example",
+        zone_name="test-zone",
+        resource_group_name="test-rg")
+    pulumi.export("privateDnsAaaaRecordId", example.id)
+    ```
+
 
     :param str name: The name of the Private DNS AAAA Record.
     :param str resource_group_name: Specifies the resource group where the Private DNS Zone (parent resource) exists.

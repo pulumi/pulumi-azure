@@ -373,6 +373,20 @@ class TimeSeriesInsightsStandardEnvironment(pulumi.CustomResource):
         """
         Manages an Azure IoT Time Series Insights Standard Environment.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_time_series_insights_standard_environment = azure.iot.TimeSeriesInsightsStandardEnvironment("exampleTimeSeriesInsightsStandardEnvironment",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="S1_1",
+            data_retention_time="P30D")
+        ```
+
         ## Import
 
         Azure IoT Time Series Insights Standard Environment can be imported using the `resource id`, e.g.
@@ -400,6 +414,20 @@ class TimeSeriesInsightsStandardEnvironment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure IoT Time Series Insights Standard Environment.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_time_series_insights_standard_environment = azure.iot.TimeSeriesInsightsStandardEnvironment("exampleTimeSeriesInsightsStandardEnvironment",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="S1_1",
+            data_retention_time="P30D")
+        ```
 
         ## Import
 

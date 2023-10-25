@@ -12,6 +12,56 @@ namespace Pulumi.Azure.MSSql
     /// <summary>
     /// Manages a MS SQL Database.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleServer = new Azure.MSSql.Server("exampleServer", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Version = "12.0",
+    ///         AdministratorLogin = "4dm1n157r470r",
+    ///         AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
+    ///     });
+    /// 
+    ///     var test = new Azure.MSSql.Database("test", new()
+    ///     {
+    ///         ServerId = exampleServer.Id,
+    ///         Collation = "SQL_Latin1_General_CP1_CI_AS",
+    ///         LicenseType = "LicenseIncluded",
+    ///         MaxSizeGb = 4,
+    ///         ReadScale = true,
+    ///         SkuName = "S0",
+    ///         ZoneRedundant = true,
+    ///         Tags = 
+    ///         {
+    ///             { "foo", "bar" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// SQL Database can be imported using the `resource id`, e.g.

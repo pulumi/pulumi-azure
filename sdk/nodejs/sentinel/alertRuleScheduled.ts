@@ -9,6 +9,31 @@ import * as utilities from "../utilities";
 /**
  * Manages a Sentinel Scheduled Alert Rule.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "PerGB2018",
+ * });
+ * const exampleLogAnalyticsWorkspaceOnboarding = new azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", {workspaceId: exampleAnalyticsWorkspace.id});
+ * const exampleAlertRuleScheduled = new azure.sentinel.AlertRuleScheduled("exampleAlertRuleScheduled", {
+ *     logAnalyticsWorkspaceId: exampleLogAnalyticsWorkspaceOnboarding.workspaceId,
+ *     displayName: "example",
+ *     severity: "High",
+ *     query: `AzureActivity |
+ *   where OperationName == "Create or Update Virtual Machine" or OperationName =="Create Deployment" |
+ *   where ActivityStatus == "Succeeded" |
+ *   make-series dcount(ResourceId) default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
+ * `,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Sentinel Scheduled Alert Rules can be imported using the `resource id`, e.g.

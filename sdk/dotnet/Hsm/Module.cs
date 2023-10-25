@@ -16,6 +16,139 @@ namespace Pulumi.Azure.Hsm
     /// 
     /// &gt; **Note:** If the quota is not enough in some region, please submit the quota request to service team.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.2.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.2.0.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var example2 = new Azure.Network.Subnet("example2", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.2.1.0/24",
+    ///         },
+    ///         Delegations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.SubnetDelegationArgs
+    ///             {
+    ///                 Name = "first",
+    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                 {
+    ///                     Name = "Microsoft.HardwareSecurityModules/dedicatedHSMs",
+    ///                     Actions = new[]
+    ///                     {
+    ///                         "Microsoft.Network/networkinterfaces/*",
+    ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var example3 = new Azure.Network.Subnet("example3", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.2.255.0/26",
+    ///         },
+    ///     });
+    /// 
+    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AllocationMethod = "Dynamic",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetworkGateway = new Azure.Network.VirtualNetworkGateway("exampleVirtualNetworkGateway", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Type = "ExpressRoute",
+    ///         VpnType = "PolicyBased",
+    ///         Sku = "Standard",
+    ///         IpConfigurations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.VirtualNetworkGatewayIpConfigurationArgs
+    ///             {
+    ///                 PublicIpAddressId = examplePublicIp.Id,
+    ///                 PrivateIpAddressAllocation = "Dynamic",
+    ///                 SubnetId = example3.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleModule = new Azure.Hsm.Module("exampleModule", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "payShield10K_LMK1_CPS60",
+    ///         ManagementNetworkProfile = new Azure.Hsm.Inputs.ModuleManagementNetworkProfileArgs
+    ///         {
+    ///             NetworkInterfacePrivateIpAddresses = new[]
+    ///             {
+    ///                 "10.2.1.7",
+    ///             },
+    ///             SubnetId = example2.Id,
+    ///         },
+    ///         NetworkProfile = new Azure.Hsm.Inputs.ModuleNetworkProfileArgs
+    ///         {
+    ///             NetworkInterfacePrivateIpAddresses = new[]
+    ///             {
+    ///                 "10.2.1.8",
+    ///             },
+    ///             SubnetId = example2.Id,
+    ///         },
+    ///         StampId = "stamp2",
+    ///         Tags = 
+    ///         {
+    ///             { "env", "Test" },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleVirtualNetworkGateway,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Dedicated Hardware Security Module can be imported using the `resource id`, e.g.

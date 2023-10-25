@@ -1238,6 +1238,85 @@ class Pool(pulumi.CustomResource):
         """
         Manages an Azure Batch pool.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import base64
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_batch_account_account = azure.batch.Account("exampleBatch/accountAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            pool_allocation_mode="BatchService",
+            storage_account_id=example_account.id,
+            storage_account_authentication_mode="StorageKeys",
+            tags={
+                "env": "test",
+            })
+        example_certificate = azure.batch.Certificate("exampleCertificate",
+            resource_group_name=example_resource_group.name,
+            account_name=example_batch / account_account["name"],
+            certificate=(lambda path: base64.b64encode(open(path).read().encode()).decode())("certificate.cer"),
+            format="Cer",
+            thumbprint="312d31a79fa0cef49c00f769afc2b73e9f4edf34",
+            thumbprint_algorithm="SHA1")
+        example_pool = azure.batch.Pool("examplePool",
+            resource_group_name=example_resource_group.name,
+            account_name=example_batch / account_account["name"],
+            display_name="Test Acc Pool Auto",
+            vm_size="Standard_A1",
+            node_agent_sku_id="batch.node.ubuntu 20.04",
+            auto_scale=azure.batch.PoolAutoScaleArgs(
+                evaluation_interval="PT15M",
+                formula=\"\"\"      startingNumberOfVMs = 1;
+              maxNumberofVMs = 25;
+              pendingTaskSamplePercent = $PendingTasks.GetSamplePercent(180 * TimeInterval_Second);
+              pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($PendingTasks.GetSample(180 *   TimeInterval_Second));
+              $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
+        \"\"\",
+            ),
+            storage_image_reference=azure.batch.PoolStorageImageReferenceArgs(
+                publisher="microsoft-azure-batch",
+                offer="ubuntu-server-container",
+                sku="20-04-lts",
+                version="latest",
+            ),
+            container_configuration=azure.batch.PoolContainerConfigurationArgs(
+                type="DockerCompatible",
+                container_registries=[azure.batch.PoolContainerConfigurationContainerRegistryArgs(
+                    registry_server="docker.io",
+                    user_name="login",
+                    password="apassword",
+                )],
+            ),
+            start_task=azure.batch.PoolStartTaskArgs(
+                command_line="echo 'Hello World from $env'",
+                task_retry_maximum=1,
+                wait_for_success=True,
+                common_environment_properties={
+                    "env": "TEST",
+                },
+                user_identity=azure.batch.PoolStartTaskUserIdentityArgs(
+                    auto_user=azure.batch.PoolStartTaskUserIdentityAutoUserArgs(
+                        elevation_level="NonAdmin",
+                        scope="Task",
+                    ),
+                ),
+            ),
+            certificates=[azure.batch.PoolCertificateArgs(
+                id=example_certificate.id,
+                store_location="CurrentUser",
+                visibilities=["StartTask"],
+            )])
+        ```
+
         ## Import
 
         Batch Pools can be imported using the `resource id`, e.g.
@@ -1290,6 +1369,85 @@ class Pool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Batch pool.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import base64
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_batch_account_account = azure.batch.Account("exampleBatch/accountAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            pool_allocation_mode="BatchService",
+            storage_account_id=example_account.id,
+            storage_account_authentication_mode="StorageKeys",
+            tags={
+                "env": "test",
+            })
+        example_certificate = azure.batch.Certificate("exampleCertificate",
+            resource_group_name=example_resource_group.name,
+            account_name=example_batch / account_account["name"],
+            certificate=(lambda path: base64.b64encode(open(path).read().encode()).decode())("certificate.cer"),
+            format="Cer",
+            thumbprint="312d31a79fa0cef49c00f769afc2b73e9f4edf34",
+            thumbprint_algorithm="SHA1")
+        example_pool = azure.batch.Pool("examplePool",
+            resource_group_name=example_resource_group.name,
+            account_name=example_batch / account_account["name"],
+            display_name="Test Acc Pool Auto",
+            vm_size="Standard_A1",
+            node_agent_sku_id="batch.node.ubuntu 20.04",
+            auto_scale=azure.batch.PoolAutoScaleArgs(
+                evaluation_interval="PT15M",
+                formula=\"\"\"      startingNumberOfVMs = 1;
+              maxNumberofVMs = 25;
+              pendingTaskSamplePercent = $PendingTasks.GetSamplePercent(180 * TimeInterval_Second);
+              pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($PendingTasks.GetSample(180 *   TimeInterval_Second));
+              $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
+        \"\"\",
+            ),
+            storage_image_reference=azure.batch.PoolStorageImageReferenceArgs(
+                publisher="microsoft-azure-batch",
+                offer="ubuntu-server-container",
+                sku="20-04-lts",
+                version="latest",
+            ),
+            container_configuration=azure.batch.PoolContainerConfigurationArgs(
+                type="DockerCompatible",
+                container_registries=[azure.batch.PoolContainerConfigurationContainerRegistryArgs(
+                    registry_server="docker.io",
+                    user_name="login",
+                    password="apassword",
+                )],
+            ),
+            start_task=azure.batch.PoolStartTaskArgs(
+                command_line="echo 'Hello World from $env'",
+                task_retry_maximum=1,
+                wait_for_success=True,
+                common_environment_properties={
+                    "env": "TEST",
+                },
+                user_identity=azure.batch.PoolStartTaskUserIdentityArgs(
+                    auto_user=azure.batch.PoolStartTaskUserIdentityAutoUserArgs(
+                        elevation_level="NonAdmin",
+                        scope="Task",
+                    ),
+                ),
+            ),
+            certificates=[azure.batch.PoolCertificateArgs(
+                id=example_certificate.id,
+                store_location="CurrentUser",
+                visibilities=["StartTask"],
+            )])
+        ```
 
         ## Import
 

@@ -9,6 +9,146 @@ import * as utilities from "../utilities";
 /**
  * Manages a Data Flow inside an Azure Data Factory.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ * });
+ * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleLinkedCustomService = new azure.datafactory.LinkedCustomService("exampleLinkedCustomService", {
+ *     dataFactoryId: exampleFactory.id,
+ *     type: "AzureBlobStorage",
+ *     typePropertiesJson: pulumi.interpolate`{
+ *   "connectionString": "${exampleAccount.primaryConnectionString}"
+ * }
+ * `,
+ * });
+ * const example1DatasetJson = new azure.datafactory.DatasetJson("example1DatasetJson", {
+ *     dataFactoryId: exampleFactory.id,
+ *     linkedServiceName: exampleLinkedCustomService.name,
+ *     azureBlobStorageLocation: {
+ *         container: "container",
+ *         path: "foo/bar/",
+ *         filename: "foo.txt",
+ *     },
+ *     encoding: "UTF-8",
+ * });
+ * const example2DatasetJson = new azure.datafactory.DatasetJson("example2DatasetJson", {
+ *     dataFactoryId: exampleFactory.id,
+ *     linkedServiceName: exampleLinkedCustomService.name,
+ *     azureBlobStorageLocation: {
+ *         container: "container",
+ *         path: "foo/bar/",
+ *         filename: "bar.txt",
+ *     },
+ *     encoding: "UTF-8",
+ * });
+ * const example1FlowletDataFlow = new azure.datafactory.FlowletDataFlow("example1FlowletDataFlow", {
+ *     dataFactoryId: exampleFactory.id,
+ *     sources: [{
+ *         name: "source1",
+ *         linkedService: {
+ *             name: exampleLinkedCustomService.name,
+ *         },
+ *     }],
+ *     sinks: [{
+ *         name: "sink1",
+ *         linkedService: {
+ *             name: exampleLinkedCustomService.name,
+ *         },
+ *     }],
+ *     script: `source(
+ *   allowSchemaDrift: true, 
+ *   validateSchema: false, 
+ *   limit: 100, 
+ *   ignoreNoFilesFound: false, 
+ *   documentForm: 'documentPerLine') ~> source1 
+ * source1 sink(
+ *   allowSchemaDrift: true, 
+ *   validateSchema: false, 
+ *   skipDuplicateMapInputs: true, 
+ *   skipDuplicateMapOutputs: true) ~> sink1
+ * `,
+ * });
+ * const example2FlowletDataFlow = new azure.datafactory.FlowletDataFlow("example2FlowletDataFlow", {
+ *     dataFactoryId: exampleFactory.id,
+ *     sources: [{
+ *         name: "source1",
+ *         linkedService: {
+ *             name: exampleLinkedCustomService.name,
+ *         },
+ *     }],
+ *     sinks: [{
+ *         name: "sink1",
+ *         linkedService: {
+ *             name: exampleLinkedCustomService.name,
+ *         },
+ *     }],
+ *     script: `source(
+ *   allowSchemaDrift: true, 
+ *   validateSchema: false, 
+ *   limit: 100, 
+ *   ignoreNoFilesFound: false, 
+ *   documentForm: 'documentPerLine') ~> source1 
+ * source1 sink(
+ *   allowSchemaDrift: true, 
+ *   validateSchema: false, 
+ *   skipDuplicateMapInputs: true, 
+ *   skipDuplicateMapOutputs: true) ~> sink1
+ * `,
+ * });
+ * const exampleDataFlow = new azure.datafactory.DataFlow("exampleDataFlow", {
+ *     dataFactoryId: exampleFactory.id,
+ *     sources: [{
+ *         name: "source1",
+ *         flowlet: {
+ *             name: example1FlowletDataFlow.name,
+ *             parameters: {
+ *                 Key1: "value1",
+ *             },
+ *         },
+ *         dataset: {
+ *             name: example1DatasetJson.name,
+ *         },
+ *     }],
+ *     sinks: [{
+ *         name: "sink1",
+ *         flowlet: {
+ *             name: example2FlowletDataFlow.name,
+ *             parameters: {
+ *                 Key1: "value1",
+ *             },
+ *         },
+ *         dataset: {
+ *             name: example2DatasetJson.name,
+ *         },
+ *     }],
+ *     script: `source(
+ *   allowSchemaDrift: true, 
+ *   validateSchema: false, 
+ *   limit: 100, 
+ *   ignoreNoFilesFound: false, 
+ *   documentForm: 'documentPerLine') ~> source1 
+ * source1 sink(
+ *   allowSchemaDrift: true, 
+ *   validateSchema: false, 
+ *   skipDuplicateMapInputs: true, 
+ *   skipDuplicateMapOutputs: true) ~> sink1
+ * `,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Data Factory Data Flow can be imported using the `resource id`, e.g.

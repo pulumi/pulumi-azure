@@ -227,6 +227,23 @@ class FrontdoorEndpoint(pulumi.CustomResource):
         """
         Manages a Front Door (standard/premium) Endpoint.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_frontdoor_profile = azure.cdn.FrontdoorProfile("exampleFrontdoorProfile",
+            resource_group_name=example_resource_group.name,
+            sku_name="Standard_AzureFrontDoor")
+        example_frontdoor_endpoint = azure.cdn.FrontdoorEndpoint("exampleFrontdoorEndpoint",
+            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
+            tags={
+                "ENV": "example",
+            })
+        ```
+
         ## Import
 
         Front Door Endpoints can be imported using the `resource id`, e.g.
@@ -250,6 +267,23 @@ class FrontdoorEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Front Door (standard/premium) Endpoint.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_frontdoor_profile = azure.cdn.FrontdoorProfile("exampleFrontdoorProfile",
+            resource_group_name=example_resource_group.name,
+            sku_name="Standard_AzureFrontDoor")
+        example_frontdoor_endpoint = azure.cdn.FrontdoorEndpoint("exampleFrontdoorEndpoint",
+            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
+            tags={
+                "ENV": "example",
+            })
+        ```
 
         ## Import
 

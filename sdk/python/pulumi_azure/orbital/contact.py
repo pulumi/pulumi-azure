@@ -301,6 +301,82 @@ class Contact(pulumi.CustomResource):
         """
         Manages an orbital contact.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_spacecraft = azure.orbital.Spacecraft("exampleSpacecraft",
+            resource_group_name=example_resource_group.name,
+            location="westeurope",
+            norad_id="12345",
+            links=[azure.orbital.SpacecraftLinkArgs(
+                bandwidth_mhz=100,
+                center_frequency_mhz=101,
+                direction="Uplink",
+                polarization="LHCP",
+                name="examplename",
+            )],
+            two_line_elements=[
+                "1 23455U 94089A   97320.90946019  .00000140  00000-0  10191-3 0  2621",
+                "2 23455  99.0090 272.6745 0008546 223.1686 136.8816 14.11711747148495",
+            ],
+            title_line="AQUA",
+            tags={
+                "aks-managed-cluster-name": "9a57225d-a405-4d40-aa46-f13d2342abef",
+            })
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.1.0/24"],
+            delegations=[azure.network.SubnetDelegationArgs(
+                name="orbitalgateway",
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                    name="Microsoft.Orbital/orbitalGateways",
+                    actions=[
+                        "Microsoft.Network/publicIPAddresses/join/action",
+                        "Microsoft.Network/virtualNetworks/subnets/join/action",
+                        "Microsoft.Network/virtualNetworks/read",
+                        "Microsoft.Network/publicIPAddresses/read",
+                    ],
+                ),
+            )])
+        example_contact_profile = azure.orbital.ContactProfile("exampleContactProfile",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            minimum_variable_contact_duration="PT1M",
+            auto_tracking="disabled",
+            links=[azure.orbital.ContactProfileLinkArgs(
+                channels=[azure.orbital.ContactProfileLinkChannelArgs(
+                    name="channelname",
+                    bandwidth_mhz=100,
+                    center_frequency_mhz=101,
+                    end_points=[azure.orbital.ContactProfileLinkChannelEndPointArgs(
+                        end_point_name="AQUA_command",
+                        ip_address="10.0.1.0",
+                        port="49153",
+                        protocol="TCP",
+                    )],
+                )],
+                direction="Uplink",
+                name="RHCP_UL",
+                polarization="RHCP",
+            )],
+            network_configuration_subnet_id=example_subnet.id)
+        example_contact = azure.orbital.Contact("exampleContact",
+            spacecraft_id=example_spacecraft.id,
+            reservation_start_time="2020-07-16T20:35:00.00Z",
+            reservation_end_time="2020-07-16T20:55:00.00Z",
+            ground_station_name="WESTUS2_0",
+            contact_profile_id=example_contact_profile.id)
+        ```
+
         ## Import
 
         Spacecraft can be imported using the `resource id`, e.g.
@@ -326,6 +402,82 @@ class Contact(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an orbital contact.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_spacecraft = azure.orbital.Spacecraft("exampleSpacecraft",
+            resource_group_name=example_resource_group.name,
+            location="westeurope",
+            norad_id="12345",
+            links=[azure.orbital.SpacecraftLinkArgs(
+                bandwidth_mhz=100,
+                center_frequency_mhz=101,
+                direction="Uplink",
+                polarization="LHCP",
+                name="examplename",
+            )],
+            two_line_elements=[
+                "1 23455U 94089A   97320.90946019  .00000140  00000-0  10191-3 0  2621",
+                "2 23455  99.0090 272.6745 0008546 223.1686 136.8816 14.11711747148495",
+            ],
+            title_line="AQUA",
+            tags={
+                "aks-managed-cluster-name": "9a57225d-a405-4d40-aa46-f13d2342abef",
+            })
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.1.0/24"],
+            delegations=[azure.network.SubnetDelegationArgs(
+                name="orbitalgateway",
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                    name="Microsoft.Orbital/orbitalGateways",
+                    actions=[
+                        "Microsoft.Network/publicIPAddresses/join/action",
+                        "Microsoft.Network/virtualNetworks/subnets/join/action",
+                        "Microsoft.Network/virtualNetworks/read",
+                        "Microsoft.Network/publicIPAddresses/read",
+                    ],
+                ),
+            )])
+        example_contact_profile = azure.orbital.ContactProfile("exampleContactProfile",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            minimum_variable_contact_duration="PT1M",
+            auto_tracking="disabled",
+            links=[azure.orbital.ContactProfileLinkArgs(
+                channels=[azure.orbital.ContactProfileLinkChannelArgs(
+                    name="channelname",
+                    bandwidth_mhz=100,
+                    center_frequency_mhz=101,
+                    end_points=[azure.orbital.ContactProfileLinkChannelEndPointArgs(
+                        end_point_name="AQUA_command",
+                        ip_address="10.0.1.0",
+                        port="49153",
+                        protocol="TCP",
+                    )],
+                )],
+                direction="Uplink",
+                name="RHCP_UL",
+                polarization="RHCP",
+            )],
+            network_configuration_subnet_id=example_subnet.id)
+        example_contact = azure.orbital.Contact("exampleContact",
+            spacecraft_id=example_spacecraft.id,
+            reservation_start_time="2020-07-16T20:35:00.00Z",
+            reservation_end_time="2020-07-16T20:55:00.00Z",
+            ground_station_name="WESTUS2_0",
+            contact_profile_id=example_contact_profile.id)
+        ```
 
         ## Import
 

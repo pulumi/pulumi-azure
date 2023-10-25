@@ -7,6 +7,26 @@ import * as utilities from "../utilities";
 /**
  * Manages the Assignment of an API Management API Tag to an API.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleService = azure.apimanagement.getServiceOutput({
+ *     name: "example-apim",
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleApi = new azure.apimanagement.Api("exampleApi", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     apiManagementName: exampleService.apply(exampleService => exampleService.name),
+ *     revision: "1",
+ * });
+ * const exampleTag = new azure.apimanagement.Tag("exampleTag", {apiManagementId: exampleService.apply(exampleService => exampleService.id)});
+ * const exampleApiTag = new azure.apimanagement.ApiTag("exampleApiTag", {apiId: exampleApi.id});
+ * ```
+ *
  * ## Import
  *
  * API Management API Tags can be imported using the `resource id`, e.g.

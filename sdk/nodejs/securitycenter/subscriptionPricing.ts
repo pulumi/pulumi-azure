@@ -12,6 +12,45 @@ import * as utilities from "../utilities";
  * > **NOTE:** Deletion of this resource will reset the pricing tier to `Free`
  *
  * ## Example Usage
+ * ### Basic usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.securitycenter.SubscriptionPricing("example", {
+ *     resourceType: "VirtualMachines",
+ *     tier: "Standard",
+ * });
+ * ```
+ * ### Using Extensions with Defender CSPM
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example1 = new azure.securitycenter.SubscriptionPricing("example1", {
+ *     extensions: [
+ *         {
+ *             name: "ContainerRegistriesVulnerabilityAssessments",
+ *         },
+ *         {
+ *             additionalExtensionProperties: {
+ *                 ExclusionTags: "[]",
+ *             },
+ *             name: "AgentlessVmScanning",
+ *         },
+ *         {
+ *             name: "AgentlessDiscoveryForKubernetes",
+ *         },
+ *         {
+ *             name: "SensitiveDataDiscovery",
+ *         },
+ *     ],
+ *     resourceType: "CloudPosture",
+ *     tier: "Standard",
+ * });
+ * ```
  *
  * ## Import
  *

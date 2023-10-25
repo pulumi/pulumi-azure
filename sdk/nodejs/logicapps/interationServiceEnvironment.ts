@@ -9,6 +9,61 @@ import * as utilities from "../utilities";
  *
  * !> **NOTE:** The `azure.logicapps.InterationServiceEnvironment` resource is deprecated and will be removed in v4.0 of the Azure Provider. The underlying Azure Service is being retired on 2024-08-31 and new instances cannot be provisioned by default after 2022-11-01. More information on the retirement and how to migrate to Logic Apps Standard [can be found here](https://aka.ms/isedeprecation).
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     addressSpaces: ["10.0.0.0/22"],
+ * });
+ * const isesubnet1 = new azure.network.Subnet("isesubnet1", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.1.0/27"],
+ *     delegations: [{
+ *         name: "integrationServiceEnvironments",
+ *         serviceDelegation: {
+ *             name: "Microsoft.Logic/integrationServiceEnvironments",
+ *         },
+ *     }],
+ * });
+ * const isesubnet2 = new azure.network.Subnet("isesubnet2", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.1.32/27"],
+ * });
+ * const isesubnet3 = new azure.network.Subnet("isesubnet3", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.1.64/27"],
+ * });
+ * const isesubnet4 = new azure.network.Subnet("isesubnet4", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.1.96/27"],
+ * });
+ * const exampleInterationServiceEnvironment = new azure.logicapps.InterationServiceEnvironment("exampleInterationServiceEnvironment", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     skuName: "Developer_0",
+ *     accessEndpointType: "Internal",
+ *     virtualNetworkSubnetIds: [
+ *         isesubnet1.id,
+ *         isesubnet2.id,
+ *         isesubnet3.id,
+ *         isesubnet4.id,
+ *     ],
+ *     tags: {
+ *         environment: "development",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Integration Service Environments can be imported using the `resource id`, e.g.

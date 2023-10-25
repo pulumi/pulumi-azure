@@ -12,6 +12,56 @@ namespace Pulumi.Azure.Core
     /// <summary>
     /// Manages a Resource Deployment Script of Azure Cli.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("exampleUserAssignedIdentity", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleResourceDeploymentScriptAzureCli = new Azure.Core.ResourceDeploymentScriptAzureCli("exampleResourceDeploymentScriptAzureCli", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = "West Europe",
+    ///         Version = "2.40.0",
+    ///         RetentionInterval = "P1D",
+    ///         CommandLine = "'foo' 'bar'",
+    ///         CleanupPreference = "OnSuccess",
+    ///         ForceUpdateTag = "1",
+    ///         Timeout = "PT30M",
+    ///         ScriptContent = @"            echo ""{\""name\"":{\""displayName\"":\""$1 $2\""}}"" &gt; $AZ_SCRIPTS_OUTPUT_PATH
+    /// ",
+    ///         Identity = new Azure.Core.Inputs.ResourceDeploymentScriptAzureCliIdentityArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             IdentityIds = new[]
+    ///             {
+    ///                 exampleUserAssignedIdentity.Id,
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key", "value" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Resource Deployment Script can be imported using the `resource id`, e.g.

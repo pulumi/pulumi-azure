@@ -17,6 +17,114 @@ import (
 //
 // > **Note:** Route table routes can managed with this resource, or in-line with the virtualHubRouteTable resource. Using both is not supported.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.5.0.0/16"),
+//				},
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleNetworkSecurityGroup, err := network.NewNetworkSecurityGroup(ctx, "exampleNetworkSecurityGroup", &network.NetworkSecurityGroupArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.5.1.0/24"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewSubnetNetworkSecurityGroupAssociation(ctx, "exampleSubnetNetworkSecurityGroupAssociation", &network.SubnetNetworkSecurityGroupAssociationArgs{
+//				SubnetId:               exampleSubnet.ID(),
+//				NetworkSecurityGroupId: exampleNetworkSecurityGroup.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualWan, err := network.NewVirtualWan(ctx, "exampleVirtualWan", &network.VirtualWanArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualHub, err := network.NewVirtualHub(ctx, "exampleVirtualHub", &network.VirtualHubArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				VirtualWanId:      exampleVirtualWan.ID(),
+//				AddressPrefix:     pulumi.String("10.0.2.0/24"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualHubRouteTable, err := network.NewVirtualHubRouteTable(ctx, "exampleVirtualHubRouteTable", &network.VirtualHubRouteTableArgs{
+//				VirtualHubId: exampleVirtualHub.ID(),
+//				Labels: pulumi.StringArray{
+//					pulumi.String("label1"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualHubConnection, err := network.NewVirtualHubConnection(ctx, "exampleVirtualHubConnection", &network.VirtualHubConnectionArgs{
+//				VirtualHubId:           exampleVirtualHub.ID(),
+//				RemoteVirtualNetworkId: exampleVirtualNetwork.ID(),
+//				Routing: &network.VirtualHubConnectionRoutingArgs{
+//					AssociatedRouteTableId: exampleVirtualHubRouteTable.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewVirtualHubRouteTableRoute(ctx, "exampleVirtualHubRouteTableRoute", &network.VirtualHubRouteTableRouteArgs{
+//				RouteTableId:     exampleVirtualHubRouteTable.ID(),
+//				DestinationsType: pulumi.String("CIDR"),
+//				Destinations: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//				NextHopType: pulumi.String("ResourceId"),
+//				NextHop:     exampleVirtualHubConnection.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Virtual Hub Route Table Routes can be imported using `<Route Table Resource Id>/routes/<Route Name>`, e.g.

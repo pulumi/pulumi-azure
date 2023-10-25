@@ -12,6 +12,43 @@ namespace Pulumi.Azure.MariaDB
     /// <summary>
     /// Sets a MariaDB Configuration value on a MariaDB Server.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleServer = new Azure.MariaDB.Server("exampleServer", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "B_Gen5_2",
+    ///         SslEnforcementEnabled = true,
+    ///         AdministratorLogin = "mariadbadmin",
+    ///         AdministratorLoginPassword = "H@Sh1CoR3!",
+    ///         Version = "10.2",
+    ///     });
+    /// 
+    ///     var exampleConfiguration = new Azure.MariaDB.Configuration("exampleConfiguration", new()
+    ///     {
+    ///         Name = "interactive_timeout",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ServerName = exampleServer.Name,
+    ///         Value = "600",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// MariaDB Configurations can be imported using the `resource id`, e.g.

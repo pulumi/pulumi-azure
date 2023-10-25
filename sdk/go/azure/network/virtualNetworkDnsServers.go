@@ -13,6 +13,60 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Subnets: network.VirtualNetworkSubnetArray{
+//					&network.VirtualNetworkSubnetArgs{
+//						Name:          pulumi.String("subnet1"),
+//						AddressPrefix: pulumi.String("10.0.1.0/24"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewVirtualNetworkDnsServers(ctx, "exampleVirtualNetworkDnsServers", &network.VirtualNetworkDnsServersArgs{
+//				VirtualNetworkId: exampleVirtualNetwork.ID(),
+//				DnsServers: pulumi.StringArray{
+//					pulumi.String("10.7.7.2"),
+//					pulumi.String("10.7.7.7"),
+//					pulumi.String("10.7.7.1"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Virtual Network DNS Servers can be imported using the `resource id`, e.g.

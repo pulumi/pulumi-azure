@@ -291,6 +291,18 @@ class Service(pulumi.CustomResource):
         """
         Manages a Communication Service.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_service = azure.communication.Service("exampleService",
+            resource_group_name=example_resource_group.name,
+            data_location="United States")
+        ```
+
         ## Import
 
         Communication Services can be imported using the `resource id`, e.g.
@@ -314,6 +326,18 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Communication Service.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_service = azure.communication.Service("exampleService",
+            resource_group_name=example_resource_group.name,
+            data_location="United States")
+        ```
 
         ## Import
 

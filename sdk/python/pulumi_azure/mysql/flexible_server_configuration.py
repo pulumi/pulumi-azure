@@ -217,6 +217,25 @@ class FlexibleServerConfiguration(pulumi.CustomResource):
 
         > **Note:** Since this resource is provisioned by default, the Azure Provider will not check for the presence of an existing resource prior to attempting to create it.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_flexible_server = azure.mysql.FlexibleServer("exampleFlexibleServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            administrator_login="adminTerraform",
+            administrator_password="H@Sh1CoR3!",
+            sku_name="GP_Standard_D2ds_v4")
+        example_flexible_server_configuration = azure.mysql.FlexibleServerConfiguration("exampleFlexibleServerConfiguration",
+            resource_group_name=example_resource_group.name,
+            server_name=example_flexible_server.name,
+            value="600")
+        ```
+
         ## Import
 
         MySQL Flexible Server Configurations can be imported using the `resource id`, e.g.
@@ -244,6 +263,25 @@ class FlexibleServerConfiguration(pulumi.CustomResource):
         ## Disclaimers
 
         > **Note:** Since this resource is provisioned by default, the Azure Provider will not check for the presence of an existing resource prior to attempting to create it.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_flexible_server = azure.mysql.FlexibleServer("exampleFlexibleServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            administrator_login="adminTerraform",
+            administrator_password="H@Sh1CoR3!",
+            sku_name="GP_Standard_D2ds_v4")
+        example_flexible_server_configuration = azure.mysql.FlexibleServerConfiguration("exampleFlexibleServerConfiguration",
+            resource_group_name=example_resource_group.name,
+            server_name=example_flexible_server.name,
+            value="600")
+        ```
 
         ## Import
 

@@ -12,6 +12,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := dns.NewPtrRecord(ctx, "example", &dns.PtrRecordArgs{
+//				ZoneName:          pulumi.String("test-zone"),
+//				ResourceGroupName: pulumi.String("test-rg"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("dnsPtrRecordId", example.ID())
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupPtrRecord(ctx *pulumi.Context, args *LookupPtrRecordArgs, opts ...pulumi.InvokeOption) (*LookupPtrRecordResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPtrRecordResult

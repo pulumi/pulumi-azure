@@ -217,6 +217,25 @@ class VMWareReplicationPolicy(pulumi.CustomResource):
         """
         Manages a VMWare Replication Policy.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="eastus")
+        example_vault = azure.recoveryservices.Vault("exampleVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard",
+            classic_vmware_replication_enabled=True,
+            soft_delete_enabled=False)
+        example_vm_ware_replication_policy = azure.siterecovery.VMWareReplicationPolicy("exampleVMWareReplicationPolicy",
+            recovery_vault_id=example_vault.id,
+            recovery_point_retention_in_minutes=1440,
+            application_consistent_snapshot_frequency_in_minutes=240)
+        ```
+
         ## Import
 
         VMWare Replication Policy can be imported using the `resource id`, e.g.
@@ -240,6 +259,25 @@ class VMWareReplicationPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a VMWare Replication Policy.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="eastus")
+        example_vault = azure.recoveryservices.Vault("exampleVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard",
+            classic_vmware_replication_enabled=True,
+            soft_delete_enabled=False)
+        example_vm_ware_replication_policy = azure.siterecovery.VMWareReplicationPolicy("exampleVMWareReplicationPolicy",
+            recovery_vault_id=example_vault.id,
+            recovery_point_retention_in_minutes=1440,
+            application_consistent_snapshot_frequency_in_minutes=240)
+        ```
 
         ## Import
 

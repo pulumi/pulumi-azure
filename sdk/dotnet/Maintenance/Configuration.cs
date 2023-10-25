@@ -12,6 +12,35 @@ namespace Pulumi.Azure.Maintenance
     /// <summary>
     /// Manages a maintenance configuration.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleConfiguration = new Azure.Maintenance.Configuration("exampleConfiguration", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Scope = "SQLDB",
+    ///         Tags = 
+    ///         {
+    ///             { "Env", "prod" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Maintenance Configuration can be imported using the `resource id`, e.g.

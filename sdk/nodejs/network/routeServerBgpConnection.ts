@@ -7,6 +7,47 @@ import * as utilities from "../utilities";
 /**
  * Manages a Bgp Connection for a Route Server
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     tags: {
+ *         environment: "Production",
+ *     },
+ * });
+ * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     addressPrefixes: ["10.0.1.0/24"],
+ * });
+ * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     allocationMethod: "Static",
+ *     sku: "Standard",
+ * });
+ * const exampleRouteServer = new azure.network.RouteServer("exampleRouteServer", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     sku: "Standard",
+ *     publicIpAddressId: examplePublicIp.id,
+ *     subnetId: exampleSubnet.id,
+ *     branchToBranchTrafficEnabled: true,
+ * });
+ * const exampleRouteServerBgpConnection = new azure.network.RouteServerBgpConnection("exampleRouteServerBgpConnection", {
+ *     routeServerId: exampleRouteServer.id,
+ *     peerAsn: 65501,
+ *     peerIp: "169.254.21.5",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Route Server Bgp Connections can be imported using the `resource id`, e.g.

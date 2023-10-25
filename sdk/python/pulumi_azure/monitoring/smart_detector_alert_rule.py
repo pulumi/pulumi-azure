@@ -489,6 +489,31 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
         """
         Manages an Monitor Smart Detector Alert Rule.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_insights = azure.appinsights.Insights("exampleInsights",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            application_type="web")
+        example_action_group = azure.monitoring.ActionGroup("exampleActionGroup",
+            resource_group_name=example_resource_group.name,
+            short_name="example")
+        example_smart_detector_alert_rule = azure.monitoring.SmartDetectorAlertRule("exampleSmartDetectorAlertRule",
+            resource_group_name=example_resource_group.name,
+            severity="Sev0",
+            scope_resource_ids=[example_insights.id],
+            frequency="PT1M",
+            detector_type="FailureAnomaliesDetector",
+            action_group=azure.monitoring.SmartDetectorAlertRuleActionGroupArgs(
+                ids=[example_action_group.id],
+            ))
+        ```
+
         ## Import
 
         Monitor Smart Detector Alert Rule can be imported using the `resource id`, e.g.
@@ -519,6 +544,31 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Monitor Smart Detector Alert Rule.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_insights = azure.appinsights.Insights("exampleInsights",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            application_type="web")
+        example_action_group = azure.monitoring.ActionGroup("exampleActionGroup",
+            resource_group_name=example_resource_group.name,
+            short_name="example")
+        example_smart_detector_alert_rule = azure.monitoring.SmartDetectorAlertRule("exampleSmartDetectorAlertRule",
+            resource_group_name=example_resource_group.name,
+            severity="Sev0",
+            scope_resource_ids=[example_insights.id],
+            frequency="PT1M",
+            detector_type="FailureAnomaliesDetector",
+            action_group=azure.monitoring.SmartDetectorAlertRuleActionGroupArgs(
+                ids=[example_action_group.id],
+            ))
+        ```
 
         ## Import
 

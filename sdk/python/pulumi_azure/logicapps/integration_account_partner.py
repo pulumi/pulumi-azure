@@ -256,6 +256,26 @@ class IntegrationAccountPartner(pulumi.CustomResource):
         """
         Manages a Logic App Integration Account Partner.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_integration_account = azure.logicapps.IntegrationAccount("exampleIntegrationAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="Standard")
+        example_integration_account_partner = azure.logicapps.IntegrationAccountPartner("exampleIntegrationAccountPartner",
+            resource_group_name=example_resource_group.name,
+            integration_account_name=example_integration_account.name,
+            business_identities=[azure.logicapps.IntegrationAccountPartnerBusinessIdentityArgs(
+                qualifier="ZZ",
+                value="AA",
+            )])
+        ```
+
         ## Import
 
         Logic App Integration Account Partners can be imported using the `resource id`, e.g.
@@ -280,6 +300,26 @@ class IntegrationAccountPartner(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Logic App Integration Account Partner.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_integration_account = azure.logicapps.IntegrationAccount("exampleIntegrationAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="Standard")
+        example_integration_account_partner = azure.logicapps.IntegrationAccountPartner("exampleIntegrationAccountPartner",
+            resource_group_name=example_resource_group.name,
+            integration_account_name=example_integration_account.name,
+            business_identities=[azure.logicapps.IntegrationAccountPartnerBusinessIdentityArgs(
+                qualifier="ZZ",
+                value="AA",
+            )])
+        ```
 
         ## Import
 

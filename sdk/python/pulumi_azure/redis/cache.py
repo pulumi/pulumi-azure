@@ -1055,6 +1055,26 @@ class Cache(pulumi.CustomResource):
 
         > **Note:** Redis version 4 is being retired and no longer supports creating new instances. Version 4 will be removed in a future release. [Redis Version 4 Retirement](https://learn.microsoft.com/azure/azure-cache-for-redis/cache-retired-features#important-upgrade-timelines)
 
+        ## Example Usage
+
+        This example provisions a Standard Redis Cache.
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        # NOTE: the Name used for Redis needs to be globally unique
+        example_cache = azure.redis.Cache("exampleCache",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            capacity=2,
+            family="C",
+            sku_name="Standard",
+            enable_non_ssl_port=False,
+            minimum_tls_version="1.2",
+            redis_configuration=azure.redis.CacheRedisConfigurationArgs())
+        ```
         ## Relevant Links
 
         * [Azure Cache for Redis planning](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-planning-faq)
@@ -1109,6 +1129,26 @@ class Cache(pulumi.CustomResource):
 
         > **Note:** Redis version 4 is being retired and no longer supports creating new instances. Version 4 will be removed in a future release. [Redis Version 4 Retirement](https://learn.microsoft.com/azure/azure-cache-for-redis/cache-retired-features#important-upgrade-timelines)
 
+        ## Example Usage
+
+        This example provisions a Standard Redis Cache.
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        # NOTE: the Name used for Redis needs to be globally unique
+        example_cache = azure.redis.Cache("exampleCache",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            capacity=2,
+            family="C",
+            sku_name="Standard",
+            enable_non_ssl_port=False,
+            minimum_tls_version="1.2",
+            redis_configuration=azure.redis.CacheRedisConfigurationArgs())
+        ```
         ## Relevant Links
 
         * [Azure Cache for Redis planning](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-planning-faq)

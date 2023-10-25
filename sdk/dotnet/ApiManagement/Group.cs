@@ -12,6 +12,41 @@ namespace Pulumi.Azure.ApiManagement
     /// <summary>
     /// Manages an API Management Group.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PublisherName = "pub1",
+    ///         PublisherEmail = "pub1@email.com",
+    ///         SkuName = "Developer_1",
+    ///     });
+    /// 
+    ///     var exampleGroup = new Azure.ApiManagement.Group("exampleGroup", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApiManagementName = exampleService.Name,
+    ///         DisplayName = "Example Group",
+    ///         Description = "This is an example API management group.",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// API Management Groups can be imported using the `resource id`, e.g.

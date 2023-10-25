@@ -14,6 +14,54 @@ namespace Pulumi.Azure.Storage
     /// 
     /// &gt; **Note:** The storage share supports two storage tiers: premium and standard. Standard file shares are created in general purpose (GPv1 or GPv2) storage accounts and premium file shares are created in FileStorage storage accounts. For further information, refer to the section "What storage tiers are supported in Azure Files?" of [documentation](https://docs.microsoft.com/azure/storage/files/storage-files-faq#general).
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleShare = new Azure.Storage.Share("exampleShare", new()
+    ///     {
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         Quota = 50,
+    ///         Acls = new[]
+    ///         {
+    ///             new Azure.Storage.Inputs.ShareAclArgs
+    ///             {
+    ///                 Id = "MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI",
+    ///                 AccessPolicies = new[]
+    ///                 {
+    ///                     new Azure.Storage.Inputs.ShareAclAccessPolicyArgs
+    ///                     {
+    ///                         Permissions = "rwdl",
+    ///                         Start = "2019-07-02T09:38:21.0000000Z",
+    ///                         Expiry = "2019-07-02T10:38:21.0000000Z",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Storage Shares can be imported using the `resource id`, e.g.

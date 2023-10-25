@@ -373,6 +373,25 @@ class IntegrationAccountAssembly(pulumi.CustomResource):
         """
         Manages a Logic App Integration Account Assembly.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import base64
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_integration_account = azure.logicapps.IntegrationAccount("exampleIntegrationAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="Basic")
+        example_integration_account_assembly = azure.logicapps.IntegrationAccountAssembly("exampleIntegrationAccountAssembly",
+            resource_group_name=example_resource_group.name,
+            integration_account_name=example_integration_account.name,
+            assembly_name="TestAssembly",
+            content=(lambda path: base64.b64encode(open(path).read().encode()).decode())("testdata/log4net.dll"))
+        ```
+
         ## Import
 
         Logic App Integration Account Assemblies can be imported using the `resource id`, e.g.
@@ -400,6 +419,25 @@ class IntegrationAccountAssembly(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Logic App Integration Account Assembly.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import base64
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_integration_account = azure.logicapps.IntegrationAccount("exampleIntegrationAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="Basic")
+        example_integration_account_assembly = azure.logicapps.IntegrationAccountAssembly("exampleIntegrationAccountAssembly",
+            resource_group_name=example_resource_group.name,
+            integration_account_name=example_integration_account.name,
+            assembly_name="TestAssembly",
+            content=(lambda path: base64.b64encode(open(path).read().encode()).decode())("testdata/log4net.dll"))
+        ```
 
         ## Import
 

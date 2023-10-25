@@ -175,6 +175,23 @@ class BackupPolicyBlobStorage(pulumi.CustomResource):
         """
         Manages a Backup Policy Blob Storage.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_backup_vault = azure.dataprotection.BackupVault("exampleBackupVault",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            datastore_type="VaultStore",
+            redundancy="LocallyRedundant")
+        example_backup_policy_blob_storage = azure.dataprotection.BackupPolicyBlobStorage("exampleBackupPolicyBlobStorage",
+            vault_id=example_backup_vault.id,
+            retention_duration="P30D")
+        ```
+
         ## Import
 
         Backup Policy Blob Storages can be imported using the `resource id`, e.g.
@@ -197,6 +214,23 @@ class BackupPolicyBlobStorage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Backup Policy Blob Storage.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_backup_vault = azure.dataprotection.BackupVault("exampleBackupVault",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            datastore_type="VaultStore",
+            redundancy="LocallyRedundant")
+        example_backup_policy_blob_storage = azure.dataprotection.BackupPolicyBlobStorage("exampleBackupPolicyBlobStorage",
+            vault_id=example_backup_vault.id,
+            retention_duration="P30D")
+        ```
 
         ## Import
 

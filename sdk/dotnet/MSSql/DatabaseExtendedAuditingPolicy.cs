@@ -12,6 +12,55 @@ namespace Pulumi.Azure.MSSql
     /// <summary>
     /// Manages a MS SQL Database Extended Auditing Policy.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleServer = new Azure.MSSql.Server("exampleServer", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Version = "12.0",
+    ///         AdministratorLogin = "missadministrator",
+    ///         AdministratorLoginPassword = "AdminPassword123!",
+    ///     });
+    /// 
+    ///     var exampleDatabase = new Azure.MSSql.Database("exampleDatabase", new()
+    ///     {
+    ///         ServerId = exampleServer.Id,
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleDatabaseExtendedAuditingPolicy = new Azure.MSSql.DatabaseExtendedAuditingPolicy("exampleDatabaseExtendedAuditingPolicy", new()
+    ///     {
+    ///         DatabaseId = exampleDatabase.Id,
+    ///         StorageEndpoint = exampleAccount.PrimaryBlobEndpoint,
+    ///         StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
+    ///         StorageAccountAccessKeyIsSecondary = false,
+    ///         RetentionInDays = 6,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// MS SQL Database Extended Auditing Policies can be imported using the `resource id`, e.g.

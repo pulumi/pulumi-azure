@@ -9,6 +9,25 @@ import * as utilities from "../utilities";
 /**
  * Manages a Databricks Access Connector
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAccessConnector = new azure.databricks.AccessConnector("exampleAccessConnector", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ *     tags: {
+ *         Environment: "Production",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Databricks Access Connectors can be imported using the `resource id`, e.g.

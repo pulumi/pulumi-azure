@@ -472,6 +472,31 @@ class Server(pulumi.CustomResource):
         """
         Manages an Analysis Services Server.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example", location="West Europe")
+        server = azure.analysisservices.Server("server",
+            location=example.location,
+            resource_group_name=example.name,
+            sku="S0",
+            admin_users=["myuser@domain.tld"],
+            enable_power_bi_service=True,
+            ipv4_firewall_rules=[azure.analysisservices.ServerIpv4FirewallRuleArgs(
+                name="myRule1",
+                range_start="210.117.252.0",
+                range_end="210.117.252.255",
+            )],
+            tags={
+                "abc": "123",
+            })
+        ```
+
+        > **NOTE:** The server resource will automatically be started and stopped during an update if it is in `paused` state.
+
         ## Import
 
         Analysis Services Server can be imported using the `resource id`, e.g.
@@ -501,6 +526,31 @@ class Server(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Analysis Services Server.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example", location="West Europe")
+        server = azure.analysisservices.Server("server",
+            location=example.location,
+            resource_group_name=example.name,
+            sku="S0",
+            admin_users=["myuser@domain.tld"],
+            enable_power_bi_service=True,
+            ipv4_firewall_rules=[azure.analysisservices.ServerIpv4FirewallRuleArgs(
+                name="myRule1",
+                range_start="210.117.252.0",
+                range_end="210.117.252.255",
+            )],
+            tags={
+                "abc": "123",
+            })
+        ```
+
+        > **NOTE:** The server resource will automatically be started and stopped during an update if it is in `paused` state.
 
         ## Import
 

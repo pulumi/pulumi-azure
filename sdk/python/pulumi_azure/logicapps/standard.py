@@ -967,6 +967,75 @@ class Standard(pulumi.CustomResource):
         Manages a Logic App (Standard / Single Tenant)
 
         ## Example Usage
+        ### With App Service Plan)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_plan = azure.appservice.Plan("examplePlan",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            kind="elastic",
+            sku=azure.appservice.PlanSkuArgs(
+                tier="WorkflowStandard",
+                size="WS1",
+            ))
+        example_standard = azure.logicapps.Standard("exampleStandard",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            app_service_plan_id=example_plan.id,
+            storage_account_name=example_account.name,
+            storage_account_access_key=example_account.primary_access_key,
+            app_settings={
+                "FUNCTIONS_WORKER_RUNTIME": "node",
+                "WEBSITE_NODE_DEFAULT_VERSION": "~18",
+            })
+        ```
+        ### For Container Mode)
+
+        > **Note:** You must set `appservice.Plan` `kind` to `Linux` and `reserved` to `true` when used with `linux_fx_version`
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_plan = azure.appservice.Plan("examplePlan",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            kind="Linux",
+            reserved=True,
+            sku=azure.appservice.PlanSkuArgs(
+                tier="WorkflowStandard",
+                size="WS1",
+            ))
+        example_standard = azure.logicapps.Standard("exampleStandard",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            app_service_plan_id=example_plan.id,
+            storage_account_name=example_account.name,
+            storage_account_access_key=example_account.primary_access_key,
+            site_config=azure.logicapps.StandardSiteConfigArgs(
+                linux_fx_version="DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice",
+            ),
+            app_settings={
+                "DOCKER_REGISTRY_SERVER_URL": "https://<server-name>.azurecr.io",
+                "DOCKER_REGISTRY_SERVER_USERNAME": "username",
+                "DOCKER_REGISTRY_SERVER_PASSWORD": "password",
+            })
+        ```
 
         ## Import
 
@@ -1009,6 +1078,75 @@ class Standard(pulumi.CustomResource):
         Manages a Logic App (Standard / Single Tenant)
 
         ## Example Usage
+        ### With App Service Plan)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_plan = azure.appservice.Plan("examplePlan",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            kind="elastic",
+            sku=azure.appservice.PlanSkuArgs(
+                tier="WorkflowStandard",
+                size="WS1",
+            ))
+        example_standard = azure.logicapps.Standard("exampleStandard",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            app_service_plan_id=example_plan.id,
+            storage_account_name=example_account.name,
+            storage_account_access_key=example_account.primary_access_key,
+            app_settings={
+                "FUNCTIONS_WORKER_RUNTIME": "node",
+                "WEBSITE_NODE_DEFAULT_VERSION": "~18",
+            })
+        ```
+        ### For Container Mode)
+
+        > **Note:** You must set `appservice.Plan` `kind` to `Linux` and `reserved` to `true` when used with `linux_fx_version`
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_plan = azure.appservice.Plan("examplePlan",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            kind="Linux",
+            reserved=True,
+            sku=azure.appservice.PlanSkuArgs(
+                tier="WorkflowStandard",
+                size="WS1",
+            ))
+        example_standard = azure.logicapps.Standard("exampleStandard",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            app_service_plan_id=example_plan.id,
+            storage_account_name=example_account.name,
+            storage_account_access_key=example_account.primary_access_key,
+            site_config=azure.logicapps.StandardSiteConfigArgs(
+                linux_fx_version="DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice",
+            ),
+            app_settings={
+                "DOCKER_REGISTRY_SERVER_URL": "https://<server-name>.azurecr.io",
+                "DOCKER_REGISTRY_SERVER_USERNAME": "username",
+                "DOCKER_REGISTRY_SERVER_PASSWORD": "password",
+            })
+        ```
 
         ## Import
 

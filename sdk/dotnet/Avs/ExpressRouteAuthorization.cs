@@ -12,6 +12,44 @@ namespace Pulumi.Azure.Avs
     /// <summary>
     /// Manages an Express Route VMware Authorization.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var examplePrivateCloud = new Azure.Avs.PrivateCloud("examplePrivateCloud", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         SkuName = "av36",
+    ///         ManagementCluster = new Azure.Avs.Inputs.PrivateCloudManagementClusterArgs
+    ///         {
+    ///             Size = 3,
+    ///         },
+    ///         NetworkSubnetCidr = "192.168.48.0/22",
+    ///         InternetConnectionEnabled = false,
+    ///         NsxtPassword = "QazWsx13$Edc",
+    ///         VcenterPassword = "WsxEdc23$Rfv",
+    ///     });
+    /// 
+    ///     var exampleExpressRouteAuthorization = new Azure.Avs.ExpressRouteAuthorization("exampleExpressRouteAuthorization", new()
+    ///     {
+    ///         PrivateCloudId = examplePrivateCloud.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// VMware Authorizations can be imported using the `resource id`, e.g.

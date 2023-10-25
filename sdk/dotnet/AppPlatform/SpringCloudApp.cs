@@ -12,6 +12,40 @@ namespace Pulumi.Azure.AppPlatform
     /// <summary>
     /// Manage an Azure Spring Cloud Application.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleSpringCloudApp = new Azure.AppPlatform.SpringCloudApp("exampleSpringCloudApp", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ServiceName = exampleSpringCloudService.Name,
+    ///         Identity = new Azure.AppPlatform.Inputs.SpringCloudAppIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Spring Cloud Application can be imported using the `resource id`, e.g.

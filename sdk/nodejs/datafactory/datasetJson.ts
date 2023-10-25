@@ -9,6 +9,34 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure JSON Dataset inside an Azure Data Factory.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleLinkedServiceWeb = new azure.datafactory.LinkedServiceWeb("exampleLinkedServiceWeb", {
+ *     dataFactoryId: exampleFactory.id,
+ *     authenticationType: "Anonymous",
+ *     url: "https://www.bing.com",
+ * });
+ * const exampleDatasetJson = new azure.datafactory.DatasetJson("exampleDatasetJson", {
+ *     dataFactoryId: exampleFactory.id,
+ *     linkedServiceName: exampleLinkedServiceWeb.name,
+ *     httpServerLocation: {
+ *         relativeUrl: "/fizz/buzz/",
+ *         path: "foo/bar/",
+ *         filename: "foo.txt",
+ *     },
+ *     encoding: "UTF-8",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Data Factory Datasets can be imported using the `resource id`, e.g.

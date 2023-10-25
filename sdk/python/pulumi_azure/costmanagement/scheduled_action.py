@@ -624,6 +624,24 @@ class ScheduledAction(pulumi.CustomResource):
         """
         Manages an Azure Cost Management Scheduled Action.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.costmanagement.ScheduledAction("example",
+            display_name="Report Last 6 Months",
+            email_address_sender="platformteam@test.com",
+            email_addresses=["example@example.com"],
+            email_subject="Cost Management Report",
+            end_date="2023-02-02T00:00:00Z",
+            frequency="Daily",
+            message="Hi all, take a look at last 6 months spending!",
+            start_date="2023-01-02T00:00:00Z",
+            view_id="/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.CostManagement/views/ms:CostByService")
+        ```
+
         ## Import
 
         Azure Cost Management Scheduled Actions can be imported using the `resource id`, e.g.
@@ -657,6 +675,24 @@ class ScheduledAction(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Cost Management Scheduled Action.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.costmanagement.ScheduledAction("example",
+            display_name="Report Last 6 Months",
+            email_address_sender="platformteam@test.com",
+            email_addresses=["example@example.com"],
+            email_subject="Cost Management Report",
+            end_date="2023-02-02T00:00:00Z",
+            frequency="Daily",
+            message="Hi all, take a look at last 6 months spending!",
+            start_date="2023-01-02T00:00:00Z",
+            view_id="/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.CostManagement/views/ms:CostByService")
+        ```
 
         ## Import
 

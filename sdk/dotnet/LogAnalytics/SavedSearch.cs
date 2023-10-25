@@ -12,6 +12,40 @@ namespace Pulumi.Azure.LogAnalytics
     /// <summary>
     /// Manages a Log Analytics (formally Operational Insights) Saved Search.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "PerGB2018",
+    ///         RetentionInDays = 30,
+    ///     });
+    /// 
+    ///     var exampleSavedSearch = new Azure.LogAnalytics.SavedSearch("exampleSavedSearch", new()
+    ///     {
+    ///         LogAnalyticsWorkspaceId = exampleAnalyticsWorkspace.Id,
+    ///         Category = "exampleCategory",
+    ///         DisplayName = "exampleDisplayName",
+    ///         Query = "exampleQuery",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Log Analytics Saved Searches can be imported using the `resource id`, e.g.

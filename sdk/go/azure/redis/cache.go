@@ -17,6 +17,47 @@ import (
 //
 // > **Note:** Redis version 4 is being retired and no longer supports creating new instances. Version 4 will be removed in a future release. [Redis Version 4 Retirement](https://learn.microsoft.com/azure/azure-cache-for-redis/cache-retired-features#important-upgrade-timelines)
 //
+// ## Example Usage
+//
+// This example provisions a Standard Redis Cache.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/redis"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = redis.NewCache(ctx, "exampleCache", &redis.CacheArgs{
+//				Location:           exampleResourceGroup.Location,
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				Capacity:           pulumi.Int(2),
+//				Family:             pulumi.String("C"),
+//				SkuName:            pulumi.String("Standard"),
+//				EnableNonSslPort:   pulumi.Bool(false),
+//				MinimumTlsVersion:  pulumi.String("1.2"),
+//				RedisConfiguration: nil,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 // ## Relevant Links
 //
 // * [Azure Cache for Redis planning](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-planning-faq)

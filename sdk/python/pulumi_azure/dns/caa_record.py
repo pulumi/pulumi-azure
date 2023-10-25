@@ -306,6 +306,45 @@ class CaaRecord(pulumi.CustomResource):
                  zone_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_zone = azure.dns.Zone("exampleZone", resource_group_name=example_resource_group.name)
+        example_caa_record = azure.dns.CaaRecord("exampleCaaRecord",
+            zone_name=example_zone.name,
+            resource_group_name=example_resource_group.name,
+            ttl=300,
+            records=[
+                azure.dns.CaaRecordRecordArgs(
+                    flags=0,
+                    tag="issue",
+                    value="example.com",
+                ),
+                azure.dns.CaaRecordRecordArgs(
+                    flags=0,
+                    tag="issue",
+                    value="example.net",
+                ),
+                azure.dns.CaaRecordRecordArgs(
+                    flags=0,
+                    tag="issuewild",
+                    value=";",
+                ),
+                azure.dns.CaaRecordRecordArgs(
+                    flags=0,
+                    tag="iodef",
+                    value="mailto:user@nonexisting.tld",
+                ),
+            ],
+            tags={
+                "Environment": "Production",
+            })
+        ```
+
         ## Import
 
         CAA records can be imported using the `resource id`, e.g.
@@ -330,6 +369,45 @@ class CaaRecord(pulumi.CustomResource):
                  args: CaaRecordArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_zone = azure.dns.Zone("exampleZone", resource_group_name=example_resource_group.name)
+        example_caa_record = azure.dns.CaaRecord("exampleCaaRecord",
+            zone_name=example_zone.name,
+            resource_group_name=example_resource_group.name,
+            ttl=300,
+            records=[
+                azure.dns.CaaRecordRecordArgs(
+                    flags=0,
+                    tag="issue",
+                    value="example.com",
+                ),
+                azure.dns.CaaRecordRecordArgs(
+                    flags=0,
+                    tag="issue",
+                    value="example.net",
+                ),
+                azure.dns.CaaRecordRecordArgs(
+                    flags=0,
+                    tag="issuewild",
+                    value=";",
+                ),
+                azure.dns.CaaRecordRecordArgs(
+                    flags=0,
+                    tag="iodef",
+                    value="mailto:user@nonexisting.tld",
+                ),
+            ],
+            tags={
+                "Environment": "Production",
+            })
+        ```
+
         ## Import
 
         CAA records can be imported using the `resource id`, e.g.

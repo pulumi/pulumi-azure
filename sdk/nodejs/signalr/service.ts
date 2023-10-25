@@ -9,6 +9,39 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure SignalR service.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
+ * const exampleService = new azure.signalr.Service("exampleService", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: {
+ *         name: "Free_F1",
+ *         capacity: 1,
+ *     },
+ *     cors: [{
+ *         allowedOrigins: ["http://www.example.com"],
+ *     }],
+ *     publicNetworkAccessEnabled: false,
+ *     connectivityLogsEnabled: true,
+ *     messagingLogsEnabled: true,
+ *     serviceMode: "Default",
+ *     upstreamEndpoints: [{
+ *         categoryPatterns: [
+ *             "connections",
+ *             "messages",
+ *         ],
+ *         eventPatterns: ["*"],
+ *         hubPatterns: ["hub1"],
+ *         urlTemplate: "http://foo.com",
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * SignalR services can be imported using the `resource id`, e.g.

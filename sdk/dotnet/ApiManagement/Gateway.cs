@@ -12,6 +12,46 @@ namespace Pulumi.Azure.ApiManagement
     /// <summary>
     /// Manages an API Management Gateway.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PublisherName = "pub1",
+    ///         PublisherEmail = "pub1@email.com",
+    ///         SkuName = "Consumption_0",
+    ///     });
+    /// 
+    ///     var exampleGateway = new Azure.ApiManagement.Gateway("exampleGateway", new()
+    ///     {
+    ///         ApiManagementId = exampleService.Id,
+    ///         Description = "Example API Management gateway",
+    ///         LocationData = new Azure.ApiManagement.Inputs.GatewayLocationDataArgs
+    ///         {
+    ///             Name = "example name",
+    ///             City = "example city",
+    ///             District = "example district",
+    ///             Region = "example region",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// API Management Gateways can be imported using the `resource id`, e.g.

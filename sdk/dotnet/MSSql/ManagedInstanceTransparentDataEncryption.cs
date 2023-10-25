@@ -17,6 +17,221 @@ namespace Pulumi.Azure.MSSql
     /// &gt; **Note:** See [documentation](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview) for important information on how handle lifecycle management of the keys to prevent data lockout.
     /// 
     /// ## Example Usage
+    /// ### With Service Managed Key
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "EastUs",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = azurerm_resource_group.Test.Location,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.0.0/24",
+    ///         },
+    ///         Delegations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.SubnetDelegationArgs
+    ///             {
+    ///                 Name = "managedinstancedelegation",
+    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                 {
+    ///                     Name = "Microsoft.Sql/managedInstances",
+    ///                     Actions = new[]
+    ///                     {
+    ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
+    ///                         "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
+    ///                         "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleManagedInstance = new Azure.MSSql.ManagedInstance("exampleManagedInstance", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         LicenseType = "BasePrice",
+    ///         SkuName = "GP_Gen5",
+    ///         StorageSizeInGb = 32,
+    ///         SubnetId = exampleSubnet.Id,
+    ///         Vcores = 4,
+    ///         AdministratorLogin = "missadministrator",
+    ///         AdministratorLoginPassword = "NCC-1701-D",
+    ///         Identity = new Azure.MSSql.Inputs.ManagedInstanceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleManagedInstanceTransparentDataEncryption = new Azure.MSSql.ManagedInstanceTransparentDataEncryption("exampleManagedInstanceTransparentDataEncryption", new()
+    ///     {
+    ///         ManagedInstanceId = exampleManagedInstance.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### With Customer Managed Key
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "EastUs",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = azurerm_resource_group.Test.Location,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.0.0/24",
+    ///         },
+    ///         Delegations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.SubnetDelegationArgs
+    ///             {
+    ///                 Name = "managedinstancedelegation",
+    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                 {
+    ///                     Name = "Microsoft.Sql/managedInstances",
+    ///                     Actions = new[]
+    ///                     {
+    ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
+    ///                         "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
+    ///                         "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleManagedInstance = new Azure.MSSql.ManagedInstance("exampleManagedInstance", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         LicenseType = "BasePrice",
+    ///         SkuName = "GP_Gen5",
+    ///         StorageSizeInGb = 32,
+    ///         SubnetId = exampleSubnet.Id,
+    ///         Vcores = 4,
+    ///         AdministratorLogin = "missadministrator",
+    ///         AdministratorLoginPassword = "NCC-1701-D",
+    ///         Identity = new Azure.MSSql.Inputs.ManagedInstanceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     // Create a key vault with policies for the deployer to create a key &amp; SQL Managed Instance to wrap/unwrap/get key
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         EnabledForDiskEncryption = true,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SoftDeleteRetentionDays = 7,
+    ///         PurgeProtectionEnabled = false,
+    ///         SkuName = "standard",
+    ///         AccessPolicies = new[]
+    ///         {
+    ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
+    ///             {
+    ///                 TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///                 ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///                 KeyPermissions = new[]
+    ///                 {
+    ///                     "Get",
+    ///                     "List",
+    ///                     "Create",
+    ///                     "Delete",
+    ///                     "Update",
+    ///                     "Recover",
+    ///                     "Purge",
+    ///                     "GetRotationPolicy",
+    ///                 },
+    ///             },
+    ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
+    ///             {
+    ///                 TenantId = exampleManagedInstance.Identity.Apply(identity =&gt; identity?.TenantId),
+    ///                 ObjectId = exampleManagedInstance.Identity.Apply(identity =&gt; identity?.PrincipalId),
+    ///                 KeyPermissions = new[]
+    ///                 {
+    ///                     "Get",
+    ///                     "WrapKey",
+    ///                     "UnwrapKey",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleKey = new Azure.KeyVault.Key("exampleKey", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         KeyType = "RSA",
+    ///         KeySize = 2048,
+    ///         KeyOpts = new[]
+    ///         {
+    ///             "unwrapKey",
+    ///             "wrapKey",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleKeyVault,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleManagedInstanceTransparentDataEncryption = new Azure.MSSql.ManagedInstanceTransparentDataEncryption("exampleManagedInstanceTransparentDataEncryption", new()
+    ///     {
+    ///         ManagedInstanceId = exampleManagedInstance.Id,
+    ///         KeyVaultKeyId = exampleKey.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

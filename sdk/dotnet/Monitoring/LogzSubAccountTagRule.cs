@@ -12,6 +12,78 @@ namespace Pulumi.Azure.Monitoring
     /// <summary>
     /// Manages a Logz Sub Account Tag Rule.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleLogzMonitor = new Azure.Monitoring.LogzMonitor("exampleLogzMonitor", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Plan = new Azure.Monitoring.Inputs.LogzMonitorPlanArgs
+    ///         {
+    ///             BillingCycle = "MONTHLY",
+    ///             EffectiveDate = "2022-06-06T00:00:00Z",
+    ///             UsageType = "COMMITTED",
+    ///         },
+    ///         User = new Azure.Monitoring.Inputs.LogzMonitorUserArgs
+    ///         {
+    ///             Email = "user@example.com",
+    ///             FirstName = "Example",
+    ///             LastName = "User",
+    ///             PhoneNumber = "+12313803556",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleLogzSubAccount = new Azure.Monitoring.LogzSubAccount("exampleLogzSubAccount", new()
+    ///     {
+    ///         LogzMonitorId = exampleLogzMonitor.Id,
+    ///         User = new Azure.Monitoring.Inputs.LogzSubAccountUserArgs
+    ///         {
+    ///             Email = exampleLogzMonitor.User.Apply(user =&gt; user.Email),
+    ///             FirstName = exampleLogzMonitor.User.Apply(user =&gt; user.FirstName),
+    ///             LastName = exampleLogzMonitor.User.Apply(user =&gt; user.LastName),
+    ///             PhoneNumber = exampleLogzMonitor.User.Apply(user =&gt; user.PhoneNumber),
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleLogzSubAccountTagRule = new Azure.Monitoring.LogzSubAccountTagRule("exampleLogzSubAccountTagRule", new()
+    ///     {
+    ///         LogzSubAccountId = exampleLogzSubAccount.Id,
+    ///         SendAadLogs = true,
+    ///         SendActivityLogs = true,
+    ///         SendSubscriptionLogs = true,
+    ///         TagFilters = new[]
+    ///         {
+    ///             new Azure.Monitoring.Inputs.LogzSubAccountTagRuleTagFilterArgs
+    ///             {
+    ///                 Name = "name1",
+    ///                 Action = "Include",
+    ///                 Value = "value1",
+    ///             },
+    ///             new Azure.Monitoring.Inputs.LogzSubAccountTagRuleTagFilterArgs
+    ///             {
+    ///                 Name = "name2",
+    ///                 Action = "Exclude",
+    ///                 Value = "value2",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Logz Sub Account Tag Rules can be imported using the `resource id`, e.g.

@@ -7,6 +7,21 @@ import * as utilities from "../utilities";
 /**
  * Manages a Virtual Desktop Workspace.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
+ * const workspace = new azure.desktopvirtualization.Workspace("workspace", {
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     friendlyName: "FriendlyName",
+ *     description: "A description of my workspace",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Virtual Desktop Workspaces can be imported using the `resource id`, e.g.

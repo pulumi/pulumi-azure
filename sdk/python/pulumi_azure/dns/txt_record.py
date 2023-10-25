@@ -306,6 +306,31 @@ class TxtRecord(pulumi.CustomResource):
                  zone_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_zone = azure.dns.Zone("exampleZone", resource_group_name=example_resource_group.name)
+        example_txt_record = azure.dns.TxtRecord("exampleTxtRecord",
+            zone_name=example_zone.name,
+            resource_group_name=example_resource_group.name,
+            ttl=300,
+            records=[
+                azure.dns.TxtRecordRecordArgs(
+                    value="google-site-authenticator",
+                ),
+                azure.dns.TxtRecordRecordArgs(
+                    value="more site information here",
+                ),
+            ],
+            tags={
+                "Environment": "Production",
+            })
+        ```
+
         ## Import
 
         TXT records can be imported using the `resource id`, e.g.
@@ -330,6 +355,31 @@ class TxtRecord(pulumi.CustomResource):
                  args: TxtRecordArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_zone = azure.dns.Zone("exampleZone", resource_group_name=example_resource_group.name)
+        example_txt_record = azure.dns.TxtRecord("exampleTxtRecord",
+            zone_name=example_zone.name,
+            resource_group_name=example_resource_group.name,
+            ttl=300,
+            records=[
+                azure.dns.TxtRecordRecordArgs(
+                    value="google-site-authenticator",
+                ),
+                azure.dns.TxtRecordRecordArgs(
+                    value="more site information here",
+                ),
+            ],
+            tags={
+                "Environment": "Production",
+            })
+        ```
+
         ## Import
 
         TXT records can be imported using the `resource id`, e.g.

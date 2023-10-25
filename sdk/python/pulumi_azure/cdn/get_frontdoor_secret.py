@@ -103,6 +103,17 @@ def get_frontdoor_secret(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Front Door (standard/premium) Secret.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.cdn.get_frontdoor_secret(name="example-secret",
+        profile_name="example-profile",
+        resource_group_name="example-resources")
+    ```
+
 
     :param str name: Specifies the name of the Front Door Secret.
     :param str profile_name: The name of the Front Door Profile within which the Front Door Secret exists.
@@ -131,6 +142,17 @@ def get_frontdoor_secret_output(name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFrontdoorSecretResult]:
     """
     Use this data source to access information about an existing Front Door (standard/premium) Secret.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.cdn.get_frontdoor_secret(name="example-secret",
+        profile_name="example-profile",
+        resource_group_name="example-resources")
+    ```
 
 
     :param str name: Specifies the name of the Front Door Secret.

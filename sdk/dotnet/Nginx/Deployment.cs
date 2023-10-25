@@ -12,6 +12,96 @@ namespace Pulumi.Azure.Nginx
     /// <summary>
     /// Manages a Nginx Deployment.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AllocationMethod = "Static",
+    ///         Sku = "Standard",
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
+    ///         },
+    ///         Delegations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.SubnetDelegationArgs
+    ///             {
+    ///                 Name = "delegation",
+    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                 {
+    ///                     Name = "NGINX.NGINXPLUS/nginxDeployments",
+    ///                     Actions = new[]
+    ///                     {
+    ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleDeployment = new Azure.Nginx.Deployment("exampleDeployment", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "publicpreview_Monthly_gmz7xq9ge3py",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ManagedResourceGroup = "example",
+    ///         DiagnoseSupportEnabled = true,
+    ///         FrontendPublic = new Azure.Nginx.Inputs.DeploymentFrontendPublicArgs
+    ///         {
+    ///             IpAddresses = new[]
+    ///             {
+    ///                 examplePublicIp.Id,
+    ///             },
+    ///         },
+    ///         NetworkInterfaces = new[]
+    ///         {
+    ///             new Azure.Nginx.Inputs.DeploymentNetworkInterfaceArgs
+    ///             {
+    ///                 SubnetId = exampleSubnet.Id,
+    ///             },
+    ///         },
+    ///         Capacity = 20,
+    ///         Email = "user@test.com",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Nginx Deployments can be imported using the `resource id`, e.g.

@@ -9,6 +9,60 @@ import * as utilities from "../utilities";
 /**
  * Manages a NAT Rule Collection within an Azure Firewall.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.1.0/24"],
+ * });
+ * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     allocationMethod: "Static",
+ *     sku: "Standard",
+ * });
+ * const exampleFirewall = new azure.network.Firewall("exampleFirewall", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     skuName: "AZFW_VNet",
+ *     skuTier: "Standard",
+ *     ipConfigurations: [{
+ *         name: "configuration",
+ *         subnetId: exampleSubnet.id,
+ *         publicIpAddressId: examplePublicIp.id,
+ *     }],
+ * });
+ * const exampleFirewallNatRuleCollection = new azure.network.FirewallNatRuleCollection("exampleFirewallNatRuleCollection", {
+ *     azureFirewallName: exampleFirewall.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     priority: 100,
+ *     action: "Dnat",
+ *     rules: [{
+ *         name: "testrule",
+ *         sourceAddresses: ["10.0.0.0/16"],
+ *         destinationPorts: ["53"],
+ *         destinationAddresses: [examplePublicIp.ipAddress],
+ *         translatedPort: "53",
+ *         translatedAddress: "8.8.8.8",
+ *         protocols: [
+ *             "TCP",
+ *             "UDP",
+ *         ],
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Azure Firewall NAT Rule Collections can be imported using the `resource id`, e.g.

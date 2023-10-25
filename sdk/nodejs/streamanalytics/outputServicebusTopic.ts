@@ -9,6 +9,44 @@ import * as utilities from "../utilities";
 /**
  * Manages a Stream Analytics Output to a ServiceBus Topic.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleJob = azure.streamanalytics.getJobOutput({
+ *     name: "example-job",
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleNamespace = new azure.servicebus.Namespace("exampleNamespace", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "Standard",
+ * });
+ * const exampleTopic = new azure.servicebus.Topic("exampleTopic", {
+ *     namespaceId: exampleNamespace.id,
+ *     enablePartitioning: true,
+ * });
+ * const exampleOutputServicebusTopic = new azure.streamanalytics.OutputServicebusTopic("exampleOutputServicebusTopic", {
+ *     streamAnalyticsJobName: exampleJob.apply(exampleJob => exampleJob.name),
+ *     resourceGroupName: exampleJob.apply(exampleJob => exampleJob.resourceGroupName),
+ *     topicName: exampleTopic.name,
+ *     servicebusNamespace: exampleNamespace.name,
+ *     sharedAccessPolicyKey: exampleNamespace.defaultPrimaryKey,
+ *     sharedAccessPolicyName: "RootManageSharedAccessKey",
+ *     propertyColumns: [
+ *         "col1",
+ *         "col2",
+ *     ],
+ *     serialization: {
+ *         type: "Csv",
+ *         format: "Array",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Stream Analytics Output ServiceBus Topic's can be imported using the `resource id`, e.g.

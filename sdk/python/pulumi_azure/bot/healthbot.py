@@ -269,6 +269,19 @@ class Healthbot(pulumi.CustomResource):
         """
         Manages a Healthbot Service.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_healthbot = azure.bot.Healthbot("exampleHealthbot",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku_name="F0")
+        ```
+
         ## Import
 
         Healthbot Service can be imported using the `resource id`, e.g.
@@ -293,6 +306,19 @@ class Healthbot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Healthbot Service.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_healthbot = azure.bot.Healthbot("exampleHealthbot",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku_name="F0")
+        ```
 
         ## Import
 

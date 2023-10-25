@@ -10,6 +10,66 @@ import * as utilities from "../utilities";
  * Manages a Pim Eligible Role Assignment.
  *
  * ## Example Usage
+ * ### Subscription)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as time from "@pulumiverse/time";
+ *
+ * const primary = azure.core.getSubscription({});
+ * const exampleClientConfig = azure.core.getClientConfig({});
+ * const exampleRoleDefinition = azure.authorization.getRoleDefinition({
+ *     name: "Reader",
+ * });
+ * const exampleStatic = new time.Static("exampleStatic", {});
+ * const exampleEligibleRoleAssignment = new azure.pim.EligibleRoleAssignment("exampleEligibleRoleAssignment", {
+ *     scope: primary.then(primary => primary.id),
+ *     roleDefinitionId: Promise.all([primary, exampleRoleDefinition]).then(([primary, exampleRoleDefinition]) => `${primary.id}${exampleRoleDefinition.id}`),
+ *     principalId: exampleClientConfig.then(exampleClientConfig => exampleClientConfig.objectId),
+ *     schedule: {
+ *         startDateTime: exampleStatic.rfc3339,
+ *         expiration: {
+ *             durationHours: 8,
+ *         },
+ *     },
+ *     justification: "Expiration Duration Set",
+ *     ticket: {
+ *         number: "1",
+ *         system: "example ticket system",
+ *     },
+ * });
+ * ```
+ * ### Management Group)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as time from "@pulumiverse/time";
+ *
+ * const exampleClientConfig = azure.core.getClientConfig({});
+ * const exampleRoleDefinition = azure.authorization.getRoleDefinition({
+ *     name: "Reader",
+ * });
+ * const exampleGroup = new azure.management.Group("exampleGroup", {});
+ * const exampleStatic = new time.Static("exampleStatic", {});
+ * const exampleEligibleRoleAssignment = new azure.pim.EligibleRoleAssignment("exampleEligibleRoleAssignment", {
+ *     scope: exampleGroup.id,
+ *     roleDefinitionId: exampleRoleDefinition.then(exampleRoleDefinition => exampleRoleDefinition.id),
+ *     principalId: exampleClientConfig.then(exampleClientConfig => exampleClientConfig.objectId),
+ *     schedule: {
+ *         startDateTime: exampleStatic.rfc3339,
+ *         expiration: {
+ *             durationHours: 8,
+ *         },
+ *     },
+ *     justification: "Expiration Duration Set",
+ *     ticket: {
+ *         number: "1",
+ *         system: "example ticket system",
+ *     },
+ * });
+ * ```
  *
  * ## Import
  *

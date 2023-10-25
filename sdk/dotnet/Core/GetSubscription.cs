@@ -13,12 +13,58 @@ namespace Pulumi.Azure.Core
     {
         /// <summary>
         /// Use this data source to access information about an existing Subscription.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var current = Azure.Core.GetSubscription.Invoke();
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["currentSubscriptionDisplayName"] = current.Apply(getSubscriptionResult =&gt; getSubscriptionResult.DisplayName),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetSubscriptionResult> InvokeAsync(GetSubscriptionArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionResult>("azure:core/getSubscription:getSubscription", args ?? new GetSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Subscription.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var current = Azure.Core.GetSubscription.Invoke();
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["currentSubscriptionDisplayName"] = current.Apply(getSubscriptionResult =&gt; getSubscriptionResult.DisplayName),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetSubscriptionResult> Invoke(GetSubscriptionInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubscriptionResult>("azure:core/getSubscription:getSubscription", args ?? new GetSubscriptionInvokeArgs(), options.WithDefaults());

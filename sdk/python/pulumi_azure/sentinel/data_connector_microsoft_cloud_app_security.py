@@ -274,6 +274,21 @@ class DataConnectorMicrosoftCloudAppSecurity(pulumi.CustomResource):
 
          !> **NOTE:** This resource requires that [Enterprise Mobility + Security E5](https://www.microsoft.com/en-us/microsoft-365/enterprise-mobility-security) is enabled on the tenant being connected to.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="west europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="PerGB2018")
+        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", workspace_id=example_analytics_workspace.id)
+        example_data_connector_microsoft_cloud_app_security = azure.sentinel.DataConnectorMicrosoftCloudAppSecurity("exampleDataConnectorMicrosoftCloudAppSecurity", log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id)
+        ```
+
         ## Import
 
         Microsoft Cloud App Security Data Connectors can be imported using the `resource id`, e.g.
@@ -304,6 +319,21 @@ class DataConnectorMicrosoftCloudAppSecurity(pulumi.CustomResource):
         Manages a Microsoft Cloud App Security Data Connector.
 
          !> **NOTE:** This resource requires that [Enterprise Mobility + Security E5](https://www.microsoft.com/en-us/microsoft-365/enterprise-mobility-security) is enabled on the tenant being connected to.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="west europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="PerGB2018")
+        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", workspace_id=example_analytics_workspace.id)
+        example_data_connector_microsoft_cloud_app_security = azure.sentinel.DataConnectorMicrosoftCloudAppSecurity("exampleDataConnectorMicrosoftCloudAppSecurity", log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id)
+        ```
 
         ## Import
 

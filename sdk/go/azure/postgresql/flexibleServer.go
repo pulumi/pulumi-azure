@@ -15,6 +15,100 @@ import (
 
 // Manages a PostgreSQL Flexible Server.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/postgresql"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.2.0/24"),
+//				},
+//				ServiceEndpoints: pulumi.StringArray{
+//					pulumi.String("Microsoft.Storage"),
+//				},
+//				Delegations: network.SubnetDelegationArray{
+//					&network.SubnetDelegationArgs{
+//						Name: pulumi.String("fs"),
+//						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
+//							Name: pulumi.String("Microsoft.DBforPostgreSQL/flexibleServers"),
+//							Actions: pulumi.StringArray{
+//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleZone, err := privatedns.NewZone(ctx, "exampleZone", &privatedns.ZoneArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleZoneVirtualNetworkLink, err := privatedns.NewZoneVirtualNetworkLink(ctx, "exampleZoneVirtualNetworkLink", &privatedns.ZoneVirtualNetworkLinkArgs{
+//				PrivateDnsZoneName: exampleZone.Name,
+//				VirtualNetworkId:   exampleVirtualNetwork.ID(),
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = postgresql.NewFlexibleServer(ctx, "exampleFlexibleServer", &postgresql.FlexibleServerArgs{
+//				ResourceGroupName:     exampleResourceGroup.Name,
+//				Location:              exampleResourceGroup.Location,
+//				Version:               pulumi.String("12"),
+//				DelegatedSubnetId:     exampleSubnet.ID(),
+//				PrivateDnsZoneId:      exampleZone.ID(),
+//				AdministratorLogin:    pulumi.String("psqladmin"),
+//				AdministratorPassword: pulumi.String("H@Sh1CoR3!"),
+//				Zone:                  pulumi.String("1"),
+//				StorageMb:             pulumi.Int(32768),
+//				SkuName:               pulumi.String("GP_Standard_D4s_v3"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleZoneVirtualNetworkLink,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // PostgreSQL Flexible Servers can be imported using the `resource id`, e.g.

@@ -13,12 +13,66 @@ namespace Pulumi.Azure.Network
     {
         /// <summary>
         /// Use this data source to access information about an existing Route Filter.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Network.GetRouteFilter.Invoke(new()
+        ///     {
+        ///         Name = "existing",
+        ///         ResourceGroupName = "existing",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getRouteFilterResult =&gt; getRouteFilterResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRouteFilterResult> InvokeAsync(GetRouteFilterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRouteFilterResult>("azure:network/getRouteFilter:getRouteFilter", args ?? new GetRouteFilterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Route Filter.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Network.GetRouteFilter.Invoke(new()
+        ///     {
+        ///         Name = "existing",
+        ///         ResourceGroupName = "existing",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getRouteFilterResult =&gt; getRouteFilterResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetRouteFilterResult> Invoke(GetRouteFilterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteFilterResult>("azure:network/getRouteFilter:getRouteFilter", args ?? new GetRouteFilterInvokeArgs(), options.WithDefaults());

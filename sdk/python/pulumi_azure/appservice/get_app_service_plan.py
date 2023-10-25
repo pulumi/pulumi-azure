@@ -203,6 +203,17 @@ def get_app_service_plan(name: Optional[str] = None,
 
     !> **Note:** The `appservice.Plan` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `appservice.ServicePlan` data source instead.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.appservice.get_app_service_plan(name="search-app-service-plan",
+        resource_group_name="search-service")
+    pulumi.export("appServicePlanId", example.id)
+    ```
+
 
     :param str name: The name of the App Service Plan.
     :param str resource_group_name: The Name of the Resource Group where the App Service Plan exists.
@@ -238,6 +249,17 @@ def get_app_service_plan_output(name: Optional[pulumi.Input[str]] = None,
     Use this data source to access information about an existing App Service Plan (formerly known as a `Server Farm`).
 
     !> **Note:** The `appservice.Plan` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `appservice.ServicePlan` data source instead.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.appservice.get_app_service_plan(name="search-app-service-plan",
+        resource_group_name="search-service")
+    pulumi.export("appServicePlanId", example.id)
+    ```
 
 
     :param str name: The name of the App Service Plan.

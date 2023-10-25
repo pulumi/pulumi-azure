@@ -15,6 +15,33 @@ import (
 
 // Manages a Healthcare workspace
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/healthcare"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := healthcare.NewWorkspace(ctx, "test", &healthcare.WorkspaceArgs{
+//				Location:          pulumi.String("east us"),
+//				ResourceGroupName: pulumi.String("tfex-resource_group"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Healthcare Workspaces can be imported using the resource`id`, e.g.

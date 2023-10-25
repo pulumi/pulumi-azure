@@ -454,6 +454,49 @@ class GalleryApplicationVersion(pulumi.CustomResource):
         """
         Manages a Gallery Application Version.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_shared_image_gallery = azure.compute.SharedImageGallery("exampleSharedImageGallery",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        example_gallery_application = azure.compute.GalleryApplication("exampleGalleryApplication",
+            gallery_id=example_shared_image_gallery.id,
+            location=example_resource_group.location,
+            supported_os_type="Linux")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_container = azure.storage.Container("exampleContainer",
+            storage_account_name=example_account.name,
+            container_access_type="blob")
+        example_blob = azure.storage.Blob("exampleBlob",
+            storage_account_name=example_account.name,
+            storage_container_name=example_container.name,
+            type="Block",
+            source_content="[scripts file content]")
+        example_gallery_application_version = azure.compute.GalleryApplicationVersion("exampleGalleryApplicationVersion",
+            gallery_application_id=example_gallery_application.id,
+            location=example_gallery_application.location,
+            manage_action=azure.compute.GalleryApplicationVersionManageActionArgs(
+                install="[install command]",
+                remove="[remove command]",
+            ),
+            source=azure.compute.GalleryApplicationVersionSourceArgs(
+                media_link=example_blob.id,
+            ),
+            target_regions=[azure.compute.GalleryApplicationVersionTargetRegionArgs(
+                name=example_gallery_application.location,
+                regional_replica_count=1,
+            )])
+        ```
+
         ## Import
 
         Gallery Application Versions can be imported using the `resource id`, e.g.
@@ -483,6 +526,49 @@ class GalleryApplicationVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Gallery Application Version.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_shared_image_gallery = azure.compute.SharedImageGallery("exampleSharedImageGallery",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        example_gallery_application = azure.compute.GalleryApplication("exampleGalleryApplication",
+            gallery_id=example_shared_image_gallery.id,
+            location=example_resource_group.location,
+            supported_os_type="Linux")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_container = azure.storage.Container("exampleContainer",
+            storage_account_name=example_account.name,
+            container_access_type="blob")
+        example_blob = azure.storage.Blob("exampleBlob",
+            storage_account_name=example_account.name,
+            storage_container_name=example_container.name,
+            type="Block",
+            source_content="[scripts file content]")
+        example_gallery_application_version = azure.compute.GalleryApplicationVersion("exampleGalleryApplicationVersion",
+            gallery_application_id=example_gallery_application.id,
+            location=example_gallery_application.location,
+            manage_action=azure.compute.GalleryApplicationVersionManageActionArgs(
+                install="[install command]",
+                remove="[remove command]",
+            ),
+            source=azure.compute.GalleryApplicationVersionSourceArgs(
+                media_link=example_blob.id,
+            ),
+            target_regions=[azure.compute.GalleryApplicationVersionTargetRegionArgs(
+                name=example_gallery_application.location,
+                regional_replica_count=1,
+            )])
+        ```
 
         ## Import
 

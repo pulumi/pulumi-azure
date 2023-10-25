@@ -7,6 +7,26 @@ import * as utilities from "../utilities";
 /**
  * Manages a Logic App Integration Account Schema.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as fs from "fs";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleIntegrationAccount = new azure.logicapps.IntegrationAccount("exampleIntegrationAccount", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     skuName: "Basic",
+ * });
+ * const exampleIntegrationAccountSchema = new azure.logicapps.IntegrationAccountSchema("exampleIntegrationAccountSchema", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     integrationAccountName: exampleIntegrationAccount.name,
+ *     content: fs.readFileSync("testdata/integration_account_schema_content.xsd"),
+ * });
+ * ```
+ *
  * ## Import
  *
  * Logic App Integration Account Schemas can be imported using the `resource id`, e.g.

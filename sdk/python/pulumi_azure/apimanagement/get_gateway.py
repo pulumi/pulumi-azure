@@ -96,6 +96,18 @@ def get_gateway(api_management_id: Optional[str] = None,
     """
     Use this data source to access information about an existing API Management Gateway.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example_service = azure.apimanagement.get_service(name="example-apim",
+        resource_group_name="example-rg")
+    example_gateway = azure.apimanagement.get_gateway(name="example-api-gateway",
+        api_management_id=example_service.id)
+    ```
+
 
     :param str api_management_id: The ID of the API Management Service in which the Gateway exists.
     :param str name: The name of the API Management Gateway.
@@ -120,6 +132,18 @@ def get_gateway_output(api_management_id: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGatewayResult]:
     """
     Use this data source to access information about an existing API Management Gateway.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example_service = azure.apimanagement.get_service(name="example-apim",
+        resource_group_name="example-rg")
+    example_gateway = azure.apimanagement.get_gateway(name="example-api-gateway",
+        api_management_id=example_service.id)
+    ```
 
 
     :param str api_management_id: The ID of the API Management Service in which the Gateway exists.

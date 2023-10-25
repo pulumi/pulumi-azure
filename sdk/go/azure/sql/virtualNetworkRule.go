@@ -17,6 +17,75 @@ import (
 //
 // > **Note:** The `sql.VirtualNetworkRule` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.VirtualNetworkRule` resource instead.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sql"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			vnet, err := network.NewVirtualNetwork(ctx, "vnet", &network.VirtualNetworkArgs{
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.7.29.0/29"),
+//				},
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			subnet, err := network.NewSubnet(ctx, "subnet", &network.SubnetArgs{
+//				ResourceGroupName:  example.Name,
+//				VirtualNetworkName: vnet.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.7.29.0/29"),
+//				},
+//				ServiceEndpoints: pulumi.StringArray{
+//					pulumi.String("Microsoft.Sql"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			sqlserver, err := sql.NewSqlServer(ctx, "sqlserver", &sql.SqlServerArgs{
+//				ResourceGroupName:          example.Name,
+//				Location:                   example.Location,
+//				Version:                    pulumi.String("12.0"),
+//				AdministratorLogin:         pulumi.String("4dm1n157r470r"),
+//				AdministratorLoginPassword: pulumi.String("4-v3ry-53cr37-p455w0rd"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = sql.NewVirtualNetworkRule(ctx, "sqlvnetrule", &sql.VirtualNetworkRuleArgs{
+//				ResourceGroupName: example.Name,
+//				ServerName:        sqlserver.Name,
+//				SubnetId:          subnet.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // SQL Virtual Network Rules can be imported using the `resource id`, e.g.

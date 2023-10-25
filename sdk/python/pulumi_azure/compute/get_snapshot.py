@@ -165,6 +165,16 @@ def get_snapshot(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Snapshot.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.compute.get_snapshot(name="my-snapshot",
+        resource_group_name="my-resource-group")
+    ```
+
 
     :param str name: Specifies the name of the Snapshot.
     :param str resource_group_name: Specifies the name of the resource group the Snapshot is located in.
@@ -196,6 +206,16 @@ def get_snapshot_output(name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSnapshotResult]:
     """
     Use this data source to access information about an existing Snapshot.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.compute.get_snapshot(name="my-snapshot",
+        resource_group_name="my-resource-group")
+    ```
 
 
     :param str name: Specifies the name of the Snapshot.

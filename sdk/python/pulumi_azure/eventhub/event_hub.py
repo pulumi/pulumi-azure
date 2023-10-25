@@ -383,6 +383,28 @@ class EventHub(pulumi.CustomResource):
         """
         Manages a Event Hubs as a nested resource within a Event Hubs namespace.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard",
+            capacity=1,
+            tags={
+                "environment": "Production",
+            })
+        example_event_hub = azure.eventhub.EventHub("exampleEventHub",
+            namespace_name=example_event_hub_namespace.name,
+            resource_group_name=example_resource_group.name,
+            partition_count=2,
+            message_retention=1)
+        ```
+
         ## Import
 
         EventHubs can be imported using the `resource id`, e.g.
@@ -415,6 +437,28 @@ class EventHub(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Event Hubs as a nested resource within a Event Hubs namespace.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard",
+            capacity=1,
+            tags={
+                "environment": "Production",
+            })
+        example_event_hub = azure.eventhub.EventHub("exampleEventHub",
+            namespace_name=example_event_hub_namespace.name,
+            resource_group_name=example_resource_group.name,
+            partition_count=2,
+            message_retention=1)
+        ```
 
         ## Import
 

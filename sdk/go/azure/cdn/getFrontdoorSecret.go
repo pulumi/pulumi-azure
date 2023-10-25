@@ -13,6 +13,34 @@ import (
 )
 
 // Use this data source to access information about an existing Front Door (standard/premium) Secret.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cdn"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cdn.LookupFrontdoorSecret(ctx, &cdn.LookupFrontdoorSecretArgs{
+//				Name:              "example-secret",
+//				ProfileName:       "example-profile",
+//				ResourceGroupName: "example-resources",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupFrontdoorSecret(ctx *pulumi.Context, args *LookupFrontdoorSecretArgs, opts ...pulumi.InvokeOption) (*LookupFrontdoorSecretResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFrontdoorSecretResult

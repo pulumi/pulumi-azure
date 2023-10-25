@@ -589,6 +589,39 @@ class OutputBlob(pulumi.CustomResource):
         """
         Manages a Stream Analytics Output to Blob Storage.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_job = azure.streamanalytics.get_job_output(name="example-job",
+            resource_group_name=example_resource_group.name)
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_container = azure.storage.Container("exampleContainer",
+            storage_account_name=example_account.name,
+            container_access_type="private")
+        example_output_blob = azure.streamanalytics.OutputBlob("exampleOutputBlob",
+            stream_analytics_job_name=example_job.name,
+            resource_group_name=example_job.resource_group_name,
+            storage_account_name=example_account.name,
+            storage_account_key=example_account.primary_access_key,
+            storage_container_name=example_container.name,
+            path_pattern="some-pattern",
+            date_format="yyyy-MM-dd",
+            time_format="HH",
+            serialization=azure.streamanalytics.OutputBlobSerializationArgs(
+                type="Csv",
+                encoding="UTF8",
+                field_delimiter=",",
+            ))
+        ```
+
         ## Import
 
         Stream Analytics Outputs to Blob Storage can be imported using the `resource id`, e.g.
@@ -621,6 +654,39 @@ class OutputBlob(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Stream Analytics Output to Blob Storage.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_job = azure.streamanalytics.get_job_output(name="example-job",
+            resource_group_name=example_resource_group.name)
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_container = azure.storage.Container("exampleContainer",
+            storage_account_name=example_account.name,
+            container_access_type="private")
+        example_output_blob = azure.streamanalytics.OutputBlob("exampleOutputBlob",
+            stream_analytics_job_name=example_job.name,
+            resource_group_name=example_job.resource_group_name,
+            storage_account_name=example_account.name,
+            storage_account_key=example_account.primary_access_key,
+            storage_container_name=example_container.name,
+            path_pattern="some-pattern",
+            date_format="yyyy-MM-dd",
+            time_format="HH",
+            serialization=azure.streamanalytics.OutputBlobSerializationArgs(
+                type="Csv",
+                encoding="UTF8",
+                field_delimiter=",",
+            ))
+        ```
 
         ## Import
 

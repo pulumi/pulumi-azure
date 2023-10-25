@@ -8,6 +8,19 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Sentinel Alert Rule Template.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.sentinel.getAlertRuleTemplate({
+ *     logAnalyticsWorkspaceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1",
+ *     displayName: "Create incidents based on Azure Security Center for IoT alerts",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
  */
 export function getAlertRuleTemplate(args: GetAlertRuleTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertRuleTemplateResult> {
 
@@ -65,6 +78,19 @@ export interface GetAlertRuleTemplateResult {
 }
 /**
  * Use this data source to access information about an existing Sentinel Alert Rule Template.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.sentinel.getAlertRuleTemplate({
+ *     logAnalyticsWorkspaceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1",
+ *     displayName: "Create incidents based on Azure Security Center for IoT alerts",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
  */
 export function getAlertRuleTemplateOutput(args: GetAlertRuleTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlertRuleTemplateResult> {
     return pulumi.output(args).apply((a: any) => getAlertRuleTemplate(a, opts))

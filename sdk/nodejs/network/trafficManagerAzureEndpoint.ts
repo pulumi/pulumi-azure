@@ -9,6 +9,45 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Endpoint within a Traffic Manager Profile.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     allocationMethod: "Static",
+ *     domainNameLabel: "example-public-ip",
+ * });
+ * const exampleTrafficManagerProfile = new azure.network.TrafficManagerProfile("exampleTrafficManagerProfile", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     trafficRoutingMethod: "Weighted",
+ *     dnsConfig: {
+ *         relativeName: "example-profile",
+ *         ttl: 100,
+ *     },
+ *     monitorConfig: {
+ *         protocol: "HTTP",
+ *         port: 80,
+ *         path: "/",
+ *         intervalInSeconds: 30,
+ *         timeoutInSeconds: 9,
+ *         toleratedNumberOfFailures: 3,
+ *     },
+ *     tags: {
+ *         environment: "Production",
+ *     },
+ * });
+ * const exampleTrafficManagerAzureEndpoint = new azure.network.TrafficManagerAzureEndpoint("exampleTrafficManagerAzureEndpoint", {
+ *     profileId: exampleTrafficManagerProfile.id,
+ *     weight: 100,
+ *     targetResourceId: examplePublicIp.id,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Azure Endpoints can be imported using the `resource id`, e.g.

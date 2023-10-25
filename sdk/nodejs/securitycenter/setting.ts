@@ -11,6 +11,18 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** Deletion of this resource disables the setting.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.securitycenter.Setting("example", {
+ *     enabled: true,
+ *     settingName: "MCAS",
+ * });
+ * ```
+ *
  * ## Import
  *
  * The setting can be imported using the `resource id`, e.g.

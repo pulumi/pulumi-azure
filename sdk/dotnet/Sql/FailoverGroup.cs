@@ -14,6 +14,71 @@ namespace Pulumi.Azure.Sql
     /// 
     /// &gt; **Note:** The `azure.sql.FailoverGroup` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.FailoverGroup` resource instead.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var primary = new Azure.Sql.SqlServer("primary", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Version = "12.0",
+    ///         AdministratorLogin = "sqladmin",
+    ///         AdministratorLoginPassword = "pa$$w0rd",
+    ///     });
+    /// 
+    ///     var secondary = new Azure.Sql.SqlServer("secondary", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Version = "12.0",
+    ///         AdministratorLogin = "sqladmin",
+    ///         AdministratorLoginPassword = "pa$$w0rd",
+    ///     });
+    /// 
+    ///     var db1 = new Azure.Sql.Database("db1", new()
+    ///     {
+    ///         ResourceGroupName = primary.ResourceGroupName,
+    ///         Location = primary.Location,
+    ///         ServerName = primary.Name,
+    ///     });
+    /// 
+    ///     var exampleFailoverGroup = new Azure.Sql.FailoverGroup("exampleFailoverGroup", new()
+    ///     {
+    ///         ResourceGroupName = primary.ResourceGroupName,
+    ///         ServerName = primary.Name,
+    ///         Databases = new[]
+    ///         {
+    ///             db1.Id,
+    ///         },
+    ///         PartnerServers = new[]
+    ///         {
+    ///             new Azure.Sql.Inputs.FailoverGroupPartnerServerArgs
+    ///             {
+    ///                 Id = secondary.Id,
+    ///             },
+    ///         },
+    ///         ReadWriteEndpointFailoverPolicy = new Azure.Sql.Inputs.FailoverGroupReadWriteEndpointFailoverPolicyArgs
+    ///         {
+    ///             Mode = "Automatic",
+    ///             GraceMinutes = 60,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// SQL Failover Groups can be imported using the `resource id`, e.g.

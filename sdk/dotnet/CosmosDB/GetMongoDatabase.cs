@@ -13,12 +13,68 @@ namespace Pulumi.Azure.CosmosDB
     {
         /// <summary>
         /// Use this data source to access information about an existing Cosmos DB Mongo Database.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.CosmosDB.GetMongoDatabase.Invoke(new()
+        ///     {
+        ///         Name = "test-cosmosdb-mongo-db",
+        ///         ResourceGroupName = "test-cosmosdb-account-rg",
+        ///         AccountName = "test-cosmosdb-account",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getMongoDatabaseResult =&gt; getMongoDatabaseResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetMongoDatabaseResult> InvokeAsync(GetMongoDatabaseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMongoDatabaseResult>("azure:cosmosdb/getMongoDatabase:getMongoDatabase", args ?? new GetMongoDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Cosmos DB Mongo Database.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.CosmosDB.GetMongoDatabase.Invoke(new()
+        ///     {
+        ///         Name = "test-cosmosdb-mongo-db",
+        ///         ResourceGroupName = "test-cosmosdb-account-rg",
+        ///         AccountName = "test-cosmosdb-account",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getMongoDatabaseResult =&gt; getMongoDatabaseResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetMongoDatabaseResult> Invoke(GetMongoDatabaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMongoDatabaseResult>("azure:cosmosdb/getMongoDatabase:getMongoDatabase", args ?? new GetMongoDatabaseInvokeArgs(), options.WithDefaults());

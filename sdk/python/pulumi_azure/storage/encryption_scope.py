@@ -255,6 +255,26 @@ class EncryptionScope(pulumi.CustomResource):
 
         > **Note:** Storage Encryption Scopes are in Preview [more information can be found here](https://docs.microsoft.com/azure/storage/blobs/encryption-scope-manage).
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS",
+            identity=azure.storage.AccountIdentityArgs(
+                type="SystemAssigned",
+            ))
+        example_encryption_scope = azure.storage.EncryptionScope("exampleEncryptionScope",
+            storage_account_id=example_account.id,
+            source="Microsoft.Storage")
+        ```
+
         ## Import
 
         Storage Encryption Scopes can be imported using the `resource id`, e.g.
@@ -281,6 +301,26 @@ class EncryptionScope(pulumi.CustomResource):
         Manages a Storage Encryption Scope.
 
         > **Note:** Storage Encryption Scopes are in Preview [more information can be found here](https://docs.microsoft.com/azure/storage/blobs/encryption-scope-manage).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS",
+            identity=azure.storage.AccountIdentityArgs(
+                type="SystemAssigned",
+            ))
+        example_encryption_scope = azure.storage.EncryptionScope("exampleEncryptionScope",
+            storage_account_id=example_account.id,
+            source="Microsoft.Storage")
+        ```
 
         ## Import
 

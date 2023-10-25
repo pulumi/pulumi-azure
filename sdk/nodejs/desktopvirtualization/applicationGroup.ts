@@ -7,6 +7,44 @@ import * as utilities from "../utilities";
 /**
  * Manages a Virtual Desktop Application Group.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
+ * const pooledbreadthfirst = new azure.desktopvirtualization.HostPool("pooledbreadthfirst", {
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     type: "Pooled",
+ *     loadBalancerType: "BreadthFirst",
+ * });
+ * const personalautomatic = new azure.desktopvirtualization.HostPool("personalautomatic", {
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     type: "Personal",
+ *     personalDesktopAssignmentType: "Automatic",
+ *     loadBalancerType: "BreadthFirst",
+ * });
+ * const remoteapp = new azure.desktopvirtualization.ApplicationGroup("remoteapp", {
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     type: "RemoteApp",
+ *     hostPoolId: pooledbreadthfirst.id,
+ *     friendlyName: "TestAppGroup",
+ *     description: "Acceptance Test: An application group",
+ * });
+ * const desktopapp = new azure.desktopvirtualization.ApplicationGroup("desktopapp", {
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     type: "Desktop",
+ *     hostPoolId: personalautomatic.id,
+ *     friendlyName: "TestAppGroup",
+ *     description: "Acceptance Test: An application group",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Virtual Desktop Application Groups can be imported using the `resource id`, e.g.

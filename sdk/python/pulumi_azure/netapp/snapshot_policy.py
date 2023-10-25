@@ -453,6 +453,52 @@ class SnapshotPolicy(pulumi.CustomResource):
         """
         Manages a NetApp Snapshot Policy.
 
+        ## NetApp Snapshot Policy Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="East US")
+        example_account = azure.netapp.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_snapshot_policy = azure.netapp.SnapshotPolicy("exampleSnapshotPolicy",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            account_name=example_account.name,
+            enabled=True,
+            hourly_schedule=azure.netapp.SnapshotPolicyHourlyScheduleArgs(
+                snapshots_to_keep=4,
+                minute=15,
+            ),
+            daily_schedule=azure.netapp.SnapshotPolicyDailyScheduleArgs(
+                snapshots_to_keep=2,
+                hour=20,
+                minute=15,
+            ),
+            weekly_schedule=azure.netapp.SnapshotPolicyWeeklyScheduleArgs(
+                snapshots_to_keep=1,
+                days_of_weeks=[
+                    "Monday",
+                    "Friday",
+                ],
+                hour=23,
+                minute=0,
+            ),
+            monthly_schedule=azure.netapp.SnapshotPolicyMonthlyScheduleArgs(
+                snapshots_to_keep=1,
+                days_of_months=[
+                    1,
+                    15,
+                    20,
+                    30,
+                ],
+                hour=5,
+                minute=45,
+            ))
+        ```
+
         ## Import
 
         NetApp Snapshot Policy can be imported using the `resource id`, e.g.
@@ -482,6 +528,52 @@ class SnapshotPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a NetApp Snapshot Policy.
+
+        ## NetApp Snapshot Policy Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="East US")
+        example_account = azure.netapp.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_snapshot_policy = azure.netapp.SnapshotPolicy("exampleSnapshotPolicy",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            account_name=example_account.name,
+            enabled=True,
+            hourly_schedule=azure.netapp.SnapshotPolicyHourlyScheduleArgs(
+                snapshots_to_keep=4,
+                minute=15,
+            ),
+            daily_schedule=azure.netapp.SnapshotPolicyDailyScheduleArgs(
+                snapshots_to_keep=2,
+                hour=20,
+                minute=15,
+            ),
+            weekly_schedule=azure.netapp.SnapshotPolicyWeeklyScheduleArgs(
+                snapshots_to_keep=1,
+                days_of_weeks=[
+                    "Monday",
+                    "Friday",
+                ],
+                hour=23,
+                minute=0,
+            ),
+            monthly_schedule=azure.netapp.SnapshotPolicyMonthlyScheduleArgs(
+                snapshots_to_keep=1,
+                days_of_months=[
+                    1,
+                    15,
+                    20,
+                    30,
+                ],
+                hour=5,
+                minute=45,
+            ))
+        ```
 
         ## Import
 

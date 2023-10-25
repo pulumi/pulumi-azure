@@ -13,6 +13,34 @@ import (
 )
 
 // Use this data source to access information about an existing Bastion Host.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := compute.LookupBastionHost(ctx, &compute.LookupBastionHostArgs{
+//				Name:              "existing-bastion",
+//				ResourceGroupName: "existing-resources",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("id", example.Id)
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupBastionHost(ctx *pulumi.Context, args *LookupBastionHostArgs, opts ...pulumi.InvokeOption) (*LookupBastionHostResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBastionHostResult

@@ -7,6 +7,37 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Relay Hybrid Connection Authorization Rule.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleNamespace = new azure.relay.Namespace("exampleNamespace", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     skuName: "Standard",
+ *     tags: {
+ *         source: "terraform",
+ *     },
+ * });
+ * const exampleHybridConnection = new azure.relay.HybridConnection("exampleHybridConnection", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     relayNamespaceName: exampleNamespace.name,
+ *     requiresClientAuthorization: false,
+ *     userMetadata: "testmetadata",
+ * });
+ * const exampleHybridConnectionAuthorizationRule = new azure.relay.HybridConnectionAuthorizationRule("exampleHybridConnectionAuthorizationRule", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     hybridConnectionName: exampleHybridConnection.name,
+ *     namespaceName: exampleNamespace.name,
+ *     listen: true,
+ *     send: true,
+ *     manage: false,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Azure Relay Hybrid Connection Authorization Rules can be imported using the `resource id`, e.g.

@@ -17,6 +17,64 @@ import (
 //
 // > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "exampleSpringCloudService", &appplatform.SpringCloudServiceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("E0"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appplatform.NewSpringCloudConfigurationService(ctx, "exampleSpringCloudConfigurationService", &appplatform.SpringCloudConfigurationServiceArgs{
+//				SpringCloudServiceId: exampleSpringCloudService.ID(),
+//				Repositories: appplatform.SpringCloudConfigurationServiceRepositoryArray{
+//					&appplatform.SpringCloudConfigurationServiceRepositoryArgs{
+//						Name:  pulumi.String("fake"),
+//						Label: pulumi.String("master"),
+//						Patterns: pulumi.StringArray{
+//							pulumi.String("app/dev"),
+//						},
+//						Uri: pulumi.String("https://github.com/Azure-Samples/piggymetrics"),
+//						SearchPaths: pulumi.StringArray{
+//							pulumi.String("dir1"),
+//							pulumi.String("dir2"),
+//						},
+//						StrictHostKeyChecking: pulumi.Bool(false),
+//						Username:              pulumi.String("adminuser"),
+//						Password:              pulumi.String("H@Sh1CoR3!"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Spring Cloud Configuration Services can be imported using the `resource id`, e.g.

@@ -13,12 +13,66 @@ namespace Pulumi.Azure.Compute
     {
         /// <summary>
         /// Use this data source to access information about an existing Availability Set.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Compute.GetAvailabilitySet.Invoke(new()
+        ///     {
+        ///         Name = "tf-appsecuritygroup",
+        ///         ResourceGroupName = "my-resource-group",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["availabilitySetId"] = example.Apply(getAvailabilitySetResult =&gt; getAvailabilitySetResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAvailabilitySetResult> InvokeAsync(GetAvailabilitySetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAvailabilitySetResult>("azure:compute/getAvailabilitySet:getAvailabilitySet", args ?? new GetAvailabilitySetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Availability Set.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Compute.GetAvailabilitySet.Invoke(new()
+        ///     {
+        ///         Name = "tf-appsecuritygroup",
+        ///         ResourceGroupName = "my-resource-group",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["availabilitySetId"] = example.Apply(getAvailabilitySetResult =&gt; getAvailabilitySetResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetAvailabilitySetResult> Invoke(GetAvailabilitySetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAvailabilitySetResult>("azure:compute/getAvailabilitySet:getAvailabilitySet", args ?? new GetAvailabilitySetInvokeArgs(), options.WithDefaults());

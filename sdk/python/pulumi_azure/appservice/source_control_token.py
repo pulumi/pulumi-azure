@@ -177,6 +177,17 @@ class SourceControlToken(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.appservice.SourceControlToken("example",
+            token="ghp_sometokenvaluesecretsauce",
+            type="GitHub")
+        ```
+
         ## Import
 
         App Service Source GitHub Tokens can be imported using the `resource id`, e.g.
@@ -200,6 +211,17 @@ class SourceControlToken(pulumi.CustomResource):
                  args: SourceControlTokenArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.appservice.SourceControlToken("example",
+            token="ghp_sometokenvaluesecretsauce",
+            type="GitHub")
+        ```
+
         ## Import
 
         App Service Source GitHub Tokens can be imported using the `resource id`, e.g.

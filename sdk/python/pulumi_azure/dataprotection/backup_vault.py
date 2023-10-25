@@ -326,6 +326,20 @@ class BackupVault(pulumi.CustomResource):
         """
         Manages a Backup Vault.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_backup_vault = azure.dataprotection.BackupVault("exampleBackupVault",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            datastore_type="VaultStore",
+            redundancy="LocallyRedundant")
+        ```
+
         ## Import
 
         Backup Vaults can be imported using the `resource id`, e.g.
@@ -352,6 +366,20 @@ class BackupVault(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Backup Vault.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_backup_vault = azure.dataprotection.BackupVault("exampleBackupVault",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            datastore_type="VaultStore",
+            redundancy="LocallyRedundant")
+        ```
 
         ## Import
 

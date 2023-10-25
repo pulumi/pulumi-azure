@@ -252,6 +252,19 @@ class Contact(pulumi.CustomResource):
 
         > **NOTE:** Owner access permission is required.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.securitycenter.Contact("example",
+            alert_notifications=True,
+            alerts_to_admins=True,
+            email="contact@example.com",
+            phone="+1-555-555-5555")
+        ```
+
         ## Import
 
         The contact can be imported using the `resource id`, e.g.
@@ -278,6 +291,19 @@ class Contact(pulumi.CustomResource):
         Manages the subscription's Security Center Contact.
 
         > **NOTE:** Owner access permission is required.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.securitycenter.Contact("example",
+            alert_notifications=True,
+            alerts_to_admins=True,
+            email="contact@example.com",
+            phone="+1-555-555-5555")
+        ```
 
         ## Import
 

@@ -258,6 +258,77 @@ class AssetFilter(pulumi.CustomResource):
         """
         Manages an Azure Media Asset Filter.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="GRS")
+        example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
+                id=example_account.id,
+                is_primary=True,
+            )])
+        example_asset = azure.media.Asset("exampleAsset",
+            resource_group_name=example_resource_group.name,
+            media_services_account_name=example_service_account.name,
+            description="Asset description")
+        example_asset_filter = azure.media.AssetFilter("exampleAssetFilter",
+            asset_id=example_asset.id,
+            first_quality_bitrate=128000,
+            presentation_time_range=azure.media.AssetFilterPresentationTimeRangeArgs(
+                start_in_units=0,
+                end_in_units=15,
+                presentation_window_in_units=90,
+                live_backoff_in_units=0,
+                unit_timescale_in_miliseconds=1000,
+                force_end=False,
+            ),
+            track_selections=[
+                azure.media.AssetFilterTrackSelectionArgs(
+                    conditions=[
+                        azure.media.AssetFilterTrackSelectionConditionArgs(
+                            property="Type",
+                            operation="Equal",
+                            value="Audio",
+                        ),
+                        azure.media.AssetFilterTrackSelectionConditionArgs(
+                            property="Language",
+                            operation="NotEqual",
+                            value="en",
+                        ),
+                        azure.media.AssetFilterTrackSelectionConditionArgs(
+                            property="FourCC",
+                            operation="NotEqual",
+                            value="EC-3",
+                        ),
+                    ],
+                ),
+                azure.media.AssetFilterTrackSelectionArgs(
+                    conditions=[
+                        azure.media.AssetFilterTrackSelectionConditionArgs(
+                            property="Type",
+                            operation="Equal",
+                            value="Video",
+                        ),
+                        azure.media.AssetFilterTrackSelectionConditionArgs(
+                            property="Bitrate",
+                            operation="Equal",
+                            value="3000000-5000000",
+                        ),
+                    ],
+                ),
+            ])
+        ```
+
         ## Import
 
         Asset Filters can be imported using the `resource id`, e.g.
@@ -282,6 +353,77 @@ class AssetFilter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Media Asset Filter.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="GRS")
+        example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
+                id=example_account.id,
+                is_primary=True,
+            )])
+        example_asset = azure.media.Asset("exampleAsset",
+            resource_group_name=example_resource_group.name,
+            media_services_account_name=example_service_account.name,
+            description="Asset description")
+        example_asset_filter = azure.media.AssetFilter("exampleAssetFilter",
+            asset_id=example_asset.id,
+            first_quality_bitrate=128000,
+            presentation_time_range=azure.media.AssetFilterPresentationTimeRangeArgs(
+                start_in_units=0,
+                end_in_units=15,
+                presentation_window_in_units=90,
+                live_backoff_in_units=0,
+                unit_timescale_in_miliseconds=1000,
+                force_end=False,
+            ),
+            track_selections=[
+                azure.media.AssetFilterTrackSelectionArgs(
+                    conditions=[
+                        azure.media.AssetFilterTrackSelectionConditionArgs(
+                            property="Type",
+                            operation="Equal",
+                            value="Audio",
+                        ),
+                        azure.media.AssetFilterTrackSelectionConditionArgs(
+                            property="Language",
+                            operation="NotEqual",
+                            value="en",
+                        ),
+                        azure.media.AssetFilterTrackSelectionConditionArgs(
+                            property="FourCC",
+                            operation="NotEqual",
+                            value="EC-3",
+                        ),
+                    ],
+                ),
+                azure.media.AssetFilterTrackSelectionArgs(
+                    conditions=[
+                        azure.media.AssetFilterTrackSelectionConditionArgs(
+                            property="Type",
+                            operation="Equal",
+                            value="Video",
+                        ),
+                        azure.media.AssetFilterTrackSelectionConditionArgs(
+                            property="Bitrate",
+                            operation="Equal",
+                            value="3000000-5000000",
+                        ),
+                    ],
+                ),
+            ])
+        ```
 
         ## Import
 

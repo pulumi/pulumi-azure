@@ -12,6 +12,84 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages a VPN Gateway Connection.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualWan = new Azure.Network.VirtualWan("exampleVirtualWan", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleVirtualHub = new Azure.Network.VirtualHub("exampleVirtualHub", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         VirtualWanId = exampleVirtualWan.Id,
+    ///         AddressPrefix = "10.0.0.0/24",
+    ///     });
+    /// 
+    ///     var exampleVpnGateway = new Azure.Network.VpnGateway("exampleVpnGateway", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualHubId = exampleVirtualHub.Id,
+    ///     });
+    /// 
+    ///     var exampleVpnSite = new Azure.Network.VpnSite("exampleVpnSite", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualWanId = exampleVirtualWan.Id,
+    ///         Links = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.VpnSiteLinkArgs
+    ///             {
+    ///                 Name = "link1",
+    ///                 IpAddress = "10.1.0.0",
+    ///             },
+    ///             new Azure.Network.Inputs.VpnSiteLinkArgs
+    ///             {
+    ///                 Name = "link2",
+    ///                 IpAddress = "10.2.0.0",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleVpnGatewayConnection = new Azure.Network.VpnGatewayConnection("exampleVpnGatewayConnection", new()
+    ///     {
+    ///         VpnGatewayId = exampleVpnGateway.Id,
+    ///         RemoteVpnSiteId = exampleVpnSite.Id,
+    ///         VpnLinks = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.VpnGatewayConnectionVpnLinkArgs
+    ///             {
+    ///                 Name = "link1",
+    ///                 VpnSiteLinkId = exampleVpnSite.Links.Apply(links =&gt; links[0]?.Id),
+    ///             },
+    ///             new Azure.Network.Inputs.VpnGatewayConnectionVpnLinkArgs
+    ///             {
+    ///                 Name = "link2",
+    ///                 VpnSiteLinkId = exampleVpnSite.Links.Apply(links =&gt; links[1]?.Id),
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// VPN Gateway Connections can be imported using the `resource id`, e.g.

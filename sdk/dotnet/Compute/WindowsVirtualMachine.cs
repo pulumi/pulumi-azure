@@ -24,6 +24,86 @@ namespace Pulumi.Azure.Compute
     /// 
     /// &gt; In this release there's a known issue where the `public_ip_address` and `public_ip_addresses` fields may not be fully populated for Dynamic Public IP's.
     /// 
+    /// ## Example Usage
+    /// 
+    /// This example provisions a basic Windows Virtual Machine on an internal network.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("exampleNetworkInterface", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         IpConfigurations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
+    ///             {
+    ///                 Name = "internal",
+    ///                 SubnetId = exampleSubnet.Id,
+    ///                 PrivateIpAddressAllocation = "Dynamic",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleWindowsVirtualMachine = new Azure.Compute.WindowsVirtualMachine("exampleWindowsVirtualMachine", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Size = "Standard_F2",
+    ///         AdminUsername = "adminuser",
+    ///         AdminPassword = "P@$$w0rd1234!",
+    ///         NetworkInterfaceIds = new[]
+    ///         {
+    ///             exampleNetworkInterface.Id,
+    ///         },
+    ///         OsDisk = new Azure.Compute.Inputs.WindowsVirtualMachineOsDiskArgs
+    ///         {
+    ///             Caching = "ReadWrite",
+    ///             StorageAccountType = "Standard_LRS",
+    ///         },
+    ///         SourceImageReference = new Azure.Compute.Inputs.WindowsVirtualMachineSourceImageReferenceArgs
+    ///         {
+    ///             Publisher = "MicrosoftWindowsServer",
+    ///             Offer = "WindowsServer",
+    ///             Sku = "2016-Datacenter",
+    ///             Version = "latest",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Windows Virtual Machines can be imported using the `resource id`, e.g.

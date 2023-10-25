@@ -9,6 +9,49 @@ import * as utilities from "../utilities";
 /**
  * Manages a Managed Application.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const current = azure.core.getClientConfig({});
+ * const builtin = azure.authorization.getRoleDefinition({
+ *     name: "Contributor",
+ * });
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleDefinition = new azure.managedapplication.Definition("exampleDefinition", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     lockLevel: "ReadOnly",
+ *     packageFileUri: "https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip",
+ *     displayName: "TestManagedAppDefinition",
+ *     description: "Test Managed App Definition",
+ *     authorizations: [{
+ *         servicePrincipalId: current.then(current => current.objectId),
+ *         roleDefinitionId: Promise.all([builtin.then(builtin => builtin.id.split("/")), builtin.then(builtin => builtin.id.split("/")).length]).then(([split, length]) => split[length - 1]),
+ *     }],
+ * });
+ * const exampleApplication = new azure.managedapplication.Application("exampleApplication", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     kind: "ServiceCatalog",
+ *     managedResourceGroupName: "infrastructureGroup",
+ *     applicationDefinitionId: exampleDefinition.id,
+ *     parameterValues: exampleResourceGroup.location.apply(location => JSON.stringify({
+ *         location: {
+ *             value: location,
+ *         },
+ *         storageAccountNamePrefix: {
+ *             value: "storeNamePrefix",
+ *         },
+ *         storageAccountType: {
+ *             value: "Standard_LRS",
+ *         },
+ *     })),
+ * });
+ * ```
+ *
  * ## Import
  *
  * Managed Application can be imported using the `resource id`, e.g.

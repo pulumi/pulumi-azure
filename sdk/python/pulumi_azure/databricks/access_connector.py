@@ -246,6 +246,24 @@ class AccessConnector(pulumi.CustomResource):
         """
         Manages a Databricks Access Connector
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_access_connector = azure.databricks.AccessConnector("exampleAccessConnector",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            identity=azure.databricks.AccessConnectorIdentityArgs(
+                type="SystemAssigned",
+            ),
+            tags={
+                "Environment": "Production",
+            })
+        ```
+
         ## Import
 
         Databricks Access Connectors can be imported using the `resource id`, e.g.
@@ -270,6 +288,24 @@ class AccessConnector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Databricks Access Connector
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_access_connector = azure.databricks.AccessConnector("exampleAccessConnector",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            identity=azure.databricks.AccessConnectorIdentityArgs(
+                type="SystemAssigned",
+            ),
+            tags={
+                "Environment": "Production",
+            })
+        ```
 
         ## Import
 

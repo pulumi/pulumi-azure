@@ -12,6 +12,51 @@ namespace Pulumi.Azure.ApiManagement
     /// <summary>
     /// Manages a Logger within an API Management Service.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApplicationType = "other",
+    ///     });
+    /// 
+    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PublisherName = "My Company",
+    ///         PublisherEmail = "company@exmaple.com",
+    ///         SkuName = "Developer_1",
+    ///     });
+    /// 
+    ///     var exampleLogger = new Azure.ApiManagement.Logger("exampleLogger", new()
+    ///     {
+    ///         ApiManagementName = exampleService.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceId = exampleInsights.Id,
+    ///         ApplicationInsights = new Azure.ApiManagement.Inputs.LoggerApplicationInsightsArgs
+    ///         {
+    ///             InstrumentationKey = exampleInsights.InstrumentationKey,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// API Management Loggers can be imported using the `resource id`, e.g.

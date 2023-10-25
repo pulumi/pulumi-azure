@@ -305,6 +305,26 @@ class Certificate(pulumi.CustomResource):
         """
         Manages an Automation Certificate.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import base64
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.automation.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="Basic")
+        example_certificate = azure.automation.Certificate("exampleCertificate",
+            resource_group_name=example_resource_group.name,
+            automation_account_name=example_account.name,
+            description="This is an example certificate",
+            base64=(lambda path: base64.b64encode(open(path).read().encode()).decode())("certificate.pfx"),
+            exportable=True)
+        ```
+
         ## Import
 
         Automation Certificates can be imported using the `resource id`, e.g.
@@ -330,6 +350,26 @@ class Certificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Automation Certificate.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import base64
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.automation.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="Basic")
+        example_certificate = azure.automation.Certificate("exampleCertificate",
+            resource_group_name=example_resource_group.name,
+            automation_account_name=example_account.name,
+            description="This is an example certificate",
+            base64=(lambda path: base64.b64encode(open(path).read().encode()).decode())("certificate.pfx"),
+            exportable=True)
+        ```
 
         ## Import
 

@@ -15,6 +15,37 @@ import (
 
 // Manages an AAD B2C Directory.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/aadb2c"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := aadb2c.NewDirectory(ctx, "example", &aadb2c.DirectoryArgs{
+//				CountryCode:           pulumi.String("US"),
+//				DataResidencyLocation: pulumi.String("United States"),
+//				DisplayName:           pulumi.String("example-b2c-tenant"),
+//				DomainName:            pulumi.String("exampleb2ctenant.onmicrosoft.com"),
+//				ResourceGroupName:     pulumi.String("example-rg"),
+//				SkuName:               pulumi.String("PremiumP1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // AAD B2C Directories can be imported using the `resource id`, e.g.

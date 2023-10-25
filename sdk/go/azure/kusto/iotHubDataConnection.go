@@ -15,6 +15,102 @@ import (
 
 // Manages a Kusto (also known as Azure Data Explorer) IotHub Data Connection
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/kusto"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleCluster, err := kusto.NewCluster(ctx, "exampleCluster", &kusto.ClusterArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku: &kusto.ClusterSkuArgs{
+//					Name:     pulumi.String("Standard_D13_v2"),
+//					Capacity: pulumi.Int(2),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDatabase, err := kusto.NewDatabase(ctx, "exampleDatabase", &kusto.DatabaseArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				ClusterName:       exampleCluster.Name,
+//				HotCachePeriod:    pulumi.String("P7D"),
+//				SoftDeletePeriod:  pulumi.String("P31D"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleIoTHub, err := iot.NewIoTHub(ctx, "exampleIoTHub", &iot.IoTHubArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Sku: &iot.IoTHubSkuArgs{
+//					Name:     pulumi.String("B1"),
+//					Capacity: pulumi.Int(1),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSharedAccessPolicy, err := iot.NewSharedAccessPolicy(ctx, "exampleSharedAccessPolicy", &iot.SharedAccessPolicyArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				IothubName:        exampleIoTHub.Name,
+//				RegistryRead:      pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleConsumerGroup, err := iot.NewConsumerGroup(ctx, "exampleConsumerGroup", &iot.ConsumerGroupArgs{
+//				ResourceGroupName:    exampleResourceGroup.Name,
+//				IothubName:           exampleIoTHub.Name,
+//				EventhubEndpointName: pulumi.String("events"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = kusto.NewIotHubDataConnection(ctx, "exampleIotHubDataConnection", &kusto.IotHubDataConnectionArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				ClusterName:            exampleCluster.Name,
+//				DatabaseName:           exampleDatabase.Name,
+//				IothubId:               exampleIoTHub.ID(),
+//				ConsumerGroup:          exampleConsumerGroup.Name,
+//				SharedAccessPolicyName: exampleSharedAccessPolicy.Name,
+//				EventSystemProperties: pulumi.StringArray{
+//					pulumi.String("message-id"),
+//					pulumi.String("sequence-number"),
+//					pulumi.String("to"),
+//				},
+//				TableName:       pulumi.String("my-table"),
+//				MappingRuleName: pulumi.String("my-table-mapping"),
+//				DataFormat:      pulumi.String("JSON"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Kusto IotHub Data Connections can be imported using the `resource id`, e.g.

@@ -18,6 +18,56 @@ import (
 // !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `appservice.WebAppActiveSlot` resource instead.
 //
 // > **Note:** When using Slots - the `appSettings`, `connectionString` and `siteConfig` blocks on the `appservice.AppService` resource will be overwritten when promoting a Slot using the `appservice.ActiveSlot` resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := random.NewRandomId(ctx, "server", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appservice.NewPlan(ctx, "examplePlan", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleAppService, err := appservice.NewAppService(ctx, "exampleAppService", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleSlot, err := appservice.NewSlot(ctx, "exampleSlot", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appservice.NewActiveSlot(ctx, "exampleActiveSlot", &appservice.ActiveSlotArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				AppServiceName:     exampleAppService.Name,
+//				AppServiceSlotName: exampleSlot.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type ActiveSlot struct {
 	pulumi.CustomResourceState
 

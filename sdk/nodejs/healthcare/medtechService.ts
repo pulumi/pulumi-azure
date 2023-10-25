@@ -9,6 +9,46 @@ import * as utilities from "../utilities";
 /**
  * Manages a Healthcare Med Tech Service.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "east us"});
+ * const exampleWorkspace = new azure.healthcare.Workspace("exampleWorkspace", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleMedtechService = new azure.healthcare.MedtechService("exampleMedtechService", {
+ *     workspaceId: exampleWorkspace.id,
+ *     location: "east us",
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ *     eventhubNamespaceName: "example-eventhub-namespace",
+ *     eventhubName: "example-eventhub",
+ *     eventhubConsumerGroupName: "$Default",
+ *     deviceMappingJson: JSON.stringify({
+ *         templateType: "CollectionContent",
+ *         template: [{
+ *             templateType: "JsonPathContent",
+ *             template: {
+ *                 typeName: "heartrate",
+ *                 typeMatchExpression: "$..[?(@heartrate)]",
+ *                 deviceIdExpression: "$.deviceid",
+ *                 timestampExpression: "$.measurementdatetime",
+ *                 values: [{
+ *                     required: "true",
+ *                     valueExpression: "$.heartrate",
+ *                     valueName: "hr",
+ *                 }],
+ *             },
+ *         }],
+ *     }),
+ * });
+ * ```
+ *
  * ## Import
  *
  * Healthcare Med Tech Service can be imported using the resource`id`, e.g.

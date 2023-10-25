@@ -14,6 +14,34 @@ import (
 
 // Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `portal.Dashboard` resource.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/portal"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := portal.LookupDashboard(ctx, &portal.LookupDashboardArgs{
+//				Name:              pulumi.StringRef("existing-dashboard"),
+//				ResourceGroupName: "dashboard-rg",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("id", data.Azurerm_dashboard.Example.Id)
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // Deprecated: azure.dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal.getDashboard
 func Azurerm_portal_dashboard(ctx *pulumi.Context, args *Azurerm_portal_dashboardArgs, opts ...pulumi.InvokeOption) (*Azurerm_portal_dashboardResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)

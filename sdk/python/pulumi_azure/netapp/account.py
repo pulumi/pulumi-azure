@@ -252,6 +252,26 @@ class Account(pulumi.CustomResource):
 
         > **NOTE:** Azure allows only one active directory can be joined to a single subscription at a time for NetApp Account.
 
+        ## NetApp Account Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.netapp.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            active_directory=azure.netapp.AccountActiveDirectoryArgs(
+                username="aduser",
+                password="aduserpwd",
+                smb_server_name="SMBSERVER",
+                dns_servers=["1.2.3.4"],
+                domain="westcentralus.com",
+                organizational_unit="OU=FirstLevel",
+            ))
+        ```
+
         ## Import
 
         NetApp Accounts can be imported using the `resource id`, e.g.
@@ -278,6 +298,26 @@ class Account(pulumi.CustomResource):
         Manages a NetApp Account.
 
         > **NOTE:** Azure allows only one active directory can be joined to a single subscription at a time for NetApp Account.
+
+        ## NetApp Account Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.netapp.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            active_directory=azure.netapp.AccountActiveDirectoryArgs(
+                username="aduser",
+                password="aduserpwd",
+                smb_server_name="SMBSERVER",
+                dns_servers=["1.2.3.4"],
+                domain="westcentralus.com",
+                organizational_unit="OU=FirstLevel",
+            ))
+        ```
 
         ## Import
 

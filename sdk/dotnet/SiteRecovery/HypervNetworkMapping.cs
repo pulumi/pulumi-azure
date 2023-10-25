@@ -12,6 +12,49 @@ namespace Pulumi.Azure.SiteRecovery
     /// <summary>
     /// Manages a HyperV site recovery network mapping on Azure. A HyperV network mapping decides how to translate connected networks when a VM is migrated from HyperV VMM Center to Azure.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var targetResourceGroup = new Azure.Core.ResourceGroup("targetResourceGroup", new()
+    ///     {
+    ///         Location = "East US",
+    ///     });
+    /// 
+    ///     var vault = new Azure.RecoveryServices.Vault("vault", new()
+    ///     {
+    ///         Location = targetResourceGroup.Location,
+    ///         ResourceGroupName = targetResourceGroup.Name,
+    ///         Sku = "Standard",
+    ///     });
+    /// 
+    ///     var targetVirtualNetwork = new Azure.Network.VirtualNetwork("targetVirtualNetwork", new()
+    ///     {
+    ///         ResourceGroupName = targetResourceGroup.Name,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "192.168.2.0/24",
+    ///         },
+    ///         Location = targetResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var recovery_mapping = new Azure.SiteRecovery.HypervNetworkMapping("recovery-mapping", new()
+    ///     {
+    ///         RecoveryVaultId = vault.Id,
+    ///         SourceSystemCenterVirtualMachineManagerName = "my-vmm-server",
+    ///         SourceNetworkName = "my-vmm-network",
+    ///         TargetNetworkId = targetVirtualNetwork.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Site Recovery Network Mapping can be imported using the `resource id`, e.g.

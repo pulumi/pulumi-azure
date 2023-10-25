@@ -469,6 +469,28 @@ class Connection(pulumi.CustomResource):
         """
         Manages a Bot Connection.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_channels_registration = azure.bot.ChannelsRegistration("exampleChannelsRegistration",
+            location="global",
+            resource_group_name=example_resource_group.name,
+            sku="F0",
+            microsoft_app_id=current.client_id)
+        example_connection = azure.bot.Connection("exampleConnection",
+            bot_name=example_channels_registration.name,
+            location=example_channels_registration.location,
+            resource_group_name=example_resource_group.name,
+            service_provider_name="box",
+            client_id="exampleId",
+            client_secret="exampleSecret")
+        ```
+
         ## Import
 
         Bot Connection can be imported using the `resource id`, e.g.
@@ -500,6 +522,28 @@ class Connection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Bot Connection.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_channels_registration = azure.bot.ChannelsRegistration("exampleChannelsRegistration",
+            location="global",
+            resource_group_name=example_resource_group.name,
+            sku="F0",
+            microsoft_app_id=current.client_id)
+        example_connection = azure.bot.Connection("exampleConnection",
+            bot_name=example_channels_registration.name,
+            location=example_channels_registration.location,
+            resource_group_name=example_resource_group.name,
+            service_provider_name="box",
+            client_id="exampleId",
+            client_secret="exampleSecret")
+        ```
 
         ## Import
 

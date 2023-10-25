@@ -13,6 +13,34 @@ import (
 )
 
 // Use this data source to access information about an existing HDInsight Cluster.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/hdinsight"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := hdinsight.GetCluster(ctx, &hdinsight.GetClusterArgs{
+//				Name:              "example",
+//				ResourceGroupName: "example-resources",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("httpsEndpoint", example.HttpsEndpoint)
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetCluster(ctx *pulumi.Context, args *GetClusterArgs, opts ...pulumi.InvokeOption) (*GetClusterResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetClusterResult

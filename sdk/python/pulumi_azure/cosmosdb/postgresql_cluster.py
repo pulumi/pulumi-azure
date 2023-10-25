@@ -1020,6 +1020,22 @@ class PostgresqlCluster(pulumi.CustomResource):
         """
         Manages an Azure Cosmos DB for PostgreSQL Cluster.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_postgresql_cluster = azure.cosmosdb.PostgresqlCluster("examplePostgresqlCluster",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            administrator_login_password="H@Sh1CoR3!",
+            coordinator_storage_quota_in_mb=131072,
+            coordinator_vcore_count=2,
+            node_count=0)
+        ```
+
         ## Import
 
         Azure Cosmos DB for PostgreSQL Clusters can be imported using the `resource id`, e.g.
@@ -1064,6 +1080,22 @@ class PostgresqlCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Cosmos DB for PostgreSQL Cluster.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_postgresql_cluster = azure.cosmosdb.PostgresqlCluster("examplePostgresqlCluster",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            administrator_login_password="H@Sh1CoR3!",
+            coordinator_storage_quota_in_mb=131072,
+            coordinator_vcore_count=2,
+            node_count=0)
+        ```
 
         ## Import
 

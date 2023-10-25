@@ -14,6 +14,42 @@ namespace Pulumi.Azure.NetApp
     /// 
     /// &gt; **NOTE:** Azure allows only one active directory can be joined to a single subscription at a time for NetApp Account.
     /// 
+    /// ## NetApp Account Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.NetApp.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ActiveDirectory = new Azure.NetApp.Inputs.AccountActiveDirectoryArgs
+    ///         {
+    ///             Username = "aduser",
+    ///             Password = "aduserpwd",
+    ///             SmbServerName = "SMBSERVER",
+    ///             DnsServers = new[]
+    ///             {
+    ///                 "1.2.3.4",
+    ///             },
+    ///             Domain = "westcentralus.com",
+    ///             OrganizationalUnit = "OU=FirstLevel",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// NetApp Accounts can be imported using the `resource id`, e.g.

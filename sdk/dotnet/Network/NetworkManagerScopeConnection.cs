@@ -12,6 +12,58 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages a Network Manager Scope Connection which may cross tenants.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var currentClientConfig = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var currentSubscription = Azure.Core.GetSubscription.Invoke();
+    /// 
+    ///     var alt = Azure.Core.GetSubscription.Invoke(new()
+    ///     {
+    ///         SubscriptionId = "00000000-0000-0000-0000-000000000000",
+    ///     });
+    /// 
+    ///     var exampleNetworkManager = new Azure.Network.NetworkManager("exampleNetworkManager", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Scope = new Azure.Network.Inputs.NetworkManagerScopeArgs
+    ///         {
+    ///             SubscriptionIds = new[]
+    ///             {
+    ///                 currentSubscription.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
+    ///             },
+    ///         },
+    ///         ScopeAccesses = new[]
+    ///         {
+    ///             "SecurityAdmin",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleNetworkManagerScopeConnection = new Azure.Network.NetworkManagerScopeConnection("exampleNetworkManagerScopeConnection", new()
+    ///     {
+    ///         NetworkManagerId = exampleNetworkManager.Id,
+    ///         TenantId = currentClientConfig.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         TargetScopeId = alt.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
+    ///         Description = "example",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Network Manager Scope Connection can be imported using the `resource id`, e.g.

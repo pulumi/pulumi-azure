@@ -7,6 +7,19 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Spatial Anchors Account.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleSpatialAnchorsAccount = new azure.mixedreality.SpatialAnchorsAccount("exampleSpatialAnchorsAccount", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Spatial Anchors Account can be imported using the `resource id`, e.g.

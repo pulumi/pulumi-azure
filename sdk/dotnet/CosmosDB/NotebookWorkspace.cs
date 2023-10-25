@@ -18,6 +18,50 @@ namespace Pulumi.Azure.CosmosDB
     /// 
     /// &gt; **NOTE:** However, CosmosDb Notebook feature no longer uses the permanent notebook workspace being referred to the public surface in the RP (have since moved to temporary notebooks workspaces which are short-lived &lt;1 hour).
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.CosmosDB.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         OfferType = "Standard",
+    ///         Kind = "GlobalDocumentDB",
+    ///         ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
+    ///         {
+    ///             ConsistencyLevel = "BoundedStaleness",
+    ///         },
+    ///         GeoLocations = new[]
+    ///         {
+    ///             new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
+    ///             {
+    ///                 Location = exampleResourceGroup.Location,
+    ///                 FailoverPriority = 0,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleNotebookWorkspace = new Azure.CosmosDB.NotebookWorkspace("exampleNotebookWorkspace", new()
+    ///     {
+    ///         ResourceGroupName = exampleAccount.ResourceGroupName,
+    ///         AccountName = exampleAccount.Name,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// =SQL Notebook Workspaces can be imported using the `resource id`, e.g.

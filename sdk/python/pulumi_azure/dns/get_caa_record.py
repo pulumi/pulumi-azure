@@ -125,7 +125,18 @@ def get_caa_record(name: Optional[str] = None,
                    zone_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCAARecordResult:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.dns.CaaRecord("example",
+        zone_name="test-zone",
+        resource_group_name="test-rg")
+    pulumi.export("dnsCaaRecordId", example.id)
+    ```
+
 
     :param str name: The name of the DNS CAA Record.
     :param str resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists.
@@ -155,7 +166,18 @@ def get_caa_record_output(name: Optional[pulumi.Input[str]] = None,
                           zone_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCAARecordResult]:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.dns.CaaRecord("example",
+        zone_name="test-zone",
+        resource_group_name="test-rg")
+    pulumi.export("dnsCaaRecordId", example.id)
+    ```
+
 
     :param str name: The name of the DNS CAA Record.
     :param str resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists.

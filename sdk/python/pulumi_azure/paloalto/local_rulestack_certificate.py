@@ -301,6 +301,21 @@ class LocalRulestackCertificate(pulumi.CustomResource):
         """
         Manages a Palo Alto Networks Rulestack Certificate.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_local_rulestack = azure.paloalto.LocalRulestack("exampleLocalRulestack",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        example_local_rulestack_certificate = azure.paloalto.LocalRulestackCertificate("exampleLocalRulestackCertificate",
+            rulestack_id=example_local_rulestack.id,
+            self_signed=True)
+        ```
+
         ## Import
 
         Palo Alto Networks Rulestack Certificates can be imported using the `resource id`, e.g.
@@ -328,6 +343,21 @@ class LocalRulestackCertificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Palo Alto Networks Rulestack Certificate.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_local_rulestack = azure.paloalto.LocalRulestack("exampleLocalRulestack",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        example_local_rulestack_certificate = azure.paloalto.LocalRulestackCertificate("exampleLocalRulestackCertificate",
+            rulestack_id=example_local_rulestack.id,
+            self_signed=True)
+        ```
 
         ## Import
 

@@ -15,6 +15,72 @@ import (
 
 // Manages a Digital Twins Service Bus Endpoint.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/digitaltwins"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicebus"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleInstance, err := digitaltwins.NewInstance(ctx, "exampleInstance", &digitaltwins.InstanceArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleNamespace, err := servicebus.NewNamespace(ctx, "exampleNamespace", &servicebus.NamespaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("Standard"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleTopic, err := servicebus.NewTopic(ctx, "exampleTopic", &servicebus.TopicArgs{
+//				NamespaceId: exampleNamespace.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleTopicAuthorizationRule, err := servicebus.NewTopicAuthorizationRule(ctx, "exampleTopicAuthorizationRule", &servicebus.TopicAuthorizationRuleArgs{
+//				TopicId: exampleTopic.ID(),
+//				Listen:  pulumi.Bool(false),
+//				Send:    pulumi.Bool(true),
+//				Manage:  pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = digitaltwins.NewEndpointServicebus(ctx, "exampleEndpointServicebus", &digitaltwins.EndpointServicebusArgs{
+//				DigitalTwinsId:                      exampleInstance.ID(),
+//				ServicebusPrimaryConnectionString:   exampleTopicAuthorizationRule.PrimaryConnectionString,
+//				ServicebusSecondaryConnectionString: exampleTopicAuthorizationRule.SecondaryConnectionString,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Digital Twins Service Bus Endpoints can be imported using the `resource id`, e.g.

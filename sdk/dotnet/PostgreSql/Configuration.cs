@@ -16,6 +16,47 @@ namespace Pulumi.Azure.PostgreSql
     /// 
     /// &gt; **Note:** Since this resource is provisioned by default, the Azure Provider will not check for the presence of an existing resource prior to attempting to create it.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleServer = new Azure.PostgreSql.Server("exampleServer", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "B_Gen5_2",
+    ///         StorageMb = 5120,
+    ///         BackupRetentionDays = 7,
+    ///         GeoRedundantBackupEnabled = false,
+    ///         AutoGrowEnabled = true,
+    ///         AdministratorLogin = "psqladmin",
+    ///         AdministratorLoginPassword = "H@Sh1CoR3!",
+    ///         Version = "9.5",
+    ///         SslEnforcementEnabled = true,
+    ///     });
+    /// 
+    ///     var exampleConfiguration = new Azure.PostgreSql.Configuration("exampleConfiguration", new()
+    ///     {
+    ///         Name = "backslash_quote",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ServerName = exampleServer.Name,
+    ///         Value = "on",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// PostgreSQL Configurations can be imported using the `resource id`, e.g.

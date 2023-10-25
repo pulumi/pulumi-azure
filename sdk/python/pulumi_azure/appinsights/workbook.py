@@ -494,6 +494,35 @@ class Workbook(pulumi.CustomResource):
         """
         Manages an Azure Workbook.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_workbook = azure.appinsights.Workbook("exampleWorkbook",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            display_name="workbook1",
+            data_json=json.dumps({
+                "version": "Notebook/1.0",
+                "items": [{
+                    "type": 1,
+                    "content": {
+                        "json": "Test2022",
+                    },
+                    "name": "text - 0",
+                }],
+                "isLocked": False,
+                "fallbackResourceIds": ["Azure Monitor"],
+            }),
+            tags={
+                "ENV": "Test",
+            })
+        ```
+
         ## Import
 
         Workbooks can be imported using the `resource id`, e.g.
@@ -526,6 +555,35 @@ class Workbook(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Workbook.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_workbook = azure.appinsights.Workbook("exampleWorkbook",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            display_name="workbook1",
+            data_json=json.dumps({
+                "version": "Notebook/1.0",
+                "items": [{
+                    "type": 1,
+                    "content": {
+                        "json": "Test2022",
+                    },
+                    "name": "text - 0",
+                }],
+                "isLocked": False,
+                "fallbackResourceIds": ["Azure Monitor"],
+            }),
+            tags={
+                "ENV": "Test",
+            })
+        ```
 
         ## Import
 

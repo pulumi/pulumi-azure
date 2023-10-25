@@ -12,6 +12,49 @@ namespace Pulumi.Azure.DataFactory
     /// <summary>
     /// Manages an Azure Parquet Dataset inside an Azure Data Factory.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleLinkedServiceWeb = new Azure.DataFactory.LinkedServiceWeb("exampleLinkedServiceWeb", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         AuthenticationType = "Anonymous",
+    ///         Url = "https://www.bing.com",
+    ///     });
+    /// 
+    ///     var exampleDatasetParquet = new Azure.DataFactory.DatasetParquet("exampleDatasetParquet", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         LinkedServiceName = exampleLinkedServiceWeb.Name,
+    ///         HttpServerLocation = new Azure.DataFactory.Inputs.DatasetParquetHttpServerLocationArgs
+    ///         {
+    ///             RelativeUrl = "http://www.bing.com",
+    ///             Path = "foo/bar/",
+    ///             Filename = "fizz.txt",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Data Factory Datasets can be imported using the `resource id`, e.g.

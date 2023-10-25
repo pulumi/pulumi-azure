@@ -138,6 +138,27 @@ class NatGatewayPublicIpAssociation(pulumi.CustomResource):
         """
         Manages the association between a NAT Gateway and a Public IP.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_public_ip = azure.network.PublicIp("examplePublicIp",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            allocation_method="Static",
+            sku="Standard")
+        example_nat_gateway = azure.network.NatGateway("exampleNatGateway",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="Standard")
+        example_nat_gateway_public_ip_association = azure.network.NatGatewayPublicIpAssociation("exampleNatGatewayPublicIpAssociation",
+            nat_gateway_id=example_nat_gateway.id,
+            public_ip_address_id=example_public_ip.id)
+        ```
+
         ## Import
 
         Associations between NAT Gateway and Public IP Addresses can be imported using the `resource id`, e.g.
@@ -159,6 +180,27 @@ class NatGatewayPublicIpAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages the association between a NAT Gateway and a Public IP.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_public_ip = azure.network.PublicIp("examplePublicIp",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            allocation_method="Static",
+            sku="Standard")
+        example_nat_gateway = azure.network.NatGateway("exampleNatGateway",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="Standard")
+        example_nat_gateway_public_ip_association = azure.network.NatGatewayPublicIpAssociation("exampleNatGatewayPublicIpAssociation",
+            nat_gateway_id=example_nat_gateway.id,
+            public_ip_address_id=example_public_ip.id)
+        ```
 
         ## Import
 

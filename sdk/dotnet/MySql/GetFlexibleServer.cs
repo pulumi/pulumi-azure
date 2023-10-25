@@ -13,12 +13,66 @@ namespace Pulumi.Azure.MySql
     {
         /// <summary>
         /// Use this data source to access information about an existing MySQL Flexible Server.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.MySql.GetFlexibleServer.Invoke(new()
+        ///     {
+        ///         Name = "existingMySqlFlexibleServer",
+        ///         ResourceGroupName = "existingResGroup",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getFlexibleServerResult =&gt; getFlexibleServerResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetFlexibleServerResult> InvokeAsync(GetFlexibleServerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFlexibleServerResult>("azure:mysql/getFlexibleServer:getFlexibleServer", args ?? new GetFlexibleServerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing MySQL Flexible Server.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.MySql.GetFlexibleServer.Invoke(new()
+        ///     {
+        ///         Name = "existingMySqlFlexibleServer",
+        ///         ResourceGroupName = "existingResGroup",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getFlexibleServerResult =&gt; getFlexibleServerResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetFlexibleServerResult> Invoke(GetFlexibleServerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFlexibleServerResult>("azure:mysql/getFlexibleServer:getFlexibleServer", args ?? new GetFlexibleServerInvokeArgs(), options.WithDefaults());

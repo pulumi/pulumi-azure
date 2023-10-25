@@ -420,6 +420,75 @@ class ScaleSetPacketCapture(pulumi.CustomResource):
         """
         Configures Network Packet Capturing against a Virtual Machine Scale Set using a Network Watcher.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_network_watcher = azure.network.NetworkWatcher("exampleNetworkWatcher",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku="Standard_F2",
+            instances=4,
+            admin_username="adminuser",
+            admin_password="P@ssword1234!",
+            computer_name_prefix="my-linux-computer-name-prefix",
+            upgrade_mode="Automatic",
+            disable_password_authentication=False,
+            source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
+                publisher="Canonical",
+                offer="0001-com-ubuntu-server-focal",
+                sku="20_04-lts",
+                version="latest",
+            ),
+            os_disk=azure.compute.LinuxVirtualMachineScaleSetOsDiskArgs(
+                storage_account_type="Standard_LRS",
+                caching="ReadWrite",
+            ),
+            network_interfaces=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs(
+                name="example",
+                primary=True,
+                ip_configurations=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs(
+                    name="internal",
+                    primary=True,
+                    subnet_id=example_subnet.id,
+                )],
+            )])
+        example_virtual_machine_scale_set_extension = azure.compute.VirtualMachineScaleSetExtension("exampleVirtualMachineScaleSetExtension",
+            virtual_machine_scale_set_id=example_linux_virtual_machine_scale_set.id,
+            publisher="Microsoft.Azure.NetworkWatcher",
+            type="NetworkWatcherAgentLinux",
+            type_handler_version="1.4",
+            auto_upgrade_minor_version=True,
+            automatic_upgrade_enabled=True)
+        example_scale_set_packet_capture = azure.compute.ScaleSetPacketCapture("exampleScaleSetPacketCapture",
+            network_watcher_id=example_network_watcher.id,
+            virtual_machine_scale_set_id=example_linux_virtual_machine_scale_set.id,
+            storage_location=azure.compute.ScaleSetPacketCaptureStorageLocationArgs(
+                file_path="/var/captures/packet.cap",
+            ),
+            machine_scope=azure.compute.ScaleSetPacketCaptureMachineScopeArgs(
+                include_instance_ids=["0"],
+                exclude_instance_ids=["1"],
+            ),
+            opts=pulumi.ResourceOptions(depends_on=[example_virtual_machine_scale_set_extension]))
+        ```
+
+        > **NOTE:** This Resource requires that [the Network Watcher Extension](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-manage-portal#before-you-begin) is installed on the Virtual Machine Scale Set before capturing can be enabled which can be installed via the `compute.VirtualMachineScaleSetExtension` resource.
+
         ## Import
 
         Virtual Machine Scale Set Packet Captures can be imported using the `resource id`, e.g.
@@ -448,6 +517,75 @@ class ScaleSetPacketCapture(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Configures Network Packet Capturing against a Virtual Machine Scale Set using a Network Watcher.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_network_watcher = azure.network.NetworkWatcher("exampleNetworkWatcher",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku="Standard_F2",
+            instances=4,
+            admin_username="adminuser",
+            admin_password="P@ssword1234!",
+            computer_name_prefix="my-linux-computer-name-prefix",
+            upgrade_mode="Automatic",
+            disable_password_authentication=False,
+            source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
+                publisher="Canonical",
+                offer="0001-com-ubuntu-server-focal",
+                sku="20_04-lts",
+                version="latest",
+            ),
+            os_disk=azure.compute.LinuxVirtualMachineScaleSetOsDiskArgs(
+                storage_account_type="Standard_LRS",
+                caching="ReadWrite",
+            ),
+            network_interfaces=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs(
+                name="example",
+                primary=True,
+                ip_configurations=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs(
+                    name="internal",
+                    primary=True,
+                    subnet_id=example_subnet.id,
+                )],
+            )])
+        example_virtual_machine_scale_set_extension = azure.compute.VirtualMachineScaleSetExtension("exampleVirtualMachineScaleSetExtension",
+            virtual_machine_scale_set_id=example_linux_virtual_machine_scale_set.id,
+            publisher="Microsoft.Azure.NetworkWatcher",
+            type="NetworkWatcherAgentLinux",
+            type_handler_version="1.4",
+            auto_upgrade_minor_version=True,
+            automatic_upgrade_enabled=True)
+        example_scale_set_packet_capture = azure.compute.ScaleSetPacketCapture("exampleScaleSetPacketCapture",
+            network_watcher_id=example_network_watcher.id,
+            virtual_machine_scale_set_id=example_linux_virtual_machine_scale_set.id,
+            storage_location=azure.compute.ScaleSetPacketCaptureStorageLocationArgs(
+                file_path="/var/captures/packet.cap",
+            ),
+            machine_scope=azure.compute.ScaleSetPacketCaptureMachineScopeArgs(
+                include_instance_ids=["0"],
+                exclude_instance_ids=["1"],
+            ),
+            opts=pulumi.ResourceOptions(depends_on=[example_virtual_machine_scale_set_extension]))
+        ```
+
+        > **NOTE:** This Resource requires that [the Network Watcher Extension](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-manage-portal#before-you-begin) is installed on the Virtual Machine Scale Set before capturing can be enabled which can be installed via the `compute.VirtualMachineScaleSetExtension` resource.
 
         ## Import
 

@@ -16,6 +16,122 @@ import (
 // Manages a Machine Learning Compute Cluster.
 // **NOTE:** At this point in time the resource cannot be updated (not supported by the backend Azure Go SDK). Therefore it can only be created and deleted, not updated. At the moment, there is also no possibility to specify ssh User Account Credentials to ssh into the compute cluster.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/machinelearning"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("west europe"),
+//				Tags: pulumi.StringMap{
+//					"stage": pulumi.String("example"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ApplicationType:   pulumi.String("web"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
+//				Location:               exampleResourceGroup.Location,
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				TenantId:               *pulumi.String(current.TenantId),
+//				SkuName:                pulumi.String("standard"),
+//				PurgeProtectionEnabled: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				Location:               exampleResourceGroup.Location,
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleWorkspace, err := machinelearning.NewWorkspace(ctx, "exampleWorkspace", &machinelearning.WorkspaceArgs{
+//				Location:              exampleResourceGroup.Location,
+//				ResourceGroupName:     exampleResourceGroup.Name,
+//				ApplicationInsightsId: exampleInsights.ID(),
+//				KeyVaultId:            exampleKeyVault.ID(),
+//				StorageAccountId:      exampleAccount.ID(),
+//				Identity: &machinelearning.WorkspaceIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.1.0.0/16"),
+//				},
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.1.0.0/24"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = machinelearning.NewComputeCluster(ctx, "test", &machinelearning.ComputeClusterArgs{
+//				Location:                   exampleResourceGroup.Location,
+//				VmPriority:                 pulumi.String("LowPriority"),
+//				VmSize:                     pulumi.String("Standard_DS2_v2"),
+//				MachineLearningWorkspaceId: exampleWorkspace.ID(),
+//				SubnetResourceId:           exampleSubnet.ID(),
+//				ScaleSettings: &machinelearning.ComputeClusterScaleSettingsArgs{
+//					MinNodeCount:                    pulumi.Int(0),
+//					MaxNodeCount:                    pulumi.Int(1),
+//					ScaleDownNodesAfterIdleDuration: pulumi.String("PT30S"),
+//				},
+//				Identity: &machinelearning.ComputeClusterIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Machine Learning Compute Clusters can be imported using the `resource id`, e.g.

@@ -15,6 +15,59 @@ import (
 
 // Manages a Resource Group.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicefabric"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := servicefabric.NewManagedCluster(ctx, "example", &servicefabric.ManagedClusterArgs{
+//				ClientConnectionPort: pulumi.Int(12345),
+//				HttpGatewayPort:      pulumi.Int(4567),
+//				LbRules: servicefabric.ManagedClusterLbRuleArray{
+//					&servicefabric.ManagedClusterLbRuleArgs{
+//						BackendPort:      pulumi.Int(38080),
+//						FrontendPort:     pulumi.Int(80),
+//						ProbeProtocol:    pulumi.String("http"),
+//						ProbeRequestPath: pulumi.String("/test"),
+//						Protocol:         pulumi.String("tcp"),
+//					},
+//				},
+//				Location: pulumi.String("West Europe"),
+//				NodeTypes: servicefabric.ManagedClusterNodeTypeArray{
+//					&servicefabric.ManagedClusterNodeTypeArgs{
+//						ApplicationPortRange: pulumi.String("30000-49000"),
+//						DataDiskSizeGb:       pulumi.Int(130),
+//						EphemeralPortRange:   pulumi.String("10000-20000"),
+//						Name:                 pulumi.String("test1"),
+//						Primary:              pulumi.Bool(true),
+//						VmImageOffer:         pulumi.String("WindowsServer"),
+//						VmImagePublisher:     pulumi.String("MicrosoftWindowsServer"),
+//						VmImageSku:           pulumi.String("2019-Datacenter-with-Containers"),
+//						VmImageVersion:       pulumi.String("latest"),
+//						VmInstanceCount:      pulumi.Int(5),
+//						VmSize:               pulumi.String("Standard_DS1_v2"),
+//					},
+//				},
+//				ResourceGroupName: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Resource Groups can be imported using the `resource id`, e.g.

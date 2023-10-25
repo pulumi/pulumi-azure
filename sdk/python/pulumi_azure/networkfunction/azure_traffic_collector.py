@@ -247,6 +247,21 @@ class AzureTrafficCollector(pulumi.CustomResource):
         """
         Manages a Network Function Azure Traffic Collector.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_azure_traffic_collector = azure.networkfunction.AzureTrafficCollector("exampleAzureTrafficCollector",
+            resource_group_name=example_resource_group.name,
+            location="West US",
+            tags={
+                "key": "value",
+            })
+        ```
+
         ## Import
 
         Network Function Azure Traffic Collector can be imported using the `resource id`, e.g.
@@ -270,6 +285,21 @@ class AzureTrafficCollector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Network Function Azure Traffic Collector.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_azure_traffic_collector = azure.networkfunction.AzureTrafficCollector("exampleAzureTrafficCollector",
+            resource_group_name=example_resource_group.name,
+            location="West US",
+            tags={
+                "key": "value",
+            })
+        ```
 
         ## Import
 

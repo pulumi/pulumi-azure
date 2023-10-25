@@ -12,6 +12,67 @@ namespace Pulumi.Azure.CosmosDB
     /// <summary>
     /// Manages a Cosmos DB SQL Role Definition.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.CosmosDB.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         OfferType = "Standard",
+    ///         Kind = "GlobalDocumentDB",
+    ///         ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
+    ///         {
+    ///             ConsistencyLevel = "Strong",
+    ///         },
+    ///         GeoLocations = new[]
+    ///         {
+    ///             new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
+    ///             {
+    ///                 Location = exampleResourceGroup.Location,
+    ///                 FailoverPriority = 0,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSqlRoleDefinition = new Azure.CosmosDB.SqlRoleDefinition("exampleSqlRoleDefinition", new()
+    ///     {
+    ///         RoleDefinitionId = "84cf3a8b-4122-4448-bce2-fa423cfe0a15",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AccountName = exampleAccount.Name,
+    ///         AssignableScopes = new[]
+    ///         {
+    ///             exampleAccount.Id.Apply(id =&gt; $"{id}/dbs/sales"),
+    ///         },
+    ///         Permissions = new[]
+    ///         {
+    ///             new Azure.CosmosDB.Inputs.SqlRoleDefinitionPermissionArgs
+    ///             {
+    ///                 DataActions = new[]
+    ///                 {
+    ///                     "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Cosmos DB SQL Role Definitions can be imported using the `resource id`, e.g.

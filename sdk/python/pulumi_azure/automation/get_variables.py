@@ -140,6 +140,18 @@ def get_variables(automation_account_id: Optional[str] = None,
     """
     Use this data source to get all variables in an Automation Account.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example_account = azure.automation.get_account(name="example-account",
+        resource_group_name="example-resources")
+    example_variables = azure.automation.get_variables(automation_account_id=example_account.id)
+    pulumi.export("stringVars", data["azurerm_automation_variable_string"]["example"]["string"])
+    ```
+
 
     :param str automation_account_id: The resource ID of the automation account.
     """
@@ -165,6 +177,18 @@ def get_variables_output(automation_account_id: Optional[pulumi.Input[str]] = No
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVariablesResult]:
     """
     Use this data source to get all variables in an Automation Account.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example_account = azure.automation.get_account(name="example-account",
+        resource_group_name="example-resources")
+    example_variables = azure.automation.get_variables(automation_account_id=example_account.id)
+    pulumi.export("stringVars", data["azurerm_automation_variable_string"]["example"]["string"])
+    ```
 
 
     :param str automation_account_id: The resource ID of the automation account.

@@ -11,9 +11,63 @@ namespace Pulumi.Azure.AppService
 {
     public static class GetSourceControlToken
     {
+        /// <summary>
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.AppService.GetSourceControlToken.Invoke(new()
+        ///     {
+        ///         Type = "GitHub",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = data.Azurerm_app_service_github_token.Example.Id,
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetSourceControlTokenResult> InvokeAsync(GetSourceControlTokenArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSourceControlTokenResult>("azure:appservice/getSourceControlToken:getSourceControlToken", args ?? new GetSourceControlTokenArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.AppService.GetSourceControlToken.Invoke(new()
+        ///     {
+        ///         Type = "GitHub",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = data.Azurerm_app_service_github_token.Example.Id,
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetSourceControlTokenResult> Invoke(GetSourceControlTokenInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSourceControlTokenResult>("azure:appservice/getSourceControlToken:getSourceControlToken", args ?? new GetSourceControlTokenInvokeArgs(), options.WithDefaults());
     }

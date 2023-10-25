@@ -318,6 +318,62 @@ class SubscriptionRule(pulumi.CustomResource):
         Manages a ServiceBus Subscription Rule.
 
         ## Example Usage
+        ### SQL Filter)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_namespace = azure.servicebus.Namespace("exampleNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard",
+            tags={
+                "source": "example",
+            })
+        example_topic = azure.servicebus.Topic("exampleTopic",
+            namespace_id=example_namespace.id,
+            enable_partitioning=True)
+        example_subscription = azure.servicebus.Subscription("exampleSubscription",
+            topic_id=example_topic.id,
+            max_delivery_count=1)
+        example_subscription_rule = azure.servicebus.SubscriptionRule("exampleSubscriptionRule",
+            subscription_id=example_subscription.id,
+            filter_type="SqlFilter",
+            sql_filter="colour = 'red'")
+        ```
+        ### Correlation Filter)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_namespace = azure.servicebus.Namespace("exampleNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard",
+            tags={
+                "source": "example",
+            })
+        example_topic = azure.servicebus.Topic("exampleTopic",
+            namespace_id=example_namespace.id,
+            enable_partitioning=True)
+        example_subscription = azure.servicebus.Subscription("exampleSubscription",
+            topic_id=example_topic.id,
+            max_delivery_count=1)
+        example_subscription_rule = azure.servicebus.SubscriptionRule("exampleSubscriptionRule",
+            subscription_id=example_subscription.id,
+            filter_type="CorrelationFilter",
+            correlation_filter=azure.servicebus.SubscriptionRuleCorrelationFilterArgs(
+                correlation_id="high",
+                label="red",
+                properties={
+                    "customProperty": "value",
+                },
+            ))
+        ```
 
         ## Import
 
@@ -346,6 +402,62 @@ class SubscriptionRule(pulumi.CustomResource):
         Manages a ServiceBus Subscription Rule.
 
         ## Example Usage
+        ### SQL Filter)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_namespace = azure.servicebus.Namespace("exampleNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard",
+            tags={
+                "source": "example",
+            })
+        example_topic = azure.servicebus.Topic("exampleTopic",
+            namespace_id=example_namespace.id,
+            enable_partitioning=True)
+        example_subscription = azure.servicebus.Subscription("exampleSubscription",
+            topic_id=example_topic.id,
+            max_delivery_count=1)
+        example_subscription_rule = azure.servicebus.SubscriptionRule("exampleSubscriptionRule",
+            subscription_id=example_subscription.id,
+            filter_type="SqlFilter",
+            sql_filter="colour = 'red'")
+        ```
+        ### Correlation Filter)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_namespace = azure.servicebus.Namespace("exampleNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard",
+            tags={
+                "source": "example",
+            })
+        example_topic = azure.servicebus.Topic("exampleTopic",
+            namespace_id=example_namespace.id,
+            enable_partitioning=True)
+        example_subscription = azure.servicebus.Subscription("exampleSubscription",
+            topic_id=example_topic.id,
+            max_delivery_count=1)
+        example_subscription_rule = azure.servicebus.SubscriptionRule("exampleSubscriptionRule",
+            subscription_id=example_subscription.id,
+            filter_type="CorrelationFilter",
+            correlation_filter=azure.servicebus.SubscriptionRuleCorrelationFilterArgs(
+                correlation_id="high",
+                label="red",
+                properties={
+                    "customProperty": "value",
+                },
+            ))
+        ```
 
         ## Import
 

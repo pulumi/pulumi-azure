@@ -15,6 +15,55 @@ import (
 
 // Manages an Automation Connection with type `AzureClassicCertificate`.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleClientConfig, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("Basic"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = automation.NewConnectionClassicCertificate(ctx, "exampleConnectionClassicCertificate", &automation.ConnectionClassicCertificateArgs{
+//				ResourceGroupName:     exampleResourceGroup.Name,
+//				AutomationAccountName: exampleAccount.Name,
+//				CertificateAssetName:  pulumi.String("cert1"),
+//				SubscriptionName:      pulumi.String("subs1"),
+//				SubscriptionId:        *pulumi.String(exampleClientConfig.SubscriptionId),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Automation Connection can be imported using the `resource id`, e.g.

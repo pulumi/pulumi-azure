@@ -15,6 +15,88 @@ import (
 
 // Manages a Blob Event Trigger inside an Azure Data Factory.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePipeline, err := datafactory.NewPipeline(ctx, "examplePipeline", &datafactory.PipelineArgs{
+//				DataFactoryId: exampleFactory.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datafactory.NewTriggerBlobEvent(ctx, "exampleTriggerBlobEvent", &datafactory.TriggerBlobEventArgs{
+//				DataFactoryId:    exampleFactory.ID(),
+//				StorageAccountId: exampleAccount.ID(),
+//				Events: pulumi.StringArray{
+//					pulumi.String("Microsoft.Storage.BlobCreated"),
+//					pulumi.String("Microsoft.Storage.BlobDeleted"),
+//				},
+//				BlobPathEndsWith: pulumi.String(".txt"),
+//				IgnoreEmptyBlobs: pulumi.Bool(true),
+//				Activated:        pulumi.Bool(true),
+//				Annotations: pulumi.StringArray{
+//					pulumi.String("test1"),
+//					pulumi.String("test2"),
+//					pulumi.String("test3"),
+//				},
+//				Description: pulumi.String("example description"),
+//				Pipelines: datafactory.TriggerBlobEventPipelineArray{
+//					&datafactory.TriggerBlobEventPipelineArgs{
+//						Name: examplePipeline.Name,
+//						Parameters: pulumi.StringMap{
+//							"Env": pulumi.String("Prod"),
+//						},
+//					},
+//				},
+//				AdditionalProperties: pulumi.StringMap{
+//					"foo": pulumi.String("foo1"),
+//					"bar": pulumi.String("bar2"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Data Factory Blob Event Trigger can be imported using the `resource id`, e.g.

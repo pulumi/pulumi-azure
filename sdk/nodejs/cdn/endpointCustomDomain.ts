@@ -9,6 +9,49 @@ import * as utilities from "../utilities";
 /**
  * Manages a Custom Domain for a CDN Endpoint.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "west europe"});
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "GRS",
+ * });
+ * const exampleProfile = new azure.cdn.Profile("exampleProfile", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "Standard_Verizon",
+ * });
+ * const exampleEndpoint = new azure.cdn.Endpoint("exampleEndpoint", {
+ *     profileName: exampleProfile.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     origins: [{
+ *         name: "example",
+ *         hostName: exampleAccount.primaryBlobHost,
+ *     }],
+ * });
+ * const exampleZone = azure.dns.getZone({
+ *     name: "example-domain.com",
+ *     resourceGroupName: "domain-rg",
+ * });
+ * const exampleCNameRecord = new azure.dns.CNameRecord("exampleCNameRecord", {
+ *     zoneName: exampleZone.then(exampleZone => exampleZone.name),
+ *     resourceGroupName: exampleZone.then(exampleZone => exampleZone.resourceGroupName),
+ *     ttl: 3600,
+ *     targetResourceId: exampleEndpoint.id,
+ * });
+ * const exampleEndpointCustomDomain = new azure.cdn.EndpointCustomDomain("exampleEndpointCustomDomain", {
+ *     cdnEndpointId: exampleEndpoint.id,
+ *     hostName: pulumi.all([exampleCNameRecord.name, exampleZone]).apply(([name, exampleZone]) => `${name}.${exampleZone.name}`),
+ * });
+ * ```
+ *
  * ## Import
  *
  * CDN Endpoint Custom Domains can be imported using the `resource id`, e.g.

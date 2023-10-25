@@ -201,6 +201,17 @@ def get_domain(name: Optional[str] = None,
     """
     Use this data source to access information about an existing EventGrid Domain
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.eventgrid.get_domain(name="my-eventgrid-domain",
+        resource_group_name="example-resources")
+    pulumi.export("eventgridDomainMappingTopic", example.input_mapping_fields[0].topic)
+    ```
+
 
     :param str name: The name of the EventGrid Domain resource.
     :param str resource_group_name: The name of the resource group in which the EventGrid Domain exists.
@@ -234,6 +245,17 @@ def get_domain_output(name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainResult]:
     """
     Use this data source to access information about an existing EventGrid Domain
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.eventgrid.get_domain(name="my-eventgrid-domain",
+        resource_group_name="example-resources")
+    pulumi.export("eventgridDomainMappingTopic", example.input_mapping_fields[0].topic)
+    ```
 
 
     :param str name: The name of the EventGrid Domain resource.

@@ -308,6 +308,37 @@ class SRVRecord(pulumi.CustomResource):
         """
         Enables you to manage DNS SRV Records within Azure Private DNS.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_zone = azure.privatedns.Zone("exampleZone", resource_group_name=example_resource_group.name)
+        example_srv_record = azure.privatedns.SRVRecord("exampleSRVRecord",
+            resource_group_name=example_resource_group.name,
+            zone_name=example_zone.name,
+            ttl=300,
+            records=[
+                azure.privatedns.SRVRecordRecordArgs(
+                    priority=1,
+                    weight=5,
+                    port=8080,
+                    target="target1.contoso.com",
+                ),
+                azure.privatedns.SRVRecordRecordArgs(
+                    priority=10,
+                    weight=10,
+                    port=8080,
+                    target="target2.contoso.com",
+                ),
+            ],
+            tags={
+                "Environment": "Production",
+            })
+        ```
+
         ## Import
 
         Private DNS SRV Records can be imported using the `resource id`, e.g.
@@ -333,6 +364,37 @@ class SRVRecord(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Enables you to manage DNS SRV Records within Azure Private DNS.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_zone = azure.privatedns.Zone("exampleZone", resource_group_name=example_resource_group.name)
+        example_srv_record = azure.privatedns.SRVRecord("exampleSRVRecord",
+            resource_group_name=example_resource_group.name,
+            zone_name=example_zone.name,
+            ttl=300,
+            records=[
+                azure.privatedns.SRVRecordRecordArgs(
+                    priority=1,
+                    weight=5,
+                    port=8080,
+                    target="target1.contoso.com",
+                ),
+                azure.privatedns.SRVRecordRecordArgs(
+                    priority=10,
+                    weight=10,
+                    port=8080,
+                    target="target2.contoso.com",
+                ),
+            ],
+            tags={
+                "Environment": "Production",
+            })
+        ```
 
         ## Import
 

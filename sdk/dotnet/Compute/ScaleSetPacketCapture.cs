@@ -12,6 +12,131 @@ namespace Pulumi.Azure.Compute
     /// <summary>
     /// Configures Network Packet Capturing against a Virtual Machine Scale Set using a Network Watcher.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleNetworkWatcher = new Azure.Network.NetworkWatcher("exampleNetworkWatcher", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleLinuxVirtualMachineScaleSet = new Azure.Compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Sku = "Standard_F2",
+    ///         Instances = 4,
+    ///         AdminUsername = "adminuser",
+    ///         AdminPassword = "P@ssword1234!",
+    ///         ComputerNamePrefix = "my-linux-computer-name-prefix",
+    ///         UpgradeMode = "Automatic",
+    ///         DisablePasswordAuthentication = false,
+    ///         SourceImageReference = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetSourceImageReferenceArgs
+    ///         {
+    ///             Publisher = "Canonical",
+    ///             Offer = "0001-com-ubuntu-server-focal",
+    ///             Sku = "20_04-lts",
+    ///             Version = "latest",
+    ///         },
+    ///         OsDisk = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetOsDiskArgs
+    ///         {
+    ///             StorageAccountType = "Standard_LRS",
+    ///             Caching = "ReadWrite",
+    ///         },
+    ///         NetworkInterfaces = new[]
+    ///         {
+    ///             new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetNetworkInterfaceArgs
+    ///             {
+    ///                 Name = "example",
+    ///                 Primary = true,
+    ///                 IpConfigurations = new[]
+    ///                 {
+    ///                     new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs
+    ///                     {
+    ///                         Name = "internal",
+    ///                         Primary = true,
+    ///                         SubnetId = exampleSubnet.Id,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleVirtualMachineScaleSetExtension = new Azure.Compute.VirtualMachineScaleSetExtension("exampleVirtualMachineScaleSetExtension", new()
+    ///     {
+    ///         VirtualMachineScaleSetId = exampleLinuxVirtualMachineScaleSet.Id,
+    ///         Publisher = "Microsoft.Azure.NetworkWatcher",
+    ///         Type = "NetworkWatcherAgentLinux",
+    ///         TypeHandlerVersion = "1.4",
+    ///         AutoUpgradeMinorVersion = true,
+    ///         AutomaticUpgradeEnabled = true,
+    ///     });
+    /// 
+    ///     var exampleScaleSetPacketCapture = new Azure.Compute.ScaleSetPacketCapture("exampleScaleSetPacketCapture", new()
+    ///     {
+    ///         NetworkWatcherId = exampleNetworkWatcher.Id,
+    ///         VirtualMachineScaleSetId = exampleLinuxVirtualMachineScaleSet.Id,
+    ///         StorageLocation = new Azure.Compute.Inputs.ScaleSetPacketCaptureStorageLocationArgs
+    ///         {
+    ///             FilePath = "/var/captures/packet.cap",
+    ///         },
+    ///         MachineScope = new Azure.Compute.Inputs.ScaleSetPacketCaptureMachineScopeArgs
+    ///         {
+    ///             IncludeInstanceIds = new[]
+    ///             {
+    ///                 "0",
+    ///             },
+    ///             ExcludeInstanceIds = new[]
+    ///             {
+    ///                 "1",
+    ///             },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleVirtualMachineScaleSetExtension,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// &gt; **NOTE:** This Resource requires that [the Network Watcher Extension](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-manage-portal#before-you-begin) is installed on the Virtual Machine Scale Set before capturing can be enabled which can be installed via the `azure.compute.VirtualMachineScaleSetExtension` resource.
+    /// 
     /// ## Import
     /// 
     /// Virtual Machine Scale Set Packet Captures can be imported using the `resource id`, e.g.

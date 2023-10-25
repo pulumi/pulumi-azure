@@ -9,6 +9,24 @@ import * as utilities from "../utilities";
  *
  * !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `azure.graph.ServicesAccount` resource instead.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as azuread from "@pulumi/azuread";
+ *
+ * const exampleApplication = new azuread.Application("exampleApplication", {displayName: "example-app"});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAccount = new azure.graph.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     applicationId: exampleApplication.applicationId,
+ *     tags: {
+ *         environment: "Production",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * An existing Account can be imported into Terraform using the `resource id`, e.g.

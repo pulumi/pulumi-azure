@@ -377,6 +377,58 @@ class Job(pulumi.CustomResource):
         """
         Manages a Media Job.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="GRS")
+        example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
+                id=example_account.id,
+                is_primary=True,
+            )])
+        example_transform = azure.media.Transform("exampleTransform",
+            resource_group_name=example_resource_group.name,
+            media_services_account_name=example_service_account.name,
+            description="My transform description",
+            outputs=[azure.media.TransformOutputArgs(
+                relative_priority="Normal",
+                on_error_action="ContinueJob",
+                builtin_preset=azure.media.TransformOutputBuiltinPresetArgs(
+                    preset_name="AACGoodQualityAudio",
+                ),
+            )])
+        input = azure.media.Asset("input",
+            resource_group_name=example_resource_group.name,
+            media_services_account_name=example_service_account.name,
+            description="Input Asset description")
+        output = azure.media.Asset("output",
+            resource_group_name=example_resource_group.name,
+            media_services_account_name=example_service_account.name,
+            description="Output Asset description")
+        example_job = azure.media.Job("exampleJob",
+            resource_group_name=example_resource_group.name,
+            media_services_account_name=example_service_account.name,
+            transform_name=example_transform.name,
+            description="My Job description",
+            priority="Normal",
+            input_asset=azure.media.JobInputAssetArgs(
+                name=input.name,
+            ),
+            output_assets=[azure.media.JobOutputAssetArgs(
+                name=output.name,
+            )])
+        ```
+
         ## Import
 
         Media Jobs can be imported using the `resource id`, e.g.
@@ -404,6 +456,58 @@ class Job(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Media Job.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="GRS")
+        example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
+                id=example_account.id,
+                is_primary=True,
+            )])
+        example_transform = azure.media.Transform("exampleTransform",
+            resource_group_name=example_resource_group.name,
+            media_services_account_name=example_service_account.name,
+            description="My transform description",
+            outputs=[azure.media.TransformOutputArgs(
+                relative_priority="Normal",
+                on_error_action="ContinueJob",
+                builtin_preset=azure.media.TransformOutputBuiltinPresetArgs(
+                    preset_name="AACGoodQualityAudio",
+                ),
+            )])
+        input = azure.media.Asset("input",
+            resource_group_name=example_resource_group.name,
+            media_services_account_name=example_service_account.name,
+            description="Input Asset description")
+        output = azure.media.Asset("output",
+            resource_group_name=example_resource_group.name,
+            media_services_account_name=example_service_account.name,
+            description="Output Asset description")
+        example_job = azure.media.Job("exampleJob",
+            resource_group_name=example_resource_group.name,
+            media_services_account_name=example_service_account.name,
+            transform_name=example_transform.name,
+            description="My Job description",
+            priority="Normal",
+            input_asset=azure.media.JobInputAssetArgs(
+                name=input.name,
+            ),
+            output_assets=[azure.media.JobOutputAssetArgs(
+                name=output.name,
+            )])
+        ```
 
         ## Import
 

@@ -15,6 +15,88 @@ import (
 
 // Manages a Stream Analytics Output Function.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/streamanalytics"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePlan, err := appservice.NewPlan(ctx, "examplePlan", &appservice.PlanArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Kind:              pulumi.Any("FunctionApp"),
+//				Reserved:          pulumi.Bool(true),
+//				Sku: &appservice.PlanSkuArgs{
+//					Tier: pulumi.String("Dynamic"),
+//					Size: pulumi.String("Y1"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFunctionApp, err := appservice.NewFunctionApp(ctx, "exampleFunctionApp", &appservice.FunctionAppArgs{
+//				Location:                exampleResourceGroup.Location,
+//				ResourceGroupName:       exampleResourceGroup.Name,
+//				AppServicePlanId:        examplePlan.ID(),
+//				StorageAccountName:      exampleAccount.Name,
+//				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
+//				OsType:                  pulumi.String("linux"),
+//				Version:                 pulumi.String("~3"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleJob, err := streamanalytics.NewJob(ctx, "exampleJob", &streamanalytics.JobArgs{
+//				ResourceGroupName:   exampleResourceGroup.Name,
+//				Location:            exampleResourceGroup.Location,
+//				StreamingUnits:      pulumi.Int(3),
+//				TransformationQuery: pulumi.String("    SELECT *\n    INTO [YourOutputAlias]\n    FROM [YourInputAlias]\n"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = streamanalytics.NewOutputFunction(ctx, "exampleOutputFunction", &streamanalytics.OutputFunctionArgs{
+//				ResourceGroupName:      exampleJob.ResourceGroupName,
+//				StreamAnalyticsJobName: exampleJob.Name,
+//				FunctionApp:            exampleFunctionApp.Name,
+//				FunctionName:           pulumi.String("examplefunctionname"),
+//				ApiKey:                 pulumi.String("exampleapikey"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Stream Analytics Output Functions can be imported using the `resource id`, e.g.

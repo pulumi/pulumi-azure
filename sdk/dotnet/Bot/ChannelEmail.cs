@@ -14,6 +14,43 @@ namespace Pulumi.Azure.Bot
     /// 
     /// &gt; **Note** A bot can only have a single Email Channel associated with it.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleChannelsRegistration = new Azure.Bot.ChannelsRegistration("exampleChannelsRegistration", new()
+    ///     {
+    ///         Location = "global",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "F0",
+    ///         MicrosoftAppId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ClientId),
+    ///     });
+    /// 
+    ///     var exampleChannelEmail = new Azure.Bot.ChannelEmail("exampleChannelEmail", new()
+    ///     {
+    ///         BotName = exampleChannelsRegistration.Name,
+    ///         Location = exampleChannelsRegistration.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         EmailAddress = "example.com",
+    ///         EmailPassword = "123456",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// The Email Integration for a Bot Channel can be imported using the `resource id`, e.g.

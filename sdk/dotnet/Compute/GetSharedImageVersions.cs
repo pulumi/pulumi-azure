@@ -13,12 +13,60 @@ namespace Pulumi.Azure.Compute
     {
         /// <summary>
         /// Use this data source to access information about existing Versions of a Shared Image within a Shared Image Gallery.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Compute.GetSharedImageVersions.Invoke(new()
+        ///     {
+        ///         GalleryName = "my-image-gallery",
+        ///         ImageName = "my-image",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetSharedImageVersionsResult> InvokeAsync(GetSharedImageVersionsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSharedImageVersionsResult>("azure:compute/getSharedImageVersions:getSharedImageVersions", args ?? new GetSharedImageVersionsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about existing Versions of a Shared Image within a Shared Image Gallery.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Compute.GetSharedImageVersions.Invoke(new()
+        ///     {
+        ///         GalleryName = "my-image-gallery",
+        ///         ImageName = "my-image",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetSharedImageVersionsResult> Invoke(GetSharedImageVersionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSharedImageVersionsResult>("azure:compute/getSharedImageVersions:getSharedImageVersions", args ?? new GetSharedImageVersionsInvokeArgs(), options.WithDefaults());

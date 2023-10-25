@@ -424,6 +424,73 @@ class Module(pulumi.CustomResource):
 
         > **Note:** If the quota is not enough in some region, please submit the quota request to service team.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.2.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.2.0.0/24"])
+        example2 = azure.network.Subnet("example2",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.2.1.0/24"],
+            delegations=[azure.network.SubnetDelegationArgs(
+                name="first",
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                    name="Microsoft.HardwareSecurityModules/dedicatedHSMs",
+                    actions=[
+                        "Microsoft.Network/networkinterfaces/*",
+                        "Microsoft.Network/virtualNetworks/subnets/join/action",
+                    ],
+                ),
+            )])
+        example3 = azure.network.Subnet("example3",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.2.255.0/26"])
+        example_public_ip = azure.network.PublicIp("examplePublicIp",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            allocation_method="Dynamic")
+        example_virtual_network_gateway = azure.network.VirtualNetworkGateway("exampleVirtualNetworkGateway",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            type="ExpressRoute",
+            vpn_type="PolicyBased",
+            sku="Standard",
+            ip_configurations=[azure.network.VirtualNetworkGatewayIpConfigurationArgs(
+                public_ip_address_id=example_public_ip.id,
+                private_ip_address_allocation="Dynamic",
+                subnet_id=example3.id,
+            )])
+        example_module = azure.hsm.Module("exampleModule",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="payShield10K_LMK1_CPS60",
+            management_network_profile=azure.hsm.ModuleManagementNetworkProfileArgs(
+                network_interface_private_ip_addresses=["10.2.1.7"],
+                subnet_id=example2.id,
+            ),
+            network_profile=azure.hsm.ModuleNetworkProfileArgs(
+                network_interface_private_ip_addresses=["10.2.1.8"],
+                subnet_id=example2.id,
+            ),
+            stamp_id="stamp2",
+            tags={
+                "env": "Test",
+            },
+            opts=pulumi.ResourceOptions(depends_on=[example_virtual_network_gateway]))
+        ```
+
         ## Import
 
         Dedicated Hardware Security Module can be imported using the `resource id`, e.g.
@@ -458,6 +525,73 @@ class Module(pulumi.CustomResource):
         > **Note:** Before using this resource, it's required to submit the request of registering the providers and features with Azure CLI `az provider register --namespace Microsoft.HardwareSecurityModules && az feature register --namespace Microsoft.HardwareSecurityModules --name AzureDedicatedHSM && az provider register --namespace Microsoft.Network && az feature register --namespace Microsoft.Network --name AllowBaremetalServers` and ask service team (hsmrequest@microsoft.com) to approve. See more details from <https://docs.microsoft.com/azure/dedicated-hsm/tutorial-deploy-hsm-cli#prerequisites>.
 
         > **Note:** If the quota is not enough in some region, please submit the quota request to service team.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.2.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.2.0.0/24"])
+        example2 = azure.network.Subnet("example2",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.2.1.0/24"],
+            delegations=[azure.network.SubnetDelegationArgs(
+                name="first",
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                    name="Microsoft.HardwareSecurityModules/dedicatedHSMs",
+                    actions=[
+                        "Microsoft.Network/networkinterfaces/*",
+                        "Microsoft.Network/virtualNetworks/subnets/join/action",
+                    ],
+                ),
+            )])
+        example3 = azure.network.Subnet("example3",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.2.255.0/26"])
+        example_public_ip = azure.network.PublicIp("examplePublicIp",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            allocation_method="Dynamic")
+        example_virtual_network_gateway = azure.network.VirtualNetworkGateway("exampleVirtualNetworkGateway",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            type="ExpressRoute",
+            vpn_type="PolicyBased",
+            sku="Standard",
+            ip_configurations=[azure.network.VirtualNetworkGatewayIpConfigurationArgs(
+                public_ip_address_id=example_public_ip.id,
+                private_ip_address_allocation="Dynamic",
+                subnet_id=example3.id,
+            )])
+        example_module = azure.hsm.Module("exampleModule",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="payShield10K_LMK1_CPS60",
+            management_network_profile=azure.hsm.ModuleManagementNetworkProfileArgs(
+                network_interface_private_ip_addresses=["10.2.1.7"],
+                subnet_id=example2.id,
+            ),
+            network_profile=azure.hsm.ModuleNetworkProfileArgs(
+                network_interface_private_ip_addresses=["10.2.1.8"],
+                subnet_id=example2.id,
+            ),
+            stamp_id="stamp2",
+            tags={
+                "env": "Test",
+            },
+            opts=pulumi.ResourceOptions(depends_on=[example_virtual_network_gateway]))
+        ```
 
         ## Import
 

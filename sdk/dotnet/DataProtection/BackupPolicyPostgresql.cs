@@ -12,6 +12,95 @@ namespace Pulumi.Azure.DataProtection
     /// <summary>
     /// Manages a Backup Policy to back up PostgreSQL.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleBackupVault = new Azure.DataProtection.BackupVault("exampleBackupVault", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         DatastoreType = "VaultStore",
+    ///         Redundancy = "LocallyRedundant",
+    ///     });
+    /// 
+    ///     var exampleBackupPolicyPostgresql = new Azure.DataProtection.BackupPolicyPostgresql("exampleBackupPolicyPostgresql", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VaultName = exampleBackupVault.Name,
+    ///         BackupRepeatingTimeIntervals = new[]
+    ///         {
+    ///             "R/2021-05-23T02:30:00+00:00/P1W",
+    ///         },
+    ///         DefaultRetentionDuration = "P4M",
+    ///         RetentionRules = new[]
+    ///         {
+    ///             new Azure.DataProtection.Inputs.BackupPolicyPostgresqlRetentionRuleArgs
+    ///             {
+    ///                 Name = "weekly",
+    ///                 Duration = "P6M",
+    ///                 Priority = 20,
+    ///                 Criteria = new Azure.DataProtection.Inputs.BackupPolicyPostgresqlRetentionRuleCriteriaArgs
+    ///                 {
+    ///                     AbsoluteCriteria = "FirstOfWeek",
+    ///                 },
+    ///             },
+    ///             new Azure.DataProtection.Inputs.BackupPolicyPostgresqlRetentionRuleArgs
+    ///             {
+    ///                 Name = "thursday",
+    ///                 Duration = "P1W",
+    ///                 Priority = 25,
+    ///                 Criteria = new Azure.DataProtection.Inputs.BackupPolicyPostgresqlRetentionRuleCriteriaArgs
+    ///                 {
+    ///                     DaysOfWeeks = new[]
+    ///                     {
+    ///                         "Thursday",
+    ///                     },
+    ///                     ScheduledBackupTimes = new[]
+    ///                     {
+    ///                         "2021-05-23T02:30:00Z",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Azure.DataProtection.Inputs.BackupPolicyPostgresqlRetentionRuleArgs
+    ///             {
+    ///                 Name = "monthly",
+    ///                 Duration = "P1D",
+    ///                 Priority = 15,
+    ///                 Criteria = new Azure.DataProtection.Inputs.BackupPolicyPostgresqlRetentionRuleCriteriaArgs
+    ///                 {
+    ///                     WeeksOfMonths = new[]
+    ///                     {
+    ///                         "First",
+    ///                         "Last",
+    ///                     },
+    ///                     DaysOfWeeks = new[]
+    ///                     {
+    ///                         "Tuesday",
+    ///                     },
+    ///                     ScheduledBackupTimes = new[]
+    ///                     {
+    ///                         "2021-05-23T02:30:00Z",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Backup Policy PostgreSQL's can be imported using the `resource id`, e.g.

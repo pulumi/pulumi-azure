@@ -214,6 +214,17 @@ def get_topic(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Service Bus Topic.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.servicebus.get_topic(name="existing",
+        namespace_id="existing")
+    pulumi.export("id", example.id)
+    ```
+
 
     :param str name: The name of this Service Bus Topic.
     :param str namespace_id: The ID of the ServiceBus Namespace where the Service Bus Topic exists.
@@ -256,6 +267,17 @@ def get_topic_output(name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTopicResult]:
     """
     Use this data source to access information about an existing Service Bus Topic.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.servicebus.get_topic(name="existing",
+        namespace_id="existing")
+    pulumi.export("id", example.id)
+    ```
 
 
     :param str name: The name of this Service Bus Topic.

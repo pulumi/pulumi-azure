@@ -324,6 +324,54 @@ class Subscription(pulumi.CustomResource):
                  __props__=None):
         """
         ## Example Usage
+        ### Creating A New Alias And Subscription For An Enrollment Account
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_enrollment_account_scope = azure.billing.get_enrollment_account_scope(billing_account_name="1234567890",
+            enrollment_account_name="0123456")
+        example_subscription = azure.core.Subscription("exampleSubscription",
+            subscription_name="My Example EA Subscription",
+            billing_scope_id=example_enrollment_account_scope.id)
+        ```
+        ### Creating A New Alias And Subscription For A Microsoft Customer Account
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_mca_account_scope = azure.billing.get_mca_account_scope(billing_account_name="e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31",
+            billing_profile_name="PE2Q-NOIT-BG7-TGB",
+            invoice_section_name="MTT4-OBS7-PJA-TGB")
+        example_subscription = azure.core.Subscription("exampleSubscription",
+            subscription_name="My Example MCA Subscription",
+            billing_scope_id=example_mca_account_scope.id)
+        ```
+        ### Creating A New Alias And Subscription For A Microsoft Partner Account
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_mpa_account_scope = azure.billing.get_mpa_account_scope(billing_account_name="e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31",
+            customer_name="2281f543-7321-4cf9-1e23-edb4Oc31a31c")
+        example_subscription = azure.core.Subscription("exampleSubscription",
+            subscription_name="My Example MPA Subscription",
+            billing_scope_id=example_mpa_account_scope.id)
+        ```
+        ### Adding An Alias To An Existing Subscription
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.Subscription("example",
+            alias="examplesub",
+            subscription_id="12345678-12234-5678-9012-123456789012",
+            subscription_name="My Example Subscription")
+        ```
 
         ## Import
 
@@ -356,6 +404,54 @@ class Subscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
+        ### Creating A New Alias And Subscription For An Enrollment Account
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_enrollment_account_scope = azure.billing.get_enrollment_account_scope(billing_account_name="1234567890",
+            enrollment_account_name="0123456")
+        example_subscription = azure.core.Subscription("exampleSubscription",
+            subscription_name="My Example EA Subscription",
+            billing_scope_id=example_enrollment_account_scope.id)
+        ```
+        ### Creating A New Alias And Subscription For A Microsoft Customer Account
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_mca_account_scope = azure.billing.get_mca_account_scope(billing_account_name="e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31",
+            billing_profile_name="PE2Q-NOIT-BG7-TGB",
+            invoice_section_name="MTT4-OBS7-PJA-TGB")
+        example_subscription = azure.core.Subscription("exampleSubscription",
+            subscription_name="My Example MCA Subscription",
+            billing_scope_id=example_mca_account_scope.id)
+        ```
+        ### Creating A New Alias And Subscription For A Microsoft Partner Account
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_mpa_account_scope = azure.billing.get_mpa_account_scope(billing_account_name="e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31",
+            customer_name="2281f543-7321-4cf9-1e23-edb4Oc31a31c")
+        example_subscription = azure.core.Subscription("exampleSubscription",
+            subscription_name="My Example MPA Subscription",
+            billing_scope_id=example_mpa_account_scope.id)
+        ```
+        ### Adding An Alias To An Existing Subscription
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.Subscription("example",
+            alias="examplesub",
+            subscription_id="12345678-12234-5678-9012-123456789012",
+            subscription_name="My Example Subscription")
+        ```
 
         ## Import
 

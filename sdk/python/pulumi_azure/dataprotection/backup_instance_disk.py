@@ -296,6 +296,47 @@ class BackupInstanceDisk(pulumi.CustomResource):
         """
         Manages a Backup Instance to back up Disk.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_managed_disk = azure.compute.ManagedDisk("exampleManagedDisk",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            storage_account_type="Standard_LRS",
+            create_option="Empty",
+            disk_size_gb=1)
+        example_backup_vault = azure.dataprotection.BackupVault("exampleBackupVault",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            datastore_type="VaultStore",
+            redundancy="LocallyRedundant",
+            identity=azure.dataprotection.BackupVaultIdentityArgs(
+                type="SystemAssigned",
+            ))
+        example1 = azure.authorization.Assignment("example1",
+            scope=example_resource_group.id,
+            role_definition_name="Disk Snapshot Contributor",
+            principal_id=example_backup_vault.identity.principal_id)
+        example2 = azure.authorization.Assignment("example2",
+            scope=example_managed_disk.id,
+            role_definition_name="Disk Backup Reader",
+            principal_id=example_backup_vault.identity.principal_id)
+        example_backup_policy_disk = azure.dataprotection.BackupPolicyDisk("exampleBackupPolicyDisk",
+            vault_id=example_backup_vault.id,
+            backup_repeating_time_intervals=["R/2021-05-19T06:33:16+00:00/PT4H"],
+            default_retention_duration="P7D")
+        example_backup_instance_disk = azure.dataprotection.BackupInstanceDisk("exampleBackupInstanceDisk",
+            location=example_backup_vault.location,
+            vault_id=example_backup_vault.id,
+            disk_id=example_managed_disk.id,
+            snapshot_resource_group_name=example_resource_group.name,
+            backup_policy_id=example_backup_policy_disk.id)
+        ```
+
         ## Import
 
         Backup Instance Disks can be imported using the `resource id`, e.g.
@@ -321,6 +362,47 @@ class BackupInstanceDisk(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Backup Instance to back up Disk.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_managed_disk = azure.compute.ManagedDisk("exampleManagedDisk",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            storage_account_type="Standard_LRS",
+            create_option="Empty",
+            disk_size_gb=1)
+        example_backup_vault = azure.dataprotection.BackupVault("exampleBackupVault",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            datastore_type="VaultStore",
+            redundancy="LocallyRedundant",
+            identity=azure.dataprotection.BackupVaultIdentityArgs(
+                type="SystemAssigned",
+            ))
+        example1 = azure.authorization.Assignment("example1",
+            scope=example_resource_group.id,
+            role_definition_name="Disk Snapshot Contributor",
+            principal_id=example_backup_vault.identity.principal_id)
+        example2 = azure.authorization.Assignment("example2",
+            scope=example_managed_disk.id,
+            role_definition_name="Disk Backup Reader",
+            principal_id=example_backup_vault.identity.principal_id)
+        example_backup_policy_disk = azure.dataprotection.BackupPolicyDisk("exampleBackupPolicyDisk",
+            vault_id=example_backup_vault.id,
+            backup_repeating_time_intervals=["R/2021-05-19T06:33:16+00:00/PT4H"],
+            default_retention_duration="P7D")
+        example_backup_instance_disk = azure.dataprotection.BackupInstanceDisk("exampleBackupInstanceDisk",
+            location=example_backup_vault.location,
+            vault_id=example_backup_vault.id,
+            disk_id=example_managed_disk.id,
+            snapshot_resource_group_name=example_resource_group.name,
+            backup_policy_id=example_backup_policy_disk.id)
+        ```
 
         ## Import
 

@@ -21,6 +21,58 @@ import (
 //
 // > **NOTE:** However, CosmosDb Notebook feature no longer uses the permanent notebook workspace being referred to the public surface in the RP (have since moved to temporary notebooks workspaces which are short-lived <1 hour).
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := cosmosdb.NewAccount(ctx, "exampleAccount", &cosmosdb.AccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				OfferType:         pulumi.String("Standard"),
+//				Kind:              pulumi.String("GlobalDocumentDB"),
+//				ConsistencyPolicy: &cosmosdb.AccountConsistencyPolicyArgs{
+//					ConsistencyLevel: pulumi.String("BoundedStaleness"),
+//				},
+//				GeoLocations: cosmosdb.AccountGeoLocationArray{
+//					&cosmosdb.AccountGeoLocationArgs{
+//						Location:         exampleResourceGroup.Location,
+//						FailoverPriority: pulumi.Int(0),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cosmosdb.NewNotebookWorkspace(ctx, "exampleNotebookWorkspace", &cosmosdb.NotebookWorkspaceArgs{
+//				ResourceGroupName: exampleAccount.ResourceGroupName,
+//				AccountName:       exampleAccount.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // =SQL Notebook Workspaces can be imported using the `resource id`, e.g.

@@ -927,6 +927,30 @@ class EventSubscription(pulumi.CustomResource):
         """
         Manages an EventGrid Event Subscription
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS",
+            tags={
+                "environment": "staging",
+            })
+        example_queue = azure.storage.Queue("exampleQueue", storage_account_name=example_account.name)
+        example_event_subscription = azure.eventgrid.EventSubscription("exampleEventSubscription",
+            scope=example_resource_group.id,
+            storage_queue_endpoint=azure.eventgrid.EventSubscriptionStorageQueueEndpointArgs(
+                storage_account_id=example_account.id,
+                queue_name=example_queue.name,
+            ))
+        ```
+
         ## Import
 
         EventGrid Event Subscription's can be imported using the `resource id`, e.g.
@@ -971,6 +995,30 @@ class EventSubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an EventGrid Event Subscription
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS",
+            tags={
+                "environment": "staging",
+            })
+        example_queue = azure.storage.Queue("exampleQueue", storage_account_name=example_account.name)
+        example_event_subscription = azure.eventgrid.EventSubscription("exampleEventSubscription",
+            scope=example_resource_group.id,
+            storage_queue_endpoint=azure.eventgrid.EventSubscriptionStorageQueueEndpointArgs(
+                storage_account_id=example_account.id,
+                queue_name=example_queue.name,
+            ))
+        ```
 
         ## Import
 

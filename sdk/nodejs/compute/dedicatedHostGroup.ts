@@ -7,6 +7,20 @@ import * as utilities from "../utilities";
 /**
  * Manage a Dedicated Host Group.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleDedicatedHostGroup = new azure.compute.DedicatedHostGroup("exampleDedicatedHostGroup", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     platformFaultDomainCount: 1,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Dedicated Host Group can be imported using the `resource id`, e.g.

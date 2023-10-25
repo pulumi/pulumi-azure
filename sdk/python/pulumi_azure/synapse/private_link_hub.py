@@ -207,6 +207,17 @@ class PrivateLinkHub(pulumi.CustomResource):
         """
         Manages a Synapse Private Link Hub.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.synapse.PrivateLinkHub("example",
+            location="West Europe",
+            resource_group_name="example-rg")
+        ```
+
         ## Import
 
         Synapse Private Link Hub can be imported using the `resource id`, e.g.
@@ -230,6 +241,17 @@ class PrivateLinkHub(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Synapse Private Link Hub.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.synapse.PrivateLinkHub("example",
+            location="West Europe",
+            resource_group_name="example-rg")
+        ```
 
         ## Import
 

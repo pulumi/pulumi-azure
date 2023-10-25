@@ -15,6 +15,69 @@ import (
 
 // Manages an Automation Runbook's Webhook.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("Basic"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleRunBook, err := automation.NewRunBook(ctx, "exampleRunBook", &automation.RunBookArgs{
+//				Location:              exampleResourceGroup.Location,
+//				ResourceGroupName:     exampleResourceGroup.Name,
+//				AutomationAccountName: exampleAccount.Name,
+//				LogVerbose:            pulumi.Bool(true),
+//				LogProgress:           pulumi.Bool(true),
+//				Description:           pulumi.String("This is an example runbook"),
+//				RunbookType:           pulumi.String("PowerShellWorkflow"),
+//				PublishContentLink: &automation.RunBookPublishContentLinkArgs{
+//					Uri: pulumi.String("https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = automation.NewWebhook(ctx, "exampleWebhook", &automation.WebhookArgs{
+//				ResourceGroupName:     exampleResourceGroup.Name,
+//				AutomationAccountName: exampleAccount.Name,
+//				ExpiryTime:            pulumi.String("2021-12-31T00:00:00Z"),
+//				Enabled:               pulumi.Bool(true),
+//				RunbookName:           exampleRunBook.Name,
+//				Parameters: pulumi.StringMap{
+//					"input": pulumi.String("parameter"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Automation Webhooks can be imported using the `resource id`, e.g.

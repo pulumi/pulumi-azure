@@ -77,7 +77,16 @@ class AwaitableGetSourceControlTokenResult(GetSourceControlTokenResult):
 def get_source_control_token(type: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSourceControlTokenResult:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.appservice.get_source_control_token(type="GitHub")
+    pulumi.export("id", data["azurerm_app_service_github_token"]["example"]["id"])
+    ```
+
 
     :param str type: The Token type. Possible values include `Bitbucket`, `Dropbox`, `Github`, and `OneDrive`.
     """
@@ -97,7 +106,16 @@ def get_source_control_token(type: Optional[str] = None,
 def get_source_control_token_output(type: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSourceControlTokenResult]:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.appservice.get_source_control_token(type="GitHub")
+    pulumi.export("id", data["azurerm_app_service_github_token"]["example"]["id"])
+    ```
+
 
     :param str type: The Token type. Possible values include `Bitbucket`, `Dropbox`, `Github`, and `OneDrive`.
     """

@@ -135,6 +135,20 @@ class SpringCloudApplicationLiveView(pulumi.CustomResource):
 
         Manages a Spring Cloud Application Live View.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="E0")
+        example_spring_cloud_application_live_view = azure.appplatform.SpringCloudApplicationLiveView("exampleSpringCloudApplicationLiveView", spring_cloud_service_id=example_spring_cloud_service.id)
+        ```
+
         ## Import
 
         Spring Cloud Application Live Views can be imported using the `resource id`, e.g. g
@@ -158,6 +172,20 @@ class SpringCloudApplicationLiveView(pulumi.CustomResource):
         > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
 
         Manages a Spring Cloud Application Live View.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="E0")
+        example_spring_cloud_application_live_view = azure.appplatform.SpringCloudApplicationLiveView("exampleSpringCloudApplicationLiveView", spring_cloud_service_id=example_spring_cloud_service.id)
+        ```
 
         ## Import
 

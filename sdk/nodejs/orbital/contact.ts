@@ -7,6 +7,87 @@ import * as utilities from "../utilities";
 /**
  * Manages an orbital contact.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleSpacecraft = new azure.orbital.Spacecraft("exampleSpacecraft", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: "westeurope",
+ *     noradId: "12345",
+ *     links: [{
+ *         bandwidthMhz: 100,
+ *         centerFrequencyMhz: 101,
+ *         direction: "Uplink",
+ *         polarization: "LHCP",
+ *         name: "examplename",
+ *     }],
+ *     twoLineElements: [
+ *         "1 23455U 94089A   97320.90946019  .00000140  00000-0  10191-3 0  2621",
+ *         "2 23455  99.0090 272.6745 0008546 223.1686 136.8816 14.11711747148495",
+ *     ],
+ *     titleLine: "AQUA",
+ *     tags: {
+ *         "aks-managed-cluster-name": "9a57225d-a405-4d40-aa46-f13d2342abef",
+ *     },
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.1.0/24"],
+ *     delegations: [{
+ *         name: "orbitalgateway",
+ *         serviceDelegation: {
+ *             name: "Microsoft.Orbital/orbitalGateways",
+ *             actions: [
+ *                 "Microsoft.Network/publicIPAddresses/join/action",
+ *                 "Microsoft.Network/virtualNetworks/subnets/join/action",
+ *                 "Microsoft.Network/virtualNetworks/read",
+ *                 "Microsoft.Network/publicIPAddresses/read",
+ *             ],
+ *         },
+ *     }],
+ * });
+ * const exampleContactProfile = new azure.orbital.ContactProfile("exampleContactProfile", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     minimumVariableContactDuration: "PT1M",
+ *     autoTracking: "disabled",
+ *     links: [{
+ *         channels: [{
+ *             name: "channelname",
+ *             bandwidthMhz: 100,
+ *             centerFrequencyMhz: 101,
+ *             endPoints: [{
+ *                 endPointName: "AQUA_command",
+ *                 ipAddress: "10.0.1.0",
+ *                 port: "49153",
+ *                 protocol: "TCP",
+ *             }],
+ *         }],
+ *         direction: "Uplink",
+ *         name: "RHCP_UL",
+ *         polarization: "RHCP",
+ *     }],
+ *     networkConfigurationSubnetId: exampleSubnet.id,
+ * });
+ * const exampleContact = new azure.orbital.Contact("exampleContact", {
+ *     spacecraftId: exampleSpacecraft.id,
+ *     reservationStartTime: "2020-07-16T20:35:00.00Z",
+ *     reservationEndTime: "2020-07-16T20:55:00.00Z",
+ *     groundStationName: "WESTUS2_0",
+ *     contactProfileId: exampleContactProfile.id,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Spacecraft can be imported using the `resource id`, e.g.

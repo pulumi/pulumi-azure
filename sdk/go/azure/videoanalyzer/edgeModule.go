@@ -17,6 +17,98 @@ import (
 //
 // !> Video Analyzer (Preview) is now Deprecated and will be Retired on 2022-11-30 - as such the `videoanalyzer.EdgeModule` resource is deprecated and will be removed in v4.0 of the AzureRM Provider.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/videoanalyzer"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("GRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "exampleUserAssignedIdentity", &authorization.UserAssignedIdentityArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			contributor, err := authorization.NewAssignment(ctx, "contributor", &authorization.AssignmentArgs{
+//				Scope:              exampleAccount.ID(),
+//				RoleDefinitionName: pulumi.String("Storage Blob Data Contributor"),
+//				PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			reader, err := authorization.NewAssignment(ctx, "reader", &authorization.AssignmentArgs{
+//				Scope:              exampleAccount.ID(),
+//				RoleDefinitionName: pulumi.String("Reader"),
+//				PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAnalyzer, err := videoanalyzer.NewAnalyzer(ctx, "exampleAnalyzer", &videoanalyzer.AnalyzerArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				StorageAccount: &videoanalyzer.AnalyzerStorageAccountArgs{
+//					Id:                     exampleAccount.ID(),
+//					UserAssignedIdentityId: exampleUserAssignedIdentity.ID(),
+//				},
+//				Identity: &videoanalyzer.AnalyzerIdentityArgs{
+//					Type: pulumi.String("UserAssigned"),
+//					IdentityIds: pulumi.StringArray{
+//						exampleUserAssignedIdentity.ID(),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("staging"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleUserAssignedIdentity,
+//				contributor,
+//				reader,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = videoanalyzer.NewEdgeModule(ctx, "exampleEdgeModule", &videoanalyzer.EdgeModuleArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				VideoAnalyzerName: exampleAnalyzer.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Video Analyzer Edge Module can be imported using the `resource id`, e.g.

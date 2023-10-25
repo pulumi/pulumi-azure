@@ -338,6 +338,22 @@ class TriggerRecurrence(pulumi.CustomResource):
         """
         Manages a Recurrence Trigger within a Logic App Workflow
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_workflow = azure.logicapps.Workflow("exampleWorkflow",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_trigger_recurrence = azure.logicapps.TriggerRecurrence("exampleTriggerRecurrence",
+            logic_app_id=example_workflow.id,
+            frequency="Day",
+            interval=1)
+        ```
+
         ## Import
 
         Logic App Recurrence Triggers can be imported using the `resource id`, e.g.
@@ -366,6 +382,22 @@ class TriggerRecurrence(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Recurrence Trigger within a Logic App Workflow
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_workflow = azure.logicapps.Workflow("exampleWorkflow",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_trigger_recurrence = azure.logicapps.TriggerRecurrence("exampleTriggerRecurrence",
+            logic_app_id=example_workflow.id,
+            frequency="Day",
+            interval=1)
+        ```
 
         ## Import
 

@@ -13,12 +13,70 @@ namespace Pulumi.Azure.Mobile
     {
         /// <summary>
         /// Use this data source to access information about an existing Mobile Network Attached Data Network.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleNetworkPacketCoreControlPlane = Azure.Mobile.GetNetworkPacketCoreControlPlane.Invoke(new()
+        ///     {
+        ///         Name = "example-mnpccp",
+        ///         ResourceGroupName = "example-rg",
+        ///     });
+        /// 
+        ///     var exampleNetworkAttachedDataNetwork = Azure.Mobile.GetNetworkAttachedDataNetwork.Invoke(new()
+        ///     {
+        ///         MobileNetworkDataNetworkName = exampleNetworkPacketCoreControlPlane.Apply(getNetworkPacketCoreControlPlaneResult =&gt; getNetworkPacketCoreControlPlaneResult.Name),
+        ///         MobileNetworkPacketCoreDataPlaneId = exampleNetworkPacketCoreControlPlane.Apply(getNetworkPacketCoreControlPlaneResult =&gt; getNetworkPacketCoreControlPlaneResult.Id),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetNetworkAttachedDataNetworkResult> InvokeAsync(GetNetworkAttachedDataNetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkAttachedDataNetworkResult>("azure:mobile/getNetworkAttachedDataNetwork:getNetworkAttachedDataNetwork", args ?? new GetNetworkAttachedDataNetworkArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Mobile Network Attached Data Network.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleNetworkPacketCoreControlPlane = Azure.Mobile.GetNetworkPacketCoreControlPlane.Invoke(new()
+        ///     {
+        ///         Name = "example-mnpccp",
+        ///         ResourceGroupName = "example-rg",
+        ///     });
+        /// 
+        ///     var exampleNetworkAttachedDataNetwork = Azure.Mobile.GetNetworkAttachedDataNetwork.Invoke(new()
+        ///     {
+        ///         MobileNetworkDataNetworkName = exampleNetworkPacketCoreControlPlane.Apply(getNetworkPacketCoreControlPlaneResult =&gt; getNetworkPacketCoreControlPlaneResult.Name),
+        ///         MobileNetworkPacketCoreDataPlaneId = exampleNetworkPacketCoreControlPlane.Apply(getNetworkPacketCoreControlPlaneResult =&gt; getNetworkPacketCoreControlPlaneResult.Id),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetNetworkAttachedDataNetworkResult> Invoke(GetNetworkAttachedDataNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkAttachedDataNetworkResult>("azure:mobile/getNetworkAttachedDataNetwork:getNetworkAttachedDataNetwork", args ?? new GetNetworkAttachedDataNetworkInvokeArgs(), options.WithDefaults());

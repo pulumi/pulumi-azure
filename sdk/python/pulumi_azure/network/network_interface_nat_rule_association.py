@@ -180,6 +180,53 @@ class NetworkInterfaceNatRuleAssociation(pulumi.CustomResource):
         """
         Manages the association between a Network Interface and a Load Balancer's NAT Rule.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        example_public_ip = azure.network.PublicIp("examplePublicIp",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            allocation_method="Static")
+        example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
+                name="primary",
+                public_ip_address_id=example_public_ip.id,
+            )])
+        example_nat_rule = azure.lb.NatRule("exampleNatRule",
+            resource_group_name=example_resource_group.name,
+            loadbalancer_id=example_load_balancer.id,
+            protocol="Tcp",
+            frontend_port=3389,
+            backend_port=3389,
+            frontend_ip_configuration_name="primary")
+        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
+                name="testconfiguration1",
+                subnet_id=example_subnet.id,
+                private_ip_address_allocation="Dynamic",
+            )])
+        example_network_interface_nat_rule_association = azure.network.NetworkInterfaceNatRuleAssociation("exampleNetworkInterfaceNatRuleAssociation",
+            network_interface_id=example_network_interface.id,
+            ip_configuration_name="testconfiguration1",
+            nat_rule_id=example_nat_rule.id)
+        ```
+
         ## Import
 
         Associations between Network Interfaces and Load Balancer NAT Rule can be imported using the `resource id`, e.g.
@@ -202,6 +249,53 @@ class NetworkInterfaceNatRuleAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages the association between a Network Interface and a Load Balancer's NAT Rule.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        example_public_ip = azure.network.PublicIp("examplePublicIp",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            allocation_method="Static")
+        example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
+                name="primary",
+                public_ip_address_id=example_public_ip.id,
+            )])
+        example_nat_rule = azure.lb.NatRule("exampleNatRule",
+            resource_group_name=example_resource_group.name,
+            loadbalancer_id=example_load_balancer.id,
+            protocol="Tcp",
+            frontend_port=3389,
+            backend_port=3389,
+            frontend_ip_configuration_name="primary")
+        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
+                name="testconfiguration1",
+                subnet_id=example_subnet.id,
+                private_ip_address_allocation="Dynamic",
+            )])
+        example_network_interface_nat_rule_association = azure.network.NetworkInterfaceNatRuleAssociation("exampleNetworkInterfaceNatRuleAssociation",
+            network_interface_id=example_network_interface.id,
+            ip_configuration_name="testconfiguration1",
+            nat_rule_id=example_nat_rule.id)
+        ```
 
         ## Import
 

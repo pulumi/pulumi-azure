@@ -6,6 +6,22 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Container App Environment Certificate.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleEnvironment = azure.containerapp.getEnvironment({
+ *     name: "example-environment",
+ *     resourceGroupName: "example-resources",
+ * });
+ * const exampleEnvironmentCertificate = exampleEnvironment.then(exampleEnvironment => azure.containerapp.getEnvironmentCertificate({
+ *     name: "mycertificate",
+ *     containerAppEnvironmentId: exampleEnvironment.id,
+ * }));
+ * ```
  */
 export function getEnvironmentCertificate(args: GetEnvironmentCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentCertificateResult> {
 
@@ -67,6 +83,22 @@ export interface GetEnvironmentCertificateResult {
 }
 /**
  * Use this data source to access information about an existing Container App Environment Certificate.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleEnvironment = azure.containerapp.getEnvironment({
+ *     name: "example-environment",
+ *     resourceGroupName: "example-resources",
+ * });
+ * const exampleEnvironmentCertificate = exampleEnvironment.then(exampleEnvironment => azure.containerapp.getEnvironmentCertificate({
+ *     name: "mycertificate",
+ *     containerAppEnvironmentId: exampleEnvironment.id,
+ * }));
+ * ```
  */
 export function getEnvironmentCertificateOutput(args: GetEnvironmentCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentCertificateResult> {
     return pulumi.output(args).apply((a: any) => getEnvironmentCertificate(a, opts))

@@ -15,6 +15,56 @@ import (
 
 // Manages a Directory within an Azure Storage File Share.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleShare, err := storage.NewShare(ctx, "exampleShare", &storage.ShareArgs{
+//				StorageAccountName: exampleAccount.Name,
+//				Quota:              pulumi.Int(50),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = storage.NewShareDirectory(ctx, "exampleShareDirectory", &storage.ShareDirectoryArgs{
+//				ShareName:          exampleShare.Name,
+//				StorageAccountName: exampleAccount.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Directories within an Azure Storage File Share can be imported using the `resource id`, e.g.

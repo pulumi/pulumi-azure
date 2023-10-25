@@ -6,6 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing PostgreSQL Flexible Server.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.postgresql.getFlexibleServer({
+ *     name: "existing-postgresql-fs",
+ *     resourceGroupName: "existing-postgresql-resgroup",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
  */
 export function getFlexibleServer(args: GetFlexibleServerArgs, opts?: pulumi.InvokeOptions): Promise<GetFlexibleServerResult> {
 
@@ -87,6 +100,19 @@ export interface GetFlexibleServerResult {
 }
 /**
  * Use this data source to access information about an existing PostgreSQL Flexible Server.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.postgresql.getFlexibleServer({
+ *     name: "existing-postgresql-fs",
+ *     resourceGroupName: "existing-postgresql-resgroup",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
  */
 export function getFlexibleServerOutput(args: GetFlexibleServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlexibleServerResult> {
     return pulumi.output(args).apply((a: any) => getFlexibleServer(a, opts))

@@ -12,6 +12,62 @@ namespace Pulumi.Azure.ContainerApp
     /// <summary>
     /// Manages a Container App Environment Storage.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "PerGB2018",
+    ///         RetentionInDays = 30,
+    ///     });
+    /// 
+    ///     var exampleEnvironment = new Azure.ContainerApp.Environment("exampleEnvironment", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         LogAnalyticsWorkspaceId = exampleAnalyticsWorkspace.Id,
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleShare = new Azure.Storage.Share("exampleShare", new()
+    ///     {
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         Quota = 5,
+    ///     });
+    /// 
+    ///     var exampleEnvironmentStorage = new Azure.ContainerApp.EnvironmentStorage("exampleEnvironmentStorage", new()
+    ///     {
+    ///         ContainerAppEnvironmentId = exampleEnvironment.Id,
+    ///         AccountName = exampleAccount.Name,
+    ///         ShareName = exampleShare.Name,
+    ///         AccessKey = exampleAccount.PrimaryAccessKey,
+    ///         AccessMode = "ReadOnly",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// A Container App Environment Storage can be imported using the `resource id`, e.g.

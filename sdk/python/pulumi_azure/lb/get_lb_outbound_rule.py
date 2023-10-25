@@ -144,6 +144,17 @@ def get_lb_outbound_rule(loadbalancer_id: Optional[str] = None,
     """
     Use this data source to access information about an existing Load Balancer Outbound Rule.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.lb.get_lb_outbound_rule(name="existing_lb_outbound_rule",
+        loadbalancer_id="existing_load_balancer_id")
+    pulumi.export("id", example.id)
+    ```
+
 
     :param str loadbalancer_id: The ID of the Load Balancer in which the Outbound Rule exists.
     :param str name: The name of this Load Balancer Outbound Rule.
@@ -172,6 +183,17 @@ def get_lb_outbound_rule_output(loadbalancer_id: Optional[pulumi.Input[str]] = N
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLBOutboundRuleResult]:
     """
     Use this data source to access information about an existing Load Balancer Outbound Rule.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.lb.get_lb_outbound_rule(name="existing_lb_outbound_rule",
+        loadbalancer_id="existing_load_balancer_id")
+    pulumi.export("id", example.id)
+    ```
 
 
     :param str loadbalancer_id: The ID of the Load Balancer in which the Outbound Rule exists.

@@ -14,6 +14,152 @@ namespace Pulumi.Azure.FrontDoor
     /// 
     /// Manages an Azure Front Door (classic) Rules Engine configuration and rules.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleFrontdoor = new Azure.FrontDoor.Frontdoor("exampleFrontdoor", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         BackendPools = new[]
+    ///         {
+    ///             new Azure.FrontDoor.Inputs.FrontdoorBackendPoolArgs
+    ///             {
+    ///                 Name = "exampleBackendBing",
+    ///                 LoadBalancingName = "exampleLoadBalancingSettings1",
+    ///                 HealthProbeName = "exampleHealthProbeSetting1",
+    ///                 Backends = new[]
+    ///                 {
+    ///                     new Azure.FrontDoor.Inputs.FrontdoorBackendPoolBackendArgs
+    ///                     {
+    ///                         HostHeader = "www.bing.com",
+    ///                         Address = "www.bing.com",
+    ///                         HttpPort = 80,
+    ///                         HttpsPort = 443,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         BackendPoolHealthProbes = new[]
+    ///         {
+    ///             new Azure.FrontDoor.Inputs.FrontdoorBackendPoolHealthProbeArgs
+    ///             {
+    ///                 Name = "exampleHealthProbeSetting1",
+    ///             },
+    ///         },
+    ///         BackendPoolLoadBalancings = new[]
+    ///         {
+    ///             new Azure.FrontDoor.Inputs.FrontdoorBackendPoolLoadBalancingArgs
+    ///             {
+    ///                 Name = "exampleLoadBalancingSettings1",
+    ///             },
+    ///         },
+    ///         FrontendEndpoints = new[]
+    ///         {
+    ///             new Azure.FrontDoor.Inputs.FrontdoorFrontendEndpointArgs
+    ///             {
+    ///                 Name = "exampleFrontendEndpoint1",
+    ///                 HostName = "example-FrontDoor.azurefd.net",
+    ///             },
+    ///         },
+    ///         RoutingRules = new[]
+    ///         {
+    ///             new Azure.FrontDoor.Inputs.FrontdoorRoutingRuleArgs
+    ///             {
+    ///                 Name = "exampleRoutingRule1",
+    ///                 AcceptedProtocols = new[]
+    ///                 {
+    ///                     "Http",
+    ///                     "Https",
+    ///                 },
+    ///                 PatternsToMatches = new[]
+    ///                 {
+    ///                     "/*",
+    ///                 },
+    ///                 FrontendEndpoints = new[]
+    ///                 {
+    ///                     "exampleFrontendEndpoint1",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleRulesEngine = new Azure.FrontDoor.RulesEngine("exampleRulesEngine", new()
+    ///     {
+    ///         FrontdoorName = exampleFrontdoor.Name,
+    ///         ResourceGroupName = exampleFrontdoor.ResourceGroupName,
+    ///         Rules = new[]
+    ///         {
+    ///             new Azure.FrontDoor.Inputs.RulesEngineRuleArgs
+    ///             {
+    ///                 Name = "debuggingoutput",
+    ///                 Priority = 1,
+    ///                 Action = new Azure.FrontDoor.Inputs.RulesEngineRuleActionArgs
+    ///                 {
+    ///                     ResponseHeaders = new[]
+    ///                     {
+    ///                         new Azure.FrontDoor.Inputs.RulesEngineRuleActionResponseHeaderArgs
+    ///                         {
+    ///                             HeaderActionType = "Append",
+    ///                             HeaderName = "X-TEST-HEADER",
+    ///                             Value = "Append Header Rule",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Azure.FrontDoor.Inputs.RulesEngineRuleArgs
+    ///             {
+    ///                 Name = "overwriteorigin",
+    ///                 Priority = 2,
+    ///                 MatchConditions = new[]
+    ///                 {
+    ///                     new Azure.FrontDoor.Inputs.RulesEngineRuleMatchConditionArgs
+    ///                     {
+    ///                         Variable = "RequestMethod",
+    ///                         Operator = "Equal",
+    ///                         Values = new[]
+    ///                         {
+    ///                             "GET",
+    ///                             "POST",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Action = new Azure.FrontDoor.Inputs.RulesEngineRuleActionArgs
+    ///                 {
+    ///                     ResponseHeaders = new[]
+    ///                     {
+    ///                         new Azure.FrontDoor.Inputs.RulesEngineRuleActionResponseHeaderArgs
+    ///                         {
+    ///                             HeaderActionType = "Overwrite",
+    ///                             HeaderName = "Access-Control-Allow-Origin",
+    ///                             Value = "*",
+    ///                         },
+    ///                         new Azure.FrontDoor.Inputs.RulesEngineRuleActionResponseHeaderArgs
+    ///                         {
+    ///                             HeaderActionType = "Overwrite",
+    ///                             HeaderName = "Access-Control-Allow-Credentials",
+    ///                             Value = "true",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Azure Front Door Rules Engine's can be imported using the `resource id`, e.g.

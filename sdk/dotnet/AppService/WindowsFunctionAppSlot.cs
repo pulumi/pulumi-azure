@@ -12,6 +12,56 @@ namespace Pulumi.Azure.AppService
     /// <summary>
     /// Manages a Windows Function App Slot.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleServicePlan = new Azure.AppService.ServicePlan("exampleServicePlan", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         OsType = "Windows",
+    ///         SkuName = "Y1",
+    ///     });
+    /// 
+    ///     var exampleWindowsFunctionApp = new Azure.AppService.WindowsFunctionApp("exampleWindowsFunctionApp", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         ServicePlanId = exampleServicePlan.Id,
+    ///         SiteConfig = null,
+    ///     });
+    /// 
+    ///     var exampleWindowsFunctionAppSlot = new Azure.AppService.WindowsFunctionAppSlot("exampleWindowsFunctionAppSlot", new()
+    ///     {
+    ///         FunctionAppId = exampleWindowsFunctionApp.Id,
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         SiteConfig = null,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// A Windows Function App Slot can be imported using the `resource id`, e.g.

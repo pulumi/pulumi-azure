@@ -87,6 +87,17 @@ def get_firewall_policy(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Web Application Firewall Policy.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.waf.get_firewall_policy(resource_group_name="existing",
+        name="existing")
+    pulumi.export("id", example.id)
+    ```
+
 
     :param str name: The name of the Web Application Firewall Policy
     :param str resource_group_name: The name of the Resource Group where the Web Application Firewall Policy exists.
@@ -113,6 +124,17 @@ def get_firewall_policy_output(name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallPolicyResult]:
     """
     Use this data source to access information about an existing Web Application Firewall Policy.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.waf.get_firewall_policy(resource_group_name="existing",
+        name="existing")
+    pulumi.export("id", example.id)
+    ```
 
 
     :param str name: The name of the Web Application Firewall Policy

@@ -15,6 +15,81 @@ import (
 
 // Manages a Redis Linked Server (ie Geo Location)
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/redis"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := core.NewResourceGroup(ctx, "example-primaryResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("East US"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = redis.NewCache(ctx, "example-primaryCache", &redis.CacheArgs{
+//				Location:          example_primaryResourceGroup.Location,
+//				ResourceGroupName: example_primaryResourceGroup.Name,
+//				Capacity:          pulumi.Int(1),
+//				Family:            pulumi.String("P"),
+//				SkuName:           pulumi.String("Premium"),
+//				EnableNonSslPort:  pulumi.Bool(false),
+//				RedisConfiguration: &redis.CacheRedisConfigurationArgs{
+//					MaxmemoryReserved: pulumi.Int(2),
+//					MaxmemoryDelta:    pulumi.Int(2),
+//					MaxmemoryPolicy:   pulumi.String("allkeys-lru"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = core.NewResourceGroup(ctx, "example-secondaryResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West US"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = redis.NewCache(ctx, "example-secondaryCache", &redis.CacheArgs{
+//				Location:          example_secondaryResourceGroup.Location,
+//				ResourceGroupName: example_secondaryResourceGroup.Name,
+//				Capacity:          pulumi.Int(1),
+//				Family:            pulumi.String("P"),
+//				SkuName:           pulumi.String("Premium"),
+//				EnableNonSslPort:  pulumi.Bool(false),
+//				RedisConfiguration: &redis.CacheRedisConfigurationArgs{
+//					MaxmemoryReserved: pulumi.Int(2),
+//					MaxmemoryDelta:    pulumi.Int(2),
+//					MaxmemoryPolicy:   pulumi.String("allkeys-lru"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = redis.NewLinkedServer(ctx, "example-link", &redis.LinkedServerArgs{
+//				TargetRedisCacheName:     example_primaryCache.Name,
+//				ResourceGroupName:        example_primaryCache.ResourceGroupName,
+//				LinkedRedisCacheId:       example_secondaryCache.ID(),
+//				LinkedRedisCacheLocation: example_secondaryCache.Location,
+//				ServerRole:               pulumi.String("Secondary"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Redis can be imported using the `resource id`, e.g.

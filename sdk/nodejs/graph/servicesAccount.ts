@@ -7,6 +7,24 @@ import * as utilities from "../utilities";
 /**
  * Manages a Microsoft Graph Services Account.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as azuread from "@pulumi/azuread";
+ *
+ * const exampleApplication = new azuread.Application("exampleApplication", {displayName: "example-app"});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleServicesAccount = new azure.graph.ServicesAccount("exampleServicesAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     applicationId: exampleApplication.applicationId,
+ *     tags: {
+ *         environment: "Production",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * An existing Account can be imported into Terraform using the `resource id`, e.g.

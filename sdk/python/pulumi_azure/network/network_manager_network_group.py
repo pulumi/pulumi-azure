@@ -170,6 +170,28 @@ class NetworkManagerNetworkGroup(pulumi.CustomResource):
         """
         Manages a Network Manager Network Group.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        current = azure.core.get_subscription()
+        example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            scope=azure.network.NetworkManagerScopeArgs(
+                subscription_ids=[current.id],
+            ),
+            scope_accesses=[
+                "Connectivity",
+                "SecurityAdmin",
+            ],
+            description="example network manager")
+        example_network_manager_network_group = azure.network.NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup", network_manager_id=example_network_manager.id)
+        ```
+
         ## Import
 
         Network Manager Network Group can be imported using the `resource id`, e.g.
@@ -192,6 +214,28 @@ class NetworkManagerNetworkGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Network Manager Network Group.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        current = azure.core.get_subscription()
+        example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            scope=azure.network.NetworkManagerScopeArgs(
+                subscription_ids=[current.id],
+            ),
+            scope_accesses=[
+                "Connectivity",
+                "SecurityAdmin",
+            ],
+            description="example network manager")
+        example_network_manager_network_group = azure.network.NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup", network_manager_id=example_network_manager.id)
+        ```
 
         ## Import
 

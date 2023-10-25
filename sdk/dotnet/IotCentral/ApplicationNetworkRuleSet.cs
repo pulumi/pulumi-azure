@@ -12,6 +12,55 @@ namespace Pulumi.Azure.IotCentral
     /// <summary>
     /// Manages an IoT Central Application Network Rule Set.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleApplication = new Azure.IotCentral.Application("exampleApplication", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         SubDomain = "example-iotcentral-app-subdomain",
+    ///         DisplayName = "example-iotcentral-app-display-name",
+    ///         Sku = "ST1",
+    ///         Tags = 
+    ///         {
+    ///             { "Foo", "Bar" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleApplicationNetworkRuleSet = new Azure.IotCentral.ApplicationNetworkRuleSet("exampleApplicationNetworkRuleSet", new()
+    ///     {
+    ///         IotcentralApplicationId = exampleApplication.Id,
+    ///         IpRules = new[]
+    ///         {
+    ///             new Azure.IotCentral.Inputs.ApplicationNetworkRuleSetIpRuleArgs
+    ///             {
+    ///                 Name = "rule1",
+    ///                 IpMask = "10.0.1.0/24",
+    ///             },
+    ///             new Azure.IotCentral.Inputs.ApplicationNetworkRuleSetIpRuleArgs
+    ///             {
+    ///                 Name = "rule2",
+    ///                 IpMask = "10.1.1.0/24",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// IoT Central Application Network Rule Sets can be imported using the `resource id`, e.g.

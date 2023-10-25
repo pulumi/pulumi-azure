@@ -9,6 +9,74 @@ import * as utilities from "../utilities";
 /**
  * Manages the linked service to link an Azure Machine learning workspace to an Azure Synapse workspace.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const current = azure.core.getClientConfig({});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {
+ *     location: "west europe",
+ *     tags: {
+ *         stage: "example",
+ *     },
+ * });
+ * const exampleInsights = new azure.appinsights.Insights("exampleInsights", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     applicationType: "web",
+ * });
+ * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "standard",
+ *     purgeProtectionEnabled: true,
+ * });
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ * });
+ * const exampleWorkspace = new azure.machinelearning.Workspace("exampleWorkspace", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     applicationInsightsId: exampleInsights.id,
+ *     keyVaultId: exampleKeyVault.id,
+ *     storageAccountId: exampleAccount.id,
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ * });
+ * const exampleDataLakeGen2Filesystem = new azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", {storageAccountId: exampleAccount.id});
+ * const exampleSynapse_workspaceWorkspace = new azure.synapse.Workspace("exampleSynapse/workspaceWorkspace", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     storageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.id,
+ *     sqlAdministratorLogin: "sqladminuser",
+ *     sqlAdministratorLoginPassword: "H@Sh1CoR3!",
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ * });
+ * const exampleSparkPool = new azure.synapse.SparkPool("exampleSparkPool", {
+ *     synapseWorkspaceId: exampleSynapse / workspaceWorkspace.id,
+ *     nodeSizeFamily: "MemoryOptimized",
+ *     nodeSize: "Small",
+ *     nodeCount: 3,
+ * });
+ * const exampleSynapseSpark = new azure.machinelearning.SynapseSpark("exampleSynapseSpark", {
+ *     machineLearningWorkspaceId: exampleWorkspace.id,
+ *     location: exampleResourceGroup.location,
+ *     synapseSparkPoolId: exampleSparkPool.id,
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Machine Learning Synapse Sparks can be imported using the `resource id`, e.g.

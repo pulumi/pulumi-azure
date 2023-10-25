@@ -291,6 +291,49 @@ class Analyzer(pulumi.CustomResource):
 
         !> Video Analyzer (Preview) is now Deprecated and will be Retired on 2022-11-30 - as such the `videoanalyzer.Analyzer` resource is deprecated and will be removed in v4.0 of the AzureRM Provider.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="GRS")
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        contributor = azure.authorization.Assignment("contributor",
+            scope=example_account.id,
+            role_definition_name="Storage Blob Data Contributor",
+            principal_id=example_user_assigned_identity.principal_id)
+        reader = azure.authorization.Assignment("reader",
+            scope=example_account.id,
+            role_definition_name="Reader",
+            principal_id=example_user_assigned_identity.principal_id)
+        example_analyzer = azure.videoanalyzer.Analyzer("exampleAnalyzer",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            storage_account=azure.videoanalyzer.AnalyzerStorageAccountArgs(
+                id=example_account.id,
+                user_assigned_identity_id=example_user_assigned_identity.id,
+            ),
+            identity=azure.videoanalyzer.AnalyzerIdentityArgs(
+                type="UserAssigned",
+                identity_ids=[example_user_assigned_identity.id],
+            ),
+            tags={
+                "environment": "staging",
+            },
+            opts=pulumi.ResourceOptions(depends_on=[
+                    contributor,
+                    reader,
+                ]))
+        ```
+
         ## Import
 
         Video Analyzer can be imported using the `resource id`, e.g.
@@ -318,6 +361,49 @@ class Analyzer(pulumi.CustomResource):
         Manages a Video Analyzer.
 
         !> Video Analyzer (Preview) is now Deprecated and will be Retired on 2022-11-30 - as such the `videoanalyzer.Analyzer` resource is deprecated and will be removed in v4.0 of the AzureRM Provider.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="GRS")
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        contributor = azure.authorization.Assignment("contributor",
+            scope=example_account.id,
+            role_definition_name="Storage Blob Data Contributor",
+            principal_id=example_user_assigned_identity.principal_id)
+        reader = azure.authorization.Assignment("reader",
+            scope=example_account.id,
+            role_definition_name="Reader",
+            principal_id=example_user_assigned_identity.principal_id)
+        example_analyzer = azure.videoanalyzer.Analyzer("exampleAnalyzer",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            storage_account=azure.videoanalyzer.AnalyzerStorageAccountArgs(
+                id=example_account.id,
+                user_assigned_identity_id=example_user_assigned_identity.id,
+            ),
+            identity=azure.videoanalyzer.AnalyzerIdentityArgs(
+                type="UserAssigned",
+                identity_ids=[example_user_assigned_identity.id],
+            ),
+            tags={
+                "environment": "staging",
+            },
+            opts=pulumi.ResourceOptions(depends_on=[
+                    contributor,
+                    reader,
+                ]))
+        ```
 
         ## Import
 

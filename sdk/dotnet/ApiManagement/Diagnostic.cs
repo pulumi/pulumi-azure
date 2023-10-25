@@ -12,6 +12,103 @@ namespace Pulumi.Azure.ApiManagement
     /// <summary>
     /// Manages an API Management Service Diagnostic.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApplicationType = "web",
+    ///     });
+    /// 
+    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PublisherName = "My Company",
+    ///         PublisherEmail = "company@mycompany.io",
+    ///         SkuName = "Developer_1",
+    ///     });
+    /// 
+    ///     var exampleLogger = new Azure.ApiManagement.Logger("exampleLogger", new()
+    ///     {
+    ///         ApiManagementName = exampleService.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApplicationInsights = new Azure.ApiManagement.Inputs.LoggerApplicationInsightsArgs
+    ///         {
+    ///             InstrumentationKey = exampleInsights.InstrumentationKey,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleDiagnostic = new Azure.ApiManagement.Diagnostic("exampleDiagnostic", new()
+    ///     {
+    ///         Identifier = "applicationinsights",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApiManagementName = exampleService.Name,
+    ///         ApiManagementLoggerId = exampleLogger.Id,
+    ///         SamplingPercentage = 5,
+    ///         AlwaysLogErrors = true,
+    ///         LogClientIp = true,
+    ///         Verbosity = "verbose",
+    ///         HttpCorrelationProtocol = "W3C",
+    ///         FrontendRequest = new Azure.ApiManagement.Inputs.DiagnosticFrontendRequestArgs
+    ///         {
+    ///             BodyBytes = 32,
+    ///             HeadersToLogs = new[]
+    ///             {
+    ///                 "content-type",
+    ///                 "accept",
+    ///                 "origin",
+    ///             },
+    ///         },
+    ///         FrontendResponse = new Azure.ApiManagement.Inputs.DiagnosticFrontendResponseArgs
+    ///         {
+    ///             BodyBytes = 32,
+    ///             HeadersToLogs = new[]
+    ///             {
+    ///                 "content-type",
+    ///                 "content-length",
+    ///                 "origin",
+    ///             },
+    ///         },
+    ///         BackendRequest = new Azure.ApiManagement.Inputs.DiagnosticBackendRequestArgs
+    ///         {
+    ///             BodyBytes = 32,
+    ///             HeadersToLogs = new[]
+    ///             {
+    ///                 "content-type",
+    ///                 "accept",
+    ///                 "origin",
+    ///             },
+    ///         },
+    ///         BackendResponse = new Azure.ApiManagement.Inputs.DiagnosticBackendResponseArgs
+    ///         {
+    ///             BodyBytes = 32,
+    ///             HeadersToLogs = new[]
+    ///             {
+    ///                 "content-type",
+    ///                 "content-length",
+    ///                 "origin",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// API Management Diagnostics can be imported using the `resource id`, e.g.

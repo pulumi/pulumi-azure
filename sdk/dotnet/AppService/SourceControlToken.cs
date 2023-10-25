@@ -10,6 +10,25 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.AppService.SourceControlToken("example", new()
+    ///     {
+    ///         Token = "ghp_sometokenvaluesecretsauce",
+    ///         Type = "GitHub",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// App Service Source GitHub Tokens can be imported using the `resource id`, e.g.

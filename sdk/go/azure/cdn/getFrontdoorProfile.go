@@ -13,6 +13,33 @@ import (
 )
 
 // Use this data source to access information about an existing Front Door (standard/premium) Profile.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cdn"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cdn.LookupFrontdoorProfile(ctx, &cdn.LookupFrontdoorProfileArgs{
+//				Name:              "existing-cdn-profile",
+//				ResourceGroupName: "existing-resources",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupFrontdoorProfile(ctx *pulumi.Context, args *LookupFrontdoorProfileArgs, opts ...pulumi.InvokeOption) (*LookupFrontdoorProfileResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFrontdoorProfileResult

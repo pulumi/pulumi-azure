@@ -12,6 +12,76 @@ namespace Pulumi.Azure.ArcKubernetes
     /// <summary>
     /// Manages an Arc Kubernetes Flux Configuration.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System;
+    /// using System.Collections.Generic;
+    /// using System.IO;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// 	private static string ReadFileBase64(string path) {
+    /// 		return Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(File.ReadAllText(path)));
+    /// 	}
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleCluster = new Azure.ArcKubernetes.Cluster("exampleCluster", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = "West Europe",
+    ///         AgentPublicKeyCertificate = ReadFileBase64("testdata/public.cer"),
+    ///         Identity = new Azure.ArcKubernetes.Inputs.ClusterIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "ENV", "Test" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleClusterExtension = new Azure.ArcKubernetes.ClusterExtension("exampleClusterExtension", new()
+    ///     {
+    ///         ClusterId = azurerm_arc_kubernetes_cluster.Test.Id,
+    ///         ExtensionType = "microsoft.flux",
+    ///     });
+    /// 
+    ///     var exampleFluxConfiguration = new Azure.ArcKubernetes.FluxConfiguration("exampleFluxConfiguration", new()
+    ///     {
+    ///         ClusterId = azurerm_arc_kubernetes_cluster.Test.Id,
+    ///         Namespace = "flux",
+    ///         GitRepository = new Azure.ArcKubernetes.Inputs.FluxConfigurationGitRepositoryArgs
+    ///         {
+    ///             Url = "https://github.com/Azure/arc-k8s-demo",
+    ///             ReferenceType = "branch",
+    ///             ReferenceValue = "main",
+    ///         },
+    ///         Kustomizations = new[]
+    ///         {
+    ///             new Azure.ArcKubernetes.Inputs.FluxConfigurationKustomizationArgs
+    ///             {
+    ///                 Name = "kustomization-1",
+    ///             },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleClusterExtension,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Arc Kubernetes Flux Configuration can be imported using the `resource id` for different `cluster_resource_name`, e.g.

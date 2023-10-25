@@ -12,6 +12,50 @@ namespace Pulumi.Azure.SiteRecovery
     /// <summary>
     /// Manages a Azure Site Recovery protection container. Protection containers serve as containers for replicated VMs and belong to a single region / recovery fabric. Protection containers can contain more than one replicated VM. To replicate a VM, a container must exist in both the source and target Azure regions.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var primary = new Azure.Core.ResourceGroup("primary", new()
+    ///     {
+    ///         Location = "West US",
+    ///     });
+    /// 
+    ///     var secondary = new Azure.Core.ResourceGroup("secondary", new()
+    ///     {
+    ///         Location = "East US",
+    ///     });
+    /// 
+    ///     var vault = new Azure.RecoveryServices.Vault("vault", new()
+    ///     {
+    ///         Location = secondary.Location,
+    ///         ResourceGroupName = secondary.Name,
+    ///         Sku = "Standard",
+    ///     });
+    /// 
+    ///     var fabric = new Azure.SiteRecovery.Fabric("fabric", new()
+    ///     {
+    ///         ResourceGroupName = secondary.Name,
+    ///         RecoveryVaultName = vault.Name,
+    ///         Location = primary.Location,
+    ///     });
+    /// 
+    ///     var protection_container = new Azure.SiteRecovery.ProtectionContainer("protection-container", new()
+    ///     {
+    ///         ResourceGroupName = secondary.Name,
+    ///         RecoveryVaultName = vault.Name,
+    ///         RecoveryFabricName = fabric.Name,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Site Recovery Protection Containers can be imported using the `resource id`, e.g.

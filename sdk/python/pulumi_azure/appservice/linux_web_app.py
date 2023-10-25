@@ -1226,6 +1226,25 @@ class LinuxWebApp(pulumi.CustomResource):
         """
         Manages a Linux Web App.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            os_type="Linux",
+            sku_name="P1v2")
+        example_linux_web_app = azure.appservice.LinuxWebApp("exampleLinuxWebApp",
+            resource_group_name=example_resource_group.name,
+            location=example_service_plan.location,
+            service_plan_id=example_service_plan.id,
+            site_config=azure.appservice.LinuxWebAppSiteConfigArgs())
+        ```
+
         ## Import
 
         Linux Web Apps can be imported using the `resource id`, e.g.
@@ -1270,6 +1289,25 @@ class LinuxWebApp(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Linux Web App.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            os_type="Linux",
+            sku_name="P1v2")
+        example_linux_web_app = azure.appservice.LinuxWebApp("exampleLinuxWebApp",
+            resource_group_name=example_resource_group.name,
+            location=example_service_plan.location,
+            service_plan_id=example_service_plan.id,
+            site_config=azure.appservice.LinuxWebAppSiteConfigArgs())
+        ```
 
         ## Import
 

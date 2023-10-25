@@ -15,6 +15,60 @@ import (
 
 // Manages a Lab Service Lab.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/lab"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = lab.NewLab(ctx, "exampleLab", &lab.LabArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Title:             pulumi.String("Test Title"),
+//				Security: &lab.LabSecurityArgs{
+//					OpenAccessEnabled: pulumi.Bool(false),
+//				},
+//				VirtualMachine: &lab.LabVirtualMachineArgs{
+//					AdminUser: &lab.LabVirtualMachineAdminUserArgs{
+//						Username: pulumi.String("testadmin"),
+//						Password: pulumi.String("Password1234!"),
+//					},
+//					ImageReference: &lab.LabVirtualMachineImageReferenceArgs{
+//						Offer:     pulumi.String("0001-com-ubuntu-server-focal"),
+//						Publisher: pulumi.String("canonical"),
+//						Sku:       pulumi.String("20_04-lts"),
+//						Version:   pulumi.String("latest"),
+//					},
+//					Sku: &lab.LabVirtualMachineSkuArgs{
+//						Name:     pulumi.String("Classic_Fsv2_2_4GB_128_S_SSD"),
+//						Capacity: pulumi.Int(0),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Lab Service Labs can be imported using the `resource id`, e.g.

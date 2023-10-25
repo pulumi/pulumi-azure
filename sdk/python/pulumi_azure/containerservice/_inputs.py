@@ -3379,6 +3379,19 @@ class KubernetesClusterAciConnectorLinuxArgs:
                > **Note:** At this time ACI Connectors are not supported in Azure China.
                
                > **Note:** AKS will add a delegation to the subnet named here. To prevent further runs from failing you should make sure that the subnet you create for virtual nodes has a delegation, like so.
+               
+               ```python
+               import pulumi
+               import pulumi_azure as azure
+               
+               virtual = azure.network.Subnet("virtual", delegations=[azure.network.SubnetDelegationArgs(
+                   name="aciDelegation",
+                   service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                       actions=["Microsoft.Network/virtualNetworks/subnets/action"],
+                       name="Microsoft.ContainerInstance/containerGroups",
+                   ),
+               )])
+               ```
         :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterAciConnectorLinuxConnectorIdentityArgs']]] connector_identities: A `connector_identity` block is exported. The exported attributes are defined below.
         """
         KubernetesClusterAciConnectorLinuxArgs._configure(
@@ -3413,6 +3426,19 @@ class KubernetesClusterAciConnectorLinuxArgs:
         > **Note:** At this time ACI Connectors are not supported in Azure China.
 
         > **Note:** AKS will add a delegation to the subnet named here. To prevent further runs from failing you should make sure that the subnet you create for virtual nodes has a delegation, like so.
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        virtual = azure.network.Subnet("virtual", delegations=[azure.network.SubnetDelegationArgs(
+            name="aciDelegation",
+            service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                actions=["Microsoft.Network/virtualNetworks/subnets/action"],
+                name="Microsoft.ContainerInstance/containerGroups",
+            ),
+        )])
+        ```
         """
         return pulumi.get(self, "subnet_name")
 

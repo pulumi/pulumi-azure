@@ -226,6 +226,41 @@ class MongoRoleDefinition(pulumi.CustomResource):
         """
         Manages a Cosmos DB Mongo Role Definition.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.cosmosdb.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            offer_type="Standard",
+            kind="MongoDB",
+            capabilities=[
+                azure.cosmosdb.AccountCapabilityArgs(
+                    name="EnableMongo",
+                ),
+                azure.cosmosdb.AccountCapabilityArgs(
+                    name="EnableMongoRoleBasedAccessControl",
+                ),
+            ],
+            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
+                consistency_level="Strong",
+            ),
+            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
+                location=example_resource_group.location,
+                failover_priority=0,
+            )])
+        example_mongo_database = azure.cosmosdb.MongoDatabase("exampleMongoDatabase",
+            resource_group_name=example_account.resource_group_name,
+            account_name=example_account.name)
+        example_mongo_role_definition = azure.cosmosdb.MongoRoleDefinition("exampleMongoRoleDefinition",
+            cosmos_mongo_database_id=example_mongo_database.id,
+            role_name="example-roledefinition")
+        ```
+
         ## Import
 
         Cosmos DB Mongo Role Definitions can be imported using the `resource id`, e.g.
@@ -251,6 +286,41 @@ class MongoRoleDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Cosmos DB Mongo Role Definition.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.cosmosdb.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            offer_type="Standard",
+            kind="MongoDB",
+            capabilities=[
+                azure.cosmosdb.AccountCapabilityArgs(
+                    name="EnableMongo",
+                ),
+                azure.cosmosdb.AccountCapabilityArgs(
+                    name="EnableMongoRoleBasedAccessControl",
+                ),
+            ],
+            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
+                consistency_level="Strong",
+            ),
+            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
+                location=example_resource_group.location,
+                failover_priority=0,
+            )])
+        example_mongo_database = azure.cosmosdb.MongoDatabase("exampleMongoDatabase",
+            resource_group_name=example_account.resource_group_name,
+            account_name=example_account.name)
+        example_mongo_role_definition = azure.cosmosdb.MongoRoleDefinition("exampleMongoRoleDefinition",
+            cosmos_mongo_database_id=example_mongo_database.id,
+            role_name="example-roledefinition")
+        ```
 
         ## Import
 

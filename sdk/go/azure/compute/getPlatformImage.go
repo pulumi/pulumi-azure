@@ -13,6 +13,36 @@ import (
 )
 
 // Use this data source to access information about a Platform Image.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := compute.GetPlatformImage(ctx, &compute.GetPlatformImageArgs{
+//				Location:  "West Europe",
+//				Publisher: "Canonical",
+//				Offer:     "0001-com-ubuntu-server-focal",
+//				Sku:       "20_04-lts",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("id", example.Id)
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetPlatformImage(ctx *pulumi.Context, args *GetPlatformImageArgs, opts ...pulumi.InvokeOption) (*GetPlatformImageResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPlatformImageResult

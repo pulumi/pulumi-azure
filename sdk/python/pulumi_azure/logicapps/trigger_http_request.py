@@ -285,6 +285,29 @@ class TriggerHttpRequest(pulumi.CustomResource):
         """
         Manages a HTTP Request Trigger within a Logic App Workflow
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_workflow = azure.logicapps.Workflow("exampleWorkflow",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_trigger_http_request = azure.logicapps.TriggerHttpRequest("exampleTriggerHttpRequest",
+            logic_app_id=example_workflow.id,
+            schema=\"\"\"{
+            "type": "object",
+            "properties": {
+                "hello": {
+                    "type": "string"
+                }
+            }
+        }
+        \"\"\")
+        ```
+
         ## Import
 
         Logic App HTTP Request Triggers can be imported using the `resource id`, e.g.
@@ -313,6 +336,29 @@ class TriggerHttpRequest(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a HTTP Request Trigger within a Logic App Workflow
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_workflow = azure.logicapps.Workflow("exampleWorkflow",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_trigger_http_request = azure.logicapps.TriggerHttpRequest("exampleTriggerHttpRequest",
+            logic_app_id=example_workflow.id,
+            schema=\"\"\"{
+            "type": "object",
+            "properties": {
+                "hello": {
+                    "type": "string"
+                }
+            }
+        }
+        \"\"\")
+        ```
 
         ## Import
 

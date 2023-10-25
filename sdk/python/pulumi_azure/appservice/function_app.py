@@ -1053,6 +1053,91 @@ class FunctionApp(pulumi.CustomResource):
         For an example, check the `appservice.VirtualNetworkSwiftConnection` documentation.
 
         ## Example Usage
+        ### With App Service Plan)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_plan = azure.appservice.Plan("examplePlan",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku=azure.appservice.PlanSkuArgs(
+                tier="Standard",
+                size="S1",
+            ))
+        example_function_app = azure.appservice.FunctionApp("exampleFunctionApp",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            app_service_plan_id=example_plan.id,
+            storage_account_name=example_account.name,
+            storage_account_access_key=example_account.primary_access_key)
+        ```
+        ### In A Consumption Plan)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_plan = azure.appservice.Plan("examplePlan",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            kind="FunctionApp",
+            sku=azure.appservice.PlanSkuArgs(
+                tier="Dynamic",
+                size="Y1",
+            ))
+        example_function_app = azure.appservice.FunctionApp("exampleFunctionApp",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            app_service_plan_id=example_plan.id,
+            storage_account_name=example_account.name,
+            storage_account_access_key=example_account.primary_access_key)
+        ```
+        ### Linux)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_plan = azure.appservice.Plan("examplePlan",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            kind="Linux",
+            reserved=True,
+            sku=azure.appservice.PlanSkuArgs(
+                tier="Dynamic",
+                size="Y1",
+            ))
+        example_function_app = azure.appservice.FunctionApp("exampleFunctionApp",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            app_service_plan_id=example_plan.id,
+            storage_account_name=example_account.name,
+            storage_account_access_key=example_account.primary_access_key,
+            os_type="linux",
+            version="~3")
+        ```
+
+        > **Note:** Version `~3` or `~4` is required for Linux Function Apps.
 
         ## Import
 
@@ -1109,6 +1194,91 @@ class FunctionApp(pulumi.CustomResource):
         For an example, check the `appservice.VirtualNetworkSwiftConnection` documentation.
 
         ## Example Usage
+        ### With App Service Plan)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_plan = azure.appservice.Plan("examplePlan",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku=azure.appservice.PlanSkuArgs(
+                tier="Standard",
+                size="S1",
+            ))
+        example_function_app = azure.appservice.FunctionApp("exampleFunctionApp",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            app_service_plan_id=example_plan.id,
+            storage_account_name=example_account.name,
+            storage_account_access_key=example_account.primary_access_key)
+        ```
+        ### In A Consumption Plan)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_plan = azure.appservice.Plan("examplePlan",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            kind="FunctionApp",
+            sku=azure.appservice.PlanSkuArgs(
+                tier="Dynamic",
+                size="Y1",
+            ))
+        example_function_app = azure.appservice.FunctionApp("exampleFunctionApp",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            app_service_plan_id=example_plan.id,
+            storage_account_name=example_account.name,
+            storage_account_access_key=example_account.primary_access_key)
+        ```
+        ### Linux)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_plan = azure.appservice.Plan("examplePlan",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            kind="Linux",
+            reserved=True,
+            sku=azure.appservice.PlanSkuArgs(
+                tier="Dynamic",
+                size="Y1",
+            ))
+        example_function_app = azure.appservice.FunctionApp("exampleFunctionApp",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            app_service_plan_id=example_plan.id,
+            storage_account_name=example_account.name,
+            storage_account_access_key=example_account.primary_access_key,
+            os_type="linux",
+            version="~3")
+        ```
+
+        > **Note:** Version `~3` or `~4` is required for Linux Function Apps.
 
         ## Import
 

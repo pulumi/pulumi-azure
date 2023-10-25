@@ -10,6 +10,19 @@ import * as utilities from "../utilities";
  * Use this data source to access information about an existing SQL Azure Database Server.
  *
  * > **Note:** The `azure.sql.SqlServer` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.Server` data source instead.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.sql.getServer({
+ *     name: "examplesqlservername",
+ *     resourceGroupName: "example-resources",
+ * });
+ * export const sqlServerId = example.then(example => example.id);
+ * ```
  */
 export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
 
@@ -73,6 +86,19 @@ export interface GetServerResult {
  * Use this data source to access information about an existing SQL Azure Database Server.
  *
  * > **Note:** The `azure.sql.SqlServer` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.Server` data source instead.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.sql.getServer({
+ *     name: "examplesqlservername",
+ *     resourceGroupName: "example-resources",
+ * });
+ * export const sqlServerId = example.then(example => example.id);
+ * ```
  */
 export function getServerOutput(args: GetServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerResult> {
     return pulumi.output(args).apply((a: any) => getServer(a, opts))

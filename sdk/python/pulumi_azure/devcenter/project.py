@@ -349,6 +349,25 @@ class Project(pulumi.CustomResource):
 
         Manages a Dev Center Project.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_dev_center = azure.devcenter.DevCenter("exampleDevCenter",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            identity=azure.devcenter.DevCenterIdentityArgs(
+                type="example-value",
+            ))
+        example_project = azure.devcenter.Project("exampleProject",
+            dev_center_id=example_dev_center.id,
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        ```
+
         ## Import
 
         An existing Dev Center Project can be imported into Terraform using the `resource id`, e.g.
@@ -379,6 +398,25 @@ class Project(pulumi.CustomResource):
         <!-- Note: This documentation is generated. Any manual changes will be overwritten -->
 
         Manages a Dev Center Project.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_dev_center = azure.devcenter.DevCenter("exampleDevCenter",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            identity=azure.devcenter.DevCenterIdentityArgs(
+                type="example-value",
+            ))
+        example_project = azure.devcenter.Project("exampleProject",
+            dev_center_id=example_dev_center.id,
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        ```
 
         ## Import
 

@@ -9,6 +9,28 @@ import * as utilities from "../utilities";
  *
  * > **Note** A bot can only have a single Alexa Channel associated with it.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const current = azure.core.getClientConfig({});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleChannelsRegistration = new azure.bot.ChannelsRegistration("exampleChannelsRegistration", {
+ *     location: "global",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "F0",
+ *     microsoftAppId: current.then(current => current.clientId),
+ * });
+ * const exampleChannelAlexa = new azure.bot.ChannelAlexa("exampleChannelAlexa", {
+ *     botName: exampleChannelsRegistration.name,
+ *     location: exampleChannelsRegistration.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     skillId: "amzn1.ask.skill.00000000-0000-0000-0000-000000000000",
+ * });
+ * ```
+ *
  * ## Import
  *
  * The Alexa Integration for a Bot Channel can be imported using the `resource id`, e.g.

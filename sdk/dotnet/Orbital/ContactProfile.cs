@@ -12,6 +12,99 @@ namespace Pulumi.Azure.Orbital
     /// <summary>
     /// Manages a Contact profile.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.1.0/24",
+    ///         },
+    ///         Delegations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.SubnetDelegationArgs
+    ///             {
+    ///                 Name = "orbitalgateway",
+    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                 {
+    ///                     Name = "Microsoft.Orbital/orbitalGateways",
+    ///                     Actions = new[]
+    ///                     {
+    ///                         "Microsoft.Network/publicIPAddresses/join/action",
+    ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
+    ///                         "Microsoft.Network/virtualNetworks/read",
+    ///                         "Microsoft.Network/publicIPAddresses/read",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleContactProfile = new Azure.Orbital.ContactProfile("exampleContactProfile", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         MinimumVariableContactDuration = "PT1M",
+    ///         AutoTracking = "disabled",
+    ///         Links = new[]
+    ///         {
+    ///             new Azure.Orbital.Inputs.ContactProfileLinkArgs
+    ///             {
+    ///                 Channels = new[]
+    ///                 {
+    ///                     new Azure.Orbital.Inputs.ContactProfileLinkChannelArgs
+    ///                     {
+    ///                         Name = "channelname",
+    ///                         BandwidthMhz = 100,
+    ///                         CenterFrequencyMhz = 101,
+    ///                         EndPoints = new[]
+    ///                         {
+    ///                             new Azure.Orbital.Inputs.ContactProfileLinkChannelEndPointArgs
+    ///                             {
+    ///                                 EndPointName = "AQUA_command",
+    ///                                 IpAddress = "10.0.1.0",
+    ///                                 Port = "49513",
+    ///                                 Protocol = "TCP",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Direction = "Uplink",
+    ///                 Name = "RHCP_UL",
+    ///                 Polarization = "RHCP",
+    ///             },
+    ///         },
+    ///         NetworkConfigurationSubnetId = exampleSubnet.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Contact profile can be imported using the `resource id`, e.g.

@@ -9,6 +9,38 @@ import * as utilities from "../utilities";
  *
  * > **Note:** The `azure.sql.VirtualNetworkRule` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.VirtualNetworkRule` resource instead.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
+ * const vnet = new azure.network.VirtualNetwork("vnet", {
+ *     addressSpaces: ["10.7.29.0/29"],
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ * });
+ * const subnet = new azure.network.Subnet("subnet", {
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: vnet.name,
+ *     addressPrefixes: ["10.7.29.0/29"],
+ *     serviceEndpoints: ["Microsoft.Sql"],
+ * });
+ * const sqlserver = new azure.sql.SqlServer("sqlserver", {
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     version: "12.0",
+ *     administratorLogin: "4dm1n157r470r",
+ *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
+ * });
+ * const sqlvnetrule = new azure.sql.VirtualNetworkRule("sqlvnetrule", {
+ *     resourceGroupName: example.name,
+ *     serverName: sqlserver.name,
+ *     subnetId: subnet.id,
+ * });
+ * ```
+ *
  * ## Import
  *
  * SQL Virtual Network Rules can be imported using the `resource id`, e.g.

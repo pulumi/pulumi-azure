@@ -455,6 +455,57 @@ class ContactProfile(pulumi.CustomResource):
         """
         Manages a Contact profile.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.1.0/24"],
+            delegations=[azure.network.SubnetDelegationArgs(
+                name="orbitalgateway",
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                    name="Microsoft.Orbital/orbitalGateways",
+                    actions=[
+                        "Microsoft.Network/publicIPAddresses/join/action",
+                        "Microsoft.Network/virtualNetworks/subnets/join/action",
+                        "Microsoft.Network/virtualNetworks/read",
+                        "Microsoft.Network/publicIPAddresses/read",
+                    ],
+                ),
+            )])
+        example_contact_profile = azure.orbital.ContactProfile("exampleContactProfile",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            minimum_variable_contact_duration="PT1M",
+            auto_tracking="disabled",
+            links=[azure.orbital.ContactProfileLinkArgs(
+                channels=[azure.orbital.ContactProfileLinkChannelArgs(
+                    name="channelname",
+                    bandwidth_mhz=100,
+                    center_frequency_mhz=101,
+                    end_points=[azure.orbital.ContactProfileLinkChannelEndPointArgs(
+                        end_point_name="AQUA_command",
+                        ip_address="10.0.1.0",
+                        port="49513",
+                        protocol="TCP",
+                    )],
+                )],
+                direction="Uplink",
+                name="RHCP_UL",
+                polarization="RHCP",
+            )],
+            network_configuration_subnet_id=example_subnet.id)
+        ```
+
         ## Import
 
         Contact profile can be imported using the `resource id`, e.g.
@@ -484,6 +535,57 @@ class ContactProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Contact profile.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.1.0/24"],
+            delegations=[azure.network.SubnetDelegationArgs(
+                name="orbitalgateway",
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                    name="Microsoft.Orbital/orbitalGateways",
+                    actions=[
+                        "Microsoft.Network/publicIPAddresses/join/action",
+                        "Microsoft.Network/virtualNetworks/subnets/join/action",
+                        "Microsoft.Network/virtualNetworks/read",
+                        "Microsoft.Network/publicIPAddresses/read",
+                    ],
+                ),
+            )])
+        example_contact_profile = azure.orbital.ContactProfile("exampleContactProfile",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            minimum_variable_contact_duration="PT1M",
+            auto_tracking="disabled",
+            links=[azure.orbital.ContactProfileLinkArgs(
+                channels=[azure.orbital.ContactProfileLinkChannelArgs(
+                    name="channelname",
+                    bandwidth_mhz=100,
+                    center_frequency_mhz=101,
+                    end_points=[azure.orbital.ContactProfileLinkChannelEndPointArgs(
+                        end_point_name="AQUA_command",
+                        ip_address="10.0.1.0",
+                        port="49513",
+                        protocol="TCP",
+                    )],
+                )],
+                direction="Uplink",
+                name="RHCP_UL",
+                polarization="RHCP",
+            )],
+            network_configuration_subnet_id=example_subnet.id)
+        ```
 
         ## Import
 

@@ -674,6 +674,22 @@ class Namespace(pulumi.CustomResource):
         """
         Manages a ServiceBus Namespace.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_namespace = azure.servicebus.Namespace("exampleNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard",
+            tags={
+                "source": "example",
+            })
+        ```
+
         ## Import
 
         Service Bus Namespace can be imported using the `resource id`, e.g.
@@ -707,6 +723,22 @@ class Namespace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a ServiceBus Namespace.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_namespace = azure.servicebus.Namespace("exampleNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard",
+            tags={
+                "source": "example",
+            })
+        ```
 
         ## Import
 

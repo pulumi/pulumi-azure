@@ -228,6 +228,17 @@ def get_action_group(name: Optional[str] = None,
     """
     Use this data source to access the properties of an Action Group.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.monitoring.get_action_group(resource_group_name="example-rg",
+        name="tfex-actiongroup")
+    pulumi.export("actionGroupId", example.id)
+    ```
+
 
     :param str name: Specifies the name of the Action Group.
     :param str resource_group_name: Specifies the name of the resource group the Action Group is located in.
@@ -263,6 +274,17 @@ def get_action_group_output(name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActionGroupResult]:
     """
     Use this data source to access the properties of an Action Group.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.monitoring.get_action_group(resource_group_name="example-rg",
+        name="tfex-actiongroup")
+    pulumi.export("actionGroupId", example.id)
+    ```
 
 
     :param str name: Specifies the name of the Action Group.

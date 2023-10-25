@@ -7,6 +7,54 @@ import * as utilities from "../utilities";
 /**
  * Manages an Application Insights API key.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleInsights = new azure.appinsights.Insights("exampleInsights", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     applicationType: "web",
+ * });
+ * const readTelemetry = new azure.appinsights.ApiKey("readTelemetry", {
+ *     applicationInsightsId: exampleInsights.id,
+ *     readPermissions: [
+ *         "aggregate",
+ *         "api",
+ *         "draft",
+ *         "extendqueries",
+ *         "search",
+ *     ],
+ * });
+ * const writeAnnotations = new azure.appinsights.ApiKey("writeAnnotations", {
+ *     applicationInsightsId: exampleInsights.id,
+ *     writePermissions: ["annotations"],
+ * });
+ * const authenticateSdkControlChannelApiKey = new azure.appinsights.ApiKey("authenticateSdkControlChannelApiKey", {
+ *     applicationInsightsId: exampleInsights.id,
+ *     readPermissions: ["agentconfig"],
+ * });
+ * const fullPermissions = new azure.appinsights.ApiKey("fullPermissions", {
+ *     applicationInsightsId: exampleInsights.id,
+ *     readPermissions: [
+ *         "agentconfig",
+ *         "aggregate",
+ *         "api",
+ *         "draft",
+ *         "extendqueries",
+ *         "search",
+ *     ],
+ *     writePermissions: ["annotations"],
+ * });
+ * export const readTelemetryApiKey = readTelemetry.apiKey;
+ * export const writeAnnotationsApiKey = writeAnnotations.apiKey;
+ * export const authenticateSdkControlChannel = authenticateSdkControlChannelApiKey.apiKey;
+ * export const fullPermissionsApiKey = fullPermissions.apiKey;
+ * ```
+ *
  * ## Import
  *
  * Application Insights API keys can be imported using the `resource id`, e.g.

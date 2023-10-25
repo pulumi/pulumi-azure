@@ -9,6 +9,39 @@ import * as utilities from "../utilities";
  *
  * !> **Note:** Azure are officially [halting](https://learn.microsoft.com/en-us/azure/azure-vmware/attach-disk-pools-to-azure-vmware-solution-hosts?tabs=azure-cli) the preview of Azure Disk Pools, and it **will not** be made generally available. New customers will not be able to register the Microsoft.StoragePool resource provider on their subscription and deploy new Disk Pools. Existing subscriptions registered with Microsoft.StoragePool may continue to deploy and manage disk pools for the time being.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     addressSpaces: ["10.0.0.0/16"],
+ * });
+ * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
+ *     resourceGroupName: exampleVirtualNetwork.resourceGroupName,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.0.0/24"],
+ *     delegations: [{
+ *         name: "diskspool",
+ *         serviceDelegation: {
+ *             actions: ["Microsoft.Network/virtualNetworks/read"],
+ *             name: "Microsoft.StoragePool/diskPools",
+ *         },
+ *     }],
+ * });
+ * const exampleDiskPool = new azure.compute.DiskPool("exampleDiskPool", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     skuName: "Basic_B1",
+ *     subnetId: exampleSubnet.id,
+ *     zones: ["1"],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Disk Pools can be imported using the `resource id`, e.g.

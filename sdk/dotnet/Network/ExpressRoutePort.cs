@@ -12,6 +12,33 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages a Express Route Port.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West US",
+    ///     });
+    /// 
+    ///     var exampleExpressRoutePort = new Azure.Network.ExpressRoutePort("exampleExpressRoutePort", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         PeeringLocation = "Airtel-Chennai-CLS",
+    ///         BandwidthInGbps = 10,
+    ///         Encapsulation = "Dot1Q",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Express Route Ports can be imported using the `resource id`, e.g.

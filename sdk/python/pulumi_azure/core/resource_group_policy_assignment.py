@@ -608,6 +608,43 @@ class ResourceGroupPolicyAssignment(pulumi.CustomResource):
         """
         Manages a Resource Group Policy Assignment.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_definition = azure.policy.Definition("exampleDefinition",
+            policy_type="Custom",
+            mode="All",
+            display_name="my-policy-definition",
+            policy_rule=\"\"\" {
+            "if": {
+              "not": {
+                "field": "location",
+                "equals": "westeurope"
+              }
+            },
+            "then": {
+              "effect": "Deny"
+            }
+          }
+        \"\"\")
+        example_resource_group_policy_assignment = azure.core.ResourceGroupPolicyAssignment("exampleResourceGroupPolicyAssignment",
+            resource_group_id=example_resource_group.id,
+            policy_definition_id=example_definition.id,
+            parameters=\"\"\"    {
+              "tagName": {
+                "value": "Business Unit"
+              },
+              "tagValue": {
+                "value": "BU"
+              }
+            }
+        \"\"\")
+        ```
+
         ## Import
 
         Resource Group Policy Assignments can be imported using the `resource id`, e.g.
@@ -643,6 +680,43 @@ class ResourceGroupPolicyAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Resource Group Policy Assignment.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_definition = azure.policy.Definition("exampleDefinition",
+            policy_type="Custom",
+            mode="All",
+            display_name="my-policy-definition",
+            policy_rule=\"\"\" {
+            "if": {
+              "not": {
+                "field": "location",
+                "equals": "westeurope"
+              }
+            },
+            "then": {
+              "effect": "Deny"
+            }
+          }
+        \"\"\")
+        example_resource_group_policy_assignment = azure.core.ResourceGroupPolicyAssignment("exampleResourceGroupPolicyAssignment",
+            resource_group_id=example_resource_group.id,
+            policy_definition_id=example_definition.id,
+            parameters=\"\"\"    {
+              "tagName": {
+                "value": "Business Unit"
+              },
+              "tagValue": {
+                "value": "BU"
+              }
+            }
+        \"\"\")
+        ```
 
         ## Import
 

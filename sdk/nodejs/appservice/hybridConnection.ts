@@ -9,6 +9,48 @@ import * as utilities from "../utilities";
  *
  * !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `azure.appservice.FunctionAppHybridConnection` resources instead.
  *
+ * ## Example Usage
+ *
+ * This example provisions an App Service, a Relay Hybrid Connection, and a Service Bus using their outputs to create the App Service Hybrid Connection.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const examplePlan = new azure.appservice.Plan("examplePlan", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: {
+ *         tier: "Standard",
+ *         size: "S1",
+ *     },
+ * });
+ * const exampleAppService = new azure.appservice.AppService("exampleAppService", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     appServicePlanId: examplePlan.id,
+ * });
+ * const exampleNamespace = new azure.relay.Namespace("exampleNamespace", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     skuName: "Standard",
+ * });
+ * const exampleHybridConnection = new azure.relay.HybridConnection("exampleHybridConnection", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     relayNamespaceName: exampleNamespace.name,
+ *     userMetadata: "examplemetadata",
+ * });
+ * const exampleAppservice_hybridConnectionHybridConnection = new azure.appservice.HybridConnection("exampleAppservice/hybridConnectionHybridConnection", {
+ *     appServiceName: exampleAppService.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     relayId: exampleHybridConnection.id,
+ *     hostname: "testhostname.example",
+ *     port: 8080,
+ *     sendKeyName: "exampleSharedAccessKey",
+ * });
+ * ```
+ *
  * ## Import
  *
  * App Service Hybrid Connections can be imported using the `resource id`, e.g.

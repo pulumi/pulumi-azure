@@ -9,6 +9,38 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** Disaster Recovery Config is a Premium SKU only capability.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const primary = new azure.servicebus.Namespace("primary", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "Premium",
+ *     capacity: 1,
+ * });
+ * const secondary = new azure.servicebus.Namespace("secondary", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "Premium",
+ *     capacity: 1,
+ * });
+ * const exampleNamespaceAuthorizationRule = new azure.servicebus.NamespaceAuthorizationRule("exampleNamespaceAuthorizationRule", {
+ *     namespaceId: azurerm_servicebus_namespace.example.id,
+ *     listen: true,
+ *     send: true,
+ *     manage: false,
+ * });
+ * const exampleNamespaceDisasterRecoveryConfig = new azure.servicebus.NamespaceDisasterRecoveryConfig("exampleNamespaceDisasterRecoveryConfig", {
+ *     primaryNamespaceId: primary.id,
+ *     partnerNamespaceId: secondary.id,
+ *     aliasAuthorizationRuleId: exampleNamespaceAuthorizationRule.id,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Service Bus DR configs can be imported using the `resource id`, e.g.

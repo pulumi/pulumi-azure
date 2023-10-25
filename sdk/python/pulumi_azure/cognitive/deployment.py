@@ -252,6 +252,30 @@ class Deployment(pulumi.CustomResource):
         """
         Manages a Cognitive Services Account Deployment.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.cognitive.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            kind="OpenAI",
+            sku_name="S0")
+        example_deployment = azure.cognitive.Deployment("exampleDeployment",
+            cognitive_account_id=example_account.id,
+            model=azure.cognitive.DeploymentModelArgs(
+                format="OpenAI",
+                name="text-curie-001",
+                version="1",
+            ),
+            scale=azure.cognitive.DeploymentScaleArgs(
+                type="Standard",
+            ))
+        ```
+
         ## Import
 
         Cognitive Services Account Deployment can be imported using the `resource id`, e.g.
@@ -276,6 +300,30 @@ class Deployment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Cognitive Services Account Deployment.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.cognitive.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            kind="OpenAI",
+            sku_name="S0")
+        example_deployment = azure.cognitive.Deployment("exampleDeployment",
+            cognitive_account_id=example_account.id,
+            model=azure.cognitive.DeploymentModelArgs(
+                format="OpenAI",
+                name="text-curie-001",
+                version="1",
+            ),
+            scale=azure.cognitive.DeploymentScaleArgs(
+                type="Standard",
+            ))
+        ```
 
         ## Import
 

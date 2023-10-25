@@ -12,6 +12,45 @@ namespace Pulumi.Azure.Automation
     /// <summary>
     /// Manages an Automation Source Control.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Automation.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Basic",
+    ///     });
+    /// 
+    ///     var exampleSourceControl = new Azure.Automation.SourceControl("exampleSourceControl", new()
+    ///     {
+    ///         AutomationAccountId = exampleAccount.Id,
+    ///         FolderPath = "runbook",
+    ///         Security = new Azure.Automation.Inputs.SourceControlSecurityArgs
+    ///         {
+    ///             Token = "ghp_xxx",
+    ///             TokenType = "PersonalAccessToken",
+    ///         },
+    ///         RepositoryUrl = "https://github.com/foo/bat.git",
+    ///         SourceControlType = "GitHub",
+    ///         Branch = "main",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Automations can be imported using the `resource id`, e.g.

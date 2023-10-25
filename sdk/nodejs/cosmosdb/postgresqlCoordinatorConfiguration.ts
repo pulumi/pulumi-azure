@@ -7,6 +7,29 @@ import * as utilities from "../utilities";
 /**
  * Sets a Coordinator Configuration value on Azure Cosmos DB for PostgreSQL Cluster.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const test = new azure.core.ResourceGroup("test", {location: "West Europe"});
+ * const examplePostgresqlCluster = new azure.cosmosdb.PostgresqlCluster("examplePostgresqlCluster", {
+ *     resourceGroupName: azurerm_resource_group.example.name,
+ *     location: azurerm_resource_group.example.location,
+ *     administratorLoginPassword: "H@Sh1CoR3!",
+ *     coordinatorStorageQuotaInMb: 131072,
+ *     coordinatorVcoreCount: 2,
+ *     nodeCount: 2,
+ *     nodeStorageQuotaInMb: 131072,
+ *     nodeVcores: 2,
+ * });
+ * const examplePostgresqlCoordinatorConfiguration = new azure.cosmosdb.PostgresqlCoordinatorConfiguration("examplePostgresqlCoordinatorConfiguration", {
+ *     clusterId: examplePostgresqlCluster.id,
+ *     value: "on",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Coordinator Configurations on Azure Cosmos DB for PostgreSQL Clusters can be imported using the `resource id`, e.g.

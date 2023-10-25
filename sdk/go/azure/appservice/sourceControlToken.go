@@ -13,6 +13,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appservice.NewSourceControlToken(ctx, "example", &appservice.SourceControlTokenArgs{
+//				Token: pulumi.String("ghp_sometokenvaluesecretsauce"),
+//				Type:  pulumi.String("GitHub"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // App Service Source GitHub Tokens can be imported using the `resource id`, e.g.

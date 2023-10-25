@@ -12,6 +12,74 @@ namespace Pulumi.Azure.CosmosDB
     /// <summary>
     /// Manages a SQL Container within a Cosmos DB Account.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleAccount = Azure.CosmosDB.GetAccount.Invoke(new()
+    ///     {
+    ///         Name = "tfex-cosmosdb-account",
+    ///         ResourceGroupName = "tfex-cosmosdb-account-rg",
+    ///     });
+    /// 
+    ///     var exampleSqlDatabase = new Azure.CosmosDB.SqlDatabase("exampleSqlDatabase", new()
+    ///     {
+    ///         ResourceGroupName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.ResourceGroupName),
+    ///         AccountName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Name),
+    ///     });
+    /// 
+    ///     var exampleSqlContainer = new Azure.CosmosDB.SqlContainer("exampleSqlContainer", new()
+    ///     {
+    ///         ResourceGroupName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.ResourceGroupName),
+    ///         AccountName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Name),
+    ///         DatabaseName = exampleSqlDatabase.Name,
+    ///         PartitionKeyPath = "/definition/id",
+    ///         PartitionKeyVersion = 1,
+    ///         Throughput = 400,
+    ///         IndexingPolicy = new Azure.CosmosDB.Inputs.SqlContainerIndexingPolicyArgs
+    ///         {
+    ///             IndexingMode = "consistent",
+    ///             IncludedPaths = new[]
+    ///             {
+    ///                 new Azure.CosmosDB.Inputs.SqlContainerIndexingPolicyIncludedPathArgs
+    ///                 {
+    ///                     Path = "/*",
+    ///                 },
+    ///                 new Azure.CosmosDB.Inputs.SqlContainerIndexingPolicyIncludedPathArgs
+    ///                 {
+    ///                     Path = "/included/?",
+    ///                 },
+    ///             },
+    ///             ExcludedPaths = new[]
+    ///             {
+    ///                 new Azure.CosmosDB.Inputs.SqlContainerIndexingPolicyExcludedPathArgs
+    ///                 {
+    ///                     Path = "/excluded/?",
+    ///                 },
+    ///             },
+    ///         },
+    ///         UniqueKeys = new[]
+    ///         {
+    ///             new Azure.CosmosDB.Inputs.SqlContainerUniqueKeyArgs
+    ///             {
+    ///                 Paths = new[]
+    ///                 {
+    ///                     "/definition/idlong",
+    ///                     "/definition/idshort",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Cosmos SQL Containers can be imported using the `resource id`, e.g.

@@ -13,12 +13,70 @@ namespace Pulumi.Azure.ContainerService
     {
         /// <summary>
         /// Use this data source to access information about an existing Container Group instance.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.ContainerService.GetGroup.Invoke(new()
+        ///     {
+        ///         Name = "existing",
+        ///         ResourceGroupName = "existing",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getGroupResult =&gt; getGroupResult.Id),
+        ///         ["ipAddress"] = example.Apply(getGroupResult =&gt; getGroupResult.IpAddress),
+        ///         ["fqdn"] = example.Apply(getGroupResult =&gt; getGroupResult.Fqdn),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetGroupResult> InvokeAsync(GetGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("azure:containerservice/getGroup:getGroup", args ?? new GetGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Container Group instance.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.ContainerService.GetGroup.Invoke(new()
+        ///     {
+        ///         Name = "existing",
+        ///         ResourceGroupName = "existing",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getGroupResult =&gt; getGroupResult.Id),
+        ///         ["ipAddress"] = example.Apply(getGroupResult =&gt; getGroupResult.IpAddress),
+        ///         ["fqdn"] = example.Apply(getGroupResult =&gt; getGroupResult.Fqdn),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetGroupResult> Invoke(GetGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGroupResult>("azure:containerservice/getGroup:getGroup", args ?? new GetGroupInvokeArgs(), options.WithDefaults());

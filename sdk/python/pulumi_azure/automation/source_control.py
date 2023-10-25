@@ -455,6 +455,29 @@ class SourceControl(pulumi.CustomResource):
         """
         Manages an Automation Source Control.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.automation.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="Basic")
+        example_source_control = azure.automation.SourceControl("exampleSourceControl",
+            automation_account_id=example_account.id,
+            folder_path="runbook",
+            security=azure.automation.SourceControlSecurityArgs(
+                token="ghp_xxx",
+                token_type="PersonalAccessToken",
+            ),
+            repository_url="https://github.com/foo/bat.git",
+            source_control_type="GitHub",
+            branch="main")
+        ```
+
         ## Import
 
         Automations can be imported using the `resource id`, e.g.
@@ -484,6 +507,29 @@ class SourceControl(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Automation Source Control.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.automation.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="Basic")
+        example_source_control = azure.automation.SourceControl("exampleSourceControl",
+            automation_account_id=example_account.id,
+            folder_path="runbook",
+            security=azure.automation.SourceControlSecurityArgs(
+                token="ghp_xxx",
+                token_type="PersonalAccessToken",
+            ),
+            repository_url="https://github.com/foo/bat.git",
+            source_control_type="GitHub",
+            branch="main")
+        ```
 
         ## Import
 

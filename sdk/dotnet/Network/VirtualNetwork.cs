@@ -19,6 +19,63 @@ namespace Pulumi.Azure.Network
     /// **NOTE on Virtual Networks and DNS Servers:** This provider currently provides both a standalone virtual network DNS Servers resource, and allows for DNS servers to be defined in-line within the Virtual Network resource.
     /// At this time you cannot use a Virtual Network with in-line DNS servers in conjunction with any Virtual Network DNS Servers resources. Doing so will cause a conflict of Virtual Network DNS Servers configurations and will overwrite virtual networks DNS servers.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup("exampleNetworkSecurityGroup", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         DnsServers = new[]
+    ///         {
+    ///             "10.0.0.4",
+    ///             "10.0.0.5",
+    ///         },
+    ///         Subnets = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.VirtualNetworkSubnetArgs
+    ///             {
+    ///                 Name = "subnet1",
+    ///                 AddressPrefix = "10.0.1.0/24",
+    ///             },
+    ///             new Azure.Network.Inputs.VirtualNetworkSubnetArgs
+    ///             {
+    ///                 Name = "subnet2",
+    ///                 AddressPrefix = "10.0.2.0/24",
+    ///                 SecurityGroup = exampleNetworkSecurityGroup.Id,
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Virtual Networks can be imported using the `resource id`, e.g.

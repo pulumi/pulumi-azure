@@ -6,6 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing IotHub Shared Access Policy
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.iot.getSharedAccessPolicy({
+ *     name: "example",
+ *     resourceGroupName: azurerm_resource_group.example.name,
+ *     iothubName: azurerm_iothub.example.name,
+ * });
+ * ```
  */
 export function getSharedAccessPolicy(args: GetSharedAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSharedAccessPolicyResult> {
 
@@ -65,6 +78,19 @@ export interface GetSharedAccessPolicyResult {
 }
 /**
  * Use this data source to access information about an existing IotHub Shared Access Policy
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.iot.getSharedAccessPolicy({
+ *     name: "example",
+ *     resourceGroupName: azurerm_resource_group.example.name,
+ *     iothubName: azurerm_iothub.example.name,
+ * });
+ * ```
  */
 export function getSharedAccessPolicyOutput(args: GetSharedAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSharedAccessPolicyResult> {
     return pulumi.output(args).apply((a: any) => getSharedAccessPolicy(a, opts))

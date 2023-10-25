@@ -9,6 +9,34 @@ import * as utilities from "../utilities";
  *
  * > **Note:** The `azure.sql.ElasticPool` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.ElasticPool` resource instead.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleSqlServer = new azure.sql.SqlServer("exampleSqlServer", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     version: "12.0",
+ *     administratorLogin: "4dm1n157r470r",
+ *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
+ * });
+ * const exampleElasticPool = new azure.sql.ElasticPool("exampleElasticPool", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     serverName: exampleSqlServer.name,
+ *     edition: "Basic",
+ *     dtu: 50,
+ *     dbDtuMin: 0,
+ *     dbDtuMax: 5,
+ *     poolSize: 5000,
+ * });
+ * ```
+ *
+ * > **NOTE on `azure.sql.ElasticPool`:** -  The values of `edition`, `dtu`, and `poolSize` must be consistent with the [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus). Any inconsistent argument configuration will be rejected.
+ *
  * ## Import
  *
  * SQL Elastic Pool's can be imported using the `resource id`, e.g.

@@ -12,6 +12,40 @@ namespace Pulumi.Azure.Graph
     /// <summary>
     /// Manages a Microsoft Graph Services Account.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using AzureAD = Pulumi.AzureAD;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleApplication = new AzureAD.Application("exampleApplication", new()
+    ///     {
+    ///         DisplayName = "example-app",
+    ///     });
+    /// 
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleServicesAccount = new Azure.Graph.ServicesAccount("exampleServicesAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApplicationId = exampleApplication.ApplicationId,
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// An existing Account can be imported into Terraform using the `resource id`, e.g.

@@ -9,6 +9,38 @@ import * as utilities from "../utilities";
 /**
  * Manages a Redis Enterprise Database.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleEnterpriseCluster = new azure.redis.EnterpriseCluster("exampleEnterpriseCluster", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     skuName: "Enterprise_E20-4",
+ * });
+ * const example1 = new azure.redis.EnterpriseCluster("example1", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     skuName: "Enterprise_E20-4",
+ * });
+ * const exampleEnterpriseDatabase = new azure.redis.EnterpriseDatabase("exampleEnterpriseDatabase", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     clusterId: exampleEnterpriseCluster.id,
+ *     clientProtocol: "Encrypted",
+ *     clusteringPolicy: "EnterpriseCluster",
+ *     evictionPolicy: "NoEviction",
+ *     port: 10000,
+ *     linkedDatabaseIds: [
+ *         pulumi.interpolate`${exampleEnterpriseCluster.id}/databases/default`,
+ *         pulumi.interpolate`${example1.id}/databases/default`,
+ *     ],
+ *     linkedDatabaseGroupNickname: "tftestGeoGroup",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Redis Enterprise Databases can be imported using the `resource id`, e.g.

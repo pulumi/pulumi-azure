@@ -12,6 +12,48 @@ namespace Pulumi.Azure.EventHub
     /// <summary>
     /// Manages a ServiceBus Topic authorization Rule within a ServiceBus Topic.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleNamespace = new Azure.ServiceBus.Namespace("exampleNamespace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Standard",
+    ///         Tags = 
+    ///         {
+    ///             { "source", "example" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleTopic = new Azure.ServiceBus.Topic("exampleTopic", new()
+    ///     {
+    ///         NamespaceId = exampleNamespace.Id,
+    ///     });
+    /// 
+    ///     var exampleTopicAuthorizationRule = new Azure.ServiceBus.TopicAuthorizationRule("exampleTopicAuthorizationRule", new()
+    ///     {
+    ///         TopicId = exampleTopic.Id,
+    ///         Listen = true,
+    ///         Send = false,
+    ///         Manage = false,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ServiceBus Topic authorization rules can be imported using the `resource id`, e.g.

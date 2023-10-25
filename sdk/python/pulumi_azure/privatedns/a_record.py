@@ -306,6 +306,21 @@ class ARecord(pulumi.CustomResource):
         """
         Enables you to manage DNS A Records within Azure Private DNS.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_zone = azure.privatedns.Zone("exampleZone", resource_group_name=example_resource_group.name)
+        example_a_record = azure.privatedns.ARecord("exampleARecord",
+            zone_name=example_zone.name,
+            resource_group_name=example_resource_group.name,
+            ttl=300,
+            records=["10.0.180.17"])
+        ```
+
         ## Import
 
         Private DNS A Records can be imported using the `resource id`, e.g.
@@ -331,6 +346,21 @@ class ARecord(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Enables you to manage DNS A Records within Azure Private DNS.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_zone = azure.privatedns.Zone("exampleZone", resource_group_name=example_resource_group.name)
+        example_a_record = azure.privatedns.ARecord("exampleARecord",
+            zone_name=example_zone.name,
+            resource_group_name=example_resource_group.name,
+            ttl=300,
+            records=["10.0.180.17"])
+        ```
 
         ## Import
 

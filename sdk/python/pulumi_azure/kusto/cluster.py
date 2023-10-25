@@ -990,6 +990,25 @@ class Cluster(pulumi.CustomResource):
         """
         Manages a Kusto (also known as Azure Data Explorer) Cluster
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_cluster = azure.kusto.Cluster("exampleCluster",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku=azure.kusto.ClusterSkuArgs(
+                name="Standard_D13_v2",
+                capacity=2,
+            ),
+            tags={
+                "Environment": "Production",
+            })
+        ```
+
         ## Import
 
         Kusto Clusters can be imported using the `resource id`, e.g.
@@ -1034,6 +1053,25 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Kusto (also known as Azure Data Explorer) Cluster
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_cluster = azure.kusto.Cluster("exampleCluster",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku=azure.kusto.ClusterSkuArgs(
+                name="Standard_D13_v2",
+                capacity=2,
+            ),
+            tags={
+                "Environment": "Production",
+            })
+        ```
 
         ## Import
 

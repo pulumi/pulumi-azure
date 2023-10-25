@@ -7,6 +7,98 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Spring Cloud Certificate.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as azuread from "@pulumi/azuread";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const current = azure.core.getClientConfig({});
+ * const exampleServicePrincipal = azuread.getServicePrincipal({
+ *     displayName: "Azure Spring Cloud Resource Provider",
+ * });
+ * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "standard",
+ *     accessPolicies: [
+ *         {
+ *             tenantId: current.then(current => current.tenantId),
+ *             objectId: current.then(current => current.objectId),
+ *             secretPermissions: ["Set"],
+ *             certificatePermissions: [
+ *                 "Create",
+ *                 "Delete",
+ *                 "Get",
+ *                 "Update",
+ *             ],
+ *         },
+ *         {
+ *             tenantId: current.then(current => current.tenantId),
+ *             objectId: exampleServicePrincipal.then(exampleServicePrincipal => exampleServicePrincipal.objectId),
+ *             secretPermissions: [
+ *                 "Get",
+ *                 "List",
+ *             ],
+ *             certificatePermissions: [
+ *                 "Get",
+ *                 "List",
+ *             ],
+ *         },
+ *     ],
+ * });
+ * const exampleCertificate = new azure.keyvault.Certificate("exampleCertificate", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     certificatePolicy: {
+ *         issuerParameters: {
+ *             name: "Self",
+ *         },
+ *         keyProperties: {
+ *             exportable: true,
+ *             keySize: 2048,
+ *             keyType: "RSA",
+ *             reuseKey: true,
+ *         },
+ *         lifetimeActions: [{
+ *             action: {
+ *                 actionType: "AutoRenew",
+ *             },
+ *             trigger: {
+ *                 daysBeforeExpiry: 30,
+ *             },
+ *         }],
+ *         secretProperties: {
+ *             contentType: "application/x-pkcs12",
+ *         },
+ *         x509CertificateProperties: {
+ *             keyUsages: [
+ *                 "cRLSign",
+ *                 "dataEncipherment",
+ *                 "digitalSignature",
+ *                 "keyAgreement",
+ *                 "keyCertSign",
+ *                 "keyEncipherment",
+ *             ],
+ *             subject: "CN=contoso.com",
+ *             validityInMonths: 12,
+ *         },
+ *     },
+ * });
+ * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("exampleSpringCloudService", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ * });
+ * const exampleSpringCloudCertificate = new azure.appplatform.SpringCloudCertificate("exampleSpringCloudCertificate", {
+ *     resourceGroupName: exampleSpringCloudService.resourceGroupName,
+ *     serviceName: exampleSpringCloudService.name,
+ *     keyVaultCertificateId: exampleCertificate.id,
+ *     excludePrivateKey: true,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Spring Cloud Certificate can be imported using the `resource id`, e.g.

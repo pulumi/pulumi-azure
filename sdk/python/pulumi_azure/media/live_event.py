@@ -646,6 +646,57 @@ class LiveEvent(pulumi.CustomResource):
         """
         Manages a Live Event.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="GRS")
+        example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
+                id=example_account.id,
+                is_primary=True,
+            )])
+        example_live_event = azure.media.LiveEvent("exampleLiveEvent",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            media_services_account_name=example_service_account.name,
+            description="My Event Description",
+            input=azure.media.LiveEventInputArgs(
+                streaming_protocol="RTMP",
+                ip_access_control_allows=[azure.media.LiveEventInputIpAccessControlAllowArgs(
+                    name="AllowAll",
+                    address="0.0.0.0",
+                    subnet_prefix_length=0,
+                )],
+            ),
+            encoding=azure.media.LiveEventEncodingArgs(
+                type="Standard",
+                preset_name="Default720p",
+                stretch_mode="AutoFit",
+                key_frame_interval="PT2S",
+            ),
+            preview=azure.media.LiveEventPreviewArgs(
+                ip_access_control_allows=[azure.media.LiveEventPreviewIpAccessControlAllowArgs(
+                    name="AllowAll",
+                    address="0.0.0.0",
+                    subnet_prefix_length=0,
+                )],
+            ),
+            stream_options=["LowLatency"],
+            use_static_hostname=True,
+            hostname_prefix="special-event",
+            transcription_languages=["en-US"])
+        ```
+
         ## Import
 
         Live Events can be imported using the `resource id`, e.g.
@@ -680,6 +731,57 @@ class LiveEvent(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Live Event.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="GRS")
+        example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
+                id=example_account.id,
+                is_primary=True,
+            )])
+        example_live_event = azure.media.LiveEvent("exampleLiveEvent",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            media_services_account_name=example_service_account.name,
+            description="My Event Description",
+            input=azure.media.LiveEventInputArgs(
+                streaming_protocol="RTMP",
+                ip_access_control_allows=[azure.media.LiveEventInputIpAccessControlAllowArgs(
+                    name="AllowAll",
+                    address="0.0.0.0",
+                    subnet_prefix_length=0,
+                )],
+            ),
+            encoding=azure.media.LiveEventEncodingArgs(
+                type="Standard",
+                preset_name="Default720p",
+                stretch_mode="AutoFit",
+                key_frame_interval="PT2S",
+            ),
+            preview=azure.media.LiveEventPreviewArgs(
+                ip_access_control_allows=[azure.media.LiveEventPreviewIpAccessControlAllowArgs(
+                    name="AllowAll",
+                    address="0.0.0.0",
+                    subnet_prefix_length=0,
+                )],
+            ),
+            stream_options=["LowLatency"],
+            use_static_hostname=True,
+            hostname_prefix="special-event",
+            transcription_languages=["en-US"])
+        ```
 
         ## Import
 

@@ -12,6 +12,73 @@ namespace Pulumi.Azure.NetApp
     /// <summary>
     /// Manages a NetApp Snapshot Policy.
     /// 
+    /// ## NetApp Snapshot Policy Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "East US",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.NetApp.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSnapshotPolicy = new Azure.NetApp.SnapshotPolicy("exampleSnapshotPolicy", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AccountName = exampleAccount.Name,
+    ///         Enabled = true,
+    ///         HourlySchedule = new Azure.NetApp.Inputs.SnapshotPolicyHourlyScheduleArgs
+    ///         {
+    ///             SnapshotsToKeep = 4,
+    ///             Minute = 15,
+    ///         },
+    ///         DailySchedule = new Azure.NetApp.Inputs.SnapshotPolicyDailyScheduleArgs
+    ///         {
+    ///             SnapshotsToKeep = 2,
+    ///             Hour = 20,
+    ///             Minute = 15,
+    ///         },
+    ///         WeeklySchedule = new Azure.NetApp.Inputs.SnapshotPolicyWeeklyScheduleArgs
+    ///         {
+    ///             SnapshotsToKeep = 1,
+    ///             DaysOfWeeks = new[]
+    ///             {
+    ///                 "Monday",
+    ///                 "Friday",
+    ///             },
+    ///             Hour = 23,
+    ///             Minute = 0,
+    ///         },
+    ///         MonthlySchedule = new Azure.NetApp.Inputs.SnapshotPolicyMonthlyScheduleArgs
+    ///         {
+    ///             SnapshotsToKeep = 1,
+    ///             DaysOfMonths = new[]
+    ///             {
+    ///                 1,
+    ///                 15,
+    ///                 20,
+    ///                 30,
+    ///             },
+    ///             Hour = 5,
+    ///             Minute = 45,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// NetApp Snapshot Policy can be imported using the `resource id`, e.g.

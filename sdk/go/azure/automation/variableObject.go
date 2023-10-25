@@ -15,6 +15,59 @@ import (
 
 // Manages an object variable in Azure Automation
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("Basic"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"greeting": "Hello, Terraform Basic Test.",
+//				"language": "en",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = automation.NewVariableObject(ctx, "exampleVariableObject", &automation.VariableObjectArgs{
+//				ResourceGroupName:     exampleResourceGroup.Name,
+//				AutomationAccountName: exampleAccount.Name,
+//				Value:                 pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Automation Object Variable can be imported using the `resource id`, e.g.

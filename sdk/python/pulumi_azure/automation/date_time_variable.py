@@ -286,6 +286,23 @@ class DateTimeVariable(pulumi.CustomResource):
         """
         Manages a DateTime variable in Azure Automation
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.automation.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="Basic")
+        example_date_time_variable = azure.automation.DateTimeVariable("exampleDateTimeVariable",
+            resource_group_name=example_resource_group.name,
+            automation_account_name=example_account.name,
+            value="2019-04-24T21:40:54.074Z")
+        ```
+
         ## Import
 
         Automation DateTime Variable can be imported using the `resource id`, e.g.
@@ -311,6 +328,23 @@ class DateTimeVariable(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a DateTime variable in Azure Automation
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.automation.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="Basic")
+        example_date_time_variable = azure.automation.DateTimeVariable("exampleDateTimeVariable",
+            resource_group_name=example_resource_group.name,
+            automation_account_name=example_account.name,
+            value="2019-04-24T21:40:54.074Z")
+        ```
 
         ## Import
 

@@ -7,6 +7,28 @@ import * as utilities from "../utilities";
 /**
  * Manages an API Management Twitter Identity Provider.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleService = new azure.apimanagement.Service("exampleService", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     publisherName: "My Company",
+ *     publisherEmail: "company@mycompany.io",
+ *     skuName: "Developer_1",
+ * });
+ * const exampleIdentityProviderTwitter = new azure.apimanagement.IdentityProviderTwitter("exampleIdentityProviderTwitter", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     apiManagementName: exampleService.name,
+ *     apiKey: "00000000000000000000000000000000",
+ *     apiSecretKey: "00000000000000000000000000000000",
+ * });
+ * ```
+ *
  * ## Import
  *
  * API Management Twitter Identity Provider can be imported using the `resource id`, e.g.

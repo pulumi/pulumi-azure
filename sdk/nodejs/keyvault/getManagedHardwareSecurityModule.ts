@@ -6,6 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Key Vault Managed Hardware Security Module.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.keyvault.getManagedHardwareSecurityModule({
+ *     name: "mykeyvaultHsm",
+ *     resourceGroupName: "some-resource-group",
+ * });
+ * export const hsmUri = example.then(example => example.hsmUri);
+ * ```
  */
 export function getManagedHardwareSecurityModule(args: GetManagedHardwareSecurityModuleArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedHardwareSecurityModuleResult> {
 
@@ -75,6 +88,19 @@ export interface GetManagedHardwareSecurityModuleResult {
 }
 /**
  * Use this data source to access information about an existing Key Vault Managed Hardware Security Module.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.keyvault.getManagedHardwareSecurityModule({
+ *     name: "mykeyvaultHsm",
+ *     resourceGroupName: "some-resource-group",
+ * });
+ * export const hsmUri = example.then(example => example.hsmUri);
+ * ```
  */
 export function getManagedHardwareSecurityModuleOutput(args: GetManagedHardwareSecurityModuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedHardwareSecurityModuleResult> {
     return pulumi.output(args).apply((a: any) => getManagedHardwareSecurityModule(a, opts))

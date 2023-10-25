@@ -114,6 +114,18 @@ def get_int_variable(automation_account_name: Optional[str] = None,
     """
     Use this data source to access information about an existing Automation Int Variable.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.automation.get_int_variable(name="tfex-example-var",
+        resource_group_name="tfex-example-rg",
+        automation_account_name="tfex-example-account")
+    pulumi.export("variableId", example.id)
+    ```
+
 
     :param str automation_account_name: The name of the automation account in which the Automation Variable exists.
     :param str name: The name of the Automation Variable.
@@ -143,6 +155,18 @@ def get_int_variable_output(automation_account_name: Optional[pulumi.Input[str]]
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntVariableResult]:
     """
     Use this data source to access information about an existing Automation Int Variable.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.automation.get_int_variable(name="tfex-example-var",
+        resource_group_name="tfex-example-rg",
+        automation_account_name="tfex-example-account")
+    pulumi.export("variableId", example.id)
+    ```
 
 
     :param str automation_account_name: The name of the automation account in which the Automation Variable exists.

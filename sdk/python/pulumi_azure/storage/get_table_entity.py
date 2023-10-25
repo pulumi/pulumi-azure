@@ -100,6 +100,18 @@ def get_table_entity(partition_key: Optional[str] = None,
     """
     Use this data source to access information about an existing Storage Table Entity.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.storage.get_table_entity(partition_key="example-partition-key",
+        row_key="example-row-key",
+        storage_account_name="example-storage-account-name",
+        table_name="example-table-name")
+    ```
+
 
     :param str partition_key: The key for the partition where the entity will be retrieved.
     :param str row_key: The key for the row where the entity will be retrieved.
@@ -131,6 +143,18 @@ def get_table_entity_output(partition_key: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTableEntityResult]:
     """
     Use this data source to access information about an existing Storage Table Entity.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.storage.get_table_entity(partition_key="example-partition-key",
+        row_key="example-row-key",
+        storage_account_name="example-storage-account-name",
+        table_name="example-table-name")
+    ```
 
 
     :param str partition_key: The key for the partition where the entity will be retrieved.

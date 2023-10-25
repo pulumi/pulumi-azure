@@ -14,6 +14,34 @@ import (
 
 // Use this data source to access information about an existing ServiceBus Namespace.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicebus"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := servicebus.LookupNamespace(ctx, &servicebus.LookupNamespaceArgs{
+//				Name:              "examplenamespace",
+//				ResourceGroupName: "example-resources",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("location", example.Location)
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // Deprecated: azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace
 func GetServiceBusNamespace(ctx *pulumi.Context, args *GetServiceBusNamespaceArgs, opts ...pulumi.InvokeOption) (*GetServiceBusNamespaceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)

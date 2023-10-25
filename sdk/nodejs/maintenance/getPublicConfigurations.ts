@@ -8,6 +8,20 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about existing Public Maintenance Configurations.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const existing = azure.maintenance.getPublicConfigurations({
+ *     location: "West Europe",
+ *     scope: "SQLManagedInstance",
+ *     recurEvery: "Monday-Thursday",
+ * });
+ * export const name = existing.then(existing => existing.configs?.[0]?.name);
+ * ```
  */
 export function getPublicConfigurations(args?: GetPublicConfigurationsArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicConfigurationsResult> {
     args = args || {};
@@ -62,6 +76,20 @@ export interface GetPublicConfigurationsResult {
 }
 /**
  * Use this data source to access information about existing Public Maintenance Configurations.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const existing = azure.maintenance.getPublicConfigurations({
+ *     location: "West Europe",
+ *     scope: "SQLManagedInstance",
+ *     recurEvery: "Monday-Thursday",
+ * });
+ * export const name = existing.then(existing => existing.configs?.[0]?.name);
+ * ```
  */
 export function getPublicConfigurationsOutput(args?: GetPublicConfigurationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicConfigurationsResult> {
     return pulumi.output(args).apply((a: any) => getPublicConfigurations(a, opts))

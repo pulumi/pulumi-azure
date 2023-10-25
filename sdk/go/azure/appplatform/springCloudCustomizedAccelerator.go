@@ -15,6 +15,65 @@ import (
 
 // Manages a Spring Cloud Customized Accelerator.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("west europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "exampleSpringCloudService", &appplatform.SpringCloudServiceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("E0"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSpringCloudAccelerator, err := appplatform.NewSpringCloudAccelerator(ctx, "exampleSpringCloudAccelerator", &appplatform.SpringCloudAcceleratorArgs{
+//				SpringCloudServiceId: exampleSpringCloudService.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appplatform.NewSpringCloudCustomizedAccelerator(ctx, "exampleSpringCloudCustomizedAccelerator", &appplatform.SpringCloudCustomizedAcceleratorArgs{
+//				SpringCloudAcceleratorId: exampleSpringCloudAccelerator.ID(),
+//				GitRepository: &appplatform.SpringCloudCustomizedAcceleratorGitRepositoryArgs{
+//					Url:               pulumi.String("https://github.com/Azure-Samples/piggymetrics"),
+//					GitTag:            pulumi.String("spring.version.2.0.3"),
+//					IntervalInSeconds: pulumi.Int(100),
+//				},
+//				AcceleratorTags: pulumi.StringArray{
+//					pulumi.String("tag-a"),
+//					pulumi.String("tag-b"),
+//				},
+//				Description: pulumi.String("example description"),
+//				DisplayName: pulumi.String("example name"),
+//				IconUrl:     pulumi.String("https://images.freecreatives.com/wp-content/uploads/2015/05/smiley-559124_640.jpg"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Spring Cloud Customized Accelerators can be imported using the `resource id`, e.g.

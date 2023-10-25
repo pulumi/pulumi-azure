@@ -21,6 +21,44 @@ import (
 //
 // > **NOTE:** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = compute.NewOrchestratedVirtualMachineScaleSet(ctx, "exampleOrchestratedVirtualMachineScaleSet", &compute.OrchestratedVirtualMachineScaleSetArgs{
+//				Location:                 exampleResourceGroup.Location,
+//				ResourceGroupName:        exampleResourceGroup.Name,
+//				PlatformFaultDomainCount: pulumi.Int(1),
+//				Zones: pulumi.StringArray{
+//					pulumi.String("1"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // An Orchestrated Virtual Machine Scale Set can be imported using the `resource id`, e.g.

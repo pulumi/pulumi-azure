@@ -6,6 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing ServiceBus Subscription.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.servicebus.getSubscription({
+ *     name: "examplesubscription",
+ *     topicId: "exampletopic",
+ * });
+ * export const servicebusSubscription = data.azurerm_servicebus_namespace.example;
+ * ```
  */
 export function getSubscription(args: GetSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionResult> {
 
@@ -118,6 +131,19 @@ export interface GetSubscriptionResult {
 }
 /**
  * Use this data source to access information about an existing ServiceBus Subscription.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.servicebus.getSubscription({
+ *     name: "examplesubscription",
+ *     topicId: "exampletopic",
+ * });
+ * export const servicebusSubscription = data.azurerm_servicebus_namespace.example;
+ * ```
  */
 export function getSubscriptionOutput(args: GetSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionResult> {
     return pulumi.output(args).apply((a: any) => getSubscription(a, opts))

@@ -13,6 +13,34 @@ import (
 )
 
 // Use this data source to access information about an existing Key Vault Managed Hardware Security Module.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := keyvault.LookupManagedHardwareSecurityModule(ctx, &keyvault.LookupManagedHardwareSecurityModuleArgs{
+//				Name:              "mykeyvaultHsm",
+//				ResourceGroupName: "some-resource-group",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("hsmUri", example.HsmUri)
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupManagedHardwareSecurityModule(ctx *pulumi.Context, args *LookupManagedHardwareSecurityModuleArgs, opts ...pulumi.InvokeOption) (*LookupManagedHardwareSecurityModuleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupManagedHardwareSecurityModuleResult

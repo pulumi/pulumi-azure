@@ -370,6 +370,25 @@ class SavedSearch(pulumi.CustomResource):
         """
         Manages a Log Analytics (formally Operational Insights) Saved Search.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="PerGB2018",
+            retention_in_days=30)
+        example_saved_search = azure.loganalytics.SavedSearch("exampleSavedSearch",
+            log_analytics_workspace_id=example_analytics_workspace.id,
+            category="exampleCategory",
+            display_name="exampleDisplayName",
+            query="exampleQuery")
+        ```
+
         ## Import
 
         Log Analytics Saved Searches can be imported using the `resource id`, e.g.
@@ -397,6 +416,25 @@ class SavedSearch(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Log Analytics (formally Operational Insights) Saved Search.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="PerGB2018",
+            retention_in_days=30)
+        example_saved_search = azure.loganalytics.SavedSearch("exampleSavedSearch",
+            log_analytics_workspace_id=example_analytics_workspace.id,
+            category="exampleCategory",
+            display_name="exampleDisplayName",
+            query="exampleQuery")
+        ```
 
         ## Import
 

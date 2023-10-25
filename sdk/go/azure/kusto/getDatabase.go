@@ -13,6 +13,34 @@ import (
 )
 
 // Use this data source to access information about an existing Kusto Database
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/kusto"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := kusto.LookupDatabase(ctx, &kusto.LookupDatabaseArgs{
+//				ClusterName:       "test_cluster",
+//				Name:              "my-kusto-database",
+//				ResourceGroupName: "test_resource_group",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupDatabase(ctx *pulumi.Context, args *LookupDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDatabaseResult

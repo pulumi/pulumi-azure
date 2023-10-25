@@ -12,6 +12,60 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages a VPN Server Configuration Policy Group.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVpnServerConfiguration = new Azure.Network.VpnServerConfiguration("exampleVpnServerConfiguration", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         VpnAuthenticationTypes = new[]
+    ///         {
+    ///             "Radius",
+    ///         },
+    ///         Radius = new Azure.Network.Inputs.VpnServerConfigurationRadiusArgs
+    ///         {
+    ///             Servers = new[]
+    ///             {
+    ///                 new Azure.Network.Inputs.VpnServerConfigurationRadiusServerArgs
+    ///                 {
+    ///                     Address = "10.105.1.1",
+    ///                     Secret = "vindicators-the-return-of-worldender",
+    ///                     Score = 15,
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleVpnServerConfigurationPolicyGroup = new Azure.Network.VpnServerConfigurationPolicyGroup("exampleVpnServerConfigurationPolicyGroup", new()
+    ///     {
+    ///         VpnServerConfigurationId = exampleVpnServerConfiguration.Id,
+    ///         Policies = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.VpnServerConfigurationPolicyGroupPolicyArgs
+    ///             {
+    ///                 Name = "policy1",
+    ///                 Type = "RadiusAzureGroupId",
+    ///                 Value = "6ad1bd08",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// VPN Server Configuration Policy Groups can be imported using the `resource id`, e.g.

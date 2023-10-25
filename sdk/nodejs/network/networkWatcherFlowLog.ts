@@ -7,6 +7,54 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
+ * const testNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("testNetworkSecurityGroup", {
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ * });
+ * const testNetworkWatcher = new azure.network.NetworkWatcher("testNetworkWatcher", {
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ * });
+ * const testAccount = new azure.storage.Account("testAccount", {
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     accountTier: "Standard",
+ *     accountKind: "StorageV2",
+ *     accountReplicationType: "LRS",
+ *     enableHttpsTrafficOnly: true,
+ * });
+ * const testAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("testAnalyticsWorkspace", {
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     sku: "PerGB2018",
+ * });
+ * const testNetworkWatcherFlowLog = new azure.network.NetworkWatcherFlowLog("testNetworkWatcherFlowLog", {
+ *     networkWatcherName: testNetworkWatcher.name,
+ *     resourceGroupName: example.name,
+ *     networkSecurityGroupId: testNetworkSecurityGroup.id,
+ *     storageAccountId: testAccount.id,
+ *     enabled: true,
+ *     retentionPolicy: {
+ *         enabled: true,
+ *         days: 7,
+ *     },
+ *     trafficAnalytics: {
+ *         enabled: true,
+ *         workspaceId: testAnalyticsWorkspace.workspaceId,
+ *         workspaceRegion: testAnalyticsWorkspace.location,
+ *         workspaceResourceId: testAnalyticsWorkspace.id,
+ *         intervalInMinutes: 10,
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Network Watcher Flow Logs can be imported using the `resource id`, e.g.

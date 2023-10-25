@@ -6,6 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * Uses this data source to access information about an existing Virtual Hub.
+ *
+ * ## Virtual Hub Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.network.getVirtualHub({
+ *     name: "example-hub",
+ *     resourceGroupName: "example-resources",
+ * });
+ * export const virtualHubId = example.then(example => example.id);
+ * ```
  */
 export function getVirtualHub(args: GetVirtualHubArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualHubResult> {
 
@@ -71,6 +84,19 @@ export interface GetVirtualHubResult {
 }
 /**
  * Uses this data source to access information about an existing Virtual Hub.
+ *
+ * ## Virtual Hub Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.network.getVirtualHub({
+ *     name: "example-hub",
+ *     resourceGroupName: "example-resources",
+ * });
+ * export const virtualHubId = example.then(example => example.id);
+ * ```
  */
 export function getVirtualHubOutput(args: GetVirtualHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualHubResult> {
     return pulumi.output(args).apply((a: any) => getVirtualHub(a, opts))
