@@ -7,8 +7,8 @@ require (
 	github.com/hashicorp/go-azure-sdk v0.20231012.1141427
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.29.0
 	github.com/hashicorp/terraform-provider-azurerm v1.44.1-0.20220923005104-eaa801c358ff
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.63.1
-	github.com/pulumi/pulumi/sdk/v3 v3.90.1
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.63.2-0.20231027211323-cefb369296c9
+	github.com/pulumi/pulumi/sdk/v3 v3.91.0
 	github.com/stretchr/testify v1.8.4
 )
 
@@ -250,3 +250,7 @@ require (
 	software.sslmate.com/src/go-pkcs12 v0.2.1 // indirect
 	sourcegraph.com/sourcegraph/appdash v0.0.0-20211028080628-e2786a622600 // indirect
 )
+
+replace github.com/pulumi/pulumi/pkg/v3 => github.com/pulumi/pulumi/pkg/v3 v3.78.2-0.20231027191454-9941f901c988
+
+replace github.com/pulumi/pulumi/sdk/v3 => github.com/pulumi/pulumi/sdk/v3 v3.91.1-0.20231027191454-9941f901c988
