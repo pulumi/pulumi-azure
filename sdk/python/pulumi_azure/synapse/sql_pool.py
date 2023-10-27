@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,75 +41,26 @@ class SqlPoolArgs:
         :param pulumi.Input[str] storage_account_type: The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Synapse SQL Pool.
         """
-        SqlPoolArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            sku_name=sku_name,
-            synapse_workspace_id=synapse_workspace_id,
-            collation=collation,
-            create_mode=create_mode,
-            data_encrypted=data_encrypted,
-            geo_backup_policy_enabled=geo_backup_policy_enabled,
-            name=name,
-            recovery_database_id=recovery_database_id,
-            restore=restore,
-            storage_account_type=storage_account_type,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             sku_name: Optional[pulumi.Input[str]] = None,
-             synapse_workspace_id: Optional[pulumi.Input[str]] = None,
-             collation: Optional[pulumi.Input[str]] = None,
-             create_mode: Optional[pulumi.Input[str]] = None,
-             data_encrypted: Optional[pulumi.Input[bool]] = None,
-             geo_backup_policy_enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             recovery_database_id: Optional[pulumi.Input[str]] = None,
-             restore: Optional[pulumi.Input['SqlPoolRestoreArgs']] = None,
-             storage_account_type: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if sku_name is None and 'skuName' in kwargs:
-            sku_name = kwargs['skuName']
-        if sku_name is None:
-            raise TypeError("Missing 'sku_name' argument")
-        if synapse_workspace_id is None and 'synapseWorkspaceId' in kwargs:
-            synapse_workspace_id = kwargs['synapseWorkspaceId']
-        if synapse_workspace_id is None:
-            raise TypeError("Missing 'synapse_workspace_id' argument")
-        if create_mode is None and 'createMode' in kwargs:
-            create_mode = kwargs['createMode']
-        if data_encrypted is None and 'dataEncrypted' in kwargs:
-            data_encrypted = kwargs['dataEncrypted']
-        if geo_backup_policy_enabled is None and 'geoBackupPolicyEnabled' in kwargs:
-            geo_backup_policy_enabled = kwargs['geoBackupPolicyEnabled']
-        if recovery_database_id is None and 'recoveryDatabaseId' in kwargs:
-            recovery_database_id = kwargs['recoveryDatabaseId']
-        if storage_account_type is None and 'storageAccountType' in kwargs:
-            storage_account_type = kwargs['storageAccountType']
-
-        _setter("sku_name", sku_name)
-        _setter("synapse_workspace_id", synapse_workspace_id)
+        pulumi.set(__self__, "sku_name", sku_name)
+        pulumi.set(__self__, "synapse_workspace_id", synapse_workspace_id)
         if collation is not None:
-            _setter("collation", collation)
+            pulumi.set(__self__, "collation", collation)
         if create_mode is not None:
-            _setter("create_mode", create_mode)
+            pulumi.set(__self__, "create_mode", create_mode)
         if data_encrypted is not None:
-            _setter("data_encrypted", data_encrypted)
+            pulumi.set(__self__, "data_encrypted", data_encrypted)
         if geo_backup_policy_enabled is not None:
-            _setter("geo_backup_policy_enabled", geo_backup_policy_enabled)
+            pulumi.set(__self__, "geo_backup_policy_enabled", geo_backup_policy_enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if recovery_database_id is not None:
-            _setter("recovery_database_id", recovery_database_id)
+            pulumi.set(__self__, "recovery_database_id", recovery_database_id)
         if restore is not None:
-            _setter("restore", restore)
+            pulumi.set(__self__, "restore", restore)
         if storage_account_type is not None:
-            _setter("storage_account_type", storage_account_type)
+            pulumi.set(__self__, "storage_account_type", storage_account_type)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="skuName")
@@ -272,73 +223,28 @@ class _SqlPoolState:
         :param pulumi.Input[str] synapse_workspace_id: The ID of Synapse Workspace within which this SQL Pool should be created. Changing this forces a new Synapse SQL Pool to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Synapse SQL Pool.
         """
-        _SqlPoolState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            collation=collation,
-            create_mode=create_mode,
-            data_encrypted=data_encrypted,
-            geo_backup_policy_enabled=geo_backup_policy_enabled,
-            name=name,
-            recovery_database_id=recovery_database_id,
-            restore=restore,
-            sku_name=sku_name,
-            storage_account_type=storage_account_type,
-            synapse_workspace_id=synapse_workspace_id,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             collation: Optional[pulumi.Input[str]] = None,
-             create_mode: Optional[pulumi.Input[str]] = None,
-             data_encrypted: Optional[pulumi.Input[bool]] = None,
-             geo_backup_policy_enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             recovery_database_id: Optional[pulumi.Input[str]] = None,
-             restore: Optional[pulumi.Input['SqlPoolRestoreArgs']] = None,
-             sku_name: Optional[pulumi.Input[str]] = None,
-             storage_account_type: Optional[pulumi.Input[str]] = None,
-             synapse_workspace_id: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if create_mode is None and 'createMode' in kwargs:
-            create_mode = kwargs['createMode']
-        if data_encrypted is None and 'dataEncrypted' in kwargs:
-            data_encrypted = kwargs['dataEncrypted']
-        if geo_backup_policy_enabled is None and 'geoBackupPolicyEnabled' in kwargs:
-            geo_backup_policy_enabled = kwargs['geoBackupPolicyEnabled']
-        if recovery_database_id is None and 'recoveryDatabaseId' in kwargs:
-            recovery_database_id = kwargs['recoveryDatabaseId']
-        if sku_name is None and 'skuName' in kwargs:
-            sku_name = kwargs['skuName']
-        if storage_account_type is None and 'storageAccountType' in kwargs:
-            storage_account_type = kwargs['storageAccountType']
-        if synapse_workspace_id is None and 'synapseWorkspaceId' in kwargs:
-            synapse_workspace_id = kwargs['synapseWorkspaceId']
-
         if collation is not None:
-            _setter("collation", collation)
+            pulumi.set(__self__, "collation", collation)
         if create_mode is not None:
-            _setter("create_mode", create_mode)
+            pulumi.set(__self__, "create_mode", create_mode)
         if data_encrypted is not None:
-            _setter("data_encrypted", data_encrypted)
+            pulumi.set(__self__, "data_encrypted", data_encrypted)
         if geo_backup_policy_enabled is not None:
-            _setter("geo_backup_policy_enabled", geo_backup_policy_enabled)
+            pulumi.set(__self__, "geo_backup_policy_enabled", geo_backup_policy_enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if recovery_database_id is not None:
-            _setter("recovery_database_id", recovery_database_id)
+            pulumi.set(__self__, "recovery_database_id", recovery_database_id)
         if restore is not None:
-            _setter("restore", restore)
+            pulumi.set(__self__, "restore", restore)
         if sku_name is not None:
-            _setter("sku_name", sku_name)
+            pulumi.set(__self__, "sku_name", sku_name)
         if storage_account_type is not None:
-            _setter("storage_account_type", storage_account_type)
+            pulumi.set(__self__, "storage_account_type", storage_account_type)
         if synapse_workspace_id is not None:
-            _setter("synapse_workspace_id", synapse_workspace_id)
+            pulumi.set(__self__, "synapse_workspace_id", synapse_workspace_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -602,10 +508,6 @@ class SqlPool(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SqlPoolArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -637,7 +539,6 @@ class SqlPool(pulumi.CustomResource):
             __props__.__dict__["geo_backup_policy_enabled"] = geo_backup_policy_enabled
             __props__.__dict__["name"] = name
             __props__.__dict__["recovery_database_id"] = recovery_database_id
-            restore = _utilities.configure(restore, SqlPoolRestoreArgs, True)
             __props__.__dict__["restore"] = restore
             if sku_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sku_name'")

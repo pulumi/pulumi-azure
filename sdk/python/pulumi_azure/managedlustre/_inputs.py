@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -25,29 +25,8 @@ class FileSystemEncryptionKeyArgs:
         :param pulumi.Input[str] key_url: The URL to the Key Vault Key used as the Encryption Key. This can be found as `id` on the `keyvault.Key` resource.
         :param pulumi.Input[str] source_vault_id: The ID of the source Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource.
         """
-        FileSystemEncryptionKeyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key_url=key_url,
-            source_vault_id=source_vault_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key_url: Optional[pulumi.Input[str]] = None,
-             source_vault_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key_url is None and 'keyUrl' in kwargs:
-            key_url = kwargs['keyUrl']
-        if key_url is None:
-            raise TypeError("Missing 'key_url' argument")
-        if source_vault_id is None and 'sourceVaultId' in kwargs:
-            source_vault_id = kwargs['sourceVaultId']
-        if source_vault_id is None:
-            raise TypeError("Missing 'source_vault_id' argument")
-
-        _setter("key_url", key_url)
-        _setter("source_vault_id", source_vault_id)
+        pulumi.set(__self__, "key_url", key_url)
+        pulumi.set(__self__, "source_vault_id", source_vault_id)
 
     @property
     @pulumi.getter(name="keyUrl")
@@ -87,35 +66,10 @@ class FileSystemHsmSettingArgs:
                
                > **NOTE:** The roles `Contributor` and `Storage Blob Data Contributor` must be added to the Service Principal `HPC Cache Resource Provider` for the Storage Account. See official docs for more information.
         """
-        FileSystemHsmSettingArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            container_id=container_id,
-            logging_container_id=logging_container_id,
-            import_prefix=import_prefix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             container_id: Optional[pulumi.Input[str]] = None,
-             logging_container_id: Optional[pulumi.Input[str]] = None,
-             import_prefix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if container_id is None and 'containerId' in kwargs:
-            container_id = kwargs['containerId']
-        if container_id is None:
-            raise TypeError("Missing 'container_id' argument")
-        if logging_container_id is None and 'loggingContainerId' in kwargs:
-            logging_container_id = kwargs['loggingContainerId']
-        if logging_container_id is None:
-            raise TypeError("Missing 'logging_container_id' argument")
-        if import_prefix is None and 'importPrefix' in kwargs:
-            import_prefix = kwargs['importPrefix']
-
-        _setter("container_id", container_id)
-        _setter("logging_container_id", logging_container_id)
+        pulumi.set(__self__, "container_id", container_id)
+        pulumi.set(__self__, "logging_container_id", logging_container_id)
         if import_prefix is not None:
-            _setter("import_prefix", import_prefix)
+            pulumi.set(__self__, "import_prefix", import_prefix)
 
     @property
     @pulumi.getter(name="containerId")
@@ -165,27 +119,8 @@ class FileSystemIdentityArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this Azure Managed Lustre File System. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type: The type of Managed Service Identity that should be configured on this Azure Managed Lustre File System. Only possible value is `UserAssigned`. Changing this forces a new resource to be created.
         """
-        FileSystemIdentityArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            identity_ids=identity_ids,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if identity_ids is None and 'identityIds' in kwargs:
-            identity_ids = kwargs['identityIds']
-        if identity_ids is None:
-            raise TypeError("Missing 'identity_ids' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("identity_ids", identity_ids)
-        _setter("type", type)
+        pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="identityIds")
@@ -220,29 +155,8 @@ class FileSystemMaintenanceWindowArgs:
         """
         :param pulumi.Input[str] day_of_week: The day of the week on which the maintenance window will occur. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
         """
-        FileSystemMaintenanceWindowArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            day_of_week=day_of_week,
-            time_of_day_in_utc=time_of_day_in_utc,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             day_of_week: Optional[pulumi.Input[str]] = None,
-             time_of_day_in_utc: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if day_of_week is None and 'dayOfWeek' in kwargs:
-            day_of_week = kwargs['dayOfWeek']
-        if day_of_week is None:
-            raise TypeError("Missing 'day_of_week' argument")
-        if time_of_day_in_utc is None and 'timeOfDayInUtc' in kwargs:
-            time_of_day_in_utc = kwargs['timeOfDayInUtc']
-        if time_of_day_in_utc is None:
-            raise TypeError("Missing 'time_of_day_in_utc' argument")
-
-        _setter("day_of_week", day_of_week)
-        _setter("time_of_day_in_utc", time_of_day_in_utc)
+        pulumi.set(__self__, "day_of_week", day_of_week)
+        pulumi.set(__self__, "time_of_day_in_utc", time_of_day_in_utc)
 
     @property
     @pulumi.getter(name="dayOfWeek")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,58 +37,21 @@ class AlertProcessingRuleActionGroupArgs:
         :param pulumi.Input['AlertProcessingRuleActionGroupScheduleArgs'] schedule: A `schedule` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Alert Processing Rule.
         """
-        AlertProcessingRuleActionGroupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            add_action_group_ids=add_action_group_ids,
-            resource_group_name=resource_group_name,
-            scopes=scopes,
-            condition=condition,
-            description=description,
-            enabled=enabled,
-            name=name,
-            schedule=schedule,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             add_action_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             condition: Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionArgs']] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             schedule: Optional[pulumi.Input['AlertProcessingRuleActionGroupScheduleArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if add_action_group_ids is None and 'addActionGroupIds' in kwargs:
-            add_action_group_ids = kwargs['addActionGroupIds']
-        if add_action_group_ids is None:
-            raise TypeError("Missing 'add_action_group_ids' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if scopes is None:
-            raise TypeError("Missing 'scopes' argument")
-
-        _setter("add_action_group_ids", add_action_group_ids)
-        _setter("resource_group_name", resource_group_name)
-        _setter("scopes", scopes)
+        pulumi.set(__self__, "add_action_group_ids", add_action_group_ids)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "scopes", scopes)
         if condition is not None:
-            _setter("condition", condition)
+            pulumi.set(__self__, "condition", condition)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if schedule is not None:
-            _setter("schedule", schedule)
+            pulumi.set(__self__, "schedule", schedule)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="addActionGroupIds")
@@ -223,55 +186,24 @@ class _AlertProcessingRuleActionGroupState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: A list of resource IDs which will be the target of alert processing rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Alert Processing Rule.
         """
-        _AlertProcessingRuleActionGroupState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            add_action_group_ids=add_action_group_ids,
-            condition=condition,
-            description=description,
-            enabled=enabled,
-            name=name,
-            resource_group_name=resource_group_name,
-            schedule=schedule,
-            scopes=scopes,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             add_action_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             condition: Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionArgs']] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             schedule: Optional[pulumi.Input['AlertProcessingRuleActionGroupScheduleArgs']] = None,
-             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if add_action_group_ids is None and 'addActionGroupIds' in kwargs:
-            add_action_group_ids = kwargs['addActionGroupIds']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-
         if add_action_group_ids is not None:
-            _setter("add_action_group_ids", add_action_group_ids)
+            pulumi.set(__self__, "add_action_group_ids", add_action_group_ids)
         if condition is not None:
-            _setter("condition", condition)
+            pulumi.set(__self__, "condition", condition)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if schedule is not None:
-            _setter("schedule", schedule)
+            pulumi.set(__self__, "schedule", schedule)
         if scopes is not None:
-            _setter("scopes", scopes)
+            pulumi.set(__self__, "scopes", scopes)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="addActionGroupIds")
@@ -547,10 +479,6 @@ class AlertProcessingRuleActionGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AlertProcessingRuleActionGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -577,7 +505,6 @@ class AlertProcessingRuleActionGroup(pulumi.CustomResource):
             if add_action_group_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'add_action_group_ids'")
             __props__.__dict__["add_action_group_ids"] = add_action_group_ids
-            condition = _utilities.configure(condition, AlertProcessingRuleActionGroupConditionArgs, True)
             __props__.__dict__["condition"] = condition
             __props__.__dict__["description"] = description
             __props__.__dict__["enabled"] = enabled
@@ -585,7 +512,6 @@ class AlertProcessingRuleActionGroup(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            schedule = _utilities.configure(schedule, AlertProcessingRuleActionGroupScheduleArgs, True)
             __props__.__dict__["schedule"] = schedule
             if scopes is None and not opts.urn:
                 raise TypeError("Missing required property 'scopes'")

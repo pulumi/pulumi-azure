@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ExpressRouteCircuitConnectionArgs', 'ExpressRouteCircuitConnection']
@@ -31,52 +31,15 @@ class ExpressRouteCircuitConnectionArgs:
         :param pulumi.Input[str] authorization_key: The authorization key which is associated with the Express Route Circuit Connection.
         :param pulumi.Input[str] name: The name which should be used for this Express Route Circuit Connection. Changing this forces a new Express Route Circuit Connection to be created.
         """
-        ExpressRouteCircuitConnectionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            address_prefix_ipv4=address_prefix_ipv4,
-            peer_peering_id=peer_peering_id,
-            peering_id=peering_id,
-            address_prefix_ipv6=address_prefix_ipv6,
-            authorization_key=authorization_key,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             address_prefix_ipv4: Optional[pulumi.Input[str]] = None,
-             peer_peering_id: Optional[pulumi.Input[str]] = None,
-             peering_id: Optional[pulumi.Input[str]] = None,
-             address_prefix_ipv6: Optional[pulumi.Input[str]] = None,
-             authorization_key: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if address_prefix_ipv4 is None and 'addressPrefixIpv4' in kwargs:
-            address_prefix_ipv4 = kwargs['addressPrefixIpv4']
-        if address_prefix_ipv4 is None:
-            raise TypeError("Missing 'address_prefix_ipv4' argument")
-        if peer_peering_id is None and 'peerPeeringId' in kwargs:
-            peer_peering_id = kwargs['peerPeeringId']
-        if peer_peering_id is None:
-            raise TypeError("Missing 'peer_peering_id' argument")
-        if peering_id is None and 'peeringId' in kwargs:
-            peering_id = kwargs['peeringId']
-        if peering_id is None:
-            raise TypeError("Missing 'peering_id' argument")
-        if address_prefix_ipv6 is None and 'addressPrefixIpv6' in kwargs:
-            address_prefix_ipv6 = kwargs['addressPrefixIpv6']
-        if authorization_key is None and 'authorizationKey' in kwargs:
-            authorization_key = kwargs['authorizationKey']
-
-        _setter("address_prefix_ipv4", address_prefix_ipv4)
-        _setter("peer_peering_id", peer_peering_id)
-        _setter("peering_id", peering_id)
+        pulumi.set(__self__, "address_prefix_ipv4", address_prefix_ipv4)
+        pulumi.set(__self__, "peer_peering_id", peer_peering_id)
+        pulumi.set(__self__, "peering_id", peering_id)
         if address_prefix_ipv6 is not None:
-            _setter("address_prefix_ipv6", address_prefix_ipv6)
+            pulumi.set(__self__, "address_prefix_ipv6", address_prefix_ipv6)
         if authorization_key is not None:
-            _setter("authorization_key", authorization_key)
+            pulumi.set(__self__, "authorization_key", authorization_key)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="addressPrefixIpv4")
@@ -173,49 +136,18 @@ class _ExpressRouteCircuitConnectionState:
         :param pulumi.Input[str] peer_peering_id: The ID of the peered Express Route Circuit Private Peering. Changing this forces a new Express Route Circuit Connection to be created.
         :param pulumi.Input[str] peering_id: The ID of the Express Route Circuit Private Peering that this Express Route Circuit Connection connects with. Changing this forces a new Express Route Circuit Connection to be created.
         """
-        _ExpressRouteCircuitConnectionState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            address_prefix_ipv4=address_prefix_ipv4,
-            address_prefix_ipv6=address_prefix_ipv6,
-            authorization_key=authorization_key,
-            name=name,
-            peer_peering_id=peer_peering_id,
-            peering_id=peering_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             address_prefix_ipv4: Optional[pulumi.Input[str]] = None,
-             address_prefix_ipv6: Optional[pulumi.Input[str]] = None,
-             authorization_key: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             peer_peering_id: Optional[pulumi.Input[str]] = None,
-             peering_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if address_prefix_ipv4 is None and 'addressPrefixIpv4' in kwargs:
-            address_prefix_ipv4 = kwargs['addressPrefixIpv4']
-        if address_prefix_ipv6 is None and 'addressPrefixIpv6' in kwargs:
-            address_prefix_ipv6 = kwargs['addressPrefixIpv6']
-        if authorization_key is None and 'authorizationKey' in kwargs:
-            authorization_key = kwargs['authorizationKey']
-        if peer_peering_id is None and 'peerPeeringId' in kwargs:
-            peer_peering_id = kwargs['peerPeeringId']
-        if peering_id is None and 'peeringId' in kwargs:
-            peering_id = kwargs['peeringId']
-
         if address_prefix_ipv4 is not None:
-            _setter("address_prefix_ipv4", address_prefix_ipv4)
+            pulumi.set(__self__, "address_prefix_ipv4", address_prefix_ipv4)
         if address_prefix_ipv6 is not None:
-            _setter("address_prefix_ipv6", address_prefix_ipv6)
+            pulumi.set(__self__, "address_prefix_ipv6", address_prefix_ipv6)
         if authorization_key is not None:
-            _setter("authorization_key", authorization_key)
+            pulumi.set(__self__, "authorization_key", authorization_key)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if peer_peering_id is not None:
-            _setter("peer_peering_id", peer_peering_id)
+            pulumi.set(__self__, "peer_peering_id", peer_peering_id)
         if peering_id is not None:
-            _setter("peering_id", peering_id)
+            pulumi.set(__self__, "peering_id", peering_id)
 
     @property
     @pulumi.getter(name="addressPrefixIpv4")
@@ -477,10 +409,6 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ExpressRouteCircuitConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

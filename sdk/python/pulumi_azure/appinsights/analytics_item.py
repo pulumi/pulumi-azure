@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AnalyticsItemArgs', 'AnalyticsItem']
@@ -29,47 +29,14 @@ class AnalyticsItemArgs:
         :param pulumi.Input[str] function_alias: The alias to use for the function. Required when `type` is `function`.
         :param pulumi.Input[str] name: Specifies the name of the Application Insights Analytics Item. Changing this forces a new resource to be created.
         """
-        AnalyticsItemArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            application_insights_id=application_insights_id,
-            content=content,
-            scope=scope,
-            type=type,
-            function_alias=function_alias,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             application_insights_id: Optional[pulumi.Input[str]] = None,
-             content: Optional[pulumi.Input[str]] = None,
-             scope: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             function_alias: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if application_insights_id is None and 'applicationInsightsId' in kwargs:
-            application_insights_id = kwargs['applicationInsightsId']
-        if application_insights_id is None:
-            raise TypeError("Missing 'application_insights_id' argument")
-        if content is None:
-            raise TypeError("Missing 'content' argument")
-        if scope is None:
-            raise TypeError("Missing 'scope' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if function_alias is None and 'functionAlias' in kwargs:
-            function_alias = kwargs['functionAlias']
-
-        _setter("application_insights_id", application_insights_id)
-        _setter("content", content)
-        _setter("scope", scope)
-        _setter("type", type)
+        pulumi.set(__self__, "application_insights_id", application_insights_id)
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "scope", scope)
+        pulumi.set(__self__, "type", type)
         if function_alias is not None:
-            _setter("function_alias", function_alias)
+            pulumi.set(__self__, "function_alias", function_alias)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="applicationInsightsId")
@@ -168,59 +135,24 @@ class _AnalyticsItemState:
         :param pulumi.Input[str] type: The type of Analytics Item to create. Can be one of `query`, `function`, `folder`, `recent`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] version: A string indicating the version of the query format
         """
-        _AnalyticsItemState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            application_insights_id=application_insights_id,
-            content=content,
-            function_alias=function_alias,
-            name=name,
-            scope=scope,
-            time_created=time_created,
-            time_modified=time_modified,
-            type=type,
-            version=version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             application_insights_id: Optional[pulumi.Input[str]] = None,
-             content: Optional[pulumi.Input[str]] = None,
-             function_alias: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             scope: Optional[pulumi.Input[str]] = None,
-             time_created: Optional[pulumi.Input[str]] = None,
-             time_modified: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if application_insights_id is None and 'applicationInsightsId' in kwargs:
-            application_insights_id = kwargs['applicationInsightsId']
-        if function_alias is None and 'functionAlias' in kwargs:
-            function_alias = kwargs['functionAlias']
-        if time_created is None and 'timeCreated' in kwargs:
-            time_created = kwargs['timeCreated']
-        if time_modified is None and 'timeModified' in kwargs:
-            time_modified = kwargs['timeModified']
-
         if application_insights_id is not None:
-            _setter("application_insights_id", application_insights_id)
+            pulumi.set(__self__, "application_insights_id", application_insights_id)
         if content is not None:
-            _setter("content", content)
+            pulumi.set(__self__, "content", content)
         if function_alias is not None:
-            _setter("function_alias", function_alias)
+            pulumi.set(__self__, "function_alias", function_alias)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if scope is not None:
-            _setter("scope", scope)
+            pulumi.set(__self__, "scope", scope)
         if time_created is not None:
-            _setter("time_created", time_created)
+            pulumi.set(__self__, "time_created", time_created)
         if time_modified is not None:
-            _setter("time_modified", time_modified)
+            pulumi.set(__self__, "time_modified", time_modified)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
         if version is not None:
-            _setter("version", version)
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="applicationInsightsId")
@@ -430,10 +362,6 @@ class AnalyticsItem(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AnalyticsItemArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

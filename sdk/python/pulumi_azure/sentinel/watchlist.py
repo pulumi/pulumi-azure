@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['WatchlistArgs', 'Watchlist']
@@ -31,54 +31,17 @@ class WatchlistArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: Specifies a list of labels related to this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
         :param pulumi.Input[str] name: The name which should be used for this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
         """
-        WatchlistArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            display_name=display_name,
-            item_search_key=item_search_key,
-            log_analytics_workspace_id=log_analytics_workspace_id,
-            default_duration=default_duration,
-            description=description,
-            labels=labels,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             display_name: Optional[pulumi.Input[str]] = None,
-             item_search_key: Optional[pulumi.Input[str]] = None,
-             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
-             default_duration: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if display_name is None and 'displayName' in kwargs:
-            display_name = kwargs['displayName']
-        if display_name is None:
-            raise TypeError("Missing 'display_name' argument")
-        if item_search_key is None and 'itemSearchKey' in kwargs:
-            item_search_key = kwargs['itemSearchKey']
-        if item_search_key is None:
-            raise TypeError("Missing 'item_search_key' argument")
-        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
-            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if log_analytics_workspace_id is None:
-            raise TypeError("Missing 'log_analytics_workspace_id' argument")
-        if default_duration is None and 'defaultDuration' in kwargs:
-            default_duration = kwargs['defaultDuration']
-
-        _setter("display_name", display_name)
-        _setter("item_search_key", item_search_key)
-        _setter("log_analytics_workspace_id", log_analytics_workspace_id)
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "item_search_key", item_search_key)
+        pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
         if default_duration is not None:
-            _setter("default_duration", default_duration)
+            pulumi.set(__self__, "default_duration", default_duration)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if labels is not None:
-            _setter("labels", labels)
+            pulumi.set(__self__, "labels", labels)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="displayName")
@@ -185,51 +148,20 @@ class _WatchlistState:
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace where this Sentinel Watchlist resides in. Changing this forces a new Sentinel Watchlist to be created.
         :param pulumi.Input[str] name: The name which should be used for this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
         """
-        _WatchlistState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            default_duration=default_duration,
-            description=description,
-            display_name=display_name,
-            item_search_key=item_search_key,
-            labels=labels,
-            log_analytics_workspace_id=log_analytics_workspace_id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             default_duration: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             display_name: Optional[pulumi.Input[str]] = None,
-             item_search_key: Optional[pulumi.Input[str]] = None,
-             labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if default_duration is None and 'defaultDuration' in kwargs:
-            default_duration = kwargs['defaultDuration']
-        if display_name is None and 'displayName' in kwargs:
-            display_name = kwargs['displayName']
-        if item_search_key is None and 'itemSearchKey' in kwargs:
-            item_search_key = kwargs['itemSearchKey']
-        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
-            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-
         if default_duration is not None:
-            _setter("default_duration", default_duration)
+            pulumi.set(__self__, "default_duration", default_duration)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if display_name is not None:
-            _setter("display_name", display_name)
+            pulumi.set(__self__, "display_name", display_name)
         if item_search_key is not None:
-            _setter("item_search_key", item_search_key)
+            pulumi.set(__self__, "item_search_key", item_search_key)
         if labels is not None:
-            _setter("labels", labels)
+            pulumi.set(__self__, "labels", labels)
         if log_analytics_workspace_id is not None:
-            _setter("log_analytics_workspace_id", log_analytics_workspace_id)
+            pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="defaultDuration")
@@ -413,10 +345,6 @@ class Watchlist(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            WatchlistArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

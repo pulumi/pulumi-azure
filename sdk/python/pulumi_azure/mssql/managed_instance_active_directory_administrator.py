@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ManagedInstanceActiveDirectoryAdministratorArgs', 'ManagedInstanceActiveDirectoryAdministrator']
@@ -27,49 +27,12 @@ class ManagedInstanceActiveDirectoryAdministratorArgs:
         :param pulumi.Input[str] tenant_id: The Azure Active Directory Tenant ID.
         :param pulumi.Input[bool] azuread_authentication_only: When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users.
         """
-        ManagedInstanceActiveDirectoryAdministratorArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            login_username=login_username,
-            managed_instance_id=managed_instance_id,
-            object_id=object_id,
-            tenant_id=tenant_id,
-            azuread_authentication_only=azuread_authentication_only,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             login_username: Optional[pulumi.Input[str]] = None,
-             managed_instance_id: Optional[pulumi.Input[str]] = None,
-             object_id: Optional[pulumi.Input[str]] = None,
-             tenant_id: Optional[pulumi.Input[str]] = None,
-             azuread_authentication_only: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if login_username is None and 'loginUsername' in kwargs:
-            login_username = kwargs['loginUsername']
-        if login_username is None:
-            raise TypeError("Missing 'login_username' argument")
-        if managed_instance_id is None and 'managedInstanceId' in kwargs:
-            managed_instance_id = kwargs['managedInstanceId']
-        if managed_instance_id is None:
-            raise TypeError("Missing 'managed_instance_id' argument")
-        if object_id is None and 'objectId' in kwargs:
-            object_id = kwargs['objectId']
-        if object_id is None:
-            raise TypeError("Missing 'object_id' argument")
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-        if tenant_id is None:
-            raise TypeError("Missing 'tenant_id' argument")
-        if azuread_authentication_only is None and 'azureadAuthenticationOnly' in kwargs:
-            azuread_authentication_only = kwargs['azureadAuthenticationOnly']
-
-        _setter("login_username", login_username)
-        _setter("managed_instance_id", managed_instance_id)
-        _setter("object_id", object_id)
-        _setter("tenant_id", tenant_id)
+        pulumi.set(__self__, "login_username", login_username)
+        pulumi.set(__self__, "managed_instance_id", managed_instance_id)
+        pulumi.set(__self__, "object_id", object_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
         if azuread_authentication_only is not None:
-            _setter("azuread_authentication_only", azuread_authentication_only)
+            pulumi.set(__self__, "azuread_authentication_only", azuread_authentication_only)
 
     @property
     @pulumi.getter(name="loginUsername")
@@ -148,45 +111,16 @@ class _ManagedInstanceActiveDirectoryAdministratorState:
         :param pulumi.Input[str] object_id: The Object ID of the principal to set as the Managed Instance Administrator.
         :param pulumi.Input[str] tenant_id: The Azure Active Directory Tenant ID.
         """
-        _ManagedInstanceActiveDirectoryAdministratorState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            azuread_authentication_only=azuread_authentication_only,
-            login_username=login_username,
-            managed_instance_id=managed_instance_id,
-            object_id=object_id,
-            tenant_id=tenant_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             azuread_authentication_only: Optional[pulumi.Input[bool]] = None,
-             login_username: Optional[pulumi.Input[str]] = None,
-             managed_instance_id: Optional[pulumi.Input[str]] = None,
-             object_id: Optional[pulumi.Input[str]] = None,
-             tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if azuread_authentication_only is None and 'azureadAuthenticationOnly' in kwargs:
-            azuread_authentication_only = kwargs['azureadAuthenticationOnly']
-        if login_username is None and 'loginUsername' in kwargs:
-            login_username = kwargs['loginUsername']
-        if managed_instance_id is None and 'managedInstanceId' in kwargs:
-            managed_instance_id = kwargs['managedInstanceId']
-        if object_id is None and 'objectId' in kwargs:
-            object_id = kwargs['objectId']
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-
         if azuread_authentication_only is not None:
-            _setter("azuread_authentication_only", azuread_authentication_only)
+            pulumi.set(__self__, "azuread_authentication_only", azuread_authentication_only)
         if login_username is not None:
-            _setter("login_username", login_username)
+            pulumi.set(__self__, "login_username", login_username)
         if managed_instance_id is not None:
-            _setter("managed_instance_id", managed_instance_id)
+            pulumi.set(__self__, "managed_instance_id", managed_instance_id)
         if object_id is not None:
-            _setter("object_id", object_id)
+            pulumi.set(__self__, "object_id", object_id)
         if tenant_id is not None:
-            _setter("tenant_id", tenant_id)
+            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="azureadAuthenticationOnly")
@@ -398,10 +332,6 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ManagedInstanceActiveDirectoryAdministratorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

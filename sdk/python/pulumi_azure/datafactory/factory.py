@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -45,86 +45,31 @@ class FactoryArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['FactoryVstsConfigurationArgs'] vsts_configuration: A `vsts_configuration` block as defined below.
         """
-        FactoryArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_group_name=resource_group_name,
-            customer_managed_key_id=customer_managed_key_id,
-            customer_managed_key_identity_id=customer_managed_key_identity_id,
-            github_configuration=github_configuration,
-            global_parameters=global_parameters,
-            identity=identity,
-            location=location,
-            managed_virtual_network_enabled=managed_virtual_network_enabled,
-            name=name,
-            public_network_enabled=public_network_enabled,
-            purview_id=purview_id,
-            tags=tags,
-            vsts_configuration=vsts_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             customer_managed_key_id: Optional[pulumi.Input[str]] = None,
-             customer_managed_key_identity_id: Optional[pulumi.Input[str]] = None,
-             github_configuration: Optional[pulumi.Input['FactoryGithubConfigurationArgs']] = None,
-             global_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['FactoryGlobalParameterArgs']]]] = None,
-             identity: Optional[pulumi.Input['FactoryIdentityArgs']] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             managed_virtual_network_enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             public_network_enabled: Optional[pulumi.Input[bool]] = None,
-             purview_id: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             vsts_configuration: Optional[pulumi.Input['FactoryVstsConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if customer_managed_key_id is None and 'customerManagedKeyId' in kwargs:
-            customer_managed_key_id = kwargs['customerManagedKeyId']
-        if customer_managed_key_identity_id is None and 'customerManagedKeyIdentityId' in kwargs:
-            customer_managed_key_identity_id = kwargs['customerManagedKeyIdentityId']
-        if github_configuration is None and 'githubConfiguration' in kwargs:
-            github_configuration = kwargs['githubConfiguration']
-        if global_parameters is None and 'globalParameters' in kwargs:
-            global_parameters = kwargs['globalParameters']
-        if managed_virtual_network_enabled is None and 'managedVirtualNetworkEnabled' in kwargs:
-            managed_virtual_network_enabled = kwargs['managedVirtualNetworkEnabled']
-        if public_network_enabled is None and 'publicNetworkEnabled' in kwargs:
-            public_network_enabled = kwargs['publicNetworkEnabled']
-        if purview_id is None and 'purviewId' in kwargs:
-            purview_id = kwargs['purviewId']
-        if vsts_configuration is None and 'vstsConfiguration' in kwargs:
-            vsts_configuration = kwargs['vstsConfiguration']
-
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if customer_managed_key_id is not None:
-            _setter("customer_managed_key_id", customer_managed_key_id)
+            pulumi.set(__self__, "customer_managed_key_id", customer_managed_key_id)
         if customer_managed_key_identity_id is not None:
-            _setter("customer_managed_key_identity_id", customer_managed_key_identity_id)
+            pulumi.set(__self__, "customer_managed_key_identity_id", customer_managed_key_identity_id)
         if github_configuration is not None:
-            _setter("github_configuration", github_configuration)
+            pulumi.set(__self__, "github_configuration", github_configuration)
         if global_parameters is not None:
-            _setter("global_parameters", global_parameters)
+            pulumi.set(__self__, "global_parameters", global_parameters)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if managed_virtual_network_enabled is not None:
-            _setter("managed_virtual_network_enabled", managed_virtual_network_enabled)
+            pulumi.set(__self__, "managed_virtual_network_enabled", managed_virtual_network_enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if public_network_enabled is not None:
-            _setter("public_network_enabled", public_network_enabled)
+            pulumi.set(__self__, "public_network_enabled", public_network_enabled)
         if purview_id is not None:
-            _setter("purview_id", purview_id)
+            pulumi.set(__self__, "purview_id", purview_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if vsts_configuration is not None:
-            _setter("vsts_configuration", vsts_configuration)
+            pulumi.set(__self__, "vsts_configuration", vsts_configuration)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -315,85 +260,32 @@ class _FactoryState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['FactoryVstsConfigurationArgs'] vsts_configuration: A `vsts_configuration` block as defined below.
         """
-        _FactoryState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            customer_managed_key_id=customer_managed_key_id,
-            customer_managed_key_identity_id=customer_managed_key_identity_id,
-            github_configuration=github_configuration,
-            global_parameters=global_parameters,
-            identity=identity,
-            location=location,
-            managed_virtual_network_enabled=managed_virtual_network_enabled,
-            name=name,
-            public_network_enabled=public_network_enabled,
-            purview_id=purview_id,
-            resource_group_name=resource_group_name,
-            tags=tags,
-            vsts_configuration=vsts_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             customer_managed_key_id: Optional[pulumi.Input[str]] = None,
-             customer_managed_key_identity_id: Optional[pulumi.Input[str]] = None,
-             github_configuration: Optional[pulumi.Input['FactoryGithubConfigurationArgs']] = None,
-             global_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['FactoryGlobalParameterArgs']]]] = None,
-             identity: Optional[pulumi.Input['FactoryIdentityArgs']] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             managed_virtual_network_enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             public_network_enabled: Optional[pulumi.Input[bool]] = None,
-             purview_id: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             vsts_configuration: Optional[pulumi.Input['FactoryVstsConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if customer_managed_key_id is None and 'customerManagedKeyId' in kwargs:
-            customer_managed_key_id = kwargs['customerManagedKeyId']
-        if customer_managed_key_identity_id is None and 'customerManagedKeyIdentityId' in kwargs:
-            customer_managed_key_identity_id = kwargs['customerManagedKeyIdentityId']
-        if github_configuration is None and 'githubConfiguration' in kwargs:
-            github_configuration = kwargs['githubConfiguration']
-        if global_parameters is None and 'globalParameters' in kwargs:
-            global_parameters = kwargs['globalParameters']
-        if managed_virtual_network_enabled is None and 'managedVirtualNetworkEnabled' in kwargs:
-            managed_virtual_network_enabled = kwargs['managedVirtualNetworkEnabled']
-        if public_network_enabled is None and 'publicNetworkEnabled' in kwargs:
-            public_network_enabled = kwargs['publicNetworkEnabled']
-        if purview_id is None and 'purviewId' in kwargs:
-            purview_id = kwargs['purviewId']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if vsts_configuration is None and 'vstsConfiguration' in kwargs:
-            vsts_configuration = kwargs['vstsConfiguration']
-
         if customer_managed_key_id is not None:
-            _setter("customer_managed_key_id", customer_managed_key_id)
+            pulumi.set(__self__, "customer_managed_key_id", customer_managed_key_id)
         if customer_managed_key_identity_id is not None:
-            _setter("customer_managed_key_identity_id", customer_managed_key_identity_id)
+            pulumi.set(__self__, "customer_managed_key_identity_id", customer_managed_key_identity_id)
         if github_configuration is not None:
-            _setter("github_configuration", github_configuration)
+            pulumi.set(__self__, "github_configuration", github_configuration)
         if global_parameters is not None:
-            _setter("global_parameters", global_parameters)
+            pulumi.set(__self__, "global_parameters", global_parameters)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if managed_virtual_network_enabled is not None:
-            _setter("managed_virtual_network_enabled", managed_virtual_network_enabled)
+            pulumi.set(__self__, "managed_virtual_network_enabled", managed_virtual_network_enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if public_network_enabled is not None:
-            _setter("public_network_enabled", public_network_enabled)
+            pulumi.set(__self__, "public_network_enabled", public_network_enabled)
         if purview_id is not None:
-            _setter("purview_id", purview_id)
+            pulumi.set(__self__, "purview_id", purview_id)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if vsts_configuration is not None:
-            _setter("vsts_configuration", vsts_configuration)
+            pulumi.set(__self__, "vsts_configuration", vsts_configuration)
 
     @property
     @pulumi.getter(name="customerManagedKeyId")
@@ -649,10 +541,6 @@ class Factory(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            FactoryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -682,10 +570,8 @@ class Factory(pulumi.CustomResource):
 
             __props__.__dict__["customer_managed_key_id"] = customer_managed_key_id
             __props__.__dict__["customer_managed_key_identity_id"] = customer_managed_key_identity_id
-            github_configuration = _utilities.configure(github_configuration, FactoryGithubConfigurationArgs, True)
             __props__.__dict__["github_configuration"] = github_configuration
             __props__.__dict__["global_parameters"] = global_parameters
-            identity = _utilities.configure(identity, FactoryIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["managed_virtual_network_enabled"] = managed_virtual_network_enabled
@@ -696,7 +582,6 @@ class Factory(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
-            vsts_configuration = _utilities.configure(vsts_configuration, FactoryVstsConfigurationArgs, True)
             __props__.__dict__["vsts_configuration"] = vsts_configuration
         super(Factory, __self__).__init__(
             'azure:datafactory/factory:Factory',

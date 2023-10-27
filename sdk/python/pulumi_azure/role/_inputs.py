@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -26,37 +26,14 @@ class DefinitionPermissionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] not_actions: One or more Disallowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations) for details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] not_data_actions: One or more Disallowed Data Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations) for details.
         """
-        DefinitionPermissionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            actions=actions,
-            data_actions=data_actions,
-            not_actions=not_actions,
-            not_data_actions=not_data_actions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             not_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             not_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if data_actions is None and 'dataActions' in kwargs:
-            data_actions = kwargs['dataActions']
-        if not_actions is None and 'notActions' in kwargs:
-            not_actions = kwargs['notActions']
-        if not_data_actions is None and 'notDataActions' in kwargs:
-            not_data_actions = kwargs['notDataActions']
-
         if actions is not None:
-            _setter("actions", actions)
+            pulumi.set(__self__, "actions", actions)
         if data_actions is not None:
-            _setter("data_actions", data_actions)
+            pulumi.set(__self__, "data_actions", data_actions)
         if not_actions is not None:
-            _setter("not_actions", not_actions)
+            pulumi.set(__self__, "not_actions", not_actions)
         if not_data_actions is not None:
-            _setter("not_data_actions", not_data_actions)
+            pulumi.set(__self__, "not_data_actions", not_data_actions)
 
     @property
     @pulumi.getter

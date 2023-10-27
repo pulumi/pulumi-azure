@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['CertificateArgs', 'Certificate']
@@ -27,47 +27,12 @@ class CertificateArgs:
         :param pulumi.Input[str] nginx_deployment_id: The ID of the Nginx Deployment that this Certificate should be associated with. Changing this forces a new Nginx Certificate to be created.
         :param pulumi.Input[str] name: The name which should be used for this Nginx Certificate. Changing this forces a new Nginx Certificate to be created.
         """
-        CertificateArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_virtual_path=certificate_virtual_path,
-            key_vault_secret_id=key_vault_secret_id,
-            key_virtual_path=key_virtual_path,
-            nginx_deployment_id=nginx_deployment_id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_virtual_path: Optional[pulumi.Input[str]] = None,
-             key_vault_secret_id: Optional[pulumi.Input[str]] = None,
-             key_virtual_path: Optional[pulumi.Input[str]] = None,
-             nginx_deployment_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate_virtual_path is None and 'certificateVirtualPath' in kwargs:
-            certificate_virtual_path = kwargs['certificateVirtualPath']
-        if certificate_virtual_path is None:
-            raise TypeError("Missing 'certificate_virtual_path' argument")
-        if key_vault_secret_id is None and 'keyVaultSecretId' in kwargs:
-            key_vault_secret_id = kwargs['keyVaultSecretId']
-        if key_vault_secret_id is None:
-            raise TypeError("Missing 'key_vault_secret_id' argument")
-        if key_virtual_path is None and 'keyVirtualPath' in kwargs:
-            key_virtual_path = kwargs['keyVirtualPath']
-        if key_virtual_path is None:
-            raise TypeError("Missing 'key_virtual_path' argument")
-        if nginx_deployment_id is None and 'nginxDeploymentId' in kwargs:
-            nginx_deployment_id = kwargs['nginxDeploymentId']
-        if nginx_deployment_id is None:
-            raise TypeError("Missing 'nginx_deployment_id' argument")
-
-        _setter("certificate_virtual_path", certificate_virtual_path)
-        _setter("key_vault_secret_id", key_vault_secret_id)
-        _setter("key_virtual_path", key_virtual_path)
-        _setter("nginx_deployment_id", nginx_deployment_id)
+        pulumi.set(__self__, "certificate_virtual_path", certificate_virtual_path)
+        pulumi.set(__self__, "key_vault_secret_id", key_vault_secret_id)
+        pulumi.set(__self__, "key_virtual_path", key_virtual_path)
+        pulumi.set(__self__, "nginx_deployment_id", nginx_deployment_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="certificateVirtualPath")
@@ -146,43 +111,16 @@ class _CertificateState:
         :param pulumi.Input[str] name: The name which should be used for this Nginx Certificate. Changing this forces a new Nginx Certificate to be created.
         :param pulumi.Input[str] nginx_deployment_id: The ID of the Nginx Deployment that this Certificate should be associated with. Changing this forces a new Nginx Certificate to be created.
         """
-        _CertificateState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_virtual_path=certificate_virtual_path,
-            key_vault_secret_id=key_vault_secret_id,
-            key_virtual_path=key_virtual_path,
-            name=name,
-            nginx_deployment_id=nginx_deployment_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_virtual_path: Optional[pulumi.Input[str]] = None,
-             key_vault_secret_id: Optional[pulumi.Input[str]] = None,
-             key_virtual_path: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             nginx_deployment_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate_virtual_path is None and 'certificateVirtualPath' in kwargs:
-            certificate_virtual_path = kwargs['certificateVirtualPath']
-        if key_vault_secret_id is None and 'keyVaultSecretId' in kwargs:
-            key_vault_secret_id = kwargs['keyVaultSecretId']
-        if key_virtual_path is None and 'keyVirtualPath' in kwargs:
-            key_virtual_path = kwargs['keyVirtualPath']
-        if nginx_deployment_id is None and 'nginxDeploymentId' in kwargs:
-            nginx_deployment_id = kwargs['nginxDeploymentId']
-
         if certificate_virtual_path is not None:
-            _setter("certificate_virtual_path", certificate_virtual_path)
+            pulumi.set(__self__, "certificate_virtual_path", certificate_virtual_path)
         if key_vault_secret_id is not None:
-            _setter("key_vault_secret_id", key_vault_secret_id)
+            pulumi.set(__self__, "key_vault_secret_id", key_vault_secret_id)
         if key_virtual_path is not None:
-            _setter("key_virtual_path", key_virtual_path)
+            pulumi.set(__self__, "key_virtual_path", key_virtual_path)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if nginx_deployment_id is not None:
-            _setter("nginx_deployment_id", nginx_deployment_id)
+            pulumi.set(__self__, "nginx_deployment_id", nginx_deployment_id)
 
     @property
     @pulumi.getter(name="certificateVirtualPath")
@@ -462,10 +400,6 @@ class Certificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            CertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

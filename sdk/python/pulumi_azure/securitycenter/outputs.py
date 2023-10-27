@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -30,28 +30,11 @@ class AssessmentStatus(dict):
         :param str cause: Specifies the cause of the assessment status.
         :param str description: Specifies the human readable description of the assessment status.
         """
-        AssessmentStatus._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            code=code,
-            cause=cause,
-            description=description,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             code: Optional[str] = None,
-             cause: Optional[str] = None,
-             description: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if code is None:
-            raise TypeError("Missing 'code' argument")
-
-        _setter("code", code)
+        pulumi.set(__self__, "code", code)
         if cause is not None:
-            _setter("cause", cause)
+            pulumi.set(__self__, "cause", cause)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
 
     @property
     @pulumi.getter
@@ -112,39 +95,12 @@ class AutomationAction(dict):
         :param str connection_string: (Optional, but required when `type` is `EventHub`) A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
         :param str trigger_url: (Optional, but required when `type` is `LogicApp`) The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under "See trigger history"
         """
-        AutomationAction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_id=resource_id,
-            type=type,
-            connection_string=connection_string,
-            trigger_url=trigger_url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_id: Optional[str] = None,
-             type: Optional[str] = None,
-             connection_string: Optional[str] = None,
-             trigger_url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_id is None and 'resourceId' in kwargs:
-            resource_id = kwargs['resourceId']
-        if resource_id is None:
-            raise TypeError("Missing 'resource_id' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if connection_string is None and 'connectionString' in kwargs:
-            connection_string = kwargs['connectionString']
-        if trigger_url is None and 'triggerUrl' in kwargs:
-            trigger_url = kwargs['triggerUrl']
-
-        _setter("resource_id", resource_id)
-        _setter("type", type)
+        pulumi.set(__self__, "resource_id", resource_id)
+        pulumi.set(__self__, "type", type)
         if connection_string is not None:
-            _setter("connection_string", connection_string)
+            pulumi.set(__self__, "connection_string", connection_string)
         if trigger_url is not None:
-            _setter("trigger_url", trigger_url)
+            pulumi.set(__self__, "trigger_url", trigger_url)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -209,28 +165,9 @@ class AutomationSource(dict):
                
                > **NOTE:** When multiple `rule_set` block are provided, a logical 'OR' is applied to the evaluation of them.
         """
-        AutomationSource._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            event_source=event_source,
-            rule_sets=rule_sets,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             event_source: Optional[str] = None,
-             rule_sets: Optional[Sequence['outputs.AutomationSourceRuleSet']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if event_source is None and 'eventSource' in kwargs:
-            event_source = kwargs['eventSource']
-        if event_source is None:
-            raise TypeError("Missing 'event_source' argument")
-        if rule_sets is None and 'ruleSets' in kwargs:
-            rule_sets = kwargs['ruleSets']
-
-        _setter("event_source", event_source)
+        pulumi.set(__self__, "event_source", event_source)
         if rule_sets is not None:
-            _setter("rule_sets", rule_sets)
+            pulumi.set(__self__, "rule_sets", rule_sets)
 
     @property
     @pulumi.getter(name="eventSource")
@@ -260,20 +197,7 @@ class AutomationSourceRuleSet(dict):
                
                > **NOTE:** This automation will trigger when all of the `rule`s in this `rule_set` are evaluated as 'true'. This is equivalent to a logical 'AND'.
         """
-        AutomationSourceRuleSet._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            rules=rules,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             rules: Optional[Sequence['outputs.AutomationSourceRuleSetRule']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if rules is None:
-            raise TypeError("Missing 'rules' argument")
-
-        _setter("rules", rules)
+        pulumi.set(__self__, "rules", rules)
 
     @property
     @pulumi.getter
@@ -322,41 +246,10 @@ class AutomationSourceRuleSetRule(dict):
                
                > **NOTE:** The schema for Security Center alerts (when `event_source` is "Alerts") [can be found here](https://docs.microsoft.com/azure/security-center/alerts-schemas?tabs=schema-continuousexport)
         """
-        AutomationSourceRuleSetRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            expected_value=expected_value,
-            operator=operator,
-            property_path=property_path,
-            property_type=property_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             expected_value: Optional[str] = None,
-             operator: Optional[str] = None,
-             property_path: Optional[str] = None,
-             property_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if expected_value is None and 'expectedValue' in kwargs:
-            expected_value = kwargs['expectedValue']
-        if expected_value is None:
-            raise TypeError("Missing 'expected_value' argument")
-        if operator is None:
-            raise TypeError("Missing 'operator' argument")
-        if property_path is None and 'propertyPath' in kwargs:
-            property_path = kwargs['propertyPath']
-        if property_path is None:
-            raise TypeError("Missing 'property_path' argument")
-        if property_type is None and 'propertyType' in kwargs:
-            property_type = kwargs['propertyType']
-        if property_type is None:
-            raise TypeError("Missing 'property_type' argument")
-
-        _setter("expected_value", expected_value)
-        _setter("operator", operator)
-        _setter("property_path", property_path)
-        _setter("property_type", property_type)
+        pulumi.set(__self__, "expected_value", expected_value)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "property_path", property_path)
+        pulumi.set(__self__, "property_type", property_type)
 
     @property
     @pulumi.getter(name="expectedValue")
@@ -423,26 +316,9 @@ class SubscriptionPricingExtension(dict):
                
                > **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
         """
-        SubscriptionPricingExtension._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            additional_extension_properties=additional_extension_properties,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             additional_extension_properties: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if additional_extension_properties is None and 'additionalExtensionProperties' in kwargs:
-            additional_extension_properties = kwargs['additionalExtensionProperties']
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if additional_extension_properties is not None:
-            _setter("additional_extension_properties", additional_extension_properties)
+            pulumi.set(__self__, "additional_extension_properties", additional_extension_properties)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ElasticPoolArgs', 'ElasticPool']
@@ -37,69 +37,22 @@ class ElasticPoolArgs:
         :param pulumi.Input[int] pool_size: The maximum size in MB that all databases in the elastic pool can grow to. The maximum size must be consistent with combination of `edition` and `dtu` and the limits documented in [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus). If not defined when creating an elastic pool, the value is set to the size implied by `edition` and `dtu`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        ElasticPoolArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            dtu=dtu,
-            edition=edition,
-            resource_group_name=resource_group_name,
-            server_name=server_name,
-            db_dtu_max=db_dtu_max,
-            db_dtu_min=db_dtu_min,
-            location=location,
-            name=name,
-            pool_size=pool_size,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             dtu: Optional[pulumi.Input[int]] = None,
-             edition: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             server_name: Optional[pulumi.Input[str]] = None,
-             db_dtu_max: Optional[pulumi.Input[int]] = None,
-             db_dtu_min: Optional[pulumi.Input[int]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             pool_size: Optional[pulumi.Input[int]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if dtu is None:
-            raise TypeError("Missing 'dtu' argument")
-        if edition is None:
-            raise TypeError("Missing 'edition' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if server_name is None and 'serverName' in kwargs:
-            server_name = kwargs['serverName']
-        if server_name is None:
-            raise TypeError("Missing 'server_name' argument")
-        if db_dtu_max is None and 'dbDtuMax' in kwargs:
-            db_dtu_max = kwargs['dbDtuMax']
-        if db_dtu_min is None and 'dbDtuMin' in kwargs:
-            db_dtu_min = kwargs['dbDtuMin']
-        if pool_size is None and 'poolSize' in kwargs:
-            pool_size = kwargs['poolSize']
-
-        _setter("dtu", dtu)
-        _setter("edition", edition)
-        _setter("resource_group_name", resource_group_name)
-        _setter("server_name", server_name)
+        pulumi.set(__self__, "dtu", dtu)
+        pulumi.set(__self__, "edition", edition)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "server_name", server_name)
         if db_dtu_max is not None:
-            _setter("db_dtu_max", db_dtu_max)
+            pulumi.set(__self__, "db_dtu_max", db_dtu_max)
         if db_dtu_min is not None:
-            _setter("db_dtu_min", db_dtu_min)
+            pulumi.set(__self__, "db_dtu_min", db_dtu_min)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if pool_size is not None:
-            _setter("pool_size", pool_size)
+            pulumi.set(__self__, "pool_size", pool_size)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -250,71 +203,28 @@ class _ElasticPoolState:
         :param pulumi.Input[str] server_name: The name of the SQL Server on which to create the elastic pool. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        _ElasticPoolState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            creation_date=creation_date,
-            db_dtu_max=db_dtu_max,
-            db_dtu_min=db_dtu_min,
-            dtu=dtu,
-            edition=edition,
-            location=location,
-            name=name,
-            pool_size=pool_size,
-            resource_group_name=resource_group_name,
-            server_name=server_name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             creation_date: Optional[pulumi.Input[str]] = None,
-             db_dtu_max: Optional[pulumi.Input[int]] = None,
-             db_dtu_min: Optional[pulumi.Input[int]] = None,
-             dtu: Optional[pulumi.Input[int]] = None,
-             edition: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             pool_size: Optional[pulumi.Input[int]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             server_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if creation_date is None and 'creationDate' in kwargs:
-            creation_date = kwargs['creationDate']
-        if db_dtu_max is None and 'dbDtuMax' in kwargs:
-            db_dtu_max = kwargs['dbDtuMax']
-        if db_dtu_min is None and 'dbDtuMin' in kwargs:
-            db_dtu_min = kwargs['dbDtuMin']
-        if pool_size is None and 'poolSize' in kwargs:
-            pool_size = kwargs['poolSize']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if server_name is None and 'serverName' in kwargs:
-            server_name = kwargs['serverName']
-
         if creation_date is not None:
-            _setter("creation_date", creation_date)
+            pulumi.set(__self__, "creation_date", creation_date)
         if db_dtu_max is not None:
-            _setter("db_dtu_max", db_dtu_max)
+            pulumi.set(__self__, "db_dtu_max", db_dtu_max)
         if db_dtu_min is not None:
-            _setter("db_dtu_min", db_dtu_min)
+            pulumi.set(__self__, "db_dtu_min", db_dtu_min)
         if dtu is not None:
-            _setter("dtu", dtu)
+            pulumi.set(__self__, "dtu", dtu)
         if edition is not None:
-            _setter("edition", edition)
+            pulumi.set(__self__, "edition", edition)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if pool_size is not None:
-            _setter("pool_size", pool_size)
+            pulumi.set(__self__, "pool_size", pool_size)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if server_name is not None:
-            _setter("server_name", server_name)
+            pulumi.set(__self__, "server_name", server_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="creationDate")
@@ -572,10 +482,6 @@ class ElasticPool(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ElasticPoolArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

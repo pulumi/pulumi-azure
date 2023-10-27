@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,69 +41,26 @@ class DatasetAzureSqlTableArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DatasetAzureSqlTableSchemaColumnArgs']]] schema_columns: A `schema_column` block as defined below.
         :param pulumi.Input[str] table: The table name of the table in the Azure SQL Database.
         """
-        DatasetAzureSqlTableArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_factory_id=data_factory_id,
-            linked_service_id=linked_service_id,
-            additional_properties=additional_properties,
-            annotations=annotations,
-            description=description,
-            folder=folder,
-            name=name,
-            parameters=parameters,
-            schema=schema,
-            schema_columns=schema_columns,
-            table=table,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_factory_id: Optional[pulumi.Input[str]] = None,
-             linked_service_id: Optional[pulumi.Input[str]] = None,
-             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             folder: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             schema: Optional[pulumi.Input[str]] = None,
-             schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetAzureSqlTableSchemaColumnArgs']]]] = None,
-             table: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if data_factory_id is None and 'dataFactoryId' in kwargs:
-            data_factory_id = kwargs['dataFactoryId']
-        if data_factory_id is None:
-            raise TypeError("Missing 'data_factory_id' argument")
-        if linked_service_id is None and 'linkedServiceId' in kwargs:
-            linked_service_id = kwargs['linkedServiceId']
-        if linked_service_id is None:
-            raise TypeError("Missing 'linked_service_id' argument")
-        if additional_properties is None and 'additionalProperties' in kwargs:
-            additional_properties = kwargs['additionalProperties']
-        if schema_columns is None and 'schemaColumns' in kwargs:
-            schema_columns = kwargs['schemaColumns']
-
-        _setter("data_factory_id", data_factory_id)
-        _setter("linked_service_id", linked_service_id)
+        pulumi.set(__self__, "data_factory_id", data_factory_id)
+        pulumi.set(__self__, "linked_service_id", linked_service_id)
         if additional_properties is not None:
-            _setter("additional_properties", additional_properties)
+            pulumi.set(__self__, "additional_properties", additional_properties)
         if annotations is not None:
-            _setter("annotations", annotations)
+            pulumi.set(__self__, "annotations", annotations)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if folder is not None:
-            _setter("folder", folder)
+            pulumi.set(__self__, "folder", folder)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if parameters is not None:
-            _setter("parameters", parameters)
+            pulumi.set(__self__, "parameters", parameters)
         if schema is not None:
-            _setter("schema", schema)
+            pulumi.set(__self__, "schema", schema)
         if schema_columns is not None:
-            _setter("schema_columns", schema_columns)
+            pulumi.set(__self__, "schema_columns", schema_columns)
         if table is not None:
-            _setter("table", table)
+            pulumi.set(__self__, "table", table)
 
     @property
     @pulumi.getter(name="dataFactoryId")
@@ -266,67 +223,28 @@ class _DatasetAzureSqlTableState:
         :param pulumi.Input[Sequence[pulumi.Input['DatasetAzureSqlTableSchemaColumnArgs']]] schema_columns: A `schema_column` block as defined below.
         :param pulumi.Input[str] table: The table name of the table in the Azure SQL Database.
         """
-        _DatasetAzureSqlTableState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            additional_properties=additional_properties,
-            annotations=annotations,
-            data_factory_id=data_factory_id,
-            description=description,
-            folder=folder,
-            linked_service_id=linked_service_id,
-            name=name,
-            parameters=parameters,
-            schema=schema,
-            schema_columns=schema_columns,
-            table=table,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             data_factory_id: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             folder: Optional[pulumi.Input[str]] = None,
-             linked_service_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             schema: Optional[pulumi.Input[str]] = None,
-             schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetAzureSqlTableSchemaColumnArgs']]]] = None,
-             table: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if additional_properties is None and 'additionalProperties' in kwargs:
-            additional_properties = kwargs['additionalProperties']
-        if data_factory_id is None and 'dataFactoryId' in kwargs:
-            data_factory_id = kwargs['dataFactoryId']
-        if linked_service_id is None and 'linkedServiceId' in kwargs:
-            linked_service_id = kwargs['linkedServiceId']
-        if schema_columns is None and 'schemaColumns' in kwargs:
-            schema_columns = kwargs['schemaColumns']
-
         if additional_properties is not None:
-            _setter("additional_properties", additional_properties)
+            pulumi.set(__self__, "additional_properties", additional_properties)
         if annotations is not None:
-            _setter("annotations", annotations)
+            pulumi.set(__self__, "annotations", annotations)
         if data_factory_id is not None:
-            _setter("data_factory_id", data_factory_id)
+            pulumi.set(__self__, "data_factory_id", data_factory_id)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if folder is not None:
-            _setter("folder", folder)
+            pulumi.set(__self__, "folder", folder)
         if linked_service_id is not None:
-            _setter("linked_service_id", linked_service_id)
+            pulumi.set(__self__, "linked_service_id", linked_service_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if parameters is not None:
-            _setter("parameters", parameters)
+            pulumi.set(__self__, "parameters", parameters)
         if schema is not None:
-            _setter("schema", schema)
+            pulumi.set(__self__, "schema", schema)
         if schema_columns is not None:
-            _setter("schema_columns", schema_columns)
+            pulumi.set(__self__, "schema_columns", schema_columns)
         if table is not None:
-            _setter("table", table)
+            pulumi.set(__self__, "table", table)
 
     @property
     @pulumi.getter(name="additionalProperties")
@@ -566,10 +484,6 @@ class DatasetAzureSqlTable(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DatasetAzureSqlTableArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

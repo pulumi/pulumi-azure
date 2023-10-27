@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['EventhubNamespaceDisasterRecoveryConfigArgs', 'EventhubNamespaceDisasterRecoveryConfig']
@@ -25,40 +25,11 @@ class EventhubNamespaceDisasterRecoveryConfigArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Disaster Recovery Config exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created.
         """
-        EventhubNamespaceDisasterRecoveryConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            namespace_name=namespace_name,
-            partner_namespace_id=partner_namespace_id,
-            resource_group_name=resource_group_name,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             namespace_name: Optional[pulumi.Input[str]] = None,
-             partner_namespace_id: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if namespace_name is None and 'namespaceName' in kwargs:
-            namespace_name = kwargs['namespaceName']
-        if namespace_name is None:
-            raise TypeError("Missing 'namespace_name' argument")
-        if partner_namespace_id is None and 'partnerNamespaceId' in kwargs:
-            partner_namespace_id = kwargs['partnerNamespaceId']
-        if partner_namespace_id is None:
-            raise TypeError("Missing 'partner_namespace_id' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-
-        _setter("namespace_name", namespace_name)
-        _setter("partner_namespace_id", partner_namespace_id)
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "namespace_name", namespace_name)
+        pulumi.set(__self__, "partner_namespace_id", partner_namespace_id)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="namespaceName")
@@ -123,37 +94,14 @@ class _EventhubNamespaceDisasterRecoveryConfigState:
         :param pulumi.Input[str] partner_namespace_id: The ID of the EventHub Namespace to replicate to.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Disaster Recovery Config exists. Changing this forces a new resource to be created.
         """
-        _EventhubNamespaceDisasterRecoveryConfigState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            namespace_name=namespace_name,
-            partner_namespace_id=partner_namespace_id,
-            resource_group_name=resource_group_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             namespace_name: Optional[pulumi.Input[str]] = None,
-             partner_namespace_id: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if namespace_name is None and 'namespaceName' in kwargs:
-            namespace_name = kwargs['namespaceName']
-        if partner_namespace_id is None and 'partnerNamespaceId' in kwargs:
-            partner_namespace_id = kwargs['partnerNamespaceId']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if namespace_name is not None:
-            _setter("namespace_name", namespace_name)
+            pulumi.set(__self__, "namespace_name", namespace_name)
         if partner_namespace_id is not None:
-            _setter("partner_namespace_id", partner_namespace_id)
+            pulumi.set(__self__, "partner_namespace_id", partner_namespace_id)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
 
     @property
     @pulumi.getter
@@ -301,10 +249,6 @@ class EventhubNamespaceDisasterRecoveryConfig(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            EventhubNamespaceDisasterRecoveryConfigArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['FabricArgs', 'Fabric']
@@ -25,37 +25,12 @@ class FabricArgs:
         :param pulumi.Input[str] location: In what region should the fabric be located. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the network mapping. Changing this forces a new resource to be created.
         """
-        FabricArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            recovery_vault_name=recovery_vault_name,
-            resource_group_name=resource_group_name,
-            location=location,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             recovery_vault_name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if recovery_vault_name is None and 'recoveryVaultName' in kwargs:
-            recovery_vault_name = kwargs['recoveryVaultName']
-        if recovery_vault_name is None:
-            raise TypeError("Missing 'recovery_vault_name' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-
-        _setter("recovery_vault_name", recovery_vault_name)
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "recovery_vault_name", recovery_vault_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="recoveryVaultName")
@@ -120,35 +95,14 @@ class _FabricState:
         :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
         """
-        _FabricState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            location=location,
-            name=name,
-            recovery_vault_name=recovery_vault_name,
-            resource_group_name=resource_group_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             recovery_vault_name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if recovery_vault_name is None and 'recoveryVaultName' in kwargs:
-            recovery_vault_name = kwargs['recoveryVaultName']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if recovery_vault_name is not None:
-            _setter("recovery_vault_name", recovery_vault_name)
+            pulumi.set(__self__, "recovery_vault_name", recovery_vault_name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
 
     @property
     @pulumi.getter
@@ -290,10 +244,6 @@ class Fabric(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            FabricArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

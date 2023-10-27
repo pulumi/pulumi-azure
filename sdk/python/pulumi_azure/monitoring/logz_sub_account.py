@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,39 +29,14 @@ class LogzSubAccountArgs:
         :param pulumi.Input[str] name: The name which should be used for this logz Sub Account. Possible values must be between 1 and 32 characters in length and may contain only letters, numbers, hyphens and underscores. Changing this forces a new logz Sub Account to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the logz Sub Account.
         """
-        LogzSubAccountArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            logz_monitor_id=logz_monitor_id,
-            user=user,
-            enabled=enabled,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             logz_monitor_id: Optional[pulumi.Input[str]] = None,
-             user: Optional[pulumi.Input['LogzSubAccountUserArgs']] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if logz_monitor_id is None and 'logzMonitorId' in kwargs:
-            logz_monitor_id = kwargs['logzMonitorId']
-        if logz_monitor_id is None:
-            raise TypeError("Missing 'logz_monitor_id' argument")
-        if user is None:
-            raise TypeError("Missing 'user' argument")
-
-        _setter("logz_monitor_id", logz_monitor_id)
-        _setter("user", user)
+        pulumi.set(__self__, "logz_monitor_id", logz_monitor_id)
+        pulumi.set(__self__, "user", user)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="logzMonitorId")
@@ -140,37 +115,16 @@ class _LogzSubAccountState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the logz Sub Account.
         :param pulumi.Input['LogzSubAccountUserArgs'] user: A `user` block as defined below. Changing this forces a new resource to be created.
         """
-        _LogzSubAccountState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            logz_monitor_id=logz_monitor_id,
-            name=name,
-            tags=tags,
-            user=user,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[pulumi.Input[bool]] = None,
-             logz_monitor_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             user: Optional[pulumi.Input['LogzSubAccountUserArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if logz_monitor_id is None and 'logzMonitorId' in kwargs:
-            logz_monitor_id = kwargs['logzMonitorId']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if logz_monitor_id is not None:
-            _setter("logz_monitor_id", logz_monitor_id)
+            pulumi.set(__self__, "logz_monitor_id", logz_monitor_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if user is not None:
-            _setter("user", user)
+            pulumi.set(__self__, "user", user)
 
     @property
     @pulumi.getter
@@ -352,10 +306,6 @@ class LogzSubAccount(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LogzSubAccountArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -381,7 +331,6 @@ class LogzSubAccount(pulumi.CustomResource):
             __props__.__dict__["logz_monitor_id"] = logz_monitor_id
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
-            user = _utilities.configure(user, LogzSubAccountUserArgs, True)
             if user is None and not opts.urn:
                 raise TypeError("Missing required property 'user'")
             __props__.__dict__["user"] = user

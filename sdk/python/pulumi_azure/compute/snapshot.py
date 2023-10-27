@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -45,77 +45,26 @@ class SnapshotArgs:
         :param pulumi.Input[str] storage_account_id: Specifies the ID of an storage account. Used with `source_uri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        SnapshotArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            create_option=create_option,
-            resource_group_name=resource_group_name,
-            disk_size_gb=disk_size_gb,
-            encryption_settings=encryption_settings,
-            incremental_enabled=incremental_enabled,
-            location=location,
-            name=name,
-            source_resource_id=source_resource_id,
-            source_uri=source_uri,
-            storage_account_id=storage_account_id,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             create_option: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             disk_size_gb: Optional[pulumi.Input[int]] = None,
-             encryption_settings: Optional[pulumi.Input['SnapshotEncryptionSettingsArgs']] = None,
-             incremental_enabled: Optional[pulumi.Input[bool]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             source_resource_id: Optional[pulumi.Input[str]] = None,
-             source_uri: Optional[pulumi.Input[str]] = None,
-             storage_account_id: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if create_option is None and 'createOption' in kwargs:
-            create_option = kwargs['createOption']
-        if create_option is None:
-            raise TypeError("Missing 'create_option' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if disk_size_gb is None and 'diskSizeGb' in kwargs:
-            disk_size_gb = kwargs['diskSizeGb']
-        if encryption_settings is None and 'encryptionSettings' in kwargs:
-            encryption_settings = kwargs['encryptionSettings']
-        if incremental_enabled is None and 'incrementalEnabled' in kwargs:
-            incremental_enabled = kwargs['incrementalEnabled']
-        if source_resource_id is None and 'sourceResourceId' in kwargs:
-            source_resource_id = kwargs['sourceResourceId']
-        if source_uri is None and 'sourceUri' in kwargs:
-            source_uri = kwargs['sourceUri']
-        if storage_account_id is None and 'storageAccountId' in kwargs:
-            storage_account_id = kwargs['storageAccountId']
-
-        _setter("create_option", create_option)
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "create_option", create_option)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if disk_size_gb is not None:
-            _setter("disk_size_gb", disk_size_gb)
+            pulumi.set(__self__, "disk_size_gb", disk_size_gb)
         if encryption_settings is not None:
-            _setter("encryption_settings", encryption_settings)
+            pulumi.set(__self__, "encryption_settings", encryption_settings)
         if incremental_enabled is not None:
-            _setter("incremental_enabled", incremental_enabled)
+            pulumi.set(__self__, "incremental_enabled", incremental_enabled)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if source_resource_id is not None:
-            _setter("source_resource_id", source_resource_id)
+            pulumi.set(__self__, "source_resource_id", source_resource_id)
         if source_uri is not None:
-            _setter("source_uri", source_uri)
+            pulumi.set(__self__, "source_uri", source_uri)
         if storage_account_id is not None:
-            _setter("storage_account_id", storage_account_id)
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="createOption")
@@ -288,81 +237,30 @@ class _SnapshotState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] trusted_launch_enabled: Whether Trusted Launch is enabled for the Snapshot.
         """
-        _SnapshotState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            create_option=create_option,
-            disk_size_gb=disk_size_gb,
-            encryption_settings=encryption_settings,
-            incremental_enabled=incremental_enabled,
-            location=location,
-            name=name,
-            resource_group_name=resource_group_name,
-            source_resource_id=source_resource_id,
-            source_uri=source_uri,
-            storage_account_id=storage_account_id,
-            tags=tags,
-            trusted_launch_enabled=trusted_launch_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             create_option: Optional[pulumi.Input[str]] = None,
-             disk_size_gb: Optional[pulumi.Input[int]] = None,
-             encryption_settings: Optional[pulumi.Input['SnapshotEncryptionSettingsArgs']] = None,
-             incremental_enabled: Optional[pulumi.Input[bool]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             source_resource_id: Optional[pulumi.Input[str]] = None,
-             source_uri: Optional[pulumi.Input[str]] = None,
-             storage_account_id: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             trusted_launch_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if create_option is None and 'createOption' in kwargs:
-            create_option = kwargs['createOption']
-        if disk_size_gb is None and 'diskSizeGb' in kwargs:
-            disk_size_gb = kwargs['diskSizeGb']
-        if encryption_settings is None and 'encryptionSettings' in kwargs:
-            encryption_settings = kwargs['encryptionSettings']
-        if incremental_enabled is None and 'incrementalEnabled' in kwargs:
-            incremental_enabled = kwargs['incrementalEnabled']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if source_resource_id is None and 'sourceResourceId' in kwargs:
-            source_resource_id = kwargs['sourceResourceId']
-        if source_uri is None and 'sourceUri' in kwargs:
-            source_uri = kwargs['sourceUri']
-        if storage_account_id is None and 'storageAccountId' in kwargs:
-            storage_account_id = kwargs['storageAccountId']
-        if trusted_launch_enabled is None and 'trustedLaunchEnabled' in kwargs:
-            trusted_launch_enabled = kwargs['trustedLaunchEnabled']
-
         if create_option is not None:
-            _setter("create_option", create_option)
+            pulumi.set(__self__, "create_option", create_option)
         if disk_size_gb is not None:
-            _setter("disk_size_gb", disk_size_gb)
+            pulumi.set(__self__, "disk_size_gb", disk_size_gb)
         if encryption_settings is not None:
-            _setter("encryption_settings", encryption_settings)
+            pulumi.set(__self__, "encryption_settings", encryption_settings)
         if incremental_enabled is not None:
-            _setter("incremental_enabled", incremental_enabled)
+            pulumi.set(__self__, "incremental_enabled", incremental_enabled)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if source_resource_id is not None:
-            _setter("source_resource_id", source_resource_id)
+            pulumi.set(__self__, "source_resource_id", source_resource_id)
         if source_uri is not None:
-            _setter("source_uri", source_uri)
+            pulumi.set(__self__, "source_uri", source_uri)
         if storage_account_id is not None:
-            _setter("storage_account_id", storage_account_id)
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if trusted_launch_enabled is not None:
-            _setter("trusted_launch_enabled", trusted_launch_enabled)
+            pulumi.set(__self__, "trusted_launch_enabled", trusted_launch_enabled)
 
     @property
     @pulumi.getter(name="createOption")
@@ -626,10 +524,6 @@ class Snapshot(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SnapshotArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -659,7 +553,6 @@ class Snapshot(pulumi.CustomResource):
                 raise TypeError("Missing required property 'create_option'")
             __props__.__dict__["create_option"] = create_option
             __props__.__dict__["disk_size_gb"] = disk_size_gb
-            encryption_settings = _utilities.configure(encryption_settings, SnapshotEncryptionSettingsArgs, True)
             __props__.__dict__["encryption_settings"] = encryption_settings
             __props__.__dict__["incremental_enabled"] = incremental_enabled
             __props__.__dict__["location"] = location

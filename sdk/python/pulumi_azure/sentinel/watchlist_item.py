@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['WatchlistItemArgs', 'WatchlistItem']
@@ -23,31 +23,10 @@ class WatchlistItemArgs:
         :param pulumi.Input[str] watchlist_id: The ID of the Sentinel Watchlist that this Item resides in. Changing this forces a new Sentinel Watchlist Item to be created.
         :param pulumi.Input[str] name: The name in UUID format which should be used for this Sentinel Watchlist Item. Changing this forces a new Sentinel Watchlist Item to be created.
         """
-        WatchlistItemArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            properties=properties,
-            watchlist_id=watchlist_id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             watchlist_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties is None:
-            raise TypeError("Missing 'properties' argument")
-        if watchlist_id is None and 'watchlistId' in kwargs:
-            watchlist_id = kwargs['watchlistId']
-        if watchlist_id is None:
-            raise TypeError("Missing 'watchlist_id' argument")
-
-        _setter("properties", properties)
-        _setter("watchlist_id", watchlist_id)
+        pulumi.set(__self__, "properties", properties)
+        pulumi.set(__self__, "watchlist_id", watchlist_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -98,29 +77,12 @@ class _WatchlistItemState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The key value pairs of the Sentinel Watchlist Item.
         :param pulumi.Input[str] watchlist_id: The ID of the Sentinel Watchlist that this Item resides in. Changing this forces a new Sentinel Watchlist Item to be created.
         """
-        _WatchlistItemState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            properties=properties,
-            watchlist_id=watchlist_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             watchlist_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if watchlist_id is None and 'watchlistId' in kwargs:
-            watchlist_id = kwargs['watchlistId']
-
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if properties is not None:
-            _setter("properties", properties)
+            pulumi.set(__self__, "properties", properties)
         if watchlist_id is not None:
-            _setter("watchlist_id", watchlist_id)
+            pulumi.set(__self__, "watchlist_id", watchlist_id)
 
     @property
     @pulumi.getter
@@ -260,10 +222,6 @@ class WatchlistItem(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            WatchlistItemArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

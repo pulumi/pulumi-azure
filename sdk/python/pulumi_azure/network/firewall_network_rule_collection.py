@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,48 +31,13 @@ class FirewallNetworkRuleCollectionArgs:
         :param pulumi.Input[Sequence[pulumi.Input['FirewallNetworkRuleCollectionRuleArgs']]] rules: One or more `rule` blocks as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Network Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
         """
-        FirewallNetworkRuleCollectionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action=action,
-            azure_firewall_name=azure_firewall_name,
-            priority=priority,
-            resource_group_name=resource_group_name,
-            rules=rules,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action: Optional[pulumi.Input[str]] = None,
-             azure_firewall_name: Optional[pulumi.Input[str]] = None,
-             priority: Optional[pulumi.Input[int]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             rules: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallNetworkRuleCollectionRuleArgs']]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if action is None:
-            raise TypeError("Missing 'action' argument")
-        if azure_firewall_name is None and 'azureFirewallName' in kwargs:
-            azure_firewall_name = kwargs['azureFirewallName']
-        if azure_firewall_name is None:
-            raise TypeError("Missing 'azure_firewall_name' argument")
-        if priority is None:
-            raise TypeError("Missing 'priority' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if rules is None:
-            raise TypeError("Missing 'rules' argument")
-
-        _setter("action", action)
-        _setter("azure_firewall_name", azure_firewall_name)
-        _setter("priority", priority)
-        _setter("resource_group_name", resource_group_name)
-        _setter("rules", rules)
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "azure_firewall_name", azure_firewall_name)
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "rules", rules)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -165,43 +130,18 @@ class _FirewallNetworkRuleCollectionState:
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Firewall exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['FirewallNetworkRuleCollectionRuleArgs']]] rules: One or more `rule` blocks as defined below.
         """
-        _FirewallNetworkRuleCollectionState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action=action,
-            azure_firewall_name=azure_firewall_name,
-            name=name,
-            priority=priority,
-            resource_group_name=resource_group_name,
-            rules=rules,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action: Optional[pulumi.Input[str]] = None,
-             azure_firewall_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             priority: Optional[pulumi.Input[int]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             rules: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallNetworkRuleCollectionRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if azure_firewall_name is None and 'azureFirewallName' in kwargs:
-            azure_firewall_name = kwargs['azureFirewallName']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-
         if action is not None:
-            _setter("action", action)
+            pulumi.set(__self__, "action", action)
         if azure_firewall_name is not None:
-            _setter("azure_firewall_name", azure_firewall_name)
+            pulumi.set(__self__, "azure_firewall_name", azure_firewall_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if priority is not None:
-            _setter("priority", priority)
+            pulumi.set(__self__, "priority", priority)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if rules is not None:
-            _setter("rules", rules)
+            pulumi.set(__self__, "rules", rules)
 
     @property
     @pulumi.getter
@@ -435,10 +375,6 @@ class FirewallNetworkRuleCollection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            FirewallNetworkRuleCollectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

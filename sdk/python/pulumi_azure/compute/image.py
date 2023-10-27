@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,64 +41,23 @@ class ImageArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] zone_resilient: Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
         """
-        ImageArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_group_name=resource_group_name,
-            data_disks=data_disks,
-            hyper_v_generation=hyper_v_generation,
-            location=location,
-            name=name,
-            os_disk=os_disk,
-            source_virtual_machine_id=source_virtual_machine_id,
-            tags=tags,
-            zone_resilient=zone_resilient,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['ImageDataDiskArgs']]]] = None,
-             hyper_v_generation: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             os_disk: Optional[pulumi.Input['ImageOsDiskArgs']] = None,
-             source_virtual_machine_id: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             zone_resilient: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if data_disks is None and 'dataDisks' in kwargs:
-            data_disks = kwargs['dataDisks']
-        if hyper_v_generation is None and 'hyperVGeneration' in kwargs:
-            hyper_v_generation = kwargs['hyperVGeneration']
-        if os_disk is None and 'osDisk' in kwargs:
-            os_disk = kwargs['osDisk']
-        if source_virtual_machine_id is None and 'sourceVirtualMachineId' in kwargs:
-            source_virtual_machine_id = kwargs['sourceVirtualMachineId']
-        if zone_resilient is None and 'zoneResilient' in kwargs:
-            zone_resilient = kwargs['zoneResilient']
-
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if data_disks is not None:
-            _setter("data_disks", data_disks)
+            pulumi.set(__self__, "data_disks", data_disks)
         if hyper_v_generation is not None:
-            _setter("hyper_v_generation", hyper_v_generation)
+            pulumi.set(__self__, "hyper_v_generation", hyper_v_generation)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if os_disk is not None:
-            _setter("os_disk", os_disk)
+            pulumi.set(__self__, "os_disk", os_disk)
         if source_virtual_machine_id is not None:
-            _setter("source_virtual_machine_id", source_virtual_machine_id)
+            pulumi.set(__self__, "source_virtual_machine_id", source_virtual_machine_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if zone_resilient is not None:
-            _setter("zone_resilient", zone_resilient)
+            pulumi.set(__self__, "zone_resilient", zone_resilient)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -241,63 +200,24 @@ class _ImageState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] zone_resilient: Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
         """
-        _ImageState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_disks=data_disks,
-            hyper_v_generation=hyper_v_generation,
-            location=location,
-            name=name,
-            os_disk=os_disk,
-            resource_group_name=resource_group_name,
-            source_virtual_machine_id=source_virtual_machine_id,
-            tags=tags,
-            zone_resilient=zone_resilient,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['ImageDataDiskArgs']]]] = None,
-             hyper_v_generation: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             os_disk: Optional[pulumi.Input['ImageOsDiskArgs']] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             source_virtual_machine_id: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             zone_resilient: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if data_disks is None and 'dataDisks' in kwargs:
-            data_disks = kwargs['dataDisks']
-        if hyper_v_generation is None and 'hyperVGeneration' in kwargs:
-            hyper_v_generation = kwargs['hyperVGeneration']
-        if os_disk is None and 'osDisk' in kwargs:
-            os_disk = kwargs['osDisk']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if source_virtual_machine_id is None and 'sourceVirtualMachineId' in kwargs:
-            source_virtual_machine_id = kwargs['sourceVirtualMachineId']
-        if zone_resilient is None and 'zoneResilient' in kwargs:
-            zone_resilient = kwargs['zoneResilient']
-
         if data_disks is not None:
-            _setter("data_disks", data_disks)
+            pulumi.set(__self__, "data_disks", data_disks)
         if hyper_v_generation is not None:
-            _setter("hyper_v_generation", hyper_v_generation)
+            pulumi.set(__self__, "hyper_v_generation", hyper_v_generation)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if os_disk is not None:
-            _setter("os_disk", os_disk)
+            pulumi.set(__self__, "os_disk", os_disk)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if source_virtual_machine_id is not None:
-            _setter("source_virtual_machine_id", source_virtual_machine_id)
+            pulumi.set(__self__, "source_virtual_machine_id", source_virtual_machine_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if zone_resilient is not None:
-            _setter("zone_resilient", zone_resilient)
+            pulumi.set(__self__, "zone_resilient", zone_resilient)
 
     @property
     @pulumi.getter(name="dataDisks")
@@ -477,10 +397,6 @@ class Image(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ImageArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -508,7 +424,6 @@ class Image(pulumi.CustomResource):
             __props__.__dict__["hyper_v_generation"] = hyper_v_generation
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
-            os_disk = _utilities.configure(os_disk, ImageOsDiskArgs, True)
             __props__.__dict__["os_disk"] = os_disk
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

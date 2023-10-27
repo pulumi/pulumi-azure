@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DataExportRuleArgs', 'DataExportRule']
@@ -29,51 +29,14 @@ class DataExportRuleArgs:
         :param pulumi.Input[bool] enabled: Is this Log Analytics Data Export Rule enabled? Possible values include `true` or `false`. Defaults to `false`.
         :param pulumi.Input[str] name: The name of the Log Analytics Data Export Rule. Changing this forces a new Log Analytics Data Export Rule to be created.
         """
-        DataExportRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination_resource_id=destination_resource_id,
-            resource_group_name=resource_group_name,
-            table_names=table_names,
-            workspace_resource_id=workspace_resource_id,
-            enabled=enabled,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination_resource_id: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             table_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             workspace_resource_id: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if destination_resource_id is None and 'destinationResourceId' in kwargs:
-            destination_resource_id = kwargs['destinationResourceId']
-        if destination_resource_id is None:
-            raise TypeError("Missing 'destination_resource_id' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if table_names is None and 'tableNames' in kwargs:
-            table_names = kwargs['tableNames']
-        if table_names is None:
-            raise TypeError("Missing 'table_names' argument")
-        if workspace_resource_id is None and 'workspaceResourceId' in kwargs:
-            workspace_resource_id = kwargs['workspaceResourceId']
-        if workspace_resource_id is None:
-            raise TypeError("Missing 'workspace_resource_id' argument")
-
-        _setter("destination_resource_id", destination_resource_id)
-        _setter("resource_group_name", resource_group_name)
-        _setter("table_names", table_names)
-        _setter("workspace_resource_id", workspace_resource_id)
+        pulumi.set(__self__, "destination_resource_id", destination_resource_id)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "table_names", table_names)
+        pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="destinationResourceId")
@@ -168,53 +131,20 @@ class _DataExportRuleState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] table_names: A list of table names to export to the destination resource, for example: `["Heartbeat", "SecurityEvent"]`.
         :param pulumi.Input[str] workspace_resource_id: The resource ID of the workspace. Changing this forces a new Log Analytics Data Export Rule to be created.
         """
-        _DataExportRuleState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination_resource_id=destination_resource_id,
-            enabled=enabled,
-            export_rule_id=export_rule_id,
-            name=name,
-            resource_group_name=resource_group_name,
-            table_names=table_names,
-            workspace_resource_id=workspace_resource_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination_resource_id: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             export_rule_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             table_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             workspace_resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if destination_resource_id is None and 'destinationResourceId' in kwargs:
-            destination_resource_id = kwargs['destinationResourceId']
-        if export_rule_id is None and 'exportRuleId' in kwargs:
-            export_rule_id = kwargs['exportRuleId']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if table_names is None and 'tableNames' in kwargs:
-            table_names = kwargs['tableNames']
-        if workspace_resource_id is None and 'workspaceResourceId' in kwargs:
-            workspace_resource_id = kwargs['workspaceResourceId']
-
         if destination_resource_id is not None:
-            _setter("destination_resource_id", destination_resource_id)
+            pulumi.set(__self__, "destination_resource_id", destination_resource_id)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if export_rule_id is not None:
-            _setter("export_rule_id", export_rule_id)
+            pulumi.set(__self__, "export_rule_id", export_rule_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if table_names is not None:
-            _setter("table_names", table_names)
+            pulumi.set(__self__, "table_names", table_names)
         if workspace_resource_id is not None:
-            _setter("workspace_resource_id", workspace_resource_id)
+            pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
 
     @property
     @pulumi.getter(name="destinationResourceId")
@@ -410,10 +340,6 @@ class DataExportRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DataExportRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

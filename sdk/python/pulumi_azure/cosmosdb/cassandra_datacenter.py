@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['CassandraDatacenterArgs', 'CassandraDatacenter']
@@ -43,85 +43,28 @@ class CassandraDatacenterArgs:
                
                > **NOTE:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
         """
-        CassandraDatacenterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cassandra_cluster_id=cassandra_cluster_id,
-            delegated_management_subnet_id=delegated_management_subnet_id,
-            availability_zones_enabled=availability_zones_enabled,
-            backup_storage_customer_key_uri=backup_storage_customer_key_uri,
-            base64_encoded_yaml_fragment=base64_encoded_yaml_fragment,
-            disk_count=disk_count,
-            disk_sku=disk_sku,
-            location=location,
-            managed_disk_customer_key_uri=managed_disk_customer_key_uri,
-            name=name,
-            node_count=node_count,
-            sku_name=sku_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cassandra_cluster_id: Optional[pulumi.Input[str]] = None,
-             delegated_management_subnet_id: Optional[pulumi.Input[str]] = None,
-             availability_zones_enabled: Optional[pulumi.Input[bool]] = None,
-             backup_storage_customer_key_uri: Optional[pulumi.Input[str]] = None,
-             base64_encoded_yaml_fragment: Optional[pulumi.Input[str]] = None,
-             disk_count: Optional[pulumi.Input[int]] = None,
-             disk_sku: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             managed_disk_customer_key_uri: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             node_count: Optional[pulumi.Input[int]] = None,
-             sku_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cassandra_cluster_id is None and 'cassandraClusterId' in kwargs:
-            cassandra_cluster_id = kwargs['cassandraClusterId']
-        if cassandra_cluster_id is None:
-            raise TypeError("Missing 'cassandra_cluster_id' argument")
-        if delegated_management_subnet_id is None and 'delegatedManagementSubnetId' in kwargs:
-            delegated_management_subnet_id = kwargs['delegatedManagementSubnetId']
-        if delegated_management_subnet_id is None:
-            raise TypeError("Missing 'delegated_management_subnet_id' argument")
-        if availability_zones_enabled is None and 'availabilityZonesEnabled' in kwargs:
-            availability_zones_enabled = kwargs['availabilityZonesEnabled']
-        if backup_storage_customer_key_uri is None and 'backupStorageCustomerKeyUri' in kwargs:
-            backup_storage_customer_key_uri = kwargs['backupStorageCustomerKeyUri']
-        if base64_encoded_yaml_fragment is None and 'base64EncodedYamlFragment' in kwargs:
-            base64_encoded_yaml_fragment = kwargs['base64EncodedYamlFragment']
-        if disk_count is None and 'diskCount' in kwargs:
-            disk_count = kwargs['diskCount']
-        if disk_sku is None and 'diskSku' in kwargs:
-            disk_sku = kwargs['diskSku']
-        if managed_disk_customer_key_uri is None and 'managedDiskCustomerKeyUri' in kwargs:
-            managed_disk_customer_key_uri = kwargs['managedDiskCustomerKeyUri']
-        if node_count is None and 'nodeCount' in kwargs:
-            node_count = kwargs['nodeCount']
-        if sku_name is None and 'skuName' in kwargs:
-            sku_name = kwargs['skuName']
-
-        _setter("cassandra_cluster_id", cassandra_cluster_id)
-        _setter("delegated_management_subnet_id", delegated_management_subnet_id)
+        pulumi.set(__self__, "cassandra_cluster_id", cassandra_cluster_id)
+        pulumi.set(__self__, "delegated_management_subnet_id", delegated_management_subnet_id)
         if availability_zones_enabled is not None:
-            _setter("availability_zones_enabled", availability_zones_enabled)
+            pulumi.set(__self__, "availability_zones_enabled", availability_zones_enabled)
         if backup_storage_customer_key_uri is not None:
-            _setter("backup_storage_customer_key_uri", backup_storage_customer_key_uri)
+            pulumi.set(__self__, "backup_storage_customer_key_uri", backup_storage_customer_key_uri)
         if base64_encoded_yaml_fragment is not None:
-            _setter("base64_encoded_yaml_fragment", base64_encoded_yaml_fragment)
+            pulumi.set(__self__, "base64_encoded_yaml_fragment", base64_encoded_yaml_fragment)
         if disk_count is not None:
-            _setter("disk_count", disk_count)
+            pulumi.set(__self__, "disk_count", disk_count)
         if disk_sku is not None:
-            _setter("disk_sku", disk_sku)
+            pulumi.set(__self__, "disk_sku", disk_sku)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if managed_disk_customer_key_uri is not None:
-            _setter("managed_disk_customer_key_uri", managed_disk_customer_key_uri)
+            pulumi.set(__self__, "managed_disk_customer_key_uri", managed_disk_customer_key_uri)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if node_count is not None:
-            _setter("node_count", node_count)
+            pulumi.set(__self__, "node_count", node_count)
         if sku_name is not None:
-            _setter("sku_name", sku_name)
+            pulumi.set(__self__, "sku_name", sku_name)
 
     @property
     @pulumi.getter(name="cassandraClusterId")
@@ -302,83 +245,30 @@ class _CassandraDatacenterState:
                
                > **NOTE:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
         """
-        _CassandraDatacenterState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            availability_zones_enabled=availability_zones_enabled,
-            backup_storage_customer_key_uri=backup_storage_customer_key_uri,
-            base64_encoded_yaml_fragment=base64_encoded_yaml_fragment,
-            cassandra_cluster_id=cassandra_cluster_id,
-            delegated_management_subnet_id=delegated_management_subnet_id,
-            disk_count=disk_count,
-            disk_sku=disk_sku,
-            location=location,
-            managed_disk_customer_key_uri=managed_disk_customer_key_uri,
-            name=name,
-            node_count=node_count,
-            sku_name=sku_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             availability_zones_enabled: Optional[pulumi.Input[bool]] = None,
-             backup_storage_customer_key_uri: Optional[pulumi.Input[str]] = None,
-             base64_encoded_yaml_fragment: Optional[pulumi.Input[str]] = None,
-             cassandra_cluster_id: Optional[pulumi.Input[str]] = None,
-             delegated_management_subnet_id: Optional[pulumi.Input[str]] = None,
-             disk_count: Optional[pulumi.Input[int]] = None,
-             disk_sku: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             managed_disk_customer_key_uri: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             node_count: Optional[pulumi.Input[int]] = None,
-             sku_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if availability_zones_enabled is None and 'availabilityZonesEnabled' in kwargs:
-            availability_zones_enabled = kwargs['availabilityZonesEnabled']
-        if backup_storage_customer_key_uri is None and 'backupStorageCustomerKeyUri' in kwargs:
-            backup_storage_customer_key_uri = kwargs['backupStorageCustomerKeyUri']
-        if base64_encoded_yaml_fragment is None and 'base64EncodedYamlFragment' in kwargs:
-            base64_encoded_yaml_fragment = kwargs['base64EncodedYamlFragment']
-        if cassandra_cluster_id is None and 'cassandraClusterId' in kwargs:
-            cassandra_cluster_id = kwargs['cassandraClusterId']
-        if delegated_management_subnet_id is None and 'delegatedManagementSubnetId' in kwargs:
-            delegated_management_subnet_id = kwargs['delegatedManagementSubnetId']
-        if disk_count is None and 'diskCount' in kwargs:
-            disk_count = kwargs['diskCount']
-        if disk_sku is None and 'diskSku' in kwargs:
-            disk_sku = kwargs['diskSku']
-        if managed_disk_customer_key_uri is None and 'managedDiskCustomerKeyUri' in kwargs:
-            managed_disk_customer_key_uri = kwargs['managedDiskCustomerKeyUri']
-        if node_count is None and 'nodeCount' in kwargs:
-            node_count = kwargs['nodeCount']
-        if sku_name is None and 'skuName' in kwargs:
-            sku_name = kwargs['skuName']
-
         if availability_zones_enabled is not None:
-            _setter("availability_zones_enabled", availability_zones_enabled)
+            pulumi.set(__self__, "availability_zones_enabled", availability_zones_enabled)
         if backup_storage_customer_key_uri is not None:
-            _setter("backup_storage_customer_key_uri", backup_storage_customer_key_uri)
+            pulumi.set(__self__, "backup_storage_customer_key_uri", backup_storage_customer_key_uri)
         if base64_encoded_yaml_fragment is not None:
-            _setter("base64_encoded_yaml_fragment", base64_encoded_yaml_fragment)
+            pulumi.set(__self__, "base64_encoded_yaml_fragment", base64_encoded_yaml_fragment)
         if cassandra_cluster_id is not None:
-            _setter("cassandra_cluster_id", cassandra_cluster_id)
+            pulumi.set(__self__, "cassandra_cluster_id", cassandra_cluster_id)
         if delegated_management_subnet_id is not None:
-            _setter("delegated_management_subnet_id", delegated_management_subnet_id)
+            pulumi.set(__self__, "delegated_management_subnet_id", delegated_management_subnet_id)
         if disk_count is not None:
-            _setter("disk_count", disk_count)
+            pulumi.set(__self__, "disk_count", disk_count)
         if disk_sku is not None:
-            _setter("disk_sku", disk_sku)
+            pulumi.set(__self__, "disk_sku", disk_sku)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if managed_disk_customer_key_uri is not None:
-            _setter("managed_disk_customer_key_uri", managed_disk_customer_key_uri)
+            pulumi.set(__self__, "managed_disk_customer_key_uri", managed_disk_customer_key_uri)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if node_count is not None:
-            _setter("node_count", node_count)
+            pulumi.set(__self__, "node_count", node_count)
         if sku_name is not None:
-            _setter("sku_name", sku_name)
+            pulumi.set(__self__, "sku_name", sku_name)
 
     @property
     @pulumi.getter(name="availabilityZonesEnabled")
@@ -686,10 +576,6 @@ class CassandraDatacenter(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            CassandraDatacenterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -49,77 +49,28 @@ class PlanArgs:
                
                > **NOTE:** Requires either `PremiumV2` or `PremiumV3` SKU and that at least 3 instances. For more information, please see the [App Service Team Blog](https://azure.github.io/AppService/2021/08/25/App-service-support-for-availability-zones.html).
         """
-        PlanArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_group_name=resource_group_name,
-            sku=sku,
-            app_service_environment_id=app_service_environment_id,
-            is_xenon=is_xenon,
-            kind=kind,
-            location=location,
-            maximum_elastic_worker_count=maximum_elastic_worker_count,
-            name=name,
-            per_site_scaling=per_site_scaling,
-            reserved=reserved,
-            tags=tags,
-            zone_redundant=zone_redundant,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             sku: Optional[pulumi.Input['PlanSkuArgs']] = None,
-             app_service_environment_id: Optional[pulumi.Input[str]] = None,
-             is_xenon: Optional[pulumi.Input[bool]] = None,
-             kind: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             maximum_elastic_worker_count: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             per_site_scaling: Optional[pulumi.Input[bool]] = None,
-             reserved: Optional[pulumi.Input[bool]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             zone_redundant: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if sku is None:
-            raise TypeError("Missing 'sku' argument")
-        if app_service_environment_id is None and 'appServiceEnvironmentId' in kwargs:
-            app_service_environment_id = kwargs['appServiceEnvironmentId']
-        if is_xenon is None and 'isXenon' in kwargs:
-            is_xenon = kwargs['isXenon']
-        if maximum_elastic_worker_count is None and 'maximumElasticWorkerCount' in kwargs:
-            maximum_elastic_worker_count = kwargs['maximumElasticWorkerCount']
-        if per_site_scaling is None and 'perSiteScaling' in kwargs:
-            per_site_scaling = kwargs['perSiteScaling']
-        if zone_redundant is None and 'zoneRedundant' in kwargs:
-            zone_redundant = kwargs['zoneRedundant']
-
-        _setter("resource_group_name", resource_group_name)
-        _setter("sku", sku)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "sku", sku)
         if app_service_environment_id is not None:
-            _setter("app_service_environment_id", app_service_environment_id)
+            pulumi.set(__self__, "app_service_environment_id", app_service_environment_id)
         if is_xenon is not None:
-            _setter("is_xenon", is_xenon)
+            pulumi.set(__self__, "is_xenon", is_xenon)
         if kind is not None:
-            _setter("kind", kind)
+            pulumi.set(__self__, "kind", kind)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if maximum_elastic_worker_count is not None:
-            _setter("maximum_elastic_worker_count", maximum_elastic_worker_count)
+            pulumi.set(__self__, "maximum_elastic_worker_count", maximum_elastic_worker_count)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if per_site_scaling is not None:
-            _setter("per_site_scaling", per_site_scaling)
+            pulumi.set(__self__, "per_site_scaling", per_site_scaling)
         if reserved is not None:
-            _setter("reserved", reserved)
+            pulumi.set(__self__, "reserved", reserved)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if zone_redundant is not None:
-            _setter("zone_redundant", zone_redundant)
+            pulumi.set(__self__, "zone_redundant", zone_redundant)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -310,81 +261,32 @@ class _PlanState:
                
                > **NOTE:** Requires either `PremiumV2` or `PremiumV3` SKU and that at least 3 instances. For more information, please see the [App Service Team Blog](https://azure.github.io/AppService/2021/08/25/App-service-support-for-availability-zones.html).
         """
-        _PlanState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            app_service_environment_id=app_service_environment_id,
-            is_xenon=is_xenon,
-            kind=kind,
-            location=location,
-            maximum_elastic_worker_count=maximum_elastic_worker_count,
-            maximum_number_of_workers=maximum_number_of_workers,
-            name=name,
-            per_site_scaling=per_site_scaling,
-            reserved=reserved,
-            resource_group_name=resource_group_name,
-            sku=sku,
-            tags=tags,
-            zone_redundant=zone_redundant,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             app_service_environment_id: Optional[pulumi.Input[str]] = None,
-             is_xenon: Optional[pulumi.Input[bool]] = None,
-             kind: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             maximum_elastic_worker_count: Optional[pulumi.Input[int]] = None,
-             maximum_number_of_workers: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             per_site_scaling: Optional[pulumi.Input[bool]] = None,
-             reserved: Optional[pulumi.Input[bool]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             sku: Optional[pulumi.Input['PlanSkuArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             zone_redundant: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if app_service_environment_id is None and 'appServiceEnvironmentId' in kwargs:
-            app_service_environment_id = kwargs['appServiceEnvironmentId']
-        if is_xenon is None and 'isXenon' in kwargs:
-            is_xenon = kwargs['isXenon']
-        if maximum_elastic_worker_count is None and 'maximumElasticWorkerCount' in kwargs:
-            maximum_elastic_worker_count = kwargs['maximumElasticWorkerCount']
-        if maximum_number_of_workers is None and 'maximumNumberOfWorkers' in kwargs:
-            maximum_number_of_workers = kwargs['maximumNumberOfWorkers']
-        if per_site_scaling is None and 'perSiteScaling' in kwargs:
-            per_site_scaling = kwargs['perSiteScaling']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if zone_redundant is None and 'zoneRedundant' in kwargs:
-            zone_redundant = kwargs['zoneRedundant']
-
         if app_service_environment_id is not None:
-            _setter("app_service_environment_id", app_service_environment_id)
+            pulumi.set(__self__, "app_service_environment_id", app_service_environment_id)
         if is_xenon is not None:
-            _setter("is_xenon", is_xenon)
+            pulumi.set(__self__, "is_xenon", is_xenon)
         if kind is not None:
-            _setter("kind", kind)
+            pulumi.set(__self__, "kind", kind)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if maximum_elastic_worker_count is not None:
-            _setter("maximum_elastic_worker_count", maximum_elastic_worker_count)
+            pulumi.set(__self__, "maximum_elastic_worker_count", maximum_elastic_worker_count)
         if maximum_number_of_workers is not None:
-            _setter("maximum_number_of_workers", maximum_number_of_workers)
+            pulumi.set(__self__, "maximum_number_of_workers", maximum_number_of_workers)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if per_site_scaling is not None:
-            _setter("per_site_scaling", per_site_scaling)
+            pulumi.set(__self__, "per_site_scaling", per_site_scaling)
         if reserved is not None:
-            _setter("reserved", reserved)
+            pulumi.set(__self__, "reserved", reserved)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if sku is not None:
-            _setter("sku", sku)
+            pulumi.set(__self__, "sku", sku)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if zone_redundant is not None:
-            _setter("zone_redundant", zone_redundant)
+            pulumi.set(__self__, "zone_redundant", zone_redundant)
 
     @property
     @pulumi.getter(name="appServiceEnvironmentId")
@@ -764,10 +666,6 @@ class Plan(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PlanArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -805,7 +703,6 @@ class Plan(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            sku = _utilities.configure(sku, PlanSkuArgs, True)
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku

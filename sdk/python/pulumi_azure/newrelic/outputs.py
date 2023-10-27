@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -52,40 +52,13 @@ class MonitorPlan(dict):
         :param str plan_id: Specifies the plan id published by NewRelic. The only possible value is `newrelic-pay-as-you-go-free-live`. Defaults to `newrelic-pay-as-you-go-free-live`. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param str usage_type: Specifies the usage type. Possible values are `COMMITTED` and `PAYG`. Defaults to `PAYG`. Changing this forces a new Azure Native New Relic Monitor to be created.
         """
-        MonitorPlan._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            effective_date=effective_date,
-            billing_cycle=billing_cycle,
-            plan_id=plan_id,
-            usage_type=usage_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             effective_date: Optional[str] = None,
-             billing_cycle: Optional[str] = None,
-             plan_id: Optional[str] = None,
-             usage_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if effective_date is None and 'effectiveDate' in kwargs:
-            effective_date = kwargs['effectiveDate']
-        if effective_date is None:
-            raise TypeError("Missing 'effective_date' argument")
-        if billing_cycle is None and 'billingCycle' in kwargs:
-            billing_cycle = kwargs['billingCycle']
-        if plan_id is None and 'planId' in kwargs:
-            plan_id = kwargs['planId']
-        if usage_type is None and 'usageType' in kwargs:
-            usage_type = kwargs['usageType']
-
-        _setter("effective_date", effective_date)
+        pulumi.set(__self__, "effective_date", effective_date)
         if billing_cycle is not None:
-            _setter("billing_cycle", billing_cycle)
+            pulumi.set(__self__, "billing_cycle", billing_cycle)
         if plan_id is not None:
-            _setter("plan_id", plan_id)
+            pulumi.set(__self__, "plan_id", plan_id)
         if usage_type is not None:
-            _setter("usage_type", usage_type)
+            pulumi.set(__self__, "usage_type", usage_type)
 
     @property
     @pulumi.getter(name="effectiveDate")
@@ -154,41 +127,10 @@ class MonitorUser(dict):
         :param str last_name: Specifies the last name. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param str phone_number: Specifies the contact phone number. Changing this forces a new Azure Native New Relic Monitor to be created.
         """
-        MonitorUser._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            email=email,
-            first_name=first_name,
-            last_name=last_name,
-            phone_number=phone_number,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             email: Optional[str] = None,
-             first_name: Optional[str] = None,
-             last_name: Optional[str] = None,
-             phone_number: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if email is None:
-            raise TypeError("Missing 'email' argument")
-        if first_name is None and 'firstName' in kwargs:
-            first_name = kwargs['firstName']
-        if first_name is None:
-            raise TypeError("Missing 'first_name' argument")
-        if last_name is None and 'lastName' in kwargs:
-            last_name = kwargs['lastName']
-        if last_name is None:
-            raise TypeError("Missing 'last_name' argument")
-        if phone_number is None and 'phoneNumber' in kwargs:
-            phone_number = kwargs['phoneNumber']
-        if phone_number is None:
-            raise TypeError("Missing 'phone_number' argument")
-
-        _setter("email", email)
-        _setter("first_name", first_name)
-        _setter("last_name", last_name)
-        _setter("phone_number", phone_number)
+        pulumi.set(__self__, "email", email)
+        pulumi.set(__self__, "first_name", first_name)
+        pulumi.set(__self__, "last_name", last_name)
+        pulumi.set(__self__, "phone_number", phone_number)
 
     @property
     @pulumi.getter
@@ -234,30 +176,9 @@ class TagRuleLogTagFilter(dict):
         :param str name: Specifies the name (also known as the key) of the tag.
         :param str value: Specifies the value of the tag.
         """
-        TagRuleLogTagFilter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action=action,
-            name=name,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action: Optional[str] = None,
-             name: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if action is None:
-            raise TypeError("Missing 'action' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("action", action)
-        _setter("name", name)
-        _setter("value", value)
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -295,30 +216,9 @@ class TagRuleMetricTagFilter(dict):
         :param str name: Specifies the name (also known as the key) of the tag.
         :param str value: Specifies the value of the tag.
         """
-        TagRuleMetricTagFilter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action=action,
-            name=name,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action: Optional[str] = None,
-             name: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if action is None:
-            raise TypeError("Missing 'action' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("action", action)
-        _setter("name", name)
-        _setter("value", value)
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

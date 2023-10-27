@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,72 +39,21 @@ class ContactProfileArgs:
         :param pulumi.Input[str] name: The name of the contact profile. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        ContactProfileArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            auto_tracking=auto_tracking,
-            links=links,
-            minimum_variable_contact_duration=minimum_variable_contact_duration,
-            network_configuration_subnet_id=network_configuration_subnet_id,
-            resource_group_name=resource_group_name,
-            event_hub_uri=event_hub_uri,
-            location=location,
-            minimum_elevation_degrees=minimum_elevation_degrees,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             auto_tracking: Optional[pulumi.Input[str]] = None,
-             links: Optional[pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkArgs']]]] = None,
-             minimum_variable_contact_duration: Optional[pulumi.Input[str]] = None,
-             network_configuration_subnet_id: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             event_hub_uri: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             minimum_elevation_degrees: Optional[pulumi.Input[float]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if auto_tracking is None and 'autoTracking' in kwargs:
-            auto_tracking = kwargs['autoTracking']
-        if auto_tracking is None:
-            raise TypeError("Missing 'auto_tracking' argument")
-        if links is None:
-            raise TypeError("Missing 'links' argument")
-        if minimum_variable_contact_duration is None and 'minimumVariableContactDuration' in kwargs:
-            minimum_variable_contact_duration = kwargs['minimumVariableContactDuration']
-        if minimum_variable_contact_duration is None:
-            raise TypeError("Missing 'minimum_variable_contact_duration' argument")
-        if network_configuration_subnet_id is None and 'networkConfigurationSubnetId' in kwargs:
-            network_configuration_subnet_id = kwargs['networkConfigurationSubnetId']
-        if network_configuration_subnet_id is None:
-            raise TypeError("Missing 'network_configuration_subnet_id' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if event_hub_uri is None and 'eventHubUri' in kwargs:
-            event_hub_uri = kwargs['eventHubUri']
-        if minimum_elevation_degrees is None and 'minimumElevationDegrees' in kwargs:
-            minimum_elevation_degrees = kwargs['minimumElevationDegrees']
-
-        _setter("auto_tracking", auto_tracking)
-        _setter("links", links)
-        _setter("minimum_variable_contact_duration", minimum_variable_contact_duration)
-        _setter("network_configuration_subnet_id", network_configuration_subnet_id)
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "auto_tracking", auto_tracking)
+        pulumi.set(__self__, "links", links)
+        pulumi.set(__self__, "minimum_variable_contact_duration", minimum_variable_contact_duration)
+        pulumi.set(__self__, "network_configuration_subnet_id", network_configuration_subnet_id)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if event_hub_uri is not None:
-            _setter("event_hub_uri", event_hub_uri)
+            pulumi.set(__self__, "event_hub_uri", event_hub_uri)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if minimum_elevation_degrees is not None:
-            _setter("minimum_elevation_degrees", minimum_elevation_degrees)
+            pulumi.set(__self__, "minimum_elevation_degrees", minimum_elevation_degrees)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="autoTracking")
@@ -253,67 +202,26 @@ class _ContactProfileState:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the contact profile exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        _ContactProfileState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            auto_tracking=auto_tracking,
-            event_hub_uri=event_hub_uri,
-            links=links,
-            location=location,
-            minimum_elevation_degrees=minimum_elevation_degrees,
-            minimum_variable_contact_duration=minimum_variable_contact_duration,
-            name=name,
-            network_configuration_subnet_id=network_configuration_subnet_id,
-            resource_group_name=resource_group_name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             auto_tracking: Optional[pulumi.Input[str]] = None,
-             event_hub_uri: Optional[pulumi.Input[str]] = None,
-             links: Optional[pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkArgs']]]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             minimum_elevation_degrees: Optional[pulumi.Input[float]] = None,
-             minimum_variable_contact_duration: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             network_configuration_subnet_id: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if auto_tracking is None and 'autoTracking' in kwargs:
-            auto_tracking = kwargs['autoTracking']
-        if event_hub_uri is None and 'eventHubUri' in kwargs:
-            event_hub_uri = kwargs['eventHubUri']
-        if minimum_elevation_degrees is None and 'minimumElevationDegrees' in kwargs:
-            minimum_elevation_degrees = kwargs['minimumElevationDegrees']
-        if minimum_variable_contact_duration is None and 'minimumVariableContactDuration' in kwargs:
-            minimum_variable_contact_duration = kwargs['minimumVariableContactDuration']
-        if network_configuration_subnet_id is None and 'networkConfigurationSubnetId' in kwargs:
-            network_configuration_subnet_id = kwargs['networkConfigurationSubnetId']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-
         if auto_tracking is not None:
-            _setter("auto_tracking", auto_tracking)
+            pulumi.set(__self__, "auto_tracking", auto_tracking)
         if event_hub_uri is not None:
-            _setter("event_hub_uri", event_hub_uri)
+            pulumi.set(__self__, "event_hub_uri", event_hub_uri)
         if links is not None:
-            _setter("links", links)
+            pulumi.set(__self__, "links", links)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if minimum_elevation_degrees is not None:
-            _setter("minimum_elevation_degrees", minimum_elevation_degrees)
+            pulumi.set(__self__, "minimum_elevation_degrees", minimum_elevation_degrees)
         if minimum_variable_contact_duration is not None:
-            _setter("minimum_variable_contact_duration", minimum_variable_contact_duration)
+            pulumi.set(__self__, "minimum_variable_contact_duration", minimum_variable_contact_duration)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if network_configuration_subnet_id is not None:
-            _setter("network_configuration_subnet_id", network_configuration_subnet_id)
+            pulumi.set(__self__, "network_configuration_subnet_id", network_configuration_subnet_id)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="autoTracking")
@@ -605,10 +513,6 @@ class ContactProfile(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ContactProfileArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

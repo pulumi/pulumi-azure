@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ServerDnsAliasArgs', 'ServerDnsAlias']
@@ -21,26 +21,9 @@ class ServerDnsAliasArgs:
         :param pulumi.Input[str] mssql_server_id: The ID of the mssql server. Changing this forces a new MSSQL Server DNS Alias to be created.
         :param pulumi.Input[str] name: The name which should be used for this MSSQL Server DNS Alias. Changing this forces a new MSSQL Server DNS Alias to be created.
         """
-        ServerDnsAliasArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            mssql_server_id=mssql_server_id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             mssql_server_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if mssql_server_id is None and 'mssqlServerId' in kwargs:
-            mssql_server_id = kwargs['mssqlServerId']
-        if mssql_server_id is None:
-            raise TypeError("Missing 'mssql_server_id' argument")
-
-        _setter("mssql_server_id", mssql_server_id)
+        pulumi.set(__self__, "mssql_server_id", mssql_server_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="mssqlServerId")
@@ -79,31 +62,12 @@ class _ServerDnsAliasState:
         :param pulumi.Input[str] mssql_server_id: The ID of the mssql server. Changing this forces a new MSSQL Server DNS Alias to be created.
         :param pulumi.Input[str] name: The name which should be used for this MSSQL Server DNS Alias. Changing this forces a new MSSQL Server DNS Alias to be created.
         """
-        _ServerDnsAliasState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            dns_record=dns_record,
-            mssql_server_id=mssql_server_id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             dns_record: Optional[pulumi.Input[str]] = None,
-             mssql_server_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if dns_record is None and 'dnsRecord' in kwargs:
-            dns_record = kwargs['dnsRecord']
-        if mssql_server_id is None and 'mssqlServerId' in kwargs:
-            mssql_server_id = kwargs['mssqlServerId']
-
         if dns_record is not None:
-            _setter("dns_record", dns_record)
+            pulumi.set(__self__, "dns_record", dns_record)
         if mssql_server_id is not None:
-            _setter("mssql_server_id", mssql_server_id)
+            pulumi.set(__self__, "mssql_server_id", mssql_server_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="dnsRecord")
@@ -225,10 +189,6 @@ class ServerDnsAlias(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ServerDnsAliasArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

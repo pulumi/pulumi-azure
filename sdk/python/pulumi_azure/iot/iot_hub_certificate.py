@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['IotHubCertificateArgs', 'IotHubCertificate']
@@ -27,46 +27,13 @@ class IotHubCertificateArgs:
         :param pulumi.Input[bool] is_verified: Specifies if the certificate is created in verified state. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Iot Device Provisioning Service Certificate resource. Changing this forces a new resource to be created.
         """
-        IotHubCertificateArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_content=certificate_content,
-            iot_dps_name=iot_dps_name,
-            resource_group_name=resource_group_name,
-            is_verified=is_verified,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_content: Optional[pulumi.Input[str]] = None,
-             iot_dps_name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             is_verified: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate_content is None and 'certificateContent' in kwargs:
-            certificate_content = kwargs['certificateContent']
-        if certificate_content is None:
-            raise TypeError("Missing 'certificate_content' argument")
-        if iot_dps_name is None and 'iotDpsName' in kwargs:
-            iot_dps_name = kwargs['iotDpsName']
-        if iot_dps_name is None:
-            raise TypeError("Missing 'iot_dps_name' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if is_verified is None and 'isVerified' in kwargs:
-            is_verified = kwargs['isVerified']
-
-        _setter("certificate_content", certificate_content)
-        _setter("iot_dps_name", iot_dps_name)
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "certificate_content", certificate_content)
+        pulumi.set(__self__, "iot_dps_name", iot_dps_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if is_verified is not None:
-            _setter("is_verified", is_verified)
+            pulumi.set(__self__, "is_verified", is_verified)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="certificateContent")
@@ -145,43 +112,16 @@ class _IotHubCertificateState:
         :param pulumi.Input[str] name: Specifies the name of the Iot Device Provisioning Service Certificate resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Iot Device Provisioning Service Certificate resource has to be created. Changing this forces a new resource to be created.
         """
-        _IotHubCertificateState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_content=certificate_content,
-            iot_dps_name=iot_dps_name,
-            is_verified=is_verified,
-            name=name,
-            resource_group_name=resource_group_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_content: Optional[pulumi.Input[str]] = None,
-             iot_dps_name: Optional[pulumi.Input[str]] = None,
-             is_verified: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate_content is None and 'certificateContent' in kwargs:
-            certificate_content = kwargs['certificateContent']
-        if iot_dps_name is None and 'iotDpsName' in kwargs:
-            iot_dps_name = kwargs['iotDpsName']
-        if is_verified is None and 'isVerified' in kwargs:
-            is_verified = kwargs['isVerified']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-
         if certificate_content is not None:
-            _setter("certificate_content", certificate_content)
+            pulumi.set(__self__, "certificate_content", certificate_content)
         if iot_dps_name is not None:
-            _setter("iot_dps_name", iot_dps_name)
+            pulumi.set(__self__, "iot_dps_name", iot_dps_name)
         if is_verified is not None:
-            _setter("is_verified", is_verified)
+            pulumi.set(__self__, "is_verified", is_verified)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
 
     @property
     @pulumi.getter(name="certificateContent")
@@ -343,10 +283,6 @@ class IotHubCertificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            IotHubCertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

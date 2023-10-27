@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -49,85 +49,32 @@ class GroupPolicyAssignmentArgs:
         :param pulumi.Input[str] parameters: A JSON mapping of any Parameters for this Policy.
         :param pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentResourceSelectorArgs']]] resource_selectors: One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
         """
-        GroupPolicyAssignmentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            management_group_id=management_group_id,
-            policy_definition_id=policy_definition_id,
-            description=description,
-            display_name=display_name,
-            enforce=enforce,
-            identity=identity,
-            location=location,
-            metadata=metadata,
-            name=name,
-            non_compliance_messages=non_compliance_messages,
-            not_scopes=not_scopes,
-            overrides=overrides,
-            parameters=parameters,
-            resource_selectors=resource_selectors,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             management_group_id: Optional[pulumi.Input[str]] = None,
-             policy_definition_id: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             display_name: Optional[pulumi.Input[str]] = None,
-             enforce: Optional[pulumi.Input[bool]] = None,
-             identity: Optional[pulumi.Input['GroupPolicyAssignmentIdentityArgs']] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             metadata: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             non_compliance_messages: Optional[pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentNonComplianceMessageArgs']]]] = None,
-             not_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             overrides: Optional[pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentOverrideArgs']]]] = None,
-             parameters: Optional[pulumi.Input[str]] = None,
-             resource_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentResourceSelectorArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if management_group_id is None and 'managementGroupId' in kwargs:
-            management_group_id = kwargs['managementGroupId']
-        if management_group_id is None:
-            raise TypeError("Missing 'management_group_id' argument")
-        if policy_definition_id is None and 'policyDefinitionId' in kwargs:
-            policy_definition_id = kwargs['policyDefinitionId']
-        if policy_definition_id is None:
-            raise TypeError("Missing 'policy_definition_id' argument")
-        if display_name is None and 'displayName' in kwargs:
-            display_name = kwargs['displayName']
-        if non_compliance_messages is None and 'nonComplianceMessages' in kwargs:
-            non_compliance_messages = kwargs['nonComplianceMessages']
-        if not_scopes is None and 'notScopes' in kwargs:
-            not_scopes = kwargs['notScopes']
-        if resource_selectors is None and 'resourceSelectors' in kwargs:
-            resource_selectors = kwargs['resourceSelectors']
-
-        _setter("management_group_id", management_group_id)
-        _setter("policy_definition_id", policy_definition_id)
+        pulumi.set(__self__, "management_group_id", management_group_id)
+        pulumi.set(__self__, "policy_definition_id", policy_definition_id)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if display_name is not None:
-            _setter("display_name", display_name)
+            pulumi.set(__self__, "display_name", display_name)
         if enforce is not None:
-            _setter("enforce", enforce)
+            pulumi.set(__self__, "enforce", enforce)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if metadata is not None:
-            _setter("metadata", metadata)
+            pulumi.set(__self__, "metadata", metadata)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if non_compliance_messages is not None:
-            _setter("non_compliance_messages", non_compliance_messages)
+            pulumi.set(__self__, "non_compliance_messages", non_compliance_messages)
         if not_scopes is not None:
-            _setter("not_scopes", not_scopes)
+            pulumi.set(__self__, "not_scopes", not_scopes)
         if overrides is not None:
-            _setter("overrides", overrides)
+            pulumi.set(__self__, "overrides", overrides)
         if parameters is not None:
-            _setter("parameters", parameters)
+            pulumi.set(__self__, "parameters", parameters)
         if resource_selectors is not None:
-            _setter("resource_selectors", resource_selectors)
+            pulumi.set(__self__, "resource_selectors", resource_selectors)
 
     @property
     @pulumi.getter(name="managementGroupId")
@@ -336,83 +283,34 @@ class _GroupPolicyAssignmentState:
         :param pulumi.Input[str] policy_definition_id: The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentResourceSelectorArgs']]] resource_selectors: One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
         """
-        _GroupPolicyAssignmentState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            display_name=display_name,
-            enforce=enforce,
-            identity=identity,
-            location=location,
-            management_group_id=management_group_id,
-            metadata=metadata,
-            name=name,
-            non_compliance_messages=non_compliance_messages,
-            not_scopes=not_scopes,
-            overrides=overrides,
-            parameters=parameters,
-            policy_definition_id=policy_definition_id,
-            resource_selectors=resource_selectors,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[pulumi.Input[str]] = None,
-             display_name: Optional[pulumi.Input[str]] = None,
-             enforce: Optional[pulumi.Input[bool]] = None,
-             identity: Optional[pulumi.Input['GroupPolicyAssignmentIdentityArgs']] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             management_group_id: Optional[pulumi.Input[str]] = None,
-             metadata: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             non_compliance_messages: Optional[pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentNonComplianceMessageArgs']]]] = None,
-             not_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             overrides: Optional[pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentOverrideArgs']]]] = None,
-             parameters: Optional[pulumi.Input[str]] = None,
-             policy_definition_id: Optional[pulumi.Input[str]] = None,
-             resource_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentResourceSelectorArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if display_name is None and 'displayName' in kwargs:
-            display_name = kwargs['displayName']
-        if management_group_id is None and 'managementGroupId' in kwargs:
-            management_group_id = kwargs['managementGroupId']
-        if non_compliance_messages is None and 'nonComplianceMessages' in kwargs:
-            non_compliance_messages = kwargs['nonComplianceMessages']
-        if not_scopes is None and 'notScopes' in kwargs:
-            not_scopes = kwargs['notScopes']
-        if policy_definition_id is None and 'policyDefinitionId' in kwargs:
-            policy_definition_id = kwargs['policyDefinitionId']
-        if resource_selectors is None and 'resourceSelectors' in kwargs:
-            resource_selectors = kwargs['resourceSelectors']
-
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if display_name is not None:
-            _setter("display_name", display_name)
+            pulumi.set(__self__, "display_name", display_name)
         if enforce is not None:
-            _setter("enforce", enforce)
+            pulumi.set(__self__, "enforce", enforce)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if management_group_id is not None:
-            _setter("management_group_id", management_group_id)
+            pulumi.set(__self__, "management_group_id", management_group_id)
         if metadata is not None:
-            _setter("metadata", metadata)
+            pulumi.set(__self__, "metadata", metadata)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if non_compliance_messages is not None:
-            _setter("non_compliance_messages", non_compliance_messages)
+            pulumi.set(__self__, "non_compliance_messages", non_compliance_messages)
         if not_scopes is not None:
-            _setter("not_scopes", not_scopes)
+            pulumi.set(__self__, "not_scopes", not_scopes)
         if overrides is not None:
-            _setter("overrides", overrides)
+            pulumi.set(__self__, "overrides", overrides)
         if parameters is not None:
-            _setter("parameters", parameters)
+            pulumi.set(__self__, "parameters", parameters)
         if policy_definition_id is not None:
-            _setter("policy_definition_id", policy_definition_id)
+            pulumi.set(__self__, "policy_definition_id", policy_definition_id)
         if resource_selectors is not None:
-            _setter("resource_selectors", resource_selectors)
+            pulumi.set(__self__, "resource_selectors", resource_selectors)
 
     @property
     @pulumi.getter
@@ -720,10 +618,6 @@ class GroupPolicyAssignment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            GroupPolicyAssignmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -755,7 +649,6 @@ class GroupPolicyAssignment(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["enforce"] = enforce
-            identity = _utilities.configure(identity, GroupPolicyAssignmentIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             if management_group_id is None and not opts.urn:

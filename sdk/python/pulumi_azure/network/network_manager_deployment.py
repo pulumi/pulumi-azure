@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['NetworkManagerDeploymentArgs', 'NetworkManagerDeployment']
@@ -27,44 +27,13 @@ class NetworkManagerDeploymentArgs:
         :param pulumi.Input[str] location: Specifies the location which the configurations will be deployed to. Changing this forces a new Network Manager Deployment to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: A mapping of key values pairs that can be used to keep the deployment up with the Network Manager configurations and rules.
         """
-        NetworkManagerDeploymentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            configuration_ids=configuration_ids,
-            network_manager_id=network_manager_id,
-            scope_access=scope_access,
-            location=location,
-            triggers=triggers,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             configuration_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             network_manager_id: Optional[pulumi.Input[str]] = None,
-             scope_access: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if configuration_ids is None and 'configurationIds' in kwargs:
-            configuration_ids = kwargs['configurationIds']
-        if configuration_ids is None:
-            raise TypeError("Missing 'configuration_ids' argument")
-        if network_manager_id is None and 'networkManagerId' in kwargs:
-            network_manager_id = kwargs['networkManagerId']
-        if network_manager_id is None:
-            raise TypeError("Missing 'network_manager_id' argument")
-        if scope_access is None and 'scopeAccess' in kwargs:
-            scope_access = kwargs['scopeAccess']
-        if scope_access is None:
-            raise TypeError("Missing 'scope_access' argument")
-
-        _setter("configuration_ids", configuration_ids)
-        _setter("network_manager_id", network_manager_id)
-        _setter("scope_access", scope_access)
+        pulumi.set(__self__, "configuration_ids", configuration_ids)
+        pulumi.set(__self__, "network_manager_id", network_manager_id)
+        pulumi.set(__self__, "scope_access", scope_access)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if triggers is not None:
-            _setter("triggers", triggers)
+            pulumi.set(__self__, "triggers", triggers)
 
     @property
     @pulumi.getter(name="configurationIds")
@@ -143,41 +112,16 @@ class _NetworkManagerDeploymentState:
         :param pulumi.Input[str] scope_access: Specifies the configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`. Changing this forces a new Network Manager Deployment to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: A mapping of key values pairs that can be used to keep the deployment up with the Network Manager configurations and rules.
         """
-        _NetworkManagerDeploymentState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            configuration_ids=configuration_ids,
-            location=location,
-            network_manager_id=network_manager_id,
-            scope_access=scope_access,
-            triggers=triggers,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             configuration_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             network_manager_id: Optional[pulumi.Input[str]] = None,
-             scope_access: Optional[pulumi.Input[str]] = None,
-             triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if configuration_ids is None and 'configurationIds' in kwargs:
-            configuration_ids = kwargs['configurationIds']
-        if network_manager_id is None and 'networkManagerId' in kwargs:
-            network_manager_id = kwargs['networkManagerId']
-        if scope_access is None and 'scopeAccess' in kwargs:
-            scope_access = kwargs['scopeAccess']
-
         if configuration_ids is not None:
-            _setter("configuration_ids", configuration_ids)
+            pulumi.set(__self__, "configuration_ids", configuration_ids)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if network_manager_id is not None:
-            _setter("network_manager_id", network_manager_id)
+            pulumi.set(__self__, "network_manager_id", network_manager_id)
         if scope_access is not None:
-            _setter("scope_access", scope_access)
+            pulumi.set(__self__, "scope_access", scope_access)
         if triggers is not None:
-            _setter("triggers", triggers)
+            pulumi.set(__self__, "triggers", triggers)
 
     @property
     @pulumi.getter(name="configurationIds")
@@ -387,10 +331,6 @@ class NetworkManagerDeployment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            NetworkManagerDeploymentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

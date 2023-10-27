@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,58 +37,21 @@ class WorkbookTemplateArgs:
         :param pulumi.Input[int] priority: Priority of the template. Determines which template to open when a workbook gallery is opened in viewer mode. Defaults to `0`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Application Insights Workbook Template.
         """
-        WorkbookTemplateArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            galleries=galleries,
-            resource_group_name=resource_group_name,
-            template_data=template_data,
-            author=author,
-            localized=localized,
-            location=location,
-            name=name,
-            priority=priority,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             galleries: Optional[pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateGalleryArgs']]]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             template_data: Optional[pulumi.Input[str]] = None,
-             author: Optional[pulumi.Input[str]] = None,
-             localized: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             priority: Optional[pulumi.Input[int]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if galleries is None:
-            raise TypeError("Missing 'galleries' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if template_data is None and 'templateData' in kwargs:
-            template_data = kwargs['templateData']
-        if template_data is None:
-            raise TypeError("Missing 'template_data' argument")
-
-        _setter("galleries", galleries)
-        _setter("resource_group_name", resource_group_name)
-        _setter("template_data", template_data)
+        pulumi.set(__self__, "galleries", galleries)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "template_data", template_data)
         if author is not None:
-            _setter("author", author)
+            pulumi.set(__self__, "author", author)
         if localized is not None:
-            _setter("localized", localized)
+            pulumi.set(__self__, "localized", localized)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if priority is not None:
-            _setter("priority", priority)
+            pulumi.set(__self__, "priority", priority)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -223,55 +186,24 @@ class _WorkbookTemplateState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Application Insights Workbook Template.
         :param pulumi.Input[str] template_data: Valid JSON object containing workbook template payload.
         """
-        _WorkbookTemplateState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            author=author,
-            galleries=galleries,
-            localized=localized,
-            location=location,
-            name=name,
-            priority=priority,
-            resource_group_name=resource_group_name,
-            tags=tags,
-            template_data=template_data,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             author: Optional[pulumi.Input[str]] = None,
-             galleries: Optional[pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateGalleryArgs']]]] = None,
-             localized: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             priority: Optional[pulumi.Input[int]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             template_data: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if template_data is None and 'templateData' in kwargs:
-            template_data = kwargs['templateData']
-
         if author is not None:
-            _setter("author", author)
+            pulumi.set(__self__, "author", author)
         if galleries is not None:
-            _setter("galleries", galleries)
+            pulumi.set(__self__, "galleries", galleries)
         if localized is not None:
-            _setter("localized", localized)
+            pulumi.set(__self__, "localized", localized)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if priority is not None:
-            _setter("priority", priority)
+            pulumi.set(__self__, "priority", priority)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if template_data is not None:
-            _setter("template_data", template_data)
+            pulumi.set(__self__, "template_data", template_data)
 
     @property
     @pulumi.getter
@@ -579,10 +511,6 @@ class WorkbookTemplate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            WorkbookTemplateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

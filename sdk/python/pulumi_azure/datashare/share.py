@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,45 +31,16 @@ class ShareArgs:
         :param pulumi.Input['ShareSnapshotScheduleArgs'] snapshot_schedule: A `snapshot_schedule` block as defined below.
         :param pulumi.Input[str] terms: The terms of the Data Share.
         """
-        ShareArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account_id=account_id,
-            kind=kind,
-            description=description,
-            name=name,
-            snapshot_schedule=snapshot_schedule,
-            terms=terms,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account_id: Optional[pulumi.Input[str]] = None,
-             kind: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             snapshot_schedule: Optional[pulumi.Input['ShareSnapshotScheduleArgs']] = None,
-             terms: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-        if account_id is None:
-            raise TypeError("Missing 'account_id' argument")
-        if kind is None:
-            raise TypeError("Missing 'kind' argument")
-        if snapshot_schedule is None and 'snapshotSchedule' in kwargs:
-            snapshot_schedule = kwargs['snapshotSchedule']
-
-        _setter("account_id", account_id)
-        _setter("kind", kind)
+        pulumi.set(__self__, "account_id", account_id)
+        pulumi.set(__self__, "kind", kind)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if snapshot_schedule is not None:
-            _setter("snapshot_schedule", snapshot_schedule)
+            pulumi.set(__self__, "snapshot_schedule", snapshot_schedule)
         if terms is not None:
-            _setter("terms", terms)
+            pulumi.set(__self__, "terms", terms)
 
     @property
     @pulumi.getter(name="accountId")
@@ -162,43 +133,18 @@ class _ShareState:
         :param pulumi.Input['ShareSnapshotScheduleArgs'] snapshot_schedule: A `snapshot_schedule` block as defined below.
         :param pulumi.Input[str] terms: The terms of the Data Share.
         """
-        _ShareState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account_id=account_id,
-            description=description,
-            kind=kind,
-            name=name,
-            snapshot_schedule=snapshot_schedule,
-            terms=terms,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account_id: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             kind: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             snapshot_schedule: Optional[pulumi.Input['ShareSnapshotScheduleArgs']] = None,
-             terms: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-        if snapshot_schedule is None and 'snapshotSchedule' in kwargs:
-            snapshot_schedule = kwargs['snapshotSchedule']
-
         if account_id is not None:
-            _setter("account_id", account_id)
+            pulumi.set(__self__, "account_id", account_id)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if kind is not None:
-            _setter("kind", kind)
+            pulumi.set(__self__, "kind", kind)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if snapshot_schedule is not None:
-            _setter("snapshot_schedule", snapshot_schedule)
+            pulumi.set(__self__, "snapshot_schedule", snapshot_schedule)
         if terms is not None:
-            _setter("terms", terms)
+            pulumi.set(__self__, "terms", terms)
 
     @property
     @pulumi.getter(name="accountId")
@@ -388,10 +334,6 @@ class Share(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ShareArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -420,7 +362,6 @@ class Share(pulumi.CustomResource):
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = kind
             __props__.__dict__["name"] = name
-            snapshot_schedule = _utilities.configure(snapshot_schedule, ShareSnapshotScheduleArgs, True)
             __props__.__dict__["snapshot_schedule"] = snapshot_schedule
             __props__.__dict__["terms"] = terms
         super(Share, __self__).__init__(

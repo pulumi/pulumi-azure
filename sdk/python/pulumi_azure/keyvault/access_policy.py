@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AccessPolicyArgs', 'AccessPolicy']
@@ -33,66 +33,19 @@ class AccessPolicyArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] secret_permissions: List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `Get`, `List`, `Purge`, `Recover`, `Restore` and `Set`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_permissions: List of storage permissions, must be one or more from the following: `Backup`, `Delete`, `DeleteSAS`, `Get`, `GetSAS`, `List`, `ListSAS`, `Purge`, `Recover`, `RegenerateKey`, `Restore`, `Set`, `SetSAS` and `Update`.
         """
-        AccessPolicyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key_vault_id=key_vault_id,
-            object_id=object_id,
-            tenant_id=tenant_id,
-            application_id=application_id,
-            certificate_permissions=certificate_permissions,
-            key_permissions=key_permissions,
-            secret_permissions=secret_permissions,
-            storage_permissions=storage_permissions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key_vault_id: Optional[pulumi.Input[str]] = None,
-             object_id: Optional[pulumi.Input[str]] = None,
-             tenant_id: Optional[pulumi.Input[str]] = None,
-             application_id: Optional[pulumi.Input[str]] = None,
-             certificate_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             key_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             secret_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             storage_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key_vault_id is None and 'keyVaultId' in kwargs:
-            key_vault_id = kwargs['keyVaultId']
-        if key_vault_id is None:
-            raise TypeError("Missing 'key_vault_id' argument")
-        if object_id is None and 'objectId' in kwargs:
-            object_id = kwargs['objectId']
-        if object_id is None:
-            raise TypeError("Missing 'object_id' argument")
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-        if tenant_id is None:
-            raise TypeError("Missing 'tenant_id' argument")
-        if application_id is None and 'applicationId' in kwargs:
-            application_id = kwargs['applicationId']
-        if certificate_permissions is None and 'certificatePermissions' in kwargs:
-            certificate_permissions = kwargs['certificatePermissions']
-        if key_permissions is None and 'keyPermissions' in kwargs:
-            key_permissions = kwargs['keyPermissions']
-        if secret_permissions is None and 'secretPermissions' in kwargs:
-            secret_permissions = kwargs['secretPermissions']
-        if storage_permissions is None and 'storagePermissions' in kwargs:
-            storage_permissions = kwargs['storagePermissions']
-
-        _setter("key_vault_id", key_vault_id)
-        _setter("object_id", object_id)
-        _setter("tenant_id", tenant_id)
+        pulumi.set(__self__, "key_vault_id", key_vault_id)
+        pulumi.set(__self__, "object_id", object_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
         if application_id is not None:
-            _setter("application_id", application_id)
+            pulumi.set(__self__, "application_id", application_id)
         if certificate_permissions is not None:
-            _setter("certificate_permissions", certificate_permissions)
+            pulumi.set(__self__, "certificate_permissions", certificate_permissions)
         if key_permissions is not None:
-            _setter("key_permissions", key_permissions)
+            pulumi.set(__self__, "key_permissions", key_permissions)
         if secret_permissions is not None:
-            _setter("secret_permissions", secret_permissions)
+            pulumi.set(__self__, "secret_permissions", secret_permissions)
         if storage_permissions is not None:
-            _setter("storage_permissions", storage_permissions)
+            pulumi.set(__self__, "storage_permissions", storage_permissions)
 
     @property
     @pulumi.getter(name="keyVaultId")
@@ -213,63 +166,22 @@ class _AccessPolicyState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_permissions: List of storage permissions, must be one or more from the following: `Backup`, `Delete`, `DeleteSAS`, `Get`, `GetSAS`, `List`, `ListSAS`, `Purge`, `Recover`, `RegenerateKey`, `Restore`, `Set`, `SetSAS` and `Update`.
         :param pulumi.Input[str] tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Changing this forces a new resource to be created.
         """
-        _AccessPolicyState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            application_id=application_id,
-            certificate_permissions=certificate_permissions,
-            key_permissions=key_permissions,
-            key_vault_id=key_vault_id,
-            object_id=object_id,
-            secret_permissions=secret_permissions,
-            storage_permissions=storage_permissions,
-            tenant_id=tenant_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             application_id: Optional[pulumi.Input[str]] = None,
-             certificate_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             key_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             key_vault_id: Optional[pulumi.Input[str]] = None,
-             object_id: Optional[pulumi.Input[str]] = None,
-             secret_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             storage_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if application_id is None and 'applicationId' in kwargs:
-            application_id = kwargs['applicationId']
-        if certificate_permissions is None and 'certificatePermissions' in kwargs:
-            certificate_permissions = kwargs['certificatePermissions']
-        if key_permissions is None and 'keyPermissions' in kwargs:
-            key_permissions = kwargs['keyPermissions']
-        if key_vault_id is None and 'keyVaultId' in kwargs:
-            key_vault_id = kwargs['keyVaultId']
-        if object_id is None and 'objectId' in kwargs:
-            object_id = kwargs['objectId']
-        if secret_permissions is None and 'secretPermissions' in kwargs:
-            secret_permissions = kwargs['secretPermissions']
-        if storage_permissions is None and 'storagePermissions' in kwargs:
-            storage_permissions = kwargs['storagePermissions']
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-
         if application_id is not None:
-            _setter("application_id", application_id)
+            pulumi.set(__self__, "application_id", application_id)
         if certificate_permissions is not None:
-            _setter("certificate_permissions", certificate_permissions)
+            pulumi.set(__self__, "certificate_permissions", certificate_permissions)
         if key_permissions is not None:
-            _setter("key_permissions", key_permissions)
+            pulumi.set(__self__, "key_permissions", key_permissions)
         if key_vault_id is not None:
-            _setter("key_vault_id", key_vault_id)
+            pulumi.set(__self__, "key_vault_id", key_vault_id)
         if object_id is not None:
-            _setter("object_id", object_id)
+            pulumi.set(__self__, "object_id", object_id)
         if secret_permissions is not None:
-            _setter("secret_permissions", secret_permissions)
+            pulumi.set(__self__, "secret_permissions", secret_permissions)
         if storage_permissions is not None:
-            _setter("storage_permissions", storage_permissions)
+            pulumi.set(__self__, "storage_permissions", storage_permissions)
         if tenant_id is not None:
-            _setter("tenant_id", tenant_id)
+            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -521,10 +433,6 @@ class AccessPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AccessPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

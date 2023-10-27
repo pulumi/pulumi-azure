@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,30 +25,11 @@ class TableArgs:
         :param pulumi.Input[Sequence[pulumi.Input['TableAclArgs']]] acls: One or more `acl` blocks as defined below.
         :param pulumi.Input[str] name: The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
         """
-        TableArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            storage_account_name=storage_account_name,
-            acls=acls,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             storage_account_name: Optional[pulumi.Input[str]] = None,
-             acls: Optional[pulumi.Input[Sequence[pulumi.Input['TableAclArgs']]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if storage_account_name is None and 'storageAccountName' in kwargs:
-            storage_account_name = kwargs['storageAccountName']
-        if storage_account_name is None:
-            raise TypeError("Missing 'storage_account_name' argument")
-
-        _setter("storage_account_name", storage_account_name)
+        pulumi.set(__self__, "storage_account_name", storage_account_name)
         if acls is not None:
-            _setter("acls", acls)
+            pulumi.set(__self__, "acls", acls)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="storageAccountName")
@@ -99,29 +80,12 @@ class _TableState:
         :param pulumi.Input[str] name: The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
         """
-        _TableState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            acls=acls,
-            name=name,
-            storage_account_name=storage_account_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             acls: Optional[pulumi.Input[Sequence[pulumi.Input['TableAclArgs']]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             storage_account_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if storage_account_name is None and 'storageAccountName' in kwargs:
-            storage_account_name = kwargs['storageAccountName']
-
         if acls is not None:
-            _setter("acls", acls)
+            pulumi.set(__self__, "acls", acls)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if storage_account_name is not None:
-            _setter("storage_account_name", storage_account_name)
+            pulumi.set(__self__, "storage_account_name", storage_account_name)
 
     @property
     @pulumi.getter
@@ -243,10 +207,6 @@ class Table(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            TableArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

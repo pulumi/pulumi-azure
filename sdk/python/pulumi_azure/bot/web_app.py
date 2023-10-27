@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['WebAppArgs', 'WebApp']
@@ -43,86 +43,29 @@ class WebAppArgs:
         :param pulumi.Input[str] name: Specifies the name of the Web App Bot. Changing this forces a new resource to be created. Must be globally unique.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        WebAppArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            microsoft_app_id=microsoft_app_id,
-            resource_group_name=resource_group_name,
-            sku=sku,
-            developer_app_insights_api_key=developer_app_insights_api_key,
-            developer_app_insights_application_id=developer_app_insights_application_id,
-            developer_app_insights_key=developer_app_insights_key,
-            display_name=display_name,
-            endpoint=endpoint,
-            location=location,
-            luis_app_ids=luis_app_ids,
-            luis_key=luis_key,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             microsoft_app_id: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             sku: Optional[pulumi.Input[str]] = None,
-             developer_app_insights_api_key: Optional[pulumi.Input[str]] = None,
-             developer_app_insights_application_id: Optional[pulumi.Input[str]] = None,
-             developer_app_insights_key: Optional[pulumi.Input[str]] = None,
-             display_name: Optional[pulumi.Input[str]] = None,
-             endpoint: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             luis_app_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             luis_key: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if microsoft_app_id is None and 'microsoftAppId' in kwargs:
-            microsoft_app_id = kwargs['microsoftAppId']
-        if microsoft_app_id is None:
-            raise TypeError("Missing 'microsoft_app_id' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if sku is None:
-            raise TypeError("Missing 'sku' argument")
-        if developer_app_insights_api_key is None and 'developerAppInsightsApiKey' in kwargs:
-            developer_app_insights_api_key = kwargs['developerAppInsightsApiKey']
-        if developer_app_insights_application_id is None and 'developerAppInsightsApplicationId' in kwargs:
-            developer_app_insights_application_id = kwargs['developerAppInsightsApplicationId']
-        if developer_app_insights_key is None and 'developerAppInsightsKey' in kwargs:
-            developer_app_insights_key = kwargs['developerAppInsightsKey']
-        if display_name is None and 'displayName' in kwargs:
-            display_name = kwargs['displayName']
-        if luis_app_ids is None and 'luisAppIds' in kwargs:
-            luis_app_ids = kwargs['luisAppIds']
-        if luis_key is None and 'luisKey' in kwargs:
-            luis_key = kwargs['luisKey']
-
-        _setter("microsoft_app_id", microsoft_app_id)
-        _setter("resource_group_name", resource_group_name)
-        _setter("sku", sku)
+        pulumi.set(__self__, "microsoft_app_id", microsoft_app_id)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "sku", sku)
         if developer_app_insights_api_key is not None:
-            _setter("developer_app_insights_api_key", developer_app_insights_api_key)
+            pulumi.set(__self__, "developer_app_insights_api_key", developer_app_insights_api_key)
         if developer_app_insights_application_id is not None:
-            _setter("developer_app_insights_application_id", developer_app_insights_application_id)
+            pulumi.set(__self__, "developer_app_insights_application_id", developer_app_insights_application_id)
         if developer_app_insights_key is not None:
-            _setter("developer_app_insights_key", developer_app_insights_key)
+            pulumi.set(__self__, "developer_app_insights_key", developer_app_insights_key)
         if display_name is not None:
-            _setter("display_name", display_name)
+            pulumi.set(__self__, "display_name", display_name)
         if endpoint is not None:
-            _setter("endpoint", endpoint)
+            pulumi.set(__self__, "endpoint", endpoint)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if luis_app_ids is not None:
-            _setter("luis_app_ids", luis_app_ids)
+            pulumi.set(__self__, "luis_app_ids", luis_app_ids)
         if luis_key is not None:
-            _setter("luis_key", luis_key)
+            pulumi.set(__self__, "luis_key", luis_key)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="microsoftAppId")
@@ -313,83 +256,32 @@ class _WebAppState:
         :param pulumi.Input[str] sku: The SKU of the Web App Bot. Valid values include `F0` or `S1`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        _WebAppState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            developer_app_insights_api_key=developer_app_insights_api_key,
-            developer_app_insights_application_id=developer_app_insights_application_id,
-            developer_app_insights_key=developer_app_insights_key,
-            display_name=display_name,
-            endpoint=endpoint,
-            location=location,
-            luis_app_ids=luis_app_ids,
-            luis_key=luis_key,
-            microsoft_app_id=microsoft_app_id,
-            name=name,
-            resource_group_name=resource_group_name,
-            sku=sku,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             developer_app_insights_api_key: Optional[pulumi.Input[str]] = None,
-             developer_app_insights_application_id: Optional[pulumi.Input[str]] = None,
-             developer_app_insights_key: Optional[pulumi.Input[str]] = None,
-             display_name: Optional[pulumi.Input[str]] = None,
-             endpoint: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             luis_app_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             luis_key: Optional[pulumi.Input[str]] = None,
-             microsoft_app_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             sku: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if developer_app_insights_api_key is None and 'developerAppInsightsApiKey' in kwargs:
-            developer_app_insights_api_key = kwargs['developerAppInsightsApiKey']
-        if developer_app_insights_application_id is None and 'developerAppInsightsApplicationId' in kwargs:
-            developer_app_insights_application_id = kwargs['developerAppInsightsApplicationId']
-        if developer_app_insights_key is None and 'developerAppInsightsKey' in kwargs:
-            developer_app_insights_key = kwargs['developerAppInsightsKey']
-        if display_name is None and 'displayName' in kwargs:
-            display_name = kwargs['displayName']
-        if luis_app_ids is None and 'luisAppIds' in kwargs:
-            luis_app_ids = kwargs['luisAppIds']
-        if luis_key is None and 'luisKey' in kwargs:
-            luis_key = kwargs['luisKey']
-        if microsoft_app_id is None and 'microsoftAppId' in kwargs:
-            microsoft_app_id = kwargs['microsoftAppId']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-
         if developer_app_insights_api_key is not None:
-            _setter("developer_app_insights_api_key", developer_app_insights_api_key)
+            pulumi.set(__self__, "developer_app_insights_api_key", developer_app_insights_api_key)
         if developer_app_insights_application_id is not None:
-            _setter("developer_app_insights_application_id", developer_app_insights_application_id)
+            pulumi.set(__self__, "developer_app_insights_application_id", developer_app_insights_application_id)
         if developer_app_insights_key is not None:
-            _setter("developer_app_insights_key", developer_app_insights_key)
+            pulumi.set(__self__, "developer_app_insights_key", developer_app_insights_key)
         if display_name is not None:
-            _setter("display_name", display_name)
+            pulumi.set(__self__, "display_name", display_name)
         if endpoint is not None:
-            _setter("endpoint", endpoint)
+            pulumi.set(__self__, "endpoint", endpoint)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if luis_app_ids is not None:
-            _setter("luis_app_ids", luis_app_ids)
+            pulumi.set(__self__, "luis_app_ids", luis_app_ids)
         if luis_key is not None:
-            _setter("luis_key", luis_key)
+            pulumi.set(__self__, "luis_key", luis_key)
         if microsoft_app_id is not None:
-            _setter("microsoft_app_id", microsoft_app_id)
+            pulumi.set(__self__, "microsoft_app_id", microsoft_app_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if sku is not None:
-            _setter("sku", sku)
+            pulumi.set(__self__, "sku", sku)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="developerAppInsightsApiKey")
@@ -651,10 +543,6 @@ class WebApp(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            WebAppArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

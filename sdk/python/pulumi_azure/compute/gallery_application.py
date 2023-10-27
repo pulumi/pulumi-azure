@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['GalleryApplicationArgs', 'GalleryApplication']
@@ -37,67 +37,24 @@ class GalleryApplicationArgs:
         :param pulumi.Input[str] release_note_uri: The URI containing the Release Notes associated with the Gallery Application.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Gallery Application.
         """
-        GalleryApplicationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            gallery_id=gallery_id,
-            supported_os_type=supported_os_type,
-            description=description,
-            end_of_life_date=end_of_life_date,
-            eula=eula,
-            location=location,
-            name=name,
-            privacy_statement_uri=privacy_statement_uri,
-            release_note_uri=release_note_uri,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             gallery_id: Optional[pulumi.Input[str]] = None,
-             supported_os_type: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             end_of_life_date: Optional[pulumi.Input[str]] = None,
-             eula: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             privacy_statement_uri: Optional[pulumi.Input[str]] = None,
-             release_note_uri: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if gallery_id is None and 'galleryId' in kwargs:
-            gallery_id = kwargs['galleryId']
-        if gallery_id is None:
-            raise TypeError("Missing 'gallery_id' argument")
-        if supported_os_type is None and 'supportedOsType' in kwargs:
-            supported_os_type = kwargs['supportedOsType']
-        if supported_os_type is None:
-            raise TypeError("Missing 'supported_os_type' argument")
-        if end_of_life_date is None and 'endOfLifeDate' in kwargs:
-            end_of_life_date = kwargs['endOfLifeDate']
-        if privacy_statement_uri is None and 'privacyStatementUri' in kwargs:
-            privacy_statement_uri = kwargs['privacyStatementUri']
-        if release_note_uri is None and 'releaseNoteUri' in kwargs:
-            release_note_uri = kwargs['releaseNoteUri']
-
-        _setter("gallery_id", gallery_id)
-        _setter("supported_os_type", supported_os_type)
+        pulumi.set(__self__, "gallery_id", gallery_id)
+        pulumi.set(__self__, "supported_os_type", supported_os_type)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if end_of_life_date is not None:
-            _setter("end_of_life_date", end_of_life_date)
+            pulumi.set(__self__, "end_of_life_date", end_of_life_date)
         if eula is not None:
-            _setter("eula", eula)
+            pulumi.set(__self__, "eula", eula)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if privacy_statement_uri is not None:
-            _setter("privacy_statement_uri", privacy_statement_uri)
+            pulumi.set(__self__, "privacy_statement_uri", privacy_statement_uri)
         if release_note_uri is not None:
-            _setter("release_note_uri", release_note_uri)
+            pulumi.set(__self__, "release_note_uri", release_note_uri)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="galleryId")
@@ -246,65 +203,26 @@ class _GalleryApplicationState:
         :param pulumi.Input[str] supported_os_type: The type of the Operating System supported for the Gallery Application. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Gallery Application.
         """
-        _GalleryApplicationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            end_of_life_date=end_of_life_date,
-            eula=eula,
-            gallery_id=gallery_id,
-            location=location,
-            name=name,
-            privacy_statement_uri=privacy_statement_uri,
-            release_note_uri=release_note_uri,
-            supported_os_type=supported_os_type,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[pulumi.Input[str]] = None,
-             end_of_life_date: Optional[pulumi.Input[str]] = None,
-             eula: Optional[pulumi.Input[str]] = None,
-             gallery_id: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             privacy_statement_uri: Optional[pulumi.Input[str]] = None,
-             release_note_uri: Optional[pulumi.Input[str]] = None,
-             supported_os_type: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if end_of_life_date is None and 'endOfLifeDate' in kwargs:
-            end_of_life_date = kwargs['endOfLifeDate']
-        if gallery_id is None and 'galleryId' in kwargs:
-            gallery_id = kwargs['galleryId']
-        if privacy_statement_uri is None and 'privacyStatementUri' in kwargs:
-            privacy_statement_uri = kwargs['privacyStatementUri']
-        if release_note_uri is None and 'releaseNoteUri' in kwargs:
-            release_note_uri = kwargs['releaseNoteUri']
-        if supported_os_type is None and 'supportedOsType' in kwargs:
-            supported_os_type = kwargs['supportedOsType']
-
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if end_of_life_date is not None:
-            _setter("end_of_life_date", end_of_life_date)
+            pulumi.set(__self__, "end_of_life_date", end_of_life_date)
         if eula is not None:
-            _setter("eula", eula)
+            pulumi.set(__self__, "eula", eula)
         if gallery_id is not None:
-            _setter("gallery_id", gallery_id)
+            pulumi.set(__self__, "gallery_id", gallery_id)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if privacy_statement_uri is not None:
-            _setter("privacy_statement_uri", privacy_statement_uri)
+            pulumi.set(__self__, "privacy_statement_uri", privacy_statement_uri)
         if release_note_uri is not None:
-            _setter("release_note_uri", release_note_uri)
+            pulumi.set(__self__, "release_note_uri", release_note_uri)
         if supported_os_type is not None:
-            _setter("supported_os_type", supported_os_type)
+            pulumi.set(__self__, "supported_os_type", supported_os_type)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -526,10 +444,6 @@ class GalleryApplication(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            GalleryApplicationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -48,64 +48,13 @@ class GetComputeMachineAgentConfigurationResult(dict):
         :param Sequence[str] proxy_bypasses: List of service names which should not use the specified proxy server.
         :param str proxy_url: Specifies the URL of the proxy to be used.
         """
-        GetComputeMachineAgentConfigurationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            extensions_allow_lists=extensions_allow_lists,
-            extensions_block_lists=extensions_block_lists,
-            extensions_enabled=extensions_enabled,
-            guest_configuration_enabled=guest_configuration_enabled,
-            incoming_connections_ports=incoming_connections_ports,
-            proxy_bypasses=proxy_bypasses,
-            proxy_url=proxy_url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             extensions_allow_lists: Optional[Sequence['outputs.GetComputeMachineAgentConfigurationExtensionsAllowListResult']] = None,
-             extensions_block_lists: Optional[Sequence['outputs.GetComputeMachineAgentConfigurationExtensionsBlockListResult']] = None,
-             extensions_enabled: Optional[bool] = None,
-             guest_configuration_enabled: Optional[bool] = None,
-             incoming_connections_ports: Optional[Sequence[str]] = None,
-             proxy_bypasses: Optional[Sequence[str]] = None,
-             proxy_url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if extensions_allow_lists is None and 'extensionsAllowLists' in kwargs:
-            extensions_allow_lists = kwargs['extensionsAllowLists']
-        if extensions_allow_lists is None:
-            raise TypeError("Missing 'extensions_allow_lists' argument")
-        if extensions_block_lists is None and 'extensionsBlockLists' in kwargs:
-            extensions_block_lists = kwargs['extensionsBlockLists']
-        if extensions_block_lists is None:
-            raise TypeError("Missing 'extensions_block_lists' argument")
-        if extensions_enabled is None and 'extensionsEnabled' in kwargs:
-            extensions_enabled = kwargs['extensionsEnabled']
-        if extensions_enabled is None:
-            raise TypeError("Missing 'extensions_enabled' argument")
-        if guest_configuration_enabled is None and 'guestConfigurationEnabled' in kwargs:
-            guest_configuration_enabled = kwargs['guestConfigurationEnabled']
-        if guest_configuration_enabled is None:
-            raise TypeError("Missing 'guest_configuration_enabled' argument")
-        if incoming_connections_ports is None and 'incomingConnectionsPorts' in kwargs:
-            incoming_connections_ports = kwargs['incomingConnectionsPorts']
-        if incoming_connections_ports is None:
-            raise TypeError("Missing 'incoming_connections_ports' argument")
-        if proxy_bypasses is None and 'proxyBypasses' in kwargs:
-            proxy_bypasses = kwargs['proxyBypasses']
-        if proxy_bypasses is None:
-            raise TypeError("Missing 'proxy_bypasses' argument")
-        if proxy_url is None and 'proxyUrl' in kwargs:
-            proxy_url = kwargs['proxyUrl']
-        if proxy_url is None:
-            raise TypeError("Missing 'proxy_url' argument")
-
-        _setter("extensions_allow_lists", extensions_allow_lists)
-        _setter("extensions_block_lists", extensions_block_lists)
-        _setter("extensions_enabled", extensions_enabled)
-        _setter("guest_configuration_enabled", guest_configuration_enabled)
-        _setter("incoming_connections_ports", incoming_connections_ports)
-        _setter("proxy_bypasses", proxy_bypasses)
-        _setter("proxy_url", proxy_url)
+        pulumi.set(__self__, "extensions_allow_lists", extensions_allow_lists)
+        pulumi.set(__self__, "extensions_block_lists", extensions_block_lists)
+        pulumi.set(__self__, "extensions_enabled", extensions_enabled)
+        pulumi.set(__self__, "guest_configuration_enabled", guest_configuration_enabled)
+        pulumi.set(__self__, "incoming_connections_ports", incoming_connections_ports)
+        pulumi.set(__self__, "proxy_bypasses", proxy_bypasses)
+        pulumi.set(__self__, "proxy_url", proxy_url)
 
     @property
     @pulumi.getter(name="extensionsAllowLists")
@@ -173,25 +122,8 @@ class GetComputeMachineAgentConfigurationExtensionsAllowListResult(dict):
         :param str publisher: Publisher of the extension.
         :param str type: The identity type.
         """
-        GetComputeMachineAgentConfigurationExtensionsAllowListResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            publisher=publisher,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             publisher: Optional[str] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if publisher is None:
-            raise TypeError("Missing 'publisher' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("publisher", publisher)
-        _setter("type", type)
+        pulumi.set(__self__, "publisher", publisher)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -219,25 +151,8 @@ class GetComputeMachineAgentConfigurationExtensionsBlockListResult(dict):
         :param str publisher: Publisher of the extension.
         :param str type: The identity type.
         """
-        GetComputeMachineAgentConfigurationExtensionsBlockListResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            publisher=publisher,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             publisher: Optional[str] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if publisher is None:
-            raise TypeError("Missing 'publisher' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("publisher", publisher)
-        _setter("type", type)
+        pulumi.set(__self__, "publisher", publisher)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -263,20 +178,7 @@ class GetComputeMachineCloudMetadataResult(dict):
         """
         :param str provider: Specifies the cloud provider. For example `Azure`, `AWS` and `GCP`.
         """
-        GetComputeMachineCloudMetadataResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            provider=provider,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             provider: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if provider is None:
-            raise TypeError("Missing 'provider' argument")
-
-        _setter("provider", provider)
+        pulumi.set(__self__, "provider", provider)
 
     @property
     @pulumi.getter
@@ -300,37 +202,10 @@ class GetComputeMachineErrorDetailResult(dict):
         :param str message: The error message.
         :param str target: The error target.
         """
-        GetComputeMachineErrorDetailResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            additional_infos=additional_infos,
-            code=code,
-            message=message,
-            target=target,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             additional_infos: Optional[Sequence['outputs.GetComputeMachineErrorDetailAdditionalInfoResult']] = None,
-             code: Optional[str] = None,
-             message: Optional[str] = None,
-             target: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if additional_infos is None and 'additionalInfos' in kwargs:
-            additional_infos = kwargs['additionalInfos']
-        if additional_infos is None:
-            raise TypeError("Missing 'additional_infos' argument")
-        if code is None:
-            raise TypeError("Missing 'code' argument")
-        if message is None:
-            raise TypeError("Missing 'message' argument")
-        if target is None:
-            raise TypeError("Missing 'target' argument")
-
-        _setter("additional_infos", additional_infos)
-        _setter("code", code)
-        _setter("message", message)
-        _setter("target", target)
+        pulumi.set(__self__, "additional_infos", additional_infos)
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "target", target)
 
     @property
     @pulumi.getter(name="additionalInfos")
@@ -374,25 +249,8 @@ class GetComputeMachineErrorDetailAdditionalInfoResult(dict):
         :param str info: The additional information message.
         :param str type: The identity type.
         """
-        GetComputeMachineErrorDetailAdditionalInfoResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            info=info,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             info: Optional[str] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if info is None:
-            raise TypeError("Missing 'info' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("info", info)
-        _setter("type", type)
+        pulumi.set(__self__, "info", info)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -422,34 +280,9 @@ class GetComputeMachineIdentityResult(dict):
         :param str tenant_id: The tenant ID of resource.
         :param str type: The identity type.
         """
-        GetComputeMachineIdentityResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            principal_id=principal_id,
-            tenant_id=tenant_id,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             principal_id: Optional[str] = None,
-             tenant_id: Optional[str] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if principal_id is None and 'principalId' in kwargs:
-            principal_id = kwargs['principalId']
-        if principal_id is None:
-            raise TypeError("Missing 'principal_id' argument")
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-        if tenant_id is None:
-            raise TypeError("Missing 'tenant_id' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("principal_id", principal_id)
-        _setter("tenant_id", tenant_id)
-        _setter("type", type)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="principalId")
@@ -489,37 +322,10 @@ class GetComputeMachineLocationDataResult(dict):
         :param str district: The district, state, or province where the resource is located.
         :param str name: The name of this hybrid compute machine.
         """
-        GetComputeMachineLocationDataResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            city=city,
-            country_or_region=country_or_region,
-            district=district,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             city: Optional[str] = None,
-             country_or_region: Optional[str] = None,
-             district: Optional[str] = None,
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if city is None:
-            raise TypeError("Missing 'city' argument")
-        if country_or_region is None and 'countryOrRegion' in kwargs:
-            country_or_region = kwargs['countryOrRegion']
-        if country_or_region is None:
-            raise TypeError("Missing 'country_or_region' argument")
-        if district is None:
-            raise TypeError("Missing 'district' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("city", city)
-        _setter("country_or_region", country_or_region)
-        _setter("district", district)
-        _setter("name", name)
+        pulumi.set(__self__, "city", city)
+        pulumi.set(__self__, "country_or_region", country_or_region)
+        pulumi.set(__self__, "district", district)
+        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -565,36 +371,9 @@ class GetComputeMachineOsProfileResult(dict):
         :param Sequence['GetComputeMachineOsProfileLinuxConfigurationArgs'] linux_configurations: A `linux_configuration` block as defined above.
         :param Sequence['GetComputeMachineOsProfileWindowsConfigurationArgs'] windows_configurations: A `windows_configuration` block as defined below.
         """
-        GetComputeMachineOsProfileResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            computer_name=computer_name,
-            linux_configurations=linux_configurations,
-            windows_configurations=windows_configurations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             computer_name: Optional[str] = None,
-             linux_configurations: Optional[Sequence['outputs.GetComputeMachineOsProfileLinuxConfigurationResult']] = None,
-             windows_configurations: Optional[Sequence['outputs.GetComputeMachineOsProfileWindowsConfigurationResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if computer_name is None and 'computerName' in kwargs:
-            computer_name = kwargs['computerName']
-        if computer_name is None:
-            raise TypeError("Missing 'computer_name' argument")
-        if linux_configurations is None and 'linuxConfigurations' in kwargs:
-            linux_configurations = kwargs['linuxConfigurations']
-        if linux_configurations is None:
-            raise TypeError("Missing 'linux_configurations' argument")
-        if windows_configurations is None and 'windowsConfigurations' in kwargs:
-            windows_configurations = kwargs['windowsConfigurations']
-        if windows_configurations is None:
-            raise TypeError("Missing 'windows_configurations' argument")
-
-        _setter("computer_name", computer_name)
-        _setter("linux_configurations", linux_configurations)
-        _setter("windows_configurations", windows_configurations)
+        pulumi.set(__self__, "computer_name", computer_name)
+        pulumi.set(__self__, "linux_configurations", linux_configurations)
+        pulumi.set(__self__, "windows_configurations", windows_configurations)
 
     @property
     @pulumi.getter(name="computerName")
@@ -628,22 +407,7 @@ class GetComputeMachineOsProfileLinuxConfigurationResult(dict):
         """
         :param Sequence['GetComputeMachineOsProfileLinuxConfigurationPatchSettingArgs'] patch_settings: A `patch_settings` block as defined above.
         """
-        GetComputeMachineOsProfileLinuxConfigurationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            patch_settings=patch_settings,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             patch_settings: Optional[Sequence['outputs.GetComputeMachineOsProfileLinuxConfigurationPatchSettingResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if patch_settings is None and 'patchSettings' in kwargs:
-            patch_settings = kwargs['patchSettings']
-        if patch_settings is None:
-            raise TypeError("Missing 'patch_settings' argument")
-
-        _setter("patch_settings", patch_settings)
+        pulumi.set(__self__, "patch_settings", patch_settings)
 
     @property
     @pulumi.getter(name="patchSettings")
@@ -663,29 +427,8 @@ class GetComputeMachineOsProfileLinuxConfigurationPatchSettingResult(dict):
         :param str assessment_mode: Specifies the assessment mode.
         :param str patch_mode: Specifies the patch mode.
         """
-        GetComputeMachineOsProfileLinuxConfigurationPatchSettingResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            assessment_mode=assessment_mode,
-            patch_mode=patch_mode,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             assessment_mode: Optional[str] = None,
-             patch_mode: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if assessment_mode is None and 'assessmentMode' in kwargs:
-            assessment_mode = kwargs['assessmentMode']
-        if assessment_mode is None:
-            raise TypeError("Missing 'assessment_mode' argument")
-        if patch_mode is None and 'patchMode' in kwargs:
-            patch_mode = kwargs['patchMode']
-        if patch_mode is None:
-            raise TypeError("Missing 'patch_mode' argument")
-
-        _setter("assessment_mode", assessment_mode)
-        _setter("patch_mode", patch_mode)
+        pulumi.set(__self__, "assessment_mode", assessment_mode)
+        pulumi.set(__self__, "patch_mode", patch_mode)
 
     @property
     @pulumi.getter(name="assessmentMode")
@@ -711,22 +454,7 @@ class GetComputeMachineOsProfileWindowsConfigurationResult(dict):
         """
         :param Sequence['GetComputeMachineOsProfileWindowsConfigurationPatchSettingArgs'] patch_settings: A `patch_settings` block as defined above.
         """
-        GetComputeMachineOsProfileWindowsConfigurationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            patch_settings=patch_settings,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             patch_settings: Optional[Sequence['outputs.GetComputeMachineOsProfileWindowsConfigurationPatchSettingResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if patch_settings is None and 'patchSettings' in kwargs:
-            patch_settings = kwargs['patchSettings']
-        if patch_settings is None:
-            raise TypeError("Missing 'patch_settings' argument")
-
-        _setter("patch_settings", patch_settings)
+        pulumi.set(__self__, "patch_settings", patch_settings)
 
     @property
     @pulumi.getter(name="patchSettings")
@@ -746,29 +474,8 @@ class GetComputeMachineOsProfileWindowsConfigurationPatchSettingResult(dict):
         :param str assessment_mode: Specifies the assessment mode.
         :param str patch_mode: Specifies the patch mode.
         """
-        GetComputeMachineOsProfileWindowsConfigurationPatchSettingResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            assessment_mode=assessment_mode,
-            patch_mode=patch_mode,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             assessment_mode: Optional[str] = None,
-             patch_mode: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if assessment_mode is None and 'assessmentMode' in kwargs:
-            assessment_mode = kwargs['assessmentMode']
-        if assessment_mode is None:
-            raise TypeError("Missing 'assessment_mode' argument")
-        if patch_mode is None and 'patchMode' in kwargs:
-            patch_mode = kwargs['patchMode']
-        if patch_mode is None:
-            raise TypeError("Missing 'patch_mode' argument")
-
-        _setter("assessment_mode", assessment_mode)
-        _setter("patch_mode", patch_mode)
+        pulumi.set(__self__, "assessment_mode", assessment_mode)
+        pulumi.set(__self__, "patch_mode", patch_mode)
 
     @property
     @pulumi.getter(name="assessmentMode")
@@ -796,29 +503,8 @@ class GetComputeMachineServiceStatusResult(dict):
         :param Sequence['GetComputeMachineServiceStatusExtensionServiceArgs'] extension_services: A `extension_service` block as defined above.
         :param Sequence['GetComputeMachineServiceStatusGuestConfigurationServiceArgs'] guest_configuration_services: A `guest_configuration_service` block as defined above.
         """
-        GetComputeMachineServiceStatusResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            extension_services=extension_services,
-            guest_configuration_services=guest_configuration_services,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             extension_services: Optional[Sequence['outputs.GetComputeMachineServiceStatusExtensionServiceResult']] = None,
-             guest_configuration_services: Optional[Sequence['outputs.GetComputeMachineServiceStatusGuestConfigurationServiceResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if extension_services is None and 'extensionServices' in kwargs:
-            extension_services = kwargs['extensionServices']
-        if extension_services is None:
-            raise TypeError("Missing 'extension_services' argument")
-        if guest_configuration_services is None and 'guestConfigurationServices' in kwargs:
-            guest_configuration_services = kwargs['guestConfigurationServices']
-        if guest_configuration_services is None:
-            raise TypeError("Missing 'guest_configuration_services' argument")
-
-        _setter("extension_services", extension_services)
-        _setter("guest_configuration_services", guest_configuration_services)
+        pulumi.set(__self__, "extension_services", extension_services)
+        pulumi.set(__self__, "guest_configuration_services", guest_configuration_services)
 
     @property
     @pulumi.getter(name="extensionServices")
@@ -846,27 +532,8 @@ class GetComputeMachineServiceStatusExtensionServiceResult(dict):
         :param str startup_type: The behavior of the service when the Arc-enabled machine starts up.
         :param str status: The current status of the service.
         """
-        GetComputeMachineServiceStatusExtensionServiceResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            startup_type=startup_type,
-            status=status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             startup_type: Optional[str] = None,
-             status: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if startup_type is None and 'startupType' in kwargs:
-            startup_type = kwargs['startupType']
-        if startup_type is None:
-            raise TypeError("Missing 'startup_type' argument")
-        if status is None:
-            raise TypeError("Missing 'status' argument")
-
-        _setter("startup_type", startup_type)
-        _setter("status", status)
+        pulumi.set(__self__, "startup_type", startup_type)
+        pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter(name="startupType")
@@ -894,27 +561,8 @@ class GetComputeMachineServiceStatusGuestConfigurationServiceResult(dict):
         :param str startup_type: The behavior of the service when the Arc-enabled machine starts up.
         :param str status: The current status of the service.
         """
-        GetComputeMachineServiceStatusGuestConfigurationServiceResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            startup_type=startup_type,
-            status=status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             startup_type: Optional[str] = None,
-             status: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if startup_type is None and 'startupType' in kwargs:
-            startup_type = kwargs['startupType']
-        if startup_type is None:
-            raise TypeError("Missing 'startup_type' argument")
-        if status is None:
-            raise TypeError("Missing 'status' argument")
-
-        _setter("startup_type", startup_type)
-        _setter("status", status)
+        pulumi.set(__self__, "startup_type", startup_type)
+        pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter(name="startupType")

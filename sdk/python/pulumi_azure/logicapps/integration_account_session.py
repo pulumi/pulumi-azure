@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['IntegrationAccountSessionArgs', 'IntegrationAccountSession']
@@ -25,38 +25,11 @@ class IntegrationAccountSessionArgs:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Logic App Integration Account Session should exist. Changing this forces a new Logic App Integration Account Session to be created.
         :param pulumi.Input[str] name: The name which should be used for this Logic App Integration Account Session. Changing this forces a new Logic App Integration Account Session to be created.
         """
-        IntegrationAccountSessionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            content=content,
-            integration_account_name=integration_account_name,
-            resource_group_name=resource_group_name,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             content: Optional[pulumi.Input[str]] = None,
-             integration_account_name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if content is None:
-            raise TypeError("Missing 'content' argument")
-        if integration_account_name is None and 'integrationAccountName' in kwargs:
-            integration_account_name = kwargs['integrationAccountName']
-        if integration_account_name is None:
-            raise TypeError("Missing 'integration_account_name' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-
-        _setter("content", content)
-        _setter("integration_account_name", integration_account_name)
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "integration_account_name", integration_account_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -121,35 +94,14 @@ class _IntegrationAccountSessionState:
         :param pulumi.Input[str] name: The name which should be used for this Logic App Integration Account Session. Changing this forces a new Logic App Integration Account Session to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Logic App Integration Account Session should exist. Changing this forces a new Logic App Integration Account Session to be created.
         """
-        _IntegrationAccountSessionState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            content=content,
-            integration_account_name=integration_account_name,
-            name=name,
-            resource_group_name=resource_group_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             content: Optional[pulumi.Input[str]] = None,
-             integration_account_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if integration_account_name is None and 'integrationAccountName' in kwargs:
-            integration_account_name = kwargs['integrationAccountName']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-
         if content is not None:
-            _setter("content", content)
+            pulumi.set(__self__, "content", content)
         if integration_account_name is not None:
-            _setter("integration_account_name", integration_account_name)
+            pulumi.set(__self__, "integration_account_name", integration_account_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
 
     @property
     @pulumi.getter
@@ -295,10 +247,6 @@ class IntegrationAccountSession(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            IntegrationAccountSessionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

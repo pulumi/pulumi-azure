@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,69 +39,22 @@ class SqlServerArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['SqlServerThreatDetectionPolicyArgs'] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         """
-        SqlServerArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            administrator_login=administrator_login,
-            administrator_login_password=administrator_login_password,
-            resource_group_name=resource_group_name,
-            version=version,
-            connection_policy=connection_policy,
-            identity=identity,
-            location=location,
-            name=name,
-            tags=tags,
-            threat_detection_policy=threat_detection_policy,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             administrator_login: Optional[pulumi.Input[str]] = None,
-             administrator_login_password: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             version: Optional[pulumi.Input[str]] = None,
-             connection_policy: Optional[pulumi.Input[str]] = None,
-             identity: Optional[pulumi.Input['SqlServerIdentityArgs']] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             threat_detection_policy: Optional[pulumi.Input['SqlServerThreatDetectionPolicyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if administrator_login is None and 'administratorLogin' in kwargs:
-            administrator_login = kwargs['administratorLogin']
-        if administrator_login is None:
-            raise TypeError("Missing 'administrator_login' argument")
-        if administrator_login_password is None and 'administratorLoginPassword' in kwargs:
-            administrator_login_password = kwargs['administratorLoginPassword']
-        if administrator_login_password is None:
-            raise TypeError("Missing 'administrator_login_password' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if version is None:
-            raise TypeError("Missing 'version' argument")
-        if connection_policy is None and 'connectionPolicy' in kwargs:
-            connection_policy = kwargs['connectionPolicy']
-        if threat_detection_policy is None and 'threatDetectionPolicy' in kwargs:
-            threat_detection_policy = kwargs['threatDetectionPolicy']
-
-        _setter("administrator_login", administrator_login)
-        _setter("administrator_login_password", administrator_login_password)
-        _setter("resource_group_name", resource_group_name)
-        _setter("version", version)
+        pulumi.set(__self__, "administrator_login", administrator_login)
+        pulumi.set(__self__, "administrator_login_password", administrator_login_password)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "version", version)
         if connection_policy is not None:
-            _setter("connection_policy", connection_policy)
+            pulumi.set(__self__, "connection_policy", connection_policy)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if threat_detection_policy is not None:
-            _setter("threat_detection_policy", threat_detection_policy)
+            pulumi.set(__self__, "threat_detection_policy", threat_detection_policy)
 
     @property
     @pulumi.getter(name="administratorLogin")
@@ -252,71 +205,28 @@ class _SqlServerState:
         :param pulumi.Input['SqlServerThreatDetectionPolicyArgs'] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[str] version: The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
         """
-        _SqlServerState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            administrator_login=administrator_login,
-            administrator_login_password=administrator_login_password,
-            connection_policy=connection_policy,
-            fully_qualified_domain_name=fully_qualified_domain_name,
-            identity=identity,
-            location=location,
-            name=name,
-            resource_group_name=resource_group_name,
-            tags=tags,
-            threat_detection_policy=threat_detection_policy,
-            version=version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             administrator_login: Optional[pulumi.Input[str]] = None,
-             administrator_login_password: Optional[pulumi.Input[str]] = None,
-             connection_policy: Optional[pulumi.Input[str]] = None,
-             fully_qualified_domain_name: Optional[pulumi.Input[str]] = None,
-             identity: Optional[pulumi.Input['SqlServerIdentityArgs']] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             threat_detection_policy: Optional[pulumi.Input['SqlServerThreatDetectionPolicyArgs']] = None,
-             version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if administrator_login is None and 'administratorLogin' in kwargs:
-            administrator_login = kwargs['administratorLogin']
-        if administrator_login_password is None and 'administratorLoginPassword' in kwargs:
-            administrator_login_password = kwargs['administratorLoginPassword']
-        if connection_policy is None and 'connectionPolicy' in kwargs:
-            connection_policy = kwargs['connectionPolicy']
-        if fully_qualified_domain_name is None and 'fullyQualifiedDomainName' in kwargs:
-            fully_qualified_domain_name = kwargs['fullyQualifiedDomainName']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if threat_detection_policy is None and 'threatDetectionPolicy' in kwargs:
-            threat_detection_policy = kwargs['threatDetectionPolicy']
-
         if administrator_login is not None:
-            _setter("administrator_login", administrator_login)
+            pulumi.set(__self__, "administrator_login", administrator_login)
         if administrator_login_password is not None:
-            _setter("administrator_login_password", administrator_login_password)
+            pulumi.set(__self__, "administrator_login_password", administrator_login_password)
         if connection_policy is not None:
-            _setter("connection_policy", connection_policy)
+            pulumi.set(__self__, "connection_policy", connection_policy)
         if fully_qualified_domain_name is not None:
-            _setter("fully_qualified_domain_name", fully_qualified_domain_name)
+            pulumi.set(__self__, "fully_qualified_domain_name", fully_qualified_domain_name)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if threat_detection_policy is not None:
-            _setter("threat_detection_policy", threat_detection_policy)
+            pulumi.set(__self__, "threat_detection_policy", threat_detection_policy)
         if version is not None:
-            _setter("version", version)
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="administratorLogin")
@@ -564,10 +474,6 @@ class SqlServer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SqlServerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -599,7 +505,6 @@ class SqlServer(pulumi.CustomResource):
                 raise TypeError("Missing required property 'administrator_login_password'")
             __props__.__dict__["administrator_login_password"] = None if administrator_login_password is None else pulumi.Output.secret(administrator_login_password)
             __props__.__dict__["connection_policy"] = connection_policy
-            identity = _utilities.configure(identity, SqlServerIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -607,7 +512,6 @@ class SqlServer(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
-            threat_detection_policy = _utilities.configure(threat_detection_policy, SqlServerThreatDetectionPolicyArgs, True)
             __props__.__dict__["threat_detection_policy"] = threat_detection_policy
             if version is None and not opts.urn:
                 raise TypeError("Missing required property 'version'")

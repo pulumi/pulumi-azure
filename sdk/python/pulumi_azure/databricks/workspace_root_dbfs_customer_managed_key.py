@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['WorkspaceRootDbfsCustomerManagedKeyArgs', 'WorkspaceRootDbfsCustomerManagedKey']
@@ -21,29 +21,8 @@ class WorkspaceRootDbfsCustomerManagedKeyArgs:
         :param pulumi.Input[str] key_vault_key_id: The resource ID of the Key Vault Key to be used.
         :param pulumi.Input[str] workspace_id: The resource ID of the Databricks Workspace.
         """
-        WorkspaceRootDbfsCustomerManagedKeyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key_vault_key_id=key_vault_key_id,
-            workspace_id=workspace_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key_vault_key_id: Optional[pulumi.Input[str]] = None,
-             workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
-            key_vault_key_id = kwargs['keyVaultKeyId']
-        if key_vault_key_id is None:
-            raise TypeError("Missing 'key_vault_key_id' argument")
-        if workspace_id is None and 'workspaceId' in kwargs:
-            workspace_id = kwargs['workspaceId']
-        if workspace_id is None:
-            raise TypeError("Missing 'workspace_id' argument")
-
-        _setter("key_vault_key_id", key_vault_key_id)
-        _setter("workspace_id", workspace_id)
+        pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        pulumi.set(__self__, "workspace_id", workspace_id)
 
     @property
     @pulumi.getter(name="keyVaultKeyId")
@@ -80,27 +59,10 @@ class _WorkspaceRootDbfsCustomerManagedKeyState:
         :param pulumi.Input[str] key_vault_key_id: The resource ID of the Key Vault Key to be used.
         :param pulumi.Input[str] workspace_id: The resource ID of the Databricks Workspace.
         """
-        _WorkspaceRootDbfsCustomerManagedKeyState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key_vault_key_id=key_vault_key_id,
-            workspace_id=workspace_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key_vault_key_id: Optional[pulumi.Input[str]] = None,
-             workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
-            key_vault_key_id = kwargs['keyVaultKeyId']
-        if workspace_id is None and 'workspaceId' in kwargs:
-            workspace_id = kwargs['workspaceId']
-
         if key_vault_key_id is not None:
-            _setter("key_vault_key_id", key_vault_key_id)
+            pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
         if workspace_id is not None:
-            _setter("workspace_id", workspace_id)
+            pulumi.set(__self__, "workspace_id", workspace_id)
 
     @property
     @pulumi.getter(name="keyVaultKeyId")
@@ -174,10 +136,6 @@ class WorkspaceRootDbfsCustomerManagedKey(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            WorkspaceRootDbfsCustomerManagedKeyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DatasetKustoClusterArgs', 'DatasetKustoCluster']
@@ -23,33 +23,10 @@ class DatasetKustoClusterArgs:
         :param pulumi.Input[str] share_id: The resource ID of the Data Share where this Data Share Kusto Cluster Dataset should be created. Changing this forces a new Data Share Kusto Cluster Dataset to be created.
         :param pulumi.Input[str] name: The name which should be used for this Data Share Kusto Cluster Dataset. Changing this forces a new Data Share Kusto Cluster Dataset to be created.
         """
-        DatasetKustoClusterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            kusto_cluster_id=kusto_cluster_id,
-            share_id=share_id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             kusto_cluster_id: Optional[pulumi.Input[str]] = None,
-             share_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if kusto_cluster_id is None and 'kustoClusterId' in kwargs:
-            kusto_cluster_id = kwargs['kustoClusterId']
-        if kusto_cluster_id is None:
-            raise TypeError("Missing 'kusto_cluster_id' argument")
-        if share_id is None and 'shareId' in kwargs:
-            share_id = kwargs['shareId']
-        if share_id is None:
-            raise TypeError("Missing 'share_id' argument")
-
-        _setter("kusto_cluster_id", kusto_cluster_id)
-        _setter("share_id", share_id)
+        pulumi.set(__self__, "kusto_cluster_id", kusto_cluster_id)
+        pulumi.set(__self__, "share_id", share_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="kustoClusterId")
@@ -104,43 +81,16 @@ class _DatasetKustoClusterState:
         :param pulumi.Input[str] name: The name which should be used for this Data Share Kusto Cluster Dataset. Changing this forces a new Data Share Kusto Cluster Dataset to be created.
         :param pulumi.Input[str] share_id: The resource ID of the Data Share where this Data Share Kusto Cluster Dataset should be created. Changing this forces a new Data Share Kusto Cluster Dataset to be created.
         """
-        _DatasetKustoClusterState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            display_name=display_name,
-            kusto_cluster_id=kusto_cluster_id,
-            kusto_cluster_location=kusto_cluster_location,
-            name=name,
-            share_id=share_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             display_name: Optional[pulumi.Input[str]] = None,
-             kusto_cluster_id: Optional[pulumi.Input[str]] = None,
-             kusto_cluster_location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             share_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if display_name is None and 'displayName' in kwargs:
-            display_name = kwargs['displayName']
-        if kusto_cluster_id is None and 'kustoClusterId' in kwargs:
-            kusto_cluster_id = kwargs['kustoClusterId']
-        if kusto_cluster_location is None and 'kustoClusterLocation' in kwargs:
-            kusto_cluster_location = kwargs['kustoClusterLocation']
-        if share_id is None and 'shareId' in kwargs:
-            share_id = kwargs['shareId']
-
         if display_name is not None:
-            _setter("display_name", display_name)
+            pulumi.set(__self__, "display_name", display_name)
         if kusto_cluster_id is not None:
-            _setter("kusto_cluster_id", kusto_cluster_id)
+            pulumi.set(__self__, "kusto_cluster_id", kusto_cluster_id)
         if kusto_cluster_location is not None:
-            _setter("kusto_cluster_location", kusto_cluster_location)
+            pulumi.set(__self__, "kusto_cluster_location", kusto_cluster_location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if share_id is not None:
-            _setter("share_id", share_id)
+            pulumi.set(__self__, "share_id", share_id)
 
     @property
     @pulumi.getter(name="displayName")
@@ -322,10 +272,6 @@ class DatasetKustoCluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DatasetKustoClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

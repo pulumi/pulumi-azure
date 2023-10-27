@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DataCollectionEndpointArgs', 'DataCollectionEndpoint']
@@ -31,48 +31,19 @@ class DataCollectionEndpointArgs:
         :param pulumi.Input[bool] public_network_access_enabled: Whether network access from public internet to the Data Collection Endpoint are allowed. Possible values are `true` and `false`. Default to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Data Collection Endpoint.
         """
-        DataCollectionEndpointArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_group_name=resource_group_name,
-            description=description,
-            kind=kind,
-            location=location,
-            name=name,
-            public_network_access_enabled=public_network_access_enabled,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             kind: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
-            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if kind is not None:
-            _setter("kind", kind)
+            pulumi.set(__self__, "kind", kind)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if public_network_access_enabled is not None:
-            _setter("public_network_access_enabled", public_network_access_enabled)
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -183,59 +154,24 @@ class _DataCollectionEndpointState:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Data Collection Endpoint should exist. Changing this forces a new Data Collection Endpoint to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Data Collection Endpoint.
         """
-        _DataCollectionEndpointState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            configuration_access_endpoint=configuration_access_endpoint,
-            description=description,
-            kind=kind,
-            location=location,
-            logs_ingestion_endpoint=logs_ingestion_endpoint,
-            name=name,
-            public_network_access_enabled=public_network_access_enabled,
-            resource_group_name=resource_group_name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             configuration_access_endpoint: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             kind: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             logs_ingestion_endpoint: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if configuration_access_endpoint is None and 'configurationAccessEndpoint' in kwargs:
-            configuration_access_endpoint = kwargs['configurationAccessEndpoint']
-        if logs_ingestion_endpoint is None and 'logsIngestionEndpoint' in kwargs:
-            logs_ingestion_endpoint = kwargs['logsIngestionEndpoint']
-        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
-            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-
         if configuration_access_endpoint is not None:
-            _setter("configuration_access_endpoint", configuration_access_endpoint)
+            pulumi.set(__self__, "configuration_access_endpoint", configuration_access_endpoint)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if kind is not None:
-            _setter("kind", kind)
+            pulumi.set(__self__, "kind", kind)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if logs_ingestion_endpoint is not None:
-            _setter("logs_ingestion_endpoint", logs_ingestion_endpoint)
+            pulumi.set(__self__, "logs_ingestion_endpoint", logs_ingestion_endpoint)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if public_network_access_enabled is not None:
-            _setter("public_network_access_enabled", public_network_access_enabled)
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="configurationAccessEndpoint")
@@ -443,10 +379,6 @@ class DataCollectionEndpoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DataCollectionEndpointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

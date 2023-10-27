@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['GatewayApiArgs', 'GatewayApi']
@@ -21,29 +21,8 @@ class GatewayApiArgs:
         :param pulumi.Input[str] api_id: The Identifier of the API Management API within the API Management Service. Changing this forces a new API Management Gateway API to be created.
         :param pulumi.Input[str] gateway_id: The Identifier for the API Management Gateway. Changing this forces a new API Management Gateway API to be created.
         """
-        GatewayApiArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_id=api_id,
-            gateway_id=gateway_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_id: Optional[pulumi.Input[str]] = None,
-             gateway_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_id is None and 'apiId' in kwargs:
-            api_id = kwargs['apiId']
-        if api_id is None:
-            raise TypeError("Missing 'api_id' argument")
-        if gateway_id is None and 'gatewayId' in kwargs:
-            gateway_id = kwargs['gatewayId']
-        if gateway_id is None:
-            raise TypeError("Missing 'gateway_id' argument")
-
-        _setter("api_id", api_id)
-        _setter("gateway_id", gateway_id)
+        pulumi.set(__self__, "api_id", api_id)
+        pulumi.set(__self__, "gateway_id", gateway_id)
 
     @property
     @pulumi.getter(name="apiId")
@@ -80,27 +59,10 @@ class _GatewayApiState:
         :param pulumi.Input[str] api_id: The Identifier of the API Management API within the API Management Service. Changing this forces a new API Management Gateway API to be created.
         :param pulumi.Input[str] gateway_id: The Identifier for the API Management Gateway. Changing this forces a new API Management Gateway API to be created.
         """
-        _GatewayApiState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_id=api_id,
-            gateway_id=gateway_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_id: Optional[pulumi.Input[str]] = None,
-             gateway_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_id is None and 'apiId' in kwargs:
-            api_id = kwargs['apiId']
-        if gateway_id is None and 'gatewayId' in kwargs:
-            gateway_id = kwargs['gatewayId']
-
         if api_id is not None:
-            _setter("api_id", api_id)
+            pulumi.set(__self__, "api_id", api_id)
         if gateway_id is not None:
-            _setter("gateway_id", gateway_id)
+            pulumi.set(__self__, "gateway_id", gateway_id)
 
     @property
     @pulumi.getter(name="apiId")
@@ -216,10 +178,6 @@ class GatewayApi(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            GatewayApiArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

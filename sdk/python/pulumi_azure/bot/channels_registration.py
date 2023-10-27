@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ChannelsRegistrationArgs', 'ChannelsRegistration']
@@ -57,111 +57,40 @@ class ChannelsRegistrationArgs:
         :param pulumi.Input[bool] streaming_endpoint_enabled: Is the streaming endpoint enabled for the Bot Channels Registration. Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        ChannelsRegistrationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            microsoft_app_id=microsoft_app_id,
-            resource_group_name=resource_group_name,
-            sku=sku,
-            cmk_key_vault_url=cmk_key_vault_url,
-            description=description,
-            developer_app_insights_api_key=developer_app_insights_api_key,
-            developer_app_insights_application_id=developer_app_insights_application_id,
-            developer_app_insights_key=developer_app_insights_key,
-            display_name=display_name,
-            endpoint=endpoint,
-            icon_url=icon_url,
-            isolated_network_enabled=isolated_network_enabled,
-            location=location,
-            name=name,
-            public_network_access_enabled=public_network_access_enabled,
-            streaming_endpoint_enabled=streaming_endpoint_enabled,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             microsoft_app_id: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             sku: Optional[pulumi.Input[str]] = None,
-             cmk_key_vault_url: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             developer_app_insights_api_key: Optional[pulumi.Input[str]] = None,
-             developer_app_insights_application_id: Optional[pulumi.Input[str]] = None,
-             developer_app_insights_key: Optional[pulumi.Input[str]] = None,
-             display_name: Optional[pulumi.Input[str]] = None,
-             endpoint: Optional[pulumi.Input[str]] = None,
-             icon_url: Optional[pulumi.Input[str]] = None,
-             isolated_network_enabled: Optional[pulumi.Input[bool]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
-             streaming_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if microsoft_app_id is None and 'microsoftAppId' in kwargs:
-            microsoft_app_id = kwargs['microsoftAppId']
-        if microsoft_app_id is None:
-            raise TypeError("Missing 'microsoft_app_id' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if sku is None:
-            raise TypeError("Missing 'sku' argument")
-        if cmk_key_vault_url is None and 'cmkKeyVaultUrl' in kwargs:
-            cmk_key_vault_url = kwargs['cmkKeyVaultUrl']
-        if developer_app_insights_api_key is None and 'developerAppInsightsApiKey' in kwargs:
-            developer_app_insights_api_key = kwargs['developerAppInsightsApiKey']
-        if developer_app_insights_application_id is None and 'developerAppInsightsApplicationId' in kwargs:
-            developer_app_insights_application_id = kwargs['developerAppInsightsApplicationId']
-        if developer_app_insights_key is None and 'developerAppInsightsKey' in kwargs:
-            developer_app_insights_key = kwargs['developerAppInsightsKey']
-        if display_name is None and 'displayName' in kwargs:
-            display_name = kwargs['displayName']
-        if icon_url is None and 'iconUrl' in kwargs:
-            icon_url = kwargs['iconUrl']
-        if isolated_network_enabled is None and 'isolatedNetworkEnabled' in kwargs:
-            isolated_network_enabled = kwargs['isolatedNetworkEnabled']
-        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
-            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if streaming_endpoint_enabled is None and 'streamingEndpointEnabled' in kwargs:
-            streaming_endpoint_enabled = kwargs['streamingEndpointEnabled']
-
-        _setter("microsoft_app_id", microsoft_app_id)
-        _setter("resource_group_name", resource_group_name)
-        _setter("sku", sku)
+        pulumi.set(__self__, "microsoft_app_id", microsoft_app_id)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "sku", sku)
         if cmk_key_vault_url is not None:
-            _setter("cmk_key_vault_url", cmk_key_vault_url)
+            pulumi.set(__self__, "cmk_key_vault_url", cmk_key_vault_url)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if developer_app_insights_api_key is not None:
-            _setter("developer_app_insights_api_key", developer_app_insights_api_key)
+            pulumi.set(__self__, "developer_app_insights_api_key", developer_app_insights_api_key)
         if developer_app_insights_application_id is not None:
-            _setter("developer_app_insights_application_id", developer_app_insights_application_id)
+            pulumi.set(__self__, "developer_app_insights_application_id", developer_app_insights_application_id)
         if developer_app_insights_key is not None:
-            _setter("developer_app_insights_key", developer_app_insights_key)
+            pulumi.set(__self__, "developer_app_insights_key", developer_app_insights_key)
         if display_name is not None:
-            _setter("display_name", display_name)
+            pulumi.set(__self__, "display_name", display_name)
         if endpoint is not None:
-            _setter("endpoint", endpoint)
+            pulumi.set(__self__, "endpoint", endpoint)
         if icon_url is not None:
-            _setter("icon_url", icon_url)
+            pulumi.set(__self__, "icon_url", icon_url)
         if isolated_network_enabled is not None:
             warnings.warn("""`isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
             pulumi.log.warn("""isolated_network_enabled is deprecated: `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""")
         if isolated_network_enabled is not None:
-            _setter("isolated_network_enabled", isolated_network_enabled)
+            pulumi.set(__self__, "isolated_network_enabled", isolated_network_enabled)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if public_network_access_enabled is not None:
-            _setter("public_network_access_enabled", public_network_access_enabled)
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if streaming_endpoint_enabled is not None:
-            _setter("streaming_endpoint_enabled", streaming_endpoint_enabled)
+            pulumi.set(__self__, "streaming_endpoint_enabled", streaming_endpoint_enabled)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="microsoftAppId")
@@ -423,108 +352,43 @@ class _ChannelsRegistrationState:
         :param pulumi.Input[bool] streaming_endpoint_enabled: Is the streaming endpoint enabled for the Bot Channels Registration. Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        _ChannelsRegistrationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cmk_key_vault_url=cmk_key_vault_url,
-            description=description,
-            developer_app_insights_api_key=developer_app_insights_api_key,
-            developer_app_insights_application_id=developer_app_insights_application_id,
-            developer_app_insights_key=developer_app_insights_key,
-            display_name=display_name,
-            endpoint=endpoint,
-            icon_url=icon_url,
-            isolated_network_enabled=isolated_network_enabled,
-            location=location,
-            microsoft_app_id=microsoft_app_id,
-            name=name,
-            public_network_access_enabled=public_network_access_enabled,
-            resource_group_name=resource_group_name,
-            sku=sku,
-            streaming_endpoint_enabled=streaming_endpoint_enabled,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cmk_key_vault_url: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             developer_app_insights_api_key: Optional[pulumi.Input[str]] = None,
-             developer_app_insights_application_id: Optional[pulumi.Input[str]] = None,
-             developer_app_insights_key: Optional[pulumi.Input[str]] = None,
-             display_name: Optional[pulumi.Input[str]] = None,
-             endpoint: Optional[pulumi.Input[str]] = None,
-             icon_url: Optional[pulumi.Input[str]] = None,
-             isolated_network_enabled: Optional[pulumi.Input[bool]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             microsoft_app_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             sku: Optional[pulumi.Input[str]] = None,
-             streaming_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cmk_key_vault_url is None and 'cmkKeyVaultUrl' in kwargs:
-            cmk_key_vault_url = kwargs['cmkKeyVaultUrl']
-        if developer_app_insights_api_key is None and 'developerAppInsightsApiKey' in kwargs:
-            developer_app_insights_api_key = kwargs['developerAppInsightsApiKey']
-        if developer_app_insights_application_id is None and 'developerAppInsightsApplicationId' in kwargs:
-            developer_app_insights_application_id = kwargs['developerAppInsightsApplicationId']
-        if developer_app_insights_key is None and 'developerAppInsightsKey' in kwargs:
-            developer_app_insights_key = kwargs['developerAppInsightsKey']
-        if display_name is None and 'displayName' in kwargs:
-            display_name = kwargs['displayName']
-        if icon_url is None and 'iconUrl' in kwargs:
-            icon_url = kwargs['iconUrl']
-        if isolated_network_enabled is None and 'isolatedNetworkEnabled' in kwargs:
-            isolated_network_enabled = kwargs['isolatedNetworkEnabled']
-        if microsoft_app_id is None and 'microsoftAppId' in kwargs:
-            microsoft_app_id = kwargs['microsoftAppId']
-        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
-            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if streaming_endpoint_enabled is None and 'streamingEndpointEnabled' in kwargs:
-            streaming_endpoint_enabled = kwargs['streamingEndpointEnabled']
-
         if cmk_key_vault_url is not None:
-            _setter("cmk_key_vault_url", cmk_key_vault_url)
+            pulumi.set(__self__, "cmk_key_vault_url", cmk_key_vault_url)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if developer_app_insights_api_key is not None:
-            _setter("developer_app_insights_api_key", developer_app_insights_api_key)
+            pulumi.set(__self__, "developer_app_insights_api_key", developer_app_insights_api_key)
         if developer_app_insights_application_id is not None:
-            _setter("developer_app_insights_application_id", developer_app_insights_application_id)
+            pulumi.set(__self__, "developer_app_insights_application_id", developer_app_insights_application_id)
         if developer_app_insights_key is not None:
-            _setter("developer_app_insights_key", developer_app_insights_key)
+            pulumi.set(__self__, "developer_app_insights_key", developer_app_insights_key)
         if display_name is not None:
-            _setter("display_name", display_name)
+            pulumi.set(__self__, "display_name", display_name)
         if endpoint is not None:
-            _setter("endpoint", endpoint)
+            pulumi.set(__self__, "endpoint", endpoint)
         if icon_url is not None:
-            _setter("icon_url", icon_url)
+            pulumi.set(__self__, "icon_url", icon_url)
         if isolated_network_enabled is not None:
             warnings.warn("""`isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
             pulumi.log.warn("""isolated_network_enabled is deprecated: `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""")
         if isolated_network_enabled is not None:
-            _setter("isolated_network_enabled", isolated_network_enabled)
+            pulumi.set(__self__, "isolated_network_enabled", isolated_network_enabled)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if microsoft_app_id is not None:
-            _setter("microsoft_app_id", microsoft_app_id)
+            pulumi.set(__self__, "microsoft_app_id", microsoft_app_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if public_network_access_enabled is not None:
-            _setter("public_network_access_enabled", public_network_access_enabled)
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if sku is not None:
-            _setter("sku", sku)
+            pulumi.set(__self__, "sku", sku)
         if streaming_endpoint_enabled is not None:
-            _setter("streaming_endpoint_enabled", streaming_endpoint_enabled)
+            pulumi.set(__self__, "streaming_endpoint_enabled", streaming_endpoint_enabled)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="cmkKeyVaultUrl")
@@ -857,10 +721,6 @@ class ChannelsRegistration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ChannelsRegistrationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

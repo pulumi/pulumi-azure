@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['EncryptionScopeArgs', 'EncryptionScope']
@@ -27,43 +27,14 @@ class EncryptionScopeArgs:
         :param pulumi.Input[str] key_vault_key_id: The ID of the Key Vault Key. Required when `source` is `Microsoft.KeyVault`.
         :param pulumi.Input[str] name: The name which should be used for this Storage Encryption Scope. Changing this forces a new Storage Encryption Scope to be created.
         """
-        EncryptionScopeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            source=source,
-            storage_account_id=storage_account_id,
-            infrastructure_encryption_required=infrastructure_encryption_required,
-            key_vault_key_id=key_vault_key_id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             source: Optional[pulumi.Input[str]] = None,
-             storage_account_id: Optional[pulumi.Input[str]] = None,
-             infrastructure_encryption_required: Optional[pulumi.Input[bool]] = None,
-             key_vault_key_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if source is None:
-            raise TypeError("Missing 'source' argument")
-        if storage_account_id is None and 'storageAccountId' in kwargs:
-            storage_account_id = kwargs['storageAccountId']
-        if storage_account_id is None:
-            raise TypeError("Missing 'storage_account_id' argument")
-        if infrastructure_encryption_required is None and 'infrastructureEncryptionRequired' in kwargs:
-            infrastructure_encryption_required = kwargs['infrastructureEncryptionRequired']
-        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
-            key_vault_key_id = kwargs['keyVaultKeyId']
-
-        _setter("source", source)
-        _setter("storage_account_id", storage_account_id)
+        pulumi.set(__self__, "source", source)
+        pulumi.set(__self__, "storage_account_id", storage_account_id)
         if infrastructure_encryption_required is not None:
-            _setter("infrastructure_encryption_required", infrastructure_encryption_required)
+            pulumi.set(__self__, "infrastructure_encryption_required", infrastructure_encryption_required)
         if key_vault_key_id is not None:
-            _setter("key_vault_key_id", key_vault_key_id)
+            pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -142,41 +113,16 @@ class _EncryptionScopeState:
         :param pulumi.Input[str] source: The source of the Storage Encryption Scope. Possible values are `Microsoft.KeyVault` and `Microsoft.Storage`.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where this Storage Encryption Scope is created. Changing this forces a new Storage Encryption Scope to be created.
         """
-        _EncryptionScopeState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            infrastructure_encryption_required=infrastructure_encryption_required,
-            key_vault_key_id=key_vault_key_id,
-            name=name,
-            source=source,
-            storage_account_id=storage_account_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             infrastructure_encryption_required: Optional[pulumi.Input[bool]] = None,
-             key_vault_key_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             source: Optional[pulumi.Input[str]] = None,
-             storage_account_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if infrastructure_encryption_required is None and 'infrastructureEncryptionRequired' in kwargs:
-            infrastructure_encryption_required = kwargs['infrastructureEncryptionRequired']
-        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
-            key_vault_key_id = kwargs['keyVaultKeyId']
-        if storage_account_id is None and 'storageAccountId' in kwargs:
-            storage_account_id = kwargs['storageAccountId']
-
         if infrastructure_encryption_required is not None:
-            _setter("infrastructure_encryption_required", infrastructure_encryption_required)
+            pulumi.set(__self__, "infrastructure_encryption_required", infrastructure_encryption_required)
         if key_vault_key_id is not None:
-            _setter("key_vault_key_id", key_vault_key_id)
+            pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if source is not None:
-            _setter("source", source)
+            pulumi.set(__self__, "source", source)
         if storage_account_id is not None:
-            _setter("storage_account_id", storage_account_id)
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
 
     @property
     @pulumi.getter(name="infrastructureEncryptionRequired")
@@ -340,10 +286,6 @@ class EncryptionScope(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            EncryptionScopeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

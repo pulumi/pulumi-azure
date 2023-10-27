@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -160,353 +160,124 @@ class WindowsVirtualMachineScaleSetArgs:
                > **NOTE:** This can only be set to `true` when one or more `zones` are configured.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located. Changing this forces a new Windows Virtual Machine Scale Set to be created.
         """
-        WindowsVirtualMachineScaleSetArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            admin_password=admin_password,
-            admin_username=admin_username,
-            instances=instances,
-            network_interfaces=network_interfaces,
-            os_disk=os_disk,
-            resource_group_name=resource_group_name,
-            sku=sku,
-            additional_capabilities=additional_capabilities,
-            additional_unattend_contents=additional_unattend_contents,
-            automatic_instance_repair=automatic_instance_repair,
-            automatic_os_upgrade_policy=automatic_os_upgrade_policy,
-            boot_diagnostics=boot_diagnostics,
-            capacity_reservation_group_id=capacity_reservation_group_id,
-            computer_name_prefix=computer_name_prefix,
-            custom_data=custom_data,
-            data_disks=data_disks,
-            do_not_run_extensions_on_overprovisioned_machines=do_not_run_extensions_on_overprovisioned_machines,
-            edge_zone=edge_zone,
-            enable_automatic_updates=enable_automatic_updates,
-            encryption_at_host_enabled=encryption_at_host_enabled,
-            eviction_policy=eviction_policy,
-            extension_operations_enabled=extension_operations_enabled,
-            extensions=extensions,
-            extensions_time_budget=extensions_time_budget,
-            gallery_application=gallery_application,
-            gallery_applications=gallery_applications,
-            health_probe_id=health_probe_id,
-            host_group_id=host_group_id,
-            identity=identity,
-            license_type=license_type,
-            location=location,
-            max_bid_price=max_bid_price,
-            name=name,
-            overprovision=overprovision,
-            plan=plan,
-            platform_fault_domain_count=platform_fault_domain_count,
-            priority=priority,
-            provision_vm_agent=provision_vm_agent,
-            proximity_placement_group_id=proximity_placement_group_id,
-            rolling_upgrade_policy=rolling_upgrade_policy,
-            scale_in=scale_in,
-            scale_in_policy=scale_in_policy,
-            secrets=secrets,
-            secure_boot_enabled=secure_boot_enabled,
-            single_placement_group=single_placement_group,
-            source_image_id=source_image_id,
-            source_image_reference=source_image_reference,
-            spot_restore=spot_restore,
-            tags=tags,
-            terminate_notification=terminate_notification,
-            termination_notification=termination_notification,
-            timezone=timezone,
-            upgrade_mode=upgrade_mode,
-            user_data=user_data,
-            vtpm_enabled=vtpm_enabled,
-            winrm_listeners=winrm_listeners,
-            zone_balance=zone_balance,
-            zones=zones,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             admin_password: Optional[pulumi.Input[str]] = None,
-             admin_username: Optional[pulumi.Input[str]] = None,
-             instances: Optional[pulumi.Input[int]] = None,
-             network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetNetworkInterfaceArgs']]]] = None,
-             os_disk: Optional[pulumi.Input['WindowsVirtualMachineScaleSetOsDiskArgs']] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             sku: Optional[pulumi.Input[str]] = None,
-             additional_capabilities: Optional[pulumi.Input['WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs']] = None,
-             additional_unattend_contents: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs']]]] = None,
-             automatic_instance_repair: Optional[pulumi.Input['WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs']] = None,
-             automatic_os_upgrade_policy: Optional[pulumi.Input['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']] = None,
-             boot_diagnostics: Optional[pulumi.Input['WindowsVirtualMachineScaleSetBootDiagnosticsArgs']] = None,
-             capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
-             computer_name_prefix: Optional[pulumi.Input[str]] = None,
-             custom_data: Optional[pulumi.Input[str]] = None,
-             data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetDataDiskArgs']]]] = None,
-             do_not_run_extensions_on_overprovisioned_machines: Optional[pulumi.Input[bool]] = None,
-             edge_zone: Optional[pulumi.Input[str]] = None,
-             enable_automatic_updates: Optional[pulumi.Input[bool]] = None,
-             encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
-             eviction_policy: Optional[pulumi.Input[str]] = None,
-             extension_operations_enabled: Optional[pulumi.Input[bool]] = None,
-             extensions: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetExtensionArgs']]]] = None,
-             extensions_time_budget: Optional[pulumi.Input[str]] = None,
-             gallery_application: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]] = None,
-             gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]] = None,
-             health_probe_id: Optional[pulumi.Input[str]] = None,
-             host_group_id: Optional[pulumi.Input[str]] = None,
-             identity: Optional[pulumi.Input['WindowsVirtualMachineScaleSetIdentityArgs']] = None,
-             license_type: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             max_bid_price: Optional[pulumi.Input[float]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             overprovision: Optional[pulumi.Input[bool]] = None,
-             plan: Optional[pulumi.Input['WindowsVirtualMachineScaleSetPlanArgs']] = None,
-             platform_fault_domain_count: Optional[pulumi.Input[int]] = None,
-             priority: Optional[pulumi.Input[str]] = None,
-             provision_vm_agent: Optional[pulumi.Input[bool]] = None,
-             proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
-             rolling_upgrade_policy: Optional[pulumi.Input['WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs']] = None,
-             scale_in: Optional[pulumi.Input['WindowsVirtualMachineScaleSetScaleInArgs']] = None,
-             scale_in_policy: Optional[pulumi.Input[str]] = None,
-             secrets: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetSecretArgs']]]] = None,
-             secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
-             single_placement_group: Optional[pulumi.Input[bool]] = None,
-             source_image_id: Optional[pulumi.Input[str]] = None,
-             source_image_reference: Optional[pulumi.Input['WindowsVirtualMachineScaleSetSourceImageReferenceArgs']] = None,
-             spot_restore: Optional[pulumi.Input['WindowsVirtualMachineScaleSetSpotRestoreArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             terminate_notification: Optional[pulumi.Input['WindowsVirtualMachineScaleSetTerminateNotificationArgs']] = None,
-             termination_notification: Optional[pulumi.Input['WindowsVirtualMachineScaleSetTerminationNotificationArgs']] = None,
-             timezone: Optional[pulumi.Input[str]] = None,
-             upgrade_mode: Optional[pulumi.Input[str]] = None,
-             user_data: Optional[pulumi.Input[str]] = None,
-             vtpm_enabled: Optional[pulumi.Input[bool]] = None,
-             winrm_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetWinrmListenerArgs']]]] = None,
-             zone_balance: Optional[pulumi.Input[bool]] = None,
-             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if admin_password is None and 'adminPassword' in kwargs:
-            admin_password = kwargs['adminPassword']
-        if admin_password is None:
-            raise TypeError("Missing 'admin_password' argument")
-        if admin_username is None and 'adminUsername' in kwargs:
-            admin_username = kwargs['adminUsername']
-        if admin_username is None:
-            raise TypeError("Missing 'admin_username' argument")
-        if instances is None:
-            raise TypeError("Missing 'instances' argument")
-        if network_interfaces is None and 'networkInterfaces' in kwargs:
-            network_interfaces = kwargs['networkInterfaces']
-        if network_interfaces is None:
-            raise TypeError("Missing 'network_interfaces' argument")
-        if os_disk is None and 'osDisk' in kwargs:
-            os_disk = kwargs['osDisk']
-        if os_disk is None:
-            raise TypeError("Missing 'os_disk' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if sku is None:
-            raise TypeError("Missing 'sku' argument")
-        if additional_capabilities is None and 'additionalCapabilities' in kwargs:
-            additional_capabilities = kwargs['additionalCapabilities']
-        if additional_unattend_contents is None and 'additionalUnattendContents' in kwargs:
-            additional_unattend_contents = kwargs['additionalUnattendContents']
-        if automatic_instance_repair is None and 'automaticInstanceRepair' in kwargs:
-            automatic_instance_repair = kwargs['automaticInstanceRepair']
-        if automatic_os_upgrade_policy is None and 'automaticOsUpgradePolicy' in kwargs:
-            automatic_os_upgrade_policy = kwargs['automaticOsUpgradePolicy']
-        if boot_diagnostics is None and 'bootDiagnostics' in kwargs:
-            boot_diagnostics = kwargs['bootDiagnostics']
-        if capacity_reservation_group_id is None and 'capacityReservationGroupId' in kwargs:
-            capacity_reservation_group_id = kwargs['capacityReservationGroupId']
-        if computer_name_prefix is None and 'computerNamePrefix' in kwargs:
-            computer_name_prefix = kwargs['computerNamePrefix']
-        if custom_data is None and 'customData' in kwargs:
-            custom_data = kwargs['customData']
-        if data_disks is None and 'dataDisks' in kwargs:
-            data_disks = kwargs['dataDisks']
-        if do_not_run_extensions_on_overprovisioned_machines is None and 'doNotRunExtensionsOnOverprovisionedMachines' in kwargs:
-            do_not_run_extensions_on_overprovisioned_machines = kwargs['doNotRunExtensionsOnOverprovisionedMachines']
-        if edge_zone is None and 'edgeZone' in kwargs:
-            edge_zone = kwargs['edgeZone']
-        if enable_automatic_updates is None and 'enableAutomaticUpdates' in kwargs:
-            enable_automatic_updates = kwargs['enableAutomaticUpdates']
-        if encryption_at_host_enabled is None and 'encryptionAtHostEnabled' in kwargs:
-            encryption_at_host_enabled = kwargs['encryptionAtHostEnabled']
-        if eviction_policy is None and 'evictionPolicy' in kwargs:
-            eviction_policy = kwargs['evictionPolicy']
-        if extension_operations_enabled is None and 'extensionOperationsEnabled' in kwargs:
-            extension_operations_enabled = kwargs['extensionOperationsEnabled']
-        if extensions_time_budget is None and 'extensionsTimeBudget' in kwargs:
-            extensions_time_budget = kwargs['extensionsTimeBudget']
-        if gallery_application is None and 'galleryApplication' in kwargs:
-            gallery_application = kwargs['galleryApplication']
-        if gallery_applications is None and 'galleryApplications' in kwargs:
-            gallery_applications = kwargs['galleryApplications']
-        if health_probe_id is None and 'healthProbeId' in kwargs:
-            health_probe_id = kwargs['healthProbeId']
-        if host_group_id is None and 'hostGroupId' in kwargs:
-            host_group_id = kwargs['hostGroupId']
-        if license_type is None and 'licenseType' in kwargs:
-            license_type = kwargs['licenseType']
-        if max_bid_price is None and 'maxBidPrice' in kwargs:
-            max_bid_price = kwargs['maxBidPrice']
-        if platform_fault_domain_count is None and 'platformFaultDomainCount' in kwargs:
-            platform_fault_domain_count = kwargs['platformFaultDomainCount']
-        if provision_vm_agent is None and 'provisionVmAgent' in kwargs:
-            provision_vm_agent = kwargs['provisionVmAgent']
-        if proximity_placement_group_id is None and 'proximityPlacementGroupId' in kwargs:
-            proximity_placement_group_id = kwargs['proximityPlacementGroupId']
-        if rolling_upgrade_policy is None and 'rollingUpgradePolicy' in kwargs:
-            rolling_upgrade_policy = kwargs['rollingUpgradePolicy']
-        if scale_in is None and 'scaleIn' in kwargs:
-            scale_in = kwargs['scaleIn']
-        if scale_in_policy is None and 'scaleInPolicy' in kwargs:
-            scale_in_policy = kwargs['scaleInPolicy']
-        if secure_boot_enabled is None and 'secureBootEnabled' in kwargs:
-            secure_boot_enabled = kwargs['secureBootEnabled']
-        if single_placement_group is None and 'singlePlacementGroup' in kwargs:
-            single_placement_group = kwargs['singlePlacementGroup']
-        if source_image_id is None and 'sourceImageId' in kwargs:
-            source_image_id = kwargs['sourceImageId']
-        if source_image_reference is None and 'sourceImageReference' in kwargs:
-            source_image_reference = kwargs['sourceImageReference']
-        if spot_restore is None and 'spotRestore' in kwargs:
-            spot_restore = kwargs['spotRestore']
-        if terminate_notification is None and 'terminateNotification' in kwargs:
-            terminate_notification = kwargs['terminateNotification']
-        if termination_notification is None and 'terminationNotification' in kwargs:
-            termination_notification = kwargs['terminationNotification']
-        if upgrade_mode is None and 'upgradeMode' in kwargs:
-            upgrade_mode = kwargs['upgradeMode']
-        if user_data is None and 'userData' in kwargs:
-            user_data = kwargs['userData']
-        if vtpm_enabled is None and 'vtpmEnabled' in kwargs:
-            vtpm_enabled = kwargs['vtpmEnabled']
-        if winrm_listeners is None and 'winrmListeners' in kwargs:
-            winrm_listeners = kwargs['winrmListeners']
-        if zone_balance is None and 'zoneBalance' in kwargs:
-            zone_balance = kwargs['zoneBalance']
-
-        _setter("admin_password", admin_password)
-        _setter("admin_username", admin_username)
-        _setter("instances", instances)
-        _setter("network_interfaces", network_interfaces)
-        _setter("os_disk", os_disk)
-        _setter("resource_group_name", resource_group_name)
-        _setter("sku", sku)
+        pulumi.set(__self__, "admin_password", admin_password)
+        pulumi.set(__self__, "admin_username", admin_username)
+        pulumi.set(__self__, "instances", instances)
+        pulumi.set(__self__, "network_interfaces", network_interfaces)
+        pulumi.set(__self__, "os_disk", os_disk)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "sku", sku)
         if additional_capabilities is not None:
-            _setter("additional_capabilities", additional_capabilities)
+            pulumi.set(__self__, "additional_capabilities", additional_capabilities)
         if additional_unattend_contents is not None:
-            _setter("additional_unattend_contents", additional_unattend_contents)
+            pulumi.set(__self__, "additional_unattend_contents", additional_unattend_contents)
         if automatic_instance_repair is not None:
-            _setter("automatic_instance_repair", automatic_instance_repair)
+            pulumi.set(__self__, "automatic_instance_repair", automatic_instance_repair)
         if automatic_os_upgrade_policy is not None:
-            _setter("automatic_os_upgrade_policy", automatic_os_upgrade_policy)
+            pulumi.set(__self__, "automatic_os_upgrade_policy", automatic_os_upgrade_policy)
         if boot_diagnostics is not None:
-            _setter("boot_diagnostics", boot_diagnostics)
+            pulumi.set(__self__, "boot_diagnostics", boot_diagnostics)
         if capacity_reservation_group_id is not None:
-            _setter("capacity_reservation_group_id", capacity_reservation_group_id)
+            pulumi.set(__self__, "capacity_reservation_group_id", capacity_reservation_group_id)
         if computer_name_prefix is not None:
-            _setter("computer_name_prefix", computer_name_prefix)
+            pulumi.set(__self__, "computer_name_prefix", computer_name_prefix)
         if custom_data is not None:
-            _setter("custom_data", custom_data)
+            pulumi.set(__self__, "custom_data", custom_data)
         if data_disks is not None:
-            _setter("data_disks", data_disks)
+            pulumi.set(__self__, "data_disks", data_disks)
         if do_not_run_extensions_on_overprovisioned_machines is not None:
-            _setter("do_not_run_extensions_on_overprovisioned_machines", do_not_run_extensions_on_overprovisioned_machines)
+            pulumi.set(__self__, "do_not_run_extensions_on_overprovisioned_machines", do_not_run_extensions_on_overprovisioned_machines)
         if edge_zone is not None:
-            _setter("edge_zone", edge_zone)
+            pulumi.set(__self__, "edge_zone", edge_zone)
         if enable_automatic_updates is not None:
-            _setter("enable_automatic_updates", enable_automatic_updates)
+            pulumi.set(__self__, "enable_automatic_updates", enable_automatic_updates)
         if encryption_at_host_enabled is not None:
-            _setter("encryption_at_host_enabled", encryption_at_host_enabled)
+            pulumi.set(__self__, "encryption_at_host_enabled", encryption_at_host_enabled)
         if eviction_policy is not None:
-            _setter("eviction_policy", eviction_policy)
+            pulumi.set(__self__, "eviction_policy", eviction_policy)
         if extension_operations_enabled is not None:
-            _setter("extension_operations_enabled", extension_operations_enabled)
+            pulumi.set(__self__, "extension_operations_enabled", extension_operations_enabled)
         if extensions is not None:
-            _setter("extensions", extensions)
+            pulumi.set(__self__, "extensions", extensions)
         if extensions_time_budget is not None:
-            _setter("extensions_time_budget", extensions_time_budget)
+            pulumi.set(__self__, "extensions_time_budget", extensions_time_budget)
         if gallery_application is not None:
-            _setter("gallery_application", gallery_application)
+            pulumi.set(__self__, "gallery_application", gallery_application)
         if gallery_applications is not None:
             warnings.warn("""`gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0""", DeprecationWarning)
             pulumi.log.warn("""gallery_applications is deprecated: `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0""")
         if gallery_applications is not None:
-            _setter("gallery_applications", gallery_applications)
+            pulumi.set(__self__, "gallery_applications", gallery_applications)
         if health_probe_id is not None:
-            _setter("health_probe_id", health_probe_id)
+            pulumi.set(__self__, "health_probe_id", health_probe_id)
         if host_group_id is not None:
-            _setter("host_group_id", host_group_id)
+            pulumi.set(__self__, "host_group_id", host_group_id)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if license_type is not None:
-            _setter("license_type", license_type)
+            pulumi.set(__self__, "license_type", license_type)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if max_bid_price is not None:
-            _setter("max_bid_price", max_bid_price)
+            pulumi.set(__self__, "max_bid_price", max_bid_price)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if overprovision is not None:
-            _setter("overprovision", overprovision)
+            pulumi.set(__self__, "overprovision", overprovision)
         if plan is not None:
-            _setter("plan", plan)
+            pulumi.set(__self__, "plan", plan)
         if platform_fault_domain_count is not None:
-            _setter("platform_fault_domain_count", platform_fault_domain_count)
+            pulumi.set(__self__, "platform_fault_domain_count", platform_fault_domain_count)
         if priority is not None:
-            _setter("priority", priority)
+            pulumi.set(__self__, "priority", priority)
         if provision_vm_agent is not None:
-            _setter("provision_vm_agent", provision_vm_agent)
+            pulumi.set(__self__, "provision_vm_agent", provision_vm_agent)
         if proximity_placement_group_id is not None:
-            _setter("proximity_placement_group_id", proximity_placement_group_id)
+            pulumi.set(__self__, "proximity_placement_group_id", proximity_placement_group_id)
         if rolling_upgrade_policy is not None:
-            _setter("rolling_upgrade_policy", rolling_upgrade_policy)
+            pulumi.set(__self__, "rolling_upgrade_policy", rolling_upgrade_policy)
         if scale_in is not None:
-            _setter("scale_in", scale_in)
+            pulumi.set(__self__, "scale_in", scale_in)
         if scale_in_policy is not None:
             warnings.warn("""`scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
             pulumi.log.warn("""scale_in_policy is deprecated: `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.""")
         if scale_in_policy is not None:
-            _setter("scale_in_policy", scale_in_policy)
+            pulumi.set(__self__, "scale_in_policy", scale_in_policy)
         if secrets is not None:
-            _setter("secrets", secrets)
+            pulumi.set(__self__, "secrets", secrets)
         if secure_boot_enabled is not None:
-            _setter("secure_boot_enabled", secure_boot_enabled)
+            pulumi.set(__self__, "secure_boot_enabled", secure_boot_enabled)
         if single_placement_group is not None:
-            _setter("single_placement_group", single_placement_group)
+            pulumi.set(__self__, "single_placement_group", single_placement_group)
         if source_image_id is not None:
-            _setter("source_image_id", source_image_id)
+            pulumi.set(__self__, "source_image_id", source_image_id)
         if source_image_reference is not None:
-            _setter("source_image_reference", source_image_reference)
+            pulumi.set(__self__, "source_image_reference", source_image_reference)
         if spot_restore is not None:
-            _setter("spot_restore", spot_restore)
+            pulumi.set(__self__, "spot_restore", spot_restore)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if terminate_notification is not None:
             warnings.warn("""`terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.""", DeprecationWarning)
             pulumi.log.warn("""terminate_notification is deprecated: `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.""")
         if terminate_notification is not None:
-            _setter("terminate_notification", terminate_notification)
+            pulumi.set(__self__, "terminate_notification", terminate_notification)
         if termination_notification is not None:
-            _setter("termination_notification", termination_notification)
+            pulumi.set(__self__, "termination_notification", termination_notification)
         if timezone is not None:
-            _setter("timezone", timezone)
+            pulumi.set(__self__, "timezone", timezone)
         if upgrade_mode is not None:
-            _setter("upgrade_mode", upgrade_mode)
+            pulumi.set(__self__, "upgrade_mode", upgrade_mode)
         if user_data is not None:
-            _setter("user_data", user_data)
+            pulumi.set(__self__, "user_data", user_data)
         if vtpm_enabled is not None:
-            _setter("vtpm_enabled", vtpm_enabled)
+            pulumi.set(__self__, "vtpm_enabled", vtpm_enabled)
         if winrm_listeners is not None:
-            _setter("winrm_listeners", winrm_listeners)
+            pulumi.set(__self__, "winrm_listeners", winrm_listeners)
         if zone_balance is not None:
-            _setter("zone_balance", zone_balance)
+            pulumi.set(__self__, "zone_balance", zone_balance)
         if zones is not None:
-            _setter("zones", zones)
+            pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter(name="adminPassword")
@@ -1382,352 +1153,133 @@ class _WindowsVirtualMachineScaleSetState:
                > **NOTE:** This can only be set to `true` when one or more `zones` are configured.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located. Changing this forces a new Windows Virtual Machine Scale Set to be created.
         """
-        _WindowsVirtualMachineScaleSetState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            additional_capabilities=additional_capabilities,
-            additional_unattend_contents=additional_unattend_contents,
-            admin_password=admin_password,
-            admin_username=admin_username,
-            automatic_instance_repair=automatic_instance_repair,
-            automatic_os_upgrade_policy=automatic_os_upgrade_policy,
-            boot_diagnostics=boot_diagnostics,
-            capacity_reservation_group_id=capacity_reservation_group_id,
-            computer_name_prefix=computer_name_prefix,
-            custom_data=custom_data,
-            data_disks=data_disks,
-            do_not_run_extensions_on_overprovisioned_machines=do_not_run_extensions_on_overprovisioned_machines,
-            edge_zone=edge_zone,
-            enable_automatic_updates=enable_automatic_updates,
-            encryption_at_host_enabled=encryption_at_host_enabled,
-            eviction_policy=eviction_policy,
-            extension_operations_enabled=extension_operations_enabled,
-            extensions=extensions,
-            extensions_time_budget=extensions_time_budget,
-            gallery_application=gallery_application,
-            gallery_applications=gallery_applications,
-            health_probe_id=health_probe_id,
-            host_group_id=host_group_id,
-            identity=identity,
-            instances=instances,
-            license_type=license_type,
-            location=location,
-            max_bid_price=max_bid_price,
-            name=name,
-            network_interfaces=network_interfaces,
-            os_disk=os_disk,
-            overprovision=overprovision,
-            plan=plan,
-            platform_fault_domain_count=platform_fault_domain_count,
-            priority=priority,
-            provision_vm_agent=provision_vm_agent,
-            proximity_placement_group_id=proximity_placement_group_id,
-            resource_group_name=resource_group_name,
-            rolling_upgrade_policy=rolling_upgrade_policy,
-            scale_in=scale_in,
-            scale_in_policy=scale_in_policy,
-            secrets=secrets,
-            secure_boot_enabled=secure_boot_enabled,
-            single_placement_group=single_placement_group,
-            sku=sku,
-            source_image_id=source_image_id,
-            source_image_reference=source_image_reference,
-            spot_restore=spot_restore,
-            tags=tags,
-            terminate_notification=terminate_notification,
-            termination_notification=termination_notification,
-            timezone=timezone,
-            unique_id=unique_id,
-            upgrade_mode=upgrade_mode,
-            user_data=user_data,
-            vtpm_enabled=vtpm_enabled,
-            winrm_listeners=winrm_listeners,
-            zone_balance=zone_balance,
-            zones=zones,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             additional_capabilities: Optional[pulumi.Input['WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs']] = None,
-             additional_unattend_contents: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs']]]] = None,
-             admin_password: Optional[pulumi.Input[str]] = None,
-             admin_username: Optional[pulumi.Input[str]] = None,
-             automatic_instance_repair: Optional[pulumi.Input['WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs']] = None,
-             automatic_os_upgrade_policy: Optional[pulumi.Input['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']] = None,
-             boot_diagnostics: Optional[pulumi.Input['WindowsVirtualMachineScaleSetBootDiagnosticsArgs']] = None,
-             capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
-             computer_name_prefix: Optional[pulumi.Input[str]] = None,
-             custom_data: Optional[pulumi.Input[str]] = None,
-             data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetDataDiskArgs']]]] = None,
-             do_not_run_extensions_on_overprovisioned_machines: Optional[pulumi.Input[bool]] = None,
-             edge_zone: Optional[pulumi.Input[str]] = None,
-             enable_automatic_updates: Optional[pulumi.Input[bool]] = None,
-             encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
-             eviction_policy: Optional[pulumi.Input[str]] = None,
-             extension_operations_enabled: Optional[pulumi.Input[bool]] = None,
-             extensions: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetExtensionArgs']]]] = None,
-             extensions_time_budget: Optional[pulumi.Input[str]] = None,
-             gallery_application: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]] = None,
-             gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]] = None,
-             health_probe_id: Optional[pulumi.Input[str]] = None,
-             host_group_id: Optional[pulumi.Input[str]] = None,
-             identity: Optional[pulumi.Input['WindowsVirtualMachineScaleSetIdentityArgs']] = None,
-             instances: Optional[pulumi.Input[int]] = None,
-             license_type: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             max_bid_price: Optional[pulumi.Input[float]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetNetworkInterfaceArgs']]]] = None,
-             os_disk: Optional[pulumi.Input['WindowsVirtualMachineScaleSetOsDiskArgs']] = None,
-             overprovision: Optional[pulumi.Input[bool]] = None,
-             plan: Optional[pulumi.Input['WindowsVirtualMachineScaleSetPlanArgs']] = None,
-             platform_fault_domain_count: Optional[pulumi.Input[int]] = None,
-             priority: Optional[pulumi.Input[str]] = None,
-             provision_vm_agent: Optional[pulumi.Input[bool]] = None,
-             proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             rolling_upgrade_policy: Optional[pulumi.Input['WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs']] = None,
-             scale_in: Optional[pulumi.Input['WindowsVirtualMachineScaleSetScaleInArgs']] = None,
-             scale_in_policy: Optional[pulumi.Input[str]] = None,
-             secrets: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetSecretArgs']]]] = None,
-             secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
-             single_placement_group: Optional[pulumi.Input[bool]] = None,
-             sku: Optional[pulumi.Input[str]] = None,
-             source_image_id: Optional[pulumi.Input[str]] = None,
-             source_image_reference: Optional[pulumi.Input['WindowsVirtualMachineScaleSetSourceImageReferenceArgs']] = None,
-             spot_restore: Optional[pulumi.Input['WindowsVirtualMachineScaleSetSpotRestoreArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             terminate_notification: Optional[pulumi.Input['WindowsVirtualMachineScaleSetTerminateNotificationArgs']] = None,
-             termination_notification: Optional[pulumi.Input['WindowsVirtualMachineScaleSetTerminationNotificationArgs']] = None,
-             timezone: Optional[pulumi.Input[str]] = None,
-             unique_id: Optional[pulumi.Input[str]] = None,
-             upgrade_mode: Optional[pulumi.Input[str]] = None,
-             user_data: Optional[pulumi.Input[str]] = None,
-             vtpm_enabled: Optional[pulumi.Input[bool]] = None,
-             winrm_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetWinrmListenerArgs']]]] = None,
-             zone_balance: Optional[pulumi.Input[bool]] = None,
-             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if additional_capabilities is None and 'additionalCapabilities' in kwargs:
-            additional_capabilities = kwargs['additionalCapabilities']
-        if additional_unattend_contents is None and 'additionalUnattendContents' in kwargs:
-            additional_unattend_contents = kwargs['additionalUnattendContents']
-        if admin_password is None and 'adminPassword' in kwargs:
-            admin_password = kwargs['adminPassword']
-        if admin_username is None and 'adminUsername' in kwargs:
-            admin_username = kwargs['adminUsername']
-        if automatic_instance_repair is None and 'automaticInstanceRepair' in kwargs:
-            automatic_instance_repair = kwargs['automaticInstanceRepair']
-        if automatic_os_upgrade_policy is None and 'automaticOsUpgradePolicy' in kwargs:
-            automatic_os_upgrade_policy = kwargs['automaticOsUpgradePolicy']
-        if boot_diagnostics is None and 'bootDiagnostics' in kwargs:
-            boot_diagnostics = kwargs['bootDiagnostics']
-        if capacity_reservation_group_id is None and 'capacityReservationGroupId' in kwargs:
-            capacity_reservation_group_id = kwargs['capacityReservationGroupId']
-        if computer_name_prefix is None and 'computerNamePrefix' in kwargs:
-            computer_name_prefix = kwargs['computerNamePrefix']
-        if custom_data is None and 'customData' in kwargs:
-            custom_data = kwargs['customData']
-        if data_disks is None and 'dataDisks' in kwargs:
-            data_disks = kwargs['dataDisks']
-        if do_not_run_extensions_on_overprovisioned_machines is None and 'doNotRunExtensionsOnOverprovisionedMachines' in kwargs:
-            do_not_run_extensions_on_overprovisioned_machines = kwargs['doNotRunExtensionsOnOverprovisionedMachines']
-        if edge_zone is None and 'edgeZone' in kwargs:
-            edge_zone = kwargs['edgeZone']
-        if enable_automatic_updates is None and 'enableAutomaticUpdates' in kwargs:
-            enable_automatic_updates = kwargs['enableAutomaticUpdates']
-        if encryption_at_host_enabled is None and 'encryptionAtHostEnabled' in kwargs:
-            encryption_at_host_enabled = kwargs['encryptionAtHostEnabled']
-        if eviction_policy is None and 'evictionPolicy' in kwargs:
-            eviction_policy = kwargs['evictionPolicy']
-        if extension_operations_enabled is None and 'extensionOperationsEnabled' in kwargs:
-            extension_operations_enabled = kwargs['extensionOperationsEnabled']
-        if extensions_time_budget is None and 'extensionsTimeBudget' in kwargs:
-            extensions_time_budget = kwargs['extensionsTimeBudget']
-        if gallery_application is None and 'galleryApplication' in kwargs:
-            gallery_application = kwargs['galleryApplication']
-        if gallery_applications is None and 'galleryApplications' in kwargs:
-            gallery_applications = kwargs['galleryApplications']
-        if health_probe_id is None and 'healthProbeId' in kwargs:
-            health_probe_id = kwargs['healthProbeId']
-        if host_group_id is None and 'hostGroupId' in kwargs:
-            host_group_id = kwargs['hostGroupId']
-        if license_type is None and 'licenseType' in kwargs:
-            license_type = kwargs['licenseType']
-        if max_bid_price is None and 'maxBidPrice' in kwargs:
-            max_bid_price = kwargs['maxBidPrice']
-        if network_interfaces is None and 'networkInterfaces' in kwargs:
-            network_interfaces = kwargs['networkInterfaces']
-        if os_disk is None and 'osDisk' in kwargs:
-            os_disk = kwargs['osDisk']
-        if platform_fault_domain_count is None and 'platformFaultDomainCount' in kwargs:
-            platform_fault_domain_count = kwargs['platformFaultDomainCount']
-        if provision_vm_agent is None and 'provisionVmAgent' in kwargs:
-            provision_vm_agent = kwargs['provisionVmAgent']
-        if proximity_placement_group_id is None and 'proximityPlacementGroupId' in kwargs:
-            proximity_placement_group_id = kwargs['proximityPlacementGroupId']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if rolling_upgrade_policy is None and 'rollingUpgradePolicy' in kwargs:
-            rolling_upgrade_policy = kwargs['rollingUpgradePolicy']
-        if scale_in is None and 'scaleIn' in kwargs:
-            scale_in = kwargs['scaleIn']
-        if scale_in_policy is None and 'scaleInPolicy' in kwargs:
-            scale_in_policy = kwargs['scaleInPolicy']
-        if secure_boot_enabled is None and 'secureBootEnabled' in kwargs:
-            secure_boot_enabled = kwargs['secureBootEnabled']
-        if single_placement_group is None and 'singlePlacementGroup' in kwargs:
-            single_placement_group = kwargs['singlePlacementGroup']
-        if source_image_id is None and 'sourceImageId' in kwargs:
-            source_image_id = kwargs['sourceImageId']
-        if source_image_reference is None and 'sourceImageReference' in kwargs:
-            source_image_reference = kwargs['sourceImageReference']
-        if spot_restore is None and 'spotRestore' in kwargs:
-            spot_restore = kwargs['spotRestore']
-        if terminate_notification is None and 'terminateNotification' in kwargs:
-            terminate_notification = kwargs['terminateNotification']
-        if termination_notification is None and 'terminationNotification' in kwargs:
-            termination_notification = kwargs['terminationNotification']
-        if unique_id is None and 'uniqueId' in kwargs:
-            unique_id = kwargs['uniqueId']
-        if upgrade_mode is None and 'upgradeMode' in kwargs:
-            upgrade_mode = kwargs['upgradeMode']
-        if user_data is None and 'userData' in kwargs:
-            user_data = kwargs['userData']
-        if vtpm_enabled is None and 'vtpmEnabled' in kwargs:
-            vtpm_enabled = kwargs['vtpmEnabled']
-        if winrm_listeners is None and 'winrmListeners' in kwargs:
-            winrm_listeners = kwargs['winrmListeners']
-        if zone_balance is None and 'zoneBalance' in kwargs:
-            zone_balance = kwargs['zoneBalance']
-
         if additional_capabilities is not None:
-            _setter("additional_capabilities", additional_capabilities)
+            pulumi.set(__self__, "additional_capabilities", additional_capabilities)
         if additional_unattend_contents is not None:
-            _setter("additional_unattend_contents", additional_unattend_contents)
+            pulumi.set(__self__, "additional_unattend_contents", additional_unattend_contents)
         if admin_password is not None:
-            _setter("admin_password", admin_password)
+            pulumi.set(__self__, "admin_password", admin_password)
         if admin_username is not None:
-            _setter("admin_username", admin_username)
+            pulumi.set(__self__, "admin_username", admin_username)
         if automatic_instance_repair is not None:
-            _setter("automatic_instance_repair", automatic_instance_repair)
+            pulumi.set(__self__, "automatic_instance_repair", automatic_instance_repair)
         if automatic_os_upgrade_policy is not None:
-            _setter("automatic_os_upgrade_policy", automatic_os_upgrade_policy)
+            pulumi.set(__self__, "automatic_os_upgrade_policy", automatic_os_upgrade_policy)
         if boot_diagnostics is not None:
-            _setter("boot_diagnostics", boot_diagnostics)
+            pulumi.set(__self__, "boot_diagnostics", boot_diagnostics)
         if capacity_reservation_group_id is not None:
-            _setter("capacity_reservation_group_id", capacity_reservation_group_id)
+            pulumi.set(__self__, "capacity_reservation_group_id", capacity_reservation_group_id)
         if computer_name_prefix is not None:
-            _setter("computer_name_prefix", computer_name_prefix)
+            pulumi.set(__self__, "computer_name_prefix", computer_name_prefix)
         if custom_data is not None:
-            _setter("custom_data", custom_data)
+            pulumi.set(__self__, "custom_data", custom_data)
         if data_disks is not None:
-            _setter("data_disks", data_disks)
+            pulumi.set(__self__, "data_disks", data_disks)
         if do_not_run_extensions_on_overprovisioned_machines is not None:
-            _setter("do_not_run_extensions_on_overprovisioned_machines", do_not_run_extensions_on_overprovisioned_machines)
+            pulumi.set(__self__, "do_not_run_extensions_on_overprovisioned_machines", do_not_run_extensions_on_overprovisioned_machines)
         if edge_zone is not None:
-            _setter("edge_zone", edge_zone)
+            pulumi.set(__self__, "edge_zone", edge_zone)
         if enable_automatic_updates is not None:
-            _setter("enable_automatic_updates", enable_automatic_updates)
+            pulumi.set(__self__, "enable_automatic_updates", enable_automatic_updates)
         if encryption_at_host_enabled is not None:
-            _setter("encryption_at_host_enabled", encryption_at_host_enabled)
+            pulumi.set(__self__, "encryption_at_host_enabled", encryption_at_host_enabled)
         if eviction_policy is not None:
-            _setter("eviction_policy", eviction_policy)
+            pulumi.set(__self__, "eviction_policy", eviction_policy)
         if extension_operations_enabled is not None:
-            _setter("extension_operations_enabled", extension_operations_enabled)
+            pulumi.set(__self__, "extension_operations_enabled", extension_operations_enabled)
         if extensions is not None:
-            _setter("extensions", extensions)
+            pulumi.set(__self__, "extensions", extensions)
         if extensions_time_budget is not None:
-            _setter("extensions_time_budget", extensions_time_budget)
+            pulumi.set(__self__, "extensions_time_budget", extensions_time_budget)
         if gallery_application is not None:
-            _setter("gallery_application", gallery_application)
+            pulumi.set(__self__, "gallery_application", gallery_application)
         if gallery_applications is not None:
             warnings.warn("""`gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0""", DeprecationWarning)
             pulumi.log.warn("""gallery_applications is deprecated: `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0""")
         if gallery_applications is not None:
-            _setter("gallery_applications", gallery_applications)
+            pulumi.set(__self__, "gallery_applications", gallery_applications)
         if health_probe_id is not None:
-            _setter("health_probe_id", health_probe_id)
+            pulumi.set(__self__, "health_probe_id", health_probe_id)
         if host_group_id is not None:
-            _setter("host_group_id", host_group_id)
+            pulumi.set(__self__, "host_group_id", host_group_id)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if instances is not None:
-            _setter("instances", instances)
+            pulumi.set(__self__, "instances", instances)
         if license_type is not None:
-            _setter("license_type", license_type)
+            pulumi.set(__self__, "license_type", license_type)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if max_bid_price is not None:
-            _setter("max_bid_price", max_bid_price)
+            pulumi.set(__self__, "max_bid_price", max_bid_price)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if network_interfaces is not None:
-            _setter("network_interfaces", network_interfaces)
+            pulumi.set(__self__, "network_interfaces", network_interfaces)
         if os_disk is not None:
-            _setter("os_disk", os_disk)
+            pulumi.set(__self__, "os_disk", os_disk)
         if overprovision is not None:
-            _setter("overprovision", overprovision)
+            pulumi.set(__self__, "overprovision", overprovision)
         if plan is not None:
-            _setter("plan", plan)
+            pulumi.set(__self__, "plan", plan)
         if platform_fault_domain_count is not None:
-            _setter("platform_fault_domain_count", platform_fault_domain_count)
+            pulumi.set(__self__, "platform_fault_domain_count", platform_fault_domain_count)
         if priority is not None:
-            _setter("priority", priority)
+            pulumi.set(__self__, "priority", priority)
         if provision_vm_agent is not None:
-            _setter("provision_vm_agent", provision_vm_agent)
+            pulumi.set(__self__, "provision_vm_agent", provision_vm_agent)
         if proximity_placement_group_id is not None:
-            _setter("proximity_placement_group_id", proximity_placement_group_id)
+            pulumi.set(__self__, "proximity_placement_group_id", proximity_placement_group_id)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if rolling_upgrade_policy is not None:
-            _setter("rolling_upgrade_policy", rolling_upgrade_policy)
+            pulumi.set(__self__, "rolling_upgrade_policy", rolling_upgrade_policy)
         if scale_in is not None:
-            _setter("scale_in", scale_in)
+            pulumi.set(__self__, "scale_in", scale_in)
         if scale_in_policy is not None:
             warnings.warn("""`scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
             pulumi.log.warn("""scale_in_policy is deprecated: `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.""")
         if scale_in_policy is not None:
-            _setter("scale_in_policy", scale_in_policy)
+            pulumi.set(__self__, "scale_in_policy", scale_in_policy)
         if secrets is not None:
-            _setter("secrets", secrets)
+            pulumi.set(__self__, "secrets", secrets)
         if secure_boot_enabled is not None:
-            _setter("secure_boot_enabled", secure_boot_enabled)
+            pulumi.set(__self__, "secure_boot_enabled", secure_boot_enabled)
         if single_placement_group is not None:
-            _setter("single_placement_group", single_placement_group)
+            pulumi.set(__self__, "single_placement_group", single_placement_group)
         if sku is not None:
-            _setter("sku", sku)
+            pulumi.set(__self__, "sku", sku)
         if source_image_id is not None:
-            _setter("source_image_id", source_image_id)
+            pulumi.set(__self__, "source_image_id", source_image_id)
         if source_image_reference is not None:
-            _setter("source_image_reference", source_image_reference)
+            pulumi.set(__self__, "source_image_reference", source_image_reference)
         if spot_restore is not None:
-            _setter("spot_restore", spot_restore)
+            pulumi.set(__self__, "spot_restore", spot_restore)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if terminate_notification is not None:
             warnings.warn("""`terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.""", DeprecationWarning)
             pulumi.log.warn("""terminate_notification is deprecated: `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.""")
         if terminate_notification is not None:
-            _setter("terminate_notification", terminate_notification)
+            pulumi.set(__self__, "terminate_notification", terminate_notification)
         if termination_notification is not None:
-            _setter("termination_notification", termination_notification)
+            pulumi.set(__self__, "termination_notification", termination_notification)
         if timezone is not None:
-            _setter("timezone", timezone)
+            pulumi.set(__self__, "timezone", timezone)
         if unique_id is not None:
-            _setter("unique_id", unique_id)
+            pulumi.set(__self__, "unique_id", unique_id)
         if upgrade_mode is not None:
-            _setter("upgrade_mode", upgrade_mode)
+            pulumi.set(__self__, "upgrade_mode", upgrade_mode)
         if user_data is not None:
-            _setter("user_data", user_data)
+            pulumi.set(__self__, "user_data", user_data)
         if vtpm_enabled is not None:
-            _setter("vtpm_enabled", vtpm_enabled)
+            pulumi.set(__self__, "vtpm_enabled", vtpm_enabled)
         if winrm_listeners is not None:
-            _setter("winrm_listeners", winrm_listeners)
+            pulumi.set(__self__, "winrm_listeners", winrm_listeners)
         if zone_balance is not None:
-            _setter("zone_balance", zone_balance)
+            pulumi.set(__self__, "zone_balance", zone_balance)
         if zones is not None:
-            _setter("zones", zones)
+            pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter(name="additionalCapabilities")
@@ -2760,10 +2312,6 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            WindowsVirtualMachineScaleSetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -2836,7 +2384,6 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WindowsVirtualMachineScaleSetArgs.__new__(WindowsVirtualMachineScaleSetArgs)
 
-            additional_capabilities = _utilities.configure(additional_capabilities, WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs, True)
             __props__.__dict__["additional_capabilities"] = additional_capabilities
             __props__.__dict__["additional_unattend_contents"] = additional_unattend_contents
             if admin_password is None and not opts.urn:
@@ -2845,11 +2392,8 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
             if admin_username is None and not opts.urn:
                 raise TypeError("Missing required property 'admin_username'")
             __props__.__dict__["admin_username"] = admin_username
-            automatic_instance_repair = _utilities.configure(automatic_instance_repair, WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs, True)
             __props__.__dict__["automatic_instance_repair"] = automatic_instance_repair
-            automatic_os_upgrade_policy = _utilities.configure(automatic_os_upgrade_policy, WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs, True)
             __props__.__dict__["automatic_os_upgrade_policy"] = automatic_os_upgrade_policy
-            boot_diagnostics = _utilities.configure(boot_diagnostics, WindowsVirtualMachineScaleSetBootDiagnosticsArgs, True)
             __props__.__dict__["boot_diagnostics"] = boot_diagnostics
             __props__.__dict__["capacity_reservation_group_id"] = capacity_reservation_group_id
             __props__.__dict__["computer_name_prefix"] = computer_name_prefix
@@ -2867,7 +2411,6 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
             __props__.__dict__["gallery_applications"] = gallery_applications
             __props__.__dict__["health_probe_id"] = health_probe_id
             __props__.__dict__["host_group_id"] = host_group_id
-            identity = _utilities.configure(identity, WindowsVirtualMachineScaleSetIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             if instances is None and not opts.urn:
                 raise TypeError("Missing required property 'instances'")
@@ -2879,12 +2422,10 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
             if network_interfaces is None and not opts.urn:
                 raise TypeError("Missing required property 'network_interfaces'")
             __props__.__dict__["network_interfaces"] = network_interfaces
-            os_disk = _utilities.configure(os_disk, WindowsVirtualMachineScaleSetOsDiskArgs, True)
             if os_disk is None and not opts.urn:
                 raise TypeError("Missing required property 'os_disk'")
             __props__.__dict__["os_disk"] = os_disk
             __props__.__dict__["overprovision"] = overprovision
-            plan = _utilities.configure(plan, WindowsVirtualMachineScaleSetPlanArgs, True)
             __props__.__dict__["plan"] = plan
             __props__.__dict__["platform_fault_domain_count"] = platform_fault_domain_count
             __props__.__dict__["priority"] = priority
@@ -2893,9 +2434,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            rolling_upgrade_policy = _utilities.configure(rolling_upgrade_policy, WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs, True)
             __props__.__dict__["rolling_upgrade_policy"] = rolling_upgrade_policy
-            scale_in = _utilities.configure(scale_in, WindowsVirtualMachineScaleSetScaleInArgs, True)
             __props__.__dict__["scale_in"] = scale_in
             __props__.__dict__["scale_in_policy"] = scale_in_policy
             __props__.__dict__["secrets"] = secrets
@@ -2905,14 +2444,10 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
             __props__.__dict__["source_image_id"] = source_image_id
-            source_image_reference = _utilities.configure(source_image_reference, WindowsVirtualMachineScaleSetSourceImageReferenceArgs, True)
             __props__.__dict__["source_image_reference"] = source_image_reference
-            spot_restore = _utilities.configure(spot_restore, WindowsVirtualMachineScaleSetSpotRestoreArgs, True)
             __props__.__dict__["spot_restore"] = spot_restore
             __props__.__dict__["tags"] = tags
-            terminate_notification = _utilities.configure(terminate_notification, WindowsVirtualMachineScaleSetTerminateNotificationArgs, True)
             __props__.__dict__["terminate_notification"] = terminate_notification
-            termination_notification = _utilities.configure(termination_notification, WindowsVirtualMachineScaleSetTerminationNotificationArgs, True)
             __props__.__dict__["termination_notification"] = termination_notification
             __props__.__dict__["timezone"] = timezone
             __props__.__dict__["upgrade_mode"] = upgrade_mode

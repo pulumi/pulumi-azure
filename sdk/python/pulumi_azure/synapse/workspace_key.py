@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['WorkspaceKeyArgs', 'WorkspaceKey']
@@ -27,40 +27,11 @@ class WorkspaceKeyArgs:
         :param pulumi.Input[str] synapse_workspace_id: The ID of the Synapse Workspace where the encryption key should be configured.
         :param pulumi.Input[str] customer_managed_key_versionless_id: The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption
         """
-        WorkspaceKeyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            active=active,
-            customer_managed_key_name=customer_managed_key_name,
-            synapse_workspace_id=synapse_workspace_id,
-            customer_managed_key_versionless_id=customer_managed_key_versionless_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             active: Optional[pulumi.Input[bool]] = None,
-             customer_managed_key_name: Optional[pulumi.Input[str]] = None,
-             synapse_workspace_id: Optional[pulumi.Input[str]] = None,
-             customer_managed_key_versionless_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if active is None:
-            raise TypeError("Missing 'active' argument")
-        if customer_managed_key_name is None and 'customerManagedKeyName' in kwargs:
-            customer_managed_key_name = kwargs['customerManagedKeyName']
-        if customer_managed_key_name is None:
-            raise TypeError("Missing 'customer_managed_key_name' argument")
-        if synapse_workspace_id is None and 'synapseWorkspaceId' in kwargs:
-            synapse_workspace_id = kwargs['synapseWorkspaceId']
-        if synapse_workspace_id is None:
-            raise TypeError("Missing 'synapse_workspace_id' argument")
-        if customer_managed_key_versionless_id is None and 'customerManagedKeyVersionlessId' in kwargs:
-            customer_managed_key_versionless_id = kwargs['customerManagedKeyVersionlessId']
-
-        _setter("active", active)
-        _setter("customer_managed_key_name", customer_managed_key_name)
-        _setter("synapse_workspace_id", synapse_workspace_id)
+        pulumi.set(__self__, "active", active)
+        pulumi.set(__self__, "customer_managed_key_name", customer_managed_key_name)
+        pulumi.set(__self__, "synapse_workspace_id", synapse_workspace_id)
         if customer_managed_key_versionless_id is not None:
-            _setter("customer_managed_key_versionless_id", customer_managed_key_versionless_id)
+            pulumi.set(__self__, "customer_managed_key_versionless_id", customer_managed_key_versionless_id)
 
     @property
     @pulumi.getter
@@ -129,37 +100,14 @@ class _WorkspaceKeyState:
         :param pulumi.Input[str] customer_managed_key_versionless_id: The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption
         :param pulumi.Input[str] synapse_workspace_id: The ID of the Synapse Workspace where the encryption key should be configured.
         """
-        _WorkspaceKeyState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            active=active,
-            customer_managed_key_name=customer_managed_key_name,
-            customer_managed_key_versionless_id=customer_managed_key_versionless_id,
-            synapse_workspace_id=synapse_workspace_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             active: Optional[pulumi.Input[bool]] = None,
-             customer_managed_key_name: Optional[pulumi.Input[str]] = None,
-             customer_managed_key_versionless_id: Optional[pulumi.Input[str]] = None,
-             synapse_workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if customer_managed_key_name is None and 'customerManagedKeyName' in kwargs:
-            customer_managed_key_name = kwargs['customerManagedKeyName']
-        if customer_managed_key_versionless_id is None and 'customerManagedKeyVersionlessId' in kwargs:
-            customer_managed_key_versionless_id = kwargs['customerManagedKeyVersionlessId']
-        if synapse_workspace_id is None and 'synapseWorkspaceId' in kwargs:
-            synapse_workspace_id = kwargs['synapseWorkspaceId']
-
         if active is not None:
-            _setter("active", active)
+            pulumi.set(__self__, "active", active)
         if customer_managed_key_name is not None:
-            _setter("customer_managed_key_name", customer_managed_key_name)
+            pulumi.set(__self__, "customer_managed_key_name", customer_managed_key_name)
         if customer_managed_key_versionless_id is not None:
-            _setter("customer_managed_key_versionless_id", customer_managed_key_versionless_id)
+            pulumi.set(__self__, "customer_managed_key_versionless_id", customer_managed_key_versionless_id)
         if synapse_workspace_id is not None:
-            _setter("synapse_workspace_id", synapse_workspace_id)
+            pulumi.set(__self__, "synapse_workspace_id", synapse_workspace_id)
 
     @property
     @pulumi.getter
@@ -423,10 +371,6 @@ class WorkspaceKey(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            WorkspaceKeyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

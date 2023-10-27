@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LogAnalyticsWorkspaceOnboardingArgs', 'LogAnalyticsWorkspaceOnboarding']
@@ -28,45 +28,20 @@ class LogAnalyticsWorkspaceOnboardingArgs:
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
         :param pulumi.Input[str] workspace_name: Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
         """
-        LogAnalyticsWorkspaceOnboardingArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            customer_managed_key_enabled=customer_managed_key_enabled,
-            resource_group_name=resource_group_name,
-            workspace_id=workspace_id,
-            workspace_name=workspace_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             customer_managed_key_enabled: Optional[pulumi.Input[bool]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             workspace_id: Optional[pulumi.Input[str]] = None,
-             workspace_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if customer_managed_key_enabled is None and 'customerManagedKeyEnabled' in kwargs:
-            customer_managed_key_enabled = kwargs['customerManagedKeyEnabled']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if workspace_id is None and 'workspaceId' in kwargs:
-            workspace_id = kwargs['workspaceId']
-        if workspace_name is None and 'workspaceName' in kwargs:
-            workspace_name = kwargs['workspaceName']
-
         if customer_managed_key_enabled is not None:
-            _setter("customer_managed_key_enabled", customer_managed_key_enabled)
+            pulumi.set(__self__, "customer_managed_key_enabled", customer_managed_key_enabled)
         if resource_group_name is not None:
             warnings.warn("""this property has been deprecated in favour of `workspace_id`""", DeprecationWarning)
             pulumi.log.warn("""resource_group_name is deprecated: this property has been deprecated in favour of `workspace_id`""")
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if workspace_id is not None:
-            _setter("workspace_id", workspace_id)
+            pulumi.set(__self__, "workspace_id", workspace_id)
         if workspace_name is not None:
             warnings.warn("""this property will be removed in favour of `workspace_id` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
             pulumi.log.warn("""workspace_name is deprecated: this property will be removed in favour of `workspace_id` in version 4.0 of the AzureRM Provider""")
         if workspace_name is not None:
-            _setter("workspace_name", workspace_name)
+            pulumi.set(__self__, "workspace_name", workspace_name)
 
     @property
     @pulumi.getter(name="customerManagedKeyEnabled")
@@ -141,45 +116,20 @@ class _LogAnalyticsWorkspaceOnboardingState:
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
         :param pulumi.Input[str] workspace_name: Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
         """
-        _LogAnalyticsWorkspaceOnboardingState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            customer_managed_key_enabled=customer_managed_key_enabled,
-            resource_group_name=resource_group_name,
-            workspace_id=workspace_id,
-            workspace_name=workspace_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             customer_managed_key_enabled: Optional[pulumi.Input[bool]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             workspace_id: Optional[pulumi.Input[str]] = None,
-             workspace_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if customer_managed_key_enabled is None and 'customerManagedKeyEnabled' in kwargs:
-            customer_managed_key_enabled = kwargs['customerManagedKeyEnabled']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if workspace_id is None and 'workspaceId' in kwargs:
-            workspace_id = kwargs['workspaceId']
-        if workspace_name is None and 'workspaceName' in kwargs:
-            workspace_name = kwargs['workspaceName']
-
         if customer_managed_key_enabled is not None:
-            _setter("customer_managed_key_enabled", customer_managed_key_enabled)
+            pulumi.set(__self__, "customer_managed_key_enabled", customer_managed_key_enabled)
         if resource_group_name is not None:
             warnings.warn("""this property has been deprecated in favour of `workspace_id`""", DeprecationWarning)
             pulumi.log.warn("""resource_group_name is deprecated: this property has been deprecated in favour of `workspace_id`""")
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if workspace_id is not None:
-            _setter("workspace_id", workspace_id)
+            pulumi.set(__self__, "workspace_id", workspace_id)
         if workspace_name is not None:
             warnings.warn("""this property will be removed in favour of `workspace_id` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
             pulumi.log.warn("""workspace_name is deprecated: this property will be removed in favour of `workspace_id` in version 4.0 of the AzureRM Provider""")
         if workspace_name is not None:
-            _setter("workspace_name", workspace_name)
+            pulumi.set(__self__, "workspace_name", workspace_name)
 
     @property
     @pulumi.getter(name="customerManagedKeyEnabled")
@@ -329,10 +279,6 @@ class LogAnalyticsWorkspaceOnboarding(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LogAnalyticsWorkspaceOnboardingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

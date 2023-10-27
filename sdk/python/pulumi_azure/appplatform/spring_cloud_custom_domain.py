@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SpringCloudCustomDomainArgs', 'SpringCloudCustomDomain']
@@ -25,36 +25,13 @@ class SpringCloudCustomDomainArgs:
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Custom Domain. Changing this forces a new resource to be created.
         :param pulumi.Input[str] thumbprint: Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `certificate_name` is specified. Changing this forces a new resource to be created.
         """
-        SpringCloudCustomDomainArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            spring_cloud_app_id=spring_cloud_app_id,
-            certificate_name=certificate_name,
-            name=name,
-            thumbprint=thumbprint,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
-             certificate_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             thumbprint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if spring_cloud_app_id is None and 'springCloudAppId' in kwargs:
-            spring_cloud_app_id = kwargs['springCloudAppId']
-        if spring_cloud_app_id is None:
-            raise TypeError("Missing 'spring_cloud_app_id' argument")
-        if certificate_name is None and 'certificateName' in kwargs:
-            certificate_name = kwargs['certificateName']
-
-        _setter("spring_cloud_app_id", spring_cloud_app_id)
+        pulumi.set(__self__, "spring_cloud_app_id", spring_cloud_app_id)
         if certificate_name is not None:
-            _setter("certificate_name", certificate_name)
+            pulumi.set(__self__, "certificate_name", certificate_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if thumbprint is not None:
-            _setter("thumbprint", thumbprint)
+            pulumi.set(__self__, "thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="springCloudAppId")
@@ -119,35 +96,14 @@ class _SpringCloudCustomDomainState:
         :param pulumi.Input[str] spring_cloud_app_id: Specifies the resource ID of the Spring Cloud Application. Changing this forces a new resource to be created.
         :param pulumi.Input[str] thumbprint: Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `certificate_name` is specified. Changing this forces a new resource to be created.
         """
-        _SpringCloudCustomDomainState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_name=certificate_name,
-            name=name,
-            spring_cloud_app_id=spring_cloud_app_id,
-            thumbprint=thumbprint,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
-             thumbprint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate_name is None and 'certificateName' in kwargs:
-            certificate_name = kwargs['certificateName']
-        if spring_cloud_app_id is None and 'springCloudAppId' in kwargs:
-            spring_cloud_app_id = kwargs['springCloudAppId']
-
         if certificate_name is not None:
-            _setter("certificate_name", certificate_name)
+            pulumi.set(__self__, "certificate_name", certificate_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if spring_cloud_app_id is not None:
-            _setter("spring_cloud_app_id", spring_cloud_app_id)
+            pulumi.set(__self__, "spring_cloud_app_id", spring_cloud_app_id)
         if thumbprint is not None:
-            _setter("thumbprint", thumbprint)
+            pulumi.set(__self__, "thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="certificateName")
@@ -253,10 +209,6 @@ class SpringCloudCustomDomain(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SpringCloudCustomDomainArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

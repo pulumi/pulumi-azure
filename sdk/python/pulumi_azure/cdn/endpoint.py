@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -57,118 +57,39 @@ class EndpointArgs:
         :param pulumi.Input[str] querystring_caching_behaviour: Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        EndpointArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            origins=origins,
-            profile_name=profile_name,
-            resource_group_name=resource_group_name,
-            content_types_to_compresses=content_types_to_compresses,
-            delivery_rules=delivery_rules,
-            geo_filters=geo_filters,
-            global_delivery_rule=global_delivery_rule,
-            is_compression_enabled=is_compression_enabled,
-            is_http_allowed=is_http_allowed,
-            is_https_allowed=is_https_allowed,
-            location=location,
-            name=name,
-            optimization_type=optimization_type,
-            origin_host_header=origin_host_header,
-            origin_path=origin_path,
-            probe_path=probe_path,
-            querystring_caching_behaviour=querystring_caching_behaviour,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             origins: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointOriginArgs']]]] = None,
-             profile_name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             content_types_to_compresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             delivery_rules: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleArgs']]]] = None,
-             geo_filters: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointGeoFilterArgs']]]] = None,
-             global_delivery_rule: Optional[pulumi.Input['EndpointGlobalDeliveryRuleArgs']] = None,
-             is_compression_enabled: Optional[pulumi.Input[bool]] = None,
-             is_http_allowed: Optional[pulumi.Input[bool]] = None,
-             is_https_allowed: Optional[pulumi.Input[bool]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             optimization_type: Optional[pulumi.Input[str]] = None,
-             origin_host_header: Optional[pulumi.Input[str]] = None,
-             origin_path: Optional[pulumi.Input[str]] = None,
-             probe_path: Optional[pulumi.Input[str]] = None,
-             querystring_caching_behaviour: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if origins is None:
-            raise TypeError("Missing 'origins' argument")
-        if profile_name is None and 'profileName' in kwargs:
-            profile_name = kwargs['profileName']
-        if profile_name is None:
-            raise TypeError("Missing 'profile_name' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if content_types_to_compresses is None and 'contentTypesToCompresses' in kwargs:
-            content_types_to_compresses = kwargs['contentTypesToCompresses']
-        if delivery_rules is None and 'deliveryRules' in kwargs:
-            delivery_rules = kwargs['deliveryRules']
-        if geo_filters is None and 'geoFilters' in kwargs:
-            geo_filters = kwargs['geoFilters']
-        if global_delivery_rule is None and 'globalDeliveryRule' in kwargs:
-            global_delivery_rule = kwargs['globalDeliveryRule']
-        if is_compression_enabled is None and 'isCompressionEnabled' in kwargs:
-            is_compression_enabled = kwargs['isCompressionEnabled']
-        if is_http_allowed is None and 'isHttpAllowed' in kwargs:
-            is_http_allowed = kwargs['isHttpAllowed']
-        if is_https_allowed is None and 'isHttpsAllowed' in kwargs:
-            is_https_allowed = kwargs['isHttpsAllowed']
-        if optimization_type is None and 'optimizationType' in kwargs:
-            optimization_type = kwargs['optimizationType']
-        if origin_host_header is None and 'originHostHeader' in kwargs:
-            origin_host_header = kwargs['originHostHeader']
-        if origin_path is None and 'originPath' in kwargs:
-            origin_path = kwargs['originPath']
-        if probe_path is None and 'probePath' in kwargs:
-            probe_path = kwargs['probePath']
-        if querystring_caching_behaviour is None and 'querystringCachingBehaviour' in kwargs:
-            querystring_caching_behaviour = kwargs['querystringCachingBehaviour']
-
-        _setter("origins", origins)
-        _setter("profile_name", profile_name)
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "origins", origins)
+        pulumi.set(__self__, "profile_name", profile_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if content_types_to_compresses is not None:
-            _setter("content_types_to_compresses", content_types_to_compresses)
+            pulumi.set(__self__, "content_types_to_compresses", content_types_to_compresses)
         if delivery_rules is not None:
-            _setter("delivery_rules", delivery_rules)
+            pulumi.set(__self__, "delivery_rules", delivery_rules)
         if geo_filters is not None:
-            _setter("geo_filters", geo_filters)
+            pulumi.set(__self__, "geo_filters", geo_filters)
         if global_delivery_rule is not None:
-            _setter("global_delivery_rule", global_delivery_rule)
+            pulumi.set(__self__, "global_delivery_rule", global_delivery_rule)
         if is_compression_enabled is not None:
-            _setter("is_compression_enabled", is_compression_enabled)
+            pulumi.set(__self__, "is_compression_enabled", is_compression_enabled)
         if is_http_allowed is not None:
-            _setter("is_http_allowed", is_http_allowed)
+            pulumi.set(__self__, "is_http_allowed", is_http_allowed)
         if is_https_allowed is not None:
-            _setter("is_https_allowed", is_https_allowed)
+            pulumi.set(__self__, "is_https_allowed", is_https_allowed)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if optimization_type is not None:
-            _setter("optimization_type", optimization_type)
+            pulumi.set(__self__, "optimization_type", optimization_type)
         if origin_host_header is not None:
-            _setter("origin_host_header", origin_host_header)
+            pulumi.set(__self__, "origin_host_header", origin_host_header)
         if origin_path is not None:
-            _setter("origin_path", origin_path)
+            pulumi.set(__self__, "origin_path", origin_path)
         if probe_path is not None:
-            _setter("probe_path", probe_path)
+            pulumi.set(__self__, "probe_path", probe_path)
         if querystring_caching_behaviour is not None:
-            _setter("querystring_caching_behaviour", querystring_caching_behaviour)
+            pulumi.set(__self__, "querystring_caching_behaviour", querystring_caching_behaviour)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -435,119 +356,44 @@ class _EndpointState:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the CDN Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        _EndpointState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            content_types_to_compresses=content_types_to_compresses,
-            delivery_rules=delivery_rules,
-            fqdn=fqdn,
-            geo_filters=geo_filters,
-            global_delivery_rule=global_delivery_rule,
-            is_compression_enabled=is_compression_enabled,
-            is_http_allowed=is_http_allowed,
-            is_https_allowed=is_https_allowed,
-            location=location,
-            name=name,
-            optimization_type=optimization_type,
-            origin_host_header=origin_host_header,
-            origin_path=origin_path,
-            origins=origins,
-            probe_path=probe_path,
-            profile_name=profile_name,
-            querystring_caching_behaviour=querystring_caching_behaviour,
-            resource_group_name=resource_group_name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             content_types_to_compresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             delivery_rules: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleArgs']]]] = None,
-             fqdn: Optional[pulumi.Input[str]] = None,
-             geo_filters: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointGeoFilterArgs']]]] = None,
-             global_delivery_rule: Optional[pulumi.Input['EndpointGlobalDeliveryRuleArgs']] = None,
-             is_compression_enabled: Optional[pulumi.Input[bool]] = None,
-             is_http_allowed: Optional[pulumi.Input[bool]] = None,
-             is_https_allowed: Optional[pulumi.Input[bool]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             optimization_type: Optional[pulumi.Input[str]] = None,
-             origin_host_header: Optional[pulumi.Input[str]] = None,
-             origin_path: Optional[pulumi.Input[str]] = None,
-             origins: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointOriginArgs']]]] = None,
-             probe_path: Optional[pulumi.Input[str]] = None,
-             profile_name: Optional[pulumi.Input[str]] = None,
-             querystring_caching_behaviour: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if content_types_to_compresses is None and 'contentTypesToCompresses' in kwargs:
-            content_types_to_compresses = kwargs['contentTypesToCompresses']
-        if delivery_rules is None and 'deliveryRules' in kwargs:
-            delivery_rules = kwargs['deliveryRules']
-        if geo_filters is None and 'geoFilters' in kwargs:
-            geo_filters = kwargs['geoFilters']
-        if global_delivery_rule is None and 'globalDeliveryRule' in kwargs:
-            global_delivery_rule = kwargs['globalDeliveryRule']
-        if is_compression_enabled is None and 'isCompressionEnabled' in kwargs:
-            is_compression_enabled = kwargs['isCompressionEnabled']
-        if is_http_allowed is None and 'isHttpAllowed' in kwargs:
-            is_http_allowed = kwargs['isHttpAllowed']
-        if is_https_allowed is None and 'isHttpsAllowed' in kwargs:
-            is_https_allowed = kwargs['isHttpsAllowed']
-        if optimization_type is None and 'optimizationType' in kwargs:
-            optimization_type = kwargs['optimizationType']
-        if origin_host_header is None and 'originHostHeader' in kwargs:
-            origin_host_header = kwargs['originHostHeader']
-        if origin_path is None and 'originPath' in kwargs:
-            origin_path = kwargs['originPath']
-        if probe_path is None and 'probePath' in kwargs:
-            probe_path = kwargs['probePath']
-        if profile_name is None and 'profileName' in kwargs:
-            profile_name = kwargs['profileName']
-        if querystring_caching_behaviour is None and 'querystringCachingBehaviour' in kwargs:
-            querystring_caching_behaviour = kwargs['querystringCachingBehaviour']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-
         if content_types_to_compresses is not None:
-            _setter("content_types_to_compresses", content_types_to_compresses)
+            pulumi.set(__self__, "content_types_to_compresses", content_types_to_compresses)
         if delivery_rules is not None:
-            _setter("delivery_rules", delivery_rules)
+            pulumi.set(__self__, "delivery_rules", delivery_rules)
         if fqdn is not None:
-            _setter("fqdn", fqdn)
+            pulumi.set(__self__, "fqdn", fqdn)
         if geo_filters is not None:
-            _setter("geo_filters", geo_filters)
+            pulumi.set(__self__, "geo_filters", geo_filters)
         if global_delivery_rule is not None:
-            _setter("global_delivery_rule", global_delivery_rule)
+            pulumi.set(__self__, "global_delivery_rule", global_delivery_rule)
         if is_compression_enabled is not None:
-            _setter("is_compression_enabled", is_compression_enabled)
+            pulumi.set(__self__, "is_compression_enabled", is_compression_enabled)
         if is_http_allowed is not None:
-            _setter("is_http_allowed", is_http_allowed)
+            pulumi.set(__self__, "is_http_allowed", is_http_allowed)
         if is_https_allowed is not None:
-            _setter("is_https_allowed", is_https_allowed)
+            pulumi.set(__self__, "is_https_allowed", is_https_allowed)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if optimization_type is not None:
-            _setter("optimization_type", optimization_type)
+            pulumi.set(__self__, "optimization_type", optimization_type)
         if origin_host_header is not None:
-            _setter("origin_host_header", origin_host_header)
+            pulumi.set(__self__, "origin_host_header", origin_host_header)
         if origin_path is not None:
-            _setter("origin_path", origin_path)
+            pulumi.set(__self__, "origin_path", origin_path)
         if origins is not None:
-            _setter("origins", origins)
+            pulumi.set(__self__, "origins", origins)
         if probe_path is not None:
-            _setter("probe_path", probe_path)
+            pulumi.set(__self__, "probe_path", probe_path)
         if profile_name is not None:
-            _setter("profile_name", profile_name)
+            pulumi.set(__self__, "profile_name", profile_name)
         if querystring_caching_behaviour is not None:
-            _setter("querystring_caching_behaviour", querystring_caching_behaviour)
+            pulumi.set(__self__, "querystring_caching_behaviour", querystring_caching_behaviour)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="contentTypesToCompresses")
@@ -903,10 +749,6 @@ class Endpoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            EndpointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -942,7 +784,6 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["content_types_to_compresses"] = content_types_to_compresses
             __props__.__dict__["delivery_rules"] = delivery_rules
             __props__.__dict__["geo_filters"] = geo_filters
-            global_delivery_rule = _utilities.configure(global_delivery_rule, EndpointGlobalDeliveryRuleArgs, True)
             __props__.__dict__["global_delivery_rule"] = global_delivery_rule
             __props__.__dict__["is_compression_enabled"] = is_compression_enabled
             __props__.__dict__["is_http_allowed"] = is_http_allowed

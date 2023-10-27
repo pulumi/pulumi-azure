@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,54 +33,19 @@ class SpringCloudJavaDeploymentArgs:
         :param pulumi.Input['SpringCloudJavaDeploymentQuotaArgs'] quota: A `quota` block as defined below.
         :param pulumi.Input[str] runtime_version: Specifies the runtime version of the Spring Cloud Deployment. Possible Values are `Java_8`, `Java_11` and `Java_17`. Defaults to `Java_8`.
         """
-        SpringCloudJavaDeploymentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            spring_cloud_app_id=spring_cloud_app_id,
-            environment_variables=environment_variables,
-            instance_count=instance_count,
-            jvm_options=jvm_options,
-            name=name,
-            quota=quota,
-            runtime_version=runtime_version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
-             environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             instance_count: Optional[pulumi.Input[int]] = None,
-             jvm_options: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             quota: Optional[pulumi.Input['SpringCloudJavaDeploymentQuotaArgs']] = None,
-             runtime_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if spring_cloud_app_id is None and 'springCloudAppId' in kwargs:
-            spring_cloud_app_id = kwargs['springCloudAppId']
-        if spring_cloud_app_id is None:
-            raise TypeError("Missing 'spring_cloud_app_id' argument")
-        if environment_variables is None and 'environmentVariables' in kwargs:
-            environment_variables = kwargs['environmentVariables']
-        if instance_count is None and 'instanceCount' in kwargs:
-            instance_count = kwargs['instanceCount']
-        if jvm_options is None and 'jvmOptions' in kwargs:
-            jvm_options = kwargs['jvmOptions']
-        if runtime_version is None and 'runtimeVersion' in kwargs:
-            runtime_version = kwargs['runtimeVersion']
-
-        _setter("spring_cloud_app_id", spring_cloud_app_id)
+        pulumi.set(__self__, "spring_cloud_app_id", spring_cloud_app_id)
         if environment_variables is not None:
-            _setter("environment_variables", environment_variables)
+            pulumi.set(__self__, "environment_variables", environment_variables)
         if instance_count is not None:
-            _setter("instance_count", instance_count)
+            pulumi.set(__self__, "instance_count", instance_count)
         if jvm_options is not None:
-            _setter("jvm_options", jvm_options)
+            pulumi.set(__self__, "jvm_options", jvm_options)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if quota is not None:
-            _setter("quota", quota)
+            pulumi.set(__self__, "quota", quota)
         if runtime_version is not None:
-            _setter("runtime_version", runtime_version)
+            pulumi.set(__self__, "runtime_version", runtime_version)
 
     @property
     @pulumi.getter(name="springCloudAppId")
@@ -187,53 +152,20 @@ class _SpringCloudJavaDeploymentState:
         :param pulumi.Input[str] runtime_version: Specifies the runtime version of the Spring Cloud Deployment. Possible Values are `Java_8`, `Java_11` and `Java_17`. Defaults to `Java_8`.
         :param pulumi.Input[str] spring_cloud_app_id: Specifies the id of the Spring Cloud Application in which to create the Deployment. Changing this forces a new resource to be created.
         """
-        _SpringCloudJavaDeploymentState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            environment_variables=environment_variables,
-            instance_count=instance_count,
-            jvm_options=jvm_options,
-            name=name,
-            quota=quota,
-            runtime_version=runtime_version,
-            spring_cloud_app_id=spring_cloud_app_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             instance_count: Optional[pulumi.Input[int]] = None,
-             jvm_options: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             quota: Optional[pulumi.Input['SpringCloudJavaDeploymentQuotaArgs']] = None,
-             runtime_version: Optional[pulumi.Input[str]] = None,
-             spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if environment_variables is None and 'environmentVariables' in kwargs:
-            environment_variables = kwargs['environmentVariables']
-        if instance_count is None and 'instanceCount' in kwargs:
-            instance_count = kwargs['instanceCount']
-        if jvm_options is None and 'jvmOptions' in kwargs:
-            jvm_options = kwargs['jvmOptions']
-        if runtime_version is None and 'runtimeVersion' in kwargs:
-            runtime_version = kwargs['runtimeVersion']
-        if spring_cloud_app_id is None and 'springCloudAppId' in kwargs:
-            spring_cloud_app_id = kwargs['springCloudAppId']
-
         if environment_variables is not None:
-            _setter("environment_variables", environment_variables)
+            pulumi.set(__self__, "environment_variables", environment_variables)
         if instance_count is not None:
-            _setter("instance_count", instance_count)
+            pulumi.set(__self__, "instance_count", instance_count)
         if jvm_options is not None:
-            _setter("jvm_options", jvm_options)
+            pulumi.set(__self__, "jvm_options", jvm_options)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if quota is not None:
-            _setter("quota", quota)
+            pulumi.set(__self__, "quota", quota)
         if runtime_version is not None:
-            _setter("runtime_version", runtime_version)
+            pulumi.set(__self__, "runtime_version", runtime_version)
         if spring_cloud_app_id is not None:
-            _setter("spring_cloud_app_id", spring_cloud_app_id)
+            pulumi.set(__self__, "spring_cloud_app_id", spring_cloud_app_id)
 
     @property
     @pulumi.getter(name="environmentVariables")
@@ -447,10 +379,6 @@ class SpringCloudJavaDeployment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SpringCloudJavaDeploymentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -476,7 +404,6 @@ class SpringCloudJavaDeployment(pulumi.CustomResource):
             __props__.__dict__["instance_count"] = instance_count
             __props__.__dict__["jvm_options"] = jvm_options
             __props__.__dict__["name"] = name
-            quota = _utilities.configure(quota, SpringCloudJavaDeploymentQuotaArgs, True)
             __props__.__dict__["quota"] = quota
             __props__.__dict__["runtime_version"] = runtime_version
             if spring_cloud_app_id is None and not opts.urn:

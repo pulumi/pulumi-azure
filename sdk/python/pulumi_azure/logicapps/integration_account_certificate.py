@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,49 +31,16 @@ class IntegrationAccountCertificateArgs:
         :param pulumi.Input[str] name: The name which should be used for this Logic App Integration Account Certificate. Changing this forces a new Logic App Integration Account Certificate to be created.
         :param pulumi.Input[str] public_certificate: The public certificate for the Logic App Integration Account Certificate.
         """
-        IntegrationAccountCertificateArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            integration_account_name=integration_account_name,
-            resource_group_name=resource_group_name,
-            key_vault_key=key_vault_key,
-            metadata=metadata,
-            name=name,
-            public_certificate=public_certificate,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             integration_account_name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             key_vault_key: Optional[pulumi.Input['IntegrationAccountCertificateKeyVaultKeyArgs']] = None,
-             metadata: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             public_certificate: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if integration_account_name is None and 'integrationAccountName' in kwargs:
-            integration_account_name = kwargs['integrationAccountName']
-        if integration_account_name is None:
-            raise TypeError("Missing 'integration_account_name' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if key_vault_key is None and 'keyVaultKey' in kwargs:
-            key_vault_key = kwargs['keyVaultKey']
-        if public_certificate is None and 'publicCertificate' in kwargs:
-            public_certificate = kwargs['publicCertificate']
-
-        _setter("integration_account_name", integration_account_name)
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "integration_account_name", integration_account_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if key_vault_key is not None:
-            _setter("key_vault_key", key_vault_key)
+            pulumi.set(__self__, "key_vault_key", key_vault_key)
         if metadata is not None:
-            _setter("metadata", metadata)
+            pulumi.set(__self__, "metadata", metadata)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if public_certificate is not None:
-            _setter("public_certificate", public_certificate)
+            pulumi.set(__self__, "public_certificate", public_certificate)
 
     @property
     @pulumi.getter(name="integrationAccountName")
@@ -166,47 +133,18 @@ class _IntegrationAccountCertificateState:
         :param pulumi.Input[str] public_certificate: The public certificate for the Logic App Integration Account Certificate.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Logic App Integration Account Certificate should exist. Changing this forces a new Logic App Integration Account Certificate to be created.
         """
-        _IntegrationAccountCertificateState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            integration_account_name=integration_account_name,
-            key_vault_key=key_vault_key,
-            metadata=metadata,
-            name=name,
-            public_certificate=public_certificate,
-            resource_group_name=resource_group_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             integration_account_name: Optional[pulumi.Input[str]] = None,
-             key_vault_key: Optional[pulumi.Input['IntegrationAccountCertificateKeyVaultKeyArgs']] = None,
-             metadata: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             public_certificate: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if integration_account_name is None and 'integrationAccountName' in kwargs:
-            integration_account_name = kwargs['integrationAccountName']
-        if key_vault_key is None and 'keyVaultKey' in kwargs:
-            key_vault_key = kwargs['keyVaultKey']
-        if public_certificate is None and 'publicCertificate' in kwargs:
-            public_certificate = kwargs['publicCertificate']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-
         if integration_account_name is not None:
-            _setter("integration_account_name", integration_account_name)
+            pulumi.set(__self__, "integration_account_name", integration_account_name)
         if key_vault_key is not None:
-            _setter("key_vault_key", key_vault_key)
+            pulumi.set(__self__, "key_vault_key", key_vault_key)
         if metadata is not None:
-            _setter("metadata", metadata)
+            pulumi.set(__self__, "metadata", metadata)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if public_certificate is not None:
-            _setter("public_certificate", public_certificate)
+            pulumi.set(__self__, "public_certificate", public_certificate)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
 
     @property
     @pulumi.getter(name="integrationAccountName")
@@ -374,10 +312,6 @@ class IntegrationAccountCertificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            IntegrationAccountCertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -401,7 +335,6 @@ class IntegrationAccountCertificate(pulumi.CustomResource):
             if integration_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'integration_account_name'")
             __props__.__dict__["integration_account_name"] = integration_account_name
-            key_vault_key = _utilities.configure(key_vault_key, IntegrationAccountCertificateKeyVaultKeyArgs, True)
             __props__.__dict__["key_vault_key"] = key_vault_key
             __props__.__dict__["metadata"] = metadata
             __props__.__dict__["name"] = name

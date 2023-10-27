@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DatastoreDatalakeGen2Args', 'DatastoreDatalakeGen2']
@@ -37,71 +37,24 @@ class DatastoreDatalakeGen2Args:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
         :param pulumi.Input[str] tenant_id: The ID of the Tenant which the Service Principal belongs to.
         """
-        DatastoreDatalakeGen2Args._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            storage_container_id=storage_container_id,
-            workspace_id=workspace_id,
-            authority_url=authority_url,
-            client_id=client_id,
-            client_secret=client_secret,
-            description=description,
-            name=name,
-            service_data_identity=service_data_identity,
-            tags=tags,
-            tenant_id=tenant_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             storage_container_id: Optional[pulumi.Input[str]] = None,
-             workspace_id: Optional[pulumi.Input[str]] = None,
-             authority_url: Optional[pulumi.Input[str]] = None,
-             client_id: Optional[pulumi.Input[str]] = None,
-             client_secret: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             service_data_identity: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if storage_container_id is None and 'storageContainerId' in kwargs:
-            storage_container_id = kwargs['storageContainerId']
-        if storage_container_id is None:
-            raise TypeError("Missing 'storage_container_id' argument")
-        if workspace_id is None and 'workspaceId' in kwargs:
-            workspace_id = kwargs['workspaceId']
-        if workspace_id is None:
-            raise TypeError("Missing 'workspace_id' argument")
-        if authority_url is None and 'authorityUrl' in kwargs:
-            authority_url = kwargs['authorityUrl']
-        if client_id is None and 'clientId' in kwargs:
-            client_id = kwargs['clientId']
-        if client_secret is None and 'clientSecret' in kwargs:
-            client_secret = kwargs['clientSecret']
-        if service_data_identity is None and 'serviceDataIdentity' in kwargs:
-            service_data_identity = kwargs['serviceDataIdentity']
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-
-        _setter("storage_container_id", storage_container_id)
-        _setter("workspace_id", workspace_id)
+        pulumi.set(__self__, "storage_container_id", storage_container_id)
+        pulumi.set(__self__, "workspace_id", workspace_id)
         if authority_url is not None:
-            _setter("authority_url", authority_url)
+            pulumi.set(__self__, "authority_url", authority_url)
         if client_id is not None:
-            _setter("client_id", client_id)
+            pulumi.set(__self__, "client_id", client_id)
         if client_secret is not None:
-            _setter("client_secret", client_secret)
+            pulumi.set(__self__, "client_secret", client_secret)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if service_data_identity is not None:
-            _setter("service_data_identity", service_data_identity)
+            pulumi.set(__self__, "service_data_identity", service_data_identity)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tenant_id is not None:
-            _setter("tenant_id", tenant_id)
+            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="storageContainerId")
@@ -252,75 +205,28 @@ class _DatastoreDatalakeGen2State:
         :param pulumi.Input[str] tenant_id: The ID of the Tenant which the Service Principal belongs to.
         :param pulumi.Input[str] workspace_id: The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning DataStore to be created.
         """
-        _DatastoreDatalakeGen2State._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            authority_url=authority_url,
-            client_id=client_id,
-            client_secret=client_secret,
-            description=description,
-            is_default=is_default,
-            name=name,
-            service_data_identity=service_data_identity,
-            storage_container_id=storage_container_id,
-            tags=tags,
-            tenant_id=tenant_id,
-            workspace_id=workspace_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             authority_url: Optional[pulumi.Input[str]] = None,
-             client_id: Optional[pulumi.Input[str]] = None,
-             client_secret: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             is_default: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             service_data_identity: Optional[pulumi.Input[str]] = None,
-             storage_container_id: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tenant_id: Optional[pulumi.Input[str]] = None,
-             workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if authority_url is None and 'authorityUrl' in kwargs:
-            authority_url = kwargs['authorityUrl']
-        if client_id is None and 'clientId' in kwargs:
-            client_id = kwargs['clientId']
-        if client_secret is None and 'clientSecret' in kwargs:
-            client_secret = kwargs['clientSecret']
-        if is_default is None and 'isDefault' in kwargs:
-            is_default = kwargs['isDefault']
-        if service_data_identity is None and 'serviceDataIdentity' in kwargs:
-            service_data_identity = kwargs['serviceDataIdentity']
-        if storage_container_id is None and 'storageContainerId' in kwargs:
-            storage_container_id = kwargs['storageContainerId']
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-        if workspace_id is None and 'workspaceId' in kwargs:
-            workspace_id = kwargs['workspaceId']
-
         if authority_url is not None:
-            _setter("authority_url", authority_url)
+            pulumi.set(__self__, "authority_url", authority_url)
         if client_id is not None:
-            _setter("client_id", client_id)
+            pulumi.set(__self__, "client_id", client_id)
         if client_secret is not None:
-            _setter("client_secret", client_secret)
+            pulumi.set(__self__, "client_secret", client_secret)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if is_default is not None:
-            _setter("is_default", is_default)
+            pulumi.set(__self__, "is_default", is_default)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if service_data_identity is not None:
-            _setter("service_data_identity", service_data_identity)
+            pulumi.set(__self__, "service_data_identity", service_data_identity)
         if storage_container_id is not None:
-            _setter("storage_container_id", storage_container_id)
+            pulumi.set(__self__, "storage_container_id", storage_container_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tenant_id is not None:
-            _setter("tenant_id", tenant_id)
+            pulumi.set(__self__, "tenant_id", tenant_id)
         if workspace_id is not None:
-            _setter("workspace_id", workspace_id)
+            pulumi.set(__self__, "workspace_id", workspace_id)
 
     @property
     @pulumi.getter(name="authorityUrl")
@@ -600,10 +506,6 @@ class DatastoreDatalakeGen2(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DatastoreDatalakeGen2Args._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

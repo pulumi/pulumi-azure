@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['NatGatewayArgs', 'NatGateway']
@@ -33,50 +33,19 @@ class NatGatewayArgs:
                
                > **NOTE:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
         """
-        NatGatewayArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_group_name=resource_group_name,
-            idle_timeout_in_minutes=idle_timeout_in_minutes,
-            location=location,
-            name=name,
-            sku_name=sku_name,
-            tags=tags,
-            zones=zones,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             sku_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if idle_timeout_in_minutes is None and 'idleTimeoutInMinutes' in kwargs:
-            idle_timeout_in_minutes = kwargs['idleTimeoutInMinutes']
-        if sku_name is None and 'skuName' in kwargs:
-            sku_name = kwargs['skuName']
-
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if idle_timeout_in_minutes is not None:
-            _setter("idle_timeout_in_minutes", idle_timeout_in_minutes)
+            pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if sku_name is not None:
-            _setter("sku_name", sku_name)
+            pulumi.set(__self__, "sku_name", sku_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if zones is not None:
-            _setter("zones", zones)
+            pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -189,55 +158,22 @@ class _NatGatewayState:
                
                > **NOTE:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
         """
-        _NatGatewayState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            idle_timeout_in_minutes=idle_timeout_in_minutes,
-            location=location,
-            name=name,
-            resource_group_name=resource_group_name,
-            resource_guid=resource_guid,
-            sku_name=sku_name,
-            tags=tags,
-            zones=zones,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             resource_guid: Optional[pulumi.Input[str]] = None,
-             sku_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if idle_timeout_in_minutes is None and 'idleTimeoutInMinutes' in kwargs:
-            idle_timeout_in_minutes = kwargs['idleTimeoutInMinutes']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_guid is None and 'resourceGuid' in kwargs:
-            resource_guid = kwargs['resourceGuid']
-        if sku_name is None and 'skuName' in kwargs:
-            sku_name = kwargs['skuName']
-
         if idle_timeout_in_minutes is not None:
-            _setter("idle_timeout_in_minutes", idle_timeout_in_minutes)
+            pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if resource_guid is not None:
-            _setter("resource_guid", resource_guid)
+            pulumi.set(__self__, "resource_guid", resource_guid)
         if sku_name is not None:
-            _setter("sku_name", sku_name)
+            pulumi.set(__self__, "sku_name", sku_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if zones is not None:
-            _setter("zones", zones)
+            pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter(name="idleTimeoutInMinutes")
@@ -435,10 +371,6 @@ class NatGateway(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            NatGatewayArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

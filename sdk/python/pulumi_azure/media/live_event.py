@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -49,94 +49,33 @@ class LiveEventArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] transcription_languages: Specifies a list of languages (locale) to be used for speech-to-text transcription – it should match the spoken language in the audio track. The value should be in `BCP-47` format (e.g: `en-US`). [See the Microsoft Documentation for more information about the live transcription feature and the list of supported languages](https://go.microsoft.com/fwlink/?linkid=2133742 ).
         :param pulumi.Input[bool] use_static_hostname: Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. Changing this forces a new Live Event to be created.
         """
-        LiveEventArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            input=input,
-            media_services_account_name=media_services_account_name,
-            resource_group_name=resource_group_name,
-            auto_start_enabled=auto_start_enabled,
-            cross_site_access_policy=cross_site_access_policy,
-            description=description,
-            encoding=encoding,
-            hostname_prefix=hostname_prefix,
-            location=location,
-            name=name,
-            preview=preview,
-            stream_options=stream_options,
-            tags=tags,
-            transcription_languages=transcription_languages,
-            use_static_hostname=use_static_hostname,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             input: Optional[pulumi.Input['LiveEventInputArgs']] = None,
-             media_services_account_name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             auto_start_enabled: Optional[pulumi.Input[bool]] = None,
-             cross_site_access_policy: Optional[pulumi.Input['LiveEventCrossSiteAccessPolicyArgs']] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             encoding: Optional[pulumi.Input['LiveEventEncodingArgs']] = None,
-             hostname_prefix: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             preview: Optional[pulumi.Input['LiveEventPreviewArgs']] = None,
-             stream_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             transcription_languages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             use_static_hostname: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if input is None:
-            raise TypeError("Missing 'input' argument")
-        if media_services_account_name is None and 'mediaServicesAccountName' in kwargs:
-            media_services_account_name = kwargs['mediaServicesAccountName']
-        if media_services_account_name is None:
-            raise TypeError("Missing 'media_services_account_name' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if auto_start_enabled is None and 'autoStartEnabled' in kwargs:
-            auto_start_enabled = kwargs['autoStartEnabled']
-        if cross_site_access_policy is None and 'crossSiteAccessPolicy' in kwargs:
-            cross_site_access_policy = kwargs['crossSiteAccessPolicy']
-        if hostname_prefix is None and 'hostnamePrefix' in kwargs:
-            hostname_prefix = kwargs['hostnamePrefix']
-        if stream_options is None and 'streamOptions' in kwargs:
-            stream_options = kwargs['streamOptions']
-        if transcription_languages is None and 'transcriptionLanguages' in kwargs:
-            transcription_languages = kwargs['transcriptionLanguages']
-        if use_static_hostname is None and 'useStaticHostname' in kwargs:
-            use_static_hostname = kwargs['useStaticHostname']
-
-        _setter("input", input)
-        _setter("media_services_account_name", media_services_account_name)
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "input", input)
+        pulumi.set(__self__, "media_services_account_name", media_services_account_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if auto_start_enabled is not None:
-            _setter("auto_start_enabled", auto_start_enabled)
+            pulumi.set(__self__, "auto_start_enabled", auto_start_enabled)
         if cross_site_access_policy is not None:
-            _setter("cross_site_access_policy", cross_site_access_policy)
+            pulumi.set(__self__, "cross_site_access_policy", cross_site_access_policy)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if encoding is not None:
-            _setter("encoding", encoding)
+            pulumi.set(__self__, "encoding", encoding)
         if hostname_prefix is not None:
-            _setter("hostname_prefix", hostname_prefix)
+            pulumi.set(__self__, "hostname_prefix", hostname_prefix)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if preview is not None:
-            _setter("preview", preview)
+            pulumi.set(__self__, "preview", preview)
         if stream_options is not None:
-            _setter("stream_options", stream_options)
+            pulumi.set(__self__, "stream_options", stream_options)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if transcription_languages is not None:
-            _setter("transcription_languages", transcription_languages)
+            pulumi.set(__self__, "transcription_languages", transcription_languages)
         if use_static_hostname is not None:
-            _setter("use_static_hostname", use_static_hostname)
+            pulumi.set(__self__, "use_static_hostname", use_static_hostname)
 
     @property
     @pulumi.getter
@@ -355,91 +294,36 @@ class _LiveEventState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] transcription_languages: Specifies a list of languages (locale) to be used for speech-to-text transcription – it should match the spoken language in the audio track. The value should be in `BCP-47` format (e.g: `en-US`). [See the Microsoft Documentation for more information about the live transcription feature and the list of supported languages](https://go.microsoft.com/fwlink/?linkid=2133742 ).
         :param pulumi.Input[bool] use_static_hostname: Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. Changing this forces a new Live Event to be created.
         """
-        _LiveEventState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            auto_start_enabled=auto_start_enabled,
-            cross_site_access_policy=cross_site_access_policy,
-            description=description,
-            encoding=encoding,
-            hostname_prefix=hostname_prefix,
-            input=input,
-            location=location,
-            media_services_account_name=media_services_account_name,
-            name=name,
-            preview=preview,
-            resource_group_name=resource_group_name,
-            stream_options=stream_options,
-            tags=tags,
-            transcription_languages=transcription_languages,
-            use_static_hostname=use_static_hostname,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             auto_start_enabled: Optional[pulumi.Input[bool]] = None,
-             cross_site_access_policy: Optional[pulumi.Input['LiveEventCrossSiteAccessPolicyArgs']] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             encoding: Optional[pulumi.Input['LiveEventEncodingArgs']] = None,
-             hostname_prefix: Optional[pulumi.Input[str]] = None,
-             input: Optional[pulumi.Input['LiveEventInputArgs']] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             media_services_account_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             preview: Optional[pulumi.Input['LiveEventPreviewArgs']] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             stream_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             transcription_languages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             use_static_hostname: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if auto_start_enabled is None and 'autoStartEnabled' in kwargs:
-            auto_start_enabled = kwargs['autoStartEnabled']
-        if cross_site_access_policy is None and 'crossSiteAccessPolicy' in kwargs:
-            cross_site_access_policy = kwargs['crossSiteAccessPolicy']
-        if hostname_prefix is None and 'hostnamePrefix' in kwargs:
-            hostname_prefix = kwargs['hostnamePrefix']
-        if media_services_account_name is None and 'mediaServicesAccountName' in kwargs:
-            media_services_account_name = kwargs['mediaServicesAccountName']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if stream_options is None and 'streamOptions' in kwargs:
-            stream_options = kwargs['streamOptions']
-        if transcription_languages is None and 'transcriptionLanguages' in kwargs:
-            transcription_languages = kwargs['transcriptionLanguages']
-        if use_static_hostname is None and 'useStaticHostname' in kwargs:
-            use_static_hostname = kwargs['useStaticHostname']
-
         if auto_start_enabled is not None:
-            _setter("auto_start_enabled", auto_start_enabled)
+            pulumi.set(__self__, "auto_start_enabled", auto_start_enabled)
         if cross_site_access_policy is not None:
-            _setter("cross_site_access_policy", cross_site_access_policy)
+            pulumi.set(__self__, "cross_site_access_policy", cross_site_access_policy)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if encoding is not None:
-            _setter("encoding", encoding)
+            pulumi.set(__self__, "encoding", encoding)
         if hostname_prefix is not None:
-            _setter("hostname_prefix", hostname_prefix)
+            pulumi.set(__self__, "hostname_prefix", hostname_prefix)
         if input is not None:
-            _setter("input", input)
+            pulumi.set(__self__, "input", input)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if media_services_account_name is not None:
-            _setter("media_services_account_name", media_services_account_name)
+            pulumi.set(__self__, "media_services_account_name", media_services_account_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if preview is not None:
-            _setter("preview", preview)
+            pulumi.set(__self__, "preview", preview)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if stream_options is not None:
-            _setter("stream_options", stream_options)
+            pulumi.set(__self__, "stream_options", stream_options)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if transcription_languages is not None:
-            _setter("transcription_languages", transcription_languages)
+            pulumi.set(__self__, "transcription_languages", transcription_languages)
         if use_static_hostname is not None:
-            _setter("use_static_hostname", use_static_hostname)
+            pulumi.set(__self__, "use_static_hostname", use_static_hostname)
 
     @property
     @pulumi.getter(name="autoStartEnabled")
@@ -801,10 +685,6 @@ class LiveEvent(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LiveEventArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -835,13 +715,10 @@ class LiveEvent(pulumi.CustomResource):
             __props__ = LiveEventArgs.__new__(LiveEventArgs)
 
             __props__.__dict__["auto_start_enabled"] = auto_start_enabled
-            cross_site_access_policy = _utilities.configure(cross_site_access_policy, LiveEventCrossSiteAccessPolicyArgs, True)
             __props__.__dict__["cross_site_access_policy"] = cross_site_access_policy
             __props__.__dict__["description"] = description
-            encoding = _utilities.configure(encoding, LiveEventEncodingArgs, True)
             __props__.__dict__["encoding"] = encoding
             __props__.__dict__["hostname_prefix"] = hostname_prefix
-            input = _utilities.configure(input, LiveEventInputArgs, True)
             if input is None and not opts.urn:
                 raise TypeError("Missing required property 'input'")
             __props__.__dict__["input"] = input
@@ -850,7 +727,6 @@ class LiveEvent(pulumi.CustomResource):
                 raise TypeError("Missing required property 'media_services_account_name'")
             __props__.__dict__["media_services_account_name"] = media_services_account_name
             __props__.__dict__["name"] = name
-            preview = _utilities.configure(preview, LiveEventPreviewArgs, True)
             __props__.__dict__["preview"] = preview
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

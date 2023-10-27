@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,71 +39,22 @@ class GalleryApplicationVersionArgs:
         :param pulumi.Input[str] name: The version name of the Gallery Application Version, such as `1.0.0`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Gallery Application Version.
         """
-        GalleryApplicationVersionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            gallery_application_id=gallery_application_id,
-            manage_action=manage_action,
-            source=source,
-            target_regions=target_regions,
-            enable_health_check=enable_health_check,
-            end_of_life_date=end_of_life_date,
-            exclude_from_latest=exclude_from_latest,
-            location=location,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             gallery_application_id: Optional[pulumi.Input[str]] = None,
-             manage_action: Optional[pulumi.Input['GalleryApplicationVersionManageActionArgs']] = None,
-             source: Optional[pulumi.Input['GalleryApplicationVersionSourceArgs']] = None,
-             target_regions: Optional[pulumi.Input[Sequence[pulumi.Input['GalleryApplicationVersionTargetRegionArgs']]]] = None,
-             enable_health_check: Optional[pulumi.Input[bool]] = None,
-             end_of_life_date: Optional[pulumi.Input[str]] = None,
-             exclude_from_latest: Optional[pulumi.Input[bool]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if gallery_application_id is None and 'galleryApplicationId' in kwargs:
-            gallery_application_id = kwargs['galleryApplicationId']
-        if gallery_application_id is None:
-            raise TypeError("Missing 'gallery_application_id' argument")
-        if manage_action is None and 'manageAction' in kwargs:
-            manage_action = kwargs['manageAction']
-        if manage_action is None:
-            raise TypeError("Missing 'manage_action' argument")
-        if source is None:
-            raise TypeError("Missing 'source' argument")
-        if target_regions is None and 'targetRegions' in kwargs:
-            target_regions = kwargs['targetRegions']
-        if target_regions is None:
-            raise TypeError("Missing 'target_regions' argument")
-        if enable_health_check is None and 'enableHealthCheck' in kwargs:
-            enable_health_check = kwargs['enableHealthCheck']
-        if end_of_life_date is None and 'endOfLifeDate' in kwargs:
-            end_of_life_date = kwargs['endOfLifeDate']
-        if exclude_from_latest is None and 'excludeFromLatest' in kwargs:
-            exclude_from_latest = kwargs['excludeFromLatest']
-
-        _setter("gallery_application_id", gallery_application_id)
-        _setter("manage_action", manage_action)
-        _setter("source", source)
-        _setter("target_regions", target_regions)
+        pulumi.set(__self__, "gallery_application_id", gallery_application_id)
+        pulumi.set(__self__, "manage_action", manage_action)
+        pulumi.set(__self__, "source", source)
+        pulumi.set(__self__, "target_regions", target_regions)
         if enable_health_check is not None:
-            _setter("enable_health_check", enable_health_check)
+            pulumi.set(__self__, "enable_health_check", enable_health_check)
         if end_of_life_date is not None:
-            _setter("end_of_life_date", end_of_life_date)
+            pulumi.set(__self__, "end_of_life_date", end_of_life_date)
         if exclude_from_latest is not None:
-            _setter("exclude_from_latest", exclude_from_latest)
+            pulumi.set(__self__, "exclude_from_latest", exclude_from_latest)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="galleryApplicationId")
@@ -252,67 +203,26 @@ class _GalleryApplicationVersionState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Gallery Application Version.
         :param pulumi.Input[Sequence[pulumi.Input['GalleryApplicationVersionTargetRegionArgs']]] target_regions: One or more `target_region` blocks as defined below.
         """
-        _GalleryApplicationVersionState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enable_health_check=enable_health_check,
-            end_of_life_date=end_of_life_date,
-            exclude_from_latest=exclude_from_latest,
-            gallery_application_id=gallery_application_id,
-            location=location,
-            manage_action=manage_action,
-            name=name,
-            source=source,
-            tags=tags,
-            target_regions=target_regions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enable_health_check: Optional[pulumi.Input[bool]] = None,
-             end_of_life_date: Optional[pulumi.Input[str]] = None,
-             exclude_from_latest: Optional[pulumi.Input[bool]] = None,
-             gallery_application_id: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             manage_action: Optional[pulumi.Input['GalleryApplicationVersionManageActionArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             source: Optional[pulumi.Input['GalleryApplicationVersionSourceArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             target_regions: Optional[pulumi.Input[Sequence[pulumi.Input['GalleryApplicationVersionTargetRegionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enable_health_check is None and 'enableHealthCheck' in kwargs:
-            enable_health_check = kwargs['enableHealthCheck']
-        if end_of_life_date is None and 'endOfLifeDate' in kwargs:
-            end_of_life_date = kwargs['endOfLifeDate']
-        if exclude_from_latest is None and 'excludeFromLatest' in kwargs:
-            exclude_from_latest = kwargs['excludeFromLatest']
-        if gallery_application_id is None and 'galleryApplicationId' in kwargs:
-            gallery_application_id = kwargs['galleryApplicationId']
-        if manage_action is None and 'manageAction' in kwargs:
-            manage_action = kwargs['manageAction']
-        if target_regions is None and 'targetRegions' in kwargs:
-            target_regions = kwargs['targetRegions']
-
         if enable_health_check is not None:
-            _setter("enable_health_check", enable_health_check)
+            pulumi.set(__self__, "enable_health_check", enable_health_check)
         if end_of_life_date is not None:
-            _setter("end_of_life_date", end_of_life_date)
+            pulumi.set(__self__, "end_of_life_date", end_of_life_date)
         if exclude_from_latest is not None:
-            _setter("exclude_from_latest", exclude_from_latest)
+            pulumi.set(__self__, "exclude_from_latest", exclude_from_latest)
         if gallery_application_id is not None:
-            _setter("gallery_application_id", gallery_application_id)
+            pulumi.set(__self__, "gallery_application_id", gallery_application_id)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if manage_action is not None:
-            _setter("manage_action", manage_action)
+            pulumi.set(__self__, "manage_action", manage_action)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if source is not None:
-            _setter("source", source)
+            pulumi.set(__self__, "source", source)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if target_regions is not None:
-            _setter("target_regions", target_regions)
+            pulumi.set(__self__, "target_regions", target_regions)
 
     @property
     @pulumi.getter(name="enableHealthCheck")
@@ -588,10 +498,6 @@ class GalleryApplicationVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            GalleryApplicationVersionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -623,12 +529,10 @@ class GalleryApplicationVersion(pulumi.CustomResource):
                 raise TypeError("Missing required property 'gallery_application_id'")
             __props__.__dict__["gallery_application_id"] = gallery_application_id
             __props__.__dict__["location"] = location
-            manage_action = _utilities.configure(manage_action, GalleryApplicationVersionManageActionArgs, True)
             if manage_action is None and not opts.urn:
                 raise TypeError("Missing required property 'manage_action'")
             __props__.__dict__["manage_action"] = manage_action
             __props__.__dict__["name"] = name
-            source = _utilities.configure(source, GalleryApplicationVersionSourceArgs, True)
             if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")
             __props__.__dict__["source"] = source

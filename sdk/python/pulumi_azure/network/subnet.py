@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -47,86 +47,31 @@ class SubnetArgs:
                
                > **NOTE:** In order to use `Microsoft.Storage.Global` service endpoint (which allows access to virtual networks in other regions), you must enable the `AllowGlobalTagsForStorage` feature in your subscription. This is currently a preview feature, please see the [official documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-cli#enabling-access-to-virtual-networks-in-other-regions-preview) for more information.
         """
-        SubnetArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            address_prefixes=address_prefixes,
-            resource_group_name=resource_group_name,
-            virtual_network_name=virtual_network_name,
-            delegations=delegations,
-            enforce_private_link_endpoint_network_policies=enforce_private_link_endpoint_network_policies,
-            enforce_private_link_service_network_policies=enforce_private_link_service_network_policies,
-            name=name,
-            private_endpoint_network_policies_enabled=private_endpoint_network_policies_enabled,
-            private_link_service_network_policies_enabled=private_link_service_network_policies_enabled,
-            service_endpoint_policy_ids=service_endpoint_policy_ids,
-            service_endpoints=service_endpoints,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             virtual_network_name: Optional[pulumi.Input[str]] = None,
-             delegations: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetDelegationArgs']]]] = None,
-             enforce_private_link_endpoint_network_policies: Optional[pulumi.Input[bool]] = None,
-             enforce_private_link_service_network_policies: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             private_endpoint_network_policies_enabled: Optional[pulumi.Input[bool]] = None,
-             private_link_service_network_policies_enabled: Optional[pulumi.Input[bool]] = None,
-             service_endpoint_policy_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if address_prefixes is None and 'addressPrefixes' in kwargs:
-            address_prefixes = kwargs['addressPrefixes']
-        if address_prefixes is None:
-            raise TypeError("Missing 'address_prefixes' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if virtual_network_name is None and 'virtualNetworkName' in kwargs:
-            virtual_network_name = kwargs['virtualNetworkName']
-        if virtual_network_name is None:
-            raise TypeError("Missing 'virtual_network_name' argument")
-        if enforce_private_link_endpoint_network_policies is None and 'enforcePrivateLinkEndpointNetworkPolicies' in kwargs:
-            enforce_private_link_endpoint_network_policies = kwargs['enforcePrivateLinkEndpointNetworkPolicies']
-        if enforce_private_link_service_network_policies is None and 'enforcePrivateLinkServiceNetworkPolicies' in kwargs:
-            enforce_private_link_service_network_policies = kwargs['enforcePrivateLinkServiceNetworkPolicies']
-        if private_endpoint_network_policies_enabled is None and 'privateEndpointNetworkPoliciesEnabled' in kwargs:
-            private_endpoint_network_policies_enabled = kwargs['privateEndpointNetworkPoliciesEnabled']
-        if private_link_service_network_policies_enabled is None and 'privateLinkServiceNetworkPoliciesEnabled' in kwargs:
-            private_link_service_network_policies_enabled = kwargs['privateLinkServiceNetworkPoliciesEnabled']
-        if service_endpoint_policy_ids is None and 'serviceEndpointPolicyIds' in kwargs:
-            service_endpoint_policy_ids = kwargs['serviceEndpointPolicyIds']
-        if service_endpoints is None and 'serviceEndpoints' in kwargs:
-            service_endpoints = kwargs['serviceEndpoints']
-
-        _setter("address_prefixes", address_prefixes)
-        _setter("resource_group_name", resource_group_name)
-        _setter("virtual_network_name", virtual_network_name)
+        pulumi.set(__self__, "address_prefixes", address_prefixes)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "virtual_network_name", virtual_network_name)
         if delegations is not None:
-            _setter("delegations", delegations)
+            pulumi.set(__self__, "delegations", delegations)
         if enforce_private_link_endpoint_network_policies is not None:
             warnings.warn("""`enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies_enabled` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
             pulumi.log.warn("""enforce_private_link_endpoint_network_policies is deprecated: `enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies_enabled` in version 4.0 of the AzureRM Provider""")
         if enforce_private_link_endpoint_network_policies is not None:
-            _setter("enforce_private_link_endpoint_network_policies", enforce_private_link_endpoint_network_policies)
+            pulumi.set(__self__, "enforce_private_link_endpoint_network_policies", enforce_private_link_endpoint_network_policies)
         if enforce_private_link_service_network_policies is not None:
             warnings.warn("""`enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
             pulumi.log.warn("""enforce_private_link_service_network_policies is deprecated: `enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider""")
         if enforce_private_link_service_network_policies is not None:
-            _setter("enforce_private_link_service_network_policies", enforce_private_link_service_network_policies)
+            pulumi.set(__self__, "enforce_private_link_service_network_policies", enforce_private_link_service_network_policies)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if private_endpoint_network_policies_enabled is not None:
-            _setter("private_endpoint_network_policies_enabled", private_endpoint_network_policies_enabled)
+            pulumi.set(__self__, "private_endpoint_network_policies_enabled", private_endpoint_network_policies_enabled)
         if private_link_service_network_policies_enabled is not None:
-            _setter("private_link_service_network_policies_enabled", private_link_service_network_policies_enabled)
+            pulumi.set(__self__, "private_link_service_network_policies_enabled", private_link_service_network_policies_enabled)
         if service_endpoint_policy_ids is not None:
-            _setter("service_endpoint_policy_ids", service_endpoint_policy_ids)
+            pulumi.set(__self__, "service_endpoint_policy_ids", service_endpoint_policy_ids)
         if service_endpoints is not None:
-            _setter("service_endpoints", service_endpoints)
+            pulumi.set(__self__, "service_endpoints", service_endpoints)
 
     @property
     @pulumi.getter(name="addressPrefixes")
@@ -303,83 +248,34 @@ class _SubnetState:
                > **NOTE:** In order to use `Microsoft.Storage.Global` service endpoint (which allows access to virtual networks in other regions), you must enable the `AllowGlobalTagsForStorage` feature in your subscription. This is currently a preview feature, please see the [official documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-cli#enabling-access-to-virtual-networks-in-other-regions-preview) for more information.
         :param pulumi.Input[str] virtual_network_name: The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
         """
-        _SubnetState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            address_prefixes=address_prefixes,
-            delegations=delegations,
-            enforce_private_link_endpoint_network_policies=enforce_private_link_endpoint_network_policies,
-            enforce_private_link_service_network_policies=enforce_private_link_service_network_policies,
-            name=name,
-            private_endpoint_network_policies_enabled=private_endpoint_network_policies_enabled,
-            private_link_service_network_policies_enabled=private_link_service_network_policies_enabled,
-            resource_group_name=resource_group_name,
-            service_endpoint_policy_ids=service_endpoint_policy_ids,
-            service_endpoints=service_endpoints,
-            virtual_network_name=virtual_network_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             delegations: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetDelegationArgs']]]] = None,
-             enforce_private_link_endpoint_network_policies: Optional[pulumi.Input[bool]] = None,
-             enforce_private_link_service_network_policies: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             private_endpoint_network_policies_enabled: Optional[pulumi.Input[bool]] = None,
-             private_link_service_network_policies_enabled: Optional[pulumi.Input[bool]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             service_endpoint_policy_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             virtual_network_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if address_prefixes is None and 'addressPrefixes' in kwargs:
-            address_prefixes = kwargs['addressPrefixes']
-        if enforce_private_link_endpoint_network_policies is None and 'enforcePrivateLinkEndpointNetworkPolicies' in kwargs:
-            enforce_private_link_endpoint_network_policies = kwargs['enforcePrivateLinkEndpointNetworkPolicies']
-        if enforce_private_link_service_network_policies is None and 'enforcePrivateLinkServiceNetworkPolicies' in kwargs:
-            enforce_private_link_service_network_policies = kwargs['enforcePrivateLinkServiceNetworkPolicies']
-        if private_endpoint_network_policies_enabled is None and 'privateEndpointNetworkPoliciesEnabled' in kwargs:
-            private_endpoint_network_policies_enabled = kwargs['privateEndpointNetworkPoliciesEnabled']
-        if private_link_service_network_policies_enabled is None and 'privateLinkServiceNetworkPoliciesEnabled' in kwargs:
-            private_link_service_network_policies_enabled = kwargs['privateLinkServiceNetworkPoliciesEnabled']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if service_endpoint_policy_ids is None and 'serviceEndpointPolicyIds' in kwargs:
-            service_endpoint_policy_ids = kwargs['serviceEndpointPolicyIds']
-        if service_endpoints is None and 'serviceEndpoints' in kwargs:
-            service_endpoints = kwargs['serviceEndpoints']
-        if virtual_network_name is None and 'virtualNetworkName' in kwargs:
-            virtual_network_name = kwargs['virtualNetworkName']
-
         if address_prefixes is not None:
-            _setter("address_prefixes", address_prefixes)
+            pulumi.set(__self__, "address_prefixes", address_prefixes)
         if delegations is not None:
-            _setter("delegations", delegations)
+            pulumi.set(__self__, "delegations", delegations)
         if enforce_private_link_endpoint_network_policies is not None:
             warnings.warn("""`enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies_enabled` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
             pulumi.log.warn("""enforce_private_link_endpoint_network_policies is deprecated: `enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies_enabled` in version 4.0 of the AzureRM Provider""")
         if enforce_private_link_endpoint_network_policies is not None:
-            _setter("enforce_private_link_endpoint_network_policies", enforce_private_link_endpoint_network_policies)
+            pulumi.set(__self__, "enforce_private_link_endpoint_network_policies", enforce_private_link_endpoint_network_policies)
         if enforce_private_link_service_network_policies is not None:
             warnings.warn("""`enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
             pulumi.log.warn("""enforce_private_link_service_network_policies is deprecated: `enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider""")
         if enforce_private_link_service_network_policies is not None:
-            _setter("enforce_private_link_service_network_policies", enforce_private_link_service_network_policies)
+            pulumi.set(__self__, "enforce_private_link_service_network_policies", enforce_private_link_service_network_policies)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if private_endpoint_network_policies_enabled is not None:
-            _setter("private_endpoint_network_policies_enabled", private_endpoint_network_policies_enabled)
+            pulumi.set(__self__, "private_endpoint_network_policies_enabled", private_endpoint_network_policies_enabled)
         if private_link_service_network_policies_enabled is not None:
-            _setter("private_link_service_network_policies_enabled", private_link_service_network_policies_enabled)
+            pulumi.set(__self__, "private_link_service_network_policies_enabled", private_link_service_network_policies_enabled)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if service_endpoint_policy_ids is not None:
-            _setter("service_endpoint_policy_ids", service_endpoint_policy_ids)
+            pulumi.set(__self__, "service_endpoint_policy_ids", service_endpoint_policy_ids)
         if service_endpoints is not None:
-            _setter("service_endpoints", service_endpoints)
+            pulumi.set(__self__, "service_endpoints", service_endpoints)
         if virtual_network_name is not None:
-            _setter("virtual_network_name", virtual_network_name)
+            pulumi.set(__self__, "virtual_network_name", virtual_network_name)
 
     @property
     @pulumi.getter(name="addressPrefixes")
@@ -659,10 +555,6 @@ class Subnet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SubnetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

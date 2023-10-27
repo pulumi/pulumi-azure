@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -66,160 +66,43 @@ class ReplicatedVMArgs:
         :param pulumi.Input[str] test_network_id: Network to use when a test failover is done.
         :param pulumi.Input[Sequence[pulumi.Input['ReplicatedVMUnmanagedDiskArgs']]] unmanaged_disks: One or more `unmanaged_disk` block. Changing this forces a new resource to be created.
         """
-        ReplicatedVMArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            recovery_replication_policy_id=recovery_replication_policy_id,
-            recovery_vault_name=recovery_vault_name,
-            resource_group_name=resource_group_name,
-            source_recovery_fabric_name=source_recovery_fabric_name,
-            source_recovery_protection_container_name=source_recovery_protection_container_name,
-            source_vm_id=source_vm_id,
-            target_recovery_fabric_id=target_recovery_fabric_id,
-            target_recovery_protection_container_id=target_recovery_protection_container_id,
-            target_resource_group_id=target_resource_group_id,
-            managed_disks=managed_disks,
-            multi_vm_group_name=multi_vm_group_name,
-            name=name,
-            network_interfaces=network_interfaces,
-            target_availability_set_id=target_availability_set_id,
-            target_boot_diagnostic_storage_account_id=target_boot_diagnostic_storage_account_id,
-            target_capacity_reservation_group_id=target_capacity_reservation_group_id,
-            target_edge_zone=target_edge_zone,
-            target_network_id=target_network_id,
-            target_proximity_placement_group_id=target_proximity_placement_group_id,
-            target_virtual_machine_scale_set_id=target_virtual_machine_scale_set_id,
-            target_zone=target_zone,
-            test_network_id=test_network_id,
-            unmanaged_disks=unmanaged_disks,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             recovery_replication_policy_id: Optional[pulumi.Input[str]] = None,
-             recovery_vault_name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             source_recovery_fabric_name: Optional[pulumi.Input[str]] = None,
-             source_recovery_protection_container_name: Optional[pulumi.Input[str]] = None,
-             source_vm_id: Optional[pulumi.Input[str]] = None,
-             target_recovery_fabric_id: Optional[pulumi.Input[str]] = None,
-             target_recovery_protection_container_id: Optional[pulumi.Input[str]] = None,
-             target_resource_group_id: Optional[pulumi.Input[str]] = None,
-             managed_disks: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatedVMManagedDiskArgs']]]] = None,
-             multi_vm_group_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatedVMNetworkInterfaceArgs']]]] = None,
-             target_availability_set_id: Optional[pulumi.Input[str]] = None,
-             target_boot_diagnostic_storage_account_id: Optional[pulumi.Input[str]] = None,
-             target_capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
-             target_edge_zone: Optional[pulumi.Input[str]] = None,
-             target_network_id: Optional[pulumi.Input[str]] = None,
-             target_proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
-             target_virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
-             target_zone: Optional[pulumi.Input[str]] = None,
-             test_network_id: Optional[pulumi.Input[str]] = None,
-             unmanaged_disks: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatedVMUnmanagedDiskArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if recovery_replication_policy_id is None and 'recoveryReplicationPolicyId' in kwargs:
-            recovery_replication_policy_id = kwargs['recoveryReplicationPolicyId']
-        if recovery_replication_policy_id is None:
-            raise TypeError("Missing 'recovery_replication_policy_id' argument")
-        if recovery_vault_name is None and 'recoveryVaultName' in kwargs:
-            recovery_vault_name = kwargs['recoveryVaultName']
-        if recovery_vault_name is None:
-            raise TypeError("Missing 'recovery_vault_name' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if source_recovery_fabric_name is None and 'sourceRecoveryFabricName' in kwargs:
-            source_recovery_fabric_name = kwargs['sourceRecoveryFabricName']
-        if source_recovery_fabric_name is None:
-            raise TypeError("Missing 'source_recovery_fabric_name' argument")
-        if source_recovery_protection_container_name is None and 'sourceRecoveryProtectionContainerName' in kwargs:
-            source_recovery_protection_container_name = kwargs['sourceRecoveryProtectionContainerName']
-        if source_recovery_protection_container_name is None:
-            raise TypeError("Missing 'source_recovery_protection_container_name' argument")
-        if source_vm_id is None and 'sourceVmId' in kwargs:
-            source_vm_id = kwargs['sourceVmId']
-        if source_vm_id is None:
-            raise TypeError("Missing 'source_vm_id' argument")
-        if target_recovery_fabric_id is None and 'targetRecoveryFabricId' in kwargs:
-            target_recovery_fabric_id = kwargs['targetRecoveryFabricId']
-        if target_recovery_fabric_id is None:
-            raise TypeError("Missing 'target_recovery_fabric_id' argument")
-        if target_recovery_protection_container_id is None and 'targetRecoveryProtectionContainerId' in kwargs:
-            target_recovery_protection_container_id = kwargs['targetRecoveryProtectionContainerId']
-        if target_recovery_protection_container_id is None:
-            raise TypeError("Missing 'target_recovery_protection_container_id' argument")
-        if target_resource_group_id is None and 'targetResourceGroupId' in kwargs:
-            target_resource_group_id = kwargs['targetResourceGroupId']
-        if target_resource_group_id is None:
-            raise TypeError("Missing 'target_resource_group_id' argument")
-        if managed_disks is None and 'managedDisks' in kwargs:
-            managed_disks = kwargs['managedDisks']
-        if multi_vm_group_name is None and 'multiVmGroupName' in kwargs:
-            multi_vm_group_name = kwargs['multiVmGroupName']
-        if network_interfaces is None and 'networkInterfaces' in kwargs:
-            network_interfaces = kwargs['networkInterfaces']
-        if target_availability_set_id is None and 'targetAvailabilitySetId' in kwargs:
-            target_availability_set_id = kwargs['targetAvailabilitySetId']
-        if target_boot_diagnostic_storage_account_id is None and 'targetBootDiagnosticStorageAccountId' in kwargs:
-            target_boot_diagnostic_storage_account_id = kwargs['targetBootDiagnosticStorageAccountId']
-        if target_capacity_reservation_group_id is None and 'targetCapacityReservationGroupId' in kwargs:
-            target_capacity_reservation_group_id = kwargs['targetCapacityReservationGroupId']
-        if target_edge_zone is None and 'targetEdgeZone' in kwargs:
-            target_edge_zone = kwargs['targetEdgeZone']
-        if target_network_id is None and 'targetNetworkId' in kwargs:
-            target_network_id = kwargs['targetNetworkId']
-        if target_proximity_placement_group_id is None and 'targetProximityPlacementGroupId' in kwargs:
-            target_proximity_placement_group_id = kwargs['targetProximityPlacementGroupId']
-        if target_virtual_machine_scale_set_id is None and 'targetVirtualMachineScaleSetId' in kwargs:
-            target_virtual_machine_scale_set_id = kwargs['targetVirtualMachineScaleSetId']
-        if target_zone is None and 'targetZone' in kwargs:
-            target_zone = kwargs['targetZone']
-        if test_network_id is None and 'testNetworkId' in kwargs:
-            test_network_id = kwargs['testNetworkId']
-        if unmanaged_disks is None and 'unmanagedDisks' in kwargs:
-            unmanaged_disks = kwargs['unmanagedDisks']
-
-        _setter("recovery_replication_policy_id", recovery_replication_policy_id)
-        _setter("recovery_vault_name", recovery_vault_name)
-        _setter("resource_group_name", resource_group_name)
-        _setter("source_recovery_fabric_name", source_recovery_fabric_name)
-        _setter("source_recovery_protection_container_name", source_recovery_protection_container_name)
-        _setter("source_vm_id", source_vm_id)
-        _setter("target_recovery_fabric_id", target_recovery_fabric_id)
-        _setter("target_recovery_protection_container_id", target_recovery_protection_container_id)
-        _setter("target_resource_group_id", target_resource_group_id)
+        pulumi.set(__self__, "recovery_replication_policy_id", recovery_replication_policy_id)
+        pulumi.set(__self__, "recovery_vault_name", recovery_vault_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "source_recovery_fabric_name", source_recovery_fabric_name)
+        pulumi.set(__self__, "source_recovery_protection_container_name", source_recovery_protection_container_name)
+        pulumi.set(__self__, "source_vm_id", source_vm_id)
+        pulumi.set(__self__, "target_recovery_fabric_id", target_recovery_fabric_id)
+        pulumi.set(__self__, "target_recovery_protection_container_id", target_recovery_protection_container_id)
+        pulumi.set(__self__, "target_resource_group_id", target_resource_group_id)
         if managed_disks is not None:
-            _setter("managed_disks", managed_disks)
+            pulumi.set(__self__, "managed_disks", managed_disks)
         if multi_vm_group_name is not None:
-            _setter("multi_vm_group_name", multi_vm_group_name)
+            pulumi.set(__self__, "multi_vm_group_name", multi_vm_group_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if network_interfaces is not None:
-            _setter("network_interfaces", network_interfaces)
+            pulumi.set(__self__, "network_interfaces", network_interfaces)
         if target_availability_set_id is not None:
-            _setter("target_availability_set_id", target_availability_set_id)
+            pulumi.set(__self__, "target_availability_set_id", target_availability_set_id)
         if target_boot_diagnostic_storage_account_id is not None:
-            _setter("target_boot_diagnostic_storage_account_id", target_boot_diagnostic_storage_account_id)
+            pulumi.set(__self__, "target_boot_diagnostic_storage_account_id", target_boot_diagnostic_storage_account_id)
         if target_capacity_reservation_group_id is not None:
-            _setter("target_capacity_reservation_group_id", target_capacity_reservation_group_id)
+            pulumi.set(__self__, "target_capacity_reservation_group_id", target_capacity_reservation_group_id)
         if target_edge_zone is not None:
-            _setter("target_edge_zone", target_edge_zone)
+            pulumi.set(__self__, "target_edge_zone", target_edge_zone)
         if target_network_id is not None:
-            _setter("target_network_id", target_network_id)
+            pulumi.set(__self__, "target_network_id", target_network_id)
         if target_proximity_placement_group_id is not None:
-            _setter("target_proximity_placement_group_id", target_proximity_placement_group_id)
+            pulumi.set(__self__, "target_proximity_placement_group_id", target_proximity_placement_group_id)
         if target_virtual_machine_scale_set_id is not None:
-            _setter("target_virtual_machine_scale_set_id", target_virtual_machine_scale_set_id)
+            pulumi.set(__self__, "target_virtual_machine_scale_set_id", target_virtual_machine_scale_set_id)
         if target_zone is not None:
-            _setter("target_zone", target_zone)
+            pulumi.set(__self__, "target_zone", target_zone)
         if test_network_id is not None:
-            _setter("test_network_id", test_network_id)
+            pulumi.set(__self__, "test_network_id", test_network_id)
         if unmanaged_disks is not None:
-            _setter("unmanaged_disks", unmanaged_disks)
+            pulumi.set(__self__, "unmanaged_disks", unmanaged_disks)
 
     @property
     @pulumi.getter(name="recoveryReplicationPolicyId")
@@ -552,151 +435,52 @@ class _ReplicatedVMState:
         :param pulumi.Input[str] test_network_id: Network to use when a test failover is done.
         :param pulumi.Input[Sequence[pulumi.Input['ReplicatedVMUnmanagedDiskArgs']]] unmanaged_disks: One or more `unmanaged_disk` block. Changing this forces a new resource to be created.
         """
-        _ReplicatedVMState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            managed_disks=managed_disks,
-            multi_vm_group_name=multi_vm_group_name,
-            name=name,
-            network_interfaces=network_interfaces,
-            recovery_replication_policy_id=recovery_replication_policy_id,
-            recovery_vault_name=recovery_vault_name,
-            resource_group_name=resource_group_name,
-            source_recovery_fabric_name=source_recovery_fabric_name,
-            source_recovery_protection_container_name=source_recovery_protection_container_name,
-            source_vm_id=source_vm_id,
-            target_availability_set_id=target_availability_set_id,
-            target_boot_diagnostic_storage_account_id=target_boot_diagnostic_storage_account_id,
-            target_capacity_reservation_group_id=target_capacity_reservation_group_id,
-            target_edge_zone=target_edge_zone,
-            target_network_id=target_network_id,
-            target_proximity_placement_group_id=target_proximity_placement_group_id,
-            target_recovery_fabric_id=target_recovery_fabric_id,
-            target_recovery_protection_container_id=target_recovery_protection_container_id,
-            target_resource_group_id=target_resource_group_id,
-            target_virtual_machine_scale_set_id=target_virtual_machine_scale_set_id,
-            target_zone=target_zone,
-            test_network_id=test_network_id,
-            unmanaged_disks=unmanaged_disks,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             managed_disks: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatedVMManagedDiskArgs']]]] = None,
-             multi_vm_group_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatedVMNetworkInterfaceArgs']]]] = None,
-             recovery_replication_policy_id: Optional[pulumi.Input[str]] = None,
-             recovery_vault_name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             source_recovery_fabric_name: Optional[pulumi.Input[str]] = None,
-             source_recovery_protection_container_name: Optional[pulumi.Input[str]] = None,
-             source_vm_id: Optional[pulumi.Input[str]] = None,
-             target_availability_set_id: Optional[pulumi.Input[str]] = None,
-             target_boot_diagnostic_storage_account_id: Optional[pulumi.Input[str]] = None,
-             target_capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
-             target_edge_zone: Optional[pulumi.Input[str]] = None,
-             target_network_id: Optional[pulumi.Input[str]] = None,
-             target_proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
-             target_recovery_fabric_id: Optional[pulumi.Input[str]] = None,
-             target_recovery_protection_container_id: Optional[pulumi.Input[str]] = None,
-             target_resource_group_id: Optional[pulumi.Input[str]] = None,
-             target_virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
-             target_zone: Optional[pulumi.Input[str]] = None,
-             test_network_id: Optional[pulumi.Input[str]] = None,
-             unmanaged_disks: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatedVMUnmanagedDiskArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if managed_disks is None and 'managedDisks' in kwargs:
-            managed_disks = kwargs['managedDisks']
-        if multi_vm_group_name is None and 'multiVmGroupName' in kwargs:
-            multi_vm_group_name = kwargs['multiVmGroupName']
-        if network_interfaces is None and 'networkInterfaces' in kwargs:
-            network_interfaces = kwargs['networkInterfaces']
-        if recovery_replication_policy_id is None and 'recoveryReplicationPolicyId' in kwargs:
-            recovery_replication_policy_id = kwargs['recoveryReplicationPolicyId']
-        if recovery_vault_name is None and 'recoveryVaultName' in kwargs:
-            recovery_vault_name = kwargs['recoveryVaultName']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if source_recovery_fabric_name is None and 'sourceRecoveryFabricName' in kwargs:
-            source_recovery_fabric_name = kwargs['sourceRecoveryFabricName']
-        if source_recovery_protection_container_name is None and 'sourceRecoveryProtectionContainerName' in kwargs:
-            source_recovery_protection_container_name = kwargs['sourceRecoveryProtectionContainerName']
-        if source_vm_id is None and 'sourceVmId' in kwargs:
-            source_vm_id = kwargs['sourceVmId']
-        if target_availability_set_id is None and 'targetAvailabilitySetId' in kwargs:
-            target_availability_set_id = kwargs['targetAvailabilitySetId']
-        if target_boot_diagnostic_storage_account_id is None and 'targetBootDiagnosticStorageAccountId' in kwargs:
-            target_boot_diagnostic_storage_account_id = kwargs['targetBootDiagnosticStorageAccountId']
-        if target_capacity_reservation_group_id is None and 'targetCapacityReservationGroupId' in kwargs:
-            target_capacity_reservation_group_id = kwargs['targetCapacityReservationGroupId']
-        if target_edge_zone is None and 'targetEdgeZone' in kwargs:
-            target_edge_zone = kwargs['targetEdgeZone']
-        if target_network_id is None and 'targetNetworkId' in kwargs:
-            target_network_id = kwargs['targetNetworkId']
-        if target_proximity_placement_group_id is None and 'targetProximityPlacementGroupId' in kwargs:
-            target_proximity_placement_group_id = kwargs['targetProximityPlacementGroupId']
-        if target_recovery_fabric_id is None and 'targetRecoveryFabricId' in kwargs:
-            target_recovery_fabric_id = kwargs['targetRecoveryFabricId']
-        if target_recovery_protection_container_id is None and 'targetRecoveryProtectionContainerId' in kwargs:
-            target_recovery_protection_container_id = kwargs['targetRecoveryProtectionContainerId']
-        if target_resource_group_id is None and 'targetResourceGroupId' in kwargs:
-            target_resource_group_id = kwargs['targetResourceGroupId']
-        if target_virtual_machine_scale_set_id is None and 'targetVirtualMachineScaleSetId' in kwargs:
-            target_virtual_machine_scale_set_id = kwargs['targetVirtualMachineScaleSetId']
-        if target_zone is None and 'targetZone' in kwargs:
-            target_zone = kwargs['targetZone']
-        if test_network_id is None and 'testNetworkId' in kwargs:
-            test_network_id = kwargs['testNetworkId']
-        if unmanaged_disks is None and 'unmanagedDisks' in kwargs:
-            unmanaged_disks = kwargs['unmanagedDisks']
-
         if managed_disks is not None:
-            _setter("managed_disks", managed_disks)
+            pulumi.set(__self__, "managed_disks", managed_disks)
         if multi_vm_group_name is not None:
-            _setter("multi_vm_group_name", multi_vm_group_name)
+            pulumi.set(__self__, "multi_vm_group_name", multi_vm_group_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if network_interfaces is not None:
-            _setter("network_interfaces", network_interfaces)
+            pulumi.set(__self__, "network_interfaces", network_interfaces)
         if recovery_replication_policy_id is not None:
-            _setter("recovery_replication_policy_id", recovery_replication_policy_id)
+            pulumi.set(__self__, "recovery_replication_policy_id", recovery_replication_policy_id)
         if recovery_vault_name is not None:
-            _setter("recovery_vault_name", recovery_vault_name)
+            pulumi.set(__self__, "recovery_vault_name", recovery_vault_name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if source_recovery_fabric_name is not None:
-            _setter("source_recovery_fabric_name", source_recovery_fabric_name)
+            pulumi.set(__self__, "source_recovery_fabric_name", source_recovery_fabric_name)
         if source_recovery_protection_container_name is not None:
-            _setter("source_recovery_protection_container_name", source_recovery_protection_container_name)
+            pulumi.set(__self__, "source_recovery_protection_container_name", source_recovery_protection_container_name)
         if source_vm_id is not None:
-            _setter("source_vm_id", source_vm_id)
+            pulumi.set(__self__, "source_vm_id", source_vm_id)
         if target_availability_set_id is not None:
-            _setter("target_availability_set_id", target_availability_set_id)
+            pulumi.set(__self__, "target_availability_set_id", target_availability_set_id)
         if target_boot_diagnostic_storage_account_id is not None:
-            _setter("target_boot_diagnostic_storage_account_id", target_boot_diagnostic_storage_account_id)
+            pulumi.set(__self__, "target_boot_diagnostic_storage_account_id", target_boot_diagnostic_storage_account_id)
         if target_capacity_reservation_group_id is not None:
-            _setter("target_capacity_reservation_group_id", target_capacity_reservation_group_id)
+            pulumi.set(__self__, "target_capacity_reservation_group_id", target_capacity_reservation_group_id)
         if target_edge_zone is not None:
-            _setter("target_edge_zone", target_edge_zone)
+            pulumi.set(__self__, "target_edge_zone", target_edge_zone)
         if target_network_id is not None:
-            _setter("target_network_id", target_network_id)
+            pulumi.set(__self__, "target_network_id", target_network_id)
         if target_proximity_placement_group_id is not None:
-            _setter("target_proximity_placement_group_id", target_proximity_placement_group_id)
+            pulumi.set(__self__, "target_proximity_placement_group_id", target_proximity_placement_group_id)
         if target_recovery_fabric_id is not None:
-            _setter("target_recovery_fabric_id", target_recovery_fabric_id)
+            pulumi.set(__self__, "target_recovery_fabric_id", target_recovery_fabric_id)
         if target_recovery_protection_container_id is not None:
-            _setter("target_recovery_protection_container_id", target_recovery_protection_container_id)
+            pulumi.set(__self__, "target_recovery_protection_container_id", target_recovery_protection_container_id)
         if target_resource_group_id is not None:
-            _setter("target_resource_group_id", target_resource_group_id)
+            pulumi.set(__self__, "target_resource_group_id", target_resource_group_id)
         if target_virtual_machine_scale_set_id is not None:
-            _setter("target_virtual_machine_scale_set_id", target_virtual_machine_scale_set_id)
+            pulumi.set(__self__, "target_virtual_machine_scale_set_id", target_virtual_machine_scale_set_id)
         if target_zone is not None:
-            _setter("target_zone", target_zone)
+            pulumi.set(__self__, "target_zone", target_zone)
         if test_network_id is not None:
-            _setter("test_network_id", test_network_id)
+            pulumi.set(__self__, "test_network_id", test_network_id)
         if unmanaged_disks is not None:
-            _setter("unmanaged_disks", unmanaged_disks)
+            pulumi.set(__self__, "unmanaged_disks", unmanaged_disks)
 
     @property
     @pulumi.getter(name="managedDisks")
@@ -1352,10 +1136,6 @@ class ReplicatedVM(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ReplicatedVMArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

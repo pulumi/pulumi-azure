@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -63,130 +63,45 @@ class KafkaClusterArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of Tags which should be assigned to this HDInsight Kafka Cluster.
         :param pulumi.Input[str] tls_min_version: The minimal supported TLS version. Possible values are `1.0`, `1.1` or `1.2`. Changing this forces a new resource to be created.
         """
-        KafkaClusterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cluster_version=cluster_version,
-            component_version=component_version,
-            gateway=gateway,
-            resource_group_name=resource_group_name,
-            roles=roles,
-            tier=tier,
-            compute_isolation=compute_isolation,
-            disk_encryptions=disk_encryptions,
-            encryption_in_transit_enabled=encryption_in_transit_enabled,
-            extension=extension,
-            location=location,
-            metastores=metastores,
-            monitor=monitor,
-            name=name,
-            network=network,
-            rest_proxy=rest_proxy,
-            security_profile=security_profile,
-            storage_account_gen2=storage_account_gen2,
-            storage_accounts=storage_accounts,
-            tags=tags,
-            tls_min_version=tls_min_version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cluster_version: Optional[pulumi.Input[str]] = None,
-             component_version: Optional[pulumi.Input['KafkaClusterComponentVersionArgs']] = None,
-             gateway: Optional[pulumi.Input['KafkaClusterGatewayArgs']] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             roles: Optional[pulumi.Input['KafkaClusterRolesArgs']] = None,
-             tier: Optional[pulumi.Input[str]] = None,
-             compute_isolation: Optional[pulumi.Input['KafkaClusterComputeIsolationArgs']] = None,
-             disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterDiskEncryptionArgs']]]] = None,
-             encryption_in_transit_enabled: Optional[pulumi.Input[bool]] = None,
-             extension: Optional[pulumi.Input['KafkaClusterExtensionArgs']] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             metastores: Optional[pulumi.Input['KafkaClusterMetastoresArgs']] = None,
-             monitor: Optional[pulumi.Input['KafkaClusterMonitorArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             network: Optional[pulumi.Input['KafkaClusterNetworkArgs']] = None,
-             rest_proxy: Optional[pulumi.Input['KafkaClusterRestProxyArgs']] = None,
-             security_profile: Optional[pulumi.Input['KafkaClusterSecurityProfileArgs']] = None,
-             storage_account_gen2: Optional[pulumi.Input['KafkaClusterStorageAccountGen2Args']] = None,
-             storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterStorageAccountArgs']]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tls_min_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cluster_version is None and 'clusterVersion' in kwargs:
-            cluster_version = kwargs['clusterVersion']
-        if cluster_version is None:
-            raise TypeError("Missing 'cluster_version' argument")
-        if component_version is None and 'componentVersion' in kwargs:
-            component_version = kwargs['componentVersion']
-        if component_version is None:
-            raise TypeError("Missing 'component_version' argument")
-        if gateway is None:
-            raise TypeError("Missing 'gateway' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if roles is None:
-            raise TypeError("Missing 'roles' argument")
-        if tier is None:
-            raise TypeError("Missing 'tier' argument")
-        if compute_isolation is None and 'computeIsolation' in kwargs:
-            compute_isolation = kwargs['computeIsolation']
-        if disk_encryptions is None and 'diskEncryptions' in kwargs:
-            disk_encryptions = kwargs['diskEncryptions']
-        if encryption_in_transit_enabled is None and 'encryptionInTransitEnabled' in kwargs:
-            encryption_in_transit_enabled = kwargs['encryptionInTransitEnabled']
-        if rest_proxy is None and 'restProxy' in kwargs:
-            rest_proxy = kwargs['restProxy']
-        if security_profile is None and 'securityProfile' in kwargs:
-            security_profile = kwargs['securityProfile']
-        if storage_account_gen2 is None and 'storageAccountGen2' in kwargs:
-            storage_account_gen2 = kwargs['storageAccountGen2']
-        if storage_accounts is None and 'storageAccounts' in kwargs:
-            storage_accounts = kwargs['storageAccounts']
-        if tls_min_version is None and 'tlsMinVersion' in kwargs:
-            tls_min_version = kwargs['tlsMinVersion']
-
-        _setter("cluster_version", cluster_version)
-        _setter("component_version", component_version)
-        _setter("gateway", gateway)
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "cluster_version", cluster_version)
+        pulumi.set(__self__, "component_version", component_version)
+        pulumi.set(__self__, "gateway", gateway)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if roles is not None:
             warnings.warn("""`kafka_management_node` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user""", DeprecationWarning)
             pulumi.log.warn("""roles is deprecated: `kafka_management_node` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user""")
-        _setter("roles", roles)
-        _setter("tier", tier)
+        pulumi.set(__self__, "roles", roles)
+        pulumi.set(__self__, "tier", tier)
         if compute_isolation is not None:
-            _setter("compute_isolation", compute_isolation)
+            pulumi.set(__self__, "compute_isolation", compute_isolation)
         if disk_encryptions is not None:
-            _setter("disk_encryptions", disk_encryptions)
+            pulumi.set(__self__, "disk_encryptions", disk_encryptions)
         if encryption_in_transit_enabled is not None:
-            _setter("encryption_in_transit_enabled", encryption_in_transit_enabled)
+            pulumi.set(__self__, "encryption_in_transit_enabled", encryption_in_transit_enabled)
         if extension is not None:
-            _setter("extension", extension)
+            pulumi.set(__self__, "extension", extension)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if metastores is not None:
-            _setter("metastores", metastores)
+            pulumi.set(__self__, "metastores", metastores)
         if monitor is not None:
-            _setter("monitor", monitor)
+            pulumi.set(__self__, "monitor", monitor)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if network is not None:
-            _setter("network", network)
+            pulumi.set(__self__, "network", network)
         if rest_proxy is not None:
-            _setter("rest_proxy", rest_proxy)
+            pulumi.set(__self__, "rest_proxy", rest_proxy)
         if security_profile is not None:
-            _setter("security_profile", security_profile)
+            pulumi.set(__self__, "security_profile", security_profile)
         if storage_account_gen2 is not None:
-            _setter("storage_account_gen2", storage_account_gen2)
+            pulumi.set(__self__, "storage_account_gen2", storage_account_gen2)
         if storage_accounts is not None:
-            _setter("storage_accounts", storage_accounts)
+            pulumi.set(__self__, "storage_accounts", storage_accounts)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tls_min_version is not None:
-            _setter("tls_min_version", tls_min_version)
+            pulumi.set(__self__, "tls_min_version", tls_min_version)
 
     @property
     @pulumi.getter(name="clusterVersion")
@@ -502,142 +417,57 @@ class _KafkaClusterState:
         :param pulumi.Input[str] tier: Specifies the Tier which should be used for this HDInsight Kafka Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] tls_min_version: The minimal supported TLS version. Possible values are `1.0`, `1.1` or `1.2`. Changing this forces a new resource to be created.
         """
-        _KafkaClusterState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cluster_version=cluster_version,
-            component_version=component_version,
-            compute_isolation=compute_isolation,
-            disk_encryptions=disk_encryptions,
-            encryption_in_transit_enabled=encryption_in_transit_enabled,
-            extension=extension,
-            gateway=gateway,
-            https_endpoint=https_endpoint,
-            kafka_rest_proxy_endpoint=kafka_rest_proxy_endpoint,
-            location=location,
-            metastores=metastores,
-            monitor=monitor,
-            name=name,
-            network=network,
-            resource_group_name=resource_group_name,
-            rest_proxy=rest_proxy,
-            roles=roles,
-            security_profile=security_profile,
-            ssh_endpoint=ssh_endpoint,
-            storage_account_gen2=storage_account_gen2,
-            storage_accounts=storage_accounts,
-            tags=tags,
-            tier=tier,
-            tls_min_version=tls_min_version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cluster_version: Optional[pulumi.Input[str]] = None,
-             component_version: Optional[pulumi.Input['KafkaClusterComponentVersionArgs']] = None,
-             compute_isolation: Optional[pulumi.Input['KafkaClusterComputeIsolationArgs']] = None,
-             disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterDiskEncryptionArgs']]]] = None,
-             encryption_in_transit_enabled: Optional[pulumi.Input[bool]] = None,
-             extension: Optional[pulumi.Input['KafkaClusterExtensionArgs']] = None,
-             gateway: Optional[pulumi.Input['KafkaClusterGatewayArgs']] = None,
-             https_endpoint: Optional[pulumi.Input[str]] = None,
-             kafka_rest_proxy_endpoint: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             metastores: Optional[pulumi.Input['KafkaClusterMetastoresArgs']] = None,
-             monitor: Optional[pulumi.Input['KafkaClusterMonitorArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             network: Optional[pulumi.Input['KafkaClusterNetworkArgs']] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             rest_proxy: Optional[pulumi.Input['KafkaClusterRestProxyArgs']] = None,
-             roles: Optional[pulumi.Input['KafkaClusterRolesArgs']] = None,
-             security_profile: Optional[pulumi.Input['KafkaClusterSecurityProfileArgs']] = None,
-             ssh_endpoint: Optional[pulumi.Input[str]] = None,
-             storage_account_gen2: Optional[pulumi.Input['KafkaClusterStorageAccountGen2Args']] = None,
-             storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterStorageAccountArgs']]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tier: Optional[pulumi.Input[str]] = None,
-             tls_min_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cluster_version is None and 'clusterVersion' in kwargs:
-            cluster_version = kwargs['clusterVersion']
-        if component_version is None and 'componentVersion' in kwargs:
-            component_version = kwargs['componentVersion']
-        if compute_isolation is None and 'computeIsolation' in kwargs:
-            compute_isolation = kwargs['computeIsolation']
-        if disk_encryptions is None and 'diskEncryptions' in kwargs:
-            disk_encryptions = kwargs['diskEncryptions']
-        if encryption_in_transit_enabled is None and 'encryptionInTransitEnabled' in kwargs:
-            encryption_in_transit_enabled = kwargs['encryptionInTransitEnabled']
-        if https_endpoint is None and 'httpsEndpoint' in kwargs:
-            https_endpoint = kwargs['httpsEndpoint']
-        if kafka_rest_proxy_endpoint is None and 'kafkaRestProxyEndpoint' in kwargs:
-            kafka_rest_proxy_endpoint = kwargs['kafkaRestProxyEndpoint']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if rest_proxy is None and 'restProxy' in kwargs:
-            rest_proxy = kwargs['restProxy']
-        if security_profile is None and 'securityProfile' in kwargs:
-            security_profile = kwargs['securityProfile']
-        if ssh_endpoint is None and 'sshEndpoint' in kwargs:
-            ssh_endpoint = kwargs['sshEndpoint']
-        if storage_account_gen2 is None and 'storageAccountGen2' in kwargs:
-            storage_account_gen2 = kwargs['storageAccountGen2']
-        if storage_accounts is None and 'storageAccounts' in kwargs:
-            storage_accounts = kwargs['storageAccounts']
-        if tls_min_version is None and 'tlsMinVersion' in kwargs:
-            tls_min_version = kwargs['tlsMinVersion']
-
         if cluster_version is not None:
-            _setter("cluster_version", cluster_version)
+            pulumi.set(__self__, "cluster_version", cluster_version)
         if component_version is not None:
-            _setter("component_version", component_version)
+            pulumi.set(__self__, "component_version", component_version)
         if compute_isolation is not None:
-            _setter("compute_isolation", compute_isolation)
+            pulumi.set(__self__, "compute_isolation", compute_isolation)
         if disk_encryptions is not None:
-            _setter("disk_encryptions", disk_encryptions)
+            pulumi.set(__self__, "disk_encryptions", disk_encryptions)
         if encryption_in_transit_enabled is not None:
-            _setter("encryption_in_transit_enabled", encryption_in_transit_enabled)
+            pulumi.set(__self__, "encryption_in_transit_enabled", encryption_in_transit_enabled)
         if extension is not None:
-            _setter("extension", extension)
+            pulumi.set(__self__, "extension", extension)
         if gateway is not None:
-            _setter("gateway", gateway)
+            pulumi.set(__self__, "gateway", gateway)
         if https_endpoint is not None:
-            _setter("https_endpoint", https_endpoint)
+            pulumi.set(__self__, "https_endpoint", https_endpoint)
         if kafka_rest_proxy_endpoint is not None:
-            _setter("kafka_rest_proxy_endpoint", kafka_rest_proxy_endpoint)
+            pulumi.set(__self__, "kafka_rest_proxy_endpoint", kafka_rest_proxy_endpoint)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if metastores is not None:
-            _setter("metastores", metastores)
+            pulumi.set(__self__, "metastores", metastores)
         if monitor is not None:
-            _setter("monitor", monitor)
+            pulumi.set(__self__, "monitor", monitor)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if network is not None:
-            _setter("network", network)
+            pulumi.set(__self__, "network", network)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if rest_proxy is not None:
-            _setter("rest_proxy", rest_proxy)
+            pulumi.set(__self__, "rest_proxy", rest_proxy)
         if roles is not None:
             warnings.warn("""`kafka_management_node` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user""", DeprecationWarning)
             pulumi.log.warn("""roles is deprecated: `kafka_management_node` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user""")
         if roles is not None:
-            _setter("roles", roles)
+            pulumi.set(__self__, "roles", roles)
         if security_profile is not None:
-            _setter("security_profile", security_profile)
+            pulumi.set(__self__, "security_profile", security_profile)
         if ssh_endpoint is not None:
-            _setter("ssh_endpoint", ssh_endpoint)
+            pulumi.set(__self__, "ssh_endpoint", ssh_endpoint)
         if storage_account_gen2 is not None:
-            _setter("storage_account_gen2", storage_account_gen2)
+            pulumi.set(__self__, "storage_account_gen2", storage_account_gen2)
         if storage_accounts is not None:
-            _setter("storage_accounts", storage_accounts)
+            pulumi.set(__self__, "storage_accounts", storage_accounts)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tier is not None:
-            _setter("tier", tier)
+            pulumi.set(__self__, "tier", tier)
         if tls_min_version is not None:
-            _setter("tls_min_version", tls_min_version)
+            pulumi.set(__self__, "tls_min_version", tls_min_version)
 
     @property
     @pulumi.getter(name="clusterVersion")
@@ -1130,10 +960,6 @@ class KafkaCluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            KafkaClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1172,40 +998,29 @@ class KafkaCluster(pulumi.CustomResource):
             if cluster_version is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_version'")
             __props__.__dict__["cluster_version"] = cluster_version
-            component_version = _utilities.configure(component_version, KafkaClusterComponentVersionArgs, True)
             if component_version is None and not opts.urn:
                 raise TypeError("Missing required property 'component_version'")
             __props__.__dict__["component_version"] = component_version
-            compute_isolation = _utilities.configure(compute_isolation, KafkaClusterComputeIsolationArgs, True)
             __props__.__dict__["compute_isolation"] = compute_isolation
             __props__.__dict__["disk_encryptions"] = disk_encryptions
             __props__.__dict__["encryption_in_transit_enabled"] = encryption_in_transit_enabled
-            extension = _utilities.configure(extension, KafkaClusterExtensionArgs, True)
             __props__.__dict__["extension"] = extension
-            gateway = _utilities.configure(gateway, KafkaClusterGatewayArgs, True)
             if gateway is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway'")
             __props__.__dict__["gateway"] = gateway
             __props__.__dict__["location"] = location
-            metastores = _utilities.configure(metastores, KafkaClusterMetastoresArgs, True)
             __props__.__dict__["metastores"] = metastores
-            monitor = _utilities.configure(monitor, KafkaClusterMonitorArgs, True)
             __props__.__dict__["monitor"] = monitor
             __props__.__dict__["name"] = name
-            network = _utilities.configure(network, KafkaClusterNetworkArgs, True)
             __props__.__dict__["network"] = network
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            rest_proxy = _utilities.configure(rest_proxy, KafkaClusterRestProxyArgs, True)
             __props__.__dict__["rest_proxy"] = rest_proxy
-            roles = _utilities.configure(roles, KafkaClusterRolesArgs, True)
             if roles is None and not opts.urn:
                 raise TypeError("Missing required property 'roles'")
             __props__.__dict__["roles"] = roles
-            security_profile = _utilities.configure(security_profile, KafkaClusterSecurityProfileArgs, True)
             __props__.__dict__["security_profile"] = security_profile
-            storage_account_gen2 = _utilities.configure(storage_account_gen2, KafkaClusterStorageAccountGen2Args, True)
             __props__.__dict__["storage_account_gen2"] = storage_account_gen2
             __props__.__dict__["storage_accounts"] = storage_accounts
             __props__.__dict__["tags"] = tags

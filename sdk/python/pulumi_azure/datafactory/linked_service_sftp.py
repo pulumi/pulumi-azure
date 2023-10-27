@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LinkedServiceSftpArgs', 'LinkedServiceSftp']
@@ -47,89 +47,28 @@ class LinkedServiceSftpArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         :param pulumi.Input[bool] skip_host_key_validation: Whether to validate host key fingerprint while connecting. If set to `false`, `host_key_fingerprint` must also be set.
         """
-        LinkedServiceSftpArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            authentication_type=authentication_type,
-            data_factory_id=data_factory_id,
-            host=host,
-            password=password,
-            port=port,
-            username=username,
-            additional_properties=additional_properties,
-            annotations=annotations,
-            description=description,
-            host_key_fingerprint=host_key_fingerprint,
-            integration_runtime_name=integration_runtime_name,
-            name=name,
-            parameters=parameters,
-            skip_host_key_validation=skip_host_key_validation,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             authentication_type: Optional[pulumi.Input[str]] = None,
-             data_factory_id: Optional[pulumi.Input[str]] = None,
-             host: Optional[pulumi.Input[str]] = None,
-             password: Optional[pulumi.Input[str]] = None,
-             port: Optional[pulumi.Input[int]] = None,
-             username: Optional[pulumi.Input[str]] = None,
-             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             host_key_fingerprint: Optional[pulumi.Input[str]] = None,
-             integration_runtime_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             skip_host_key_validation: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if authentication_type is None and 'authenticationType' in kwargs:
-            authentication_type = kwargs['authenticationType']
-        if authentication_type is None:
-            raise TypeError("Missing 'authentication_type' argument")
-        if data_factory_id is None and 'dataFactoryId' in kwargs:
-            data_factory_id = kwargs['dataFactoryId']
-        if data_factory_id is None:
-            raise TypeError("Missing 'data_factory_id' argument")
-        if host is None:
-            raise TypeError("Missing 'host' argument")
-        if password is None:
-            raise TypeError("Missing 'password' argument")
-        if port is None:
-            raise TypeError("Missing 'port' argument")
-        if username is None:
-            raise TypeError("Missing 'username' argument")
-        if additional_properties is None and 'additionalProperties' in kwargs:
-            additional_properties = kwargs['additionalProperties']
-        if host_key_fingerprint is None and 'hostKeyFingerprint' in kwargs:
-            host_key_fingerprint = kwargs['hostKeyFingerprint']
-        if integration_runtime_name is None and 'integrationRuntimeName' in kwargs:
-            integration_runtime_name = kwargs['integrationRuntimeName']
-        if skip_host_key_validation is None and 'skipHostKeyValidation' in kwargs:
-            skip_host_key_validation = kwargs['skipHostKeyValidation']
-
-        _setter("authentication_type", authentication_type)
-        _setter("data_factory_id", data_factory_id)
-        _setter("host", host)
-        _setter("password", password)
-        _setter("port", port)
-        _setter("username", username)
+        pulumi.set(__self__, "authentication_type", authentication_type)
+        pulumi.set(__self__, "data_factory_id", data_factory_id)
+        pulumi.set(__self__, "host", host)
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "username", username)
         if additional_properties is not None:
-            _setter("additional_properties", additional_properties)
+            pulumi.set(__self__, "additional_properties", additional_properties)
         if annotations is not None:
-            _setter("annotations", annotations)
+            pulumi.set(__self__, "annotations", annotations)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if host_key_fingerprint is not None:
-            _setter("host_key_fingerprint", host_key_fingerprint)
+            pulumi.set(__self__, "host_key_fingerprint", host_key_fingerprint)
         if integration_runtime_name is not None:
-            _setter("integration_runtime_name", integration_runtime_name)
+            pulumi.set(__self__, "integration_runtime_name", integration_runtime_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if parameters is not None:
-            _setter("parameters", parameters)
+            pulumi.set(__self__, "parameters", parameters)
         if skip_host_key_validation is not None:
-            _setter("skip_host_key_validation", skip_host_key_validation)
+            pulumi.set(__self__, "skip_host_key_validation", skip_host_key_validation)
 
     @property
     @pulumi.getter(name="authenticationType")
@@ -338,83 +277,34 @@ class _LinkedServiceSftpState:
         :param pulumi.Input[bool] skip_host_key_validation: Whether to validate host key fingerprint while connecting. If set to `false`, `host_key_fingerprint` must also be set.
         :param pulumi.Input[str] username: The username used to log on to the SFTP server.
         """
-        _LinkedServiceSftpState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            additional_properties=additional_properties,
-            annotations=annotations,
-            authentication_type=authentication_type,
-            data_factory_id=data_factory_id,
-            description=description,
-            host=host,
-            host_key_fingerprint=host_key_fingerprint,
-            integration_runtime_name=integration_runtime_name,
-            name=name,
-            parameters=parameters,
-            password=password,
-            port=port,
-            skip_host_key_validation=skip_host_key_validation,
-            username=username,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             authentication_type: Optional[pulumi.Input[str]] = None,
-             data_factory_id: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             host: Optional[pulumi.Input[str]] = None,
-             host_key_fingerprint: Optional[pulumi.Input[str]] = None,
-             integration_runtime_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             password: Optional[pulumi.Input[str]] = None,
-             port: Optional[pulumi.Input[int]] = None,
-             skip_host_key_validation: Optional[pulumi.Input[bool]] = None,
-             username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if additional_properties is None and 'additionalProperties' in kwargs:
-            additional_properties = kwargs['additionalProperties']
-        if authentication_type is None and 'authenticationType' in kwargs:
-            authentication_type = kwargs['authenticationType']
-        if data_factory_id is None and 'dataFactoryId' in kwargs:
-            data_factory_id = kwargs['dataFactoryId']
-        if host_key_fingerprint is None and 'hostKeyFingerprint' in kwargs:
-            host_key_fingerprint = kwargs['hostKeyFingerprint']
-        if integration_runtime_name is None and 'integrationRuntimeName' in kwargs:
-            integration_runtime_name = kwargs['integrationRuntimeName']
-        if skip_host_key_validation is None and 'skipHostKeyValidation' in kwargs:
-            skip_host_key_validation = kwargs['skipHostKeyValidation']
-
         if additional_properties is not None:
-            _setter("additional_properties", additional_properties)
+            pulumi.set(__self__, "additional_properties", additional_properties)
         if annotations is not None:
-            _setter("annotations", annotations)
+            pulumi.set(__self__, "annotations", annotations)
         if authentication_type is not None:
-            _setter("authentication_type", authentication_type)
+            pulumi.set(__self__, "authentication_type", authentication_type)
         if data_factory_id is not None:
-            _setter("data_factory_id", data_factory_id)
+            pulumi.set(__self__, "data_factory_id", data_factory_id)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if host is not None:
-            _setter("host", host)
+            pulumi.set(__self__, "host", host)
         if host_key_fingerprint is not None:
-            _setter("host_key_fingerprint", host_key_fingerprint)
+            pulumi.set(__self__, "host_key_fingerprint", host_key_fingerprint)
         if integration_runtime_name is not None:
-            _setter("integration_runtime_name", integration_runtime_name)
+            pulumi.set(__self__, "integration_runtime_name", integration_runtime_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if parameters is not None:
-            _setter("parameters", parameters)
+            pulumi.set(__self__, "parameters", parameters)
         if password is not None:
-            _setter("password", password)
+            pulumi.set(__self__, "password", password)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
         if skip_host_key_validation is not None:
-            _setter("skip_host_key_validation", skip_host_key_validation)
+            pulumi.set(__self__, "skip_host_key_validation", skip_host_key_validation)
         if username is not None:
-            _setter("username", username)
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter(name="additionalProperties")
@@ -702,10 +592,6 @@ class LinkedServiceSftp(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LinkedServiceSftpArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

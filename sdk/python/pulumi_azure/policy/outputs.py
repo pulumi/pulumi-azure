@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -55,40 +55,15 @@ class PolicySetDefinitionPolicyDefinitionGroup(dict):
         :param str description: The description of this policy definition group.
         :param str display_name: The display name of this policy definition group.
         """
-        PolicySetDefinitionPolicyDefinitionGroup._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            additional_metadata_resource_id=additional_metadata_resource_id,
-            category=category,
-            description=description,
-            display_name=display_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             additional_metadata_resource_id: Optional[str] = None,
-             category: Optional[str] = None,
-             description: Optional[str] = None,
-             display_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if additional_metadata_resource_id is None and 'additionalMetadataResourceId' in kwargs:
-            additional_metadata_resource_id = kwargs['additionalMetadataResourceId']
-        if display_name is None and 'displayName' in kwargs:
-            display_name = kwargs['displayName']
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if additional_metadata_resource_id is not None:
-            _setter("additional_metadata_resource_id", additional_metadata_resource_id)
+            pulumi.set(__self__, "additional_metadata_resource_id", additional_metadata_resource_id)
         if category is not None:
-            _setter("category", category)
+            pulumi.set(__self__, "category", category)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if display_name is not None:
-            _setter("display_name", display_name)
+            pulumi.set(__self__, "display_name", display_name)
 
     @property
     @pulumi.getter
@@ -167,40 +142,13 @@ class PolicySetDefinitionPolicyDefinitionReference(dict):
         :param Sequence[str] policy_group_names: A list of names of the policy definition groups that this policy definition reference belongs to.
         :param str reference_id: A unique ID within this policy set definition for this policy definition reference.
         """
-        PolicySetDefinitionPolicyDefinitionReference._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            policy_definition_id=policy_definition_id,
-            parameter_values=parameter_values,
-            policy_group_names=policy_group_names,
-            reference_id=reference_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             policy_definition_id: Optional[str] = None,
-             parameter_values: Optional[str] = None,
-             policy_group_names: Optional[Sequence[str]] = None,
-             reference_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if policy_definition_id is None and 'policyDefinitionId' in kwargs:
-            policy_definition_id = kwargs['policyDefinitionId']
-        if policy_definition_id is None:
-            raise TypeError("Missing 'policy_definition_id' argument")
-        if parameter_values is None and 'parameterValues' in kwargs:
-            parameter_values = kwargs['parameterValues']
-        if policy_group_names is None and 'policyGroupNames' in kwargs:
-            policy_group_names = kwargs['policyGroupNames']
-        if reference_id is None and 'referenceId' in kwargs:
-            reference_id = kwargs['referenceId']
-
-        _setter("policy_definition_id", policy_definition_id)
+        pulumi.set(__self__, "policy_definition_id", policy_definition_id)
         if parameter_values is not None:
-            _setter("parameter_values", parameter_values)
+            pulumi.set(__self__, "parameter_values", parameter_values)
         if policy_group_names is not None:
-            _setter("policy_group_names", policy_group_names)
+            pulumi.set(__self__, "policy_group_names", policy_group_names)
         if reference_id is not None:
-            _setter("reference_id", reference_id)
+            pulumi.set(__self__, "reference_id", reference_id)
 
     @property
     @pulumi.getter(name="policyDefinitionId")
@@ -273,41 +221,16 @@ class VirtualMachineConfigurationAssignmentConfiguration(dict):
         :param Sequence['VirtualMachineConfigurationAssignmentConfigurationParameterArgs'] parameters: One or more `parameter` blocks as defined below which define what configuration parameters and values against.
         :param str version: The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
         """
-        VirtualMachineConfigurationAssignmentConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            assignment_type=assignment_type,
-            content_hash=content_hash,
-            content_uri=content_uri,
-            parameters=parameters,
-            version=version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             assignment_type: Optional[str] = None,
-             content_hash: Optional[str] = None,
-             content_uri: Optional[str] = None,
-             parameters: Optional[Sequence['outputs.VirtualMachineConfigurationAssignmentConfigurationParameter']] = None,
-             version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if assignment_type is None and 'assignmentType' in kwargs:
-            assignment_type = kwargs['assignmentType']
-        if content_hash is None and 'contentHash' in kwargs:
-            content_hash = kwargs['contentHash']
-        if content_uri is None and 'contentUri' in kwargs:
-            content_uri = kwargs['contentUri']
-
         if assignment_type is not None:
-            _setter("assignment_type", assignment_type)
+            pulumi.set(__self__, "assignment_type", assignment_type)
         if content_hash is not None:
-            _setter("content_hash", content_hash)
+            pulumi.set(__self__, "content_hash", content_hash)
         if content_uri is not None:
-            _setter("content_uri", content_uri)
+            pulumi.set(__self__, "content_uri", content_uri)
         if parameters is not None:
-            _setter("parameters", parameters)
+            pulumi.set(__self__, "parameters", parameters)
         if version is not None:
-            _setter("version", version)
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="assignmentType")
@@ -361,25 +284,8 @@ class VirtualMachineConfigurationAssignmentConfigurationParameter(dict):
         :param str name: The name of the configuration parameter to check.
         :param str value: The value to check the configuration parameter with.
         """
-        VirtualMachineConfigurationAssignmentConfigurationParameter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("name", name)
-        _setter("value", value)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -411,41 +317,10 @@ class GetPolicyAssignmentIdentityResult(dict):
         :param str tenant_id: The Tenant ID of the Policy Assignment for this Resource.
         :param str type: The Type of Managed Identity which is added to this Policy Assignment.
         """
-        GetPolicyAssignmentIdentityResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            identity_ids=identity_ids,
-            principal_id=principal_id,
-            tenant_id=tenant_id,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             identity_ids: Optional[Sequence[str]] = None,
-             principal_id: Optional[str] = None,
-             tenant_id: Optional[str] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if identity_ids is None and 'identityIds' in kwargs:
-            identity_ids = kwargs['identityIds']
-        if identity_ids is None:
-            raise TypeError("Missing 'identity_ids' argument")
-        if principal_id is None and 'principalId' in kwargs:
-            principal_id = kwargs['principalId']
-        if principal_id is None:
-            raise TypeError("Missing 'principal_id' argument")
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-        if tenant_id is None:
-            raise TypeError("Missing 'tenant_id' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("identity_ids", identity_ids)
-        _setter("principal_id", principal_id)
-        _setter("tenant_id", tenant_id)
-        _setter("type", type)
+        pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="identityIds")
@@ -489,27 +364,8 @@ class GetPolicyAssignmentNonComplianceMessageResult(dict):
         :param str content: The non-compliance message text.
         :param str policy_definition_reference_id: The ID of the Policy Definition that the non-compliance message applies to.
         """
-        GetPolicyAssignmentNonComplianceMessageResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            content=content,
-            policy_definition_reference_id=policy_definition_reference_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             content: Optional[str] = None,
-             policy_definition_reference_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if content is None:
-            raise TypeError("Missing 'content' argument")
-        if policy_definition_reference_id is None and 'policyDefinitionReferenceId' in kwargs:
-            policy_definition_reference_id = kwargs['policyDefinitionReferenceId']
-        if policy_definition_reference_id is None:
-            raise TypeError("Missing 'policy_definition_reference_id' argument")
-
-        _setter("content", content)
-        _setter("policy_definition_reference_id", policy_definition_reference_id)
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "policy_definition_reference_id", policy_definition_reference_id)
 
     @property
     @pulumi.getter
@@ -545,44 +401,11 @@ class GetPolicySetDefinitionPolicyDefinitionGroupResult(dict):
                **NOTE** As `display_name` is not unique errors may occur when there are multiple policy set definitions with same display name.
         :param str name: Specifies the name of the Policy Set Definition. Conflicts with `display_name`.
         """
-        GetPolicySetDefinitionPolicyDefinitionGroupResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            additional_metadata_resource_id=additional_metadata_resource_id,
-            category=category,
-            description=description,
-            display_name=display_name,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             additional_metadata_resource_id: Optional[str] = None,
-             category: Optional[str] = None,
-             description: Optional[str] = None,
-             display_name: Optional[str] = None,
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if additional_metadata_resource_id is None and 'additionalMetadataResourceId' in kwargs:
-            additional_metadata_resource_id = kwargs['additionalMetadataResourceId']
-        if additional_metadata_resource_id is None:
-            raise TypeError("Missing 'additional_metadata_resource_id' argument")
-        if category is None:
-            raise TypeError("Missing 'category' argument")
-        if description is None:
-            raise TypeError("Missing 'description' argument")
-        if display_name is None and 'displayName' in kwargs:
-            display_name = kwargs['displayName']
-        if display_name is None:
-            raise TypeError("Missing 'display_name' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("additional_metadata_resource_id", additional_metadata_resource_id)
-        _setter("category", category)
-        _setter("description", description)
-        _setter("display_name", display_name)
-        _setter("name", name)
+        pulumi.set(__self__, "additional_metadata_resource_id", additional_metadata_resource_id)
+        pulumi.set(__self__, "category", category)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="additionalMetadataResourceId")
@@ -642,48 +465,11 @@ class GetPolicySetDefinitionPolicyDefinitionReferenceResult(dict):
         :param Sequence[str] policy_group_names: The list of names of the policy definition groups that this policy definition reference belongs to.
         :param str reference_id: The unique ID within this policy set definition for this policy definition reference.
         """
-        GetPolicySetDefinitionPolicyDefinitionReferenceResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            parameter_values=parameter_values,
-            parameters=parameters,
-            policy_definition_id=policy_definition_id,
-            policy_group_names=policy_group_names,
-            reference_id=reference_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             parameter_values: Optional[str] = None,
-             parameters: Optional[Mapping[str, str]] = None,
-             policy_definition_id: Optional[str] = None,
-             policy_group_names: Optional[Sequence[str]] = None,
-             reference_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if parameter_values is None and 'parameterValues' in kwargs:
-            parameter_values = kwargs['parameterValues']
-        if parameter_values is None:
-            raise TypeError("Missing 'parameter_values' argument")
-        if parameters is None:
-            raise TypeError("Missing 'parameters' argument")
-        if policy_definition_id is None and 'policyDefinitionId' in kwargs:
-            policy_definition_id = kwargs['policyDefinitionId']
-        if policy_definition_id is None:
-            raise TypeError("Missing 'policy_definition_id' argument")
-        if policy_group_names is None and 'policyGroupNames' in kwargs:
-            policy_group_names = kwargs['policyGroupNames']
-        if policy_group_names is None:
-            raise TypeError("Missing 'policy_group_names' argument")
-        if reference_id is None and 'referenceId' in kwargs:
-            reference_id = kwargs['referenceId']
-        if reference_id is None:
-            raise TypeError("Missing 'reference_id' argument")
-
-        _setter("parameter_values", parameter_values)
-        _setter("parameters", parameters)
-        _setter("policy_definition_id", policy_definition_id)
-        _setter("policy_group_names", policy_group_names)
-        _setter("reference_id", reference_id)
+        pulumi.set(__self__, "parameter_values", parameter_values)
+        pulumi.set(__self__, "parameters", parameters)
+        pulumi.set(__self__, "policy_definition_id", policy_definition_id)
+        pulumi.set(__self__, "policy_group_names", policy_group_names)
+        pulumi.set(__self__, "reference_id", reference_id)
 
     @property
     @pulumi.getter(name="parameterValues")

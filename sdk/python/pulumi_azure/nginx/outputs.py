@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -45,27 +45,8 @@ class ConfigurationConfigFile(dict):
         :param str content: Specifies the base-64 encoded contents of this config file.
         :param str virtual_path: Specify the path of this config file.
         """
-        ConfigurationConfigFile._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            content=content,
-            virtual_path=virtual_path,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             content: Optional[str] = None,
-             virtual_path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if content is None:
-            raise TypeError("Missing 'content' argument")
-        if virtual_path is None and 'virtualPath' in kwargs:
-            virtual_path = kwargs['virtualPath']
-        if virtual_path is None:
-            raise TypeError("Missing 'virtual_path' argument")
-
-        _setter("content", content)
-        _setter("virtual_path", virtual_path)
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "virtual_path", virtual_path)
 
     @property
     @pulumi.getter
@@ -110,27 +91,8 @@ class ConfigurationProtectedFile(dict):
         :param str content: Specifies the base-64 encoded contents of this config file (Sensitive).
         :param str virtual_path: Specify the path of this config file.
         """
-        ConfigurationProtectedFile._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            content=content,
-            virtual_path=virtual_path,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             content: Optional[str] = None,
-             virtual_path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if content is None:
-            raise TypeError("Missing 'content' argument")
-        if virtual_path is None and 'virtualPath' in kwargs:
-            virtual_path = kwargs['virtualPath']
-        if virtual_path is None:
-            raise TypeError("Missing 'virtual_path' argument")
-
-        _setter("content", content)
-        _setter("virtual_path", virtual_path)
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "virtual_path", virtual_path)
 
     @property
     @pulumi.getter
@@ -181,36 +143,9 @@ class DeploymentFrontendPrivate(dict):
         :param str ip_address: Specify the IP Address of this private IP.
         :param str subnet_id: Specify the SubNet Resource ID to this Nginx Deployment.
         """
-        DeploymentFrontendPrivate._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allocation_method=allocation_method,
-            ip_address=ip_address,
-            subnet_id=subnet_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allocation_method: Optional[str] = None,
-             ip_address: Optional[str] = None,
-             subnet_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if allocation_method is None and 'allocationMethod' in kwargs:
-            allocation_method = kwargs['allocationMethod']
-        if allocation_method is None:
-            raise TypeError("Missing 'allocation_method' argument")
-        if ip_address is None and 'ipAddress' in kwargs:
-            ip_address = kwargs['ipAddress']
-        if ip_address is None:
-            raise TypeError("Missing 'ip_address' argument")
-        if subnet_id is None and 'subnetId' in kwargs:
-            subnet_id = kwargs['subnetId']
-        if subnet_id is None:
-            raise TypeError("Missing 'subnet_id' argument")
-
-        _setter("allocation_method", allocation_method)
-        _setter("ip_address", ip_address)
-        _setter("subnet_id", subnet_id)
+        pulumi.set(__self__, "allocation_method", allocation_method)
+        pulumi.set(__self__, "ip_address", ip_address)
+        pulumi.set(__self__, "subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="allocationMethod")
@@ -261,21 +196,8 @@ class DeploymentFrontendPublic(dict):
         """
         :param Sequence[str] ip_addresses: Specifies a list of Public IP Resouce ID to this Nginx Deployment.
         """
-        DeploymentFrontendPublic._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ip_addresses=ip_addresses,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ip_addresses: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if ip_addresses is None and 'ipAddresses' in kwargs:
-            ip_addresses = kwargs['ipAddresses']
-
         if ip_addresses is not None:
-            _setter("ip_addresses", ip_addresses)
+            pulumi.set(__self__, "ip_addresses", ip_addresses)
 
     @property
     @pulumi.getter(name="ipAddresses")
@@ -318,38 +240,13 @@ class DeploymentIdentity(dict):
         :param str type: Specifies the identity type of the Nginx Deployment. Possible values is `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field.
         :param Sequence[str] identity_ids: Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
         """
-        DeploymentIdentity._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            identity_ids=identity_ids,
-            principal_id=principal_id,
-            tenant_id=tenant_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             identity_ids: Optional[Sequence[str]] = None,
-             principal_id: Optional[str] = None,
-             tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if identity_ids is None and 'identityIds' in kwargs:
-            identity_ids = kwargs['identityIds']
-        if principal_id is None and 'principalId' in kwargs:
-            principal_id = kwargs['principalId']
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if identity_ids is not None:
-            _setter("identity_ids", identity_ids)
+            pulumi.set(__self__, "identity_ids", identity_ids)
         if principal_id is not None:
-            _setter("principal_id", principal_id)
+            pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
-            _setter("tenant_id", tenant_id)
+            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -404,25 +301,10 @@ class DeploymentLoggingStorageAccount(dict):
         :param str container_name: Specify the container name of Stoage Account for logging.
         :param str name: The account name of the StorageAccount for Nginx Logging.
         """
-        DeploymentLoggingStorageAccount._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            container_name=container_name,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             container_name: Optional[str] = None,
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if container_name is None and 'containerName' in kwargs:
-            container_name = kwargs['containerName']
-
         if container_name is not None:
-            _setter("container_name", container_name)
+            pulumi.set(__self__, "container_name", container_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="containerName")
@@ -465,22 +347,7 @@ class DeploymentNetworkInterface(dict):
         """
         :param str subnet_id: Specify The SubNet Resource ID to this Nginx Deployment.
         """
-        DeploymentNetworkInterface._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            subnet_id=subnet_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             subnet_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if subnet_id is None and 'subnetId' in kwargs:
-            subnet_id = kwargs['subnetId']
-        if subnet_id is None:
-            raise TypeError("Missing 'subnet_id' argument")
-
-        _setter("subnet_id", subnet_id)
+        pulumi.set(__self__, "subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="subnetId")

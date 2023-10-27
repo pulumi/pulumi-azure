@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['NetworkManagerManagementGroupConnectionArgs', 'NetworkManagerManagementGroupConnection']
@@ -25,37 +25,12 @@ class NetworkManagerManagementGroupConnectionArgs:
         :param pulumi.Input[str] description: A description of the Network Manager Management Group Connection.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Network Manager Management Group Connection. Changing this forces a new Network Manager Management Group Connection to be created.
         """
-        NetworkManagerManagementGroupConnectionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            management_group_id=management_group_id,
-            network_manager_id=network_manager_id,
-            description=description,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             management_group_id: Optional[pulumi.Input[str]] = None,
-             network_manager_id: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if management_group_id is None and 'managementGroupId' in kwargs:
-            management_group_id = kwargs['managementGroupId']
-        if management_group_id is None:
-            raise TypeError("Missing 'management_group_id' argument")
-        if network_manager_id is None and 'networkManagerId' in kwargs:
-            network_manager_id = kwargs['networkManagerId']
-        if network_manager_id is None:
-            raise TypeError("Missing 'network_manager_id' argument")
-
-        _setter("management_group_id", management_group_id)
-        _setter("network_manager_id", network_manager_id)
+        pulumi.set(__self__, "management_group_id", management_group_id)
+        pulumi.set(__self__, "network_manager_id", network_manager_id)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="managementGroupId")
@@ -122,41 +97,16 @@ class _NetworkManagerManagementGroupConnectionState:
         :param pulumi.Input[str] name: Specifies the name which should be used for this Network Manager Management Group Connection. Changing this forces a new Network Manager Management Group Connection to be created.
         :param pulumi.Input[str] network_manager_id: Specifies the ID of the Network Manager which the Management Group is connected to. Changing this forces a new resource to be created.
         """
-        _NetworkManagerManagementGroupConnectionState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            connection_state=connection_state,
-            description=description,
-            management_group_id=management_group_id,
-            name=name,
-            network_manager_id=network_manager_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             connection_state: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             management_group_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             network_manager_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if connection_state is None and 'connectionState' in kwargs:
-            connection_state = kwargs['connectionState']
-        if management_group_id is None and 'managementGroupId' in kwargs:
-            management_group_id = kwargs['managementGroupId']
-        if network_manager_id is None and 'networkManagerId' in kwargs:
-            network_manager_id = kwargs['networkManagerId']
-
         if connection_state is not None:
-            _setter("connection_state", connection_state)
+            pulumi.set(__self__, "connection_state", connection_state)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if management_group_id is not None:
-            _setter("management_group_id", management_group_id)
+            pulumi.set(__self__, "management_group_id", management_group_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if network_manager_id is not None:
-            _setter("network_manager_id", network_manager_id)
+            pulumi.set(__self__, "network_manager_id", network_manager_id)
 
     @property
     @pulumi.getter(name="connectionState")
@@ -338,10 +288,6 @@ class NetworkManagerManagementGroupConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            NetworkManagerManagementGroupConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

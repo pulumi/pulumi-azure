@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -47,93 +47,28 @@ class SqlContainerArgs:
         :param pulumi.Input[int] throughput: The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
         :param pulumi.Input[Sequence[pulumi.Input['SqlContainerUniqueKeyArgs']]] unique_keys: One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
         """
-        SqlContainerArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account_name=account_name,
-            database_name=database_name,
-            partition_key_path=partition_key_path,
-            resource_group_name=resource_group_name,
-            analytical_storage_ttl=analytical_storage_ttl,
-            autoscale_settings=autoscale_settings,
-            conflict_resolution_policy=conflict_resolution_policy,
-            default_ttl=default_ttl,
-            indexing_policy=indexing_policy,
-            name=name,
-            partition_key_version=partition_key_version,
-            throughput=throughput,
-            unique_keys=unique_keys,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account_name: Optional[pulumi.Input[str]] = None,
-             database_name: Optional[pulumi.Input[str]] = None,
-             partition_key_path: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             analytical_storage_ttl: Optional[pulumi.Input[int]] = None,
-             autoscale_settings: Optional[pulumi.Input['SqlContainerAutoscaleSettingsArgs']] = None,
-             conflict_resolution_policy: Optional[pulumi.Input['SqlContainerConflictResolutionPolicyArgs']] = None,
-             default_ttl: Optional[pulumi.Input[int]] = None,
-             indexing_policy: Optional[pulumi.Input['SqlContainerIndexingPolicyArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             partition_key_version: Optional[pulumi.Input[int]] = None,
-             throughput: Optional[pulumi.Input[int]] = None,
-             unique_keys: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerUniqueKeyArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if account_name is None and 'accountName' in kwargs:
-            account_name = kwargs['accountName']
-        if account_name is None:
-            raise TypeError("Missing 'account_name' argument")
-        if database_name is None and 'databaseName' in kwargs:
-            database_name = kwargs['databaseName']
-        if database_name is None:
-            raise TypeError("Missing 'database_name' argument")
-        if partition_key_path is None and 'partitionKeyPath' in kwargs:
-            partition_key_path = kwargs['partitionKeyPath']
-        if partition_key_path is None:
-            raise TypeError("Missing 'partition_key_path' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if analytical_storage_ttl is None and 'analyticalStorageTtl' in kwargs:
-            analytical_storage_ttl = kwargs['analyticalStorageTtl']
-        if autoscale_settings is None and 'autoscaleSettings' in kwargs:
-            autoscale_settings = kwargs['autoscaleSettings']
-        if conflict_resolution_policy is None and 'conflictResolutionPolicy' in kwargs:
-            conflict_resolution_policy = kwargs['conflictResolutionPolicy']
-        if default_ttl is None and 'defaultTtl' in kwargs:
-            default_ttl = kwargs['defaultTtl']
-        if indexing_policy is None and 'indexingPolicy' in kwargs:
-            indexing_policy = kwargs['indexingPolicy']
-        if partition_key_version is None and 'partitionKeyVersion' in kwargs:
-            partition_key_version = kwargs['partitionKeyVersion']
-        if unique_keys is None and 'uniqueKeys' in kwargs:
-            unique_keys = kwargs['uniqueKeys']
-
-        _setter("account_name", account_name)
-        _setter("database_name", database_name)
-        _setter("partition_key_path", partition_key_path)
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "partition_key_path", partition_key_path)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if analytical_storage_ttl is not None:
-            _setter("analytical_storage_ttl", analytical_storage_ttl)
+            pulumi.set(__self__, "analytical_storage_ttl", analytical_storage_ttl)
         if autoscale_settings is not None:
-            _setter("autoscale_settings", autoscale_settings)
+            pulumi.set(__self__, "autoscale_settings", autoscale_settings)
         if conflict_resolution_policy is not None:
-            _setter("conflict_resolution_policy", conflict_resolution_policy)
+            pulumi.set(__self__, "conflict_resolution_policy", conflict_resolution_policy)
         if default_ttl is not None:
-            _setter("default_ttl", default_ttl)
+            pulumi.set(__self__, "default_ttl", default_ttl)
         if indexing_policy is not None:
-            _setter("indexing_policy", indexing_policy)
+            pulumi.set(__self__, "indexing_policy", indexing_policy)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if partition_key_version is not None:
-            _setter("partition_key_version", partition_key_version)
+            pulumi.set(__self__, "partition_key_version", partition_key_version)
         if throughput is not None:
-            _setter("throughput", throughput)
+            pulumi.set(__self__, "throughput", throughput)
         if unique_keys is not None:
-            _setter("unique_keys", unique_keys)
+            pulumi.set(__self__, "unique_keys", unique_keys)
 
     @property
     @pulumi.getter(name="accountName")
@@ -328,89 +263,32 @@ class _SqlContainerState:
         :param pulumi.Input[int] throughput: The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
         :param pulumi.Input[Sequence[pulumi.Input['SqlContainerUniqueKeyArgs']]] unique_keys: One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
         """
-        _SqlContainerState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account_name=account_name,
-            analytical_storage_ttl=analytical_storage_ttl,
-            autoscale_settings=autoscale_settings,
-            conflict_resolution_policy=conflict_resolution_policy,
-            database_name=database_name,
-            default_ttl=default_ttl,
-            indexing_policy=indexing_policy,
-            name=name,
-            partition_key_path=partition_key_path,
-            partition_key_version=partition_key_version,
-            resource_group_name=resource_group_name,
-            throughput=throughput,
-            unique_keys=unique_keys,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account_name: Optional[pulumi.Input[str]] = None,
-             analytical_storage_ttl: Optional[pulumi.Input[int]] = None,
-             autoscale_settings: Optional[pulumi.Input['SqlContainerAutoscaleSettingsArgs']] = None,
-             conflict_resolution_policy: Optional[pulumi.Input['SqlContainerConflictResolutionPolicyArgs']] = None,
-             database_name: Optional[pulumi.Input[str]] = None,
-             default_ttl: Optional[pulumi.Input[int]] = None,
-             indexing_policy: Optional[pulumi.Input['SqlContainerIndexingPolicyArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             partition_key_path: Optional[pulumi.Input[str]] = None,
-             partition_key_version: Optional[pulumi.Input[int]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             throughput: Optional[pulumi.Input[int]] = None,
-             unique_keys: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerUniqueKeyArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if account_name is None and 'accountName' in kwargs:
-            account_name = kwargs['accountName']
-        if analytical_storage_ttl is None and 'analyticalStorageTtl' in kwargs:
-            analytical_storage_ttl = kwargs['analyticalStorageTtl']
-        if autoscale_settings is None and 'autoscaleSettings' in kwargs:
-            autoscale_settings = kwargs['autoscaleSettings']
-        if conflict_resolution_policy is None and 'conflictResolutionPolicy' in kwargs:
-            conflict_resolution_policy = kwargs['conflictResolutionPolicy']
-        if database_name is None and 'databaseName' in kwargs:
-            database_name = kwargs['databaseName']
-        if default_ttl is None and 'defaultTtl' in kwargs:
-            default_ttl = kwargs['defaultTtl']
-        if indexing_policy is None and 'indexingPolicy' in kwargs:
-            indexing_policy = kwargs['indexingPolicy']
-        if partition_key_path is None and 'partitionKeyPath' in kwargs:
-            partition_key_path = kwargs['partitionKeyPath']
-        if partition_key_version is None and 'partitionKeyVersion' in kwargs:
-            partition_key_version = kwargs['partitionKeyVersion']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if unique_keys is None and 'uniqueKeys' in kwargs:
-            unique_keys = kwargs['uniqueKeys']
-
         if account_name is not None:
-            _setter("account_name", account_name)
+            pulumi.set(__self__, "account_name", account_name)
         if analytical_storage_ttl is not None:
-            _setter("analytical_storage_ttl", analytical_storage_ttl)
+            pulumi.set(__self__, "analytical_storage_ttl", analytical_storage_ttl)
         if autoscale_settings is not None:
-            _setter("autoscale_settings", autoscale_settings)
+            pulumi.set(__self__, "autoscale_settings", autoscale_settings)
         if conflict_resolution_policy is not None:
-            _setter("conflict_resolution_policy", conflict_resolution_policy)
+            pulumi.set(__self__, "conflict_resolution_policy", conflict_resolution_policy)
         if database_name is not None:
-            _setter("database_name", database_name)
+            pulumi.set(__self__, "database_name", database_name)
         if default_ttl is not None:
-            _setter("default_ttl", default_ttl)
+            pulumi.set(__self__, "default_ttl", default_ttl)
         if indexing_policy is not None:
-            _setter("indexing_policy", indexing_policy)
+            pulumi.set(__self__, "indexing_policy", indexing_policy)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if partition_key_path is not None:
-            _setter("partition_key_path", partition_key_path)
+            pulumi.set(__self__, "partition_key_path", partition_key_path)
         if partition_key_version is not None:
-            _setter("partition_key_version", partition_key_version)
+            pulumi.set(__self__, "partition_key_version", partition_key_version)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if throughput is not None:
-            _setter("throughput", throughput)
+            pulumi.set(__self__, "throughput", throughput)
         if unique_keys is not None:
-            _setter("unique_keys", unique_keys)
+            pulumi.set(__self__, "unique_keys", unique_keys)
 
     @property
     @pulumi.getter(name="accountName")
@@ -726,10 +604,6 @@ class SqlContainer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SqlContainerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -761,15 +635,12 @@ class SqlContainer(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["analytical_storage_ttl"] = analytical_storage_ttl
-            autoscale_settings = _utilities.configure(autoscale_settings, SqlContainerAutoscaleSettingsArgs, True)
             __props__.__dict__["autoscale_settings"] = autoscale_settings
-            conflict_resolution_policy = _utilities.configure(conflict_resolution_policy, SqlContainerConflictResolutionPolicyArgs, True)
             __props__.__dict__["conflict_resolution_policy"] = conflict_resolution_policy
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
             __props__.__dict__["default_ttl"] = default_ttl
-            indexing_policy = _utilities.configure(indexing_policy, SqlContainerIndexingPolicyArgs, True)
             __props__.__dict__["indexing_policy"] = indexing_policy
             __props__.__dict__["name"] = name
             if partition_key_path is None and not opts.urn:

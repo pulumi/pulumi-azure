@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ApiOperationPolicyArgs', 'ApiOperationPolicy']
@@ -29,55 +29,14 @@ class ApiOperationPolicyArgs:
         :param pulumi.Input[str] xml_content: The XML Content for this Policy.
         :param pulumi.Input[str] xml_link: A link to a Policy XML Document, which must be publicly available.
         """
-        ApiOperationPolicyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_management_name=api_management_name,
-            api_name=api_name,
-            operation_id=operation_id,
-            resource_group_name=resource_group_name,
-            xml_content=xml_content,
-            xml_link=xml_link,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_management_name: Optional[pulumi.Input[str]] = None,
-             api_name: Optional[pulumi.Input[str]] = None,
-             operation_id: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             xml_content: Optional[pulumi.Input[str]] = None,
-             xml_link: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_management_name is None and 'apiManagementName' in kwargs:
-            api_management_name = kwargs['apiManagementName']
-        if api_management_name is None:
-            raise TypeError("Missing 'api_management_name' argument")
-        if api_name is None and 'apiName' in kwargs:
-            api_name = kwargs['apiName']
-        if api_name is None:
-            raise TypeError("Missing 'api_name' argument")
-        if operation_id is None and 'operationId' in kwargs:
-            operation_id = kwargs['operationId']
-        if operation_id is None:
-            raise TypeError("Missing 'operation_id' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if xml_content is None and 'xmlContent' in kwargs:
-            xml_content = kwargs['xmlContent']
-        if xml_link is None and 'xmlLink' in kwargs:
-            xml_link = kwargs['xmlLink']
-
-        _setter("api_management_name", api_management_name)
-        _setter("api_name", api_name)
-        _setter("operation_id", operation_id)
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "api_management_name", api_management_name)
+        pulumi.set(__self__, "api_name", api_name)
+        pulumi.set(__self__, "operation_id", operation_id)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if xml_content is not None:
-            _setter("xml_content", xml_content)
+            pulumi.set(__self__, "xml_content", xml_content)
         if xml_link is not None:
-            _setter("xml_link", xml_link)
+            pulumi.set(__self__, "xml_link", xml_link)
 
     @property
     @pulumi.getter(name="apiManagementName")
@@ -170,51 +129,18 @@ class _ApiOperationPolicyState:
         :param pulumi.Input[str] xml_content: The XML Content for this Policy.
         :param pulumi.Input[str] xml_link: A link to a Policy XML Document, which must be publicly available.
         """
-        _ApiOperationPolicyState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_management_name=api_management_name,
-            api_name=api_name,
-            operation_id=operation_id,
-            resource_group_name=resource_group_name,
-            xml_content=xml_content,
-            xml_link=xml_link,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_management_name: Optional[pulumi.Input[str]] = None,
-             api_name: Optional[pulumi.Input[str]] = None,
-             operation_id: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             xml_content: Optional[pulumi.Input[str]] = None,
-             xml_link: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_management_name is None and 'apiManagementName' in kwargs:
-            api_management_name = kwargs['apiManagementName']
-        if api_name is None and 'apiName' in kwargs:
-            api_name = kwargs['apiName']
-        if operation_id is None and 'operationId' in kwargs:
-            operation_id = kwargs['operationId']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if xml_content is None and 'xmlContent' in kwargs:
-            xml_content = kwargs['xmlContent']
-        if xml_link is None and 'xmlLink' in kwargs:
-            xml_link = kwargs['xmlLink']
-
         if api_management_name is not None:
-            _setter("api_management_name", api_management_name)
+            pulumi.set(__self__, "api_management_name", api_management_name)
         if api_name is not None:
-            _setter("api_name", api_name)
+            pulumi.set(__self__, "api_name", api_name)
         if operation_id is not None:
-            _setter("operation_id", operation_id)
+            pulumi.set(__self__, "operation_id", operation_id)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if xml_content is not None:
-            _setter("xml_content", xml_content)
+            pulumi.set(__self__, "xml_content", xml_content)
         if xml_link is not None:
-            _setter("xml_link", xml_link)
+            pulumi.set(__self__, "xml_link", xml_link)
 
     @property
     @pulumi.getter(name="apiManagementName")
@@ -424,10 +350,6 @@ class ApiOperationPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ApiOperationPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,44 +31,17 @@ class CustomDomainArgs:
         :param pulumi.Input[Sequence[pulumi.Input['CustomDomainPortalArgs']]] portals: One or more `portal` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['CustomDomainScmArgs']]] scms: One or more `scm` blocks as defined below.
         """
-        CustomDomainArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_management_id=api_management_id,
-            developer_portals=developer_portals,
-            gateways=gateways,
-            managements=managements,
-            portals=portals,
-            scms=scms,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_management_id: Optional[pulumi.Input[str]] = None,
-             developer_portals: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainDeveloperPortalArgs']]]] = None,
-             gateways: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainGatewayArgs']]]] = None,
-             managements: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainManagementArgs']]]] = None,
-             portals: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainPortalArgs']]]] = None,
-             scms: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainScmArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_management_id is None and 'apiManagementId' in kwargs:
-            api_management_id = kwargs['apiManagementId']
-        if api_management_id is None:
-            raise TypeError("Missing 'api_management_id' argument")
-        if developer_portals is None and 'developerPortals' in kwargs:
-            developer_portals = kwargs['developerPortals']
-
-        _setter("api_management_id", api_management_id)
+        pulumi.set(__self__, "api_management_id", api_management_id)
         if developer_portals is not None:
-            _setter("developer_portals", developer_portals)
+            pulumi.set(__self__, "developer_portals", developer_portals)
         if gateways is not None:
-            _setter("gateways", gateways)
+            pulumi.set(__self__, "gateways", gateways)
         if managements is not None:
-            _setter("managements", managements)
+            pulumi.set(__self__, "managements", managements)
         if portals is not None:
-            _setter("portals", portals)
+            pulumi.set(__self__, "portals", portals)
         if scms is not None:
-            _setter("scms", scms)
+            pulumi.set(__self__, "scms", scms)
 
     @property
     @pulumi.getter(name="apiManagementId")
@@ -161,43 +134,18 @@ class _CustomDomainState:
         :param pulumi.Input[Sequence[pulumi.Input['CustomDomainPortalArgs']]] portals: One or more `portal` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['CustomDomainScmArgs']]] scms: One or more `scm` blocks as defined below.
         """
-        _CustomDomainState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_management_id=api_management_id,
-            developer_portals=developer_portals,
-            gateways=gateways,
-            managements=managements,
-            portals=portals,
-            scms=scms,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_management_id: Optional[pulumi.Input[str]] = None,
-             developer_portals: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainDeveloperPortalArgs']]]] = None,
-             gateways: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainGatewayArgs']]]] = None,
-             managements: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainManagementArgs']]]] = None,
-             portals: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainPortalArgs']]]] = None,
-             scms: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainScmArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_management_id is None and 'apiManagementId' in kwargs:
-            api_management_id = kwargs['apiManagementId']
-        if developer_portals is None and 'developerPortals' in kwargs:
-            developer_portals = kwargs['developerPortals']
-
         if api_management_id is not None:
-            _setter("api_management_id", api_management_id)
+            pulumi.set(__self__, "api_management_id", api_management_id)
         if developer_portals is not None:
-            _setter("developer_portals", developer_portals)
+            pulumi.set(__self__, "developer_portals", developer_portals)
         if gateways is not None:
-            _setter("gateways", gateways)
+            pulumi.set(__self__, "gateways", gateways)
         if managements is not None:
-            _setter("managements", managements)
+            pulumi.set(__self__, "managements", managements)
         if portals is not None:
-            _setter("portals", portals)
+            pulumi.set(__self__, "portals", portals)
         if scms is not None:
-            _setter("scms", scms)
+            pulumi.set(__self__, "scms", scms)
 
     @property
     @pulumi.getter(name="apiManagementId")
@@ -477,10 +425,6 @@ class CustomDomain(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            CustomDomainArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

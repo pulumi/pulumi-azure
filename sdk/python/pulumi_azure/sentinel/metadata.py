@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -59,127 +59,44 @@ class MetadataArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] threat_analysis_techniques: Specifies a list of techniques the resource covers.
         :param pulumi.Input[str] version: Version of the content.
         """
-        MetadataArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            content_id=content_id,
-            kind=kind,
-            parent_id=parent_id,
-            workspace_id=workspace_id,
-            author=author,
-            category=category,
-            content_schema_version=content_schema_version,
-            custom_version=custom_version,
-            dependency=dependency,
-            first_publish_date=first_publish_date,
-            icon_id=icon_id,
-            last_publish_date=last_publish_date,
-            name=name,
-            preview_images=preview_images,
-            preview_images_darks=preview_images_darks,
-            providers=providers,
-            source=source,
-            support=support,
-            threat_analysis_tactics=threat_analysis_tactics,
-            threat_analysis_techniques=threat_analysis_techniques,
-            version=version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             content_id: Optional[pulumi.Input[str]] = None,
-             kind: Optional[pulumi.Input[str]] = None,
-             parent_id: Optional[pulumi.Input[str]] = None,
-             workspace_id: Optional[pulumi.Input[str]] = None,
-             author: Optional[pulumi.Input['MetadataAuthorArgs']] = None,
-             category: Optional[pulumi.Input['MetadataCategoryArgs']] = None,
-             content_schema_version: Optional[pulumi.Input[str]] = None,
-             custom_version: Optional[pulumi.Input[str]] = None,
-             dependency: Optional[pulumi.Input[str]] = None,
-             first_publish_date: Optional[pulumi.Input[str]] = None,
-             icon_id: Optional[pulumi.Input[str]] = None,
-             last_publish_date: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             preview_images: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             preview_images_darks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             source: Optional[pulumi.Input['MetadataSourceArgs']] = None,
-             support: Optional[pulumi.Input['MetadataSupportArgs']] = None,
-             threat_analysis_tactics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             threat_analysis_techniques: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if content_id is None and 'contentId' in kwargs:
-            content_id = kwargs['contentId']
-        if content_id is None:
-            raise TypeError("Missing 'content_id' argument")
-        if kind is None:
-            raise TypeError("Missing 'kind' argument")
-        if parent_id is None and 'parentId' in kwargs:
-            parent_id = kwargs['parentId']
-        if parent_id is None:
-            raise TypeError("Missing 'parent_id' argument")
-        if workspace_id is None and 'workspaceId' in kwargs:
-            workspace_id = kwargs['workspaceId']
-        if workspace_id is None:
-            raise TypeError("Missing 'workspace_id' argument")
-        if content_schema_version is None and 'contentSchemaVersion' in kwargs:
-            content_schema_version = kwargs['contentSchemaVersion']
-        if custom_version is None and 'customVersion' in kwargs:
-            custom_version = kwargs['customVersion']
-        if first_publish_date is None and 'firstPublishDate' in kwargs:
-            first_publish_date = kwargs['firstPublishDate']
-        if icon_id is None and 'iconId' in kwargs:
-            icon_id = kwargs['iconId']
-        if last_publish_date is None and 'lastPublishDate' in kwargs:
-            last_publish_date = kwargs['lastPublishDate']
-        if preview_images is None and 'previewImages' in kwargs:
-            preview_images = kwargs['previewImages']
-        if preview_images_darks is None and 'previewImagesDarks' in kwargs:
-            preview_images_darks = kwargs['previewImagesDarks']
-        if threat_analysis_tactics is None and 'threatAnalysisTactics' in kwargs:
-            threat_analysis_tactics = kwargs['threatAnalysisTactics']
-        if threat_analysis_techniques is None and 'threatAnalysisTechniques' in kwargs:
-            threat_analysis_techniques = kwargs['threatAnalysisTechniques']
-
-        _setter("content_id", content_id)
-        _setter("kind", kind)
-        _setter("parent_id", parent_id)
-        _setter("workspace_id", workspace_id)
+        pulumi.set(__self__, "content_id", content_id)
+        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "parent_id", parent_id)
+        pulumi.set(__self__, "workspace_id", workspace_id)
         if author is not None:
-            _setter("author", author)
+            pulumi.set(__self__, "author", author)
         if category is not None:
-            _setter("category", category)
+            pulumi.set(__self__, "category", category)
         if content_schema_version is not None:
-            _setter("content_schema_version", content_schema_version)
+            pulumi.set(__self__, "content_schema_version", content_schema_version)
         if custom_version is not None:
-            _setter("custom_version", custom_version)
+            pulumi.set(__self__, "custom_version", custom_version)
         if dependency is not None:
-            _setter("dependency", dependency)
+            pulumi.set(__self__, "dependency", dependency)
         if first_publish_date is not None:
-            _setter("first_publish_date", first_publish_date)
+            pulumi.set(__self__, "first_publish_date", first_publish_date)
         if icon_id is not None:
-            _setter("icon_id", icon_id)
+            pulumi.set(__self__, "icon_id", icon_id)
         if last_publish_date is not None:
-            _setter("last_publish_date", last_publish_date)
+            pulumi.set(__self__, "last_publish_date", last_publish_date)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if preview_images is not None:
-            _setter("preview_images", preview_images)
+            pulumi.set(__self__, "preview_images", preview_images)
         if preview_images_darks is not None:
-            _setter("preview_images_darks", preview_images_darks)
+            pulumi.set(__self__, "preview_images_darks", preview_images_darks)
         if providers is not None:
-            _setter("providers", providers)
+            pulumi.set(__self__, "providers", providers)
         if source is not None:
-            _setter("source", source)
+            pulumi.set(__self__, "source", source)
         if support is not None:
-            _setter("support", support)
+            pulumi.set(__self__, "support", support)
         if threat_analysis_tactics is not None:
-            _setter("threat_analysis_tactics", threat_analysis_tactics)
+            pulumi.set(__self__, "threat_analysis_tactics", threat_analysis_tactics)
         if threat_analysis_techniques is not None:
-            _setter("threat_analysis_techniques", threat_analysis_techniques)
+            pulumi.set(__self__, "threat_analysis_techniques", threat_analysis_techniques)
         if version is not None:
-            _setter("version", version)
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="contentId")
@@ -474,123 +391,48 @@ class _MetadataState:
         :param pulumi.Input[str] version: Version of the content.
         :param pulumi.Input[str] workspace_id: The ID of the Log Analytics Workspace. Changing this forces a new Sentinel Metadata to be created.
         """
-        _MetadataState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            author=author,
-            category=category,
-            content_id=content_id,
-            content_schema_version=content_schema_version,
-            custom_version=custom_version,
-            dependency=dependency,
-            first_publish_date=first_publish_date,
-            icon_id=icon_id,
-            kind=kind,
-            last_publish_date=last_publish_date,
-            name=name,
-            parent_id=parent_id,
-            preview_images=preview_images,
-            preview_images_darks=preview_images_darks,
-            providers=providers,
-            source=source,
-            support=support,
-            threat_analysis_tactics=threat_analysis_tactics,
-            threat_analysis_techniques=threat_analysis_techniques,
-            version=version,
-            workspace_id=workspace_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             author: Optional[pulumi.Input['MetadataAuthorArgs']] = None,
-             category: Optional[pulumi.Input['MetadataCategoryArgs']] = None,
-             content_id: Optional[pulumi.Input[str]] = None,
-             content_schema_version: Optional[pulumi.Input[str]] = None,
-             custom_version: Optional[pulumi.Input[str]] = None,
-             dependency: Optional[pulumi.Input[str]] = None,
-             first_publish_date: Optional[pulumi.Input[str]] = None,
-             icon_id: Optional[pulumi.Input[str]] = None,
-             kind: Optional[pulumi.Input[str]] = None,
-             last_publish_date: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             parent_id: Optional[pulumi.Input[str]] = None,
-             preview_images: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             preview_images_darks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             source: Optional[pulumi.Input['MetadataSourceArgs']] = None,
-             support: Optional[pulumi.Input['MetadataSupportArgs']] = None,
-             threat_analysis_tactics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             threat_analysis_techniques: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             version: Optional[pulumi.Input[str]] = None,
-             workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if content_id is None and 'contentId' in kwargs:
-            content_id = kwargs['contentId']
-        if content_schema_version is None and 'contentSchemaVersion' in kwargs:
-            content_schema_version = kwargs['contentSchemaVersion']
-        if custom_version is None and 'customVersion' in kwargs:
-            custom_version = kwargs['customVersion']
-        if first_publish_date is None and 'firstPublishDate' in kwargs:
-            first_publish_date = kwargs['firstPublishDate']
-        if icon_id is None and 'iconId' in kwargs:
-            icon_id = kwargs['iconId']
-        if last_publish_date is None and 'lastPublishDate' in kwargs:
-            last_publish_date = kwargs['lastPublishDate']
-        if parent_id is None and 'parentId' in kwargs:
-            parent_id = kwargs['parentId']
-        if preview_images is None and 'previewImages' in kwargs:
-            preview_images = kwargs['previewImages']
-        if preview_images_darks is None and 'previewImagesDarks' in kwargs:
-            preview_images_darks = kwargs['previewImagesDarks']
-        if threat_analysis_tactics is None and 'threatAnalysisTactics' in kwargs:
-            threat_analysis_tactics = kwargs['threatAnalysisTactics']
-        if threat_analysis_techniques is None and 'threatAnalysisTechniques' in kwargs:
-            threat_analysis_techniques = kwargs['threatAnalysisTechniques']
-        if workspace_id is None and 'workspaceId' in kwargs:
-            workspace_id = kwargs['workspaceId']
-
         if author is not None:
-            _setter("author", author)
+            pulumi.set(__self__, "author", author)
         if category is not None:
-            _setter("category", category)
+            pulumi.set(__self__, "category", category)
         if content_id is not None:
-            _setter("content_id", content_id)
+            pulumi.set(__self__, "content_id", content_id)
         if content_schema_version is not None:
-            _setter("content_schema_version", content_schema_version)
+            pulumi.set(__self__, "content_schema_version", content_schema_version)
         if custom_version is not None:
-            _setter("custom_version", custom_version)
+            pulumi.set(__self__, "custom_version", custom_version)
         if dependency is not None:
-            _setter("dependency", dependency)
+            pulumi.set(__self__, "dependency", dependency)
         if first_publish_date is not None:
-            _setter("first_publish_date", first_publish_date)
+            pulumi.set(__self__, "first_publish_date", first_publish_date)
         if icon_id is not None:
-            _setter("icon_id", icon_id)
+            pulumi.set(__self__, "icon_id", icon_id)
         if kind is not None:
-            _setter("kind", kind)
+            pulumi.set(__self__, "kind", kind)
         if last_publish_date is not None:
-            _setter("last_publish_date", last_publish_date)
+            pulumi.set(__self__, "last_publish_date", last_publish_date)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if parent_id is not None:
-            _setter("parent_id", parent_id)
+            pulumi.set(__self__, "parent_id", parent_id)
         if preview_images is not None:
-            _setter("preview_images", preview_images)
+            pulumi.set(__self__, "preview_images", preview_images)
         if preview_images_darks is not None:
-            _setter("preview_images_darks", preview_images_darks)
+            pulumi.set(__self__, "preview_images_darks", preview_images_darks)
         if providers is not None:
-            _setter("providers", providers)
+            pulumi.set(__self__, "providers", providers)
         if source is not None:
-            _setter("source", source)
+            pulumi.set(__self__, "source", source)
         if support is not None:
-            _setter("support", support)
+            pulumi.set(__self__, "support", support)
         if threat_analysis_tactics is not None:
-            _setter("threat_analysis_tactics", threat_analysis_tactics)
+            pulumi.set(__self__, "threat_analysis_tactics", threat_analysis_tactics)
         if threat_analysis_techniques is not None:
-            _setter("threat_analysis_techniques", threat_analysis_techniques)
+            pulumi.set(__self__, "threat_analysis_techniques", threat_analysis_techniques)
         if version is not None:
-            _setter("version", version)
+            pulumi.set(__self__, "version", version)
         if workspace_id is not None:
-            _setter("workspace_id", workspace_id)
+            pulumi.set(__self__, "workspace_id", workspace_id)
 
     @property
     @pulumi.getter
@@ -1000,10 +842,6 @@ class Metadata(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            MetadataArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1039,9 +877,7 @@ class Metadata(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = MetadataArgs.__new__(MetadataArgs)
 
-            author = _utilities.configure(author, MetadataAuthorArgs, True)
             __props__.__dict__["author"] = author
-            category = _utilities.configure(category, MetadataCategoryArgs, True)
             __props__.__dict__["category"] = category
             if content_id is None and not opts.urn:
                 raise TypeError("Missing required property 'content_id'")
@@ -1062,9 +898,7 @@ class Metadata(pulumi.CustomResource):
             __props__.__dict__["preview_images"] = preview_images
             __props__.__dict__["preview_images_darks"] = preview_images_darks
             __props__.__dict__["providers"] = providers
-            source = _utilities.configure(source, MetadataSourceArgs, True)
             __props__.__dict__["source"] = source
-            support = _utilities.configure(support, MetadataSupportArgs, True)
             __props__.__dict__["support"] = support
             __props__.__dict__["threat_analysis_tactics"] = threat_analysis_tactics
             __props__.__dict__["threat_analysis_techniques"] = threat_analysis_techniques

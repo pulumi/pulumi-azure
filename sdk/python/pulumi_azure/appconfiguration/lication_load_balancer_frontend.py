@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LicationLoadBalancerFrontendArgs', 'LicationLoadBalancerFrontend']
@@ -23,30 +23,11 @@ class LicationLoadBalancerFrontendArgs:
         :param pulumi.Input[str] name: The name which should be used for this Application Gateway for Containers Frontend. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Application Gateway for Containers Frontend.
         """
-        LicationLoadBalancerFrontendArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            application_load_balancer_id=application_load_balancer_id,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             application_load_balancer_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if application_load_balancer_id is None and 'applicationLoadBalancerId' in kwargs:
-            application_load_balancer_id = kwargs['applicationLoadBalancerId']
-        if application_load_balancer_id is None:
-            raise TypeError("Missing 'application_load_balancer_id' argument")
-
-        _setter("application_load_balancer_id", application_load_balancer_id)
+        pulumi.set(__self__, "application_load_balancer_id", application_load_balancer_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="applicationLoadBalancerId")
@@ -99,35 +80,14 @@ class _LicationLoadBalancerFrontendState:
         :param pulumi.Input[str] name: The name which should be used for this Application Gateway for Containers Frontend. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Application Gateway for Containers Frontend.
         """
-        _LicationLoadBalancerFrontendState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            application_load_balancer_id=application_load_balancer_id,
-            fully_qualified_domain_name=fully_qualified_domain_name,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             application_load_balancer_id: Optional[pulumi.Input[str]] = None,
-             fully_qualified_domain_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if application_load_balancer_id is None and 'applicationLoadBalancerId' in kwargs:
-            application_load_balancer_id = kwargs['applicationLoadBalancerId']
-        if fully_qualified_domain_name is None and 'fullyQualifiedDomainName' in kwargs:
-            fully_qualified_domain_name = kwargs['fullyQualifiedDomainName']
-
         if application_load_balancer_id is not None:
-            _setter("application_load_balancer_id", application_load_balancer_id)
+            pulumi.set(__self__, "application_load_balancer_id", application_load_balancer_id)
         if fully_qualified_domain_name is not None:
-            _setter("fully_qualified_domain_name", fully_qualified_domain_name)
+            pulumi.set(__self__, "fully_qualified_domain_name", fully_qualified_domain_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="applicationLoadBalancerId")
@@ -231,10 +191,6 @@ class LicationLoadBalancerFrontend(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LicationLoadBalancerFrontendArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

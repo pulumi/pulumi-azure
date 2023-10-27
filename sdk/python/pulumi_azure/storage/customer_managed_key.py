@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['CustomerManagedKeyArgs', 'CustomerManagedKey']
@@ -30,59 +30,18 @@ class CustomerManagedKeyArgs:
         :param pulumi.Input[str] key_version: The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
         :param pulumi.Input[str] user_assigned_identity_id: The ID of a user assigned identity.
         """
-        CustomerManagedKeyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key_name=key_name,
-            storage_account_id=storage_account_id,
-            federated_identity_client_id=federated_identity_client_id,
-            key_vault_id=key_vault_id,
-            key_vault_uri=key_vault_uri,
-            key_version=key_version,
-            user_assigned_identity_id=user_assigned_identity_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key_name: Optional[pulumi.Input[str]] = None,
-             storage_account_id: Optional[pulumi.Input[str]] = None,
-             federated_identity_client_id: Optional[pulumi.Input[str]] = None,
-             key_vault_id: Optional[pulumi.Input[str]] = None,
-             key_vault_uri: Optional[pulumi.Input[str]] = None,
-             key_version: Optional[pulumi.Input[str]] = None,
-             user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key_name is None and 'keyName' in kwargs:
-            key_name = kwargs['keyName']
-        if key_name is None:
-            raise TypeError("Missing 'key_name' argument")
-        if storage_account_id is None and 'storageAccountId' in kwargs:
-            storage_account_id = kwargs['storageAccountId']
-        if storage_account_id is None:
-            raise TypeError("Missing 'storage_account_id' argument")
-        if federated_identity_client_id is None and 'federatedIdentityClientId' in kwargs:
-            federated_identity_client_id = kwargs['federatedIdentityClientId']
-        if key_vault_id is None and 'keyVaultId' in kwargs:
-            key_vault_id = kwargs['keyVaultId']
-        if key_vault_uri is None and 'keyVaultUri' in kwargs:
-            key_vault_uri = kwargs['keyVaultUri']
-        if key_version is None and 'keyVersion' in kwargs:
-            key_version = kwargs['keyVersion']
-        if user_assigned_identity_id is None and 'userAssignedIdentityId' in kwargs:
-            user_assigned_identity_id = kwargs['userAssignedIdentityId']
-
-        _setter("key_name", key_name)
-        _setter("storage_account_id", storage_account_id)
+        pulumi.set(__self__, "key_name", key_name)
+        pulumi.set(__self__, "storage_account_id", storage_account_id)
         if federated_identity_client_id is not None:
-            _setter("federated_identity_client_id", federated_identity_client_id)
+            pulumi.set(__self__, "federated_identity_client_id", federated_identity_client_id)
         if key_vault_id is not None:
-            _setter("key_vault_id", key_vault_id)
+            pulumi.set(__self__, "key_vault_id", key_vault_id)
         if key_vault_uri is not None:
-            _setter("key_vault_uri", key_vault_uri)
+            pulumi.set(__self__, "key_vault_uri", key_vault_uri)
         if key_version is not None:
-            _setter("key_version", key_version)
+            pulumi.set(__self__, "key_version", key_version)
         if user_assigned_identity_id is not None:
-            _setter("user_assigned_identity_id", user_assigned_identity_id)
+            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
 
     @property
     @pulumi.getter(name="keyName")
@@ -185,57 +144,20 @@ class _CustomerManagedKeyState:
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] user_assigned_identity_id: The ID of a user assigned identity.
         """
-        _CustomerManagedKeyState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            federated_identity_client_id=federated_identity_client_id,
-            key_name=key_name,
-            key_vault_id=key_vault_id,
-            key_vault_uri=key_vault_uri,
-            key_version=key_version,
-            storage_account_id=storage_account_id,
-            user_assigned_identity_id=user_assigned_identity_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             federated_identity_client_id: Optional[pulumi.Input[str]] = None,
-             key_name: Optional[pulumi.Input[str]] = None,
-             key_vault_id: Optional[pulumi.Input[str]] = None,
-             key_vault_uri: Optional[pulumi.Input[str]] = None,
-             key_version: Optional[pulumi.Input[str]] = None,
-             storage_account_id: Optional[pulumi.Input[str]] = None,
-             user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if federated_identity_client_id is None and 'federatedIdentityClientId' in kwargs:
-            federated_identity_client_id = kwargs['federatedIdentityClientId']
-        if key_name is None and 'keyName' in kwargs:
-            key_name = kwargs['keyName']
-        if key_vault_id is None and 'keyVaultId' in kwargs:
-            key_vault_id = kwargs['keyVaultId']
-        if key_vault_uri is None and 'keyVaultUri' in kwargs:
-            key_vault_uri = kwargs['keyVaultUri']
-        if key_version is None and 'keyVersion' in kwargs:
-            key_version = kwargs['keyVersion']
-        if storage_account_id is None and 'storageAccountId' in kwargs:
-            storage_account_id = kwargs['storageAccountId']
-        if user_assigned_identity_id is None and 'userAssignedIdentityId' in kwargs:
-            user_assigned_identity_id = kwargs['userAssignedIdentityId']
-
         if federated_identity_client_id is not None:
-            _setter("federated_identity_client_id", federated_identity_client_id)
+            pulumi.set(__self__, "federated_identity_client_id", federated_identity_client_id)
         if key_name is not None:
-            _setter("key_name", key_name)
+            pulumi.set(__self__, "key_name", key_name)
         if key_vault_id is not None:
-            _setter("key_vault_id", key_vault_id)
+            pulumi.set(__self__, "key_vault_id", key_vault_id)
         if key_vault_uri is not None:
-            _setter("key_vault_uri", key_vault_uri)
+            pulumi.set(__self__, "key_vault_uri", key_vault_uri)
         if key_version is not None:
-            _setter("key_version", key_version)
+            pulumi.set(__self__, "key_version", key_version)
         if storage_account_id is not None:
-            _setter("storage_account_id", storage_account_id)
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
         if user_assigned_identity_id is not None:
-            _setter("user_assigned_identity_id", user_assigned_identity_id)
+            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
 
     @property
     @pulumi.getter(name="federatedIdentityClientId")
@@ -535,10 +457,6 @@ class CustomerManagedKey(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            CustomerManagedKeyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

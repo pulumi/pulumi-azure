@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AssignmentVirtualMachineArgs', 'AssignmentVirtualMachine']
@@ -23,33 +23,10 @@ class AssignmentVirtualMachineArgs:
         :param pulumi.Input[str] virtual_machine_id: Specifies the Virtual Machine ID to which the Maintenance Configuration will be assigned. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
-        AssignmentVirtualMachineArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            maintenance_configuration_id=maintenance_configuration_id,
-            virtual_machine_id=virtual_machine_id,
-            location=location,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
-             virtual_machine_id: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if maintenance_configuration_id is None and 'maintenanceConfigurationId' in kwargs:
-            maintenance_configuration_id = kwargs['maintenanceConfigurationId']
-        if maintenance_configuration_id is None:
-            raise TypeError("Missing 'maintenance_configuration_id' argument")
-        if virtual_machine_id is None and 'virtualMachineId' in kwargs:
-            virtual_machine_id = kwargs['virtualMachineId']
-        if virtual_machine_id is None:
-            raise TypeError("Missing 'virtual_machine_id' argument")
-
-        _setter("maintenance_configuration_id", maintenance_configuration_id)
-        _setter("virtual_machine_id", virtual_machine_id)
+        pulumi.set(__self__, "maintenance_configuration_id", maintenance_configuration_id)
+        pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
 
     @property
     @pulumi.getter(name="maintenanceConfigurationId")
@@ -100,31 +77,12 @@ class _AssignmentVirtualMachineState:
         :param pulumi.Input[str] maintenance_configuration_id: Specifies the ID of the Maintenance Configuration Resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_machine_id: Specifies the Virtual Machine ID to which the Maintenance Configuration will be assigned. Changing this forces a new resource to be created.
         """
-        _AssignmentVirtualMachineState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            location=location,
-            maintenance_configuration_id=maintenance_configuration_id,
-            virtual_machine_id=virtual_machine_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             location: Optional[pulumi.Input[str]] = None,
-             maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
-             virtual_machine_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if maintenance_configuration_id is None and 'maintenanceConfigurationId' in kwargs:
-            maintenance_configuration_id = kwargs['maintenanceConfigurationId']
-        if virtual_machine_id is None and 'virtualMachineId' in kwargs:
-            virtual_machine_id = kwargs['virtualMachineId']
-
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if maintenance_configuration_id is not None:
-            _setter("maintenance_configuration_id", maintenance_configuration_id)
+            pulumi.set(__self__, "maintenance_configuration_id", maintenance_configuration_id)
         if virtual_machine_id is not None:
-            _setter("virtual_machine_id", virtual_machine_id)
+            pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
 
     @property
     @pulumi.getter
@@ -322,10 +280,6 @@ class AssignmentVirtualMachine(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AssignmentVirtualMachineArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

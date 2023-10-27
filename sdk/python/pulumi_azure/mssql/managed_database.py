@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,38 +27,13 @@ class ManagedDatabaseArgs:
         :param pulumi.Input[str] name: The name of the Managed Database to create. Changing this forces a new resource to be created.
         :param pulumi.Input[int] short_term_retention_days: The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
         """
-        ManagedDatabaseArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            managed_instance_id=managed_instance_id,
-            long_term_retention_policy=long_term_retention_policy,
-            name=name,
-            short_term_retention_days=short_term_retention_days,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             managed_instance_id: Optional[pulumi.Input[str]] = None,
-             long_term_retention_policy: Optional[pulumi.Input['ManagedDatabaseLongTermRetentionPolicyArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             short_term_retention_days: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if managed_instance_id is None and 'managedInstanceId' in kwargs:
-            managed_instance_id = kwargs['managedInstanceId']
-        if managed_instance_id is None:
-            raise TypeError("Missing 'managed_instance_id' argument")
-        if long_term_retention_policy is None and 'longTermRetentionPolicy' in kwargs:
-            long_term_retention_policy = kwargs['longTermRetentionPolicy']
-        if short_term_retention_days is None and 'shortTermRetentionDays' in kwargs:
-            short_term_retention_days = kwargs['shortTermRetentionDays']
-
-        _setter("managed_instance_id", managed_instance_id)
+        pulumi.set(__self__, "managed_instance_id", managed_instance_id)
         if long_term_retention_policy is not None:
-            _setter("long_term_retention_policy", long_term_retention_policy)
+            pulumi.set(__self__, "long_term_retention_policy", long_term_retention_policy)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if short_term_retention_days is not None:
-            _setter("short_term_retention_days", short_term_retention_days)
+            pulumi.set(__self__, "short_term_retention_days", short_term_retention_days)
 
     @property
     @pulumi.getter(name="managedInstanceId")
@@ -123,37 +98,14 @@ class _ManagedDatabaseState:
         :param pulumi.Input[str] name: The name of the Managed Database to create. Changing this forces a new resource to be created.
         :param pulumi.Input[int] short_term_retention_days: The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
         """
-        _ManagedDatabaseState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            long_term_retention_policy=long_term_retention_policy,
-            managed_instance_id=managed_instance_id,
-            name=name,
-            short_term_retention_days=short_term_retention_days,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             long_term_retention_policy: Optional[pulumi.Input['ManagedDatabaseLongTermRetentionPolicyArgs']] = None,
-             managed_instance_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             short_term_retention_days: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if long_term_retention_policy is None and 'longTermRetentionPolicy' in kwargs:
-            long_term_retention_policy = kwargs['longTermRetentionPolicy']
-        if managed_instance_id is None and 'managedInstanceId' in kwargs:
-            managed_instance_id = kwargs['managedInstanceId']
-        if short_term_retention_days is None and 'shortTermRetentionDays' in kwargs:
-            short_term_retention_days = kwargs['shortTermRetentionDays']
-
         if long_term_retention_policy is not None:
-            _setter("long_term_retention_policy", long_term_retention_policy)
+            pulumi.set(__self__, "long_term_retention_policy", long_term_retention_policy)
         if managed_instance_id is not None:
-            _setter("managed_instance_id", managed_instance_id)
+            pulumi.set(__self__, "managed_instance_id", managed_instance_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if short_term_retention_days is not None:
-            _setter("short_term_retention_days", short_term_retention_days)
+            pulumi.set(__self__, "short_term_retention_days", short_term_retention_days)
 
     @property
     @pulumi.getter(name="longTermRetentionPolicy")
@@ -315,10 +267,6 @@ class ManagedDatabase(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ManagedDatabaseArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -337,7 +285,6 @@ class ManagedDatabase(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ManagedDatabaseArgs.__new__(ManagedDatabaseArgs)
 
-            long_term_retention_policy = _utilities.configure(long_term_retention_policy, ManagedDatabaseLongTermRetentionPolicyArgs, True)
             __props__.__dict__["long_term_retention_policy"] = long_term_retention_policy
             if managed_instance_id is None and not opts.urn:
                 raise TypeError("Missing required property 'managed_instance_id'")

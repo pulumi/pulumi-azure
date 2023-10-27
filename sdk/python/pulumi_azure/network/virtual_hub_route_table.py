@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,34 +27,13 @@ class VirtualHubRouteTableArgs:
         :param pulumi.Input[str] name: The name which should be used for Virtual Hub Route Table. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteTableRouteArgs']]] routes: One or more `route` blocks as defined below.
         """
-        VirtualHubRouteTableArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            virtual_hub_id=virtual_hub_id,
-            labels=labels,
-            name=name,
-            routes=routes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             virtual_hub_id: Optional[pulumi.Input[str]] = None,
-             labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             routes: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteTableRouteArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if virtual_hub_id is None and 'virtualHubId' in kwargs:
-            virtual_hub_id = kwargs['virtualHubId']
-        if virtual_hub_id is None:
-            raise TypeError("Missing 'virtual_hub_id' argument")
-
-        _setter("virtual_hub_id", virtual_hub_id)
+        pulumi.set(__self__, "virtual_hub_id", virtual_hub_id)
         if labels is not None:
-            _setter("labels", labels)
+            pulumi.set(__self__, "labels", labels)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if routes is not None:
-            _setter("routes", routes)
+            pulumi.set(__self__, "routes", routes)
 
     @property
     @pulumi.getter(name="virtualHubId")
@@ -119,33 +98,14 @@ class _VirtualHubRouteTableState:
         :param pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteTableRouteArgs']]] routes: One or more `route` blocks as defined below.
         :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub within which this route table should be created. Changing this forces a new resource to be created.
         """
-        _VirtualHubRouteTableState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            labels=labels,
-            name=name,
-            routes=routes,
-            virtual_hub_id=virtual_hub_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             routes: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteTableRouteArgs']]]] = None,
-             virtual_hub_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if virtual_hub_id is None and 'virtualHubId' in kwargs:
-            virtual_hub_id = kwargs['virtualHubId']
-
         if labels is not None:
-            _setter("labels", labels)
+            pulumi.set(__self__, "labels", labels)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if routes is not None:
-            _setter("routes", routes)
+            pulumi.set(__self__, "routes", routes)
         if virtual_hub_id is not None:
-            _setter("virtual_hub_id", virtual_hub_id)
+            pulumi.set(__self__, "virtual_hub_id", virtual_hub_id)
 
     @property
     @pulumi.getter
@@ -339,10 +299,6 @@ class VirtualHubRouteTable(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            VirtualHubRouteTableArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

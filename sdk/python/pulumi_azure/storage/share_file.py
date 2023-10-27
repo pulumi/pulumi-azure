@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ShareFileArgs', 'ShareFile']
@@ -35,62 +35,23 @@ class ShareFileArgs:
         :param pulumi.Input[str] path: The storage share directory that you would like the file placed into. Changing this forces a new resource to be created. Defaults to `""`.
         :param pulumi.Input[str] source: An absolute path to a file on the local system. Changing this forces a new resource to be created.
         """
-        ShareFileArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            storage_share_id=storage_share_id,
-            content_disposition=content_disposition,
-            content_encoding=content_encoding,
-            content_md5=content_md5,
-            content_type=content_type,
-            metadata=metadata,
-            name=name,
-            path=path,
-            source=source,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             storage_share_id: Optional[pulumi.Input[str]] = None,
-             content_disposition: Optional[pulumi.Input[str]] = None,
-             content_encoding: Optional[pulumi.Input[str]] = None,
-             content_md5: Optional[pulumi.Input[str]] = None,
-             content_type: Optional[pulumi.Input[str]] = None,
-             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             path: Optional[pulumi.Input[str]] = None,
-             source: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if storage_share_id is None and 'storageShareId' in kwargs:
-            storage_share_id = kwargs['storageShareId']
-        if storage_share_id is None:
-            raise TypeError("Missing 'storage_share_id' argument")
-        if content_disposition is None and 'contentDisposition' in kwargs:
-            content_disposition = kwargs['contentDisposition']
-        if content_encoding is None and 'contentEncoding' in kwargs:
-            content_encoding = kwargs['contentEncoding']
-        if content_md5 is None and 'contentMd5' in kwargs:
-            content_md5 = kwargs['contentMd5']
-        if content_type is None and 'contentType' in kwargs:
-            content_type = kwargs['contentType']
-
-        _setter("storage_share_id", storage_share_id)
+        pulumi.set(__self__, "storage_share_id", storage_share_id)
         if content_disposition is not None:
-            _setter("content_disposition", content_disposition)
+            pulumi.set(__self__, "content_disposition", content_disposition)
         if content_encoding is not None:
-            _setter("content_encoding", content_encoding)
+            pulumi.set(__self__, "content_encoding", content_encoding)
         if content_md5 is not None:
-            _setter("content_md5", content_md5)
+            pulumi.set(__self__, "content_md5", content_md5)
         if content_type is not None:
-            _setter("content_type", content_type)
+            pulumi.set(__self__, "content_type", content_type)
         if metadata is not None:
-            _setter("metadata", metadata)
+            pulumi.set(__self__, "metadata", metadata)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if path is not None:
-            _setter("path", path)
+            pulumi.set(__self__, "path", path)
         if source is not None:
-            _setter("source", source)
+            pulumi.set(__self__, "source", source)
 
     @property
     @pulumi.getter(name="storageShareId")
@@ -227,67 +188,26 @@ class _ShareFileState:
         :param pulumi.Input[str] source: An absolute path to a file on the local system. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_share_id: The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
         """
-        _ShareFileState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            content_disposition=content_disposition,
-            content_encoding=content_encoding,
-            content_length=content_length,
-            content_md5=content_md5,
-            content_type=content_type,
-            metadata=metadata,
-            name=name,
-            path=path,
-            source=source,
-            storage_share_id=storage_share_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             content_disposition: Optional[pulumi.Input[str]] = None,
-             content_encoding: Optional[pulumi.Input[str]] = None,
-             content_length: Optional[pulumi.Input[int]] = None,
-             content_md5: Optional[pulumi.Input[str]] = None,
-             content_type: Optional[pulumi.Input[str]] = None,
-             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             path: Optional[pulumi.Input[str]] = None,
-             source: Optional[pulumi.Input[str]] = None,
-             storage_share_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if content_disposition is None and 'contentDisposition' in kwargs:
-            content_disposition = kwargs['contentDisposition']
-        if content_encoding is None and 'contentEncoding' in kwargs:
-            content_encoding = kwargs['contentEncoding']
-        if content_length is None and 'contentLength' in kwargs:
-            content_length = kwargs['contentLength']
-        if content_md5 is None and 'contentMd5' in kwargs:
-            content_md5 = kwargs['contentMd5']
-        if content_type is None and 'contentType' in kwargs:
-            content_type = kwargs['contentType']
-        if storage_share_id is None and 'storageShareId' in kwargs:
-            storage_share_id = kwargs['storageShareId']
-
         if content_disposition is not None:
-            _setter("content_disposition", content_disposition)
+            pulumi.set(__self__, "content_disposition", content_disposition)
         if content_encoding is not None:
-            _setter("content_encoding", content_encoding)
+            pulumi.set(__self__, "content_encoding", content_encoding)
         if content_length is not None:
-            _setter("content_length", content_length)
+            pulumi.set(__self__, "content_length", content_length)
         if content_md5 is not None:
-            _setter("content_md5", content_md5)
+            pulumi.set(__self__, "content_md5", content_md5)
         if content_type is not None:
-            _setter("content_type", content_type)
+            pulumi.set(__self__, "content_type", content_type)
         if metadata is not None:
-            _setter("metadata", metadata)
+            pulumi.set(__self__, "metadata", metadata)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if path is not None:
-            _setter("path", path)
+            pulumi.set(__self__, "path", path)
         if source is not None:
-            _setter("source", source)
+            pulumi.set(__self__, "source", source)
         if storage_share_id is not None:
-            _setter("storage_share_id", storage_share_id)
+            pulumi.set(__self__, "storage_share_id", storage_share_id)
 
     @property
     @pulumi.getter(name="contentDisposition")
@@ -515,10 +435,6 @@ class ShareFile(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ShareFileArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

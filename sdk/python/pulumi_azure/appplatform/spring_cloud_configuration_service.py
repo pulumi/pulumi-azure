@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,34 +27,13 @@ class SpringCloudConfigurationServiceArgs:
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
         :param pulumi.Input[Sequence[pulumi.Input['SpringCloudConfigurationServiceRepositoryArgs']]] repositories: One or more `repository` blocks as defined below.
         """
-        SpringCloudConfigurationServiceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            spring_cloud_service_id=spring_cloud_service_id,
-            generation=generation,
-            name=name,
-            repositories=repositories,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
-             generation: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             repositories: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudConfigurationServiceRepositoryArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if spring_cloud_service_id is None and 'springCloudServiceId' in kwargs:
-            spring_cloud_service_id = kwargs['springCloudServiceId']
-        if spring_cloud_service_id is None:
-            raise TypeError("Missing 'spring_cloud_service_id' argument")
-
-        _setter("spring_cloud_service_id", spring_cloud_service_id)
+        pulumi.set(__self__, "spring_cloud_service_id", spring_cloud_service_id)
         if generation is not None:
-            _setter("generation", generation)
+            pulumi.set(__self__, "generation", generation)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if repositories is not None:
-            _setter("repositories", repositories)
+            pulumi.set(__self__, "repositories", repositories)
 
     @property
     @pulumi.getter(name="springCloudServiceId")
@@ -119,33 +98,14 @@ class _SpringCloudConfigurationServiceState:
         :param pulumi.Input[Sequence[pulumi.Input['SpringCloudConfigurationServiceRepositoryArgs']]] repositories: One or more `repository` blocks as defined below.
         :param pulumi.Input[str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Configuration Service to be created.
         """
-        _SpringCloudConfigurationServiceState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            generation=generation,
-            name=name,
-            repositories=repositories,
-            spring_cloud_service_id=spring_cloud_service_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             generation: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             repositories: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudConfigurationServiceRepositoryArgs']]]] = None,
-             spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if spring_cloud_service_id is None and 'springCloudServiceId' in kwargs:
-            spring_cloud_service_id = kwargs['springCloudServiceId']
-
         if generation is not None:
-            _setter("generation", generation)
+            pulumi.set(__self__, "generation", generation)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if repositories is not None:
-            _setter("repositories", repositories)
+            pulumi.set(__self__, "repositories", repositories)
         if spring_cloud_service_id is not None:
-            _setter("spring_cloud_service_id", spring_cloud_service_id)
+            pulumi.set(__self__, "spring_cloud_service_id", spring_cloud_service_id)
 
     @property
     @pulumi.getter
@@ -311,10 +271,6 @@ class SpringCloudConfigurationService(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SpringCloudConfigurationServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

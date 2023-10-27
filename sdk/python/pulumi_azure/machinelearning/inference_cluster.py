@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,59 +39,22 @@ class InferenceClusterArgs:
         :param pulumi.Input['InferenceClusterSslArgs'] ssl: A `ssl` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
         """
-        InferenceClusterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            kubernetes_cluster_id=kubernetes_cluster_id,
-            machine_learning_workspace_id=machine_learning_workspace_id,
-            cluster_purpose=cluster_purpose,
-            description=description,
-            identity=identity,
-            location=location,
-            name=name,
-            ssl=ssl,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             kubernetes_cluster_id: Optional[pulumi.Input[str]] = None,
-             machine_learning_workspace_id: Optional[pulumi.Input[str]] = None,
-             cluster_purpose: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             identity: Optional[pulumi.Input['InferenceClusterIdentityArgs']] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             ssl: Optional[pulumi.Input['InferenceClusterSslArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if kubernetes_cluster_id is None and 'kubernetesClusterId' in kwargs:
-            kubernetes_cluster_id = kwargs['kubernetesClusterId']
-        if kubernetes_cluster_id is None:
-            raise TypeError("Missing 'kubernetes_cluster_id' argument")
-        if machine_learning_workspace_id is None and 'machineLearningWorkspaceId' in kwargs:
-            machine_learning_workspace_id = kwargs['machineLearningWorkspaceId']
-        if machine_learning_workspace_id is None:
-            raise TypeError("Missing 'machine_learning_workspace_id' argument")
-        if cluster_purpose is None and 'clusterPurpose' in kwargs:
-            cluster_purpose = kwargs['clusterPurpose']
-
-        _setter("kubernetes_cluster_id", kubernetes_cluster_id)
-        _setter("machine_learning_workspace_id", machine_learning_workspace_id)
+        pulumi.set(__self__, "kubernetes_cluster_id", kubernetes_cluster_id)
+        pulumi.set(__self__, "machine_learning_workspace_id", machine_learning_workspace_id)
         if cluster_purpose is not None:
-            _setter("cluster_purpose", cluster_purpose)
+            pulumi.set(__self__, "cluster_purpose", cluster_purpose)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if ssl is not None:
-            _setter("ssl", ssl)
+            pulumi.set(__self__, "ssl", ssl)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="kubernetesClusterId")
@@ -230,57 +193,24 @@ class _InferenceClusterState:
         :param pulumi.Input['InferenceClusterSslArgs'] ssl: A `ssl` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
         """
-        _InferenceClusterState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cluster_purpose=cluster_purpose,
-            description=description,
-            identity=identity,
-            kubernetes_cluster_id=kubernetes_cluster_id,
-            location=location,
-            machine_learning_workspace_id=machine_learning_workspace_id,
-            name=name,
-            ssl=ssl,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cluster_purpose: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             identity: Optional[pulumi.Input['InferenceClusterIdentityArgs']] = None,
-             kubernetes_cluster_id: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             machine_learning_workspace_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             ssl: Optional[pulumi.Input['InferenceClusterSslArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cluster_purpose is None and 'clusterPurpose' in kwargs:
-            cluster_purpose = kwargs['clusterPurpose']
-        if kubernetes_cluster_id is None and 'kubernetesClusterId' in kwargs:
-            kubernetes_cluster_id = kwargs['kubernetesClusterId']
-        if machine_learning_workspace_id is None and 'machineLearningWorkspaceId' in kwargs:
-            machine_learning_workspace_id = kwargs['machineLearningWorkspaceId']
-
         if cluster_purpose is not None:
-            _setter("cluster_purpose", cluster_purpose)
+            pulumi.set(__self__, "cluster_purpose", cluster_purpose)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if kubernetes_cluster_id is not None:
-            _setter("kubernetes_cluster_id", kubernetes_cluster_id)
+            pulumi.set(__self__, "kubernetes_cluster_id", kubernetes_cluster_id)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if machine_learning_workspace_id is not None:
-            _setter("machine_learning_workspace_id", machine_learning_workspace_id)
+            pulumi.set(__self__, "machine_learning_workspace_id", machine_learning_workspace_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if ssl is not None:
-            _setter("ssl", ssl)
+            pulumi.set(__self__, "ssl", ssl)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="clusterPurpose")
@@ -600,10 +530,6 @@ class InferenceCluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            InferenceClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -629,7 +555,6 @@ class InferenceCluster(pulumi.CustomResource):
 
             __props__.__dict__["cluster_purpose"] = cluster_purpose
             __props__.__dict__["description"] = description
-            identity = _utilities.configure(identity, InferenceClusterIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             if kubernetes_cluster_id is None and not opts.urn:
                 raise TypeError("Missing required property 'kubernetes_cluster_id'")
@@ -639,7 +564,6 @@ class InferenceCluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'machine_learning_workspace_id'")
             __props__.__dict__["machine_learning_workspace_id"] = machine_learning_workspace_id
             __props__.__dict__["name"] = name
-            ssl = _utilities.configure(ssl, InferenceClusterSslArgs, True)
             __props__.__dict__["ssl"] = ssl
             __props__.__dict__["tags"] = tags
         super(InferenceCluster, __self__).__init__(

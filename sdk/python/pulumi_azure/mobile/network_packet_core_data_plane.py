@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['NetworkPacketCoreDataPlaneArgs', 'NetworkPacketCoreDataPlane']
@@ -33,58 +33,21 @@ class NetworkPacketCoreDataPlaneArgs:
         :param pulumi.Input[str] user_plane_access_ipv4_subnet: The IPv4 subnet for the user plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
         :param pulumi.Input[str] user_plane_access_name: Specifies the logical name for thie user plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
         """
-        NetworkPacketCoreDataPlaneArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            mobile_network_packet_core_control_plane_id=mobile_network_packet_core_control_plane_id,
-            location=location,
-            name=name,
-            tags=tags,
-            user_plane_access_ipv4_address=user_plane_access_ipv4_address,
-            user_plane_access_ipv4_gateway=user_plane_access_ipv4_gateway,
-            user_plane_access_ipv4_subnet=user_plane_access_ipv4_subnet,
-            user_plane_access_name=user_plane_access_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             mobile_network_packet_core_control_plane_id: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             user_plane_access_ipv4_address: Optional[pulumi.Input[str]] = None,
-             user_plane_access_ipv4_gateway: Optional[pulumi.Input[str]] = None,
-             user_plane_access_ipv4_subnet: Optional[pulumi.Input[str]] = None,
-             user_plane_access_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if mobile_network_packet_core_control_plane_id is None and 'mobileNetworkPacketCoreControlPlaneId' in kwargs:
-            mobile_network_packet_core_control_plane_id = kwargs['mobileNetworkPacketCoreControlPlaneId']
-        if mobile_network_packet_core_control_plane_id is None:
-            raise TypeError("Missing 'mobile_network_packet_core_control_plane_id' argument")
-        if user_plane_access_ipv4_address is None and 'userPlaneAccessIpv4Address' in kwargs:
-            user_plane_access_ipv4_address = kwargs['userPlaneAccessIpv4Address']
-        if user_plane_access_ipv4_gateway is None and 'userPlaneAccessIpv4Gateway' in kwargs:
-            user_plane_access_ipv4_gateway = kwargs['userPlaneAccessIpv4Gateway']
-        if user_plane_access_ipv4_subnet is None and 'userPlaneAccessIpv4Subnet' in kwargs:
-            user_plane_access_ipv4_subnet = kwargs['userPlaneAccessIpv4Subnet']
-        if user_plane_access_name is None and 'userPlaneAccessName' in kwargs:
-            user_plane_access_name = kwargs['userPlaneAccessName']
-
-        _setter("mobile_network_packet_core_control_plane_id", mobile_network_packet_core_control_plane_id)
+        pulumi.set(__self__, "mobile_network_packet_core_control_plane_id", mobile_network_packet_core_control_plane_id)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if user_plane_access_ipv4_address is not None:
-            _setter("user_plane_access_ipv4_address", user_plane_access_ipv4_address)
+            pulumi.set(__self__, "user_plane_access_ipv4_address", user_plane_access_ipv4_address)
         if user_plane_access_ipv4_gateway is not None:
-            _setter("user_plane_access_ipv4_gateway", user_plane_access_ipv4_gateway)
+            pulumi.set(__self__, "user_plane_access_ipv4_gateway", user_plane_access_ipv4_gateway)
         if user_plane_access_ipv4_subnet is not None:
-            _setter("user_plane_access_ipv4_subnet", user_plane_access_ipv4_subnet)
+            pulumi.set(__self__, "user_plane_access_ipv4_subnet", user_plane_access_ipv4_subnet)
         if user_plane_access_name is not None:
-            _setter("user_plane_access_name", user_plane_access_name)
+            pulumi.set(__self__, "user_plane_access_name", user_plane_access_name)
 
     @property
     @pulumi.getter(name="mobileNetworkPacketCoreControlPlaneId")
@@ -205,57 +168,22 @@ class _NetworkPacketCoreDataPlaneState:
         :param pulumi.Input[str] user_plane_access_ipv4_subnet: The IPv4 subnet for the user plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
         :param pulumi.Input[str] user_plane_access_name: Specifies the logical name for thie user plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
         """
-        _NetworkPacketCoreDataPlaneState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            location=location,
-            mobile_network_packet_core_control_plane_id=mobile_network_packet_core_control_plane_id,
-            name=name,
-            tags=tags,
-            user_plane_access_ipv4_address=user_plane_access_ipv4_address,
-            user_plane_access_ipv4_gateway=user_plane_access_ipv4_gateway,
-            user_plane_access_ipv4_subnet=user_plane_access_ipv4_subnet,
-            user_plane_access_name=user_plane_access_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             location: Optional[pulumi.Input[str]] = None,
-             mobile_network_packet_core_control_plane_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             user_plane_access_ipv4_address: Optional[pulumi.Input[str]] = None,
-             user_plane_access_ipv4_gateway: Optional[pulumi.Input[str]] = None,
-             user_plane_access_ipv4_subnet: Optional[pulumi.Input[str]] = None,
-             user_plane_access_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if mobile_network_packet_core_control_plane_id is None and 'mobileNetworkPacketCoreControlPlaneId' in kwargs:
-            mobile_network_packet_core_control_plane_id = kwargs['mobileNetworkPacketCoreControlPlaneId']
-        if user_plane_access_ipv4_address is None and 'userPlaneAccessIpv4Address' in kwargs:
-            user_plane_access_ipv4_address = kwargs['userPlaneAccessIpv4Address']
-        if user_plane_access_ipv4_gateway is None and 'userPlaneAccessIpv4Gateway' in kwargs:
-            user_plane_access_ipv4_gateway = kwargs['userPlaneAccessIpv4Gateway']
-        if user_plane_access_ipv4_subnet is None and 'userPlaneAccessIpv4Subnet' in kwargs:
-            user_plane_access_ipv4_subnet = kwargs['userPlaneAccessIpv4Subnet']
-        if user_plane_access_name is None and 'userPlaneAccessName' in kwargs:
-            user_plane_access_name = kwargs['userPlaneAccessName']
-
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if mobile_network_packet_core_control_plane_id is not None:
-            _setter("mobile_network_packet_core_control_plane_id", mobile_network_packet_core_control_plane_id)
+            pulumi.set(__self__, "mobile_network_packet_core_control_plane_id", mobile_network_packet_core_control_plane_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if user_plane_access_ipv4_address is not None:
-            _setter("user_plane_access_ipv4_address", user_plane_access_ipv4_address)
+            pulumi.set(__self__, "user_plane_access_ipv4_address", user_plane_access_ipv4_address)
         if user_plane_access_ipv4_gateway is not None:
-            _setter("user_plane_access_ipv4_gateway", user_plane_access_ipv4_gateway)
+            pulumi.set(__self__, "user_plane_access_ipv4_gateway", user_plane_access_ipv4_gateway)
         if user_plane_access_ipv4_subnet is not None:
-            _setter("user_plane_access_ipv4_subnet", user_plane_access_ipv4_subnet)
+            pulumi.set(__self__, "user_plane_access_ipv4_subnet", user_plane_access_ipv4_subnet)
         if user_plane_access_name is not None:
-            _setter("user_plane_access_name", user_plane_access_name)
+            pulumi.set(__self__, "user_plane_access_name", user_plane_access_name)
 
     @property
     @pulumi.getter
@@ -417,10 +345,6 @@ class NetworkPacketCoreDataPlane(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            NetworkPacketCoreDataPlaneArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,56 +33,17 @@ class SpringCloudConnectionArgs:
         :param pulumi.Input['SpringCloudConnectionSecretStoreArgs'] secret_store: An option to store secret value in secure place. An `secret_store` block as defined below.
         :param pulumi.Input[str] vnet_solution: The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
         """
-        SpringCloudConnectionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            authentication=authentication,
-            spring_cloud_id=spring_cloud_id,
-            target_resource_id=target_resource_id,
-            client_type=client_type,
-            name=name,
-            secret_store=secret_store,
-            vnet_solution=vnet_solution,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             authentication: Optional[pulumi.Input['SpringCloudConnectionAuthenticationArgs']] = None,
-             spring_cloud_id: Optional[pulumi.Input[str]] = None,
-             target_resource_id: Optional[pulumi.Input[str]] = None,
-             client_type: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             secret_store: Optional[pulumi.Input['SpringCloudConnectionSecretStoreArgs']] = None,
-             vnet_solution: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if authentication is None:
-            raise TypeError("Missing 'authentication' argument")
-        if spring_cloud_id is None and 'springCloudId' in kwargs:
-            spring_cloud_id = kwargs['springCloudId']
-        if spring_cloud_id is None:
-            raise TypeError("Missing 'spring_cloud_id' argument")
-        if target_resource_id is None and 'targetResourceId' in kwargs:
-            target_resource_id = kwargs['targetResourceId']
-        if target_resource_id is None:
-            raise TypeError("Missing 'target_resource_id' argument")
-        if client_type is None and 'clientType' in kwargs:
-            client_type = kwargs['clientType']
-        if secret_store is None and 'secretStore' in kwargs:
-            secret_store = kwargs['secretStore']
-        if vnet_solution is None and 'vnetSolution' in kwargs:
-            vnet_solution = kwargs['vnetSolution']
-
-        _setter("authentication", authentication)
-        _setter("spring_cloud_id", spring_cloud_id)
-        _setter("target_resource_id", target_resource_id)
+        pulumi.set(__self__, "authentication", authentication)
+        pulumi.set(__self__, "spring_cloud_id", spring_cloud_id)
+        pulumi.set(__self__, "target_resource_id", target_resource_id)
         if client_type is not None:
-            _setter("client_type", client_type)
+            pulumi.set(__self__, "client_type", client_type)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if secret_store is not None:
-            _setter("secret_store", secret_store)
+            pulumi.set(__self__, "secret_store", secret_store)
         if vnet_solution is not None:
-            _setter("vnet_solution", vnet_solution)
+            pulumi.set(__self__, "vnet_solution", vnet_solution)
 
     @property
     @pulumi.getter
@@ -189,53 +150,20 @@ class _SpringCloudConnectionState:
         :param pulumi.Input[str] target_resource_id: The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-postgres).
         :param pulumi.Input[str] vnet_solution: The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
         """
-        _SpringCloudConnectionState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            authentication=authentication,
-            client_type=client_type,
-            name=name,
-            secret_store=secret_store,
-            spring_cloud_id=spring_cloud_id,
-            target_resource_id=target_resource_id,
-            vnet_solution=vnet_solution,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             authentication: Optional[pulumi.Input['SpringCloudConnectionAuthenticationArgs']] = None,
-             client_type: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             secret_store: Optional[pulumi.Input['SpringCloudConnectionSecretStoreArgs']] = None,
-             spring_cloud_id: Optional[pulumi.Input[str]] = None,
-             target_resource_id: Optional[pulumi.Input[str]] = None,
-             vnet_solution: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if client_type is None and 'clientType' in kwargs:
-            client_type = kwargs['clientType']
-        if secret_store is None and 'secretStore' in kwargs:
-            secret_store = kwargs['secretStore']
-        if spring_cloud_id is None and 'springCloudId' in kwargs:
-            spring_cloud_id = kwargs['springCloudId']
-        if target_resource_id is None and 'targetResourceId' in kwargs:
-            target_resource_id = kwargs['targetResourceId']
-        if vnet_solution is None and 'vnetSolution' in kwargs:
-            vnet_solution = kwargs['vnetSolution']
-
         if authentication is not None:
-            _setter("authentication", authentication)
+            pulumi.set(__self__, "authentication", authentication)
         if client_type is not None:
-            _setter("client_type", client_type)
+            pulumi.set(__self__, "client_type", client_type)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if secret_store is not None:
-            _setter("secret_store", secret_store)
+            pulumi.set(__self__, "secret_store", secret_store)
         if spring_cloud_id is not None:
-            _setter("spring_cloud_id", spring_cloud_id)
+            pulumi.set(__self__, "spring_cloud_id", spring_cloud_id)
         if target_resource_id is not None:
-            _setter("target_resource_id", target_resource_id)
+            pulumi.set(__self__, "target_resource_id", target_resource_id)
         if vnet_solution is not None:
-            _setter("vnet_solution", vnet_solution)
+            pulumi.set(__self__, "vnet_solution", vnet_solution)
 
     @property
     @pulumi.getter
@@ -479,10 +407,6 @@ class SpringCloudConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SpringCloudConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -504,13 +428,11 @@ class SpringCloudConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SpringCloudConnectionArgs.__new__(SpringCloudConnectionArgs)
 
-            authentication = _utilities.configure(authentication, SpringCloudConnectionAuthenticationArgs, True)
             if authentication is None and not opts.urn:
                 raise TypeError("Missing required property 'authentication'")
             __props__.__dict__["authentication"] = authentication
             __props__.__dict__["client_type"] = client_type
             __props__.__dict__["name"] = name
-            secret_store = _utilities.configure(secret_store, SpringCloudConnectionSecretStoreArgs, True)
             __props__.__dict__["secret_store"] = secret_store
             if spring_cloud_id is None and not opts.urn:
                 raise TypeError("Missing required property 'spring_cloud_id'")

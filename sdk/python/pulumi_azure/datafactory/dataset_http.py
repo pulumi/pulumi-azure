@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -45,79 +45,28 @@ class DatasetHttpArgs:
         :param pulumi.Input[str] request_method: The HTTP method for the HTTP request. (e.g. GET, POST)
         :param pulumi.Input[Sequence[pulumi.Input['DatasetHttpSchemaColumnArgs']]] schema_columns: A `schema_column` block as defined below.
         """
-        DatasetHttpArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_factory_id=data_factory_id,
-            linked_service_name=linked_service_name,
-            additional_properties=additional_properties,
-            annotations=annotations,
-            description=description,
-            folder=folder,
-            name=name,
-            parameters=parameters,
-            relative_url=relative_url,
-            request_body=request_body,
-            request_method=request_method,
-            schema_columns=schema_columns,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_factory_id: Optional[pulumi.Input[str]] = None,
-             linked_service_name: Optional[pulumi.Input[str]] = None,
-             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             folder: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             relative_url: Optional[pulumi.Input[str]] = None,
-             request_body: Optional[pulumi.Input[str]] = None,
-             request_method: Optional[pulumi.Input[str]] = None,
-             schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetHttpSchemaColumnArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if data_factory_id is None and 'dataFactoryId' in kwargs:
-            data_factory_id = kwargs['dataFactoryId']
-        if data_factory_id is None:
-            raise TypeError("Missing 'data_factory_id' argument")
-        if linked_service_name is None and 'linkedServiceName' in kwargs:
-            linked_service_name = kwargs['linkedServiceName']
-        if linked_service_name is None:
-            raise TypeError("Missing 'linked_service_name' argument")
-        if additional_properties is None and 'additionalProperties' in kwargs:
-            additional_properties = kwargs['additionalProperties']
-        if relative_url is None and 'relativeUrl' in kwargs:
-            relative_url = kwargs['relativeUrl']
-        if request_body is None and 'requestBody' in kwargs:
-            request_body = kwargs['requestBody']
-        if request_method is None and 'requestMethod' in kwargs:
-            request_method = kwargs['requestMethod']
-        if schema_columns is None and 'schemaColumns' in kwargs:
-            schema_columns = kwargs['schemaColumns']
-
-        _setter("data_factory_id", data_factory_id)
-        _setter("linked_service_name", linked_service_name)
+        pulumi.set(__self__, "data_factory_id", data_factory_id)
+        pulumi.set(__self__, "linked_service_name", linked_service_name)
         if additional_properties is not None:
-            _setter("additional_properties", additional_properties)
+            pulumi.set(__self__, "additional_properties", additional_properties)
         if annotations is not None:
-            _setter("annotations", annotations)
+            pulumi.set(__self__, "annotations", annotations)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if folder is not None:
-            _setter("folder", folder)
+            pulumi.set(__self__, "folder", folder)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if parameters is not None:
-            _setter("parameters", parameters)
+            pulumi.set(__self__, "parameters", parameters)
         if relative_url is not None:
-            _setter("relative_url", relative_url)
+            pulumi.set(__self__, "relative_url", relative_url)
         if request_body is not None:
-            _setter("request_body", request_body)
+            pulumi.set(__self__, "request_body", request_body)
         if request_method is not None:
-            _setter("request_method", request_method)
+            pulumi.set(__self__, "request_method", request_method)
         if schema_columns is not None:
-            _setter("schema_columns", schema_columns)
+            pulumi.set(__self__, "schema_columns", schema_columns)
 
     @property
     @pulumi.getter(name="dataFactoryId")
@@ -298,77 +247,30 @@ class _DatasetHttpState:
         :param pulumi.Input[str] request_method: The HTTP method for the HTTP request. (e.g. GET, POST)
         :param pulumi.Input[Sequence[pulumi.Input['DatasetHttpSchemaColumnArgs']]] schema_columns: A `schema_column` block as defined below.
         """
-        _DatasetHttpState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            additional_properties=additional_properties,
-            annotations=annotations,
-            data_factory_id=data_factory_id,
-            description=description,
-            folder=folder,
-            linked_service_name=linked_service_name,
-            name=name,
-            parameters=parameters,
-            relative_url=relative_url,
-            request_body=request_body,
-            request_method=request_method,
-            schema_columns=schema_columns,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             data_factory_id: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             folder: Optional[pulumi.Input[str]] = None,
-             linked_service_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             relative_url: Optional[pulumi.Input[str]] = None,
-             request_body: Optional[pulumi.Input[str]] = None,
-             request_method: Optional[pulumi.Input[str]] = None,
-             schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetHttpSchemaColumnArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if additional_properties is None and 'additionalProperties' in kwargs:
-            additional_properties = kwargs['additionalProperties']
-        if data_factory_id is None and 'dataFactoryId' in kwargs:
-            data_factory_id = kwargs['dataFactoryId']
-        if linked_service_name is None and 'linkedServiceName' in kwargs:
-            linked_service_name = kwargs['linkedServiceName']
-        if relative_url is None and 'relativeUrl' in kwargs:
-            relative_url = kwargs['relativeUrl']
-        if request_body is None and 'requestBody' in kwargs:
-            request_body = kwargs['requestBody']
-        if request_method is None and 'requestMethod' in kwargs:
-            request_method = kwargs['requestMethod']
-        if schema_columns is None and 'schemaColumns' in kwargs:
-            schema_columns = kwargs['schemaColumns']
-
         if additional_properties is not None:
-            _setter("additional_properties", additional_properties)
+            pulumi.set(__self__, "additional_properties", additional_properties)
         if annotations is not None:
-            _setter("annotations", annotations)
+            pulumi.set(__self__, "annotations", annotations)
         if data_factory_id is not None:
-            _setter("data_factory_id", data_factory_id)
+            pulumi.set(__self__, "data_factory_id", data_factory_id)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if folder is not None:
-            _setter("folder", folder)
+            pulumi.set(__self__, "folder", folder)
         if linked_service_name is not None:
-            _setter("linked_service_name", linked_service_name)
+            pulumi.set(__self__, "linked_service_name", linked_service_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if parameters is not None:
-            _setter("parameters", parameters)
+            pulumi.set(__self__, "parameters", parameters)
         if relative_url is not None:
-            _setter("relative_url", relative_url)
+            pulumi.set(__self__, "relative_url", relative_url)
         if request_body is not None:
-            _setter("request_body", request_body)
+            pulumi.set(__self__, "request_body", request_body)
         if request_method is not None:
-            _setter("request_method", request_method)
+            pulumi.set(__self__, "request_method", request_method)
         if schema_columns is not None:
-            _setter("schema_columns", schema_columns)
+            pulumi.set(__self__, "schema_columns", schema_columns)
 
     @property
     @pulumi.getter(name="additionalProperties")
@@ -634,10 +536,6 @@ class DatasetHttp(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DatasetHttpArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

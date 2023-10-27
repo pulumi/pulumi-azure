@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['FrontdoorEndpointArgs', 'FrontdoorEndpoint']
@@ -25,34 +25,13 @@ class FrontdoorEndpointArgs:
         :param pulumi.Input[str] name: The name which should be used for this Front Door Endpoint. Changing this forces a new Front Door Endpoint to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Specifies a mapping of tags which should be assigned to the Front Door Endpoint.
         """
-        FrontdoorEndpointArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cdn_frontdoor_profile_id=cdn_frontdoor_profile_id,
-            enabled=enabled,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cdn_frontdoor_profile_id: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cdn_frontdoor_profile_id is None and 'cdnFrontdoorProfileId' in kwargs:
-            cdn_frontdoor_profile_id = kwargs['cdnFrontdoorProfileId']
-        if cdn_frontdoor_profile_id is None:
-            raise TypeError("Missing 'cdn_frontdoor_profile_id' argument")
-
-        _setter("cdn_frontdoor_profile_id", cdn_frontdoor_profile_id)
+        pulumi.set(__self__, "cdn_frontdoor_profile_id", cdn_frontdoor_profile_id)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="cdnFrontdoorProfileId")
@@ -119,39 +98,16 @@ class _FrontdoorEndpointState:
         :param pulumi.Input[str] name: The name which should be used for this Front Door Endpoint. Changing this forces a new Front Door Endpoint to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Specifies a mapping of tags which should be assigned to the Front Door Endpoint.
         """
-        _FrontdoorEndpointState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cdn_frontdoor_profile_id=cdn_frontdoor_profile_id,
-            enabled=enabled,
-            host_name=host_name,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cdn_frontdoor_profile_id: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             host_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cdn_frontdoor_profile_id is None and 'cdnFrontdoorProfileId' in kwargs:
-            cdn_frontdoor_profile_id = kwargs['cdnFrontdoorProfileId']
-        if host_name is None and 'hostName' in kwargs:
-            host_name = kwargs['hostName']
-
         if cdn_frontdoor_profile_id is not None:
-            _setter("cdn_frontdoor_profile_id", cdn_frontdoor_profile_id)
+            pulumi.set(__self__, "cdn_frontdoor_profile_id", cdn_frontdoor_profile_id)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if host_name is not None:
-            _setter("host_name", host_name)
+            pulumi.set(__self__, "host_name", host_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="cdnFrontdoorProfileId")
@@ -303,10 +259,6 @@ class FrontdoorEndpoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            FrontdoorEndpointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

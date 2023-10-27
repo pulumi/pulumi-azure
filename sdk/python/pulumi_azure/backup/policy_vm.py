@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -43,84 +43,27 @@ class PolicyVMArgs:
         :param pulumi.Input['PolicyVMRetentionYearlyArgs'] retention_yearly: Configures the policy yearly retention as documented in the `retention_yearly` block below.
         :param pulumi.Input[str] timezone: Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
         """
-        PolicyVMArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            backup=backup,
-            recovery_vault_name=recovery_vault_name,
-            resource_group_name=resource_group_name,
-            instant_restore_resource_group=instant_restore_resource_group,
-            instant_restore_retention_days=instant_restore_retention_days,
-            name=name,
-            policy_type=policy_type,
-            retention_daily=retention_daily,
-            retention_monthly=retention_monthly,
-            retention_weekly=retention_weekly,
-            retention_yearly=retention_yearly,
-            timezone=timezone,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             backup: Optional[pulumi.Input['PolicyVMBackupArgs']] = None,
-             recovery_vault_name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             instant_restore_resource_group: Optional[pulumi.Input['PolicyVMInstantRestoreResourceGroupArgs']] = None,
-             instant_restore_retention_days: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             policy_type: Optional[pulumi.Input[str]] = None,
-             retention_daily: Optional[pulumi.Input['PolicyVMRetentionDailyArgs']] = None,
-             retention_monthly: Optional[pulumi.Input['PolicyVMRetentionMonthlyArgs']] = None,
-             retention_weekly: Optional[pulumi.Input['PolicyVMRetentionWeeklyArgs']] = None,
-             retention_yearly: Optional[pulumi.Input['PolicyVMRetentionYearlyArgs']] = None,
-             timezone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if backup is None:
-            raise TypeError("Missing 'backup' argument")
-        if recovery_vault_name is None and 'recoveryVaultName' in kwargs:
-            recovery_vault_name = kwargs['recoveryVaultName']
-        if recovery_vault_name is None:
-            raise TypeError("Missing 'recovery_vault_name' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if instant_restore_resource_group is None and 'instantRestoreResourceGroup' in kwargs:
-            instant_restore_resource_group = kwargs['instantRestoreResourceGroup']
-        if instant_restore_retention_days is None and 'instantRestoreRetentionDays' in kwargs:
-            instant_restore_retention_days = kwargs['instantRestoreRetentionDays']
-        if policy_type is None and 'policyType' in kwargs:
-            policy_type = kwargs['policyType']
-        if retention_daily is None and 'retentionDaily' in kwargs:
-            retention_daily = kwargs['retentionDaily']
-        if retention_monthly is None and 'retentionMonthly' in kwargs:
-            retention_monthly = kwargs['retentionMonthly']
-        if retention_weekly is None and 'retentionWeekly' in kwargs:
-            retention_weekly = kwargs['retentionWeekly']
-        if retention_yearly is None and 'retentionYearly' in kwargs:
-            retention_yearly = kwargs['retentionYearly']
-
-        _setter("backup", backup)
-        _setter("recovery_vault_name", recovery_vault_name)
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "backup", backup)
+        pulumi.set(__self__, "recovery_vault_name", recovery_vault_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if instant_restore_resource_group is not None:
-            _setter("instant_restore_resource_group", instant_restore_resource_group)
+            pulumi.set(__self__, "instant_restore_resource_group", instant_restore_resource_group)
         if instant_restore_retention_days is not None:
-            _setter("instant_restore_retention_days", instant_restore_retention_days)
+            pulumi.set(__self__, "instant_restore_retention_days", instant_restore_retention_days)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if policy_type is not None:
-            _setter("policy_type", policy_type)
+            pulumi.set(__self__, "policy_type", policy_type)
         if retention_daily is not None:
-            _setter("retention_daily", retention_daily)
+            pulumi.set(__self__, "retention_daily", retention_daily)
         if retention_monthly is not None:
-            _setter("retention_monthly", retention_monthly)
+            pulumi.set(__self__, "retention_monthly", retention_monthly)
         if retention_weekly is not None:
-            _setter("retention_weekly", retention_weekly)
+            pulumi.set(__self__, "retention_weekly", retention_weekly)
         if retention_yearly is not None:
-            _setter("retention_yearly", retention_yearly)
+            pulumi.set(__self__, "retention_yearly", retention_yearly)
         if timezone is not None:
-            _setter("timezone", timezone)
+            pulumi.set(__self__, "timezone", timezone)
 
     @property
     @pulumi.getter
@@ -297,81 +240,30 @@ class _PolicyVMState:
         :param pulumi.Input['PolicyVMRetentionYearlyArgs'] retention_yearly: Configures the policy yearly retention as documented in the `retention_yearly` block below.
         :param pulumi.Input[str] timezone: Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
         """
-        _PolicyVMState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            backup=backup,
-            instant_restore_resource_group=instant_restore_resource_group,
-            instant_restore_retention_days=instant_restore_retention_days,
-            name=name,
-            policy_type=policy_type,
-            recovery_vault_name=recovery_vault_name,
-            resource_group_name=resource_group_name,
-            retention_daily=retention_daily,
-            retention_monthly=retention_monthly,
-            retention_weekly=retention_weekly,
-            retention_yearly=retention_yearly,
-            timezone=timezone,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             backup: Optional[pulumi.Input['PolicyVMBackupArgs']] = None,
-             instant_restore_resource_group: Optional[pulumi.Input['PolicyVMInstantRestoreResourceGroupArgs']] = None,
-             instant_restore_retention_days: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             policy_type: Optional[pulumi.Input[str]] = None,
-             recovery_vault_name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             retention_daily: Optional[pulumi.Input['PolicyVMRetentionDailyArgs']] = None,
-             retention_monthly: Optional[pulumi.Input['PolicyVMRetentionMonthlyArgs']] = None,
-             retention_weekly: Optional[pulumi.Input['PolicyVMRetentionWeeklyArgs']] = None,
-             retention_yearly: Optional[pulumi.Input['PolicyVMRetentionYearlyArgs']] = None,
-             timezone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if instant_restore_resource_group is None and 'instantRestoreResourceGroup' in kwargs:
-            instant_restore_resource_group = kwargs['instantRestoreResourceGroup']
-        if instant_restore_retention_days is None and 'instantRestoreRetentionDays' in kwargs:
-            instant_restore_retention_days = kwargs['instantRestoreRetentionDays']
-        if policy_type is None and 'policyType' in kwargs:
-            policy_type = kwargs['policyType']
-        if recovery_vault_name is None and 'recoveryVaultName' in kwargs:
-            recovery_vault_name = kwargs['recoveryVaultName']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if retention_daily is None and 'retentionDaily' in kwargs:
-            retention_daily = kwargs['retentionDaily']
-        if retention_monthly is None and 'retentionMonthly' in kwargs:
-            retention_monthly = kwargs['retentionMonthly']
-        if retention_weekly is None and 'retentionWeekly' in kwargs:
-            retention_weekly = kwargs['retentionWeekly']
-        if retention_yearly is None and 'retentionYearly' in kwargs:
-            retention_yearly = kwargs['retentionYearly']
-
         if backup is not None:
-            _setter("backup", backup)
+            pulumi.set(__self__, "backup", backup)
         if instant_restore_resource_group is not None:
-            _setter("instant_restore_resource_group", instant_restore_resource_group)
+            pulumi.set(__self__, "instant_restore_resource_group", instant_restore_resource_group)
         if instant_restore_retention_days is not None:
-            _setter("instant_restore_retention_days", instant_restore_retention_days)
+            pulumi.set(__self__, "instant_restore_retention_days", instant_restore_retention_days)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if policy_type is not None:
-            _setter("policy_type", policy_type)
+            pulumi.set(__self__, "policy_type", policy_type)
         if recovery_vault_name is not None:
-            _setter("recovery_vault_name", recovery_vault_name)
+            pulumi.set(__self__, "recovery_vault_name", recovery_vault_name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if retention_daily is not None:
-            _setter("retention_daily", retention_daily)
+            pulumi.set(__self__, "retention_daily", retention_daily)
         if retention_monthly is not None:
-            _setter("retention_monthly", retention_monthly)
+            pulumi.set(__self__, "retention_monthly", retention_monthly)
         if retention_weekly is not None:
-            _setter("retention_weekly", retention_weekly)
+            pulumi.set(__self__, "retention_weekly", retention_weekly)
         if retention_yearly is not None:
-            _setter("retention_yearly", retention_yearly)
+            pulumi.set(__self__, "retention_yearly", retention_yearly)
         if timezone is not None:
-            _setter("timezone", timezone)
+            pulumi.set(__self__, "timezone", timezone)
 
     @property
     @pulumi.getter
@@ -689,10 +581,6 @@ class PolicyVM(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PolicyVMArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -719,11 +607,9 @@ class PolicyVM(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PolicyVMArgs.__new__(PolicyVMArgs)
 
-            backup = _utilities.configure(backup, PolicyVMBackupArgs, True)
             if backup is None and not opts.urn:
                 raise TypeError("Missing required property 'backup'")
             __props__.__dict__["backup"] = backup
-            instant_restore_resource_group = _utilities.configure(instant_restore_resource_group, PolicyVMInstantRestoreResourceGroupArgs, True)
             __props__.__dict__["instant_restore_resource_group"] = instant_restore_resource_group
             __props__.__dict__["instant_restore_retention_days"] = instant_restore_retention_days
             __props__.__dict__["name"] = name
@@ -734,13 +620,9 @@ class PolicyVM(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            retention_daily = _utilities.configure(retention_daily, PolicyVMRetentionDailyArgs, True)
             __props__.__dict__["retention_daily"] = retention_daily
-            retention_monthly = _utilities.configure(retention_monthly, PolicyVMRetentionMonthlyArgs, True)
             __props__.__dict__["retention_monthly"] = retention_monthly
-            retention_weekly = _utilities.configure(retention_weekly, PolicyVMRetentionWeeklyArgs, True)
             __props__.__dict__["retention_weekly"] = retention_weekly
-            retention_yearly = _utilities.configure(retention_yearly, PolicyVMRetentionYearlyArgs, True)
             __props__.__dict__["retention_yearly"] = retention_yearly
             __props__.__dict__["timezone"] = timezone
         super(PolicyVM, __self__).__init__(

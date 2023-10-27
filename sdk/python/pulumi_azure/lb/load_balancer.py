@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,56 +37,21 @@ class LoadBalancerArgs:
         :param pulumi.Input[str] sku_tier: `sku_tier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        LoadBalancerArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_group_name=resource_group_name,
-            edge_zone=edge_zone,
-            frontend_ip_configurations=frontend_ip_configurations,
-            location=location,
-            name=name,
-            sku=sku,
-            sku_tier=sku_tier,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             edge_zone: Optional[pulumi.Input[str]] = None,
-             frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerFrontendIpConfigurationArgs']]]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             sku: Optional[pulumi.Input[str]] = None,
-             sku_tier: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if edge_zone is None and 'edgeZone' in kwargs:
-            edge_zone = kwargs['edgeZone']
-        if frontend_ip_configurations is None and 'frontendIpConfigurations' in kwargs:
-            frontend_ip_configurations = kwargs['frontendIpConfigurations']
-        if sku_tier is None and 'skuTier' in kwargs:
-            sku_tier = kwargs['skuTier']
-
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if edge_zone is not None:
-            _setter("edge_zone", edge_zone)
+            pulumi.set(__self__, "edge_zone", edge_zone)
         if frontend_ip_configurations is not None:
-            _setter("frontend_ip_configurations", frontend_ip_configurations)
+            pulumi.set(__self__, "frontend_ip_configurations", frontend_ip_configurations)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if sku is not None:
-            _setter("sku", sku)
+            pulumi.set(__self__, "sku", sku)
         if sku_tier is not None:
-            _setter("sku_tier", sku_tier)
+            pulumi.set(__self__, "sku_tier", sku_tier)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -215,67 +180,26 @@ class _LoadBalancerState:
         :param pulumi.Input[str] sku_tier: `sku_tier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        _LoadBalancerState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            edge_zone=edge_zone,
-            frontend_ip_configurations=frontend_ip_configurations,
-            location=location,
-            name=name,
-            private_ip_address=private_ip_address,
-            private_ip_addresses=private_ip_addresses,
-            resource_group_name=resource_group_name,
-            sku=sku,
-            sku_tier=sku_tier,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             edge_zone: Optional[pulumi.Input[str]] = None,
-             frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerFrontendIpConfigurationArgs']]]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             private_ip_address: Optional[pulumi.Input[str]] = None,
-             private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             sku: Optional[pulumi.Input[str]] = None,
-             sku_tier: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if edge_zone is None and 'edgeZone' in kwargs:
-            edge_zone = kwargs['edgeZone']
-        if frontend_ip_configurations is None and 'frontendIpConfigurations' in kwargs:
-            frontend_ip_configurations = kwargs['frontendIpConfigurations']
-        if private_ip_address is None and 'privateIpAddress' in kwargs:
-            private_ip_address = kwargs['privateIpAddress']
-        if private_ip_addresses is None and 'privateIpAddresses' in kwargs:
-            private_ip_addresses = kwargs['privateIpAddresses']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if sku_tier is None and 'skuTier' in kwargs:
-            sku_tier = kwargs['skuTier']
-
         if edge_zone is not None:
-            _setter("edge_zone", edge_zone)
+            pulumi.set(__self__, "edge_zone", edge_zone)
         if frontend_ip_configurations is not None:
-            _setter("frontend_ip_configurations", frontend_ip_configurations)
+            pulumi.set(__self__, "frontend_ip_configurations", frontend_ip_configurations)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if private_ip_address is not None:
-            _setter("private_ip_address", private_ip_address)
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
         if private_ip_addresses is not None:
-            _setter("private_ip_addresses", private_ip_addresses)
+            pulumi.set(__self__, "private_ip_addresses", private_ip_addresses)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if sku is not None:
-            _setter("sku", sku)
+            pulumi.set(__self__, "sku", sku)
         if sku_tier is not None:
-            _setter("sku_tier", sku_tier)
+            pulumi.set(__self__, "sku_tier", sku_tier)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="edgeZone")
@@ -505,10 +429,6 @@ class LoadBalancer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LoadBalancerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

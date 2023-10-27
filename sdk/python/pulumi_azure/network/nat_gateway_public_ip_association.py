@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['NatGatewayPublicIpAssociationArgs', 'NatGatewayPublicIpAssociation']
@@ -21,29 +21,8 @@ class NatGatewayPublicIpAssociationArgs:
         :param pulumi.Input[str] nat_gateway_id: The ID of the NAT Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[str] public_ip_address_id: The ID of the Public IP which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
         """
-        NatGatewayPublicIpAssociationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            nat_gateway_id=nat_gateway_id,
-            public_ip_address_id=public_ip_address_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             nat_gateway_id: Optional[pulumi.Input[str]] = None,
-             public_ip_address_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if nat_gateway_id is None and 'natGatewayId' in kwargs:
-            nat_gateway_id = kwargs['natGatewayId']
-        if nat_gateway_id is None:
-            raise TypeError("Missing 'nat_gateway_id' argument")
-        if public_ip_address_id is None and 'publicIpAddressId' in kwargs:
-            public_ip_address_id = kwargs['publicIpAddressId']
-        if public_ip_address_id is None:
-            raise TypeError("Missing 'public_ip_address_id' argument")
-
-        _setter("nat_gateway_id", nat_gateway_id)
-        _setter("public_ip_address_id", public_ip_address_id)
+        pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
+        pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
 
     @property
     @pulumi.getter(name="natGatewayId")
@@ -80,27 +59,10 @@ class _NatGatewayPublicIpAssociationState:
         :param pulumi.Input[str] nat_gateway_id: The ID of the NAT Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[str] public_ip_address_id: The ID of the Public IP which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
         """
-        _NatGatewayPublicIpAssociationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            nat_gateway_id=nat_gateway_id,
-            public_ip_address_id=public_ip_address_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             nat_gateway_id: Optional[pulumi.Input[str]] = None,
-             public_ip_address_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if nat_gateway_id is None and 'natGatewayId' in kwargs:
-            nat_gateway_id = kwargs['natGatewayId']
-        if public_ip_address_id is None and 'publicIpAddressId' in kwargs:
-            public_ip_address_id = kwargs['publicIpAddressId']
-
         if nat_gateway_id is not None:
-            _setter("nat_gateway_id", nat_gateway_id)
+            pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
         if public_ip_address_id is not None:
-            _setter("public_ip_address_id", public_ip_address_id)
+            pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
 
     @property
     @pulumi.getter(name="natGatewayId")
@@ -220,10 +182,6 @@ class NatGatewayPublicIpAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            NatGatewayPublicIpAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

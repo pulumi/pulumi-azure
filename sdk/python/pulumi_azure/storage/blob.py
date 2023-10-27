@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['BlobArgs', 'Blob']
@@ -50,90 +50,31 @@ class BlobArgs:
         :param pulumi.Input[str] source_content: The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_uri: The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `source_content` is specified.
         """
-        BlobArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            storage_account_name=storage_account_name,
-            storage_container_name=storage_container_name,
-            type=type,
-            access_tier=access_tier,
-            cache_control=cache_control,
-            content_md5=content_md5,
-            content_type=content_type,
-            metadata=metadata,
-            name=name,
-            parallelism=parallelism,
-            size=size,
-            source=source,
-            source_content=source_content,
-            source_uri=source_uri,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             storage_account_name: Optional[pulumi.Input[str]] = None,
-             storage_container_name: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             access_tier: Optional[pulumi.Input[str]] = None,
-             cache_control: Optional[pulumi.Input[str]] = None,
-             content_md5: Optional[pulumi.Input[str]] = None,
-             content_type: Optional[pulumi.Input[str]] = None,
-             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             parallelism: Optional[pulumi.Input[int]] = None,
-             size: Optional[pulumi.Input[int]] = None,
-             source: Optional[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]] = None,
-             source_content: Optional[pulumi.Input[str]] = None,
-             source_uri: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if storage_account_name is None and 'storageAccountName' in kwargs:
-            storage_account_name = kwargs['storageAccountName']
-        if storage_account_name is None:
-            raise TypeError("Missing 'storage_account_name' argument")
-        if storage_container_name is None and 'storageContainerName' in kwargs:
-            storage_container_name = kwargs['storageContainerName']
-        if storage_container_name is None:
-            raise TypeError("Missing 'storage_container_name' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if access_tier is None and 'accessTier' in kwargs:
-            access_tier = kwargs['accessTier']
-        if cache_control is None and 'cacheControl' in kwargs:
-            cache_control = kwargs['cacheControl']
-        if content_md5 is None and 'contentMd5' in kwargs:
-            content_md5 = kwargs['contentMd5']
-        if content_type is None and 'contentType' in kwargs:
-            content_type = kwargs['contentType']
-        if source_content is None and 'sourceContent' in kwargs:
-            source_content = kwargs['sourceContent']
-        if source_uri is None and 'sourceUri' in kwargs:
-            source_uri = kwargs['sourceUri']
-
-        _setter("storage_account_name", storage_account_name)
-        _setter("storage_container_name", storage_container_name)
-        _setter("type", type)
+        pulumi.set(__self__, "storage_account_name", storage_account_name)
+        pulumi.set(__self__, "storage_container_name", storage_container_name)
+        pulumi.set(__self__, "type", type)
         if access_tier is not None:
-            _setter("access_tier", access_tier)
+            pulumi.set(__self__, "access_tier", access_tier)
         if cache_control is not None:
-            _setter("cache_control", cache_control)
+            pulumi.set(__self__, "cache_control", cache_control)
         if content_md5 is not None:
-            _setter("content_md5", content_md5)
+            pulumi.set(__self__, "content_md5", content_md5)
         if content_type is not None:
-            _setter("content_type", content_type)
+            pulumi.set(__self__, "content_type", content_type)
         if metadata is not None:
-            _setter("metadata", metadata)
+            pulumi.set(__self__, "metadata", metadata)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if parallelism is not None:
-            _setter("parallelism", parallelism)
+            pulumi.set(__self__, "parallelism", parallelism)
         if size is not None:
-            _setter("size", size)
+            pulumi.set(__self__, "size", size)
         if source is not None:
-            _setter("source", source)
+            pulumi.set(__self__, "source", source)
         if source_content is not None:
-            _setter("source_content", source_content)
+            pulumi.set(__self__, "source_content", source_content)
         if source_uri is not None:
-            _setter("source_uri", source_uri)
+            pulumi.set(__self__, "source_uri", source_uri)
 
     @property
     @pulumi.getter(name="storageAccountName")
@@ -350,91 +291,36 @@ class _BlobState:
         :param pulumi.Input[str] type: The type of the storage blob to be created. Possible values are `Append`, `Block` or `Page`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] url: The URL of the blob
         """
-        _BlobState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            access_tier=access_tier,
-            cache_control=cache_control,
-            content_md5=content_md5,
-            content_type=content_type,
-            metadata=metadata,
-            name=name,
-            parallelism=parallelism,
-            size=size,
-            source=source,
-            source_content=source_content,
-            source_uri=source_uri,
-            storage_account_name=storage_account_name,
-            storage_container_name=storage_container_name,
-            type=type,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             access_tier: Optional[pulumi.Input[str]] = None,
-             cache_control: Optional[pulumi.Input[str]] = None,
-             content_md5: Optional[pulumi.Input[str]] = None,
-             content_type: Optional[pulumi.Input[str]] = None,
-             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             parallelism: Optional[pulumi.Input[int]] = None,
-             size: Optional[pulumi.Input[int]] = None,
-             source: Optional[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]] = None,
-             source_content: Optional[pulumi.Input[str]] = None,
-             source_uri: Optional[pulumi.Input[str]] = None,
-             storage_account_name: Optional[pulumi.Input[str]] = None,
-             storage_container_name: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if access_tier is None and 'accessTier' in kwargs:
-            access_tier = kwargs['accessTier']
-        if cache_control is None and 'cacheControl' in kwargs:
-            cache_control = kwargs['cacheControl']
-        if content_md5 is None and 'contentMd5' in kwargs:
-            content_md5 = kwargs['contentMd5']
-        if content_type is None and 'contentType' in kwargs:
-            content_type = kwargs['contentType']
-        if source_content is None and 'sourceContent' in kwargs:
-            source_content = kwargs['sourceContent']
-        if source_uri is None and 'sourceUri' in kwargs:
-            source_uri = kwargs['sourceUri']
-        if storage_account_name is None and 'storageAccountName' in kwargs:
-            storage_account_name = kwargs['storageAccountName']
-        if storage_container_name is None and 'storageContainerName' in kwargs:
-            storage_container_name = kwargs['storageContainerName']
-
         if access_tier is not None:
-            _setter("access_tier", access_tier)
+            pulumi.set(__self__, "access_tier", access_tier)
         if cache_control is not None:
-            _setter("cache_control", cache_control)
+            pulumi.set(__self__, "cache_control", cache_control)
         if content_md5 is not None:
-            _setter("content_md5", content_md5)
+            pulumi.set(__self__, "content_md5", content_md5)
         if content_type is not None:
-            _setter("content_type", content_type)
+            pulumi.set(__self__, "content_type", content_type)
         if metadata is not None:
-            _setter("metadata", metadata)
+            pulumi.set(__self__, "metadata", metadata)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if parallelism is not None:
-            _setter("parallelism", parallelism)
+            pulumi.set(__self__, "parallelism", parallelism)
         if size is not None:
-            _setter("size", size)
+            pulumi.set(__self__, "size", size)
         if source is not None:
-            _setter("source", source)
+            pulumi.set(__self__, "source", source)
         if source_content is not None:
-            _setter("source_content", source_content)
+            pulumi.set(__self__, "source_content", source_content)
         if source_uri is not None:
-            _setter("source_uri", source_uri)
+            pulumi.set(__self__, "source_uri", source_uri)
         if storage_account_name is not None:
-            _setter("storage_account_name", storage_account_name)
+            pulumi.set(__self__, "storage_account_name", storage_account_name)
         if storage_container_name is not None:
-            _setter("storage_container_name", storage_container_name)
+            pulumi.set(__self__, "storage_container_name", storage_container_name)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
         if url is not None:
-            _setter("url", url)
+            pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter(name="accessTier")
@@ -746,10 +632,6 @@ class Blob(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            BlobArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SpringCloudAcceleratorArgs', 'SpringCloudAccelerator']
@@ -21,26 +21,9 @@ class SpringCloudAcceleratorArgs:
         :param pulumi.Input[str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Accelerator to be created.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Accelerator. Changing this forces a new Spring Cloud Accelerator to be created. The only possible value is `default`.
         """
-        SpringCloudAcceleratorArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            spring_cloud_service_id=spring_cloud_service_id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if spring_cloud_service_id is None and 'springCloudServiceId' in kwargs:
-            spring_cloud_service_id = kwargs['springCloudServiceId']
-        if spring_cloud_service_id is None:
-            raise TypeError("Missing 'spring_cloud_service_id' argument")
-
-        _setter("spring_cloud_service_id", spring_cloud_service_id)
+        pulumi.set(__self__, "spring_cloud_service_id", spring_cloud_service_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="springCloudServiceId")
@@ -77,25 +60,10 @@ class _SpringCloudAcceleratorState:
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Accelerator. Changing this forces a new Spring Cloud Accelerator to be created. The only possible value is `default`.
         :param pulumi.Input[str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Accelerator to be created.
         """
-        _SpringCloudAcceleratorState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            spring_cloud_service_id=spring_cloud_service_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if spring_cloud_service_id is None and 'springCloudServiceId' in kwargs:
-            spring_cloud_service_id = kwargs['springCloudServiceId']
-
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if spring_cloud_service_id is not None:
-            _setter("spring_cloud_service_id", spring_cloud_service_id)
+            pulumi.set(__self__, "spring_cloud_service_id", spring_cloud_service_id)
 
     @property
     @pulumi.getter
@@ -205,10 +173,6 @@ class SpringCloudAccelerator(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SpringCloudAcceleratorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

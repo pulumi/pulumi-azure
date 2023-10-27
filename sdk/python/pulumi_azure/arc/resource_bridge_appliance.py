@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,57 +35,18 @@ class ResourceBridgeApplianceArgs:
         :param pulumi.Input[str] public_key_base64: The `public_key_base64` is an RSA public key in PKCS1 format encoded in base64. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Arc Resource Bridge Appliance.
         """
-        ResourceBridgeApplianceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            distro=distro,
-            identity=identity,
-            infrastructure_provider=infrastructure_provider,
-            resource_group_name=resource_group_name,
-            location=location,
-            name=name,
-            public_key_base64=public_key_base64,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             distro: Optional[pulumi.Input[str]] = None,
-             identity: Optional[pulumi.Input['ResourceBridgeApplianceIdentityArgs']] = None,
-             infrastructure_provider: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             public_key_base64: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if distro is None:
-            raise TypeError("Missing 'distro' argument")
-        if identity is None:
-            raise TypeError("Missing 'identity' argument")
-        if infrastructure_provider is None and 'infrastructureProvider' in kwargs:
-            infrastructure_provider = kwargs['infrastructureProvider']
-        if infrastructure_provider is None:
-            raise TypeError("Missing 'infrastructure_provider' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if public_key_base64 is None and 'publicKeyBase64' in kwargs:
-            public_key_base64 = kwargs['publicKeyBase64']
-
-        _setter("distro", distro)
-        _setter("identity", identity)
-        _setter("infrastructure_provider", infrastructure_provider)
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "distro", distro)
+        pulumi.set(__self__, "identity", identity)
+        pulumi.set(__self__, "infrastructure_provider", infrastructure_provider)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if public_key_base64 is not None:
-            _setter("public_key_base64", public_key_base64)
+            pulumi.set(__self__, "public_key_base64", public_key_base64)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -206,53 +167,22 @@ class _ResourceBridgeApplianceState:
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the Arc Resource Bridge Appliance exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Arc Resource Bridge Appliance.
         """
-        _ResourceBridgeApplianceState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            distro=distro,
-            identity=identity,
-            infrastructure_provider=infrastructure_provider,
-            location=location,
-            name=name,
-            public_key_base64=public_key_base64,
-            resource_group_name=resource_group_name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             distro: Optional[pulumi.Input[str]] = None,
-             identity: Optional[pulumi.Input['ResourceBridgeApplianceIdentityArgs']] = None,
-             infrastructure_provider: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             public_key_base64: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if infrastructure_provider is None and 'infrastructureProvider' in kwargs:
-            infrastructure_provider = kwargs['infrastructureProvider']
-        if public_key_base64 is None and 'publicKeyBase64' in kwargs:
-            public_key_base64 = kwargs['publicKeyBase64']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-
         if distro is not None:
-            _setter("distro", distro)
+            pulumi.set(__self__, "distro", distro)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if infrastructure_provider is not None:
-            _setter("infrastructure_provider", infrastructure_provider)
+            pulumi.set(__self__, "infrastructure_provider", infrastructure_provider)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if public_key_base64 is not None:
-            _setter("public_key_base64", public_key_base64)
+            pulumi.set(__self__, "public_key_base64", public_key_base64)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -454,10 +384,6 @@ class ResourceBridgeAppliance(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ResourceBridgeApplianceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -483,7 +409,6 @@ class ResourceBridgeAppliance(pulumi.CustomResource):
             if distro is None and not opts.urn:
                 raise TypeError("Missing required property 'distro'")
             __props__.__dict__["distro"] = distro
-            identity = _utilities.configure(identity, ResourceBridgeApplianceIdentityArgs, True)
             if identity is None and not opts.urn:
                 raise TypeError("Missing required property 'identity'")
             __props__.__dict__["identity"] = identity

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -74,134 +74,49 @@ class FlexibleServerArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the MySQL Flexible Server.
         :param pulumi.Input[str] version: The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`. Changing this forces a new MySQL Flexible Server to be created.
         """
-        FlexibleServerArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_group_name=resource_group_name,
-            administrator_login=administrator_login,
-            administrator_password=administrator_password,
-            backup_retention_days=backup_retention_days,
-            create_mode=create_mode,
-            customer_managed_key=customer_managed_key,
-            delegated_subnet_id=delegated_subnet_id,
-            geo_redundant_backup_enabled=geo_redundant_backup_enabled,
-            high_availability=high_availability,
-            identity=identity,
-            location=location,
-            maintenance_window=maintenance_window,
-            name=name,
-            point_in_time_restore_time_in_utc=point_in_time_restore_time_in_utc,
-            private_dns_zone_id=private_dns_zone_id,
-            replication_role=replication_role,
-            sku_name=sku_name,
-            source_server_id=source_server_id,
-            storage=storage,
-            tags=tags,
-            version=version,
-            zone=zone,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             administrator_login: Optional[pulumi.Input[str]] = None,
-             administrator_password: Optional[pulumi.Input[str]] = None,
-             backup_retention_days: Optional[pulumi.Input[int]] = None,
-             create_mode: Optional[pulumi.Input[str]] = None,
-             customer_managed_key: Optional[pulumi.Input['FlexibleServerCustomerManagedKeyArgs']] = None,
-             delegated_subnet_id: Optional[pulumi.Input[str]] = None,
-             geo_redundant_backup_enabled: Optional[pulumi.Input[bool]] = None,
-             high_availability: Optional[pulumi.Input['FlexibleServerHighAvailabilityArgs']] = None,
-             identity: Optional[pulumi.Input['FlexibleServerIdentityArgs']] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             maintenance_window: Optional[pulumi.Input['FlexibleServerMaintenanceWindowArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             point_in_time_restore_time_in_utc: Optional[pulumi.Input[str]] = None,
-             private_dns_zone_id: Optional[pulumi.Input[str]] = None,
-             replication_role: Optional[pulumi.Input[str]] = None,
-             sku_name: Optional[pulumi.Input[str]] = None,
-             source_server_id: Optional[pulumi.Input[str]] = None,
-             storage: Optional[pulumi.Input['FlexibleServerStorageArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             version: Optional[pulumi.Input[str]] = None,
-             zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if administrator_login is None and 'administratorLogin' in kwargs:
-            administrator_login = kwargs['administratorLogin']
-        if administrator_password is None and 'administratorPassword' in kwargs:
-            administrator_password = kwargs['administratorPassword']
-        if backup_retention_days is None and 'backupRetentionDays' in kwargs:
-            backup_retention_days = kwargs['backupRetentionDays']
-        if create_mode is None and 'createMode' in kwargs:
-            create_mode = kwargs['createMode']
-        if customer_managed_key is None and 'customerManagedKey' in kwargs:
-            customer_managed_key = kwargs['customerManagedKey']
-        if delegated_subnet_id is None and 'delegatedSubnetId' in kwargs:
-            delegated_subnet_id = kwargs['delegatedSubnetId']
-        if geo_redundant_backup_enabled is None and 'geoRedundantBackupEnabled' in kwargs:
-            geo_redundant_backup_enabled = kwargs['geoRedundantBackupEnabled']
-        if high_availability is None and 'highAvailability' in kwargs:
-            high_availability = kwargs['highAvailability']
-        if maintenance_window is None and 'maintenanceWindow' in kwargs:
-            maintenance_window = kwargs['maintenanceWindow']
-        if point_in_time_restore_time_in_utc is None and 'pointInTimeRestoreTimeInUtc' in kwargs:
-            point_in_time_restore_time_in_utc = kwargs['pointInTimeRestoreTimeInUtc']
-        if private_dns_zone_id is None and 'privateDnsZoneId' in kwargs:
-            private_dns_zone_id = kwargs['privateDnsZoneId']
-        if replication_role is None and 'replicationRole' in kwargs:
-            replication_role = kwargs['replicationRole']
-        if sku_name is None and 'skuName' in kwargs:
-            sku_name = kwargs['skuName']
-        if source_server_id is None and 'sourceServerId' in kwargs:
-            source_server_id = kwargs['sourceServerId']
-
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if administrator_login is not None:
-            _setter("administrator_login", administrator_login)
+            pulumi.set(__self__, "administrator_login", administrator_login)
         if administrator_password is not None:
-            _setter("administrator_password", administrator_password)
+            pulumi.set(__self__, "administrator_password", administrator_password)
         if backup_retention_days is not None:
-            _setter("backup_retention_days", backup_retention_days)
+            pulumi.set(__self__, "backup_retention_days", backup_retention_days)
         if create_mode is not None:
-            _setter("create_mode", create_mode)
+            pulumi.set(__self__, "create_mode", create_mode)
         if customer_managed_key is not None:
-            _setter("customer_managed_key", customer_managed_key)
+            pulumi.set(__self__, "customer_managed_key", customer_managed_key)
         if delegated_subnet_id is not None:
-            _setter("delegated_subnet_id", delegated_subnet_id)
+            pulumi.set(__self__, "delegated_subnet_id", delegated_subnet_id)
         if geo_redundant_backup_enabled is not None:
-            _setter("geo_redundant_backup_enabled", geo_redundant_backup_enabled)
+            pulumi.set(__self__, "geo_redundant_backup_enabled", geo_redundant_backup_enabled)
         if high_availability is not None:
-            _setter("high_availability", high_availability)
+            pulumi.set(__self__, "high_availability", high_availability)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if maintenance_window is not None:
-            _setter("maintenance_window", maintenance_window)
+            pulumi.set(__self__, "maintenance_window", maintenance_window)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if point_in_time_restore_time_in_utc is not None:
-            _setter("point_in_time_restore_time_in_utc", point_in_time_restore_time_in_utc)
+            pulumi.set(__self__, "point_in_time_restore_time_in_utc", point_in_time_restore_time_in_utc)
         if private_dns_zone_id is not None:
-            _setter("private_dns_zone_id", private_dns_zone_id)
+            pulumi.set(__self__, "private_dns_zone_id", private_dns_zone_id)
         if replication_role is not None:
-            _setter("replication_role", replication_role)
+            pulumi.set(__self__, "replication_role", replication_role)
         if sku_name is not None:
-            _setter("sku_name", sku_name)
+            pulumi.set(__self__, "sku_name", sku_name)
         if source_server_id is not None:
-            _setter("source_server_id", source_server_id)
+            pulumi.set(__self__, "source_server_id", source_server_id)
         if storage is not None:
-            _setter("storage", storage)
+            pulumi.set(__self__, "storage", storage)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if version is not None:
-            _setter("version", version)
+            pulumi.set(__self__, "version", version)
         if zone is not None:
-            _setter("zone", zone)
+            pulumi.set(__self__, "zone", zone)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -544,149 +459,56 @@ class _FlexibleServerState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the MySQL Flexible Server.
         :param pulumi.Input[str] version: The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`. Changing this forces a new MySQL Flexible Server to be created.
         """
-        _FlexibleServerState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            administrator_login=administrator_login,
-            administrator_password=administrator_password,
-            backup_retention_days=backup_retention_days,
-            create_mode=create_mode,
-            customer_managed_key=customer_managed_key,
-            delegated_subnet_id=delegated_subnet_id,
-            fqdn=fqdn,
-            geo_redundant_backup_enabled=geo_redundant_backup_enabled,
-            high_availability=high_availability,
-            identity=identity,
-            location=location,
-            maintenance_window=maintenance_window,
-            name=name,
-            point_in_time_restore_time_in_utc=point_in_time_restore_time_in_utc,
-            private_dns_zone_id=private_dns_zone_id,
-            public_network_access_enabled=public_network_access_enabled,
-            replica_capacity=replica_capacity,
-            replication_role=replication_role,
-            resource_group_name=resource_group_name,
-            sku_name=sku_name,
-            source_server_id=source_server_id,
-            storage=storage,
-            tags=tags,
-            version=version,
-            zone=zone,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             administrator_login: Optional[pulumi.Input[str]] = None,
-             administrator_password: Optional[pulumi.Input[str]] = None,
-             backup_retention_days: Optional[pulumi.Input[int]] = None,
-             create_mode: Optional[pulumi.Input[str]] = None,
-             customer_managed_key: Optional[pulumi.Input['FlexibleServerCustomerManagedKeyArgs']] = None,
-             delegated_subnet_id: Optional[pulumi.Input[str]] = None,
-             fqdn: Optional[pulumi.Input[str]] = None,
-             geo_redundant_backup_enabled: Optional[pulumi.Input[bool]] = None,
-             high_availability: Optional[pulumi.Input['FlexibleServerHighAvailabilityArgs']] = None,
-             identity: Optional[pulumi.Input['FlexibleServerIdentityArgs']] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             maintenance_window: Optional[pulumi.Input['FlexibleServerMaintenanceWindowArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             point_in_time_restore_time_in_utc: Optional[pulumi.Input[str]] = None,
-             private_dns_zone_id: Optional[pulumi.Input[str]] = None,
-             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
-             replica_capacity: Optional[pulumi.Input[int]] = None,
-             replication_role: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             sku_name: Optional[pulumi.Input[str]] = None,
-             source_server_id: Optional[pulumi.Input[str]] = None,
-             storage: Optional[pulumi.Input['FlexibleServerStorageArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             version: Optional[pulumi.Input[str]] = None,
-             zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if administrator_login is None and 'administratorLogin' in kwargs:
-            administrator_login = kwargs['administratorLogin']
-        if administrator_password is None and 'administratorPassword' in kwargs:
-            administrator_password = kwargs['administratorPassword']
-        if backup_retention_days is None and 'backupRetentionDays' in kwargs:
-            backup_retention_days = kwargs['backupRetentionDays']
-        if create_mode is None and 'createMode' in kwargs:
-            create_mode = kwargs['createMode']
-        if customer_managed_key is None and 'customerManagedKey' in kwargs:
-            customer_managed_key = kwargs['customerManagedKey']
-        if delegated_subnet_id is None and 'delegatedSubnetId' in kwargs:
-            delegated_subnet_id = kwargs['delegatedSubnetId']
-        if geo_redundant_backup_enabled is None and 'geoRedundantBackupEnabled' in kwargs:
-            geo_redundant_backup_enabled = kwargs['geoRedundantBackupEnabled']
-        if high_availability is None and 'highAvailability' in kwargs:
-            high_availability = kwargs['highAvailability']
-        if maintenance_window is None and 'maintenanceWindow' in kwargs:
-            maintenance_window = kwargs['maintenanceWindow']
-        if point_in_time_restore_time_in_utc is None and 'pointInTimeRestoreTimeInUtc' in kwargs:
-            point_in_time_restore_time_in_utc = kwargs['pointInTimeRestoreTimeInUtc']
-        if private_dns_zone_id is None and 'privateDnsZoneId' in kwargs:
-            private_dns_zone_id = kwargs['privateDnsZoneId']
-        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
-            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if replica_capacity is None and 'replicaCapacity' in kwargs:
-            replica_capacity = kwargs['replicaCapacity']
-        if replication_role is None and 'replicationRole' in kwargs:
-            replication_role = kwargs['replicationRole']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if sku_name is None and 'skuName' in kwargs:
-            sku_name = kwargs['skuName']
-        if source_server_id is None and 'sourceServerId' in kwargs:
-            source_server_id = kwargs['sourceServerId']
-
         if administrator_login is not None:
-            _setter("administrator_login", administrator_login)
+            pulumi.set(__self__, "administrator_login", administrator_login)
         if administrator_password is not None:
-            _setter("administrator_password", administrator_password)
+            pulumi.set(__self__, "administrator_password", administrator_password)
         if backup_retention_days is not None:
-            _setter("backup_retention_days", backup_retention_days)
+            pulumi.set(__self__, "backup_retention_days", backup_retention_days)
         if create_mode is not None:
-            _setter("create_mode", create_mode)
+            pulumi.set(__self__, "create_mode", create_mode)
         if customer_managed_key is not None:
-            _setter("customer_managed_key", customer_managed_key)
+            pulumi.set(__self__, "customer_managed_key", customer_managed_key)
         if delegated_subnet_id is not None:
-            _setter("delegated_subnet_id", delegated_subnet_id)
+            pulumi.set(__self__, "delegated_subnet_id", delegated_subnet_id)
         if fqdn is not None:
-            _setter("fqdn", fqdn)
+            pulumi.set(__self__, "fqdn", fqdn)
         if geo_redundant_backup_enabled is not None:
-            _setter("geo_redundant_backup_enabled", geo_redundant_backup_enabled)
+            pulumi.set(__self__, "geo_redundant_backup_enabled", geo_redundant_backup_enabled)
         if high_availability is not None:
-            _setter("high_availability", high_availability)
+            pulumi.set(__self__, "high_availability", high_availability)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if maintenance_window is not None:
-            _setter("maintenance_window", maintenance_window)
+            pulumi.set(__self__, "maintenance_window", maintenance_window)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if point_in_time_restore_time_in_utc is not None:
-            _setter("point_in_time_restore_time_in_utc", point_in_time_restore_time_in_utc)
+            pulumi.set(__self__, "point_in_time_restore_time_in_utc", point_in_time_restore_time_in_utc)
         if private_dns_zone_id is not None:
-            _setter("private_dns_zone_id", private_dns_zone_id)
+            pulumi.set(__self__, "private_dns_zone_id", private_dns_zone_id)
         if public_network_access_enabled is not None:
-            _setter("public_network_access_enabled", public_network_access_enabled)
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if replica_capacity is not None:
-            _setter("replica_capacity", replica_capacity)
+            pulumi.set(__self__, "replica_capacity", replica_capacity)
         if replication_role is not None:
-            _setter("replication_role", replication_role)
+            pulumi.set(__self__, "replication_role", replication_role)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if sku_name is not None:
-            _setter("sku_name", sku_name)
+            pulumi.set(__self__, "sku_name", sku_name)
         if source_server_id is not None:
-            _setter("source_server_id", source_server_id)
+            pulumi.set(__self__, "source_server_id", source_server_id)
         if storage is not None:
-            _setter("storage", storage)
+            pulumi.set(__self__, "storage", storage)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if version is not None:
-            _setter("version", version)
+            pulumi.set(__self__, "version", version)
         if zone is not None:
-            _setter("zone", zone)
+            pulumi.set(__self__, "zone", zone)
 
     @property
     @pulumi.getter(name="administratorLogin")
@@ -1180,10 +1002,6 @@ class FlexibleServer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            FlexibleServerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1224,16 +1042,12 @@ class FlexibleServer(pulumi.CustomResource):
             __props__.__dict__["administrator_password"] = None if administrator_password is None else pulumi.Output.secret(administrator_password)
             __props__.__dict__["backup_retention_days"] = backup_retention_days
             __props__.__dict__["create_mode"] = create_mode
-            customer_managed_key = _utilities.configure(customer_managed_key, FlexibleServerCustomerManagedKeyArgs, True)
             __props__.__dict__["customer_managed_key"] = customer_managed_key
             __props__.__dict__["delegated_subnet_id"] = delegated_subnet_id
             __props__.__dict__["geo_redundant_backup_enabled"] = geo_redundant_backup_enabled
-            high_availability = _utilities.configure(high_availability, FlexibleServerHighAvailabilityArgs, True)
             __props__.__dict__["high_availability"] = high_availability
-            identity = _utilities.configure(identity, FlexibleServerIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
-            maintenance_window = _utilities.configure(maintenance_window, FlexibleServerMaintenanceWindowArgs, True)
             __props__.__dict__["maintenance_window"] = maintenance_window
             __props__.__dict__["name"] = name
             __props__.__dict__["point_in_time_restore_time_in_utc"] = point_in_time_restore_time_in_utc
@@ -1244,7 +1058,6 @@ class FlexibleServer(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["sku_name"] = sku_name
             __props__.__dict__["source_server_id"] = source_server_id
-            storage = _utilities.configure(storage, FlexibleServerStorageArgs, True)
             __props__.__dict__["storage"] = storage
             __props__.__dict__["tags"] = tags
             __props__.__dict__["version"] = version

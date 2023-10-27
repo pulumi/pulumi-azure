@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DatastoreFileshareArgs', 'DatastoreFileshare']
@@ -33,59 +33,20 @@ class DatastoreFileshareArgs:
         :param pulumi.Input[str] shared_access_signature: The Shared Access Signature of the Storage Account. Conflicts with `account_key`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
         """
-        DatastoreFileshareArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            storage_fileshare_id=storage_fileshare_id,
-            workspace_id=workspace_id,
-            account_key=account_key,
-            description=description,
-            name=name,
-            service_data_identity=service_data_identity,
-            shared_access_signature=shared_access_signature,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             storage_fileshare_id: Optional[pulumi.Input[str]] = None,
-             workspace_id: Optional[pulumi.Input[str]] = None,
-             account_key: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             service_data_identity: Optional[pulumi.Input[str]] = None,
-             shared_access_signature: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if storage_fileshare_id is None and 'storageFileshareId' in kwargs:
-            storage_fileshare_id = kwargs['storageFileshareId']
-        if storage_fileshare_id is None:
-            raise TypeError("Missing 'storage_fileshare_id' argument")
-        if workspace_id is None and 'workspaceId' in kwargs:
-            workspace_id = kwargs['workspaceId']
-        if workspace_id is None:
-            raise TypeError("Missing 'workspace_id' argument")
-        if account_key is None and 'accountKey' in kwargs:
-            account_key = kwargs['accountKey']
-        if service_data_identity is None and 'serviceDataIdentity' in kwargs:
-            service_data_identity = kwargs['serviceDataIdentity']
-        if shared_access_signature is None and 'sharedAccessSignature' in kwargs:
-            shared_access_signature = kwargs['sharedAccessSignature']
-
-        _setter("storage_fileshare_id", storage_fileshare_id)
-        _setter("workspace_id", workspace_id)
+        pulumi.set(__self__, "storage_fileshare_id", storage_fileshare_id)
+        pulumi.set(__self__, "workspace_id", workspace_id)
         if account_key is not None:
-            _setter("account_key", account_key)
+            pulumi.set(__self__, "account_key", account_key)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if service_data_identity is not None:
-            _setter("service_data_identity", service_data_identity)
+            pulumi.set(__self__, "service_data_identity", service_data_identity)
         if shared_access_signature is not None:
-            _setter("shared_access_signature", shared_access_signature)
+            pulumi.set(__self__, "shared_access_signature", shared_access_signature)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="storageFileshareId")
@@ -208,63 +169,24 @@ class _DatastoreFileshareState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
         :param pulumi.Input[str] workspace_id: The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning DataStore to be created.
         """
-        _DatastoreFileshareState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account_key=account_key,
-            description=description,
-            is_default=is_default,
-            name=name,
-            service_data_identity=service_data_identity,
-            shared_access_signature=shared_access_signature,
-            storage_fileshare_id=storage_fileshare_id,
-            tags=tags,
-            workspace_id=workspace_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account_key: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             is_default: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             service_data_identity: Optional[pulumi.Input[str]] = None,
-             shared_access_signature: Optional[pulumi.Input[str]] = None,
-             storage_fileshare_id: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if account_key is None and 'accountKey' in kwargs:
-            account_key = kwargs['accountKey']
-        if is_default is None and 'isDefault' in kwargs:
-            is_default = kwargs['isDefault']
-        if service_data_identity is None and 'serviceDataIdentity' in kwargs:
-            service_data_identity = kwargs['serviceDataIdentity']
-        if shared_access_signature is None and 'sharedAccessSignature' in kwargs:
-            shared_access_signature = kwargs['sharedAccessSignature']
-        if storage_fileshare_id is None and 'storageFileshareId' in kwargs:
-            storage_fileshare_id = kwargs['storageFileshareId']
-        if workspace_id is None and 'workspaceId' in kwargs:
-            workspace_id = kwargs['workspaceId']
-
         if account_key is not None:
-            _setter("account_key", account_key)
+            pulumi.set(__self__, "account_key", account_key)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if is_default is not None:
-            _setter("is_default", is_default)
+            pulumi.set(__self__, "is_default", is_default)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if service_data_identity is not None:
-            _setter("service_data_identity", service_data_identity)
+            pulumi.set(__self__, "service_data_identity", service_data_identity)
         if shared_access_signature is not None:
-            _setter("shared_access_signature", shared_access_signature)
+            pulumi.set(__self__, "shared_access_signature", shared_access_signature)
         if storage_fileshare_id is not None:
-            _setter("storage_fileshare_id", storage_fileshare_id)
+            pulumi.set(__self__, "storage_fileshare_id", storage_fileshare_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if workspace_id is not None:
-            _setter("workspace_id", workspace_id)
+            pulumi.set(__self__, "workspace_id", workspace_id)
 
     @property
     @pulumi.getter(name="accountKey")
@@ -442,10 +364,6 @@ class DatastoreFileshare(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DatastoreFileshareArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

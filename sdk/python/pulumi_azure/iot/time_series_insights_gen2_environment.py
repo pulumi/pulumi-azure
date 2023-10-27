@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,59 +35,18 @@ class TimeSeriesInsightsGen2EnvironmentArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] warm_store_data_retention_time: Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
         """
-        TimeSeriesInsightsGen2EnvironmentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id_properties=id_properties,
-            resource_group_name=resource_group_name,
-            sku_name=sku_name,
-            storage=storage,
-            location=location,
-            name=name,
-            tags=tags,
-            warm_store_data_retention_time=warm_store_data_retention_time,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id_properties: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             sku_name: Optional[pulumi.Input[str]] = None,
-             storage: Optional[pulumi.Input['TimeSeriesInsightsGen2EnvironmentStorageArgs']] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             warm_store_data_retention_time: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if id_properties is None and 'idProperties' in kwargs:
-            id_properties = kwargs['idProperties']
-        if id_properties is None:
-            raise TypeError("Missing 'id_properties' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if sku_name is None and 'skuName' in kwargs:
-            sku_name = kwargs['skuName']
-        if sku_name is None:
-            raise TypeError("Missing 'sku_name' argument")
-        if storage is None:
-            raise TypeError("Missing 'storage' argument")
-        if warm_store_data_retention_time is None and 'warmStoreDataRetentionTime' in kwargs:
-            warm_store_data_retention_time = kwargs['warmStoreDataRetentionTime']
-
-        _setter("id_properties", id_properties)
-        _setter("resource_group_name", resource_group_name)
-        _setter("sku_name", sku_name)
-        _setter("storage", storage)
+        pulumi.set(__self__, "id_properties", id_properties)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "sku_name", sku_name)
+        pulumi.set(__self__, "storage", storage)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if warm_store_data_retention_time is not None:
-            _setter("warm_store_data_retention_time", warm_store_data_retention_time)
+            pulumi.set(__self__, "warm_store_data_retention_time", warm_store_data_retention_time)
 
     @property
     @pulumi.getter(name="idProperties")
@@ -210,61 +169,24 @@ class _TimeSeriesInsightsGen2EnvironmentState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] warm_store_data_retention_time: Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
         """
-        _TimeSeriesInsightsGen2EnvironmentState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_access_fqdn=data_access_fqdn,
-            id_properties=id_properties,
-            location=location,
-            name=name,
-            resource_group_name=resource_group_name,
-            sku_name=sku_name,
-            storage=storage,
-            tags=tags,
-            warm_store_data_retention_time=warm_store_data_retention_time,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_access_fqdn: Optional[pulumi.Input[str]] = None,
-             id_properties: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             sku_name: Optional[pulumi.Input[str]] = None,
-             storage: Optional[pulumi.Input['TimeSeriesInsightsGen2EnvironmentStorageArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             warm_store_data_retention_time: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if data_access_fqdn is None and 'dataAccessFqdn' in kwargs:
-            data_access_fqdn = kwargs['dataAccessFqdn']
-        if id_properties is None and 'idProperties' in kwargs:
-            id_properties = kwargs['idProperties']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if sku_name is None and 'skuName' in kwargs:
-            sku_name = kwargs['skuName']
-        if warm_store_data_retention_time is None and 'warmStoreDataRetentionTime' in kwargs:
-            warm_store_data_retention_time = kwargs['warmStoreDataRetentionTime']
-
         if data_access_fqdn is not None:
-            _setter("data_access_fqdn", data_access_fqdn)
+            pulumi.set(__self__, "data_access_fqdn", data_access_fqdn)
         if id_properties is not None:
-            _setter("id_properties", id_properties)
+            pulumi.set(__self__, "id_properties", id_properties)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if sku_name is not None:
-            _setter("sku_name", sku_name)
+            pulumi.set(__self__, "sku_name", sku_name)
         if storage is not None:
-            _setter("storage", storage)
+            pulumi.set(__self__, "storage", storage)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if warm_store_data_retention_time is not None:
-            _setter("warm_store_data_retention_time", warm_store_data_retention_time)
+            pulumi.set(__self__, "warm_store_data_retention_time", warm_store_data_retention_time)
 
     @property
     @pulumi.getter(name="dataAccessFqdn")
@@ -486,10 +408,6 @@ class TimeSeriesInsightsGen2Environment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            TimeSeriesInsightsGen2EnvironmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -523,7 +441,6 @@ class TimeSeriesInsightsGen2Environment(pulumi.CustomResource):
             if sku_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sku_name'")
             __props__.__dict__["sku_name"] = sku_name
-            storage = _utilities.configure(storage, TimeSeriesInsightsGen2EnvironmentStorageArgs, True)
             if storage is None and not opts.urn:
                 raise TypeError("Missing required property 'storage'")
             __props__.__dict__["storage"] = storage

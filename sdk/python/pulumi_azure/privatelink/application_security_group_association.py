@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ApplicationSecurityGroupAssociationArgs', 'ApplicationSecurityGroupAssociation']
@@ -21,29 +21,8 @@ class ApplicationSecurityGroupAssociationArgs:
         :param pulumi.Input[str] application_security_group_id: The id of application security group to associate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] private_endpoint_id: The id of private endpoint to associate. Changing this forces a new resource to be created.
         """
-        ApplicationSecurityGroupAssociationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            application_security_group_id=application_security_group_id,
-            private_endpoint_id=private_endpoint_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             application_security_group_id: Optional[pulumi.Input[str]] = None,
-             private_endpoint_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if application_security_group_id is None and 'applicationSecurityGroupId' in kwargs:
-            application_security_group_id = kwargs['applicationSecurityGroupId']
-        if application_security_group_id is None:
-            raise TypeError("Missing 'application_security_group_id' argument")
-        if private_endpoint_id is None and 'privateEndpointId' in kwargs:
-            private_endpoint_id = kwargs['privateEndpointId']
-        if private_endpoint_id is None:
-            raise TypeError("Missing 'private_endpoint_id' argument")
-
-        _setter("application_security_group_id", application_security_group_id)
-        _setter("private_endpoint_id", private_endpoint_id)
+        pulumi.set(__self__, "application_security_group_id", application_security_group_id)
+        pulumi.set(__self__, "private_endpoint_id", private_endpoint_id)
 
     @property
     @pulumi.getter(name="applicationSecurityGroupId")
@@ -80,27 +59,10 @@ class _ApplicationSecurityGroupAssociationState:
         :param pulumi.Input[str] application_security_group_id: The id of application security group to associate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] private_endpoint_id: The id of private endpoint to associate. Changing this forces a new resource to be created.
         """
-        _ApplicationSecurityGroupAssociationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            application_security_group_id=application_security_group_id,
-            private_endpoint_id=private_endpoint_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             application_security_group_id: Optional[pulumi.Input[str]] = None,
-             private_endpoint_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if application_security_group_id is None and 'applicationSecurityGroupId' in kwargs:
-            application_security_group_id = kwargs['applicationSecurityGroupId']
-        if private_endpoint_id is None and 'privateEndpointId' in kwargs:
-            private_endpoint_id = kwargs['privateEndpointId']
-
         if application_security_group_id is not None:
-            _setter("application_security_group_id", application_security_group_id)
+            pulumi.set(__self__, "application_security_group_id", application_security_group_id)
         if private_endpoint_id is not None:
-            _setter("private_endpoint_id", private_endpoint_id)
+            pulumi.set(__self__, "private_endpoint_id", private_endpoint_id)
 
     @property
     @pulumi.getter(name="applicationSecurityGroupId")
@@ -304,10 +266,6 @@ class ApplicationSecurityGroupAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ApplicationSecurityGroupAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

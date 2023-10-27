@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['CertificateArgs', 'Certificate']
@@ -37,53 +37,18 @@ class CertificateArgs:
         :param pulumi.Input[str] name: The name of the API Management Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The password used for this certificate.
         """
-        CertificateArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_management_name=api_management_name,
-            resource_group_name=resource_group_name,
-            data=data,
-            key_vault_identity_client_id=key_vault_identity_client_id,
-            key_vault_secret_id=key_vault_secret_id,
-            name=name,
-            password=password,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_management_name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             data: Optional[pulumi.Input[str]] = None,
-             key_vault_identity_client_id: Optional[pulumi.Input[str]] = None,
-             key_vault_secret_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             password: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_management_name is None and 'apiManagementName' in kwargs:
-            api_management_name = kwargs['apiManagementName']
-        if api_management_name is None:
-            raise TypeError("Missing 'api_management_name' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if key_vault_identity_client_id is None and 'keyVaultIdentityClientId' in kwargs:
-            key_vault_identity_client_id = kwargs['keyVaultIdentityClientId']
-        if key_vault_secret_id is None and 'keyVaultSecretId' in kwargs:
-            key_vault_secret_id = kwargs['keyVaultSecretId']
-
-        _setter("api_management_name", api_management_name)
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "api_management_name", api_management_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if data is not None:
-            _setter("data", data)
+            pulumi.set(__self__, "data", data)
         if key_vault_identity_client_id is not None:
-            _setter("key_vault_identity_client_id", key_vault_identity_client_id)
+            pulumi.set(__self__, "key_vault_identity_client_id", key_vault_identity_client_id)
         if key_vault_secret_id is not None:
-            _setter("key_vault_secret_id", key_vault_secret_id)
+            pulumi.set(__self__, "key_vault_secret_id", key_vault_secret_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if password is not None:
-            _setter("password", password)
+            pulumi.set(__self__, "password", password)
 
     @property
     @pulumi.getter(name="apiManagementName")
@@ -208,63 +173,26 @@ class _CertificateState:
         :param pulumi.Input[str] subject: The Subject of this Certificate.
         :param pulumi.Input[str] thumbprint: The Thumbprint of this Certificate.
         """
-        _CertificateState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_management_name=api_management_name,
-            data=data,
-            expiration=expiration,
-            key_vault_identity_client_id=key_vault_identity_client_id,
-            key_vault_secret_id=key_vault_secret_id,
-            name=name,
-            password=password,
-            resource_group_name=resource_group_name,
-            subject=subject,
-            thumbprint=thumbprint,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_management_name: Optional[pulumi.Input[str]] = None,
-             data: Optional[pulumi.Input[str]] = None,
-             expiration: Optional[pulumi.Input[str]] = None,
-             key_vault_identity_client_id: Optional[pulumi.Input[str]] = None,
-             key_vault_secret_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             password: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             subject: Optional[pulumi.Input[str]] = None,
-             thumbprint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_management_name is None and 'apiManagementName' in kwargs:
-            api_management_name = kwargs['apiManagementName']
-        if key_vault_identity_client_id is None and 'keyVaultIdentityClientId' in kwargs:
-            key_vault_identity_client_id = kwargs['keyVaultIdentityClientId']
-        if key_vault_secret_id is None and 'keyVaultSecretId' in kwargs:
-            key_vault_secret_id = kwargs['keyVaultSecretId']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-
         if api_management_name is not None:
-            _setter("api_management_name", api_management_name)
+            pulumi.set(__self__, "api_management_name", api_management_name)
         if data is not None:
-            _setter("data", data)
+            pulumi.set(__self__, "data", data)
         if expiration is not None:
-            _setter("expiration", expiration)
+            pulumi.set(__self__, "expiration", expiration)
         if key_vault_identity_client_id is not None:
-            _setter("key_vault_identity_client_id", key_vault_identity_client_id)
+            pulumi.set(__self__, "key_vault_identity_client_id", key_vault_identity_client_id)
         if key_vault_secret_id is not None:
-            _setter("key_vault_secret_id", key_vault_secret_id)
+            pulumi.set(__self__, "key_vault_secret_id", key_vault_secret_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if password is not None:
-            _setter("password", password)
+            pulumi.set(__self__, "password", password)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if subject is not None:
-            _setter("subject", subject)
+            pulumi.set(__self__, "subject", subject)
         if thumbprint is not None:
-            _setter("thumbprint", thumbprint)
+            pulumi.set(__self__, "thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="apiManagementName")
@@ -610,10 +538,6 @@ class Certificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            CertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

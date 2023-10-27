@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ManagedStorageAccountArgs', 'ManagedStorageAccount']
@@ -33,56 +33,17 @@ class ManagedStorageAccountArgs:
         :param pulumi.Input[str] regeneration_period: How often Storage Account access key should be regenerated. Value needs to be in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Key Vault Managed Storage Account. Changing this forces a new resource to be created.
         """
-        ManagedStorageAccountArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key_vault_id=key_vault_id,
-            storage_account_id=storage_account_id,
-            storage_account_key=storage_account_key,
-            name=name,
-            regenerate_key_automatically=regenerate_key_automatically,
-            regeneration_period=regeneration_period,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key_vault_id: Optional[pulumi.Input[str]] = None,
-             storage_account_id: Optional[pulumi.Input[str]] = None,
-             storage_account_key: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             regenerate_key_automatically: Optional[pulumi.Input[bool]] = None,
-             regeneration_period: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key_vault_id is None and 'keyVaultId' in kwargs:
-            key_vault_id = kwargs['keyVaultId']
-        if key_vault_id is None:
-            raise TypeError("Missing 'key_vault_id' argument")
-        if storage_account_id is None and 'storageAccountId' in kwargs:
-            storage_account_id = kwargs['storageAccountId']
-        if storage_account_id is None:
-            raise TypeError("Missing 'storage_account_id' argument")
-        if storage_account_key is None and 'storageAccountKey' in kwargs:
-            storage_account_key = kwargs['storageAccountKey']
-        if storage_account_key is None:
-            raise TypeError("Missing 'storage_account_key' argument")
-        if regenerate_key_automatically is None and 'regenerateKeyAutomatically' in kwargs:
-            regenerate_key_automatically = kwargs['regenerateKeyAutomatically']
-        if regeneration_period is None and 'regenerationPeriod' in kwargs:
-            regeneration_period = kwargs['regenerationPeriod']
-
-        _setter("key_vault_id", key_vault_id)
-        _setter("storage_account_id", storage_account_id)
-        _setter("storage_account_key", storage_account_key)
+        pulumi.set(__self__, "key_vault_id", key_vault_id)
+        pulumi.set(__self__, "storage_account_id", storage_account_id)
+        pulumi.set(__self__, "storage_account_key", storage_account_key)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if regenerate_key_automatically is not None:
-            _setter("regenerate_key_automatically", regenerate_key_automatically)
+            pulumi.set(__self__, "regenerate_key_automatically", regenerate_key_automatically)
         if regeneration_period is not None:
-            _setter("regeneration_period", regeneration_period)
+            pulumi.set(__self__, "regeneration_period", regeneration_period)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="keyVaultId")
@@ -193,53 +154,20 @@ class _ManagedStorageAccountState:
         :param pulumi.Input[str] storage_account_key: Which Storage Account access key that is managed by Key Vault. Possible values are `key1` and `key2`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Key Vault Managed Storage Account. Changing this forces a new resource to be created.
         """
-        _ManagedStorageAccountState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key_vault_id=key_vault_id,
-            name=name,
-            regenerate_key_automatically=regenerate_key_automatically,
-            regeneration_period=regeneration_period,
-            storage_account_id=storage_account_id,
-            storage_account_key=storage_account_key,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key_vault_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             regenerate_key_automatically: Optional[pulumi.Input[bool]] = None,
-             regeneration_period: Optional[pulumi.Input[str]] = None,
-             storage_account_id: Optional[pulumi.Input[str]] = None,
-             storage_account_key: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key_vault_id is None and 'keyVaultId' in kwargs:
-            key_vault_id = kwargs['keyVaultId']
-        if regenerate_key_automatically is None and 'regenerateKeyAutomatically' in kwargs:
-            regenerate_key_automatically = kwargs['regenerateKeyAutomatically']
-        if regeneration_period is None and 'regenerationPeriod' in kwargs:
-            regeneration_period = kwargs['regenerationPeriod']
-        if storage_account_id is None and 'storageAccountId' in kwargs:
-            storage_account_id = kwargs['storageAccountId']
-        if storage_account_key is None and 'storageAccountKey' in kwargs:
-            storage_account_key = kwargs['storageAccountKey']
-
         if key_vault_id is not None:
-            _setter("key_vault_id", key_vault_id)
+            pulumi.set(__self__, "key_vault_id", key_vault_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if regenerate_key_automatically is not None:
-            _setter("regenerate_key_automatically", regenerate_key_automatically)
+            pulumi.set(__self__, "regenerate_key_automatically", regenerate_key_automatically)
         if regeneration_period is not None:
-            _setter("regeneration_period", regeneration_period)
+            pulumi.set(__self__, "regeneration_period", regeneration_period)
         if storage_account_id is not None:
-            _setter("storage_account_id", storage_account_id)
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
         if storage_account_key is not None:
-            _setter("storage_account_key", storage_account_key)
+            pulumi.set(__self__, "storage_account_key", storage_account_key)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="keyVaultId")
@@ -579,10 +507,6 @@ class ManagedStorageAccount(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ManagedStorageAccountArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
