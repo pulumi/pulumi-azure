@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RoleAssignmentArgs', 'RoleAssignment']
@@ -31,41 +31,12 @@ class RoleAssignmentArgs:
                > **NOTE:** A Synapse firewall rule including local IP is needed to allow access. Only one of `synapse_workspace_id`, `synapse_spark_pool_id` must be set.
         :param pulumi.Input[str] synapse_workspace_id: The Synapse Workspace which the Synapse Role Assignment applies to. Changing this forces a new resource to be created.
         """
-        RoleAssignmentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            principal_id=principal_id,
-            role_name=role_name,
-            synapse_spark_pool_id=synapse_spark_pool_id,
-            synapse_workspace_id=synapse_workspace_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             principal_id: Optional[pulumi.Input[str]] = None,
-             role_name: Optional[pulumi.Input[str]] = None,
-             synapse_spark_pool_id: Optional[pulumi.Input[str]] = None,
-             synapse_workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if principal_id is None and 'principalId' in kwargs:
-            principal_id = kwargs['principalId']
-        if principal_id is None:
-            raise TypeError("Missing 'principal_id' argument")
-        if role_name is None and 'roleName' in kwargs:
-            role_name = kwargs['roleName']
-        if role_name is None:
-            raise TypeError("Missing 'role_name' argument")
-        if synapse_spark_pool_id is None and 'synapseSparkPoolId' in kwargs:
-            synapse_spark_pool_id = kwargs['synapseSparkPoolId']
-        if synapse_workspace_id is None and 'synapseWorkspaceId' in kwargs:
-            synapse_workspace_id = kwargs['synapseWorkspaceId']
-
-        _setter("principal_id", principal_id)
-        _setter("role_name", role_name)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "role_name", role_name)
         if synapse_spark_pool_id is not None:
-            _setter("synapse_spark_pool_id", synapse_spark_pool_id)
+            pulumi.set(__self__, "synapse_spark_pool_id", synapse_spark_pool_id)
         if synapse_workspace_id is not None:
-            _setter("synapse_workspace_id", synapse_workspace_id)
+            pulumi.set(__self__, "synapse_workspace_id", synapse_workspace_id)
 
     @property
     @pulumi.getter(name="principalId")
@@ -142,39 +113,14 @@ class _RoleAssignmentState:
                > **NOTE:** A Synapse firewall rule including local IP is needed to allow access. Only one of `synapse_workspace_id`, `synapse_spark_pool_id` must be set.
         :param pulumi.Input[str] synapse_workspace_id: The Synapse Workspace which the Synapse Role Assignment applies to. Changing this forces a new resource to be created.
         """
-        _RoleAssignmentState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            principal_id=principal_id,
-            role_name=role_name,
-            synapse_spark_pool_id=synapse_spark_pool_id,
-            synapse_workspace_id=synapse_workspace_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             principal_id: Optional[pulumi.Input[str]] = None,
-             role_name: Optional[pulumi.Input[str]] = None,
-             synapse_spark_pool_id: Optional[pulumi.Input[str]] = None,
-             synapse_workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if principal_id is None and 'principalId' in kwargs:
-            principal_id = kwargs['principalId']
-        if role_name is None and 'roleName' in kwargs:
-            role_name = kwargs['roleName']
-        if synapse_spark_pool_id is None and 'synapseSparkPoolId' in kwargs:
-            synapse_spark_pool_id = kwargs['synapseSparkPoolId']
-        if synapse_workspace_id is None and 'synapseWorkspaceId' in kwargs:
-            synapse_workspace_id = kwargs['synapseWorkspaceId']
-
         if principal_id is not None:
-            _setter("principal_id", principal_id)
+            pulumi.set(__self__, "principal_id", principal_id)
         if role_name is not None:
-            _setter("role_name", role_name)
+            pulumi.set(__self__, "role_name", role_name)
         if synapse_spark_pool_id is not None:
-            _setter("synapse_spark_pool_id", synapse_spark_pool_id)
+            pulumi.set(__self__, "synapse_spark_pool_id", synapse_spark_pool_id)
         if synapse_workspace_id is not None:
-            _setter("synapse_workspace_id", synapse_workspace_id)
+            pulumi.set(__self__, "synapse_workspace_id", synapse_workspace_id)
 
     @property
     @pulumi.getter(name="principalId")
@@ -364,10 +310,6 @@ class RoleAssignment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            RoleAssignmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['InterationServiceEnvironmentArgs', 'InterationServiceEnvironment']
@@ -33,54 +33,17 @@ class InterationServiceEnvironmentArgs:
                > **NOTE** For a `sku_name` using the `Developer` `sku` the `capacity` element must be always `0`. For a `sku_name` using the `sku` of `Premium` the `capacity` element can be between `0` and `10`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Integration Service Environment.
         """
-        InterationServiceEnvironmentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            access_endpoint_type=access_endpoint_type,
-            resource_group_name=resource_group_name,
-            virtual_network_subnet_ids=virtual_network_subnet_ids,
-            location=location,
-            name=name,
-            sku_name=sku_name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             access_endpoint_type: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             virtual_network_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             sku_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if access_endpoint_type is None and 'accessEndpointType' in kwargs:
-            access_endpoint_type = kwargs['accessEndpointType']
-        if access_endpoint_type is None:
-            raise TypeError("Missing 'access_endpoint_type' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if virtual_network_subnet_ids is None and 'virtualNetworkSubnetIds' in kwargs:
-            virtual_network_subnet_ids = kwargs['virtualNetworkSubnetIds']
-        if virtual_network_subnet_ids is None:
-            raise TypeError("Missing 'virtual_network_subnet_ids' argument")
-        if sku_name is None and 'skuName' in kwargs:
-            sku_name = kwargs['skuName']
-
-        _setter("access_endpoint_type", access_endpoint_type)
-        _setter("resource_group_name", resource_group_name)
-        _setter("virtual_network_subnet_ids", virtual_network_subnet_ids)
+        pulumi.set(__self__, "access_endpoint_type", access_endpoint_type)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "virtual_network_subnet_ids", virtual_network_subnet_ids)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if sku_name is not None:
-            _setter("sku_name", sku_name)
+            pulumi.set(__self__, "sku_name", sku_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="accessEndpointType")
@@ -199,75 +162,28 @@ class _InterationServiceEnvironmentState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] workflow_endpoint_ip_addresses: The list of access endpoint IP addresses of workflow.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] workflow_outbound_ip_addresses: The list of outgoing IP addresses of workflow.
         """
-        _InterationServiceEnvironmentState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            access_endpoint_type=access_endpoint_type,
-            connector_endpoint_ip_addresses=connector_endpoint_ip_addresses,
-            connector_outbound_ip_addresses=connector_outbound_ip_addresses,
-            location=location,
-            name=name,
-            resource_group_name=resource_group_name,
-            sku_name=sku_name,
-            tags=tags,
-            virtual_network_subnet_ids=virtual_network_subnet_ids,
-            workflow_endpoint_ip_addresses=workflow_endpoint_ip_addresses,
-            workflow_outbound_ip_addresses=workflow_outbound_ip_addresses,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             access_endpoint_type: Optional[pulumi.Input[str]] = None,
-             connector_endpoint_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             connector_outbound_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             sku_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             virtual_network_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             workflow_endpoint_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             workflow_outbound_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if access_endpoint_type is None and 'accessEndpointType' in kwargs:
-            access_endpoint_type = kwargs['accessEndpointType']
-        if connector_endpoint_ip_addresses is None and 'connectorEndpointIpAddresses' in kwargs:
-            connector_endpoint_ip_addresses = kwargs['connectorEndpointIpAddresses']
-        if connector_outbound_ip_addresses is None and 'connectorOutboundIpAddresses' in kwargs:
-            connector_outbound_ip_addresses = kwargs['connectorOutboundIpAddresses']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if sku_name is None and 'skuName' in kwargs:
-            sku_name = kwargs['skuName']
-        if virtual_network_subnet_ids is None and 'virtualNetworkSubnetIds' in kwargs:
-            virtual_network_subnet_ids = kwargs['virtualNetworkSubnetIds']
-        if workflow_endpoint_ip_addresses is None and 'workflowEndpointIpAddresses' in kwargs:
-            workflow_endpoint_ip_addresses = kwargs['workflowEndpointIpAddresses']
-        if workflow_outbound_ip_addresses is None and 'workflowOutboundIpAddresses' in kwargs:
-            workflow_outbound_ip_addresses = kwargs['workflowOutboundIpAddresses']
-
         if access_endpoint_type is not None:
-            _setter("access_endpoint_type", access_endpoint_type)
+            pulumi.set(__self__, "access_endpoint_type", access_endpoint_type)
         if connector_endpoint_ip_addresses is not None:
-            _setter("connector_endpoint_ip_addresses", connector_endpoint_ip_addresses)
+            pulumi.set(__self__, "connector_endpoint_ip_addresses", connector_endpoint_ip_addresses)
         if connector_outbound_ip_addresses is not None:
-            _setter("connector_outbound_ip_addresses", connector_outbound_ip_addresses)
+            pulumi.set(__self__, "connector_outbound_ip_addresses", connector_outbound_ip_addresses)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if sku_name is not None:
-            _setter("sku_name", sku_name)
+            pulumi.set(__self__, "sku_name", sku_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if virtual_network_subnet_ids is not None:
-            _setter("virtual_network_subnet_ids", virtual_network_subnet_ids)
+            pulumi.set(__self__, "virtual_network_subnet_ids", virtual_network_subnet_ids)
         if workflow_endpoint_ip_addresses is not None:
-            _setter("workflow_endpoint_ip_addresses", workflow_endpoint_ip_addresses)
+            pulumi.set(__self__, "workflow_endpoint_ip_addresses", workflow_endpoint_ip_addresses)
         if workflow_outbound_ip_addresses is not None:
-            _setter("workflow_outbound_ip_addresses", workflow_outbound_ip_addresses)
+            pulumi.set(__self__, "workflow_outbound_ip_addresses", workflow_outbound_ip_addresses)
 
     @property
     @pulumi.getter(name="accessEndpointType")
@@ -569,10 +485,6 @@ class InterationServiceEnvironment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            InterationServiceEnvironmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

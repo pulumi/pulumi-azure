@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,37 +27,12 @@ class GatewayArgs:
         :param pulumi.Input[str] description: The description of the API Management Gateway.
         :param pulumi.Input[str] name: The name which should be used for the API Management Gateway. Changing this forces a new API Management Gateway to be created.
         """
-        GatewayArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_management_id=api_management_id,
-            location_data=location_data,
-            description=description,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_management_id: Optional[pulumi.Input[str]] = None,
-             location_data: Optional[pulumi.Input['GatewayLocationDataArgs']] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_management_id is None and 'apiManagementId' in kwargs:
-            api_management_id = kwargs['apiManagementId']
-        if api_management_id is None:
-            raise TypeError("Missing 'api_management_id' argument")
-        if location_data is None and 'locationData' in kwargs:
-            location_data = kwargs['locationData']
-        if location_data is None:
-            raise TypeError("Missing 'location_data' argument")
-
-        _setter("api_management_id", api_management_id)
-        _setter("location_data", location_data)
+        pulumi.set(__self__, "api_management_id", api_management_id)
+        pulumi.set(__self__, "location_data", location_data)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="apiManagementId")
@@ -122,35 +97,14 @@ class _GatewayState:
         :param pulumi.Input['GatewayLocationDataArgs'] location_data: A `location_data` block as documented below.
         :param pulumi.Input[str] name: The name which should be used for the API Management Gateway. Changing this forces a new API Management Gateway to be created.
         """
-        _GatewayState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_management_id=api_management_id,
-            description=description,
-            location_data=location_data,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_management_id: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             location_data: Optional[pulumi.Input['GatewayLocationDataArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_management_id is None and 'apiManagementId' in kwargs:
-            api_management_id = kwargs['apiManagementId']
-        if location_data is None and 'locationData' in kwargs:
-            location_data = kwargs['locationData']
-
         if api_management_id is not None:
-            _setter("api_management_id", api_management_id)
+            pulumi.set(__self__, "api_management_id", api_management_id)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if location_data is not None:
-            _setter("location_data", location_data)
+            pulumi.set(__self__, "location_data", location_data)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="apiManagementId")
@@ -304,10 +258,6 @@ class Gateway(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            GatewayArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -330,7 +280,6 @@ class Gateway(pulumi.CustomResource):
                 raise TypeError("Missing required property 'api_management_id'")
             __props__.__dict__["api_management_id"] = api_management_id
             __props__.__dict__["description"] = description
-            location_data = _utilities.configure(location_data, GatewayLocationDataArgs, True)
             if location_data is None and not opts.urn:
                 raise TypeError("Missing required property 'location_data'")
             __props__.__dict__["location_data"] = location_data

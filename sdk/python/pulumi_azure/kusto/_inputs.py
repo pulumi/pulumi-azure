@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -34,51 +34,18 @@ class AttachedDatabaseConfigurationSharingArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tables_to_excludes: List of tables to exclude from the follower database.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tables_to_includes: List of tables to include in the follower database.
         """
-        AttachedDatabaseConfigurationSharingArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            external_tables_to_excludes=external_tables_to_excludes,
-            external_tables_to_includes=external_tables_to_includes,
-            materialized_views_to_excludes=materialized_views_to_excludes,
-            materialized_views_to_includes=materialized_views_to_includes,
-            tables_to_excludes=tables_to_excludes,
-            tables_to_includes=tables_to_includes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             external_tables_to_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             external_tables_to_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             materialized_views_to_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             materialized_views_to_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tables_to_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tables_to_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if external_tables_to_excludes is None and 'externalTablesToExcludes' in kwargs:
-            external_tables_to_excludes = kwargs['externalTablesToExcludes']
-        if external_tables_to_includes is None and 'externalTablesToIncludes' in kwargs:
-            external_tables_to_includes = kwargs['externalTablesToIncludes']
-        if materialized_views_to_excludes is None and 'materializedViewsToExcludes' in kwargs:
-            materialized_views_to_excludes = kwargs['materializedViewsToExcludes']
-        if materialized_views_to_includes is None and 'materializedViewsToIncludes' in kwargs:
-            materialized_views_to_includes = kwargs['materializedViewsToIncludes']
-        if tables_to_excludes is None and 'tablesToExcludes' in kwargs:
-            tables_to_excludes = kwargs['tablesToExcludes']
-        if tables_to_includes is None and 'tablesToIncludes' in kwargs:
-            tables_to_includes = kwargs['tablesToIncludes']
-
         if external_tables_to_excludes is not None:
-            _setter("external_tables_to_excludes", external_tables_to_excludes)
+            pulumi.set(__self__, "external_tables_to_excludes", external_tables_to_excludes)
         if external_tables_to_includes is not None:
-            _setter("external_tables_to_includes", external_tables_to_includes)
+            pulumi.set(__self__, "external_tables_to_includes", external_tables_to_includes)
         if materialized_views_to_excludes is not None:
-            _setter("materialized_views_to_excludes", materialized_views_to_excludes)
+            pulumi.set(__self__, "materialized_views_to_excludes", materialized_views_to_excludes)
         if materialized_views_to_includes is not None:
-            _setter("materialized_views_to_includes", materialized_views_to_includes)
+            pulumi.set(__self__, "materialized_views_to_includes", materialized_views_to_includes)
         if tables_to_excludes is not None:
-            _setter("tables_to_excludes", tables_to_excludes)
+            pulumi.set(__self__, "tables_to_excludes", tables_to_excludes)
         if tables_to_includes is not None:
-            _setter("tables_to_includes", tables_to_includes)
+            pulumi.set(__self__, "tables_to_includes", tables_to_includes)
 
     @property
     @pulumi.getter(name="externalTablesToExcludes")
@@ -168,38 +135,13 @@ class ClusterIdentityArgs:
         :param pulumi.Input[str] principal_id: The Principal ID associated with this System Assigned Managed Service Identity.
         :param pulumi.Input[str] tenant_id: The Tenant ID associated with this System Assigned Managed Service Identity.
         """
-        ClusterIdentityArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            identity_ids=identity_ids,
-            principal_id=principal_id,
-            tenant_id=tenant_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[pulumi.Input[str]] = None,
-             identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             principal_id: Optional[pulumi.Input[str]] = None,
-             tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if identity_ids is None and 'identityIds' in kwargs:
-            identity_ids = kwargs['identityIds']
-        if principal_id is None and 'principalId' in kwargs:
-            principal_id = kwargs['principalId']
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if identity_ids is not None:
-            _setter("identity_ids", identity_ids)
+            pulumi.set(__self__, "identity_ids", identity_ids)
         if principal_id is not None:
-            _setter("principal_id", principal_id)
+            pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
-            _setter("tenant_id", tenant_id)
+            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -261,29 +203,8 @@ class ClusterOptimizedAutoScaleArgs:
         :param pulumi.Input[int] maximum_instances: The maximum number of allowed instances. Must between `0` and `1000`.
         :param pulumi.Input[int] minimum_instances: The minimum number of allowed instances. Must between `0` and `1000`.
         """
-        ClusterOptimizedAutoScaleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            maximum_instances=maximum_instances,
-            minimum_instances=minimum_instances,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             maximum_instances: Optional[pulumi.Input[int]] = None,
-             minimum_instances: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if maximum_instances is None and 'maximumInstances' in kwargs:
-            maximum_instances = kwargs['maximumInstances']
-        if maximum_instances is None:
-            raise TypeError("Missing 'maximum_instances' argument")
-        if minimum_instances is None and 'minimumInstances' in kwargs:
-            minimum_instances = kwargs['minimumInstances']
-        if minimum_instances is None:
-            raise TypeError("Missing 'minimum_instances' argument")
-
-        _setter("maximum_instances", maximum_instances)
-        _setter("minimum_instances", minimum_instances)
+        pulumi.set(__self__, "maximum_instances", maximum_instances)
+        pulumi.set(__self__, "minimum_instances", minimum_instances)
 
     @property
     @pulumi.getter(name="maximumInstances")
@@ -322,24 +243,9 @@ class ClusterSkuArgs:
                > **NOTE:** If no `optimized_auto_scale` block is defined, then the capacity is required.
                > **NOTE:** If an `optimized_auto_scale` block is defined and no capacity is set, then the capacity is initially set to the value of `minimum_instances`.
         """
-        ClusterSkuArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            capacity=capacity,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             capacity: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if capacity is not None:
-            _setter("capacity", capacity)
+            pulumi.set(__self__, "capacity", capacity)
 
     @property
     @pulumi.getter
@@ -380,36 +286,9 @@ class ClusterVirtualNetworkConfigurationArgs:
         :param pulumi.Input[str] engine_public_ip_id: Engine service's public IP address resource id.
         :param pulumi.Input[str] subnet_id: The subnet resource id.
         """
-        ClusterVirtualNetworkConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_management_public_ip_id=data_management_public_ip_id,
-            engine_public_ip_id=engine_public_ip_id,
-            subnet_id=subnet_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_management_public_ip_id: Optional[pulumi.Input[str]] = None,
-             engine_public_ip_id: Optional[pulumi.Input[str]] = None,
-             subnet_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if data_management_public_ip_id is None and 'dataManagementPublicIpId' in kwargs:
-            data_management_public_ip_id = kwargs['dataManagementPublicIpId']
-        if data_management_public_ip_id is None:
-            raise TypeError("Missing 'data_management_public_ip_id' argument")
-        if engine_public_ip_id is None and 'enginePublicIpId' in kwargs:
-            engine_public_ip_id = kwargs['enginePublicIpId']
-        if engine_public_ip_id is None:
-            raise TypeError("Missing 'engine_public_ip_id' argument")
-        if subnet_id is None and 'subnetId' in kwargs:
-            subnet_id = kwargs['subnetId']
-        if subnet_id is None:
-            raise TypeError("Missing 'subnet_id' argument")
-
-        _setter("data_management_public_ip_id", data_management_public_ip_id)
-        _setter("engine_public_ip_id", engine_public_ip_id)
-        _setter("subnet_id", subnet_id)
+        pulumi.set(__self__, "data_management_public_ip_id", data_management_public_ip_id)
+        pulumi.set(__self__, "engine_public_ip_id", engine_public_ip_id)
+        pulumi.set(__self__, "subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="dataManagementPublicIpId")

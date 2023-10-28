@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['OutputFunctionArgs', 'OutputFunction']
@@ -33,66 +33,17 @@ class OutputFunctionArgs:
         :param pulumi.Input[int] batch_max_in_bytes: The maximum batch size in bytes that's sent to the function. Defaults to `262144` (256 kB).
         :param pulumi.Input[str] name: The name which should be used for this Stream Analytics Output. Changing this forces a new resource to be created.
         """
-        OutputFunctionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_key=api_key,
-            function_app=function_app,
-            function_name=function_name,
-            resource_group_name=resource_group_name,
-            stream_analytics_job_name=stream_analytics_job_name,
-            batch_max_count=batch_max_count,
-            batch_max_in_bytes=batch_max_in_bytes,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_key: Optional[pulumi.Input[str]] = None,
-             function_app: Optional[pulumi.Input[str]] = None,
-             function_name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
-             batch_max_count: Optional[pulumi.Input[int]] = None,
-             batch_max_in_bytes: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_key is None and 'apiKey' in kwargs:
-            api_key = kwargs['apiKey']
-        if api_key is None:
-            raise TypeError("Missing 'api_key' argument")
-        if function_app is None and 'functionApp' in kwargs:
-            function_app = kwargs['functionApp']
-        if function_app is None:
-            raise TypeError("Missing 'function_app' argument")
-        if function_name is None and 'functionName' in kwargs:
-            function_name = kwargs['functionName']
-        if function_name is None:
-            raise TypeError("Missing 'function_name' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if stream_analytics_job_name is None and 'streamAnalyticsJobName' in kwargs:
-            stream_analytics_job_name = kwargs['streamAnalyticsJobName']
-        if stream_analytics_job_name is None:
-            raise TypeError("Missing 'stream_analytics_job_name' argument")
-        if batch_max_count is None and 'batchMaxCount' in kwargs:
-            batch_max_count = kwargs['batchMaxCount']
-        if batch_max_in_bytes is None and 'batchMaxInBytes' in kwargs:
-            batch_max_in_bytes = kwargs['batchMaxInBytes']
-
-        _setter("api_key", api_key)
-        _setter("function_app", function_app)
-        _setter("function_name", function_name)
-        _setter("resource_group_name", resource_group_name)
-        _setter("stream_analytics_job_name", stream_analytics_job_name)
+        pulumi.set(__self__, "api_key", api_key)
+        pulumi.set(__self__, "function_app", function_app)
+        pulumi.set(__self__, "function_name", function_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "stream_analytics_job_name", stream_analytics_job_name)
         if batch_max_count is not None:
-            _setter("batch_max_count", batch_max_count)
+            pulumi.set(__self__, "batch_max_count", batch_max_count)
         if batch_max_in_bytes is not None:
-            _setter("batch_max_in_bytes", batch_max_in_bytes)
+            pulumi.set(__self__, "batch_max_in_bytes", batch_max_in_bytes)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="apiKey")
@@ -213,61 +164,22 @@ class _OutputFunctionState:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Output should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         """
-        _OutputFunctionState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_key=api_key,
-            batch_max_count=batch_max_count,
-            batch_max_in_bytes=batch_max_in_bytes,
-            function_app=function_app,
-            function_name=function_name,
-            name=name,
-            resource_group_name=resource_group_name,
-            stream_analytics_job_name=stream_analytics_job_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_key: Optional[pulumi.Input[str]] = None,
-             batch_max_count: Optional[pulumi.Input[int]] = None,
-             batch_max_in_bytes: Optional[pulumi.Input[int]] = None,
-             function_app: Optional[pulumi.Input[str]] = None,
-             function_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_key is None and 'apiKey' in kwargs:
-            api_key = kwargs['apiKey']
-        if batch_max_count is None and 'batchMaxCount' in kwargs:
-            batch_max_count = kwargs['batchMaxCount']
-        if batch_max_in_bytes is None and 'batchMaxInBytes' in kwargs:
-            batch_max_in_bytes = kwargs['batchMaxInBytes']
-        if function_app is None and 'functionApp' in kwargs:
-            function_app = kwargs['functionApp']
-        if function_name is None and 'functionName' in kwargs:
-            function_name = kwargs['functionName']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if stream_analytics_job_name is None and 'streamAnalyticsJobName' in kwargs:
-            stream_analytics_job_name = kwargs['streamAnalyticsJobName']
-
         if api_key is not None:
-            _setter("api_key", api_key)
+            pulumi.set(__self__, "api_key", api_key)
         if batch_max_count is not None:
-            _setter("batch_max_count", batch_max_count)
+            pulumi.set(__self__, "batch_max_count", batch_max_count)
         if batch_max_in_bytes is not None:
-            _setter("batch_max_in_bytes", batch_max_in_bytes)
+            pulumi.set(__self__, "batch_max_in_bytes", batch_max_in_bytes)
         if function_app is not None:
-            _setter("function_app", function_app)
+            pulumi.set(__self__, "function_app", function_app)
         if function_name is not None:
-            _setter("function_name", function_name)
+            pulumi.set(__self__, "function_name", function_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if stream_analytics_job_name is not None:
-            _setter("stream_analytics_job_name", stream_analytics_job_name)
+            pulumi.set(__self__, "stream_analytics_job_name", stream_analytics_job_name)
 
     @property
     @pulumi.getter(name="apiKey")
@@ -519,10 +431,6 @@ class OutputFunction(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            OutputFunctionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

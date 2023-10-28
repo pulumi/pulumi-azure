@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,56 +33,19 @@ class LocalUserArgs:
         :param pulumi.Input[bool] ssh_key_enabled: Specifies whether SSH Key Authentication is enabled. Defaults to `false`.
         :param pulumi.Input[bool] ssh_password_enabled: Specifies whether SSH Password Authentication is enabled. Defaults to `false`.
         """
-        LocalUserArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            storage_account_id=storage_account_id,
-            home_directory=home_directory,
-            name=name,
-            permission_scopes=permission_scopes,
-            ssh_authorized_keys=ssh_authorized_keys,
-            ssh_key_enabled=ssh_key_enabled,
-            ssh_password_enabled=ssh_password_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             storage_account_id: Optional[pulumi.Input[str]] = None,
-             home_directory: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             permission_scopes: Optional[pulumi.Input[Sequence[pulumi.Input['LocalUserPermissionScopeArgs']]]] = None,
-             ssh_authorized_keys: Optional[pulumi.Input[Sequence[pulumi.Input['LocalUserSshAuthorizedKeyArgs']]]] = None,
-             ssh_key_enabled: Optional[pulumi.Input[bool]] = None,
-             ssh_password_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if storage_account_id is None and 'storageAccountId' in kwargs:
-            storage_account_id = kwargs['storageAccountId']
-        if storage_account_id is None:
-            raise TypeError("Missing 'storage_account_id' argument")
-        if home_directory is None and 'homeDirectory' in kwargs:
-            home_directory = kwargs['homeDirectory']
-        if permission_scopes is None and 'permissionScopes' in kwargs:
-            permission_scopes = kwargs['permissionScopes']
-        if ssh_authorized_keys is None and 'sshAuthorizedKeys' in kwargs:
-            ssh_authorized_keys = kwargs['sshAuthorizedKeys']
-        if ssh_key_enabled is None and 'sshKeyEnabled' in kwargs:
-            ssh_key_enabled = kwargs['sshKeyEnabled']
-        if ssh_password_enabled is None and 'sshPasswordEnabled' in kwargs:
-            ssh_password_enabled = kwargs['sshPasswordEnabled']
-
-        _setter("storage_account_id", storage_account_id)
+        pulumi.set(__self__, "storage_account_id", storage_account_id)
         if home_directory is not None:
-            _setter("home_directory", home_directory)
+            pulumi.set(__self__, "home_directory", home_directory)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if permission_scopes is not None:
-            _setter("permission_scopes", permission_scopes)
+            pulumi.set(__self__, "permission_scopes", permission_scopes)
         if ssh_authorized_keys is not None:
-            _setter("ssh_authorized_keys", ssh_authorized_keys)
+            pulumi.set(__self__, "ssh_authorized_keys", ssh_authorized_keys)
         if ssh_key_enabled is not None:
-            _setter("ssh_key_enabled", ssh_key_enabled)
+            pulumi.set(__self__, "ssh_key_enabled", ssh_key_enabled)
         if ssh_password_enabled is not None:
-            _setter("ssh_password_enabled", ssh_password_enabled)
+            pulumi.set(__self__, "ssh_password_enabled", ssh_password_enabled)
 
     @property
     @pulumi.getter(name="storageAccountId")
@@ -193,63 +156,24 @@ class _LocalUserState:
         :param pulumi.Input[bool] ssh_password_enabled: Specifies whether SSH Password Authentication is enabled. Defaults to `false`.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account that this Storage Account Local User resides in. Changing this forces a new Storage Account Local User to be created.
         """
-        _LocalUserState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            home_directory=home_directory,
-            name=name,
-            password=password,
-            permission_scopes=permission_scopes,
-            sid=sid,
-            ssh_authorized_keys=ssh_authorized_keys,
-            ssh_key_enabled=ssh_key_enabled,
-            ssh_password_enabled=ssh_password_enabled,
-            storage_account_id=storage_account_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             home_directory: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             password: Optional[pulumi.Input[str]] = None,
-             permission_scopes: Optional[pulumi.Input[Sequence[pulumi.Input['LocalUserPermissionScopeArgs']]]] = None,
-             sid: Optional[pulumi.Input[str]] = None,
-             ssh_authorized_keys: Optional[pulumi.Input[Sequence[pulumi.Input['LocalUserSshAuthorizedKeyArgs']]]] = None,
-             ssh_key_enabled: Optional[pulumi.Input[bool]] = None,
-             ssh_password_enabled: Optional[pulumi.Input[bool]] = None,
-             storage_account_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if home_directory is None and 'homeDirectory' in kwargs:
-            home_directory = kwargs['homeDirectory']
-        if permission_scopes is None and 'permissionScopes' in kwargs:
-            permission_scopes = kwargs['permissionScopes']
-        if ssh_authorized_keys is None and 'sshAuthorizedKeys' in kwargs:
-            ssh_authorized_keys = kwargs['sshAuthorizedKeys']
-        if ssh_key_enabled is None and 'sshKeyEnabled' in kwargs:
-            ssh_key_enabled = kwargs['sshKeyEnabled']
-        if ssh_password_enabled is None and 'sshPasswordEnabled' in kwargs:
-            ssh_password_enabled = kwargs['sshPasswordEnabled']
-        if storage_account_id is None and 'storageAccountId' in kwargs:
-            storage_account_id = kwargs['storageAccountId']
-
         if home_directory is not None:
-            _setter("home_directory", home_directory)
+            pulumi.set(__self__, "home_directory", home_directory)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if password is not None:
-            _setter("password", password)
+            pulumi.set(__self__, "password", password)
         if permission_scopes is not None:
-            _setter("permission_scopes", permission_scopes)
+            pulumi.set(__self__, "permission_scopes", permission_scopes)
         if sid is not None:
-            _setter("sid", sid)
+            pulumi.set(__self__, "sid", sid)
         if ssh_authorized_keys is not None:
-            _setter("ssh_authorized_keys", ssh_authorized_keys)
+            pulumi.set(__self__, "ssh_authorized_keys", ssh_authorized_keys)
         if ssh_key_enabled is not None:
-            _setter("ssh_key_enabled", ssh_key_enabled)
+            pulumi.set(__self__, "ssh_key_enabled", ssh_key_enabled)
         if ssh_password_enabled is not None:
-            _setter("ssh_password_enabled", ssh_password_enabled)
+            pulumi.set(__self__, "ssh_password_enabled", ssh_password_enabled)
         if storage_account_id is not None:
-            _setter("storage_account_id", storage_account_id)
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
 
     @property
     @pulumi.getter(name="homeDirectory")
@@ -501,10 +425,6 @@ class LocalUser(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LocalUserArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

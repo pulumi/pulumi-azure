@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,54 +33,17 @@ class FailoverGroupArgs:
         :param pulumi.Input[bool] readonly_endpoint_failover_policy_enabled: Whether failover is enabled for the readonly endpoint. Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        FailoverGroupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            partner_servers=partner_servers,
-            read_write_endpoint_failover_policy=read_write_endpoint_failover_policy,
-            server_id=server_id,
-            databases=databases,
-            name=name,
-            readonly_endpoint_failover_policy_enabled=readonly_endpoint_failover_policy_enabled,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             partner_servers: Optional[pulumi.Input[Sequence[pulumi.Input['FailoverGroupPartnerServerArgs']]]] = None,
-             read_write_endpoint_failover_policy: Optional[pulumi.Input['FailoverGroupReadWriteEndpointFailoverPolicyArgs']] = None,
-             server_id: Optional[pulumi.Input[str]] = None,
-             databases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             readonly_endpoint_failover_policy_enabled: Optional[pulumi.Input[bool]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if partner_servers is None and 'partnerServers' in kwargs:
-            partner_servers = kwargs['partnerServers']
-        if partner_servers is None:
-            raise TypeError("Missing 'partner_servers' argument")
-        if read_write_endpoint_failover_policy is None and 'readWriteEndpointFailoverPolicy' in kwargs:
-            read_write_endpoint_failover_policy = kwargs['readWriteEndpointFailoverPolicy']
-        if read_write_endpoint_failover_policy is None:
-            raise TypeError("Missing 'read_write_endpoint_failover_policy' argument")
-        if server_id is None and 'serverId' in kwargs:
-            server_id = kwargs['serverId']
-        if server_id is None:
-            raise TypeError("Missing 'server_id' argument")
-        if readonly_endpoint_failover_policy_enabled is None and 'readonlyEndpointFailoverPolicyEnabled' in kwargs:
-            readonly_endpoint_failover_policy_enabled = kwargs['readonlyEndpointFailoverPolicyEnabled']
-
-        _setter("partner_servers", partner_servers)
-        _setter("read_write_endpoint_failover_policy", read_write_endpoint_failover_policy)
-        _setter("server_id", server_id)
+        pulumi.set(__self__, "partner_servers", partner_servers)
+        pulumi.set(__self__, "read_write_endpoint_failover_policy", read_write_endpoint_failover_policy)
+        pulumi.set(__self__, "server_id", server_id)
         if databases is not None:
-            _setter("databases", databases)
+            pulumi.set(__self__, "databases", databases)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if readonly_endpoint_failover_policy_enabled is not None:
-            _setter("readonly_endpoint_failover_policy_enabled", readonly_endpoint_failover_policy_enabled)
+            pulumi.set(__self__, "readonly_endpoint_failover_policy_enabled", readonly_endpoint_failover_policy_enabled)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="partnerServers")
@@ -187,51 +150,20 @@ class _FailoverGroupState:
         :param pulumi.Input[str] server_id: The ID of the primary SQL Server on which to create the failover group. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        _FailoverGroupState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            databases=databases,
-            name=name,
-            partner_servers=partner_servers,
-            read_write_endpoint_failover_policy=read_write_endpoint_failover_policy,
-            readonly_endpoint_failover_policy_enabled=readonly_endpoint_failover_policy_enabled,
-            server_id=server_id,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             databases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             partner_servers: Optional[pulumi.Input[Sequence[pulumi.Input['FailoverGroupPartnerServerArgs']]]] = None,
-             read_write_endpoint_failover_policy: Optional[pulumi.Input['FailoverGroupReadWriteEndpointFailoverPolicyArgs']] = None,
-             readonly_endpoint_failover_policy_enabled: Optional[pulumi.Input[bool]] = None,
-             server_id: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if partner_servers is None and 'partnerServers' in kwargs:
-            partner_servers = kwargs['partnerServers']
-        if read_write_endpoint_failover_policy is None and 'readWriteEndpointFailoverPolicy' in kwargs:
-            read_write_endpoint_failover_policy = kwargs['readWriteEndpointFailoverPolicy']
-        if readonly_endpoint_failover_policy_enabled is None and 'readonlyEndpointFailoverPolicyEnabled' in kwargs:
-            readonly_endpoint_failover_policy_enabled = kwargs['readonlyEndpointFailoverPolicyEnabled']
-        if server_id is None and 'serverId' in kwargs:
-            server_id = kwargs['serverId']
-
         if databases is not None:
-            _setter("databases", databases)
+            pulumi.set(__self__, "databases", databases)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if partner_servers is not None:
-            _setter("partner_servers", partner_servers)
+            pulumi.set(__self__, "partner_servers", partner_servers)
         if read_write_endpoint_failover_policy is not None:
-            _setter("read_write_endpoint_failover_policy", read_write_endpoint_failover_policy)
+            pulumi.set(__self__, "read_write_endpoint_failover_policy", read_write_endpoint_failover_policy)
         if readonly_endpoint_failover_policy_enabled is not None:
-            _setter("readonly_endpoint_failover_policy_enabled", readonly_endpoint_failover_policy_enabled)
+            pulumi.set(__self__, "readonly_endpoint_failover_policy_enabled", readonly_endpoint_failover_policy_enabled)
         if server_id is not None:
-            _setter("server_id", server_id)
+            pulumi.set(__self__, "server_id", server_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -459,10 +391,6 @@ class FailoverGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            FailoverGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -489,7 +417,6 @@ class FailoverGroup(pulumi.CustomResource):
             if partner_servers is None and not opts.urn:
                 raise TypeError("Missing required property 'partner_servers'")
             __props__.__dict__["partner_servers"] = partner_servers
-            read_write_endpoint_failover_policy = _utilities.configure(read_write_endpoint_failover_policy, FailoverGroupReadWriteEndpointFailoverPolicyArgs, True)
             if read_write_endpoint_failover_policy is None and not opts.urn:
                 raise TypeError("Missing required property 'read_write_endpoint_failover_policy'")
             __props__.__dict__["read_write_endpoint_failover_policy"] = read_write_endpoint_failover_policy

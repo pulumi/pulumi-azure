@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['WebAppActiveSlotArgs', 'WebAppActiveSlot']
@@ -21,28 +21,9 @@ class WebAppActiveSlotArgs:
         :param pulumi.Input[str] slot_id: The ID of the Slot to swap with `Production`.
         :param pulumi.Input[bool] overwrite_network_config: The swap action should overwrite the Production slot's network configuration with the configuration from this slot. Defaults to `true`. Changing this forces a new resource to be created.
         """
-        WebAppActiveSlotArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            slot_id=slot_id,
-            overwrite_network_config=overwrite_network_config,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             slot_id: Optional[pulumi.Input[str]] = None,
-             overwrite_network_config: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if slot_id is None and 'slotId' in kwargs:
-            slot_id = kwargs['slotId']
-        if slot_id is None:
-            raise TypeError("Missing 'slot_id' argument")
-        if overwrite_network_config is None and 'overwriteNetworkConfig' in kwargs:
-            overwrite_network_config = kwargs['overwriteNetworkConfig']
-
-        _setter("slot_id", slot_id)
+        pulumi.set(__self__, "slot_id", slot_id)
         if overwrite_network_config is not None:
-            _setter("overwrite_network_config", overwrite_network_config)
+            pulumi.set(__self__, "overwrite_network_config", overwrite_network_config)
 
     @property
     @pulumi.getter(name="slotId")
@@ -81,33 +62,12 @@ class _WebAppActiveSlotState:
         :param pulumi.Input[bool] overwrite_network_config: The swap action should overwrite the Production slot's network configuration with the configuration from this slot. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] slot_id: The ID of the Slot to swap with `Production`.
         """
-        _WebAppActiveSlotState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            last_successful_swap=last_successful_swap,
-            overwrite_network_config=overwrite_network_config,
-            slot_id=slot_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             last_successful_swap: Optional[pulumi.Input[str]] = None,
-             overwrite_network_config: Optional[pulumi.Input[bool]] = None,
-             slot_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if last_successful_swap is None and 'lastSuccessfulSwap' in kwargs:
-            last_successful_swap = kwargs['lastSuccessfulSwap']
-        if overwrite_network_config is None and 'overwriteNetworkConfig' in kwargs:
-            overwrite_network_config = kwargs['overwriteNetworkConfig']
-        if slot_id is None and 'slotId' in kwargs:
-            slot_id = kwargs['slotId']
-
         if last_successful_swap is not None:
-            _setter("last_successful_swap", last_successful_swap)
+            pulumi.set(__self__, "last_successful_swap", last_successful_swap)
         if overwrite_network_config is not None:
-            _setter("overwrite_network_config", overwrite_network_config)
+            pulumi.set(__self__, "overwrite_network_config", overwrite_network_config)
         if slot_id is not None:
-            _setter("slot_id", slot_id)
+            pulumi.set(__self__, "slot_id", slot_id)
 
     @property
     @pulumi.getter(name="lastSuccessfulSwap")
@@ -245,10 +205,6 @@ class WebAppActiveSlot(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            WebAppActiveSlotArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

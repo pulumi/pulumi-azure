@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LabArgs', 'Lab']
@@ -29,43 +29,18 @@ class LabArgs:
                > **Note:** `storage_type` has been deprecated as the API no longer supports it and will be removed in Version 4.0 of the provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        LabArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_group_name=resource_group_name,
-            location=location,
-            name=name,
-            storage_type=storage_type,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             storage_type: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if storage_type is None and 'storageType' in kwargs:
-            storage_type = kwargs['storageType']
-
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if storage_type is not None:
             warnings.warn("""`storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.""", DeprecationWarning)
             pulumi.log.warn("""storage_type is deprecated: `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.""")
         if storage_type is not None:
-            _setter("storage_type", storage_type)
+            pulumi.set(__self__, "storage_type", storage_type)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -163,78 +138,31 @@ class _LabState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] unique_identifier: The unique immutable identifier of the Dev Test Lab.
         """
-        _LabState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            artifacts_storage_account_id=artifacts_storage_account_id,
-            default_premium_storage_account_id=default_premium_storage_account_id,
-            default_storage_account_id=default_storage_account_id,
-            key_vault_id=key_vault_id,
-            location=location,
-            name=name,
-            premium_data_disk_storage_account_id=premium_data_disk_storage_account_id,
-            resource_group_name=resource_group_name,
-            storage_type=storage_type,
-            tags=tags,
-            unique_identifier=unique_identifier,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             artifacts_storage_account_id: Optional[pulumi.Input[str]] = None,
-             default_premium_storage_account_id: Optional[pulumi.Input[str]] = None,
-             default_storage_account_id: Optional[pulumi.Input[str]] = None,
-             key_vault_id: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             premium_data_disk_storage_account_id: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             storage_type: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             unique_identifier: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if artifacts_storage_account_id is None and 'artifactsStorageAccountId' in kwargs:
-            artifacts_storage_account_id = kwargs['artifactsStorageAccountId']
-        if default_premium_storage_account_id is None and 'defaultPremiumStorageAccountId' in kwargs:
-            default_premium_storage_account_id = kwargs['defaultPremiumStorageAccountId']
-        if default_storage_account_id is None and 'defaultStorageAccountId' in kwargs:
-            default_storage_account_id = kwargs['defaultStorageAccountId']
-        if key_vault_id is None and 'keyVaultId' in kwargs:
-            key_vault_id = kwargs['keyVaultId']
-        if premium_data_disk_storage_account_id is None and 'premiumDataDiskStorageAccountId' in kwargs:
-            premium_data_disk_storage_account_id = kwargs['premiumDataDiskStorageAccountId']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if storage_type is None and 'storageType' in kwargs:
-            storage_type = kwargs['storageType']
-        if unique_identifier is None and 'uniqueIdentifier' in kwargs:
-            unique_identifier = kwargs['uniqueIdentifier']
-
         if artifacts_storage_account_id is not None:
-            _setter("artifacts_storage_account_id", artifacts_storage_account_id)
+            pulumi.set(__self__, "artifacts_storage_account_id", artifacts_storage_account_id)
         if default_premium_storage_account_id is not None:
-            _setter("default_premium_storage_account_id", default_premium_storage_account_id)
+            pulumi.set(__self__, "default_premium_storage_account_id", default_premium_storage_account_id)
         if default_storage_account_id is not None:
-            _setter("default_storage_account_id", default_storage_account_id)
+            pulumi.set(__self__, "default_storage_account_id", default_storage_account_id)
         if key_vault_id is not None:
-            _setter("key_vault_id", key_vault_id)
+            pulumi.set(__self__, "key_vault_id", key_vault_id)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if premium_data_disk_storage_account_id is not None:
-            _setter("premium_data_disk_storage_account_id", premium_data_disk_storage_account_id)
+            pulumi.set(__self__, "premium_data_disk_storage_account_id", premium_data_disk_storage_account_id)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if storage_type is not None:
             warnings.warn("""`storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.""", DeprecationWarning)
             pulumi.log.warn("""storage_type is deprecated: `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.""")
         if storage_type is not None:
-            _setter("storage_type", storage_type)
+            pulumi.set(__self__, "storage_type", storage_type)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if unique_identifier is not None:
-            _setter("unique_identifier", unique_identifier)
+            pulumi.set(__self__, "unique_identifier", unique_identifier)
 
     @property
     @pulumi.getter(name="artifactsStorageAccountId")
@@ -463,10 +391,6 @@ class Lab(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LabArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

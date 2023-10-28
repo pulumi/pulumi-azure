@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,62 +39,23 @@ class FlowletDataFlowArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] script_lines: The script lines for the Data Factory Flowlet Data Flow.
         :param pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowTransformationArgs']]] transformations: One or more `transformation` blocks as defined below.
         """
-        FlowletDataFlowArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_factory_id=data_factory_id,
-            sinks=sinks,
-            sources=sources,
-            annotations=annotations,
-            description=description,
-            folder=folder,
-            name=name,
-            script=script,
-            script_lines=script_lines,
-            transformations=transformations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_factory_id: Optional[pulumi.Input[str]] = None,
-             sinks: Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSinkArgs']]]] = None,
-             sources: Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSourceArgs']]]] = None,
-             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             folder: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             script: Optional[pulumi.Input[str]] = None,
-             script_lines: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             transformations: Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowTransformationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if data_factory_id is None and 'dataFactoryId' in kwargs:
-            data_factory_id = kwargs['dataFactoryId']
-        if data_factory_id is None:
-            raise TypeError("Missing 'data_factory_id' argument")
-        if sinks is None:
-            raise TypeError("Missing 'sinks' argument")
-        if sources is None:
-            raise TypeError("Missing 'sources' argument")
-        if script_lines is None and 'scriptLines' in kwargs:
-            script_lines = kwargs['scriptLines']
-
-        _setter("data_factory_id", data_factory_id)
-        _setter("sinks", sinks)
-        _setter("sources", sources)
+        pulumi.set(__self__, "data_factory_id", data_factory_id)
+        pulumi.set(__self__, "sinks", sinks)
+        pulumi.set(__self__, "sources", sources)
         if annotations is not None:
-            _setter("annotations", annotations)
+            pulumi.set(__self__, "annotations", annotations)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if folder is not None:
-            _setter("folder", folder)
+            pulumi.set(__self__, "folder", folder)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if script is not None:
-            _setter("script", script)
+            pulumi.set(__self__, "script", script)
         if script_lines is not None:
-            _setter("script_lines", script_lines)
+            pulumi.set(__self__, "script_lines", script_lines)
         if transformations is not None:
-            _setter("transformations", transformations)
+            pulumi.set(__self__, "transformations", transformations)
 
     @property
     @pulumi.getter(name="dataFactoryId")
@@ -243,59 +204,26 @@ class _FlowletDataFlowState:
         :param pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSourceArgs']]] sources: One or more `source` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowTransformationArgs']]] transformations: One or more `transformation` blocks as defined below.
         """
-        _FlowletDataFlowState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            annotations=annotations,
-            data_factory_id=data_factory_id,
-            description=description,
-            folder=folder,
-            name=name,
-            script=script,
-            script_lines=script_lines,
-            sinks=sinks,
-            sources=sources,
-            transformations=transformations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             data_factory_id: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             folder: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             script: Optional[pulumi.Input[str]] = None,
-             script_lines: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             sinks: Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSinkArgs']]]] = None,
-             sources: Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSourceArgs']]]] = None,
-             transformations: Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowTransformationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if data_factory_id is None and 'dataFactoryId' in kwargs:
-            data_factory_id = kwargs['dataFactoryId']
-        if script_lines is None and 'scriptLines' in kwargs:
-            script_lines = kwargs['scriptLines']
-
         if annotations is not None:
-            _setter("annotations", annotations)
+            pulumi.set(__self__, "annotations", annotations)
         if data_factory_id is not None:
-            _setter("data_factory_id", data_factory_id)
+            pulumi.set(__self__, "data_factory_id", data_factory_id)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if folder is not None:
-            _setter("folder", folder)
+            pulumi.set(__self__, "folder", folder)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if script is not None:
-            _setter("script", script)
+            pulumi.set(__self__, "script", script)
         if script_lines is not None:
-            _setter("script_lines", script_lines)
+            pulumi.set(__self__, "script_lines", script_lines)
         if sinks is not None:
-            _setter("sinks", sinks)
+            pulumi.set(__self__, "sinks", sinks)
         if sources is not None:
-            _setter("sources", sources)
+            pulumi.set(__self__, "sources", sources)
         if transformations is not None:
-            _setter("transformations", transformations)
+            pulumi.set(__self__, "transformations", transformations)
 
     @property
     @pulumi.getter
@@ -737,10 +665,6 @@ class FlowletDataFlow(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            FlowletDataFlowArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

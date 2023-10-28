@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,57 +37,20 @@ class AutomationArgs:
         :param pulumi.Input[str] name: The name which should be used for this Security Center Automation. Changing this forces a new Security Center Automation to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
         """
-        AutomationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            actions=actions,
-            resource_group_name=resource_group_name,
-            scopes=scopes,
-            sources=sources,
-            description=description,
-            enabled=enabled,
-            location=location,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             actions: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationActionArgs']]]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             sources: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationSourceArgs']]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if actions is None:
-            raise TypeError("Missing 'actions' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if scopes is None:
-            raise TypeError("Missing 'scopes' argument")
-        if sources is None:
-            raise TypeError("Missing 'sources' argument")
-
-        _setter("actions", actions)
-        _setter("resource_group_name", resource_group_name)
-        _setter("scopes", scopes)
-        _setter("sources", sources)
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "scopes", scopes)
+        pulumi.set(__self__, "sources", sources)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -222,53 +185,24 @@ class _AutomationState:
         :param pulumi.Input[Sequence[pulumi.Input['AutomationSourceArgs']]] sources: One or more `source` blocks as defined below. A `source` defines what data types will be processed and a set of rules to filter that data.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
         """
-        _AutomationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            actions=actions,
-            description=description,
-            enabled=enabled,
-            location=location,
-            name=name,
-            resource_group_name=resource_group_name,
-            scopes=scopes,
-            sources=sources,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             actions: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationActionArgs']]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             sources: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationSourceArgs']]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-
         if actions is not None:
-            _setter("actions", actions)
+            pulumi.set(__self__, "actions", actions)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if scopes is not None:
-            _setter("scopes", scopes)
+            pulumi.set(__self__, "scopes", scopes)
         if sources is not None:
-            _setter("sources", sources)
+            pulumi.set(__self__, "sources", sources)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -538,10 +472,6 @@ class Automation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AutomationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

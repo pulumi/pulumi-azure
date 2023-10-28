@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,69 +41,26 @@ class ApplicationArgs:
         :param pulumi.Input['ApplicationPlanArgs'] plan: One `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        ApplicationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            kind=kind,
-            managed_resource_group_name=managed_resource_group_name,
-            resource_group_name=resource_group_name,
-            application_definition_id=application_definition_id,
-            location=location,
-            name=name,
-            parameter_values=parameter_values,
-            parameters=parameters,
-            plan=plan,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             kind: Optional[pulumi.Input[str]] = None,
-             managed_resource_group_name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             application_definition_id: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             parameter_values: Optional[pulumi.Input[str]] = None,
-             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             plan: Optional[pulumi.Input['ApplicationPlanArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if kind is None:
-            raise TypeError("Missing 'kind' argument")
-        if managed_resource_group_name is None and 'managedResourceGroupName' in kwargs:
-            managed_resource_group_name = kwargs['managedResourceGroupName']
-        if managed_resource_group_name is None:
-            raise TypeError("Missing 'managed_resource_group_name' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if application_definition_id is None and 'applicationDefinitionId' in kwargs:
-            application_definition_id = kwargs['applicationDefinitionId']
-        if parameter_values is None and 'parameterValues' in kwargs:
-            parameter_values = kwargs['parameterValues']
-
-        _setter("kind", kind)
-        _setter("managed_resource_group_name", managed_resource_group_name)
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "managed_resource_group_name", managed_resource_group_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if application_definition_id is not None:
-            _setter("application_definition_id", application_definition_id)
+            pulumi.set(__self__, "application_definition_id", application_definition_id)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if parameter_values is not None:
-            _setter("parameter_values", parameter_values)
+            pulumi.set(__self__, "parameter_values", parameter_values)
         if parameters is not None:
             warnings.warn("""This property has been deprecated in favour of `parameter_values`""", DeprecationWarning)
             pulumi.log.warn("""parameters is deprecated: This property has been deprecated in favour of `parameter_values`""")
         if parameters is not None:
-            _setter("parameters", parameters)
+            pulumi.set(__self__, "parameters", parameters)
         if plan is not None:
-            _setter("plan", plan)
+            pulumi.set(__self__, "plan", plan)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -261,70 +218,31 @@ class _ApplicationState:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Application should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        _ApplicationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            application_definition_id=application_definition_id,
-            kind=kind,
-            location=location,
-            managed_resource_group_name=managed_resource_group_name,
-            name=name,
-            outputs=outputs,
-            parameter_values=parameter_values,
-            parameters=parameters,
-            plan=plan,
-            resource_group_name=resource_group_name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             application_definition_id: Optional[pulumi.Input[str]] = None,
-             kind: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             managed_resource_group_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             outputs: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             parameter_values: Optional[pulumi.Input[str]] = None,
-             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             plan: Optional[pulumi.Input['ApplicationPlanArgs']] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if application_definition_id is None and 'applicationDefinitionId' in kwargs:
-            application_definition_id = kwargs['applicationDefinitionId']
-        if managed_resource_group_name is None and 'managedResourceGroupName' in kwargs:
-            managed_resource_group_name = kwargs['managedResourceGroupName']
-        if parameter_values is None and 'parameterValues' in kwargs:
-            parameter_values = kwargs['parameterValues']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-
         if application_definition_id is not None:
-            _setter("application_definition_id", application_definition_id)
+            pulumi.set(__self__, "application_definition_id", application_definition_id)
         if kind is not None:
-            _setter("kind", kind)
+            pulumi.set(__self__, "kind", kind)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if managed_resource_group_name is not None:
-            _setter("managed_resource_group_name", managed_resource_group_name)
+            pulumi.set(__self__, "managed_resource_group_name", managed_resource_group_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if outputs is not None:
-            _setter("outputs", outputs)
+            pulumi.set(__self__, "outputs", outputs)
         if parameter_values is not None:
-            _setter("parameter_values", parameter_values)
+            pulumi.set(__self__, "parameter_values", parameter_values)
         if parameters is not None:
             warnings.warn("""This property has been deprecated in favour of `parameter_values`""", DeprecationWarning)
             pulumi.log.warn("""parameters is deprecated: This property has been deprecated in favour of `parameter_values`""")
         if parameters is not None:
-            _setter("parameters", parameters)
+            pulumi.set(__self__, "parameters", parameters)
         if plan is not None:
-            _setter("plan", plan)
+            pulumi.set(__self__, "plan", plan)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="applicationDefinitionId")
@@ -613,10 +531,6 @@ class Application(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ApplicationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -652,7 +566,6 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["parameter_values"] = parameter_values
             __props__.__dict__["parameters"] = parameters
-            plan = _utilities.configure(plan, ApplicationPlanArgs, True)
             __props__.__dict__["plan"] = plan
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

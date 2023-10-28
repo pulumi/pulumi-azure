@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,53 +35,20 @@ class ActionRuleActionGroupArgs:
         :param pulumi.Input['ActionRuleActionGroupScopeArgs'] scope: A `scope` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        ActionRuleActionGroupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action_group_id=action_group_id,
-            resource_group_name=resource_group_name,
-            condition=condition,
-            description=description,
-            enabled=enabled,
-            name=name,
-            scope=scope,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action_group_id: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             condition: Optional[pulumi.Input['ActionRuleActionGroupConditionArgs']] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             scope: Optional[pulumi.Input['ActionRuleActionGroupScopeArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if action_group_id is None and 'actionGroupId' in kwargs:
-            action_group_id = kwargs['actionGroupId']
-        if action_group_id is None:
-            raise TypeError("Missing 'action_group_id' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-
-        _setter("action_group_id", action_group_id)
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "action_group_id", action_group_id)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if condition is not None:
-            _setter("condition", condition)
+            pulumi.set(__self__, "condition", condition)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if scope is not None:
-            _setter("scope", scope)
+            pulumi.set(__self__, "scope", scope)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="actionGroupId")
@@ -202,51 +169,22 @@ class _ActionRuleActionGroupState:
         :param pulumi.Input['ActionRuleActionGroupScopeArgs'] scope: A `scope` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        _ActionRuleActionGroupState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action_group_id=action_group_id,
-            condition=condition,
-            description=description,
-            enabled=enabled,
-            name=name,
-            resource_group_name=resource_group_name,
-            scope=scope,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action_group_id: Optional[pulumi.Input[str]] = None,
-             condition: Optional[pulumi.Input['ActionRuleActionGroupConditionArgs']] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             scope: Optional[pulumi.Input['ActionRuleActionGroupScopeArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if action_group_id is None and 'actionGroupId' in kwargs:
-            action_group_id = kwargs['actionGroupId']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-
         if action_group_id is not None:
-            _setter("action_group_id", action_group_id)
+            pulumi.set(__self__, "action_group_id", action_group_id)
         if condition is not None:
-            _setter("condition", condition)
+            pulumi.set(__self__, "condition", condition)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if scope is not None:
-            _setter("scope", scope)
+            pulumi.set(__self__, "scope", scope)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="actionGroupId")
@@ -456,10 +394,6 @@ class ActionRuleActionGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ActionRuleActionGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -485,7 +419,6 @@ class ActionRuleActionGroup(pulumi.CustomResource):
             if action_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'action_group_id'")
             __props__.__dict__["action_group_id"] = action_group_id
-            condition = _utilities.configure(condition, ActionRuleActionGroupConditionArgs, True)
             __props__.__dict__["condition"] = condition
             __props__.__dict__["description"] = description
             __props__.__dict__["enabled"] = enabled
@@ -493,7 +426,6 @@ class ActionRuleActionGroup(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            scope = _utilities.configure(scope, ActionRuleActionGroupScopeArgs, True)
             __props__.__dict__["scope"] = scope
             __props__.__dict__["tags"] = tags
         super(ActionRuleActionGroup, __self__).__init__(

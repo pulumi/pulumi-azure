@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -55,38 +55,13 @@ class HubEventHandler(dict):
         :param Sequence[str] system_events: Specifies the list of system events. Supported values are `connect`, `connected` and `disconnected`.
         :param str user_event_pattern: Specifies the matching event names. There are 3 kind of patterns supported: * `*` matches any event name * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2` * The single event name, for example `event1`, it matches `event1`.
         """
-        HubEventHandler._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            url_template=url_template,
-            auth=auth,
-            system_events=system_events,
-            user_event_pattern=user_event_pattern,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             url_template: Optional[str] = None,
-             auth: Optional['outputs.HubEventHandlerAuth'] = None,
-             system_events: Optional[Sequence[str]] = None,
-             user_event_pattern: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if url_template is None and 'urlTemplate' in kwargs:
-            url_template = kwargs['urlTemplate']
-        if url_template is None:
-            raise TypeError("Missing 'url_template' argument")
-        if system_events is None and 'systemEvents' in kwargs:
-            system_events = kwargs['systemEvents']
-        if user_event_pattern is None and 'userEventPattern' in kwargs:
-            user_event_pattern = kwargs['userEventPattern']
-
-        _setter("url_template", url_template)
+        pulumi.set(__self__, "url_template", url_template)
         if auth is not None:
-            _setter("auth", auth)
+            pulumi.set(__self__, "auth", auth)
         if system_events is not None:
-            _setter("system_events", system_events)
+            pulumi.set(__self__, "system_events", system_events)
         if user_event_pattern is not None:
-            _setter("user_event_pattern", user_event_pattern)
+            pulumi.set(__self__, "user_event_pattern", user_event_pattern)
 
     @property
     @pulumi.getter(name="urlTemplate")
@@ -147,22 +122,7 @@ class HubEventHandlerAuth(dict):
                
                > **NOTE:** `managed_identity_id` is required if the auth block is defined
         """
-        HubEventHandlerAuth._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            managed_identity_id=managed_identity_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             managed_identity_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if managed_identity_id is None and 'managedIdentityId' in kwargs:
-            managed_identity_id = kwargs['managedIdentityId']
-        if managed_identity_id is None:
-            raise TypeError("Missing 'managed_identity_id' argument")
-
-        _setter("managed_identity_id", managed_identity_id)
+        pulumi.set(__self__, "managed_identity_id", managed_identity_id)
 
     @property
     @pulumi.getter(name="managedIdentityId")
@@ -211,41 +171,12 @@ class HubEventListener(dict):
         :param Sequence[str] system_event_name_filters: Specifies the list of system events. Supported values are `connected` and `disconnected`.
         :param Sequence[str] user_event_name_filters: Specifies the list of matching user event names. `["*"]` can be used to match all events.
         """
-        HubEventListener._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            eventhub_name=eventhub_name,
-            eventhub_namespace_name=eventhub_namespace_name,
-            system_event_name_filters=system_event_name_filters,
-            user_event_name_filters=user_event_name_filters,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             eventhub_name: Optional[str] = None,
-             eventhub_namespace_name: Optional[str] = None,
-             system_event_name_filters: Optional[Sequence[str]] = None,
-             user_event_name_filters: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if eventhub_name is None and 'eventhubName' in kwargs:
-            eventhub_name = kwargs['eventhubName']
-        if eventhub_name is None:
-            raise TypeError("Missing 'eventhub_name' argument")
-        if eventhub_namespace_name is None and 'eventhubNamespaceName' in kwargs:
-            eventhub_namespace_name = kwargs['eventhubNamespaceName']
-        if eventhub_namespace_name is None:
-            raise TypeError("Missing 'eventhub_namespace_name' argument")
-        if system_event_name_filters is None and 'systemEventNameFilters' in kwargs:
-            system_event_name_filters = kwargs['systemEventNameFilters']
-        if user_event_name_filters is None and 'userEventNameFilters' in kwargs:
-            user_event_name_filters = kwargs['userEventNameFilters']
-
-        _setter("eventhub_name", eventhub_name)
-        _setter("eventhub_namespace_name", eventhub_namespace_name)
+        pulumi.set(__self__, "eventhub_name", eventhub_name)
+        pulumi.set(__self__, "eventhub_namespace_name", eventhub_namespace_name)
         if system_event_name_filters is not None:
-            _setter("system_event_name_filters", system_event_name_filters)
+            pulumi.set(__self__, "system_event_name_filters", system_event_name_filters)
         if user_event_name_filters is not None:
-            _setter("user_event_name_filters", user_event_name_filters)
+            pulumi.set(__self__, "user_event_name_filters", user_event_name_filters)
 
     @property
     @pulumi.getter(name="eventhubName")
@@ -312,32 +243,11 @@ class NetworkAclPrivateEndpoint(dict):
                
                > **NOTE:** When `default_action` is `Allow`, `allowed_request_types`cannot be set. When `default_action` is `Deny`, `denied_request_types`cannot be set.
         """
-        NetworkAclPrivateEndpoint._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            allowed_request_types=allowed_request_types,
-            denied_request_types=denied_request_types,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: Optional[str] = None,
-             allowed_request_types: Optional[Sequence[str]] = None,
-             denied_request_types: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if id is None:
-            raise TypeError("Missing 'id' argument")
-        if allowed_request_types is None and 'allowedRequestTypes' in kwargs:
-            allowed_request_types = kwargs['allowedRequestTypes']
-        if denied_request_types is None and 'deniedRequestTypes' in kwargs:
-            denied_request_types = kwargs['deniedRequestTypes']
-
-        _setter("id", id)
+        pulumi.set(__self__, "id", id)
         if allowed_request_types is not None:
-            _setter("allowed_request_types", allowed_request_types)
+            pulumi.set(__self__, "allowed_request_types", allowed_request_types)
         if denied_request_types is not None:
-            _setter("denied_request_types", denied_request_types)
+            pulumi.set(__self__, "denied_request_types", denied_request_types)
 
     @property
     @pulumi.getter
@@ -396,27 +306,10 @@ class NetworkAclPublicNetwork(dict):
                
                > **NOTE:** When `default_action` is `Allow`, `allowed_request_types`cannot be set. When `default_action` is `Deny`, `denied_request_types`cannot be set.
         """
-        NetworkAclPublicNetwork._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allowed_request_types=allowed_request_types,
-            denied_request_types=denied_request_types,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allowed_request_types: Optional[Sequence[str]] = None,
-             denied_request_types: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if allowed_request_types is None and 'allowedRequestTypes' in kwargs:
-            allowed_request_types = kwargs['allowedRequestTypes']
-        if denied_request_types is None and 'deniedRequestTypes' in kwargs:
-            denied_request_types = kwargs['deniedRequestTypes']
-
         if allowed_request_types is not None:
-            _setter("allowed_request_types", allowed_request_types)
+            pulumi.set(__self__, "allowed_request_types", allowed_request_types)
         if denied_request_types is not None:
-            _setter("denied_request_types", denied_request_types)
+            pulumi.set(__self__, "denied_request_types", denied_request_types)
 
     @property
     @pulumi.getter(name="allowedRequestTypes")
@@ -473,38 +366,13 @@ class ServiceIdentity(dict):
         :param str principal_id: The Principal ID associated with this Managed Service Identity.
         :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
-        ServiceIdentity._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            identity_ids=identity_ids,
-            principal_id=principal_id,
-            tenant_id=tenant_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             identity_ids: Optional[Sequence[str]] = None,
-             principal_id: Optional[str] = None,
-             tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if identity_ids is None and 'identityIds' in kwargs:
-            identity_ids = kwargs['identityIds']
-        if principal_id is None and 'principalId' in kwargs:
-            principal_id = kwargs['principalId']
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if identity_ids is not None:
-            _setter("identity_ids", identity_ids)
+            pulumi.set(__self__, "identity_ids", identity_ids)
         if principal_id is not None:
-            _setter("principal_id", principal_id)
+            pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
-            _setter("tenant_id", tenant_id)
+            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -575,37 +443,14 @@ class ServiceLiveTrace(dict):
         :param bool http_request_logs_enabled: Whether the log category `HttpRequestLogs` is enabled? Defaults to `true`
         :param bool messaging_logs_enabled: Whether the log category `MessagingLogs` is enabled? Defaults to `true`
         """
-        ServiceLiveTrace._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            connectivity_logs_enabled=connectivity_logs_enabled,
-            enabled=enabled,
-            http_request_logs_enabled=http_request_logs_enabled,
-            messaging_logs_enabled=messaging_logs_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             connectivity_logs_enabled: Optional[bool] = None,
-             enabled: Optional[bool] = None,
-             http_request_logs_enabled: Optional[bool] = None,
-             messaging_logs_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if connectivity_logs_enabled is None and 'connectivityLogsEnabled' in kwargs:
-            connectivity_logs_enabled = kwargs['connectivityLogsEnabled']
-        if http_request_logs_enabled is None and 'httpRequestLogsEnabled' in kwargs:
-            http_request_logs_enabled = kwargs['httpRequestLogsEnabled']
-        if messaging_logs_enabled is None and 'messagingLogsEnabled' in kwargs:
-            messaging_logs_enabled = kwargs['messagingLogsEnabled']
-
         if connectivity_logs_enabled is not None:
-            _setter("connectivity_logs_enabled", connectivity_logs_enabled)
+            pulumi.set(__self__, "connectivity_logs_enabled", connectivity_logs_enabled)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if http_request_logs_enabled is not None:
-            _setter("http_request_logs_enabled", http_request_logs_enabled)
+            pulumi.set(__self__, "http_request_logs_enabled", http_request_logs_enabled)
         if messaging_logs_enabled is not None:
-            _setter("messaging_logs_enabled", messaging_logs_enabled)
+            pulumi.set(__self__, "messaging_logs_enabled", messaging_logs_enabled)
 
     @property
     @pulumi.getter(name="connectivityLogsEnabled")
@@ -649,27 +494,8 @@ class GetPrivateLinkResourceSharedPrivateLinkResourceTypeResult(dict):
         :param str description: The description of the resource type that has been onboarded to private link service.
         :param str subresource_name: The  name for the resource that has been onboarded to private link service.
         """
-        GetPrivateLinkResourceSharedPrivateLinkResourceTypeResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            subresource_name=subresource_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[str] = None,
-             subresource_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if description is None:
-            raise TypeError("Missing 'description' argument")
-        if subresource_name is None and 'subresourceName' in kwargs:
-            subresource_name = kwargs['subresourceName']
-        if subresource_name is None:
-            raise TypeError("Missing 'subresource_name' argument")
-
-        _setter("description", description)
-        _setter("subresource_name", subresource_name)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "subresource_name", subresource_name)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['PublicCertificateArgs', 'PublicCertificate']
@@ -27,48 +27,11 @@ class PublicCertificateArgs:
         :param pulumi.Input[str] certificate_name: The name of the public certificate. Changing this forces a new App Service Public Certificate to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the App Service Public Certificate should exist. Changing this forces a new App Service Public Certificate to be created.
         """
-        PublicCertificateArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            app_service_name=app_service_name,
-            blob=blob,
-            certificate_location=certificate_location,
-            certificate_name=certificate_name,
-            resource_group_name=resource_group_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             app_service_name: Optional[pulumi.Input[str]] = None,
-             blob: Optional[pulumi.Input[str]] = None,
-             certificate_location: Optional[pulumi.Input[str]] = None,
-             certificate_name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if app_service_name is None and 'appServiceName' in kwargs:
-            app_service_name = kwargs['appServiceName']
-        if app_service_name is None:
-            raise TypeError("Missing 'app_service_name' argument")
-        if blob is None:
-            raise TypeError("Missing 'blob' argument")
-        if certificate_location is None and 'certificateLocation' in kwargs:
-            certificate_location = kwargs['certificateLocation']
-        if certificate_location is None:
-            raise TypeError("Missing 'certificate_location' argument")
-        if certificate_name is None and 'certificateName' in kwargs:
-            certificate_name = kwargs['certificateName']
-        if certificate_name is None:
-            raise TypeError("Missing 'certificate_name' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-
-        _setter("app_service_name", app_service_name)
-        _setter("blob", blob)
-        _setter("certificate_location", certificate_location)
-        _setter("certificate_name", certificate_name)
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "app_service_name", app_service_name)
+        pulumi.set(__self__, "blob", blob)
+        pulumi.set(__self__, "certificate_location", certificate_location)
+        pulumi.set(__self__, "certificate_name", certificate_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
 
     @property
     @pulumi.getter(name="appServiceName")
@@ -149,47 +112,18 @@ class _PublicCertificateState:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the App Service Public Certificate should exist. Changing this forces a new App Service Public Certificate to be created.
         :param pulumi.Input[str] thumbprint: The thumbprint of the public certificate.
         """
-        _PublicCertificateState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            app_service_name=app_service_name,
-            blob=blob,
-            certificate_location=certificate_location,
-            certificate_name=certificate_name,
-            resource_group_name=resource_group_name,
-            thumbprint=thumbprint,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             app_service_name: Optional[pulumi.Input[str]] = None,
-             blob: Optional[pulumi.Input[str]] = None,
-             certificate_location: Optional[pulumi.Input[str]] = None,
-             certificate_name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             thumbprint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if app_service_name is None and 'appServiceName' in kwargs:
-            app_service_name = kwargs['appServiceName']
-        if certificate_location is None and 'certificateLocation' in kwargs:
-            certificate_location = kwargs['certificateLocation']
-        if certificate_name is None and 'certificateName' in kwargs:
-            certificate_name = kwargs['certificateName']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-
         if app_service_name is not None:
-            _setter("app_service_name", app_service_name)
+            pulumi.set(__self__, "app_service_name", app_service_name)
         if blob is not None:
-            _setter("blob", blob)
+            pulumi.set(__self__, "blob", blob)
         if certificate_location is not None:
-            _setter("certificate_location", certificate_location)
+            pulumi.set(__self__, "certificate_location", certificate_location)
         if certificate_name is not None:
-            _setter("certificate_name", certificate_name)
+            pulumi.set(__self__, "certificate_name", certificate_name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if thumbprint is not None:
-            _setter("thumbprint", thumbprint)
+            pulumi.set(__self__, "thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="appServiceName")
@@ -375,10 +309,6 @@ class PublicCertificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PublicCertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

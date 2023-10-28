@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,42 +29,13 @@ class DeploymentArgs:
         :param pulumi.Input[str] name: The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] rai_policy_name: The name of RAI policy. Changing this forces a new resource to be created.
         """
-        DeploymentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cognitive_account_id=cognitive_account_id,
-            model=model,
-            scale=scale,
-            name=name,
-            rai_policy_name=rai_policy_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cognitive_account_id: Optional[pulumi.Input[str]] = None,
-             model: Optional[pulumi.Input['DeploymentModelArgs']] = None,
-             scale: Optional[pulumi.Input['DeploymentScaleArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             rai_policy_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cognitive_account_id is None and 'cognitiveAccountId' in kwargs:
-            cognitive_account_id = kwargs['cognitiveAccountId']
-        if cognitive_account_id is None:
-            raise TypeError("Missing 'cognitive_account_id' argument")
-        if model is None:
-            raise TypeError("Missing 'model' argument")
-        if scale is None:
-            raise TypeError("Missing 'scale' argument")
-        if rai_policy_name is None and 'raiPolicyName' in kwargs:
-            rai_policy_name = kwargs['raiPolicyName']
-
-        _setter("cognitive_account_id", cognitive_account_id)
-        _setter("model", model)
-        _setter("scale", scale)
+        pulumi.set(__self__, "cognitive_account_id", cognitive_account_id)
+        pulumi.set(__self__, "model", model)
+        pulumi.set(__self__, "scale", scale)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if rai_policy_name is not None:
-            _setter("rai_policy_name", rai_policy_name)
+            pulumi.set(__self__, "rai_policy_name", rai_policy_name)
 
     @property
     @pulumi.getter(name="cognitiveAccountId")
@@ -143,39 +114,16 @@ class _DeploymentState:
         :param pulumi.Input[str] rai_policy_name: The name of RAI policy. Changing this forces a new resource to be created.
         :param pulumi.Input['DeploymentScaleArgs'] scale: A `scale` block as defined below. Changing this forces a new resource to be created.
         """
-        _DeploymentState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cognitive_account_id=cognitive_account_id,
-            model=model,
-            name=name,
-            rai_policy_name=rai_policy_name,
-            scale=scale,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cognitive_account_id: Optional[pulumi.Input[str]] = None,
-             model: Optional[pulumi.Input['DeploymentModelArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             rai_policy_name: Optional[pulumi.Input[str]] = None,
-             scale: Optional[pulumi.Input['DeploymentScaleArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cognitive_account_id is None and 'cognitiveAccountId' in kwargs:
-            cognitive_account_id = kwargs['cognitiveAccountId']
-        if rai_policy_name is None and 'raiPolicyName' in kwargs:
-            rai_policy_name = kwargs['raiPolicyName']
-
         if cognitive_account_id is not None:
-            _setter("cognitive_account_id", cognitive_account_id)
+            pulumi.set(__self__, "cognitive_account_id", cognitive_account_id)
         if model is not None:
-            _setter("model", model)
+            pulumi.set(__self__, "model", model)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if rai_policy_name is not None:
-            _setter("rai_policy_name", rai_policy_name)
+            pulumi.set(__self__, "rai_policy_name", rai_policy_name)
         if scale is not None:
-            _setter("scale", scale)
+            pulumi.set(__self__, "scale", scale)
 
     @property
     @pulumi.getter(name="cognitiveAccountId")
@@ -343,10 +291,6 @@ class Deployment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DeploymentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -369,13 +313,11 @@ class Deployment(pulumi.CustomResource):
             if cognitive_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'cognitive_account_id'")
             __props__.__dict__["cognitive_account_id"] = cognitive_account_id
-            model = _utilities.configure(model, DeploymentModelArgs, True)
             if model is None and not opts.urn:
                 raise TypeError("Missing required property 'model'")
             __props__.__dict__["model"] = model
             __props__.__dict__["name"] = name
             __props__.__dict__["rai_policy_name"] = rai_policy_name
-            scale = _utilities.configure(scale, DeploymentScaleArgs, True)
             if scale is None and not opts.urn:
                 raise TypeError("Missing required property 'scale'")
             __props__.__dict__["scale"] = scale

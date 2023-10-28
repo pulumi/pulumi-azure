@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['QueryPackArgs', 'QueryPack']
@@ -25,34 +25,13 @@ class QueryPackArgs:
         :param pulumi.Input[str] name: The name which should be used for this Log Analytics Query Pack. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Log Analytics Query Pack.
         """
-        QueryPackArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_group_name=resource_group_name,
-            location=location,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -117,33 +96,14 @@ class _QueryPackState:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Log Analytics Query Pack should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Log Analytics Query Pack.
         """
-        _QueryPackState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            location=location,
-            name=name,
-            resource_group_name=resource_group_name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -273,10 +233,6 @@ class QueryPack(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            QueryPackArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

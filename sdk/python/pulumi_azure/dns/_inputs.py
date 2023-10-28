@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -28,30 +28,9 @@ class CaaRecordRecordArgs:
         :param pulumi.Input[str] tag: A property tag, options are `issue`, `issuewild` and `iodef`.
         :param pulumi.Input[str] value: A property value such as a registrar domain.
         """
-        CaaRecordRecordArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            flags=flags,
-            tag=tag,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             flags: Optional[pulumi.Input[int]] = None,
-             tag: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if flags is None:
-            raise TypeError("Missing 'flags' argument")
-        if tag is None:
-            raise TypeError("Missing 'tag' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("flags", flags)
-        _setter("tag", tag)
-        _setter("value", value)
+        pulumi.set(__self__, "flags", flags)
+        pulumi.set(__self__, "tag", tag)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -99,25 +78,8 @@ class MxRecordRecordArgs:
         :param pulumi.Input[str] exchange: The mail server responsible for the domain covered by the MX record.
         :param pulumi.Input[str] preference: String representing the "preference” value of the MX records. Records with lower preference value take priority.
         """
-        MxRecordRecordArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exchange=exchange,
-            preference=preference,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exchange: Optional[pulumi.Input[str]] = None,
-             preference: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if exchange is None:
-            raise TypeError("Missing 'exchange' argument")
-        if preference is None:
-            raise TypeError("Missing 'preference' argument")
-
-        _setter("exchange", exchange)
-        _setter("preference", preference)
+        pulumi.set(__self__, "exchange", exchange)
+        pulumi.set(__self__, "preference", preference)
 
     @property
     @pulumi.getter
@@ -157,35 +119,10 @@ class SrvRecordRecordArgs:
         :param pulumi.Input[str] target: FQDN of the service.
         :param pulumi.Input[int] weight: Weight of the SRV record.
         """
-        SrvRecordRecordArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            port=port,
-            priority=priority,
-            target=target,
-            weight=weight,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             port: Optional[pulumi.Input[int]] = None,
-             priority: Optional[pulumi.Input[int]] = None,
-             target: Optional[pulumi.Input[str]] = None,
-             weight: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if port is None:
-            raise TypeError("Missing 'port' argument")
-        if priority is None:
-            raise TypeError("Missing 'priority' argument")
-        if target is None:
-            raise TypeError("Missing 'target' argument")
-        if weight is None:
-            raise TypeError("Missing 'weight' argument")
-
-        _setter("port", port)
-        _setter("priority", priority)
-        _setter("target", target)
-        _setter("weight", weight)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "target", target)
+        pulumi.set(__self__, "weight", weight)
 
     @property
     @pulumi.getter
@@ -243,20 +180,7 @@ class TxtRecordRecordArgs:
         """
         :param pulumi.Input[str] value: The value of the record. Max length: 1024 characters
         """
-        TxtRecordRecordArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("value", value)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -295,68 +219,25 @@ class ZoneSoaRecordArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Record Set.
         :param pulumi.Input[int] ttl: The Time To Live of the SOA Record in seconds. Defaults to `3600`.
         """
-        ZoneSoaRecordArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            email=email,
-            expire_time=expire_time,
-            fqdn=fqdn,
-            host_name=host_name,
-            minimum_ttl=minimum_ttl,
-            refresh_time=refresh_time,
-            retry_time=retry_time,
-            serial_number=serial_number,
-            tags=tags,
-            ttl=ttl,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             email: Optional[pulumi.Input[str]] = None,
-             expire_time: Optional[pulumi.Input[int]] = None,
-             fqdn: Optional[pulumi.Input[str]] = None,
-             host_name: Optional[pulumi.Input[str]] = None,
-             minimum_ttl: Optional[pulumi.Input[int]] = None,
-             refresh_time: Optional[pulumi.Input[int]] = None,
-             retry_time: Optional[pulumi.Input[int]] = None,
-             serial_number: Optional[pulumi.Input[int]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             ttl: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if email is None:
-            raise TypeError("Missing 'email' argument")
-        if expire_time is None and 'expireTime' in kwargs:
-            expire_time = kwargs['expireTime']
-        if host_name is None and 'hostName' in kwargs:
-            host_name = kwargs['hostName']
-        if minimum_ttl is None and 'minimumTtl' in kwargs:
-            minimum_ttl = kwargs['minimumTtl']
-        if refresh_time is None and 'refreshTime' in kwargs:
-            refresh_time = kwargs['refreshTime']
-        if retry_time is None and 'retryTime' in kwargs:
-            retry_time = kwargs['retryTime']
-        if serial_number is None and 'serialNumber' in kwargs:
-            serial_number = kwargs['serialNumber']
-
-        _setter("email", email)
+        pulumi.set(__self__, "email", email)
         if expire_time is not None:
-            _setter("expire_time", expire_time)
+            pulumi.set(__self__, "expire_time", expire_time)
         if fqdn is not None:
-            _setter("fqdn", fqdn)
+            pulumi.set(__self__, "fqdn", fqdn)
         if host_name is not None:
-            _setter("host_name", host_name)
+            pulumi.set(__self__, "host_name", host_name)
         if minimum_ttl is not None:
-            _setter("minimum_ttl", minimum_ttl)
+            pulumi.set(__self__, "minimum_ttl", minimum_ttl)
         if refresh_time is not None:
-            _setter("refresh_time", refresh_time)
+            pulumi.set(__self__, "refresh_time", refresh_time)
         if retry_time is not None:
-            _setter("retry_time", retry_time)
+            pulumi.set(__self__, "retry_time", retry_time)
         if serial_number is not None:
-            _setter("serial_number", serial_number)
+            pulumi.set(__self__, "serial_number", serial_number)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if ttl is not None:
-            _setter("ttl", ttl)
+            pulumi.set(__self__, "ttl", ttl)
 
     @property
     @pulumi.getter

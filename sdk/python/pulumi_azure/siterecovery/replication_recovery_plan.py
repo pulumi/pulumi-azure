@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -45,73 +45,24 @@ class ReplicationRecoveryPlanArgs:
                
                > **NOTE:** `shutdown_recovery_group` will be required in the next major version of the AzureRM Provider.
         """
-        ReplicationRecoveryPlanArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            recovery_vault_id=recovery_vault_id,
-            source_recovery_fabric_id=source_recovery_fabric_id,
-            target_recovery_fabric_id=target_recovery_fabric_id,
-            azure_to_azure_settings=azure_to_azure_settings,
-            boot_recovery_groups=boot_recovery_groups,
-            failover_recovery_group=failover_recovery_group,
-            name=name,
-            recovery_groups=recovery_groups,
-            shutdown_recovery_group=shutdown_recovery_group,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             recovery_vault_id: Optional[pulumi.Input[str]] = None,
-             source_recovery_fabric_id: Optional[pulumi.Input[str]] = None,
-             target_recovery_fabric_id: Optional[pulumi.Input[str]] = None,
-             azure_to_azure_settings: Optional[pulumi.Input['ReplicationRecoveryPlanAzureToAzureSettingsArgs']] = None,
-             boot_recovery_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupArgs']]]] = None,
-             failover_recovery_group: Optional[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             recovery_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupArgs']]]] = None,
-             shutdown_recovery_group: Optional[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if recovery_vault_id is None and 'recoveryVaultId' in kwargs:
-            recovery_vault_id = kwargs['recoveryVaultId']
-        if recovery_vault_id is None:
-            raise TypeError("Missing 'recovery_vault_id' argument")
-        if source_recovery_fabric_id is None and 'sourceRecoveryFabricId' in kwargs:
-            source_recovery_fabric_id = kwargs['sourceRecoveryFabricId']
-        if source_recovery_fabric_id is None:
-            raise TypeError("Missing 'source_recovery_fabric_id' argument")
-        if target_recovery_fabric_id is None and 'targetRecoveryFabricId' in kwargs:
-            target_recovery_fabric_id = kwargs['targetRecoveryFabricId']
-        if target_recovery_fabric_id is None:
-            raise TypeError("Missing 'target_recovery_fabric_id' argument")
-        if azure_to_azure_settings is None and 'azureToAzureSettings' in kwargs:
-            azure_to_azure_settings = kwargs['azureToAzureSettings']
-        if boot_recovery_groups is None and 'bootRecoveryGroups' in kwargs:
-            boot_recovery_groups = kwargs['bootRecoveryGroups']
-        if failover_recovery_group is None and 'failoverRecoveryGroup' in kwargs:
-            failover_recovery_group = kwargs['failoverRecoveryGroup']
-        if recovery_groups is None and 'recoveryGroups' in kwargs:
-            recovery_groups = kwargs['recoveryGroups']
-        if shutdown_recovery_group is None and 'shutdownRecoveryGroup' in kwargs:
-            shutdown_recovery_group = kwargs['shutdownRecoveryGroup']
-
-        _setter("recovery_vault_id", recovery_vault_id)
-        _setter("source_recovery_fabric_id", source_recovery_fabric_id)
-        _setter("target_recovery_fabric_id", target_recovery_fabric_id)
+        pulumi.set(__self__, "recovery_vault_id", recovery_vault_id)
+        pulumi.set(__self__, "source_recovery_fabric_id", source_recovery_fabric_id)
+        pulumi.set(__self__, "target_recovery_fabric_id", target_recovery_fabric_id)
         if azure_to_azure_settings is not None:
-            _setter("azure_to_azure_settings", azure_to_azure_settings)
+            pulumi.set(__self__, "azure_to_azure_settings", azure_to_azure_settings)
         if boot_recovery_groups is not None:
-            _setter("boot_recovery_groups", boot_recovery_groups)
+            pulumi.set(__self__, "boot_recovery_groups", boot_recovery_groups)
         if failover_recovery_group is not None:
-            _setter("failover_recovery_group", failover_recovery_group)
+            pulumi.set(__self__, "failover_recovery_group", failover_recovery_group)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if recovery_groups is not None:
             warnings.warn("""the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.""", DeprecationWarning)
             pulumi.log.warn("""recovery_groups is deprecated: the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.""")
         if recovery_groups is not None:
-            _setter("recovery_groups", recovery_groups)
+            pulumi.set(__self__, "recovery_groups", recovery_groups)
         if shutdown_recovery_group is not None:
-            _setter("shutdown_recovery_group", shutdown_recovery_group)
+            pulumi.set(__self__, "shutdown_recovery_group", shutdown_recovery_group)
 
     @property
     @pulumi.getter(name="recoveryVaultId")
@@ -265,70 +216,27 @@ class _ReplicationRecoveryPlanState:
         :param pulumi.Input[str] source_recovery_fabric_id: ID of source fabric to be recovered from. Changing this forces a new Replication Plan to be created.
         :param pulumi.Input[str] target_recovery_fabric_id: ID of target fabric to recover. Changing this forces a new Replication Plan to be created.
         """
-        _ReplicationRecoveryPlanState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            azure_to_azure_settings=azure_to_azure_settings,
-            boot_recovery_groups=boot_recovery_groups,
-            failover_recovery_group=failover_recovery_group,
-            name=name,
-            recovery_groups=recovery_groups,
-            recovery_vault_id=recovery_vault_id,
-            shutdown_recovery_group=shutdown_recovery_group,
-            source_recovery_fabric_id=source_recovery_fabric_id,
-            target_recovery_fabric_id=target_recovery_fabric_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             azure_to_azure_settings: Optional[pulumi.Input['ReplicationRecoveryPlanAzureToAzureSettingsArgs']] = None,
-             boot_recovery_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupArgs']]]] = None,
-             failover_recovery_group: Optional[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             recovery_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupArgs']]]] = None,
-             recovery_vault_id: Optional[pulumi.Input[str]] = None,
-             shutdown_recovery_group: Optional[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupArgs']] = None,
-             source_recovery_fabric_id: Optional[pulumi.Input[str]] = None,
-             target_recovery_fabric_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if azure_to_azure_settings is None and 'azureToAzureSettings' in kwargs:
-            azure_to_azure_settings = kwargs['azureToAzureSettings']
-        if boot_recovery_groups is None and 'bootRecoveryGroups' in kwargs:
-            boot_recovery_groups = kwargs['bootRecoveryGroups']
-        if failover_recovery_group is None and 'failoverRecoveryGroup' in kwargs:
-            failover_recovery_group = kwargs['failoverRecoveryGroup']
-        if recovery_groups is None and 'recoveryGroups' in kwargs:
-            recovery_groups = kwargs['recoveryGroups']
-        if recovery_vault_id is None and 'recoveryVaultId' in kwargs:
-            recovery_vault_id = kwargs['recoveryVaultId']
-        if shutdown_recovery_group is None and 'shutdownRecoveryGroup' in kwargs:
-            shutdown_recovery_group = kwargs['shutdownRecoveryGroup']
-        if source_recovery_fabric_id is None and 'sourceRecoveryFabricId' in kwargs:
-            source_recovery_fabric_id = kwargs['sourceRecoveryFabricId']
-        if target_recovery_fabric_id is None and 'targetRecoveryFabricId' in kwargs:
-            target_recovery_fabric_id = kwargs['targetRecoveryFabricId']
-
         if azure_to_azure_settings is not None:
-            _setter("azure_to_azure_settings", azure_to_azure_settings)
+            pulumi.set(__self__, "azure_to_azure_settings", azure_to_azure_settings)
         if boot_recovery_groups is not None:
-            _setter("boot_recovery_groups", boot_recovery_groups)
+            pulumi.set(__self__, "boot_recovery_groups", boot_recovery_groups)
         if failover_recovery_group is not None:
-            _setter("failover_recovery_group", failover_recovery_group)
+            pulumi.set(__self__, "failover_recovery_group", failover_recovery_group)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if recovery_groups is not None:
             warnings.warn("""the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.""", DeprecationWarning)
             pulumi.log.warn("""recovery_groups is deprecated: the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.""")
         if recovery_groups is not None:
-            _setter("recovery_groups", recovery_groups)
+            pulumi.set(__self__, "recovery_groups", recovery_groups)
         if recovery_vault_id is not None:
-            _setter("recovery_vault_id", recovery_vault_id)
+            pulumi.set(__self__, "recovery_vault_id", recovery_vault_id)
         if shutdown_recovery_group is not None:
-            _setter("shutdown_recovery_group", shutdown_recovery_group)
+            pulumi.set(__self__, "shutdown_recovery_group", shutdown_recovery_group)
         if source_recovery_fabric_id is not None:
-            _setter("source_recovery_fabric_id", source_recovery_fabric_id)
+            pulumi.set(__self__, "source_recovery_fabric_id", source_recovery_fabric_id)
         if target_recovery_fabric_id is not None:
-            _setter("target_recovery_fabric_id", target_recovery_fabric_id)
+            pulumi.set(__self__, "target_recovery_fabric_id", target_recovery_fabric_id)
 
     @property
     @pulumi.getter(name="azureToAzureSettings")
@@ -823,10 +731,6 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ReplicationRecoveryPlanArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -850,17 +754,14 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ReplicationRecoveryPlanArgs.__new__(ReplicationRecoveryPlanArgs)
 
-            azure_to_azure_settings = _utilities.configure(azure_to_azure_settings, ReplicationRecoveryPlanAzureToAzureSettingsArgs, True)
             __props__.__dict__["azure_to_azure_settings"] = azure_to_azure_settings
             __props__.__dict__["boot_recovery_groups"] = boot_recovery_groups
-            failover_recovery_group = _utilities.configure(failover_recovery_group, ReplicationRecoveryPlanFailoverRecoveryGroupArgs, True)
             __props__.__dict__["failover_recovery_group"] = failover_recovery_group
             __props__.__dict__["name"] = name
             __props__.__dict__["recovery_groups"] = recovery_groups
             if recovery_vault_id is None and not opts.urn:
                 raise TypeError("Missing required property 'recovery_vault_id'")
             __props__.__dict__["recovery_vault_id"] = recovery_vault_id
-            shutdown_recovery_group = _utilities.configure(shutdown_recovery_group, ReplicationRecoveryPlanShutdownRecoveryGroupArgs, True)
             __props__.__dict__["shutdown_recovery_group"] = shutdown_recovery_group
             if source_recovery_fabric_id is None and not opts.urn:
                 raise TypeError("Missing required property 'source_recovery_fabric_id'")

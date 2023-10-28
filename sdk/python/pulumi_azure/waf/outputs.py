@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -74,65 +74,20 @@ class PolicyCustomRule(dict):
         :param str rate_limit_duration: Specifies the duration at which the rate limit policy will be applied. Should be used with `RateLimitRule` rule type. Possible values are `FiveMins` and `OneMin`.
         :param int rate_limit_threshold: Specifies the threshold value for the rate limit policy. Must be greater than or equal to 1 if provided.
         """
-        PolicyCustomRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action=action,
-            match_conditions=match_conditions,
-            priority=priority,
-            rule_type=rule_type,
-            enabled=enabled,
-            group_rate_limit_by=group_rate_limit_by,
-            name=name,
-            rate_limit_duration=rate_limit_duration,
-            rate_limit_threshold=rate_limit_threshold,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action: Optional[str] = None,
-             match_conditions: Optional[Sequence['outputs.PolicyCustomRuleMatchCondition']] = None,
-             priority: Optional[int] = None,
-             rule_type: Optional[str] = None,
-             enabled: Optional[bool] = None,
-             group_rate_limit_by: Optional[str] = None,
-             name: Optional[str] = None,
-             rate_limit_duration: Optional[str] = None,
-             rate_limit_threshold: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if action is None:
-            raise TypeError("Missing 'action' argument")
-        if match_conditions is None and 'matchConditions' in kwargs:
-            match_conditions = kwargs['matchConditions']
-        if match_conditions is None:
-            raise TypeError("Missing 'match_conditions' argument")
-        if priority is None:
-            raise TypeError("Missing 'priority' argument")
-        if rule_type is None and 'ruleType' in kwargs:
-            rule_type = kwargs['ruleType']
-        if rule_type is None:
-            raise TypeError("Missing 'rule_type' argument")
-        if group_rate_limit_by is None and 'groupRateLimitBy' in kwargs:
-            group_rate_limit_by = kwargs['groupRateLimitBy']
-        if rate_limit_duration is None and 'rateLimitDuration' in kwargs:
-            rate_limit_duration = kwargs['rateLimitDuration']
-        if rate_limit_threshold is None and 'rateLimitThreshold' in kwargs:
-            rate_limit_threshold = kwargs['rateLimitThreshold']
-
-        _setter("action", action)
-        _setter("match_conditions", match_conditions)
-        _setter("priority", priority)
-        _setter("rule_type", rule_type)
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "match_conditions", match_conditions)
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "rule_type", rule_type)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if group_rate_limit_by is not None:
-            _setter("group_rate_limit_by", group_rate_limit_by)
+            pulumi.set(__self__, "group_rate_limit_by", group_rate_limit_by)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if rate_limit_duration is not None:
-            _setter("rate_limit_duration", rate_limit_duration)
+            pulumi.set(__self__, "rate_limit_duration", rate_limit_duration)
         if rate_limit_threshold is not None:
-            _setter("rate_limit_threshold", rate_limit_threshold)
+            pulumi.set(__self__, "rate_limit_threshold", rate_limit_threshold)
 
     @property
     @pulumi.getter
@@ -243,43 +198,14 @@ class PolicyCustomRuleMatchCondition(dict):
         :param bool negation_condition: Describes if this is negate condition or not
         :param Sequence[str] transforms: A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `UrlDecode` and `UrlEncode`.
         """
-        PolicyCustomRuleMatchCondition._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            match_variables=match_variables,
-            operator=operator,
-            match_values=match_values,
-            negation_condition=negation_condition,
-            transforms=transforms,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             match_variables: Optional[Sequence['outputs.PolicyCustomRuleMatchConditionMatchVariable']] = None,
-             operator: Optional[str] = None,
-             match_values: Optional[Sequence[str]] = None,
-             negation_condition: Optional[bool] = None,
-             transforms: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if match_variables is None and 'matchVariables' in kwargs:
-            match_variables = kwargs['matchVariables']
-        if match_variables is None:
-            raise TypeError("Missing 'match_variables' argument")
-        if operator is None:
-            raise TypeError("Missing 'operator' argument")
-        if match_values is None and 'matchValues' in kwargs:
-            match_values = kwargs['matchValues']
-        if negation_condition is None and 'negationCondition' in kwargs:
-            negation_condition = kwargs['negationCondition']
-
-        _setter("match_variables", match_variables)
-        _setter("operator", operator)
+        pulumi.set(__self__, "match_variables", match_variables)
+        pulumi.set(__self__, "operator", operator)
         if match_values is not None:
-            _setter("match_values", match_values)
+            pulumi.set(__self__, "match_values", match_values)
         if negation_condition is not None:
-            _setter("negation_condition", negation_condition)
+            pulumi.set(__self__, "negation_condition", negation_condition)
         if transforms is not None:
-            _setter("transforms", transforms)
+            pulumi.set(__self__, "transforms", transforms)
 
     @property
     @pulumi.getter(name="matchVariables")
@@ -348,26 +274,9 @@ class PolicyCustomRuleMatchConditionMatchVariable(dict):
         :param str variable_name: The name of the Match Variable. Possible values are `RemoteAddr`, `RequestMethod`, `QueryString`, `PostArgs`, `RequestUri`, `RequestHeaders`, `RequestBody` and `RequestCookies`.
         :param str selector: Describes field of the matchVariable collection
         """
-        PolicyCustomRuleMatchConditionMatchVariable._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            variable_name=variable_name,
-            selector=selector,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             variable_name: Optional[str] = None,
-             selector: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if variable_name is None and 'variableName' in kwargs:
-            variable_name = kwargs['variableName']
-        if variable_name is None:
-            raise TypeError("Missing 'variable_name' argument")
-
-        _setter("variable_name", variable_name)
+        pulumi.set(__self__, "variable_name", variable_name)
         if selector is not None:
-            _setter("selector", selector)
+            pulumi.set(__self__, "selector", selector)
 
     @property
     @pulumi.getter(name="variableName")
@@ -412,26 +321,9 @@ class PolicyManagedRules(dict):
         :param Sequence['PolicyManagedRulesManagedRuleSetArgs'] managed_rule_sets: One or more `managed_rule_set` block defined below.
         :param Sequence['PolicyManagedRulesExclusionArgs'] exclusions: One or more `exclusion` block defined below.
         """
-        PolicyManagedRules._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            managed_rule_sets=managed_rule_sets,
-            exclusions=exclusions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             managed_rule_sets: Optional[Sequence['outputs.PolicyManagedRulesManagedRuleSet']] = None,
-             exclusions: Optional[Sequence['outputs.PolicyManagedRulesExclusion']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if managed_rule_sets is None and 'managedRuleSets' in kwargs:
-            managed_rule_sets = kwargs['managedRuleSets']
-        if managed_rule_sets is None:
-            raise TypeError("Missing 'managed_rule_sets' argument")
-
-        _setter("managed_rule_sets", managed_rule_sets)
+        pulumi.set(__self__, "managed_rule_sets", managed_rule_sets)
         if exclusions is not None:
-            _setter("exclusions", exclusions)
+            pulumi.set(__self__, "exclusions", exclusions)
 
     @property
     @pulumi.getter(name="managedRuleSets")
@@ -484,40 +376,11 @@ class PolicyManagedRulesExclusion(dict):
         :param str selector_match_operator: Describes operator to be matched. Possible values: `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`.
         :param 'PolicyManagedRulesExclusionExcludedRuleSetArgs' excluded_rule_set: One or more `excluded_rule_set` block defined below.
         """
-        PolicyManagedRulesExclusion._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            match_variable=match_variable,
-            selector=selector,
-            selector_match_operator=selector_match_operator,
-            excluded_rule_set=excluded_rule_set,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             match_variable: Optional[str] = None,
-             selector: Optional[str] = None,
-             selector_match_operator: Optional[str] = None,
-             excluded_rule_set: Optional['outputs.PolicyManagedRulesExclusionExcludedRuleSet'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if match_variable is None and 'matchVariable' in kwargs:
-            match_variable = kwargs['matchVariable']
-        if match_variable is None:
-            raise TypeError("Missing 'match_variable' argument")
-        if selector is None:
-            raise TypeError("Missing 'selector' argument")
-        if selector_match_operator is None and 'selectorMatchOperator' in kwargs:
-            selector_match_operator = kwargs['selectorMatchOperator']
-        if selector_match_operator is None:
-            raise TypeError("Missing 'selector_match_operator' argument")
-        if excluded_rule_set is None and 'excludedRuleSet' in kwargs:
-            excluded_rule_set = kwargs['excludedRuleSet']
-
-        _setter("match_variable", match_variable)
-        _setter("selector", selector)
-        _setter("selector_match_operator", selector_match_operator)
+        pulumi.set(__self__, "match_variable", match_variable)
+        pulumi.set(__self__, "selector", selector)
+        pulumi.set(__self__, "selector_match_operator", selector_match_operator)
         if excluded_rule_set is not None:
-            _setter("excluded_rule_set", excluded_rule_set)
+            pulumi.set(__self__, "excluded_rule_set", excluded_rule_set)
 
     @property
     @pulumi.getter(name="matchVariable")
@@ -580,29 +443,12 @@ class PolicyManagedRulesExclusionExcludedRuleSet(dict):
         :param str type: The rule set type. The only possible value is `OWASP` . Defaults to `OWASP`.
         :param str version: The rule set version. The only possible value is `3.2` . Defaults to `3.2`.
         """
-        PolicyManagedRulesExclusionExcludedRuleSet._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            rule_groups=rule_groups,
-            type=type,
-            version=version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             rule_groups: Optional[Sequence['outputs.PolicyManagedRulesExclusionExcludedRuleSetRuleGroup']] = None,
-             type: Optional[str] = None,
-             version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if rule_groups is None and 'ruleGroups' in kwargs:
-            rule_groups = kwargs['ruleGroups']
-
         if rule_groups is not None:
-            _setter("rule_groups", rule_groups)
+            pulumi.set(__self__, "rule_groups", rule_groups)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
         if version is not None:
-            _setter("version", version)
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="ruleGroups")
@@ -657,28 +503,9 @@ class PolicyManagedRulesExclusionExcludedRuleSetRuleGroup(dict):
         :param str rule_group_name: The name of rule group for exclusion. Possible values are `BadBots`, `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `General`, `GoodBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA` and `UnknownBots`.
         :param Sequence[str] excluded_rules: One or more Rule IDs for exclusion.
         """
-        PolicyManagedRulesExclusionExcludedRuleSetRuleGroup._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            rule_group_name=rule_group_name,
-            excluded_rules=excluded_rules,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             rule_group_name: Optional[str] = None,
-             excluded_rules: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if rule_group_name is None and 'ruleGroupName' in kwargs:
-            rule_group_name = kwargs['ruleGroupName']
-        if rule_group_name is None:
-            raise TypeError("Missing 'rule_group_name' argument")
-        if excluded_rules is None and 'excludedRules' in kwargs:
-            excluded_rules = kwargs['excludedRules']
-
-        _setter("rule_group_name", rule_group_name)
+        pulumi.set(__self__, "rule_group_name", rule_group_name)
         if excluded_rules is not None:
-            _setter("excluded_rules", excluded_rules)
+            pulumi.set(__self__, "excluded_rules", excluded_rules)
 
     @property
     @pulumi.getter(name="ruleGroupName")
@@ -725,30 +552,11 @@ class PolicyManagedRulesManagedRuleSet(dict):
         :param Sequence['PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs'] rule_group_overrides: One or more `rule_group_override` block defined below.
         :param str type: The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`.
         """
-        PolicyManagedRulesManagedRuleSet._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            version=version,
-            rule_group_overrides=rule_group_overrides,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             version: Optional[str] = None,
-             rule_group_overrides: Optional[Sequence['outputs.PolicyManagedRulesManagedRuleSetRuleGroupOverride']] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if version is None:
-            raise TypeError("Missing 'version' argument")
-        if rule_group_overrides is None and 'ruleGroupOverrides' in kwargs:
-            rule_group_overrides = kwargs['ruleGroupOverrides']
-
-        _setter("version", version)
+        pulumi.set(__self__, "version", version)
         if rule_group_overrides is not None:
-            _setter("rule_group_overrides", rule_group_overrides)
+            pulumi.set(__self__, "rule_group_overrides", rule_group_overrides)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -804,32 +612,11 @@ class PolicyManagedRulesManagedRuleSetRuleGroupOverride(dict):
         :param str rule_group_name: The name of the Rule Group. Possible values are `BadBots`, `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `General`, `GoodBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA` and `UnknownBots`.
         :param Sequence['PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs'] rules: One or more `rule` block defined below.
         """
-        PolicyManagedRulesManagedRuleSetRuleGroupOverride._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            rule_group_name=rule_group_name,
-            disabled_rules=disabled_rules,
-            rules=rules,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             rule_group_name: Optional[str] = None,
-             disabled_rules: Optional[Sequence[str]] = None,
-             rules: Optional[Sequence['outputs.PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if rule_group_name is None and 'ruleGroupName' in kwargs:
-            rule_group_name = kwargs['ruleGroupName']
-        if rule_group_name is None:
-            raise TypeError("Missing 'rule_group_name' argument")
-        if disabled_rules is None and 'disabledRules' in kwargs:
-            disabled_rules = kwargs['disabledRules']
-
-        _setter("rule_group_name", rule_group_name)
+        pulumi.set(__self__, "rule_group_name", rule_group_name)
         if disabled_rules is not None:
-            _setter("disabled_rules", disabled_rules)
+            pulumi.set(__self__, "disabled_rules", disabled_rules)
         if rules is not None:
-            _setter("rules", rules)
+            pulumi.set(__self__, "rules", rules)
 
     @property
     @pulumi.getter(name="ruleGroupName")
@@ -867,28 +654,11 @@ class PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule(dict):
         :param str action: Describes the override action to be applied when rule matches. Possible values are `Allow`, `AnomalyScoring`, `Block` and `Log`.
         :param bool enabled: Describes if the managed rule is in enabled state or disabled state.
         """
-        PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            action=action,
-            enabled=enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: Optional[str] = None,
-             action: Optional[str] = None,
-             enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if id is None:
-            raise TypeError("Missing 'id' argument")
-
-        _setter("id", id)
+        pulumi.set(__self__, "id", id)
         if action is not None:
-            _setter("action", action)
+            pulumi.set(__self__, "action", action)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
@@ -959,53 +729,20 @@ class PolicyPolicySettings(dict):
         :param bool request_body_check: Is Request Body Inspection enabled? Defaults to `true`.
         :param int request_body_inspect_limit_in_kb: Specifies the maximum request body inspection limit in KB for the Web Application Firewall. Defaults to `128`.
         """
-        PolicyPolicySettings._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            file_upload_limit_in_mb=file_upload_limit_in_mb,
-            log_scrubbing=log_scrubbing,
-            max_request_body_size_in_kb=max_request_body_size_in_kb,
-            mode=mode,
-            request_body_check=request_body_check,
-            request_body_inspect_limit_in_kb=request_body_inspect_limit_in_kb,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             file_upload_limit_in_mb: Optional[int] = None,
-             log_scrubbing: Optional['outputs.PolicyPolicySettingsLogScrubbing'] = None,
-             max_request_body_size_in_kb: Optional[int] = None,
-             mode: Optional[str] = None,
-             request_body_check: Optional[bool] = None,
-             request_body_inspect_limit_in_kb: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if file_upload_limit_in_mb is None and 'fileUploadLimitInMb' in kwargs:
-            file_upload_limit_in_mb = kwargs['fileUploadLimitInMb']
-        if log_scrubbing is None and 'logScrubbing' in kwargs:
-            log_scrubbing = kwargs['logScrubbing']
-        if max_request_body_size_in_kb is None and 'maxRequestBodySizeInKb' in kwargs:
-            max_request_body_size_in_kb = kwargs['maxRequestBodySizeInKb']
-        if request_body_check is None and 'requestBodyCheck' in kwargs:
-            request_body_check = kwargs['requestBodyCheck']
-        if request_body_inspect_limit_in_kb is None and 'requestBodyInspectLimitInKb' in kwargs:
-            request_body_inspect_limit_in_kb = kwargs['requestBodyInspectLimitInKb']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if file_upload_limit_in_mb is not None:
-            _setter("file_upload_limit_in_mb", file_upload_limit_in_mb)
+            pulumi.set(__self__, "file_upload_limit_in_mb", file_upload_limit_in_mb)
         if log_scrubbing is not None:
-            _setter("log_scrubbing", log_scrubbing)
+            pulumi.set(__self__, "log_scrubbing", log_scrubbing)
         if max_request_body_size_in_kb is not None:
-            _setter("max_request_body_size_in_kb", max_request_body_size_in_kb)
+            pulumi.set(__self__, "max_request_body_size_in_kb", max_request_body_size_in_kb)
         if mode is not None:
-            _setter("mode", mode)
+            pulumi.set(__self__, "mode", mode)
         if request_body_check is not None:
-            _setter("request_body_check", request_body_check)
+            pulumi.set(__self__, "request_body_check", request_body_check)
         if request_body_inspect_limit_in_kb is not None:
-            _setter("request_body_inspect_limit_in_kb", request_body_inspect_limit_in_kb)
+            pulumi.set(__self__, "request_body_inspect_limit_in_kb", request_body_inspect_limit_in_kb)
 
     @property
     @pulumi.getter
@@ -1073,23 +810,10 @@ class PolicyPolicySettingsLogScrubbing(dict):
         :param bool enabled: Whether the log scrubbing is enabled or disabled. Defaults to `true`.
         :param Sequence['PolicyPolicySettingsLogScrubbingRuleArgs'] rules: One or more `scrubbing_rule` as define below.
         """
-        PolicyPolicySettingsLogScrubbing._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            rules=rules,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             rules: Optional[Sequence['outputs.PolicyPolicySettingsLogScrubbingRule']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if rules is not None:
-            _setter("rules", rules)
+            pulumi.set(__self__, "rules", rules)
 
     @property
     @pulumi.getter
@@ -1140,36 +864,13 @@ class PolicyPolicySettingsLogScrubbingRule(dict):
         :param str selector: Describes field of the matchVariable collection.
         :param str selector_match_operator: Describes operator to be matched. Possible values: `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`.
         """
-        PolicyPolicySettingsLogScrubbingRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            match_variable=match_variable,
-            enabled=enabled,
-            selector=selector,
-            selector_match_operator=selector_match_operator,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             match_variable: Optional[str] = None,
-             enabled: Optional[bool] = None,
-             selector: Optional[str] = None,
-             selector_match_operator: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if match_variable is None and 'matchVariable' in kwargs:
-            match_variable = kwargs['matchVariable']
-        if match_variable is None:
-            raise TypeError("Missing 'match_variable' argument")
-        if selector_match_operator is None and 'selectorMatchOperator' in kwargs:
-            selector_match_operator = kwargs['selectorMatchOperator']
-
-        _setter("match_variable", match_variable)
+        pulumi.set(__self__, "match_variable", match_variable)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if selector is not None:
-            _setter("selector", selector)
+            pulumi.set(__self__, "selector", selector)
         if selector_match_operator is not None:
-            _setter("selector_match_operator", selector_match_operator)
+            pulumi.set(__self__, "selector_match_operator", selector_match_operator)
 
     @property
     @pulumi.getter(name="matchVariable")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,44 +33,17 @@ class RouteTableArgs:
                > **NOTE** Since `route` can be configured both inline and via the separate `network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        RouteTableArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_group_name=resource_group_name,
-            disable_bgp_route_propagation=disable_bgp_route_propagation,
-            location=location,
-            name=name,
-            routes=routes,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             disable_bgp_route_propagation: Optional[pulumi.Input[bool]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             routes: Optional[pulumi.Input[Sequence[pulumi.Input['RouteTableRouteArgs']]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if disable_bgp_route_propagation is None and 'disableBgpRoutePropagation' in kwargs:
-            disable_bgp_route_propagation = kwargs['disableBgpRoutePropagation']
-
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if disable_bgp_route_propagation is not None:
-            _setter("disable_bgp_route_propagation", disable_bgp_route_propagation)
+            pulumi.set(__self__, "disable_bgp_route_propagation", disable_bgp_route_propagation)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if routes is not None:
-            _setter("routes", routes)
+            pulumi.set(__self__, "routes", routes)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -169,47 +142,20 @@ class _RouteTableState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: The collection of Subnets associated with this route table.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        _RouteTableState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            disable_bgp_route_propagation=disable_bgp_route_propagation,
-            location=location,
-            name=name,
-            resource_group_name=resource_group_name,
-            routes=routes,
-            subnets=subnets,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             disable_bgp_route_propagation: Optional[pulumi.Input[bool]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             routes: Optional[pulumi.Input[Sequence[pulumi.Input['RouteTableRouteArgs']]]] = None,
-             subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if disable_bgp_route_propagation is None and 'disableBgpRoutePropagation' in kwargs:
-            disable_bgp_route_propagation = kwargs['disableBgpRoutePropagation']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-
         if disable_bgp_route_propagation is not None:
-            _setter("disable_bgp_route_propagation", disable_bgp_route_propagation)
+            pulumi.set(__self__, "disable_bgp_route_propagation", disable_bgp_route_propagation)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if routes is not None:
-            _setter("routes", routes)
+            pulumi.set(__self__, "routes", routes)
         if subnets is not None:
-            _setter("subnets", subnets)
+            pulumi.set(__self__, "subnets", subnets)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="disableBgpRoutePropagation")
@@ -407,10 +353,6 @@ class RouteTable(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            RouteTableArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -53,108 +53,37 @@ class SlotArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SlotStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        SlotArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            app_service_name=app_service_name,
-            app_service_plan_id=app_service_plan_id,
-            resource_group_name=resource_group_name,
-            app_settings=app_settings,
-            auth_settings=auth_settings,
-            client_affinity_enabled=client_affinity_enabled,
-            connection_strings=connection_strings,
-            enabled=enabled,
-            https_only=https_only,
-            identity=identity,
-            key_vault_reference_identity_id=key_vault_reference_identity_id,
-            location=location,
-            logs=logs,
-            name=name,
-            site_config=site_config,
-            storage_accounts=storage_accounts,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             app_service_name: Optional[pulumi.Input[str]] = None,
-             app_service_plan_id: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             auth_settings: Optional[pulumi.Input['SlotAuthSettingsArgs']] = None,
-             client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
-             connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['SlotConnectionStringArgs']]]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             https_only: Optional[pulumi.Input[bool]] = None,
-             identity: Optional[pulumi.Input['SlotIdentityArgs']] = None,
-             key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             logs: Optional[pulumi.Input['SlotLogsArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             site_config: Optional[pulumi.Input['SlotSiteConfigArgs']] = None,
-             storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['SlotStorageAccountArgs']]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if app_service_name is None and 'appServiceName' in kwargs:
-            app_service_name = kwargs['appServiceName']
-        if app_service_name is None:
-            raise TypeError("Missing 'app_service_name' argument")
-        if app_service_plan_id is None and 'appServicePlanId' in kwargs:
-            app_service_plan_id = kwargs['appServicePlanId']
-        if app_service_plan_id is None:
-            raise TypeError("Missing 'app_service_plan_id' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if app_settings is None and 'appSettings' in kwargs:
-            app_settings = kwargs['appSettings']
-        if auth_settings is None and 'authSettings' in kwargs:
-            auth_settings = kwargs['authSettings']
-        if client_affinity_enabled is None and 'clientAffinityEnabled' in kwargs:
-            client_affinity_enabled = kwargs['clientAffinityEnabled']
-        if connection_strings is None and 'connectionStrings' in kwargs:
-            connection_strings = kwargs['connectionStrings']
-        if https_only is None and 'httpsOnly' in kwargs:
-            https_only = kwargs['httpsOnly']
-        if key_vault_reference_identity_id is None and 'keyVaultReferenceIdentityId' in kwargs:
-            key_vault_reference_identity_id = kwargs['keyVaultReferenceIdentityId']
-        if site_config is None and 'siteConfig' in kwargs:
-            site_config = kwargs['siteConfig']
-        if storage_accounts is None and 'storageAccounts' in kwargs:
-            storage_accounts = kwargs['storageAccounts']
-
-        _setter("app_service_name", app_service_name)
-        _setter("app_service_plan_id", app_service_plan_id)
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "app_service_name", app_service_name)
+        pulumi.set(__self__, "app_service_plan_id", app_service_plan_id)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if app_settings is not None:
-            _setter("app_settings", app_settings)
+            pulumi.set(__self__, "app_settings", app_settings)
         if auth_settings is not None:
-            _setter("auth_settings", auth_settings)
+            pulumi.set(__self__, "auth_settings", auth_settings)
         if client_affinity_enabled is not None:
-            _setter("client_affinity_enabled", client_affinity_enabled)
+            pulumi.set(__self__, "client_affinity_enabled", client_affinity_enabled)
         if connection_strings is not None:
-            _setter("connection_strings", connection_strings)
+            pulumi.set(__self__, "connection_strings", connection_strings)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if https_only is not None:
-            _setter("https_only", https_only)
+            pulumi.set(__self__, "https_only", https_only)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if key_vault_reference_identity_id is not None:
-            _setter("key_vault_reference_identity_id", key_vault_reference_identity_id)
+            pulumi.set(__self__, "key_vault_reference_identity_id", key_vault_reference_identity_id)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if logs is not None:
-            _setter("logs", logs)
+            pulumi.set(__self__, "logs", logs)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if site_config is not None:
-            _setter("site_config", site_config)
+            pulumi.set(__self__, "site_config", site_config)
         if storage_accounts is not None:
-            _setter("storage_accounts", storage_accounts)
+            pulumi.set(__self__, "storage_accounts", storage_accounts)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="appServiceName")
@@ -405,117 +334,44 @@ class _SlotState:
         :param pulumi.Input[Sequence[pulumi.Input['SlotStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        _SlotState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            app_service_name=app_service_name,
-            app_service_plan_id=app_service_plan_id,
-            app_settings=app_settings,
-            auth_settings=auth_settings,
-            client_affinity_enabled=client_affinity_enabled,
-            connection_strings=connection_strings,
-            default_site_hostname=default_site_hostname,
-            enabled=enabled,
-            https_only=https_only,
-            identity=identity,
-            key_vault_reference_identity_id=key_vault_reference_identity_id,
-            location=location,
-            logs=logs,
-            name=name,
-            resource_group_name=resource_group_name,
-            site_config=site_config,
-            site_credentials=site_credentials,
-            storage_accounts=storage_accounts,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             app_service_name: Optional[pulumi.Input[str]] = None,
-             app_service_plan_id: Optional[pulumi.Input[str]] = None,
-             app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             auth_settings: Optional[pulumi.Input['SlotAuthSettingsArgs']] = None,
-             client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
-             connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['SlotConnectionStringArgs']]]] = None,
-             default_site_hostname: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             https_only: Optional[pulumi.Input[bool]] = None,
-             identity: Optional[pulumi.Input['SlotIdentityArgs']] = None,
-             key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             logs: Optional[pulumi.Input['SlotLogsArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             site_config: Optional[pulumi.Input['SlotSiteConfigArgs']] = None,
-             site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['SlotSiteCredentialArgs']]]] = None,
-             storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['SlotStorageAccountArgs']]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if app_service_name is None and 'appServiceName' in kwargs:
-            app_service_name = kwargs['appServiceName']
-        if app_service_plan_id is None and 'appServicePlanId' in kwargs:
-            app_service_plan_id = kwargs['appServicePlanId']
-        if app_settings is None and 'appSettings' in kwargs:
-            app_settings = kwargs['appSettings']
-        if auth_settings is None and 'authSettings' in kwargs:
-            auth_settings = kwargs['authSettings']
-        if client_affinity_enabled is None and 'clientAffinityEnabled' in kwargs:
-            client_affinity_enabled = kwargs['clientAffinityEnabled']
-        if connection_strings is None and 'connectionStrings' in kwargs:
-            connection_strings = kwargs['connectionStrings']
-        if default_site_hostname is None and 'defaultSiteHostname' in kwargs:
-            default_site_hostname = kwargs['defaultSiteHostname']
-        if https_only is None and 'httpsOnly' in kwargs:
-            https_only = kwargs['httpsOnly']
-        if key_vault_reference_identity_id is None and 'keyVaultReferenceIdentityId' in kwargs:
-            key_vault_reference_identity_id = kwargs['keyVaultReferenceIdentityId']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if site_config is None and 'siteConfig' in kwargs:
-            site_config = kwargs['siteConfig']
-        if site_credentials is None and 'siteCredentials' in kwargs:
-            site_credentials = kwargs['siteCredentials']
-        if storage_accounts is None and 'storageAccounts' in kwargs:
-            storage_accounts = kwargs['storageAccounts']
-
         if app_service_name is not None:
-            _setter("app_service_name", app_service_name)
+            pulumi.set(__self__, "app_service_name", app_service_name)
         if app_service_plan_id is not None:
-            _setter("app_service_plan_id", app_service_plan_id)
+            pulumi.set(__self__, "app_service_plan_id", app_service_plan_id)
         if app_settings is not None:
-            _setter("app_settings", app_settings)
+            pulumi.set(__self__, "app_settings", app_settings)
         if auth_settings is not None:
-            _setter("auth_settings", auth_settings)
+            pulumi.set(__self__, "auth_settings", auth_settings)
         if client_affinity_enabled is not None:
-            _setter("client_affinity_enabled", client_affinity_enabled)
+            pulumi.set(__self__, "client_affinity_enabled", client_affinity_enabled)
         if connection_strings is not None:
-            _setter("connection_strings", connection_strings)
+            pulumi.set(__self__, "connection_strings", connection_strings)
         if default_site_hostname is not None:
-            _setter("default_site_hostname", default_site_hostname)
+            pulumi.set(__self__, "default_site_hostname", default_site_hostname)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if https_only is not None:
-            _setter("https_only", https_only)
+            pulumi.set(__self__, "https_only", https_only)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if key_vault_reference_identity_id is not None:
-            _setter("key_vault_reference_identity_id", key_vault_reference_identity_id)
+            pulumi.set(__self__, "key_vault_reference_identity_id", key_vault_reference_identity_id)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if logs is not None:
-            _setter("logs", logs)
+            pulumi.set(__self__, "logs", logs)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if site_config is not None:
-            _setter("site_config", site_config)
+            pulumi.set(__self__, "site_config", site_config)
         if site_credentials is not None:
-            _setter("site_credentials", site_credentials)
+            pulumi.set(__self__, "site_credentials", site_credentials)
         if storage_accounts is not None:
-            _setter("storage_accounts", storage_accounts)
+            pulumi.set(__self__, "storage_accounts", storage_accounts)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="appServiceName")
@@ -1023,10 +879,6 @@ class Slot(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SlotArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1065,23 +917,19 @@ class Slot(pulumi.CustomResource):
                 raise TypeError("Missing required property 'app_service_plan_id'")
             __props__.__dict__["app_service_plan_id"] = app_service_plan_id
             __props__.__dict__["app_settings"] = app_settings
-            auth_settings = _utilities.configure(auth_settings, SlotAuthSettingsArgs, True)
             __props__.__dict__["auth_settings"] = auth_settings
             __props__.__dict__["client_affinity_enabled"] = client_affinity_enabled
             __props__.__dict__["connection_strings"] = connection_strings
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["https_only"] = https_only
-            identity = _utilities.configure(identity, SlotIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["key_vault_reference_identity_id"] = key_vault_reference_identity_id
             __props__.__dict__["location"] = location
-            logs = _utilities.configure(logs, SlotLogsArgs, True)
             __props__.__dict__["logs"] = logs
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            site_config = _utilities.configure(site_config, SlotSiteConfigArgs, True)
             __props__.__dict__["site_config"] = site_config
             __props__.__dict__["storage_accounts"] = storage_accounts
             __props__.__dict__["tags"] = tags

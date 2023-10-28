@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -40,27 +40,8 @@ class AccountCostManagementExportExportDataOptions(dict):
         :param str time_frame: The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLast7Days`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
         :param str type: The type of the query. Possible values are `ActualCost`, `AmortizedCost` and `Usage`.
         """
-        AccountCostManagementExportExportDataOptions._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            time_frame=time_frame,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             time_frame: Optional[str] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if time_frame is None and 'timeFrame' in kwargs:
-            time_frame = kwargs['timeFrame']
-        if time_frame is None:
-            raise TypeError("Missing 'time_frame' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("time_frame", time_frame)
-        _setter("type", type)
+        pulumi.set(__self__, "time_frame", time_frame)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="timeFrame")
@@ -109,29 +90,8 @@ class AccountCostManagementExportExportDataStorageLocation(dict):
                
                > **Note:** The Resource Manager ID of a Storage Container is exposed via the `resource_manager_id` attribute of the `storage.Container` resource.
         """
-        AccountCostManagementExportExportDataStorageLocation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            container_id=container_id,
-            root_folder_path=root_folder_path,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             container_id: Optional[str] = None,
-             root_folder_path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if container_id is None and 'containerId' in kwargs:
-            container_id = kwargs['containerId']
-        if container_id is None:
-            raise TypeError("Missing 'container_id' argument")
-        if root_folder_path is None and 'rootFolderPath' in kwargs:
-            root_folder_path = kwargs['rootFolderPath']
-        if root_folder_path is None:
-            raise TypeError("Missing 'root_folder_path' argument")
-
-        _setter("container_id", container_id)
-        _setter("root_folder_path", root_folder_path)
+        pulumi.set(__self__, "container_id", container_id)
+        pulumi.set(__self__, "root_folder_path", root_folder_path)
 
     @property
     @pulumi.getter(name="containerId")

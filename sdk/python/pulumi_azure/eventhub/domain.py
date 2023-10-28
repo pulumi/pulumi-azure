@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -45,86 +45,31 @@ class DomainArgs:
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this server. Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        DomainArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_group_name=resource_group_name,
-            auto_create_topic_with_first_subscription=auto_create_topic_with_first_subscription,
-            auto_delete_topic_with_last_subscription=auto_delete_topic_with_last_subscription,
-            identity=identity,
-            inbound_ip_rules=inbound_ip_rules,
-            input_mapping_default_values=input_mapping_default_values,
-            input_mapping_fields=input_mapping_fields,
-            input_schema=input_schema,
-            local_auth_enabled=local_auth_enabled,
-            location=location,
-            name=name,
-            public_network_access_enabled=public_network_access_enabled,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             auto_create_topic_with_first_subscription: Optional[pulumi.Input[bool]] = None,
-             auto_delete_topic_with_last_subscription: Optional[pulumi.Input[bool]] = None,
-             identity: Optional[pulumi.Input['DomainIdentityArgs']] = None,
-             inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['DomainInboundIpRuleArgs']]]] = None,
-             input_mapping_default_values: Optional[pulumi.Input['DomainInputMappingDefaultValuesArgs']] = None,
-             input_mapping_fields: Optional[pulumi.Input['DomainInputMappingFieldsArgs']] = None,
-             input_schema: Optional[pulumi.Input[str]] = None,
-             local_auth_enabled: Optional[pulumi.Input[bool]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if auto_create_topic_with_first_subscription is None and 'autoCreateTopicWithFirstSubscription' in kwargs:
-            auto_create_topic_with_first_subscription = kwargs['autoCreateTopicWithFirstSubscription']
-        if auto_delete_topic_with_last_subscription is None and 'autoDeleteTopicWithLastSubscription' in kwargs:
-            auto_delete_topic_with_last_subscription = kwargs['autoDeleteTopicWithLastSubscription']
-        if inbound_ip_rules is None and 'inboundIpRules' in kwargs:
-            inbound_ip_rules = kwargs['inboundIpRules']
-        if input_mapping_default_values is None and 'inputMappingDefaultValues' in kwargs:
-            input_mapping_default_values = kwargs['inputMappingDefaultValues']
-        if input_mapping_fields is None and 'inputMappingFields' in kwargs:
-            input_mapping_fields = kwargs['inputMappingFields']
-        if input_schema is None and 'inputSchema' in kwargs:
-            input_schema = kwargs['inputSchema']
-        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
-            local_auth_enabled = kwargs['localAuthEnabled']
-        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
-            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if auto_create_topic_with_first_subscription is not None:
-            _setter("auto_create_topic_with_first_subscription", auto_create_topic_with_first_subscription)
+            pulumi.set(__self__, "auto_create_topic_with_first_subscription", auto_create_topic_with_first_subscription)
         if auto_delete_topic_with_last_subscription is not None:
-            _setter("auto_delete_topic_with_last_subscription", auto_delete_topic_with_last_subscription)
+            pulumi.set(__self__, "auto_delete_topic_with_last_subscription", auto_delete_topic_with_last_subscription)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if inbound_ip_rules is not None:
-            _setter("inbound_ip_rules", inbound_ip_rules)
+            pulumi.set(__self__, "inbound_ip_rules", inbound_ip_rules)
         if input_mapping_default_values is not None:
-            _setter("input_mapping_default_values", input_mapping_default_values)
+            pulumi.set(__self__, "input_mapping_default_values", input_mapping_default_values)
         if input_mapping_fields is not None:
-            _setter("input_mapping_fields", input_mapping_fields)
+            pulumi.set(__self__, "input_mapping_fields", input_mapping_fields)
         if input_schema is not None:
-            _setter("input_schema", input_schema)
+            pulumi.set(__self__, "input_schema", input_schema)
         if local_auth_enabled is not None:
-            _setter("local_auth_enabled", local_auth_enabled)
+            pulumi.set(__self__, "local_auth_enabled", local_auth_enabled)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if public_network_access_enabled is not None:
-            _setter("public_network_access_enabled", public_network_access_enabled)
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -321,101 +266,38 @@ class _DomainState:
         :param pulumi.Input[str] secondary_access_key: The Secondary Shared Access Key associated with the EventGrid Domain.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        _DomainState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            auto_create_topic_with_first_subscription=auto_create_topic_with_first_subscription,
-            auto_delete_topic_with_last_subscription=auto_delete_topic_with_last_subscription,
-            endpoint=endpoint,
-            identity=identity,
-            inbound_ip_rules=inbound_ip_rules,
-            input_mapping_default_values=input_mapping_default_values,
-            input_mapping_fields=input_mapping_fields,
-            input_schema=input_schema,
-            local_auth_enabled=local_auth_enabled,
-            location=location,
-            name=name,
-            primary_access_key=primary_access_key,
-            public_network_access_enabled=public_network_access_enabled,
-            resource_group_name=resource_group_name,
-            secondary_access_key=secondary_access_key,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             auto_create_topic_with_first_subscription: Optional[pulumi.Input[bool]] = None,
-             auto_delete_topic_with_last_subscription: Optional[pulumi.Input[bool]] = None,
-             endpoint: Optional[pulumi.Input[str]] = None,
-             identity: Optional[pulumi.Input['DomainIdentityArgs']] = None,
-             inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['DomainInboundIpRuleArgs']]]] = None,
-             input_mapping_default_values: Optional[pulumi.Input['DomainInputMappingDefaultValuesArgs']] = None,
-             input_mapping_fields: Optional[pulumi.Input['DomainInputMappingFieldsArgs']] = None,
-             input_schema: Optional[pulumi.Input[str]] = None,
-             local_auth_enabled: Optional[pulumi.Input[bool]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             primary_access_key: Optional[pulumi.Input[str]] = None,
-             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             secondary_access_key: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if auto_create_topic_with_first_subscription is None and 'autoCreateTopicWithFirstSubscription' in kwargs:
-            auto_create_topic_with_first_subscription = kwargs['autoCreateTopicWithFirstSubscription']
-        if auto_delete_topic_with_last_subscription is None and 'autoDeleteTopicWithLastSubscription' in kwargs:
-            auto_delete_topic_with_last_subscription = kwargs['autoDeleteTopicWithLastSubscription']
-        if inbound_ip_rules is None and 'inboundIpRules' in kwargs:
-            inbound_ip_rules = kwargs['inboundIpRules']
-        if input_mapping_default_values is None and 'inputMappingDefaultValues' in kwargs:
-            input_mapping_default_values = kwargs['inputMappingDefaultValues']
-        if input_mapping_fields is None and 'inputMappingFields' in kwargs:
-            input_mapping_fields = kwargs['inputMappingFields']
-        if input_schema is None and 'inputSchema' in kwargs:
-            input_schema = kwargs['inputSchema']
-        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
-            local_auth_enabled = kwargs['localAuthEnabled']
-        if primary_access_key is None and 'primaryAccessKey' in kwargs:
-            primary_access_key = kwargs['primaryAccessKey']
-        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
-            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if secondary_access_key is None and 'secondaryAccessKey' in kwargs:
-            secondary_access_key = kwargs['secondaryAccessKey']
-
         if auto_create_topic_with_first_subscription is not None:
-            _setter("auto_create_topic_with_first_subscription", auto_create_topic_with_first_subscription)
+            pulumi.set(__self__, "auto_create_topic_with_first_subscription", auto_create_topic_with_first_subscription)
         if auto_delete_topic_with_last_subscription is not None:
-            _setter("auto_delete_topic_with_last_subscription", auto_delete_topic_with_last_subscription)
+            pulumi.set(__self__, "auto_delete_topic_with_last_subscription", auto_delete_topic_with_last_subscription)
         if endpoint is not None:
-            _setter("endpoint", endpoint)
+            pulumi.set(__self__, "endpoint", endpoint)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if inbound_ip_rules is not None:
-            _setter("inbound_ip_rules", inbound_ip_rules)
+            pulumi.set(__self__, "inbound_ip_rules", inbound_ip_rules)
         if input_mapping_default_values is not None:
-            _setter("input_mapping_default_values", input_mapping_default_values)
+            pulumi.set(__self__, "input_mapping_default_values", input_mapping_default_values)
         if input_mapping_fields is not None:
-            _setter("input_mapping_fields", input_mapping_fields)
+            pulumi.set(__self__, "input_mapping_fields", input_mapping_fields)
         if input_schema is not None:
-            _setter("input_schema", input_schema)
+            pulumi.set(__self__, "input_schema", input_schema)
         if local_auth_enabled is not None:
-            _setter("local_auth_enabled", local_auth_enabled)
+            pulumi.set(__self__, "local_auth_enabled", local_auth_enabled)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if primary_access_key is not None:
-            _setter("primary_access_key", primary_access_key)
+            pulumi.set(__self__, "primary_access_key", primary_access_key)
         if public_network_access_enabled is not None:
-            _setter("public_network_access_enabled", public_network_access_enabled)
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if secondary_access_key is not None:
-            _setter("secondary_access_key", secondary_access_key)
+            pulumi.set(__self__, "secondary_access_key", secondary_access_key)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="autoCreateTopicWithFirstSubscription")
@@ -718,10 +600,6 @@ class Domain(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DomainArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -752,12 +630,9 @@ class Domain(pulumi.CustomResource):
 
             __props__.__dict__["auto_create_topic_with_first_subscription"] = auto_create_topic_with_first_subscription
             __props__.__dict__["auto_delete_topic_with_last_subscription"] = auto_delete_topic_with_last_subscription
-            identity = _utilities.configure(identity, DomainIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["inbound_ip_rules"] = inbound_ip_rules
-            input_mapping_default_values = _utilities.configure(input_mapping_default_values, DomainInputMappingDefaultValuesArgs, True)
             __props__.__dict__["input_mapping_default_values"] = input_mapping_default_values
-            input_mapping_fields = _utilities.configure(input_mapping_fields, DomainInputMappingFieldsArgs, True)
             __props__.__dict__["input_mapping_fields"] = input_mapping_fields
             __props__.__dict__["input_schema"] = input_schema
             __props__.__dict__["local_auth_enabled"] = local_auth_enabled

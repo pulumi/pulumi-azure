@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,44 +33,17 @@ class DefinitionArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DefinitionPermissionArgs']]] permissions: A `permissions` block as defined below.
         :param pulumi.Input[str] role_definition_id: A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
         """
-        DefinitionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            scope=scope,
-            assignable_scopes=assignable_scopes,
-            description=description,
-            name=name,
-            permissions=permissions,
-            role_definition_id=role_definition_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             scope: Optional[pulumi.Input[str]] = None,
-             assignable_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionPermissionArgs']]]] = None,
-             role_definition_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if scope is None:
-            raise TypeError("Missing 'scope' argument")
-        if assignable_scopes is None and 'assignableScopes' in kwargs:
-            assignable_scopes = kwargs['assignableScopes']
-        if role_definition_id is None and 'roleDefinitionId' in kwargs:
-            role_definition_id = kwargs['roleDefinitionId']
-
-        _setter("scope", scope)
+        pulumi.set(__self__, "scope", scope)
         if assignable_scopes is not None:
-            _setter("assignable_scopes", assignable_scopes)
+            pulumi.set(__self__, "assignable_scopes", assignable_scopes)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if permissions is not None:
-            _setter("permissions", permissions)
+            pulumi.set(__self__, "permissions", permissions)
         if role_definition_id is not None:
-            _setter("role_definition_id", role_definition_id)
+            pulumi.set(__self__, "role_definition_id", role_definition_id)
 
     @property
     @pulumi.getter
@@ -169,49 +142,20 @@ class _DefinitionState:
         :param pulumi.Input[str] role_definition_resource_id: The Azure Resource Manager ID for the resource.
         :param pulumi.Input[str] scope: The scope at which the Role Definition applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. It is recommended to use the first entry of the `assignable_scopes`. Changing this forces a new resource to be created.
         """
-        _DefinitionState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            assignable_scopes=assignable_scopes,
-            description=description,
-            name=name,
-            permissions=permissions,
-            role_definition_id=role_definition_id,
-            role_definition_resource_id=role_definition_resource_id,
-            scope=scope,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             assignable_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionPermissionArgs']]]] = None,
-             role_definition_id: Optional[pulumi.Input[str]] = None,
-             role_definition_resource_id: Optional[pulumi.Input[str]] = None,
-             scope: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if assignable_scopes is None and 'assignableScopes' in kwargs:
-            assignable_scopes = kwargs['assignableScopes']
-        if role_definition_id is None and 'roleDefinitionId' in kwargs:
-            role_definition_id = kwargs['roleDefinitionId']
-        if role_definition_resource_id is None and 'roleDefinitionResourceId' in kwargs:
-            role_definition_resource_id = kwargs['roleDefinitionResourceId']
-
         if assignable_scopes is not None:
-            _setter("assignable_scopes", assignable_scopes)
+            pulumi.set(__self__, "assignable_scopes", assignable_scopes)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if permissions is not None:
-            _setter("permissions", permissions)
+            pulumi.set(__self__, "permissions", permissions)
         if role_definition_id is not None:
-            _setter("role_definition_id", role_definition_id)
+            pulumi.set(__self__, "role_definition_id", role_definition_id)
         if role_definition_resource_id is not None:
-            _setter("role_definition_resource_id", role_definition_resource_id)
+            pulumi.set(__self__, "role_definition_resource_id", role_definition_resource_id)
         if scope is not None:
-            _setter("scope", scope)
+            pulumi.set(__self__, "scope", scope)
 
     @property
     @pulumi.getter(name="assignableScopes")
@@ -400,10 +344,6 @@ class Definition(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DefinitionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

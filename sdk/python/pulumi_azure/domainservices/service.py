@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -43,79 +43,26 @@ class ServiceArgs:
         :param pulumi.Input['ServiceSecurityArgs'] security: A `security` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
         """
-        ServiceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            domain_name=domain_name,
-            initial_replica_set=initial_replica_set,
-            resource_group_name=resource_group_name,
-            sku=sku,
-            domain_configuration_type=domain_configuration_type,
-            filtered_sync_enabled=filtered_sync_enabled,
-            location=location,
-            name=name,
-            notifications=notifications,
-            secure_ldap=secure_ldap,
-            security=security,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             domain_name: Optional[pulumi.Input[str]] = None,
-             initial_replica_set: Optional[pulumi.Input['ServiceInitialReplicaSetArgs']] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             sku: Optional[pulumi.Input[str]] = None,
-             domain_configuration_type: Optional[pulumi.Input[str]] = None,
-             filtered_sync_enabled: Optional[pulumi.Input[bool]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             notifications: Optional[pulumi.Input['ServiceNotificationsArgs']] = None,
-             secure_ldap: Optional[pulumi.Input['ServiceSecureLdapArgs']] = None,
-             security: Optional[pulumi.Input['ServiceSecurityArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if domain_name is None and 'domainName' in kwargs:
-            domain_name = kwargs['domainName']
-        if domain_name is None:
-            raise TypeError("Missing 'domain_name' argument")
-        if initial_replica_set is None and 'initialReplicaSet' in kwargs:
-            initial_replica_set = kwargs['initialReplicaSet']
-        if initial_replica_set is None:
-            raise TypeError("Missing 'initial_replica_set' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if sku is None:
-            raise TypeError("Missing 'sku' argument")
-        if domain_configuration_type is None and 'domainConfigurationType' in kwargs:
-            domain_configuration_type = kwargs['domainConfigurationType']
-        if filtered_sync_enabled is None and 'filteredSyncEnabled' in kwargs:
-            filtered_sync_enabled = kwargs['filteredSyncEnabled']
-        if secure_ldap is None and 'secureLdap' in kwargs:
-            secure_ldap = kwargs['secureLdap']
-
-        _setter("domain_name", domain_name)
-        _setter("initial_replica_set", initial_replica_set)
-        _setter("resource_group_name", resource_group_name)
-        _setter("sku", sku)
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "initial_replica_set", initial_replica_set)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "sku", sku)
         if domain_configuration_type is not None:
-            _setter("domain_configuration_type", domain_configuration_type)
+            pulumi.set(__self__, "domain_configuration_type", domain_configuration_type)
         if filtered_sync_enabled is not None:
-            _setter("filtered_sync_enabled", filtered_sync_enabled)
+            pulumi.set(__self__, "filtered_sync_enabled", filtered_sync_enabled)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if notifications is not None:
-            _setter("notifications", notifications)
+            pulumi.set(__self__, "notifications", notifications)
         if secure_ldap is not None:
-            _setter("secure_ldap", secure_ldap)
+            pulumi.set(__self__, "secure_ldap", secure_ldap)
         if security is not None:
-            _setter("security", security)
+            pulumi.set(__self__, "security", security)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="domainName")
@@ -299,103 +246,40 @@ class _ServiceState:
         :param pulumi.Input[str] sku: The SKU to use when provisioning the Domain Service resource. One of `Standard`, `Enterprise` or `Premium`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
         """
-        _ServiceState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            deployment_id=deployment_id,
-            domain_configuration_type=domain_configuration_type,
-            domain_name=domain_name,
-            filtered_sync_enabled=filtered_sync_enabled,
-            initial_replica_set=initial_replica_set,
-            location=location,
-            name=name,
-            notifications=notifications,
-            resource_group_name=resource_group_name,
-            resource_id=resource_id,
-            secure_ldap=secure_ldap,
-            security=security,
-            sku=sku,
-            sync_owner=sync_owner,
-            tags=tags,
-            tenant_id=tenant_id,
-            version=version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             deployment_id: Optional[pulumi.Input[str]] = None,
-             domain_configuration_type: Optional[pulumi.Input[str]] = None,
-             domain_name: Optional[pulumi.Input[str]] = None,
-             filtered_sync_enabled: Optional[pulumi.Input[bool]] = None,
-             initial_replica_set: Optional[pulumi.Input['ServiceInitialReplicaSetArgs']] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             notifications: Optional[pulumi.Input['ServiceNotificationsArgs']] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             resource_id: Optional[pulumi.Input[str]] = None,
-             secure_ldap: Optional[pulumi.Input['ServiceSecureLdapArgs']] = None,
-             security: Optional[pulumi.Input['ServiceSecurityArgs']] = None,
-             sku: Optional[pulumi.Input[str]] = None,
-             sync_owner: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tenant_id: Optional[pulumi.Input[str]] = None,
-             version: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if deployment_id is None and 'deploymentId' in kwargs:
-            deployment_id = kwargs['deploymentId']
-        if domain_configuration_type is None and 'domainConfigurationType' in kwargs:
-            domain_configuration_type = kwargs['domainConfigurationType']
-        if domain_name is None and 'domainName' in kwargs:
-            domain_name = kwargs['domainName']
-        if filtered_sync_enabled is None and 'filteredSyncEnabled' in kwargs:
-            filtered_sync_enabled = kwargs['filteredSyncEnabled']
-        if initial_replica_set is None and 'initialReplicaSet' in kwargs:
-            initial_replica_set = kwargs['initialReplicaSet']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_id is None and 'resourceId' in kwargs:
-            resource_id = kwargs['resourceId']
-        if secure_ldap is None and 'secureLdap' in kwargs:
-            secure_ldap = kwargs['secureLdap']
-        if sync_owner is None and 'syncOwner' in kwargs:
-            sync_owner = kwargs['syncOwner']
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-
         if deployment_id is not None:
-            _setter("deployment_id", deployment_id)
+            pulumi.set(__self__, "deployment_id", deployment_id)
         if domain_configuration_type is not None:
-            _setter("domain_configuration_type", domain_configuration_type)
+            pulumi.set(__self__, "domain_configuration_type", domain_configuration_type)
         if domain_name is not None:
-            _setter("domain_name", domain_name)
+            pulumi.set(__self__, "domain_name", domain_name)
         if filtered_sync_enabled is not None:
-            _setter("filtered_sync_enabled", filtered_sync_enabled)
+            pulumi.set(__self__, "filtered_sync_enabled", filtered_sync_enabled)
         if initial_replica_set is not None:
-            _setter("initial_replica_set", initial_replica_set)
+            pulumi.set(__self__, "initial_replica_set", initial_replica_set)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if notifications is not None:
-            _setter("notifications", notifications)
+            pulumi.set(__self__, "notifications", notifications)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if resource_id is not None:
-            _setter("resource_id", resource_id)
+            pulumi.set(__self__, "resource_id", resource_id)
         if secure_ldap is not None:
-            _setter("secure_ldap", secure_ldap)
+            pulumi.set(__self__, "secure_ldap", secure_ldap)
         if security is not None:
-            _setter("security", security)
+            pulumi.set(__self__, "security", security)
         if sku is not None:
-            _setter("sku", sku)
+            pulumi.set(__self__, "sku", sku)
         if sync_owner is not None:
-            _setter("sync_owner", sync_owner)
+            pulumi.set(__self__, "sync_owner", sync_owner)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tenant_id is not None:
-            _setter("tenant_id", tenant_id)
+            pulumi.set(__self__, "tenant_id", tenant_id)
         if version is not None:
-            _setter("version", version)
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="deploymentId")
@@ -884,10 +768,6 @@ class Service(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -919,20 +799,16 @@ class Service(pulumi.CustomResource):
                 raise TypeError("Missing required property 'domain_name'")
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["filtered_sync_enabled"] = filtered_sync_enabled
-            initial_replica_set = _utilities.configure(initial_replica_set, ServiceInitialReplicaSetArgs, True)
             if initial_replica_set is None and not opts.urn:
                 raise TypeError("Missing required property 'initial_replica_set'")
             __props__.__dict__["initial_replica_set"] = initial_replica_set
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
-            notifications = _utilities.configure(notifications, ServiceNotificationsArgs, True)
             __props__.__dict__["notifications"] = notifications
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            secure_ldap = _utilities.configure(secure_ldap, ServiceSecureLdapArgs, True)
             __props__.__dict__["secure_ldap"] = secure_ldap
-            security = _utilities.configure(security, ServiceSecurityArgs, True)
             __props__.__dict__["security"] = security
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")

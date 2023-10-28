@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ActiveSlotArgs', 'ActiveSlot']
@@ -23,36 +23,9 @@ class ActiveSlotArgs:
         :param pulumi.Input[str] app_service_slot_name: The name of the App Service Slot which should be promoted to the Production Slot within the App Service.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
         """
-        ActiveSlotArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            app_service_name=app_service_name,
-            app_service_slot_name=app_service_slot_name,
-            resource_group_name=resource_group_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             app_service_name: Optional[pulumi.Input[str]] = None,
-             app_service_slot_name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if app_service_name is None and 'appServiceName' in kwargs:
-            app_service_name = kwargs['appServiceName']
-        if app_service_name is None:
-            raise TypeError("Missing 'app_service_name' argument")
-        if app_service_slot_name is None and 'appServiceSlotName' in kwargs:
-            app_service_slot_name = kwargs['appServiceSlotName']
-        if app_service_slot_name is None:
-            raise TypeError("Missing 'app_service_slot_name' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-
-        _setter("app_service_name", app_service_name)
-        _setter("app_service_slot_name", app_service_slot_name)
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "app_service_name", app_service_name)
+        pulumi.set(__self__, "app_service_slot_name", app_service_slot_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
 
     @property
     @pulumi.getter(name="appServiceName")
@@ -103,33 +76,12 @@ class _ActiveSlotState:
         :param pulumi.Input[str] app_service_slot_name: The name of the App Service Slot which should be promoted to the Production Slot within the App Service.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
         """
-        _ActiveSlotState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            app_service_name=app_service_name,
-            app_service_slot_name=app_service_slot_name,
-            resource_group_name=resource_group_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             app_service_name: Optional[pulumi.Input[str]] = None,
-             app_service_slot_name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if app_service_name is None and 'appServiceName' in kwargs:
-            app_service_name = kwargs['appServiceName']
-        if app_service_slot_name is None and 'appServiceSlotName' in kwargs:
-            app_service_slot_name = kwargs['appServiceSlotName']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-
         if app_service_name is not None:
-            _setter("app_service_name", app_service_name)
+            pulumi.set(__self__, "app_service_name", app_service_name)
         if app_service_slot_name is not None:
-            _setter("app_service_slot_name", app_service_slot_name)
+            pulumi.set(__self__, "app_service_slot_name", app_service_slot_name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
 
     @property
     @pulumi.getter(name="appServiceName")
@@ -259,10 +211,6 @@ class ActiveSlot(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ActiveSlotArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -47,32 +47,15 @@ class BudgetManagementGroupFilterArgs:
         :param pulumi.Input['BudgetManagementGroupFilterNotArgs'] not_: A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         :param pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupFilterTagArgs']]] tags: One or more `tag` blocks as defined below to filter the budget on.
         """
-        BudgetManagementGroupFilterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            dimensions=dimensions,
-            not_=not_,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupFilterDimensionArgs']]]] = None,
-             not_: Optional[pulumi.Input['BudgetManagementGroupFilterNotArgs']] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupFilterTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if not_ is None and 'not' in kwargs:
-            not_ = kwargs['not']
-
         if dimensions is not None:
-            _setter("dimensions", dimensions)
+            pulumi.set(__self__, "dimensions", dimensions)
         if not_ is not None:
             warnings.warn("""This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.""", DeprecationWarning)
             pulumi.log.warn("""not_ is deprecated: This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.""")
         if not_ is not None:
-            _setter("not_", not_)
+            pulumi.set(__self__, "not_", not_)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -125,29 +108,10 @@ class BudgetManagementGroupFilterDimensionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies a list of values for the column.
         :param pulumi.Input[str] operator: The operator to use for comparison. The allowed values are `In`.
         """
-        BudgetManagementGroupFilterDimensionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            values=values,
-            operator=operator,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if values is None:
-            raise TypeError("Missing 'values' argument")
-
-        _setter("name", name)
-        _setter("values", values)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
         if operator is not None:
-            _setter("operator", operator)
+            pulumi.set(__self__, "operator", operator)
 
     @property
     @pulumi.getter
@@ -195,23 +159,10 @@ class BudgetManagementGroupFilterNotArgs:
         :param pulumi.Input['BudgetManagementGroupFilterNotDimensionArgs'] dimension: One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
         :param pulumi.Input['BudgetManagementGroupFilterNotTagArgs'] tag: One `tag` block as defined below to filter the budget on. Conflicts with `dimension`.
         """
-        BudgetManagementGroupFilterNotArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            dimension=dimension,
-            tag=tag,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             dimension: Optional[pulumi.Input['BudgetManagementGroupFilterNotDimensionArgs']] = None,
-             tag: Optional[pulumi.Input['BudgetManagementGroupFilterNotTagArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if dimension is not None:
-            _setter("dimension", dimension)
+            pulumi.set(__self__, "dimension", dimension)
         if tag is not None:
-            _setter("tag", tag)
+            pulumi.set(__self__, "tag", tag)
 
     @property
     @pulumi.getter
@@ -249,29 +200,10 @@ class BudgetManagementGroupFilterNotDimensionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies a list of values for the column.
         :param pulumi.Input[str] operator: The operator to use for comparison. The allowed values are `In`.
         """
-        BudgetManagementGroupFilterNotDimensionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            values=values,
-            operator=operator,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if values is None:
-            raise TypeError("Missing 'values' argument")
-
-        _setter("name", name)
-        _setter("values", values)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
         if operator is not None:
-            _setter("operator", operator)
+            pulumi.set(__self__, "operator", operator)
 
     @property
     @pulumi.getter
@@ -321,29 +253,10 @@ class BudgetManagementGroupFilterNotTagArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies a list of values for the tag.
         :param pulumi.Input[str] operator: The operator to use for comparison. The allowed values are `In`.
         """
-        BudgetManagementGroupFilterNotTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            values=values,
-            operator=operator,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if values is None:
-            raise TypeError("Missing 'values' argument")
-
-        _setter("name", name)
-        _setter("values", values)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
         if operator is not None:
-            _setter("operator", operator)
+            pulumi.set(__self__, "operator", operator)
 
     @property
     @pulumi.getter
@@ -393,29 +306,10 @@ class BudgetManagementGroupFilterTagArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies a list of values for the tag.
         :param pulumi.Input[str] operator: The operator to use for comparison. The allowed values are `In`.
         """
-        BudgetManagementGroupFilterTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            values=values,
-            operator=operator,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if values is None:
-            raise TypeError("Missing 'values' argument")
-
-        _setter("name", name)
-        _setter("values", values)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
         if operator is not None:
-            _setter("operator", operator)
+            pulumi.set(__self__, "operator", operator)
 
     @property
     @pulumi.getter
@@ -469,42 +363,13 @@ class BudgetManagementGroupNotificationArgs:
         :param pulumi.Input[bool] enabled: Should the notification be enabled? Defaults to `true`.
         :param pulumi.Input[str] threshold_type: The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`. Changing this forces a new resource to be created.
         """
-        BudgetManagementGroupNotificationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            contact_emails=contact_emails,
-            operator=operator,
-            threshold=threshold,
-            enabled=enabled,
-            threshold_type=threshold_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             contact_emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             operator: Optional[pulumi.Input[str]] = None,
-             threshold: Optional[pulumi.Input[int]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             threshold_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if contact_emails is None and 'contactEmails' in kwargs:
-            contact_emails = kwargs['contactEmails']
-        if contact_emails is None:
-            raise TypeError("Missing 'contact_emails' argument")
-        if operator is None:
-            raise TypeError("Missing 'operator' argument")
-        if threshold is None:
-            raise TypeError("Missing 'threshold' argument")
-        if threshold_type is None and 'thresholdType' in kwargs:
-            threshold_type = kwargs['thresholdType']
-
-        _setter("contact_emails", contact_emails)
-        _setter("operator", operator)
-        _setter("threshold", threshold)
+        pulumi.set(__self__, "contact_emails", contact_emails)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "threshold", threshold)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if threshold_type is not None:
-            _setter("threshold_type", threshold_type)
+            pulumi.set(__self__, "threshold_type", threshold_type)
 
     @property
     @pulumi.getter(name="contactEmails")
@@ -576,28 +441,9 @@ class BudgetManagementGroupTimePeriodArgs:
         :param pulumi.Input[str] start_date: The start date for the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should be selected within the timegrain period. Changing this forces a new resource to be created.
         :param pulumi.Input[str] end_date: The end date for the budget. If not set this will be 10 years after the start date.
         """
-        BudgetManagementGroupTimePeriodArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            start_date=start_date,
-            end_date=end_date,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             start_date: Optional[pulumi.Input[str]] = None,
-             end_date: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if start_date is None and 'startDate' in kwargs:
-            start_date = kwargs['startDate']
-        if start_date is None:
-            raise TypeError("Missing 'start_date' argument")
-        if end_date is None and 'endDate' in kwargs:
-            end_date = kwargs['endDate']
-
-        _setter("start_date", start_date)
+        pulumi.set(__self__, "start_date", start_date)
         if end_date is not None:
-            _setter("end_date", end_date)
+            pulumi.set(__self__, "end_date", end_date)
 
     @property
     @pulumi.getter(name="startDate")
@@ -635,32 +481,15 @@ class BudgetResourceGroupFilterArgs:
         :param pulumi.Input['BudgetResourceGroupFilterNotArgs'] not_: A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         :param pulumi.Input[Sequence[pulumi.Input['BudgetResourceGroupFilterTagArgs']]] tags: One or more `tag` blocks as defined below to filter the budget on.
         """
-        BudgetResourceGroupFilterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            dimensions=dimensions,
-            not_=not_,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetResourceGroupFilterDimensionArgs']]]] = None,
-             not_: Optional[pulumi.Input['BudgetResourceGroupFilterNotArgs']] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetResourceGroupFilterTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if not_ is None and 'not' in kwargs:
-            not_ = kwargs['not']
-
         if dimensions is not None:
-            _setter("dimensions", dimensions)
+            pulumi.set(__self__, "dimensions", dimensions)
         if not_ is not None:
             warnings.warn("""This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.""", DeprecationWarning)
             pulumi.log.warn("""not_ is deprecated: This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.""")
         if not_ is not None:
-            _setter("not_", not_)
+            pulumi.set(__self__, "not_", not_)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -713,29 +542,10 @@ class BudgetResourceGroupFilterDimensionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies a list of values for the column.
         :param pulumi.Input[str] operator: The operator to use for comparison. The allowed values are `In`.
         """
-        BudgetResourceGroupFilterDimensionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            values=values,
-            operator=operator,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if values is None:
-            raise TypeError("Missing 'values' argument")
-
-        _setter("name", name)
-        _setter("values", values)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
         if operator is not None:
-            _setter("operator", operator)
+            pulumi.set(__self__, "operator", operator)
 
     @property
     @pulumi.getter
@@ -783,23 +593,10 @@ class BudgetResourceGroupFilterNotArgs:
         :param pulumi.Input['BudgetResourceGroupFilterNotDimensionArgs'] dimension: One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
         :param pulumi.Input['BudgetResourceGroupFilterNotTagArgs'] tag: One `tag` block as defined below to filter the budget on. Conflicts with `dimension`.
         """
-        BudgetResourceGroupFilterNotArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            dimension=dimension,
-            tag=tag,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             dimension: Optional[pulumi.Input['BudgetResourceGroupFilterNotDimensionArgs']] = None,
-             tag: Optional[pulumi.Input['BudgetResourceGroupFilterNotTagArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if dimension is not None:
-            _setter("dimension", dimension)
+            pulumi.set(__self__, "dimension", dimension)
         if tag is not None:
-            _setter("tag", tag)
+            pulumi.set(__self__, "tag", tag)
 
     @property
     @pulumi.getter
@@ -837,29 +634,10 @@ class BudgetResourceGroupFilterNotDimensionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies a list of values for the column.
         :param pulumi.Input[str] operator: The operator to use for comparison. The allowed values are `In`.
         """
-        BudgetResourceGroupFilterNotDimensionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            values=values,
-            operator=operator,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if values is None:
-            raise TypeError("Missing 'values' argument")
-
-        _setter("name", name)
-        _setter("values", values)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
         if operator is not None:
-            _setter("operator", operator)
+            pulumi.set(__self__, "operator", operator)
 
     @property
     @pulumi.getter
@@ -909,29 +687,10 @@ class BudgetResourceGroupFilterNotTagArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies a list of values for the tag.
         :param pulumi.Input[str] operator: The operator to use for comparison. The allowed values are `In`.
         """
-        BudgetResourceGroupFilterNotTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            values=values,
-            operator=operator,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if values is None:
-            raise TypeError("Missing 'values' argument")
-
-        _setter("name", name)
-        _setter("values", values)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
         if operator is not None:
-            _setter("operator", operator)
+            pulumi.set(__self__, "operator", operator)
 
     @property
     @pulumi.getter
@@ -981,29 +740,10 @@ class BudgetResourceGroupFilterTagArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies a list of values for the tag.
         :param pulumi.Input[str] operator: The operator to use for comparison. The allowed values are `In`.
         """
-        BudgetResourceGroupFilterTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            values=values,
-            operator=operator,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if values is None:
-            raise TypeError("Missing 'values' argument")
-
-        _setter("name", name)
-        _setter("values", values)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
         if operator is not None:
-            _setter("operator", operator)
+            pulumi.set(__self__, "operator", operator)
 
     @property
     @pulumi.getter
@@ -1063,53 +803,18 @@ class BudgetResourceGroupNotificationArgs:
                > **NOTE:** A `notification` block cannot have all of `contact_emails`, `contact_roles`, and `contact_groups` empty. This means that at least one of the three must be specified.
         :param pulumi.Input[str] threshold_type: The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`. Changing this forces a new resource to be created.
         """
-        BudgetResourceGroupNotificationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            operator=operator,
-            threshold=threshold,
-            contact_emails=contact_emails,
-            contact_groups=contact_groups,
-            contact_roles=contact_roles,
-            enabled=enabled,
-            threshold_type=threshold_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             operator: Optional[pulumi.Input[str]] = None,
-             threshold: Optional[pulumi.Input[int]] = None,
-             contact_emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             contact_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             contact_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             threshold_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if operator is None:
-            raise TypeError("Missing 'operator' argument")
-        if threshold is None:
-            raise TypeError("Missing 'threshold' argument")
-        if contact_emails is None and 'contactEmails' in kwargs:
-            contact_emails = kwargs['contactEmails']
-        if contact_groups is None and 'contactGroups' in kwargs:
-            contact_groups = kwargs['contactGroups']
-        if contact_roles is None and 'contactRoles' in kwargs:
-            contact_roles = kwargs['contactRoles']
-        if threshold_type is None and 'thresholdType' in kwargs:
-            threshold_type = kwargs['thresholdType']
-
-        _setter("operator", operator)
-        _setter("threshold", threshold)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "threshold", threshold)
         if contact_emails is not None:
-            _setter("contact_emails", contact_emails)
+            pulumi.set(__self__, "contact_emails", contact_emails)
         if contact_groups is not None:
-            _setter("contact_groups", contact_groups)
+            pulumi.set(__self__, "contact_groups", contact_groups)
         if contact_roles is not None:
-            _setter("contact_roles", contact_roles)
+            pulumi.set(__self__, "contact_roles", contact_roles)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if threshold_type is not None:
-            _setter("threshold_type", threshold_type)
+            pulumi.set(__self__, "threshold_type", threshold_type)
 
     @property
     @pulumi.getter
@@ -1207,28 +912,9 @@ class BudgetResourceGroupTimePeriodArgs:
         :param pulumi.Input[str] start_date: The start date for the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should be selected within the timegrain period. Changing this forces a new Resource Group Consumption Budget to be created.
         :param pulumi.Input[str] end_date: The end date for the budget. If not set this will be 10 years after the start date.
         """
-        BudgetResourceGroupTimePeriodArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            start_date=start_date,
-            end_date=end_date,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             start_date: Optional[pulumi.Input[str]] = None,
-             end_date: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if start_date is None and 'startDate' in kwargs:
-            start_date = kwargs['startDate']
-        if start_date is None:
-            raise TypeError("Missing 'start_date' argument")
-        if end_date is None and 'endDate' in kwargs:
-            end_date = kwargs['endDate']
-
-        _setter("start_date", start_date)
+        pulumi.set(__self__, "start_date", start_date)
         if end_date is not None:
-            _setter("end_date", end_date)
+            pulumi.set(__self__, "end_date", end_date)
 
     @property
     @pulumi.getter(name="startDate")
@@ -1266,32 +952,15 @@ class BudgetSubscriptionFilterArgs:
         :param pulumi.Input['BudgetSubscriptionFilterNotArgs'] not_: A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         :param pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionFilterTagArgs']]] tags: One or more `tag` blocks as defined below to filter the budget on.
         """
-        BudgetSubscriptionFilterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            dimensions=dimensions,
-            not_=not_,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionFilterDimensionArgs']]]] = None,
-             not_: Optional[pulumi.Input['BudgetSubscriptionFilterNotArgs']] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionFilterTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if not_ is None and 'not' in kwargs:
-            not_ = kwargs['not']
-
         if dimensions is not None:
-            _setter("dimensions", dimensions)
+            pulumi.set(__self__, "dimensions", dimensions)
         if not_ is not None:
             warnings.warn("""This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.""", DeprecationWarning)
             pulumi.log.warn("""not_ is deprecated: This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.""")
         if not_ is not None:
-            _setter("not_", not_)
+            pulumi.set(__self__, "not_", not_)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -1344,29 +1013,10 @@ class BudgetSubscriptionFilterDimensionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies a list of values for the column.
         :param pulumi.Input[str] operator: The operator to use for comparison. The allowed values are `In`.
         """
-        BudgetSubscriptionFilterDimensionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            values=values,
-            operator=operator,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if values is None:
-            raise TypeError("Missing 'values' argument")
-
-        _setter("name", name)
-        _setter("values", values)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
         if operator is not None:
-            _setter("operator", operator)
+            pulumi.set(__self__, "operator", operator)
 
     @property
     @pulumi.getter
@@ -1414,23 +1064,10 @@ class BudgetSubscriptionFilterNotArgs:
         :param pulumi.Input['BudgetSubscriptionFilterNotDimensionArgs'] dimension: One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
         :param pulumi.Input['BudgetSubscriptionFilterNotTagArgs'] tag: One `tag` block as defined below to filter the budget on. Conflicts with `dimension`.
         """
-        BudgetSubscriptionFilterNotArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            dimension=dimension,
-            tag=tag,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             dimension: Optional[pulumi.Input['BudgetSubscriptionFilterNotDimensionArgs']] = None,
-             tag: Optional[pulumi.Input['BudgetSubscriptionFilterNotTagArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if dimension is not None:
-            _setter("dimension", dimension)
+            pulumi.set(__self__, "dimension", dimension)
         if tag is not None:
-            _setter("tag", tag)
+            pulumi.set(__self__, "tag", tag)
 
     @property
     @pulumi.getter
@@ -1468,29 +1105,10 @@ class BudgetSubscriptionFilterNotDimensionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies a list of values for the column.
         :param pulumi.Input[str] operator: The operator to use for comparison. The allowed values are `In`.
         """
-        BudgetSubscriptionFilterNotDimensionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            values=values,
-            operator=operator,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if values is None:
-            raise TypeError("Missing 'values' argument")
-
-        _setter("name", name)
-        _setter("values", values)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
         if operator is not None:
-            _setter("operator", operator)
+            pulumi.set(__self__, "operator", operator)
 
     @property
     @pulumi.getter
@@ -1540,29 +1158,10 @@ class BudgetSubscriptionFilterNotTagArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies a list of values for the tag.
         :param pulumi.Input[str] operator: The operator to use for comparison. The allowed values are `In`.
         """
-        BudgetSubscriptionFilterNotTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            values=values,
-            operator=operator,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if values is None:
-            raise TypeError("Missing 'values' argument")
-
-        _setter("name", name)
-        _setter("values", values)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
         if operator is not None:
-            _setter("operator", operator)
+            pulumi.set(__self__, "operator", operator)
 
     @property
     @pulumi.getter
@@ -1612,29 +1211,10 @@ class BudgetSubscriptionFilterTagArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies a list of values for the tag.
         :param pulumi.Input[str] operator: The operator to use for comparison. The allowed values are `In`.
         """
-        BudgetSubscriptionFilterTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            values=values,
-            operator=operator,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if values is None:
-            raise TypeError("Missing 'values' argument")
-
-        _setter("name", name)
-        _setter("values", values)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
         if operator is not None:
-            _setter("operator", operator)
+            pulumi.set(__self__, "operator", operator)
 
     @property
     @pulumi.getter
@@ -1694,53 +1274,18 @@ class BudgetSubscriptionNotificationArgs:
                > **NOTE:** A `notification` block cannot have all of `contact_emails`, `contact_roles`, and `contact_groups` empty. This means that at least one of the three must be specified.
         :param pulumi.Input[str] threshold_type: The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`. Changing this forces a new resource to be created.
         """
-        BudgetSubscriptionNotificationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            operator=operator,
-            threshold=threshold,
-            contact_emails=contact_emails,
-            contact_groups=contact_groups,
-            contact_roles=contact_roles,
-            enabled=enabled,
-            threshold_type=threshold_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             operator: Optional[pulumi.Input[str]] = None,
-             threshold: Optional[pulumi.Input[int]] = None,
-             contact_emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             contact_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             contact_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             threshold_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if operator is None:
-            raise TypeError("Missing 'operator' argument")
-        if threshold is None:
-            raise TypeError("Missing 'threshold' argument")
-        if contact_emails is None and 'contactEmails' in kwargs:
-            contact_emails = kwargs['contactEmails']
-        if contact_groups is None and 'contactGroups' in kwargs:
-            contact_groups = kwargs['contactGroups']
-        if contact_roles is None and 'contactRoles' in kwargs:
-            contact_roles = kwargs['contactRoles']
-        if threshold_type is None and 'thresholdType' in kwargs:
-            threshold_type = kwargs['thresholdType']
-
-        _setter("operator", operator)
-        _setter("threshold", threshold)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "threshold", threshold)
         if contact_emails is not None:
-            _setter("contact_emails", contact_emails)
+            pulumi.set(__self__, "contact_emails", contact_emails)
         if contact_groups is not None:
-            _setter("contact_groups", contact_groups)
+            pulumi.set(__self__, "contact_groups", contact_groups)
         if contact_roles is not None:
-            _setter("contact_roles", contact_roles)
+            pulumi.set(__self__, "contact_roles", contact_roles)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if threshold_type is not None:
-            _setter("threshold_type", threshold_type)
+            pulumi.set(__self__, "threshold_type", threshold_type)
 
     @property
     @pulumi.getter
@@ -1838,28 +1383,9 @@ class BudgetSubscriptionTimePeriodArgs:
         :param pulumi.Input[str] start_date: The start date for the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should be selected within the timegrain period. Changing this forces a new Subscription Consumption Budget to be created.
         :param pulumi.Input[str] end_date: The end date for the budget. If not set this will be 10 years after the start date.
         """
-        BudgetSubscriptionTimePeriodArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            start_date=start_date,
-            end_date=end_date,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             start_date: Optional[pulumi.Input[str]] = None,
-             end_date: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if start_date is None and 'startDate' in kwargs:
-            start_date = kwargs['startDate']
-        if start_date is None:
-            raise TypeError("Missing 'start_date' argument")
-        if end_date is None and 'endDate' in kwargs:
-            end_date = kwargs['endDate']
-
-        _setter("start_date", start_date)
+        pulumi.set(__self__, "start_date", start_date)
         if end_date is not None:
-            _setter("end_date", end_date)
+            pulumi.set(__self__, "end_date", end_date)
 
     @property
     @pulumi.getter(name="startDate")

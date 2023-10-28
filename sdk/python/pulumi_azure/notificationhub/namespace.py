@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['NamespaceArgs', 'Namespace']
@@ -31,52 +31,17 @@ class NamespaceArgs:
         :param pulumi.Input[str] name: The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        NamespaceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            namespace_type=namespace_type,
-            resource_group_name=resource_group_name,
-            sku_name=sku_name,
-            enabled=enabled,
-            location=location,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             namespace_type: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             sku_name: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if namespace_type is None and 'namespaceType' in kwargs:
-            namespace_type = kwargs['namespaceType']
-        if namespace_type is None:
-            raise TypeError("Missing 'namespace_type' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if sku_name is None and 'skuName' in kwargs:
-            sku_name = kwargs['skuName']
-        if sku_name is None:
-            raise TypeError("Missing 'sku_name' argument")
-
-        _setter("namespace_type", namespace_type)
-        _setter("resource_group_name", resource_group_name)
-        _setter("sku_name", sku_name)
+        pulumi.set(__self__, "namespace_type", namespace_type)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "sku_name", sku_name)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="namespaceType")
@@ -185,55 +150,22 @@ class _NamespaceState:
         :param pulumi.Input[str] sku_name: The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        _NamespaceState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            location=location,
-            name=name,
-            namespace_type=namespace_type,
-            resource_group_name=resource_group_name,
-            servicebus_endpoint=servicebus_endpoint,
-            sku_name=sku_name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[pulumi.Input[bool]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             namespace_type: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             servicebus_endpoint: Optional[pulumi.Input[str]] = None,
-             sku_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if namespace_type is None and 'namespaceType' in kwargs:
-            namespace_type = kwargs['namespaceType']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if servicebus_endpoint is None and 'servicebusEndpoint' in kwargs:
-            servicebus_endpoint = kwargs['servicebusEndpoint']
-        if sku_name is None and 'skuName' in kwargs:
-            sku_name = kwargs['skuName']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if namespace_type is not None:
-            _setter("namespace_type", namespace_type)
+            pulumi.set(__self__, "namespace_type", namespace_type)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if servicebus_endpoint is not None:
-            _setter("servicebus_endpoint", servicebus_endpoint)
+            pulumi.set(__self__, "servicebus_endpoint", servicebus_endpoint)
         if sku_name is not None:
-            _setter("sku_name", sku_name)
+            pulumi.set(__self__, "sku_name", sku_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -421,10 +353,6 @@ class Namespace(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            NamespaceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

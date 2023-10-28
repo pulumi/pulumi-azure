@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DomainTopicArgs', 'DomainTopic']
@@ -23,33 +23,10 @@ class DomainTopicArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventGrid Domain exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the EventGrid Domain Topic resource. Changing this forces a new resource to be created.
         """
-        DomainTopicArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            domain_name=domain_name,
-            resource_group_name=resource_group_name,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             domain_name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if domain_name is None and 'domainName' in kwargs:
-            domain_name = kwargs['domainName']
-        if domain_name is None:
-            raise TypeError("Missing 'domain_name' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-
-        _setter("domain_name", domain_name)
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="domainName")
@@ -100,31 +77,12 @@ class _DomainTopicState:
         :param pulumi.Input[str] name: Specifies the name of the EventGrid Domain Topic resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventGrid Domain exists. Changing this forces a new resource to be created.
         """
-        _DomainTopicState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            domain_name=domain_name,
-            name=name,
-            resource_group_name=resource_group_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             domain_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if domain_name is None and 'domainName' in kwargs:
-            domain_name = kwargs['domainName']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-
         if domain_name is not None:
-            _setter("domain_name", domain_name)
+            pulumi.set(__self__, "domain_name", domain_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
 
     @property
     @pulumi.getter(name="domainName")
@@ -252,10 +210,6 @@ class DomainTopic(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DomainTopicArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

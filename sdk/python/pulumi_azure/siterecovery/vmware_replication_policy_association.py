@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VmwareReplicationPolicyAssociationArgs', 'VmwareReplicationPolicyAssociation']
@@ -26,33 +26,10 @@ class VmwareReplicationPolicyAssociationArgs:
         :param pulumi.Input[str] name: The name of the replication policy association. Changing this forces a new association to be
                created.
         """
-        VmwareReplicationPolicyAssociationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            policy_id=policy_id,
-            recovery_vault_id=recovery_vault_id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             policy_id: Optional[pulumi.Input[str]] = None,
-             recovery_vault_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if policy_id is None and 'policyId' in kwargs:
-            policy_id = kwargs['policyId']
-        if policy_id is None:
-            raise TypeError("Missing 'policy_id' argument")
-        if recovery_vault_id is None and 'recoveryVaultId' in kwargs:
-            recovery_vault_id = kwargs['recoveryVaultId']
-        if recovery_vault_id is None:
-            raise TypeError("Missing 'recovery_vault_id' argument")
-
-        _setter("policy_id", policy_id)
-        _setter("recovery_vault_id", recovery_vault_id)
+        pulumi.set(__self__, "policy_id", policy_id)
+        pulumi.set(__self__, "recovery_vault_id", recovery_vault_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="policyId")
@@ -109,31 +86,12 @@ class _VmwareReplicationPolicyAssociationState:
         :param pulumi.Input[str] recovery_vault_id: The ID of the Recovery Service Vault to which the policy should be associated.
                Changing this forces a new association to be created.
         """
-        _VmwareReplicationPolicyAssociationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            policy_id=policy_id,
-            recovery_vault_id=recovery_vault_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             policy_id: Optional[pulumi.Input[str]] = None,
-             recovery_vault_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if policy_id is None and 'policyId' in kwargs:
-            policy_id = kwargs['policyId']
-        if recovery_vault_id is None and 'recoveryVaultId' in kwargs:
-            recovery_vault_id = kwargs['recoveryVaultId']
-
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if policy_id is not None:
-            _setter("policy_id", policy_id)
+            pulumi.set(__self__, "policy_id", policy_id)
         if recovery_vault_id is not None:
-            _setter("recovery_vault_id", recovery_vault_id)
+            pulumi.set(__self__, "recovery_vault_id", recovery_vault_id)
 
     @property
     @pulumi.getter
@@ -271,10 +229,6 @@ class VmwareReplicationPolicyAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            VmwareReplicationPolicyAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

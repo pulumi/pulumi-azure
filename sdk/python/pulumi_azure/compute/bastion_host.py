@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -55,81 +55,28 @@ class BastionHostArgs:
                
                > **Note:** `tunneling_enabled` is only supported when `sku` is `Standard`.
         """
-        BastionHostArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ip_configuration=ip_configuration,
-            resource_group_name=resource_group_name,
-            copy_paste_enabled=copy_paste_enabled,
-            file_copy_enabled=file_copy_enabled,
-            ip_connect_enabled=ip_connect_enabled,
-            location=location,
-            name=name,
-            scale_units=scale_units,
-            shareable_link_enabled=shareable_link_enabled,
-            sku=sku,
-            tags=tags,
-            tunneling_enabled=tunneling_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ip_configuration: Optional[pulumi.Input['BastionHostIpConfigurationArgs']] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             copy_paste_enabled: Optional[pulumi.Input[bool]] = None,
-             file_copy_enabled: Optional[pulumi.Input[bool]] = None,
-             ip_connect_enabled: Optional[pulumi.Input[bool]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             scale_units: Optional[pulumi.Input[int]] = None,
-             shareable_link_enabled: Optional[pulumi.Input[bool]] = None,
-             sku: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tunneling_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if ip_configuration is None and 'ipConfiguration' in kwargs:
-            ip_configuration = kwargs['ipConfiguration']
-        if ip_configuration is None:
-            raise TypeError("Missing 'ip_configuration' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if copy_paste_enabled is None and 'copyPasteEnabled' in kwargs:
-            copy_paste_enabled = kwargs['copyPasteEnabled']
-        if file_copy_enabled is None and 'fileCopyEnabled' in kwargs:
-            file_copy_enabled = kwargs['fileCopyEnabled']
-        if ip_connect_enabled is None and 'ipConnectEnabled' in kwargs:
-            ip_connect_enabled = kwargs['ipConnectEnabled']
-        if scale_units is None and 'scaleUnits' in kwargs:
-            scale_units = kwargs['scaleUnits']
-        if shareable_link_enabled is None and 'shareableLinkEnabled' in kwargs:
-            shareable_link_enabled = kwargs['shareableLinkEnabled']
-        if tunneling_enabled is None and 'tunnelingEnabled' in kwargs:
-            tunneling_enabled = kwargs['tunnelingEnabled']
-
-        _setter("ip_configuration", ip_configuration)
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "ip_configuration", ip_configuration)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if copy_paste_enabled is not None:
-            _setter("copy_paste_enabled", copy_paste_enabled)
+            pulumi.set(__self__, "copy_paste_enabled", copy_paste_enabled)
         if file_copy_enabled is not None:
-            _setter("file_copy_enabled", file_copy_enabled)
+            pulumi.set(__self__, "file_copy_enabled", file_copy_enabled)
         if ip_connect_enabled is not None:
-            _setter("ip_connect_enabled", ip_connect_enabled)
+            pulumi.set(__self__, "ip_connect_enabled", ip_connect_enabled)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if scale_units is not None:
-            _setter("scale_units", scale_units)
+            pulumi.set(__self__, "scale_units", scale_units)
         if shareable_link_enabled is not None:
-            _setter("shareable_link_enabled", shareable_link_enabled)
+            pulumi.set(__self__, "shareable_link_enabled", shareable_link_enabled)
         if sku is not None:
-            _setter("sku", sku)
+            pulumi.set(__self__, "sku", sku)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tunneling_enabled is not None:
-            _setter("tunneling_enabled", tunneling_enabled)
+            pulumi.set(__self__, "tunneling_enabled", tunneling_enabled)
 
     @property
     @pulumi.getter(name="ipConfiguration")
@@ -332,85 +279,32 @@ class _BastionHostState:
                
                > **Note:** `tunneling_enabled` is only supported when `sku` is `Standard`.
         """
-        _BastionHostState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            copy_paste_enabled=copy_paste_enabled,
-            dns_name=dns_name,
-            file_copy_enabled=file_copy_enabled,
-            ip_configuration=ip_configuration,
-            ip_connect_enabled=ip_connect_enabled,
-            location=location,
-            name=name,
-            resource_group_name=resource_group_name,
-            scale_units=scale_units,
-            shareable_link_enabled=shareable_link_enabled,
-            sku=sku,
-            tags=tags,
-            tunneling_enabled=tunneling_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             copy_paste_enabled: Optional[pulumi.Input[bool]] = None,
-             dns_name: Optional[pulumi.Input[str]] = None,
-             file_copy_enabled: Optional[pulumi.Input[bool]] = None,
-             ip_configuration: Optional[pulumi.Input['BastionHostIpConfigurationArgs']] = None,
-             ip_connect_enabled: Optional[pulumi.Input[bool]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             scale_units: Optional[pulumi.Input[int]] = None,
-             shareable_link_enabled: Optional[pulumi.Input[bool]] = None,
-             sku: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tunneling_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if copy_paste_enabled is None and 'copyPasteEnabled' in kwargs:
-            copy_paste_enabled = kwargs['copyPasteEnabled']
-        if dns_name is None and 'dnsName' in kwargs:
-            dns_name = kwargs['dnsName']
-        if file_copy_enabled is None and 'fileCopyEnabled' in kwargs:
-            file_copy_enabled = kwargs['fileCopyEnabled']
-        if ip_configuration is None and 'ipConfiguration' in kwargs:
-            ip_configuration = kwargs['ipConfiguration']
-        if ip_connect_enabled is None and 'ipConnectEnabled' in kwargs:
-            ip_connect_enabled = kwargs['ipConnectEnabled']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if scale_units is None and 'scaleUnits' in kwargs:
-            scale_units = kwargs['scaleUnits']
-        if shareable_link_enabled is None and 'shareableLinkEnabled' in kwargs:
-            shareable_link_enabled = kwargs['shareableLinkEnabled']
-        if tunneling_enabled is None and 'tunnelingEnabled' in kwargs:
-            tunneling_enabled = kwargs['tunnelingEnabled']
-
         if copy_paste_enabled is not None:
-            _setter("copy_paste_enabled", copy_paste_enabled)
+            pulumi.set(__self__, "copy_paste_enabled", copy_paste_enabled)
         if dns_name is not None:
-            _setter("dns_name", dns_name)
+            pulumi.set(__self__, "dns_name", dns_name)
         if file_copy_enabled is not None:
-            _setter("file_copy_enabled", file_copy_enabled)
+            pulumi.set(__self__, "file_copy_enabled", file_copy_enabled)
         if ip_configuration is not None:
-            _setter("ip_configuration", ip_configuration)
+            pulumi.set(__self__, "ip_configuration", ip_configuration)
         if ip_connect_enabled is not None:
-            _setter("ip_connect_enabled", ip_connect_enabled)
+            pulumi.set(__self__, "ip_connect_enabled", ip_connect_enabled)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if scale_units is not None:
-            _setter("scale_units", scale_units)
+            pulumi.set(__self__, "scale_units", scale_units)
         if shareable_link_enabled is not None:
-            _setter("shareable_link_enabled", shareable_link_enabled)
+            pulumi.set(__self__, "shareable_link_enabled", shareable_link_enabled)
         if sku is not None:
-            _setter("sku", sku)
+            pulumi.set(__self__, "sku", sku)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tunneling_enabled is not None:
-            _setter("tunneling_enabled", tunneling_enabled)
+            pulumi.set(__self__, "tunneling_enabled", tunneling_enabled)
 
     @property
     @pulumi.getter(name="copyPasteEnabled")
@@ -728,10 +622,6 @@ class BastionHost(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            BastionHostArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -760,7 +650,6 @@ class BastionHost(pulumi.CustomResource):
 
             __props__.__dict__["copy_paste_enabled"] = copy_paste_enabled
             __props__.__dict__["file_copy_enabled"] = file_copy_enabled
-            ip_configuration = _utilities.configure(ip_configuration, BastionHostIpConfigurationArgs, True)
             if ip_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'ip_configuration'")
             __props__.__dict__["ip_configuration"] = ip_configuration

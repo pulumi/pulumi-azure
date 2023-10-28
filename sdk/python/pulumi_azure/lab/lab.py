@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -45,81 +45,28 @@ class LabArgs:
         :param pulumi.Input['LabRosterArgs'] roster: A `roster` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Lab Service Lab.
         """
-        LabArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_group_name=resource_group_name,
-            security=security,
-            title=title,
-            virtual_machine=virtual_machine,
-            auto_shutdown=auto_shutdown,
-            connection_setting=connection_setting,
-            description=description,
-            lab_plan_id=lab_plan_id,
-            location=location,
-            name=name,
-            network=network,
-            roster=roster,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             security: Optional[pulumi.Input['LabSecurityArgs']] = None,
-             title: Optional[pulumi.Input[str]] = None,
-             virtual_machine: Optional[pulumi.Input['LabVirtualMachineArgs']] = None,
-             auto_shutdown: Optional[pulumi.Input['LabAutoShutdownArgs']] = None,
-             connection_setting: Optional[pulumi.Input['LabConnectionSettingArgs']] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             lab_plan_id: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             network: Optional[pulumi.Input['LabNetworkArgs']] = None,
-             roster: Optional[pulumi.Input['LabRosterArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if security is None:
-            raise TypeError("Missing 'security' argument")
-        if title is None:
-            raise TypeError("Missing 'title' argument")
-        if virtual_machine is None and 'virtualMachine' in kwargs:
-            virtual_machine = kwargs['virtualMachine']
-        if virtual_machine is None:
-            raise TypeError("Missing 'virtual_machine' argument")
-        if auto_shutdown is None and 'autoShutdown' in kwargs:
-            auto_shutdown = kwargs['autoShutdown']
-        if connection_setting is None and 'connectionSetting' in kwargs:
-            connection_setting = kwargs['connectionSetting']
-        if lab_plan_id is None and 'labPlanId' in kwargs:
-            lab_plan_id = kwargs['labPlanId']
-
-        _setter("resource_group_name", resource_group_name)
-        _setter("security", security)
-        _setter("title", title)
-        _setter("virtual_machine", virtual_machine)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "security", security)
+        pulumi.set(__self__, "title", title)
+        pulumi.set(__self__, "virtual_machine", virtual_machine)
         if auto_shutdown is not None:
-            _setter("auto_shutdown", auto_shutdown)
+            pulumi.set(__self__, "auto_shutdown", auto_shutdown)
         if connection_setting is not None:
-            _setter("connection_setting", connection_setting)
+            pulumi.set(__self__, "connection_setting", connection_setting)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if lab_plan_id is not None:
-            _setter("lab_plan_id", lab_plan_id)
+            pulumi.set(__self__, "lab_plan_id", lab_plan_id)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if network is not None:
-            _setter("network", network)
+            pulumi.set(__self__, "network", network)
         if roster is not None:
-            _setter("roster", roster)
+            pulumi.set(__self__, "roster", roster)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -310,77 +257,32 @@ class _LabState:
         :param pulumi.Input[str] title: The title of the Lab Service Lab.
         :param pulumi.Input['LabVirtualMachineArgs'] virtual_machine: A `virtual_machine` block as defined below.
         """
-        _LabState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            auto_shutdown=auto_shutdown,
-            connection_setting=connection_setting,
-            description=description,
-            lab_plan_id=lab_plan_id,
-            location=location,
-            name=name,
-            network=network,
-            resource_group_name=resource_group_name,
-            roster=roster,
-            security=security,
-            tags=tags,
-            title=title,
-            virtual_machine=virtual_machine,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             auto_shutdown: Optional[pulumi.Input['LabAutoShutdownArgs']] = None,
-             connection_setting: Optional[pulumi.Input['LabConnectionSettingArgs']] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             lab_plan_id: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             network: Optional[pulumi.Input['LabNetworkArgs']] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             roster: Optional[pulumi.Input['LabRosterArgs']] = None,
-             security: Optional[pulumi.Input['LabSecurityArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             title: Optional[pulumi.Input[str]] = None,
-             virtual_machine: Optional[pulumi.Input['LabVirtualMachineArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if auto_shutdown is None and 'autoShutdown' in kwargs:
-            auto_shutdown = kwargs['autoShutdown']
-        if connection_setting is None and 'connectionSetting' in kwargs:
-            connection_setting = kwargs['connectionSetting']
-        if lab_plan_id is None and 'labPlanId' in kwargs:
-            lab_plan_id = kwargs['labPlanId']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if virtual_machine is None and 'virtualMachine' in kwargs:
-            virtual_machine = kwargs['virtualMachine']
-
         if auto_shutdown is not None:
-            _setter("auto_shutdown", auto_shutdown)
+            pulumi.set(__self__, "auto_shutdown", auto_shutdown)
         if connection_setting is not None:
-            _setter("connection_setting", connection_setting)
+            pulumi.set(__self__, "connection_setting", connection_setting)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if lab_plan_id is not None:
-            _setter("lab_plan_id", lab_plan_id)
+            pulumi.set(__self__, "lab_plan_id", lab_plan_id)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if network is not None:
-            _setter("network", network)
+            pulumi.set(__self__, "network", network)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if roster is not None:
-            _setter("roster", roster)
+            pulumi.set(__self__, "roster", roster)
         if security is not None:
-            _setter("security", security)
+            pulumi.set(__self__, "security", security)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if title is not None:
-            _setter("title", title)
+            pulumi.set(__self__, "title", title)
         if virtual_machine is not None:
-            _setter("virtual_machine", virtual_machine)
+            pulumi.set(__self__, "virtual_machine", virtual_machine)
 
     @property
     @pulumi.getter(name="autoShutdown")
@@ -676,10 +578,6 @@ class Lab(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LabArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -707,22 +605,17 @@ class Lab(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LabArgs.__new__(LabArgs)
 
-            auto_shutdown = _utilities.configure(auto_shutdown, LabAutoShutdownArgs, True)
             __props__.__dict__["auto_shutdown"] = auto_shutdown
-            connection_setting = _utilities.configure(connection_setting, LabConnectionSettingArgs, True)
             __props__.__dict__["connection_setting"] = connection_setting
             __props__.__dict__["description"] = description
             __props__.__dict__["lab_plan_id"] = lab_plan_id
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
-            network = _utilities.configure(network, LabNetworkArgs, True)
             __props__.__dict__["network"] = network
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            roster = _utilities.configure(roster, LabRosterArgs, True)
             __props__.__dict__["roster"] = roster
-            security = _utilities.configure(security, LabSecurityArgs, True)
             if security is None and not opts.urn:
                 raise TypeError("Missing required property 'security'")
             __props__.__dict__["security"] = security
@@ -730,7 +623,6 @@ class Lab(pulumi.CustomResource):
             if title is None and not opts.urn:
                 raise TypeError("Missing required property 'title'")
             __props__.__dict__["title"] = title
-            virtual_machine = _utilities.configure(virtual_machine, LabVirtualMachineArgs, True)
             if virtual_machine is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_machine'")
             __props__.__dict__["virtual_machine"] = virtual_machine

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -53,106 +53,37 @@ class ResourceDeploymentScriptPowerShellArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Resource Deployment Script.
         :param pulumi.Input[str] timeout: Maximum allowed script execution time specified in ISO 8601 format. Needs to be greater than 0 and smaller than 1 day. Defaults to `P1D`. Changing this forces a new Resource Deployment Script to be created.
         """
-        ResourceDeploymentScriptPowerShellArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_group_name=resource_group_name,
-            retention_interval=retention_interval,
-            version=version,
-            cleanup_preference=cleanup_preference,
-            command_line=command_line,
-            container=container,
-            environment_variables=environment_variables,
-            force_update_tag=force_update_tag,
-            identity=identity,
-            location=location,
-            name=name,
-            primary_script_uri=primary_script_uri,
-            script_content=script_content,
-            storage_account=storage_account,
-            supporting_script_uris=supporting_script_uris,
-            tags=tags,
-            timeout=timeout,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             retention_interval: Optional[pulumi.Input[str]] = None,
-             version: Optional[pulumi.Input[str]] = None,
-             cleanup_preference: Optional[pulumi.Input[str]] = None,
-             command_line: Optional[pulumi.Input[str]] = None,
-             container: Optional[pulumi.Input['ResourceDeploymentScriptPowerShellContainerArgs']] = None,
-             environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceDeploymentScriptPowerShellEnvironmentVariableArgs']]]] = None,
-             force_update_tag: Optional[pulumi.Input[str]] = None,
-             identity: Optional[pulumi.Input['ResourceDeploymentScriptPowerShellIdentityArgs']] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             primary_script_uri: Optional[pulumi.Input[str]] = None,
-             script_content: Optional[pulumi.Input[str]] = None,
-             storage_account: Optional[pulumi.Input['ResourceDeploymentScriptPowerShellStorageAccountArgs']] = None,
-             supporting_script_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             timeout: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if retention_interval is None and 'retentionInterval' in kwargs:
-            retention_interval = kwargs['retentionInterval']
-        if retention_interval is None:
-            raise TypeError("Missing 'retention_interval' argument")
-        if version is None:
-            raise TypeError("Missing 'version' argument")
-        if cleanup_preference is None and 'cleanupPreference' in kwargs:
-            cleanup_preference = kwargs['cleanupPreference']
-        if command_line is None and 'commandLine' in kwargs:
-            command_line = kwargs['commandLine']
-        if environment_variables is None and 'environmentVariables' in kwargs:
-            environment_variables = kwargs['environmentVariables']
-        if force_update_tag is None and 'forceUpdateTag' in kwargs:
-            force_update_tag = kwargs['forceUpdateTag']
-        if primary_script_uri is None and 'primaryScriptUri' in kwargs:
-            primary_script_uri = kwargs['primaryScriptUri']
-        if script_content is None and 'scriptContent' in kwargs:
-            script_content = kwargs['scriptContent']
-        if storage_account is None and 'storageAccount' in kwargs:
-            storage_account = kwargs['storageAccount']
-        if supporting_script_uris is None and 'supportingScriptUris' in kwargs:
-            supporting_script_uris = kwargs['supportingScriptUris']
-
-        _setter("resource_group_name", resource_group_name)
-        _setter("retention_interval", retention_interval)
-        _setter("version", version)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "retention_interval", retention_interval)
+        pulumi.set(__self__, "version", version)
         if cleanup_preference is not None:
-            _setter("cleanup_preference", cleanup_preference)
+            pulumi.set(__self__, "cleanup_preference", cleanup_preference)
         if command_line is not None:
-            _setter("command_line", command_line)
+            pulumi.set(__self__, "command_line", command_line)
         if container is not None:
-            _setter("container", container)
+            pulumi.set(__self__, "container", container)
         if environment_variables is not None:
-            _setter("environment_variables", environment_variables)
+            pulumi.set(__self__, "environment_variables", environment_variables)
         if force_update_tag is not None:
-            _setter("force_update_tag", force_update_tag)
+            pulumi.set(__self__, "force_update_tag", force_update_tag)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if primary_script_uri is not None:
-            _setter("primary_script_uri", primary_script_uri)
+            pulumi.set(__self__, "primary_script_uri", primary_script_uri)
         if script_content is not None:
-            _setter("script_content", script_content)
+            pulumi.set(__self__, "script_content", script_content)
         if storage_account is not None:
-            _setter("storage_account", storage_account)
+            pulumi.set(__self__, "storage_account", storage_account)
         if supporting_script_uris is not None:
-            _setter("supporting_script_uris", supporting_script_uris)
+            pulumi.set(__self__, "supporting_script_uris", supporting_script_uris)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if timeout is not None:
-            _setter("timeout", timeout)
+            pulumi.set(__self__, "timeout", timeout)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -401,107 +332,42 @@ class _ResourceDeploymentScriptPowerShellState:
         :param pulumi.Input[str] timeout: Maximum allowed script execution time specified in ISO 8601 format. Needs to be greater than 0 and smaller than 1 day. Defaults to `P1D`. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] version: Specifies the version of the Azure PowerShell that should be used in the format `X.Y` (e.g. `9.7`). A canonical list of versions [is available from the Microsoft Container Registry API](https://mcr.microsoft.com/v2/azure-powershell/tags/list). Changing this forces a new Resource Deployment Script to be created.
         """
-        _ResourceDeploymentScriptPowerShellState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cleanup_preference=cleanup_preference,
-            command_line=command_line,
-            container=container,
-            environment_variables=environment_variables,
-            force_update_tag=force_update_tag,
-            identity=identity,
-            location=location,
-            name=name,
-            outputs=outputs,
-            primary_script_uri=primary_script_uri,
-            resource_group_name=resource_group_name,
-            retention_interval=retention_interval,
-            script_content=script_content,
-            storage_account=storage_account,
-            supporting_script_uris=supporting_script_uris,
-            tags=tags,
-            timeout=timeout,
-            version=version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cleanup_preference: Optional[pulumi.Input[str]] = None,
-             command_line: Optional[pulumi.Input[str]] = None,
-             container: Optional[pulumi.Input['ResourceDeploymentScriptPowerShellContainerArgs']] = None,
-             environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceDeploymentScriptPowerShellEnvironmentVariableArgs']]]] = None,
-             force_update_tag: Optional[pulumi.Input[str]] = None,
-             identity: Optional[pulumi.Input['ResourceDeploymentScriptPowerShellIdentityArgs']] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             outputs: Optional[pulumi.Input[str]] = None,
-             primary_script_uri: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             retention_interval: Optional[pulumi.Input[str]] = None,
-             script_content: Optional[pulumi.Input[str]] = None,
-             storage_account: Optional[pulumi.Input['ResourceDeploymentScriptPowerShellStorageAccountArgs']] = None,
-             supporting_script_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             timeout: Optional[pulumi.Input[str]] = None,
-             version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cleanup_preference is None and 'cleanupPreference' in kwargs:
-            cleanup_preference = kwargs['cleanupPreference']
-        if command_line is None and 'commandLine' in kwargs:
-            command_line = kwargs['commandLine']
-        if environment_variables is None and 'environmentVariables' in kwargs:
-            environment_variables = kwargs['environmentVariables']
-        if force_update_tag is None and 'forceUpdateTag' in kwargs:
-            force_update_tag = kwargs['forceUpdateTag']
-        if primary_script_uri is None and 'primaryScriptUri' in kwargs:
-            primary_script_uri = kwargs['primaryScriptUri']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if retention_interval is None and 'retentionInterval' in kwargs:
-            retention_interval = kwargs['retentionInterval']
-        if script_content is None and 'scriptContent' in kwargs:
-            script_content = kwargs['scriptContent']
-        if storage_account is None and 'storageAccount' in kwargs:
-            storage_account = kwargs['storageAccount']
-        if supporting_script_uris is None and 'supportingScriptUris' in kwargs:
-            supporting_script_uris = kwargs['supportingScriptUris']
-
         if cleanup_preference is not None:
-            _setter("cleanup_preference", cleanup_preference)
+            pulumi.set(__self__, "cleanup_preference", cleanup_preference)
         if command_line is not None:
-            _setter("command_line", command_line)
+            pulumi.set(__self__, "command_line", command_line)
         if container is not None:
-            _setter("container", container)
+            pulumi.set(__self__, "container", container)
         if environment_variables is not None:
-            _setter("environment_variables", environment_variables)
+            pulumi.set(__self__, "environment_variables", environment_variables)
         if force_update_tag is not None:
-            _setter("force_update_tag", force_update_tag)
+            pulumi.set(__self__, "force_update_tag", force_update_tag)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if outputs is not None:
-            _setter("outputs", outputs)
+            pulumi.set(__self__, "outputs", outputs)
         if primary_script_uri is not None:
-            _setter("primary_script_uri", primary_script_uri)
+            pulumi.set(__self__, "primary_script_uri", primary_script_uri)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if retention_interval is not None:
-            _setter("retention_interval", retention_interval)
+            pulumi.set(__self__, "retention_interval", retention_interval)
         if script_content is not None:
-            _setter("script_content", script_content)
+            pulumi.set(__self__, "script_content", script_content)
         if storage_account is not None:
-            _setter("storage_account", storage_account)
+            pulumi.set(__self__, "storage_account", storage_account)
         if supporting_script_uris is not None:
-            _setter("supporting_script_uris", supporting_script_uris)
+            pulumi.set(__self__, "supporting_script_uris", supporting_script_uris)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if timeout is not None:
-            _setter("timeout", timeout)
+            pulumi.set(__self__, "timeout", timeout)
         if version is not None:
-            _setter("version", version)
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="cleanupPreference")
@@ -869,10 +735,6 @@ class ResourceDeploymentScriptPowerShell(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ResourceDeploymentScriptPowerShellArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -906,11 +768,9 @@ class ResourceDeploymentScriptPowerShell(pulumi.CustomResource):
 
             __props__.__dict__["cleanup_preference"] = cleanup_preference
             __props__.__dict__["command_line"] = command_line
-            container = _utilities.configure(container, ResourceDeploymentScriptPowerShellContainerArgs, True)
             __props__.__dict__["container"] = container
             __props__.__dict__["environment_variables"] = environment_variables
             __props__.__dict__["force_update_tag"] = force_update_tag
-            identity = _utilities.configure(identity, ResourceDeploymentScriptPowerShellIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -922,7 +782,6 @@ class ResourceDeploymentScriptPowerShell(pulumi.CustomResource):
                 raise TypeError("Missing required property 'retention_interval'")
             __props__.__dict__["retention_interval"] = retention_interval
             __props__.__dict__["script_content"] = script_content
-            storage_account = _utilities.configure(storage_account, ResourceDeploymentScriptPowerShellStorageAccountArgs, True)
             __props__.__dict__["storage_account"] = storage_account
             __props__.__dict__["supporting_script_uris"] = supporting_script_uris
             __props__.__dict__["tags"] = tags

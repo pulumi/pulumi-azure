@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,41 +27,12 @@ class NetworkAclArgs:
         :param pulumi.Input[str] default_action: The default action to control the network access when no other rule matches. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkAclPrivateEndpointArgs']]] private_endpoints: A `private_endpoint` block as defined below.
         """
-        NetworkAclArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            public_network=public_network,
-            web_pubsub_id=web_pubsub_id,
-            default_action=default_action,
-            private_endpoints=private_endpoints,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             public_network: Optional[pulumi.Input['NetworkAclPublicNetworkArgs']] = None,
-             web_pubsub_id: Optional[pulumi.Input[str]] = None,
-             default_action: Optional[pulumi.Input[str]] = None,
-             private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclPrivateEndpointArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if public_network is None and 'publicNetwork' in kwargs:
-            public_network = kwargs['publicNetwork']
-        if public_network is None:
-            raise TypeError("Missing 'public_network' argument")
-        if web_pubsub_id is None and 'webPubsubId' in kwargs:
-            web_pubsub_id = kwargs['webPubsubId']
-        if web_pubsub_id is None:
-            raise TypeError("Missing 'web_pubsub_id' argument")
-        if default_action is None and 'defaultAction' in kwargs:
-            default_action = kwargs['defaultAction']
-        if private_endpoints is None and 'privateEndpoints' in kwargs:
-            private_endpoints = kwargs['privateEndpoints']
-
-        _setter("public_network", public_network)
-        _setter("web_pubsub_id", web_pubsub_id)
+        pulumi.set(__self__, "public_network", public_network)
+        pulumi.set(__self__, "web_pubsub_id", web_pubsub_id)
         if default_action is not None:
-            _setter("default_action", default_action)
+            pulumi.set(__self__, "default_action", default_action)
         if private_endpoints is not None:
-            _setter("private_endpoints", private_endpoints)
+            pulumi.set(__self__, "private_endpoints", private_endpoints)
 
     @property
     @pulumi.getter(name="publicNetwork")
@@ -126,39 +97,14 @@ class _NetworkAclState:
         :param pulumi.Input['NetworkAclPublicNetworkArgs'] public_network: A `public_network` block as defined below.
         :param pulumi.Input[str] web_pubsub_id: The ID of the Web Pubsub service. Changing this forces a new resource to be created.
         """
-        _NetworkAclState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            default_action=default_action,
-            private_endpoints=private_endpoints,
-            public_network=public_network,
-            web_pubsub_id=web_pubsub_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             default_action: Optional[pulumi.Input[str]] = None,
-             private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclPrivateEndpointArgs']]]] = None,
-             public_network: Optional[pulumi.Input['NetworkAclPublicNetworkArgs']] = None,
-             web_pubsub_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if default_action is None and 'defaultAction' in kwargs:
-            default_action = kwargs['defaultAction']
-        if private_endpoints is None and 'privateEndpoints' in kwargs:
-            private_endpoints = kwargs['privateEndpoints']
-        if public_network is None and 'publicNetwork' in kwargs:
-            public_network = kwargs['publicNetwork']
-        if web_pubsub_id is None and 'webPubsubId' in kwargs:
-            web_pubsub_id = kwargs['webPubsubId']
-
         if default_action is not None:
-            _setter("default_action", default_action)
+            pulumi.set(__self__, "default_action", default_action)
         if private_endpoints is not None:
-            _setter("private_endpoints", private_endpoints)
+            pulumi.set(__self__, "private_endpoints", private_endpoints)
         if public_network is not None:
-            _setter("public_network", public_network)
+            pulumi.set(__self__, "public_network", public_network)
         if web_pubsub_id is not None:
-            _setter("web_pubsub_id", web_pubsub_id)
+            pulumi.set(__self__, "web_pubsub_id", web_pubsub_id)
 
     @property
     @pulumi.getter(name="defaultAction")
@@ -358,10 +304,6 @@ class NetworkAcl(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            NetworkAclArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -382,7 +324,6 @@ class NetworkAcl(pulumi.CustomResource):
 
             __props__.__dict__["default_action"] = default_action
             __props__.__dict__["private_endpoints"] = private_endpoints
-            public_network = _utilities.configure(public_network, NetworkAclPublicNetworkArgs, True)
             if public_network is None and not opts.urn:
                 raise TypeError("Missing required property 'public_network'")
             __props__.__dict__["public_network"] = public_network

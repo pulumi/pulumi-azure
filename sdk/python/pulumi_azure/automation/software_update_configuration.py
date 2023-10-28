@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -44,80 +44,31 @@ class SoftwareUpdateConfigurationArgs:
                
                > **NOTE:** One of `linux` or `windows` must be specified.
         """
-        SoftwareUpdateConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            automation_account_id=automation_account_id,
-            schedules=schedules,
-            duration=duration,
-            linuxes=linuxes,
-            name=name,
-            non_azure_computer_names=non_azure_computer_names,
-            operating_system=operating_system,
-            post_tasks=post_tasks,
-            pre_tasks=pre_tasks,
-            target=target,
-            virtual_machine_ids=virtual_machine_ids,
-            windows=windows,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             automation_account_id: Optional[pulumi.Input[str]] = None,
-             schedules: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationScheduleArgs']]]] = None,
-             duration: Optional[pulumi.Input[str]] = None,
-             linuxes: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationLinuxArgs']]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             non_azure_computer_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             operating_system: Optional[pulumi.Input[str]] = None,
-             post_tasks: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationPostTaskArgs']]]] = None,
-             pre_tasks: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationPreTaskArgs']]]] = None,
-             target: Optional[pulumi.Input['SoftwareUpdateConfigurationTargetArgs']] = None,
-             virtual_machine_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             windows: Optional[pulumi.Input['SoftwareUpdateConfigurationWindowsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if automation_account_id is None and 'automationAccountId' in kwargs:
-            automation_account_id = kwargs['automationAccountId']
-        if automation_account_id is None:
-            raise TypeError("Missing 'automation_account_id' argument")
-        if schedules is None:
-            raise TypeError("Missing 'schedules' argument")
-        if non_azure_computer_names is None and 'nonAzureComputerNames' in kwargs:
-            non_azure_computer_names = kwargs['nonAzureComputerNames']
-        if operating_system is None and 'operatingSystem' in kwargs:
-            operating_system = kwargs['operatingSystem']
-        if post_tasks is None and 'postTasks' in kwargs:
-            post_tasks = kwargs['postTasks']
-        if pre_tasks is None and 'preTasks' in kwargs:
-            pre_tasks = kwargs['preTasks']
-        if virtual_machine_ids is None and 'virtualMachineIds' in kwargs:
-            virtual_machine_ids = kwargs['virtualMachineIds']
-
-        _setter("automation_account_id", automation_account_id)
-        _setter("schedules", schedules)
+        pulumi.set(__self__, "automation_account_id", automation_account_id)
+        pulumi.set(__self__, "schedules", schedules)
         if duration is not None:
-            _setter("duration", duration)
+            pulumi.set(__self__, "duration", duration)
         if linuxes is not None:
-            _setter("linuxes", linuxes)
+            pulumi.set(__self__, "linuxes", linuxes)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if non_azure_computer_names is not None:
-            _setter("non_azure_computer_names", non_azure_computer_names)
+            pulumi.set(__self__, "non_azure_computer_names", non_azure_computer_names)
         if operating_system is not None:
             warnings.warn("""This property has been deprecated and will be removed in a future release. The use of either the `linux` or `windows` blocks replaces setting this value directly. This value is ignored by the provider.""", DeprecationWarning)
             pulumi.log.warn("""operating_system is deprecated: This property has been deprecated and will be removed in a future release. The use of either the `linux` or `windows` blocks replaces setting this value directly. This value is ignored by the provider.""")
         if operating_system is not None:
-            _setter("operating_system", operating_system)
+            pulumi.set(__self__, "operating_system", operating_system)
         if post_tasks is not None:
-            _setter("post_tasks", post_tasks)
+            pulumi.set(__self__, "post_tasks", post_tasks)
         if pre_tasks is not None:
-            _setter("pre_tasks", pre_tasks)
+            pulumi.set(__self__, "pre_tasks", pre_tasks)
         if target is not None:
-            _setter("target", target)
+            pulumi.set(__self__, "target", target)
         if virtual_machine_ids is not None:
-            _setter("virtual_machine_ids", virtual_machine_ids)
+            pulumi.set(__self__, "virtual_machine_ids", virtual_machine_ids)
         if windows is not None:
-            _setter("windows", windows)
+            pulumi.set(__self__, "windows", windows)
 
     @property
     @pulumi.getter(name="automationAccountId")
@@ -302,99 +253,42 @@ class _SoftwareUpdateConfigurationState:
                
                > **NOTE:** One of `linux` or `windows` must be specified.
         """
-        _SoftwareUpdateConfigurationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            automation_account_id=automation_account_id,
-            duration=duration,
-            error_code=error_code,
-            error_meesage=error_meesage,
-            error_message=error_message,
-            linuxes=linuxes,
-            name=name,
-            non_azure_computer_names=non_azure_computer_names,
-            operating_system=operating_system,
-            post_tasks=post_tasks,
-            pre_tasks=pre_tasks,
-            schedules=schedules,
-            target=target,
-            virtual_machine_ids=virtual_machine_ids,
-            windows=windows,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             automation_account_id: Optional[pulumi.Input[str]] = None,
-             duration: Optional[pulumi.Input[str]] = None,
-             error_code: Optional[pulumi.Input[str]] = None,
-             error_meesage: Optional[pulumi.Input[str]] = None,
-             error_message: Optional[pulumi.Input[str]] = None,
-             linuxes: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationLinuxArgs']]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             non_azure_computer_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             operating_system: Optional[pulumi.Input[str]] = None,
-             post_tasks: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationPostTaskArgs']]]] = None,
-             pre_tasks: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationPreTaskArgs']]]] = None,
-             schedules: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationScheduleArgs']]]] = None,
-             target: Optional[pulumi.Input['SoftwareUpdateConfigurationTargetArgs']] = None,
-             virtual_machine_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             windows: Optional[pulumi.Input['SoftwareUpdateConfigurationWindowsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if automation_account_id is None and 'automationAccountId' in kwargs:
-            automation_account_id = kwargs['automationAccountId']
-        if error_code is None and 'errorCode' in kwargs:
-            error_code = kwargs['errorCode']
-        if error_meesage is None and 'errorMeesage' in kwargs:
-            error_meesage = kwargs['errorMeesage']
-        if error_message is None and 'errorMessage' in kwargs:
-            error_message = kwargs['errorMessage']
-        if non_azure_computer_names is None and 'nonAzureComputerNames' in kwargs:
-            non_azure_computer_names = kwargs['nonAzureComputerNames']
-        if operating_system is None and 'operatingSystem' in kwargs:
-            operating_system = kwargs['operatingSystem']
-        if post_tasks is None and 'postTasks' in kwargs:
-            post_tasks = kwargs['postTasks']
-        if pre_tasks is None and 'preTasks' in kwargs:
-            pre_tasks = kwargs['preTasks']
-        if virtual_machine_ids is None and 'virtualMachineIds' in kwargs:
-            virtual_machine_ids = kwargs['virtualMachineIds']
-
         if automation_account_id is not None:
-            _setter("automation_account_id", automation_account_id)
+            pulumi.set(__self__, "automation_account_id", automation_account_id)
         if duration is not None:
-            _setter("duration", duration)
+            pulumi.set(__self__, "duration", duration)
         if error_code is not None:
-            _setter("error_code", error_code)
+            pulumi.set(__self__, "error_code", error_code)
         if error_meesage is not None:
             warnings.warn("""`error_meesage` will be removed in favour of `error_message` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
             pulumi.log.warn("""error_meesage is deprecated: `error_meesage` will be removed in favour of `error_message` in version 4.0 of the AzureRM Provider""")
         if error_meesage is not None:
-            _setter("error_meesage", error_meesage)
+            pulumi.set(__self__, "error_meesage", error_meesage)
         if error_message is not None:
-            _setter("error_message", error_message)
+            pulumi.set(__self__, "error_message", error_message)
         if linuxes is not None:
-            _setter("linuxes", linuxes)
+            pulumi.set(__self__, "linuxes", linuxes)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if non_azure_computer_names is not None:
-            _setter("non_azure_computer_names", non_azure_computer_names)
+            pulumi.set(__self__, "non_azure_computer_names", non_azure_computer_names)
         if operating_system is not None:
             warnings.warn("""This property has been deprecated and will be removed in a future release. The use of either the `linux` or `windows` blocks replaces setting this value directly. This value is ignored by the provider.""", DeprecationWarning)
             pulumi.log.warn("""operating_system is deprecated: This property has been deprecated and will be removed in a future release. The use of either the `linux` or `windows` blocks replaces setting this value directly. This value is ignored by the provider.""")
         if operating_system is not None:
-            _setter("operating_system", operating_system)
+            pulumi.set(__self__, "operating_system", operating_system)
         if post_tasks is not None:
-            _setter("post_tasks", post_tasks)
+            pulumi.set(__self__, "post_tasks", post_tasks)
         if pre_tasks is not None:
-            _setter("pre_tasks", pre_tasks)
+            pulumi.set(__self__, "pre_tasks", pre_tasks)
         if schedules is not None:
-            _setter("schedules", schedules)
+            pulumi.set(__self__, "schedules", schedules)
         if target is not None:
-            _setter("target", target)
+            pulumi.set(__self__, "target", target)
         if virtual_machine_ids is not None:
-            _setter("virtual_machine_ids", virtual_machine_ids)
+            pulumi.set(__self__, "virtual_machine_ids", virtual_machine_ids)
         if windows is not None:
-            _setter("windows", windows)
+            pulumi.set(__self__, "windows", windows)
 
     @property
     @pulumi.getter(name="automationAccountId")
@@ -737,10 +631,6 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SoftwareUpdateConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -780,10 +670,8 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
             if schedules is None and not opts.urn:
                 raise TypeError("Missing required property 'schedules'")
             __props__.__dict__["schedules"] = schedules
-            target = _utilities.configure(target, SoftwareUpdateConfigurationTargetArgs, True)
             __props__.__dict__["target"] = target
             __props__.__dict__["virtual_machine_ids"] = virtual_machine_ids
-            windows = _utilities.configure(windows, SoftwareUpdateConfigurationWindowsArgs, True)
             __props__.__dict__["windows"] = windows
             __props__.__dict__["error_code"] = None
             __props__.__dict__["error_meesage"] = None

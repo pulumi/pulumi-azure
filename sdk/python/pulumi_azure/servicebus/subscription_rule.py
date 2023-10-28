@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,49 +31,16 @@ class SubscriptionRuleArgs:
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Subscription Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sql_filter: Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `SqlFilter`.
         """
-        SubscriptionRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            filter_type=filter_type,
-            subscription_id=subscription_id,
-            action=action,
-            correlation_filter=correlation_filter,
-            name=name,
-            sql_filter=sql_filter,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             filter_type: Optional[pulumi.Input[str]] = None,
-             subscription_id: Optional[pulumi.Input[str]] = None,
-             action: Optional[pulumi.Input[str]] = None,
-             correlation_filter: Optional[pulumi.Input['SubscriptionRuleCorrelationFilterArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             sql_filter: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if filter_type is None and 'filterType' in kwargs:
-            filter_type = kwargs['filterType']
-        if filter_type is None:
-            raise TypeError("Missing 'filter_type' argument")
-        if subscription_id is None and 'subscriptionId' in kwargs:
-            subscription_id = kwargs['subscriptionId']
-        if subscription_id is None:
-            raise TypeError("Missing 'subscription_id' argument")
-        if correlation_filter is None and 'correlationFilter' in kwargs:
-            correlation_filter = kwargs['correlationFilter']
-        if sql_filter is None and 'sqlFilter' in kwargs:
-            sql_filter = kwargs['sqlFilter']
-
-        _setter("filter_type", filter_type)
-        _setter("subscription_id", subscription_id)
+        pulumi.set(__self__, "filter_type", filter_type)
+        pulumi.set(__self__, "subscription_id", subscription_id)
         if action is not None:
-            _setter("action", action)
+            pulumi.set(__self__, "action", action)
         if correlation_filter is not None:
-            _setter("correlation_filter", correlation_filter)
+            pulumi.set(__self__, "correlation_filter", correlation_filter)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if sql_filter is not None:
-            _setter("sql_filter", sql_filter)
+            pulumi.set(__self__, "sql_filter", sql_filter)
 
     @property
     @pulumi.getter(name="filterType")
@@ -167,53 +134,20 @@ class _SubscriptionRuleState:
         :param pulumi.Input[str] sql_filter: Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `SqlFilter`.
         :param pulumi.Input[str] subscription_id: The ID of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
         """
-        _SubscriptionRuleState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action=action,
-            correlation_filter=correlation_filter,
-            filter_type=filter_type,
-            name=name,
-            sql_filter=sql_filter,
-            sql_filter_compatibility_level=sql_filter_compatibility_level,
-            subscription_id=subscription_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action: Optional[pulumi.Input[str]] = None,
-             correlation_filter: Optional[pulumi.Input['SubscriptionRuleCorrelationFilterArgs']] = None,
-             filter_type: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             sql_filter: Optional[pulumi.Input[str]] = None,
-             sql_filter_compatibility_level: Optional[pulumi.Input[int]] = None,
-             subscription_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if correlation_filter is None and 'correlationFilter' in kwargs:
-            correlation_filter = kwargs['correlationFilter']
-        if filter_type is None and 'filterType' in kwargs:
-            filter_type = kwargs['filterType']
-        if sql_filter is None and 'sqlFilter' in kwargs:
-            sql_filter = kwargs['sqlFilter']
-        if sql_filter_compatibility_level is None and 'sqlFilterCompatibilityLevel' in kwargs:
-            sql_filter_compatibility_level = kwargs['sqlFilterCompatibilityLevel']
-        if subscription_id is None and 'subscriptionId' in kwargs:
-            subscription_id = kwargs['subscriptionId']
-
         if action is not None:
-            _setter("action", action)
+            pulumi.set(__self__, "action", action)
         if correlation_filter is not None:
-            _setter("correlation_filter", correlation_filter)
+            pulumi.set(__self__, "correlation_filter", correlation_filter)
         if filter_type is not None:
-            _setter("filter_type", filter_type)
+            pulumi.set(__self__, "filter_type", filter_type)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if sql_filter is not None:
-            _setter("sql_filter", sql_filter)
+            pulumi.set(__self__, "sql_filter", sql_filter)
         if sql_filter_compatibility_level is not None:
-            _setter("sql_filter_compatibility_level", sql_filter_compatibility_level)
+            pulumi.set(__self__, "sql_filter_compatibility_level", sql_filter_compatibility_level)
         if subscription_id is not None:
-            _setter("subscription_id", subscription_id)
+            pulumi.set(__self__, "subscription_id", subscription_id)
 
     @property
     @pulumi.getter
@@ -472,10 +406,6 @@ class SubscriptionRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SubscriptionRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -497,7 +427,6 @@ class SubscriptionRule(pulumi.CustomResource):
             __props__ = SubscriptionRuleArgs.__new__(SubscriptionRuleArgs)
 
             __props__.__dict__["action"] = action
-            correlation_filter = _utilities.configure(correlation_filter, SubscriptionRuleCorrelationFilterArgs, True)
             __props__.__dict__["correlation_filter"] = correlation_filter
             if filter_type is None and not opts.urn:
                 raise TypeError("Missing required property 'filter_type'")

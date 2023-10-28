@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -48,28 +48,9 @@ class AccountCustomerManagedKey(dict):
         :param str key_vault_key_id: The ID of the Key Vault Key which should be used to Encrypt the data in this Cognitive Account.
         :param str identity_client_id: The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account.
         """
-        AccountCustomerManagedKey._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key_vault_key_id=key_vault_key_id,
-            identity_client_id=identity_client_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key_vault_key_id: Optional[str] = None,
-             identity_client_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
-            key_vault_key_id = kwargs['keyVaultKeyId']
-        if key_vault_key_id is None:
-            raise TypeError("Missing 'key_vault_key_id' argument")
-        if identity_client_id is None and 'identityClientId' in kwargs:
-            identity_client_id = kwargs['identityClientId']
-
-        _setter("key_vault_key_id", key_vault_key_id)
+        pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
         if identity_client_id is not None:
-            _setter("identity_client_id", identity_client_id)
+            pulumi.set(__self__, "identity_client_id", identity_client_id)
 
     @property
     @pulumi.getter(name="keyVaultKeyId")
@@ -124,38 +105,13 @@ class AccountIdentity(dict):
         :param str principal_id: The Principal ID associated with this Managed Service Identity.
         :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
-        AccountIdentity._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            identity_ids=identity_ids,
-            principal_id=principal_id,
-            tenant_id=tenant_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             identity_ids: Optional[Sequence[str]] = None,
-             principal_id: Optional[str] = None,
-             tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if identity_ids is None and 'identityIds' in kwargs:
-            identity_ids = kwargs['identityIds']
-        if principal_id is None and 'principalId' in kwargs:
-            principal_id = kwargs['principalId']
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if identity_ids is not None:
-            _setter("identity_ids", identity_ids)
+            pulumi.set(__self__, "identity_ids", identity_ids)
         if principal_id is not None:
-            _setter("principal_id", principal_id)
+            pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
-            _setter("tenant_id", tenant_id)
+            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -224,34 +180,11 @@ class AccountNetworkAcls(dict):
         :param Sequence[str] ip_rules: One or more IP Addresses, or CIDR Blocks which should be able to access the Cognitive Account.
         :param Sequence['AccountNetworkAclsVirtualNetworkRuleArgs'] virtual_network_rules: A `virtual_network_rules` block as defined below.
         """
-        AccountNetworkAcls._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            default_action=default_action,
-            ip_rules=ip_rules,
-            virtual_network_rules=virtual_network_rules,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             default_action: Optional[str] = None,
-             ip_rules: Optional[Sequence[str]] = None,
-             virtual_network_rules: Optional[Sequence['outputs.AccountNetworkAclsVirtualNetworkRule']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if default_action is None and 'defaultAction' in kwargs:
-            default_action = kwargs['defaultAction']
-        if default_action is None:
-            raise TypeError("Missing 'default_action' argument")
-        if ip_rules is None and 'ipRules' in kwargs:
-            ip_rules = kwargs['ipRules']
-        if virtual_network_rules is None and 'virtualNetworkRules' in kwargs:
-            virtual_network_rules = kwargs['virtualNetworkRules']
-
-        _setter("default_action", default_action)
+        pulumi.set(__self__, "default_action", default_action)
         if ip_rules is not None:
-            _setter("ip_rules", ip_rules)
+            pulumi.set(__self__, "ip_rules", ip_rules)
         if virtual_network_rules is not None:
-            _setter("virtual_network_rules", virtual_network_rules)
+            pulumi.set(__self__, "virtual_network_rules", virtual_network_rules)
 
     @property
     @pulumi.getter(name="defaultAction")
@@ -306,28 +239,9 @@ class AccountNetworkAclsVirtualNetworkRule(dict):
         :param str subnet_id: The ID of the subnet which should be able to access this Cognitive Account.
         :param bool ignore_missing_vnet_service_endpoint: Whether ignore missing vnet service endpoint or not. Default to `false`.
         """
-        AccountNetworkAclsVirtualNetworkRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            subnet_id=subnet_id,
-            ignore_missing_vnet_service_endpoint=ignore_missing_vnet_service_endpoint,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             subnet_id: Optional[str] = None,
-             ignore_missing_vnet_service_endpoint: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if subnet_id is None and 'subnetId' in kwargs:
-            subnet_id = kwargs['subnetId']
-        if subnet_id is None:
-            raise TypeError("Missing 'subnet_id' argument")
-        if ignore_missing_vnet_service_endpoint is None and 'ignoreMissingVnetServiceEndpoint' in kwargs:
-            ignore_missing_vnet_service_endpoint = kwargs['ignoreMissingVnetServiceEndpoint']
-
-        _setter("subnet_id", subnet_id)
+        pulumi.set(__self__, "subnet_id", subnet_id)
         if ignore_missing_vnet_service_endpoint is not None:
-            _setter("ignore_missing_vnet_service_endpoint", ignore_missing_vnet_service_endpoint)
+            pulumi.set(__self__, "ignore_missing_vnet_service_endpoint", ignore_missing_vnet_service_endpoint)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -374,28 +288,9 @@ class AccountStorage(dict):
         :param str storage_account_id: Full resource id of a Microsoft.Storage resource.
         :param str identity_client_id: The client ID of the managed identity associated with the storage resource.
         """
-        AccountStorage._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            storage_account_id=storage_account_id,
-            identity_client_id=identity_client_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             storage_account_id: Optional[str] = None,
-             identity_client_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if storage_account_id is None and 'storageAccountId' in kwargs:
-            storage_account_id = kwargs['storageAccountId']
-        if storage_account_id is None:
-            raise TypeError("Missing 'storage_account_id' argument")
-        if identity_client_id is None and 'identityClientId' in kwargs:
-            identity_client_id = kwargs['identityClientId']
-
-        _setter("storage_account_id", storage_account_id)
+        pulumi.set(__self__, "storage_account_id", storage_account_id)
         if identity_client_id is not None:
-            _setter("identity_client_id", identity_client_id)
+            pulumi.set(__self__, "identity_client_id", identity_client_id)
 
     @property
     @pulumi.getter(name="storageAccountId")
@@ -425,30 +320,9 @@ class DeploymentModel(dict):
         :param str name: The name of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created.
         :param str version: The version of Cognitive Services Account Deployment model.
         """
-        DeploymentModel._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            format=format,
-            name=name,
-            version=version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             format: Optional[str] = None,
-             name: Optional[str] = None,
-             version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if format is None:
-            raise TypeError("Missing 'format' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if version is None:
-            raise TypeError("Missing 'version' argument")
-
-        _setter("format", format)
-        _setter("name", name)
-        _setter("version", version)
+        pulumi.set(__self__, "format", format)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -490,36 +364,15 @@ class DeploymentScale(dict):
         :param str size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. Changing this forces a new resource to be created.
         :param str tier: Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. Changing this forces a new resource to be created.
         """
-        DeploymentScale._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            capacity=capacity,
-            family=family,
-            size=size,
-            tier=tier,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             capacity: Optional[int] = None,
-             family: Optional[str] = None,
-             size: Optional[str] = None,
-             tier: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if capacity is not None:
-            _setter("capacity", capacity)
+            pulumi.set(__self__, "capacity", capacity)
         if family is not None:
-            _setter("family", family)
+            pulumi.set(__self__, "family", family)
         if size is not None:
-            _setter("size", size)
+            pulumi.set(__self__, "size", size)
         if tier is not None:
-            _setter("tier", tier)
+            pulumi.set(__self__, "tier", tier)
 
     @property
     @pulumi.getter

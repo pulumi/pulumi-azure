@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['FlexibleServerConfigurationArgs', 'FlexibleServerConfiguration']
@@ -25,31 +25,10 @@ class FlexibleServerConfigurationArgs:
                
                > **Note:** PostgreSQL provides the ability to extend the functionality using azure extensions, with PostgreSQL azure extensions you should specify the `name` value as `azure.extensions` and the `value` you wish to allow in the [extensions list](https://docs.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-extensions?WT.mc_id=Portal-Microsoft_Azure_OSSDatabases#postgres-13-extensions).
         """
-        FlexibleServerConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            server_id=server_id,
-            value=value,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             server_id: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if server_id is None and 'serverId' in kwargs:
-            server_id = kwargs['serverId']
-        if server_id is None:
-            raise TypeError("Missing 'server_id' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("server_id", server_id)
-        _setter("value", value)
+        pulumi.set(__self__, "server_id", server_id)
+        pulumi.set(__self__, "value", value)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="serverId")
@@ -104,29 +83,12 @@ class _FlexibleServerConfigurationState:
         :param pulumi.Input[str] server_id: The ID of the PostgreSQL Flexible Server where we want to change configuration. Changing this forces a new PostgreSQL Flexible Server Configuration resource.
         :param pulumi.Input[str] value: Specifies the value of the PostgreSQL Configuration. See the PostgreSQL documentation for valid values.
         """
-        _FlexibleServerConfigurationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            server_id=server_id,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             server_id: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if server_id is None and 'serverId' in kwargs:
-            server_id = kwargs['serverId']
-
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if server_id is not None:
-            _setter("server_id", server_id)
+            pulumi.set(__self__, "server_id", server_id)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -300,10 +262,6 @@ class FlexibleServerConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            FlexibleServerConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

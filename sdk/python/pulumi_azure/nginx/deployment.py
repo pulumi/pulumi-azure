@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -49,87 +49,32 @@ class DeploymentArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentNetworkInterfaceArgs']]] network_interfaces: One or more `network_interface` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Nginx Deployment.
         """
-        DeploymentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_group_name=resource_group_name,
-            sku=sku,
-            capacity=capacity,
-            diagnose_support_enabled=diagnose_support_enabled,
-            email=email,
-            frontend_privates=frontend_privates,
-            frontend_public=frontend_public,
-            identity=identity,
-            location=location,
-            logging_storage_accounts=logging_storage_accounts,
-            managed_resource_group=managed_resource_group,
-            name=name,
-            network_interfaces=network_interfaces,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             sku: Optional[pulumi.Input[str]] = None,
-             capacity: Optional[pulumi.Input[int]] = None,
-             diagnose_support_enabled: Optional[pulumi.Input[bool]] = None,
-             email: Optional[pulumi.Input[str]] = None,
-             frontend_privates: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]]] = None,
-             frontend_public: Optional[pulumi.Input['DeploymentFrontendPublicArgs']] = None,
-             identity: Optional[pulumi.Input['DeploymentIdentityArgs']] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             logging_storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentLoggingStorageAccountArgs']]]] = None,
-             managed_resource_group: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentNetworkInterfaceArgs']]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if sku is None:
-            raise TypeError("Missing 'sku' argument")
-        if diagnose_support_enabled is None and 'diagnoseSupportEnabled' in kwargs:
-            diagnose_support_enabled = kwargs['diagnoseSupportEnabled']
-        if frontend_privates is None and 'frontendPrivates' in kwargs:
-            frontend_privates = kwargs['frontendPrivates']
-        if frontend_public is None and 'frontendPublic' in kwargs:
-            frontend_public = kwargs['frontendPublic']
-        if logging_storage_accounts is None and 'loggingStorageAccounts' in kwargs:
-            logging_storage_accounts = kwargs['loggingStorageAccounts']
-        if managed_resource_group is None and 'managedResourceGroup' in kwargs:
-            managed_resource_group = kwargs['managedResourceGroup']
-        if network_interfaces is None and 'networkInterfaces' in kwargs:
-            network_interfaces = kwargs['networkInterfaces']
-
-        _setter("resource_group_name", resource_group_name)
-        _setter("sku", sku)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "sku", sku)
         if capacity is not None:
-            _setter("capacity", capacity)
+            pulumi.set(__self__, "capacity", capacity)
         if diagnose_support_enabled is not None:
-            _setter("diagnose_support_enabled", diagnose_support_enabled)
+            pulumi.set(__self__, "diagnose_support_enabled", diagnose_support_enabled)
         if email is not None:
-            _setter("email", email)
+            pulumi.set(__self__, "email", email)
         if frontend_privates is not None:
-            _setter("frontend_privates", frontend_privates)
+            pulumi.set(__self__, "frontend_privates", frontend_privates)
         if frontend_public is not None:
-            _setter("frontend_public", frontend_public)
+            pulumi.set(__self__, "frontend_public", frontend_public)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if logging_storage_accounts is not None:
-            _setter("logging_storage_accounts", logging_storage_accounts)
+            pulumi.set(__self__, "logging_storage_accounts", logging_storage_accounts)
         if managed_resource_group is not None:
-            _setter("managed_resource_group", managed_resource_group)
+            pulumi.set(__self__, "managed_resource_group", managed_resource_group)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if network_interfaces is not None:
-            _setter("network_interfaces", network_interfaces)
+            pulumi.set(__self__, "network_interfaces", network_interfaces)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -342,97 +287,38 @@ class _DeploymentState:
         :param pulumi.Input[str] sku: Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Nginx Deployment.
         """
-        _DeploymentState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            capacity=capacity,
-            diagnose_support_enabled=diagnose_support_enabled,
-            email=email,
-            frontend_privates=frontend_privates,
-            frontend_public=frontend_public,
-            identity=identity,
-            ip_address=ip_address,
-            location=location,
-            logging_storage_accounts=logging_storage_accounts,
-            managed_resource_group=managed_resource_group,
-            name=name,
-            network_interfaces=network_interfaces,
-            nginx_version=nginx_version,
-            resource_group_name=resource_group_name,
-            sku=sku,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             capacity: Optional[pulumi.Input[int]] = None,
-             diagnose_support_enabled: Optional[pulumi.Input[bool]] = None,
-             email: Optional[pulumi.Input[str]] = None,
-             frontend_privates: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]]] = None,
-             frontend_public: Optional[pulumi.Input['DeploymentFrontendPublicArgs']] = None,
-             identity: Optional[pulumi.Input['DeploymentIdentityArgs']] = None,
-             ip_address: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             logging_storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentLoggingStorageAccountArgs']]]] = None,
-             managed_resource_group: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentNetworkInterfaceArgs']]]] = None,
-             nginx_version: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             sku: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if diagnose_support_enabled is None and 'diagnoseSupportEnabled' in kwargs:
-            diagnose_support_enabled = kwargs['diagnoseSupportEnabled']
-        if frontend_privates is None and 'frontendPrivates' in kwargs:
-            frontend_privates = kwargs['frontendPrivates']
-        if frontend_public is None and 'frontendPublic' in kwargs:
-            frontend_public = kwargs['frontendPublic']
-        if ip_address is None and 'ipAddress' in kwargs:
-            ip_address = kwargs['ipAddress']
-        if logging_storage_accounts is None and 'loggingStorageAccounts' in kwargs:
-            logging_storage_accounts = kwargs['loggingStorageAccounts']
-        if managed_resource_group is None and 'managedResourceGroup' in kwargs:
-            managed_resource_group = kwargs['managedResourceGroup']
-        if network_interfaces is None and 'networkInterfaces' in kwargs:
-            network_interfaces = kwargs['networkInterfaces']
-        if nginx_version is None and 'nginxVersion' in kwargs:
-            nginx_version = kwargs['nginxVersion']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-
         if capacity is not None:
-            _setter("capacity", capacity)
+            pulumi.set(__self__, "capacity", capacity)
         if diagnose_support_enabled is not None:
-            _setter("diagnose_support_enabled", diagnose_support_enabled)
+            pulumi.set(__self__, "diagnose_support_enabled", diagnose_support_enabled)
         if email is not None:
-            _setter("email", email)
+            pulumi.set(__self__, "email", email)
         if frontend_privates is not None:
-            _setter("frontend_privates", frontend_privates)
+            pulumi.set(__self__, "frontend_privates", frontend_privates)
         if frontend_public is not None:
-            _setter("frontend_public", frontend_public)
+            pulumi.set(__self__, "frontend_public", frontend_public)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if ip_address is not None:
-            _setter("ip_address", ip_address)
+            pulumi.set(__self__, "ip_address", ip_address)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if logging_storage_accounts is not None:
-            _setter("logging_storage_accounts", logging_storage_accounts)
+            pulumi.set(__self__, "logging_storage_accounts", logging_storage_accounts)
         if managed_resource_group is not None:
-            _setter("managed_resource_group", managed_resource_group)
+            pulumi.set(__self__, "managed_resource_group", managed_resource_group)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if network_interfaces is not None:
-            _setter("network_interfaces", network_interfaces)
+            pulumi.set(__self__, "network_interfaces", network_interfaces)
         if nginx_version is not None:
-            _setter("nginx_version", nginx_version)
+            pulumi.set(__self__, "nginx_version", nginx_version)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if sku is not None:
-            _setter("sku", sku)
+            pulumi.set(__self__, "sku", sku)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -798,10 +684,6 @@ class Deployment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DeploymentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -834,9 +716,7 @@ class Deployment(pulumi.CustomResource):
             __props__.__dict__["diagnose_support_enabled"] = diagnose_support_enabled
             __props__.__dict__["email"] = email
             __props__.__dict__["frontend_privates"] = frontend_privates
-            frontend_public = _utilities.configure(frontend_public, DeploymentFrontendPublicArgs, True)
             __props__.__dict__["frontend_public"] = frontend_public
-            identity = _utilities.configure(identity, DeploymentIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["logging_storage_accounts"] = logging_storage_accounts

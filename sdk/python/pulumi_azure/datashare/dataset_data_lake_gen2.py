@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DatasetDataLakeGen2Args', 'DatasetDataLakeGen2']
@@ -29,52 +29,15 @@ class DatasetDataLakeGen2Args:
         :param pulumi.Input[str] folder_path: The folder path in the data lake file system to be shared with the receiver. Conflicts with `file_path` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
         :param pulumi.Input[str] name: The name which should be used for this Data Share Data Lake Gen2 Dataset. Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
         """
-        DatasetDataLakeGen2Args._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            file_system_name=file_system_name,
-            share_id=share_id,
-            storage_account_id=storage_account_id,
-            file_path=file_path,
-            folder_path=folder_path,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             file_system_name: Optional[pulumi.Input[str]] = None,
-             share_id: Optional[pulumi.Input[str]] = None,
-             storage_account_id: Optional[pulumi.Input[str]] = None,
-             file_path: Optional[pulumi.Input[str]] = None,
-             folder_path: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if file_system_name is None and 'fileSystemName' in kwargs:
-            file_system_name = kwargs['fileSystemName']
-        if file_system_name is None:
-            raise TypeError("Missing 'file_system_name' argument")
-        if share_id is None and 'shareId' in kwargs:
-            share_id = kwargs['shareId']
-        if share_id is None:
-            raise TypeError("Missing 'share_id' argument")
-        if storage_account_id is None and 'storageAccountId' in kwargs:
-            storage_account_id = kwargs['storageAccountId']
-        if storage_account_id is None:
-            raise TypeError("Missing 'storage_account_id' argument")
-        if file_path is None and 'filePath' in kwargs:
-            file_path = kwargs['filePath']
-        if folder_path is None and 'folderPath' in kwargs:
-            folder_path = kwargs['folderPath']
-
-        _setter("file_system_name", file_system_name)
-        _setter("share_id", share_id)
-        _setter("storage_account_id", storage_account_id)
+        pulumi.set(__self__, "file_system_name", file_system_name)
+        pulumi.set(__self__, "share_id", share_id)
+        pulumi.set(__self__, "storage_account_id", storage_account_id)
         if file_path is not None:
-            _setter("file_path", file_path)
+            pulumi.set(__self__, "file_path", file_path)
         if folder_path is not None:
-            _setter("folder_path", folder_path)
+            pulumi.set(__self__, "folder_path", folder_path)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="fileSystemName")
@@ -169,55 +132,20 @@ class _DatasetDataLakeGen2State:
         :param pulumi.Input[str] share_id: The resource ID of the Data Share where this Data Share Data Lake Gen2 Dataset should be created. Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
         :param pulumi.Input[str] storage_account_id: The resource id of the storage account of the data lake file system to be shared with the receiver. Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
         """
-        _DatasetDataLakeGen2State._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            display_name=display_name,
-            file_path=file_path,
-            file_system_name=file_system_name,
-            folder_path=folder_path,
-            name=name,
-            share_id=share_id,
-            storage_account_id=storage_account_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             display_name: Optional[pulumi.Input[str]] = None,
-             file_path: Optional[pulumi.Input[str]] = None,
-             file_system_name: Optional[pulumi.Input[str]] = None,
-             folder_path: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             share_id: Optional[pulumi.Input[str]] = None,
-             storage_account_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if display_name is None and 'displayName' in kwargs:
-            display_name = kwargs['displayName']
-        if file_path is None and 'filePath' in kwargs:
-            file_path = kwargs['filePath']
-        if file_system_name is None and 'fileSystemName' in kwargs:
-            file_system_name = kwargs['fileSystemName']
-        if folder_path is None and 'folderPath' in kwargs:
-            folder_path = kwargs['folderPath']
-        if share_id is None and 'shareId' in kwargs:
-            share_id = kwargs['shareId']
-        if storage_account_id is None and 'storageAccountId' in kwargs:
-            storage_account_id = kwargs['storageAccountId']
-
         if display_name is not None:
-            _setter("display_name", display_name)
+            pulumi.set(__self__, "display_name", display_name)
         if file_path is not None:
-            _setter("file_path", file_path)
+            pulumi.set(__self__, "file_path", file_path)
         if file_system_name is not None:
-            _setter("file_system_name", file_system_name)
+            pulumi.set(__self__, "file_system_name", file_system_name)
         if folder_path is not None:
-            _setter("folder_path", folder_path)
+            pulumi.set(__self__, "folder_path", folder_path)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if share_id is not None:
-            _setter("share_id", share_id)
+            pulumi.set(__self__, "share_id", share_id)
         if storage_account_id is not None:
-            _setter("storage_account_id", storage_account_id)
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
 
     @property
     @pulumi.getter(name="displayName")
@@ -437,10 +365,6 @@ class DatasetDataLakeGen2(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DatasetDataLakeGen2Args._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -40,27 +40,8 @@ class AnalyzerIdentity(dict):
         :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Video Analyzer instance.
         :param str type: Specifies the type of Managed Service Identity that should be configured on this Video Analyzer instance. Only possible value is `UserAssigned`.
         """
-        AnalyzerIdentity._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            identity_ids=identity_ids,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             identity_ids: Optional[Sequence[str]] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if identity_ids is None and 'identityIds' in kwargs:
-            identity_ids = kwargs['identityIds']
-        if identity_ids is None:
-            raise TypeError("Missing 'identity_ids' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("identity_ids", identity_ids)
-        _setter("type", type)
+        pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="identityIds")
@@ -105,27 +86,8 @@ class AnalyzerStorageAccount(dict):
         :param str id: Specifies the ID of the Storage Account that will be associated with the Video Analyzer instance.
         :param str user_assigned_identity_id: Specifies the User Assigned Identity ID which should be assigned to access this Storage Account.
         """
-        AnalyzerStorageAccount._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            user_assigned_identity_id=user_assigned_identity_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: Optional[str] = None,
-             user_assigned_identity_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if id is None:
-            raise TypeError("Missing 'id' argument")
-        if user_assigned_identity_id is None and 'userAssignedIdentityId' in kwargs:
-            user_assigned_identity_id = kwargs['userAssignedIdentityId']
-        if user_assigned_identity_id is None:
-            raise TypeError("Missing 'user_assigned_identity_id' argument")
-
-        _setter("id", id)
-        _setter("user_assigned_identity_id", user_assigned_identity_id)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
 
     @property
     @pulumi.getter

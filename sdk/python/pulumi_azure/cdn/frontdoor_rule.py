@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,46 +33,15 @@ class FrontdoorRuleArgs:
         :param pulumi.Input['FrontdoorRuleConditionsArgs'] conditions: A `conditions` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
         """
-        FrontdoorRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            actions=actions,
-            cdn_frontdoor_rule_set_id=cdn_frontdoor_rule_set_id,
-            order=order,
-            behavior_on_match=behavior_on_match,
-            conditions=conditions,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             actions: Optional[pulumi.Input['FrontdoorRuleActionsArgs']] = None,
-             cdn_frontdoor_rule_set_id: Optional[pulumi.Input[str]] = None,
-             order: Optional[pulumi.Input[int]] = None,
-             behavior_on_match: Optional[pulumi.Input[str]] = None,
-             conditions: Optional[pulumi.Input['FrontdoorRuleConditionsArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if actions is None:
-            raise TypeError("Missing 'actions' argument")
-        if cdn_frontdoor_rule_set_id is None and 'cdnFrontdoorRuleSetId' in kwargs:
-            cdn_frontdoor_rule_set_id = kwargs['cdnFrontdoorRuleSetId']
-        if cdn_frontdoor_rule_set_id is None:
-            raise TypeError("Missing 'cdn_frontdoor_rule_set_id' argument")
-        if order is None:
-            raise TypeError("Missing 'order' argument")
-        if behavior_on_match is None and 'behaviorOnMatch' in kwargs:
-            behavior_on_match = kwargs['behaviorOnMatch']
-
-        _setter("actions", actions)
-        _setter("cdn_frontdoor_rule_set_id", cdn_frontdoor_rule_set_id)
-        _setter("order", order)
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "cdn_frontdoor_rule_set_id", cdn_frontdoor_rule_set_id)
+        pulumi.set(__self__, "order", order)
         if behavior_on_match is not None:
-            _setter("behavior_on_match", behavior_on_match)
+            pulumi.set(__self__, "behavior_on_match", behavior_on_match)
         if conditions is not None:
-            _setter("conditions", conditions)
+            pulumi.set(__self__, "conditions", conditions)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -171,49 +140,20 @@ class _FrontdoorRuleState:
                
                ->**NOTE:** If the Front Door Rule has an order value of `0` they do not require any conditions and the actions will always be applied.
         """
-        _FrontdoorRuleState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            actions=actions,
-            behavior_on_match=behavior_on_match,
-            cdn_frontdoor_rule_set_id=cdn_frontdoor_rule_set_id,
-            cdn_frontdoor_rule_set_name=cdn_frontdoor_rule_set_name,
-            conditions=conditions,
-            name=name,
-            order=order,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             actions: Optional[pulumi.Input['FrontdoorRuleActionsArgs']] = None,
-             behavior_on_match: Optional[pulumi.Input[str]] = None,
-             cdn_frontdoor_rule_set_id: Optional[pulumi.Input[str]] = None,
-             cdn_frontdoor_rule_set_name: Optional[pulumi.Input[str]] = None,
-             conditions: Optional[pulumi.Input['FrontdoorRuleConditionsArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             order: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if behavior_on_match is None and 'behaviorOnMatch' in kwargs:
-            behavior_on_match = kwargs['behaviorOnMatch']
-        if cdn_frontdoor_rule_set_id is None and 'cdnFrontdoorRuleSetId' in kwargs:
-            cdn_frontdoor_rule_set_id = kwargs['cdnFrontdoorRuleSetId']
-        if cdn_frontdoor_rule_set_name is None and 'cdnFrontdoorRuleSetName' in kwargs:
-            cdn_frontdoor_rule_set_name = kwargs['cdnFrontdoorRuleSetName']
-
         if actions is not None:
-            _setter("actions", actions)
+            pulumi.set(__self__, "actions", actions)
         if behavior_on_match is not None:
-            _setter("behavior_on_match", behavior_on_match)
+            pulumi.set(__self__, "behavior_on_match", behavior_on_match)
         if cdn_frontdoor_rule_set_id is not None:
-            _setter("cdn_frontdoor_rule_set_id", cdn_frontdoor_rule_set_id)
+            pulumi.set(__self__, "cdn_frontdoor_rule_set_id", cdn_frontdoor_rule_set_id)
         if cdn_frontdoor_rule_set_name is not None:
-            _setter("cdn_frontdoor_rule_set_name", cdn_frontdoor_rule_set_name)
+            pulumi.set(__self__, "cdn_frontdoor_rule_set_name", cdn_frontdoor_rule_set_name)
         if conditions is not None:
-            _setter("conditions", conditions)
+            pulumi.set(__self__, "conditions", conditions)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if order is not None:
-            _setter("order", order)
+            pulumi.set(__self__, "order", order)
 
     @property
     @pulumi.getter
@@ -609,10 +549,6 @@ class FrontdoorRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            FrontdoorRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -633,7 +569,6 @@ class FrontdoorRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FrontdoorRuleArgs.__new__(FrontdoorRuleArgs)
 
-            actions = _utilities.configure(actions, FrontdoorRuleActionsArgs, True)
             if actions is None and not opts.urn:
                 raise TypeError("Missing required property 'actions'")
             __props__.__dict__["actions"] = actions
@@ -641,7 +576,6 @@ class FrontdoorRule(pulumi.CustomResource):
             if cdn_frontdoor_rule_set_id is None and not opts.urn:
                 raise TypeError("Missing required property 'cdn_frontdoor_rule_set_id'")
             __props__.__dict__["cdn_frontdoor_rule_set_id"] = cdn_frontdoor_rule_set_id
-            conditions = _utilities.configure(conditions, FrontdoorRuleConditionsArgs, True)
             __props__.__dict__["conditions"] = conditions
             __props__.__dict__["name"] = name
             if order is None and not opts.urn:

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['EmailServiceArgs', 'EmailService']
@@ -25,37 +25,12 @@ class EmailServiceArgs:
         :param pulumi.Input[str] name: The name of the Email Communication Service resource. Changing this forces a new Email Communication Service to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Email Communication Service.
         """
-        EmailServiceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_location=data_location,
-            resource_group_name=resource_group_name,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_location: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if data_location is None and 'dataLocation' in kwargs:
-            data_location = kwargs['dataLocation']
-        if data_location is None:
-            raise TypeError("Missing 'data_location' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-
-        _setter("data_location", data_location)
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "data_location", data_location)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="dataLocation")
@@ -120,35 +95,14 @@ class _EmailServiceState:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Email Communication Service should exist. Changing this forces a new Email Communication Service to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Email Communication Service.
         """
-        _EmailServiceState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_location=data_location,
-            name=name,
-            resource_group_name=resource_group_name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if data_location is None and 'dataLocation' in kwargs:
-            data_location = kwargs['dataLocation']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-
         if data_location is not None:
-            _setter("data_location", data_location)
+            pulumi.set(__self__, "data_location", data_location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="dataLocation")
@@ -278,10 +232,6 @@ class EmailService(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            EmailServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

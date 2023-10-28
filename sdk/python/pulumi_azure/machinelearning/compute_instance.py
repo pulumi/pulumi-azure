@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -45,83 +45,30 @@ class ComputeInstanceArgs:
         :param pulumi.Input[str] subnet_resource_id: Virtual network subnet resource ID the compute nodes belong to. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
         """
-        ComputeInstanceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            machine_learning_workspace_id=machine_learning_workspace_id,
-            virtual_machine_size=virtual_machine_size,
-            assign_to_user=assign_to_user,
-            authorization_type=authorization_type,
-            description=description,
-            identity=identity,
-            local_auth_enabled=local_auth_enabled,
-            location=location,
-            name=name,
-            node_public_ip_enabled=node_public_ip_enabled,
-            ssh=ssh,
-            subnet_resource_id=subnet_resource_id,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             machine_learning_workspace_id: Optional[pulumi.Input[str]] = None,
-             virtual_machine_size: Optional[pulumi.Input[str]] = None,
-             assign_to_user: Optional[pulumi.Input['ComputeInstanceAssignToUserArgs']] = None,
-             authorization_type: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             identity: Optional[pulumi.Input['ComputeInstanceIdentityArgs']] = None,
-             local_auth_enabled: Optional[pulumi.Input[bool]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             node_public_ip_enabled: Optional[pulumi.Input[bool]] = None,
-             ssh: Optional[pulumi.Input['ComputeInstanceSshArgs']] = None,
-             subnet_resource_id: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if machine_learning_workspace_id is None and 'machineLearningWorkspaceId' in kwargs:
-            machine_learning_workspace_id = kwargs['machineLearningWorkspaceId']
-        if machine_learning_workspace_id is None:
-            raise TypeError("Missing 'machine_learning_workspace_id' argument")
-        if virtual_machine_size is None and 'virtualMachineSize' in kwargs:
-            virtual_machine_size = kwargs['virtualMachineSize']
-        if virtual_machine_size is None:
-            raise TypeError("Missing 'virtual_machine_size' argument")
-        if assign_to_user is None and 'assignToUser' in kwargs:
-            assign_to_user = kwargs['assignToUser']
-        if authorization_type is None and 'authorizationType' in kwargs:
-            authorization_type = kwargs['authorizationType']
-        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
-            local_auth_enabled = kwargs['localAuthEnabled']
-        if node_public_ip_enabled is None and 'nodePublicIpEnabled' in kwargs:
-            node_public_ip_enabled = kwargs['nodePublicIpEnabled']
-        if subnet_resource_id is None and 'subnetResourceId' in kwargs:
-            subnet_resource_id = kwargs['subnetResourceId']
-
-        _setter("machine_learning_workspace_id", machine_learning_workspace_id)
-        _setter("virtual_machine_size", virtual_machine_size)
+        pulumi.set(__self__, "machine_learning_workspace_id", machine_learning_workspace_id)
+        pulumi.set(__self__, "virtual_machine_size", virtual_machine_size)
         if assign_to_user is not None:
-            _setter("assign_to_user", assign_to_user)
+            pulumi.set(__self__, "assign_to_user", assign_to_user)
         if authorization_type is not None:
-            _setter("authorization_type", authorization_type)
+            pulumi.set(__self__, "authorization_type", authorization_type)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if local_auth_enabled is not None:
-            _setter("local_auth_enabled", local_auth_enabled)
+            pulumi.set(__self__, "local_auth_enabled", local_auth_enabled)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if node_public_ip_enabled is not None:
-            _setter("node_public_ip_enabled", node_public_ip_enabled)
+            pulumi.set(__self__, "node_public_ip_enabled", node_public_ip_enabled)
         if ssh is not None:
-            _setter("ssh", ssh)
+            pulumi.set(__self__, "ssh", ssh)
         if subnet_resource_id is not None:
-            _setter("subnet_resource_id", subnet_resource_id)
+            pulumi.set(__self__, "subnet_resource_id", subnet_resource_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="machineLearningWorkspaceId")
@@ -312,81 +259,32 @@ class _ComputeInstanceState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[str] virtual_machine_size: The Virtual Machine Size. Changing this forces a new Machine Learning Compute Instance to be created.
         """
-        _ComputeInstanceState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            assign_to_user=assign_to_user,
-            authorization_type=authorization_type,
-            description=description,
-            identity=identity,
-            local_auth_enabled=local_auth_enabled,
-            location=location,
-            machine_learning_workspace_id=machine_learning_workspace_id,
-            name=name,
-            node_public_ip_enabled=node_public_ip_enabled,
-            ssh=ssh,
-            subnet_resource_id=subnet_resource_id,
-            tags=tags,
-            virtual_machine_size=virtual_machine_size,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             assign_to_user: Optional[pulumi.Input['ComputeInstanceAssignToUserArgs']] = None,
-             authorization_type: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             identity: Optional[pulumi.Input['ComputeInstanceIdentityArgs']] = None,
-             local_auth_enabled: Optional[pulumi.Input[bool]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             machine_learning_workspace_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             node_public_ip_enabled: Optional[pulumi.Input[bool]] = None,
-             ssh: Optional[pulumi.Input['ComputeInstanceSshArgs']] = None,
-             subnet_resource_id: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             virtual_machine_size: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if assign_to_user is None and 'assignToUser' in kwargs:
-            assign_to_user = kwargs['assignToUser']
-        if authorization_type is None and 'authorizationType' in kwargs:
-            authorization_type = kwargs['authorizationType']
-        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
-            local_auth_enabled = kwargs['localAuthEnabled']
-        if machine_learning_workspace_id is None and 'machineLearningWorkspaceId' in kwargs:
-            machine_learning_workspace_id = kwargs['machineLearningWorkspaceId']
-        if node_public_ip_enabled is None and 'nodePublicIpEnabled' in kwargs:
-            node_public_ip_enabled = kwargs['nodePublicIpEnabled']
-        if subnet_resource_id is None and 'subnetResourceId' in kwargs:
-            subnet_resource_id = kwargs['subnetResourceId']
-        if virtual_machine_size is None and 'virtualMachineSize' in kwargs:
-            virtual_machine_size = kwargs['virtualMachineSize']
-
         if assign_to_user is not None:
-            _setter("assign_to_user", assign_to_user)
+            pulumi.set(__self__, "assign_to_user", assign_to_user)
         if authorization_type is not None:
-            _setter("authorization_type", authorization_type)
+            pulumi.set(__self__, "authorization_type", authorization_type)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if local_auth_enabled is not None:
-            _setter("local_auth_enabled", local_auth_enabled)
+            pulumi.set(__self__, "local_auth_enabled", local_auth_enabled)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if machine_learning_workspace_id is not None:
-            _setter("machine_learning_workspace_id", machine_learning_workspace_id)
+            pulumi.set(__self__, "machine_learning_workspace_id", machine_learning_workspace_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if node_public_ip_enabled is not None:
-            _setter("node_public_ip_enabled", node_public_ip_enabled)
+            pulumi.set(__self__, "node_public_ip_enabled", node_public_ip_enabled)
         if ssh is not None:
-            _setter("ssh", ssh)
+            pulumi.set(__self__, "ssh", ssh)
         if subnet_resource_id is not None:
-            _setter("subnet_resource_id", subnet_resource_id)
+            pulumi.set(__self__, "subnet_resource_id", subnet_resource_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if virtual_machine_size is not None:
-            _setter("virtual_machine_size", virtual_machine_size)
+            pulumi.set(__self__, "virtual_machine_size", virtual_machine_size)
 
     @property
     @pulumi.getter(name="assignToUser")
@@ -744,10 +642,6 @@ class ComputeInstance(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ComputeInstanceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -775,11 +669,9 @@ class ComputeInstance(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ComputeInstanceArgs.__new__(ComputeInstanceArgs)
 
-            assign_to_user = _utilities.configure(assign_to_user, ComputeInstanceAssignToUserArgs, True)
             __props__.__dict__["assign_to_user"] = assign_to_user
             __props__.__dict__["authorization_type"] = authorization_type
             __props__.__dict__["description"] = description
-            identity = _utilities.configure(identity, ComputeInstanceIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["local_auth_enabled"] = local_auth_enabled
             __props__.__dict__["location"] = location
@@ -788,7 +680,6 @@ class ComputeInstance(pulumi.CustomResource):
             __props__.__dict__["machine_learning_workspace_id"] = machine_learning_workspace_id
             __props__.__dict__["name"] = name
             __props__.__dict__["node_public_ip_enabled"] = node_public_ip_enabled
-            ssh = _utilities.configure(ssh, ComputeInstanceSshArgs, True)
             __props__.__dict__["ssh"] = ssh
             __props__.__dict__["subnet_resource_id"] = subnet_resource_id
             __props__.__dict__["tags"] = tags

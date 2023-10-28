@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ConsumerGroupArgs', 'ConsumerGroup']
@@ -25,40 +25,11 @@ class ConsumerGroupArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the IoT hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of this Consumer Group. Changing this forces a new resource to be created.
         """
-        ConsumerGroupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            eventhub_endpoint_name=eventhub_endpoint_name,
-            iothub_name=iothub_name,
-            resource_group_name=resource_group_name,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             eventhub_endpoint_name: Optional[pulumi.Input[str]] = None,
-             iothub_name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if eventhub_endpoint_name is None and 'eventhubEndpointName' in kwargs:
-            eventhub_endpoint_name = kwargs['eventhubEndpointName']
-        if eventhub_endpoint_name is None:
-            raise TypeError("Missing 'eventhub_endpoint_name' argument")
-        if iothub_name is None and 'iothubName' in kwargs:
-            iothub_name = kwargs['iothubName']
-        if iothub_name is None:
-            raise TypeError("Missing 'iothub_name' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-
-        _setter("eventhub_endpoint_name", eventhub_endpoint_name)
-        _setter("iothub_name", iothub_name)
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "eventhub_endpoint_name", eventhub_endpoint_name)
+        pulumi.set(__self__, "iothub_name", iothub_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="eventhubEndpointName")
@@ -123,37 +94,14 @@ class _ConsumerGroupState:
         :param pulumi.Input[str] name: The name of this Consumer Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the IoT hub. Changing this forces a new resource to be created.
         """
-        _ConsumerGroupState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            eventhub_endpoint_name=eventhub_endpoint_name,
-            iothub_name=iothub_name,
-            name=name,
-            resource_group_name=resource_group_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             eventhub_endpoint_name: Optional[pulumi.Input[str]] = None,
-             iothub_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if eventhub_endpoint_name is None and 'eventhubEndpointName' in kwargs:
-            eventhub_endpoint_name = kwargs['eventhubEndpointName']
-        if iothub_name is None and 'iothubName' in kwargs:
-            iothub_name = kwargs['iothubName']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-
         if eventhub_endpoint_name is not None:
-            _setter("eventhub_endpoint_name", eventhub_endpoint_name)
+            pulumi.set(__self__, "eventhub_endpoint_name", eventhub_endpoint_name)
         if iothub_name is not None:
-            _setter("iothub_name", iothub_name)
+            pulumi.set(__self__, "iothub_name", iothub_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
 
     @property
     @pulumi.getter(name="eventhubEndpointName")
@@ -305,10 +253,6 @@ class ConsumerGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ConsumerGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

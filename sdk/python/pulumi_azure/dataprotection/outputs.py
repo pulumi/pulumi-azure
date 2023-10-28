@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -32,35 +32,10 @@ class BackupPolicyDiskRetentionRule(dict):
         :param str name: The name which should be used for this retention rule. Changing this forces a new Backup Policy Disk to be created.
         :param int priority: Retention Tag priority. Changing this forces a new Backup Policy Disk to be created.
         """
-        BackupPolicyDiskRetentionRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            criteria=criteria,
-            duration=duration,
-            name=name,
-            priority=priority,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             criteria: Optional['outputs.BackupPolicyDiskRetentionRuleCriteria'] = None,
-             duration: Optional[str] = None,
-             name: Optional[str] = None,
-             priority: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if criteria is None:
-            raise TypeError("Missing 'criteria' argument")
-        if duration is None:
-            raise TypeError("Missing 'duration' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if priority is None:
-            raise TypeError("Missing 'priority' argument")
-
-        _setter("criteria", criteria)
-        _setter("duration", duration)
-        _setter("name", name)
-        _setter("priority", priority)
+        pulumi.set(__self__, "criteria", criteria)
+        pulumi.set(__self__, "duration", duration)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "priority", priority)
 
     @property
     @pulumi.getter
@@ -119,21 +94,8 @@ class BackupPolicyDiskRetentionRuleCriteria(dict):
         """
         :param str absolute_criteria: Possible values are `FirstOfDay` and `FirstOfWeek`. Changing this forces a new Backup Policy Disk to be created.
         """
-        BackupPolicyDiskRetentionRuleCriteria._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            absolute_criteria=absolute_criteria,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             absolute_criteria: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if absolute_criteria is None and 'absoluteCriteria' in kwargs:
-            absolute_criteria = kwargs['absoluteCriteria']
-
         if absolute_criteria is not None:
-            _setter("absolute_criteria", absolute_criteria)
+            pulumi.set(__self__, "absolute_criteria", absolute_criteria)
 
     @property
     @pulumi.getter(name="absoluteCriteria")
@@ -157,35 +119,10 @@ class BackupPolicyPostgresqlRetentionRule(dict):
         :param str name: The name which should be used for this retention rule. Changing this forces a new Backup Policy PostgreSQL to be created.
         :param int priority: Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new Backup Policy PostgreSQL to be created.
         """
-        BackupPolicyPostgresqlRetentionRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            criteria=criteria,
-            duration=duration,
-            name=name,
-            priority=priority,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             criteria: Optional['outputs.BackupPolicyPostgresqlRetentionRuleCriteria'] = None,
-             duration: Optional[str] = None,
-             name: Optional[str] = None,
-             priority: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if criteria is None:
-            raise TypeError("Missing 'criteria' argument")
-        if duration is None:
-            raise TypeError("Missing 'duration' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if priority is None:
-            raise TypeError("Missing 'priority' argument")
-
-        _setter("criteria", criteria)
-        _setter("duration", duration)
-        _setter("name", name)
-        _setter("priority", priority)
+        pulumi.set(__self__, "criteria", criteria)
+        pulumi.set(__self__, "duration", duration)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "priority", priority)
 
     @property
     @pulumi.getter
@@ -260,45 +197,16 @@ class BackupPolicyPostgresqlRetentionRuleCriteria(dict):
         :param Sequence[str] scheduled_backup_times: Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new Backup Policy PostgreSQL to be created.
         :param Sequence[str] weeks_of_months: Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new Backup Policy PostgreSQL to be created.
         """
-        BackupPolicyPostgresqlRetentionRuleCriteria._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            absolute_criteria=absolute_criteria,
-            days_of_weeks=days_of_weeks,
-            months_of_years=months_of_years,
-            scheduled_backup_times=scheduled_backup_times,
-            weeks_of_months=weeks_of_months,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             absolute_criteria: Optional[str] = None,
-             days_of_weeks: Optional[Sequence[str]] = None,
-             months_of_years: Optional[Sequence[str]] = None,
-             scheduled_backup_times: Optional[Sequence[str]] = None,
-             weeks_of_months: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if absolute_criteria is None and 'absoluteCriteria' in kwargs:
-            absolute_criteria = kwargs['absoluteCriteria']
-        if days_of_weeks is None and 'daysOfWeeks' in kwargs:
-            days_of_weeks = kwargs['daysOfWeeks']
-        if months_of_years is None and 'monthsOfYears' in kwargs:
-            months_of_years = kwargs['monthsOfYears']
-        if scheduled_backup_times is None and 'scheduledBackupTimes' in kwargs:
-            scheduled_backup_times = kwargs['scheduledBackupTimes']
-        if weeks_of_months is None and 'weeksOfMonths' in kwargs:
-            weeks_of_months = kwargs['weeksOfMonths']
-
         if absolute_criteria is not None:
-            _setter("absolute_criteria", absolute_criteria)
+            pulumi.set(__self__, "absolute_criteria", absolute_criteria)
         if days_of_weeks is not None:
-            _setter("days_of_weeks", days_of_weeks)
+            pulumi.set(__self__, "days_of_weeks", days_of_weeks)
         if months_of_years is not None:
-            _setter("months_of_years", months_of_years)
+            pulumi.set(__self__, "months_of_years", months_of_years)
         if scheduled_backup_times is not None:
-            _setter("scheduled_backup_times", scheduled_backup_times)
+            pulumi.set(__self__, "scheduled_backup_times", scheduled_backup_times)
         if weeks_of_months is not None:
-            _setter("weeks_of_months", weeks_of_months)
+            pulumi.set(__self__, "weeks_of_months", weeks_of_months)
 
     @property
     @pulumi.getter(name="absoluteCriteria")
@@ -371,32 +279,11 @@ class BackupVaultIdentity(dict):
         :param str principal_id: The Principal ID for the Service Principal associated with the Identity of this Backup Vault.
         :param str tenant_id: The Tenant ID for the Service Principal associated with the Identity of this Backup Vault.
         """
-        BackupVaultIdentity._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            principal_id=principal_id,
-            tenant_id=tenant_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             principal_id: Optional[str] = None,
-             tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if principal_id is None and 'principalId' in kwargs:
-            principal_id = kwargs['principalId']
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if principal_id is not None:
-            _setter("principal_id", principal_id)
+            pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
-            _setter("tenant_id", tenant_id)
+            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -434,34 +321,9 @@ class GetBackupVaultIdentityResult(dict):
         :param str tenant_id: The Tenant ID of the System Assigned Managed Service Identity that is configured on this Backup Vault.
         :param str type: The type of Managed Service Identity that is configured on this Backup Vault.
         """
-        GetBackupVaultIdentityResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            principal_id=principal_id,
-            tenant_id=tenant_id,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             principal_id: Optional[str] = None,
-             tenant_id: Optional[str] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if principal_id is None and 'principalId' in kwargs:
-            principal_id = kwargs['principalId']
-        if principal_id is None:
-            raise TypeError("Missing 'principal_id' argument")
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-        if tenant_id is None:
-            raise TypeError("Missing 'tenant_id' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("principal_id", principal_id)
-        _setter("tenant_id", tenant_id)
-        _setter("type", type)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="principalId")

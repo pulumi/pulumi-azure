@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DataConnectorOffice365Args', 'DataConnectorOffice365']
@@ -33,50 +33,17 @@ class DataConnectorOffice365Args:
                
                > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
-        DataConnectorOffice365Args._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            log_analytics_workspace_id=log_analytics_workspace_id,
-            exchange_enabled=exchange_enabled,
-            name=name,
-            sharepoint_enabled=sharepoint_enabled,
-            teams_enabled=teams_enabled,
-            tenant_id=tenant_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
-             exchange_enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             sharepoint_enabled: Optional[pulumi.Input[bool]] = None,
-             teams_enabled: Optional[pulumi.Input[bool]] = None,
-             tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
-            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if log_analytics_workspace_id is None:
-            raise TypeError("Missing 'log_analytics_workspace_id' argument")
-        if exchange_enabled is None and 'exchangeEnabled' in kwargs:
-            exchange_enabled = kwargs['exchangeEnabled']
-        if sharepoint_enabled is None and 'sharepointEnabled' in kwargs:
-            sharepoint_enabled = kwargs['sharepointEnabled']
-        if teams_enabled is None and 'teamsEnabled' in kwargs:
-            teams_enabled = kwargs['teamsEnabled']
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-
-        _setter("log_analytics_workspace_id", log_analytics_workspace_id)
+        pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
         if exchange_enabled is not None:
-            _setter("exchange_enabled", exchange_enabled)
+            pulumi.set(__self__, "exchange_enabled", exchange_enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if sharepoint_enabled is not None:
-            _setter("sharepoint_enabled", sharepoint_enabled)
+            pulumi.set(__self__, "sharepoint_enabled", sharepoint_enabled)
         if teams_enabled is not None:
-            _setter("teams_enabled", teams_enabled)
+            pulumi.set(__self__, "teams_enabled", teams_enabled)
         if tenant_id is not None:
-            _setter("tenant_id", tenant_id)
+            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="logAnalyticsWorkspaceId")
@@ -177,49 +144,18 @@ class _DataConnectorOffice365State:
                
                > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
-        _DataConnectorOffice365State._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exchange_enabled=exchange_enabled,
-            log_analytics_workspace_id=log_analytics_workspace_id,
-            name=name,
-            sharepoint_enabled=sharepoint_enabled,
-            teams_enabled=teams_enabled,
-            tenant_id=tenant_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exchange_enabled: Optional[pulumi.Input[bool]] = None,
-             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             sharepoint_enabled: Optional[pulumi.Input[bool]] = None,
-             teams_enabled: Optional[pulumi.Input[bool]] = None,
-             tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if exchange_enabled is None and 'exchangeEnabled' in kwargs:
-            exchange_enabled = kwargs['exchangeEnabled']
-        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
-            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if sharepoint_enabled is None and 'sharepointEnabled' in kwargs:
-            sharepoint_enabled = kwargs['sharepointEnabled']
-        if teams_enabled is None and 'teamsEnabled' in kwargs:
-            teams_enabled = kwargs['teamsEnabled']
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-
         if exchange_enabled is not None:
-            _setter("exchange_enabled", exchange_enabled)
+            pulumi.set(__self__, "exchange_enabled", exchange_enabled)
         if log_analytics_workspace_id is not None:
-            _setter("log_analytics_workspace_id", log_analytics_workspace_id)
+            pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if sharepoint_enabled is not None:
-            _setter("sharepoint_enabled", sharepoint_enabled)
+            pulumi.set(__self__, "sharepoint_enabled", sharepoint_enabled)
         if teams_enabled is not None:
-            _setter("teams_enabled", teams_enabled)
+            pulumi.set(__self__, "teams_enabled", teams_enabled)
         if tenant_id is not None:
-            _setter("tenant_id", tenant_id)
+            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="exchangeEnabled")
@@ -391,10 +327,6 @@ class DataConnectorOffice365(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DataConnectorOffice365Args._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

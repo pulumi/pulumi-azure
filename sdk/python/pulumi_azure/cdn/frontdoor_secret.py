@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,31 +25,10 @@ class FrontdoorSecretArgs:
         :param pulumi.Input['FrontdoorSecretSecretArgs'] secret: A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
         :param pulumi.Input[str] name: The name which should be used for this Front Door Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Front Door Secret to be created.
         """
-        FrontdoorSecretArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cdn_frontdoor_profile_id=cdn_frontdoor_profile_id,
-            secret=secret,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cdn_frontdoor_profile_id: Optional[pulumi.Input[str]] = None,
-             secret: Optional[pulumi.Input['FrontdoorSecretSecretArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cdn_frontdoor_profile_id is None and 'cdnFrontdoorProfileId' in kwargs:
-            cdn_frontdoor_profile_id = kwargs['cdnFrontdoorProfileId']
-        if cdn_frontdoor_profile_id is None:
-            raise TypeError("Missing 'cdn_frontdoor_profile_id' argument")
-        if secret is None:
-            raise TypeError("Missing 'secret' argument")
-
-        _setter("cdn_frontdoor_profile_id", cdn_frontdoor_profile_id)
-        _setter("secret", secret)
+        pulumi.set(__self__, "cdn_frontdoor_profile_id", cdn_frontdoor_profile_id)
+        pulumi.set(__self__, "secret", secret)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="cdnFrontdoorProfileId")
@@ -102,35 +81,14 @@ class _FrontdoorSecretState:
         :param pulumi.Input[str] name: The name which should be used for this Front Door Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Front Door Secret to be created.
         :param pulumi.Input['FrontdoorSecretSecretArgs'] secret: A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
         """
-        _FrontdoorSecretState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cdn_frontdoor_profile_id=cdn_frontdoor_profile_id,
-            cdn_frontdoor_profile_name=cdn_frontdoor_profile_name,
-            name=name,
-            secret=secret,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cdn_frontdoor_profile_id: Optional[pulumi.Input[str]] = None,
-             cdn_frontdoor_profile_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             secret: Optional[pulumi.Input['FrontdoorSecretSecretArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cdn_frontdoor_profile_id is None and 'cdnFrontdoorProfileId' in kwargs:
-            cdn_frontdoor_profile_id = kwargs['cdnFrontdoorProfileId']
-        if cdn_frontdoor_profile_name is None and 'cdnFrontdoorProfileName' in kwargs:
-            cdn_frontdoor_profile_name = kwargs['cdnFrontdoorProfileName']
-
         if cdn_frontdoor_profile_id is not None:
-            _setter("cdn_frontdoor_profile_id", cdn_frontdoor_profile_id)
+            pulumi.set(__self__, "cdn_frontdoor_profile_id", cdn_frontdoor_profile_id)
         if cdn_frontdoor_profile_name is not None:
-            _setter("cdn_frontdoor_profile_name", cdn_frontdoor_profile_name)
+            pulumi.set(__self__, "cdn_frontdoor_profile_name", cdn_frontdoor_profile_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if secret is not None:
-            _setter("secret", secret)
+            pulumi.set(__self__, "secret", secret)
 
     @property
     @pulumi.getter(name="cdnFrontdoorProfileId")
@@ -348,10 +306,6 @@ class FrontdoorSecret(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            FrontdoorSecretArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -373,7 +327,6 @@ class FrontdoorSecret(pulumi.CustomResource):
                 raise TypeError("Missing required property 'cdn_frontdoor_profile_id'")
             __props__.__dict__["cdn_frontdoor_profile_id"] = cdn_frontdoor_profile_id
             __props__.__dict__["name"] = name
-            secret = _utilities.configure(secret, FrontdoorSecretSecretArgs, True)
             if secret is None and not opts.urn:
                 raise TypeError("Missing required property 'secret'")
             __props__.__dict__["secret"] = secret

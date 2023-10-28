@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -129,259 +129,88 @@ class KubernetesClusterNodePoolArgs:
                > **Note:** Pod Sandboxing / KataVM Isolation node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://learn.microsoft.com/azure/aks/use-pod-sandboxing)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
         """
-        KubernetesClusterNodePoolArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            kubernetes_cluster_id=kubernetes_cluster_id,
-            vm_size=vm_size,
-            capacity_reservation_group_id=capacity_reservation_group_id,
-            custom_ca_trust_enabled=custom_ca_trust_enabled,
-            enable_auto_scaling=enable_auto_scaling,
-            enable_host_encryption=enable_host_encryption,
-            enable_node_public_ip=enable_node_public_ip,
-            eviction_policy=eviction_policy,
-            fips_enabled=fips_enabled,
-            host_group_id=host_group_id,
-            kubelet_config=kubelet_config,
-            kubelet_disk_type=kubelet_disk_type,
-            linux_os_config=linux_os_config,
-            max_count=max_count,
-            max_pods=max_pods,
-            message_of_the_day=message_of_the_day,
-            min_count=min_count,
-            mode=mode,
-            name=name,
-            node_count=node_count,
-            node_labels=node_labels,
-            node_network_profile=node_network_profile,
-            node_public_ip_prefix_id=node_public_ip_prefix_id,
-            node_taints=node_taints,
-            orchestrator_version=orchestrator_version,
-            os_disk_size_gb=os_disk_size_gb,
-            os_disk_type=os_disk_type,
-            os_sku=os_sku,
-            os_type=os_type,
-            pod_subnet_id=pod_subnet_id,
-            priority=priority,
-            proximity_placement_group_id=proximity_placement_group_id,
-            scale_down_mode=scale_down_mode,
-            snapshot_id=snapshot_id,
-            spot_max_price=spot_max_price,
-            tags=tags,
-            ultra_ssd_enabled=ultra_ssd_enabled,
-            upgrade_settings=upgrade_settings,
-            vnet_subnet_id=vnet_subnet_id,
-            windows_profile=windows_profile,
-            workload_runtime=workload_runtime,
-            zones=zones,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             kubernetes_cluster_id: Optional[pulumi.Input[str]] = None,
-             vm_size: Optional[pulumi.Input[str]] = None,
-             capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
-             custom_ca_trust_enabled: Optional[pulumi.Input[bool]] = None,
-             enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
-             enable_host_encryption: Optional[pulumi.Input[bool]] = None,
-             enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
-             eviction_policy: Optional[pulumi.Input[str]] = None,
-             fips_enabled: Optional[pulumi.Input[bool]] = None,
-             host_group_id: Optional[pulumi.Input[str]] = None,
-             kubelet_config: Optional[pulumi.Input['KubernetesClusterNodePoolKubeletConfigArgs']] = None,
-             kubelet_disk_type: Optional[pulumi.Input[str]] = None,
-             linux_os_config: Optional[pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArgs']] = None,
-             max_count: Optional[pulumi.Input[int]] = None,
-             max_pods: Optional[pulumi.Input[int]] = None,
-             message_of_the_day: Optional[pulumi.Input[str]] = None,
-             min_count: Optional[pulumi.Input[int]] = None,
-             mode: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             node_count: Optional[pulumi.Input[int]] = None,
-             node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             node_network_profile: Optional[pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArgs']] = None,
-             node_public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
-             node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             orchestrator_version: Optional[pulumi.Input[str]] = None,
-             os_disk_size_gb: Optional[pulumi.Input[int]] = None,
-             os_disk_type: Optional[pulumi.Input[str]] = None,
-             os_sku: Optional[pulumi.Input[str]] = None,
-             os_type: Optional[pulumi.Input[str]] = None,
-             pod_subnet_id: Optional[pulumi.Input[str]] = None,
-             priority: Optional[pulumi.Input[str]] = None,
-             proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
-             scale_down_mode: Optional[pulumi.Input[str]] = None,
-             snapshot_id: Optional[pulumi.Input[str]] = None,
-             spot_max_price: Optional[pulumi.Input[float]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             ultra_ssd_enabled: Optional[pulumi.Input[bool]] = None,
-             upgrade_settings: Optional[pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArgs']] = None,
-             vnet_subnet_id: Optional[pulumi.Input[str]] = None,
-             windows_profile: Optional[pulumi.Input['KubernetesClusterNodePoolWindowsProfileArgs']] = None,
-             workload_runtime: Optional[pulumi.Input[str]] = None,
-             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if kubernetes_cluster_id is None and 'kubernetesClusterId' in kwargs:
-            kubernetes_cluster_id = kwargs['kubernetesClusterId']
-        if kubernetes_cluster_id is None:
-            raise TypeError("Missing 'kubernetes_cluster_id' argument")
-        if vm_size is None and 'vmSize' in kwargs:
-            vm_size = kwargs['vmSize']
-        if vm_size is None:
-            raise TypeError("Missing 'vm_size' argument")
-        if capacity_reservation_group_id is None and 'capacityReservationGroupId' in kwargs:
-            capacity_reservation_group_id = kwargs['capacityReservationGroupId']
-        if custom_ca_trust_enabled is None and 'customCaTrustEnabled' in kwargs:
-            custom_ca_trust_enabled = kwargs['customCaTrustEnabled']
-        if enable_auto_scaling is None and 'enableAutoScaling' in kwargs:
-            enable_auto_scaling = kwargs['enableAutoScaling']
-        if enable_host_encryption is None and 'enableHostEncryption' in kwargs:
-            enable_host_encryption = kwargs['enableHostEncryption']
-        if enable_node_public_ip is None and 'enableNodePublicIp' in kwargs:
-            enable_node_public_ip = kwargs['enableNodePublicIp']
-        if eviction_policy is None and 'evictionPolicy' in kwargs:
-            eviction_policy = kwargs['evictionPolicy']
-        if fips_enabled is None and 'fipsEnabled' in kwargs:
-            fips_enabled = kwargs['fipsEnabled']
-        if host_group_id is None and 'hostGroupId' in kwargs:
-            host_group_id = kwargs['hostGroupId']
-        if kubelet_config is None and 'kubeletConfig' in kwargs:
-            kubelet_config = kwargs['kubeletConfig']
-        if kubelet_disk_type is None and 'kubeletDiskType' in kwargs:
-            kubelet_disk_type = kwargs['kubeletDiskType']
-        if linux_os_config is None and 'linuxOsConfig' in kwargs:
-            linux_os_config = kwargs['linuxOsConfig']
-        if max_count is None and 'maxCount' in kwargs:
-            max_count = kwargs['maxCount']
-        if max_pods is None and 'maxPods' in kwargs:
-            max_pods = kwargs['maxPods']
-        if message_of_the_day is None and 'messageOfTheDay' in kwargs:
-            message_of_the_day = kwargs['messageOfTheDay']
-        if min_count is None and 'minCount' in kwargs:
-            min_count = kwargs['minCount']
-        if node_count is None and 'nodeCount' in kwargs:
-            node_count = kwargs['nodeCount']
-        if node_labels is None and 'nodeLabels' in kwargs:
-            node_labels = kwargs['nodeLabels']
-        if node_network_profile is None and 'nodeNetworkProfile' in kwargs:
-            node_network_profile = kwargs['nodeNetworkProfile']
-        if node_public_ip_prefix_id is None and 'nodePublicIpPrefixId' in kwargs:
-            node_public_ip_prefix_id = kwargs['nodePublicIpPrefixId']
-        if node_taints is None and 'nodeTaints' in kwargs:
-            node_taints = kwargs['nodeTaints']
-        if orchestrator_version is None and 'orchestratorVersion' in kwargs:
-            orchestrator_version = kwargs['orchestratorVersion']
-        if os_disk_size_gb is None and 'osDiskSizeGb' in kwargs:
-            os_disk_size_gb = kwargs['osDiskSizeGb']
-        if os_disk_type is None and 'osDiskType' in kwargs:
-            os_disk_type = kwargs['osDiskType']
-        if os_sku is None and 'osSku' in kwargs:
-            os_sku = kwargs['osSku']
-        if os_type is None and 'osType' in kwargs:
-            os_type = kwargs['osType']
-        if pod_subnet_id is None and 'podSubnetId' in kwargs:
-            pod_subnet_id = kwargs['podSubnetId']
-        if proximity_placement_group_id is None and 'proximityPlacementGroupId' in kwargs:
-            proximity_placement_group_id = kwargs['proximityPlacementGroupId']
-        if scale_down_mode is None and 'scaleDownMode' in kwargs:
-            scale_down_mode = kwargs['scaleDownMode']
-        if snapshot_id is None and 'snapshotId' in kwargs:
-            snapshot_id = kwargs['snapshotId']
-        if spot_max_price is None and 'spotMaxPrice' in kwargs:
-            spot_max_price = kwargs['spotMaxPrice']
-        if ultra_ssd_enabled is None and 'ultraSsdEnabled' in kwargs:
-            ultra_ssd_enabled = kwargs['ultraSsdEnabled']
-        if upgrade_settings is None and 'upgradeSettings' in kwargs:
-            upgrade_settings = kwargs['upgradeSettings']
-        if vnet_subnet_id is None and 'vnetSubnetId' in kwargs:
-            vnet_subnet_id = kwargs['vnetSubnetId']
-        if windows_profile is None and 'windowsProfile' in kwargs:
-            windows_profile = kwargs['windowsProfile']
-        if workload_runtime is None and 'workloadRuntime' in kwargs:
-            workload_runtime = kwargs['workloadRuntime']
-
-        _setter("kubernetes_cluster_id", kubernetes_cluster_id)
-        _setter("vm_size", vm_size)
+        pulumi.set(__self__, "kubernetes_cluster_id", kubernetes_cluster_id)
+        pulumi.set(__self__, "vm_size", vm_size)
         if capacity_reservation_group_id is not None:
-            _setter("capacity_reservation_group_id", capacity_reservation_group_id)
+            pulumi.set(__self__, "capacity_reservation_group_id", capacity_reservation_group_id)
         if custom_ca_trust_enabled is not None:
-            _setter("custom_ca_trust_enabled", custom_ca_trust_enabled)
+            pulumi.set(__self__, "custom_ca_trust_enabled", custom_ca_trust_enabled)
         if enable_auto_scaling is not None:
-            _setter("enable_auto_scaling", enable_auto_scaling)
+            pulumi.set(__self__, "enable_auto_scaling", enable_auto_scaling)
         if enable_host_encryption is not None:
-            _setter("enable_host_encryption", enable_host_encryption)
+            pulumi.set(__self__, "enable_host_encryption", enable_host_encryption)
         if enable_node_public_ip is not None:
-            _setter("enable_node_public_ip", enable_node_public_ip)
+            pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
         if eviction_policy is not None:
-            _setter("eviction_policy", eviction_policy)
+            pulumi.set(__self__, "eviction_policy", eviction_policy)
         if fips_enabled is not None:
-            _setter("fips_enabled", fips_enabled)
+            pulumi.set(__self__, "fips_enabled", fips_enabled)
         if host_group_id is not None:
-            _setter("host_group_id", host_group_id)
+            pulumi.set(__self__, "host_group_id", host_group_id)
         if kubelet_config is not None:
-            _setter("kubelet_config", kubelet_config)
+            pulumi.set(__self__, "kubelet_config", kubelet_config)
         if kubelet_disk_type is not None:
-            _setter("kubelet_disk_type", kubelet_disk_type)
+            pulumi.set(__self__, "kubelet_disk_type", kubelet_disk_type)
         if linux_os_config is not None:
-            _setter("linux_os_config", linux_os_config)
+            pulumi.set(__self__, "linux_os_config", linux_os_config)
         if max_count is not None:
-            _setter("max_count", max_count)
+            pulumi.set(__self__, "max_count", max_count)
         if max_pods is not None:
-            _setter("max_pods", max_pods)
+            pulumi.set(__self__, "max_pods", max_pods)
         if message_of_the_day is not None:
-            _setter("message_of_the_day", message_of_the_day)
+            pulumi.set(__self__, "message_of_the_day", message_of_the_day)
         if min_count is not None:
-            _setter("min_count", min_count)
+            pulumi.set(__self__, "min_count", min_count)
         if mode is not None:
-            _setter("mode", mode)
+            pulumi.set(__self__, "mode", mode)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if node_count is not None:
-            _setter("node_count", node_count)
+            pulumi.set(__self__, "node_count", node_count)
         if node_labels is not None:
-            _setter("node_labels", node_labels)
+            pulumi.set(__self__, "node_labels", node_labels)
         if node_network_profile is not None:
-            _setter("node_network_profile", node_network_profile)
+            pulumi.set(__self__, "node_network_profile", node_network_profile)
         if node_public_ip_prefix_id is not None:
-            _setter("node_public_ip_prefix_id", node_public_ip_prefix_id)
+            pulumi.set(__self__, "node_public_ip_prefix_id", node_public_ip_prefix_id)
         if node_taints is not None:
-            _setter("node_taints", node_taints)
+            pulumi.set(__self__, "node_taints", node_taints)
         if orchestrator_version is not None:
-            _setter("orchestrator_version", orchestrator_version)
+            pulumi.set(__self__, "orchestrator_version", orchestrator_version)
         if os_disk_size_gb is not None:
-            _setter("os_disk_size_gb", os_disk_size_gb)
+            pulumi.set(__self__, "os_disk_size_gb", os_disk_size_gb)
         if os_disk_type is not None:
-            _setter("os_disk_type", os_disk_type)
+            pulumi.set(__self__, "os_disk_type", os_disk_type)
         if os_sku is not None:
-            _setter("os_sku", os_sku)
+            pulumi.set(__self__, "os_sku", os_sku)
         if os_type is not None:
-            _setter("os_type", os_type)
+            pulumi.set(__self__, "os_type", os_type)
         if pod_subnet_id is not None:
-            _setter("pod_subnet_id", pod_subnet_id)
+            pulumi.set(__self__, "pod_subnet_id", pod_subnet_id)
         if priority is not None:
-            _setter("priority", priority)
+            pulumi.set(__self__, "priority", priority)
         if proximity_placement_group_id is not None:
-            _setter("proximity_placement_group_id", proximity_placement_group_id)
+            pulumi.set(__self__, "proximity_placement_group_id", proximity_placement_group_id)
         if scale_down_mode is not None:
-            _setter("scale_down_mode", scale_down_mode)
+            pulumi.set(__self__, "scale_down_mode", scale_down_mode)
         if snapshot_id is not None:
-            _setter("snapshot_id", snapshot_id)
+            pulumi.set(__self__, "snapshot_id", snapshot_id)
         if spot_max_price is not None:
-            _setter("spot_max_price", spot_max_price)
+            pulumi.set(__self__, "spot_max_price", spot_max_price)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if ultra_ssd_enabled is not None:
-            _setter("ultra_ssd_enabled", ultra_ssd_enabled)
+            pulumi.set(__self__, "ultra_ssd_enabled", ultra_ssd_enabled)
         if upgrade_settings is not None:
-            _setter("upgrade_settings", upgrade_settings)
+            pulumi.set(__self__, "upgrade_settings", upgrade_settings)
         if vnet_subnet_id is not None:
-            _setter("vnet_subnet_id", vnet_subnet_id)
+            pulumi.set(__self__, "vnet_subnet_id", vnet_subnet_id)
         if windows_profile is not None:
-            _setter("windows_profile", windows_profile)
+            pulumi.set(__self__, "windows_profile", windows_profile)
         if workload_runtime is not None:
-            _setter("workload_runtime", workload_runtime)
+            pulumi.set(__self__, "workload_runtime", workload_runtime)
         if zones is not None:
-            _setter("zones", zones)
+            pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter(name="kubernetesClusterId")
@@ -1030,257 +859,90 @@ class _KubernetesClusterNodePoolState:
                > **Note:** Pod Sandboxing / KataVM Isolation node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://learn.microsoft.com/azure/aks/use-pod-sandboxing)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
         """
-        _KubernetesClusterNodePoolState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            capacity_reservation_group_id=capacity_reservation_group_id,
-            custom_ca_trust_enabled=custom_ca_trust_enabled,
-            enable_auto_scaling=enable_auto_scaling,
-            enable_host_encryption=enable_host_encryption,
-            enable_node_public_ip=enable_node_public_ip,
-            eviction_policy=eviction_policy,
-            fips_enabled=fips_enabled,
-            host_group_id=host_group_id,
-            kubelet_config=kubelet_config,
-            kubelet_disk_type=kubelet_disk_type,
-            kubernetes_cluster_id=kubernetes_cluster_id,
-            linux_os_config=linux_os_config,
-            max_count=max_count,
-            max_pods=max_pods,
-            message_of_the_day=message_of_the_day,
-            min_count=min_count,
-            mode=mode,
-            name=name,
-            node_count=node_count,
-            node_labels=node_labels,
-            node_network_profile=node_network_profile,
-            node_public_ip_prefix_id=node_public_ip_prefix_id,
-            node_taints=node_taints,
-            orchestrator_version=orchestrator_version,
-            os_disk_size_gb=os_disk_size_gb,
-            os_disk_type=os_disk_type,
-            os_sku=os_sku,
-            os_type=os_type,
-            pod_subnet_id=pod_subnet_id,
-            priority=priority,
-            proximity_placement_group_id=proximity_placement_group_id,
-            scale_down_mode=scale_down_mode,
-            snapshot_id=snapshot_id,
-            spot_max_price=spot_max_price,
-            tags=tags,
-            ultra_ssd_enabled=ultra_ssd_enabled,
-            upgrade_settings=upgrade_settings,
-            vm_size=vm_size,
-            vnet_subnet_id=vnet_subnet_id,
-            windows_profile=windows_profile,
-            workload_runtime=workload_runtime,
-            zones=zones,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
-             custom_ca_trust_enabled: Optional[pulumi.Input[bool]] = None,
-             enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
-             enable_host_encryption: Optional[pulumi.Input[bool]] = None,
-             enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
-             eviction_policy: Optional[pulumi.Input[str]] = None,
-             fips_enabled: Optional[pulumi.Input[bool]] = None,
-             host_group_id: Optional[pulumi.Input[str]] = None,
-             kubelet_config: Optional[pulumi.Input['KubernetesClusterNodePoolKubeletConfigArgs']] = None,
-             kubelet_disk_type: Optional[pulumi.Input[str]] = None,
-             kubernetes_cluster_id: Optional[pulumi.Input[str]] = None,
-             linux_os_config: Optional[pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArgs']] = None,
-             max_count: Optional[pulumi.Input[int]] = None,
-             max_pods: Optional[pulumi.Input[int]] = None,
-             message_of_the_day: Optional[pulumi.Input[str]] = None,
-             min_count: Optional[pulumi.Input[int]] = None,
-             mode: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             node_count: Optional[pulumi.Input[int]] = None,
-             node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             node_network_profile: Optional[pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArgs']] = None,
-             node_public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
-             node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             orchestrator_version: Optional[pulumi.Input[str]] = None,
-             os_disk_size_gb: Optional[pulumi.Input[int]] = None,
-             os_disk_type: Optional[pulumi.Input[str]] = None,
-             os_sku: Optional[pulumi.Input[str]] = None,
-             os_type: Optional[pulumi.Input[str]] = None,
-             pod_subnet_id: Optional[pulumi.Input[str]] = None,
-             priority: Optional[pulumi.Input[str]] = None,
-             proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
-             scale_down_mode: Optional[pulumi.Input[str]] = None,
-             snapshot_id: Optional[pulumi.Input[str]] = None,
-             spot_max_price: Optional[pulumi.Input[float]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             ultra_ssd_enabled: Optional[pulumi.Input[bool]] = None,
-             upgrade_settings: Optional[pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArgs']] = None,
-             vm_size: Optional[pulumi.Input[str]] = None,
-             vnet_subnet_id: Optional[pulumi.Input[str]] = None,
-             windows_profile: Optional[pulumi.Input['KubernetesClusterNodePoolWindowsProfileArgs']] = None,
-             workload_runtime: Optional[pulumi.Input[str]] = None,
-             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if capacity_reservation_group_id is None and 'capacityReservationGroupId' in kwargs:
-            capacity_reservation_group_id = kwargs['capacityReservationGroupId']
-        if custom_ca_trust_enabled is None and 'customCaTrustEnabled' in kwargs:
-            custom_ca_trust_enabled = kwargs['customCaTrustEnabled']
-        if enable_auto_scaling is None and 'enableAutoScaling' in kwargs:
-            enable_auto_scaling = kwargs['enableAutoScaling']
-        if enable_host_encryption is None and 'enableHostEncryption' in kwargs:
-            enable_host_encryption = kwargs['enableHostEncryption']
-        if enable_node_public_ip is None and 'enableNodePublicIp' in kwargs:
-            enable_node_public_ip = kwargs['enableNodePublicIp']
-        if eviction_policy is None and 'evictionPolicy' in kwargs:
-            eviction_policy = kwargs['evictionPolicy']
-        if fips_enabled is None and 'fipsEnabled' in kwargs:
-            fips_enabled = kwargs['fipsEnabled']
-        if host_group_id is None and 'hostGroupId' in kwargs:
-            host_group_id = kwargs['hostGroupId']
-        if kubelet_config is None and 'kubeletConfig' in kwargs:
-            kubelet_config = kwargs['kubeletConfig']
-        if kubelet_disk_type is None and 'kubeletDiskType' in kwargs:
-            kubelet_disk_type = kwargs['kubeletDiskType']
-        if kubernetes_cluster_id is None and 'kubernetesClusterId' in kwargs:
-            kubernetes_cluster_id = kwargs['kubernetesClusterId']
-        if linux_os_config is None and 'linuxOsConfig' in kwargs:
-            linux_os_config = kwargs['linuxOsConfig']
-        if max_count is None and 'maxCount' in kwargs:
-            max_count = kwargs['maxCount']
-        if max_pods is None and 'maxPods' in kwargs:
-            max_pods = kwargs['maxPods']
-        if message_of_the_day is None and 'messageOfTheDay' in kwargs:
-            message_of_the_day = kwargs['messageOfTheDay']
-        if min_count is None and 'minCount' in kwargs:
-            min_count = kwargs['minCount']
-        if node_count is None and 'nodeCount' in kwargs:
-            node_count = kwargs['nodeCount']
-        if node_labels is None and 'nodeLabels' in kwargs:
-            node_labels = kwargs['nodeLabels']
-        if node_network_profile is None and 'nodeNetworkProfile' in kwargs:
-            node_network_profile = kwargs['nodeNetworkProfile']
-        if node_public_ip_prefix_id is None and 'nodePublicIpPrefixId' in kwargs:
-            node_public_ip_prefix_id = kwargs['nodePublicIpPrefixId']
-        if node_taints is None and 'nodeTaints' in kwargs:
-            node_taints = kwargs['nodeTaints']
-        if orchestrator_version is None and 'orchestratorVersion' in kwargs:
-            orchestrator_version = kwargs['orchestratorVersion']
-        if os_disk_size_gb is None and 'osDiskSizeGb' in kwargs:
-            os_disk_size_gb = kwargs['osDiskSizeGb']
-        if os_disk_type is None and 'osDiskType' in kwargs:
-            os_disk_type = kwargs['osDiskType']
-        if os_sku is None and 'osSku' in kwargs:
-            os_sku = kwargs['osSku']
-        if os_type is None and 'osType' in kwargs:
-            os_type = kwargs['osType']
-        if pod_subnet_id is None and 'podSubnetId' in kwargs:
-            pod_subnet_id = kwargs['podSubnetId']
-        if proximity_placement_group_id is None and 'proximityPlacementGroupId' in kwargs:
-            proximity_placement_group_id = kwargs['proximityPlacementGroupId']
-        if scale_down_mode is None and 'scaleDownMode' in kwargs:
-            scale_down_mode = kwargs['scaleDownMode']
-        if snapshot_id is None and 'snapshotId' in kwargs:
-            snapshot_id = kwargs['snapshotId']
-        if spot_max_price is None and 'spotMaxPrice' in kwargs:
-            spot_max_price = kwargs['spotMaxPrice']
-        if ultra_ssd_enabled is None and 'ultraSsdEnabled' in kwargs:
-            ultra_ssd_enabled = kwargs['ultraSsdEnabled']
-        if upgrade_settings is None and 'upgradeSettings' in kwargs:
-            upgrade_settings = kwargs['upgradeSettings']
-        if vm_size is None and 'vmSize' in kwargs:
-            vm_size = kwargs['vmSize']
-        if vnet_subnet_id is None and 'vnetSubnetId' in kwargs:
-            vnet_subnet_id = kwargs['vnetSubnetId']
-        if windows_profile is None and 'windowsProfile' in kwargs:
-            windows_profile = kwargs['windowsProfile']
-        if workload_runtime is None and 'workloadRuntime' in kwargs:
-            workload_runtime = kwargs['workloadRuntime']
-
         if capacity_reservation_group_id is not None:
-            _setter("capacity_reservation_group_id", capacity_reservation_group_id)
+            pulumi.set(__self__, "capacity_reservation_group_id", capacity_reservation_group_id)
         if custom_ca_trust_enabled is not None:
-            _setter("custom_ca_trust_enabled", custom_ca_trust_enabled)
+            pulumi.set(__self__, "custom_ca_trust_enabled", custom_ca_trust_enabled)
         if enable_auto_scaling is not None:
-            _setter("enable_auto_scaling", enable_auto_scaling)
+            pulumi.set(__self__, "enable_auto_scaling", enable_auto_scaling)
         if enable_host_encryption is not None:
-            _setter("enable_host_encryption", enable_host_encryption)
+            pulumi.set(__self__, "enable_host_encryption", enable_host_encryption)
         if enable_node_public_ip is not None:
-            _setter("enable_node_public_ip", enable_node_public_ip)
+            pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
         if eviction_policy is not None:
-            _setter("eviction_policy", eviction_policy)
+            pulumi.set(__self__, "eviction_policy", eviction_policy)
         if fips_enabled is not None:
-            _setter("fips_enabled", fips_enabled)
+            pulumi.set(__self__, "fips_enabled", fips_enabled)
         if host_group_id is not None:
-            _setter("host_group_id", host_group_id)
+            pulumi.set(__self__, "host_group_id", host_group_id)
         if kubelet_config is not None:
-            _setter("kubelet_config", kubelet_config)
+            pulumi.set(__self__, "kubelet_config", kubelet_config)
         if kubelet_disk_type is not None:
-            _setter("kubelet_disk_type", kubelet_disk_type)
+            pulumi.set(__self__, "kubelet_disk_type", kubelet_disk_type)
         if kubernetes_cluster_id is not None:
-            _setter("kubernetes_cluster_id", kubernetes_cluster_id)
+            pulumi.set(__self__, "kubernetes_cluster_id", kubernetes_cluster_id)
         if linux_os_config is not None:
-            _setter("linux_os_config", linux_os_config)
+            pulumi.set(__self__, "linux_os_config", linux_os_config)
         if max_count is not None:
-            _setter("max_count", max_count)
+            pulumi.set(__self__, "max_count", max_count)
         if max_pods is not None:
-            _setter("max_pods", max_pods)
+            pulumi.set(__self__, "max_pods", max_pods)
         if message_of_the_day is not None:
-            _setter("message_of_the_day", message_of_the_day)
+            pulumi.set(__self__, "message_of_the_day", message_of_the_day)
         if min_count is not None:
-            _setter("min_count", min_count)
+            pulumi.set(__self__, "min_count", min_count)
         if mode is not None:
-            _setter("mode", mode)
+            pulumi.set(__self__, "mode", mode)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if node_count is not None:
-            _setter("node_count", node_count)
+            pulumi.set(__self__, "node_count", node_count)
         if node_labels is not None:
-            _setter("node_labels", node_labels)
+            pulumi.set(__self__, "node_labels", node_labels)
         if node_network_profile is not None:
-            _setter("node_network_profile", node_network_profile)
+            pulumi.set(__self__, "node_network_profile", node_network_profile)
         if node_public_ip_prefix_id is not None:
-            _setter("node_public_ip_prefix_id", node_public_ip_prefix_id)
+            pulumi.set(__self__, "node_public_ip_prefix_id", node_public_ip_prefix_id)
         if node_taints is not None:
-            _setter("node_taints", node_taints)
+            pulumi.set(__self__, "node_taints", node_taints)
         if orchestrator_version is not None:
-            _setter("orchestrator_version", orchestrator_version)
+            pulumi.set(__self__, "orchestrator_version", orchestrator_version)
         if os_disk_size_gb is not None:
-            _setter("os_disk_size_gb", os_disk_size_gb)
+            pulumi.set(__self__, "os_disk_size_gb", os_disk_size_gb)
         if os_disk_type is not None:
-            _setter("os_disk_type", os_disk_type)
+            pulumi.set(__self__, "os_disk_type", os_disk_type)
         if os_sku is not None:
-            _setter("os_sku", os_sku)
+            pulumi.set(__self__, "os_sku", os_sku)
         if os_type is not None:
-            _setter("os_type", os_type)
+            pulumi.set(__self__, "os_type", os_type)
         if pod_subnet_id is not None:
-            _setter("pod_subnet_id", pod_subnet_id)
+            pulumi.set(__self__, "pod_subnet_id", pod_subnet_id)
         if priority is not None:
-            _setter("priority", priority)
+            pulumi.set(__self__, "priority", priority)
         if proximity_placement_group_id is not None:
-            _setter("proximity_placement_group_id", proximity_placement_group_id)
+            pulumi.set(__self__, "proximity_placement_group_id", proximity_placement_group_id)
         if scale_down_mode is not None:
-            _setter("scale_down_mode", scale_down_mode)
+            pulumi.set(__self__, "scale_down_mode", scale_down_mode)
         if snapshot_id is not None:
-            _setter("snapshot_id", snapshot_id)
+            pulumi.set(__self__, "snapshot_id", snapshot_id)
         if spot_max_price is not None:
-            _setter("spot_max_price", spot_max_price)
+            pulumi.set(__self__, "spot_max_price", spot_max_price)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if ultra_ssd_enabled is not None:
-            _setter("ultra_ssd_enabled", ultra_ssd_enabled)
+            pulumi.set(__self__, "ultra_ssd_enabled", ultra_ssd_enabled)
         if upgrade_settings is not None:
-            _setter("upgrade_settings", upgrade_settings)
+            pulumi.set(__self__, "upgrade_settings", upgrade_settings)
         if vm_size is not None:
-            _setter("vm_size", vm_size)
+            pulumi.set(__self__, "vm_size", vm_size)
         if vnet_subnet_id is not None:
-            _setter("vnet_subnet_id", vnet_subnet_id)
+            pulumi.set(__self__, "vnet_subnet_id", vnet_subnet_id)
         if windows_profile is not None:
-            _setter("windows_profile", windows_profile)
+            pulumi.set(__self__, "windows_profile", windows_profile)
         if workload_runtime is not None:
-            _setter("workload_runtime", workload_runtime)
+            pulumi.set(__self__, "workload_runtime", workload_runtime)
         if zones is not None:
-            _setter("zones", zones)
+            pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter(name="capacityReservationGroupId")
@@ -2036,10 +1698,6 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            KubernetesClusterNodePoolArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -2104,13 +1762,11 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             __props__.__dict__["eviction_policy"] = eviction_policy
             __props__.__dict__["fips_enabled"] = fips_enabled
             __props__.__dict__["host_group_id"] = host_group_id
-            kubelet_config = _utilities.configure(kubelet_config, KubernetesClusterNodePoolKubeletConfigArgs, True)
             __props__.__dict__["kubelet_config"] = kubelet_config
             __props__.__dict__["kubelet_disk_type"] = kubelet_disk_type
             if kubernetes_cluster_id is None and not opts.urn:
                 raise TypeError("Missing required property 'kubernetes_cluster_id'")
             __props__.__dict__["kubernetes_cluster_id"] = kubernetes_cluster_id
-            linux_os_config = _utilities.configure(linux_os_config, KubernetesClusterNodePoolLinuxOsConfigArgs, True)
             __props__.__dict__["linux_os_config"] = linux_os_config
             __props__.__dict__["max_count"] = max_count
             __props__.__dict__["max_pods"] = max_pods
@@ -2120,7 +1776,6 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["node_count"] = node_count
             __props__.__dict__["node_labels"] = node_labels
-            node_network_profile = _utilities.configure(node_network_profile, KubernetesClusterNodePoolNodeNetworkProfileArgs, True)
             __props__.__dict__["node_network_profile"] = node_network_profile
             __props__.__dict__["node_public_ip_prefix_id"] = node_public_ip_prefix_id
             __props__.__dict__["node_taints"] = node_taints
@@ -2137,13 +1792,11 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             __props__.__dict__["spot_max_price"] = spot_max_price
             __props__.__dict__["tags"] = tags
             __props__.__dict__["ultra_ssd_enabled"] = ultra_ssd_enabled
-            upgrade_settings = _utilities.configure(upgrade_settings, KubernetesClusterNodePoolUpgradeSettingsArgs, True)
             __props__.__dict__["upgrade_settings"] = upgrade_settings
             if vm_size is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_size'")
             __props__.__dict__["vm_size"] = vm_size
             __props__.__dict__["vnet_subnet_id"] = vnet_subnet_id
-            windows_profile = _utilities.configure(windows_profile, KubernetesClusterNodePoolWindowsProfileArgs, True)
             __props__.__dict__["windows_profile"] = windows_profile
             __props__.__dict__["workload_runtime"] = workload_runtime
             __props__.__dict__["zones"] = zones

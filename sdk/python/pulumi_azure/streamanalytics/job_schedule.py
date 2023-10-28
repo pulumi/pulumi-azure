@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['JobScheduleArgs', 'JobSchedule']
@@ -25,35 +25,10 @@ class JobScheduleArgs:
         :param pulumi.Input[str] stream_analytics_job_id: The ID of the Stream Analytics Job that should be scheduled or started. Changing this forces a new resource to be created.
         :param pulumi.Input[str] start_time: The time in ISO8601 format at which the Stream Analytics Job should be started e.g. `2022-04-01T00:00:00Z`. This property can only be specified if `start_mode` is set to `CustomTime`
         """
-        JobScheduleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            start_mode=start_mode,
-            stream_analytics_job_id=stream_analytics_job_id,
-            start_time=start_time,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             start_mode: Optional[pulumi.Input[str]] = None,
-             stream_analytics_job_id: Optional[pulumi.Input[str]] = None,
-             start_time: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if start_mode is None and 'startMode' in kwargs:
-            start_mode = kwargs['startMode']
-        if start_mode is None:
-            raise TypeError("Missing 'start_mode' argument")
-        if stream_analytics_job_id is None and 'streamAnalyticsJobId' in kwargs:
-            stream_analytics_job_id = kwargs['streamAnalyticsJobId']
-        if stream_analytics_job_id is None:
-            raise TypeError("Missing 'stream_analytics_job_id' argument")
-        if start_time is None and 'startTime' in kwargs:
-            start_time = kwargs['startTime']
-
-        _setter("start_mode", start_mode)
-        _setter("stream_analytics_job_id", stream_analytics_job_id)
+        pulumi.set(__self__, "start_mode", start_mode)
+        pulumi.set(__self__, "stream_analytics_job_id", stream_analytics_job_id)
         if start_time is not None:
-            _setter("start_time", start_time)
+            pulumi.set(__self__, "start_time", start_time)
 
     @property
     @pulumi.getter(name="startMode")
@@ -110,39 +85,14 @@ class _JobScheduleState:
         :param pulumi.Input[str] start_time: The time in ISO8601 format at which the Stream Analytics Job should be started e.g. `2022-04-01T00:00:00Z`. This property can only be specified if `start_mode` is set to `CustomTime`
         :param pulumi.Input[str] stream_analytics_job_id: The ID of the Stream Analytics Job that should be scheduled or started. Changing this forces a new resource to be created.
         """
-        _JobScheduleState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            last_output_time=last_output_time,
-            start_mode=start_mode,
-            start_time=start_time,
-            stream_analytics_job_id=stream_analytics_job_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             last_output_time: Optional[pulumi.Input[str]] = None,
-             start_mode: Optional[pulumi.Input[str]] = None,
-             start_time: Optional[pulumi.Input[str]] = None,
-             stream_analytics_job_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if last_output_time is None and 'lastOutputTime' in kwargs:
-            last_output_time = kwargs['lastOutputTime']
-        if start_mode is None and 'startMode' in kwargs:
-            start_mode = kwargs['startMode']
-        if start_time is None and 'startTime' in kwargs:
-            start_time = kwargs['startTime']
-        if stream_analytics_job_id is None and 'streamAnalyticsJobId' in kwargs:
-            stream_analytics_job_id = kwargs['streamAnalyticsJobId']
-
         if last_output_time is not None:
-            _setter("last_output_time", last_output_time)
+            pulumi.set(__self__, "last_output_time", last_output_time)
         if start_mode is not None:
-            _setter("start_mode", start_mode)
+            pulumi.set(__self__, "start_mode", start_mode)
         if start_time is not None:
-            _setter("start_time", start_time)
+            pulumi.set(__self__, "start_time", start_time)
         if stream_analytics_job_id is not None:
-            _setter("stream_analytics_job_id", stream_analytics_job_id)
+            pulumi.set(__self__, "stream_analytics_job_id", stream_analytics_job_id)
 
     @property
     @pulumi.getter(name="lastOutputTime")
@@ -398,10 +348,6 @@ class JobSchedule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            JobScheduleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

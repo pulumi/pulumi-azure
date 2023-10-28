@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['IntegrationAccountSchemaArgs', 'IntegrationAccountSchema']
@@ -29,48 +29,15 @@ class IntegrationAccountSchemaArgs:
         :param pulumi.Input[str] metadata: The metadata of the Logic App Integration Account Schema.
         :param pulumi.Input[str] name: The name which should be used for this Logic App Integration Account Schema. Changing this forces a new Logic App Integration Account Schema to be created.
         """
-        IntegrationAccountSchemaArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            content=content,
-            integration_account_name=integration_account_name,
-            resource_group_name=resource_group_name,
-            file_name=file_name,
-            metadata=metadata,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             content: Optional[pulumi.Input[str]] = None,
-             integration_account_name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             file_name: Optional[pulumi.Input[str]] = None,
-             metadata: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if content is None:
-            raise TypeError("Missing 'content' argument")
-        if integration_account_name is None and 'integrationAccountName' in kwargs:
-            integration_account_name = kwargs['integrationAccountName']
-        if integration_account_name is None:
-            raise TypeError("Missing 'integration_account_name' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if file_name is None and 'fileName' in kwargs:
-            file_name = kwargs['fileName']
-
-        _setter("content", content)
-        _setter("integration_account_name", integration_account_name)
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "integration_account_name", integration_account_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if file_name is not None:
-            _setter("file_name", file_name)
+            pulumi.set(__self__, "file_name", file_name)
         if metadata is not None:
-            _setter("metadata", metadata)
+            pulumi.set(__self__, "metadata", metadata)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -163,45 +130,18 @@ class _IntegrationAccountSchemaState:
         :param pulumi.Input[str] name: The name which should be used for this Logic App Integration Account Schema. Changing this forces a new Logic App Integration Account Schema to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Logic App Integration Account Schema should exist. Changing this forces a new Logic App Integration Account Schema to be created.
         """
-        _IntegrationAccountSchemaState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            content=content,
-            file_name=file_name,
-            integration_account_name=integration_account_name,
-            metadata=metadata,
-            name=name,
-            resource_group_name=resource_group_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             content: Optional[pulumi.Input[str]] = None,
-             file_name: Optional[pulumi.Input[str]] = None,
-             integration_account_name: Optional[pulumi.Input[str]] = None,
-             metadata: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if file_name is None and 'fileName' in kwargs:
-            file_name = kwargs['fileName']
-        if integration_account_name is None and 'integrationAccountName' in kwargs:
-            integration_account_name = kwargs['integrationAccountName']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-
         if content is not None:
-            _setter("content", content)
+            pulumi.set(__self__, "content", content)
         if file_name is not None:
-            _setter("file_name", file_name)
+            pulumi.set(__self__, "file_name", file_name)
         if integration_account_name is not None:
-            _setter("integration_account_name", integration_account_name)
+            pulumi.set(__self__, "integration_account_name", integration_account_name)
         if metadata is not None:
-            _setter("metadata", metadata)
+            pulumi.set(__self__, "metadata", metadata)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
 
     @property
     @pulumi.getter
@@ -369,10 +309,6 @@ class IntegrationAccountSchema(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            IntegrationAccountSchemaArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

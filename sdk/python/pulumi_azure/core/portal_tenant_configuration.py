@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['PortalTenantConfigurationArgs', 'PortalTenantConfiguration']
@@ -21,22 +21,7 @@ class PortalTenantConfigurationArgs:
                
                > **Note:** When `private_markdown_storage_enforced` is set to `true`, only external storage configuration (URI) is allowed for Markdown tiles. Inline content configuration will be prohibited.
         """
-        PortalTenantConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            private_markdown_storage_enforced=private_markdown_storage_enforced,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             private_markdown_storage_enforced: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if private_markdown_storage_enforced is None and 'privateMarkdownStorageEnforced' in kwargs:
-            private_markdown_storage_enforced = kwargs['privateMarkdownStorageEnforced']
-        if private_markdown_storage_enforced is None:
-            raise TypeError("Missing 'private_markdown_storage_enforced' argument")
-
-        _setter("private_markdown_storage_enforced", private_markdown_storage_enforced)
+        pulumi.set(__self__, "private_markdown_storage_enforced", private_markdown_storage_enforced)
 
     @property
     @pulumi.getter(name="privateMarkdownStorageEnforced")
@@ -63,21 +48,8 @@ class _PortalTenantConfigurationState:
                
                > **Note:** When `private_markdown_storage_enforced` is set to `true`, only external storage configuration (URI) is allowed for Markdown tiles. Inline content configuration will be prohibited.
         """
-        _PortalTenantConfigurationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            private_markdown_storage_enforced=private_markdown_storage_enforced,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             private_markdown_storage_enforced: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if private_markdown_storage_enforced is None and 'privateMarkdownStorageEnforced' in kwargs:
-            private_markdown_storage_enforced = kwargs['privateMarkdownStorageEnforced']
-
         if private_markdown_storage_enforced is not None:
-            _setter("private_markdown_storage_enforced", private_markdown_storage_enforced)
+            pulumi.set(__self__, "private_markdown_storage_enforced", private_markdown_storage_enforced)
 
     @property
     @pulumi.getter(name="privateMarkdownStorageEnforced")
@@ -179,10 +151,6 @@ class PortalTenantConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PortalTenantConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

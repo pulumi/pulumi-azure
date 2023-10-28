@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,34 +25,9 @@ class ObjectReplicationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ObjectReplicationRuleArgs']]] rules: One or more `rules` blocks as defined below.
         :param pulumi.Input[str] source_storage_account_id: The ID of the source storage account. Changing this forces a new Storage Object Replication to be created.
         """
-        ObjectReplicationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination_storage_account_id=destination_storage_account_id,
-            rules=rules,
-            source_storage_account_id=source_storage_account_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination_storage_account_id: Optional[pulumi.Input[str]] = None,
-             rules: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectReplicationRuleArgs']]]] = None,
-             source_storage_account_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if destination_storage_account_id is None and 'destinationStorageAccountId' in kwargs:
-            destination_storage_account_id = kwargs['destinationStorageAccountId']
-        if destination_storage_account_id is None:
-            raise TypeError("Missing 'destination_storage_account_id' argument")
-        if rules is None:
-            raise TypeError("Missing 'rules' argument")
-        if source_storage_account_id is None and 'sourceStorageAccountId' in kwargs:
-            source_storage_account_id = kwargs['sourceStorageAccountId']
-        if source_storage_account_id is None:
-            raise TypeError("Missing 'source_storage_account_id' argument")
-
-        _setter("destination_storage_account_id", destination_storage_account_id)
-        _setter("rules", rules)
-        _setter("source_storage_account_id", source_storage_account_id)
+        pulumi.set(__self__, "destination_storage_account_id", destination_storage_account_id)
+        pulumi.set(__self__, "rules", rules)
+        pulumi.set(__self__, "source_storage_account_id", source_storage_account_id)
 
     @property
     @pulumi.getter(name="destinationStorageAccountId")
@@ -107,43 +82,16 @@ class _ObjectReplicationState:
         :param pulumi.Input[str] source_object_replication_id: The ID of the Object Replication in the source storage account.
         :param pulumi.Input[str] source_storage_account_id: The ID of the source storage account. Changing this forces a new Storage Object Replication to be created.
         """
-        _ObjectReplicationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination_object_replication_id=destination_object_replication_id,
-            destination_storage_account_id=destination_storage_account_id,
-            rules=rules,
-            source_object_replication_id=source_object_replication_id,
-            source_storage_account_id=source_storage_account_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination_object_replication_id: Optional[pulumi.Input[str]] = None,
-             destination_storage_account_id: Optional[pulumi.Input[str]] = None,
-             rules: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectReplicationRuleArgs']]]] = None,
-             source_object_replication_id: Optional[pulumi.Input[str]] = None,
-             source_storage_account_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if destination_object_replication_id is None and 'destinationObjectReplicationId' in kwargs:
-            destination_object_replication_id = kwargs['destinationObjectReplicationId']
-        if destination_storage_account_id is None and 'destinationStorageAccountId' in kwargs:
-            destination_storage_account_id = kwargs['destinationStorageAccountId']
-        if source_object_replication_id is None and 'sourceObjectReplicationId' in kwargs:
-            source_object_replication_id = kwargs['sourceObjectReplicationId']
-        if source_storage_account_id is None and 'sourceStorageAccountId' in kwargs:
-            source_storage_account_id = kwargs['sourceStorageAccountId']
-
         if destination_object_replication_id is not None:
-            _setter("destination_object_replication_id", destination_object_replication_id)
+            pulumi.set(__self__, "destination_object_replication_id", destination_object_replication_id)
         if destination_storage_account_id is not None:
-            _setter("destination_storage_account_id", destination_storage_account_id)
+            pulumi.set(__self__, "destination_storage_account_id", destination_storage_account_id)
         if rules is not None:
-            _setter("rules", rules)
+            pulumi.set(__self__, "rules", rules)
         if source_object_replication_id is not None:
-            _setter("source_object_replication_id", source_object_replication_id)
+            pulumi.set(__self__, "source_object_replication_id", source_object_replication_id)
         if source_storage_account_id is not None:
-            _setter("source_storage_account_id", source_storage_account_id)
+            pulumi.set(__self__, "source_storage_account_id", source_storage_account_id)
 
     @property
     @pulumi.getter(name="destinationObjectReplicationId")
@@ -341,10 +289,6 @@ class ObjectReplication(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ObjectReplicationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TimeSeriesInsightsEventSourceEventhubArgs', 'TimeSeriesInsightsEventSourceEventhub']
@@ -39,82 +39,21 @@ class TimeSeriesInsightsEventSourceEventhubArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] timestamp_property_name: Specifies the value that will be used as the event source's timestamp. This value defaults to the event creation time.
         """
-        TimeSeriesInsightsEventSourceEventhubArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            consumer_group_name=consumer_group_name,
-            environment_id=environment_id,
-            event_source_resource_id=event_source_resource_id,
-            eventhub_name=eventhub_name,
-            namespace_name=namespace_name,
-            shared_access_key=shared_access_key,
-            shared_access_key_name=shared_access_key_name,
-            location=location,
-            name=name,
-            tags=tags,
-            timestamp_property_name=timestamp_property_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             consumer_group_name: Optional[pulumi.Input[str]] = None,
-             environment_id: Optional[pulumi.Input[str]] = None,
-             event_source_resource_id: Optional[pulumi.Input[str]] = None,
-             eventhub_name: Optional[pulumi.Input[str]] = None,
-             namespace_name: Optional[pulumi.Input[str]] = None,
-             shared_access_key: Optional[pulumi.Input[str]] = None,
-             shared_access_key_name: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             timestamp_property_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if consumer_group_name is None and 'consumerGroupName' in kwargs:
-            consumer_group_name = kwargs['consumerGroupName']
-        if consumer_group_name is None:
-            raise TypeError("Missing 'consumer_group_name' argument")
-        if environment_id is None and 'environmentId' in kwargs:
-            environment_id = kwargs['environmentId']
-        if environment_id is None:
-            raise TypeError("Missing 'environment_id' argument")
-        if event_source_resource_id is None and 'eventSourceResourceId' in kwargs:
-            event_source_resource_id = kwargs['eventSourceResourceId']
-        if event_source_resource_id is None:
-            raise TypeError("Missing 'event_source_resource_id' argument")
-        if eventhub_name is None and 'eventhubName' in kwargs:
-            eventhub_name = kwargs['eventhubName']
-        if eventhub_name is None:
-            raise TypeError("Missing 'eventhub_name' argument")
-        if namespace_name is None and 'namespaceName' in kwargs:
-            namespace_name = kwargs['namespaceName']
-        if namespace_name is None:
-            raise TypeError("Missing 'namespace_name' argument")
-        if shared_access_key is None and 'sharedAccessKey' in kwargs:
-            shared_access_key = kwargs['sharedAccessKey']
-        if shared_access_key is None:
-            raise TypeError("Missing 'shared_access_key' argument")
-        if shared_access_key_name is None and 'sharedAccessKeyName' in kwargs:
-            shared_access_key_name = kwargs['sharedAccessKeyName']
-        if shared_access_key_name is None:
-            raise TypeError("Missing 'shared_access_key_name' argument")
-        if timestamp_property_name is None and 'timestampPropertyName' in kwargs:
-            timestamp_property_name = kwargs['timestampPropertyName']
-
-        _setter("consumer_group_name", consumer_group_name)
-        _setter("environment_id", environment_id)
-        _setter("event_source_resource_id", event_source_resource_id)
-        _setter("eventhub_name", eventhub_name)
-        _setter("namespace_name", namespace_name)
-        _setter("shared_access_key", shared_access_key)
-        _setter("shared_access_key_name", shared_access_key_name)
+        pulumi.set(__self__, "consumer_group_name", consumer_group_name)
+        pulumi.set(__self__, "environment_id", environment_id)
+        pulumi.set(__self__, "event_source_resource_id", event_source_resource_id)
+        pulumi.set(__self__, "eventhub_name", eventhub_name)
+        pulumi.set(__self__, "namespace_name", namespace_name)
+        pulumi.set(__self__, "shared_access_key", shared_access_key)
+        pulumi.set(__self__, "shared_access_key_name", shared_access_key_name)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if timestamp_property_name is not None:
-            _setter("timestamp_property_name", timestamp_property_name)
+            pulumi.set(__self__, "timestamp_property_name", timestamp_property_name)
 
     @property
     @pulumi.getter(name="consumerGroupName")
@@ -277,75 +216,28 @@ class _TimeSeriesInsightsEventSourceEventhubState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] timestamp_property_name: Specifies the value that will be used as the event source's timestamp. This value defaults to the event creation time.
         """
-        _TimeSeriesInsightsEventSourceEventhubState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            consumer_group_name=consumer_group_name,
-            environment_id=environment_id,
-            event_source_resource_id=event_source_resource_id,
-            eventhub_name=eventhub_name,
-            location=location,
-            name=name,
-            namespace_name=namespace_name,
-            shared_access_key=shared_access_key,
-            shared_access_key_name=shared_access_key_name,
-            tags=tags,
-            timestamp_property_name=timestamp_property_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             consumer_group_name: Optional[pulumi.Input[str]] = None,
-             environment_id: Optional[pulumi.Input[str]] = None,
-             event_source_resource_id: Optional[pulumi.Input[str]] = None,
-             eventhub_name: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             namespace_name: Optional[pulumi.Input[str]] = None,
-             shared_access_key: Optional[pulumi.Input[str]] = None,
-             shared_access_key_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             timestamp_property_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if consumer_group_name is None and 'consumerGroupName' in kwargs:
-            consumer_group_name = kwargs['consumerGroupName']
-        if environment_id is None and 'environmentId' in kwargs:
-            environment_id = kwargs['environmentId']
-        if event_source_resource_id is None and 'eventSourceResourceId' in kwargs:
-            event_source_resource_id = kwargs['eventSourceResourceId']
-        if eventhub_name is None and 'eventhubName' in kwargs:
-            eventhub_name = kwargs['eventhubName']
-        if namespace_name is None and 'namespaceName' in kwargs:
-            namespace_name = kwargs['namespaceName']
-        if shared_access_key is None and 'sharedAccessKey' in kwargs:
-            shared_access_key = kwargs['sharedAccessKey']
-        if shared_access_key_name is None and 'sharedAccessKeyName' in kwargs:
-            shared_access_key_name = kwargs['sharedAccessKeyName']
-        if timestamp_property_name is None and 'timestampPropertyName' in kwargs:
-            timestamp_property_name = kwargs['timestampPropertyName']
-
         if consumer_group_name is not None:
-            _setter("consumer_group_name", consumer_group_name)
+            pulumi.set(__self__, "consumer_group_name", consumer_group_name)
         if environment_id is not None:
-            _setter("environment_id", environment_id)
+            pulumi.set(__self__, "environment_id", environment_id)
         if event_source_resource_id is not None:
-            _setter("event_source_resource_id", event_source_resource_id)
+            pulumi.set(__self__, "event_source_resource_id", event_source_resource_id)
         if eventhub_name is not None:
-            _setter("eventhub_name", eventhub_name)
+            pulumi.set(__self__, "eventhub_name", eventhub_name)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if namespace_name is not None:
-            _setter("namespace_name", namespace_name)
+            pulumi.set(__self__, "namespace_name", namespace_name)
         if shared_access_key is not None:
-            _setter("shared_access_key", shared_access_key)
+            pulumi.set(__self__, "shared_access_key", shared_access_key)
         if shared_access_key_name is not None:
-            _setter("shared_access_key_name", shared_access_key_name)
+            pulumi.set(__self__, "shared_access_key_name", shared_access_key_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if timestamp_property_name is not None:
-            _setter("timestamp_property_name", timestamp_property_name)
+            pulumi.set(__self__, "timestamp_property_name", timestamp_property_name)
 
     @property
     @pulumi.getter(name="consumerGroupName")
@@ -653,10 +545,6 @@ class TimeSeriesInsightsEventSourceEventhub(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            TimeSeriesInsightsEventSourceEventhubArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

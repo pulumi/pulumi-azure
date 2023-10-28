@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SpringCloudActiveDeploymentArgs', 'SpringCloudActiveDeployment']
@@ -21,29 +21,8 @@ class SpringCloudActiveDeploymentArgs:
         :param pulumi.Input[str] deployment_name: Specifies the name of Spring Cloud Deployment which is going to be active.
         :param pulumi.Input[str] spring_cloud_app_id: Specifies the id of the Spring Cloud Application. Changing this forces a new resource to be created.
         """
-        SpringCloudActiveDeploymentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            deployment_name=deployment_name,
-            spring_cloud_app_id=spring_cloud_app_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             deployment_name: Optional[pulumi.Input[str]] = None,
-             spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if deployment_name is None and 'deploymentName' in kwargs:
-            deployment_name = kwargs['deploymentName']
-        if deployment_name is None:
-            raise TypeError("Missing 'deployment_name' argument")
-        if spring_cloud_app_id is None and 'springCloudAppId' in kwargs:
-            spring_cloud_app_id = kwargs['springCloudAppId']
-        if spring_cloud_app_id is None:
-            raise TypeError("Missing 'spring_cloud_app_id' argument")
-
-        _setter("deployment_name", deployment_name)
-        _setter("spring_cloud_app_id", spring_cloud_app_id)
+        pulumi.set(__self__, "deployment_name", deployment_name)
+        pulumi.set(__self__, "spring_cloud_app_id", spring_cloud_app_id)
 
     @property
     @pulumi.getter(name="deploymentName")
@@ -80,27 +59,10 @@ class _SpringCloudActiveDeploymentState:
         :param pulumi.Input[str] deployment_name: Specifies the name of Spring Cloud Deployment which is going to be active.
         :param pulumi.Input[str] spring_cloud_app_id: Specifies the id of the Spring Cloud Application. Changing this forces a new resource to be created.
         """
-        _SpringCloudActiveDeploymentState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            deployment_name=deployment_name,
-            spring_cloud_app_id=spring_cloud_app_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             deployment_name: Optional[pulumi.Input[str]] = None,
-             spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if deployment_name is None and 'deploymentName' in kwargs:
-            deployment_name = kwargs['deploymentName']
-        if spring_cloud_app_id is None and 'springCloudAppId' in kwargs:
-            spring_cloud_app_id = kwargs['springCloudAppId']
-
         if deployment_name is not None:
-            _setter("deployment_name", deployment_name)
+            pulumi.set(__self__, "deployment_name", deployment_name)
         if spring_cloud_app_id is not None:
-            _setter("spring_cloud_app_id", spring_cloud_app_id)
+            pulumi.set(__self__, "spring_cloud_app_id", spring_cloud_app_id)
 
     @property
     @pulumi.getter(name="deploymentName")
@@ -244,10 +206,6 @@ class SpringCloudActiveDeployment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SpringCloudActiveDeploymentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

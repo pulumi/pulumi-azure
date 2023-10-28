@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LockArgs', 'Lock']
@@ -27,35 +27,12 @@ class LockArgs:
         :param pulumi.Input[str] name: Specifies the name of the Management Lock. Changing this forces a new resource to be created.
         :param pulumi.Input[str] notes: Specifies some notes about the lock. Maximum of 512 characters. Changing this forces a new resource to be created.
         """
-        LockArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            lock_level=lock_level,
-            scope=scope,
-            name=name,
-            notes=notes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             lock_level: Optional[pulumi.Input[str]] = None,
-             scope: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             notes: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if lock_level is None and 'lockLevel' in kwargs:
-            lock_level = kwargs['lockLevel']
-        if lock_level is None:
-            raise TypeError("Missing 'lock_level' argument")
-        if scope is None:
-            raise TypeError("Missing 'scope' argument")
-
-        _setter("lock_level", lock_level)
-        _setter("scope", scope)
+        pulumi.set(__self__, "lock_level", lock_level)
+        pulumi.set(__self__, "scope", scope)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if notes is not None:
-            _setter("notes", notes)
+            pulumi.set(__self__, "notes", notes)
 
     @property
     @pulumi.getter(name="lockLevel")
@@ -124,33 +101,14 @@ class _LockState:
         :param pulumi.Input[str] notes: Specifies some notes about the lock. Maximum of 512 characters. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scope: Specifies the scope at which the Management Lock should be created. Changing this forces a new resource to be created.
         """
-        _LockState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            lock_level=lock_level,
-            name=name,
-            notes=notes,
-            scope=scope,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             lock_level: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             notes: Optional[pulumi.Input[str]] = None,
-             scope: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if lock_level is None and 'lockLevel' in kwargs:
-            lock_level = kwargs['lockLevel']
-
         if lock_level is not None:
-            _setter("lock_level", lock_level)
+            pulumi.set(__self__, "lock_level", lock_level)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if notes is not None:
-            _setter("notes", notes)
+            pulumi.set(__self__, "notes", notes)
         if scope is not None:
-            _setter("scope", scope)
+            pulumi.set(__self__, "scope", scope)
 
     @property
     @pulumi.getter(name="lockLevel")
@@ -346,10 +304,6 @@ class Lock(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LockArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

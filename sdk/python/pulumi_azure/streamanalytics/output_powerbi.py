@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['OutputPowerbiArgs', 'OutputPowerbi']
@@ -33,62 +33,17 @@ class OutputPowerbiArgs:
         :param pulumi.Input[str] token_user_display_name: The user display name of the user that was used to obtain the refresh token.
         :param pulumi.Input[str] token_user_principal_name: The user principal name (UPN) of the user that was used to obtain the refresh token.
         """
-        OutputPowerbiArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            dataset=dataset,
-            group_id=group_id,
-            group_name=group_name,
-            stream_analytics_job_id=stream_analytics_job_id,
-            table=table,
-            name=name,
-            token_user_display_name=token_user_display_name,
-            token_user_principal_name=token_user_principal_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             dataset: Optional[pulumi.Input[str]] = None,
-             group_id: Optional[pulumi.Input[str]] = None,
-             group_name: Optional[pulumi.Input[str]] = None,
-             stream_analytics_job_id: Optional[pulumi.Input[str]] = None,
-             table: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             token_user_display_name: Optional[pulumi.Input[str]] = None,
-             token_user_principal_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if dataset is None:
-            raise TypeError("Missing 'dataset' argument")
-        if group_id is None and 'groupId' in kwargs:
-            group_id = kwargs['groupId']
-        if group_id is None:
-            raise TypeError("Missing 'group_id' argument")
-        if group_name is None and 'groupName' in kwargs:
-            group_name = kwargs['groupName']
-        if group_name is None:
-            raise TypeError("Missing 'group_name' argument")
-        if stream_analytics_job_id is None and 'streamAnalyticsJobId' in kwargs:
-            stream_analytics_job_id = kwargs['streamAnalyticsJobId']
-        if stream_analytics_job_id is None:
-            raise TypeError("Missing 'stream_analytics_job_id' argument")
-        if table is None:
-            raise TypeError("Missing 'table' argument")
-        if token_user_display_name is None and 'tokenUserDisplayName' in kwargs:
-            token_user_display_name = kwargs['tokenUserDisplayName']
-        if token_user_principal_name is None and 'tokenUserPrincipalName' in kwargs:
-            token_user_principal_name = kwargs['tokenUserPrincipalName']
-
-        _setter("dataset", dataset)
-        _setter("group_id", group_id)
-        _setter("group_name", group_name)
-        _setter("stream_analytics_job_id", stream_analytics_job_id)
-        _setter("table", table)
+        pulumi.set(__self__, "dataset", dataset)
+        pulumi.set(__self__, "group_id", group_id)
+        pulumi.set(__self__, "group_name", group_name)
+        pulumi.set(__self__, "stream_analytics_job_id", stream_analytics_job_id)
+        pulumi.set(__self__, "table", table)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if token_user_display_name is not None:
-            _setter("token_user_display_name", token_user_display_name)
+            pulumi.set(__self__, "token_user_display_name", token_user_display_name)
         if token_user_principal_name is not None:
-            _setter("token_user_principal_name", token_user_principal_name)
+            pulumi.set(__self__, "token_user_principal_name", token_user_principal_name)
 
     @property
     @pulumi.getter
@@ -209,57 +164,22 @@ class _OutputPowerbiState:
         :param pulumi.Input[str] token_user_display_name: The user display name of the user that was used to obtain the refresh token.
         :param pulumi.Input[str] token_user_principal_name: The user principal name (UPN) of the user that was used to obtain the refresh token.
         """
-        _OutputPowerbiState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            dataset=dataset,
-            group_id=group_id,
-            group_name=group_name,
-            name=name,
-            stream_analytics_job_id=stream_analytics_job_id,
-            table=table,
-            token_user_display_name=token_user_display_name,
-            token_user_principal_name=token_user_principal_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             dataset: Optional[pulumi.Input[str]] = None,
-             group_id: Optional[pulumi.Input[str]] = None,
-             group_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             stream_analytics_job_id: Optional[pulumi.Input[str]] = None,
-             table: Optional[pulumi.Input[str]] = None,
-             token_user_display_name: Optional[pulumi.Input[str]] = None,
-             token_user_principal_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if group_id is None and 'groupId' in kwargs:
-            group_id = kwargs['groupId']
-        if group_name is None and 'groupName' in kwargs:
-            group_name = kwargs['groupName']
-        if stream_analytics_job_id is None and 'streamAnalyticsJobId' in kwargs:
-            stream_analytics_job_id = kwargs['streamAnalyticsJobId']
-        if token_user_display_name is None and 'tokenUserDisplayName' in kwargs:
-            token_user_display_name = kwargs['tokenUserDisplayName']
-        if token_user_principal_name is None and 'tokenUserPrincipalName' in kwargs:
-            token_user_principal_name = kwargs['tokenUserPrincipalName']
-
         if dataset is not None:
-            _setter("dataset", dataset)
+            pulumi.set(__self__, "dataset", dataset)
         if group_id is not None:
-            _setter("group_id", group_id)
+            pulumi.set(__self__, "group_id", group_id)
         if group_name is not None:
-            _setter("group_name", group_name)
+            pulumi.set(__self__, "group_name", group_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if stream_analytics_job_id is not None:
-            _setter("stream_analytics_job_id", stream_analytics_job_id)
+            pulumi.set(__self__, "stream_analytics_job_id", stream_analytics_job_id)
         if table is not None:
-            _setter("table", table)
+            pulumi.set(__self__, "table", table)
         if token_user_display_name is not None:
-            _setter("token_user_display_name", token_user_display_name)
+            pulumi.set(__self__, "token_user_display_name", token_user_display_name)
         if token_user_principal_name is not None:
-            _setter("token_user_principal_name", token_user_principal_name)
+            pulumi.set(__self__, "token_user_principal_name", token_user_principal_name)
 
     @property
     @pulumi.getter
@@ -455,10 +375,6 @@ class OutputPowerbi(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            OutputPowerbiArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

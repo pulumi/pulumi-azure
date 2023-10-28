@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ClusterTrustedAccessRoleBindingArgs', 'ClusterTrustedAccessRoleBinding']
@@ -25,38 +25,11 @@ class ClusterTrustedAccessRoleBindingArgs:
         :param pulumi.Input[str] source_resource_id: The ARM resource ID of source resource that trusted access is configured for. Changing this forces a new Kubernetes Cluster Trusted Access Role Binding to be created.
         :param pulumi.Input[str] name: Specifies the name of this Kubernetes Cluster Trusted Access Role Binding. Changing this forces a new Kubernetes Cluster Trusted Access Role Binding to be created.
         """
-        ClusterTrustedAccessRoleBindingArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            kubernetes_cluster_id=kubernetes_cluster_id,
-            roles=roles,
-            source_resource_id=source_resource_id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             kubernetes_cluster_id: Optional[pulumi.Input[str]] = None,
-             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             source_resource_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if kubernetes_cluster_id is None and 'kubernetesClusterId' in kwargs:
-            kubernetes_cluster_id = kwargs['kubernetesClusterId']
-        if kubernetes_cluster_id is None:
-            raise TypeError("Missing 'kubernetes_cluster_id' argument")
-        if roles is None:
-            raise TypeError("Missing 'roles' argument")
-        if source_resource_id is None and 'sourceResourceId' in kwargs:
-            source_resource_id = kwargs['sourceResourceId']
-        if source_resource_id is None:
-            raise TypeError("Missing 'source_resource_id' argument")
-
-        _setter("kubernetes_cluster_id", kubernetes_cluster_id)
-        _setter("roles", roles)
-        _setter("source_resource_id", source_resource_id)
+        pulumi.set(__self__, "kubernetes_cluster_id", kubernetes_cluster_id)
+        pulumi.set(__self__, "roles", roles)
+        pulumi.set(__self__, "source_resource_id", source_resource_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="kubernetesClusterId")
@@ -121,35 +94,14 @@ class _ClusterTrustedAccessRoleBindingState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: A list of roles to bind, each item is a resource type qualified role name.
         :param pulumi.Input[str] source_resource_id: The ARM resource ID of source resource that trusted access is configured for. Changing this forces a new Kubernetes Cluster Trusted Access Role Binding to be created.
         """
-        _ClusterTrustedAccessRoleBindingState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            kubernetes_cluster_id=kubernetes_cluster_id,
-            name=name,
-            roles=roles,
-            source_resource_id=source_resource_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             kubernetes_cluster_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             source_resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if kubernetes_cluster_id is None and 'kubernetesClusterId' in kwargs:
-            kubernetes_cluster_id = kwargs['kubernetesClusterId']
-        if source_resource_id is None and 'sourceResourceId' in kwargs:
-            source_resource_id = kwargs['sourceResourceId']
-
         if kubernetes_cluster_id is not None:
-            _setter("kubernetes_cluster_id", kubernetes_cluster_id)
+            pulumi.set(__self__, "kubernetes_cluster_id", kubernetes_cluster_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if roles is not None:
-            _setter("roles", roles)
+            pulumi.set(__self__, "roles", roles)
         if source_resource_id is not None:
-            _setter("source_resource_id", source_resource_id)
+            pulumi.set(__self__, "source_resource_id", source_resource_id)
 
     @property
     @pulumi.getter(name="kubernetesClusterId")
@@ -377,10 +329,6 @@ class ClusterTrustedAccessRoleBinding(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ClusterTrustedAccessRoleBindingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,53 +33,16 @@ class GlobalVMShutdownScheduleArgs:
         :param pulumi.Input[str] location: The location where the schedule is created. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        GlobalVMShutdownScheduleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            daily_recurrence_time=daily_recurrence_time,
-            notification_settings=notification_settings,
-            timezone=timezone,
-            virtual_machine_id=virtual_machine_id,
-            enabled=enabled,
-            location=location,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             daily_recurrence_time: Optional[pulumi.Input[str]] = None,
-             notification_settings: Optional[pulumi.Input['GlobalVMShutdownScheduleNotificationSettingsArgs']] = None,
-             timezone: Optional[pulumi.Input[str]] = None,
-             virtual_machine_id: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if daily_recurrence_time is None and 'dailyRecurrenceTime' in kwargs:
-            daily_recurrence_time = kwargs['dailyRecurrenceTime']
-        if daily_recurrence_time is None:
-            raise TypeError("Missing 'daily_recurrence_time' argument")
-        if notification_settings is None and 'notificationSettings' in kwargs:
-            notification_settings = kwargs['notificationSettings']
-        if notification_settings is None:
-            raise TypeError("Missing 'notification_settings' argument")
-        if timezone is None:
-            raise TypeError("Missing 'timezone' argument")
-        if virtual_machine_id is None and 'virtualMachineId' in kwargs:
-            virtual_machine_id = kwargs['virtualMachineId']
-        if virtual_machine_id is None:
-            raise TypeError("Missing 'virtual_machine_id' argument")
-
-        _setter("daily_recurrence_time", daily_recurrence_time)
-        _setter("notification_settings", notification_settings)
-        _setter("timezone", timezone)
-        _setter("virtual_machine_id", virtual_machine_id)
+        pulumi.set(__self__, "daily_recurrence_time", daily_recurrence_time)
+        pulumi.set(__self__, "notification_settings", notification_settings)
+        pulumi.set(__self__, "timezone", timezone)
+        pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="dailyRecurrenceTime")
@@ -186,49 +149,20 @@ class _GlobalVMShutdownScheduleState:
         :param pulumi.Input[str] timezone: The time zone ID (e.g. Pacific Standard time). Refer to this guide for a [full list of accepted time zone names](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         :param pulumi.Input[str] virtual_machine_id: The resource ID of the target ARM-based Virtual Machine. Changing this forces a new resource to be created.
         """
-        _GlobalVMShutdownScheduleState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            daily_recurrence_time=daily_recurrence_time,
-            enabled=enabled,
-            location=location,
-            notification_settings=notification_settings,
-            tags=tags,
-            timezone=timezone,
-            virtual_machine_id=virtual_machine_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             daily_recurrence_time: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             notification_settings: Optional[pulumi.Input['GlobalVMShutdownScheduleNotificationSettingsArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             timezone: Optional[pulumi.Input[str]] = None,
-             virtual_machine_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if daily_recurrence_time is None and 'dailyRecurrenceTime' in kwargs:
-            daily_recurrence_time = kwargs['dailyRecurrenceTime']
-        if notification_settings is None and 'notificationSettings' in kwargs:
-            notification_settings = kwargs['notificationSettings']
-        if virtual_machine_id is None and 'virtualMachineId' in kwargs:
-            virtual_machine_id = kwargs['virtualMachineId']
-
         if daily_recurrence_time is not None:
-            _setter("daily_recurrence_time", daily_recurrence_time)
+            pulumi.set(__self__, "daily_recurrence_time", daily_recurrence_time)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if notification_settings is not None:
-            _setter("notification_settings", notification_settings)
+            pulumi.set(__self__, "notification_settings", notification_settings)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if timezone is not None:
-            _setter("timezone", timezone)
+            pulumi.set(__self__, "timezone", timezone)
         if virtual_machine_id is not None:
-            _setter("virtual_machine_id", virtual_machine_id)
+            pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
 
     @property
     @pulumi.getter(name="dailyRecurrenceTime")
@@ -494,10 +428,6 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            GlobalVMShutdownScheduleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -524,7 +454,6 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
             __props__.__dict__["daily_recurrence_time"] = daily_recurrence_time
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["location"] = location
-            notification_settings = _utilities.configure(notification_settings, GlobalVMShutdownScheduleNotificationSettingsArgs, True)
             if notification_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'notification_settings'")
             __props__.__dict__["notification_settings"] = notification_settings

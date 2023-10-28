@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -48,92 +48,29 @@ class RunBookArgs:
         :param pulumi.Input['RunBookPublishContentLinkArgs'] publish_content_link: The published runbook content link.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        RunBookArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            automation_account_name=automation_account_name,
-            log_progress=log_progress,
-            log_verbose=log_verbose,
-            resource_group_name=resource_group_name,
-            runbook_type=runbook_type,
-            content=content,
-            description=description,
-            draft=draft,
-            job_schedules=job_schedules,
-            location=location,
-            log_activity_trace_level=log_activity_trace_level,
-            name=name,
-            publish_content_link=publish_content_link,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             automation_account_name: Optional[pulumi.Input[str]] = None,
-             log_progress: Optional[pulumi.Input[bool]] = None,
-             log_verbose: Optional[pulumi.Input[bool]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             runbook_type: Optional[pulumi.Input[str]] = None,
-             content: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             draft: Optional[pulumi.Input['RunBookDraftArgs']] = None,
-             job_schedules: Optional[pulumi.Input[Sequence[pulumi.Input['RunBookJobScheduleArgs']]]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             log_activity_trace_level: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             publish_content_link: Optional[pulumi.Input['RunBookPublishContentLinkArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if automation_account_name is None and 'automationAccountName' in kwargs:
-            automation_account_name = kwargs['automationAccountName']
-        if automation_account_name is None:
-            raise TypeError("Missing 'automation_account_name' argument")
-        if log_progress is None and 'logProgress' in kwargs:
-            log_progress = kwargs['logProgress']
-        if log_progress is None:
-            raise TypeError("Missing 'log_progress' argument")
-        if log_verbose is None and 'logVerbose' in kwargs:
-            log_verbose = kwargs['logVerbose']
-        if log_verbose is None:
-            raise TypeError("Missing 'log_verbose' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if runbook_type is None and 'runbookType' in kwargs:
-            runbook_type = kwargs['runbookType']
-        if runbook_type is None:
-            raise TypeError("Missing 'runbook_type' argument")
-        if job_schedules is None and 'jobSchedules' in kwargs:
-            job_schedules = kwargs['jobSchedules']
-        if log_activity_trace_level is None and 'logActivityTraceLevel' in kwargs:
-            log_activity_trace_level = kwargs['logActivityTraceLevel']
-        if publish_content_link is None and 'publishContentLink' in kwargs:
-            publish_content_link = kwargs['publishContentLink']
-
-        _setter("automation_account_name", automation_account_name)
-        _setter("log_progress", log_progress)
-        _setter("log_verbose", log_verbose)
-        _setter("resource_group_name", resource_group_name)
-        _setter("runbook_type", runbook_type)
+        pulumi.set(__self__, "automation_account_name", automation_account_name)
+        pulumi.set(__self__, "log_progress", log_progress)
+        pulumi.set(__self__, "log_verbose", log_verbose)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "runbook_type", runbook_type)
         if content is not None:
-            _setter("content", content)
+            pulumi.set(__self__, "content", content)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if draft is not None:
-            _setter("draft", draft)
+            pulumi.set(__self__, "draft", draft)
         if job_schedules is not None:
-            _setter("job_schedules", job_schedules)
+            pulumi.set(__self__, "job_schedules", job_schedules)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if log_activity_trace_level is not None:
-            _setter("log_activity_trace_level", log_activity_trace_level)
+            pulumi.set(__self__, "log_activity_trace_level", log_activity_trace_level)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if publish_content_link is not None:
-            _setter("publish_content_link", publish_content_link)
+            pulumi.set(__self__, "publish_content_link", publish_content_link)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="automationAccountName")
@@ -338,87 +275,34 @@ class _RunBookState:
         :param pulumi.Input[str] runbook_type: The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        _RunBookState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            automation_account_name=automation_account_name,
-            content=content,
-            description=description,
-            draft=draft,
-            job_schedules=job_schedules,
-            location=location,
-            log_activity_trace_level=log_activity_trace_level,
-            log_progress=log_progress,
-            log_verbose=log_verbose,
-            name=name,
-            publish_content_link=publish_content_link,
-            resource_group_name=resource_group_name,
-            runbook_type=runbook_type,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             automation_account_name: Optional[pulumi.Input[str]] = None,
-             content: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             draft: Optional[pulumi.Input['RunBookDraftArgs']] = None,
-             job_schedules: Optional[pulumi.Input[Sequence[pulumi.Input['RunBookJobScheduleArgs']]]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             log_activity_trace_level: Optional[pulumi.Input[int]] = None,
-             log_progress: Optional[pulumi.Input[bool]] = None,
-             log_verbose: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             publish_content_link: Optional[pulumi.Input['RunBookPublishContentLinkArgs']] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             runbook_type: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if automation_account_name is None and 'automationAccountName' in kwargs:
-            automation_account_name = kwargs['automationAccountName']
-        if job_schedules is None and 'jobSchedules' in kwargs:
-            job_schedules = kwargs['jobSchedules']
-        if log_activity_trace_level is None and 'logActivityTraceLevel' in kwargs:
-            log_activity_trace_level = kwargs['logActivityTraceLevel']
-        if log_progress is None and 'logProgress' in kwargs:
-            log_progress = kwargs['logProgress']
-        if log_verbose is None and 'logVerbose' in kwargs:
-            log_verbose = kwargs['logVerbose']
-        if publish_content_link is None and 'publishContentLink' in kwargs:
-            publish_content_link = kwargs['publishContentLink']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if runbook_type is None and 'runbookType' in kwargs:
-            runbook_type = kwargs['runbookType']
-
         if automation_account_name is not None:
-            _setter("automation_account_name", automation_account_name)
+            pulumi.set(__self__, "automation_account_name", automation_account_name)
         if content is not None:
-            _setter("content", content)
+            pulumi.set(__self__, "content", content)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if draft is not None:
-            _setter("draft", draft)
+            pulumi.set(__self__, "draft", draft)
         if job_schedules is not None:
-            _setter("job_schedules", job_schedules)
+            pulumi.set(__self__, "job_schedules", job_schedules)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if log_activity_trace_level is not None:
-            _setter("log_activity_trace_level", log_activity_trace_level)
+            pulumi.set(__self__, "log_activity_trace_level", log_activity_trace_level)
         if log_progress is not None:
-            _setter("log_progress", log_progress)
+            pulumi.set(__self__, "log_progress", log_progress)
         if log_verbose is not None:
-            _setter("log_verbose", log_verbose)
+            pulumi.set(__self__, "log_verbose", log_verbose)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if publish_content_link is not None:
-            _setter("publish_content_link", publish_content_link)
+            pulumi.set(__self__, "publish_content_link", publish_content_link)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if runbook_type is not None:
-            _setter("runbook_type", runbook_type)
+            pulumi.set(__self__, "runbook_type", runbook_type)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="automationAccountName")
@@ -758,10 +642,6 @@ class RunBook(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            RunBookArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -795,7 +675,6 @@ class RunBook(pulumi.CustomResource):
             __props__.__dict__["automation_account_name"] = automation_account_name
             __props__.__dict__["content"] = content
             __props__.__dict__["description"] = description
-            draft = _utilities.configure(draft, RunBookDraftArgs, True)
             __props__.__dict__["draft"] = draft
             __props__.__dict__["job_schedules"] = job_schedules
             __props__.__dict__["location"] = location
@@ -807,7 +686,6 @@ class RunBook(pulumi.CustomResource):
                 raise TypeError("Missing required property 'log_verbose'")
             __props__.__dict__["log_verbose"] = log_verbose
             __props__.__dict__["name"] = name
-            publish_content_link = _utilities.configure(publish_content_link, RunBookPublishContentLinkArgs, True)
             __props__.__dict__["publish_content_link"] = publish_content_link
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

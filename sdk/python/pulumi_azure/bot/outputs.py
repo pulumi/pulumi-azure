@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -74,78 +74,29 @@ class ChannelDirectLineSite(dict):
         :param bool v1_allowed: Enables v1 of the Directline protocol for this site. Enabled by default Defaults to `true`.
         :param bool v3_allowed: Enables v3 of the Directline protocol for this site. Enabled by default Defaults to `true`.
         """
-        ChannelDirectLineSite._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            enabled=enabled,
-            endpoint_parameters_enabled=endpoint_parameters_enabled,
-            enhanced_authentication_enabled=enhanced_authentication_enabled,
-            id=id,
-            key=key,
-            key2=key2,
-            storage_enabled=storage_enabled,
-            trusted_origins=trusted_origins,
-            user_upload_enabled=user_upload_enabled,
-            v1_allowed=v1_allowed,
-            v3_allowed=v3_allowed,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             enabled: Optional[bool] = None,
-             endpoint_parameters_enabled: Optional[bool] = None,
-             enhanced_authentication_enabled: Optional[bool] = None,
-             id: Optional[str] = None,
-             key: Optional[str] = None,
-             key2: Optional[str] = None,
-             storage_enabled: Optional[bool] = None,
-             trusted_origins: Optional[Sequence[str]] = None,
-             user_upload_enabled: Optional[bool] = None,
-             v1_allowed: Optional[bool] = None,
-             v3_allowed: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if endpoint_parameters_enabled is None and 'endpointParametersEnabled' in kwargs:
-            endpoint_parameters_enabled = kwargs['endpointParametersEnabled']
-        if enhanced_authentication_enabled is None and 'enhancedAuthenticationEnabled' in kwargs:
-            enhanced_authentication_enabled = kwargs['enhancedAuthenticationEnabled']
-        if storage_enabled is None and 'storageEnabled' in kwargs:
-            storage_enabled = kwargs['storageEnabled']
-        if trusted_origins is None and 'trustedOrigins' in kwargs:
-            trusted_origins = kwargs['trustedOrigins']
-        if user_upload_enabled is None and 'userUploadEnabled' in kwargs:
-            user_upload_enabled = kwargs['userUploadEnabled']
-        if v1_allowed is None and 'v1Allowed' in kwargs:
-            v1_allowed = kwargs['v1Allowed']
-        if v3_allowed is None and 'v3Allowed' in kwargs:
-            v3_allowed = kwargs['v3Allowed']
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if endpoint_parameters_enabled is not None:
-            _setter("endpoint_parameters_enabled", endpoint_parameters_enabled)
+            pulumi.set(__self__, "endpoint_parameters_enabled", endpoint_parameters_enabled)
         if enhanced_authentication_enabled is not None:
-            _setter("enhanced_authentication_enabled", enhanced_authentication_enabled)
+            pulumi.set(__self__, "enhanced_authentication_enabled", enhanced_authentication_enabled)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if key2 is not None:
-            _setter("key2", key2)
+            pulumi.set(__self__, "key2", key2)
         if storage_enabled is not None:
-            _setter("storage_enabled", storage_enabled)
+            pulumi.set(__self__, "storage_enabled", storage_enabled)
         if trusted_origins is not None:
-            _setter("trusted_origins", trusted_origins)
+            pulumi.set(__self__, "trusted_origins", trusted_origins)
         if user_upload_enabled is not None:
-            _setter("user_upload_enabled", user_upload_enabled)
+            pulumi.set(__self__, "user_upload_enabled", user_upload_enabled)
         if v1_allowed is not None:
-            _setter("v1_allowed", v1_allowed)
+            pulumi.set(__self__, "v1_allowed", v1_allowed)
         if v3_allowed is not None:
-            _setter("v3_allowed", v3_allowed)
+            pulumi.set(__self__, "v3_allowed", v3_allowed)
 
     @property
     @pulumi.getter
@@ -270,27 +221,8 @@ class ChannelFacebookPage(dict):
         :param str access_token: The Facebook Page Access Token for the Facebook Channel.
         :param str id: The Facebook Page ID for the Facebook Channel.
         """
-        ChannelFacebookPage._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            access_token=access_token,
-            id=id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             access_token: Optional[str] = None,
-             id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if access_token is None and 'accessToken' in kwargs:
-            access_token = kwargs['accessToken']
-        if access_token is None:
-            raise TypeError("Missing 'access_token' argument")
-        if id is None:
-            raise TypeError("Missing 'id' argument")
-
-        _setter("access_token", access_token)
-        _setter("id", id)
+        pulumi.set(__self__, "access_token", access_token)
+        pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter(name="accessToken")
@@ -335,27 +267,8 @@ class ChannelLineLineChannel(dict):
         :param str access_token: The access token which is used to call the Line Channel API.
         :param str secret: The secret which is used to access the Line Channel.
         """
-        ChannelLineLineChannel._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            access_token=access_token,
-            secret=secret,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             access_token: Optional[str] = None,
-             secret: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if access_token is None and 'accessToken' in kwargs:
-            access_token = kwargs['accessToken']
-        if access_token is None:
-            raise TypeError("Missing 'access_token' argument")
-        if secret is None:
-            raise TypeError("Missing 'secret' argument")
-
-        _setter("access_token", access_token)
-        _setter("secret", secret)
+        pulumi.set(__self__, "access_token", access_token)
+        pulumi.set(__self__, "secret", secret)
 
     @property
     @pulumi.getter(name="accessToken")
@@ -408,38 +321,13 @@ class ChannelWebChatSite(dict):
         :param bool storage_enabled: Is the storage site enabled for detailed logging? Defaults to `true`.
         :param bool user_upload_enabled: Is the user upload enabled for this site? Defaults to `true`.
         """
-        ChannelWebChatSite._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            endpoint_parameters_enabled=endpoint_parameters_enabled,
-            storage_enabled=storage_enabled,
-            user_upload_enabled=user_upload_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             endpoint_parameters_enabled: Optional[bool] = None,
-             storage_enabled: Optional[bool] = None,
-             user_upload_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if endpoint_parameters_enabled is None and 'endpointParametersEnabled' in kwargs:
-            endpoint_parameters_enabled = kwargs['endpointParametersEnabled']
-        if storage_enabled is None and 'storageEnabled' in kwargs:
-            storage_enabled = kwargs['storageEnabled']
-        if user_upload_enabled is None and 'userUploadEnabled' in kwargs:
-            user_upload_enabled = kwargs['userUploadEnabled']
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if endpoint_parameters_enabled is not None:
-            _setter("endpoint_parameters_enabled", endpoint_parameters_enabled)
+            pulumi.set(__self__, "endpoint_parameters_enabled", endpoint_parameters_enabled)
         if storage_enabled is not None:
-            _setter("storage_enabled", storage_enabled)
+            pulumi.set(__self__, "storage_enabled", storage_enabled)
         if user_upload_enabled is not None:
-            _setter("user_upload_enabled", user_upload_enabled)
+            pulumi.set(__self__, "user_upload_enabled", user_upload_enabled)
 
     @property
     @pulumi.getter

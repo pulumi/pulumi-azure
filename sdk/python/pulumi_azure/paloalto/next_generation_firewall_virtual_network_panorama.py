@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,60 +35,19 @@ class NextGenerationFirewallVirtualNetworkPanoramaArgs:
         :param pulumi.Input[str] name: The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Panorama. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall Virtual Network Panorama.
         """
-        NextGenerationFirewallVirtualNetworkPanoramaArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            network_profile=network_profile,
-            panorama_base64_config=panorama_base64_config,
-            resource_group_name=resource_group_name,
-            destination_nats=destination_nats,
-            dns_settings=dns_settings,
-            location=location,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             network_profile: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgs']] = None,
-             panorama_base64_config: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             destination_nats: Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArgs']]]] = None,
-             dns_settings: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsArgs']] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if network_profile is None and 'networkProfile' in kwargs:
-            network_profile = kwargs['networkProfile']
-        if network_profile is None:
-            raise TypeError("Missing 'network_profile' argument")
-        if panorama_base64_config is None and 'panoramaBase64Config' in kwargs:
-            panorama_base64_config = kwargs['panoramaBase64Config']
-        if panorama_base64_config is None:
-            raise TypeError("Missing 'panorama_base64_config' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if destination_nats is None and 'destinationNats' in kwargs:
-            destination_nats = kwargs['destinationNats']
-        if dns_settings is None and 'dnsSettings' in kwargs:
-            dns_settings = kwargs['dnsSettings']
-
-        _setter("network_profile", network_profile)
-        _setter("panorama_base64_config", panorama_base64_config)
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "network_profile", network_profile)
+        pulumi.set(__self__, "panorama_base64_config", panorama_base64_config)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if destination_nats is not None:
-            _setter("destination_nats", destination_nats)
+            pulumi.set(__self__, "destination_nats", destination_nats)
         if dns_settings is not None:
-            _setter("dns_settings", dns_settings)
+            pulumi.set(__self__, "dns_settings", dns_settings)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="networkProfile")
@@ -211,61 +170,24 @@ class _NextGenerationFirewallVirtualNetworkPanoramaState:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall Virtual Network Panorama.
         """
-        _NextGenerationFirewallVirtualNetworkPanoramaState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination_nats=destination_nats,
-            dns_settings=dns_settings,
-            location=location,
-            name=name,
-            network_profile=network_profile,
-            panorama_base64_config=panorama_base64_config,
-            panoramas=panoramas,
-            resource_group_name=resource_group_name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination_nats: Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArgs']]]] = None,
-             dns_settings: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsArgs']] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             network_profile: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgs']] = None,
-             panorama_base64_config: Optional[pulumi.Input[str]] = None,
-             panoramas: Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaPanoramaArgs']]]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if destination_nats is None and 'destinationNats' in kwargs:
-            destination_nats = kwargs['destinationNats']
-        if dns_settings is None and 'dnsSettings' in kwargs:
-            dns_settings = kwargs['dnsSettings']
-        if network_profile is None and 'networkProfile' in kwargs:
-            network_profile = kwargs['networkProfile']
-        if panorama_base64_config is None and 'panoramaBase64Config' in kwargs:
-            panorama_base64_config = kwargs['panoramaBase64Config']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-
         if destination_nats is not None:
-            _setter("destination_nats", destination_nats)
+            pulumi.set(__self__, "destination_nats", destination_nats)
         if dns_settings is not None:
-            _setter("dns_settings", dns_settings)
+            pulumi.set(__self__, "dns_settings", dns_settings)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if network_profile is not None:
-            _setter("network_profile", network_profile)
+            pulumi.set(__self__, "network_profile", network_profile)
         if panorama_base64_config is not None:
-            _setter("panorama_base64_config", panorama_base64_config)
+            pulumi.set(__self__, "panorama_base64_config", panorama_base64_config)
         if panoramas is not None:
-            _setter("panoramas", panoramas)
+            pulumi.set(__self__, "panoramas", panoramas)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="destinationNats")
@@ -567,10 +489,6 @@ class NextGenerationFirewallVirtualNetworkPanorama(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            NextGenerationFirewallVirtualNetworkPanoramaArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -594,11 +512,9 @@ class NextGenerationFirewallVirtualNetworkPanorama(pulumi.CustomResource):
             __props__ = NextGenerationFirewallVirtualNetworkPanoramaArgs.__new__(NextGenerationFirewallVirtualNetworkPanoramaArgs)
 
             __props__.__dict__["destination_nats"] = destination_nats
-            dns_settings = _utilities.configure(dns_settings, NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsArgs, True)
             __props__.__dict__["dns_settings"] = dns_settings
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
-            network_profile = _utilities.configure(network_profile, NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgs, True)
             if network_profile is None and not opts.urn:
                 raise TypeError("Missing required property 'network_profile'")
             __props__.__dict__["network_profile"] = network_profile

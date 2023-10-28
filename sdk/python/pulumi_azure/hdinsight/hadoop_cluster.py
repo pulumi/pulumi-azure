@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -59,115 +59,38 @@ class HadoopClusterArgs:
                
                > **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         """
-        HadoopClusterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cluster_version=cluster_version,
-            component_version=component_version,
-            gateway=gateway,
-            resource_group_name=resource_group_name,
-            roles=roles,
-            tier=tier,
-            compute_isolation=compute_isolation,
-            disk_encryptions=disk_encryptions,
-            extension=extension,
-            location=location,
-            metastores=metastores,
-            monitor=monitor,
-            name=name,
-            network=network,
-            security_profile=security_profile,
-            storage_account_gen2=storage_account_gen2,
-            storage_accounts=storage_accounts,
-            tags=tags,
-            tls_min_version=tls_min_version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cluster_version: Optional[pulumi.Input[str]] = None,
-             component_version: Optional[pulumi.Input['HadoopClusterComponentVersionArgs']] = None,
-             gateway: Optional[pulumi.Input['HadoopClusterGatewayArgs']] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             roles: Optional[pulumi.Input['HadoopClusterRolesArgs']] = None,
-             tier: Optional[pulumi.Input[str]] = None,
-             compute_isolation: Optional[pulumi.Input['HadoopClusterComputeIsolationArgs']] = None,
-             disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterDiskEncryptionArgs']]]] = None,
-             extension: Optional[pulumi.Input['HadoopClusterExtensionArgs']] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             metastores: Optional[pulumi.Input['HadoopClusterMetastoresArgs']] = None,
-             monitor: Optional[pulumi.Input['HadoopClusterMonitorArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             network: Optional[pulumi.Input['HadoopClusterNetworkArgs']] = None,
-             security_profile: Optional[pulumi.Input['HadoopClusterSecurityProfileArgs']] = None,
-             storage_account_gen2: Optional[pulumi.Input['HadoopClusterStorageAccountGen2Args']] = None,
-             storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterStorageAccountArgs']]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tls_min_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cluster_version is None and 'clusterVersion' in kwargs:
-            cluster_version = kwargs['clusterVersion']
-        if cluster_version is None:
-            raise TypeError("Missing 'cluster_version' argument")
-        if component_version is None and 'componentVersion' in kwargs:
-            component_version = kwargs['componentVersion']
-        if component_version is None:
-            raise TypeError("Missing 'component_version' argument")
-        if gateway is None:
-            raise TypeError("Missing 'gateway' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if roles is None:
-            raise TypeError("Missing 'roles' argument")
-        if tier is None:
-            raise TypeError("Missing 'tier' argument")
-        if compute_isolation is None and 'computeIsolation' in kwargs:
-            compute_isolation = kwargs['computeIsolation']
-        if disk_encryptions is None and 'diskEncryptions' in kwargs:
-            disk_encryptions = kwargs['diskEncryptions']
-        if security_profile is None and 'securityProfile' in kwargs:
-            security_profile = kwargs['securityProfile']
-        if storage_account_gen2 is None and 'storageAccountGen2' in kwargs:
-            storage_account_gen2 = kwargs['storageAccountGen2']
-        if storage_accounts is None and 'storageAccounts' in kwargs:
-            storage_accounts = kwargs['storageAccounts']
-        if tls_min_version is None and 'tlsMinVersion' in kwargs:
-            tls_min_version = kwargs['tlsMinVersion']
-
-        _setter("cluster_version", cluster_version)
-        _setter("component_version", component_version)
-        _setter("gateway", gateway)
-        _setter("resource_group_name", resource_group_name)
-        _setter("roles", roles)
-        _setter("tier", tier)
+        pulumi.set(__self__, "cluster_version", cluster_version)
+        pulumi.set(__self__, "component_version", component_version)
+        pulumi.set(__self__, "gateway", gateway)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "roles", roles)
+        pulumi.set(__self__, "tier", tier)
         if compute_isolation is not None:
-            _setter("compute_isolation", compute_isolation)
+            pulumi.set(__self__, "compute_isolation", compute_isolation)
         if disk_encryptions is not None:
-            _setter("disk_encryptions", disk_encryptions)
+            pulumi.set(__self__, "disk_encryptions", disk_encryptions)
         if extension is not None:
-            _setter("extension", extension)
+            pulumi.set(__self__, "extension", extension)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if metastores is not None:
-            _setter("metastores", metastores)
+            pulumi.set(__self__, "metastores", metastores)
         if monitor is not None:
-            _setter("monitor", monitor)
+            pulumi.set(__self__, "monitor", monitor)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if network is not None:
-            _setter("network", network)
+            pulumi.set(__self__, "network", network)
         if security_profile is not None:
-            _setter("security_profile", security_profile)
+            pulumi.set(__self__, "security_profile", security_profile)
         if storage_account_gen2 is not None:
-            _setter("storage_account_gen2", storage_account_gen2)
+            pulumi.set(__self__, "storage_account_gen2", storage_account_gen2)
         if storage_accounts is not None:
-            _setter("storage_accounts", storage_accounts)
+            pulumi.set(__self__, "storage_accounts", storage_accounts)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tls_min_version is not None:
-            _setter("tls_min_version", tls_min_version)
+            pulumi.set(__self__, "tls_min_version", tls_min_version)
 
     @property
     @pulumi.getter(name="clusterVersion")
@@ -450,121 +373,48 @@ class _HadoopClusterState:
                
                > **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         """
-        _HadoopClusterState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cluster_version=cluster_version,
-            component_version=component_version,
-            compute_isolation=compute_isolation,
-            disk_encryptions=disk_encryptions,
-            extension=extension,
-            gateway=gateway,
-            https_endpoint=https_endpoint,
-            location=location,
-            metastores=metastores,
-            monitor=monitor,
-            name=name,
-            network=network,
-            resource_group_name=resource_group_name,
-            roles=roles,
-            security_profile=security_profile,
-            ssh_endpoint=ssh_endpoint,
-            storage_account_gen2=storage_account_gen2,
-            storage_accounts=storage_accounts,
-            tags=tags,
-            tier=tier,
-            tls_min_version=tls_min_version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cluster_version: Optional[pulumi.Input[str]] = None,
-             component_version: Optional[pulumi.Input['HadoopClusterComponentVersionArgs']] = None,
-             compute_isolation: Optional[pulumi.Input['HadoopClusterComputeIsolationArgs']] = None,
-             disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterDiskEncryptionArgs']]]] = None,
-             extension: Optional[pulumi.Input['HadoopClusterExtensionArgs']] = None,
-             gateway: Optional[pulumi.Input['HadoopClusterGatewayArgs']] = None,
-             https_endpoint: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             metastores: Optional[pulumi.Input['HadoopClusterMetastoresArgs']] = None,
-             monitor: Optional[pulumi.Input['HadoopClusterMonitorArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             network: Optional[pulumi.Input['HadoopClusterNetworkArgs']] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             roles: Optional[pulumi.Input['HadoopClusterRolesArgs']] = None,
-             security_profile: Optional[pulumi.Input['HadoopClusterSecurityProfileArgs']] = None,
-             ssh_endpoint: Optional[pulumi.Input[str]] = None,
-             storage_account_gen2: Optional[pulumi.Input['HadoopClusterStorageAccountGen2Args']] = None,
-             storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterStorageAccountArgs']]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tier: Optional[pulumi.Input[str]] = None,
-             tls_min_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cluster_version is None and 'clusterVersion' in kwargs:
-            cluster_version = kwargs['clusterVersion']
-        if component_version is None and 'componentVersion' in kwargs:
-            component_version = kwargs['componentVersion']
-        if compute_isolation is None and 'computeIsolation' in kwargs:
-            compute_isolation = kwargs['computeIsolation']
-        if disk_encryptions is None and 'diskEncryptions' in kwargs:
-            disk_encryptions = kwargs['diskEncryptions']
-        if https_endpoint is None and 'httpsEndpoint' in kwargs:
-            https_endpoint = kwargs['httpsEndpoint']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if security_profile is None and 'securityProfile' in kwargs:
-            security_profile = kwargs['securityProfile']
-        if ssh_endpoint is None and 'sshEndpoint' in kwargs:
-            ssh_endpoint = kwargs['sshEndpoint']
-        if storage_account_gen2 is None and 'storageAccountGen2' in kwargs:
-            storage_account_gen2 = kwargs['storageAccountGen2']
-        if storage_accounts is None and 'storageAccounts' in kwargs:
-            storage_accounts = kwargs['storageAccounts']
-        if tls_min_version is None and 'tlsMinVersion' in kwargs:
-            tls_min_version = kwargs['tlsMinVersion']
-
         if cluster_version is not None:
-            _setter("cluster_version", cluster_version)
+            pulumi.set(__self__, "cluster_version", cluster_version)
         if component_version is not None:
-            _setter("component_version", component_version)
+            pulumi.set(__self__, "component_version", component_version)
         if compute_isolation is not None:
-            _setter("compute_isolation", compute_isolation)
+            pulumi.set(__self__, "compute_isolation", compute_isolation)
         if disk_encryptions is not None:
-            _setter("disk_encryptions", disk_encryptions)
+            pulumi.set(__self__, "disk_encryptions", disk_encryptions)
         if extension is not None:
-            _setter("extension", extension)
+            pulumi.set(__self__, "extension", extension)
         if gateway is not None:
-            _setter("gateway", gateway)
+            pulumi.set(__self__, "gateway", gateway)
         if https_endpoint is not None:
-            _setter("https_endpoint", https_endpoint)
+            pulumi.set(__self__, "https_endpoint", https_endpoint)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if metastores is not None:
-            _setter("metastores", metastores)
+            pulumi.set(__self__, "metastores", metastores)
         if monitor is not None:
-            _setter("monitor", monitor)
+            pulumi.set(__self__, "monitor", monitor)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if network is not None:
-            _setter("network", network)
+            pulumi.set(__self__, "network", network)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if roles is not None:
-            _setter("roles", roles)
+            pulumi.set(__self__, "roles", roles)
         if security_profile is not None:
-            _setter("security_profile", security_profile)
+            pulumi.set(__self__, "security_profile", security_profile)
         if ssh_endpoint is not None:
-            _setter("ssh_endpoint", ssh_endpoint)
+            pulumi.set(__self__, "ssh_endpoint", ssh_endpoint)
         if storage_account_gen2 is not None:
-            _setter("storage_account_gen2", storage_account_gen2)
+            pulumi.set(__self__, "storage_account_gen2", storage_account_gen2)
         if storage_accounts is not None:
-            _setter("storage_accounts", storage_accounts)
+            pulumi.set(__self__, "storage_accounts", storage_accounts)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tier is not None:
-            _setter("tier", tier)
+            pulumi.set(__self__, "tier", tier)
         if tls_min_version is not None:
-            _setter("tls_min_version", tls_min_version)
+            pulumi.set(__self__, "tls_min_version", tls_min_version)
 
     @property
     @pulumi.getter(name="clusterVersion")
@@ -1012,10 +862,6 @@ class HadoopCluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            HadoopClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1052,37 +898,27 @@ class HadoopCluster(pulumi.CustomResource):
             if cluster_version is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_version'")
             __props__.__dict__["cluster_version"] = cluster_version
-            component_version = _utilities.configure(component_version, HadoopClusterComponentVersionArgs, True)
             if component_version is None and not opts.urn:
                 raise TypeError("Missing required property 'component_version'")
             __props__.__dict__["component_version"] = component_version
-            compute_isolation = _utilities.configure(compute_isolation, HadoopClusterComputeIsolationArgs, True)
             __props__.__dict__["compute_isolation"] = compute_isolation
             __props__.__dict__["disk_encryptions"] = disk_encryptions
-            extension = _utilities.configure(extension, HadoopClusterExtensionArgs, True)
             __props__.__dict__["extension"] = extension
-            gateway = _utilities.configure(gateway, HadoopClusterGatewayArgs, True)
             if gateway is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway'")
             __props__.__dict__["gateway"] = gateway
             __props__.__dict__["location"] = location
-            metastores = _utilities.configure(metastores, HadoopClusterMetastoresArgs, True)
             __props__.__dict__["metastores"] = metastores
-            monitor = _utilities.configure(monitor, HadoopClusterMonitorArgs, True)
             __props__.__dict__["monitor"] = monitor
             __props__.__dict__["name"] = name
-            network = _utilities.configure(network, HadoopClusterNetworkArgs, True)
             __props__.__dict__["network"] = network
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            roles = _utilities.configure(roles, HadoopClusterRolesArgs, True)
             if roles is None and not opts.urn:
                 raise TypeError("Missing required property 'roles'")
             __props__.__dict__["roles"] = roles
-            security_profile = _utilities.configure(security_profile, HadoopClusterSecurityProfileArgs, True)
             __props__.__dict__["security_profile"] = security_profile
-            storage_account_gen2 = _utilities.configure(storage_account_gen2, HadoopClusterStorageAccountGen2Args, True)
             __props__.__dict__["storage_account_gen2"] = storage_account_gen2
             __props__.__dict__["storage_accounts"] = storage_accounts
             __props__.__dict__["tags"] = tags

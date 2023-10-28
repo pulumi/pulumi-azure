@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['Python3PackageArgs', 'Python3Package']
@@ -33,62 +33,19 @@ class Python3PackageArgs:
         :param pulumi.Input[str] name: The name which should be used for this Automation Python3 Package. Changing this forces a new Automation Python3 Package to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Automation Python3 Package.
         """
-        Python3PackageArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            automation_account_name=automation_account_name,
-            content_uri=content_uri,
-            resource_group_name=resource_group_name,
-            content_version=content_version,
-            hash_algorithm=hash_algorithm,
-            hash_value=hash_value,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             automation_account_name: Optional[pulumi.Input[str]] = None,
-             content_uri: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             content_version: Optional[pulumi.Input[str]] = None,
-             hash_algorithm: Optional[pulumi.Input[str]] = None,
-             hash_value: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if automation_account_name is None and 'automationAccountName' in kwargs:
-            automation_account_name = kwargs['automationAccountName']
-        if automation_account_name is None:
-            raise TypeError("Missing 'automation_account_name' argument")
-        if content_uri is None and 'contentUri' in kwargs:
-            content_uri = kwargs['contentUri']
-        if content_uri is None:
-            raise TypeError("Missing 'content_uri' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if content_version is None and 'contentVersion' in kwargs:
-            content_version = kwargs['contentVersion']
-        if hash_algorithm is None and 'hashAlgorithm' in kwargs:
-            hash_algorithm = kwargs['hashAlgorithm']
-        if hash_value is None and 'hashValue' in kwargs:
-            hash_value = kwargs['hashValue']
-
-        _setter("automation_account_name", automation_account_name)
-        _setter("content_uri", content_uri)
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "automation_account_name", automation_account_name)
+        pulumi.set(__self__, "content_uri", content_uri)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if content_version is not None:
-            _setter("content_version", content_version)
+            pulumi.set(__self__, "content_version", content_version)
         if hash_algorithm is not None:
-            _setter("hash_algorithm", hash_algorithm)
+            pulumi.set(__self__, "hash_algorithm", hash_algorithm)
         if hash_value is not None:
-            _setter("hash_value", hash_value)
+            pulumi.set(__self__, "hash_value", hash_value)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="automationAccountName")
@@ -209,59 +166,22 @@ class _Python3PackageState:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Python3 Package is created. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Automation Python3 Package.
         """
-        _Python3PackageState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            automation_account_name=automation_account_name,
-            content_uri=content_uri,
-            content_version=content_version,
-            hash_algorithm=hash_algorithm,
-            hash_value=hash_value,
-            name=name,
-            resource_group_name=resource_group_name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             automation_account_name: Optional[pulumi.Input[str]] = None,
-             content_uri: Optional[pulumi.Input[str]] = None,
-             content_version: Optional[pulumi.Input[str]] = None,
-             hash_algorithm: Optional[pulumi.Input[str]] = None,
-             hash_value: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if automation_account_name is None and 'automationAccountName' in kwargs:
-            automation_account_name = kwargs['automationAccountName']
-        if content_uri is None and 'contentUri' in kwargs:
-            content_uri = kwargs['contentUri']
-        if content_version is None and 'contentVersion' in kwargs:
-            content_version = kwargs['contentVersion']
-        if hash_algorithm is None and 'hashAlgorithm' in kwargs:
-            hash_algorithm = kwargs['hashAlgorithm']
-        if hash_value is None and 'hashValue' in kwargs:
-            hash_value = kwargs['hashValue']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-
         if automation_account_name is not None:
-            _setter("automation_account_name", automation_account_name)
+            pulumi.set(__self__, "automation_account_name", automation_account_name)
         if content_uri is not None:
-            _setter("content_uri", content_uri)
+            pulumi.set(__self__, "content_uri", content_uri)
         if content_version is not None:
-            _setter("content_version", content_version)
+            pulumi.set(__self__, "content_version", content_version)
         if hash_algorithm is not None:
-            _setter("hash_algorithm", hash_algorithm)
+            pulumi.set(__self__, "hash_algorithm", hash_algorithm)
         if hash_value is not None:
-            _setter("hash_value", hash_value)
+            pulumi.set(__self__, "hash_value", hash_value)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="automationAccountName")
@@ -469,10 +389,6 @@ class Python3Package(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            Python3PackageArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

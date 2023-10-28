@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LocalRulestackOutboundTrustCertificateAssociationArgs', 'LocalRulestackOutboundTrustCertificateAssociation']
@@ -19,22 +19,7 @@ class LocalRulestackOutboundTrustCertificateAssociationArgs:
         The set of arguments for constructing a LocalRulestackOutboundTrustCertificateAssociation resource.
         :param pulumi.Input[str] certificate_id: The ID of the Certificate to use as the Outbound Trust Certificate. Changing this forces a new Palo Alto Networks Rulestack Outbound Trust Certificate Association to be created.
         """
-        LocalRulestackOutboundTrustCertificateAssociationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_id=certificate_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate_id is None and 'certificateId' in kwargs:
-            certificate_id = kwargs['certificateId']
-        if certificate_id is None:
-            raise TypeError("Missing 'certificate_id' argument")
-
-        _setter("certificate_id", certificate_id)
+        pulumi.set(__self__, "certificate_id", certificate_id)
 
     @property
     @pulumi.getter(name="certificateId")
@@ -57,21 +42,8 @@ class _LocalRulestackOutboundTrustCertificateAssociationState:
         Input properties used for looking up and filtering LocalRulestackOutboundTrustCertificateAssociation resources.
         :param pulumi.Input[str] certificate_id: The ID of the Certificate to use as the Outbound Trust Certificate. Changing this forces a new Palo Alto Networks Rulestack Outbound Trust Certificate Association to be created.
         """
-        _LocalRulestackOutboundTrustCertificateAssociationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_id=certificate_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate_id is None and 'certificateId' in kwargs:
-            certificate_id = kwargs['certificateId']
-
         if certificate_id is not None:
-            _setter("certificate_id", certificate_id)
+            pulumi.set(__self__, "certificate_id", certificate_id)
 
     @property
     @pulumi.getter(name="certificateId")
@@ -151,10 +123,6 @@ class LocalRulestackOutboundTrustCertificateAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LocalRulestackOutboundTrustCertificateAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

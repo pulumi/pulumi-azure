@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ConnectionServicePrincipalArgs', 'ConnectionServicePrincipal']
@@ -33,65 +33,16 @@ class ConnectionServicePrincipalArgs:
         :param pulumi.Input[str] description: A description for this Connection.
         :param pulumi.Input[str] name: Specifies the name of the Connection. Changing this forces a new resource to be created.
         """
-        ConnectionServicePrincipalArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            application_id=application_id,
-            automation_account_name=automation_account_name,
-            certificate_thumbprint=certificate_thumbprint,
-            resource_group_name=resource_group_name,
-            subscription_id=subscription_id,
-            tenant_id=tenant_id,
-            description=description,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             application_id: Optional[pulumi.Input[str]] = None,
-             automation_account_name: Optional[pulumi.Input[str]] = None,
-             certificate_thumbprint: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             subscription_id: Optional[pulumi.Input[str]] = None,
-             tenant_id: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if application_id is None and 'applicationId' in kwargs:
-            application_id = kwargs['applicationId']
-        if application_id is None:
-            raise TypeError("Missing 'application_id' argument")
-        if automation_account_name is None and 'automationAccountName' in kwargs:
-            automation_account_name = kwargs['automationAccountName']
-        if automation_account_name is None:
-            raise TypeError("Missing 'automation_account_name' argument")
-        if certificate_thumbprint is None and 'certificateThumbprint' in kwargs:
-            certificate_thumbprint = kwargs['certificateThumbprint']
-        if certificate_thumbprint is None:
-            raise TypeError("Missing 'certificate_thumbprint' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if subscription_id is None and 'subscriptionId' in kwargs:
-            subscription_id = kwargs['subscriptionId']
-        if subscription_id is None:
-            raise TypeError("Missing 'subscription_id' argument")
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-        if tenant_id is None:
-            raise TypeError("Missing 'tenant_id' argument")
-
-        _setter("application_id", application_id)
-        _setter("automation_account_name", automation_account_name)
-        _setter("certificate_thumbprint", certificate_thumbprint)
-        _setter("resource_group_name", resource_group_name)
-        _setter("subscription_id", subscription_id)
-        _setter("tenant_id", tenant_id)
+        pulumi.set(__self__, "application_id", application_id)
+        pulumi.set(__self__, "automation_account_name", automation_account_name)
+        pulumi.set(__self__, "certificate_thumbprint", certificate_thumbprint)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "subscription_id", subscription_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -212,59 +163,22 @@ class _ConnectionServicePrincipalState:
         :param pulumi.Input[str] subscription_id: The subscription GUID.
         :param pulumi.Input[str] tenant_id: The ID of the Tenant the Service Principal is assigned in.
         """
-        _ConnectionServicePrincipalState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            application_id=application_id,
-            automation_account_name=automation_account_name,
-            certificate_thumbprint=certificate_thumbprint,
-            description=description,
-            name=name,
-            resource_group_name=resource_group_name,
-            subscription_id=subscription_id,
-            tenant_id=tenant_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             application_id: Optional[pulumi.Input[str]] = None,
-             automation_account_name: Optional[pulumi.Input[str]] = None,
-             certificate_thumbprint: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             subscription_id: Optional[pulumi.Input[str]] = None,
-             tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if application_id is None and 'applicationId' in kwargs:
-            application_id = kwargs['applicationId']
-        if automation_account_name is None and 'automationAccountName' in kwargs:
-            automation_account_name = kwargs['automationAccountName']
-        if certificate_thumbprint is None and 'certificateThumbprint' in kwargs:
-            certificate_thumbprint = kwargs['certificateThumbprint']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if subscription_id is None and 'subscriptionId' in kwargs:
-            subscription_id = kwargs['subscriptionId']
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-
         if application_id is not None:
-            _setter("application_id", application_id)
+            pulumi.set(__self__, "application_id", application_id)
         if automation_account_name is not None:
-            _setter("automation_account_name", automation_account_name)
+            pulumi.set(__self__, "automation_account_name", automation_account_name)
         if certificate_thumbprint is not None:
-            _setter("certificate_thumbprint", certificate_thumbprint)
+            pulumi.set(__self__, "certificate_thumbprint", certificate_thumbprint)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if subscription_id is not None:
-            _setter("subscription_id", subscription_id)
+            pulumi.set(__self__, "subscription_id", subscription_id)
         if tenant_id is not None:
-            _setter("tenant_id", tenant_id)
+            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -468,10 +382,6 @@ class ConnectionServicePrincipal(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ConnectionServicePrincipalArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

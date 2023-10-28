@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['FallbackRouteArgs', 'FallbackRoute']
@@ -29,49 +29,14 @@ class FallbackRouteArgs:
         :param pulumi.Input[str] condition: The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
         :param pulumi.Input[str] source: The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `DigitalTwinChangeEvents`, `Invalid`, `TwinChangeEvents`.
         """
-        FallbackRouteArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            endpoint_names=endpoint_names,
-            iothub_name=iothub_name,
-            resource_group_name=resource_group_name,
-            condition=condition,
-            source=source,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[pulumi.Input[bool]] = None,
-             endpoint_names: Optional[pulumi.Input[str]] = None,
-             iothub_name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             condition: Optional[pulumi.Input[str]] = None,
-             source: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if endpoint_names is None and 'endpointNames' in kwargs:
-            endpoint_names = kwargs['endpointNames']
-        if endpoint_names is None:
-            raise TypeError("Missing 'endpoint_names' argument")
-        if iothub_name is None and 'iothubName' in kwargs:
-            iothub_name = kwargs['iothubName']
-        if iothub_name is None:
-            raise TypeError("Missing 'iothub_name' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-
-        _setter("enabled", enabled)
-        _setter("endpoint_names", endpoint_names)
-        _setter("iothub_name", iothub_name)
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "endpoint_names", endpoint_names)
+        pulumi.set(__self__, "iothub_name", iothub_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if condition is not None:
-            _setter("condition", condition)
+            pulumi.set(__self__, "condition", condition)
         if source is not None:
-            _setter("source", source)
+            pulumi.set(__self__, "source", source)
 
     @property
     @pulumi.getter
@@ -164,45 +129,18 @@ class _FallbackRouteState:
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source: The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `DigitalTwinChangeEvents`, `Invalid`, `TwinChangeEvents`.
         """
-        _FallbackRouteState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            condition=condition,
-            enabled=enabled,
-            endpoint_names=endpoint_names,
-            iothub_name=iothub_name,
-            resource_group_name=resource_group_name,
-            source=source,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             condition: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             endpoint_names: Optional[pulumi.Input[str]] = None,
-             iothub_name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             source: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if endpoint_names is None and 'endpointNames' in kwargs:
-            endpoint_names = kwargs['endpointNames']
-        if iothub_name is None and 'iothubName' in kwargs:
-            iothub_name = kwargs['iothubName']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-
         if condition is not None:
-            _setter("condition", condition)
+            pulumi.set(__self__, "condition", condition)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if endpoint_names is not None:
-            _setter("endpoint_names", endpoint_names)
+            pulumi.set(__self__, "endpoint_names", endpoint_names)
         if iothub_name is not None:
-            _setter("iothub_name", iothub_name)
+            pulumi.set(__self__, "iothub_name", iothub_name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if source is not None:
-            _setter("source", source)
+            pulumi.set(__self__, "source", source)
 
     @property
     @pulumi.getter
@@ -348,10 +286,6 @@ class FallbackRoute(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            FallbackRouteArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

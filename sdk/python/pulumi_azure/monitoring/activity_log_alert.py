@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,52 +35,19 @@ class ActivityLogAlertArgs:
         :param pulumi.Input[str] name: The name of the activity log alert. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        ActivityLogAlertArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            criteria=criteria,
-            resource_group_name=resource_group_name,
-            scopes=scopes,
-            actions=actions,
-            description=description,
-            enabled=enabled,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             criteria: Optional[pulumi.Input['ActivityLogAlertCriteriaArgs']] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             actions: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertActionArgs']]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if criteria is None:
-            raise TypeError("Missing 'criteria' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if scopes is None:
-            raise TypeError("Missing 'scopes' argument")
-
-        _setter("criteria", criteria)
-        _setter("resource_group_name", resource_group_name)
-        _setter("scopes", scopes)
+        pulumi.set(__self__, "criteria", criteria)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "scopes", scopes)
         if actions is not None:
-            _setter("actions", actions)
+            pulumi.set(__self__, "actions", actions)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -201,49 +168,22 @@ class _ActivityLogAlertState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The Scope at which the Activity Log should be applied. A list of strings which could be a resource group , or a subscription, or a resource ID (such as a Storage Account).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        _ActivityLogAlertState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            actions=actions,
-            criteria=criteria,
-            description=description,
-            enabled=enabled,
-            name=name,
-            resource_group_name=resource_group_name,
-            scopes=scopes,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             actions: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertActionArgs']]]] = None,
-             criteria: Optional[pulumi.Input['ActivityLogAlertCriteriaArgs']] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-
         if actions is not None:
-            _setter("actions", actions)
+            pulumi.set(__self__, "actions", actions)
         if criteria is not None:
-            _setter("criteria", criteria)
+            pulumi.set(__self__, "criteria", criteria)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if scopes is not None:
-            _setter("scopes", scopes)
+            pulumi.set(__self__, "scopes", scopes)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -477,10 +417,6 @@ class ActivityLogAlert(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ActivityLogAlertArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -504,7 +440,6 @@ class ActivityLogAlert(pulumi.CustomResource):
             __props__ = ActivityLogAlertArgs.__new__(ActivityLogAlertArgs)
 
             __props__.__dict__["actions"] = actions
-            criteria = _utilities.configure(criteria, ActivityLogAlertCriteriaArgs, True)
             if criteria is None and not opts.urn:
                 raise TypeError("Missing required property 'criteria'")
             __props__.__dict__["criteria"] = criteria

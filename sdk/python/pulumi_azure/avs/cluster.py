@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ClusterArgs', 'Cluster']
@@ -25,40 +25,11 @@ class ClusterArgs:
         :param pulumi.Input[str] vmware_cloud_id: The ID of the VMware Private Cloud in which to create this VMware Cluster. Changing this forces a new VMware Cluster to be created.
         :param pulumi.Input[str] name: The name which should be used for this VMware Cluster. Changing this forces a new VMware Cluster to be created.
         """
-        ClusterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cluster_node_count=cluster_node_count,
-            sku_name=sku_name,
-            vmware_cloud_id=vmware_cloud_id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cluster_node_count: Optional[pulumi.Input[int]] = None,
-             sku_name: Optional[pulumi.Input[str]] = None,
-             vmware_cloud_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cluster_node_count is None and 'clusterNodeCount' in kwargs:
-            cluster_node_count = kwargs['clusterNodeCount']
-        if cluster_node_count is None:
-            raise TypeError("Missing 'cluster_node_count' argument")
-        if sku_name is None and 'skuName' in kwargs:
-            sku_name = kwargs['skuName']
-        if sku_name is None:
-            raise TypeError("Missing 'sku_name' argument")
-        if vmware_cloud_id is None and 'vmwareCloudId' in kwargs:
-            vmware_cloud_id = kwargs['vmwareCloudId']
-        if vmware_cloud_id is None:
-            raise TypeError("Missing 'vmware_cloud_id' argument")
-
-        _setter("cluster_node_count", cluster_node_count)
-        _setter("sku_name", sku_name)
-        _setter("vmware_cloud_id", vmware_cloud_id)
+        pulumi.set(__self__, "cluster_node_count", cluster_node_count)
+        pulumi.set(__self__, "sku_name", sku_name)
+        pulumi.set(__self__, "vmware_cloud_id", vmware_cloud_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="clusterNodeCount")
@@ -127,47 +98,18 @@ class _ClusterState:
         :param pulumi.Input[str] sku_name: The cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p` and `av52`. Changing this forces a new VMware Cluster to be created.
         :param pulumi.Input[str] vmware_cloud_id: The ID of the VMware Private Cloud in which to create this VMware Cluster. Changing this forces a new VMware Cluster to be created.
         """
-        _ClusterState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cluster_node_count=cluster_node_count,
-            cluster_number=cluster_number,
-            hosts=hosts,
-            name=name,
-            sku_name=sku_name,
-            vmware_cloud_id=vmware_cloud_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cluster_node_count: Optional[pulumi.Input[int]] = None,
-             cluster_number: Optional[pulumi.Input[int]] = None,
-             hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             sku_name: Optional[pulumi.Input[str]] = None,
-             vmware_cloud_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cluster_node_count is None and 'clusterNodeCount' in kwargs:
-            cluster_node_count = kwargs['clusterNodeCount']
-        if cluster_number is None and 'clusterNumber' in kwargs:
-            cluster_number = kwargs['clusterNumber']
-        if sku_name is None and 'skuName' in kwargs:
-            sku_name = kwargs['skuName']
-        if vmware_cloud_id is None and 'vmwareCloudId' in kwargs:
-            vmware_cloud_id = kwargs['vmwareCloudId']
-
         if cluster_node_count is not None:
-            _setter("cluster_node_count", cluster_node_count)
+            pulumi.set(__self__, "cluster_node_count", cluster_node_count)
         if cluster_number is not None:
-            _setter("cluster_number", cluster_number)
+            pulumi.set(__self__, "cluster_number", cluster_number)
         if hosts is not None:
-            _setter("hosts", hosts)
+            pulumi.set(__self__, "hosts", hosts)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if sku_name is not None:
-            _setter("sku_name", sku_name)
+            pulumi.set(__self__, "sku_name", sku_name)
         if vmware_cloud_id is not None:
-            _setter("vmware_cloud_id", vmware_cloud_id)
+            pulumi.set(__self__, "vmware_cloud_id", vmware_cloud_id)
 
     @property
     @pulumi.getter(name="clusterNodeCount")
@@ -345,10 +287,6 @@ class Cluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

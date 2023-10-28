@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SqlStoredProcedureArgs', 'SqlStoredProcedure']
@@ -29,52 +29,13 @@ class SqlStoredProcedureArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB SQL Stored Procedure. Changing this forces a new resource to be created.
         """
-        SqlStoredProcedureArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account_name=account_name,
-            body=body,
-            container_name=container_name,
-            database_name=database_name,
-            resource_group_name=resource_group_name,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account_name: Optional[pulumi.Input[str]] = None,
-             body: Optional[pulumi.Input[str]] = None,
-             container_name: Optional[pulumi.Input[str]] = None,
-             database_name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if account_name is None and 'accountName' in kwargs:
-            account_name = kwargs['accountName']
-        if account_name is None:
-            raise TypeError("Missing 'account_name' argument")
-        if body is None:
-            raise TypeError("Missing 'body' argument")
-        if container_name is None and 'containerName' in kwargs:
-            container_name = kwargs['containerName']
-        if container_name is None:
-            raise TypeError("Missing 'container_name' argument")
-        if database_name is None and 'databaseName' in kwargs:
-            database_name = kwargs['databaseName']
-        if database_name is None:
-            raise TypeError("Missing 'database_name' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-
-        _setter("account_name", account_name)
-        _setter("body", body)
-        _setter("container_name", container_name)
-        _setter("database_name", database_name)
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "body", body)
+        pulumi.set(__self__, "container_name", container_name)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="accountName")
@@ -167,47 +128,18 @@ class _SqlStoredProcedureState:
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB SQL Stored Procedure. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
         """
-        _SqlStoredProcedureState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account_name=account_name,
-            body=body,
-            container_name=container_name,
-            database_name=database_name,
-            name=name,
-            resource_group_name=resource_group_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account_name: Optional[pulumi.Input[str]] = None,
-             body: Optional[pulumi.Input[str]] = None,
-             container_name: Optional[pulumi.Input[str]] = None,
-             database_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if account_name is None and 'accountName' in kwargs:
-            account_name = kwargs['accountName']
-        if container_name is None and 'containerName' in kwargs:
-            container_name = kwargs['containerName']
-        if database_name is None and 'databaseName' in kwargs:
-            database_name = kwargs['databaseName']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-
         if account_name is not None:
-            _setter("account_name", account_name)
+            pulumi.set(__self__, "account_name", account_name)
         if body is not None:
-            _setter("body", body)
+            pulumi.set(__self__, "body", body)
         if container_name is not None:
-            _setter("container_name", container_name)
+            pulumi.set(__self__, "container_name", container_name)
         if database_name is not None:
-            _setter("database_name", database_name)
+            pulumi.set(__self__, "database_name", database_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
 
     @property
     @pulumi.getter(name="accountName")
@@ -391,10 +323,6 @@ class SqlStoredProcedure(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SqlStoredProcedureArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,51 +31,16 @@ class AccountFilterArgs:
         :param pulumi.Input['AccountFilterPresentationTimeRangeArgs'] presentation_time_range: A `presentation_time_range` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['AccountFilterTrackSelectionArgs']]] track_selections: One or more `track_selection` blocks as defined below.
         """
-        AccountFilterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            media_services_account_name=media_services_account_name,
-            resource_group_name=resource_group_name,
-            first_quality_bitrate=first_quality_bitrate,
-            name=name,
-            presentation_time_range=presentation_time_range,
-            track_selections=track_selections,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             media_services_account_name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             first_quality_bitrate: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             presentation_time_range: Optional[pulumi.Input['AccountFilterPresentationTimeRangeArgs']] = None,
-             track_selections: Optional[pulumi.Input[Sequence[pulumi.Input['AccountFilterTrackSelectionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if media_services_account_name is None and 'mediaServicesAccountName' in kwargs:
-            media_services_account_name = kwargs['mediaServicesAccountName']
-        if media_services_account_name is None:
-            raise TypeError("Missing 'media_services_account_name' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if first_quality_bitrate is None and 'firstQualityBitrate' in kwargs:
-            first_quality_bitrate = kwargs['firstQualityBitrate']
-        if presentation_time_range is None and 'presentationTimeRange' in kwargs:
-            presentation_time_range = kwargs['presentationTimeRange']
-        if track_selections is None and 'trackSelections' in kwargs:
-            track_selections = kwargs['trackSelections']
-
-        _setter("media_services_account_name", media_services_account_name)
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "media_services_account_name", media_services_account_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if first_quality_bitrate is not None:
-            _setter("first_quality_bitrate", first_quality_bitrate)
+            pulumi.set(__self__, "first_quality_bitrate", first_quality_bitrate)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if presentation_time_range is not None:
-            _setter("presentation_time_range", presentation_time_range)
+            pulumi.set(__self__, "presentation_time_range", presentation_time_range)
         if track_selections is not None:
-            _setter("track_selections", track_selections)
+            pulumi.set(__self__, "track_selections", track_selections)
 
     @property
     @pulumi.getter(name="mediaServicesAccountName")
@@ -168,49 +133,18 @@ class _AccountFilterState:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Account Filter should exist. Changing this forces a new Account Filter to be created.
         :param pulumi.Input[Sequence[pulumi.Input['AccountFilterTrackSelectionArgs']]] track_selections: One or more `track_selection` blocks as defined below.
         """
-        _AccountFilterState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            first_quality_bitrate=first_quality_bitrate,
-            media_services_account_name=media_services_account_name,
-            name=name,
-            presentation_time_range=presentation_time_range,
-            resource_group_name=resource_group_name,
-            track_selections=track_selections,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             first_quality_bitrate: Optional[pulumi.Input[int]] = None,
-             media_services_account_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             presentation_time_range: Optional[pulumi.Input['AccountFilterPresentationTimeRangeArgs']] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             track_selections: Optional[pulumi.Input[Sequence[pulumi.Input['AccountFilterTrackSelectionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if first_quality_bitrate is None and 'firstQualityBitrate' in kwargs:
-            first_quality_bitrate = kwargs['firstQualityBitrate']
-        if media_services_account_name is None and 'mediaServicesAccountName' in kwargs:
-            media_services_account_name = kwargs['mediaServicesAccountName']
-        if presentation_time_range is None and 'presentationTimeRange' in kwargs:
-            presentation_time_range = kwargs['presentationTimeRange']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if track_selections is None and 'trackSelections' in kwargs:
-            track_selections = kwargs['trackSelections']
-
         if first_quality_bitrate is not None:
-            _setter("first_quality_bitrate", first_quality_bitrate)
+            pulumi.set(__self__, "first_quality_bitrate", first_quality_bitrate)
         if media_services_account_name is not None:
-            _setter("media_services_account_name", media_services_account_name)
+            pulumi.set(__self__, "media_services_account_name", media_services_account_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if presentation_time_range is not None:
-            _setter("presentation_time_range", presentation_time_range)
+            pulumi.set(__self__, "presentation_time_range", presentation_time_range)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if track_selections is not None:
-            _setter("track_selections", track_selections)
+            pulumi.set(__self__, "track_selections", track_selections)
 
     @property
     @pulumi.getter(name="firstQualityBitrate")
@@ -480,10 +414,6 @@ class AccountFilter(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AccountFilterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -509,7 +439,6 @@ class AccountFilter(pulumi.CustomResource):
                 raise TypeError("Missing required property 'media_services_account_name'")
             __props__.__dict__["media_services_account_name"] = media_services_account_name
             __props__.__dict__["name"] = name
-            presentation_time_range = _utilities.configure(presentation_time_range, AccountFilterPresentationTimeRangeArgs, True)
             __props__.__dict__["presentation_time_range"] = presentation_time_range
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

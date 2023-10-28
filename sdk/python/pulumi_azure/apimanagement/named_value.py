@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,58 +37,19 @@ class NamedValueArgs:
         :param pulumi.Input[str] value: The value of this API Management Named Value.
         :param pulumi.Input['NamedValueValueFromKeyVaultArgs'] value_from_key_vault: A `value_from_key_vault` block as defined below.
         """
-        NamedValueArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_management_name=api_management_name,
-            display_name=display_name,
-            resource_group_name=resource_group_name,
-            name=name,
-            secret=secret,
-            tags=tags,
-            value=value,
-            value_from_key_vault=value_from_key_vault,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_management_name: Optional[pulumi.Input[str]] = None,
-             display_name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             secret: Optional[pulumi.Input[bool]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             value_from_key_vault: Optional[pulumi.Input['NamedValueValueFromKeyVaultArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_management_name is None and 'apiManagementName' in kwargs:
-            api_management_name = kwargs['apiManagementName']
-        if api_management_name is None:
-            raise TypeError("Missing 'api_management_name' argument")
-        if display_name is None and 'displayName' in kwargs:
-            display_name = kwargs['displayName']
-        if display_name is None:
-            raise TypeError("Missing 'display_name' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if value_from_key_vault is None and 'valueFromKeyVault' in kwargs:
-            value_from_key_vault = kwargs['valueFromKeyVault']
-
-        _setter("api_management_name", api_management_name)
-        _setter("display_name", display_name)
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "api_management_name", api_management_name)
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if secret is not None:
-            _setter("secret", secret)
+            pulumi.set(__self__, "secret", secret)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
         if value_from_key_vault is not None:
-            _setter("value_from_key_vault", value_from_key_vault)
+            pulumi.set(__self__, "value_from_key_vault", value_from_key_vault)
 
     @property
     @pulumi.getter(name="apiManagementName")
@@ -213,55 +174,22 @@ class _NamedValueState:
         :param pulumi.Input[str] value: The value of this API Management Named Value.
         :param pulumi.Input['NamedValueValueFromKeyVaultArgs'] value_from_key_vault: A `value_from_key_vault` block as defined below.
         """
-        _NamedValueState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_management_name=api_management_name,
-            display_name=display_name,
-            name=name,
-            resource_group_name=resource_group_name,
-            secret=secret,
-            tags=tags,
-            value=value,
-            value_from_key_vault=value_from_key_vault,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_management_name: Optional[pulumi.Input[str]] = None,
-             display_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             secret: Optional[pulumi.Input[bool]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             value_from_key_vault: Optional[pulumi.Input['NamedValueValueFromKeyVaultArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_management_name is None and 'apiManagementName' in kwargs:
-            api_management_name = kwargs['apiManagementName']
-        if display_name is None and 'displayName' in kwargs:
-            display_name = kwargs['displayName']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if value_from_key_vault is None and 'valueFromKeyVault' in kwargs:
-            value_from_key_vault = kwargs['valueFromKeyVault']
-
         if api_management_name is not None:
-            _setter("api_management_name", api_management_name)
+            pulumi.set(__self__, "api_management_name", api_management_name)
         if display_name is not None:
-            _setter("display_name", display_name)
+            pulumi.set(__self__, "display_name", display_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if secret is not None:
-            _setter("secret", secret)
+            pulumi.set(__self__, "secret", secret)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
         if value_from_key_vault is not None:
-            _setter("value_from_key_vault", value_from_key_vault)
+            pulumi.set(__self__, "value_from_key_vault", value_from_key_vault)
 
     @property
     @pulumi.getter(name="apiManagementName")
@@ -467,10 +395,6 @@ class NamedValue(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            NamedValueArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -506,7 +430,6 @@ class NamedValue(pulumi.CustomResource):
             __props__.__dict__["secret"] = secret
             __props__.__dict__["tags"] = tags
             __props__.__dict__["value"] = None if value is None else pulumi.Output.secret(value)
-            value_from_key_vault = _utilities.configure(value_from_key_vault, NamedValueValueFromKeyVaultArgs, True)
             __props__.__dict__["value_from_key_vault"] = value_from_key_vault
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["value"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)

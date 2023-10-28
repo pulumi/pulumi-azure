@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -43,22 +43,7 @@ class ServiceCor(dict):
         """
         :param Sequence[str] allowed_origins: A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
         """
-        ServiceCor._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allowed_origins=allowed_origins,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allowed_origins: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if allowed_origins is None and 'allowedOrigins' in kwargs:
-            allowed_origins = kwargs['allowedOrigins']
-        if allowed_origins is None:
-            raise TypeError("Missing 'allowed_origins' argument")
-
-        _setter("allowed_origins", allowed_origins)
+        pulumi.set(__self__, "allowed_origins", allowed_origins)
 
     @property
     @pulumi.getter(name="allowedOrigins")
@@ -103,38 +88,13 @@ class ServiceIdentity(dict):
                
                > **NOTE:** This is required when `type` is set to `UserAssigned`
         """
-        ServiceIdentity._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            identity_ids=identity_ids,
-            principal_id=principal_id,
-            tenant_id=tenant_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             identity_ids: Optional[Sequence[str]] = None,
-             principal_id: Optional[str] = None,
-             tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if identity_ids is None and 'identityIds' in kwargs:
-            identity_ids = kwargs['identityIds']
-        if principal_id is None and 'principalId' in kwargs:
-            principal_id = kwargs['principalId']
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if identity_ids is not None:
-            _setter("identity_ids", identity_ids)
+            pulumi.set(__self__, "identity_ids", identity_ids)
         if principal_id is not None:
-            _setter("principal_id", principal_id)
+            pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
-            _setter("tenant_id", tenant_id)
+            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -199,37 +159,14 @@ class ServiceLiveTrace(dict):
         :param bool http_request_logs_enabled: Whether the log category `HttpRequestLogs` is enabled? Defaults to `true`
         :param bool messaging_logs_enabled: Whether the log category `MessagingLogs` is enabled? Defaults to `true`
         """
-        ServiceLiveTrace._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            connectivity_logs_enabled=connectivity_logs_enabled,
-            enabled=enabled,
-            http_request_logs_enabled=http_request_logs_enabled,
-            messaging_logs_enabled=messaging_logs_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             connectivity_logs_enabled: Optional[bool] = None,
-             enabled: Optional[bool] = None,
-             http_request_logs_enabled: Optional[bool] = None,
-             messaging_logs_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if connectivity_logs_enabled is None and 'connectivityLogsEnabled' in kwargs:
-            connectivity_logs_enabled = kwargs['connectivityLogsEnabled']
-        if http_request_logs_enabled is None and 'httpRequestLogsEnabled' in kwargs:
-            http_request_logs_enabled = kwargs['httpRequestLogsEnabled']
-        if messaging_logs_enabled is None and 'messagingLogsEnabled' in kwargs:
-            messaging_logs_enabled = kwargs['messagingLogsEnabled']
-
         if connectivity_logs_enabled is not None:
-            _setter("connectivity_logs_enabled", connectivity_logs_enabled)
+            pulumi.set(__self__, "connectivity_logs_enabled", connectivity_logs_enabled)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if http_request_logs_enabled is not None:
-            _setter("http_request_logs_enabled", http_request_logs_enabled)
+            pulumi.set(__self__, "http_request_logs_enabled", http_request_logs_enabled)
         if messaging_logs_enabled is not None:
-            _setter("messaging_logs_enabled", messaging_logs_enabled)
+            pulumi.set(__self__, "messaging_logs_enabled", messaging_logs_enabled)
 
     @property
     @pulumi.getter(name="connectivityLogsEnabled")
@@ -300,32 +237,11 @@ class ServiceNetworkAclPrivateEndpoint(dict):
                
                > **Note:** `allowed_request_types` - (Optional) and `denied_request_types` cannot be set together.
         """
-        ServiceNetworkAclPrivateEndpoint._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            allowed_request_types=allowed_request_types,
-            denied_request_types=denied_request_types,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: Optional[str] = None,
-             allowed_request_types: Optional[Sequence[str]] = None,
-             denied_request_types: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if id is None:
-            raise TypeError("Missing 'id' argument")
-        if allowed_request_types is None and 'allowedRequestTypes' in kwargs:
-            allowed_request_types = kwargs['allowedRequestTypes']
-        if denied_request_types is None and 'deniedRequestTypes' in kwargs:
-            denied_request_types = kwargs['deniedRequestTypes']
-
-        _setter("id", id)
+        pulumi.set(__self__, "id", id)
         if allowed_request_types is not None:
-            _setter("allowed_request_types", allowed_request_types)
+            pulumi.set(__self__, "allowed_request_types", allowed_request_types)
         if denied_request_types is not None:
-            _setter("denied_request_types", denied_request_types)
+            pulumi.set(__self__, "denied_request_types", denied_request_types)
 
     @property
     @pulumi.getter
@@ -392,27 +308,10 @@ class ServiceNetworkAclPublicNetwork(dict):
                
                > **Note:** `allowed_request_types` - (Optional) and `denied_request_types` cannot be set together.
         """
-        ServiceNetworkAclPublicNetwork._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allowed_request_types=allowed_request_types,
-            denied_request_types=denied_request_types,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allowed_request_types: Optional[Sequence[str]] = None,
-             denied_request_types: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if allowed_request_types is None and 'allowedRequestTypes' in kwargs:
-            allowed_request_types = kwargs['allowedRequestTypes']
-        if denied_request_types is None and 'deniedRequestTypes' in kwargs:
-            denied_request_types = kwargs['deniedRequestTypes']
-
         if allowed_request_types is not None:
-            _setter("allowed_request_types", allowed_request_types)
+            pulumi.set(__self__, "allowed_request_types", allowed_request_types)
         if denied_request_types is not None:
-            _setter("denied_request_types", denied_request_types)
+            pulumi.set(__self__, "denied_request_types", denied_request_types)
 
     @property
     @pulumi.getter(name="allowedRequestTypes")
@@ -446,25 +345,8 @@ class ServiceSku(dict):
         :param int capacity: Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90` and `100`.
         :param str name: Specifies which tier to use. Valid values are `Free_F1`, `Standard_S1` and `Premium_P1`.
         """
-        ServiceSku._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            capacity=capacity,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             capacity: Optional[int] = None,
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if capacity is None:
-            raise TypeError("Missing 'capacity' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("capacity", capacity)
-        _setter("name", name)
+        pulumi.set(__self__, "capacity", capacity)
+        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -523,49 +405,12 @@ class ServiceUpstreamEndpoint(dict):
         :param str url_template: The upstream URL Template. This can be a url or a template such as `http://host.com/{hub}/api/{category}/{event}`.
         :param str user_assigned_identity_id: Specifies the Managed Identity IDs to be assigned to this signalR upstream setting by using resource uuid as both system assigned and user assigned identity is supported.
         """
-        ServiceUpstreamEndpoint._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            category_patterns=category_patterns,
-            event_patterns=event_patterns,
-            hub_patterns=hub_patterns,
-            url_template=url_template,
-            user_assigned_identity_id=user_assigned_identity_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             category_patterns: Optional[Sequence[str]] = None,
-             event_patterns: Optional[Sequence[str]] = None,
-             hub_patterns: Optional[Sequence[str]] = None,
-             url_template: Optional[str] = None,
-             user_assigned_identity_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if category_patterns is None and 'categoryPatterns' in kwargs:
-            category_patterns = kwargs['categoryPatterns']
-        if category_patterns is None:
-            raise TypeError("Missing 'category_patterns' argument")
-        if event_patterns is None and 'eventPatterns' in kwargs:
-            event_patterns = kwargs['eventPatterns']
-        if event_patterns is None:
-            raise TypeError("Missing 'event_patterns' argument")
-        if hub_patterns is None and 'hubPatterns' in kwargs:
-            hub_patterns = kwargs['hubPatterns']
-        if hub_patterns is None:
-            raise TypeError("Missing 'hub_patterns' argument")
-        if url_template is None and 'urlTemplate' in kwargs:
-            url_template = kwargs['urlTemplate']
-        if url_template is None:
-            raise TypeError("Missing 'url_template' argument")
-        if user_assigned_identity_id is None and 'userAssignedIdentityId' in kwargs:
-            user_assigned_identity_id = kwargs['userAssignedIdentityId']
-
-        _setter("category_patterns", category_patterns)
-        _setter("event_patterns", event_patterns)
-        _setter("hub_patterns", hub_patterns)
-        _setter("url_template", url_template)
+        pulumi.set(__self__, "category_patterns", category_patterns)
+        pulumi.set(__self__, "event_patterns", event_patterns)
+        pulumi.set(__self__, "hub_patterns", hub_patterns)
+        pulumi.set(__self__, "url_template", url_template)
         if user_assigned_identity_id is not None:
-            _setter("user_assigned_identity_id", user_assigned_identity_id)
+            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
 
     @property
     @pulumi.getter(name="categoryPatterns")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['MonitorSsoConfigurationArgs', 'MonitorSsoConfiguration']
@@ -25,40 +25,11 @@ class MonitorSsoConfigurationArgs:
         :param pulumi.Input[str] single_sign_on_enabled: The state of SingleSignOn configuration.
         :param pulumi.Input[str] name: The name of the SingleSignOn configuration. Defaults to `default`.
         """
-        MonitorSsoConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            datadog_monitor_id=datadog_monitor_id,
-            enterprise_application_id=enterprise_application_id,
-            single_sign_on_enabled=single_sign_on_enabled,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             datadog_monitor_id: Optional[pulumi.Input[str]] = None,
-             enterprise_application_id: Optional[pulumi.Input[str]] = None,
-             single_sign_on_enabled: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if datadog_monitor_id is None and 'datadogMonitorId' in kwargs:
-            datadog_monitor_id = kwargs['datadogMonitorId']
-        if datadog_monitor_id is None:
-            raise TypeError("Missing 'datadog_monitor_id' argument")
-        if enterprise_application_id is None and 'enterpriseApplicationId' in kwargs:
-            enterprise_application_id = kwargs['enterpriseApplicationId']
-        if enterprise_application_id is None:
-            raise TypeError("Missing 'enterprise_application_id' argument")
-        if single_sign_on_enabled is None and 'singleSignOnEnabled' in kwargs:
-            single_sign_on_enabled = kwargs['singleSignOnEnabled']
-        if single_sign_on_enabled is None:
-            raise TypeError("Missing 'single_sign_on_enabled' argument")
-
-        _setter("datadog_monitor_id", datadog_monitor_id)
-        _setter("enterprise_application_id", enterprise_application_id)
-        _setter("single_sign_on_enabled", single_sign_on_enabled)
+        pulumi.set(__self__, "datadog_monitor_id", datadog_monitor_id)
+        pulumi.set(__self__, "enterprise_application_id", enterprise_application_id)
+        pulumi.set(__self__, "single_sign_on_enabled", single_sign_on_enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="datadogMonitorId")
@@ -125,43 +96,16 @@ class _MonitorSsoConfigurationState:
         :param pulumi.Input[str] name: The name of the SingleSignOn configuration. Defaults to `default`.
         :param pulumi.Input[str] single_sign_on_enabled: The state of SingleSignOn configuration.
         """
-        _MonitorSsoConfigurationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            datadog_monitor_id=datadog_monitor_id,
-            enterprise_application_id=enterprise_application_id,
-            login_url=login_url,
-            name=name,
-            single_sign_on_enabled=single_sign_on_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             datadog_monitor_id: Optional[pulumi.Input[str]] = None,
-             enterprise_application_id: Optional[pulumi.Input[str]] = None,
-             login_url: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             single_sign_on_enabled: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if datadog_monitor_id is None and 'datadogMonitorId' in kwargs:
-            datadog_monitor_id = kwargs['datadogMonitorId']
-        if enterprise_application_id is None and 'enterpriseApplicationId' in kwargs:
-            enterprise_application_id = kwargs['enterpriseApplicationId']
-        if login_url is None and 'loginUrl' in kwargs:
-            login_url = kwargs['loginUrl']
-        if single_sign_on_enabled is None and 'singleSignOnEnabled' in kwargs:
-            single_sign_on_enabled = kwargs['singleSignOnEnabled']
-
         if datadog_monitor_id is not None:
-            _setter("datadog_monitor_id", datadog_monitor_id)
+            pulumi.set(__self__, "datadog_monitor_id", datadog_monitor_id)
         if enterprise_application_id is not None:
-            _setter("enterprise_application_id", enterprise_application_id)
+            pulumi.set(__self__, "enterprise_application_id", enterprise_application_id)
         if login_url is not None:
-            _setter("login_url", login_url)
+            pulumi.set(__self__, "login_url", login_url)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if single_sign_on_enabled is not None:
-            _setter("single_sign_on_enabled", single_sign_on_enabled)
+            pulumi.set(__self__, "single_sign_on_enabled", single_sign_on_enabled)
 
     @property
     @pulumi.getter(name="datadogMonitorId")
@@ -335,10 +279,6 @@ class MonitorSsoConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            MonitorSsoConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

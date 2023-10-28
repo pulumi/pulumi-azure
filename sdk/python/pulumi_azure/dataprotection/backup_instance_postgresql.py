@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['BackupInstancePostgresqlArgs', 'BackupInstancePostgresql']
@@ -29,50 +29,15 @@ class BackupInstancePostgresqlArgs:
         :param pulumi.Input[str] location: The location of the source database. Changing this forces a new Backup Instance PostgreSQL to be created.
         :param pulumi.Input[str] name: The name which should be used for this Backup Instance PostgreSQL. Changing this forces a new Backup Instance PostgreSQL to be created.
         """
-        BackupInstancePostgresqlArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            backup_policy_id=backup_policy_id,
-            database_id=database_id,
-            vault_id=vault_id,
-            database_credential_key_vault_secret_id=database_credential_key_vault_secret_id,
-            location=location,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             backup_policy_id: Optional[pulumi.Input[str]] = None,
-             database_id: Optional[pulumi.Input[str]] = None,
-             vault_id: Optional[pulumi.Input[str]] = None,
-             database_credential_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if backup_policy_id is None and 'backupPolicyId' in kwargs:
-            backup_policy_id = kwargs['backupPolicyId']
-        if backup_policy_id is None:
-            raise TypeError("Missing 'backup_policy_id' argument")
-        if database_id is None and 'databaseId' in kwargs:
-            database_id = kwargs['databaseId']
-        if database_id is None:
-            raise TypeError("Missing 'database_id' argument")
-        if vault_id is None and 'vaultId' in kwargs:
-            vault_id = kwargs['vaultId']
-        if vault_id is None:
-            raise TypeError("Missing 'vault_id' argument")
-        if database_credential_key_vault_secret_id is None and 'databaseCredentialKeyVaultSecretId' in kwargs:
-            database_credential_key_vault_secret_id = kwargs['databaseCredentialKeyVaultSecretId']
-
-        _setter("backup_policy_id", backup_policy_id)
-        _setter("database_id", database_id)
-        _setter("vault_id", vault_id)
+        pulumi.set(__self__, "backup_policy_id", backup_policy_id)
+        pulumi.set(__self__, "database_id", database_id)
+        pulumi.set(__self__, "vault_id", vault_id)
         if database_credential_key_vault_secret_id is not None:
-            _setter("database_credential_key_vault_secret_id", database_credential_key_vault_secret_id)
+            pulumi.set(__self__, "database_credential_key_vault_secret_id", database_credential_key_vault_secret_id)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="backupPolicyId")
@@ -165,47 +130,18 @@ class _BackupInstancePostgresqlState:
         :param pulumi.Input[str] name: The name which should be used for this Backup Instance PostgreSQL. Changing this forces a new Backup Instance PostgreSQL to be created.
         :param pulumi.Input[str] vault_id: The ID of the Backup Vault within which the PostgreSQL Backup Instance should exist. Changing this forces a new Backup Instance PostgreSQL to be created.
         """
-        _BackupInstancePostgresqlState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            backup_policy_id=backup_policy_id,
-            database_credential_key_vault_secret_id=database_credential_key_vault_secret_id,
-            database_id=database_id,
-            location=location,
-            name=name,
-            vault_id=vault_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             backup_policy_id: Optional[pulumi.Input[str]] = None,
-             database_credential_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
-             database_id: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             vault_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if backup_policy_id is None and 'backupPolicyId' in kwargs:
-            backup_policy_id = kwargs['backupPolicyId']
-        if database_credential_key_vault_secret_id is None and 'databaseCredentialKeyVaultSecretId' in kwargs:
-            database_credential_key_vault_secret_id = kwargs['databaseCredentialKeyVaultSecretId']
-        if database_id is None and 'databaseId' in kwargs:
-            database_id = kwargs['databaseId']
-        if vault_id is None and 'vaultId' in kwargs:
-            vault_id = kwargs['vaultId']
-
         if backup_policy_id is not None:
-            _setter("backup_policy_id", backup_policy_id)
+            pulumi.set(__self__, "backup_policy_id", backup_policy_id)
         if database_credential_key_vault_secret_id is not None:
-            _setter("database_credential_key_vault_secret_id", database_credential_key_vault_secret_id)
+            pulumi.set(__self__, "database_credential_key_vault_secret_id", database_credential_key_vault_secret_id)
         if database_id is not None:
-            _setter("database_id", database_id)
+            pulumi.set(__self__, "database_id", database_id)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if vault_id is not None:
-            _setter("vault_id", vault_id)
+            pulumi.set(__self__, "vault_id", vault_id)
 
     @property
     @pulumi.getter(name="backupPolicyId")
@@ -535,10 +471,6 @@ class BackupInstancePostgresql(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            BackupInstancePostgresqlArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,44 +33,17 @@ class NetworkSimGroupArgs:
         :param pulumi.Input[str] name: Specifies the name which should be used for this Mobile Network Sim Groups. Changing this forces a new Mobile Network Sim Group to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Mobile Network Sim Groups.
         """
-        NetworkSimGroupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            mobile_network_id=mobile_network_id,
-            encryption_key_url=encryption_key_url,
-            identity=identity,
-            location=location,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             mobile_network_id: Optional[pulumi.Input[str]] = None,
-             encryption_key_url: Optional[pulumi.Input[str]] = None,
-             identity: Optional[pulumi.Input['NetworkSimGroupIdentityArgs']] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if mobile_network_id is None and 'mobileNetworkId' in kwargs:
-            mobile_network_id = kwargs['mobileNetworkId']
-        if mobile_network_id is None:
-            raise TypeError("Missing 'mobile_network_id' argument")
-        if encryption_key_url is None and 'encryptionKeyUrl' in kwargs:
-            encryption_key_url = kwargs['encryptionKeyUrl']
-
-        _setter("mobile_network_id", mobile_network_id)
+        pulumi.set(__self__, "mobile_network_id", mobile_network_id)
         if encryption_key_url is not None:
-            _setter("encryption_key_url", encryption_key_url)
+            pulumi.set(__self__, "encryption_key_url", encryption_key_url)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="mobileNetworkId")
@@ -167,43 +140,18 @@ class _NetworkSimGroupState:
         :param pulumi.Input[str] name: Specifies the name which should be used for this Mobile Network Sim Groups. Changing this forces a new Mobile Network Sim Group to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Mobile Network Sim Groups.
         """
-        _NetworkSimGroupState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            encryption_key_url=encryption_key_url,
-            identity=identity,
-            location=location,
-            mobile_network_id=mobile_network_id,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             encryption_key_url: Optional[pulumi.Input[str]] = None,
-             identity: Optional[pulumi.Input['NetworkSimGroupIdentityArgs']] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             mobile_network_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if encryption_key_url is None and 'encryptionKeyUrl' in kwargs:
-            encryption_key_url = kwargs['encryptionKeyUrl']
-        if mobile_network_id is None and 'mobileNetworkId' in kwargs:
-            mobile_network_id = kwargs['mobileNetworkId']
-
         if encryption_key_url is not None:
-            _setter("encryption_key_url", encryption_key_url)
+            pulumi.set(__self__, "encryption_key_url", encryption_key_url)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if mobile_network_id is not None:
-            _setter("mobile_network_id", mobile_network_id)
+            pulumi.set(__self__, "mobile_network_id", mobile_network_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="encryptionKeyUrl")
@@ -403,10 +351,6 @@ class NetworkSimGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            NetworkSimGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -428,7 +372,6 @@ class NetworkSimGroup(pulumi.CustomResource):
             __props__ = NetworkSimGroupArgs.__new__(NetworkSimGroupArgs)
 
             __props__.__dict__["encryption_key_url"] = encryption_key_url
-            identity = _utilities.configure(identity, NetworkSimGroupIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             if mobile_network_id is None and not opts.urn:

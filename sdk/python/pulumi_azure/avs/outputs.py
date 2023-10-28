@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -52,39 +52,14 @@ class PrivateCloudCircuit(dict):
         :param str primary_subnet_cidr: The CIDR of the primary subnet.
         :param str secondary_subnet_cidr: The CIDR of the secondary subnet.
         """
-        PrivateCloudCircuit._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            express_route_id=express_route_id,
-            express_route_private_peering_id=express_route_private_peering_id,
-            primary_subnet_cidr=primary_subnet_cidr,
-            secondary_subnet_cidr=secondary_subnet_cidr,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             express_route_id: Optional[str] = None,
-             express_route_private_peering_id: Optional[str] = None,
-             primary_subnet_cidr: Optional[str] = None,
-             secondary_subnet_cidr: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if express_route_id is None and 'expressRouteId' in kwargs:
-            express_route_id = kwargs['expressRouteId']
-        if express_route_private_peering_id is None and 'expressRoutePrivatePeeringId' in kwargs:
-            express_route_private_peering_id = kwargs['expressRoutePrivatePeeringId']
-        if primary_subnet_cidr is None and 'primarySubnetCidr' in kwargs:
-            primary_subnet_cidr = kwargs['primarySubnetCidr']
-        if secondary_subnet_cidr is None and 'secondarySubnetCidr' in kwargs:
-            secondary_subnet_cidr = kwargs['secondarySubnetCidr']
-
         if express_route_id is not None:
-            _setter("express_route_id", express_route_id)
+            pulumi.set(__self__, "express_route_id", express_route_id)
         if express_route_private_peering_id is not None:
-            _setter("express_route_private_peering_id", express_route_private_peering_id)
+            pulumi.set(__self__, "express_route_private_peering_id", express_route_private_peering_id)
         if primary_subnet_cidr is not None:
-            _setter("primary_subnet_cidr", primary_subnet_cidr)
+            pulumi.set(__self__, "primary_subnet_cidr", primary_subnet_cidr)
         if secondary_subnet_cidr is not None:
-            _setter("secondary_subnet_cidr", secondary_subnet_cidr)
+            pulumi.set(__self__, "secondary_subnet_cidr", secondary_subnet_cidr)
 
     @property
     @pulumi.getter(name="expressRouteId")
@@ -130,28 +105,11 @@ class PrivateCloudManagementCluster(dict):
         :param Sequence[str] hosts: A list of hosts in the management cluster.
         :param int id: The ID of the management cluster.
         """
-        PrivateCloudManagementCluster._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            size=size,
-            hosts=hosts,
-            id=id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             size: Optional[int] = None,
-             hosts: Optional[Sequence[str]] = None,
-             id: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if size is None:
-            raise TypeError("Missing 'size' argument")
-
-        _setter("size", size)
+        pulumi.set(__self__, "size", size)
         if hosts is not None:
-            _setter("hosts", hosts)
+            pulumi.set(__self__, "hosts", hosts)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
@@ -191,43 +149,10 @@ class GetPrivateCloudCircuitResult(dict):
         :param str primary_subnet_cidr: The CIDR of the primary subnet.
         :param str secondary_subnet_cidr: The CIDR of the secondary subnet.
         """
-        GetPrivateCloudCircuitResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            express_route_id=express_route_id,
-            express_route_private_peering_id=express_route_private_peering_id,
-            primary_subnet_cidr=primary_subnet_cidr,
-            secondary_subnet_cidr=secondary_subnet_cidr,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             express_route_id: Optional[str] = None,
-             express_route_private_peering_id: Optional[str] = None,
-             primary_subnet_cidr: Optional[str] = None,
-             secondary_subnet_cidr: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if express_route_id is None and 'expressRouteId' in kwargs:
-            express_route_id = kwargs['expressRouteId']
-        if express_route_id is None:
-            raise TypeError("Missing 'express_route_id' argument")
-        if express_route_private_peering_id is None and 'expressRoutePrivatePeeringId' in kwargs:
-            express_route_private_peering_id = kwargs['expressRoutePrivatePeeringId']
-        if express_route_private_peering_id is None:
-            raise TypeError("Missing 'express_route_private_peering_id' argument")
-        if primary_subnet_cidr is None and 'primarySubnetCidr' in kwargs:
-            primary_subnet_cidr = kwargs['primarySubnetCidr']
-        if primary_subnet_cidr is None:
-            raise TypeError("Missing 'primary_subnet_cidr' argument")
-        if secondary_subnet_cidr is None and 'secondarySubnetCidr' in kwargs:
-            secondary_subnet_cidr = kwargs['secondarySubnetCidr']
-        if secondary_subnet_cidr is None:
-            raise TypeError("Missing 'secondary_subnet_cidr' argument")
-
-        _setter("express_route_id", express_route_id)
-        _setter("express_route_private_peering_id", express_route_private_peering_id)
-        _setter("primary_subnet_cidr", primary_subnet_cidr)
-        _setter("secondary_subnet_cidr", secondary_subnet_cidr)
+        pulumi.set(__self__, "express_route_id", express_route_id)
+        pulumi.set(__self__, "express_route_private_peering_id", express_route_private_peering_id)
+        pulumi.set(__self__, "primary_subnet_cidr", primary_subnet_cidr)
+        pulumi.set(__self__, "secondary_subnet_cidr", secondary_subnet_cidr)
 
     @property
     @pulumi.getter(name="expressRouteId")
@@ -273,30 +198,9 @@ class GetPrivateCloudManagementClusterResult(dict):
         :param int id: The ID of the management cluster.
         :param int size: The size of the management cluster.
         """
-        GetPrivateCloudManagementClusterResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            hosts=hosts,
-            id=id,
-            size=size,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             hosts: Optional[Sequence[str]] = None,
-             id: Optional[int] = None,
-             size: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if hosts is None:
-            raise TypeError("Missing 'hosts' argument")
-        if id is None:
-            raise TypeError("Missing 'id' argument")
-        if size is None:
-            raise TypeError("Missing 'size' argument")
-
-        _setter("hosts", hosts)
-        _setter("id", id)
-        _setter("size", size)
+        pulumi.set(__self__, "hosts", hosts)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "size", size)
 
     @property
     @pulumi.getter

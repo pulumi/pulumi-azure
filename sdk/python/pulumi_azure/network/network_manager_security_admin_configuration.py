@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['NetworkManagerSecurityAdminConfigurationArgs', 'NetworkManagerSecurityAdminConfiguration']
@@ -25,36 +25,13 @@ class NetworkManagerSecurityAdminConfigurationArgs:
         :param pulumi.Input[str] description: A description of the Security Admin Configuration.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Network Manager Security Admin Configuration. Changing this forces a new Network Manager Security Admin Configuration to be created.
         """
-        NetworkManagerSecurityAdminConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            network_manager_id=network_manager_id,
-            apply_on_network_intent_policy_based_services=apply_on_network_intent_policy_based_services,
-            description=description,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             network_manager_id: Optional[pulumi.Input[str]] = None,
-             apply_on_network_intent_policy_based_services: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if network_manager_id is None and 'networkManagerId' in kwargs:
-            network_manager_id = kwargs['networkManagerId']
-        if network_manager_id is None:
-            raise TypeError("Missing 'network_manager_id' argument")
-        if apply_on_network_intent_policy_based_services is None and 'applyOnNetworkIntentPolicyBasedServices' in kwargs:
-            apply_on_network_intent_policy_based_services = kwargs['applyOnNetworkIntentPolicyBasedServices']
-
-        _setter("network_manager_id", network_manager_id)
+        pulumi.set(__self__, "network_manager_id", network_manager_id)
         if apply_on_network_intent_policy_based_services is not None:
-            _setter("apply_on_network_intent_policy_based_services", apply_on_network_intent_policy_based_services)
+            pulumi.set(__self__, "apply_on_network_intent_policy_based_services", apply_on_network_intent_policy_based_services)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="networkManagerId")
@@ -119,35 +96,14 @@ class _NetworkManagerSecurityAdminConfigurationState:
         :param pulumi.Input[str] name: Specifies the name which should be used for this Network Manager Security Admin Configuration. Changing this forces a new Network Manager Security Admin Configuration to be created.
         :param pulumi.Input[str] network_manager_id: Specifies the ID of the Network Manager Security Admin Configuration. Changing this forces a new Network Manager Security Admin Configuration to be created.
         """
-        _NetworkManagerSecurityAdminConfigurationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            apply_on_network_intent_policy_based_services=apply_on_network_intent_policy_based_services,
-            description=description,
-            name=name,
-            network_manager_id=network_manager_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             apply_on_network_intent_policy_based_services: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             network_manager_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if apply_on_network_intent_policy_based_services is None and 'applyOnNetworkIntentPolicyBasedServices' in kwargs:
-            apply_on_network_intent_policy_based_services = kwargs['applyOnNetworkIntentPolicyBasedServices']
-        if network_manager_id is None and 'networkManagerId' in kwargs:
-            network_manager_id = kwargs['networkManagerId']
-
         if apply_on_network_intent_policy_based_services is not None:
-            _setter("apply_on_network_intent_policy_based_services", apply_on_network_intent_policy_based_services)
+            pulumi.set(__self__, "apply_on_network_intent_policy_based_services", apply_on_network_intent_policy_based_services)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if network_manager_id is not None:
-            _setter("network_manager_id", network_manager_id)
+            pulumi.set(__self__, "network_manager_id", network_manager_id)
 
     @property
     @pulumi.getter(name="applyOnNetworkIntentPolicyBasedServices")
@@ -253,10 +209,6 @@ class NetworkManagerSecurityAdminConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            NetworkManagerSecurityAdminConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AzureTrafficCollectorArgs', 'AzureTrafficCollector']
@@ -25,34 +25,13 @@ class AzureTrafficCollectorArgs:
         :param pulumi.Input[str] name: Specifies the name which should be used for this Network Function Azure Traffic Collector. Changing this forces a new Network Function Azure Traffic Collector to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Network Function Azure Traffic Collector.
         """
-        AzureTrafficCollectorArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_group_name=resource_group_name,
-            location=location,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -121,45 +100,18 @@ class _AzureTrafficCollectorState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Network Function Azure Traffic Collector.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_hub_ids: The Resource ID of virtual hub.
         """
-        _AzureTrafficCollectorState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            collector_policy_ids=collector_policy_ids,
-            location=location,
-            name=name,
-            resource_group_name=resource_group_name,
-            tags=tags,
-            virtual_hub_ids=virtual_hub_ids,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             collector_policy_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             virtual_hub_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if collector_policy_ids is None and 'collectorPolicyIds' in kwargs:
-            collector_policy_ids = kwargs['collectorPolicyIds']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if virtual_hub_ids is None and 'virtualHubIds' in kwargs:
-            virtual_hub_ids = kwargs['virtualHubIds']
-
         if collector_policy_ids is not None:
-            _setter("collector_policy_ids", collector_policy_ids)
+            pulumi.set(__self__, "collector_policy_ids", collector_policy_ids)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if virtual_hub_ids is not None:
-            _setter("virtual_hub_ids", virtual_hub_ids)
+            pulumi.set(__self__, "virtual_hub_ids", virtual_hub_ids)
 
     @property
     @pulumi.getter(name="collectorPolicyIds")
@@ -319,10 +271,6 @@ class AzureTrafficCollector(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AzureTrafficCollectorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

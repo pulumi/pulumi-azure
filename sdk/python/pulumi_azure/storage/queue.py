@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['QueueArgs', 'Queue']
@@ -23,30 +23,11 @@ class QueueArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of MetaData which should be assigned to this Storage Queue.
         :param pulumi.Input[str] name: The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
         """
-        QueueArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            storage_account_name=storage_account_name,
-            metadata=metadata,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             storage_account_name: Optional[pulumi.Input[str]] = None,
-             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if storage_account_name is None and 'storageAccountName' in kwargs:
-            storage_account_name = kwargs['storageAccountName']
-        if storage_account_name is None:
-            raise TypeError("Missing 'storage_account_name' argument")
-
-        _setter("storage_account_name", storage_account_name)
+        pulumi.set(__self__, "storage_account_name", storage_account_name)
         if metadata is not None:
-            _setter("metadata", metadata)
+            pulumi.set(__self__, "metadata", metadata)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="storageAccountName")
@@ -99,35 +80,14 @@ class _QueueState:
         :param pulumi.Input[str] resource_manager_id: The Resource Manager ID of this Storage Queue.
         :param pulumi.Input[str] storage_account_name: Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
         """
-        _QueueState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            metadata=metadata,
-            name=name,
-            resource_manager_id=resource_manager_id,
-            storage_account_name=storage_account_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             resource_manager_id: Optional[pulumi.Input[str]] = None,
-             storage_account_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_manager_id is None and 'resourceManagerId' in kwargs:
-            resource_manager_id = kwargs['resourceManagerId']
-        if storage_account_name is None and 'storageAccountName' in kwargs:
-            storage_account_name = kwargs['storageAccountName']
-
         if metadata is not None:
-            _setter("metadata", metadata)
+            pulumi.set(__self__, "metadata", metadata)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if resource_manager_id is not None:
-            _setter("resource_manager_id", resource_manager_id)
+            pulumi.set(__self__, "resource_manager_id", resource_manager_id)
         if storage_account_name is not None:
-            _setter("storage_account_name", storage_account_name)
+            pulumi.set(__self__, "storage_account_name", storage_account_name)
 
     @property
     @pulumi.getter
@@ -261,10 +221,6 @@ class Queue(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            QueueArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

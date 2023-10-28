@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -35,46 +35,17 @@ class StandardWebTestRequestArgs:
         :param pulumi.Input[str] http_verb: Which HTTP verb to use for the call. Options are 'GET', 'POST', 'PUT', 'PATCH', and 'DELETE'.
         :param pulumi.Input[bool] parse_dependent_requests_enabled: Should the parsing of dependend requests be enabled? Defaults to `true`.
         """
-        StandardWebTestRequestArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            url=url,
-            body=body,
-            follow_redirects_enabled=follow_redirects_enabled,
-            headers=headers,
-            http_verb=http_verb,
-            parse_dependent_requests_enabled=parse_dependent_requests_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             url: Optional[pulumi.Input[str]] = None,
-             body: Optional[pulumi.Input[str]] = None,
-             follow_redirects_enabled: Optional[pulumi.Input[bool]] = None,
-             headers: Optional[pulumi.Input[Sequence[pulumi.Input['StandardWebTestRequestHeaderArgs']]]] = None,
-             http_verb: Optional[pulumi.Input[str]] = None,
-             parse_dependent_requests_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-        if follow_redirects_enabled is None and 'followRedirectsEnabled' in kwargs:
-            follow_redirects_enabled = kwargs['followRedirectsEnabled']
-        if http_verb is None and 'httpVerb' in kwargs:
-            http_verb = kwargs['httpVerb']
-        if parse_dependent_requests_enabled is None and 'parseDependentRequestsEnabled' in kwargs:
-            parse_dependent_requests_enabled = kwargs['parseDependentRequestsEnabled']
-
-        _setter("url", url)
+        pulumi.set(__self__, "url", url)
         if body is not None:
-            _setter("body", body)
+            pulumi.set(__self__, "body", body)
         if follow_redirects_enabled is not None:
-            _setter("follow_redirects_enabled", follow_redirects_enabled)
+            pulumi.set(__self__, "follow_redirects_enabled", follow_redirects_enabled)
         if headers is not None:
-            _setter("headers", headers)
+            pulumi.set(__self__, "headers", headers)
         if http_verb is not None:
-            _setter("http_verb", http_verb)
+            pulumi.set(__self__, "http_verb", http_verb)
         if parse_dependent_requests_enabled is not None:
-            _setter("parse_dependent_requests_enabled", parse_dependent_requests_enabled)
+            pulumi.set(__self__, "parse_dependent_requests_enabled", parse_dependent_requests_enabled)
 
     @property
     @pulumi.getter
@@ -158,25 +129,8 @@ class StandardWebTestRequestHeaderArgs:
         :param pulumi.Input[str] name: The name which should be used for a header in the request.
         :param pulumi.Input[str] value: The value which should be used for a header in the request.
         """
-        StandardWebTestRequestHeaderArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("name", name)
-        _setter("value", value)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -216,37 +170,14 @@ class StandardWebTestValidationRulesArgs:
         :param pulumi.Input[int] ssl_cert_remaining_lifetime: The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail. This number should be between 1 and 365.
         :param pulumi.Input[bool] ssl_check_enabled: Should the SSL check be enabled?
         """
-        StandardWebTestValidationRulesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            content=content,
-            expected_status_code=expected_status_code,
-            ssl_cert_remaining_lifetime=ssl_cert_remaining_lifetime,
-            ssl_check_enabled=ssl_check_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             content: Optional[pulumi.Input['StandardWebTestValidationRulesContentArgs']] = None,
-             expected_status_code: Optional[pulumi.Input[int]] = None,
-             ssl_cert_remaining_lifetime: Optional[pulumi.Input[int]] = None,
-             ssl_check_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if expected_status_code is None and 'expectedStatusCode' in kwargs:
-            expected_status_code = kwargs['expectedStatusCode']
-        if ssl_cert_remaining_lifetime is None and 'sslCertRemainingLifetime' in kwargs:
-            ssl_cert_remaining_lifetime = kwargs['sslCertRemainingLifetime']
-        if ssl_check_enabled is None and 'sslCheckEnabled' in kwargs:
-            ssl_check_enabled = kwargs['sslCheckEnabled']
-
         if content is not None:
-            _setter("content", content)
+            pulumi.set(__self__, "content", content)
         if expected_status_code is not None:
-            _setter("expected_status_code", expected_status_code)
+            pulumi.set(__self__, "expected_status_code", expected_status_code)
         if ssl_cert_remaining_lifetime is not None:
-            _setter("ssl_cert_remaining_lifetime", ssl_cert_remaining_lifetime)
+            pulumi.set(__self__, "ssl_cert_remaining_lifetime", ssl_cert_remaining_lifetime)
         if ssl_check_enabled is not None:
-            _setter("ssl_check_enabled", ssl_check_enabled)
+            pulumi.set(__self__, "ssl_check_enabled", ssl_check_enabled)
 
     @property
     @pulumi.getter
@@ -308,34 +239,11 @@ class StandardWebTestValidationRulesContentArgs:
         :param pulumi.Input[bool] ignore_case: Ignore the casing in the `content_match` value.
         :param pulumi.Input[bool] pass_if_text_found: If the content of `content_match` is found, pass the test. If set to `false`, the WebTest is failing if the content of `content_match` is found.
         """
-        StandardWebTestValidationRulesContentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            content_match=content_match,
-            ignore_case=ignore_case,
-            pass_if_text_found=pass_if_text_found,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             content_match: Optional[pulumi.Input[str]] = None,
-             ignore_case: Optional[pulumi.Input[bool]] = None,
-             pass_if_text_found: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if content_match is None and 'contentMatch' in kwargs:
-            content_match = kwargs['contentMatch']
-        if content_match is None:
-            raise TypeError("Missing 'content_match' argument")
-        if ignore_case is None and 'ignoreCase' in kwargs:
-            ignore_case = kwargs['ignoreCase']
-        if pass_if_text_found is None and 'passIfTextFound' in kwargs:
-            pass_if_text_found = kwargs['passIfTextFound']
-
-        _setter("content_match", content_match)
+        pulumi.set(__self__, "content_match", content_match)
         if ignore_case is not None:
-            _setter("ignore_case", ignore_case)
+            pulumi.set(__self__, "ignore_case", ignore_case)
         if pass_if_text_found is not None:
-            _setter("pass_if_text_found", pass_if_text_found)
+            pulumi.set(__self__, "pass_if_text_found", pass_if_text_found)
 
     @property
     @pulumi.getter(name="contentMatch")
@@ -387,38 +295,13 @@ class WorkbookIdentityArgs:
         :param pulumi.Input[str] principal_id: The Principal ID of the System Assigned Managed Service Identity that is configured on this Workbook.
         :param pulumi.Input[str] tenant_id: The Tenant ID of the System Assigned Managed Service Identity that is configured on this Workbook.
         """
-        WorkbookIdentityArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            identity_ids=identity_ids,
-            principal_id=principal_id,
-            tenant_id=tenant_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[pulumi.Input[str]] = None,
-             identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             principal_id: Optional[pulumi.Input[str]] = None,
-             tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if identity_ids is None and 'identityIds' in kwargs:
-            identity_ids = kwargs['identityIds']
-        if principal_id is None and 'principalId' in kwargs:
-            principal_id = kwargs['principalId']
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if identity_ids is not None:
-            _setter("identity_ids", identity_ids)
+            pulumi.set(__self__, "identity_ids", identity_ids)
         if principal_id is not None:
-            _setter("principal_id", principal_id)
+            pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
-            _setter("tenant_id", tenant_id)
+            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -486,39 +369,14 @@ class WorkbookTemplateGalleryArgs:
                
                > **Note:** See [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-automate#galleries) for more information of `resource_type` and `type`.
         """
-        WorkbookTemplateGalleryArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            category=category,
-            name=name,
-            order=order,
-            resource_type=resource_type,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             category: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             order: Optional[pulumi.Input[int]] = None,
-             resource_type: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if category is None:
-            raise TypeError("Missing 'category' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if resource_type is None and 'resourceType' in kwargs:
-            resource_type = kwargs['resourceType']
-
-        _setter("category", category)
-        _setter("name", name)
+        pulumi.set(__self__, "category", category)
+        pulumi.set(__self__, "name", name)
         if order is not None:
-            _setter("order", order)
+            pulumi.set(__self__, "order", order)
         if resource_type is not None:
-            _setter("resource_type", resource_type)
+            pulumi.set(__self__, "resource_type", resource_type)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter

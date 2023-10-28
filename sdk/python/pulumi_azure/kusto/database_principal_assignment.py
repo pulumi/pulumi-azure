@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DatabasePrincipalAssignmentArgs', 'DatabasePrincipalAssignment']
@@ -33,66 +33,15 @@ class DatabasePrincipalAssignmentArgs:
         :param pulumi.Input[str] tenant_id: The tenant id in which the principal resides. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the kusto principal assignment. Changing this forces a new resource to be created.
         """
-        DatabasePrincipalAssignmentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cluster_name=cluster_name,
-            database_name=database_name,
-            principal_id=principal_id,
-            principal_type=principal_type,
-            resource_group_name=resource_group_name,
-            role=role,
-            tenant_id=tenant_id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cluster_name: Optional[pulumi.Input[str]] = None,
-             database_name: Optional[pulumi.Input[str]] = None,
-             principal_id: Optional[pulumi.Input[str]] = None,
-             principal_type: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             role: Optional[pulumi.Input[str]] = None,
-             tenant_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cluster_name is None and 'clusterName' in kwargs:
-            cluster_name = kwargs['clusterName']
-        if cluster_name is None:
-            raise TypeError("Missing 'cluster_name' argument")
-        if database_name is None and 'databaseName' in kwargs:
-            database_name = kwargs['databaseName']
-        if database_name is None:
-            raise TypeError("Missing 'database_name' argument")
-        if principal_id is None and 'principalId' in kwargs:
-            principal_id = kwargs['principalId']
-        if principal_id is None:
-            raise TypeError("Missing 'principal_id' argument")
-        if principal_type is None and 'principalType' in kwargs:
-            principal_type = kwargs['principalType']
-        if principal_type is None:
-            raise TypeError("Missing 'principal_type' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if role is None:
-            raise TypeError("Missing 'role' argument")
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-        if tenant_id is None:
-            raise TypeError("Missing 'tenant_id' argument")
-
-        _setter("cluster_name", cluster_name)
-        _setter("database_name", database_name)
-        _setter("principal_id", principal_id)
-        _setter("principal_type", principal_type)
-        _setter("resource_group_name", resource_group_name)
-        _setter("role", role)
-        _setter("tenant_id", tenant_id)
+        pulumi.set(__self__, "cluster_name", cluster_name)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "principal_type", principal_type)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "role", role)
+        pulumi.set(__self__, "tenant_id", tenant_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -217,71 +166,26 @@ class _DatabasePrincipalAssignmentState:
         :param pulumi.Input[str] tenant_id: The tenant id in which the principal resides. Changing this forces a new resource to be created.
         :param pulumi.Input[str] tenant_name: The name of the tenant.
         """
-        _DatabasePrincipalAssignmentState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cluster_name=cluster_name,
-            database_name=database_name,
-            name=name,
-            principal_id=principal_id,
-            principal_name=principal_name,
-            principal_type=principal_type,
-            resource_group_name=resource_group_name,
-            role=role,
-            tenant_id=tenant_id,
-            tenant_name=tenant_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cluster_name: Optional[pulumi.Input[str]] = None,
-             database_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             principal_id: Optional[pulumi.Input[str]] = None,
-             principal_name: Optional[pulumi.Input[str]] = None,
-             principal_type: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             role: Optional[pulumi.Input[str]] = None,
-             tenant_id: Optional[pulumi.Input[str]] = None,
-             tenant_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cluster_name is None and 'clusterName' in kwargs:
-            cluster_name = kwargs['clusterName']
-        if database_name is None and 'databaseName' in kwargs:
-            database_name = kwargs['databaseName']
-        if principal_id is None and 'principalId' in kwargs:
-            principal_id = kwargs['principalId']
-        if principal_name is None and 'principalName' in kwargs:
-            principal_name = kwargs['principalName']
-        if principal_type is None and 'principalType' in kwargs:
-            principal_type = kwargs['principalType']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-        if tenant_name is None and 'tenantName' in kwargs:
-            tenant_name = kwargs['tenantName']
-
         if cluster_name is not None:
-            _setter("cluster_name", cluster_name)
+            pulumi.set(__self__, "cluster_name", cluster_name)
         if database_name is not None:
-            _setter("database_name", database_name)
+            pulumi.set(__self__, "database_name", database_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if principal_id is not None:
-            _setter("principal_id", principal_id)
+            pulumi.set(__self__, "principal_id", principal_id)
         if principal_name is not None:
-            _setter("principal_name", principal_name)
+            pulumi.set(__self__, "principal_name", principal_name)
         if principal_type is not None:
-            _setter("principal_type", principal_type)
+            pulumi.set(__self__, "principal_type", principal_type)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if role is not None:
-            _setter("role", role)
+            pulumi.set(__self__, "role", role)
         if tenant_id is not None:
-            _setter("tenant_id", tenant_id)
+            pulumi.set(__self__, "tenant_id", tenant_id)
         if tenant_name is not None:
-            _setter("tenant_name", tenant_name)
+            pulumi.set(__self__, "tenant_name", tenant_name)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -529,10 +433,6 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DatabasePrincipalAssignmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['GlobalSchemaArgs', 'GlobalSchema']
@@ -29,50 +29,13 @@ class GlobalSchemaArgs:
         :param pulumi.Input[str] value: The string defining the document representing the Schema.
         :param pulumi.Input[str] description: The description of the schema.
         """
-        GlobalSchemaArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_management_name=api_management_name,
-            resource_group_name=resource_group_name,
-            schema_id=schema_id,
-            type=type,
-            value=value,
-            description=description,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_management_name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             schema_id: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_management_name is None and 'apiManagementName' in kwargs:
-            api_management_name = kwargs['apiManagementName']
-        if api_management_name is None:
-            raise TypeError("Missing 'api_management_name' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if schema_id is None and 'schemaId' in kwargs:
-            schema_id = kwargs['schemaId']
-        if schema_id is None:
-            raise TypeError("Missing 'schema_id' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("api_management_name", api_management_name)
-        _setter("resource_group_name", resource_group_name)
-        _setter("schema_id", schema_id)
-        _setter("type", type)
-        _setter("value", value)
+        pulumi.set(__self__, "api_management_name", api_management_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "schema_id", schema_id)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
 
     @property
     @pulumi.getter(name="apiManagementName")
@@ -165,45 +128,18 @@ class _GlobalSchemaState:
         :param pulumi.Input[str] type: The content type of the Schema. Possible values are `xml` and `json`.
         :param pulumi.Input[str] value: The string defining the document representing the Schema.
         """
-        _GlobalSchemaState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_management_name=api_management_name,
-            description=description,
-            resource_group_name=resource_group_name,
-            schema_id=schema_id,
-            type=type,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_management_name: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             schema_id: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_management_name is None and 'apiManagementName' in kwargs:
-            api_management_name = kwargs['apiManagementName']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if schema_id is None and 'schemaId' in kwargs:
-            schema_id = kwargs['schemaId']
-
         if api_management_name is not None:
-            _setter("api_management_name", api_management_name)
+            pulumi.set(__self__, "api_management_name", api_management_name)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if schema_id is not None:
-            _setter("schema_id", schema_id)
+            pulumi.set(__self__, "schema_id", schema_id)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter(name="apiManagementName")
@@ -379,10 +315,6 @@ class GlobalSchema(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            GlobalSchemaArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

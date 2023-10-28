@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['GatewayCertificateAuthorityArgs', 'GatewayCertificateAuthority']
@@ -25,42 +25,11 @@ class GatewayCertificateAuthorityArgs:
         :param pulumi.Input[str] gateway_name: The name of the API Management Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] is_trusted: Whether the API Management Gateway Certificate Authority is trusted.
         """
-        GatewayCertificateAuthorityArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_management_id=api_management_id,
-            certificate_name=certificate_name,
-            gateway_name=gateway_name,
-            is_trusted=is_trusted,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_management_id: Optional[pulumi.Input[str]] = None,
-             certificate_name: Optional[pulumi.Input[str]] = None,
-             gateway_name: Optional[pulumi.Input[str]] = None,
-             is_trusted: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_management_id is None and 'apiManagementId' in kwargs:
-            api_management_id = kwargs['apiManagementId']
-        if api_management_id is None:
-            raise TypeError("Missing 'api_management_id' argument")
-        if certificate_name is None and 'certificateName' in kwargs:
-            certificate_name = kwargs['certificateName']
-        if certificate_name is None:
-            raise TypeError("Missing 'certificate_name' argument")
-        if gateway_name is None and 'gatewayName' in kwargs:
-            gateway_name = kwargs['gatewayName']
-        if gateway_name is None:
-            raise TypeError("Missing 'gateway_name' argument")
-        if is_trusted is None and 'isTrusted' in kwargs:
-            is_trusted = kwargs['isTrusted']
-
-        _setter("api_management_id", api_management_id)
-        _setter("certificate_name", certificate_name)
-        _setter("gateway_name", gateway_name)
+        pulumi.set(__self__, "api_management_id", api_management_id)
+        pulumi.set(__self__, "certificate_name", certificate_name)
+        pulumi.set(__self__, "gateway_name", gateway_name)
         if is_trusted is not None:
-            _setter("is_trusted", is_trusted)
+            pulumi.set(__self__, "is_trusted", is_trusted)
 
     @property
     @pulumi.getter(name="apiManagementId")
@@ -125,39 +94,14 @@ class _GatewayCertificateAuthorityState:
         :param pulumi.Input[str] gateway_name: The name of the API Management Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] is_trusted: Whether the API Management Gateway Certificate Authority is trusted.
         """
-        _GatewayCertificateAuthorityState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_management_id=api_management_id,
-            certificate_name=certificate_name,
-            gateway_name=gateway_name,
-            is_trusted=is_trusted,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_management_id: Optional[pulumi.Input[str]] = None,
-             certificate_name: Optional[pulumi.Input[str]] = None,
-             gateway_name: Optional[pulumi.Input[str]] = None,
-             is_trusted: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_management_id is None and 'apiManagementId' in kwargs:
-            api_management_id = kwargs['apiManagementId']
-        if certificate_name is None and 'certificateName' in kwargs:
-            certificate_name = kwargs['certificateName']
-        if gateway_name is None and 'gatewayName' in kwargs:
-            gateway_name = kwargs['gatewayName']
-        if is_trusted is None and 'isTrusted' in kwargs:
-            is_trusted = kwargs['isTrusted']
-
         if api_management_id is not None:
-            _setter("api_management_id", api_management_id)
+            pulumi.set(__self__, "api_management_id", api_management_id)
         if certificate_name is not None:
-            _setter("certificate_name", certificate_name)
+            pulumi.set(__self__, "certificate_name", certificate_name)
         if gateway_name is not None:
-            _setter("gateway_name", gateway_name)
+            pulumi.set(__self__, "gateway_name", gateway_name)
         if is_trusted is not None:
-            _setter("is_trusted", is_trusted)
+            pulumi.set(__self__, "is_trusted", is_trusted)
 
     @property
     @pulumi.getter(name="apiManagementId")
@@ -331,10 +275,6 @@ class GatewayCertificateAuthority(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            GatewayCertificateAuthorityArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

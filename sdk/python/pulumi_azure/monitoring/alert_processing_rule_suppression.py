@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,51 +35,20 @@ class AlertProcessingRuleSuppressionArgs:
         :param pulumi.Input['AlertProcessingRuleSuppressionScheduleArgs'] schedule: A `schedule` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Alert Processing Rule.
         """
-        AlertProcessingRuleSuppressionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_group_name=resource_group_name,
-            scopes=scopes,
-            condition=condition,
-            description=description,
-            enabled=enabled,
-            name=name,
-            schedule=schedule,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             condition: Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionArgs']] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             schedule: Optional[pulumi.Input['AlertProcessingRuleSuppressionScheduleArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if scopes is None:
-            raise TypeError("Missing 'scopes' argument")
-
-        _setter("resource_group_name", resource_group_name)
-        _setter("scopes", scopes)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "scopes", scopes)
         if condition is not None:
-            _setter("condition", condition)
+            pulumi.set(__self__, "condition", condition)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if schedule is not None:
-            _setter("schedule", schedule)
+            pulumi.set(__self__, "schedule", schedule)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -200,49 +169,22 @@ class _AlertProcessingRuleSuppressionState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: A list of resource IDs which will be the target of Alert Processing Rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Alert Processing Rule.
         """
-        _AlertProcessingRuleSuppressionState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            condition=condition,
-            description=description,
-            enabled=enabled,
-            name=name,
-            resource_group_name=resource_group_name,
-            schedule=schedule,
-            scopes=scopes,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             condition: Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionArgs']] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             schedule: Optional[pulumi.Input['AlertProcessingRuleSuppressionScheduleArgs']] = None,
-             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-
         if condition is not None:
-            _setter("condition", condition)
+            pulumi.set(__self__, "condition", condition)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if schedule is not None:
-            _setter("schedule", schedule)
+            pulumi.set(__self__, "schedule", schedule)
         if scopes is not None:
-            _setter("scopes", scopes)
+            pulumi.set(__self__, "scopes", scopes)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -496,10 +438,6 @@ class AlertProcessingRuleSuppression(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AlertProcessingRuleSuppressionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -522,7 +460,6 @@ class AlertProcessingRuleSuppression(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AlertProcessingRuleSuppressionArgs.__new__(AlertProcessingRuleSuppressionArgs)
 
-            condition = _utilities.configure(condition, AlertProcessingRuleSuppressionConditionArgs, True)
             __props__.__dict__["condition"] = condition
             __props__.__dict__["description"] = description
             __props__.__dict__["enabled"] = enabled
@@ -530,7 +467,6 @@ class AlertProcessingRuleSuppression(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            schedule = _utilities.configure(schedule, AlertProcessingRuleSuppressionScheduleArgs, True)
             __props__.__dict__["schedule"] = schedule
             if scopes is None and not opts.urn:
                 raise TypeError("Missing required property 'scopes'")

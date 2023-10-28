@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ManagedDiskSasTokenArgs', 'ManagedDiskSasToken']
@@ -26,36 +26,9 @@ class ManagedDiskSasTokenArgs:
         :param pulumi.Input[int] duration_in_seconds: The duration for which the export should be allowed. Should be between 30 & 4294967295 seconds. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_disk_id: The ID of an existing Managed Disk which should be exported. Changing this forces a new resource to be created.
         """
-        ManagedDiskSasTokenArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            access_level=access_level,
-            duration_in_seconds=duration_in_seconds,
-            managed_disk_id=managed_disk_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             access_level: Optional[pulumi.Input[str]] = None,
-             duration_in_seconds: Optional[pulumi.Input[int]] = None,
-             managed_disk_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if access_level is None and 'accessLevel' in kwargs:
-            access_level = kwargs['accessLevel']
-        if access_level is None:
-            raise TypeError("Missing 'access_level' argument")
-        if duration_in_seconds is None and 'durationInSeconds' in kwargs:
-            duration_in_seconds = kwargs['durationInSeconds']
-        if duration_in_seconds is None:
-            raise TypeError("Missing 'duration_in_seconds' argument")
-        if managed_disk_id is None and 'managedDiskId' in kwargs:
-            managed_disk_id = kwargs['managedDiskId']
-        if managed_disk_id is None:
-            raise TypeError("Missing 'managed_disk_id' argument")
-
-        _setter("access_level", access_level)
-        _setter("duration_in_seconds", duration_in_seconds)
-        _setter("managed_disk_id", managed_disk_id)
+        pulumi.set(__self__, "access_level", access_level)
+        pulumi.set(__self__, "duration_in_seconds", duration_in_seconds)
+        pulumi.set(__self__, "managed_disk_id", managed_disk_id)
 
     @property
     @pulumi.getter(name="accessLevel")
@@ -114,39 +87,14 @@ class _ManagedDiskSasTokenState:
         :param pulumi.Input[str] managed_disk_id: The ID of an existing Managed Disk which should be exported. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sas_url: The computed Shared Access Signature (SAS) of the Managed Disk.
         """
-        _ManagedDiskSasTokenState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            access_level=access_level,
-            duration_in_seconds=duration_in_seconds,
-            managed_disk_id=managed_disk_id,
-            sas_url=sas_url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             access_level: Optional[pulumi.Input[str]] = None,
-             duration_in_seconds: Optional[pulumi.Input[int]] = None,
-             managed_disk_id: Optional[pulumi.Input[str]] = None,
-             sas_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if access_level is None and 'accessLevel' in kwargs:
-            access_level = kwargs['accessLevel']
-        if duration_in_seconds is None and 'durationInSeconds' in kwargs:
-            duration_in_seconds = kwargs['durationInSeconds']
-        if managed_disk_id is None and 'managedDiskId' in kwargs:
-            managed_disk_id = kwargs['managedDiskId']
-        if sas_url is None and 'sasUrl' in kwargs:
-            sas_url = kwargs['sasUrl']
-
         if access_level is not None:
-            _setter("access_level", access_level)
+            pulumi.set(__self__, "access_level", access_level)
         if duration_in_seconds is not None:
-            _setter("duration_in_seconds", duration_in_seconds)
+            pulumi.set(__self__, "duration_in_seconds", duration_in_seconds)
         if managed_disk_id is not None:
-            _setter("managed_disk_id", managed_disk_id)
+            pulumi.set(__self__, "managed_disk_id", managed_disk_id)
         if sas_url is not None:
-            _setter("sas_url", sas_url)
+            pulumi.set(__self__, "sas_url", sas_url)
 
     @property
     @pulumi.getter(name="accessLevel")
@@ -306,10 +254,6 @@ class ManagedDiskSasToken(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ManagedDiskSasTokenArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

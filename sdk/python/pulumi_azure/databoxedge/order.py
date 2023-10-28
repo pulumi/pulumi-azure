@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,41 +27,10 @@ class OrderArgs:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Databox Edge Order should exist. Changing this forces a new Databox Edge Order to be created.
         :param pulumi.Input['OrderShipmentAddressArgs'] shipment_address: A `shipment_address` block as defined below.
         """
-        OrderArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            contact=contact,
-            device_name=device_name,
-            resource_group_name=resource_group_name,
-            shipment_address=shipment_address,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             contact: Optional[pulumi.Input['OrderContactArgs']] = None,
-             device_name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             shipment_address: Optional[pulumi.Input['OrderShipmentAddressArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if contact is None:
-            raise TypeError("Missing 'contact' argument")
-        if device_name is None and 'deviceName' in kwargs:
-            device_name = kwargs['deviceName']
-        if device_name is None:
-            raise TypeError("Missing 'device_name' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if shipment_address is None and 'shipmentAddress' in kwargs:
-            shipment_address = kwargs['shipmentAddress']
-        if shipment_address is None:
-            raise TypeError("Missing 'shipment_address' argument")
-
-        _setter("contact", contact)
-        _setter("device_name", device_name)
-        _setter("resource_group_name", resource_group_name)
-        _setter("shipment_address", shipment_address)
+        pulumi.set(__self__, "contact", contact)
+        pulumi.set(__self__, "device_name", device_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "shipment_address", shipment_address)
 
     @property
     @pulumi.getter
@@ -138,69 +107,26 @@ class _OrderState:
         :param pulumi.Input[Sequence[pulumi.Input['OrderShipmentTrackingArgs']]] shipment_trackings: Tracking information for the package delivered to the customer whether it has an original or a replacement device. A `shipment_tracking` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['OrderStatusArgs']]] statuses: The current status of the order. A `status` block as defined below.
         """
-        _OrderState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            contact=contact,
-            device_name=device_name,
-            name=name,
-            resource_group_name=resource_group_name,
-            return_trackings=return_trackings,
-            serial_number=serial_number,
-            shipment_address=shipment_address,
-            shipment_histories=shipment_histories,
-            shipment_trackings=shipment_trackings,
-            statuses=statuses,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             contact: Optional[pulumi.Input['OrderContactArgs']] = None,
-             device_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             return_trackings: Optional[pulumi.Input[Sequence[pulumi.Input['OrderReturnTrackingArgs']]]] = None,
-             serial_number: Optional[pulumi.Input[str]] = None,
-             shipment_address: Optional[pulumi.Input['OrderShipmentAddressArgs']] = None,
-             shipment_histories: Optional[pulumi.Input[Sequence[pulumi.Input['OrderShipmentHistoryArgs']]]] = None,
-             shipment_trackings: Optional[pulumi.Input[Sequence[pulumi.Input['OrderShipmentTrackingArgs']]]] = None,
-             statuses: Optional[pulumi.Input[Sequence[pulumi.Input['OrderStatusArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if device_name is None and 'deviceName' in kwargs:
-            device_name = kwargs['deviceName']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if return_trackings is None and 'returnTrackings' in kwargs:
-            return_trackings = kwargs['returnTrackings']
-        if serial_number is None and 'serialNumber' in kwargs:
-            serial_number = kwargs['serialNumber']
-        if shipment_address is None and 'shipmentAddress' in kwargs:
-            shipment_address = kwargs['shipmentAddress']
-        if shipment_histories is None and 'shipmentHistories' in kwargs:
-            shipment_histories = kwargs['shipmentHistories']
-        if shipment_trackings is None and 'shipmentTrackings' in kwargs:
-            shipment_trackings = kwargs['shipmentTrackings']
-
         if contact is not None:
-            _setter("contact", contact)
+            pulumi.set(__self__, "contact", contact)
         if device_name is not None:
-            _setter("device_name", device_name)
+            pulumi.set(__self__, "device_name", device_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if return_trackings is not None:
-            _setter("return_trackings", return_trackings)
+            pulumi.set(__self__, "return_trackings", return_trackings)
         if serial_number is not None:
-            _setter("serial_number", serial_number)
+            pulumi.set(__self__, "serial_number", serial_number)
         if shipment_address is not None:
-            _setter("shipment_address", shipment_address)
+            pulumi.set(__self__, "shipment_address", shipment_address)
         if shipment_histories is not None:
-            _setter("shipment_histories", shipment_histories)
+            pulumi.set(__self__, "shipment_histories", shipment_histories)
         if shipment_trackings is not None:
-            _setter("shipment_trackings", shipment_trackings)
+            pulumi.set(__self__, "shipment_trackings", shipment_trackings)
         if statuses is not None:
-            _setter("statuses", statuses)
+            pulumi.set(__self__, "statuses", statuses)
 
     @property
     @pulumi.getter
@@ -440,10 +366,6 @@ class Order(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            OrderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -462,7 +384,6 @@ class Order(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = OrderArgs.__new__(OrderArgs)
 
-            contact = _utilities.configure(contact, OrderContactArgs, True)
             if contact is None and not opts.urn:
                 raise TypeError("Missing required property 'contact'")
             __props__.__dict__["contact"] = contact
@@ -472,7 +393,6 @@ class Order(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            shipment_address = _utilities.configure(shipment_address, OrderShipmentAddressArgs, True)
             if shipment_address is None and not opts.urn:
                 raise TypeError("Missing required property 'shipment_address'")
             __props__.__dict__["shipment_address"] = shipment_address

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,51 +35,18 @@ class AccountArgs:
         :param pulumi.Input[bool] public_network_enabled: Should the Purview Account be visible to the public network? Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Purview Account.
         """
-        AccountArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            identity=identity,
-            resource_group_name=resource_group_name,
-            location=location,
-            managed_resource_group_name=managed_resource_group_name,
-            name=name,
-            public_network_enabled=public_network_enabled,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             managed_resource_group_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             public_network_enabled: Optional[pulumi.Input[bool]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if identity is None:
-            raise TypeError("Missing 'identity' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if managed_resource_group_name is None and 'managedResourceGroupName' in kwargs:
-            managed_resource_group_name = kwargs['managedResourceGroupName']
-        if public_network_enabled is None and 'publicNetworkEnabled' in kwargs:
-            public_network_enabled = kwargs['publicNetworkEnabled']
-
-        _setter("identity", identity)
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "identity", identity)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if managed_resource_group_name is not None:
-            _setter("managed_resource_group_name", managed_resource_group_name)
+            pulumi.set(__self__, "managed_resource_group_name", managed_resource_group_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if public_network_enabled is not None:
-            _setter("public_network_enabled", public_network_enabled)
+            pulumi.set(__self__, "public_network_enabled", public_network_enabled)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -202,85 +169,32 @@ class _AccountState:
         :param pulumi.Input[str] scan_endpoint: Scan endpoint.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Purview Account.
         """
-        _AccountState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            atlas_kafka_endpoint_primary_connection_string=atlas_kafka_endpoint_primary_connection_string,
-            atlas_kafka_endpoint_secondary_connection_string=atlas_kafka_endpoint_secondary_connection_string,
-            catalog_endpoint=catalog_endpoint,
-            guardian_endpoint=guardian_endpoint,
-            identity=identity,
-            location=location,
-            managed_resource_group_name=managed_resource_group_name,
-            managed_resources=managed_resources,
-            name=name,
-            public_network_enabled=public_network_enabled,
-            resource_group_name=resource_group_name,
-            scan_endpoint=scan_endpoint,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             atlas_kafka_endpoint_primary_connection_string: Optional[pulumi.Input[str]] = None,
-             atlas_kafka_endpoint_secondary_connection_string: Optional[pulumi.Input[str]] = None,
-             catalog_endpoint: Optional[pulumi.Input[str]] = None,
-             guardian_endpoint: Optional[pulumi.Input[str]] = None,
-             identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             managed_resource_group_name: Optional[pulumi.Input[str]] = None,
-             managed_resources: Optional[pulumi.Input[Sequence[pulumi.Input['AccountManagedResourceArgs']]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             public_network_enabled: Optional[pulumi.Input[bool]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             scan_endpoint: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if atlas_kafka_endpoint_primary_connection_string is None and 'atlasKafkaEndpointPrimaryConnectionString' in kwargs:
-            atlas_kafka_endpoint_primary_connection_string = kwargs['atlasKafkaEndpointPrimaryConnectionString']
-        if atlas_kafka_endpoint_secondary_connection_string is None and 'atlasKafkaEndpointSecondaryConnectionString' in kwargs:
-            atlas_kafka_endpoint_secondary_connection_string = kwargs['atlasKafkaEndpointSecondaryConnectionString']
-        if catalog_endpoint is None and 'catalogEndpoint' in kwargs:
-            catalog_endpoint = kwargs['catalogEndpoint']
-        if guardian_endpoint is None and 'guardianEndpoint' in kwargs:
-            guardian_endpoint = kwargs['guardianEndpoint']
-        if managed_resource_group_name is None and 'managedResourceGroupName' in kwargs:
-            managed_resource_group_name = kwargs['managedResourceGroupName']
-        if managed_resources is None and 'managedResources' in kwargs:
-            managed_resources = kwargs['managedResources']
-        if public_network_enabled is None and 'publicNetworkEnabled' in kwargs:
-            public_network_enabled = kwargs['publicNetworkEnabled']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if scan_endpoint is None and 'scanEndpoint' in kwargs:
-            scan_endpoint = kwargs['scanEndpoint']
-
         if atlas_kafka_endpoint_primary_connection_string is not None:
-            _setter("atlas_kafka_endpoint_primary_connection_string", atlas_kafka_endpoint_primary_connection_string)
+            pulumi.set(__self__, "atlas_kafka_endpoint_primary_connection_string", atlas_kafka_endpoint_primary_connection_string)
         if atlas_kafka_endpoint_secondary_connection_string is not None:
-            _setter("atlas_kafka_endpoint_secondary_connection_string", atlas_kafka_endpoint_secondary_connection_string)
+            pulumi.set(__self__, "atlas_kafka_endpoint_secondary_connection_string", atlas_kafka_endpoint_secondary_connection_string)
         if catalog_endpoint is not None:
-            _setter("catalog_endpoint", catalog_endpoint)
+            pulumi.set(__self__, "catalog_endpoint", catalog_endpoint)
         if guardian_endpoint is not None:
-            _setter("guardian_endpoint", guardian_endpoint)
+            pulumi.set(__self__, "guardian_endpoint", guardian_endpoint)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if managed_resource_group_name is not None:
-            _setter("managed_resource_group_name", managed_resource_group_name)
+            pulumi.set(__self__, "managed_resource_group_name", managed_resource_group_name)
         if managed_resources is not None:
-            _setter("managed_resources", managed_resources)
+            pulumi.set(__self__, "managed_resources", managed_resources)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if public_network_enabled is not None:
-            _setter("public_network_enabled", public_network_enabled)
+            pulumi.set(__self__, "public_network_enabled", public_network_enabled)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if scan_endpoint is not None:
-            _setter("scan_endpoint", scan_endpoint)
+            pulumi.set(__self__, "scan_endpoint", scan_endpoint)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="atlasKafkaEndpointPrimaryConnectionString")
@@ -534,10 +448,6 @@ class Account(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AccountArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -559,7 +469,6 @@ class Account(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AccountArgs.__new__(AccountArgs)
 
-            identity = _utilities.configure(identity, AccountIdentityArgs, True)
             if identity is None and not opts.urn:
                 raise TypeError("Missing required property 'identity'")
             __props__.__dict__["identity"] = identity

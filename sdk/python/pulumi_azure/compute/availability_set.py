@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AvailabilitySetArgs', 'AvailabilitySet']
@@ -37,56 +37,21 @@ class AvailabilitySetArgs:
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        AvailabilitySetArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_group_name=resource_group_name,
-            location=location,
-            managed=managed,
-            name=name,
-            platform_fault_domain_count=platform_fault_domain_count,
-            platform_update_domain_count=platform_update_domain_count,
-            proximity_placement_group_id=proximity_placement_group_id,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             managed: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             platform_fault_domain_count: Optional[pulumi.Input[int]] = None,
-             platform_update_domain_count: Optional[pulumi.Input[int]] = None,
-             proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if platform_fault_domain_count is None and 'platformFaultDomainCount' in kwargs:
-            platform_fault_domain_count = kwargs['platformFaultDomainCount']
-        if platform_update_domain_count is None and 'platformUpdateDomainCount' in kwargs:
-            platform_update_domain_count = kwargs['platformUpdateDomainCount']
-        if proximity_placement_group_id is None and 'proximityPlacementGroupId' in kwargs:
-            proximity_placement_group_id = kwargs['proximityPlacementGroupId']
-
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if managed is not None:
-            _setter("managed", managed)
+            pulumi.set(__self__, "managed", managed)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if platform_fault_domain_count is not None:
-            _setter("platform_fault_domain_count", platform_fault_domain_count)
+            pulumi.set(__self__, "platform_fault_domain_count", platform_fault_domain_count)
         if platform_update_domain_count is not None:
-            _setter("platform_update_domain_count", platform_update_domain_count)
+            pulumi.set(__self__, "platform_update_domain_count", platform_update_domain_count)
         if proximity_placement_group_id is not None:
-            _setter("proximity_placement_group_id", proximity_placement_group_id)
+            pulumi.set(__self__, "proximity_placement_group_id", proximity_placement_group_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -215,55 +180,22 @@ class _AvailabilitySetState:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        _AvailabilitySetState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            location=location,
-            managed=managed,
-            name=name,
-            platform_fault_domain_count=platform_fault_domain_count,
-            platform_update_domain_count=platform_update_domain_count,
-            proximity_placement_group_id=proximity_placement_group_id,
-            resource_group_name=resource_group_name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             location: Optional[pulumi.Input[str]] = None,
-             managed: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             platform_fault_domain_count: Optional[pulumi.Input[int]] = None,
-             platform_update_domain_count: Optional[pulumi.Input[int]] = None,
-             proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if platform_fault_domain_count is None and 'platformFaultDomainCount' in kwargs:
-            platform_fault_domain_count = kwargs['platformFaultDomainCount']
-        if platform_update_domain_count is None and 'platformUpdateDomainCount' in kwargs:
-            platform_update_domain_count = kwargs['platformUpdateDomainCount']
-        if proximity_placement_group_id is None and 'proximityPlacementGroupId' in kwargs:
-            proximity_placement_group_id = kwargs['proximityPlacementGroupId']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if managed is not None:
-            _setter("managed", managed)
+            pulumi.set(__self__, "managed", managed)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if platform_fault_domain_count is not None:
-            _setter("platform_fault_domain_count", platform_fault_domain_count)
+            pulumi.set(__self__, "platform_fault_domain_count", platform_fault_domain_count)
         if platform_update_domain_count is not None:
-            _setter("platform_update_domain_count", platform_update_domain_count)
+            pulumi.set(__self__, "platform_update_domain_count", platform_update_domain_count)
         if proximity_placement_group_id is not None:
-            _setter("proximity_placement_group_id", proximity_placement_group_id)
+            pulumi.set(__self__, "proximity_placement_group_id", proximity_placement_group_id)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -463,10 +395,6 @@ class AvailabilitySet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AvailabilitySetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

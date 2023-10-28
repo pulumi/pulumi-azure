@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,63 +37,20 @@ class NetworkConnectionMonitorArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] output_workspace_resource_ids: A list of IDs of the Log Analytics Workspace which will accept the output from the Network Connection Monitor.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Network Connection Monitor.
         """
-        NetworkConnectionMonitorArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            endpoints=endpoints,
-            network_watcher_id=network_watcher_id,
-            test_configurations=test_configurations,
-            test_groups=test_groups,
-            location=location,
-            name=name,
-            notes=notes,
-            output_workspace_resource_ids=output_workspace_resource_ids,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorEndpointArgs']]]] = None,
-             network_watcher_id: Optional[pulumi.Input[str]] = None,
-             test_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorTestConfigurationArgs']]]] = None,
-             test_groups: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorTestGroupArgs']]]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             notes: Optional[pulumi.Input[str]] = None,
-             output_workspace_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if endpoints is None:
-            raise TypeError("Missing 'endpoints' argument")
-        if network_watcher_id is None and 'networkWatcherId' in kwargs:
-            network_watcher_id = kwargs['networkWatcherId']
-        if network_watcher_id is None:
-            raise TypeError("Missing 'network_watcher_id' argument")
-        if test_configurations is None and 'testConfigurations' in kwargs:
-            test_configurations = kwargs['testConfigurations']
-        if test_configurations is None:
-            raise TypeError("Missing 'test_configurations' argument")
-        if test_groups is None and 'testGroups' in kwargs:
-            test_groups = kwargs['testGroups']
-        if test_groups is None:
-            raise TypeError("Missing 'test_groups' argument")
-        if output_workspace_resource_ids is None and 'outputWorkspaceResourceIds' in kwargs:
-            output_workspace_resource_ids = kwargs['outputWorkspaceResourceIds']
-
-        _setter("endpoints", endpoints)
-        _setter("network_watcher_id", network_watcher_id)
-        _setter("test_configurations", test_configurations)
-        _setter("test_groups", test_groups)
+        pulumi.set(__self__, "endpoints", endpoints)
+        pulumi.set(__self__, "network_watcher_id", network_watcher_id)
+        pulumi.set(__self__, "test_configurations", test_configurations)
+        pulumi.set(__self__, "test_groups", test_groups)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if notes is not None:
-            _setter("notes", notes)
+            pulumi.set(__self__, "notes", notes)
         if output_workspace_resource_ids is not None:
-            _setter("output_workspace_resource_ids", output_workspace_resource_ids)
+            pulumi.set(__self__, "output_workspace_resource_ids", output_workspace_resource_ids)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -228,59 +185,24 @@ class _NetworkConnectionMonitorState:
         :param pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorTestConfigurationArgs']]] test_configurations: A `test_configuration` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorTestGroupArgs']]] test_groups: A `test_group` block as defined below.
         """
-        _NetworkConnectionMonitorState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            endpoints=endpoints,
-            location=location,
-            name=name,
-            network_watcher_id=network_watcher_id,
-            notes=notes,
-            output_workspace_resource_ids=output_workspace_resource_ids,
-            tags=tags,
-            test_configurations=test_configurations,
-            test_groups=test_groups,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorEndpointArgs']]]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             network_watcher_id: Optional[pulumi.Input[str]] = None,
-             notes: Optional[pulumi.Input[str]] = None,
-             output_workspace_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             test_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorTestConfigurationArgs']]]] = None,
-             test_groups: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorTestGroupArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if network_watcher_id is None and 'networkWatcherId' in kwargs:
-            network_watcher_id = kwargs['networkWatcherId']
-        if output_workspace_resource_ids is None and 'outputWorkspaceResourceIds' in kwargs:
-            output_workspace_resource_ids = kwargs['outputWorkspaceResourceIds']
-        if test_configurations is None and 'testConfigurations' in kwargs:
-            test_configurations = kwargs['testConfigurations']
-        if test_groups is None and 'testGroups' in kwargs:
-            test_groups = kwargs['testGroups']
-
         if endpoints is not None:
-            _setter("endpoints", endpoints)
+            pulumi.set(__self__, "endpoints", endpoints)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if network_watcher_id is not None:
-            _setter("network_watcher_id", network_watcher_id)
+            pulumi.set(__self__, "network_watcher_id", network_watcher_id)
         if notes is not None:
-            _setter("notes", notes)
+            pulumi.set(__self__, "notes", notes)
         if output_workspace_resource_ids is not None:
-            _setter("output_workspace_resource_ids", output_workspace_resource_ids)
+            pulumi.set(__self__, "output_workspace_resource_ids", output_workspace_resource_ids)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if test_configurations is not None:
-            _setter("test_configurations", test_configurations)
+            pulumi.set(__self__, "test_configurations", test_configurations)
         if test_groups is not None:
-            _setter("test_groups", test_groups)
+            pulumi.set(__self__, "test_groups", test_groups)
 
     @property
     @pulumi.getter
@@ -660,10 +582,6 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            NetworkConnectionMonitorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

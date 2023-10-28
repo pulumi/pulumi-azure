@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -59,113 +59,38 @@ class LocalRulestackRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocol_ports: Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Conflicts with `protocol`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Palo Alto Local Rulestack Rule.
         """
-        LocalRulestackRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action=action,
-            applications=applications,
-            destination=destination,
-            priority=priority,
-            rulestack_id=rulestack_id,
-            source=source,
-            audit_comment=audit_comment,
-            category=category,
-            decryption_rule_type=decryption_rule_type,
-            description=description,
-            enabled=enabled,
-            inspection_certificate_id=inspection_certificate_id,
-            logging_enabled=logging_enabled,
-            name=name,
-            negate_destination=negate_destination,
-            negate_source=negate_source,
-            protocol=protocol,
-            protocol_ports=protocol_ports,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action: Optional[pulumi.Input[str]] = None,
-             applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             destination: Optional[pulumi.Input['LocalRulestackRuleDestinationArgs']] = None,
-             priority: Optional[pulumi.Input[int]] = None,
-             rulestack_id: Optional[pulumi.Input[str]] = None,
-             source: Optional[pulumi.Input['LocalRulestackRuleSourceArgs']] = None,
-             audit_comment: Optional[pulumi.Input[str]] = None,
-             category: Optional[pulumi.Input['LocalRulestackRuleCategoryArgs']] = None,
-             decryption_rule_type: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             inspection_certificate_id: Optional[pulumi.Input[str]] = None,
-             logging_enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             negate_destination: Optional[pulumi.Input[bool]] = None,
-             negate_source: Optional[pulumi.Input[bool]] = None,
-             protocol: Optional[pulumi.Input[str]] = None,
-             protocol_ports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if action is None:
-            raise TypeError("Missing 'action' argument")
-        if applications is None:
-            raise TypeError("Missing 'applications' argument")
-        if destination is None:
-            raise TypeError("Missing 'destination' argument")
-        if priority is None:
-            raise TypeError("Missing 'priority' argument")
-        if rulestack_id is None and 'rulestackId' in kwargs:
-            rulestack_id = kwargs['rulestackId']
-        if rulestack_id is None:
-            raise TypeError("Missing 'rulestack_id' argument")
-        if source is None:
-            raise TypeError("Missing 'source' argument")
-        if audit_comment is None and 'auditComment' in kwargs:
-            audit_comment = kwargs['auditComment']
-        if decryption_rule_type is None and 'decryptionRuleType' in kwargs:
-            decryption_rule_type = kwargs['decryptionRuleType']
-        if inspection_certificate_id is None and 'inspectionCertificateId' in kwargs:
-            inspection_certificate_id = kwargs['inspectionCertificateId']
-        if logging_enabled is None and 'loggingEnabled' in kwargs:
-            logging_enabled = kwargs['loggingEnabled']
-        if negate_destination is None and 'negateDestination' in kwargs:
-            negate_destination = kwargs['negateDestination']
-        if negate_source is None and 'negateSource' in kwargs:
-            negate_source = kwargs['negateSource']
-        if protocol_ports is None and 'protocolPorts' in kwargs:
-            protocol_ports = kwargs['protocolPorts']
-
-        _setter("action", action)
-        _setter("applications", applications)
-        _setter("destination", destination)
-        _setter("priority", priority)
-        _setter("rulestack_id", rulestack_id)
-        _setter("source", source)
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "applications", applications)
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "rulestack_id", rulestack_id)
+        pulumi.set(__self__, "source", source)
         if audit_comment is not None:
-            _setter("audit_comment", audit_comment)
+            pulumi.set(__self__, "audit_comment", audit_comment)
         if category is not None:
-            _setter("category", category)
+            pulumi.set(__self__, "category", category)
         if decryption_rule_type is not None:
-            _setter("decryption_rule_type", decryption_rule_type)
+            pulumi.set(__self__, "decryption_rule_type", decryption_rule_type)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if inspection_certificate_id is not None:
-            _setter("inspection_certificate_id", inspection_certificate_id)
+            pulumi.set(__self__, "inspection_certificate_id", inspection_certificate_id)
         if logging_enabled is not None:
-            _setter("logging_enabled", logging_enabled)
+            pulumi.set(__self__, "logging_enabled", logging_enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if negate_destination is not None:
-            _setter("negate_destination", negate_destination)
+            pulumi.set(__self__, "negate_destination", negate_destination)
         if negate_source is not None:
-            _setter("negate_source", negate_source)
+            pulumi.set(__self__, "negate_source", negate_source)
         if protocol is not None:
-            _setter("protocol", protocol)
+            pulumi.set(__self__, "protocol", protocol)
         if protocol_ports is not None:
-            _setter("protocol_ports", protocol_ports)
+            pulumi.set(__self__, "protocol_ports", protocol_ports)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -444,107 +369,44 @@ class _LocalRulestackRuleState:
         :param pulumi.Input['LocalRulestackRuleSourceArgs'] source: One or more `source` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Palo Alto Local Rulestack Rule.
         """
-        _LocalRulestackRuleState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action=action,
-            applications=applications,
-            audit_comment=audit_comment,
-            category=category,
-            decryption_rule_type=decryption_rule_type,
-            description=description,
-            destination=destination,
-            enabled=enabled,
-            inspection_certificate_id=inspection_certificate_id,
-            logging_enabled=logging_enabled,
-            name=name,
-            negate_destination=negate_destination,
-            negate_source=negate_source,
-            priority=priority,
-            protocol=protocol,
-            protocol_ports=protocol_ports,
-            rulestack_id=rulestack_id,
-            source=source,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action: Optional[pulumi.Input[str]] = None,
-             applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             audit_comment: Optional[pulumi.Input[str]] = None,
-             category: Optional[pulumi.Input['LocalRulestackRuleCategoryArgs']] = None,
-             decryption_rule_type: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             destination: Optional[pulumi.Input['LocalRulestackRuleDestinationArgs']] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             inspection_certificate_id: Optional[pulumi.Input[str]] = None,
-             logging_enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             negate_destination: Optional[pulumi.Input[bool]] = None,
-             negate_source: Optional[pulumi.Input[bool]] = None,
-             priority: Optional[pulumi.Input[int]] = None,
-             protocol: Optional[pulumi.Input[str]] = None,
-             protocol_ports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             rulestack_id: Optional[pulumi.Input[str]] = None,
-             source: Optional[pulumi.Input['LocalRulestackRuleSourceArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if audit_comment is None and 'auditComment' in kwargs:
-            audit_comment = kwargs['auditComment']
-        if decryption_rule_type is None and 'decryptionRuleType' in kwargs:
-            decryption_rule_type = kwargs['decryptionRuleType']
-        if inspection_certificate_id is None and 'inspectionCertificateId' in kwargs:
-            inspection_certificate_id = kwargs['inspectionCertificateId']
-        if logging_enabled is None and 'loggingEnabled' in kwargs:
-            logging_enabled = kwargs['loggingEnabled']
-        if negate_destination is None and 'negateDestination' in kwargs:
-            negate_destination = kwargs['negateDestination']
-        if negate_source is None and 'negateSource' in kwargs:
-            negate_source = kwargs['negateSource']
-        if protocol_ports is None and 'protocolPorts' in kwargs:
-            protocol_ports = kwargs['protocolPorts']
-        if rulestack_id is None and 'rulestackId' in kwargs:
-            rulestack_id = kwargs['rulestackId']
-
         if action is not None:
-            _setter("action", action)
+            pulumi.set(__self__, "action", action)
         if applications is not None:
-            _setter("applications", applications)
+            pulumi.set(__self__, "applications", applications)
         if audit_comment is not None:
-            _setter("audit_comment", audit_comment)
+            pulumi.set(__self__, "audit_comment", audit_comment)
         if category is not None:
-            _setter("category", category)
+            pulumi.set(__self__, "category", category)
         if decryption_rule_type is not None:
-            _setter("decryption_rule_type", decryption_rule_type)
+            pulumi.set(__self__, "decryption_rule_type", decryption_rule_type)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if destination is not None:
-            _setter("destination", destination)
+            pulumi.set(__self__, "destination", destination)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if inspection_certificate_id is not None:
-            _setter("inspection_certificate_id", inspection_certificate_id)
+            pulumi.set(__self__, "inspection_certificate_id", inspection_certificate_id)
         if logging_enabled is not None:
-            _setter("logging_enabled", logging_enabled)
+            pulumi.set(__self__, "logging_enabled", logging_enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if negate_destination is not None:
-            _setter("negate_destination", negate_destination)
+            pulumi.set(__self__, "negate_destination", negate_destination)
         if negate_source is not None:
-            _setter("negate_source", negate_source)
+            pulumi.set(__self__, "negate_source", negate_source)
         if priority is not None:
-            _setter("priority", priority)
+            pulumi.set(__self__, "priority", priority)
         if protocol is not None:
-            _setter("protocol", protocol)
+            pulumi.set(__self__, "protocol", protocol)
         if protocol_ports is not None:
-            _setter("protocol_ports", protocol_ports)
+            pulumi.set(__self__, "protocol_ports", protocol_ports)
         if rulestack_id is not None:
-            _setter("rulestack_id", rulestack_id)
+            pulumi.set(__self__, "rulestack_id", rulestack_id)
         if source is not None:
-            _setter("source", source)
+            pulumi.set(__self__, "source", source)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -910,10 +772,6 @@ class LocalRulestackRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LocalRulestackRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -954,11 +812,9 @@ class LocalRulestackRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'applications'")
             __props__.__dict__["applications"] = applications
             __props__.__dict__["audit_comment"] = audit_comment
-            category = _utilities.configure(category, LocalRulestackRuleCategoryArgs, True)
             __props__.__dict__["category"] = category
             __props__.__dict__["decryption_rule_type"] = decryption_rule_type
             __props__.__dict__["description"] = description
-            destination = _utilities.configure(destination, LocalRulestackRuleDestinationArgs, True)
             if destination is None and not opts.urn:
                 raise TypeError("Missing required property 'destination'")
             __props__.__dict__["destination"] = destination
@@ -976,7 +832,6 @@ class LocalRulestackRule(pulumi.CustomResource):
             if rulestack_id is None and not opts.urn:
                 raise TypeError("Missing required property 'rulestack_id'")
             __props__.__dict__["rulestack_id"] = rulestack_id
-            source = _utilities.configure(source, LocalRulestackRuleSourceArgs, True)
             if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")
             __props__.__dict__["source"] = source

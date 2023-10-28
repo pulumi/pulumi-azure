@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['CredentialArgs', 'Credential']
@@ -29,47 +29,14 @@ class CredentialArgs:
         :param pulumi.Input[str] description: The description associated with this Automation Credential.
         :param pulumi.Input[str] name: Specifies the name of the Credential. Changing this forces a new resource to be created.
         """
-        CredentialArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            automation_account_name=automation_account_name,
-            password=password,
-            resource_group_name=resource_group_name,
-            username=username,
-            description=description,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             automation_account_name: Optional[pulumi.Input[str]] = None,
-             password: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             username: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if automation_account_name is None and 'automationAccountName' in kwargs:
-            automation_account_name = kwargs['automationAccountName']
-        if automation_account_name is None:
-            raise TypeError("Missing 'automation_account_name' argument")
-        if password is None:
-            raise TypeError("Missing 'password' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if username is None:
-            raise TypeError("Missing 'username' argument")
-
-        _setter("automation_account_name", automation_account_name)
-        _setter("password", password)
-        _setter("resource_group_name", resource_group_name)
-        _setter("username", username)
+        pulumi.set(__self__, "automation_account_name", automation_account_name)
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "username", username)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="automationAccountName")
@@ -162,43 +129,18 @@ class _CredentialState:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Credential is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] username: The username associated with this Automation Credential.
         """
-        _CredentialState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            automation_account_name=automation_account_name,
-            description=description,
-            name=name,
-            password=password,
-            resource_group_name=resource_group_name,
-            username=username,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             automation_account_name: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             password: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if automation_account_name is None and 'automationAccountName' in kwargs:
-            automation_account_name = kwargs['automationAccountName']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-
         if automation_account_name is not None:
-            _setter("automation_account_name", automation_account_name)
+            pulumi.set(__self__, "automation_account_name", automation_account_name)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if password is not None:
-            _setter("password", password)
+            pulumi.set(__self__, "password", password)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if username is not None:
-            _setter("username", username)
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter(name="automationAccountName")
@@ -370,10 +312,6 @@ class Credential(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            CredentialArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

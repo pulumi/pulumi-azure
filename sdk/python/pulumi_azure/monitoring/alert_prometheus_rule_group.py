@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,64 +39,23 @@ class AlertPrometheusRuleGroupArgs:
         :param pulumi.Input[bool] rule_group_enabled: Is this Alert Management Prometheus Rule Group enabled? Possible values are `true` and `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Alert Management Prometheus Rule Group.
         """
-        AlertPrometheusRuleGroupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_group_name=resource_group_name,
-            rules=rules,
-            scopes=scopes,
-            cluster_name=cluster_name,
-            description=description,
-            interval=interval,
-            location=location,
-            name=name,
-            rule_group_enabled=rule_group_enabled,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             rules: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPrometheusRuleGroupRuleArgs']]]] = None,
-             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             cluster_name: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             interval: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             rule_group_enabled: Optional[pulumi.Input[bool]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if rules is None:
-            raise TypeError("Missing 'rules' argument")
-        if scopes is None:
-            raise TypeError("Missing 'scopes' argument")
-        if cluster_name is None and 'clusterName' in kwargs:
-            cluster_name = kwargs['clusterName']
-        if rule_group_enabled is None and 'ruleGroupEnabled' in kwargs:
-            rule_group_enabled = kwargs['ruleGroupEnabled']
-
-        _setter("resource_group_name", resource_group_name)
-        _setter("rules", rules)
-        _setter("scopes", scopes)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "rules", rules)
+        pulumi.set(__self__, "scopes", scopes)
         if cluster_name is not None:
-            _setter("cluster_name", cluster_name)
+            pulumi.set(__self__, "cluster_name", cluster_name)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if interval is not None:
-            _setter("interval", interval)
+            pulumi.set(__self__, "interval", interval)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if rule_group_enabled is not None:
-            _setter("rule_group_enabled", rule_group_enabled)
+            pulumi.set(__self__, "rule_group_enabled", rule_group_enabled)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -245,61 +204,26 @@ class _AlertPrometheusRuleGroupState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: Specifies the resource ID of the Azure Monitor Workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Alert Management Prometheus Rule Group.
         """
-        _AlertPrometheusRuleGroupState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cluster_name=cluster_name,
-            description=description,
-            interval=interval,
-            location=location,
-            name=name,
-            resource_group_name=resource_group_name,
-            rule_group_enabled=rule_group_enabled,
-            rules=rules,
-            scopes=scopes,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cluster_name: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             interval: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             rule_group_enabled: Optional[pulumi.Input[bool]] = None,
-             rules: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPrometheusRuleGroupRuleArgs']]]] = None,
-             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cluster_name is None and 'clusterName' in kwargs:
-            cluster_name = kwargs['clusterName']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if rule_group_enabled is None and 'ruleGroupEnabled' in kwargs:
-            rule_group_enabled = kwargs['ruleGroupEnabled']
-
         if cluster_name is not None:
-            _setter("cluster_name", cluster_name)
+            pulumi.set(__self__, "cluster_name", cluster_name)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if interval is not None:
-            _setter("interval", interval)
+            pulumi.set(__self__, "interval", interval)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if rule_group_enabled is not None:
-            _setter("rule_group_enabled", rule_group_enabled)
+            pulumi.set(__self__, "rule_group_enabled", rule_group_enabled)
         if rules is not None:
-            _setter("rules", rules)
+            pulumi.set(__self__, "rules", rules)
         if scopes is not None:
-            _setter("scopes", scopes)
+            pulumi.set(__self__, "scopes", scopes)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -489,10 +413,6 @@ class AlertPrometheusRuleGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AlertPrometheusRuleGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

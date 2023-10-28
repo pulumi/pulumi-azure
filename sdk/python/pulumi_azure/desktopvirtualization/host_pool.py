@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -54,98 +54,33 @@ class HostPoolArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] validate_environment: Allows you to test service changes before they are deployed to production. Defaults to `false`.
         """
-        HostPoolArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            load_balancer_type=load_balancer_type,
-            resource_group_name=resource_group_name,
-            type=type,
-            custom_rdp_properties=custom_rdp_properties,
-            description=description,
-            friendly_name=friendly_name,
-            location=location,
-            maximum_sessions_allowed=maximum_sessions_allowed,
-            name=name,
-            personal_desktop_assignment_type=personal_desktop_assignment_type,
-            preferred_app_group_type=preferred_app_group_type,
-            scheduled_agent_updates=scheduled_agent_updates,
-            start_vm_on_connect=start_vm_on_connect,
-            tags=tags,
-            validate_environment=validate_environment,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             load_balancer_type: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             custom_rdp_properties: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             friendly_name: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             maximum_sessions_allowed: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             personal_desktop_assignment_type: Optional[pulumi.Input[str]] = None,
-             preferred_app_group_type: Optional[pulumi.Input[str]] = None,
-             scheduled_agent_updates: Optional[pulumi.Input['HostPoolScheduledAgentUpdatesArgs']] = None,
-             start_vm_on_connect: Optional[pulumi.Input[bool]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             validate_environment: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if load_balancer_type is None and 'loadBalancerType' in kwargs:
-            load_balancer_type = kwargs['loadBalancerType']
-        if load_balancer_type is None:
-            raise TypeError("Missing 'load_balancer_type' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if custom_rdp_properties is None and 'customRdpProperties' in kwargs:
-            custom_rdp_properties = kwargs['customRdpProperties']
-        if friendly_name is None and 'friendlyName' in kwargs:
-            friendly_name = kwargs['friendlyName']
-        if maximum_sessions_allowed is None and 'maximumSessionsAllowed' in kwargs:
-            maximum_sessions_allowed = kwargs['maximumSessionsAllowed']
-        if personal_desktop_assignment_type is None and 'personalDesktopAssignmentType' in kwargs:
-            personal_desktop_assignment_type = kwargs['personalDesktopAssignmentType']
-        if preferred_app_group_type is None and 'preferredAppGroupType' in kwargs:
-            preferred_app_group_type = kwargs['preferredAppGroupType']
-        if scheduled_agent_updates is None and 'scheduledAgentUpdates' in kwargs:
-            scheduled_agent_updates = kwargs['scheduledAgentUpdates']
-        if start_vm_on_connect is None and 'startVmOnConnect' in kwargs:
-            start_vm_on_connect = kwargs['startVmOnConnect']
-        if validate_environment is None and 'validateEnvironment' in kwargs:
-            validate_environment = kwargs['validateEnvironment']
-
-        _setter("load_balancer_type", load_balancer_type)
-        _setter("resource_group_name", resource_group_name)
-        _setter("type", type)
+        pulumi.set(__self__, "load_balancer_type", load_balancer_type)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "type", type)
         if custom_rdp_properties is not None:
-            _setter("custom_rdp_properties", custom_rdp_properties)
+            pulumi.set(__self__, "custom_rdp_properties", custom_rdp_properties)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if friendly_name is not None:
-            _setter("friendly_name", friendly_name)
+            pulumi.set(__self__, "friendly_name", friendly_name)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if maximum_sessions_allowed is not None:
-            _setter("maximum_sessions_allowed", maximum_sessions_allowed)
+            pulumi.set(__self__, "maximum_sessions_allowed", maximum_sessions_allowed)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if personal_desktop_assignment_type is not None:
-            _setter("personal_desktop_assignment_type", personal_desktop_assignment_type)
+            pulumi.set(__self__, "personal_desktop_assignment_type", personal_desktop_assignment_type)
         if preferred_app_group_type is not None:
-            _setter("preferred_app_group_type", preferred_app_group_type)
+            pulumi.set(__self__, "preferred_app_group_type", preferred_app_group_type)
         if scheduled_agent_updates is not None:
-            _setter("scheduled_agent_updates", scheduled_agent_updates)
+            pulumi.set(__self__, "scheduled_agent_updates", scheduled_agent_updates)
         if start_vm_on_connect is not None:
-            _setter("start_vm_on_connect", start_vm_on_connect)
+            pulumi.set(__self__, "start_vm_on_connect", start_vm_on_connect)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if validate_environment is not None:
-            _setter("validate_environment", validate_environment)
+            pulumi.set(__self__, "validate_environment", validate_environment)
 
     @property
     @pulumi.getter(name="loadBalancerType")
@@ -374,95 +309,36 @@ class _HostPoolState:
         :param pulumi.Input[str] type: The type of the Virtual Desktop Host Pool. Valid options are `Personal` or `Pooled`. Changing the type forces a new resource to be created.
         :param pulumi.Input[bool] validate_environment: Allows you to test service changes before they are deployed to production. Defaults to `false`.
         """
-        _HostPoolState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            custom_rdp_properties=custom_rdp_properties,
-            description=description,
-            friendly_name=friendly_name,
-            load_balancer_type=load_balancer_type,
-            location=location,
-            maximum_sessions_allowed=maximum_sessions_allowed,
-            name=name,
-            personal_desktop_assignment_type=personal_desktop_assignment_type,
-            preferred_app_group_type=preferred_app_group_type,
-            resource_group_name=resource_group_name,
-            scheduled_agent_updates=scheduled_agent_updates,
-            start_vm_on_connect=start_vm_on_connect,
-            tags=tags,
-            type=type,
-            validate_environment=validate_environment,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             custom_rdp_properties: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             friendly_name: Optional[pulumi.Input[str]] = None,
-             load_balancer_type: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             maximum_sessions_allowed: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             personal_desktop_assignment_type: Optional[pulumi.Input[str]] = None,
-             preferred_app_group_type: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             scheduled_agent_updates: Optional[pulumi.Input['HostPoolScheduledAgentUpdatesArgs']] = None,
-             start_vm_on_connect: Optional[pulumi.Input[bool]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             validate_environment: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if custom_rdp_properties is None and 'customRdpProperties' in kwargs:
-            custom_rdp_properties = kwargs['customRdpProperties']
-        if friendly_name is None and 'friendlyName' in kwargs:
-            friendly_name = kwargs['friendlyName']
-        if load_balancer_type is None and 'loadBalancerType' in kwargs:
-            load_balancer_type = kwargs['loadBalancerType']
-        if maximum_sessions_allowed is None and 'maximumSessionsAllowed' in kwargs:
-            maximum_sessions_allowed = kwargs['maximumSessionsAllowed']
-        if personal_desktop_assignment_type is None and 'personalDesktopAssignmentType' in kwargs:
-            personal_desktop_assignment_type = kwargs['personalDesktopAssignmentType']
-        if preferred_app_group_type is None and 'preferredAppGroupType' in kwargs:
-            preferred_app_group_type = kwargs['preferredAppGroupType']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if scheduled_agent_updates is None and 'scheduledAgentUpdates' in kwargs:
-            scheduled_agent_updates = kwargs['scheduledAgentUpdates']
-        if start_vm_on_connect is None and 'startVmOnConnect' in kwargs:
-            start_vm_on_connect = kwargs['startVmOnConnect']
-        if validate_environment is None and 'validateEnvironment' in kwargs:
-            validate_environment = kwargs['validateEnvironment']
-
         if custom_rdp_properties is not None:
-            _setter("custom_rdp_properties", custom_rdp_properties)
+            pulumi.set(__self__, "custom_rdp_properties", custom_rdp_properties)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if friendly_name is not None:
-            _setter("friendly_name", friendly_name)
+            pulumi.set(__self__, "friendly_name", friendly_name)
         if load_balancer_type is not None:
-            _setter("load_balancer_type", load_balancer_type)
+            pulumi.set(__self__, "load_balancer_type", load_balancer_type)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if maximum_sessions_allowed is not None:
-            _setter("maximum_sessions_allowed", maximum_sessions_allowed)
+            pulumi.set(__self__, "maximum_sessions_allowed", maximum_sessions_allowed)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if personal_desktop_assignment_type is not None:
-            _setter("personal_desktop_assignment_type", personal_desktop_assignment_type)
+            pulumi.set(__self__, "personal_desktop_assignment_type", personal_desktop_assignment_type)
         if preferred_app_group_type is not None:
-            _setter("preferred_app_group_type", preferred_app_group_type)
+            pulumi.set(__self__, "preferred_app_group_type", preferred_app_group_type)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if scheduled_agent_updates is not None:
-            _setter("scheduled_agent_updates", scheduled_agent_updates)
+            pulumi.set(__self__, "scheduled_agent_updates", scheduled_agent_updates)
         if start_vm_on_connect is not None:
-            _setter("start_vm_on_connect", start_vm_on_connect)
+            pulumi.set(__self__, "start_vm_on_connect", start_vm_on_connect)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
         if validate_environment is not None:
-            _setter("validate_environment", validate_environment)
+            pulumi.set(__self__, "validate_environment", validate_environment)
 
     @property
     @pulumi.getter(name="customRdpProperties")
@@ -786,10 +662,6 @@ class HostPool(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            HostPoolArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -833,7 +705,6 @@ class HostPool(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            scheduled_agent_updates = _utilities.configure(scheduled_agent_updates, HostPoolScheduledAgentUpdatesArgs, True)
             __props__.__dict__["scheduled_agent_updates"] = scheduled_agent_updates
             __props__.__dict__["start_vm_on_connect"] = start_vm_on_connect
             __props__.__dict__["tags"] = tags

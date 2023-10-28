@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['WorkspaceSecurityAlertPolicyArgs', 'WorkspaceSecurityAlertPolicy']
@@ -33,65 +33,20 @@ class WorkspaceSecurityAlertPolicyArgs:
         :param pulumi.Input[str] storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account.
         :param pulumi.Input[str] storage_endpoint: Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
         """
-        WorkspaceSecurityAlertPolicyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            policy_state=policy_state,
-            synapse_workspace_id=synapse_workspace_id,
-            disabled_alerts=disabled_alerts,
-            email_account_admins_enabled=email_account_admins_enabled,
-            email_addresses=email_addresses,
-            retention_days=retention_days,
-            storage_account_access_key=storage_account_access_key,
-            storage_endpoint=storage_endpoint,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             policy_state: Optional[pulumi.Input[str]] = None,
-             synapse_workspace_id: Optional[pulumi.Input[str]] = None,
-             disabled_alerts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             email_account_admins_enabled: Optional[pulumi.Input[bool]] = None,
-             email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             retention_days: Optional[pulumi.Input[int]] = None,
-             storage_account_access_key: Optional[pulumi.Input[str]] = None,
-             storage_endpoint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if policy_state is None and 'policyState' in kwargs:
-            policy_state = kwargs['policyState']
-        if policy_state is None:
-            raise TypeError("Missing 'policy_state' argument")
-        if synapse_workspace_id is None and 'synapseWorkspaceId' in kwargs:
-            synapse_workspace_id = kwargs['synapseWorkspaceId']
-        if synapse_workspace_id is None:
-            raise TypeError("Missing 'synapse_workspace_id' argument")
-        if disabled_alerts is None and 'disabledAlerts' in kwargs:
-            disabled_alerts = kwargs['disabledAlerts']
-        if email_account_admins_enabled is None and 'emailAccountAdminsEnabled' in kwargs:
-            email_account_admins_enabled = kwargs['emailAccountAdminsEnabled']
-        if email_addresses is None and 'emailAddresses' in kwargs:
-            email_addresses = kwargs['emailAddresses']
-        if retention_days is None and 'retentionDays' in kwargs:
-            retention_days = kwargs['retentionDays']
-        if storage_account_access_key is None and 'storageAccountAccessKey' in kwargs:
-            storage_account_access_key = kwargs['storageAccountAccessKey']
-        if storage_endpoint is None and 'storageEndpoint' in kwargs:
-            storage_endpoint = kwargs['storageEndpoint']
-
-        _setter("policy_state", policy_state)
-        _setter("synapse_workspace_id", synapse_workspace_id)
+        pulumi.set(__self__, "policy_state", policy_state)
+        pulumi.set(__self__, "synapse_workspace_id", synapse_workspace_id)
         if disabled_alerts is not None:
-            _setter("disabled_alerts", disabled_alerts)
+            pulumi.set(__self__, "disabled_alerts", disabled_alerts)
         if email_account_admins_enabled is not None:
-            _setter("email_account_admins_enabled", email_account_admins_enabled)
+            pulumi.set(__self__, "email_account_admins_enabled", email_account_admins_enabled)
         if email_addresses is not None:
-            _setter("email_addresses", email_addresses)
+            pulumi.set(__self__, "email_addresses", email_addresses)
         if retention_days is not None:
-            _setter("retention_days", retention_days)
+            pulumi.set(__self__, "retention_days", retention_days)
         if storage_account_access_key is not None:
-            _setter("storage_account_access_key", storage_account_access_key)
+            pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
         if storage_endpoint is not None:
-            _setter("storage_endpoint", storage_endpoint)
+            pulumi.set(__self__, "storage_endpoint", storage_endpoint)
 
     @property
     @pulumi.getter(name="policyState")
@@ -212,63 +167,22 @@ class _WorkspaceSecurityAlertPolicyState:
         :param pulumi.Input[str] storage_endpoint: Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
         :param pulumi.Input[str] synapse_workspace_id: Specifies the ID of the Synapse Workspace. Changing this forces a new resource to be created.
         """
-        _WorkspaceSecurityAlertPolicyState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            disabled_alerts=disabled_alerts,
-            email_account_admins_enabled=email_account_admins_enabled,
-            email_addresses=email_addresses,
-            policy_state=policy_state,
-            retention_days=retention_days,
-            storage_account_access_key=storage_account_access_key,
-            storage_endpoint=storage_endpoint,
-            synapse_workspace_id=synapse_workspace_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             disabled_alerts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             email_account_admins_enabled: Optional[pulumi.Input[bool]] = None,
-             email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             policy_state: Optional[pulumi.Input[str]] = None,
-             retention_days: Optional[pulumi.Input[int]] = None,
-             storage_account_access_key: Optional[pulumi.Input[str]] = None,
-             storage_endpoint: Optional[pulumi.Input[str]] = None,
-             synapse_workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if disabled_alerts is None and 'disabledAlerts' in kwargs:
-            disabled_alerts = kwargs['disabledAlerts']
-        if email_account_admins_enabled is None and 'emailAccountAdminsEnabled' in kwargs:
-            email_account_admins_enabled = kwargs['emailAccountAdminsEnabled']
-        if email_addresses is None and 'emailAddresses' in kwargs:
-            email_addresses = kwargs['emailAddresses']
-        if policy_state is None and 'policyState' in kwargs:
-            policy_state = kwargs['policyState']
-        if retention_days is None and 'retentionDays' in kwargs:
-            retention_days = kwargs['retentionDays']
-        if storage_account_access_key is None and 'storageAccountAccessKey' in kwargs:
-            storage_account_access_key = kwargs['storageAccountAccessKey']
-        if storage_endpoint is None and 'storageEndpoint' in kwargs:
-            storage_endpoint = kwargs['storageEndpoint']
-        if synapse_workspace_id is None and 'synapseWorkspaceId' in kwargs:
-            synapse_workspace_id = kwargs['synapseWorkspaceId']
-
         if disabled_alerts is not None:
-            _setter("disabled_alerts", disabled_alerts)
+            pulumi.set(__self__, "disabled_alerts", disabled_alerts)
         if email_account_admins_enabled is not None:
-            _setter("email_account_admins_enabled", email_account_admins_enabled)
+            pulumi.set(__self__, "email_account_admins_enabled", email_account_admins_enabled)
         if email_addresses is not None:
-            _setter("email_addresses", email_addresses)
+            pulumi.set(__self__, "email_addresses", email_addresses)
         if policy_state is not None:
-            _setter("policy_state", policy_state)
+            pulumi.set(__self__, "policy_state", policy_state)
         if retention_days is not None:
-            _setter("retention_days", retention_days)
+            pulumi.set(__self__, "retention_days", retention_days)
         if storage_account_access_key is not None:
-            _setter("storage_account_access_key", storage_account_access_key)
+            pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
         if storage_endpoint is not None:
-            _setter("storage_endpoint", storage_endpoint)
+            pulumi.set(__self__, "storage_endpoint", storage_endpoint)
         if synapse_workspace_id is not None:
-            _setter("synapse_workspace_id", synapse_workspace_id)
+            pulumi.set(__self__, "synapse_workspace_id", synapse_workspace_id)
 
     @property
     @pulumi.getter(name="disabledAlerts")
@@ -528,10 +442,6 @@ class WorkspaceSecurityAlertPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            WorkspaceSecurityAlertPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SqlFunctionArgs', 'SqlFunction']
@@ -23,31 +23,10 @@ class SqlFunctionArgs:
         :param pulumi.Input[str] container_id: The id of the Cosmos DB SQL Container to create the SQL User Defined Function within. Changing this forces a new SQL User Defined Function to be created.
         :param pulumi.Input[str] name: The name which should be used for this SQL User Defined Function. Changing this forces a new SQL User Defined Function to be created.
         """
-        SqlFunctionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            body=body,
-            container_id=container_id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             body: Optional[pulumi.Input[str]] = None,
-             container_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if body is None:
-            raise TypeError("Missing 'body' argument")
-        if container_id is None and 'containerId' in kwargs:
-            container_id = kwargs['containerId']
-        if container_id is None:
-            raise TypeError("Missing 'container_id' argument")
-
-        _setter("body", body)
-        _setter("container_id", container_id)
+        pulumi.set(__self__, "body", body)
+        pulumi.set(__self__, "container_id", container_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -98,29 +77,12 @@ class _SqlFunctionState:
         :param pulumi.Input[str] container_id: The id of the Cosmos DB SQL Container to create the SQL User Defined Function within. Changing this forces a new SQL User Defined Function to be created.
         :param pulumi.Input[str] name: The name which should be used for this SQL User Defined Function. Changing this forces a new SQL User Defined Function to be created.
         """
-        _SqlFunctionState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            body=body,
-            container_id=container_id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             body: Optional[pulumi.Input[str]] = None,
-             container_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if container_id is None and 'containerId' in kwargs:
-            container_id = kwargs['containerId']
-
         if body is not None:
-            _setter("body", body)
+            pulumi.set(__self__, "body", body)
         if container_id is not None:
-            _setter("container_id", container_id)
+            pulumi.set(__self__, "container_id", container_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -256,10 +218,6 @@ class SqlFunction(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SqlFunctionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

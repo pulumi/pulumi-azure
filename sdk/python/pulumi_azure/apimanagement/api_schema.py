@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ApiSchemaArgs', 'ApiSchema']
@@ -33,62 +33,17 @@ class ApiSchemaArgs:
         :param pulumi.Input[str] definitions: Types definitions. Used for Swagger/OpenAPI v1 schemas only.
         :param pulumi.Input[str] value: The JSON escaped string defining the document representing the Schema.
         """
-        ApiSchemaArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_management_name=api_management_name,
-            api_name=api_name,
-            content_type=content_type,
-            resource_group_name=resource_group_name,
-            schema_id=schema_id,
-            components=components,
-            definitions=definitions,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_management_name: Optional[pulumi.Input[str]] = None,
-             api_name: Optional[pulumi.Input[str]] = None,
-             content_type: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             schema_id: Optional[pulumi.Input[str]] = None,
-             components: Optional[pulumi.Input[str]] = None,
-             definitions: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_management_name is None and 'apiManagementName' in kwargs:
-            api_management_name = kwargs['apiManagementName']
-        if api_management_name is None:
-            raise TypeError("Missing 'api_management_name' argument")
-        if api_name is None and 'apiName' in kwargs:
-            api_name = kwargs['apiName']
-        if api_name is None:
-            raise TypeError("Missing 'api_name' argument")
-        if content_type is None and 'contentType' in kwargs:
-            content_type = kwargs['contentType']
-        if content_type is None:
-            raise TypeError("Missing 'content_type' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if schema_id is None and 'schemaId' in kwargs:
-            schema_id = kwargs['schemaId']
-        if schema_id is None:
-            raise TypeError("Missing 'schema_id' argument")
-
-        _setter("api_management_name", api_management_name)
-        _setter("api_name", api_name)
-        _setter("content_type", content_type)
-        _setter("resource_group_name", resource_group_name)
-        _setter("schema_id", schema_id)
+        pulumi.set(__self__, "api_management_name", api_management_name)
+        pulumi.set(__self__, "api_name", api_name)
+        pulumi.set(__self__, "content_type", content_type)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "schema_id", schema_id)
         if components is not None:
-            _setter("components", components)
+            pulumi.set(__self__, "components", components)
         if definitions is not None:
-            _setter("definitions", definitions)
+            pulumi.set(__self__, "definitions", definitions)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter(name="apiManagementName")
@@ -209,57 +164,22 @@ class _ApiSchemaState:
         :param pulumi.Input[str] schema_id: A unique identifier for this API Schema. Changing this forces a new resource to be created.
         :param pulumi.Input[str] value: The JSON escaped string defining the document representing the Schema.
         """
-        _ApiSchemaState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_management_name=api_management_name,
-            api_name=api_name,
-            components=components,
-            content_type=content_type,
-            definitions=definitions,
-            resource_group_name=resource_group_name,
-            schema_id=schema_id,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_management_name: Optional[pulumi.Input[str]] = None,
-             api_name: Optional[pulumi.Input[str]] = None,
-             components: Optional[pulumi.Input[str]] = None,
-             content_type: Optional[pulumi.Input[str]] = None,
-             definitions: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             schema_id: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_management_name is None and 'apiManagementName' in kwargs:
-            api_management_name = kwargs['apiManagementName']
-        if api_name is None and 'apiName' in kwargs:
-            api_name = kwargs['apiName']
-        if content_type is None and 'contentType' in kwargs:
-            content_type = kwargs['contentType']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if schema_id is None and 'schemaId' in kwargs:
-            schema_id = kwargs['schemaId']
-
         if api_management_name is not None:
-            _setter("api_management_name", api_management_name)
+            pulumi.set(__self__, "api_management_name", api_management_name)
         if api_name is not None:
-            _setter("api_name", api_name)
+            pulumi.set(__self__, "api_name", api_name)
         if components is not None:
-            _setter("components", components)
+            pulumi.set(__self__, "components", components)
         if content_type is not None:
-            _setter("content_type", content_type)
+            pulumi.set(__self__, "content_type", content_type)
         if definitions is not None:
-            _setter("definitions", definitions)
+            pulumi.set(__self__, "definitions", definitions)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if schema_id is not None:
-            _setter("schema_id", schema_id)
+            pulumi.set(__self__, "schema_id", schema_id)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter(name="apiManagementName")
@@ -459,10 +379,6 @@ class ApiSchema(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ApiSchemaArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

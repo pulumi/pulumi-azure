@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ProtectedVMArgs', 'ProtectedVM']
@@ -34,59 +34,18 @@ class ProtectedVMArgs:
                > **NOTE:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource.
                This allows the source vm to be deleted without having to remove the backup.
         """
-        ProtectedVMArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            recovery_vault_name=recovery_vault_name,
-            resource_group_name=resource_group_name,
-            backup_policy_id=backup_policy_id,
-            exclude_disk_luns=exclude_disk_luns,
-            include_disk_luns=include_disk_luns,
-            protection_state=protection_state,
-            source_vm_id=source_vm_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             recovery_vault_name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             backup_policy_id: Optional[pulumi.Input[str]] = None,
-             exclude_disk_luns: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             include_disk_luns: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             protection_state: Optional[pulumi.Input[str]] = None,
-             source_vm_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if recovery_vault_name is None and 'recoveryVaultName' in kwargs:
-            recovery_vault_name = kwargs['recoveryVaultName']
-        if recovery_vault_name is None:
-            raise TypeError("Missing 'recovery_vault_name' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if backup_policy_id is None and 'backupPolicyId' in kwargs:
-            backup_policy_id = kwargs['backupPolicyId']
-        if exclude_disk_luns is None and 'excludeDiskLuns' in kwargs:
-            exclude_disk_luns = kwargs['excludeDiskLuns']
-        if include_disk_luns is None and 'includeDiskLuns' in kwargs:
-            include_disk_luns = kwargs['includeDiskLuns']
-        if protection_state is None and 'protectionState' in kwargs:
-            protection_state = kwargs['protectionState']
-        if source_vm_id is None and 'sourceVmId' in kwargs:
-            source_vm_id = kwargs['sourceVmId']
-
-        _setter("recovery_vault_name", recovery_vault_name)
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "recovery_vault_name", recovery_vault_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if backup_policy_id is not None:
-            _setter("backup_policy_id", backup_policy_id)
+            pulumi.set(__self__, "backup_policy_id", backup_policy_id)
         if exclude_disk_luns is not None:
-            _setter("exclude_disk_luns", exclude_disk_luns)
+            pulumi.set(__self__, "exclude_disk_luns", exclude_disk_luns)
         if include_disk_luns is not None:
-            _setter("include_disk_luns", include_disk_luns)
+            pulumi.set(__self__, "include_disk_luns", include_disk_luns)
         if protection_state is not None:
-            _setter("protection_state", protection_state)
+            pulumi.set(__self__, "protection_state", protection_state)
         if source_vm_id is not None:
-            _setter("source_vm_id", source_vm_id)
+            pulumi.set(__self__, "source_vm_id", source_vm_id)
 
     @property
     @pulumi.getter(name="recoveryVaultName")
@@ -199,57 +158,20 @@ class _ProtectedVMState:
                > **NOTE:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource.
                This allows the source vm to be deleted without having to remove the backup.
         """
-        _ProtectedVMState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            backup_policy_id=backup_policy_id,
-            exclude_disk_luns=exclude_disk_luns,
-            include_disk_luns=include_disk_luns,
-            protection_state=protection_state,
-            recovery_vault_name=recovery_vault_name,
-            resource_group_name=resource_group_name,
-            source_vm_id=source_vm_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             backup_policy_id: Optional[pulumi.Input[str]] = None,
-             exclude_disk_luns: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             include_disk_luns: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             protection_state: Optional[pulumi.Input[str]] = None,
-             recovery_vault_name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             source_vm_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if backup_policy_id is None and 'backupPolicyId' in kwargs:
-            backup_policy_id = kwargs['backupPolicyId']
-        if exclude_disk_luns is None and 'excludeDiskLuns' in kwargs:
-            exclude_disk_luns = kwargs['excludeDiskLuns']
-        if include_disk_luns is None and 'includeDiskLuns' in kwargs:
-            include_disk_luns = kwargs['includeDiskLuns']
-        if protection_state is None and 'protectionState' in kwargs:
-            protection_state = kwargs['protectionState']
-        if recovery_vault_name is None and 'recoveryVaultName' in kwargs:
-            recovery_vault_name = kwargs['recoveryVaultName']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if source_vm_id is None and 'sourceVmId' in kwargs:
-            source_vm_id = kwargs['sourceVmId']
-
         if backup_policy_id is not None:
-            _setter("backup_policy_id", backup_policy_id)
+            pulumi.set(__self__, "backup_policy_id", backup_policy_id)
         if exclude_disk_luns is not None:
-            _setter("exclude_disk_luns", exclude_disk_luns)
+            pulumi.set(__self__, "exclude_disk_luns", exclude_disk_luns)
         if include_disk_luns is not None:
-            _setter("include_disk_luns", include_disk_luns)
+            pulumi.set(__self__, "include_disk_luns", include_disk_luns)
         if protection_state is not None:
-            _setter("protection_state", protection_state)
+            pulumi.set(__self__, "protection_state", protection_state)
         if recovery_vault_name is not None:
-            _setter("recovery_vault_name", recovery_vault_name)
+            pulumi.set(__self__, "recovery_vault_name", recovery_vault_name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if source_vm_id is not None:
-            _setter("source_vm_id", source_vm_id)
+            pulumi.set(__self__, "source_vm_id", source_vm_id)
 
     @property
     @pulumi.getter(name="backupPolicyId")
@@ -467,10 +389,6 @@ class ProtectedVM(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ProtectedVMArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

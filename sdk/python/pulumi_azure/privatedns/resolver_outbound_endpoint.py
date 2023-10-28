@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ResolverOutboundEndpointArgs', 'ResolverOutboundEndpoint']
@@ -27,41 +27,14 @@ class ResolverOutboundEndpointArgs:
         :param pulumi.Input[str] name: Specifies the name which should be used for this Private DNS Resolver Outbound Endpoint. Changing this forces a new Private DNS Resolver Outbound Endpoint to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Private DNS Resolver Outbound Endpoint.
         """
-        ResolverOutboundEndpointArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            private_dns_resolver_id=private_dns_resolver_id,
-            subnet_id=subnet_id,
-            location=location,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             private_dns_resolver_id: Optional[pulumi.Input[str]] = None,
-             subnet_id: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if private_dns_resolver_id is None and 'privateDnsResolverId' in kwargs:
-            private_dns_resolver_id = kwargs['privateDnsResolverId']
-        if private_dns_resolver_id is None:
-            raise TypeError("Missing 'private_dns_resolver_id' argument")
-        if subnet_id is None and 'subnetId' in kwargs:
-            subnet_id = kwargs['subnetId']
-        if subnet_id is None:
-            raise TypeError("Missing 'subnet_id' argument")
-
-        _setter("private_dns_resolver_id", private_dns_resolver_id)
-        _setter("subnet_id", subnet_id)
+        pulumi.set(__self__, "private_dns_resolver_id", private_dns_resolver_id)
+        pulumi.set(__self__, "subnet_id", subnet_id)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="privateDnsResolverId")
@@ -140,39 +113,16 @@ class _ResolverOutboundEndpointState:
         :param pulumi.Input[str] subnet_id: The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Private DNS Resolver Outbound Endpoint.
         """
-        _ResolverOutboundEndpointState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            location=location,
-            name=name,
-            private_dns_resolver_id=private_dns_resolver_id,
-            subnet_id=subnet_id,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             private_dns_resolver_id: Optional[pulumi.Input[str]] = None,
-             subnet_id: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if private_dns_resolver_id is None and 'privateDnsResolverId' in kwargs:
-            private_dns_resolver_id = kwargs['privateDnsResolverId']
-        if subnet_id is None and 'subnetId' in kwargs:
-            subnet_id = kwargs['subnetId']
-
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if private_dns_resolver_id is not None:
-            _setter("private_dns_resolver_id", private_dns_resolver_id)
+            pulumi.set(__self__, "private_dns_resolver_id", private_dns_resolver_id)
         if subnet_id is not None:
-            _setter("subnet_id", subnet_id)
+            pulumi.set(__self__, "subnet_id", subnet_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -362,10 +312,6 @@ class ResolverOutboundEndpoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ResolverOutboundEndpointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

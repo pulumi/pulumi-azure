@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -59,127 +59,44 @@ class DatabaseArgs:
         :param pulumi.Input['DatabaseThreatDetectionPolicyArgs'] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
         """
-        DatabaseArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_group_name=resource_group_name,
-            server_name=server_name,
-            collation=collation,
-            create_mode=create_mode,
-            edition=edition,
-            elastic_pool_name=elastic_pool_name,
-            import_=import_,
-            location=location,
-            max_size_bytes=max_size_bytes,
-            max_size_gb=max_size_gb,
-            name=name,
-            read_scale=read_scale,
-            requested_service_objective_id=requested_service_objective_id,
-            requested_service_objective_name=requested_service_objective_name,
-            restore_point_in_time=restore_point_in_time,
-            source_database_deletion_date=source_database_deletion_date,
-            source_database_id=source_database_id,
-            tags=tags,
-            threat_detection_policy=threat_detection_policy,
-            zone_redundant=zone_redundant,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             server_name: Optional[pulumi.Input[str]] = None,
-             collation: Optional[pulumi.Input[str]] = None,
-             create_mode: Optional[pulumi.Input[str]] = None,
-             edition: Optional[pulumi.Input[str]] = None,
-             elastic_pool_name: Optional[pulumi.Input[str]] = None,
-             import_: Optional[pulumi.Input['DatabaseImportArgs']] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             max_size_bytes: Optional[pulumi.Input[str]] = None,
-             max_size_gb: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             read_scale: Optional[pulumi.Input[bool]] = None,
-             requested_service_objective_id: Optional[pulumi.Input[str]] = None,
-             requested_service_objective_name: Optional[pulumi.Input[str]] = None,
-             restore_point_in_time: Optional[pulumi.Input[str]] = None,
-             source_database_deletion_date: Optional[pulumi.Input[str]] = None,
-             source_database_id: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             threat_detection_policy: Optional[pulumi.Input['DatabaseThreatDetectionPolicyArgs']] = None,
-             zone_redundant: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if server_name is None and 'serverName' in kwargs:
-            server_name = kwargs['serverName']
-        if server_name is None:
-            raise TypeError("Missing 'server_name' argument")
-        if create_mode is None and 'createMode' in kwargs:
-            create_mode = kwargs['createMode']
-        if elastic_pool_name is None and 'elasticPoolName' in kwargs:
-            elastic_pool_name = kwargs['elasticPoolName']
-        if import_ is None and 'import' in kwargs:
-            import_ = kwargs['import']
-        if max_size_bytes is None and 'maxSizeBytes' in kwargs:
-            max_size_bytes = kwargs['maxSizeBytes']
-        if max_size_gb is None and 'maxSizeGb' in kwargs:
-            max_size_gb = kwargs['maxSizeGb']
-        if read_scale is None and 'readScale' in kwargs:
-            read_scale = kwargs['readScale']
-        if requested_service_objective_id is None and 'requestedServiceObjectiveId' in kwargs:
-            requested_service_objective_id = kwargs['requestedServiceObjectiveId']
-        if requested_service_objective_name is None and 'requestedServiceObjectiveName' in kwargs:
-            requested_service_objective_name = kwargs['requestedServiceObjectiveName']
-        if restore_point_in_time is None and 'restorePointInTime' in kwargs:
-            restore_point_in_time = kwargs['restorePointInTime']
-        if source_database_deletion_date is None and 'sourceDatabaseDeletionDate' in kwargs:
-            source_database_deletion_date = kwargs['sourceDatabaseDeletionDate']
-        if source_database_id is None and 'sourceDatabaseId' in kwargs:
-            source_database_id = kwargs['sourceDatabaseId']
-        if threat_detection_policy is None and 'threatDetectionPolicy' in kwargs:
-            threat_detection_policy = kwargs['threatDetectionPolicy']
-        if zone_redundant is None and 'zoneRedundant' in kwargs:
-            zone_redundant = kwargs['zoneRedundant']
-
-        _setter("resource_group_name", resource_group_name)
-        _setter("server_name", server_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "server_name", server_name)
         if collation is not None:
-            _setter("collation", collation)
+            pulumi.set(__self__, "collation", collation)
         if create_mode is not None:
-            _setter("create_mode", create_mode)
+            pulumi.set(__self__, "create_mode", create_mode)
         if edition is not None:
-            _setter("edition", edition)
+            pulumi.set(__self__, "edition", edition)
         if elastic_pool_name is not None:
-            _setter("elastic_pool_name", elastic_pool_name)
+            pulumi.set(__self__, "elastic_pool_name", elastic_pool_name)
         if import_ is not None:
-            _setter("import_", import_)
+            pulumi.set(__self__, "import_", import_)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if max_size_bytes is not None:
-            _setter("max_size_bytes", max_size_bytes)
+            pulumi.set(__self__, "max_size_bytes", max_size_bytes)
         if max_size_gb is not None:
-            _setter("max_size_gb", max_size_gb)
+            pulumi.set(__self__, "max_size_gb", max_size_gb)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if read_scale is not None:
-            _setter("read_scale", read_scale)
+            pulumi.set(__self__, "read_scale", read_scale)
         if requested_service_objective_id is not None:
-            _setter("requested_service_objective_id", requested_service_objective_id)
+            pulumi.set(__self__, "requested_service_objective_id", requested_service_objective_id)
         if requested_service_objective_name is not None:
-            _setter("requested_service_objective_name", requested_service_objective_name)
+            pulumi.set(__self__, "requested_service_objective_name", requested_service_objective_name)
         if restore_point_in_time is not None:
-            _setter("restore_point_in_time", restore_point_in_time)
+            pulumi.set(__self__, "restore_point_in_time", restore_point_in_time)
         if source_database_deletion_date is not None:
-            _setter("source_database_deletion_date", source_database_deletion_date)
+            pulumi.set(__self__, "source_database_deletion_date", source_database_deletion_date)
         if source_database_id is not None:
-            _setter("source_database_id", source_database_id)
+            pulumi.set(__self__, "source_database_id", source_database_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if threat_detection_policy is not None:
-            _setter("threat_detection_policy", threat_detection_policy)
+            pulumi.set(__self__, "threat_detection_policy", threat_detection_policy)
         if zone_redundant is not None:
-            _setter("zone_redundant", zone_redundant)
+            pulumi.set(__self__, "zone_redundant", zone_redundant)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -471,141 +388,52 @@ class _DatabaseState:
         :param pulumi.Input['DatabaseThreatDetectionPolicyArgs'] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
         """
-        _DatabaseState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            collation=collation,
-            create_mode=create_mode,
-            creation_date=creation_date,
-            default_secondary_location=default_secondary_location,
-            edition=edition,
-            elastic_pool_name=elastic_pool_name,
-            encryption=encryption,
-            import_=import_,
-            location=location,
-            max_size_bytes=max_size_bytes,
-            max_size_gb=max_size_gb,
-            name=name,
-            read_scale=read_scale,
-            requested_service_objective_id=requested_service_objective_id,
-            requested_service_objective_name=requested_service_objective_name,
-            resource_group_name=resource_group_name,
-            restore_point_in_time=restore_point_in_time,
-            server_name=server_name,
-            source_database_deletion_date=source_database_deletion_date,
-            source_database_id=source_database_id,
-            tags=tags,
-            threat_detection_policy=threat_detection_policy,
-            zone_redundant=zone_redundant,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             collation: Optional[pulumi.Input[str]] = None,
-             create_mode: Optional[pulumi.Input[str]] = None,
-             creation_date: Optional[pulumi.Input[str]] = None,
-             default_secondary_location: Optional[pulumi.Input[str]] = None,
-             edition: Optional[pulumi.Input[str]] = None,
-             elastic_pool_name: Optional[pulumi.Input[str]] = None,
-             encryption: Optional[pulumi.Input[str]] = None,
-             import_: Optional[pulumi.Input['DatabaseImportArgs']] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             max_size_bytes: Optional[pulumi.Input[str]] = None,
-             max_size_gb: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             read_scale: Optional[pulumi.Input[bool]] = None,
-             requested_service_objective_id: Optional[pulumi.Input[str]] = None,
-             requested_service_objective_name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             restore_point_in_time: Optional[pulumi.Input[str]] = None,
-             server_name: Optional[pulumi.Input[str]] = None,
-             source_database_deletion_date: Optional[pulumi.Input[str]] = None,
-             source_database_id: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             threat_detection_policy: Optional[pulumi.Input['DatabaseThreatDetectionPolicyArgs']] = None,
-             zone_redundant: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if create_mode is None and 'createMode' in kwargs:
-            create_mode = kwargs['createMode']
-        if creation_date is None and 'creationDate' in kwargs:
-            creation_date = kwargs['creationDate']
-        if default_secondary_location is None and 'defaultSecondaryLocation' in kwargs:
-            default_secondary_location = kwargs['defaultSecondaryLocation']
-        if elastic_pool_name is None and 'elasticPoolName' in kwargs:
-            elastic_pool_name = kwargs['elasticPoolName']
-        if import_ is None and 'import' in kwargs:
-            import_ = kwargs['import']
-        if max_size_bytes is None and 'maxSizeBytes' in kwargs:
-            max_size_bytes = kwargs['maxSizeBytes']
-        if max_size_gb is None and 'maxSizeGb' in kwargs:
-            max_size_gb = kwargs['maxSizeGb']
-        if read_scale is None and 'readScale' in kwargs:
-            read_scale = kwargs['readScale']
-        if requested_service_objective_id is None and 'requestedServiceObjectiveId' in kwargs:
-            requested_service_objective_id = kwargs['requestedServiceObjectiveId']
-        if requested_service_objective_name is None and 'requestedServiceObjectiveName' in kwargs:
-            requested_service_objective_name = kwargs['requestedServiceObjectiveName']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if restore_point_in_time is None and 'restorePointInTime' in kwargs:
-            restore_point_in_time = kwargs['restorePointInTime']
-        if server_name is None and 'serverName' in kwargs:
-            server_name = kwargs['serverName']
-        if source_database_deletion_date is None and 'sourceDatabaseDeletionDate' in kwargs:
-            source_database_deletion_date = kwargs['sourceDatabaseDeletionDate']
-        if source_database_id is None and 'sourceDatabaseId' in kwargs:
-            source_database_id = kwargs['sourceDatabaseId']
-        if threat_detection_policy is None and 'threatDetectionPolicy' in kwargs:
-            threat_detection_policy = kwargs['threatDetectionPolicy']
-        if zone_redundant is None and 'zoneRedundant' in kwargs:
-            zone_redundant = kwargs['zoneRedundant']
-
         if collation is not None:
-            _setter("collation", collation)
+            pulumi.set(__self__, "collation", collation)
         if create_mode is not None:
-            _setter("create_mode", create_mode)
+            pulumi.set(__self__, "create_mode", create_mode)
         if creation_date is not None:
-            _setter("creation_date", creation_date)
+            pulumi.set(__self__, "creation_date", creation_date)
         if default_secondary_location is not None:
-            _setter("default_secondary_location", default_secondary_location)
+            pulumi.set(__self__, "default_secondary_location", default_secondary_location)
         if edition is not None:
-            _setter("edition", edition)
+            pulumi.set(__self__, "edition", edition)
         if elastic_pool_name is not None:
-            _setter("elastic_pool_name", elastic_pool_name)
+            pulumi.set(__self__, "elastic_pool_name", elastic_pool_name)
         if encryption is not None:
-            _setter("encryption", encryption)
+            pulumi.set(__self__, "encryption", encryption)
         if import_ is not None:
-            _setter("import_", import_)
+            pulumi.set(__self__, "import_", import_)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if max_size_bytes is not None:
-            _setter("max_size_bytes", max_size_bytes)
+            pulumi.set(__self__, "max_size_bytes", max_size_bytes)
         if max_size_gb is not None:
-            _setter("max_size_gb", max_size_gb)
+            pulumi.set(__self__, "max_size_gb", max_size_gb)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if read_scale is not None:
-            _setter("read_scale", read_scale)
+            pulumi.set(__self__, "read_scale", read_scale)
         if requested_service_objective_id is not None:
-            _setter("requested_service_objective_id", requested_service_objective_id)
+            pulumi.set(__self__, "requested_service_objective_id", requested_service_objective_id)
         if requested_service_objective_name is not None:
-            _setter("requested_service_objective_name", requested_service_objective_name)
+            pulumi.set(__self__, "requested_service_objective_name", requested_service_objective_name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if restore_point_in_time is not None:
-            _setter("restore_point_in_time", restore_point_in_time)
+            pulumi.set(__self__, "restore_point_in_time", restore_point_in_time)
         if server_name is not None:
-            _setter("server_name", server_name)
+            pulumi.set(__self__, "server_name", server_name)
         if source_database_deletion_date is not None:
-            _setter("source_database_deletion_date", source_database_deletion_date)
+            pulumi.set(__self__, "source_database_deletion_date", source_database_deletion_date)
         if source_database_id is not None:
-            _setter("source_database_id", source_database_id)
+            pulumi.set(__self__, "source_database_id", source_database_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if threat_detection_policy is not None:
-            _setter("threat_detection_policy", threat_detection_policy)
+            pulumi.set(__self__, "threat_detection_policy", threat_detection_policy)
         if zone_redundant is not None:
-            _setter("zone_redundant", zone_redundant)
+            pulumi.set(__self__, "zone_redundant", zone_redundant)
 
     @property
     @pulumi.getter
@@ -1030,10 +858,6 @@ class Database(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DatabaseArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1072,7 +896,6 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["create_mode"] = create_mode
             __props__.__dict__["edition"] = edition
             __props__.__dict__["elastic_pool_name"] = elastic_pool_name
-            import_ = _utilities.configure(import_, DatabaseImportArgs, True)
             __props__.__dict__["import_"] = import_
             __props__.__dict__["location"] = location
             __props__.__dict__["max_size_bytes"] = max_size_bytes
@@ -1091,7 +914,6 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["source_database_deletion_date"] = source_database_deletion_date
             __props__.__dict__["source_database_id"] = source_database_id
             __props__.__dict__["tags"] = tags
-            threat_detection_policy = _utilities.configure(threat_detection_policy, DatabaseThreatDetectionPolicyArgs, True)
             __props__.__dict__["threat_detection_policy"] = threat_detection_policy
             __props__.__dict__["zone_redundant"] = zone_redundant
             __props__.__dict__["creation_date"] = None

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -47,28 +47,11 @@ class PolicyFileShareBackupArgs:
                
                > **NOTE:** `time` is required when `frequency` is set to `Daily`.
         """
-        PolicyFileShareBackupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            frequency=frequency,
-            hourly=hourly,
-            time=time,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             frequency: Optional[pulumi.Input[str]] = None,
-             hourly: Optional[pulumi.Input['PolicyFileShareBackupHourlyArgs']] = None,
-             time: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if frequency is None:
-            raise TypeError("Missing 'frequency' argument")
-
-        _setter("frequency", frequency)
+        pulumi.set(__self__, "frequency", frequency)
         if hourly is not None:
-            _setter("hourly", hourly)
+            pulumi.set(__self__, "hourly", hourly)
         if time is not None:
-            _setter("time", time)
+            pulumi.set(__self__, "time", time)
 
     @property
     @pulumi.getter
@@ -122,34 +105,9 @@ class PolicyFileShareBackupHourlyArgs:
         :param pulumi.Input[str] start_time: Specifies the start time of the hourly backup. The time format should be in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
         :param pulumi.Input[int] window_duration: Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-)
         """
-        PolicyFileShareBackupHourlyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            interval=interval,
-            start_time=start_time,
-            window_duration=window_duration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             interval: Optional[pulumi.Input[int]] = None,
-             start_time: Optional[pulumi.Input[str]] = None,
-             window_duration: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if interval is None:
-            raise TypeError("Missing 'interval' argument")
-        if start_time is None and 'startTime' in kwargs:
-            start_time = kwargs['startTime']
-        if start_time is None:
-            raise TypeError("Missing 'start_time' argument")
-        if window_duration is None and 'windowDuration' in kwargs:
-            window_duration = kwargs['windowDuration']
-        if window_duration is None:
-            raise TypeError("Missing 'window_duration' argument")
-
-        _setter("interval", interval)
-        _setter("start_time", start_time)
-        _setter("window_duration", window_duration)
+        pulumi.set(__self__, "interval", interval)
+        pulumi.set(__self__, "start_time", start_time)
+        pulumi.set(__self__, "window_duration", window_duration)
 
     @property
     @pulumi.getter
@@ -195,20 +153,7 @@ class PolicyFileShareRetentionDailyArgs:
         """
         :param pulumi.Input[int] count: The number of daily backups to keep. Must be between `1` and `200` (inclusive)
         """
-        PolicyFileShareRetentionDailyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            count=count,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             count: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if count is None:
-            raise TypeError("Missing 'count' argument")
-
-        _setter("count", count)
+        pulumi.set(__self__, "count", count)
 
     @property
     @pulumi.getter
@@ -240,38 +185,15 @@ class PolicyFileShareRetentionMonthlyArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] weekdays: The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] weeks: The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
         """
-        PolicyFileShareRetentionMonthlyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            count=count,
-            days=days,
-            include_last_days=include_last_days,
-            weekdays=weekdays,
-            weeks=weeks,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             count: Optional[pulumi.Input[int]] = None,
-             days: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             include_last_days: Optional[pulumi.Input[bool]] = None,
-             weekdays: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             weeks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if count is None:
-            raise TypeError("Missing 'count' argument")
-        if include_last_days is None and 'includeLastDays' in kwargs:
-            include_last_days = kwargs['includeLastDays']
-
-        _setter("count", count)
+        pulumi.set(__self__, "count", count)
         if days is not None:
-            _setter("days", days)
+            pulumi.set(__self__, "days", days)
         if include_last_days is not None:
-            _setter("include_last_days", include_last_days)
+            pulumi.set(__self__, "include_last_days", include_last_days)
         if weekdays is not None:
-            _setter("weekdays", weekdays)
+            pulumi.set(__self__, "weekdays", weekdays)
         if weeks is not None:
-            _setter("weeks", weeks)
+            pulumi.set(__self__, "weeks", weeks)
 
     @property
     @pulumi.getter
@@ -345,25 +267,8 @@ class PolicyFileShareRetentionWeeklyArgs:
         :param pulumi.Input[int] count: The number of daily backups to keep. Must be between `1` and `200` (inclusive)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] weekdays: The weekday backups to retain. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
         """
-        PolicyFileShareRetentionWeeklyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            count=count,
-            weekdays=weekdays,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             count: Optional[pulumi.Input[int]] = None,
-             weekdays: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if count is None:
-            raise TypeError("Missing 'count' argument")
-        if weekdays is None:
-            raise TypeError("Missing 'weekdays' argument")
-
-        _setter("count", count)
-        _setter("weekdays", weekdays)
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "weekdays", weekdays)
 
     @property
     @pulumi.getter
@@ -409,43 +314,16 @@ class PolicyFileShareRetentionYearlyArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] weekdays: The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] weeks: The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
         """
-        PolicyFileShareRetentionYearlyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            count=count,
-            months=months,
-            days=days,
-            include_last_days=include_last_days,
-            weekdays=weekdays,
-            weeks=weeks,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             count: Optional[pulumi.Input[int]] = None,
-             months: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             days: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             include_last_days: Optional[pulumi.Input[bool]] = None,
-             weekdays: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             weeks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if count is None:
-            raise TypeError("Missing 'count' argument")
-        if months is None:
-            raise TypeError("Missing 'months' argument")
-        if include_last_days is None and 'includeLastDays' in kwargs:
-            include_last_days = kwargs['includeLastDays']
-
-        _setter("count", count)
-        _setter("months", months)
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "months", months)
         if days is not None:
-            _setter("days", days)
+            pulumi.set(__self__, "days", days)
         if include_last_days is not None:
-            _setter("include_last_days", include_last_days)
+            pulumi.set(__self__, "include_last_days", include_last_days)
         if weekdays is not None:
-            _setter("weekdays", weekdays)
+            pulumi.set(__self__, "weekdays", weekdays)
         if weeks is not None:
-            _setter("weeks", weeks)
+            pulumi.set(__self__, "weeks", weeks)
 
     @property
     @pulumi.getter
@@ -539,41 +417,14 @@ class PolicyVMBackupArgs:
         :param pulumi.Input[int] hour_interval: Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used when `frequency` is `Hourly`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] weekdays: The days of the week to perform backups on. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`. This is used when `frequency` is `Weekly`.
         """
-        PolicyVMBackupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            frequency=frequency,
-            time=time,
-            hour_duration=hour_duration,
-            hour_interval=hour_interval,
-            weekdays=weekdays,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             frequency: Optional[pulumi.Input[str]] = None,
-             time: Optional[pulumi.Input[str]] = None,
-             hour_duration: Optional[pulumi.Input[int]] = None,
-             hour_interval: Optional[pulumi.Input[int]] = None,
-             weekdays: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if frequency is None:
-            raise TypeError("Missing 'frequency' argument")
-        if time is None:
-            raise TypeError("Missing 'time' argument")
-        if hour_duration is None and 'hourDuration' in kwargs:
-            hour_duration = kwargs['hourDuration']
-        if hour_interval is None and 'hourInterval' in kwargs:
-            hour_interval = kwargs['hourInterval']
-
-        _setter("frequency", frequency)
-        _setter("time", time)
+        pulumi.set(__self__, "frequency", frequency)
+        pulumi.set(__self__, "time", time)
         if hour_duration is not None:
-            _setter("hour_duration", hour_duration)
+            pulumi.set(__self__, "hour_duration", hour_duration)
         if hour_interval is not None:
-            _setter("hour_interval", hour_interval)
+            pulumi.set(__self__, "hour_interval", hour_interval)
         if weekdays is not None:
-            _setter("weekdays", weekdays)
+            pulumi.set(__self__, "weekdays", weekdays)
 
     @property
     @pulumi.getter
@@ -647,24 +498,9 @@ class PolicyVMInstantRestoreResourceGroupArgs:
         :param pulumi.Input[str] prefix: The prefix for the `instant_restore_resource_group` name.
         :param pulumi.Input[str] suffix: The suffix for the `instant_restore_resource_group` name.
         """
-        PolicyVMInstantRestoreResourceGroupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            prefix=prefix,
-            suffix=suffix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             prefix: Optional[pulumi.Input[str]] = None,
-             suffix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if prefix is None:
-            raise TypeError("Missing 'prefix' argument")
-
-        _setter("prefix", prefix)
+        pulumi.set(__self__, "prefix", prefix)
         if suffix is not None:
-            _setter("suffix", suffix)
+            pulumi.set(__self__, "suffix", suffix)
 
     @property
     @pulumi.getter
@@ -700,20 +536,7 @@ class PolicyVMRetentionDailyArgs:
                
                > **Note:** Azure previously allows this field to be set to a minimum of 1 (day) - but for new resources/to update this value on existing Backup Policies - this value must now be at least 7 (days).
         """
-        PolicyVMRetentionDailyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            count=count,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             count: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if count is None:
-            raise TypeError("Missing 'count' argument")
-
-        _setter("count", count)
+        pulumi.set(__self__, "count", count)
 
     @property
     @pulumi.getter
@@ -747,38 +570,15 @@ class PolicyVMRetentionMonthlyArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] weekdays: The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] weeks: The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
         """
-        PolicyVMRetentionMonthlyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            count=count,
-            days=days,
-            include_last_days=include_last_days,
-            weekdays=weekdays,
-            weeks=weeks,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             count: Optional[pulumi.Input[int]] = None,
-             days: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             include_last_days: Optional[pulumi.Input[bool]] = None,
-             weekdays: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             weeks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if count is None:
-            raise TypeError("Missing 'count' argument")
-        if include_last_days is None and 'includeLastDays' in kwargs:
-            include_last_days = kwargs['includeLastDays']
-
-        _setter("count", count)
+        pulumi.set(__self__, "count", count)
         if days is not None:
-            _setter("days", days)
+            pulumi.set(__self__, "days", days)
         if include_last_days is not None:
-            _setter("include_last_days", include_last_days)
+            pulumi.set(__self__, "include_last_days", include_last_days)
         if weekdays is not None:
-            _setter("weekdays", weekdays)
+            pulumi.set(__self__, "weekdays", weekdays)
         if weeks is not None:
-            _setter("weeks", weeks)
+            pulumi.set(__self__, "weeks", weeks)
 
     @property
     @pulumi.getter
@@ -852,25 +652,8 @@ class PolicyVMRetentionWeeklyArgs:
         :param pulumi.Input[int] count: The number of weekly backups to keep. Must be between `1` and `9999`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] weekdays: The weekday backups to retain. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
         """
-        PolicyVMRetentionWeeklyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            count=count,
-            weekdays=weekdays,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             count: Optional[pulumi.Input[int]] = None,
-             weekdays: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if count is None:
-            raise TypeError("Missing 'count' argument")
-        if weekdays is None:
-            raise TypeError("Missing 'weekdays' argument")
-
-        _setter("count", count)
-        _setter("weekdays", weekdays)
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "weekdays", weekdays)
 
     @property
     @pulumi.getter
@@ -916,43 +699,16 @@ class PolicyVMRetentionYearlyArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] weekdays: The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] weeks: The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
         """
-        PolicyVMRetentionYearlyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            count=count,
-            months=months,
-            days=days,
-            include_last_days=include_last_days,
-            weekdays=weekdays,
-            weeks=weeks,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             count: Optional[pulumi.Input[int]] = None,
-             months: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             days: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             include_last_days: Optional[pulumi.Input[bool]] = None,
-             weekdays: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             weeks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if count is None:
-            raise TypeError("Missing 'count' argument")
-        if months is None:
-            raise TypeError("Missing 'months' argument")
-        if include_last_days is None and 'includeLastDays' in kwargs:
-            include_last_days = kwargs['includeLastDays']
-
-        _setter("count", count)
-        _setter("months", months)
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "months", months)
         if days is not None:
-            _setter("days", days)
+            pulumi.set(__self__, "days", days)
         if include_last_days is not None:
-            _setter("include_last_days", include_last_days)
+            pulumi.set(__self__, "include_last_days", include_last_days)
         if weekdays is not None:
-            _setter("weekdays", weekdays)
+            pulumi.set(__self__, "weekdays", weekdays)
         if weeks is not None:
-            _setter("weeks", weeks)
+            pulumi.set(__self__, "weeks", weeks)
 
     @property
     @pulumi.getter
@@ -1048,57 +804,18 @@ class PolicyVMWorkloadProtectionPolicyArgs:
         :param pulumi.Input['PolicyVMWorkloadProtectionPolicyRetentionYearlyArgs'] retention_yearly: A `retention_yearly` block as defined below.
         :param pulumi.Input['PolicyVMWorkloadProtectionPolicySimpleRetentionArgs'] simple_retention: A `simple_retention` block as defined below.
         """
-        PolicyVMWorkloadProtectionPolicyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            backup=backup,
-            policy_type=policy_type,
-            retention_daily=retention_daily,
-            retention_monthly=retention_monthly,
-            retention_weekly=retention_weekly,
-            retention_yearly=retention_yearly,
-            simple_retention=simple_retention,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             backup: Optional[pulumi.Input['PolicyVMWorkloadProtectionPolicyBackupArgs']] = None,
-             policy_type: Optional[pulumi.Input[str]] = None,
-             retention_daily: Optional[pulumi.Input['PolicyVMWorkloadProtectionPolicyRetentionDailyArgs']] = None,
-             retention_monthly: Optional[pulumi.Input['PolicyVMWorkloadProtectionPolicyRetentionMonthlyArgs']] = None,
-             retention_weekly: Optional[pulumi.Input['PolicyVMWorkloadProtectionPolicyRetentionWeeklyArgs']] = None,
-             retention_yearly: Optional[pulumi.Input['PolicyVMWorkloadProtectionPolicyRetentionYearlyArgs']] = None,
-             simple_retention: Optional[pulumi.Input['PolicyVMWorkloadProtectionPolicySimpleRetentionArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if backup is None:
-            raise TypeError("Missing 'backup' argument")
-        if policy_type is None and 'policyType' in kwargs:
-            policy_type = kwargs['policyType']
-        if policy_type is None:
-            raise TypeError("Missing 'policy_type' argument")
-        if retention_daily is None and 'retentionDaily' in kwargs:
-            retention_daily = kwargs['retentionDaily']
-        if retention_monthly is None and 'retentionMonthly' in kwargs:
-            retention_monthly = kwargs['retentionMonthly']
-        if retention_weekly is None and 'retentionWeekly' in kwargs:
-            retention_weekly = kwargs['retentionWeekly']
-        if retention_yearly is None and 'retentionYearly' in kwargs:
-            retention_yearly = kwargs['retentionYearly']
-        if simple_retention is None and 'simpleRetention' in kwargs:
-            simple_retention = kwargs['simpleRetention']
-
-        _setter("backup", backup)
-        _setter("policy_type", policy_type)
+        pulumi.set(__self__, "backup", backup)
+        pulumi.set(__self__, "policy_type", policy_type)
         if retention_daily is not None:
-            _setter("retention_daily", retention_daily)
+            pulumi.set(__self__, "retention_daily", retention_daily)
         if retention_monthly is not None:
-            _setter("retention_monthly", retention_monthly)
+            pulumi.set(__self__, "retention_monthly", retention_monthly)
         if retention_weekly is not None:
-            _setter("retention_weekly", retention_weekly)
+            pulumi.set(__self__, "retention_weekly", retention_weekly)
         if retention_yearly is not None:
-            _setter("retention_yearly", retention_yearly)
+            pulumi.set(__self__, "retention_yearly", retention_yearly)
         if simple_retention is not None:
-            _setter("simple_retention", simple_retention)
+            pulumi.set(__self__, "simple_retention", simple_retention)
 
     @property
     @pulumi.getter
@@ -1198,33 +915,14 @@ class PolicyVMWorkloadProtectionPolicyBackupArgs:
         :param pulumi.Input[str] time: The time of day to perform the backup in 24hour format.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] weekdays: The days of the week to perform backups on. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`. This is used when `frequency` is `Weekly`.
         """
-        PolicyVMWorkloadProtectionPolicyBackupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            frequency=frequency,
-            frequency_in_minutes=frequency_in_minutes,
-            time=time,
-            weekdays=weekdays,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             frequency: Optional[pulumi.Input[str]] = None,
-             frequency_in_minutes: Optional[pulumi.Input[int]] = None,
-             time: Optional[pulumi.Input[str]] = None,
-             weekdays: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if frequency_in_minutes is None and 'frequencyInMinutes' in kwargs:
-            frequency_in_minutes = kwargs['frequencyInMinutes']
-
         if frequency is not None:
-            _setter("frequency", frequency)
+            pulumi.set(__self__, "frequency", frequency)
         if frequency_in_minutes is not None:
-            _setter("frequency_in_minutes", frequency_in_minutes)
+            pulumi.set(__self__, "frequency_in_minutes", frequency_in_minutes)
         if time is not None:
-            _setter("time", time)
+            pulumi.set(__self__, "time", time)
         if weekdays is not None:
-            _setter("weekdays", weekdays)
+            pulumi.set(__self__, "weekdays", weekdays)
 
     @property
     @pulumi.getter
@@ -1282,20 +980,7 @@ class PolicyVMWorkloadProtectionPolicyRetentionDailyArgs:
         """
         :param pulumi.Input[int] count: The number of daily backups to keep. Possible values are between `7` and `9999`.
         """
-        PolicyVMWorkloadProtectionPolicyRetentionDailyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            count=count,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             count: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if count is None:
-            raise TypeError("Missing 'count' argument")
-
-        _setter("count", count)
+        pulumi.set(__self__, "count", count)
 
     @property
     @pulumi.getter
@@ -1325,39 +1010,14 @@ class PolicyVMWorkloadProtectionPolicyRetentionMonthlyArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] weekdays: The weekday backups to retain. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] weeks: The weeks of the month to retain backups of. Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`.
         """
-        PolicyVMWorkloadProtectionPolicyRetentionMonthlyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            count=count,
-            format_type=format_type,
-            monthdays=monthdays,
-            weekdays=weekdays,
-            weeks=weeks,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             count: Optional[pulumi.Input[int]] = None,
-             format_type: Optional[pulumi.Input[str]] = None,
-             monthdays: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             weekdays: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             weeks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if count is None:
-            raise TypeError("Missing 'count' argument")
-        if format_type is None and 'formatType' in kwargs:
-            format_type = kwargs['formatType']
-        if format_type is None:
-            raise TypeError("Missing 'format_type' argument")
-
-        _setter("count", count)
-        _setter("format_type", format_type)
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "format_type", format_type)
         if monthdays is not None:
-            _setter("monthdays", monthdays)
+            pulumi.set(__self__, "monthdays", monthdays)
         if weekdays is not None:
-            _setter("weekdays", weekdays)
+            pulumi.set(__self__, "weekdays", weekdays)
         if weeks is not None:
-            _setter("weeks", weeks)
+            pulumi.set(__self__, "weeks", weeks)
 
     @property
     @pulumi.getter
@@ -1429,25 +1089,8 @@ class PolicyVMWorkloadProtectionPolicyRetentionWeeklyArgs:
         :param pulumi.Input[int] count: The number of weekly backups to keep. Possible values are between `1` and `5163`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] weekdays: The weekday backups to retain. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
         """
-        PolicyVMWorkloadProtectionPolicyRetentionWeeklyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            count=count,
-            weekdays=weekdays,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             count: Optional[pulumi.Input[int]] = None,
-             weekdays: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if count is None:
-            raise TypeError("Missing 'count' argument")
-        if weekdays is None:
-            raise TypeError("Missing 'weekdays' argument")
-
-        _setter("count", count)
-        _setter("weekdays", weekdays)
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "weekdays", weekdays)
 
     @property
     @pulumi.getter
@@ -1491,44 +1134,15 @@ class PolicyVMWorkloadProtectionPolicyRetentionYearlyArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] weekdays: The weekday backups to retain. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] weeks: The weeks of the month to retain backups of. Possible values are `First`, `Second`, `Third`, `Fourth`, `Last`.
         """
-        PolicyVMWorkloadProtectionPolicyRetentionYearlyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            count=count,
-            format_type=format_type,
-            months=months,
-            monthdays=monthdays,
-            weekdays=weekdays,
-            weeks=weeks,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             count: Optional[pulumi.Input[int]] = None,
-             format_type: Optional[pulumi.Input[str]] = None,
-             months: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             monthdays: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             weekdays: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             weeks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if count is None:
-            raise TypeError("Missing 'count' argument")
-        if format_type is None and 'formatType' in kwargs:
-            format_type = kwargs['formatType']
-        if format_type is None:
-            raise TypeError("Missing 'format_type' argument")
-        if months is None:
-            raise TypeError("Missing 'months' argument")
-
-        _setter("count", count)
-        _setter("format_type", format_type)
-        _setter("months", months)
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "format_type", format_type)
+        pulumi.set(__self__, "months", months)
         if monthdays is not None:
-            _setter("monthdays", monthdays)
+            pulumi.set(__self__, "monthdays", monthdays)
         if weekdays is not None:
-            _setter("weekdays", weekdays)
+            pulumi.set(__self__, "weekdays", weekdays)
         if weeks is not None:
-            _setter("weeks", weeks)
+            pulumi.set(__self__, "weeks", weeks)
 
     @property
     @pulumi.getter
@@ -1610,20 +1224,7 @@ class PolicyVMWorkloadProtectionPolicySimpleRetentionArgs:
         """
         :param pulumi.Input[int] count: The count that is used to count retention duration with duration type `Days`. Possible values are between `7` and `35`.
         """
-        PolicyVMWorkloadProtectionPolicySimpleRetentionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            count=count,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             count: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if count is None:
-            raise TypeError("Missing 'count' argument")
-
-        _setter("count", count)
+        pulumi.set(__self__, "count", count)
 
     @property
     @pulumi.getter
@@ -1647,28 +1248,9 @@ class PolicyVMWorkloadSettingsArgs:
         :param pulumi.Input[str] time_zone: The timezone for the VM Workload Backup Policy. [The possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         :param pulumi.Input[bool] compression_enabled: The compression setting for the VM Workload Backup Policy. Defaults to `false`.
         """
-        PolicyVMWorkloadSettingsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            time_zone=time_zone,
-            compression_enabled=compression_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             time_zone: Optional[pulumi.Input[str]] = None,
-             compression_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if time_zone is None and 'timeZone' in kwargs:
-            time_zone = kwargs['timeZone']
-        if time_zone is None:
-            raise TypeError("Missing 'time_zone' argument")
-        if compression_enabled is None and 'compressionEnabled' in kwargs:
-            compression_enabled = kwargs['compressionEnabled']
-
-        _setter("time_zone", time_zone)
+        pulumi.set(__self__, "time_zone", time_zone)
         if compression_enabled is not None:
-            _setter("compression_enabled", compression_enabled)
+            pulumi.set(__self__, "compression_enabled", compression_enabled)
 
     @property
     @pulumi.getter(name="timeZone")

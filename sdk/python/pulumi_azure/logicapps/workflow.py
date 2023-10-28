@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -47,82 +47,31 @@ class WorkflowArgs:
         :param pulumi.Input[str] workflow_schema: Specifies the Schema to use for this Logic App Workflow. Defaults to `https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] workflow_version: Specifies the version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`. Changing this forces a new resource to be created.
         """
-        WorkflowArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_group_name=resource_group_name,
-            access_control=access_control,
-            enabled=enabled,
-            identity=identity,
-            integration_service_environment_id=integration_service_environment_id,
-            location=location,
-            logic_app_integration_account_id=logic_app_integration_account_id,
-            name=name,
-            parameters=parameters,
-            tags=tags,
-            workflow_parameters=workflow_parameters,
-            workflow_schema=workflow_schema,
-            workflow_version=workflow_version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             access_control: Optional[pulumi.Input['WorkflowAccessControlArgs']] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             identity: Optional[pulumi.Input['WorkflowIdentityArgs']] = None,
-             integration_service_environment_id: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             logic_app_integration_account_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             workflow_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             workflow_schema: Optional[pulumi.Input[str]] = None,
-             workflow_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if access_control is None and 'accessControl' in kwargs:
-            access_control = kwargs['accessControl']
-        if integration_service_environment_id is None and 'integrationServiceEnvironmentId' in kwargs:
-            integration_service_environment_id = kwargs['integrationServiceEnvironmentId']
-        if logic_app_integration_account_id is None and 'logicAppIntegrationAccountId' in kwargs:
-            logic_app_integration_account_id = kwargs['logicAppIntegrationAccountId']
-        if workflow_parameters is None and 'workflowParameters' in kwargs:
-            workflow_parameters = kwargs['workflowParameters']
-        if workflow_schema is None and 'workflowSchema' in kwargs:
-            workflow_schema = kwargs['workflowSchema']
-        if workflow_version is None and 'workflowVersion' in kwargs:
-            workflow_version = kwargs['workflowVersion']
-
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if access_control is not None:
-            _setter("access_control", access_control)
+            pulumi.set(__self__, "access_control", access_control)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if integration_service_environment_id is not None:
-            _setter("integration_service_environment_id", integration_service_environment_id)
+            pulumi.set(__self__, "integration_service_environment_id", integration_service_environment_id)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if logic_app_integration_account_id is not None:
-            _setter("logic_app_integration_account_id", logic_app_integration_account_id)
+            pulumi.set(__self__, "logic_app_integration_account_id", logic_app_integration_account_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if parameters is not None:
-            _setter("parameters", parameters)
+            pulumi.set(__self__, "parameters", parameters)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if workflow_parameters is not None:
-            _setter("workflow_parameters", workflow_parameters)
+            pulumi.set(__self__, "workflow_parameters", workflow_parameters)
         if workflow_schema is not None:
-            _setter("workflow_schema", workflow_schema)
+            pulumi.set(__self__, "workflow_schema", workflow_schema)
         if workflow_version is not None:
-            _setter("workflow_version", workflow_version)
+            pulumi.set(__self__, "workflow_version", workflow_version)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -327,111 +276,42 @@ class _WorkflowState:
         :param pulumi.Input[str] workflow_schema: Specifies the Schema to use for this Logic App Workflow. Defaults to `https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] workflow_version: Specifies the version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`. Changing this forces a new resource to be created.
         """
-        _WorkflowState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            access_control=access_control,
-            access_endpoint=access_endpoint,
-            connector_endpoint_ip_addresses=connector_endpoint_ip_addresses,
-            connector_outbound_ip_addresses=connector_outbound_ip_addresses,
-            enabled=enabled,
-            identity=identity,
-            integration_service_environment_id=integration_service_environment_id,
-            location=location,
-            logic_app_integration_account_id=logic_app_integration_account_id,
-            name=name,
-            parameters=parameters,
-            resource_group_name=resource_group_name,
-            tags=tags,
-            workflow_endpoint_ip_addresses=workflow_endpoint_ip_addresses,
-            workflow_outbound_ip_addresses=workflow_outbound_ip_addresses,
-            workflow_parameters=workflow_parameters,
-            workflow_schema=workflow_schema,
-            workflow_version=workflow_version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             access_control: Optional[pulumi.Input['WorkflowAccessControlArgs']] = None,
-             access_endpoint: Optional[pulumi.Input[str]] = None,
-             connector_endpoint_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             connector_outbound_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             identity: Optional[pulumi.Input['WorkflowIdentityArgs']] = None,
-             integration_service_environment_id: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             logic_app_integration_account_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             workflow_endpoint_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             workflow_outbound_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             workflow_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             workflow_schema: Optional[pulumi.Input[str]] = None,
-             workflow_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if access_control is None and 'accessControl' in kwargs:
-            access_control = kwargs['accessControl']
-        if access_endpoint is None and 'accessEndpoint' in kwargs:
-            access_endpoint = kwargs['accessEndpoint']
-        if connector_endpoint_ip_addresses is None and 'connectorEndpointIpAddresses' in kwargs:
-            connector_endpoint_ip_addresses = kwargs['connectorEndpointIpAddresses']
-        if connector_outbound_ip_addresses is None and 'connectorOutboundIpAddresses' in kwargs:
-            connector_outbound_ip_addresses = kwargs['connectorOutboundIpAddresses']
-        if integration_service_environment_id is None and 'integrationServiceEnvironmentId' in kwargs:
-            integration_service_environment_id = kwargs['integrationServiceEnvironmentId']
-        if logic_app_integration_account_id is None and 'logicAppIntegrationAccountId' in kwargs:
-            logic_app_integration_account_id = kwargs['logicAppIntegrationAccountId']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if workflow_endpoint_ip_addresses is None and 'workflowEndpointIpAddresses' in kwargs:
-            workflow_endpoint_ip_addresses = kwargs['workflowEndpointIpAddresses']
-        if workflow_outbound_ip_addresses is None and 'workflowOutboundIpAddresses' in kwargs:
-            workflow_outbound_ip_addresses = kwargs['workflowOutboundIpAddresses']
-        if workflow_parameters is None and 'workflowParameters' in kwargs:
-            workflow_parameters = kwargs['workflowParameters']
-        if workflow_schema is None and 'workflowSchema' in kwargs:
-            workflow_schema = kwargs['workflowSchema']
-        if workflow_version is None and 'workflowVersion' in kwargs:
-            workflow_version = kwargs['workflowVersion']
-
         if access_control is not None:
-            _setter("access_control", access_control)
+            pulumi.set(__self__, "access_control", access_control)
         if access_endpoint is not None:
-            _setter("access_endpoint", access_endpoint)
+            pulumi.set(__self__, "access_endpoint", access_endpoint)
         if connector_endpoint_ip_addresses is not None:
-            _setter("connector_endpoint_ip_addresses", connector_endpoint_ip_addresses)
+            pulumi.set(__self__, "connector_endpoint_ip_addresses", connector_endpoint_ip_addresses)
         if connector_outbound_ip_addresses is not None:
-            _setter("connector_outbound_ip_addresses", connector_outbound_ip_addresses)
+            pulumi.set(__self__, "connector_outbound_ip_addresses", connector_outbound_ip_addresses)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if integration_service_environment_id is not None:
-            _setter("integration_service_environment_id", integration_service_environment_id)
+            pulumi.set(__self__, "integration_service_environment_id", integration_service_environment_id)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if logic_app_integration_account_id is not None:
-            _setter("logic_app_integration_account_id", logic_app_integration_account_id)
+            pulumi.set(__self__, "logic_app_integration_account_id", logic_app_integration_account_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if parameters is not None:
-            _setter("parameters", parameters)
+            pulumi.set(__self__, "parameters", parameters)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if workflow_endpoint_ip_addresses is not None:
-            _setter("workflow_endpoint_ip_addresses", workflow_endpoint_ip_addresses)
+            pulumi.set(__self__, "workflow_endpoint_ip_addresses", workflow_endpoint_ip_addresses)
         if workflow_outbound_ip_addresses is not None:
-            _setter("workflow_outbound_ip_addresses", workflow_outbound_ip_addresses)
+            pulumi.set(__self__, "workflow_outbound_ip_addresses", workflow_outbound_ip_addresses)
         if workflow_parameters is not None:
-            _setter("workflow_parameters", workflow_parameters)
+            pulumi.set(__self__, "workflow_parameters", workflow_parameters)
         if workflow_schema is not None:
-            _setter("workflow_schema", workflow_schema)
+            pulumi.set(__self__, "workflow_schema", workflow_schema)
         if workflow_version is not None:
-            _setter("workflow_version", workflow_version)
+            pulumi.set(__self__, "workflow_version", workflow_version)
 
     @property
     @pulumi.getter(name="accessControl")
@@ -751,10 +631,6 @@ class Workflow(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            WorkflowArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -782,10 +658,8 @@ class Workflow(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WorkflowArgs.__new__(WorkflowArgs)
 
-            access_control = _utilities.configure(access_control, WorkflowAccessControlArgs, True)
             __props__.__dict__["access_control"] = access_control
             __props__.__dict__["enabled"] = enabled
-            identity = _utilities.configure(identity, WorkflowIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["integration_service_environment_id"] = integration_service_environment_id
             __props__.__dict__["location"] = location

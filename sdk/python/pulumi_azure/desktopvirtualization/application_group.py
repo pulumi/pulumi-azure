@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ApplicationGroupArgs', 'ApplicationGroup']
@@ -35,62 +35,21 @@ class ApplicationGroupArgs:
         :param pulumi.Input[str] name: The name of the Virtual Desktop Application Group. Changing the name forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        ApplicationGroupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            host_pool_id=host_pool_id,
-            resource_group_name=resource_group_name,
-            type=type,
-            default_desktop_display_name=default_desktop_display_name,
-            description=description,
-            friendly_name=friendly_name,
-            location=location,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             host_pool_id: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             default_desktop_display_name: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             friendly_name: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if host_pool_id is None and 'hostPoolId' in kwargs:
-            host_pool_id = kwargs['hostPoolId']
-        if host_pool_id is None:
-            raise TypeError("Missing 'host_pool_id' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if default_desktop_display_name is None and 'defaultDesktopDisplayName' in kwargs:
-            default_desktop_display_name = kwargs['defaultDesktopDisplayName']
-        if friendly_name is None and 'friendlyName' in kwargs:
-            friendly_name = kwargs['friendlyName']
-
-        _setter("host_pool_id", host_pool_id)
-        _setter("resource_group_name", resource_group_name)
-        _setter("type", type)
+        pulumi.set(__self__, "host_pool_id", host_pool_id)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "type", type)
         if default_desktop_display_name is not None:
-            _setter("default_desktop_display_name", default_desktop_display_name)
+            pulumi.set(__self__, "default_desktop_display_name", default_desktop_display_name)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if friendly_name is not None:
-            _setter("friendly_name", friendly_name)
+            pulumi.set(__self__, "friendly_name", friendly_name)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="hostPoolId")
@@ -225,59 +184,24 @@ class _ApplicationGroupState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] type: Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups. Changing this forces a new resource to be created.
         """
-        _ApplicationGroupState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            default_desktop_display_name=default_desktop_display_name,
-            description=description,
-            friendly_name=friendly_name,
-            host_pool_id=host_pool_id,
-            location=location,
-            name=name,
-            resource_group_name=resource_group_name,
-            tags=tags,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             default_desktop_display_name: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             friendly_name: Optional[pulumi.Input[str]] = None,
-             host_pool_id: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if default_desktop_display_name is None and 'defaultDesktopDisplayName' in kwargs:
-            default_desktop_display_name = kwargs['defaultDesktopDisplayName']
-        if friendly_name is None and 'friendlyName' in kwargs:
-            friendly_name = kwargs['friendlyName']
-        if host_pool_id is None and 'hostPoolId' in kwargs:
-            host_pool_id = kwargs['hostPoolId']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-
         if default_desktop_display_name is not None:
-            _setter("default_desktop_display_name", default_desktop_display_name)
+            pulumi.set(__self__, "default_desktop_display_name", default_desktop_display_name)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if friendly_name is not None:
-            _setter("friendly_name", friendly_name)
+            pulumi.set(__self__, "friendly_name", friendly_name)
         if host_pool_id is not None:
-            _setter("host_pool_id", host_pool_id)
+            pulumi.set(__self__, "host_pool_id", host_pool_id)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="defaultDesktopDisplayName")
@@ -521,10 +445,6 @@ class ApplicationGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ApplicationGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

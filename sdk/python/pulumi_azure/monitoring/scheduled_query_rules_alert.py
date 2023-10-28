@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -54,102 +54,33 @@ class ScheduledQueryRulesAlertArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[int] throttling: Time (in minutes) for which Alerts should be throttled or suppressed. Values must be between 0 and 10000 (inclusive).
         """
-        ScheduledQueryRulesAlertArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action=action,
-            data_source_id=data_source_id,
-            frequency=frequency,
-            query=query,
-            resource_group_name=resource_group_name,
-            time_window=time_window,
-            trigger=trigger,
-            authorized_resource_ids=authorized_resource_ids,
-            auto_mitigation_enabled=auto_mitigation_enabled,
-            description=description,
-            enabled=enabled,
-            location=location,
-            name=name,
-            query_type=query_type,
-            severity=severity,
-            tags=tags,
-            throttling=throttling,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action: Optional[pulumi.Input['ScheduledQueryRulesAlertActionArgs']] = None,
-             data_source_id: Optional[pulumi.Input[str]] = None,
-             frequency: Optional[pulumi.Input[int]] = None,
-             query: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             time_window: Optional[pulumi.Input[int]] = None,
-             trigger: Optional[pulumi.Input['ScheduledQueryRulesAlertTriggerArgs']] = None,
-             authorized_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             auto_mitigation_enabled: Optional[pulumi.Input[bool]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             query_type: Optional[pulumi.Input[str]] = None,
-             severity: Optional[pulumi.Input[int]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             throttling: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if action is None:
-            raise TypeError("Missing 'action' argument")
-        if data_source_id is None and 'dataSourceId' in kwargs:
-            data_source_id = kwargs['dataSourceId']
-        if data_source_id is None:
-            raise TypeError("Missing 'data_source_id' argument")
-        if frequency is None:
-            raise TypeError("Missing 'frequency' argument")
-        if query is None:
-            raise TypeError("Missing 'query' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if time_window is None and 'timeWindow' in kwargs:
-            time_window = kwargs['timeWindow']
-        if time_window is None:
-            raise TypeError("Missing 'time_window' argument")
-        if trigger is None:
-            raise TypeError("Missing 'trigger' argument")
-        if authorized_resource_ids is None and 'authorizedResourceIds' in kwargs:
-            authorized_resource_ids = kwargs['authorizedResourceIds']
-        if auto_mitigation_enabled is None and 'autoMitigationEnabled' in kwargs:
-            auto_mitigation_enabled = kwargs['autoMitigationEnabled']
-        if query_type is None and 'queryType' in kwargs:
-            query_type = kwargs['queryType']
-
-        _setter("action", action)
-        _setter("data_source_id", data_source_id)
-        _setter("frequency", frequency)
-        _setter("query", query)
-        _setter("resource_group_name", resource_group_name)
-        _setter("time_window", time_window)
-        _setter("trigger", trigger)
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "data_source_id", data_source_id)
+        pulumi.set(__self__, "frequency", frequency)
+        pulumi.set(__self__, "query", query)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "time_window", time_window)
+        pulumi.set(__self__, "trigger", trigger)
         if authorized_resource_ids is not None:
-            _setter("authorized_resource_ids", authorized_resource_ids)
+            pulumi.set(__self__, "authorized_resource_ids", authorized_resource_ids)
         if auto_mitigation_enabled is not None:
-            _setter("auto_mitigation_enabled", auto_mitigation_enabled)
+            pulumi.set(__self__, "auto_mitigation_enabled", auto_mitigation_enabled)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if query_type is not None:
-            _setter("query_type", query_type)
+            pulumi.set(__self__, "query_type", query_type)
         if severity is not None:
-            _setter("severity", severity)
+            pulumi.set(__self__, "severity", severity)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if throttling is not None:
-            _setter("throttling", throttling)
+            pulumi.set(__self__, "throttling", throttling)
 
     @property
     @pulumi.getter
@@ -398,95 +329,40 @@ class _ScheduledQueryRulesAlertState:
         :param pulumi.Input[int] time_window: Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`). Values must be between 5 and 2880 (inclusive).
         :param pulumi.Input['ScheduledQueryRulesAlertTriggerArgs'] trigger: A `trigger` block as defined below.
         """
-        _ScheduledQueryRulesAlertState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action=action,
-            authorized_resource_ids=authorized_resource_ids,
-            auto_mitigation_enabled=auto_mitigation_enabled,
-            data_source_id=data_source_id,
-            description=description,
-            enabled=enabled,
-            frequency=frequency,
-            location=location,
-            name=name,
-            query=query,
-            query_type=query_type,
-            resource_group_name=resource_group_name,
-            severity=severity,
-            tags=tags,
-            throttling=throttling,
-            time_window=time_window,
-            trigger=trigger,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action: Optional[pulumi.Input['ScheduledQueryRulesAlertActionArgs']] = None,
-             authorized_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             auto_mitigation_enabled: Optional[pulumi.Input[bool]] = None,
-             data_source_id: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             frequency: Optional[pulumi.Input[int]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             query: Optional[pulumi.Input[str]] = None,
-             query_type: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             severity: Optional[pulumi.Input[int]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             throttling: Optional[pulumi.Input[int]] = None,
-             time_window: Optional[pulumi.Input[int]] = None,
-             trigger: Optional[pulumi.Input['ScheduledQueryRulesAlertTriggerArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if authorized_resource_ids is None and 'authorizedResourceIds' in kwargs:
-            authorized_resource_ids = kwargs['authorizedResourceIds']
-        if auto_mitigation_enabled is None and 'autoMitigationEnabled' in kwargs:
-            auto_mitigation_enabled = kwargs['autoMitigationEnabled']
-        if data_source_id is None and 'dataSourceId' in kwargs:
-            data_source_id = kwargs['dataSourceId']
-        if query_type is None and 'queryType' in kwargs:
-            query_type = kwargs['queryType']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if time_window is None and 'timeWindow' in kwargs:
-            time_window = kwargs['timeWindow']
-
         if action is not None:
-            _setter("action", action)
+            pulumi.set(__self__, "action", action)
         if authorized_resource_ids is not None:
-            _setter("authorized_resource_ids", authorized_resource_ids)
+            pulumi.set(__self__, "authorized_resource_ids", authorized_resource_ids)
         if auto_mitigation_enabled is not None:
-            _setter("auto_mitigation_enabled", auto_mitigation_enabled)
+            pulumi.set(__self__, "auto_mitigation_enabled", auto_mitigation_enabled)
         if data_source_id is not None:
-            _setter("data_source_id", data_source_id)
+            pulumi.set(__self__, "data_source_id", data_source_id)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if frequency is not None:
-            _setter("frequency", frequency)
+            pulumi.set(__self__, "frequency", frequency)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if query is not None:
-            _setter("query", query)
+            pulumi.set(__self__, "query", query)
         if query_type is not None:
-            _setter("query_type", query_type)
+            pulumi.set(__self__, "query_type", query_type)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if severity is not None:
-            _setter("severity", severity)
+            pulumi.set(__self__, "severity", severity)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if throttling is not None:
-            _setter("throttling", throttling)
+            pulumi.set(__self__, "throttling", throttling)
         if time_window is not None:
-            _setter("time_window", time_window)
+            pulumi.set(__self__, "time_window", time_window)
         if trigger is not None:
-            _setter("trigger", trigger)
+            pulumi.set(__self__, "trigger", trigger)
 
     @property
     @pulumi.getter
@@ -776,10 +652,6 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ScheduledQueryRulesAlertArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -811,7 +683,6 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ScheduledQueryRulesAlertArgs.__new__(ScheduledQueryRulesAlertArgs)
 
-            action = _utilities.configure(action, ScheduledQueryRulesAlertActionArgs, True)
             if action is None and not opts.urn:
                 raise TypeError("Missing required property 'action'")
             __props__.__dict__["action"] = action
@@ -840,7 +711,6 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
             if time_window is None and not opts.urn:
                 raise TypeError("Missing required property 'time_window'")
             __props__.__dict__["time_window"] = time_window
-            trigger = _utilities.configure(trigger, ScheduledQueryRulesAlertTriggerArgs, True)
             if trigger is None and not opts.urn:
                 raise TypeError("Missing required property 'trigger'")
             __props__.__dict__["trigger"] = trigger

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -35,25 +35,10 @@ class ProviderPolicy(dict):
     def __init__(__self__, *,
                  data: Optional[str] = None,
                  environment_type: Optional[str] = None):
-        ProviderPolicy._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data=data,
-            environment_type=environment_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data: Optional[str] = None,
-             environment_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if environment_type is None and 'environmentType' in kwargs:
-            environment_type = kwargs['environmentType']
-
         if data is not None:
-            _setter("data", data)
+            pulumi.set(__self__, "data", data)
         if environment_type is not None:
-            _setter("environment_type", environment_type)
+            pulumi.set(__self__, "environment_type", environment_type)
 
     @property
     @pulumi.getter

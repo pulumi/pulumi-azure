@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ScriptArgs', 'Script']
@@ -31,54 +31,19 @@ class ScriptArgs:
         :param pulumi.Input[str] script_content: The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties. Changing this forces a new resource to be created.
         :param pulumi.Input[str] url: The url to the KQL script blob file. Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
         """
-        ScriptArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            database_id=database_id,
-            continue_on_errors_enabled=continue_on_errors_enabled,
-            force_an_update_when_value_changed=force_an_update_when_value_changed,
-            name=name,
-            sas_token=sas_token,
-            script_content=script_content,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             database_id: Optional[pulumi.Input[str]] = None,
-             continue_on_errors_enabled: Optional[pulumi.Input[bool]] = None,
-             force_an_update_when_value_changed: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             sas_token: Optional[pulumi.Input[str]] = None,
-             script_content: Optional[pulumi.Input[str]] = None,
-             url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if database_id is None and 'databaseId' in kwargs:
-            database_id = kwargs['databaseId']
-        if database_id is None:
-            raise TypeError("Missing 'database_id' argument")
-        if continue_on_errors_enabled is None and 'continueOnErrorsEnabled' in kwargs:
-            continue_on_errors_enabled = kwargs['continueOnErrorsEnabled']
-        if force_an_update_when_value_changed is None and 'forceAnUpdateWhenValueChanged' in kwargs:
-            force_an_update_when_value_changed = kwargs['forceAnUpdateWhenValueChanged']
-        if sas_token is None and 'sasToken' in kwargs:
-            sas_token = kwargs['sasToken']
-        if script_content is None and 'scriptContent' in kwargs:
-            script_content = kwargs['scriptContent']
-
-        _setter("database_id", database_id)
+        pulumi.set(__self__, "database_id", database_id)
         if continue_on_errors_enabled is not None:
-            _setter("continue_on_errors_enabled", continue_on_errors_enabled)
+            pulumi.set(__self__, "continue_on_errors_enabled", continue_on_errors_enabled)
         if force_an_update_when_value_changed is not None:
-            _setter("force_an_update_when_value_changed", force_an_update_when_value_changed)
+            pulumi.set(__self__, "force_an_update_when_value_changed", force_an_update_when_value_changed)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if sas_token is not None:
-            _setter("sas_token", sas_token)
+            pulumi.set(__self__, "sas_token", sas_token)
         if script_content is not None:
-            _setter("script_content", script_content)
+            pulumi.set(__self__, "script_content", script_content)
         if url is not None:
-            _setter("url", url)
+            pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter(name="databaseId")
@@ -185,53 +150,20 @@ class _ScriptState:
         :param pulumi.Input[str] script_content: The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties. Changing this forces a new resource to be created.
         :param pulumi.Input[str] url: The url to the KQL script blob file. Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
         """
-        _ScriptState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            continue_on_errors_enabled=continue_on_errors_enabled,
-            database_id=database_id,
-            force_an_update_when_value_changed=force_an_update_when_value_changed,
-            name=name,
-            sas_token=sas_token,
-            script_content=script_content,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             continue_on_errors_enabled: Optional[pulumi.Input[bool]] = None,
-             database_id: Optional[pulumi.Input[str]] = None,
-             force_an_update_when_value_changed: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             sas_token: Optional[pulumi.Input[str]] = None,
-             script_content: Optional[pulumi.Input[str]] = None,
-             url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if continue_on_errors_enabled is None and 'continueOnErrorsEnabled' in kwargs:
-            continue_on_errors_enabled = kwargs['continueOnErrorsEnabled']
-        if database_id is None and 'databaseId' in kwargs:
-            database_id = kwargs['databaseId']
-        if force_an_update_when_value_changed is None and 'forceAnUpdateWhenValueChanged' in kwargs:
-            force_an_update_when_value_changed = kwargs['forceAnUpdateWhenValueChanged']
-        if sas_token is None and 'sasToken' in kwargs:
-            sas_token = kwargs['sasToken']
-        if script_content is None and 'scriptContent' in kwargs:
-            script_content = kwargs['scriptContent']
-
         if continue_on_errors_enabled is not None:
-            _setter("continue_on_errors_enabled", continue_on_errors_enabled)
+            pulumi.set(__self__, "continue_on_errors_enabled", continue_on_errors_enabled)
         if database_id is not None:
-            _setter("database_id", database_id)
+            pulumi.set(__self__, "database_id", database_id)
         if force_an_update_when_value_changed is not None:
-            _setter("force_an_update_when_value_changed", force_an_update_when_value_changed)
+            pulumi.set(__self__, "force_an_update_when_value_changed", force_an_update_when_value_changed)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if sas_token is not None:
-            _setter("sas_token", sas_token)
+            pulumi.set(__self__, "sas_token", sas_token)
         if script_content is not None:
-            _setter("script_content", script_content)
+            pulumi.set(__self__, "script_content", script_content)
         if url is not None:
-            _setter("url", url)
+            pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter(name="continueOnErrorsEnabled")
@@ -483,10 +415,6 @@ class Script(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ScriptArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

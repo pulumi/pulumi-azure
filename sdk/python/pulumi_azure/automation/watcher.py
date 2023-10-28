@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['WatcherArgs', 'Watcher']
@@ -37,69 +37,22 @@ class WatcherArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] script_parameters: Specifies a list of key-vaule parameters. Changing this forces a new Automation watcher to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Automation Watcher.
         """
-        WatcherArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            automation_account_id=automation_account_id,
-            execution_frequency_in_seconds=execution_frequency_in_seconds,
-            script_name=script_name,
-            script_run_on=script_run_on,
-            description=description,
-            etag=etag,
-            location=location,
-            name=name,
-            script_parameters=script_parameters,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             automation_account_id: Optional[pulumi.Input[str]] = None,
-             execution_frequency_in_seconds: Optional[pulumi.Input[int]] = None,
-             script_name: Optional[pulumi.Input[str]] = None,
-             script_run_on: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             etag: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             script_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if automation_account_id is None and 'automationAccountId' in kwargs:
-            automation_account_id = kwargs['automationAccountId']
-        if automation_account_id is None:
-            raise TypeError("Missing 'automation_account_id' argument")
-        if execution_frequency_in_seconds is None and 'executionFrequencyInSeconds' in kwargs:
-            execution_frequency_in_seconds = kwargs['executionFrequencyInSeconds']
-        if execution_frequency_in_seconds is None:
-            raise TypeError("Missing 'execution_frequency_in_seconds' argument")
-        if script_name is None and 'scriptName' in kwargs:
-            script_name = kwargs['scriptName']
-        if script_name is None:
-            raise TypeError("Missing 'script_name' argument")
-        if script_run_on is None and 'scriptRunOn' in kwargs:
-            script_run_on = kwargs['scriptRunOn']
-        if script_run_on is None:
-            raise TypeError("Missing 'script_run_on' argument")
-        if script_parameters is None and 'scriptParameters' in kwargs:
-            script_parameters = kwargs['scriptParameters']
-
-        _setter("automation_account_id", automation_account_id)
-        _setter("execution_frequency_in_seconds", execution_frequency_in_seconds)
-        _setter("script_name", script_name)
-        _setter("script_run_on", script_run_on)
+        pulumi.set(__self__, "automation_account_id", automation_account_id)
+        pulumi.set(__self__, "execution_frequency_in_seconds", execution_frequency_in_seconds)
+        pulumi.set(__self__, "script_name", script_name)
+        pulumi.set(__self__, "script_run_on", script_run_on)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if etag is not None:
-            _setter("etag", etag)
+            pulumi.set(__self__, "etag", etag)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if script_parameters is not None:
-            _setter("script_parameters", script_parameters)
+            pulumi.set(__self__, "script_parameters", script_parameters)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="automationAccountId")
@@ -250,69 +203,28 @@ class _WatcherState:
         :param pulumi.Input[str] status: The current status of the Automation Watcher.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Automation Watcher.
         """
-        _WatcherState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            automation_account_id=automation_account_id,
-            description=description,
-            etag=etag,
-            execution_frequency_in_seconds=execution_frequency_in_seconds,
-            location=location,
-            name=name,
-            script_name=script_name,
-            script_parameters=script_parameters,
-            script_run_on=script_run_on,
-            status=status,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             automation_account_id: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             etag: Optional[pulumi.Input[str]] = None,
-             execution_frequency_in_seconds: Optional[pulumi.Input[int]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             script_name: Optional[pulumi.Input[str]] = None,
-             script_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             script_run_on: Optional[pulumi.Input[str]] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if automation_account_id is None and 'automationAccountId' in kwargs:
-            automation_account_id = kwargs['automationAccountId']
-        if execution_frequency_in_seconds is None and 'executionFrequencyInSeconds' in kwargs:
-            execution_frequency_in_seconds = kwargs['executionFrequencyInSeconds']
-        if script_name is None and 'scriptName' in kwargs:
-            script_name = kwargs['scriptName']
-        if script_parameters is None and 'scriptParameters' in kwargs:
-            script_parameters = kwargs['scriptParameters']
-        if script_run_on is None and 'scriptRunOn' in kwargs:
-            script_run_on = kwargs['scriptRunOn']
-
         if automation_account_id is not None:
-            _setter("automation_account_id", automation_account_id)
+            pulumi.set(__self__, "automation_account_id", automation_account_id)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if etag is not None:
-            _setter("etag", etag)
+            pulumi.set(__self__, "etag", etag)
         if execution_frequency_in_seconds is not None:
-            _setter("execution_frequency_in_seconds", execution_frequency_in_seconds)
+            pulumi.set(__self__, "execution_frequency_in_seconds", execution_frequency_in_seconds)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if script_name is not None:
-            _setter("script_name", script_name)
+            pulumi.set(__self__, "script_name", script_name)
         if script_parameters is not None:
-            _setter("script_parameters", script_parameters)
+            pulumi.set(__self__, "script_parameters", script_parameters)
         if script_run_on is not None:
-            _setter("script_run_on", script_run_on)
+            pulumi.set(__self__, "script_run_on", script_run_on)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="automationAccountId")
@@ -594,10 +506,6 @@ class Watcher(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            WatcherArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

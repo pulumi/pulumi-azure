@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -59,109 +59,36 @@ class CacheArgs:
         :param pulumi.Input[str] ntp_server: The NTP server IP Address or FQDN for the HPC Cache. Defaults to `time.windows.com`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the HPC Cache.
         """
-        CacheArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cache_size_in_gb=cache_size_in_gb,
-            resource_group_name=resource_group_name,
-            sku_name=sku_name,
-            subnet_id=subnet_id,
-            automatically_rotate_key_to_latest_enabled=automatically_rotate_key_to_latest_enabled,
-            default_access_policy=default_access_policy,
-            directory_active_directory=directory_active_directory,
-            directory_flat_file=directory_flat_file,
-            directory_ldap=directory_ldap,
-            dns=dns,
-            identity=identity,
-            key_vault_key_id=key_vault_key_id,
-            location=location,
-            mtu=mtu,
-            name=name,
-            ntp_server=ntp_server,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cache_size_in_gb: Optional[pulumi.Input[int]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             sku_name: Optional[pulumi.Input[str]] = None,
-             subnet_id: Optional[pulumi.Input[str]] = None,
-             automatically_rotate_key_to_latest_enabled: Optional[pulumi.Input[bool]] = None,
-             default_access_policy: Optional[pulumi.Input['CacheDefaultAccessPolicyArgs']] = None,
-             directory_active_directory: Optional[pulumi.Input['CacheDirectoryActiveDirectoryArgs']] = None,
-             directory_flat_file: Optional[pulumi.Input['CacheDirectoryFlatFileArgs']] = None,
-             directory_ldap: Optional[pulumi.Input['CacheDirectoryLdapArgs']] = None,
-             dns: Optional[pulumi.Input['CacheDnsArgs']] = None,
-             identity: Optional[pulumi.Input['CacheIdentityArgs']] = None,
-             key_vault_key_id: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             mtu: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             ntp_server: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cache_size_in_gb is None and 'cacheSizeInGb' in kwargs:
-            cache_size_in_gb = kwargs['cacheSizeInGb']
-        if cache_size_in_gb is None:
-            raise TypeError("Missing 'cache_size_in_gb' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if sku_name is None and 'skuName' in kwargs:
-            sku_name = kwargs['skuName']
-        if sku_name is None:
-            raise TypeError("Missing 'sku_name' argument")
-        if subnet_id is None and 'subnetId' in kwargs:
-            subnet_id = kwargs['subnetId']
-        if subnet_id is None:
-            raise TypeError("Missing 'subnet_id' argument")
-        if automatically_rotate_key_to_latest_enabled is None and 'automaticallyRotateKeyToLatestEnabled' in kwargs:
-            automatically_rotate_key_to_latest_enabled = kwargs['automaticallyRotateKeyToLatestEnabled']
-        if default_access_policy is None and 'defaultAccessPolicy' in kwargs:
-            default_access_policy = kwargs['defaultAccessPolicy']
-        if directory_active_directory is None and 'directoryActiveDirectory' in kwargs:
-            directory_active_directory = kwargs['directoryActiveDirectory']
-        if directory_flat_file is None and 'directoryFlatFile' in kwargs:
-            directory_flat_file = kwargs['directoryFlatFile']
-        if directory_ldap is None and 'directoryLdap' in kwargs:
-            directory_ldap = kwargs['directoryLdap']
-        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
-            key_vault_key_id = kwargs['keyVaultKeyId']
-        if ntp_server is None and 'ntpServer' in kwargs:
-            ntp_server = kwargs['ntpServer']
-
-        _setter("cache_size_in_gb", cache_size_in_gb)
-        _setter("resource_group_name", resource_group_name)
-        _setter("sku_name", sku_name)
-        _setter("subnet_id", subnet_id)
+        pulumi.set(__self__, "cache_size_in_gb", cache_size_in_gb)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "sku_name", sku_name)
+        pulumi.set(__self__, "subnet_id", subnet_id)
         if automatically_rotate_key_to_latest_enabled is not None:
-            _setter("automatically_rotate_key_to_latest_enabled", automatically_rotate_key_to_latest_enabled)
+            pulumi.set(__self__, "automatically_rotate_key_to_latest_enabled", automatically_rotate_key_to_latest_enabled)
         if default_access_policy is not None:
-            _setter("default_access_policy", default_access_policy)
+            pulumi.set(__self__, "default_access_policy", default_access_policy)
         if directory_active_directory is not None:
-            _setter("directory_active_directory", directory_active_directory)
+            pulumi.set(__self__, "directory_active_directory", directory_active_directory)
         if directory_flat_file is not None:
-            _setter("directory_flat_file", directory_flat_file)
+            pulumi.set(__self__, "directory_flat_file", directory_flat_file)
         if directory_ldap is not None:
-            _setter("directory_ldap", directory_ldap)
+            pulumi.set(__self__, "directory_ldap", directory_ldap)
         if dns is not None:
-            _setter("dns", dns)
+            pulumi.set(__self__, "dns", dns)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if key_vault_key_id is not None:
-            _setter("key_vault_key_id", key_vault_key_id)
+            pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if mtu is not None:
-            _setter("mtu", mtu)
+            pulumi.set(__self__, "mtu", mtu)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if ntp_server is not None:
-            _setter("ntp_server", ntp_server)
+            pulumi.set(__self__, "ntp_server", ntp_server)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="cacheSizeInGb")
@@ -422,111 +349,42 @@ class _CacheState:
         :param pulumi.Input[str] subnet_id: The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the HPC Cache.
         """
-        _CacheState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            automatically_rotate_key_to_latest_enabled=automatically_rotate_key_to_latest_enabled,
-            cache_size_in_gb=cache_size_in_gb,
-            default_access_policy=default_access_policy,
-            directory_active_directory=directory_active_directory,
-            directory_flat_file=directory_flat_file,
-            directory_ldap=directory_ldap,
-            dns=dns,
-            identity=identity,
-            key_vault_key_id=key_vault_key_id,
-            location=location,
-            mount_addresses=mount_addresses,
-            mtu=mtu,
-            name=name,
-            ntp_server=ntp_server,
-            resource_group_name=resource_group_name,
-            sku_name=sku_name,
-            subnet_id=subnet_id,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             automatically_rotate_key_to_latest_enabled: Optional[pulumi.Input[bool]] = None,
-             cache_size_in_gb: Optional[pulumi.Input[int]] = None,
-             default_access_policy: Optional[pulumi.Input['CacheDefaultAccessPolicyArgs']] = None,
-             directory_active_directory: Optional[pulumi.Input['CacheDirectoryActiveDirectoryArgs']] = None,
-             directory_flat_file: Optional[pulumi.Input['CacheDirectoryFlatFileArgs']] = None,
-             directory_ldap: Optional[pulumi.Input['CacheDirectoryLdapArgs']] = None,
-             dns: Optional[pulumi.Input['CacheDnsArgs']] = None,
-             identity: Optional[pulumi.Input['CacheIdentityArgs']] = None,
-             key_vault_key_id: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             mount_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             mtu: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             ntp_server: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             sku_name: Optional[pulumi.Input[str]] = None,
-             subnet_id: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if automatically_rotate_key_to_latest_enabled is None and 'automaticallyRotateKeyToLatestEnabled' in kwargs:
-            automatically_rotate_key_to_latest_enabled = kwargs['automaticallyRotateKeyToLatestEnabled']
-        if cache_size_in_gb is None and 'cacheSizeInGb' in kwargs:
-            cache_size_in_gb = kwargs['cacheSizeInGb']
-        if default_access_policy is None and 'defaultAccessPolicy' in kwargs:
-            default_access_policy = kwargs['defaultAccessPolicy']
-        if directory_active_directory is None and 'directoryActiveDirectory' in kwargs:
-            directory_active_directory = kwargs['directoryActiveDirectory']
-        if directory_flat_file is None and 'directoryFlatFile' in kwargs:
-            directory_flat_file = kwargs['directoryFlatFile']
-        if directory_ldap is None and 'directoryLdap' in kwargs:
-            directory_ldap = kwargs['directoryLdap']
-        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
-            key_vault_key_id = kwargs['keyVaultKeyId']
-        if mount_addresses is None and 'mountAddresses' in kwargs:
-            mount_addresses = kwargs['mountAddresses']
-        if ntp_server is None and 'ntpServer' in kwargs:
-            ntp_server = kwargs['ntpServer']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if sku_name is None and 'skuName' in kwargs:
-            sku_name = kwargs['skuName']
-        if subnet_id is None and 'subnetId' in kwargs:
-            subnet_id = kwargs['subnetId']
-
         if automatically_rotate_key_to_latest_enabled is not None:
-            _setter("automatically_rotate_key_to_latest_enabled", automatically_rotate_key_to_latest_enabled)
+            pulumi.set(__self__, "automatically_rotate_key_to_latest_enabled", automatically_rotate_key_to_latest_enabled)
         if cache_size_in_gb is not None:
-            _setter("cache_size_in_gb", cache_size_in_gb)
+            pulumi.set(__self__, "cache_size_in_gb", cache_size_in_gb)
         if default_access_policy is not None:
-            _setter("default_access_policy", default_access_policy)
+            pulumi.set(__self__, "default_access_policy", default_access_policy)
         if directory_active_directory is not None:
-            _setter("directory_active_directory", directory_active_directory)
+            pulumi.set(__self__, "directory_active_directory", directory_active_directory)
         if directory_flat_file is not None:
-            _setter("directory_flat_file", directory_flat_file)
+            pulumi.set(__self__, "directory_flat_file", directory_flat_file)
         if directory_ldap is not None:
-            _setter("directory_ldap", directory_ldap)
+            pulumi.set(__self__, "directory_ldap", directory_ldap)
         if dns is not None:
-            _setter("dns", dns)
+            pulumi.set(__self__, "dns", dns)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if key_vault_key_id is not None:
-            _setter("key_vault_key_id", key_vault_key_id)
+            pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if mount_addresses is not None:
-            _setter("mount_addresses", mount_addresses)
+            pulumi.set(__self__, "mount_addresses", mount_addresses)
         if mtu is not None:
-            _setter("mtu", mtu)
+            pulumi.set(__self__, "mtu", mtu)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if ntp_server is not None:
-            _setter("ntp_server", ntp_server)
+            pulumi.set(__self__, "ntp_server", ntp_server)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if sku_name is not None:
-            _setter("sku_name", sku_name)
+            pulumi.set(__self__, "sku_name", sku_name)
         if subnet_id is not None:
-            _setter("subnet_id", subnet_id)
+            pulumi.set(__self__, "subnet_id", subnet_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="automaticallyRotateKeyToLatestEnabled")
@@ -888,10 +746,6 @@ class Cache(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            CacheArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -927,17 +781,11 @@ class Cache(pulumi.CustomResource):
             if cache_size_in_gb is None and not opts.urn:
                 raise TypeError("Missing required property 'cache_size_in_gb'")
             __props__.__dict__["cache_size_in_gb"] = cache_size_in_gb
-            default_access_policy = _utilities.configure(default_access_policy, CacheDefaultAccessPolicyArgs, True)
             __props__.__dict__["default_access_policy"] = default_access_policy
-            directory_active_directory = _utilities.configure(directory_active_directory, CacheDirectoryActiveDirectoryArgs, True)
             __props__.__dict__["directory_active_directory"] = directory_active_directory
-            directory_flat_file = _utilities.configure(directory_flat_file, CacheDirectoryFlatFileArgs, True)
             __props__.__dict__["directory_flat_file"] = directory_flat_file
-            directory_ldap = _utilities.configure(directory_ldap, CacheDirectoryLdapArgs, True)
             __props__.__dict__["directory_ldap"] = directory_ldap
-            dns = _utilities.configure(dns, CacheDnsArgs, True)
             __props__.__dict__["dns"] = dns
-            identity = _utilities.configure(identity, CacheIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["key_vault_key_id"] = key_vault_key_id
             __props__.__dict__["location"] = location

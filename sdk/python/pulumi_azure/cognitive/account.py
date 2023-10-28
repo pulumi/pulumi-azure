@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -75,142 +75,49 @@ class AccountArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AccountStorageArgs']]] storages: A `storage` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        AccountArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            kind=kind,
-            resource_group_name=resource_group_name,
-            sku_name=sku_name,
-            custom_question_answering_search_service_id=custom_question_answering_search_service_id,
-            custom_question_answering_search_service_key=custom_question_answering_search_service_key,
-            custom_subdomain_name=custom_subdomain_name,
-            customer_managed_key=customer_managed_key,
-            dynamic_throttling_enabled=dynamic_throttling_enabled,
-            fqdns=fqdns,
-            identity=identity,
-            local_auth_enabled=local_auth_enabled,
-            location=location,
-            metrics_advisor_aad_client_id=metrics_advisor_aad_client_id,
-            metrics_advisor_aad_tenant_id=metrics_advisor_aad_tenant_id,
-            metrics_advisor_super_user_name=metrics_advisor_super_user_name,
-            metrics_advisor_website_name=metrics_advisor_website_name,
-            name=name,
-            network_acls=network_acls,
-            outbound_network_access_restricted=outbound_network_access_restricted,
-            public_network_access_enabled=public_network_access_enabled,
-            qna_runtime_endpoint=qna_runtime_endpoint,
-            storages=storages,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             kind: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             sku_name: Optional[pulumi.Input[str]] = None,
-             custom_question_answering_search_service_id: Optional[pulumi.Input[str]] = None,
-             custom_question_answering_search_service_key: Optional[pulumi.Input[str]] = None,
-             custom_subdomain_name: Optional[pulumi.Input[str]] = None,
-             customer_managed_key: Optional[pulumi.Input['AccountCustomerManagedKeyArgs']] = None,
-             dynamic_throttling_enabled: Optional[pulumi.Input[bool]] = None,
-             fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
-             local_auth_enabled: Optional[pulumi.Input[bool]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             metrics_advisor_aad_client_id: Optional[pulumi.Input[str]] = None,
-             metrics_advisor_aad_tenant_id: Optional[pulumi.Input[str]] = None,
-             metrics_advisor_super_user_name: Optional[pulumi.Input[str]] = None,
-             metrics_advisor_website_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             network_acls: Optional[pulumi.Input['AccountNetworkAclsArgs']] = None,
-             outbound_network_access_restricted: Optional[pulumi.Input[bool]] = None,
-             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
-             qna_runtime_endpoint: Optional[pulumi.Input[str]] = None,
-             storages: Optional[pulumi.Input[Sequence[pulumi.Input['AccountStorageArgs']]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if kind is None:
-            raise TypeError("Missing 'kind' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if sku_name is None and 'skuName' in kwargs:
-            sku_name = kwargs['skuName']
-        if sku_name is None:
-            raise TypeError("Missing 'sku_name' argument")
-        if custom_question_answering_search_service_id is None and 'customQuestionAnsweringSearchServiceId' in kwargs:
-            custom_question_answering_search_service_id = kwargs['customQuestionAnsweringSearchServiceId']
-        if custom_question_answering_search_service_key is None and 'customQuestionAnsweringSearchServiceKey' in kwargs:
-            custom_question_answering_search_service_key = kwargs['customQuestionAnsweringSearchServiceKey']
-        if custom_subdomain_name is None and 'customSubdomainName' in kwargs:
-            custom_subdomain_name = kwargs['customSubdomainName']
-        if customer_managed_key is None and 'customerManagedKey' in kwargs:
-            customer_managed_key = kwargs['customerManagedKey']
-        if dynamic_throttling_enabled is None and 'dynamicThrottlingEnabled' in kwargs:
-            dynamic_throttling_enabled = kwargs['dynamicThrottlingEnabled']
-        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
-            local_auth_enabled = kwargs['localAuthEnabled']
-        if metrics_advisor_aad_client_id is None and 'metricsAdvisorAadClientId' in kwargs:
-            metrics_advisor_aad_client_id = kwargs['metricsAdvisorAadClientId']
-        if metrics_advisor_aad_tenant_id is None and 'metricsAdvisorAadTenantId' in kwargs:
-            metrics_advisor_aad_tenant_id = kwargs['metricsAdvisorAadTenantId']
-        if metrics_advisor_super_user_name is None and 'metricsAdvisorSuperUserName' in kwargs:
-            metrics_advisor_super_user_name = kwargs['metricsAdvisorSuperUserName']
-        if metrics_advisor_website_name is None and 'metricsAdvisorWebsiteName' in kwargs:
-            metrics_advisor_website_name = kwargs['metricsAdvisorWebsiteName']
-        if network_acls is None and 'networkAcls' in kwargs:
-            network_acls = kwargs['networkAcls']
-        if outbound_network_access_restricted is None and 'outboundNetworkAccessRestricted' in kwargs:
-            outbound_network_access_restricted = kwargs['outboundNetworkAccessRestricted']
-        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
-            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if qna_runtime_endpoint is None and 'qnaRuntimeEndpoint' in kwargs:
-            qna_runtime_endpoint = kwargs['qnaRuntimeEndpoint']
-
-        _setter("kind", kind)
-        _setter("resource_group_name", resource_group_name)
-        _setter("sku_name", sku_name)
+        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "sku_name", sku_name)
         if custom_question_answering_search_service_id is not None:
-            _setter("custom_question_answering_search_service_id", custom_question_answering_search_service_id)
+            pulumi.set(__self__, "custom_question_answering_search_service_id", custom_question_answering_search_service_id)
         if custom_question_answering_search_service_key is not None:
-            _setter("custom_question_answering_search_service_key", custom_question_answering_search_service_key)
+            pulumi.set(__self__, "custom_question_answering_search_service_key", custom_question_answering_search_service_key)
         if custom_subdomain_name is not None:
-            _setter("custom_subdomain_name", custom_subdomain_name)
+            pulumi.set(__self__, "custom_subdomain_name", custom_subdomain_name)
         if customer_managed_key is not None:
-            _setter("customer_managed_key", customer_managed_key)
+            pulumi.set(__self__, "customer_managed_key", customer_managed_key)
         if dynamic_throttling_enabled is not None:
-            _setter("dynamic_throttling_enabled", dynamic_throttling_enabled)
+            pulumi.set(__self__, "dynamic_throttling_enabled", dynamic_throttling_enabled)
         if fqdns is not None:
-            _setter("fqdns", fqdns)
+            pulumi.set(__self__, "fqdns", fqdns)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if local_auth_enabled is not None:
-            _setter("local_auth_enabled", local_auth_enabled)
+            pulumi.set(__self__, "local_auth_enabled", local_auth_enabled)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if metrics_advisor_aad_client_id is not None:
-            _setter("metrics_advisor_aad_client_id", metrics_advisor_aad_client_id)
+            pulumi.set(__self__, "metrics_advisor_aad_client_id", metrics_advisor_aad_client_id)
         if metrics_advisor_aad_tenant_id is not None:
-            _setter("metrics_advisor_aad_tenant_id", metrics_advisor_aad_tenant_id)
+            pulumi.set(__self__, "metrics_advisor_aad_tenant_id", metrics_advisor_aad_tenant_id)
         if metrics_advisor_super_user_name is not None:
-            _setter("metrics_advisor_super_user_name", metrics_advisor_super_user_name)
+            pulumi.set(__self__, "metrics_advisor_super_user_name", metrics_advisor_super_user_name)
         if metrics_advisor_website_name is not None:
-            _setter("metrics_advisor_website_name", metrics_advisor_website_name)
+            pulumi.set(__self__, "metrics_advisor_website_name", metrics_advisor_website_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if network_acls is not None:
-            _setter("network_acls", network_acls)
+            pulumi.set(__self__, "network_acls", network_acls)
         if outbound_network_access_restricted is not None:
-            _setter("outbound_network_access_restricted", outbound_network_access_restricted)
+            pulumi.set(__self__, "outbound_network_access_restricted", outbound_network_access_restricted)
         if public_network_access_enabled is not None:
-            _setter("public_network_access_enabled", public_network_access_enabled)
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if qna_runtime_endpoint is not None:
-            _setter("qna_runtime_endpoint", qna_runtime_endpoint)
+            pulumi.set(__self__, "qna_runtime_endpoint", qna_runtime_endpoint)
         if storages is not None:
-            _setter("storages", storages)
+            pulumi.set(__self__, "storages", storages)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -567,155 +474,58 @@ class _AccountState:
         :param pulumi.Input[Sequence[pulumi.Input['AccountStorageArgs']]] storages: A `storage` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        _AccountState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            custom_question_answering_search_service_id=custom_question_answering_search_service_id,
-            custom_question_answering_search_service_key=custom_question_answering_search_service_key,
-            custom_subdomain_name=custom_subdomain_name,
-            customer_managed_key=customer_managed_key,
-            dynamic_throttling_enabled=dynamic_throttling_enabled,
-            endpoint=endpoint,
-            fqdns=fqdns,
-            identity=identity,
-            kind=kind,
-            local_auth_enabled=local_auth_enabled,
-            location=location,
-            metrics_advisor_aad_client_id=metrics_advisor_aad_client_id,
-            metrics_advisor_aad_tenant_id=metrics_advisor_aad_tenant_id,
-            metrics_advisor_super_user_name=metrics_advisor_super_user_name,
-            metrics_advisor_website_name=metrics_advisor_website_name,
-            name=name,
-            network_acls=network_acls,
-            outbound_network_access_restricted=outbound_network_access_restricted,
-            primary_access_key=primary_access_key,
-            public_network_access_enabled=public_network_access_enabled,
-            qna_runtime_endpoint=qna_runtime_endpoint,
-            resource_group_name=resource_group_name,
-            secondary_access_key=secondary_access_key,
-            sku_name=sku_name,
-            storages=storages,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             custom_question_answering_search_service_id: Optional[pulumi.Input[str]] = None,
-             custom_question_answering_search_service_key: Optional[pulumi.Input[str]] = None,
-             custom_subdomain_name: Optional[pulumi.Input[str]] = None,
-             customer_managed_key: Optional[pulumi.Input['AccountCustomerManagedKeyArgs']] = None,
-             dynamic_throttling_enabled: Optional[pulumi.Input[bool]] = None,
-             endpoint: Optional[pulumi.Input[str]] = None,
-             fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
-             kind: Optional[pulumi.Input[str]] = None,
-             local_auth_enabled: Optional[pulumi.Input[bool]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             metrics_advisor_aad_client_id: Optional[pulumi.Input[str]] = None,
-             metrics_advisor_aad_tenant_id: Optional[pulumi.Input[str]] = None,
-             metrics_advisor_super_user_name: Optional[pulumi.Input[str]] = None,
-             metrics_advisor_website_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             network_acls: Optional[pulumi.Input['AccountNetworkAclsArgs']] = None,
-             outbound_network_access_restricted: Optional[pulumi.Input[bool]] = None,
-             primary_access_key: Optional[pulumi.Input[str]] = None,
-             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
-             qna_runtime_endpoint: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             secondary_access_key: Optional[pulumi.Input[str]] = None,
-             sku_name: Optional[pulumi.Input[str]] = None,
-             storages: Optional[pulumi.Input[Sequence[pulumi.Input['AccountStorageArgs']]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if custom_question_answering_search_service_id is None and 'customQuestionAnsweringSearchServiceId' in kwargs:
-            custom_question_answering_search_service_id = kwargs['customQuestionAnsweringSearchServiceId']
-        if custom_question_answering_search_service_key is None and 'customQuestionAnsweringSearchServiceKey' in kwargs:
-            custom_question_answering_search_service_key = kwargs['customQuestionAnsweringSearchServiceKey']
-        if custom_subdomain_name is None and 'customSubdomainName' in kwargs:
-            custom_subdomain_name = kwargs['customSubdomainName']
-        if customer_managed_key is None and 'customerManagedKey' in kwargs:
-            customer_managed_key = kwargs['customerManagedKey']
-        if dynamic_throttling_enabled is None and 'dynamicThrottlingEnabled' in kwargs:
-            dynamic_throttling_enabled = kwargs['dynamicThrottlingEnabled']
-        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
-            local_auth_enabled = kwargs['localAuthEnabled']
-        if metrics_advisor_aad_client_id is None and 'metricsAdvisorAadClientId' in kwargs:
-            metrics_advisor_aad_client_id = kwargs['metricsAdvisorAadClientId']
-        if metrics_advisor_aad_tenant_id is None and 'metricsAdvisorAadTenantId' in kwargs:
-            metrics_advisor_aad_tenant_id = kwargs['metricsAdvisorAadTenantId']
-        if metrics_advisor_super_user_name is None and 'metricsAdvisorSuperUserName' in kwargs:
-            metrics_advisor_super_user_name = kwargs['metricsAdvisorSuperUserName']
-        if metrics_advisor_website_name is None and 'metricsAdvisorWebsiteName' in kwargs:
-            metrics_advisor_website_name = kwargs['metricsAdvisorWebsiteName']
-        if network_acls is None and 'networkAcls' in kwargs:
-            network_acls = kwargs['networkAcls']
-        if outbound_network_access_restricted is None and 'outboundNetworkAccessRestricted' in kwargs:
-            outbound_network_access_restricted = kwargs['outboundNetworkAccessRestricted']
-        if primary_access_key is None and 'primaryAccessKey' in kwargs:
-            primary_access_key = kwargs['primaryAccessKey']
-        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
-            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if qna_runtime_endpoint is None and 'qnaRuntimeEndpoint' in kwargs:
-            qna_runtime_endpoint = kwargs['qnaRuntimeEndpoint']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if secondary_access_key is None and 'secondaryAccessKey' in kwargs:
-            secondary_access_key = kwargs['secondaryAccessKey']
-        if sku_name is None and 'skuName' in kwargs:
-            sku_name = kwargs['skuName']
-
         if custom_question_answering_search_service_id is not None:
-            _setter("custom_question_answering_search_service_id", custom_question_answering_search_service_id)
+            pulumi.set(__self__, "custom_question_answering_search_service_id", custom_question_answering_search_service_id)
         if custom_question_answering_search_service_key is not None:
-            _setter("custom_question_answering_search_service_key", custom_question_answering_search_service_key)
+            pulumi.set(__self__, "custom_question_answering_search_service_key", custom_question_answering_search_service_key)
         if custom_subdomain_name is not None:
-            _setter("custom_subdomain_name", custom_subdomain_name)
+            pulumi.set(__self__, "custom_subdomain_name", custom_subdomain_name)
         if customer_managed_key is not None:
-            _setter("customer_managed_key", customer_managed_key)
+            pulumi.set(__self__, "customer_managed_key", customer_managed_key)
         if dynamic_throttling_enabled is not None:
-            _setter("dynamic_throttling_enabled", dynamic_throttling_enabled)
+            pulumi.set(__self__, "dynamic_throttling_enabled", dynamic_throttling_enabled)
         if endpoint is not None:
-            _setter("endpoint", endpoint)
+            pulumi.set(__self__, "endpoint", endpoint)
         if fqdns is not None:
-            _setter("fqdns", fqdns)
+            pulumi.set(__self__, "fqdns", fqdns)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if kind is not None:
-            _setter("kind", kind)
+            pulumi.set(__self__, "kind", kind)
         if local_auth_enabled is not None:
-            _setter("local_auth_enabled", local_auth_enabled)
+            pulumi.set(__self__, "local_auth_enabled", local_auth_enabled)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if metrics_advisor_aad_client_id is not None:
-            _setter("metrics_advisor_aad_client_id", metrics_advisor_aad_client_id)
+            pulumi.set(__self__, "metrics_advisor_aad_client_id", metrics_advisor_aad_client_id)
         if metrics_advisor_aad_tenant_id is not None:
-            _setter("metrics_advisor_aad_tenant_id", metrics_advisor_aad_tenant_id)
+            pulumi.set(__self__, "metrics_advisor_aad_tenant_id", metrics_advisor_aad_tenant_id)
         if metrics_advisor_super_user_name is not None:
-            _setter("metrics_advisor_super_user_name", metrics_advisor_super_user_name)
+            pulumi.set(__self__, "metrics_advisor_super_user_name", metrics_advisor_super_user_name)
         if metrics_advisor_website_name is not None:
-            _setter("metrics_advisor_website_name", metrics_advisor_website_name)
+            pulumi.set(__self__, "metrics_advisor_website_name", metrics_advisor_website_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if network_acls is not None:
-            _setter("network_acls", network_acls)
+            pulumi.set(__self__, "network_acls", network_acls)
         if outbound_network_access_restricted is not None:
-            _setter("outbound_network_access_restricted", outbound_network_access_restricted)
+            pulumi.set(__self__, "outbound_network_access_restricted", outbound_network_access_restricted)
         if primary_access_key is not None:
-            _setter("primary_access_key", primary_access_key)
+            pulumi.set(__self__, "primary_access_key", primary_access_key)
         if public_network_access_enabled is not None:
-            _setter("public_network_access_enabled", public_network_access_enabled)
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if qna_runtime_endpoint is not None:
-            _setter("qna_runtime_endpoint", qna_runtime_endpoint)
+            pulumi.set(__self__, "qna_runtime_endpoint", qna_runtime_endpoint)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if secondary_access_key is not None:
-            _setter("secondary_access_key", secondary_access_key)
+            pulumi.set(__self__, "secondary_access_key", secondary_access_key)
         if sku_name is not None:
-            _setter("sku_name", sku_name)
+            pulumi.set(__self__, "sku_name", sku_name)
         if storages is not None:
-            _setter("storages", storages)
+            pulumi.set(__self__, "storages", storages)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="customQuestionAnsweringSearchServiceId")
@@ -1181,10 +991,6 @@ class Account(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AccountArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1225,11 +1031,9 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["custom_question_answering_search_service_id"] = custom_question_answering_search_service_id
             __props__.__dict__["custom_question_answering_search_service_key"] = None if custom_question_answering_search_service_key is None else pulumi.Output.secret(custom_question_answering_search_service_key)
             __props__.__dict__["custom_subdomain_name"] = custom_subdomain_name
-            customer_managed_key = _utilities.configure(customer_managed_key, AccountCustomerManagedKeyArgs, True)
             __props__.__dict__["customer_managed_key"] = customer_managed_key
             __props__.__dict__["dynamic_throttling_enabled"] = dynamic_throttling_enabled
             __props__.__dict__["fqdns"] = fqdns
-            identity = _utilities.configure(identity, AccountIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
@@ -1241,7 +1045,6 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["metrics_advisor_super_user_name"] = metrics_advisor_super_user_name
             __props__.__dict__["metrics_advisor_website_name"] = metrics_advisor_website_name
             __props__.__dict__["name"] = name
-            network_acls = _utilities.configure(network_acls, AccountNetworkAclsArgs, True)
             __props__.__dict__["network_acls"] = network_acls
             __props__.__dict__["outbound_network_access_restricted"] = outbound_network_access_restricted
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled

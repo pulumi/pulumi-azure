@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RegistryAgentPoolArgs', 'RegistryAgentPool']
@@ -33,57 +33,20 @@ class RegistryAgentPoolArgs:
         :param pulumi.Input[str] tier: Sets the VM your agent pool will run on. Valid values are: `S1` (2 vCPUs, 3 GiB RAM), `S2` (4 vCPUs, 8 GiB RAM), `S3` (8 vCPUs, 16 GiB RAM) or `I6` (64 vCPUs, 216 GiB RAM, Isolated). Defaults to `S1`. Changing this forces a new Azure Container Registry Agent Pool to be created.
         :param pulumi.Input[str] virtual_network_subnet_id: The ID of the Virtual Network Subnet Resource where the agent machines will be running. Changing this forces a new Azure Container Registry Agent Pool to be created.
         """
-        RegistryAgentPoolArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            container_registry_name=container_registry_name,
-            resource_group_name=resource_group_name,
-            instance_count=instance_count,
-            location=location,
-            name=name,
-            tags=tags,
-            tier=tier,
-            virtual_network_subnet_id=virtual_network_subnet_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             container_registry_name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             instance_count: Optional[pulumi.Input[int]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tier: Optional[pulumi.Input[str]] = None,
-             virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if container_registry_name is None and 'containerRegistryName' in kwargs:
-            container_registry_name = kwargs['containerRegistryName']
-        if container_registry_name is None:
-            raise TypeError("Missing 'container_registry_name' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if instance_count is None and 'instanceCount' in kwargs:
-            instance_count = kwargs['instanceCount']
-        if virtual_network_subnet_id is None and 'virtualNetworkSubnetId' in kwargs:
-            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
-
-        _setter("container_registry_name", container_registry_name)
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "container_registry_name", container_registry_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if instance_count is not None:
-            _setter("instance_count", instance_count)
+            pulumi.set(__self__, "instance_count", instance_count)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tier is not None:
-            _setter("tier", tier)
+            pulumi.set(__self__, "tier", tier)
         if virtual_network_subnet_id is not None:
-            _setter("virtual_network_subnet_id", virtual_network_subnet_id)
+            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
 
     @property
     @pulumi.getter(name="containerRegistryName")
@@ -204,55 +167,22 @@ class _RegistryAgentPoolState:
         :param pulumi.Input[str] tier: Sets the VM your agent pool will run on. Valid values are: `S1` (2 vCPUs, 3 GiB RAM), `S2` (4 vCPUs, 8 GiB RAM), `S3` (8 vCPUs, 16 GiB RAM) or `I6` (64 vCPUs, 216 GiB RAM, Isolated). Defaults to `S1`. Changing this forces a new Azure Container Registry Agent Pool to be created.
         :param pulumi.Input[str] virtual_network_subnet_id: The ID of the Virtual Network Subnet Resource where the agent machines will be running. Changing this forces a new Azure Container Registry Agent Pool to be created.
         """
-        _RegistryAgentPoolState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            container_registry_name=container_registry_name,
-            instance_count=instance_count,
-            location=location,
-            name=name,
-            resource_group_name=resource_group_name,
-            tags=tags,
-            tier=tier,
-            virtual_network_subnet_id=virtual_network_subnet_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             container_registry_name: Optional[pulumi.Input[str]] = None,
-             instance_count: Optional[pulumi.Input[int]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tier: Optional[pulumi.Input[str]] = None,
-             virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if container_registry_name is None and 'containerRegistryName' in kwargs:
-            container_registry_name = kwargs['containerRegistryName']
-        if instance_count is None and 'instanceCount' in kwargs:
-            instance_count = kwargs['instanceCount']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if virtual_network_subnet_id is None and 'virtualNetworkSubnetId' in kwargs:
-            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
-
         if container_registry_name is not None:
-            _setter("container_registry_name", container_registry_name)
+            pulumi.set(__self__, "container_registry_name", container_registry_name)
         if instance_count is not None:
-            _setter("instance_count", instance_count)
+            pulumi.set(__self__, "instance_count", instance_count)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tier is not None:
-            _setter("tier", tier)
+            pulumi.set(__self__, "tier", tier)
         if virtual_network_subnet_id is not None:
-            _setter("virtual_network_subnet_id", virtual_network_subnet_id)
+            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
 
     @property
     @pulumi.getter(name="containerRegistryName")
@@ -448,10 +378,6 @@ class RegistryAgentPool(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            RegistryAgentPoolArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TimeSeriesInsightsStandardEnvironmentArgs', 'TimeSeriesInsightsStandardEnvironment']
@@ -33,60 +33,19 @@ class TimeSeriesInsightsStandardEnvironmentArgs:
         :param pulumi.Input[str] storage_limit_exceeded_behavior: Specifies the behaviour the IoT Time Series Insights service should take when the environment's capacity has been exceeded. Valid values include `PauseIngress` and `PurgeOldData`. Defaults to `PurgeOldData`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        TimeSeriesInsightsStandardEnvironmentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_retention_time=data_retention_time,
-            resource_group_name=resource_group_name,
-            sku_name=sku_name,
-            location=location,
-            name=name,
-            partition_key=partition_key,
-            storage_limit_exceeded_behavior=storage_limit_exceeded_behavior,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_retention_time: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             sku_name: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             partition_key: Optional[pulumi.Input[str]] = None,
-             storage_limit_exceeded_behavior: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if data_retention_time is None and 'dataRetentionTime' in kwargs:
-            data_retention_time = kwargs['dataRetentionTime']
-        if data_retention_time is None:
-            raise TypeError("Missing 'data_retention_time' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if sku_name is None and 'skuName' in kwargs:
-            sku_name = kwargs['skuName']
-        if sku_name is None:
-            raise TypeError("Missing 'sku_name' argument")
-        if partition_key is None and 'partitionKey' in kwargs:
-            partition_key = kwargs['partitionKey']
-        if storage_limit_exceeded_behavior is None and 'storageLimitExceededBehavior' in kwargs:
-            storage_limit_exceeded_behavior = kwargs['storageLimitExceededBehavior']
-
-        _setter("data_retention_time", data_retention_time)
-        _setter("resource_group_name", resource_group_name)
-        _setter("sku_name", sku_name)
+        pulumi.set(__self__, "data_retention_time", data_retention_time)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "sku_name", sku_name)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if partition_key is not None:
-            _setter("partition_key", partition_key)
+            pulumi.set(__self__, "partition_key", partition_key)
         if storage_limit_exceeded_behavior is not None:
-            _setter("storage_limit_exceeded_behavior", storage_limit_exceeded_behavior)
+            pulumi.set(__self__, "storage_limit_exceeded_behavior", storage_limit_exceeded_behavior)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="dataRetentionTime")
@@ -207,57 +166,22 @@ class _TimeSeriesInsightsStandardEnvironmentState:
         :param pulumi.Input[str] storage_limit_exceeded_behavior: Specifies the behaviour the IoT Time Series Insights service should take when the environment's capacity has been exceeded. Valid values include `PauseIngress` and `PurgeOldData`. Defaults to `PurgeOldData`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        _TimeSeriesInsightsStandardEnvironmentState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_retention_time=data_retention_time,
-            location=location,
-            name=name,
-            partition_key=partition_key,
-            resource_group_name=resource_group_name,
-            sku_name=sku_name,
-            storage_limit_exceeded_behavior=storage_limit_exceeded_behavior,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_retention_time: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             partition_key: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             sku_name: Optional[pulumi.Input[str]] = None,
-             storage_limit_exceeded_behavior: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if data_retention_time is None and 'dataRetentionTime' in kwargs:
-            data_retention_time = kwargs['dataRetentionTime']
-        if partition_key is None and 'partitionKey' in kwargs:
-            partition_key = kwargs['partitionKey']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if sku_name is None and 'skuName' in kwargs:
-            sku_name = kwargs['skuName']
-        if storage_limit_exceeded_behavior is None and 'storageLimitExceededBehavior' in kwargs:
-            storage_limit_exceeded_behavior = kwargs['storageLimitExceededBehavior']
-
         if data_retention_time is not None:
-            _setter("data_retention_time", data_retention_time)
+            pulumi.set(__self__, "data_retention_time", data_retention_time)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if partition_key is not None:
-            _setter("partition_key", partition_key)
+            pulumi.set(__self__, "partition_key", partition_key)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if sku_name is not None:
-            _setter("sku_name", sku_name)
+            pulumi.set(__self__, "sku_name", sku_name)
         if storage_limit_exceeded_behavior is not None:
-            _setter("storage_limit_exceeded_behavior", storage_limit_exceeded_behavior)
+            pulumi.set(__self__, "storage_limit_exceeded_behavior", storage_limit_exceeded_behavior)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="dataRetentionTime")
@@ -447,10 +371,6 @@ class TimeSeriesInsightsStandardEnvironment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            TimeSeriesInsightsStandardEnvironmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
