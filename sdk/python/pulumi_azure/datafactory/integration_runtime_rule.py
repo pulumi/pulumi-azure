@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['IntegrationRuntimeRuleArgs', 'IntegrationRuntimeRule']
@@ -35,64 +35,23 @@ class IntegrationRuntimeRuleArgs:
         :param pulumi.Input[int] time_to_live_min: Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
         :param pulumi.Input[bool] virtual_network_enabled: Is Integration Runtime compute provisioned within Managed Virtual Network? Changing this forces a new resource to be created.
         """
-        IntegrationRuntimeRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_factory_id=data_factory_id,
-            cleanup_enabled=cleanup_enabled,
-            compute_type=compute_type,
-            core_count=core_count,
-            description=description,
-            location=location,
-            name=name,
-            time_to_live_min=time_to_live_min,
-            virtual_network_enabled=virtual_network_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_factory_id: Optional[pulumi.Input[str]] = None,
-             cleanup_enabled: Optional[pulumi.Input[bool]] = None,
-             compute_type: Optional[pulumi.Input[str]] = None,
-             core_count: Optional[pulumi.Input[int]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             time_to_live_min: Optional[pulumi.Input[int]] = None,
-             virtual_network_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if data_factory_id is None and 'dataFactoryId' in kwargs:
-            data_factory_id = kwargs['dataFactoryId']
-        if data_factory_id is None:
-            raise TypeError("Missing 'data_factory_id' argument")
-        if cleanup_enabled is None and 'cleanupEnabled' in kwargs:
-            cleanup_enabled = kwargs['cleanupEnabled']
-        if compute_type is None and 'computeType' in kwargs:
-            compute_type = kwargs['computeType']
-        if core_count is None and 'coreCount' in kwargs:
-            core_count = kwargs['coreCount']
-        if time_to_live_min is None and 'timeToLiveMin' in kwargs:
-            time_to_live_min = kwargs['timeToLiveMin']
-        if virtual_network_enabled is None and 'virtualNetworkEnabled' in kwargs:
-            virtual_network_enabled = kwargs['virtualNetworkEnabled']
-
-        _setter("data_factory_id", data_factory_id)
+        pulumi.set(__self__, "data_factory_id", data_factory_id)
         if cleanup_enabled is not None:
-            _setter("cleanup_enabled", cleanup_enabled)
+            pulumi.set(__self__, "cleanup_enabled", cleanup_enabled)
         if compute_type is not None:
-            _setter("compute_type", compute_type)
+            pulumi.set(__self__, "compute_type", compute_type)
         if core_count is not None:
-            _setter("core_count", core_count)
+            pulumi.set(__self__, "core_count", core_count)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if time_to_live_min is not None:
-            _setter("time_to_live_min", time_to_live_min)
+            pulumi.set(__self__, "time_to_live_min", time_to_live_min)
         if virtual_network_enabled is not None:
-            _setter("virtual_network_enabled", virtual_network_enabled)
+            pulumi.set(__self__, "virtual_network_enabled", virtual_network_enabled)
 
     @property
     @pulumi.getter(name="dataFactoryId")
@@ -227,63 +186,24 @@ class _IntegrationRuntimeRuleState:
         :param pulumi.Input[int] time_to_live_min: Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
         :param pulumi.Input[bool] virtual_network_enabled: Is Integration Runtime compute provisioned within Managed Virtual Network? Changing this forces a new resource to be created.
         """
-        _IntegrationRuntimeRuleState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cleanup_enabled=cleanup_enabled,
-            compute_type=compute_type,
-            core_count=core_count,
-            data_factory_id=data_factory_id,
-            description=description,
-            location=location,
-            name=name,
-            time_to_live_min=time_to_live_min,
-            virtual_network_enabled=virtual_network_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cleanup_enabled: Optional[pulumi.Input[bool]] = None,
-             compute_type: Optional[pulumi.Input[str]] = None,
-             core_count: Optional[pulumi.Input[int]] = None,
-             data_factory_id: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             time_to_live_min: Optional[pulumi.Input[int]] = None,
-             virtual_network_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cleanup_enabled is None and 'cleanupEnabled' in kwargs:
-            cleanup_enabled = kwargs['cleanupEnabled']
-        if compute_type is None and 'computeType' in kwargs:
-            compute_type = kwargs['computeType']
-        if core_count is None and 'coreCount' in kwargs:
-            core_count = kwargs['coreCount']
-        if data_factory_id is None and 'dataFactoryId' in kwargs:
-            data_factory_id = kwargs['dataFactoryId']
-        if time_to_live_min is None and 'timeToLiveMin' in kwargs:
-            time_to_live_min = kwargs['timeToLiveMin']
-        if virtual_network_enabled is None and 'virtualNetworkEnabled' in kwargs:
-            virtual_network_enabled = kwargs['virtualNetworkEnabled']
-
         if cleanup_enabled is not None:
-            _setter("cleanup_enabled", cleanup_enabled)
+            pulumi.set(__self__, "cleanup_enabled", cleanup_enabled)
         if compute_type is not None:
-            _setter("compute_type", compute_type)
+            pulumi.set(__self__, "compute_type", compute_type)
         if core_count is not None:
-            _setter("core_count", core_count)
+            pulumi.set(__self__, "core_count", core_count)
         if data_factory_id is not None:
-            _setter("data_factory_id", data_factory_id)
+            pulumi.set(__self__, "data_factory_id", data_factory_id)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if time_to_live_min is not None:
-            _setter("time_to_live_min", time_to_live_min)
+            pulumi.set(__self__, "time_to_live_min", time_to_live_min)
         if virtual_network_enabled is not None:
-            _setter("virtual_network_enabled", virtual_network_enabled)
+            pulumi.set(__self__, "virtual_network_enabled", virtual_network_enabled)
 
     @property
     @pulumi.getter(name="cleanupEnabled")
@@ -489,10 +409,6 @@ class IntegrationRuntimeRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            IntegrationRuntimeRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

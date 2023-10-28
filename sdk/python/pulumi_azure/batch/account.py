@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -57,90 +57,33 @@ class AccountArgs:
         :param pulumi.Input[str] storage_account_node_identity: Specifies the user assigned identity for the storage account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        AccountArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_group_name=resource_group_name,
-            allowed_authentication_modes=allowed_authentication_modes,
-            encryption=encryption,
-            identity=identity,
-            key_vault_reference=key_vault_reference,
-            location=location,
-            name=name,
-            network_profile=network_profile,
-            pool_allocation_mode=pool_allocation_mode,
-            public_network_access_enabled=public_network_access_enabled,
-            storage_account_authentication_mode=storage_account_authentication_mode,
-            storage_account_id=storage_account_id,
-            storage_account_node_identity=storage_account_node_identity,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             allowed_authentication_modes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             encryption: Optional[pulumi.Input['AccountEncryptionArgs']] = None,
-             identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
-             key_vault_reference: Optional[pulumi.Input['AccountKeyVaultReferenceArgs']] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             network_profile: Optional[pulumi.Input['AccountNetworkProfileArgs']] = None,
-             pool_allocation_mode: Optional[pulumi.Input[str]] = None,
-             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
-             storage_account_authentication_mode: Optional[pulumi.Input[str]] = None,
-             storage_account_id: Optional[pulumi.Input[str]] = None,
-             storage_account_node_identity: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if allowed_authentication_modes is None and 'allowedAuthenticationModes' in kwargs:
-            allowed_authentication_modes = kwargs['allowedAuthenticationModes']
-        if key_vault_reference is None and 'keyVaultReference' in kwargs:
-            key_vault_reference = kwargs['keyVaultReference']
-        if network_profile is None and 'networkProfile' in kwargs:
-            network_profile = kwargs['networkProfile']
-        if pool_allocation_mode is None and 'poolAllocationMode' in kwargs:
-            pool_allocation_mode = kwargs['poolAllocationMode']
-        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
-            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if storage_account_authentication_mode is None and 'storageAccountAuthenticationMode' in kwargs:
-            storage_account_authentication_mode = kwargs['storageAccountAuthenticationMode']
-        if storage_account_id is None and 'storageAccountId' in kwargs:
-            storage_account_id = kwargs['storageAccountId']
-        if storage_account_node_identity is None and 'storageAccountNodeIdentity' in kwargs:
-            storage_account_node_identity = kwargs['storageAccountNodeIdentity']
-
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if allowed_authentication_modes is not None:
-            _setter("allowed_authentication_modes", allowed_authentication_modes)
+            pulumi.set(__self__, "allowed_authentication_modes", allowed_authentication_modes)
         if encryption is not None:
-            _setter("encryption", encryption)
+            pulumi.set(__self__, "encryption", encryption)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if key_vault_reference is not None:
-            _setter("key_vault_reference", key_vault_reference)
+            pulumi.set(__self__, "key_vault_reference", key_vault_reference)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if network_profile is not None:
-            _setter("network_profile", network_profile)
+            pulumi.set(__self__, "network_profile", network_profile)
         if pool_allocation_mode is not None:
-            _setter("pool_allocation_mode", pool_allocation_mode)
+            pulumi.set(__self__, "pool_allocation_mode", pool_allocation_mode)
         if public_network_access_enabled is not None:
-            _setter("public_network_access_enabled", public_network_access_enabled)
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if storage_account_authentication_mode is not None:
-            _setter("storage_account_authentication_mode", storage_account_authentication_mode)
+            pulumi.set(__self__, "storage_account_authentication_mode", storage_account_authentication_mode)
         if storage_account_id is not None:
-            _setter("storage_account_id", storage_account_id)
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
         if storage_account_node_identity is not None:
-            _setter("storage_account_node_identity", storage_account_node_identity)
+            pulumi.set(__self__, "storage_account_node_identity", storage_account_node_identity)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -371,107 +314,40 @@ class _AccountState:
         :param pulumi.Input[str] storage_account_node_identity: Specifies the user assigned identity for the storage account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        _AccountState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account_endpoint=account_endpoint,
-            allowed_authentication_modes=allowed_authentication_modes,
-            encryption=encryption,
-            identity=identity,
-            key_vault_reference=key_vault_reference,
-            location=location,
-            name=name,
-            network_profile=network_profile,
-            pool_allocation_mode=pool_allocation_mode,
-            primary_access_key=primary_access_key,
-            public_network_access_enabled=public_network_access_enabled,
-            resource_group_name=resource_group_name,
-            secondary_access_key=secondary_access_key,
-            storage_account_authentication_mode=storage_account_authentication_mode,
-            storage_account_id=storage_account_id,
-            storage_account_node_identity=storage_account_node_identity,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account_endpoint: Optional[pulumi.Input[str]] = None,
-             allowed_authentication_modes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             encryption: Optional[pulumi.Input['AccountEncryptionArgs']] = None,
-             identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
-             key_vault_reference: Optional[pulumi.Input['AccountKeyVaultReferenceArgs']] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             network_profile: Optional[pulumi.Input['AccountNetworkProfileArgs']] = None,
-             pool_allocation_mode: Optional[pulumi.Input[str]] = None,
-             primary_access_key: Optional[pulumi.Input[str]] = None,
-             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             secondary_access_key: Optional[pulumi.Input[str]] = None,
-             storage_account_authentication_mode: Optional[pulumi.Input[str]] = None,
-             storage_account_id: Optional[pulumi.Input[str]] = None,
-             storage_account_node_identity: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if account_endpoint is None and 'accountEndpoint' in kwargs:
-            account_endpoint = kwargs['accountEndpoint']
-        if allowed_authentication_modes is None and 'allowedAuthenticationModes' in kwargs:
-            allowed_authentication_modes = kwargs['allowedAuthenticationModes']
-        if key_vault_reference is None and 'keyVaultReference' in kwargs:
-            key_vault_reference = kwargs['keyVaultReference']
-        if network_profile is None and 'networkProfile' in kwargs:
-            network_profile = kwargs['networkProfile']
-        if pool_allocation_mode is None and 'poolAllocationMode' in kwargs:
-            pool_allocation_mode = kwargs['poolAllocationMode']
-        if primary_access_key is None and 'primaryAccessKey' in kwargs:
-            primary_access_key = kwargs['primaryAccessKey']
-        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
-            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if secondary_access_key is None and 'secondaryAccessKey' in kwargs:
-            secondary_access_key = kwargs['secondaryAccessKey']
-        if storage_account_authentication_mode is None and 'storageAccountAuthenticationMode' in kwargs:
-            storage_account_authentication_mode = kwargs['storageAccountAuthenticationMode']
-        if storage_account_id is None and 'storageAccountId' in kwargs:
-            storage_account_id = kwargs['storageAccountId']
-        if storage_account_node_identity is None and 'storageAccountNodeIdentity' in kwargs:
-            storage_account_node_identity = kwargs['storageAccountNodeIdentity']
-
         if account_endpoint is not None:
-            _setter("account_endpoint", account_endpoint)
+            pulumi.set(__self__, "account_endpoint", account_endpoint)
         if allowed_authentication_modes is not None:
-            _setter("allowed_authentication_modes", allowed_authentication_modes)
+            pulumi.set(__self__, "allowed_authentication_modes", allowed_authentication_modes)
         if encryption is not None:
-            _setter("encryption", encryption)
+            pulumi.set(__self__, "encryption", encryption)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if key_vault_reference is not None:
-            _setter("key_vault_reference", key_vault_reference)
+            pulumi.set(__self__, "key_vault_reference", key_vault_reference)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if network_profile is not None:
-            _setter("network_profile", network_profile)
+            pulumi.set(__self__, "network_profile", network_profile)
         if pool_allocation_mode is not None:
-            _setter("pool_allocation_mode", pool_allocation_mode)
+            pulumi.set(__self__, "pool_allocation_mode", pool_allocation_mode)
         if primary_access_key is not None:
-            _setter("primary_access_key", primary_access_key)
+            pulumi.set(__self__, "primary_access_key", primary_access_key)
         if public_network_access_enabled is not None:
-            _setter("public_network_access_enabled", public_network_access_enabled)
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if secondary_access_key is not None:
-            _setter("secondary_access_key", secondary_access_key)
+            pulumi.set(__self__, "secondary_access_key", secondary_access_key)
         if storage_account_authentication_mode is not None:
-            _setter("storage_account_authentication_mode", storage_account_authentication_mode)
+            pulumi.set(__self__, "storage_account_authentication_mode", storage_account_authentication_mode)
         if storage_account_id is not None:
-            _setter("storage_account_id", storage_account_id)
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
         if storage_account_node_identity is not None:
-            _setter("storage_account_node_identity", storage_account_node_identity)
+            pulumi.set(__self__, "storage_account_node_identity", storage_account_node_identity)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="accountEndpoint")
@@ -819,10 +695,6 @@ class Account(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AccountArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -852,15 +724,11 @@ class Account(pulumi.CustomResource):
             __props__ = AccountArgs.__new__(AccountArgs)
 
             __props__.__dict__["allowed_authentication_modes"] = allowed_authentication_modes
-            encryption = _utilities.configure(encryption, AccountEncryptionArgs, True)
             __props__.__dict__["encryption"] = encryption
-            identity = _utilities.configure(identity, AccountIdentityArgs, True)
             __props__.__dict__["identity"] = identity
-            key_vault_reference = _utilities.configure(key_vault_reference, AccountKeyVaultReferenceArgs, True)
             __props__.__dict__["key_vault_reference"] = key_vault_reference
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
-            network_profile = _utilities.configure(network_profile, AccountNetworkProfileArgs, True)
             __props__.__dict__["network_profile"] = network_profile
             __props__.__dict__["pool_allocation_mode"] = pool_allocation_mode
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled

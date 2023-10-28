@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,52 +31,15 @@ class DatasetBlobStorageArgs:
         :param pulumi.Input[str] folder_path: The path of the folder in the storage container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
         :param pulumi.Input[str] name: The name which should be used for this Data Share Blob Storage Dataset. Changing this forces a new Data Share Blob Storage Dataset to be created.
         """
-        DatasetBlobStorageArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            container_name=container_name,
-            data_share_id=data_share_id,
-            storage_account=storage_account,
-            file_path=file_path,
-            folder_path=folder_path,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             container_name: Optional[pulumi.Input[str]] = None,
-             data_share_id: Optional[pulumi.Input[str]] = None,
-             storage_account: Optional[pulumi.Input['DatasetBlobStorageStorageAccountArgs']] = None,
-             file_path: Optional[pulumi.Input[str]] = None,
-             folder_path: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if container_name is None and 'containerName' in kwargs:
-            container_name = kwargs['containerName']
-        if container_name is None:
-            raise TypeError("Missing 'container_name' argument")
-        if data_share_id is None and 'dataShareId' in kwargs:
-            data_share_id = kwargs['dataShareId']
-        if data_share_id is None:
-            raise TypeError("Missing 'data_share_id' argument")
-        if storage_account is None and 'storageAccount' in kwargs:
-            storage_account = kwargs['storageAccount']
-        if storage_account is None:
-            raise TypeError("Missing 'storage_account' argument")
-        if file_path is None and 'filePath' in kwargs:
-            file_path = kwargs['filePath']
-        if folder_path is None and 'folderPath' in kwargs:
-            folder_path = kwargs['folderPath']
-
-        _setter("container_name", container_name)
-        _setter("data_share_id", data_share_id)
-        _setter("storage_account", storage_account)
+        pulumi.set(__self__, "container_name", container_name)
+        pulumi.set(__self__, "data_share_id", data_share_id)
+        pulumi.set(__self__, "storage_account", storage_account)
         if file_path is not None:
-            _setter("file_path", file_path)
+            pulumi.set(__self__, "file_path", file_path)
         if folder_path is not None:
-            _setter("folder_path", folder_path)
+            pulumi.set(__self__, "folder_path", folder_path)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="containerName")
@@ -171,55 +134,20 @@ class _DatasetBlobStorageState:
         :param pulumi.Input[str] name: The name which should be used for this Data Share Blob Storage Dataset. Changing this forces a new Data Share Blob Storage Dataset to be created.
         :param pulumi.Input['DatasetBlobStorageStorageAccountArgs'] storage_account: A `storage_account` block as defined below. Changing this forces a new resource to be created.
         """
-        _DatasetBlobStorageState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            container_name=container_name,
-            data_share_id=data_share_id,
-            display_name=display_name,
-            file_path=file_path,
-            folder_path=folder_path,
-            name=name,
-            storage_account=storage_account,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             container_name: Optional[pulumi.Input[str]] = None,
-             data_share_id: Optional[pulumi.Input[str]] = None,
-             display_name: Optional[pulumi.Input[str]] = None,
-             file_path: Optional[pulumi.Input[str]] = None,
-             folder_path: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             storage_account: Optional[pulumi.Input['DatasetBlobStorageStorageAccountArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if container_name is None and 'containerName' in kwargs:
-            container_name = kwargs['containerName']
-        if data_share_id is None and 'dataShareId' in kwargs:
-            data_share_id = kwargs['dataShareId']
-        if display_name is None and 'displayName' in kwargs:
-            display_name = kwargs['displayName']
-        if file_path is None and 'filePath' in kwargs:
-            file_path = kwargs['filePath']
-        if folder_path is None and 'folderPath' in kwargs:
-            folder_path = kwargs['folderPath']
-        if storage_account is None and 'storageAccount' in kwargs:
-            storage_account = kwargs['storageAccount']
-
         if container_name is not None:
-            _setter("container_name", container_name)
+            pulumi.set(__self__, "container_name", container_name)
         if data_share_id is not None:
-            _setter("data_share_id", data_share_id)
+            pulumi.set(__self__, "data_share_id", data_share_id)
         if display_name is not None:
-            _setter("display_name", display_name)
+            pulumi.set(__self__, "display_name", display_name)
         if file_path is not None:
-            _setter("file_path", file_path)
+            pulumi.set(__self__, "file_path", file_path)
         if folder_path is not None:
-            _setter("folder_path", folder_path)
+            pulumi.set(__self__, "folder_path", folder_path)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if storage_account is not None:
-            _setter("storage_account", storage_account)
+            pulumi.set(__self__, "storage_account", storage_account)
 
     @property
     @pulumi.getter(name="containerName")
@@ -449,10 +377,6 @@ class DatasetBlobStorage(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DatasetBlobStorageArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -482,7 +406,6 @@ class DatasetBlobStorage(pulumi.CustomResource):
             __props__.__dict__["file_path"] = file_path
             __props__.__dict__["folder_path"] = folder_path
             __props__.__dict__["name"] = name
-            storage_account = _utilities.configure(storage_account, DatasetBlobStorageStorageAccountArgs, True)
             if storage_account is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account'")
             __props__.__dict__["storage_account"] = storage_account

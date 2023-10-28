@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -100,38 +100,13 @@ class DomainIdentity(dict):
         :param str principal_id: The Principal ID associated with this Managed Service Identity.
         :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
-        DomainIdentity._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            identity_ids=identity_ids,
-            principal_id=principal_id,
-            tenant_id=tenant_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             identity_ids: Optional[Sequence[str]] = None,
-             principal_id: Optional[str] = None,
-             tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if identity_ids is None and 'identityIds' in kwargs:
-            identity_ids = kwargs['identityIds']
-        if principal_id is None and 'principalId' in kwargs:
-            principal_id = kwargs['principalId']
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if identity_ids is not None:
-            _setter("identity_ids", identity_ids)
+            pulumi.set(__self__, "identity_ids", identity_ids)
         if principal_id is not None:
-            _setter("principal_id", principal_id)
+            pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
-            _setter("tenant_id", tenant_id)
+            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -196,26 +171,9 @@ class DomainInboundIpRule(dict):
         :param str ip_mask: The IP mask (CIDR) to match on.
         :param str action: The action to take when the rule is matched. Possible values are `Allow`.
         """
-        DomainInboundIpRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ip_mask=ip_mask,
-            action=action,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ip_mask: Optional[str] = None,
-             action: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if ip_mask is None and 'ipMask' in kwargs:
-            ip_mask = kwargs['ipMask']
-        if ip_mask is None:
-            raise TypeError("Missing 'ip_mask' argument")
-
-        _setter("ip_mask", ip_mask)
+        pulumi.set(__self__, "ip_mask", ip_mask)
         if action is not None:
-            _setter("action", action)
+            pulumi.set(__self__, "action", action)
 
     @property
     @pulumi.getter(name="ipMask")
@@ -264,31 +222,12 @@ class DomainInputMappingDefaultValues(dict):
         :param str event_type: Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         :param str subject: Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         """
-        DomainInputMappingDefaultValues._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_version=data_version,
-            event_type=event_type,
-            subject=subject,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_version: Optional[str] = None,
-             event_type: Optional[str] = None,
-             subject: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if data_version is None and 'dataVersion' in kwargs:
-            data_version = kwargs['dataVersion']
-        if event_type is None and 'eventType' in kwargs:
-            event_type = kwargs['eventType']
-
         if data_version is not None:
-            _setter("data_version", data_version)
+            pulumi.set(__self__, "data_version", data_version)
         if event_type is not None:
-            _setter("event_type", event_type)
+            pulumi.set(__self__, "event_type", event_type)
         if subject is not None:
-            _setter("subject", subject)
+            pulumi.set(__self__, "subject", subject)
 
     @property
     @pulumi.getter(name="dataVersion")
@@ -353,45 +292,18 @@ class DomainInputMappingFields(dict):
         :param str subject: Specifies the subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         :param str topic: Specifies the topic of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         """
-        DomainInputMappingFields._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_version=data_version,
-            event_time=event_time,
-            event_type=event_type,
-            id=id,
-            subject=subject,
-            topic=topic,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_version: Optional[str] = None,
-             event_time: Optional[str] = None,
-             event_type: Optional[str] = None,
-             id: Optional[str] = None,
-             subject: Optional[str] = None,
-             topic: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if data_version is None and 'dataVersion' in kwargs:
-            data_version = kwargs['dataVersion']
-        if event_time is None and 'eventTime' in kwargs:
-            event_time = kwargs['eventTime']
-        if event_type is None and 'eventType' in kwargs:
-            event_type = kwargs['eventType']
-
         if data_version is not None:
-            _setter("data_version", data_version)
+            pulumi.set(__self__, "data_version", data_version)
         if event_time is not None:
-            _setter("event_time", event_time)
+            pulumi.set(__self__, "event_time", event_time)
         if event_type is not None:
-            _setter("event_type", event_type)
+            pulumi.set(__self__, "event_type", event_type)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if subject is not None:
-            _setter("subject", subject)
+            pulumi.set(__self__, "subject", subject)
         if topic is not None:
-            _setter("topic", topic)
+            pulumi.set(__self__, "topic", topic)
 
     @property
     @pulumi.getter(name="dataVersion")
@@ -480,38 +392,13 @@ class EventGridTopicIdentity(dict):
         :param str principal_id: The Principal ID associated with this Managed Service Identity.
         :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
-        EventGridTopicIdentity._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            identity_ids=identity_ids,
-            principal_id=principal_id,
-            tenant_id=tenant_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             identity_ids: Optional[Sequence[str]] = None,
-             principal_id: Optional[str] = None,
-             tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if identity_ids is None and 'identityIds' in kwargs:
-            identity_ids = kwargs['identityIds']
-        if principal_id is None and 'principalId' in kwargs:
-            principal_id = kwargs['principalId']
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if identity_ids is not None:
-            _setter("identity_ids", identity_ids)
+            pulumi.set(__self__, "identity_ids", identity_ids)
         if principal_id is not None:
-            _setter("principal_id", principal_id)
+            pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
-            _setter("tenant_id", tenant_id)
+            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -576,26 +463,9 @@ class EventGridTopicInboundIpRule(dict):
         :param str ip_mask: The IP mask (CIDR) to match on.
         :param str action: The action to take when the rule is matched. Possible values are `Allow`.
         """
-        EventGridTopicInboundIpRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ip_mask=ip_mask,
-            action=action,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ip_mask: Optional[str] = None,
-             action: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if ip_mask is None and 'ipMask' in kwargs:
-            ip_mask = kwargs['ipMask']
-        if ip_mask is None:
-            raise TypeError("Missing 'ip_mask' argument")
-
-        _setter("ip_mask", ip_mask)
+        pulumi.set(__self__, "ip_mask", ip_mask)
         if action is not None:
-            _setter("action", action)
+            pulumi.set(__self__, "action", action)
 
     @property
     @pulumi.getter(name="ipMask")
@@ -644,31 +514,12 @@ class EventGridTopicInputMappingDefaultValues(dict):
         :param str event_type: Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         :param str subject: Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         """
-        EventGridTopicInputMappingDefaultValues._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_version=data_version,
-            event_type=event_type,
-            subject=subject,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_version: Optional[str] = None,
-             event_type: Optional[str] = None,
-             subject: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if data_version is None and 'dataVersion' in kwargs:
-            data_version = kwargs['dataVersion']
-        if event_type is None and 'eventType' in kwargs:
-            event_type = kwargs['eventType']
-
         if data_version is not None:
-            _setter("data_version", data_version)
+            pulumi.set(__self__, "data_version", data_version)
         if event_type is not None:
-            _setter("event_type", event_type)
+            pulumi.set(__self__, "event_type", event_type)
         if subject is not None:
-            _setter("subject", subject)
+            pulumi.set(__self__, "subject", subject)
 
     @property
     @pulumi.getter(name="dataVersion")
@@ -733,45 +584,18 @@ class EventGridTopicInputMappingFields(dict):
         :param str subject: Specifies the subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         :param str topic: Specifies the topic of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         """
-        EventGridTopicInputMappingFields._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_version=data_version,
-            event_time=event_time,
-            event_type=event_type,
-            id=id,
-            subject=subject,
-            topic=topic,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_version: Optional[str] = None,
-             event_time: Optional[str] = None,
-             event_type: Optional[str] = None,
-             id: Optional[str] = None,
-             subject: Optional[str] = None,
-             topic: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if data_version is None and 'dataVersion' in kwargs:
-            data_version = kwargs['dataVersion']
-        if event_time is None and 'eventTime' in kwargs:
-            event_time = kwargs['eventTime']
-        if event_type is None and 'eventType' in kwargs:
-            event_type = kwargs['eventType']
-
         if data_version is not None:
-            _setter("data_version", data_version)
+            pulumi.set(__self__, "data_version", data_version)
         if event_time is not None:
-            _setter("event_time", event_time)
+            pulumi.set(__self__, "event_time", event_time)
         if event_type is not None:
-            _setter("event_type", event_type)
+            pulumi.set(__self__, "event_type", event_type)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if subject is not None:
-            _setter("subject", subject)
+            pulumi.set(__self__, "subject", subject)
         if topic is not None:
-            _setter("topic", topic)
+            pulumi.set(__self__, "topic", topic)
 
     @property
     @pulumi.getter(name="dataVersion")
@@ -860,48 +684,15 @@ class EventHubCaptureDescription(dict):
         :param int size_limit_in_bytes: Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between `10485760` and `524288000` bytes. Defaults to `314572800` bytes.
         :param bool skip_empty_archives: Specifies if empty files should not be emitted if no events occur during the Capture time window. Defaults to `false`.
         """
-        EventHubCaptureDescription._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination=destination,
-            enabled=enabled,
-            encoding=encoding,
-            interval_in_seconds=interval_in_seconds,
-            size_limit_in_bytes=size_limit_in_bytes,
-            skip_empty_archives=skip_empty_archives,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination: Optional['outputs.EventHubCaptureDescriptionDestination'] = None,
-             enabled: Optional[bool] = None,
-             encoding: Optional[str] = None,
-             interval_in_seconds: Optional[int] = None,
-             size_limit_in_bytes: Optional[int] = None,
-             skip_empty_archives: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if destination is None:
-            raise TypeError("Missing 'destination' argument")
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if encoding is None:
-            raise TypeError("Missing 'encoding' argument")
-        if interval_in_seconds is None and 'intervalInSeconds' in kwargs:
-            interval_in_seconds = kwargs['intervalInSeconds']
-        if size_limit_in_bytes is None and 'sizeLimitInBytes' in kwargs:
-            size_limit_in_bytes = kwargs['sizeLimitInBytes']
-        if skip_empty_archives is None and 'skipEmptyArchives' in kwargs:
-            skip_empty_archives = kwargs['skipEmptyArchives']
-
-        _setter("destination", destination)
-        _setter("enabled", enabled)
-        _setter("encoding", encoding)
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "encoding", encoding)
         if interval_in_seconds is not None:
-            _setter("interval_in_seconds", interval_in_seconds)
+            pulumi.set(__self__, "interval_in_seconds", interval_in_seconds)
         if size_limit_in_bytes is not None:
-            _setter("size_limit_in_bytes", size_limit_in_bytes)
+            pulumi.set(__self__, "size_limit_in_bytes", size_limit_in_bytes)
         if skip_empty_archives is not None:
-            _setter("skip_empty_archives", skip_empty_archives)
+            pulumi.set(__self__, "skip_empty_archives", skip_empty_archives)
 
     @property
     @pulumi.getter
@@ -988,41 +779,10 @@ class EventHubCaptureDescriptionDestination(dict):
                > At this time it's only possible to Capture EventHub messages to Blob Storage. There's [a Feature Request for the Azure SDK to add support for Capturing messages to Azure Data Lake here](https://github.com/Azure/azure-rest-api-specs/issues/2255).
         :param str storage_account_id: The ID of the Blob Storage Account where messages should be archived.
         """
-        EventHubCaptureDescriptionDestination._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            archive_name_format=archive_name_format,
-            blob_container_name=blob_container_name,
-            name=name,
-            storage_account_id=storage_account_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             archive_name_format: Optional[str] = None,
-             blob_container_name: Optional[str] = None,
-             name: Optional[str] = None,
-             storage_account_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if archive_name_format is None and 'archiveNameFormat' in kwargs:
-            archive_name_format = kwargs['archiveNameFormat']
-        if archive_name_format is None:
-            raise TypeError("Missing 'archive_name_format' argument")
-        if blob_container_name is None and 'blobContainerName' in kwargs:
-            blob_container_name = kwargs['blobContainerName']
-        if blob_container_name is None:
-            raise TypeError("Missing 'blob_container_name' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if storage_account_id is None and 'storageAccountId' in kwargs:
-            storage_account_id = kwargs['storageAccountId']
-        if storage_account_id is None:
-            raise TypeError("Missing 'storage_account_id' argument")
-
-        _setter("archive_name_format", archive_name_format)
-        _setter("blob_container_name", blob_container_name)
-        _setter("name", name)
-        _setter("storage_account_id", storage_account_id)
+        pulumi.set(__self__, "archive_name_format", archive_name_format)
+        pulumi.set(__self__, "blob_container_name", blob_container_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "storage_account_id", storage_account_id)
 
     @property
     @pulumi.getter(name="archiveNameFormat")
@@ -1097,38 +857,13 @@ class EventHubNamespaceIdentity(dict):
         :param str principal_id: The Principal ID associated with this Managed Service Identity.
         :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
-        EventHubNamespaceIdentity._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            identity_ids=identity_ids,
-            principal_id=principal_id,
-            tenant_id=tenant_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             identity_ids: Optional[Sequence[str]] = None,
-             principal_id: Optional[str] = None,
-             tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if identity_ids is None and 'identityIds' in kwargs:
-            identity_ids = kwargs['identityIds']
-        if principal_id is None and 'principalId' in kwargs:
-            principal_id = kwargs['principalId']
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if identity_ids is not None:
-            _setter("identity_ids", identity_ids)
+            pulumi.set(__self__, "identity_ids", identity_ids)
         if principal_id is not None:
-            _setter("principal_id", principal_id)
+            pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
-            _setter("tenant_id", tenant_id)
+            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -1209,46 +944,15 @@ class EventHubNamespaceNetworkRulesets(dict):
         :param bool trusted_service_access_enabled: Whether Trusted Microsoft Services are allowed to bypass firewall.
         :param Sequence['EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgs'] virtual_network_rules: One or more `virtual_network_rule` blocks as defined below.
         """
-        EventHubNamespaceNetworkRulesets._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            default_action=default_action,
-            ip_rules=ip_rules,
-            public_network_access_enabled=public_network_access_enabled,
-            trusted_service_access_enabled=trusted_service_access_enabled,
-            virtual_network_rules=virtual_network_rules,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             default_action: Optional[str] = None,
-             ip_rules: Optional[Sequence['outputs.EventHubNamespaceNetworkRulesetsIpRule']] = None,
-             public_network_access_enabled: Optional[bool] = None,
-             trusted_service_access_enabled: Optional[bool] = None,
-             virtual_network_rules: Optional[Sequence['outputs.EventHubNamespaceNetworkRulesetsVirtualNetworkRule']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if default_action is None and 'defaultAction' in kwargs:
-            default_action = kwargs['defaultAction']
-        if default_action is None:
-            raise TypeError("Missing 'default_action' argument")
-        if ip_rules is None and 'ipRules' in kwargs:
-            ip_rules = kwargs['ipRules']
-        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
-            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if trusted_service_access_enabled is None and 'trustedServiceAccessEnabled' in kwargs:
-            trusted_service_access_enabled = kwargs['trustedServiceAccessEnabled']
-        if virtual_network_rules is None and 'virtualNetworkRules' in kwargs:
-            virtual_network_rules = kwargs['virtualNetworkRules']
-
-        _setter("default_action", default_action)
+        pulumi.set(__self__, "default_action", default_action)
         if ip_rules is not None:
-            _setter("ip_rules", ip_rules)
+            pulumi.set(__self__, "ip_rules", ip_rules)
         if public_network_access_enabled is not None:
-            _setter("public_network_access_enabled", public_network_access_enabled)
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if trusted_service_access_enabled is not None:
-            _setter("trusted_service_access_enabled", trusted_service_access_enabled)
+            pulumi.set(__self__, "trusted_service_access_enabled", trusted_service_access_enabled)
         if virtual_network_rules is not None:
-            _setter("virtual_network_rules", virtual_network_rules)
+            pulumi.set(__self__, "virtual_network_rules", virtual_network_rules)
 
     @property
     @pulumi.getter(name="defaultAction")
@@ -1319,26 +1023,9 @@ class EventHubNamespaceNetworkRulesetsIpRule(dict):
         :param str ip_mask: The IP mask to match on.
         :param str action: The action to take when the rule is matched. Possible values are `Allow`.
         """
-        EventHubNamespaceNetworkRulesetsIpRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ip_mask=ip_mask,
-            action=action,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ip_mask: Optional[str] = None,
-             action: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if ip_mask is None and 'ipMask' in kwargs:
-            ip_mask = kwargs['ipMask']
-        if ip_mask is None:
-            raise TypeError("Missing 'ip_mask' argument")
-
-        _setter("ip_mask", ip_mask)
+        pulumi.set(__self__, "ip_mask", ip_mask)
         if action is not None:
-            _setter("action", action)
+            pulumi.set(__self__, "action", action)
 
     @property
     @pulumi.getter(name="ipMask")
@@ -1385,28 +1072,9 @@ class EventHubNamespaceNetworkRulesetsVirtualNetworkRule(dict):
         :param str subnet_id: The id of the subnet to match on.
         :param bool ignore_missing_virtual_network_service_endpoint: Are missing virtual network service endpoints ignored?
         """
-        EventHubNamespaceNetworkRulesetsVirtualNetworkRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            subnet_id=subnet_id,
-            ignore_missing_virtual_network_service_endpoint=ignore_missing_virtual_network_service_endpoint,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             subnet_id: Optional[str] = None,
-             ignore_missing_virtual_network_service_endpoint: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if subnet_id is None and 'subnetId' in kwargs:
-            subnet_id = kwargs['subnetId']
-        if subnet_id is None:
-            raise TypeError("Missing 'subnet_id' argument")
-        if ignore_missing_virtual_network_service_endpoint is None and 'ignoreMissingVirtualNetworkServiceEndpoint' in kwargs:
-            ignore_missing_virtual_network_service_endpoint = kwargs['ignoreMissingVirtualNetworkServiceEndpoint']
-
-        _setter("subnet_id", subnet_id)
+        pulumi.set(__self__, "subnet_id", subnet_id)
         if ignore_missing_virtual_network_service_endpoint is not None:
-            _setter("ignore_missing_virtual_network_service_endpoint", ignore_missing_virtual_network_service_endpoint)
+            pulumi.set(__self__, "ignore_missing_virtual_network_service_endpoint", ignore_missing_virtual_network_service_endpoint)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -1523,129 +1191,44 @@ class EventSubscriptionAdvancedFilter(dict):
         :param Sequence['EventSubscriptionAdvancedFilterStringNotEndsWithArgs'] string_not_ends_withs: Compares a value of an event using multiple string values.
         :param Sequence['EventSubscriptionAdvancedFilterStringNotInArgs'] string_not_ins: Compares a value of an event using multiple string values.
         """
-        EventSubscriptionAdvancedFilter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bool_equals=bool_equals,
-            is_not_nulls=is_not_nulls,
-            is_null_or_undefineds=is_null_or_undefineds,
-            number_greater_than_or_equals=number_greater_than_or_equals,
-            number_greater_thans=number_greater_thans,
-            number_in_ranges=number_in_ranges,
-            number_ins=number_ins,
-            number_less_than_or_equals=number_less_than_or_equals,
-            number_less_thans=number_less_thans,
-            number_not_in_ranges=number_not_in_ranges,
-            number_not_ins=number_not_ins,
-            string_begins_withs=string_begins_withs,
-            string_contains=string_contains,
-            string_ends_withs=string_ends_withs,
-            string_ins=string_ins,
-            string_not_begins_withs=string_not_begins_withs,
-            string_not_contains=string_not_contains,
-            string_not_ends_withs=string_not_ends_withs,
-            string_not_ins=string_not_ins,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bool_equals: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterBoolEqual']] = None,
-             is_not_nulls: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterIsNotNull']] = None,
-             is_null_or_undefineds: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterIsNullOrUndefined']] = None,
-             number_greater_than_or_equals: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual']] = None,
-             number_greater_thans: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterNumberGreaterThan']] = None,
-             number_in_ranges: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterNumberInRange']] = None,
-             number_ins: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterNumberIn']] = None,
-             number_less_than_or_equals: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterNumberLessThanOrEqual']] = None,
-             number_less_thans: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterNumberLessThan']] = None,
-             number_not_in_ranges: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterNumberNotInRange']] = None,
-             number_not_ins: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterNumberNotIn']] = None,
-             string_begins_withs: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterStringBeginsWith']] = None,
-             string_contains: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterStringContain']] = None,
-             string_ends_withs: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterStringEndsWith']] = None,
-             string_ins: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterStringIn']] = None,
-             string_not_begins_withs: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterStringNotBeginsWith']] = None,
-             string_not_contains: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterStringNotContain']] = None,
-             string_not_ends_withs: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterStringNotEndsWith']] = None,
-             string_not_ins: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterStringNotIn']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if bool_equals is None and 'boolEquals' in kwargs:
-            bool_equals = kwargs['boolEquals']
-        if is_not_nulls is None and 'isNotNulls' in kwargs:
-            is_not_nulls = kwargs['isNotNulls']
-        if is_null_or_undefineds is None and 'isNullOrUndefineds' in kwargs:
-            is_null_or_undefineds = kwargs['isNullOrUndefineds']
-        if number_greater_than_or_equals is None and 'numberGreaterThanOrEquals' in kwargs:
-            number_greater_than_or_equals = kwargs['numberGreaterThanOrEquals']
-        if number_greater_thans is None and 'numberGreaterThans' in kwargs:
-            number_greater_thans = kwargs['numberGreaterThans']
-        if number_in_ranges is None and 'numberInRanges' in kwargs:
-            number_in_ranges = kwargs['numberInRanges']
-        if number_ins is None and 'numberIns' in kwargs:
-            number_ins = kwargs['numberIns']
-        if number_less_than_or_equals is None and 'numberLessThanOrEquals' in kwargs:
-            number_less_than_or_equals = kwargs['numberLessThanOrEquals']
-        if number_less_thans is None and 'numberLessThans' in kwargs:
-            number_less_thans = kwargs['numberLessThans']
-        if number_not_in_ranges is None and 'numberNotInRanges' in kwargs:
-            number_not_in_ranges = kwargs['numberNotInRanges']
-        if number_not_ins is None and 'numberNotIns' in kwargs:
-            number_not_ins = kwargs['numberNotIns']
-        if string_begins_withs is None and 'stringBeginsWiths' in kwargs:
-            string_begins_withs = kwargs['stringBeginsWiths']
-        if string_contains is None and 'stringContains' in kwargs:
-            string_contains = kwargs['stringContains']
-        if string_ends_withs is None and 'stringEndsWiths' in kwargs:
-            string_ends_withs = kwargs['stringEndsWiths']
-        if string_ins is None and 'stringIns' in kwargs:
-            string_ins = kwargs['stringIns']
-        if string_not_begins_withs is None and 'stringNotBeginsWiths' in kwargs:
-            string_not_begins_withs = kwargs['stringNotBeginsWiths']
-        if string_not_contains is None and 'stringNotContains' in kwargs:
-            string_not_contains = kwargs['stringNotContains']
-        if string_not_ends_withs is None and 'stringNotEndsWiths' in kwargs:
-            string_not_ends_withs = kwargs['stringNotEndsWiths']
-        if string_not_ins is None and 'stringNotIns' in kwargs:
-            string_not_ins = kwargs['stringNotIns']
-
         if bool_equals is not None:
-            _setter("bool_equals", bool_equals)
+            pulumi.set(__self__, "bool_equals", bool_equals)
         if is_not_nulls is not None:
-            _setter("is_not_nulls", is_not_nulls)
+            pulumi.set(__self__, "is_not_nulls", is_not_nulls)
         if is_null_or_undefineds is not None:
-            _setter("is_null_or_undefineds", is_null_or_undefineds)
+            pulumi.set(__self__, "is_null_or_undefineds", is_null_or_undefineds)
         if number_greater_than_or_equals is not None:
-            _setter("number_greater_than_or_equals", number_greater_than_or_equals)
+            pulumi.set(__self__, "number_greater_than_or_equals", number_greater_than_or_equals)
         if number_greater_thans is not None:
-            _setter("number_greater_thans", number_greater_thans)
+            pulumi.set(__self__, "number_greater_thans", number_greater_thans)
         if number_in_ranges is not None:
-            _setter("number_in_ranges", number_in_ranges)
+            pulumi.set(__self__, "number_in_ranges", number_in_ranges)
         if number_ins is not None:
-            _setter("number_ins", number_ins)
+            pulumi.set(__self__, "number_ins", number_ins)
         if number_less_than_or_equals is not None:
-            _setter("number_less_than_or_equals", number_less_than_or_equals)
+            pulumi.set(__self__, "number_less_than_or_equals", number_less_than_or_equals)
         if number_less_thans is not None:
-            _setter("number_less_thans", number_less_thans)
+            pulumi.set(__self__, "number_less_thans", number_less_thans)
         if number_not_in_ranges is not None:
-            _setter("number_not_in_ranges", number_not_in_ranges)
+            pulumi.set(__self__, "number_not_in_ranges", number_not_in_ranges)
         if number_not_ins is not None:
-            _setter("number_not_ins", number_not_ins)
+            pulumi.set(__self__, "number_not_ins", number_not_ins)
         if string_begins_withs is not None:
-            _setter("string_begins_withs", string_begins_withs)
+            pulumi.set(__self__, "string_begins_withs", string_begins_withs)
         if string_contains is not None:
-            _setter("string_contains", string_contains)
+            pulumi.set(__self__, "string_contains", string_contains)
         if string_ends_withs is not None:
-            _setter("string_ends_withs", string_ends_withs)
+            pulumi.set(__self__, "string_ends_withs", string_ends_withs)
         if string_ins is not None:
-            _setter("string_ins", string_ins)
+            pulumi.set(__self__, "string_ins", string_ins)
         if string_not_begins_withs is not None:
-            _setter("string_not_begins_withs", string_not_begins_withs)
+            pulumi.set(__self__, "string_not_begins_withs", string_not_begins_withs)
         if string_not_contains is not None:
-            _setter("string_not_contains", string_not_contains)
+            pulumi.set(__self__, "string_not_contains", string_not_contains)
         if string_not_ends_withs is not None:
-            _setter("string_not_ends_withs", string_not_ends_withs)
+            pulumi.set(__self__, "string_not_ends_withs", string_not_ends_withs)
         if string_not_ins is not None:
-            _setter("string_not_ins", string_not_ins)
+            pulumi.set(__self__, "string_not_ins", string_not_ins)
 
     @property
     @pulumi.getter(name="boolEquals")
@@ -1813,25 +1396,8 @@ class EventSubscriptionAdvancedFilterBoolEqual(dict):
                
                OR
         """
-        EventSubscriptionAdvancedFilterBoolEqual._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             value: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1859,20 +1425,7 @@ class EventSubscriptionAdvancedFilterIsNotNull(dict):
         """
         :param str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         """
-        EventSubscriptionAdvancedFilterIsNotNull._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-
-        _setter("key", key)
+        pulumi.set(__self__, "key", key)
 
     @property
     @pulumi.getter
@@ -1890,20 +1443,7 @@ class EventSubscriptionAdvancedFilterIsNullOrUndefined(dict):
         """
         :param str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         """
-        EventSubscriptionAdvancedFilterIsNullOrUndefined._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-
-        _setter("key", key)
+        pulumi.set(__self__, "key", key)
 
     @property
     @pulumi.getter
@@ -1925,25 +1465,8 @@ class EventSubscriptionAdvancedFilterNumberGreaterThan(dict):
                
                OR
         """
-        EventSubscriptionAdvancedFilterNumberGreaterThan._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             value: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1975,25 +1498,8 @@ class EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual(dict):
                
                OR
         """
-        EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             value: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -2025,25 +1531,8 @@ class EventSubscriptionAdvancedFilterNumberIn(dict):
                
                > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
-        EventSubscriptionAdvancedFilterNumberIn._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             values: Optional[Sequence[float]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-        if values is None:
-            raise TypeError("Missing 'values' argument")
-
-        _setter("key", key)
-        _setter("values", values)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
@@ -2075,25 +1564,8 @@ class EventSubscriptionAdvancedFilterNumberInRange(dict):
                
                > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
-        EventSubscriptionAdvancedFilterNumberInRange._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             values: Optional[Sequence[Sequence[float]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-        if values is None:
-            raise TypeError("Missing 'values' argument")
-
-        _setter("key", key)
-        _setter("values", values)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
@@ -2125,25 +1597,8 @@ class EventSubscriptionAdvancedFilterNumberLessThan(dict):
                
                OR
         """
-        EventSubscriptionAdvancedFilterNumberLessThan._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             value: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -2175,25 +1630,8 @@ class EventSubscriptionAdvancedFilterNumberLessThanOrEqual(dict):
                
                OR
         """
-        EventSubscriptionAdvancedFilterNumberLessThanOrEqual._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             value: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -2225,25 +1663,8 @@ class EventSubscriptionAdvancedFilterNumberNotIn(dict):
                
                > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
-        EventSubscriptionAdvancedFilterNumberNotIn._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             values: Optional[Sequence[float]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-        if values is None:
-            raise TypeError("Missing 'values' argument")
-
-        _setter("key", key)
-        _setter("values", values)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
@@ -2275,25 +1696,8 @@ class EventSubscriptionAdvancedFilterNumberNotInRange(dict):
                
                > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
-        EventSubscriptionAdvancedFilterNumberNotInRange._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             values: Optional[Sequence[Sequence[float]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-        if values is None:
-            raise TypeError("Missing 'values' argument")
-
-        _setter("key", key)
-        _setter("values", values)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
@@ -2325,25 +1729,8 @@ class EventSubscriptionAdvancedFilterStringBeginsWith(dict):
                
                > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
-        EventSubscriptionAdvancedFilterStringBeginsWith._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-        if values is None:
-            raise TypeError("Missing 'values' argument")
-
-        _setter("key", key)
-        _setter("values", values)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
@@ -2375,25 +1762,8 @@ class EventSubscriptionAdvancedFilterStringContain(dict):
                
                > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
-        EventSubscriptionAdvancedFilterStringContain._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-        if values is None:
-            raise TypeError("Missing 'values' argument")
-
-        _setter("key", key)
-        _setter("values", values)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
@@ -2425,25 +1795,8 @@ class EventSubscriptionAdvancedFilterStringEndsWith(dict):
                
                > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
-        EventSubscriptionAdvancedFilterStringEndsWith._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-        if values is None:
-            raise TypeError("Missing 'values' argument")
-
-        _setter("key", key)
-        _setter("values", values)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
@@ -2475,25 +1828,8 @@ class EventSubscriptionAdvancedFilterStringIn(dict):
                
                > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
-        EventSubscriptionAdvancedFilterStringIn._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-        if values is None:
-            raise TypeError("Missing 'values' argument")
-
-        _setter("key", key)
-        _setter("values", values)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
@@ -2525,25 +1861,8 @@ class EventSubscriptionAdvancedFilterStringNotBeginsWith(dict):
                
                > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
-        EventSubscriptionAdvancedFilterStringNotBeginsWith._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-        if values is None:
-            raise TypeError("Missing 'values' argument")
-
-        _setter("key", key)
-        _setter("values", values)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
@@ -2575,25 +1894,8 @@ class EventSubscriptionAdvancedFilterStringNotContain(dict):
                
                > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
-        EventSubscriptionAdvancedFilterStringNotContain._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-        if values is None:
-            raise TypeError("Missing 'values' argument")
-
-        _setter("key", key)
-        _setter("values", values)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
@@ -2625,25 +1927,8 @@ class EventSubscriptionAdvancedFilterStringNotEndsWith(dict):
                
                > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
-        EventSubscriptionAdvancedFilterStringNotEndsWith._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-        if values is None:
-            raise TypeError("Missing 'values' argument")
-
-        _setter("key", key)
-        _setter("values", values)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
@@ -2675,25 +1960,8 @@ class EventSubscriptionAdvancedFilterStringNotIn(dict):
                
                > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
-        EventSubscriptionAdvancedFilterStringNotIn._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-        if values is None:
-            raise TypeError("Missing 'values' argument")
-
-        _setter("key", key)
-        _setter("values", values)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
@@ -2746,34 +2014,11 @@ class EventSubscriptionAzureFunctionEndpoint(dict):
         :param int max_events_per_batch: Maximum number of events per batch.
         :param int preferred_batch_size_in_kilobytes: Preferred batch size in Kilobytes.
         """
-        EventSubscriptionAzureFunctionEndpoint._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            function_id=function_id,
-            max_events_per_batch=max_events_per_batch,
-            preferred_batch_size_in_kilobytes=preferred_batch_size_in_kilobytes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             function_id: Optional[str] = None,
-             max_events_per_batch: Optional[int] = None,
-             preferred_batch_size_in_kilobytes: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if function_id is None and 'functionId' in kwargs:
-            function_id = kwargs['functionId']
-        if function_id is None:
-            raise TypeError("Missing 'function_id' argument")
-        if max_events_per_batch is None and 'maxEventsPerBatch' in kwargs:
-            max_events_per_batch = kwargs['maxEventsPerBatch']
-        if preferred_batch_size_in_kilobytes is None and 'preferredBatchSizeInKilobytes' in kwargs:
-            preferred_batch_size_in_kilobytes = kwargs['preferredBatchSizeInKilobytes']
-
-        _setter("function_id", function_id)
+        pulumi.set(__self__, "function_id", function_id)
         if max_events_per_batch is not None:
-            _setter("max_events_per_batch", max_events_per_batch)
+            pulumi.set(__self__, "max_events_per_batch", max_events_per_batch)
         if preferred_batch_size_in_kilobytes is not None:
-            _setter("preferred_batch_size_in_kilobytes", preferred_batch_size_in_kilobytes)
+            pulumi.set(__self__, "preferred_batch_size_in_kilobytes", preferred_batch_size_in_kilobytes)
 
     @property
     @pulumi.getter(name="functionId")
@@ -2826,26 +2071,9 @@ class EventSubscriptionDeadLetterIdentity(dict):
         :param str type: Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`, `UserAssigned`.
         :param str user_assigned_identity: The user identity associated with the resource.
         """
-        EventSubscriptionDeadLetterIdentity._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            user_assigned_identity=user_assigned_identity,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             user_assigned_identity: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if user_assigned_identity is None and 'userAssignedIdentity' in kwargs:
-            user_assigned_identity = kwargs['userAssignedIdentity']
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if user_assigned_identity is not None:
-            _setter("user_assigned_identity", user_assigned_identity)
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
 
     @property
     @pulumi.getter
@@ -2890,26 +2118,9 @@ class EventSubscriptionDeliveryIdentity(dict):
         :param str type: Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`, `UserAssigned`.
         :param str user_assigned_identity: The user identity associated with the resource.
         """
-        EventSubscriptionDeliveryIdentity._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            user_assigned_identity=user_assigned_identity,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             user_assigned_identity: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if user_assigned_identity is None and 'userAssignedIdentity' in kwargs:
-            user_assigned_identity = kwargs['userAssignedIdentity']
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if user_assigned_identity is not None:
-            _setter("user_assigned_identity", user_assigned_identity)
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
 
     @property
     @pulumi.getter
@@ -2962,41 +2173,14 @@ class EventSubscriptionDeliveryProperty(dict):
         :param str source_field: If the `type` is `Dynamic`, then provide the payload field to be used as the value. Valid source fields differ by subscription type.
         :param str value: If the `type` is `Static`, then provide the value to use
         """
-        EventSubscriptionDeliveryProperty._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            header_name=header_name,
-            type=type,
-            secret=secret,
-            source_field=source_field,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             header_name: Optional[str] = None,
-             type: Optional[str] = None,
-             secret: Optional[bool] = None,
-             source_field: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if header_name is None and 'headerName' in kwargs:
-            header_name = kwargs['headerName']
-        if header_name is None:
-            raise TypeError("Missing 'header_name' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if source_field is None and 'sourceField' in kwargs:
-            source_field = kwargs['sourceField']
-
-        _setter("header_name", header_name)
-        _setter("type", type)
+        pulumi.set(__self__, "header_name", header_name)
+        pulumi.set(__self__, "type", type)
         if secret is not None:
-            _setter("secret", secret)
+            pulumi.set(__self__, "secret", secret)
         if source_field is not None:
-            _setter("source_field", source_field)
+            pulumi.set(__self__, "source_field", source_field)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter(name="headerName")
@@ -3067,29 +2251,8 @@ class EventSubscriptionRetryPolicy(dict):
         :param int event_time_to_live: Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
         :param int max_delivery_attempts: Specifies the maximum number of delivery retry attempts for events.
         """
-        EventSubscriptionRetryPolicy._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            event_time_to_live=event_time_to_live,
-            max_delivery_attempts=max_delivery_attempts,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             event_time_to_live: Optional[int] = None,
-             max_delivery_attempts: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if event_time_to_live is None and 'eventTimeToLive' in kwargs:
-            event_time_to_live = kwargs['eventTimeToLive']
-        if event_time_to_live is None:
-            raise TypeError("Missing 'event_time_to_live' argument")
-        if max_delivery_attempts is None and 'maxDeliveryAttempts' in kwargs:
-            max_delivery_attempts = kwargs['maxDeliveryAttempts']
-        if max_delivery_attempts is None:
-            raise TypeError("Missing 'max_delivery_attempts' argument")
-
-        _setter("event_time_to_live", event_time_to_live)
-        _setter("max_delivery_attempts", max_delivery_attempts)
+        pulumi.set(__self__, "event_time_to_live", event_time_to_live)
+        pulumi.set(__self__, "max_delivery_attempts", max_delivery_attempts)
 
     @property
     @pulumi.getter(name="eventTimeToLive")
@@ -3136,29 +2299,8 @@ class EventSubscriptionStorageBlobDeadLetterDestination(dict):
         :param str storage_account_id: Specifies the id of the storage account id where the storage blob is located.
         :param str storage_blob_container_name: Specifies the name of the Storage blob container that is the destination of the deadletter events.
         """
-        EventSubscriptionStorageBlobDeadLetterDestination._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            storage_account_id=storage_account_id,
-            storage_blob_container_name=storage_blob_container_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             storage_account_id: Optional[str] = None,
-             storage_blob_container_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if storage_account_id is None and 'storageAccountId' in kwargs:
-            storage_account_id = kwargs['storageAccountId']
-        if storage_account_id is None:
-            raise TypeError("Missing 'storage_account_id' argument")
-        if storage_blob_container_name is None and 'storageBlobContainerName' in kwargs:
-            storage_blob_container_name = kwargs['storageBlobContainerName']
-        if storage_blob_container_name is None:
-            raise TypeError("Missing 'storage_blob_container_name' argument")
-
-        _setter("storage_account_id", storage_account_id)
-        _setter("storage_blob_container_name", storage_blob_container_name)
+        pulumi.set(__self__, "storage_account_id", storage_account_id)
+        pulumi.set(__self__, "storage_blob_container_name", storage_blob_container_name)
 
     @property
     @pulumi.getter(name="storageAccountId")
@@ -3209,35 +2351,10 @@ class EventSubscriptionStorageQueueEndpoint(dict):
         :param str storage_account_id: Specifies the id of the storage account id where the storage queue is located.
         :param int queue_message_time_to_live_in_seconds: Storage queue message time to live in seconds.
         """
-        EventSubscriptionStorageQueueEndpoint._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            queue_name=queue_name,
-            storage_account_id=storage_account_id,
-            queue_message_time_to_live_in_seconds=queue_message_time_to_live_in_seconds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             queue_name: Optional[str] = None,
-             storage_account_id: Optional[str] = None,
-             queue_message_time_to_live_in_seconds: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if queue_name is None and 'queueName' in kwargs:
-            queue_name = kwargs['queueName']
-        if queue_name is None:
-            raise TypeError("Missing 'queue_name' argument")
-        if storage_account_id is None and 'storageAccountId' in kwargs:
-            storage_account_id = kwargs['storageAccountId']
-        if storage_account_id is None:
-            raise TypeError("Missing 'storage_account_id' argument")
-        if queue_message_time_to_live_in_seconds is None and 'queueMessageTimeToLiveInSeconds' in kwargs:
-            queue_message_time_to_live_in_seconds = kwargs['queueMessageTimeToLiveInSeconds']
-
-        _setter("queue_name", queue_name)
-        _setter("storage_account_id", storage_account_id)
+        pulumi.set(__self__, "queue_name", queue_name)
+        pulumi.set(__self__, "storage_account_id", storage_account_id)
         if queue_message_time_to_live_in_seconds is not None:
-            _setter("queue_message_time_to_live_in_seconds", queue_message_time_to_live_in_seconds)
+            pulumi.set(__self__, "queue_message_time_to_live_in_seconds", queue_message_time_to_live_in_seconds)
 
     @property
     @pulumi.getter(name="queueName")
@@ -3296,33 +2413,12 @@ class EventSubscriptionSubjectFilter(dict):
         :param str subject_begins_with: A string to filter events for an event subscription based on a resource path prefix.
         :param str subject_ends_with: A string to filter events for an event subscription based on a resource path suffix.
         """
-        EventSubscriptionSubjectFilter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            case_sensitive=case_sensitive,
-            subject_begins_with=subject_begins_with,
-            subject_ends_with=subject_ends_with,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             case_sensitive: Optional[bool] = None,
-             subject_begins_with: Optional[str] = None,
-             subject_ends_with: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if case_sensitive is None and 'caseSensitive' in kwargs:
-            case_sensitive = kwargs['caseSensitive']
-        if subject_begins_with is None and 'subjectBeginsWith' in kwargs:
-            subject_begins_with = kwargs['subjectBeginsWith']
-        if subject_ends_with is None and 'subjectEndsWith' in kwargs:
-            subject_ends_with = kwargs['subjectEndsWith']
-
         if case_sensitive is not None:
-            _setter("case_sensitive", case_sensitive)
+            pulumi.set(__self__, "case_sensitive", case_sensitive)
         if subject_begins_with is not None:
-            _setter("subject_begins_with", subject_begins_with)
+            pulumi.set(__self__, "subject_begins_with", subject_begins_with)
         if subject_ends_with is not None:
-            _setter("subject_ends_with", subject_ends_with)
+            pulumi.set(__self__, "subject_ends_with", subject_ends_with)
 
     @property
     @pulumi.getter(name="caseSensitive")
@@ -3391,50 +2487,17 @@ class EventSubscriptionWebhookEndpoint(dict):
         :param int max_events_per_batch: Maximum number of events per batch.
         :param int preferred_batch_size_in_kilobytes: Preferred batch size in Kilobytes.
         """
-        EventSubscriptionWebhookEndpoint._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            url=url,
-            active_directory_app_id_or_uri=active_directory_app_id_or_uri,
-            active_directory_tenant_id=active_directory_tenant_id,
-            base_url=base_url,
-            max_events_per_batch=max_events_per_batch,
-            preferred_batch_size_in_kilobytes=preferred_batch_size_in_kilobytes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             url: Optional[str] = None,
-             active_directory_app_id_or_uri: Optional[str] = None,
-             active_directory_tenant_id: Optional[str] = None,
-             base_url: Optional[str] = None,
-             max_events_per_batch: Optional[int] = None,
-             preferred_batch_size_in_kilobytes: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-        if active_directory_app_id_or_uri is None and 'activeDirectoryAppIdOrUri' in kwargs:
-            active_directory_app_id_or_uri = kwargs['activeDirectoryAppIdOrUri']
-        if active_directory_tenant_id is None and 'activeDirectoryTenantId' in kwargs:
-            active_directory_tenant_id = kwargs['activeDirectoryTenantId']
-        if base_url is None and 'baseUrl' in kwargs:
-            base_url = kwargs['baseUrl']
-        if max_events_per_batch is None and 'maxEventsPerBatch' in kwargs:
-            max_events_per_batch = kwargs['maxEventsPerBatch']
-        if preferred_batch_size_in_kilobytes is None and 'preferredBatchSizeInKilobytes' in kwargs:
-            preferred_batch_size_in_kilobytes = kwargs['preferredBatchSizeInKilobytes']
-
-        _setter("url", url)
+        pulumi.set(__self__, "url", url)
         if active_directory_app_id_or_uri is not None:
-            _setter("active_directory_app_id_or_uri", active_directory_app_id_or_uri)
+            pulumi.set(__self__, "active_directory_app_id_or_uri", active_directory_app_id_or_uri)
         if active_directory_tenant_id is not None:
-            _setter("active_directory_tenant_id", active_directory_tenant_id)
+            pulumi.set(__self__, "active_directory_tenant_id", active_directory_tenant_id)
         if base_url is not None:
-            _setter("base_url", base_url)
+            pulumi.set(__self__, "base_url", base_url)
         if max_events_per_batch is not None:
-            _setter("max_events_per_batch", max_events_per_batch)
+            pulumi.set(__self__, "max_events_per_batch", max_events_per_batch)
         if preferred_batch_size_in_kilobytes is not None:
-            _setter("preferred_batch_size_in_kilobytes", preferred_batch_size_in_kilobytes)
+            pulumi.set(__self__, "preferred_batch_size_in_kilobytes", preferred_batch_size_in_kilobytes)
 
     @property
     @pulumi.getter
@@ -3517,35 +2580,10 @@ class NamespaceCustomerManagedKey(dict):
         :param str key_vault_key_id: The ID of the Key Vault Key which should be used to Encrypt the data in this ServiceBus Namespace.
         :param bool infrastructure_encryption_enabled: Used to specify whether enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
         """
-        NamespaceCustomerManagedKey._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            identity_id=identity_id,
-            key_vault_key_id=key_vault_key_id,
-            infrastructure_encryption_enabled=infrastructure_encryption_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             identity_id: Optional[str] = None,
-             key_vault_key_id: Optional[str] = None,
-             infrastructure_encryption_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if identity_id is None and 'identityId' in kwargs:
-            identity_id = kwargs['identityId']
-        if identity_id is None:
-            raise TypeError("Missing 'identity_id' argument")
-        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
-            key_vault_key_id = kwargs['keyVaultKeyId']
-        if key_vault_key_id is None:
-            raise TypeError("Missing 'key_vault_key_id' argument")
-        if infrastructure_encryption_enabled is None and 'infrastructureEncryptionEnabled' in kwargs:
-            infrastructure_encryption_enabled = kwargs['infrastructureEncryptionEnabled']
-
-        _setter("identity_id", identity_id)
-        _setter("key_vault_key_id", key_vault_key_id)
+        pulumi.set(__self__, "identity_id", identity_id)
+        pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
         if infrastructure_encryption_enabled is not None:
-            _setter("infrastructure_encryption_enabled", infrastructure_encryption_enabled)
+            pulumi.set(__self__, "infrastructure_encryption_enabled", infrastructure_encryption_enabled)
 
     @property
     @pulumi.getter(name="identityId")
@@ -3608,38 +2646,13 @@ class NamespaceIdentity(dict):
         :param str principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
         :param str tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
         """
-        NamespaceIdentity._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            identity_ids=identity_ids,
-            principal_id=principal_id,
-            tenant_id=tenant_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             identity_ids: Optional[Sequence[str]] = None,
-             principal_id: Optional[str] = None,
-             tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if identity_ids is None and 'identityIds' in kwargs:
-            identity_ids = kwargs['identityIds']
-        if principal_id is None and 'principalId' in kwargs:
-            principal_id = kwargs['principalId']
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if identity_ids is not None:
-            _setter("identity_ids", identity_ids)
+            pulumi.set(__self__, "identity_ids", identity_ids)
         if principal_id is not None:
-            _setter("principal_id", principal_id)
+            pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
-            _setter("tenant_id", tenant_id)
+            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -3716,45 +2729,16 @@ class NamespaceNetworkRuleSet(dict):
         :param bool public_network_access_enabled: Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
         :param bool trusted_services_allowed: Are Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration? See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
         """
-        NamespaceNetworkRuleSet._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            default_action=default_action,
-            ip_rules=ip_rules,
-            network_rules=network_rules,
-            public_network_access_enabled=public_network_access_enabled,
-            trusted_services_allowed=trusted_services_allowed,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             default_action: Optional[str] = None,
-             ip_rules: Optional[Sequence[str]] = None,
-             network_rules: Optional[Sequence['outputs.NamespaceNetworkRuleSetNetworkRule']] = None,
-             public_network_access_enabled: Optional[bool] = None,
-             trusted_services_allowed: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if default_action is None and 'defaultAction' in kwargs:
-            default_action = kwargs['defaultAction']
-        if ip_rules is None and 'ipRules' in kwargs:
-            ip_rules = kwargs['ipRules']
-        if network_rules is None and 'networkRules' in kwargs:
-            network_rules = kwargs['networkRules']
-        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
-            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if trusted_services_allowed is None and 'trustedServicesAllowed' in kwargs:
-            trusted_services_allowed = kwargs['trustedServicesAllowed']
-
         if default_action is not None:
-            _setter("default_action", default_action)
+            pulumi.set(__self__, "default_action", default_action)
         if ip_rules is not None:
-            _setter("ip_rules", ip_rules)
+            pulumi.set(__self__, "ip_rules", ip_rules)
         if network_rules is not None:
-            _setter("network_rules", network_rules)
+            pulumi.set(__self__, "network_rules", network_rules)
         if public_network_access_enabled is not None:
-            _setter("public_network_access_enabled", public_network_access_enabled)
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if trusted_services_allowed is not None:
-            _setter("trusted_services_allowed", trusted_services_allowed)
+            pulumi.set(__self__, "trusted_services_allowed", trusted_services_allowed)
 
     @property
     @pulumi.getter(name="defaultAction")
@@ -3825,28 +2809,9 @@ class NamespaceNetworkRuleSetNetworkRule(dict):
         :param str subnet_id: The Subnet ID which should be able to access this ServiceBus Namespace.
         :param bool ignore_missing_vnet_service_endpoint: Should the ServiceBus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
         """
-        NamespaceNetworkRuleSetNetworkRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            subnet_id=subnet_id,
-            ignore_missing_vnet_service_endpoint=ignore_missing_vnet_service_endpoint,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             subnet_id: Optional[str] = None,
-             ignore_missing_vnet_service_endpoint: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if subnet_id is None and 'subnetId' in kwargs:
-            subnet_id = kwargs['subnetId']
-        if subnet_id is None:
-            raise TypeError("Missing 'subnet_id' argument")
-        if ignore_missing_vnet_service_endpoint is None and 'ignoreMissingVnetServiceEndpoint' in kwargs:
-            ignore_missing_vnet_service_endpoint = kwargs['ignoreMissingVnetServiceEndpoint']
-
-        _setter("subnet_id", subnet_id)
+        pulumi.set(__self__, "subnet_id", subnet_id)
         if ignore_missing_vnet_service_endpoint is not None:
-            _setter("ignore_missing_vnet_service_endpoint", ignore_missing_vnet_service_endpoint)
+            pulumi.set(__self__, "ignore_missing_vnet_service_endpoint", ignore_missing_vnet_service_endpoint)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -3899,33 +2864,12 @@ class SubscriptionClientScopedSubscription(dict):
         :param bool is_client_scoped_subscription_durable: Whether the client scoped subscription is durable. This property can only be controlled from the application side.
         :param bool is_client_scoped_subscription_shareable: Whether the client scoped subscription is shareable. Defaults to `true` Changing this forces a new resource to be created.
         """
-        SubscriptionClientScopedSubscription._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            client_id=client_id,
-            is_client_scoped_subscription_durable=is_client_scoped_subscription_durable,
-            is_client_scoped_subscription_shareable=is_client_scoped_subscription_shareable,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             client_id: Optional[str] = None,
-             is_client_scoped_subscription_durable: Optional[bool] = None,
-             is_client_scoped_subscription_shareable: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if client_id is None and 'clientId' in kwargs:
-            client_id = kwargs['clientId']
-        if is_client_scoped_subscription_durable is None and 'isClientScopedSubscriptionDurable' in kwargs:
-            is_client_scoped_subscription_durable = kwargs['isClientScopedSubscriptionDurable']
-        if is_client_scoped_subscription_shareable is None and 'isClientScopedSubscriptionShareable' in kwargs:
-            is_client_scoped_subscription_shareable = kwargs['isClientScopedSubscriptionShareable']
-
         if client_id is not None:
-            _setter("client_id", client_id)
+            pulumi.set(__self__, "client_id", client_id)
         if is_client_scoped_subscription_durable is not None:
-            _setter("is_client_scoped_subscription_durable", is_client_scoped_subscription_durable)
+            pulumi.set(__self__, "is_client_scoped_subscription_durable", is_client_scoped_subscription_durable)
         if is_client_scoped_subscription_shareable is not None:
-            _setter("is_client_scoped_subscription_shareable", is_client_scoped_subscription_shareable)
+            pulumi.set(__self__, "is_client_scoped_subscription_shareable", is_client_scoped_subscription_shareable)
 
     @property
     @pulumi.getter(name="clientId")
@@ -4006,63 +2950,24 @@ class SubscriptionRuleCorrelationFilter(dict):
         :param str session_id: Session identifier.
         :param str to: Address to send to.
         """
-        SubscriptionRuleCorrelationFilter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            content_type=content_type,
-            correlation_id=correlation_id,
-            label=label,
-            message_id=message_id,
-            properties=properties,
-            reply_to=reply_to,
-            reply_to_session_id=reply_to_session_id,
-            session_id=session_id,
-            to=to,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             content_type: Optional[str] = None,
-             correlation_id: Optional[str] = None,
-             label: Optional[str] = None,
-             message_id: Optional[str] = None,
-             properties: Optional[Mapping[str, str]] = None,
-             reply_to: Optional[str] = None,
-             reply_to_session_id: Optional[str] = None,
-             session_id: Optional[str] = None,
-             to: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if content_type is None and 'contentType' in kwargs:
-            content_type = kwargs['contentType']
-        if correlation_id is None and 'correlationId' in kwargs:
-            correlation_id = kwargs['correlationId']
-        if message_id is None and 'messageId' in kwargs:
-            message_id = kwargs['messageId']
-        if reply_to is None and 'replyTo' in kwargs:
-            reply_to = kwargs['replyTo']
-        if reply_to_session_id is None and 'replyToSessionId' in kwargs:
-            reply_to_session_id = kwargs['replyToSessionId']
-        if session_id is None and 'sessionId' in kwargs:
-            session_id = kwargs['sessionId']
-
         if content_type is not None:
-            _setter("content_type", content_type)
+            pulumi.set(__self__, "content_type", content_type)
         if correlation_id is not None:
-            _setter("correlation_id", correlation_id)
+            pulumi.set(__self__, "correlation_id", correlation_id)
         if label is not None:
-            _setter("label", label)
+            pulumi.set(__self__, "label", label)
         if message_id is not None:
-            _setter("message_id", message_id)
+            pulumi.set(__self__, "message_id", message_id)
         if properties is not None:
-            _setter("properties", properties)
+            pulumi.set(__self__, "properties", properties)
         if reply_to is not None:
-            _setter("reply_to", reply_to)
+            pulumi.set(__self__, "reply_to", reply_to)
         if reply_to_session_id is not None:
-            _setter("reply_to_session_id", reply_to_session_id)
+            pulumi.set(__self__, "reply_to_session_id", reply_to_session_id)
         if session_id is not None:
-            _setter("session_id", session_id)
+            pulumi.set(__self__, "session_id", session_id)
         if to is not None:
-            _setter("to", to)
+            pulumi.set(__self__, "to", to)
 
     @property
     @pulumi.getter(name="contentType")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -40,23 +40,10 @@ class DicomServiceAuthentication(dict):
         """
         :param Sequence[str] audiences: The intended audience to receive authentication tokens for the service. The default value is <https://dicom.azurehealthcareapis.azure.com>
         """
-        DicomServiceAuthentication._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            audiences=audiences,
-            authority=authority,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             audiences: Optional[Sequence[str]] = None,
-             authority: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if audiences is not None:
-            _setter("audiences", audiences)
+            pulumi.set(__self__, "audiences", audiences)
         if authority is not None:
-            _setter("authority", authority)
+            pulumi.set(__self__, "authority", authority)
 
     @property
     @pulumi.getter
@@ -104,38 +91,13 @@ class DicomServiceIdentity(dict):
         :param str type: The type of identity used for the Healthcare DICOM service. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`. If `UserAssigned` is set, an `identity_ids` must be set as well.
         :param Sequence[str] identity_ids: A list of User Assigned Identity IDs which should be assigned to this Healthcare DICOM service.
         """
-        DicomServiceIdentity._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            identity_ids=identity_ids,
-            principal_id=principal_id,
-            tenant_id=tenant_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             identity_ids: Optional[Sequence[str]] = None,
-             principal_id: Optional[str] = None,
-             tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if identity_ids is None and 'identityIds' in kwargs:
-            identity_ids = kwargs['identityIds']
-        if principal_id is None and 'principalId' in kwargs:
-            principal_id = kwargs['principalId']
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if identity_ids is not None:
-            _setter("identity_ids", identity_ids)
+            pulumi.set(__self__, "identity_ids", identity_ids)
         if principal_id is not None:
-            _setter("principal_id", principal_id)
+            pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
-            _setter("tenant_id", tenant_id)
+            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -173,23 +135,10 @@ class DicomServicePrivateEndpoint(dict):
         :param str id: The ID of the Healthcare DICOM Service.
         :param str name: Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created.
         """
-        DicomServicePrivateEndpoint._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: Optional[str] = None,
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -235,31 +184,10 @@ class FhirServiceAuthentication(dict):
         :param str audience: The intended audience to receive authentication tokens for the service. The default value is `https://<name>.fhir.azurehealthcareapis.com`.
         :param bool smart_proxy_enabled: Whether smart proxy is enabled.
         """
-        FhirServiceAuthentication._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            audience=audience,
-            authority=authority,
-            smart_proxy_enabled=smart_proxy_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             audience: Optional[str] = None,
-             authority: Optional[str] = None,
-             smart_proxy_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if audience is None:
-            raise TypeError("Missing 'audience' argument")
-        if authority is None:
-            raise TypeError("Missing 'authority' argument")
-        if smart_proxy_enabled is None and 'smartProxyEnabled' in kwargs:
-            smart_proxy_enabled = kwargs['smartProxyEnabled']
-
-        _setter("audience", audience)
-        _setter("authority", authority)
+        pulumi.set(__self__, "audience", audience)
+        pulumi.set(__self__, "authority", authority)
         if smart_proxy_enabled is not None:
-            _setter("smart_proxy_enabled", smart_proxy_enabled)
+            pulumi.set(__self__, "smart_proxy_enabled", smart_proxy_enabled)
 
     @property
     @pulumi.getter
@@ -323,48 +251,13 @@ class FhirServiceCors(dict):
         :param bool credentials_allowed: If credentials are allowed via CORS.
         :param int max_age_in_seconds: The max age to be allowed via CORS.
         """
-        FhirServiceCors._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allowed_headers=allowed_headers,
-            allowed_methods=allowed_methods,
-            allowed_origins=allowed_origins,
-            credentials_allowed=credentials_allowed,
-            max_age_in_seconds=max_age_in_seconds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allowed_headers: Optional[Sequence[str]] = None,
-             allowed_methods: Optional[Sequence[str]] = None,
-             allowed_origins: Optional[Sequence[str]] = None,
-             credentials_allowed: Optional[bool] = None,
-             max_age_in_seconds: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if allowed_headers is None and 'allowedHeaders' in kwargs:
-            allowed_headers = kwargs['allowedHeaders']
-        if allowed_headers is None:
-            raise TypeError("Missing 'allowed_headers' argument")
-        if allowed_methods is None and 'allowedMethods' in kwargs:
-            allowed_methods = kwargs['allowedMethods']
-        if allowed_methods is None:
-            raise TypeError("Missing 'allowed_methods' argument")
-        if allowed_origins is None and 'allowedOrigins' in kwargs:
-            allowed_origins = kwargs['allowedOrigins']
-        if allowed_origins is None:
-            raise TypeError("Missing 'allowed_origins' argument")
-        if credentials_allowed is None and 'credentialsAllowed' in kwargs:
-            credentials_allowed = kwargs['credentialsAllowed']
-        if max_age_in_seconds is None and 'maxAgeInSeconds' in kwargs:
-            max_age_in_seconds = kwargs['maxAgeInSeconds']
-
-        _setter("allowed_headers", allowed_headers)
-        _setter("allowed_methods", allowed_methods)
-        _setter("allowed_origins", allowed_origins)
+        pulumi.set(__self__, "allowed_headers", allowed_headers)
+        pulumi.set(__self__, "allowed_methods", allowed_methods)
+        pulumi.set(__self__, "allowed_origins", allowed_origins)
         if credentials_allowed is not None:
-            _setter("credentials_allowed", credentials_allowed)
+            pulumi.set(__self__, "credentials_allowed", credentials_allowed)
         if max_age_in_seconds is not None:
-            _setter("max_age_in_seconds", max_age_in_seconds)
+            pulumi.set(__self__, "max_age_in_seconds", max_age_in_seconds)
 
     @property
     @pulumi.getter(name="allowedHeaders")
@@ -439,38 +332,13 @@ class FhirServiceIdentity(dict):
         :param str type: The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
         :param Sequence[str] identity_ids: A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
         """
-        FhirServiceIdentity._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            identity_ids=identity_ids,
-            principal_id=principal_id,
-            tenant_id=tenant_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             identity_ids: Optional[Sequence[str]] = None,
-             principal_id: Optional[str] = None,
-             tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if identity_ids is None and 'identityIds' in kwargs:
-            identity_ids = kwargs['identityIds']
-        if principal_id is None and 'principalId' in kwargs:
-            principal_id = kwargs['principalId']
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if identity_ids is not None:
-            _setter("identity_ids", identity_ids)
+            pulumi.set(__self__, "identity_ids", identity_ids)
         if principal_id is not None:
-            _setter("principal_id", principal_id)
+            pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
-            _setter("tenant_id", tenant_id)
+            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -529,32 +397,11 @@ class FhirServiceOciArtifact(dict):
         :param str digest: A digest of an image within Azure container registry used for export operations of the service instance to narrow the artifacts down.
         :param str image_name: An image within Azure container registry used for export operations of the service instance.
         """
-        FhirServiceOciArtifact._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            login_server=login_server,
-            digest=digest,
-            image_name=image_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             login_server: Optional[str] = None,
-             digest: Optional[str] = None,
-             image_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if login_server is None and 'loginServer' in kwargs:
-            login_server = kwargs['loginServer']
-        if login_server is None:
-            raise TypeError("Missing 'login_server' argument")
-        if image_name is None and 'imageName' in kwargs:
-            image_name = kwargs['imageName']
-
-        _setter("login_server", login_server)
+        pulumi.set(__self__, "login_server", login_server)
         if digest is not None:
-            _setter("digest", digest)
+            pulumi.set(__self__, "digest", digest)
         if image_name is not None:
-            _setter("image_name", image_name)
+            pulumi.set(__self__, "image_name", image_name)
 
     @property
     @pulumi.getter(name="loginServer")
@@ -614,38 +461,13 @@ class MedtechServiceIdentity(dict):
         :param str principal_id: The Principal ID associated with this System Assigned Managed Service Identity.
         :param str tenant_id: The Tenant ID associated with this System Assigned Managed Service Identity.
         """
-        MedtechServiceIdentity._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            identity_ids=identity_ids,
-            principal_id=principal_id,
-            tenant_id=tenant_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             identity_ids: Optional[Sequence[str]] = None,
-             principal_id: Optional[str] = None,
-             tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if identity_ids is None and 'identityIds' in kwargs:
-            identity_ids = kwargs['identityIds']
-        if principal_id is None and 'principalId' in kwargs:
-            principal_id = kwargs['principalId']
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if identity_ids is not None:
-            _setter("identity_ids", identity_ids)
+            pulumi.set(__self__, "identity_ids", identity_ids)
         if principal_id is not None:
-            _setter("principal_id", principal_id)
+            pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
-            _setter("tenant_id", tenant_id)
+            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -706,29 +528,12 @@ class ServiceAuthenticationConfiguration(dict):
                Authority must be registered to Azure AD and in the following format: https://{Azure-AD-endpoint}/{tenant-id}.
         :param bool smart_proxy_enabled: (Boolean) Enables the 'SMART on FHIR' option for mobile and web implementations.
         """
-        ServiceAuthenticationConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            audience=audience,
-            authority=authority,
-            smart_proxy_enabled=smart_proxy_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             audience: Optional[str] = None,
-             authority: Optional[str] = None,
-             smart_proxy_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if smart_proxy_enabled is None and 'smartProxyEnabled' in kwargs:
-            smart_proxy_enabled = kwargs['smartProxyEnabled']
-
         if audience is not None:
-            _setter("audience", audience)
+            pulumi.set(__self__, "audience", audience)
         if authority is not None:
-            _setter("authority", authority)
+            pulumi.set(__self__, "authority", authority)
         if smart_proxy_enabled is not None:
-            _setter("smart_proxy_enabled", smart_proxy_enabled)
+            pulumi.set(__self__, "smart_proxy_enabled", smart_proxy_enabled)
 
     @property
     @pulumi.getter
@@ -796,45 +601,16 @@ class ServiceCorsConfiguration(dict):
         :param Sequence[str] allowed_origins: A set of origins to be allowed via CORS.
         :param int max_age_in_seconds: The max age to be allowed via CORS.
         """
-        ServiceCorsConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allow_credentials=allow_credentials,
-            allowed_headers=allowed_headers,
-            allowed_methods=allowed_methods,
-            allowed_origins=allowed_origins,
-            max_age_in_seconds=max_age_in_seconds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allow_credentials: Optional[bool] = None,
-             allowed_headers: Optional[Sequence[str]] = None,
-             allowed_methods: Optional[Sequence[str]] = None,
-             allowed_origins: Optional[Sequence[str]] = None,
-             max_age_in_seconds: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if allow_credentials is None and 'allowCredentials' in kwargs:
-            allow_credentials = kwargs['allowCredentials']
-        if allowed_headers is None and 'allowedHeaders' in kwargs:
-            allowed_headers = kwargs['allowedHeaders']
-        if allowed_methods is None and 'allowedMethods' in kwargs:
-            allowed_methods = kwargs['allowedMethods']
-        if allowed_origins is None and 'allowedOrigins' in kwargs:
-            allowed_origins = kwargs['allowedOrigins']
-        if max_age_in_seconds is None and 'maxAgeInSeconds' in kwargs:
-            max_age_in_seconds = kwargs['maxAgeInSeconds']
-
         if allow_credentials is not None:
-            _setter("allow_credentials", allow_credentials)
+            pulumi.set(__self__, "allow_credentials", allow_credentials)
         if allowed_headers is not None:
-            _setter("allowed_headers", allowed_headers)
+            pulumi.set(__self__, "allowed_headers", allowed_headers)
         if allowed_methods is not None:
-            _setter("allowed_methods", allowed_methods)
+            pulumi.set(__self__, "allowed_methods", allowed_methods)
         if allowed_origins is not None:
-            _setter("allowed_origins", allowed_origins)
+            pulumi.set(__self__, "allowed_origins", allowed_origins)
         if max_age_in_seconds is not None:
-            _setter("max_age_in_seconds", max_age_in_seconds)
+            pulumi.set(__self__, "max_age_in_seconds", max_age_in_seconds)
 
     @property
     @pulumi.getter(name="allowCredentials")
@@ -886,23 +662,10 @@ class WorkspacePrivateEndpointConnection(dict):
         :param str id: The ID of the Healthcare Workspace.
         :param str name: Specifies the name of the Healthcare Workspace. Changing this forces a new Healthcare Workspace to be created.
         """
-        WorkspacePrivateEndpointConnection._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: Optional[str] = None,
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -929,25 +692,8 @@ class GetDicomServiceAuthenticationResult(dict):
         """
         :param Sequence[str] audiences: The intended audience to receive authentication tokens for the service. The default value is <https://dicom.azurehealthcareapis.azure.com>
         """
-        GetDicomServiceAuthenticationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            audiences=audiences,
-            authority=authority,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             audiences: Optional[Sequence[str]] = None,
-             authority: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if audiences is None:
-            raise TypeError("Missing 'audiences' argument")
-        if authority is None:
-            raise TypeError("Missing 'authority' argument")
-
-        _setter("audiences", audiences)
-        _setter("authority", authority)
+        pulumi.set(__self__, "audiences", audiences)
+        pulumi.set(__self__, "authority", authority)
 
     @property
     @pulumi.getter
@@ -970,41 +716,10 @@ class GetDicomServiceIdentityResult(dict):
                  principal_id: str,
                  tenant_id: str,
                  type: str):
-        GetDicomServiceIdentityResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            identity_ids=identity_ids,
-            principal_id=principal_id,
-            tenant_id=tenant_id,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             identity_ids: Optional[Sequence[str]] = None,
-             principal_id: Optional[str] = None,
-             tenant_id: Optional[str] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if identity_ids is None and 'identityIds' in kwargs:
-            identity_ids = kwargs['identityIds']
-        if identity_ids is None:
-            raise TypeError("Missing 'identity_ids' argument")
-        if principal_id is None and 'principalId' in kwargs:
-            principal_id = kwargs['principalId']
-        if principal_id is None:
-            raise TypeError("Missing 'principal_id' argument")
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-        if tenant_id is None:
-            raise TypeError("Missing 'tenant_id' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("identity_ids", identity_ids)
-        _setter("principal_id", principal_id)
-        _setter("tenant_id", tenant_id)
-        _setter("type", type)
+        pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="identityIds")
@@ -1036,25 +751,8 @@ class GetDicomServicePrivateEndpointResult(dict):
         :param str id: The ID of the Healthcare DICOM Service.
         :param str name: The name of the Healthcare DICOM Service
         """
-        GetDicomServicePrivateEndpointResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: Optional[str] = None,
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if id is None:
-            raise TypeError("Missing 'id' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("id", id)
-        _setter("name", name)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -1082,32 +780,9 @@ class GetFhirServiceAuthenticationResult(dict):
         """
         :param str audience: The intended audience to receive authentication tokens for the service. The default value is `https://<name>.fhir.azurehealthcareapis.com`.
         """
-        GetFhirServiceAuthenticationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            audience=audience,
-            authority=authority,
-            smart_proxy_enabled=smart_proxy_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             audience: Optional[str] = None,
-             authority: Optional[str] = None,
-             smart_proxy_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if audience is None:
-            raise TypeError("Missing 'audience' argument")
-        if authority is None:
-            raise TypeError("Missing 'authority' argument")
-        if smart_proxy_enabled is None and 'smartProxyEnabled' in kwargs:
-            smart_proxy_enabled = kwargs['smartProxyEnabled']
-        if smart_proxy_enabled is None:
-            raise TypeError("Missing 'smart_proxy_enabled' argument")
-
-        _setter("audience", audience)
-        _setter("authority", authority)
-        _setter("smart_proxy_enabled", smart_proxy_enabled)
+        pulumi.set(__self__, "audience", audience)
+        pulumi.set(__self__, "authority", authority)
+        pulumi.set(__self__, "smart_proxy_enabled", smart_proxy_enabled)
 
     @property
     @pulumi.getter
@@ -1143,50 +818,11 @@ class GetFhirServiceCorResult(dict):
         :param bool credentials_allowed: Are credentials allowed via CORS?
         :param int max_age_in_seconds: The max age to be allowed via CORS.
         """
-        GetFhirServiceCorResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allowed_headers=allowed_headers,
-            allowed_methods=allowed_methods,
-            allowed_origins=allowed_origins,
-            credentials_allowed=credentials_allowed,
-            max_age_in_seconds=max_age_in_seconds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allowed_headers: Optional[Sequence[str]] = None,
-             allowed_methods: Optional[Sequence[str]] = None,
-             allowed_origins: Optional[Sequence[str]] = None,
-             credentials_allowed: Optional[bool] = None,
-             max_age_in_seconds: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if allowed_headers is None and 'allowedHeaders' in kwargs:
-            allowed_headers = kwargs['allowedHeaders']
-        if allowed_headers is None:
-            raise TypeError("Missing 'allowed_headers' argument")
-        if allowed_methods is None and 'allowedMethods' in kwargs:
-            allowed_methods = kwargs['allowedMethods']
-        if allowed_methods is None:
-            raise TypeError("Missing 'allowed_methods' argument")
-        if allowed_origins is None and 'allowedOrigins' in kwargs:
-            allowed_origins = kwargs['allowedOrigins']
-        if allowed_origins is None:
-            raise TypeError("Missing 'allowed_origins' argument")
-        if credentials_allowed is None and 'credentialsAllowed' in kwargs:
-            credentials_allowed = kwargs['credentialsAllowed']
-        if credentials_allowed is None:
-            raise TypeError("Missing 'credentials_allowed' argument")
-        if max_age_in_seconds is None and 'maxAgeInSeconds' in kwargs:
-            max_age_in_seconds = kwargs['maxAgeInSeconds']
-        if max_age_in_seconds is None:
-            raise TypeError("Missing 'max_age_in_seconds' argument")
-
-        _setter("allowed_headers", allowed_headers)
-        _setter("allowed_methods", allowed_methods)
-        _setter("allowed_origins", allowed_origins)
-        _setter("credentials_allowed", credentials_allowed)
-        _setter("max_age_in_seconds", max_age_in_seconds)
+        pulumi.set(__self__, "allowed_headers", allowed_headers)
+        pulumi.set(__self__, "allowed_methods", allowed_methods)
+        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        pulumi.set(__self__, "credentials_allowed", credentials_allowed)
+        pulumi.set(__self__, "max_age_in_seconds", max_age_in_seconds)
 
     @property
     @pulumi.getter(name="allowedHeaders")
@@ -1241,41 +877,10 @@ class GetFhirServiceIdentityResult(dict):
         :param str tenant_id: The Tenant ID associated with this System Assigned Managed Service Identity.
         :param str type: The type of identity used for the Healthcare FHIR service.
         """
-        GetFhirServiceIdentityResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            identity_ids=identity_ids,
-            principal_id=principal_id,
-            tenant_id=tenant_id,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             identity_ids: Optional[Sequence[str]] = None,
-             principal_id: Optional[str] = None,
-             tenant_id: Optional[str] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if identity_ids is None and 'identityIds' in kwargs:
-            identity_ids = kwargs['identityIds']
-        if identity_ids is None:
-            raise TypeError("Missing 'identity_ids' argument")
-        if principal_id is None and 'principalId' in kwargs:
-            principal_id = kwargs['principalId']
-        if principal_id is None:
-            raise TypeError("Missing 'principal_id' argument")
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-        if tenant_id is None:
-            raise TypeError("Missing 'tenant_id' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("identity_ids", identity_ids)
-        _setter("principal_id", principal_id)
-        _setter("tenant_id", tenant_id)
-        _setter("type", type)
+        pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="identityIds")
@@ -1319,41 +924,10 @@ class GetMedtechServiceIdentityResult(dict):
         :param str tenant_id: The Tenant ID of the System Assigned Managed Service Identity that is configured on this Healthcare Med Tech Service.
         :param str type: The type of identity used for the Healthcare Med Tech Service. Possible values are `SystemAssigned`.
         """
-        GetMedtechServiceIdentityResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            identity_ids=identity_ids,
-            principal_id=principal_id,
-            tenant_id=tenant_id,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             identity_ids: Optional[Sequence[str]] = None,
-             principal_id: Optional[str] = None,
-             tenant_id: Optional[str] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if identity_ids is None and 'identityIds' in kwargs:
-            identity_ids = kwargs['identityIds']
-        if identity_ids is None:
-            raise TypeError("Missing 'identity_ids' argument")
-        if principal_id is None and 'principalId' in kwargs:
-            principal_id = kwargs['principalId']
-        if principal_id is None:
-            raise TypeError("Missing 'principal_id' argument")
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-        if tenant_id is None:
-            raise TypeError("Missing 'tenant_id' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("identity_ids", identity_ids)
-        _setter("principal_id", principal_id)
-        _setter("tenant_id", tenant_id)
-        _setter("type", type)
+        pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="identityIds")
@@ -1396,32 +970,9 @@ class GetServiceAuthenticationConfigurationResult(dict):
         :param str authority: The Azure Active Directory (tenant) that serves as the authentication authority to access the service.
         :param bool smart_proxy_enabled: Is the 'SMART on FHIR' option for mobile and web implementations enabled?
         """
-        GetServiceAuthenticationConfigurationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            audience=audience,
-            authority=authority,
-            smart_proxy_enabled=smart_proxy_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             audience: Optional[str] = None,
-             authority: Optional[str] = None,
-             smart_proxy_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if audience is None:
-            raise TypeError("Missing 'audience' argument")
-        if authority is None:
-            raise TypeError("Missing 'authority' argument")
-        if smart_proxy_enabled is None and 'smartProxyEnabled' in kwargs:
-            smart_proxy_enabled = kwargs['smartProxyEnabled']
-        if smart_proxy_enabled is None:
-            raise TypeError("Missing 'smart_proxy_enabled' argument")
-
-        _setter("audience", audience)
-        _setter("authority", authority)
-        _setter("smart_proxy_enabled", smart_proxy_enabled)
+        pulumi.set(__self__, "audience", audience)
+        pulumi.set(__self__, "authority", authority)
+        pulumi.set(__self__, "smart_proxy_enabled", smart_proxy_enabled)
 
     @property
     @pulumi.getter
@@ -1463,50 +1014,11 @@ class GetServiceCorsConfigurationResult(dict):
         :param Sequence[str] allowed_origins: The set of origins to be allowed via CORS.
         :param int max_age_in_seconds: The max age to be allowed via CORS.
         """
-        GetServiceCorsConfigurationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allow_credentials=allow_credentials,
-            allowed_headers=allowed_headers,
-            allowed_methods=allowed_methods,
-            allowed_origins=allowed_origins,
-            max_age_in_seconds=max_age_in_seconds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allow_credentials: Optional[bool] = None,
-             allowed_headers: Optional[Sequence[str]] = None,
-             allowed_methods: Optional[Sequence[str]] = None,
-             allowed_origins: Optional[Sequence[str]] = None,
-             max_age_in_seconds: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if allow_credentials is None and 'allowCredentials' in kwargs:
-            allow_credentials = kwargs['allowCredentials']
-        if allow_credentials is None:
-            raise TypeError("Missing 'allow_credentials' argument")
-        if allowed_headers is None and 'allowedHeaders' in kwargs:
-            allowed_headers = kwargs['allowedHeaders']
-        if allowed_headers is None:
-            raise TypeError("Missing 'allowed_headers' argument")
-        if allowed_methods is None and 'allowedMethods' in kwargs:
-            allowed_methods = kwargs['allowedMethods']
-        if allowed_methods is None:
-            raise TypeError("Missing 'allowed_methods' argument")
-        if allowed_origins is None and 'allowedOrigins' in kwargs:
-            allowed_origins = kwargs['allowedOrigins']
-        if allowed_origins is None:
-            raise TypeError("Missing 'allowed_origins' argument")
-        if max_age_in_seconds is None and 'maxAgeInSeconds' in kwargs:
-            max_age_in_seconds = kwargs['maxAgeInSeconds']
-        if max_age_in_seconds is None:
-            raise TypeError("Missing 'max_age_in_seconds' argument")
-
-        _setter("allow_credentials", allow_credentials)
-        _setter("allowed_headers", allowed_headers)
-        _setter("allowed_methods", allowed_methods)
-        _setter("allowed_origins", allowed_origins)
-        _setter("max_age_in_seconds", max_age_in_seconds)
+        pulumi.set(__self__, "allow_credentials", allow_credentials)
+        pulumi.set(__self__, "allowed_headers", allowed_headers)
+        pulumi.set(__self__, "allowed_methods", allowed_methods)
+        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        pulumi.set(__self__, "max_age_in_seconds", max_age_in_seconds)
 
     @property
     @pulumi.getter(name="allowCredentials")

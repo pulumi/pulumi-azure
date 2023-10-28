@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['QueueAuthorizationRuleArgs', 'QueueAuthorizationRule']
@@ -29,38 +29,15 @@ class QueueAuthorizationRuleArgs:
         :param pulumi.Input[str] name: Specifies the name of the Authorization Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] send: Does this Authorization Rule have Send permissions to the ServiceBus Queue? Defaults to `false`.
         """
-        QueueAuthorizationRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            queue_id=queue_id,
-            listen=listen,
-            manage=manage,
-            name=name,
-            send=send,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             queue_id: Optional[pulumi.Input[str]] = None,
-             listen: Optional[pulumi.Input[bool]] = None,
-             manage: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             send: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if queue_id is None and 'queueId' in kwargs:
-            queue_id = kwargs['queueId']
-        if queue_id is None:
-            raise TypeError("Missing 'queue_id' argument")
-
-        _setter("queue_id", queue_id)
+        pulumi.set(__self__, "queue_id", queue_id)
         if listen is not None:
-            _setter("listen", listen)
+            pulumi.set(__self__, "listen", listen)
         if manage is not None:
-            _setter("manage", manage)
+            pulumi.set(__self__, "manage", manage)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if send is not None:
-            _setter("send", send)
+            pulumi.set(__self__, "send", send)
 
     @property
     @pulumi.getter(name="queueId")
@@ -155,73 +132,28 @@ class _QueueAuthorizationRuleState:
         :param pulumi.Input[str] secondary_key: The Secondary Key for the Authorization Rule.
         :param pulumi.Input[bool] send: Does this Authorization Rule have Send permissions to the ServiceBus Queue? Defaults to `false`.
         """
-        _QueueAuthorizationRuleState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            listen=listen,
-            manage=manage,
-            name=name,
-            primary_connection_string=primary_connection_string,
-            primary_connection_string_alias=primary_connection_string_alias,
-            primary_key=primary_key,
-            queue_id=queue_id,
-            secondary_connection_string=secondary_connection_string,
-            secondary_connection_string_alias=secondary_connection_string_alias,
-            secondary_key=secondary_key,
-            send=send,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             listen: Optional[pulumi.Input[bool]] = None,
-             manage: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             primary_connection_string: Optional[pulumi.Input[str]] = None,
-             primary_connection_string_alias: Optional[pulumi.Input[str]] = None,
-             primary_key: Optional[pulumi.Input[str]] = None,
-             queue_id: Optional[pulumi.Input[str]] = None,
-             secondary_connection_string: Optional[pulumi.Input[str]] = None,
-             secondary_connection_string_alias: Optional[pulumi.Input[str]] = None,
-             secondary_key: Optional[pulumi.Input[str]] = None,
-             send: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if primary_connection_string is None and 'primaryConnectionString' in kwargs:
-            primary_connection_string = kwargs['primaryConnectionString']
-        if primary_connection_string_alias is None and 'primaryConnectionStringAlias' in kwargs:
-            primary_connection_string_alias = kwargs['primaryConnectionStringAlias']
-        if primary_key is None and 'primaryKey' in kwargs:
-            primary_key = kwargs['primaryKey']
-        if queue_id is None and 'queueId' in kwargs:
-            queue_id = kwargs['queueId']
-        if secondary_connection_string is None and 'secondaryConnectionString' in kwargs:
-            secondary_connection_string = kwargs['secondaryConnectionString']
-        if secondary_connection_string_alias is None and 'secondaryConnectionStringAlias' in kwargs:
-            secondary_connection_string_alias = kwargs['secondaryConnectionStringAlias']
-        if secondary_key is None and 'secondaryKey' in kwargs:
-            secondary_key = kwargs['secondaryKey']
-
         if listen is not None:
-            _setter("listen", listen)
+            pulumi.set(__self__, "listen", listen)
         if manage is not None:
-            _setter("manage", manage)
+            pulumi.set(__self__, "manage", manage)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if primary_connection_string is not None:
-            _setter("primary_connection_string", primary_connection_string)
+            pulumi.set(__self__, "primary_connection_string", primary_connection_string)
         if primary_connection_string_alias is not None:
-            _setter("primary_connection_string_alias", primary_connection_string_alias)
+            pulumi.set(__self__, "primary_connection_string_alias", primary_connection_string_alias)
         if primary_key is not None:
-            _setter("primary_key", primary_key)
+            pulumi.set(__self__, "primary_key", primary_key)
         if queue_id is not None:
-            _setter("queue_id", queue_id)
+            pulumi.set(__self__, "queue_id", queue_id)
         if secondary_connection_string is not None:
-            _setter("secondary_connection_string", secondary_connection_string)
+            pulumi.set(__self__, "secondary_connection_string", secondary_connection_string)
         if secondary_connection_string_alias is not None:
-            _setter("secondary_connection_string_alias", secondary_connection_string_alias)
+            pulumi.set(__self__, "secondary_connection_string_alias", secondary_connection_string_alias)
         if secondary_key is not None:
-            _setter("secondary_key", secondary_key)
+            pulumi.set(__self__, "secondary_key", secondary_key)
         if send is not None:
-            _setter("send", send)
+            pulumi.set(__self__, "send", send)
 
     @property
     @pulumi.getter
@@ -470,10 +402,6 @@ class QueueAuthorizationRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            QueueAuthorizationRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

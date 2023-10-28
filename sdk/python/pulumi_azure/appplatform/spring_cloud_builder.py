@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,38 +27,11 @@ class SpringCloudBuilderArgs:
         :param pulumi.Input['SpringCloudBuilderStackArgs'] stack: A `stack` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Builder. Changing this forces a new Spring Cloud Builder to be created.
         """
-        SpringCloudBuilderArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            build_pack_groups=build_pack_groups,
-            spring_cloud_service_id=spring_cloud_service_id,
-            stack=stack,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             build_pack_groups: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudBuilderBuildPackGroupArgs']]]] = None,
-             spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
-             stack: Optional[pulumi.Input['SpringCloudBuilderStackArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if build_pack_groups is None and 'buildPackGroups' in kwargs:
-            build_pack_groups = kwargs['buildPackGroups']
-        if build_pack_groups is None:
-            raise TypeError("Missing 'build_pack_groups' argument")
-        if spring_cloud_service_id is None and 'springCloudServiceId' in kwargs:
-            spring_cloud_service_id = kwargs['springCloudServiceId']
-        if spring_cloud_service_id is None:
-            raise TypeError("Missing 'spring_cloud_service_id' argument")
-        if stack is None:
-            raise TypeError("Missing 'stack' argument")
-
-        _setter("build_pack_groups", build_pack_groups)
-        _setter("spring_cloud_service_id", spring_cloud_service_id)
-        _setter("stack", stack)
+        pulumi.set(__self__, "build_pack_groups", build_pack_groups)
+        pulumi.set(__self__, "spring_cloud_service_id", spring_cloud_service_id)
+        pulumi.set(__self__, "stack", stack)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="buildPackGroups")
@@ -123,35 +96,14 @@ class _SpringCloudBuilderState:
         :param pulumi.Input[str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Builder to be created.
         :param pulumi.Input['SpringCloudBuilderStackArgs'] stack: A `stack` block as defined below.
         """
-        _SpringCloudBuilderState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            build_pack_groups=build_pack_groups,
-            name=name,
-            spring_cloud_service_id=spring_cloud_service_id,
-            stack=stack,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             build_pack_groups: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudBuilderBuildPackGroupArgs']]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
-             stack: Optional[pulumi.Input['SpringCloudBuilderStackArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if build_pack_groups is None and 'buildPackGroups' in kwargs:
-            build_pack_groups = kwargs['buildPackGroups']
-        if spring_cloud_service_id is None and 'springCloudServiceId' in kwargs:
-            spring_cloud_service_id = kwargs['springCloudServiceId']
-
         if build_pack_groups is not None:
-            _setter("build_pack_groups", build_pack_groups)
+            pulumi.set(__self__, "build_pack_groups", build_pack_groups)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if spring_cloud_service_id is not None:
-            _setter("spring_cloud_service_id", spring_cloud_service_id)
+            pulumi.set(__self__, "spring_cloud_service_id", spring_cloud_service_id)
         if stack is not None:
-            _setter("stack", stack)
+            pulumi.set(__self__, "stack", stack)
 
     @property
     @pulumi.getter(name="buildPackGroups")
@@ -307,10 +259,6 @@ class SpringCloudBuilder(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SpringCloudBuilderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -336,7 +284,6 @@ class SpringCloudBuilder(pulumi.CustomResource):
             if spring_cloud_service_id is None and not opts.urn:
                 raise TypeError("Missing required property 'spring_cloud_service_id'")
             __props__.__dict__["spring_cloud_service_id"] = spring_cloud_service_id
-            stack = _utilities.configure(stack, SpringCloudBuilderStackArgs, True)
             if stack is None and not opts.urn:
                 raise TypeError("Missing required property 'stack'")
             __props__.__dict__["stack"] = stack

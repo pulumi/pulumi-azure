@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ResourcePolicyExemptionArgs', 'ResourcePolicyExemption']
@@ -35,66 +35,21 @@ class ResourcePolicyExemptionArgs:
         :param pulumi.Input[str] name: The name of the Policy Exemption. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] policy_definition_reference_ids: The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
         """
-        ResourcePolicyExemptionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exemption_category=exemption_category,
-            policy_assignment_id=policy_assignment_id,
-            resource_id=resource_id,
-            description=description,
-            display_name=display_name,
-            expires_on=expires_on,
-            metadata=metadata,
-            name=name,
-            policy_definition_reference_ids=policy_definition_reference_ids,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exemption_category: Optional[pulumi.Input[str]] = None,
-             policy_assignment_id: Optional[pulumi.Input[str]] = None,
-             resource_id: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             display_name: Optional[pulumi.Input[str]] = None,
-             expires_on: Optional[pulumi.Input[str]] = None,
-             metadata: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             policy_definition_reference_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if exemption_category is None and 'exemptionCategory' in kwargs:
-            exemption_category = kwargs['exemptionCategory']
-        if exemption_category is None:
-            raise TypeError("Missing 'exemption_category' argument")
-        if policy_assignment_id is None and 'policyAssignmentId' in kwargs:
-            policy_assignment_id = kwargs['policyAssignmentId']
-        if policy_assignment_id is None:
-            raise TypeError("Missing 'policy_assignment_id' argument")
-        if resource_id is None and 'resourceId' in kwargs:
-            resource_id = kwargs['resourceId']
-        if resource_id is None:
-            raise TypeError("Missing 'resource_id' argument")
-        if display_name is None and 'displayName' in kwargs:
-            display_name = kwargs['displayName']
-        if expires_on is None and 'expiresOn' in kwargs:
-            expires_on = kwargs['expiresOn']
-        if policy_definition_reference_ids is None and 'policyDefinitionReferenceIds' in kwargs:
-            policy_definition_reference_ids = kwargs['policyDefinitionReferenceIds']
-
-        _setter("exemption_category", exemption_category)
-        _setter("policy_assignment_id", policy_assignment_id)
-        _setter("resource_id", resource_id)
+        pulumi.set(__self__, "exemption_category", exemption_category)
+        pulumi.set(__self__, "policy_assignment_id", policy_assignment_id)
+        pulumi.set(__self__, "resource_id", resource_id)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if display_name is not None:
-            _setter("display_name", display_name)
+            pulumi.set(__self__, "display_name", display_name)
         if expires_on is not None:
-            _setter("expires_on", expires_on)
+            pulumi.set(__self__, "expires_on", expires_on)
         if metadata is not None:
-            _setter("metadata", metadata)
+            pulumi.set(__self__, "metadata", metadata)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if policy_definition_reference_ids is not None:
-            _setter("policy_definition_reference_ids", policy_definition_reference_ids)
+            pulumi.set(__self__, "policy_definition_reference_ids", policy_definition_reference_ids)
 
     @property
     @pulumi.getter(name="exemptionCategory")
@@ -229,63 +184,24 @@ class _ResourcePolicyExemptionState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] policy_definition_reference_ids: The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
         :param pulumi.Input[str] resource_id: The Resource ID where the Policy Exemption should be applied. Changing this forces a new resource to be created.
         """
-        _ResourcePolicyExemptionState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            display_name=display_name,
-            exemption_category=exemption_category,
-            expires_on=expires_on,
-            metadata=metadata,
-            name=name,
-            policy_assignment_id=policy_assignment_id,
-            policy_definition_reference_ids=policy_definition_reference_ids,
-            resource_id=resource_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[pulumi.Input[str]] = None,
-             display_name: Optional[pulumi.Input[str]] = None,
-             exemption_category: Optional[pulumi.Input[str]] = None,
-             expires_on: Optional[pulumi.Input[str]] = None,
-             metadata: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             policy_assignment_id: Optional[pulumi.Input[str]] = None,
-             policy_definition_reference_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if display_name is None and 'displayName' in kwargs:
-            display_name = kwargs['displayName']
-        if exemption_category is None and 'exemptionCategory' in kwargs:
-            exemption_category = kwargs['exemptionCategory']
-        if expires_on is None and 'expiresOn' in kwargs:
-            expires_on = kwargs['expiresOn']
-        if policy_assignment_id is None and 'policyAssignmentId' in kwargs:
-            policy_assignment_id = kwargs['policyAssignmentId']
-        if policy_definition_reference_ids is None and 'policyDefinitionReferenceIds' in kwargs:
-            policy_definition_reference_ids = kwargs['policyDefinitionReferenceIds']
-        if resource_id is None and 'resourceId' in kwargs:
-            resource_id = kwargs['resourceId']
-
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if display_name is not None:
-            _setter("display_name", display_name)
+            pulumi.set(__self__, "display_name", display_name)
         if exemption_category is not None:
-            _setter("exemption_category", exemption_category)
+            pulumi.set(__self__, "exemption_category", exemption_category)
         if expires_on is not None:
-            _setter("expires_on", expires_on)
+            pulumi.set(__self__, "expires_on", expires_on)
         if metadata is not None:
-            _setter("metadata", metadata)
+            pulumi.set(__self__, "metadata", metadata)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if policy_assignment_id is not None:
-            _setter("policy_assignment_id", policy_assignment_id)
+            pulumi.set(__self__, "policy_assignment_id", policy_assignment_id)
         if policy_definition_reference_ids is not None:
-            _setter("policy_definition_reference_ids", policy_definition_reference_ids)
+            pulumi.set(__self__, "policy_definition_reference_ids", policy_definition_reference_ids)
         if resource_id is not None:
-            _setter("resource_id", resource_id)
+            pulumi.set(__self__, "resource_id", resource_id)
 
     @property
     @pulumi.getter
@@ -511,10 +427,6 @@ class ResourcePolicyExemption(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ResourcePolicyExemptionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

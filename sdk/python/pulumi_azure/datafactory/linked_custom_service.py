@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,62 +37,21 @@ class LinkedCustomServiceArgs:
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         """
-        LinkedCustomServiceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_factory_id=data_factory_id,
-            type=type,
-            type_properties_json=type_properties_json,
-            additional_properties=additional_properties,
-            annotations=annotations,
-            description=description,
-            integration_runtime=integration_runtime,
-            name=name,
-            parameters=parameters,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_factory_id: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             type_properties_json: Optional[pulumi.Input[str]] = None,
-             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             integration_runtime: Optional[pulumi.Input['LinkedCustomServiceIntegrationRuntimeArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if data_factory_id is None and 'dataFactoryId' in kwargs:
-            data_factory_id = kwargs['dataFactoryId']
-        if data_factory_id is None:
-            raise TypeError("Missing 'data_factory_id' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if type_properties_json is None and 'typePropertiesJson' in kwargs:
-            type_properties_json = kwargs['typePropertiesJson']
-        if type_properties_json is None:
-            raise TypeError("Missing 'type_properties_json' argument")
-        if additional_properties is None and 'additionalProperties' in kwargs:
-            additional_properties = kwargs['additionalProperties']
-        if integration_runtime is None and 'integrationRuntime' in kwargs:
-            integration_runtime = kwargs['integrationRuntime']
-
-        _setter("data_factory_id", data_factory_id)
-        _setter("type", type)
-        _setter("type_properties_json", type_properties_json)
+        pulumi.set(__self__, "data_factory_id", data_factory_id)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "type_properties_json", type_properties_json)
         if additional_properties is not None:
-            _setter("additional_properties", additional_properties)
+            pulumi.set(__self__, "additional_properties", additional_properties)
         if annotations is not None:
-            _setter("annotations", annotations)
+            pulumi.set(__self__, "annotations", annotations)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if integration_runtime is not None:
-            _setter("integration_runtime", integration_runtime)
+            pulumi.set(__self__, "integration_runtime", integration_runtime)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if parameters is not None:
-            _setter("parameters", parameters)
+            pulumi.set(__self__, "parameters", parameters)
 
     @property
     @pulumi.getter(name="dataFactoryId")
@@ -227,59 +186,24 @@ class _LinkedCustomServiceState:
         :param pulumi.Input[str] type: The type of data stores that will be connected to Data Factory. For full list of supported data stores, please refer to [Azure Data Factory connector](https://docs.microsoft.com/azure/data-factory/connector-overview). Changing this forces a new resource to be created.
         :param pulumi.Input[str] type_properties_json: A JSON object that contains the properties of the Data Factory Linked Service.
         """
-        _LinkedCustomServiceState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            additional_properties=additional_properties,
-            annotations=annotations,
-            data_factory_id=data_factory_id,
-            description=description,
-            integration_runtime=integration_runtime,
-            name=name,
-            parameters=parameters,
-            type=type,
-            type_properties_json=type_properties_json,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             data_factory_id: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             integration_runtime: Optional[pulumi.Input['LinkedCustomServiceIntegrationRuntimeArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             type_properties_json: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if additional_properties is None and 'additionalProperties' in kwargs:
-            additional_properties = kwargs['additionalProperties']
-        if data_factory_id is None and 'dataFactoryId' in kwargs:
-            data_factory_id = kwargs['dataFactoryId']
-        if integration_runtime is None and 'integrationRuntime' in kwargs:
-            integration_runtime = kwargs['integrationRuntime']
-        if type_properties_json is None and 'typePropertiesJson' in kwargs:
-            type_properties_json = kwargs['typePropertiesJson']
-
         if additional_properties is not None:
-            _setter("additional_properties", additional_properties)
+            pulumi.set(__self__, "additional_properties", additional_properties)
         if annotations is not None:
-            _setter("annotations", annotations)
+            pulumi.set(__self__, "annotations", annotations)
         if data_factory_id is not None:
-            _setter("data_factory_id", data_factory_id)
+            pulumi.set(__self__, "data_factory_id", data_factory_id)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if integration_runtime is not None:
-            _setter("integration_runtime", integration_runtime)
+            pulumi.set(__self__, "integration_runtime", integration_runtime)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if parameters is not None:
-            _setter("parameters", parameters)
+            pulumi.set(__self__, "parameters", parameters)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
         if type_properties_json is not None:
-            _setter("type_properties_json", type_properties_json)
+            pulumi.set(__self__, "type_properties_json", type_properties_json)
 
     @property
     @pulumi.getter(name="additionalProperties")
@@ -531,10 +455,6 @@ class LinkedCustomService(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LinkedCustomServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -564,7 +484,6 @@ class LinkedCustomService(pulumi.CustomResource):
                 raise TypeError("Missing required property 'data_factory_id'")
             __props__.__dict__["data_factory_id"] = data_factory_id
             __props__.__dict__["description"] = description
-            integration_runtime = _utilities.configure(integration_runtime, LinkedCustomServiceIntegrationRuntimeArgs, True)
             __props__.__dict__["integration_runtime"] = integration_runtime
             __props__.__dict__["name"] = name
             __props__.__dict__["parameters"] = parameters

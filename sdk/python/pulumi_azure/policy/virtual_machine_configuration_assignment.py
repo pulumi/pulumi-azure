@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,35 +27,12 @@ class VirtualMachineConfigurationAssignmentArgs:
         :param pulumi.Input[str] location: The Azure location where the Policy Virtual Machine Configuration Assignment should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment. Changing this forces a new resource to be created.
         """
-        VirtualMachineConfigurationAssignmentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            configuration=configuration,
-            virtual_machine_id=virtual_machine_id,
-            location=location,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             configuration: Optional[pulumi.Input['VirtualMachineConfigurationAssignmentConfigurationArgs']] = None,
-             virtual_machine_id: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if configuration is None:
-            raise TypeError("Missing 'configuration' argument")
-        if virtual_machine_id is None and 'virtualMachineId' in kwargs:
-            virtual_machine_id = kwargs['virtualMachineId']
-        if virtual_machine_id is None:
-            raise TypeError("Missing 'virtual_machine_id' argument")
-
-        _setter("configuration", configuration)
-        _setter("virtual_machine_id", virtual_machine_id)
+        pulumi.set(__self__, "configuration", configuration)
+        pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -120,33 +97,14 @@ class _VirtualMachineConfigurationAssignmentState:
         :param pulumi.Input[str] name: The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_machine_id: The resource ID of the Policy Virtual Machine which this Guest Configuration Assignment should apply to. Changing this forces a new resource to be created.
         """
-        _VirtualMachineConfigurationAssignmentState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            configuration=configuration,
-            location=location,
-            name=name,
-            virtual_machine_id=virtual_machine_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             configuration: Optional[pulumi.Input['VirtualMachineConfigurationAssignmentConfigurationArgs']] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             virtual_machine_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if virtual_machine_id is None and 'virtualMachineId' in kwargs:
-            virtual_machine_id = kwargs['virtualMachineId']
-
         if configuration is not None:
-            _setter("configuration", configuration)
+            pulumi.set(__self__, "configuration", configuration)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if virtual_machine_id is not None:
-            _setter("virtual_machine_id", virtual_machine_id)
+            pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
 
     @property
     @pulumi.getter
@@ -416,10 +374,6 @@ class VirtualMachineConfigurationAssignment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            VirtualMachineConfigurationAssignmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -438,7 +392,6 @@ class VirtualMachineConfigurationAssignment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VirtualMachineConfigurationAssignmentArgs.__new__(VirtualMachineConfigurationAssignmentArgs)
 
-            configuration = _utilities.configure(configuration, VirtualMachineConfigurationAssignmentConfigurationArgs, True)
             if configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'configuration'")
             __props__.__dict__["configuration"] = configuration

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,42 +31,13 @@ class AlertRuleAnomalyBuiltInArgs:
                > **Note:** One of `name` or `display_name` block must be specified.
         :param pulumi.Input[str] name: The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
         """
-        AlertRuleAnomalyBuiltInArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            log_analytics_workspace_id=log_analytics_workspace_id,
-            mode=mode,
-            display_name=display_name,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[pulumi.Input[bool]] = None,
-             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
-             mode: Optional[pulumi.Input[str]] = None,
-             display_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
-            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if log_analytics_workspace_id is None:
-            raise TypeError("Missing 'log_analytics_workspace_id' argument")
-        if mode is None:
-            raise TypeError("Missing 'mode' argument")
-        if display_name is None and 'displayName' in kwargs:
-            display_name = kwargs['displayName']
-
-        _setter("enabled", enabled)
-        _setter("log_analytics_workspace_id", log_analytics_workspace_id)
-        _setter("mode", mode)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+        pulumi.set(__self__, "mode", mode)
         if display_name is not None:
-            _setter("display_name", display_name)
+            pulumi.set(__self__, "display_name", display_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -173,103 +144,40 @@ class _AlertRuleAnomalyBuiltInState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] techniques: A list of techniques of attacks by which to classify the rule.
         :param pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyBuiltInThresholdObservationArgs']]] threshold_observations: A list of `threshold_observation` blocks as defined below.
         """
-        _AlertRuleAnomalyBuiltInState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            anomaly_settings_version=anomaly_settings_version,
-            anomaly_version=anomaly_version,
-            description=description,
-            display_name=display_name,
-            enabled=enabled,
-            frequency=frequency,
-            log_analytics_workspace_id=log_analytics_workspace_id,
-            mode=mode,
-            multi_select_observations=multi_select_observations,
-            name=name,
-            prioritized_exclude_observations=prioritized_exclude_observations,
-            required_data_connectors=required_data_connectors,
-            settings_definition_id=settings_definition_id,
-            single_select_observations=single_select_observations,
-            tactics=tactics,
-            techniques=techniques,
-            threshold_observations=threshold_observations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             anomaly_settings_version: Optional[pulumi.Input[int]] = None,
-             anomaly_version: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             display_name: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             frequency: Optional[pulumi.Input[str]] = None,
-             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
-             mode: Optional[pulumi.Input[str]] = None,
-             multi_select_observations: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyBuiltInMultiSelectObservationArgs']]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             prioritized_exclude_observations: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArgs']]]] = None,
-             required_data_connectors: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyBuiltInRequiredDataConnectorArgs']]]] = None,
-             settings_definition_id: Optional[pulumi.Input[str]] = None,
-             single_select_observations: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyBuiltInSingleSelectObservationArgs']]]] = None,
-             tactics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             techniques: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             threshold_observations: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyBuiltInThresholdObservationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if anomaly_settings_version is None and 'anomalySettingsVersion' in kwargs:
-            anomaly_settings_version = kwargs['anomalySettingsVersion']
-        if anomaly_version is None and 'anomalyVersion' in kwargs:
-            anomaly_version = kwargs['anomalyVersion']
-        if display_name is None and 'displayName' in kwargs:
-            display_name = kwargs['displayName']
-        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
-            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if multi_select_observations is None and 'multiSelectObservations' in kwargs:
-            multi_select_observations = kwargs['multiSelectObservations']
-        if prioritized_exclude_observations is None and 'prioritizedExcludeObservations' in kwargs:
-            prioritized_exclude_observations = kwargs['prioritizedExcludeObservations']
-        if required_data_connectors is None and 'requiredDataConnectors' in kwargs:
-            required_data_connectors = kwargs['requiredDataConnectors']
-        if settings_definition_id is None and 'settingsDefinitionId' in kwargs:
-            settings_definition_id = kwargs['settingsDefinitionId']
-        if single_select_observations is None and 'singleSelectObservations' in kwargs:
-            single_select_observations = kwargs['singleSelectObservations']
-        if threshold_observations is None and 'thresholdObservations' in kwargs:
-            threshold_observations = kwargs['thresholdObservations']
-
         if anomaly_settings_version is not None:
-            _setter("anomaly_settings_version", anomaly_settings_version)
+            pulumi.set(__self__, "anomaly_settings_version", anomaly_settings_version)
         if anomaly_version is not None:
-            _setter("anomaly_version", anomaly_version)
+            pulumi.set(__self__, "anomaly_version", anomaly_version)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if display_name is not None:
-            _setter("display_name", display_name)
+            pulumi.set(__self__, "display_name", display_name)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if frequency is not None:
-            _setter("frequency", frequency)
+            pulumi.set(__self__, "frequency", frequency)
         if log_analytics_workspace_id is not None:
-            _setter("log_analytics_workspace_id", log_analytics_workspace_id)
+            pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
         if mode is not None:
-            _setter("mode", mode)
+            pulumi.set(__self__, "mode", mode)
         if multi_select_observations is not None:
-            _setter("multi_select_observations", multi_select_observations)
+            pulumi.set(__self__, "multi_select_observations", multi_select_observations)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if prioritized_exclude_observations is not None:
-            _setter("prioritized_exclude_observations", prioritized_exclude_observations)
+            pulumi.set(__self__, "prioritized_exclude_observations", prioritized_exclude_observations)
         if required_data_connectors is not None:
-            _setter("required_data_connectors", required_data_connectors)
+            pulumi.set(__self__, "required_data_connectors", required_data_connectors)
         if settings_definition_id is not None:
-            _setter("settings_definition_id", settings_definition_id)
+            pulumi.set(__self__, "settings_definition_id", settings_definition_id)
         if single_select_observations is not None:
-            _setter("single_select_observations", single_select_observations)
+            pulumi.set(__self__, "single_select_observations", single_select_observations)
         if tactics is not None:
-            _setter("tactics", tactics)
+            pulumi.set(__self__, "tactics", tactics)
         if techniques is not None:
-            _setter("techniques", techniques)
+            pulumi.set(__self__, "techniques", techniques)
         if threshold_observations is not None:
-            _setter("threshold_observations", threshold_observations)
+            pulumi.set(__self__, "threshold_observations", threshold_observations)
 
     @property
     @pulumi.getter(name="anomalySettingsVersion")
@@ -579,10 +487,6 @@ class AlertRuleAnomalyBuiltIn(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AlertRuleAnomalyBuiltInArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

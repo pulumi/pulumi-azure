@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,73 +41,22 @@ class PrivateCloudArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the VMware Private Cloud.
         :param pulumi.Input[str] vcenter_password: The password of the vCenter admin. Changing this forces a new VMware Private Cloud to be created.
         """
-        PrivateCloudArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            management_cluster=management_cluster,
-            network_subnet_cidr=network_subnet_cidr,
-            resource_group_name=resource_group_name,
-            sku_name=sku_name,
-            internet_connection_enabled=internet_connection_enabled,
-            location=location,
-            name=name,
-            nsxt_password=nsxt_password,
-            tags=tags,
-            vcenter_password=vcenter_password,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             management_cluster: Optional[pulumi.Input['PrivateCloudManagementClusterArgs']] = None,
-             network_subnet_cidr: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             sku_name: Optional[pulumi.Input[str]] = None,
-             internet_connection_enabled: Optional[pulumi.Input[bool]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             nsxt_password: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             vcenter_password: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if management_cluster is None and 'managementCluster' in kwargs:
-            management_cluster = kwargs['managementCluster']
-        if management_cluster is None:
-            raise TypeError("Missing 'management_cluster' argument")
-        if network_subnet_cidr is None and 'networkSubnetCidr' in kwargs:
-            network_subnet_cidr = kwargs['networkSubnetCidr']
-        if network_subnet_cidr is None:
-            raise TypeError("Missing 'network_subnet_cidr' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if sku_name is None and 'skuName' in kwargs:
-            sku_name = kwargs['skuName']
-        if sku_name is None:
-            raise TypeError("Missing 'sku_name' argument")
-        if internet_connection_enabled is None and 'internetConnectionEnabled' in kwargs:
-            internet_connection_enabled = kwargs['internetConnectionEnabled']
-        if nsxt_password is None and 'nsxtPassword' in kwargs:
-            nsxt_password = kwargs['nsxtPassword']
-        if vcenter_password is None and 'vcenterPassword' in kwargs:
-            vcenter_password = kwargs['vcenterPassword']
-
-        _setter("management_cluster", management_cluster)
-        _setter("network_subnet_cidr", network_subnet_cidr)
-        _setter("resource_group_name", resource_group_name)
-        _setter("sku_name", sku_name)
+        pulumi.set(__self__, "management_cluster", management_cluster)
+        pulumi.set(__self__, "network_subnet_cidr", network_subnet_cidr)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "sku_name", sku_name)
         if internet_connection_enabled is not None:
-            _setter("internet_connection_enabled", internet_connection_enabled)
+            pulumi.set(__self__, "internet_connection_enabled", internet_connection_enabled)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if nsxt_password is not None:
-            _setter("nsxt_password", nsxt_password)
+            pulumi.set(__self__, "nsxt_password", nsxt_password)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if vcenter_password is not None:
-            _setter("vcenter_password", vcenter_password)
+            pulumi.set(__self__, "vcenter_password", vcenter_password)
 
     @property
     @pulumi.getter(name="managementCluster")
@@ -278,121 +227,44 @@ class _PrivateCloudState:
         :param pulumi.Input[str] vcsa_endpoint: The endpoint for Virtual Center Server Appliance.
         :param pulumi.Input[str] vmotion_subnet_cidr: The network which is used for live migration of virtual machines.
         """
-        _PrivateCloudState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            circuits=circuits,
-            hcx_cloud_manager_endpoint=hcx_cloud_manager_endpoint,
-            internet_connection_enabled=internet_connection_enabled,
-            location=location,
-            management_cluster=management_cluster,
-            management_subnet_cidr=management_subnet_cidr,
-            name=name,
-            network_subnet_cidr=network_subnet_cidr,
-            nsxt_certificate_thumbprint=nsxt_certificate_thumbprint,
-            nsxt_manager_endpoint=nsxt_manager_endpoint,
-            nsxt_password=nsxt_password,
-            provisioning_subnet_cidr=provisioning_subnet_cidr,
-            resource_group_name=resource_group_name,
-            sku_name=sku_name,
-            tags=tags,
-            vcenter_certificate_thumbprint=vcenter_certificate_thumbprint,
-            vcenter_password=vcenter_password,
-            vcsa_endpoint=vcsa_endpoint,
-            vmotion_subnet_cidr=vmotion_subnet_cidr,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             circuits: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateCloudCircuitArgs']]]] = None,
-             hcx_cloud_manager_endpoint: Optional[pulumi.Input[str]] = None,
-             internet_connection_enabled: Optional[pulumi.Input[bool]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             management_cluster: Optional[pulumi.Input['PrivateCloudManagementClusterArgs']] = None,
-             management_subnet_cidr: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             network_subnet_cidr: Optional[pulumi.Input[str]] = None,
-             nsxt_certificate_thumbprint: Optional[pulumi.Input[str]] = None,
-             nsxt_manager_endpoint: Optional[pulumi.Input[str]] = None,
-             nsxt_password: Optional[pulumi.Input[str]] = None,
-             provisioning_subnet_cidr: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             sku_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             vcenter_certificate_thumbprint: Optional[pulumi.Input[str]] = None,
-             vcenter_password: Optional[pulumi.Input[str]] = None,
-             vcsa_endpoint: Optional[pulumi.Input[str]] = None,
-             vmotion_subnet_cidr: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if hcx_cloud_manager_endpoint is None and 'hcxCloudManagerEndpoint' in kwargs:
-            hcx_cloud_manager_endpoint = kwargs['hcxCloudManagerEndpoint']
-        if internet_connection_enabled is None and 'internetConnectionEnabled' in kwargs:
-            internet_connection_enabled = kwargs['internetConnectionEnabled']
-        if management_cluster is None and 'managementCluster' in kwargs:
-            management_cluster = kwargs['managementCluster']
-        if management_subnet_cidr is None and 'managementSubnetCidr' in kwargs:
-            management_subnet_cidr = kwargs['managementSubnetCidr']
-        if network_subnet_cidr is None and 'networkSubnetCidr' in kwargs:
-            network_subnet_cidr = kwargs['networkSubnetCidr']
-        if nsxt_certificate_thumbprint is None and 'nsxtCertificateThumbprint' in kwargs:
-            nsxt_certificate_thumbprint = kwargs['nsxtCertificateThumbprint']
-        if nsxt_manager_endpoint is None and 'nsxtManagerEndpoint' in kwargs:
-            nsxt_manager_endpoint = kwargs['nsxtManagerEndpoint']
-        if nsxt_password is None and 'nsxtPassword' in kwargs:
-            nsxt_password = kwargs['nsxtPassword']
-        if provisioning_subnet_cidr is None and 'provisioningSubnetCidr' in kwargs:
-            provisioning_subnet_cidr = kwargs['provisioningSubnetCidr']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if sku_name is None and 'skuName' in kwargs:
-            sku_name = kwargs['skuName']
-        if vcenter_certificate_thumbprint is None and 'vcenterCertificateThumbprint' in kwargs:
-            vcenter_certificate_thumbprint = kwargs['vcenterCertificateThumbprint']
-        if vcenter_password is None and 'vcenterPassword' in kwargs:
-            vcenter_password = kwargs['vcenterPassword']
-        if vcsa_endpoint is None and 'vcsaEndpoint' in kwargs:
-            vcsa_endpoint = kwargs['vcsaEndpoint']
-        if vmotion_subnet_cidr is None and 'vmotionSubnetCidr' in kwargs:
-            vmotion_subnet_cidr = kwargs['vmotionSubnetCidr']
-
         if circuits is not None:
-            _setter("circuits", circuits)
+            pulumi.set(__self__, "circuits", circuits)
         if hcx_cloud_manager_endpoint is not None:
-            _setter("hcx_cloud_manager_endpoint", hcx_cloud_manager_endpoint)
+            pulumi.set(__self__, "hcx_cloud_manager_endpoint", hcx_cloud_manager_endpoint)
         if internet_connection_enabled is not None:
-            _setter("internet_connection_enabled", internet_connection_enabled)
+            pulumi.set(__self__, "internet_connection_enabled", internet_connection_enabled)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if management_cluster is not None:
-            _setter("management_cluster", management_cluster)
+            pulumi.set(__self__, "management_cluster", management_cluster)
         if management_subnet_cidr is not None:
-            _setter("management_subnet_cidr", management_subnet_cidr)
+            pulumi.set(__self__, "management_subnet_cidr", management_subnet_cidr)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if network_subnet_cidr is not None:
-            _setter("network_subnet_cidr", network_subnet_cidr)
+            pulumi.set(__self__, "network_subnet_cidr", network_subnet_cidr)
         if nsxt_certificate_thumbprint is not None:
-            _setter("nsxt_certificate_thumbprint", nsxt_certificate_thumbprint)
+            pulumi.set(__self__, "nsxt_certificate_thumbprint", nsxt_certificate_thumbprint)
         if nsxt_manager_endpoint is not None:
-            _setter("nsxt_manager_endpoint", nsxt_manager_endpoint)
+            pulumi.set(__self__, "nsxt_manager_endpoint", nsxt_manager_endpoint)
         if nsxt_password is not None:
-            _setter("nsxt_password", nsxt_password)
+            pulumi.set(__self__, "nsxt_password", nsxt_password)
         if provisioning_subnet_cidr is not None:
-            _setter("provisioning_subnet_cidr", provisioning_subnet_cidr)
+            pulumi.set(__self__, "provisioning_subnet_cidr", provisioning_subnet_cidr)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if sku_name is not None:
-            _setter("sku_name", sku_name)
+            pulumi.set(__self__, "sku_name", sku_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if vcenter_certificate_thumbprint is not None:
-            _setter("vcenter_certificate_thumbprint", vcenter_certificate_thumbprint)
+            pulumi.set(__self__, "vcenter_certificate_thumbprint", vcenter_certificate_thumbprint)
         if vcenter_password is not None:
-            _setter("vcenter_password", vcenter_password)
+            pulumi.set(__self__, "vcenter_password", vcenter_password)
         if vcsa_endpoint is not None:
-            _setter("vcsa_endpoint", vcsa_endpoint)
+            pulumi.set(__self__, "vcsa_endpoint", vcsa_endpoint)
         if vmotion_subnet_cidr is not None:
-            _setter("vmotion_subnet_cidr", vmotion_subnet_cidr)
+            pulumi.set(__self__, "vmotion_subnet_cidr", vmotion_subnet_cidr)
 
     @property
     @pulumi.getter
@@ -738,10 +610,6 @@ class PrivateCloud(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PrivateCloudArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -768,7 +636,6 @@ class PrivateCloud(pulumi.CustomResource):
 
             __props__.__dict__["internet_connection_enabled"] = internet_connection_enabled
             __props__.__dict__["location"] = location
-            management_cluster = _utilities.configure(management_cluster, PrivateCloudManagementClusterArgs, True)
             if management_cluster is None and not opts.urn:
                 raise TypeError("Missing required property 'management_cluster'")
             __props__.__dict__["management_cluster"] = management_cluster

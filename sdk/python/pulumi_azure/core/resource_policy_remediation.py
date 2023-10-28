@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ResourcePolicyRemediationArgs', 'ResourcePolicyRemediation']
@@ -27,78 +27,27 @@ class ResourcePolicyRemediationArgs:
         """
         The set of arguments for constructing a ResourcePolicyRemediation resource.
         """
-        ResourcePolicyRemediationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            policy_assignment_id=policy_assignment_id,
-            resource_id=resource_id,
-            failure_percentage=failure_percentage,
-            location_filters=location_filters,
-            name=name,
-            parallel_deployments=parallel_deployments,
-            policy_definition_id=policy_definition_id,
-            policy_definition_reference_id=policy_definition_reference_id,
-            resource_count=resource_count,
-            resource_discovery_mode=resource_discovery_mode,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             policy_assignment_id: Optional[pulumi.Input[str]] = None,
-             resource_id: Optional[pulumi.Input[str]] = None,
-             failure_percentage: Optional[pulumi.Input[float]] = None,
-             location_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             parallel_deployments: Optional[pulumi.Input[int]] = None,
-             policy_definition_id: Optional[pulumi.Input[str]] = None,
-             policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
-             resource_count: Optional[pulumi.Input[int]] = None,
-             resource_discovery_mode: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if policy_assignment_id is None and 'policyAssignmentId' in kwargs:
-            policy_assignment_id = kwargs['policyAssignmentId']
-        if policy_assignment_id is None:
-            raise TypeError("Missing 'policy_assignment_id' argument")
-        if resource_id is None and 'resourceId' in kwargs:
-            resource_id = kwargs['resourceId']
-        if resource_id is None:
-            raise TypeError("Missing 'resource_id' argument")
-        if failure_percentage is None and 'failurePercentage' in kwargs:
-            failure_percentage = kwargs['failurePercentage']
-        if location_filters is None and 'locationFilters' in kwargs:
-            location_filters = kwargs['locationFilters']
-        if parallel_deployments is None and 'parallelDeployments' in kwargs:
-            parallel_deployments = kwargs['parallelDeployments']
-        if policy_definition_id is None and 'policyDefinitionId' in kwargs:
-            policy_definition_id = kwargs['policyDefinitionId']
-        if policy_definition_reference_id is None and 'policyDefinitionReferenceId' in kwargs:
-            policy_definition_reference_id = kwargs['policyDefinitionReferenceId']
-        if resource_count is None and 'resourceCount' in kwargs:
-            resource_count = kwargs['resourceCount']
-        if resource_discovery_mode is None and 'resourceDiscoveryMode' in kwargs:
-            resource_discovery_mode = kwargs['resourceDiscoveryMode']
-
-        _setter("policy_assignment_id", policy_assignment_id)
-        _setter("resource_id", resource_id)
+        pulumi.set(__self__, "policy_assignment_id", policy_assignment_id)
+        pulumi.set(__self__, "resource_id", resource_id)
         if failure_percentage is not None:
-            _setter("failure_percentage", failure_percentage)
+            pulumi.set(__self__, "failure_percentage", failure_percentage)
         if location_filters is not None:
-            _setter("location_filters", location_filters)
+            pulumi.set(__self__, "location_filters", location_filters)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if parallel_deployments is not None:
-            _setter("parallel_deployments", parallel_deployments)
+            pulumi.set(__self__, "parallel_deployments", parallel_deployments)
         if policy_definition_id is not None:
             warnings.warn("""`policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""", DeprecationWarning)
             pulumi.log.warn("""policy_definition_id is deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""")
         if policy_definition_id is not None:
-            _setter("policy_definition_id", policy_definition_id)
+            pulumi.set(__self__, "policy_definition_id", policy_definition_id)
         if policy_definition_reference_id is not None:
-            _setter("policy_definition_reference_id", policy_definition_reference_id)
+            pulumi.set(__self__, "policy_definition_reference_id", policy_definition_reference_id)
         if resource_count is not None:
-            _setter("resource_count", resource_count)
+            pulumi.set(__self__, "resource_count", resource_count)
         if resource_discovery_mode is not None:
-            _setter("resource_discovery_mode", resource_discovery_mode)
+            pulumi.set(__self__, "resource_discovery_mode", resource_discovery_mode)
 
     @property
     @pulumi.getter(name="policyAssignmentId")
@@ -210,76 +159,29 @@ class _ResourcePolicyRemediationState:
         """
         Input properties used for looking up and filtering ResourcePolicyRemediation resources.
         """
-        _ResourcePolicyRemediationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            failure_percentage=failure_percentage,
-            location_filters=location_filters,
-            name=name,
-            parallel_deployments=parallel_deployments,
-            policy_assignment_id=policy_assignment_id,
-            policy_definition_id=policy_definition_id,
-            policy_definition_reference_id=policy_definition_reference_id,
-            resource_count=resource_count,
-            resource_discovery_mode=resource_discovery_mode,
-            resource_id=resource_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             failure_percentage: Optional[pulumi.Input[float]] = None,
-             location_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             parallel_deployments: Optional[pulumi.Input[int]] = None,
-             policy_assignment_id: Optional[pulumi.Input[str]] = None,
-             policy_definition_id: Optional[pulumi.Input[str]] = None,
-             policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
-             resource_count: Optional[pulumi.Input[int]] = None,
-             resource_discovery_mode: Optional[pulumi.Input[str]] = None,
-             resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if failure_percentage is None and 'failurePercentage' in kwargs:
-            failure_percentage = kwargs['failurePercentage']
-        if location_filters is None and 'locationFilters' in kwargs:
-            location_filters = kwargs['locationFilters']
-        if parallel_deployments is None and 'parallelDeployments' in kwargs:
-            parallel_deployments = kwargs['parallelDeployments']
-        if policy_assignment_id is None and 'policyAssignmentId' in kwargs:
-            policy_assignment_id = kwargs['policyAssignmentId']
-        if policy_definition_id is None and 'policyDefinitionId' in kwargs:
-            policy_definition_id = kwargs['policyDefinitionId']
-        if policy_definition_reference_id is None and 'policyDefinitionReferenceId' in kwargs:
-            policy_definition_reference_id = kwargs['policyDefinitionReferenceId']
-        if resource_count is None and 'resourceCount' in kwargs:
-            resource_count = kwargs['resourceCount']
-        if resource_discovery_mode is None and 'resourceDiscoveryMode' in kwargs:
-            resource_discovery_mode = kwargs['resourceDiscoveryMode']
-        if resource_id is None and 'resourceId' in kwargs:
-            resource_id = kwargs['resourceId']
-
         if failure_percentage is not None:
-            _setter("failure_percentage", failure_percentage)
+            pulumi.set(__self__, "failure_percentage", failure_percentage)
         if location_filters is not None:
-            _setter("location_filters", location_filters)
+            pulumi.set(__self__, "location_filters", location_filters)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if parallel_deployments is not None:
-            _setter("parallel_deployments", parallel_deployments)
+            pulumi.set(__self__, "parallel_deployments", parallel_deployments)
         if policy_assignment_id is not None:
-            _setter("policy_assignment_id", policy_assignment_id)
+            pulumi.set(__self__, "policy_assignment_id", policy_assignment_id)
         if policy_definition_id is not None:
             warnings.warn("""`policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""", DeprecationWarning)
             pulumi.log.warn("""policy_definition_id is deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""")
         if policy_definition_id is not None:
-            _setter("policy_definition_id", policy_definition_id)
+            pulumi.set(__self__, "policy_definition_id", policy_definition_id)
         if policy_definition_reference_id is not None:
-            _setter("policy_definition_reference_id", policy_definition_reference_id)
+            pulumi.set(__self__, "policy_definition_reference_id", policy_definition_reference_id)
         if resource_count is not None:
-            _setter("resource_count", resource_count)
+            pulumi.set(__self__, "resource_count", resource_count)
         if resource_discovery_mode is not None:
-            _setter("resource_discovery_mode", resource_discovery_mode)
+            pulumi.set(__self__, "resource_discovery_mode", resource_discovery_mode)
         if resource_id is not None:
-            _setter("resource_id", resource_id)
+            pulumi.set(__self__, "resource_id", resource_id)
 
     @property
     @pulumi.getter(name="failurePercentage")
@@ -414,10 +316,6 @@ class ResourcePolicyRemediation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ResourcePolicyRemediationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,69 +39,24 @@ class IotHubDpsArgs:
         :param pulumi.Input[bool] public_network_access_enabled: Whether requests from Public Network are allowed. Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        IotHubDpsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_group_name=resource_group_name,
-            sku=sku,
-            allocation_policy=allocation_policy,
-            data_residency_enabled=data_residency_enabled,
-            ip_filter_rules=ip_filter_rules,
-            linked_hubs=linked_hubs,
-            location=location,
-            name=name,
-            public_network_access_enabled=public_network_access_enabled,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             sku: Optional[pulumi.Input['IotHubDpsSkuArgs']] = None,
-             allocation_policy: Optional[pulumi.Input[str]] = None,
-             data_residency_enabled: Optional[pulumi.Input[bool]] = None,
-             ip_filter_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IotHubDpsIpFilterRuleArgs']]]] = None,
-             linked_hubs: Optional[pulumi.Input[Sequence[pulumi.Input['IotHubDpsLinkedHubArgs']]]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if sku is None:
-            raise TypeError("Missing 'sku' argument")
-        if allocation_policy is None and 'allocationPolicy' in kwargs:
-            allocation_policy = kwargs['allocationPolicy']
-        if data_residency_enabled is None and 'dataResidencyEnabled' in kwargs:
-            data_residency_enabled = kwargs['dataResidencyEnabled']
-        if ip_filter_rules is None and 'ipFilterRules' in kwargs:
-            ip_filter_rules = kwargs['ipFilterRules']
-        if linked_hubs is None and 'linkedHubs' in kwargs:
-            linked_hubs = kwargs['linkedHubs']
-        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
-            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-
-        _setter("resource_group_name", resource_group_name)
-        _setter("sku", sku)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "sku", sku)
         if allocation_policy is not None:
-            _setter("allocation_policy", allocation_policy)
+            pulumi.set(__self__, "allocation_policy", allocation_policy)
         if data_residency_enabled is not None:
-            _setter("data_residency_enabled", data_residency_enabled)
+            pulumi.set(__self__, "data_residency_enabled", data_residency_enabled)
         if ip_filter_rules is not None:
-            _setter("ip_filter_rules", ip_filter_rules)
+            pulumi.set(__self__, "ip_filter_rules", ip_filter_rules)
         if linked_hubs is not None:
-            _setter("linked_hubs", linked_hubs)
+            pulumi.set(__self__, "linked_hubs", linked_hubs)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if public_network_access_enabled is not None:
-            _setter("public_network_access_enabled", public_network_access_enabled)
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -256,85 +211,32 @@ class _IotHubDpsState:
         :param pulumi.Input['IotHubDpsSkuArgs'] sku: A `sku` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        _IotHubDpsState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allocation_policy=allocation_policy,
-            data_residency_enabled=data_residency_enabled,
-            device_provisioning_host_name=device_provisioning_host_name,
-            id_scope=id_scope,
-            ip_filter_rules=ip_filter_rules,
-            linked_hubs=linked_hubs,
-            location=location,
-            name=name,
-            public_network_access_enabled=public_network_access_enabled,
-            resource_group_name=resource_group_name,
-            service_operations_host_name=service_operations_host_name,
-            sku=sku,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allocation_policy: Optional[pulumi.Input[str]] = None,
-             data_residency_enabled: Optional[pulumi.Input[bool]] = None,
-             device_provisioning_host_name: Optional[pulumi.Input[str]] = None,
-             id_scope: Optional[pulumi.Input[str]] = None,
-             ip_filter_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IotHubDpsIpFilterRuleArgs']]]] = None,
-             linked_hubs: Optional[pulumi.Input[Sequence[pulumi.Input['IotHubDpsLinkedHubArgs']]]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             service_operations_host_name: Optional[pulumi.Input[str]] = None,
-             sku: Optional[pulumi.Input['IotHubDpsSkuArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if allocation_policy is None and 'allocationPolicy' in kwargs:
-            allocation_policy = kwargs['allocationPolicy']
-        if data_residency_enabled is None and 'dataResidencyEnabled' in kwargs:
-            data_residency_enabled = kwargs['dataResidencyEnabled']
-        if device_provisioning_host_name is None and 'deviceProvisioningHostName' in kwargs:
-            device_provisioning_host_name = kwargs['deviceProvisioningHostName']
-        if id_scope is None and 'idScope' in kwargs:
-            id_scope = kwargs['idScope']
-        if ip_filter_rules is None and 'ipFilterRules' in kwargs:
-            ip_filter_rules = kwargs['ipFilterRules']
-        if linked_hubs is None and 'linkedHubs' in kwargs:
-            linked_hubs = kwargs['linkedHubs']
-        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
-            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if service_operations_host_name is None and 'serviceOperationsHostName' in kwargs:
-            service_operations_host_name = kwargs['serviceOperationsHostName']
-
         if allocation_policy is not None:
-            _setter("allocation_policy", allocation_policy)
+            pulumi.set(__self__, "allocation_policy", allocation_policy)
         if data_residency_enabled is not None:
-            _setter("data_residency_enabled", data_residency_enabled)
+            pulumi.set(__self__, "data_residency_enabled", data_residency_enabled)
         if device_provisioning_host_name is not None:
-            _setter("device_provisioning_host_name", device_provisioning_host_name)
+            pulumi.set(__self__, "device_provisioning_host_name", device_provisioning_host_name)
         if id_scope is not None:
-            _setter("id_scope", id_scope)
+            pulumi.set(__self__, "id_scope", id_scope)
         if ip_filter_rules is not None:
-            _setter("ip_filter_rules", ip_filter_rules)
+            pulumi.set(__self__, "ip_filter_rules", ip_filter_rules)
         if linked_hubs is not None:
-            _setter("linked_hubs", linked_hubs)
+            pulumi.set(__self__, "linked_hubs", linked_hubs)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if public_network_access_enabled is not None:
-            _setter("public_network_access_enabled", public_network_access_enabled)
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if service_operations_host_name is not None:
-            _setter("service_operations_host_name", service_operations_host_name)
+            pulumi.set(__self__, "service_operations_host_name", service_operations_host_name)
         if sku is not None:
-            _setter("sku", sku)
+            pulumi.set(__self__, "sku", sku)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="allocationPolicy")
@@ -594,10 +496,6 @@ class IotHubDps(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            IotHubDpsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -632,7 +530,6 @@ class IotHubDps(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            sku = _utilities.configure(sku, IotHubDpsSkuArgs, True)
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku

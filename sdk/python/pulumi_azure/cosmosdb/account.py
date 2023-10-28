@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -93,187 +93,64 @@ class AccountArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]] virtual_network_rules: Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
         """
-        AccountArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            consistency_policy=consistency_policy,
-            geo_locations=geo_locations,
-            offer_type=offer_type,
-            resource_group_name=resource_group_name,
-            access_key_metadata_writes_enabled=access_key_metadata_writes_enabled,
-            analytical_storage=analytical_storage,
-            analytical_storage_enabled=analytical_storage_enabled,
-            backup=backup,
-            capabilities=capabilities,
-            capacity=capacity,
-            cors_rule=cors_rule,
-            create_mode=create_mode,
-            default_identity_type=default_identity_type,
-            enable_automatic_failover=enable_automatic_failover,
-            enable_free_tier=enable_free_tier,
-            enable_multiple_write_locations=enable_multiple_write_locations,
-            identity=identity,
-            ip_range_filter=ip_range_filter,
-            is_virtual_network_filter_enabled=is_virtual_network_filter_enabled,
-            key_vault_key_id=key_vault_key_id,
-            kind=kind,
-            local_authentication_disabled=local_authentication_disabled,
-            location=location,
-            mongo_server_version=mongo_server_version,
-            name=name,
-            network_acl_bypass_for_azure_services=network_acl_bypass_for_azure_services,
-            network_acl_bypass_ids=network_acl_bypass_ids,
-            public_network_access_enabled=public_network_access_enabled,
-            restore=restore,
-            tags=tags,
-            virtual_network_rules=virtual_network_rules,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             consistency_policy: Optional[pulumi.Input['AccountConsistencyPolicyArgs']] = None,
-             geo_locations: Optional[pulumi.Input[Sequence[pulumi.Input['AccountGeoLocationArgs']]]] = None,
-             offer_type: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             access_key_metadata_writes_enabled: Optional[pulumi.Input[bool]] = None,
-             analytical_storage: Optional[pulumi.Input['AccountAnalyticalStorageArgs']] = None,
-             analytical_storage_enabled: Optional[pulumi.Input[bool]] = None,
-             backup: Optional[pulumi.Input['AccountBackupArgs']] = None,
-             capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]]] = None,
-             capacity: Optional[pulumi.Input['AccountCapacityArgs']] = None,
-             cors_rule: Optional[pulumi.Input['AccountCorsRuleArgs']] = None,
-             create_mode: Optional[pulumi.Input[str]] = None,
-             default_identity_type: Optional[pulumi.Input[str]] = None,
-             enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
-             enable_free_tier: Optional[pulumi.Input[bool]] = None,
-             enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
-             identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
-             ip_range_filter: Optional[pulumi.Input[str]] = None,
-             is_virtual_network_filter_enabled: Optional[pulumi.Input[bool]] = None,
-             key_vault_key_id: Optional[pulumi.Input[str]] = None,
-             kind: Optional[pulumi.Input[str]] = None,
-             local_authentication_disabled: Optional[pulumi.Input[bool]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             mongo_server_version: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             network_acl_bypass_for_azure_services: Optional[pulumi.Input[bool]] = None,
-             network_acl_bypass_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
-             restore: Optional[pulumi.Input['AccountRestoreArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if consistency_policy is None and 'consistencyPolicy' in kwargs:
-            consistency_policy = kwargs['consistencyPolicy']
-        if consistency_policy is None:
-            raise TypeError("Missing 'consistency_policy' argument")
-        if geo_locations is None and 'geoLocations' in kwargs:
-            geo_locations = kwargs['geoLocations']
-        if geo_locations is None:
-            raise TypeError("Missing 'geo_locations' argument")
-        if offer_type is None and 'offerType' in kwargs:
-            offer_type = kwargs['offerType']
-        if offer_type is None:
-            raise TypeError("Missing 'offer_type' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if access_key_metadata_writes_enabled is None and 'accessKeyMetadataWritesEnabled' in kwargs:
-            access_key_metadata_writes_enabled = kwargs['accessKeyMetadataWritesEnabled']
-        if analytical_storage is None and 'analyticalStorage' in kwargs:
-            analytical_storage = kwargs['analyticalStorage']
-        if analytical_storage_enabled is None and 'analyticalStorageEnabled' in kwargs:
-            analytical_storage_enabled = kwargs['analyticalStorageEnabled']
-        if cors_rule is None and 'corsRule' in kwargs:
-            cors_rule = kwargs['corsRule']
-        if create_mode is None and 'createMode' in kwargs:
-            create_mode = kwargs['createMode']
-        if default_identity_type is None and 'defaultIdentityType' in kwargs:
-            default_identity_type = kwargs['defaultIdentityType']
-        if enable_automatic_failover is None and 'enableAutomaticFailover' in kwargs:
-            enable_automatic_failover = kwargs['enableAutomaticFailover']
-        if enable_free_tier is None and 'enableFreeTier' in kwargs:
-            enable_free_tier = kwargs['enableFreeTier']
-        if enable_multiple_write_locations is None and 'enableMultipleWriteLocations' in kwargs:
-            enable_multiple_write_locations = kwargs['enableMultipleWriteLocations']
-        if ip_range_filter is None and 'ipRangeFilter' in kwargs:
-            ip_range_filter = kwargs['ipRangeFilter']
-        if is_virtual_network_filter_enabled is None and 'isVirtualNetworkFilterEnabled' in kwargs:
-            is_virtual_network_filter_enabled = kwargs['isVirtualNetworkFilterEnabled']
-        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
-            key_vault_key_id = kwargs['keyVaultKeyId']
-        if local_authentication_disabled is None and 'localAuthenticationDisabled' in kwargs:
-            local_authentication_disabled = kwargs['localAuthenticationDisabled']
-        if mongo_server_version is None and 'mongoServerVersion' in kwargs:
-            mongo_server_version = kwargs['mongoServerVersion']
-        if network_acl_bypass_for_azure_services is None and 'networkAclBypassForAzureServices' in kwargs:
-            network_acl_bypass_for_azure_services = kwargs['networkAclBypassForAzureServices']
-        if network_acl_bypass_ids is None and 'networkAclBypassIds' in kwargs:
-            network_acl_bypass_ids = kwargs['networkAclBypassIds']
-        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
-            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if virtual_network_rules is None and 'virtualNetworkRules' in kwargs:
-            virtual_network_rules = kwargs['virtualNetworkRules']
-
-        _setter("consistency_policy", consistency_policy)
-        _setter("geo_locations", geo_locations)
-        _setter("offer_type", offer_type)
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "consistency_policy", consistency_policy)
+        pulumi.set(__self__, "geo_locations", geo_locations)
+        pulumi.set(__self__, "offer_type", offer_type)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if access_key_metadata_writes_enabled is not None:
-            _setter("access_key_metadata_writes_enabled", access_key_metadata_writes_enabled)
+            pulumi.set(__self__, "access_key_metadata_writes_enabled", access_key_metadata_writes_enabled)
         if analytical_storage is not None:
-            _setter("analytical_storage", analytical_storage)
+            pulumi.set(__self__, "analytical_storage", analytical_storage)
         if analytical_storage_enabled is not None:
-            _setter("analytical_storage_enabled", analytical_storage_enabled)
+            pulumi.set(__self__, "analytical_storage_enabled", analytical_storage_enabled)
         if backup is not None:
-            _setter("backup", backup)
+            pulumi.set(__self__, "backup", backup)
         if capabilities is not None:
-            _setter("capabilities", capabilities)
+            pulumi.set(__self__, "capabilities", capabilities)
         if capacity is not None:
-            _setter("capacity", capacity)
+            pulumi.set(__self__, "capacity", capacity)
         if cors_rule is not None:
-            _setter("cors_rule", cors_rule)
+            pulumi.set(__self__, "cors_rule", cors_rule)
         if create_mode is not None:
-            _setter("create_mode", create_mode)
+            pulumi.set(__self__, "create_mode", create_mode)
         if default_identity_type is not None:
-            _setter("default_identity_type", default_identity_type)
+            pulumi.set(__self__, "default_identity_type", default_identity_type)
         if enable_automatic_failover is not None:
-            _setter("enable_automatic_failover", enable_automatic_failover)
+            pulumi.set(__self__, "enable_automatic_failover", enable_automatic_failover)
         if enable_free_tier is not None:
-            _setter("enable_free_tier", enable_free_tier)
+            pulumi.set(__self__, "enable_free_tier", enable_free_tier)
         if enable_multiple_write_locations is not None:
-            _setter("enable_multiple_write_locations", enable_multiple_write_locations)
+            pulumi.set(__self__, "enable_multiple_write_locations", enable_multiple_write_locations)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if ip_range_filter is not None:
-            _setter("ip_range_filter", ip_range_filter)
+            pulumi.set(__self__, "ip_range_filter", ip_range_filter)
         if is_virtual_network_filter_enabled is not None:
-            _setter("is_virtual_network_filter_enabled", is_virtual_network_filter_enabled)
+            pulumi.set(__self__, "is_virtual_network_filter_enabled", is_virtual_network_filter_enabled)
         if key_vault_key_id is not None:
-            _setter("key_vault_key_id", key_vault_key_id)
+            pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
         if kind is not None:
-            _setter("kind", kind)
+            pulumi.set(__self__, "kind", kind)
         if local_authentication_disabled is not None:
-            _setter("local_authentication_disabled", local_authentication_disabled)
+            pulumi.set(__self__, "local_authentication_disabled", local_authentication_disabled)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if mongo_server_version is not None:
-            _setter("mongo_server_version", mongo_server_version)
+            pulumi.set(__self__, "mongo_server_version", mongo_server_version)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if network_acl_bypass_for_azure_services is not None:
-            _setter("network_acl_bypass_for_azure_services", network_acl_bypass_for_azure_services)
+            pulumi.set(__self__, "network_acl_bypass_for_azure_services", network_acl_bypass_for_azure_services)
         if network_acl_bypass_ids is not None:
-            _setter("network_acl_bypass_ids", network_acl_bypass_ids)
+            pulumi.set(__self__, "network_acl_bypass_ids", network_acl_bypass_ids)
         if public_network_access_enabled is not None:
-            _setter("public_network_access_enabled", public_network_access_enabled)
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if restore is not None:
-            _setter("restore", restore)
+            pulumi.set(__self__, "restore", restore)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if virtual_network_rules is not None:
-            _setter("virtual_network_rules", virtual_network_rules)
+            pulumi.set(__self__, "virtual_network_rules", virtual_network_rules)
 
     @property
     @pulumi.getter(name="consistencyPolicy")
@@ -772,277 +649,100 @@ class _AccountState:
         :param pulumi.Input[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]] virtual_network_rules: Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] write_endpoints: A list of write endpoints available for this CosmosDB account.
         """
-        _AccountState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            access_key_metadata_writes_enabled=access_key_metadata_writes_enabled,
-            analytical_storage=analytical_storage,
-            analytical_storage_enabled=analytical_storage_enabled,
-            backup=backup,
-            capabilities=capabilities,
-            capacity=capacity,
-            connection_strings=connection_strings,
-            consistency_policy=consistency_policy,
-            cors_rule=cors_rule,
-            create_mode=create_mode,
-            default_identity_type=default_identity_type,
-            enable_automatic_failover=enable_automatic_failover,
-            enable_free_tier=enable_free_tier,
-            enable_multiple_write_locations=enable_multiple_write_locations,
-            endpoint=endpoint,
-            geo_locations=geo_locations,
-            identity=identity,
-            ip_range_filter=ip_range_filter,
-            is_virtual_network_filter_enabled=is_virtual_network_filter_enabled,
-            key_vault_key_id=key_vault_key_id,
-            kind=kind,
-            local_authentication_disabled=local_authentication_disabled,
-            location=location,
-            mongo_server_version=mongo_server_version,
-            name=name,
-            network_acl_bypass_for_azure_services=network_acl_bypass_for_azure_services,
-            network_acl_bypass_ids=network_acl_bypass_ids,
-            offer_type=offer_type,
-            primary_key=primary_key,
-            primary_mongodb_connection_string=primary_mongodb_connection_string,
-            primary_readonly_key=primary_readonly_key,
-            primary_readonly_mongodb_connection_string=primary_readonly_mongodb_connection_string,
-            primary_readonly_sql_connection_string=primary_readonly_sql_connection_string,
-            primary_sql_connection_string=primary_sql_connection_string,
-            public_network_access_enabled=public_network_access_enabled,
-            read_endpoints=read_endpoints,
-            resource_group_name=resource_group_name,
-            restore=restore,
-            secondary_key=secondary_key,
-            secondary_mongodb_connection_string=secondary_mongodb_connection_string,
-            secondary_readonly_key=secondary_readonly_key,
-            secondary_readonly_mongodb_connection_string=secondary_readonly_mongodb_connection_string,
-            secondary_readonly_sql_connection_string=secondary_readonly_sql_connection_string,
-            secondary_sql_connection_string=secondary_sql_connection_string,
-            tags=tags,
-            virtual_network_rules=virtual_network_rules,
-            write_endpoints=write_endpoints,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             access_key_metadata_writes_enabled: Optional[pulumi.Input[bool]] = None,
-             analytical_storage: Optional[pulumi.Input['AccountAnalyticalStorageArgs']] = None,
-             analytical_storage_enabled: Optional[pulumi.Input[bool]] = None,
-             backup: Optional[pulumi.Input['AccountBackupArgs']] = None,
-             capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]]] = None,
-             capacity: Optional[pulumi.Input['AccountCapacityArgs']] = None,
-             connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             consistency_policy: Optional[pulumi.Input['AccountConsistencyPolicyArgs']] = None,
-             cors_rule: Optional[pulumi.Input['AccountCorsRuleArgs']] = None,
-             create_mode: Optional[pulumi.Input[str]] = None,
-             default_identity_type: Optional[pulumi.Input[str]] = None,
-             enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
-             enable_free_tier: Optional[pulumi.Input[bool]] = None,
-             enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
-             endpoint: Optional[pulumi.Input[str]] = None,
-             geo_locations: Optional[pulumi.Input[Sequence[pulumi.Input['AccountGeoLocationArgs']]]] = None,
-             identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
-             ip_range_filter: Optional[pulumi.Input[str]] = None,
-             is_virtual_network_filter_enabled: Optional[pulumi.Input[bool]] = None,
-             key_vault_key_id: Optional[pulumi.Input[str]] = None,
-             kind: Optional[pulumi.Input[str]] = None,
-             local_authentication_disabled: Optional[pulumi.Input[bool]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             mongo_server_version: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             network_acl_bypass_for_azure_services: Optional[pulumi.Input[bool]] = None,
-             network_acl_bypass_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             offer_type: Optional[pulumi.Input[str]] = None,
-             primary_key: Optional[pulumi.Input[str]] = None,
-             primary_mongodb_connection_string: Optional[pulumi.Input[str]] = None,
-             primary_readonly_key: Optional[pulumi.Input[str]] = None,
-             primary_readonly_mongodb_connection_string: Optional[pulumi.Input[str]] = None,
-             primary_readonly_sql_connection_string: Optional[pulumi.Input[str]] = None,
-             primary_sql_connection_string: Optional[pulumi.Input[str]] = None,
-             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
-             read_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             restore: Optional[pulumi.Input['AccountRestoreArgs']] = None,
-             secondary_key: Optional[pulumi.Input[str]] = None,
-             secondary_mongodb_connection_string: Optional[pulumi.Input[str]] = None,
-             secondary_readonly_key: Optional[pulumi.Input[str]] = None,
-             secondary_readonly_mongodb_connection_string: Optional[pulumi.Input[str]] = None,
-             secondary_readonly_sql_connection_string: Optional[pulumi.Input[str]] = None,
-             secondary_sql_connection_string: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]]] = None,
-             write_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if access_key_metadata_writes_enabled is None and 'accessKeyMetadataWritesEnabled' in kwargs:
-            access_key_metadata_writes_enabled = kwargs['accessKeyMetadataWritesEnabled']
-        if analytical_storage is None and 'analyticalStorage' in kwargs:
-            analytical_storage = kwargs['analyticalStorage']
-        if analytical_storage_enabled is None and 'analyticalStorageEnabled' in kwargs:
-            analytical_storage_enabled = kwargs['analyticalStorageEnabled']
-        if connection_strings is None and 'connectionStrings' in kwargs:
-            connection_strings = kwargs['connectionStrings']
-        if consistency_policy is None and 'consistencyPolicy' in kwargs:
-            consistency_policy = kwargs['consistencyPolicy']
-        if cors_rule is None and 'corsRule' in kwargs:
-            cors_rule = kwargs['corsRule']
-        if create_mode is None and 'createMode' in kwargs:
-            create_mode = kwargs['createMode']
-        if default_identity_type is None and 'defaultIdentityType' in kwargs:
-            default_identity_type = kwargs['defaultIdentityType']
-        if enable_automatic_failover is None and 'enableAutomaticFailover' in kwargs:
-            enable_automatic_failover = kwargs['enableAutomaticFailover']
-        if enable_free_tier is None and 'enableFreeTier' in kwargs:
-            enable_free_tier = kwargs['enableFreeTier']
-        if enable_multiple_write_locations is None and 'enableMultipleWriteLocations' in kwargs:
-            enable_multiple_write_locations = kwargs['enableMultipleWriteLocations']
-        if geo_locations is None and 'geoLocations' in kwargs:
-            geo_locations = kwargs['geoLocations']
-        if ip_range_filter is None and 'ipRangeFilter' in kwargs:
-            ip_range_filter = kwargs['ipRangeFilter']
-        if is_virtual_network_filter_enabled is None and 'isVirtualNetworkFilterEnabled' in kwargs:
-            is_virtual_network_filter_enabled = kwargs['isVirtualNetworkFilterEnabled']
-        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
-            key_vault_key_id = kwargs['keyVaultKeyId']
-        if local_authentication_disabled is None and 'localAuthenticationDisabled' in kwargs:
-            local_authentication_disabled = kwargs['localAuthenticationDisabled']
-        if mongo_server_version is None and 'mongoServerVersion' in kwargs:
-            mongo_server_version = kwargs['mongoServerVersion']
-        if network_acl_bypass_for_azure_services is None and 'networkAclBypassForAzureServices' in kwargs:
-            network_acl_bypass_for_azure_services = kwargs['networkAclBypassForAzureServices']
-        if network_acl_bypass_ids is None and 'networkAclBypassIds' in kwargs:
-            network_acl_bypass_ids = kwargs['networkAclBypassIds']
-        if offer_type is None and 'offerType' in kwargs:
-            offer_type = kwargs['offerType']
-        if primary_key is None and 'primaryKey' in kwargs:
-            primary_key = kwargs['primaryKey']
-        if primary_mongodb_connection_string is None and 'primaryMongodbConnectionString' in kwargs:
-            primary_mongodb_connection_string = kwargs['primaryMongodbConnectionString']
-        if primary_readonly_key is None and 'primaryReadonlyKey' in kwargs:
-            primary_readonly_key = kwargs['primaryReadonlyKey']
-        if primary_readonly_mongodb_connection_string is None and 'primaryReadonlyMongodbConnectionString' in kwargs:
-            primary_readonly_mongodb_connection_string = kwargs['primaryReadonlyMongodbConnectionString']
-        if primary_readonly_sql_connection_string is None and 'primaryReadonlySqlConnectionString' in kwargs:
-            primary_readonly_sql_connection_string = kwargs['primaryReadonlySqlConnectionString']
-        if primary_sql_connection_string is None and 'primarySqlConnectionString' in kwargs:
-            primary_sql_connection_string = kwargs['primarySqlConnectionString']
-        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
-            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if read_endpoints is None and 'readEndpoints' in kwargs:
-            read_endpoints = kwargs['readEndpoints']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if secondary_key is None and 'secondaryKey' in kwargs:
-            secondary_key = kwargs['secondaryKey']
-        if secondary_mongodb_connection_string is None and 'secondaryMongodbConnectionString' in kwargs:
-            secondary_mongodb_connection_string = kwargs['secondaryMongodbConnectionString']
-        if secondary_readonly_key is None and 'secondaryReadonlyKey' in kwargs:
-            secondary_readonly_key = kwargs['secondaryReadonlyKey']
-        if secondary_readonly_mongodb_connection_string is None and 'secondaryReadonlyMongodbConnectionString' in kwargs:
-            secondary_readonly_mongodb_connection_string = kwargs['secondaryReadonlyMongodbConnectionString']
-        if secondary_readonly_sql_connection_string is None and 'secondaryReadonlySqlConnectionString' in kwargs:
-            secondary_readonly_sql_connection_string = kwargs['secondaryReadonlySqlConnectionString']
-        if secondary_sql_connection_string is None and 'secondarySqlConnectionString' in kwargs:
-            secondary_sql_connection_string = kwargs['secondarySqlConnectionString']
-        if virtual_network_rules is None and 'virtualNetworkRules' in kwargs:
-            virtual_network_rules = kwargs['virtualNetworkRules']
-        if write_endpoints is None and 'writeEndpoints' in kwargs:
-            write_endpoints = kwargs['writeEndpoints']
-
         if access_key_metadata_writes_enabled is not None:
-            _setter("access_key_metadata_writes_enabled", access_key_metadata_writes_enabled)
+            pulumi.set(__self__, "access_key_metadata_writes_enabled", access_key_metadata_writes_enabled)
         if analytical_storage is not None:
-            _setter("analytical_storage", analytical_storage)
+            pulumi.set(__self__, "analytical_storage", analytical_storage)
         if analytical_storage_enabled is not None:
-            _setter("analytical_storage_enabled", analytical_storage_enabled)
+            pulumi.set(__self__, "analytical_storage_enabled", analytical_storage_enabled)
         if backup is not None:
-            _setter("backup", backup)
+            pulumi.set(__self__, "backup", backup)
         if capabilities is not None:
-            _setter("capabilities", capabilities)
+            pulumi.set(__self__, "capabilities", capabilities)
         if capacity is not None:
-            _setter("capacity", capacity)
+            pulumi.set(__self__, "capacity", capacity)
         if connection_strings is not None:
-            _setter("connection_strings", connection_strings)
+            pulumi.set(__self__, "connection_strings", connection_strings)
         if consistency_policy is not None:
-            _setter("consistency_policy", consistency_policy)
+            pulumi.set(__self__, "consistency_policy", consistency_policy)
         if cors_rule is not None:
-            _setter("cors_rule", cors_rule)
+            pulumi.set(__self__, "cors_rule", cors_rule)
         if create_mode is not None:
-            _setter("create_mode", create_mode)
+            pulumi.set(__self__, "create_mode", create_mode)
         if default_identity_type is not None:
-            _setter("default_identity_type", default_identity_type)
+            pulumi.set(__self__, "default_identity_type", default_identity_type)
         if enable_automatic_failover is not None:
-            _setter("enable_automatic_failover", enable_automatic_failover)
+            pulumi.set(__self__, "enable_automatic_failover", enable_automatic_failover)
         if enable_free_tier is not None:
-            _setter("enable_free_tier", enable_free_tier)
+            pulumi.set(__self__, "enable_free_tier", enable_free_tier)
         if enable_multiple_write_locations is not None:
-            _setter("enable_multiple_write_locations", enable_multiple_write_locations)
+            pulumi.set(__self__, "enable_multiple_write_locations", enable_multiple_write_locations)
         if endpoint is not None:
-            _setter("endpoint", endpoint)
+            pulumi.set(__self__, "endpoint", endpoint)
         if geo_locations is not None:
-            _setter("geo_locations", geo_locations)
+            pulumi.set(__self__, "geo_locations", geo_locations)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if ip_range_filter is not None:
-            _setter("ip_range_filter", ip_range_filter)
+            pulumi.set(__self__, "ip_range_filter", ip_range_filter)
         if is_virtual_network_filter_enabled is not None:
-            _setter("is_virtual_network_filter_enabled", is_virtual_network_filter_enabled)
+            pulumi.set(__self__, "is_virtual_network_filter_enabled", is_virtual_network_filter_enabled)
         if key_vault_key_id is not None:
-            _setter("key_vault_key_id", key_vault_key_id)
+            pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
         if kind is not None:
-            _setter("kind", kind)
+            pulumi.set(__self__, "kind", kind)
         if local_authentication_disabled is not None:
-            _setter("local_authentication_disabled", local_authentication_disabled)
+            pulumi.set(__self__, "local_authentication_disabled", local_authentication_disabled)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if mongo_server_version is not None:
-            _setter("mongo_server_version", mongo_server_version)
+            pulumi.set(__self__, "mongo_server_version", mongo_server_version)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if network_acl_bypass_for_azure_services is not None:
-            _setter("network_acl_bypass_for_azure_services", network_acl_bypass_for_azure_services)
+            pulumi.set(__self__, "network_acl_bypass_for_azure_services", network_acl_bypass_for_azure_services)
         if network_acl_bypass_ids is not None:
-            _setter("network_acl_bypass_ids", network_acl_bypass_ids)
+            pulumi.set(__self__, "network_acl_bypass_ids", network_acl_bypass_ids)
         if offer_type is not None:
-            _setter("offer_type", offer_type)
+            pulumi.set(__self__, "offer_type", offer_type)
         if primary_key is not None:
-            _setter("primary_key", primary_key)
+            pulumi.set(__self__, "primary_key", primary_key)
         if primary_mongodb_connection_string is not None:
-            _setter("primary_mongodb_connection_string", primary_mongodb_connection_string)
+            pulumi.set(__self__, "primary_mongodb_connection_string", primary_mongodb_connection_string)
         if primary_readonly_key is not None:
-            _setter("primary_readonly_key", primary_readonly_key)
+            pulumi.set(__self__, "primary_readonly_key", primary_readonly_key)
         if primary_readonly_mongodb_connection_string is not None:
-            _setter("primary_readonly_mongodb_connection_string", primary_readonly_mongodb_connection_string)
+            pulumi.set(__self__, "primary_readonly_mongodb_connection_string", primary_readonly_mongodb_connection_string)
         if primary_readonly_sql_connection_string is not None:
-            _setter("primary_readonly_sql_connection_string", primary_readonly_sql_connection_string)
+            pulumi.set(__self__, "primary_readonly_sql_connection_string", primary_readonly_sql_connection_string)
         if primary_sql_connection_string is not None:
-            _setter("primary_sql_connection_string", primary_sql_connection_string)
+            pulumi.set(__self__, "primary_sql_connection_string", primary_sql_connection_string)
         if public_network_access_enabled is not None:
-            _setter("public_network_access_enabled", public_network_access_enabled)
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if read_endpoints is not None:
-            _setter("read_endpoints", read_endpoints)
+            pulumi.set(__self__, "read_endpoints", read_endpoints)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if restore is not None:
-            _setter("restore", restore)
+            pulumi.set(__self__, "restore", restore)
         if secondary_key is not None:
-            _setter("secondary_key", secondary_key)
+            pulumi.set(__self__, "secondary_key", secondary_key)
         if secondary_mongodb_connection_string is not None:
-            _setter("secondary_mongodb_connection_string", secondary_mongodb_connection_string)
+            pulumi.set(__self__, "secondary_mongodb_connection_string", secondary_mongodb_connection_string)
         if secondary_readonly_key is not None:
-            _setter("secondary_readonly_key", secondary_readonly_key)
+            pulumi.set(__self__, "secondary_readonly_key", secondary_readonly_key)
         if secondary_readonly_mongodb_connection_string is not None:
-            _setter("secondary_readonly_mongodb_connection_string", secondary_readonly_mongodb_connection_string)
+            pulumi.set(__self__, "secondary_readonly_mongodb_connection_string", secondary_readonly_mongodb_connection_string)
         if secondary_readonly_sql_connection_string is not None:
-            _setter("secondary_readonly_sql_connection_string", secondary_readonly_sql_connection_string)
+            pulumi.set(__self__, "secondary_readonly_sql_connection_string", secondary_readonly_sql_connection_string)
         if secondary_sql_connection_string is not None:
-            _setter("secondary_sql_connection_string", secondary_sql_connection_string)
+            pulumi.set(__self__, "secondary_sql_connection_string", secondary_sql_connection_string)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if virtual_network_rules is not None:
-            _setter("virtual_network_rules", virtual_network_rules)
+            pulumi.set(__self__, "virtual_network_rules", virtual_network_rules)
         if write_endpoints is not None:
-            _setter("write_endpoints", write_endpoints)
+            pulumi.set(__self__, "write_endpoints", write_endpoints)
 
     @property
     @pulumi.getter(name="accessKeyMetadataWritesEnabled")
@@ -1838,10 +1538,6 @@ class Account(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AccountArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1888,19 +1584,14 @@ class Account(pulumi.CustomResource):
             __props__ = AccountArgs.__new__(AccountArgs)
 
             __props__.__dict__["access_key_metadata_writes_enabled"] = access_key_metadata_writes_enabled
-            analytical_storage = _utilities.configure(analytical_storage, AccountAnalyticalStorageArgs, True)
             __props__.__dict__["analytical_storage"] = analytical_storage
             __props__.__dict__["analytical_storage_enabled"] = analytical_storage_enabled
-            backup = _utilities.configure(backup, AccountBackupArgs, True)
             __props__.__dict__["backup"] = backup
             __props__.__dict__["capabilities"] = capabilities
-            capacity = _utilities.configure(capacity, AccountCapacityArgs, True)
             __props__.__dict__["capacity"] = capacity
-            consistency_policy = _utilities.configure(consistency_policy, AccountConsistencyPolicyArgs, True)
             if consistency_policy is None and not opts.urn:
                 raise TypeError("Missing required property 'consistency_policy'")
             __props__.__dict__["consistency_policy"] = consistency_policy
-            cors_rule = _utilities.configure(cors_rule, AccountCorsRuleArgs, True)
             __props__.__dict__["cors_rule"] = cors_rule
             __props__.__dict__["create_mode"] = create_mode
             __props__.__dict__["default_identity_type"] = default_identity_type
@@ -1910,7 +1601,6 @@ class Account(pulumi.CustomResource):
             if geo_locations is None and not opts.urn:
                 raise TypeError("Missing required property 'geo_locations'")
             __props__.__dict__["geo_locations"] = geo_locations
-            identity = _utilities.configure(identity, AccountIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["ip_range_filter"] = ip_range_filter
             __props__.__dict__["is_virtual_network_filter_enabled"] = is_virtual_network_filter_enabled
@@ -1929,7 +1619,6 @@ class Account(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            restore = _utilities.configure(restore, AccountRestoreArgs, True)
             __props__.__dict__["restore"] = restore
             __props__.__dict__["tags"] = tags
             __props__.__dict__["virtual_network_rules"] = virtual_network_rules

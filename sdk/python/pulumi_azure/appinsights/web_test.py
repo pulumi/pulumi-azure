@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['WebTestArgs', 'WebTest']
@@ -45,80 +45,27 @@ class WebTestArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[int] timeout: Seconds until this WebTest will timeout and fail. Default is `30`.
         """
-        WebTestArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            application_insights_id=application_insights_id,
-            configuration=configuration,
-            geo_locations=geo_locations,
-            kind=kind,
-            resource_group_name=resource_group_name,
-            description=description,
-            enabled=enabled,
-            frequency=frequency,
-            location=location,
-            name=name,
-            retry_enabled=retry_enabled,
-            tags=tags,
-            timeout=timeout,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             application_insights_id: Optional[pulumi.Input[str]] = None,
-             configuration: Optional[pulumi.Input[str]] = None,
-             geo_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             kind: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             frequency: Optional[pulumi.Input[int]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             retry_enabled: Optional[pulumi.Input[bool]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             timeout: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if application_insights_id is None and 'applicationInsightsId' in kwargs:
-            application_insights_id = kwargs['applicationInsightsId']
-        if application_insights_id is None:
-            raise TypeError("Missing 'application_insights_id' argument")
-        if configuration is None:
-            raise TypeError("Missing 'configuration' argument")
-        if geo_locations is None and 'geoLocations' in kwargs:
-            geo_locations = kwargs['geoLocations']
-        if geo_locations is None:
-            raise TypeError("Missing 'geo_locations' argument")
-        if kind is None:
-            raise TypeError("Missing 'kind' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if retry_enabled is None and 'retryEnabled' in kwargs:
-            retry_enabled = kwargs['retryEnabled']
-
-        _setter("application_insights_id", application_insights_id)
-        _setter("configuration", configuration)
-        _setter("geo_locations", geo_locations)
-        _setter("kind", kind)
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "application_insights_id", application_insights_id)
+        pulumi.set(__self__, "configuration", configuration)
+        pulumi.set(__self__, "geo_locations", geo_locations)
+        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if frequency is not None:
-            _setter("frequency", frequency)
+            pulumi.set(__self__, "frequency", frequency)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if retry_enabled is not None:
-            _setter("retry_enabled", retry_enabled)
+            pulumi.set(__self__, "retry_enabled", retry_enabled)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if timeout is not None:
-            _setter("timeout", timeout)
+            pulumi.set(__self__, "timeout", timeout)
 
     @property
     @pulumi.getter(name="applicationInsightsId")
@@ -314,81 +261,34 @@ class _WebTestState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[int] timeout: Seconds until this WebTest will timeout and fail. Default is `30`.
         """
-        _WebTestState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            application_insights_id=application_insights_id,
-            configuration=configuration,
-            description=description,
-            enabled=enabled,
-            frequency=frequency,
-            geo_locations=geo_locations,
-            kind=kind,
-            location=location,
-            name=name,
-            resource_group_name=resource_group_name,
-            retry_enabled=retry_enabled,
-            synthetic_monitor_id=synthetic_monitor_id,
-            tags=tags,
-            timeout=timeout,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             application_insights_id: Optional[pulumi.Input[str]] = None,
-             configuration: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             frequency: Optional[pulumi.Input[int]] = None,
-             geo_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             kind: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             retry_enabled: Optional[pulumi.Input[bool]] = None,
-             synthetic_monitor_id: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             timeout: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if application_insights_id is None and 'applicationInsightsId' in kwargs:
-            application_insights_id = kwargs['applicationInsightsId']
-        if geo_locations is None and 'geoLocations' in kwargs:
-            geo_locations = kwargs['geoLocations']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if retry_enabled is None and 'retryEnabled' in kwargs:
-            retry_enabled = kwargs['retryEnabled']
-        if synthetic_monitor_id is None and 'syntheticMonitorId' in kwargs:
-            synthetic_monitor_id = kwargs['syntheticMonitorId']
-
         if application_insights_id is not None:
-            _setter("application_insights_id", application_insights_id)
+            pulumi.set(__self__, "application_insights_id", application_insights_id)
         if configuration is not None:
-            _setter("configuration", configuration)
+            pulumi.set(__self__, "configuration", configuration)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if frequency is not None:
-            _setter("frequency", frequency)
+            pulumi.set(__self__, "frequency", frequency)
         if geo_locations is not None:
-            _setter("geo_locations", geo_locations)
+            pulumi.set(__self__, "geo_locations", geo_locations)
         if kind is not None:
-            _setter("kind", kind)
+            pulumi.set(__self__, "kind", kind)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if retry_enabled is not None:
-            _setter("retry_enabled", retry_enabled)
+            pulumi.set(__self__, "retry_enabled", retry_enabled)
         if synthetic_monitor_id is not None:
-            _setter("synthetic_monitor_id", synthetic_monitor_id)
+            pulumi.set(__self__, "synthetic_monitor_id", synthetic_monitor_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if timeout is not None:
-            _setter("timeout", timeout)
+            pulumi.set(__self__, "timeout", timeout)
 
     @property
     @pulumi.getter(name="applicationInsightsId")
@@ -699,10 +599,6 @@ class WebTest(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            WebTestArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

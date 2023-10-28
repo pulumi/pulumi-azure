@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -53,109 +53,36 @@ class NetworkPacketCoreControlPlaneArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Mobile Network Packet Core Control Plane.
         :param pulumi.Input[int] user_equipment_mtu_in_bytes: Specifies the MTU in bytes that can be sent to the user equipment. The same MTU is set on the user plane data links for all data networks. The MTU set on the user plane access link will be 60 bytes greater than this value to allow for GTP encapsulation.
         """
-        NetworkPacketCoreControlPlaneArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            local_diagnostics_access=local_diagnostics_access,
-            resource_group_name=resource_group_name,
-            site_ids=site_ids,
-            sku=sku,
-            control_plane_access_ipv4_address=control_plane_access_ipv4_address,
-            control_plane_access_ipv4_gateway=control_plane_access_ipv4_gateway,
-            control_plane_access_ipv4_subnet=control_plane_access_ipv4_subnet,
-            control_plane_access_name=control_plane_access_name,
-            core_network_technology=core_network_technology,
-            identity=identity,
-            interoperability_settings_json=interoperability_settings_json,
-            location=location,
-            name=name,
-            platform=platform,
-            software_version=software_version,
-            tags=tags,
-            user_equipment_mtu_in_bytes=user_equipment_mtu_in_bytes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             local_diagnostics_access: Optional[pulumi.Input['NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs']] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             site_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             sku: Optional[pulumi.Input[str]] = None,
-             control_plane_access_ipv4_address: Optional[pulumi.Input[str]] = None,
-             control_plane_access_ipv4_gateway: Optional[pulumi.Input[str]] = None,
-             control_plane_access_ipv4_subnet: Optional[pulumi.Input[str]] = None,
-             control_plane_access_name: Optional[pulumi.Input[str]] = None,
-             core_network_technology: Optional[pulumi.Input[str]] = None,
-             identity: Optional[pulumi.Input['NetworkPacketCoreControlPlaneIdentityArgs']] = None,
-             interoperability_settings_json: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             platform: Optional[pulumi.Input['NetworkPacketCoreControlPlanePlatformArgs']] = None,
-             software_version: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             user_equipment_mtu_in_bytes: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if local_diagnostics_access is None and 'localDiagnosticsAccess' in kwargs:
-            local_diagnostics_access = kwargs['localDiagnosticsAccess']
-        if local_diagnostics_access is None:
-            raise TypeError("Missing 'local_diagnostics_access' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if site_ids is None and 'siteIds' in kwargs:
-            site_ids = kwargs['siteIds']
-        if site_ids is None:
-            raise TypeError("Missing 'site_ids' argument")
-        if sku is None:
-            raise TypeError("Missing 'sku' argument")
-        if control_plane_access_ipv4_address is None and 'controlPlaneAccessIpv4Address' in kwargs:
-            control_plane_access_ipv4_address = kwargs['controlPlaneAccessIpv4Address']
-        if control_plane_access_ipv4_gateway is None and 'controlPlaneAccessIpv4Gateway' in kwargs:
-            control_plane_access_ipv4_gateway = kwargs['controlPlaneAccessIpv4Gateway']
-        if control_plane_access_ipv4_subnet is None and 'controlPlaneAccessIpv4Subnet' in kwargs:
-            control_plane_access_ipv4_subnet = kwargs['controlPlaneAccessIpv4Subnet']
-        if control_plane_access_name is None and 'controlPlaneAccessName' in kwargs:
-            control_plane_access_name = kwargs['controlPlaneAccessName']
-        if core_network_technology is None and 'coreNetworkTechnology' in kwargs:
-            core_network_technology = kwargs['coreNetworkTechnology']
-        if interoperability_settings_json is None and 'interoperabilitySettingsJson' in kwargs:
-            interoperability_settings_json = kwargs['interoperabilitySettingsJson']
-        if software_version is None and 'softwareVersion' in kwargs:
-            software_version = kwargs['softwareVersion']
-        if user_equipment_mtu_in_bytes is None and 'userEquipmentMtuInBytes' in kwargs:
-            user_equipment_mtu_in_bytes = kwargs['userEquipmentMtuInBytes']
-
-        _setter("local_diagnostics_access", local_diagnostics_access)
-        _setter("resource_group_name", resource_group_name)
-        _setter("site_ids", site_ids)
-        _setter("sku", sku)
+        pulumi.set(__self__, "local_diagnostics_access", local_diagnostics_access)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "site_ids", site_ids)
+        pulumi.set(__self__, "sku", sku)
         if control_plane_access_ipv4_address is not None:
-            _setter("control_plane_access_ipv4_address", control_plane_access_ipv4_address)
+            pulumi.set(__self__, "control_plane_access_ipv4_address", control_plane_access_ipv4_address)
         if control_plane_access_ipv4_gateway is not None:
-            _setter("control_plane_access_ipv4_gateway", control_plane_access_ipv4_gateway)
+            pulumi.set(__self__, "control_plane_access_ipv4_gateway", control_plane_access_ipv4_gateway)
         if control_plane_access_ipv4_subnet is not None:
-            _setter("control_plane_access_ipv4_subnet", control_plane_access_ipv4_subnet)
+            pulumi.set(__self__, "control_plane_access_ipv4_subnet", control_plane_access_ipv4_subnet)
         if control_plane_access_name is not None:
-            _setter("control_plane_access_name", control_plane_access_name)
+            pulumi.set(__self__, "control_plane_access_name", control_plane_access_name)
         if core_network_technology is not None:
-            _setter("core_network_technology", core_network_technology)
+            pulumi.set(__self__, "core_network_technology", core_network_technology)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if interoperability_settings_json is not None:
-            _setter("interoperability_settings_json", interoperability_settings_json)
+            pulumi.set(__self__, "interoperability_settings_json", interoperability_settings_json)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if platform is not None:
-            _setter("platform", platform)
+            pulumi.set(__self__, "platform", platform)
         if software_version is not None:
-            _setter("software_version", software_version)
+            pulumi.set(__self__, "software_version", software_version)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if user_equipment_mtu_in_bytes is not None:
-            _setter("user_equipment_mtu_in_bytes", user_equipment_mtu_in_bytes)
+            pulumi.set(__self__, "user_equipment_mtu_in_bytes", user_equipment_mtu_in_bytes)
 
     @property
     @pulumi.getter(name="localDiagnosticsAccess")
@@ -402,105 +329,40 @@ class _NetworkPacketCoreControlPlaneState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Mobile Network Packet Core Control Plane.
         :param pulumi.Input[int] user_equipment_mtu_in_bytes: Specifies the MTU in bytes that can be sent to the user equipment. The same MTU is set on the user plane data links for all data networks. The MTU set on the user plane access link will be 60 bytes greater than this value to allow for GTP encapsulation.
         """
-        _NetworkPacketCoreControlPlaneState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            control_plane_access_ipv4_address=control_plane_access_ipv4_address,
-            control_plane_access_ipv4_gateway=control_plane_access_ipv4_gateway,
-            control_plane_access_ipv4_subnet=control_plane_access_ipv4_subnet,
-            control_plane_access_name=control_plane_access_name,
-            core_network_technology=core_network_technology,
-            identity=identity,
-            interoperability_settings_json=interoperability_settings_json,
-            local_diagnostics_access=local_diagnostics_access,
-            location=location,
-            name=name,
-            platform=platform,
-            resource_group_name=resource_group_name,
-            site_ids=site_ids,
-            sku=sku,
-            software_version=software_version,
-            tags=tags,
-            user_equipment_mtu_in_bytes=user_equipment_mtu_in_bytes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             control_plane_access_ipv4_address: Optional[pulumi.Input[str]] = None,
-             control_plane_access_ipv4_gateway: Optional[pulumi.Input[str]] = None,
-             control_plane_access_ipv4_subnet: Optional[pulumi.Input[str]] = None,
-             control_plane_access_name: Optional[pulumi.Input[str]] = None,
-             core_network_technology: Optional[pulumi.Input[str]] = None,
-             identity: Optional[pulumi.Input['NetworkPacketCoreControlPlaneIdentityArgs']] = None,
-             interoperability_settings_json: Optional[pulumi.Input[str]] = None,
-             local_diagnostics_access: Optional[pulumi.Input['NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs']] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             platform: Optional[pulumi.Input['NetworkPacketCoreControlPlanePlatformArgs']] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             site_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             sku: Optional[pulumi.Input[str]] = None,
-             software_version: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             user_equipment_mtu_in_bytes: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if control_plane_access_ipv4_address is None and 'controlPlaneAccessIpv4Address' in kwargs:
-            control_plane_access_ipv4_address = kwargs['controlPlaneAccessIpv4Address']
-        if control_plane_access_ipv4_gateway is None and 'controlPlaneAccessIpv4Gateway' in kwargs:
-            control_plane_access_ipv4_gateway = kwargs['controlPlaneAccessIpv4Gateway']
-        if control_plane_access_ipv4_subnet is None and 'controlPlaneAccessIpv4Subnet' in kwargs:
-            control_plane_access_ipv4_subnet = kwargs['controlPlaneAccessIpv4Subnet']
-        if control_plane_access_name is None and 'controlPlaneAccessName' in kwargs:
-            control_plane_access_name = kwargs['controlPlaneAccessName']
-        if core_network_technology is None and 'coreNetworkTechnology' in kwargs:
-            core_network_technology = kwargs['coreNetworkTechnology']
-        if interoperability_settings_json is None and 'interoperabilitySettingsJson' in kwargs:
-            interoperability_settings_json = kwargs['interoperabilitySettingsJson']
-        if local_diagnostics_access is None and 'localDiagnosticsAccess' in kwargs:
-            local_diagnostics_access = kwargs['localDiagnosticsAccess']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if site_ids is None and 'siteIds' in kwargs:
-            site_ids = kwargs['siteIds']
-        if software_version is None and 'softwareVersion' in kwargs:
-            software_version = kwargs['softwareVersion']
-        if user_equipment_mtu_in_bytes is None and 'userEquipmentMtuInBytes' in kwargs:
-            user_equipment_mtu_in_bytes = kwargs['userEquipmentMtuInBytes']
-
         if control_plane_access_ipv4_address is not None:
-            _setter("control_plane_access_ipv4_address", control_plane_access_ipv4_address)
+            pulumi.set(__self__, "control_plane_access_ipv4_address", control_plane_access_ipv4_address)
         if control_plane_access_ipv4_gateway is not None:
-            _setter("control_plane_access_ipv4_gateway", control_plane_access_ipv4_gateway)
+            pulumi.set(__self__, "control_plane_access_ipv4_gateway", control_plane_access_ipv4_gateway)
         if control_plane_access_ipv4_subnet is not None:
-            _setter("control_plane_access_ipv4_subnet", control_plane_access_ipv4_subnet)
+            pulumi.set(__self__, "control_plane_access_ipv4_subnet", control_plane_access_ipv4_subnet)
         if control_plane_access_name is not None:
-            _setter("control_plane_access_name", control_plane_access_name)
+            pulumi.set(__self__, "control_plane_access_name", control_plane_access_name)
         if core_network_technology is not None:
-            _setter("core_network_technology", core_network_technology)
+            pulumi.set(__self__, "core_network_technology", core_network_technology)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if interoperability_settings_json is not None:
-            _setter("interoperability_settings_json", interoperability_settings_json)
+            pulumi.set(__self__, "interoperability_settings_json", interoperability_settings_json)
         if local_diagnostics_access is not None:
-            _setter("local_diagnostics_access", local_diagnostics_access)
+            pulumi.set(__self__, "local_diagnostics_access", local_diagnostics_access)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if platform is not None:
-            _setter("platform", platform)
+            pulumi.set(__self__, "platform", platform)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if site_ids is not None:
-            _setter("site_ids", site_ids)
+            pulumi.set(__self__, "site_ids", site_ids)
         if sku is not None:
-            _setter("sku", sku)
+            pulumi.set(__self__, "sku", sku)
         if software_version is not None:
-            _setter("software_version", software_version)
+            pulumi.set(__self__, "software_version", software_version)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if user_equipment_mtu_in_bytes is not None:
-            _setter("user_equipment_mtu_in_bytes", user_equipment_mtu_in_bytes)
+            pulumi.set(__self__, "user_equipment_mtu_in_bytes", user_equipment_mtu_in_bytes)
 
     @property
     @pulumi.getter(name="controlPlaneAccessIpv4Address")
@@ -876,10 +738,6 @@ class NetworkPacketCoreControlPlane(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            NetworkPacketCoreControlPlaneArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -916,16 +774,13 @@ class NetworkPacketCoreControlPlane(pulumi.CustomResource):
             __props__.__dict__["control_plane_access_ipv4_subnet"] = control_plane_access_ipv4_subnet
             __props__.__dict__["control_plane_access_name"] = control_plane_access_name
             __props__.__dict__["core_network_technology"] = core_network_technology
-            identity = _utilities.configure(identity, NetworkPacketCoreControlPlaneIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["interoperability_settings_json"] = interoperability_settings_json
-            local_diagnostics_access = _utilities.configure(local_diagnostics_access, NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs, True)
             if local_diagnostics_access is None and not opts.urn:
                 raise TypeError("Missing required property 'local_diagnostics_access'")
             __props__.__dict__["local_diagnostics_access"] = local_diagnostics_access
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
-            platform = _utilities.configure(platform, NetworkPacketCoreControlPlanePlatformArgs, True)
             __props__.__dict__["platform"] = platform
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

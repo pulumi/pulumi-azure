@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,71 +41,24 @@ class ExpressRoutePortArgs:
         :param pulumi.Input[str] name: The name which should be used for this Express Route Port. Changing this forces a new Express Route Port to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Express Route Port.
         """
-        ExpressRoutePortArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bandwidth_in_gbps=bandwidth_in_gbps,
-            encapsulation=encapsulation,
-            peering_location=peering_location,
-            resource_group_name=resource_group_name,
-            billing_type=billing_type,
-            identity=identity,
-            link1=link1,
-            link2=link2,
-            location=location,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bandwidth_in_gbps: Optional[pulumi.Input[int]] = None,
-             encapsulation: Optional[pulumi.Input[str]] = None,
-             peering_location: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             billing_type: Optional[pulumi.Input[str]] = None,
-             identity: Optional[pulumi.Input['ExpressRoutePortIdentityArgs']] = None,
-             link1: Optional[pulumi.Input['ExpressRoutePortLink1Args']] = None,
-             link2: Optional[pulumi.Input['ExpressRoutePortLink2Args']] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if bandwidth_in_gbps is None and 'bandwidthInGbps' in kwargs:
-            bandwidth_in_gbps = kwargs['bandwidthInGbps']
-        if bandwidth_in_gbps is None:
-            raise TypeError("Missing 'bandwidth_in_gbps' argument")
-        if encapsulation is None:
-            raise TypeError("Missing 'encapsulation' argument")
-        if peering_location is None and 'peeringLocation' in kwargs:
-            peering_location = kwargs['peeringLocation']
-        if peering_location is None:
-            raise TypeError("Missing 'peering_location' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if billing_type is None and 'billingType' in kwargs:
-            billing_type = kwargs['billingType']
-
-        _setter("bandwidth_in_gbps", bandwidth_in_gbps)
-        _setter("encapsulation", encapsulation)
-        _setter("peering_location", peering_location)
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "bandwidth_in_gbps", bandwidth_in_gbps)
+        pulumi.set(__self__, "encapsulation", encapsulation)
+        pulumi.set(__self__, "peering_location", peering_location)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if billing_type is not None:
-            _setter("billing_type", billing_type)
+            pulumi.set(__self__, "billing_type", billing_type)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if link1 is not None:
-            _setter("link1", link1)
+            pulumi.set(__self__, "link1", link1)
         if link2 is not None:
-            _setter("link2", link2)
+            pulumi.set(__self__, "link2", link2)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="bandwidthInGbps")
@@ -274,79 +227,34 @@ class _ExpressRoutePortState:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Express Route Port should exist. Changing this forces a new Express Route Port to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Express Route Port.
         """
-        _ExpressRoutePortState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bandwidth_in_gbps=bandwidth_in_gbps,
-            billing_type=billing_type,
-            encapsulation=encapsulation,
-            ethertype=ethertype,
-            guid=guid,
-            identity=identity,
-            link1=link1,
-            link2=link2,
-            location=location,
-            mtu=mtu,
-            name=name,
-            peering_location=peering_location,
-            resource_group_name=resource_group_name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bandwidth_in_gbps: Optional[pulumi.Input[int]] = None,
-             billing_type: Optional[pulumi.Input[str]] = None,
-             encapsulation: Optional[pulumi.Input[str]] = None,
-             ethertype: Optional[pulumi.Input[str]] = None,
-             guid: Optional[pulumi.Input[str]] = None,
-             identity: Optional[pulumi.Input['ExpressRoutePortIdentityArgs']] = None,
-             link1: Optional[pulumi.Input['ExpressRoutePortLink1Args']] = None,
-             link2: Optional[pulumi.Input['ExpressRoutePortLink2Args']] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             mtu: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             peering_location: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if bandwidth_in_gbps is None and 'bandwidthInGbps' in kwargs:
-            bandwidth_in_gbps = kwargs['bandwidthInGbps']
-        if billing_type is None and 'billingType' in kwargs:
-            billing_type = kwargs['billingType']
-        if peering_location is None and 'peeringLocation' in kwargs:
-            peering_location = kwargs['peeringLocation']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-
         if bandwidth_in_gbps is not None:
-            _setter("bandwidth_in_gbps", bandwidth_in_gbps)
+            pulumi.set(__self__, "bandwidth_in_gbps", bandwidth_in_gbps)
         if billing_type is not None:
-            _setter("billing_type", billing_type)
+            pulumi.set(__self__, "billing_type", billing_type)
         if encapsulation is not None:
-            _setter("encapsulation", encapsulation)
+            pulumi.set(__self__, "encapsulation", encapsulation)
         if ethertype is not None:
-            _setter("ethertype", ethertype)
+            pulumi.set(__self__, "ethertype", ethertype)
         if guid is not None:
-            _setter("guid", guid)
+            pulumi.set(__self__, "guid", guid)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if link1 is not None:
-            _setter("link1", link1)
+            pulumi.set(__self__, "link1", link1)
         if link2 is not None:
-            _setter("link2", link2)
+            pulumi.set(__self__, "link2", link2)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if mtu is not None:
-            _setter("mtu", mtu)
+            pulumi.set(__self__, "mtu", mtu)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if peering_location is not None:
-            _setter("peering_location", peering_location)
+            pulumi.set(__self__, "peering_location", peering_location)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="bandwidthInGbps")
@@ -616,10 +524,6 @@ class ExpressRoutePort(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ExpressRoutePortArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -652,11 +556,8 @@ class ExpressRoutePort(pulumi.CustomResource):
             if encapsulation is None and not opts.urn:
                 raise TypeError("Missing required property 'encapsulation'")
             __props__.__dict__["encapsulation"] = encapsulation
-            identity = _utilities.configure(identity, ExpressRoutePortIdentityArgs, True)
             __props__.__dict__["identity"] = identity
-            link1 = _utilities.configure(link1, ExpressRoutePortLink1Args, True)
             __props__.__dict__["link1"] = link1
-            link2 = _utilities.configure(link2, ExpressRoutePortLink2Args, True)
             __props__.__dict__["link2"] = link2
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name

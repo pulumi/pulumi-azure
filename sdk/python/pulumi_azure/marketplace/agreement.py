@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AgreementArgs', 'Agreement']
@@ -23,30 +23,9 @@ class AgreementArgs:
         :param pulumi.Input[str] plan: The Plan of the Marketplace Image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] publisher: The Publisher of the Marketplace Image. Changing this forces a new resource to be created.
         """
-        AgreementArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            offer=offer,
-            plan=plan,
-            publisher=publisher,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             offer: Optional[pulumi.Input[str]] = None,
-             plan: Optional[pulumi.Input[str]] = None,
-             publisher: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if offer is None:
-            raise TypeError("Missing 'offer' argument")
-        if plan is None:
-            raise TypeError("Missing 'plan' argument")
-        if publisher is None:
-            raise TypeError("Missing 'publisher' argument")
-
-        _setter("offer", offer)
-        _setter("plan", plan)
-        _setter("publisher", publisher)
+        pulumi.set(__self__, "offer", offer)
+        pulumi.set(__self__, "plan", plan)
+        pulumi.set(__self__, "publisher", publisher)
 
     @property
     @pulumi.getter
@@ -99,39 +78,16 @@ class _AgreementState:
         :param pulumi.Input[str] plan: The Plan of the Marketplace Image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] publisher: The Publisher of the Marketplace Image. Changing this forces a new resource to be created.
         """
-        _AgreementState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            license_text_link=license_text_link,
-            offer=offer,
-            plan=plan,
-            privacy_policy_link=privacy_policy_link,
-            publisher=publisher,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             license_text_link: Optional[pulumi.Input[str]] = None,
-             offer: Optional[pulumi.Input[str]] = None,
-             plan: Optional[pulumi.Input[str]] = None,
-             privacy_policy_link: Optional[pulumi.Input[str]] = None,
-             publisher: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if license_text_link is None and 'licenseTextLink' in kwargs:
-            license_text_link = kwargs['licenseTextLink']
-        if privacy_policy_link is None and 'privacyPolicyLink' in kwargs:
-            privacy_policy_link = kwargs['privacyPolicyLink']
-
         if license_text_link is not None:
-            _setter("license_text_link", license_text_link)
+            pulumi.set(__self__, "license_text_link", license_text_link)
         if offer is not None:
-            _setter("offer", offer)
+            pulumi.set(__self__, "offer", offer)
         if plan is not None:
-            _setter("plan", plan)
+            pulumi.set(__self__, "plan", plan)
         if privacy_policy_link is not None:
-            _setter("privacy_policy_link", privacy_policy_link)
+            pulumi.set(__self__, "privacy_policy_link", privacy_policy_link)
         if publisher is not None:
-            _setter("publisher", publisher)
+            pulumi.set(__self__, "publisher", publisher)
 
     @property
     @pulumi.getter(name="licenseTextLink")
@@ -265,10 +221,6 @@ class Agreement(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AgreementArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

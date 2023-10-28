@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DataConnectorMicrosoftCloudAppSecurityArgs', 'DataConnectorMicrosoftCloudAppSecurity']
@@ -31,44 +31,15 @@ class DataConnectorMicrosoftCloudAppSecurityArgs:
                
                > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
-        DataConnectorMicrosoftCloudAppSecurityArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            log_analytics_workspace_id=log_analytics_workspace_id,
-            alerts_enabled=alerts_enabled,
-            discovery_logs_enabled=discovery_logs_enabled,
-            name=name,
-            tenant_id=tenant_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
-             alerts_enabled: Optional[pulumi.Input[bool]] = None,
-             discovery_logs_enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
-            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if log_analytics_workspace_id is None:
-            raise TypeError("Missing 'log_analytics_workspace_id' argument")
-        if alerts_enabled is None and 'alertsEnabled' in kwargs:
-            alerts_enabled = kwargs['alertsEnabled']
-        if discovery_logs_enabled is None and 'discoveryLogsEnabled' in kwargs:
-            discovery_logs_enabled = kwargs['discoveryLogsEnabled']
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-
-        _setter("log_analytics_workspace_id", log_analytics_workspace_id)
+        pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
         if alerts_enabled is not None:
-            _setter("alerts_enabled", alerts_enabled)
+            pulumi.set(__self__, "alerts_enabled", alerts_enabled)
         if discovery_logs_enabled is not None:
-            _setter("discovery_logs_enabled", discovery_logs_enabled)
+            pulumi.set(__self__, "discovery_logs_enabled", discovery_logs_enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tenant_id is not None:
-            _setter("tenant_id", tenant_id)
+            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="logAnalyticsWorkspaceId")
@@ -155,43 +126,16 @@ class _DataConnectorMicrosoftCloudAppSecurityState:
                
                > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
-        _DataConnectorMicrosoftCloudAppSecurityState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            alerts_enabled=alerts_enabled,
-            discovery_logs_enabled=discovery_logs_enabled,
-            log_analytics_workspace_id=log_analytics_workspace_id,
-            name=name,
-            tenant_id=tenant_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             alerts_enabled: Optional[pulumi.Input[bool]] = None,
-             discovery_logs_enabled: Optional[pulumi.Input[bool]] = None,
-             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if alerts_enabled is None and 'alertsEnabled' in kwargs:
-            alerts_enabled = kwargs['alertsEnabled']
-        if discovery_logs_enabled is None and 'discoveryLogsEnabled' in kwargs:
-            discovery_logs_enabled = kwargs['discoveryLogsEnabled']
-        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
-            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-
         if alerts_enabled is not None:
-            _setter("alerts_enabled", alerts_enabled)
+            pulumi.set(__self__, "alerts_enabled", alerts_enabled)
         if discovery_logs_enabled is not None:
-            _setter("discovery_logs_enabled", discovery_logs_enabled)
+            pulumi.set(__self__, "discovery_logs_enabled", discovery_logs_enabled)
         if log_analytics_workspace_id is not None:
-            _setter("log_analytics_workspace_id", log_analytics_workspace_id)
+            pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tenant_id is not None:
-            _setter("tenant_id", tenant_id)
+            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="alertsEnabled")
@@ -353,10 +297,6 @@ class DataConnectorMicrosoftCloudAppSecurity(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DataConnectorMicrosoftCloudAppSecurityArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

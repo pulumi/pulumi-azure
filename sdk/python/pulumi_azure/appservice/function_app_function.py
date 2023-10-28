@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,51 +35,18 @@ class FunctionAppFunctionArgs:
         :param pulumi.Input[str] name: The name of the function. Changing this forces a new resource to be created.
         :param pulumi.Input[str] test_data: The test data for the function.
         """
-        FunctionAppFunctionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            config_json=config_json,
-            function_app_id=function_app_id,
-            enabled=enabled,
-            files=files,
-            language=language,
-            name=name,
-            test_data=test_data,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             config_json: Optional[pulumi.Input[str]] = None,
-             function_app_id: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             files: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppFunctionFileArgs']]]] = None,
-             language: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             test_data: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if config_json is None and 'configJson' in kwargs:
-            config_json = kwargs['configJson']
-        if config_json is None:
-            raise TypeError("Missing 'config_json' argument")
-        if function_app_id is None and 'functionAppId' in kwargs:
-            function_app_id = kwargs['functionAppId']
-        if function_app_id is None:
-            raise TypeError("Missing 'function_app_id' argument")
-        if test_data is None and 'testData' in kwargs:
-            test_data = kwargs['testData']
-
-        _setter("config_json", config_json)
-        _setter("function_app_id", function_app_id)
+        pulumi.set(__self__, "config_json", config_json)
+        pulumi.set(__self__, "function_app_id", function_app_id)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if files is not None:
-            _setter("files", files)
+            pulumi.set(__self__, "files", files)
         if language is not None:
-            _setter("language", language)
+            pulumi.set(__self__, "language", language)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if test_data is not None:
-            _setter("test_data", test_data)
+            pulumi.set(__self__, "test_data", test_data)
 
     @property
     @pulumi.getter(name="configJson")
@@ -204,89 +171,34 @@ class _FunctionAppFunctionState:
         :param pulumi.Input[str] test_data_url: The Test data URL.
         :param pulumi.Input[str] url: The function URL.
         """
-        _FunctionAppFunctionState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            config_json=config_json,
-            config_url=config_url,
-            enabled=enabled,
-            files=files,
-            function_app_id=function_app_id,
-            invocation_url=invocation_url,
-            language=language,
-            name=name,
-            script_root_path_url=script_root_path_url,
-            script_url=script_url,
-            secrets_file_url=secrets_file_url,
-            test_data=test_data,
-            test_data_url=test_data_url,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             config_json: Optional[pulumi.Input[str]] = None,
-             config_url: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             files: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppFunctionFileArgs']]]] = None,
-             function_app_id: Optional[pulumi.Input[str]] = None,
-             invocation_url: Optional[pulumi.Input[str]] = None,
-             language: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             script_root_path_url: Optional[pulumi.Input[str]] = None,
-             script_url: Optional[pulumi.Input[str]] = None,
-             secrets_file_url: Optional[pulumi.Input[str]] = None,
-             test_data: Optional[pulumi.Input[str]] = None,
-             test_data_url: Optional[pulumi.Input[str]] = None,
-             url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if config_json is None and 'configJson' in kwargs:
-            config_json = kwargs['configJson']
-        if config_url is None and 'configUrl' in kwargs:
-            config_url = kwargs['configUrl']
-        if function_app_id is None and 'functionAppId' in kwargs:
-            function_app_id = kwargs['functionAppId']
-        if invocation_url is None and 'invocationUrl' in kwargs:
-            invocation_url = kwargs['invocationUrl']
-        if script_root_path_url is None and 'scriptRootPathUrl' in kwargs:
-            script_root_path_url = kwargs['scriptRootPathUrl']
-        if script_url is None and 'scriptUrl' in kwargs:
-            script_url = kwargs['scriptUrl']
-        if secrets_file_url is None and 'secretsFileUrl' in kwargs:
-            secrets_file_url = kwargs['secretsFileUrl']
-        if test_data is None and 'testData' in kwargs:
-            test_data = kwargs['testData']
-        if test_data_url is None and 'testDataUrl' in kwargs:
-            test_data_url = kwargs['testDataUrl']
-
         if config_json is not None:
-            _setter("config_json", config_json)
+            pulumi.set(__self__, "config_json", config_json)
         if config_url is not None:
-            _setter("config_url", config_url)
+            pulumi.set(__self__, "config_url", config_url)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if files is not None:
-            _setter("files", files)
+            pulumi.set(__self__, "files", files)
         if function_app_id is not None:
-            _setter("function_app_id", function_app_id)
+            pulumi.set(__self__, "function_app_id", function_app_id)
         if invocation_url is not None:
-            _setter("invocation_url", invocation_url)
+            pulumi.set(__self__, "invocation_url", invocation_url)
         if language is not None:
-            _setter("language", language)
+            pulumi.set(__self__, "language", language)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if script_root_path_url is not None:
-            _setter("script_root_path_url", script_root_path_url)
+            pulumi.set(__self__, "script_root_path_url", script_root_path_url)
         if script_url is not None:
-            _setter("script_url", script_url)
+            pulumi.set(__self__, "script_url", script_url)
         if secrets_file_url is not None:
-            _setter("secrets_file_url", secrets_file_url)
+            pulumi.set(__self__, "secrets_file_url", secrets_file_url)
         if test_data is not None:
-            _setter("test_data", test_data)
+            pulumi.set(__self__, "test_data", test_data)
         if test_data_url is not None:
-            _setter("test_data_url", test_data_url)
+            pulumi.set(__self__, "test_data_url", test_data_url)
         if url is not None:
-            _setter("url", url)
+            pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter(name="configJson")
@@ -754,10 +666,6 @@ class FunctionAppFunction(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            FunctionAppFunctionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

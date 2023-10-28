@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['EndpointStorageContainerArgs', 'EndpointStorageContainer']
@@ -43,86 +43,27 @@ class EndpointStorageContainerArgs:
         :param pulumi.Input[int] max_chunk_size_in_bytes: Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
         :param pulumi.Input[str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
         """
-        EndpointStorageContainerArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            container_name=container_name,
-            iothub_id=iothub_id,
-            resource_group_name=resource_group_name,
-            authentication_type=authentication_type,
-            batch_frequency_in_seconds=batch_frequency_in_seconds,
-            connection_string=connection_string,
-            encoding=encoding,
-            endpoint_uri=endpoint_uri,
-            file_name_format=file_name_format,
-            identity_id=identity_id,
-            max_chunk_size_in_bytes=max_chunk_size_in_bytes,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             container_name: Optional[pulumi.Input[str]] = None,
-             iothub_id: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             authentication_type: Optional[pulumi.Input[str]] = None,
-             batch_frequency_in_seconds: Optional[pulumi.Input[int]] = None,
-             connection_string: Optional[pulumi.Input[str]] = None,
-             encoding: Optional[pulumi.Input[str]] = None,
-             endpoint_uri: Optional[pulumi.Input[str]] = None,
-             file_name_format: Optional[pulumi.Input[str]] = None,
-             identity_id: Optional[pulumi.Input[str]] = None,
-             max_chunk_size_in_bytes: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if container_name is None and 'containerName' in kwargs:
-            container_name = kwargs['containerName']
-        if container_name is None:
-            raise TypeError("Missing 'container_name' argument")
-        if iothub_id is None and 'iothubId' in kwargs:
-            iothub_id = kwargs['iothubId']
-        if iothub_id is None:
-            raise TypeError("Missing 'iothub_id' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if authentication_type is None and 'authenticationType' in kwargs:
-            authentication_type = kwargs['authenticationType']
-        if batch_frequency_in_seconds is None and 'batchFrequencyInSeconds' in kwargs:
-            batch_frequency_in_seconds = kwargs['batchFrequencyInSeconds']
-        if connection_string is None and 'connectionString' in kwargs:
-            connection_string = kwargs['connectionString']
-        if endpoint_uri is None and 'endpointUri' in kwargs:
-            endpoint_uri = kwargs['endpointUri']
-        if file_name_format is None and 'fileNameFormat' in kwargs:
-            file_name_format = kwargs['fileNameFormat']
-        if identity_id is None and 'identityId' in kwargs:
-            identity_id = kwargs['identityId']
-        if max_chunk_size_in_bytes is None and 'maxChunkSizeInBytes' in kwargs:
-            max_chunk_size_in_bytes = kwargs['maxChunkSizeInBytes']
-
-        _setter("container_name", container_name)
-        _setter("iothub_id", iothub_id)
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "container_name", container_name)
+        pulumi.set(__self__, "iothub_id", iothub_id)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if authentication_type is not None:
-            _setter("authentication_type", authentication_type)
+            pulumi.set(__self__, "authentication_type", authentication_type)
         if batch_frequency_in_seconds is not None:
-            _setter("batch_frequency_in_seconds", batch_frequency_in_seconds)
+            pulumi.set(__self__, "batch_frequency_in_seconds", batch_frequency_in_seconds)
         if connection_string is not None:
-            _setter("connection_string", connection_string)
+            pulumi.set(__self__, "connection_string", connection_string)
         if encoding is not None:
-            _setter("encoding", encoding)
+            pulumi.set(__self__, "encoding", encoding)
         if endpoint_uri is not None:
-            _setter("endpoint_uri", endpoint_uri)
+            pulumi.set(__self__, "endpoint_uri", endpoint_uri)
         if file_name_format is not None:
-            _setter("file_name_format", file_name_format)
+            pulumi.set(__self__, "file_name_format", file_name_format)
         if identity_id is not None:
-            _setter("identity_id", identity_id)
+            pulumi.set(__self__, "identity_id", identity_id)
         if max_chunk_size_in_bytes is not None:
-            _setter("max_chunk_size_in_bytes", max_chunk_size_in_bytes)
+            pulumi.set(__self__, "max_chunk_size_in_bytes", max_chunk_size_in_bytes)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="containerName")
@@ -303,83 +244,30 @@ class _EndpointStorageContainerState:
         :param pulumi.Input[str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Storage Container has been created. Changing this forces a new resource to be created.
         """
-        _EndpointStorageContainerState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            authentication_type=authentication_type,
-            batch_frequency_in_seconds=batch_frequency_in_seconds,
-            connection_string=connection_string,
-            container_name=container_name,
-            encoding=encoding,
-            endpoint_uri=endpoint_uri,
-            file_name_format=file_name_format,
-            identity_id=identity_id,
-            iothub_id=iothub_id,
-            max_chunk_size_in_bytes=max_chunk_size_in_bytes,
-            name=name,
-            resource_group_name=resource_group_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             authentication_type: Optional[pulumi.Input[str]] = None,
-             batch_frequency_in_seconds: Optional[pulumi.Input[int]] = None,
-             connection_string: Optional[pulumi.Input[str]] = None,
-             container_name: Optional[pulumi.Input[str]] = None,
-             encoding: Optional[pulumi.Input[str]] = None,
-             endpoint_uri: Optional[pulumi.Input[str]] = None,
-             file_name_format: Optional[pulumi.Input[str]] = None,
-             identity_id: Optional[pulumi.Input[str]] = None,
-             iothub_id: Optional[pulumi.Input[str]] = None,
-             max_chunk_size_in_bytes: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if authentication_type is None and 'authenticationType' in kwargs:
-            authentication_type = kwargs['authenticationType']
-        if batch_frequency_in_seconds is None and 'batchFrequencyInSeconds' in kwargs:
-            batch_frequency_in_seconds = kwargs['batchFrequencyInSeconds']
-        if connection_string is None and 'connectionString' in kwargs:
-            connection_string = kwargs['connectionString']
-        if container_name is None and 'containerName' in kwargs:
-            container_name = kwargs['containerName']
-        if endpoint_uri is None and 'endpointUri' in kwargs:
-            endpoint_uri = kwargs['endpointUri']
-        if file_name_format is None and 'fileNameFormat' in kwargs:
-            file_name_format = kwargs['fileNameFormat']
-        if identity_id is None and 'identityId' in kwargs:
-            identity_id = kwargs['identityId']
-        if iothub_id is None and 'iothubId' in kwargs:
-            iothub_id = kwargs['iothubId']
-        if max_chunk_size_in_bytes is None and 'maxChunkSizeInBytes' in kwargs:
-            max_chunk_size_in_bytes = kwargs['maxChunkSizeInBytes']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-
         if authentication_type is not None:
-            _setter("authentication_type", authentication_type)
+            pulumi.set(__self__, "authentication_type", authentication_type)
         if batch_frequency_in_seconds is not None:
-            _setter("batch_frequency_in_seconds", batch_frequency_in_seconds)
+            pulumi.set(__self__, "batch_frequency_in_seconds", batch_frequency_in_seconds)
         if connection_string is not None:
-            _setter("connection_string", connection_string)
+            pulumi.set(__self__, "connection_string", connection_string)
         if container_name is not None:
-            _setter("container_name", container_name)
+            pulumi.set(__self__, "container_name", container_name)
         if encoding is not None:
-            _setter("encoding", encoding)
+            pulumi.set(__self__, "encoding", encoding)
         if endpoint_uri is not None:
-            _setter("endpoint_uri", endpoint_uri)
+            pulumi.set(__self__, "endpoint_uri", endpoint_uri)
         if file_name_format is not None:
-            _setter("file_name_format", file_name_format)
+            pulumi.set(__self__, "file_name_format", file_name_format)
         if identity_id is not None:
-            _setter("identity_id", identity_id)
+            pulumi.set(__self__, "identity_id", identity_id)
         if iothub_id is not None:
-            _setter("iothub_id", iothub_id)
+            pulumi.set(__self__, "iothub_id", iothub_id)
         if max_chunk_size_in_bytes is not None:
-            _setter("max_chunk_size_in_bytes", max_chunk_size_in_bytes)
+            pulumi.set(__self__, "max_chunk_size_in_bytes", max_chunk_size_in_bytes)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
 
     @property
     @pulumi.getter(name="authenticationType")
@@ -671,10 +559,6 @@ class EndpointStorageContainer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            EndpointStorageContainerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

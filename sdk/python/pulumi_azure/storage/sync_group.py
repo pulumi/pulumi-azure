@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SyncGroupArgs', 'SyncGroup']
@@ -21,26 +21,9 @@ class SyncGroupArgs:
         :param pulumi.Input[str] storage_sync_id: The resource ID of the Storage Sync where this Storage Sync Group is. Changing this forces a new Storage Sync Group to be created.
         :param pulumi.Input[str] name: The name which should be used for this Storage Sync Group. Changing this forces a new Storage Sync Group to be created.
         """
-        SyncGroupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            storage_sync_id=storage_sync_id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             storage_sync_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if storage_sync_id is None and 'storageSyncId' in kwargs:
-            storage_sync_id = kwargs['storageSyncId']
-        if storage_sync_id is None:
-            raise TypeError("Missing 'storage_sync_id' argument")
-
-        _setter("storage_sync_id", storage_sync_id)
+        pulumi.set(__self__, "storage_sync_id", storage_sync_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="storageSyncId")
@@ -77,25 +60,10 @@ class _SyncGroupState:
         :param pulumi.Input[str] name: The name which should be used for this Storage Sync Group. Changing this forces a new Storage Sync Group to be created.
         :param pulumi.Input[str] storage_sync_id: The resource ID of the Storage Sync where this Storage Sync Group is. Changing this forces a new Storage Sync Group to be created.
         """
-        _SyncGroupState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            storage_sync_id=storage_sync_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             storage_sync_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if storage_sync_id is None and 'storageSyncId' in kwargs:
-            storage_sync_id = kwargs['storageSyncId']
-
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if storage_sync_id is not None:
-            _setter("storage_sync_id", storage_sync_id)
+            pulumi.set(__self__, "storage_sync_id", storage_sync_id)
 
     @property
     @pulumi.getter
@@ -199,10 +167,6 @@ class SyncGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SyncGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

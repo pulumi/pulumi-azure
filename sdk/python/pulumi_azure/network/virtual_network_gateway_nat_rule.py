@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,61 +35,18 @@ class VirtualNetworkGatewayNatRuleArgs:
         :param pulumi.Input[str] name: The name which should be used for this Virtual Network Gateway Nat Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type: The type of the Virtual Network Gateway Nat Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
         """
-        VirtualNetworkGatewayNatRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            external_mappings=external_mappings,
-            internal_mappings=internal_mappings,
-            resource_group_name=resource_group_name,
-            virtual_network_gateway_id=virtual_network_gateway_id,
-            ip_configuration_id=ip_configuration_id,
-            mode=mode,
-            name=name,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleExternalMappingArgs']]]] = None,
-             internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleInternalMappingArgs']]]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             virtual_network_gateway_id: Optional[pulumi.Input[str]] = None,
-             ip_configuration_id: Optional[pulumi.Input[str]] = None,
-             mode: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if external_mappings is None and 'externalMappings' in kwargs:
-            external_mappings = kwargs['externalMappings']
-        if external_mappings is None:
-            raise TypeError("Missing 'external_mappings' argument")
-        if internal_mappings is None and 'internalMappings' in kwargs:
-            internal_mappings = kwargs['internalMappings']
-        if internal_mappings is None:
-            raise TypeError("Missing 'internal_mappings' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if virtual_network_gateway_id is None and 'virtualNetworkGatewayId' in kwargs:
-            virtual_network_gateway_id = kwargs['virtualNetworkGatewayId']
-        if virtual_network_gateway_id is None:
-            raise TypeError("Missing 'virtual_network_gateway_id' argument")
-        if ip_configuration_id is None and 'ipConfigurationId' in kwargs:
-            ip_configuration_id = kwargs['ipConfigurationId']
-
-        _setter("external_mappings", external_mappings)
-        _setter("internal_mappings", internal_mappings)
-        _setter("resource_group_name", resource_group_name)
-        _setter("virtual_network_gateway_id", virtual_network_gateway_id)
+        pulumi.set(__self__, "external_mappings", external_mappings)
+        pulumi.set(__self__, "internal_mappings", internal_mappings)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "virtual_network_gateway_id", virtual_network_gateway_id)
         if ip_configuration_id is not None:
-            _setter("ip_configuration_id", ip_configuration_id)
+            pulumi.set(__self__, "ip_configuration_id", ip_configuration_id)
         if mode is not None:
-            _setter("mode", mode)
+            pulumi.set(__self__, "mode", mode)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="externalMappings")
@@ -210,57 +167,22 @@ class _VirtualNetworkGatewayNatRuleState:
         :param pulumi.Input[str] type: The type of the Virtual Network Gateway Nat Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_gateway_id: The ID of the Virtual Network Gateway that this Virtual Network Gateway Nat Rule belongs to. Changing this forces a new resource to be created.
         """
-        _VirtualNetworkGatewayNatRuleState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            external_mappings=external_mappings,
-            internal_mappings=internal_mappings,
-            ip_configuration_id=ip_configuration_id,
-            mode=mode,
-            name=name,
-            resource_group_name=resource_group_name,
-            type=type,
-            virtual_network_gateway_id=virtual_network_gateway_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleExternalMappingArgs']]]] = None,
-             internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleInternalMappingArgs']]]] = None,
-             ip_configuration_id: Optional[pulumi.Input[str]] = None,
-             mode: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             virtual_network_gateway_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if external_mappings is None and 'externalMappings' in kwargs:
-            external_mappings = kwargs['externalMappings']
-        if internal_mappings is None and 'internalMappings' in kwargs:
-            internal_mappings = kwargs['internalMappings']
-        if ip_configuration_id is None and 'ipConfigurationId' in kwargs:
-            ip_configuration_id = kwargs['ipConfigurationId']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if virtual_network_gateway_id is None and 'virtualNetworkGatewayId' in kwargs:
-            virtual_network_gateway_id = kwargs['virtualNetworkGatewayId']
-
         if external_mappings is not None:
-            _setter("external_mappings", external_mappings)
+            pulumi.set(__self__, "external_mappings", external_mappings)
         if internal_mappings is not None:
-            _setter("internal_mappings", internal_mappings)
+            pulumi.set(__self__, "internal_mappings", internal_mappings)
         if ip_configuration_id is not None:
-            _setter("ip_configuration_id", ip_configuration_id)
+            pulumi.set(__self__, "ip_configuration_id", ip_configuration_id)
         if mode is not None:
-            _setter("mode", mode)
+            pulumi.set(__self__, "mode", mode)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
         if virtual_network_gateway_id is not None:
-            _setter("virtual_network_gateway_id", virtual_network_gateway_id)
+            pulumi.set(__self__, "virtual_network_gateway_id", virtual_network_gateway_id)
 
     @property
     @pulumi.getter(name="externalMappings")
@@ -422,10 +344,6 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            VirtualNetworkGatewayNatRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

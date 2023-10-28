@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LocalRulestackPrefixListArgs', 'LocalRulestackPrefixList']
@@ -27,43 +27,14 @@ class LocalRulestackPrefixListArgs:
         :param pulumi.Input[str] description: The description for the Prefix List.
         :param pulumi.Input[str] name: The name which should be used for this Palo Alto Local Rulestack Prefix List.
         """
-        LocalRulestackPrefixListArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            prefix_lists=prefix_lists,
-            rulestack_id=rulestack_id,
-            audit_comment=audit_comment,
-            description=description,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             prefix_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             rulestack_id: Optional[pulumi.Input[str]] = None,
-             audit_comment: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if prefix_lists is None and 'prefixLists' in kwargs:
-            prefix_lists = kwargs['prefixLists']
-        if prefix_lists is None:
-            raise TypeError("Missing 'prefix_lists' argument")
-        if rulestack_id is None and 'rulestackId' in kwargs:
-            rulestack_id = kwargs['rulestackId']
-        if rulestack_id is None:
-            raise TypeError("Missing 'rulestack_id' argument")
-        if audit_comment is None and 'auditComment' in kwargs:
-            audit_comment = kwargs['auditComment']
-
-        _setter("prefix_lists", prefix_lists)
-        _setter("rulestack_id", rulestack_id)
+        pulumi.set(__self__, "prefix_lists", prefix_lists)
+        pulumi.set(__self__, "rulestack_id", rulestack_id)
         if audit_comment is not None:
-            _setter("audit_comment", audit_comment)
+            pulumi.set(__self__, "audit_comment", audit_comment)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="prefixLists")
@@ -142,41 +113,16 @@ class _LocalRulestackPrefixListState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] prefix_lists: Specifies a list of Prefixes.
         :param pulumi.Input[str] rulestack_id: The ID of the Local Rulestack on which to create this Prefix List. Changing this forces a new Palo Alto Local Rulestack Prefix List to be created.
         """
-        _LocalRulestackPrefixListState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            audit_comment=audit_comment,
-            description=description,
-            name=name,
-            prefix_lists=prefix_lists,
-            rulestack_id=rulestack_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             audit_comment: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             prefix_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             rulestack_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if audit_comment is None and 'auditComment' in kwargs:
-            audit_comment = kwargs['auditComment']
-        if prefix_lists is None and 'prefixLists' in kwargs:
-            prefix_lists = kwargs['prefixLists']
-        if rulestack_id is None and 'rulestackId' in kwargs:
-            rulestack_id = kwargs['rulestackId']
-
         if audit_comment is not None:
-            _setter("audit_comment", audit_comment)
+            pulumi.set(__self__, "audit_comment", audit_comment)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if prefix_lists is not None:
-            _setter("prefix_lists", prefix_lists)
+            pulumi.set(__self__, "prefix_lists", prefix_lists)
         if rulestack_id is not None:
-            _setter("rulestack_id", rulestack_id)
+            pulumi.set(__self__, "rulestack_id", rulestack_id)
 
     @property
     @pulumi.getter(name="auditComment")
@@ -326,10 +272,6 @@ class LocalRulestackPrefixList(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LocalRulestackPrefixListArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

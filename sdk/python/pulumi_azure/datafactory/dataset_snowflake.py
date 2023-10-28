@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,73 +41,26 @@ class DatasetSnowflakeArgs:
         :param pulumi.Input[str] schema_name: The schema name of the Data Factory Dataset Snowflake.
         :param pulumi.Input[str] table_name: The table name of the Data Factory Dataset Snowflake.
         """
-        DatasetSnowflakeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_factory_id=data_factory_id,
-            linked_service_name=linked_service_name,
-            additional_properties=additional_properties,
-            annotations=annotations,
-            description=description,
-            folder=folder,
-            name=name,
-            parameters=parameters,
-            schema_columns=schema_columns,
-            schema_name=schema_name,
-            table_name=table_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_factory_id: Optional[pulumi.Input[str]] = None,
-             linked_service_name: Optional[pulumi.Input[str]] = None,
-             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             folder: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetSnowflakeSchemaColumnArgs']]]] = None,
-             schema_name: Optional[pulumi.Input[str]] = None,
-             table_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if data_factory_id is None and 'dataFactoryId' in kwargs:
-            data_factory_id = kwargs['dataFactoryId']
-        if data_factory_id is None:
-            raise TypeError("Missing 'data_factory_id' argument")
-        if linked_service_name is None and 'linkedServiceName' in kwargs:
-            linked_service_name = kwargs['linkedServiceName']
-        if linked_service_name is None:
-            raise TypeError("Missing 'linked_service_name' argument")
-        if additional_properties is None and 'additionalProperties' in kwargs:
-            additional_properties = kwargs['additionalProperties']
-        if schema_columns is None and 'schemaColumns' in kwargs:
-            schema_columns = kwargs['schemaColumns']
-        if schema_name is None and 'schemaName' in kwargs:
-            schema_name = kwargs['schemaName']
-        if table_name is None and 'tableName' in kwargs:
-            table_name = kwargs['tableName']
-
-        _setter("data_factory_id", data_factory_id)
-        _setter("linked_service_name", linked_service_name)
+        pulumi.set(__self__, "data_factory_id", data_factory_id)
+        pulumi.set(__self__, "linked_service_name", linked_service_name)
         if additional_properties is not None:
-            _setter("additional_properties", additional_properties)
+            pulumi.set(__self__, "additional_properties", additional_properties)
         if annotations is not None:
-            _setter("annotations", annotations)
+            pulumi.set(__self__, "annotations", annotations)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if folder is not None:
-            _setter("folder", folder)
+            pulumi.set(__self__, "folder", folder)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if parameters is not None:
-            _setter("parameters", parameters)
+            pulumi.set(__self__, "parameters", parameters)
         if schema_columns is not None:
-            _setter("schema_columns", schema_columns)
+            pulumi.set(__self__, "schema_columns", schema_columns)
         if schema_name is not None:
-            _setter("schema_name", schema_name)
+            pulumi.set(__self__, "schema_name", schema_name)
         if table_name is not None:
-            _setter("table_name", table_name)
+            pulumi.set(__self__, "table_name", table_name)
 
     @property
     @pulumi.getter(name="dataFactoryId")
@@ -270,71 +223,28 @@ class _DatasetSnowflakeState:
         :param pulumi.Input[str] schema_name: The schema name of the Data Factory Dataset Snowflake.
         :param pulumi.Input[str] table_name: The table name of the Data Factory Dataset Snowflake.
         """
-        _DatasetSnowflakeState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            additional_properties=additional_properties,
-            annotations=annotations,
-            data_factory_id=data_factory_id,
-            description=description,
-            folder=folder,
-            linked_service_name=linked_service_name,
-            name=name,
-            parameters=parameters,
-            schema_columns=schema_columns,
-            schema_name=schema_name,
-            table_name=table_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             data_factory_id: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             folder: Optional[pulumi.Input[str]] = None,
-             linked_service_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetSnowflakeSchemaColumnArgs']]]] = None,
-             schema_name: Optional[pulumi.Input[str]] = None,
-             table_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if additional_properties is None and 'additionalProperties' in kwargs:
-            additional_properties = kwargs['additionalProperties']
-        if data_factory_id is None and 'dataFactoryId' in kwargs:
-            data_factory_id = kwargs['dataFactoryId']
-        if linked_service_name is None and 'linkedServiceName' in kwargs:
-            linked_service_name = kwargs['linkedServiceName']
-        if schema_columns is None and 'schemaColumns' in kwargs:
-            schema_columns = kwargs['schemaColumns']
-        if schema_name is None and 'schemaName' in kwargs:
-            schema_name = kwargs['schemaName']
-        if table_name is None and 'tableName' in kwargs:
-            table_name = kwargs['tableName']
-
         if additional_properties is not None:
-            _setter("additional_properties", additional_properties)
+            pulumi.set(__self__, "additional_properties", additional_properties)
         if annotations is not None:
-            _setter("annotations", annotations)
+            pulumi.set(__self__, "annotations", annotations)
         if data_factory_id is not None:
-            _setter("data_factory_id", data_factory_id)
+            pulumi.set(__self__, "data_factory_id", data_factory_id)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if folder is not None:
-            _setter("folder", folder)
+            pulumi.set(__self__, "folder", folder)
         if linked_service_name is not None:
-            _setter("linked_service_name", linked_service_name)
+            pulumi.set(__self__, "linked_service_name", linked_service_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if parameters is not None:
-            _setter("parameters", parameters)
+            pulumi.set(__self__, "parameters", parameters)
         if schema_columns is not None:
-            _setter("schema_columns", schema_columns)
+            pulumi.set(__self__, "schema_columns", schema_columns)
         if schema_name is not None:
-            _setter("schema_name", schema_name)
+            pulumi.set(__self__, "schema_name", schema_name)
         if table_name is not None:
-            _setter("table_name", table_name)
+            pulumi.set(__self__, "table_name", table_name)
 
     @property
     @pulumi.getter(name="additionalProperties")
@@ -582,10 +492,6 @@ class DatasetSnowflake(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DatasetSnowflakeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

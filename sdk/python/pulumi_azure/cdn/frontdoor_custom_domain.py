@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,44 +33,13 @@ class FrontdoorCustomDomainArgs:
                ->**NOTE:** Currently `pre_validated_cdn_frontdoor_custom_domain_id` only supports domains validated by Static Web App. -->
         :param pulumi.Input[str] name: The name which should be used for this Front Door Custom Domain. Possible values must be between 2 and 260 characters in length, must begin with a letter or number, end with a letter or number and contain only letters, numbers and hyphens. Changing this forces a new Front Door Custom Domain to be created.
         """
-        FrontdoorCustomDomainArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cdn_frontdoor_profile_id=cdn_frontdoor_profile_id,
-            host_name=host_name,
-            tls=tls,
-            dns_zone_id=dns_zone_id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cdn_frontdoor_profile_id: Optional[pulumi.Input[str]] = None,
-             host_name: Optional[pulumi.Input[str]] = None,
-             tls: Optional[pulumi.Input['FrontdoorCustomDomainTlsArgs']] = None,
-             dns_zone_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cdn_frontdoor_profile_id is None and 'cdnFrontdoorProfileId' in kwargs:
-            cdn_frontdoor_profile_id = kwargs['cdnFrontdoorProfileId']
-        if cdn_frontdoor_profile_id is None:
-            raise TypeError("Missing 'cdn_frontdoor_profile_id' argument")
-        if host_name is None and 'hostName' in kwargs:
-            host_name = kwargs['hostName']
-        if host_name is None:
-            raise TypeError("Missing 'host_name' argument")
-        if tls is None:
-            raise TypeError("Missing 'tls' argument")
-        if dns_zone_id is None and 'dnsZoneId' in kwargs:
-            dns_zone_id = kwargs['dnsZoneId']
-
-        _setter("cdn_frontdoor_profile_id", cdn_frontdoor_profile_id)
-        _setter("host_name", host_name)
-        _setter("tls", tls)
+        pulumi.set(__self__, "cdn_frontdoor_profile_id", cdn_frontdoor_profile_id)
+        pulumi.set(__self__, "host_name", host_name)
+        pulumi.set(__self__, "tls", tls)
         if dns_zone_id is not None:
-            _setter("dns_zone_id", dns_zone_id)
+            pulumi.set(__self__, "dns_zone_id", dns_zone_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="cdnFrontdoorProfileId")
@@ -161,53 +130,20 @@ class _FrontdoorCustomDomainState:
         :param pulumi.Input['FrontdoorCustomDomainTlsArgs'] tls: A `tls` block as defined below.
         :param pulumi.Input[str] validation_token: Challenge used for DNS TXT record or file based validation.
         """
-        _FrontdoorCustomDomainState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cdn_frontdoor_profile_id=cdn_frontdoor_profile_id,
-            dns_zone_id=dns_zone_id,
-            expiration_date=expiration_date,
-            host_name=host_name,
-            name=name,
-            tls=tls,
-            validation_token=validation_token,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cdn_frontdoor_profile_id: Optional[pulumi.Input[str]] = None,
-             dns_zone_id: Optional[pulumi.Input[str]] = None,
-             expiration_date: Optional[pulumi.Input[str]] = None,
-             host_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tls: Optional[pulumi.Input['FrontdoorCustomDomainTlsArgs']] = None,
-             validation_token: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cdn_frontdoor_profile_id is None and 'cdnFrontdoorProfileId' in kwargs:
-            cdn_frontdoor_profile_id = kwargs['cdnFrontdoorProfileId']
-        if dns_zone_id is None and 'dnsZoneId' in kwargs:
-            dns_zone_id = kwargs['dnsZoneId']
-        if expiration_date is None and 'expirationDate' in kwargs:
-            expiration_date = kwargs['expirationDate']
-        if host_name is None and 'hostName' in kwargs:
-            host_name = kwargs['hostName']
-        if validation_token is None and 'validationToken' in kwargs:
-            validation_token = kwargs['validationToken']
-
         if cdn_frontdoor_profile_id is not None:
-            _setter("cdn_frontdoor_profile_id", cdn_frontdoor_profile_id)
+            pulumi.set(__self__, "cdn_frontdoor_profile_id", cdn_frontdoor_profile_id)
         if dns_zone_id is not None:
-            _setter("dns_zone_id", dns_zone_id)
+            pulumi.set(__self__, "dns_zone_id", dns_zone_id)
         if expiration_date is not None:
-            _setter("expiration_date", expiration_date)
+            pulumi.set(__self__, "expiration_date", expiration_date)
         if host_name is not None:
-            _setter("host_name", host_name)
+            pulumi.set(__self__, "host_name", host_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tls is not None:
-            _setter("tls", tls)
+            pulumi.set(__self__, "tls", tls)
         if validation_token is not None:
-            _setter("validation_token", validation_token)
+            pulumi.set(__self__, "validation_token", validation_token)
 
     @property
     @pulumi.getter(name="cdnFrontdoorProfileId")
@@ -433,10 +369,6 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            FrontdoorCustomDomainArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -464,7 +396,6 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
                 raise TypeError("Missing required property 'host_name'")
             __props__.__dict__["host_name"] = host_name
             __props__.__dict__["name"] = name
-            tls = _utilities.configure(tls, FrontdoorCustomDomainTlsArgs, True)
             if tls is None and not opts.urn:
                 raise TypeError("Missing required property 'tls'")
             __props__.__dict__["tls"] = tls

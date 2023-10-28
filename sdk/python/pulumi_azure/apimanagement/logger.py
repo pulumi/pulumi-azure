@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,57 +35,20 @@ class LoggerArgs:
         :param pulumi.Input[str] name: The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_id: The target resource id which will be linked in the API-Management portal page. Changing this forces a new resource to be created.
         """
-        LoggerArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_management_name=api_management_name,
-            resource_group_name=resource_group_name,
-            application_insights=application_insights,
-            buffered=buffered,
-            description=description,
-            eventhub=eventhub,
-            name=name,
-            resource_id=resource_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_management_name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             application_insights: Optional[pulumi.Input['LoggerApplicationInsightsArgs']] = None,
-             buffered: Optional[pulumi.Input[bool]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             eventhub: Optional[pulumi.Input['LoggerEventhubArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_management_name is None and 'apiManagementName' in kwargs:
-            api_management_name = kwargs['apiManagementName']
-        if api_management_name is None:
-            raise TypeError("Missing 'api_management_name' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if application_insights is None and 'applicationInsights' in kwargs:
-            application_insights = kwargs['applicationInsights']
-        if resource_id is None and 'resourceId' in kwargs:
-            resource_id = kwargs['resourceId']
-
-        _setter("api_management_name", api_management_name)
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "api_management_name", api_management_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if application_insights is not None:
-            _setter("application_insights", application_insights)
+            pulumi.set(__self__, "application_insights", application_insights)
         if buffered is not None:
-            _setter("buffered", buffered)
+            pulumi.set(__self__, "buffered", buffered)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if eventhub is not None:
-            _setter("eventhub", eventhub)
+            pulumi.set(__self__, "eventhub", eventhub)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if resource_id is not None:
-            _setter("resource_id", resource_id)
+            pulumi.set(__self__, "resource_id", resource_id)
 
     @property
     @pulumi.getter(name="apiManagementName")
@@ -206,55 +169,22 @@ class _LoggerState:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_id: The target resource id which will be linked in the API-Management portal page. Changing this forces a new resource to be created.
         """
-        _LoggerState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_management_name=api_management_name,
-            application_insights=application_insights,
-            buffered=buffered,
-            description=description,
-            eventhub=eventhub,
-            name=name,
-            resource_group_name=resource_group_name,
-            resource_id=resource_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_management_name: Optional[pulumi.Input[str]] = None,
-             application_insights: Optional[pulumi.Input['LoggerApplicationInsightsArgs']] = None,
-             buffered: Optional[pulumi.Input[bool]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             eventhub: Optional[pulumi.Input['LoggerEventhubArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_management_name is None and 'apiManagementName' in kwargs:
-            api_management_name = kwargs['apiManagementName']
-        if application_insights is None and 'applicationInsights' in kwargs:
-            application_insights = kwargs['applicationInsights']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_id is None and 'resourceId' in kwargs:
-            resource_id = kwargs['resourceId']
-
         if api_management_name is not None:
-            _setter("api_management_name", api_management_name)
+            pulumi.set(__self__, "api_management_name", api_management_name)
         if application_insights is not None:
-            _setter("application_insights", application_insights)
+            pulumi.set(__self__, "application_insights", application_insights)
         if buffered is not None:
-            _setter("buffered", buffered)
+            pulumi.set(__self__, "buffered", buffered)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if eventhub is not None:
-            _setter("eventhub", eventhub)
+            pulumi.set(__self__, "eventhub", eventhub)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if resource_id is not None:
-            _setter("resource_id", resource_id)
+            pulumi.set(__self__, "resource_id", resource_id)
 
     @property
     @pulumi.getter(name="apiManagementName")
@@ -468,10 +398,6 @@ class Logger(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LoggerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -497,11 +423,9 @@ class Logger(pulumi.CustomResource):
             if api_management_name is None and not opts.urn:
                 raise TypeError("Missing required property 'api_management_name'")
             __props__.__dict__["api_management_name"] = api_management_name
-            application_insights = _utilities.configure(application_insights, LoggerApplicationInsightsArgs, True)
             __props__.__dict__["application_insights"] = application_insights
             __props__.__dict__["buffered"] = buffered
             __props__.__dict__["description"] = description
-            eventhub = _utilities.configure(eventhub, LoggerEventhubArgs, True)
             __props__.__dict__["eventhub"] = eventhub
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:

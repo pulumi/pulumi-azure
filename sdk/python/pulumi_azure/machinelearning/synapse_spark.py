@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,55 +35,20 @@ class SynapseSparkArgs:
         :param pulumi.Input[str] name: The name which should be used for this Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created.
         """
-        SynapseSparkArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            machine_learning_workspace_id=machine_learning_workspace_id,
-            synapse_spark_pool_id=synapse_spark_pool_id,
-            description=description,
-            identity=identity,
-            local_auth_enabled=local_auth_enabled,
-            location=location,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             machine_learning_workspace_id: Optional[pulumi.Input[str]] = None,
-             synapse_spark_pool_id: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             identity: Optional[pulumi.Input['SynapseSparkIdentityArgs']] = None,
-             local_auth_enabled: Optional[pulumi.Input[bool]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if machine_learning_workspace_id is None and 'machineLearningWorkspaceId' in kwargs:
-            machine_learning_workspace_id = kwargs['machineLearningWorkspaceId']
-        if machine_learning_workspace_id is None:
-            raise TypeError("Missing 'machine_learning_workspace_id' argument")
-        if synapse_spark_pool_id is None and 'synapseSparkPoolId' in kwargs:
-            synapse_spark_pool_id = kwargs['synapseSparkPoolId']
-        if synapse_spark_pool_id is None:
-            raise TypeError("Missing 'synapse_spark_pool_id' argument")
-        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
-            local_auth_enabled = kwargs['localAuthEnabled']
-
-        _setter("machine_learning_workspace_id", machine_learning_workspace_id)
-        _setter("synapse_spark_pool_id", synapse_spark_pool_id)
+        pulumi.set(__self__, "machine_learning_workspace_id", machine_learning_workspace_id)
+        pulumi.set(__self__, "synapse_spark_pool_id", synapse_spark_pool_id)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if local_auth_enabled is not None:
-            _setter("local_auth_enabled", local_auth_enabled)
+            pulumi.set(__self__, "local_auth_enabled", local_auth_enabled)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="machineLearningWorkspaceId")
@@ -204,53 +169,22 @@ class _SynapseSparkState:
         :param pulumi.Input[str] synapse_spark_pool_id: The ID of the linked Synapse Spark Pool. Changing this forces a new Machine Learning Synapse Spark to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created.
         """
-        _SynapseSparkState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            identity=identity,
-            local_auth_enabled=local_auth_enabled,
-            location=location,
-            machine_learning_workspace_id=machine_learning_workspace_id,
-            name=name,
-            synapse_spark_pool_id=synapse_spark_pool_id,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[pulumi.Input[str]] = None,
-             identity: Optional[pulumi.Input['SynapseSparkIdentityArgs']] = None,
-             local_auth_enabled: Optional[pulumi.Input[bool]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             machine_learning_workspace_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             synapse_spark_pool_id: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
-            local_auth_enabled = kwargs['localAuthEnabled']
-        if machine_learning_workspace_id is None and 'machineLearningWorkspaceId' in kwargs:
-            machine_learning_workspace_id = kwargs['machineLearningWorkspaceId']
-        if synapse_spark_pool_id is None and 'synapseSparkPoolId' in kwargs:
-            synapse_spark_pool_id = kwargs['synapseSparkPoolId']
-
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if local_auth_enabled is not None:
-            _setter("local_auth_enabled", local_auth_enabled)
+            pulumi.set(__self__, "local_auth_enabled", local_auth_enabled)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if machine_learning_workspace_id is not None:
-            _setter("machine_learning_workspace_id", machine_learning_workspace_id)
+            pulumi.set(__self__, "machine_learning_workspace_id", machine_learning_workspace_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if synapse_spark_pool_id is not None:
-            _setter("synapse_spark_pool_id", synapse_spark_pool_id)
+            pulumi.set(__self__, "synapse_spark_pool_id", synapse_spark_pool_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -532,10 +466,6 @@ class SynapseSpark(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SynapseSparkArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -559,7 +489,6 @@ class SynapseSpark(pulumi.CustomResource):
             __props__ = SynapseSparkArgs.__new__(SynapseSparkArgs)
 
             __props__.__dict__["description"] = description
-            identity = _utilities.configure(identity, SynapseSparkIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["local_auth_enabled"] = local_auth_enabled
             __props__.__dict__["location"] = location

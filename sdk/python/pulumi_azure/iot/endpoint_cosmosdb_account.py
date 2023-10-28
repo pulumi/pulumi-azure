@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['EndpointCosmosdbAccountArgs', 'EndpointCosmosdbAccount']
@@ -47,90 +47,25 @@ class EndpointCosmosdbAccountArgs:
                
                > **NOTE:** `secondary_key` must and can only be specified when `authentication_type` is `keyBased`.
         """
-        EndpointCosmosdbAccountArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            container_name=container_name,
-            database_name=database_name,
-            endpoint_uri=endpoint_uri,
-            iothub_id=iothub_id,
-            resource_group_name=resource_group_name,
-            authentication_type=authentication_type,
-            identity_id=identity_id,
-            name=name,
-            partition_key_name=partition_key_name,
-            partition_key_template=partition_key_template,
-            primary_key=primary_key,
-            secondary_key=secondary_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             container_name: Optional[pulumi.Input[str]] = None,
-             database_name: Optional[pulumi.Input[str]] = None,
-             endpoint_uri: Optional[pulumi.Input[str]] = None,
-             iothub_id: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             authentication_type: Optional[pulumi.Input[str]] = None,
-             identity_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             partition_key_name: Optional[pulumi.Input[str]] = None,
-             partition_key_template: Optional[pulumi.Input[str]] = None,
-             primary_key: Optional[pulumi.Input[str]] = None,
-             secondary_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if container_name is None and 'containerName' in kwargs:
-            container_name = kwargs['containerName']
-        if container_name is None:
-            raise TypeError("Missing 'container_name' argument")
-        if database_name is None and 'databaseName' in kwargs:
-            database_name = kwargs['databaseName']
-        if database_name is None:
-            raise TypeError("Missing 'database_name' argument")
-        if endpoint_uri is None and 'endpointUri' in kwargs:
-            endpoint_uri = kwargs['endpointUri']
-        if endpoint_uri is None:
-            raise TypeError("Missing 'endpoint_uri' argument")
-        if iothub_id is None and 'iothubId' in kwargs:
-            iothub_id = kwargs['iothubId']
-        if iothub_id is None:
-            raise TypeError("Missing 'iothub_id' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if authentication_type is None and 'authenticationType' in kwargs:
-            authentication_type = kwargs['authenticationType']
-        if identity_id is None and 'identityId' in kwargs:
-            identity_id = kwargs['identityId']
-        if partition_key_name is None and 'partitionKeyName' in kwargs:
-            partition_key_name = kwargs['partitionKeyName']
-        if partition_key_template is None and 'partitionKeyTemplate' in kwargs:
-            partition_key_template = kwargs['partitionKeyTemplate']
-        if primary_key is None and 'primaryKey' in kwargs:
-            primary_key = kwargs['primaryKey']
-        if secondary_key is None and 'secondaryKey' in kwargs:
-            secondary_key = kwargs['secondaryKey']
-
-        _setter("container_name", container_name)
-        _setter("database_name", database_name)
-        _setter("endpoint_uri", endpoint_uri)
-        _setter("iothub_id", iothub_id)
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "container_name", container_name)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "endpoint_uri", endpoint_uri)
+        pulumi.set(__self__, "iothub_id", iothub_id)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if authentication_type is not None:
-            _setter("authentication_type", authentication_type)
+            pulumi.set(__self__, "authentication_type", authentication_type)
         if identity_id is not None:
-            _setter("identity_id", identity_id)
+            pulumi.set(__self__, "identity_id", identity_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if partition_key_name is not None:
-            _setter("partition_key_name", partition_key_name)
+            pulumi.set(__self__, "partition_key_name", partition_key_name)
         if partition_key_template is not None:
-            _setter("partition_key_template", partition_key_template)
+            pulumi.set(__self__, "partition_key_template", partition_key_template)
         if primary_key is not None:
-            _setter("primary_key", primary_key)
+            pulumi.set(__self__, "primary_key", primary_key)
         if secondary_key is not None:
-            _setter("secondary_key", secondary_key)
+            pulumi.set(__self__, "secondary_key", secondary_key)
 
     @property
     @pulumi.getter(name="containerName")
@@ -319,85 +254,30 @@ class _EndpointCosmosdbAccountState:
                
                > **NOTE:** `secondary_key` must and can only be specified when `authentication_type` is `keyBased`.
         """
-        _EndpointCosmosdbAccountState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            authentication_type=authentication_type,
-            container_name=container_name,
-            database_name=database_name,
-            endpoint_uri=endpoint_uri,
-            identity_id=identity_id,
-            iothub_id=iothub_id,
-            name=name,
-            partition_key_name=partition_key_name,
-            partition_key_template=partition_key_template,
-            primary_key=primary_key,
-            resource_group_name=resource_group_name,
-            secondary_key=secondary_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             authentication_type: Optional[pulumi.Input[str]] = None,
-             container_name: Optional[pulumi.Input[str]] = None,
-             database_name: Optional[pulumi.Input[str]] = None,
-             endpoint_uri: Optional[pulumi.Input[str]] = None,
-             identity_id: Optional[pulumi.Input[str]] = None,
-             iothub_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             partition_key_name: Optional[pulumi.Input[str]] = None,
-             partition_key_template: Optional[pulumi.Input[str]] = None,
-             primary_key: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             secondary_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if authentication_type is None and 'authenticationType' in kwargs:
-            authentication_type = kwargs['authenticationType']
-        if container_name is None and 'containerName' in kwargs:
-            container_name = kwargs['containerName']
-        if database_name is None and 'databaseName' in kwargs:
-            database_name = kwargs['databaseName']
-        if endpoint_uri is None and 'endpointUri' in kwargs:
-            endpoint_uri = kwargs['endpointUri']
-        if identity_id is None and 'identityId' in kwargs:
-            identity_id = kwargs['identityId']
-        if iothub_id is None and 'iothubId' in kwargs:
-            iothub_id = kwargs['iothubId']
-        if partition_key_name is None and 'partitionKeyName' in kwargs:
-            partition_key_name = kwargs['partitionKeyName']
-        if partition_key_template is None and 'partitionKeyTemplate' in kwargs:
-            partition_key_template = kwargs['partitionKeyTemplate']
-        if primary_key is None and 'primaryKey' in kwargs:
-            primary_key = kwargs['primaryKey']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if secondary_key is None and 'secondaryKey' in kwargs:
-            secondary_key = kwargs['secondaryKey']
-
         if authentication_type is not None:
-            _setter("authentication_type", authentication_type)
+            pulumi.set(__self__, "authentication_type", authentication_type)
         if container_name is not None:
-            _setter("container_name", container_name)
+            pulumi.set(__self__, "container_name", container_name)
         if database_name is not None:
-            _setter("database_name", database_name)
+            pulumi.set(__self__, "database_name", database_name)
         if endpoint_uri is not None:
-            _setter("endpoint_uri", endpoint_uri)
+            pulumi.set(__self__, "endpoint_uri", endpoint_uri)
         if identity_id is not None:
-            _setter("identity_id", identity_id)
+            pulumi.set(__self__, "identity_id", identity_id)
         if iothub_id is not None:
-            _setter("iothub_id", iothub_id)
+            pulumi.set(__self__, "iothub_id", iothub_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if partition_key_name is not None:
-            _setter("partition_key_name", partition_key_name)
+            pulumi.set(__self__, "partition_key_name", partition_key_name)
         if partition_key_template is not None:
-            _setter("partition_key_template", partition_key_template)
+            pulumi.set(__self__, "partition_key_template", partition_key_template)
         if primary_key is not None:
-            _setter("primary_key", primary_key)
+            pulumi.set(__self__, "primary_key", primary_key)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if secondary_key is not None:
-            _setter("secondary_key", secondary_key)
+            pulumi.set(__self__, "secondary_key", secondary_key)
 
     @property
     @pulumi.getter(name="authenticationType")
@@ -725,10 +605,6 @@ class EndpointCosmosdbAccount(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            EndpointCosmosdbAccountArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

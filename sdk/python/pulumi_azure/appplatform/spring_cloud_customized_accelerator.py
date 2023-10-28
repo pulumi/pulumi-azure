@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,55 +33,18 @@ class SpringCloudCustomizedAcceleratorArgs:
         :param pulumi.Input[str] icon_url: Specifies the icon URL of the Spring Cloud Customized Accelerator..
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Customized Accelerator. Changing this forces a new Spring Cloud Customized Accelerator to be created.
         """
-        SpringCloudCustomizedAcceleratorArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            git_repository=git_repository,
-            spring_cloud_accelerator_id=spring_cloud_accelerator_id,
-            accelerator_tags=accelerator_tags,
-            description=description,
-            display_name=display_name,
-            icon_url=icon_url,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             git_repository: Optional[pulumi.Input['SpringCloudCustomizedAcceleratorGitRepositoryArgs']] = None,
-             spring_cloud_accelerator_id: Optional[pulumi.Input[str]] = None,
-             accelerator_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             display_name: Optional[pulumi.Input[str]] = None,
-             icon_url: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if git_repository is None and 'gitRepository' in kwargs:
-            git_repository = kwargs['gitRepository']
-        if git_repository is None:
-            raise TypeError("Missing 'git_repository' argument")
-        if spring_cloud_accelerator_id is None and 'springCloudAcceleratorId' in kwargs:
-            spring_cloud_accelerator_id = kwargs['springCloudAcceleratorId']
-        if spring_cloud_accelerator_id is None:
-            raise TypeError("Missing 'spring_cloud_accelerator_id' argument")
-        if accelerator_tags is None and 'acceleratorTags' in kwargs:
-            accelerator_tags = kwargs['acceleratorTags']
-        if display_name is None and 'displayName' in kwargs:
-            display_name = kwargs['displayName']
-        if icon_url is None and 'iconUrl' in kwargs:
-            icon_url = kwargs['iconUrl']
-
-        _setter("git_repository", git_repository)
-        _setter("spring_cloud_accelerator_id", spring_cloud_accelerator_id)
+        pulumi.set(__self__, "git_repository", git_repository)
+        pulumi.set(__self__, "spring_cloud_accelerator_id", spring_cloud_accelerator_id)
         if accelerator_tags is not None:
-            _setter("accelerator_tags", accelerator_tags)
+            pulumi.set(__self__, "accelerator_tags", accelerator_tags)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if display_name is not None:
-            _setter("display_name", display_name)
+            pulumi.set(__self__, "display_name", display_name)
         if icon_url is not None:
-            _setter("icon_url", icon_url)
+            pulumi.set(__self__, "icon_url", icon_url)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="gitRepository")
@@ -188,53 +151,20 @@ class _SpringCloudCustomizedAcceleratorState:
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Customized Accelerator. Changing this forces a new Spring Cloud Customized Accelerator to be created.
         :param pulumi.Input[str] spring_cloud_accelerator_id: The ID of the Spring Cloud Accelerator. Changing this forces a new Spring Cloud Customized Accelerator to be created.
         """
-        _SpringCloudCustomizedAcceleratorState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            accelerator_tags=accelerator_tags,
-            description=description,
-            display_name=display_name,
-            git_repository=git_repository,
-            icon_url=icon_url,
-            name=name,
-            spring_cloud_accelerator_id=spring_cloud_accelerator_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             accelerator_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             display_name: Optional[pulumi.Input[str]] = None,
-             git_repository: Optional[pulumi.Input['SpringCloudCustomizedAcceleratorGitRepositoryArgs']] = None,
-             icon_url: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             spring_cloud_accelerator_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if accelerator_tags is None and 'acceleratorTags' in kwargs:
-            accelerator_tags = kwargs['acceleratorTags']
-        if display_name is None and 'displayName' in kwargs:
-            display_name = kwargs['displayName']
-        if git_repository is None and 'gitRepository' in kwargs:
-            git_repository = kwargs['gitRepository']
-        if icon_url is None and 'iconUrl' in kwargs:
-            icon_url = kwargs['iconUrl']
-        if spring_cloud_accelerator_id is None and 'springCloudAcceleratorId' in kwargs:
-            spring_cloud_accelerator_id = kwargs['springCloudAcceleratorId']
-
         if accelerator_tags is not None:
-            _setter("accelerator_tags", accelerator_tags)
+            pulumi.set(__self__, "accelerator_tags", accelerator_tags)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if display_name is not None:
-            _setter("display_name", display_name)
+            pulumi.set(__self__, "display_name", display_name)
         if git_repository is not None:
-            _setter("git_repository", git_repository)
+            pulumi.set(__self__, "git_repository", git_repository)
         if icon_url is not None:
-            _setter("icon_url", icon_url)
+            pulumi.set(__self__, "icon_url", icon_url)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if spring_cloud_accelerator_id is not None:
-            _setter("spring_cloud_accelerator_id", spring_cloud_accelerator_id)
+            pulumi.set(__self__, "spring_cloud_accelerator_id", spring_cloud_accelerator_id)
 
     @property
     @pulumi.getter(name="acceleratorTags")
@@ -438,10 +368,6 @@ class SpringCloudCustomizedAccelerator(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SpringCloudCustomizedAcceleratorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -466,7 +392,6 @@ class SpringCloudCustomizedAccelerator(pulumi.CustomResource):
             __props__.__dict__["accelerator_tags"] = accelerator_tags
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name
-            git_repository = _utilities.configure(git_repository, SpringCloudCustomizedAcceleratorGitRepositoryArgs, True)
             if git_repository is None and not opts.urn:
                 raise TypeError("Missing required property 'git_repository'")
             __props__.__dict__["git_repository"] = git_repository

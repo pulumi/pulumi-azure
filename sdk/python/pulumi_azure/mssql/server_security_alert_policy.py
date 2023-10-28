@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ServerSecurityAlertPolicyArgs', 'ServerSecurityAlertPolicy']
@@ -37,70 +37,21 @@ class ServerSecurityAlertPolicyArgs:
                > **NOTE:**  Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `mssql.ServerSecurityAlertPolicy` with `storage_endpoint` for now.
         :param pulumi.Input[str] storage_endpoint: Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
         """
-        ServerSecurityAlertPolicyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_group_name=resource_group_name,
-            server_name=server_name,
-            state=state,
-            disabled_alerts=disabled_alerts,
-            email_account_admins=email_account_admins,
-            email_addresses=email_addresses,
-            retention_days=retention_days,
-            storage_account_access_key=storage_account_access_key,
-            storage_endpoint=storage_endpoint,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             server_name: Optional[pulumi.Input[str]] = None,
-             state: Optional[pulumi.Input[str]] = None,
-             disabled_alerts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             email_account_admins: Optional[pulumi.Input[bool]] = None,
-             email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             retention_days: Optional[pulumi.Input[int]] = None,
-             storage_account_access_key: Optional[pulumi.Input[str]] = None,
-             storage_endpoint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if server_name is None and 'serverName' in kwargs:
-            server_name = kwargs['serverName']
-        if server_name is None:
-            raise TypeError("Missing 'server_name' argument")
-        if state is None:
-            raise TypeError("Missing 'state' argument")
-        if disabled_alerts is None and 'disabledAlerts' in kwargs:
-            disabled_alerts = kwargs['disabledAlerts']
-        if email_account_admins is None and 'emailAccountAdmins' in kwargs:
-            email_account_admins = kwargs['emailAccountAdmins']
-        if email_addresses is None and 'emailAddresses' in kwargs:
-            email_addresses = kwargs['emailAddresses']
-        if retention_days is None and 'retentionDays' in kwargs:
-            retention_days = kwargs['retentionDays']
-        if storage_account_access_key is None and 'storageAccountAccessKey' in kwargs:
-            storage_account_access_key = kwargs['storageAccountAccessKey']
-        if storage_endpoint is None and 'storageEndpoint' in kwargs:
-            storage_endpoint = kwargs['storageEndpoint']
-
-        _setter("resource_group_name", resource_group_name)
-        _setter("server_name", server_name)
-        _setter("state", state)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "server_name", server_name)
+        pulumi.set(__self__, "state", state)
         if disabled_alerts is not None:
-            _setter("disabled_alerts", disabled_alerts)
+            pulumi.set(__self__, "disabled_alerts", disabled_alerts)
         if email_account_admins is not None:
-            _setter("email_account_admins", email_account_admins)
+            pulumi.set(__self__, "email_account_admins", email_account_admins)
         if email_addresses is not None:
-            _setter("email_addresses", email_addresses)
+            pulumi.set(__self__, "email_addresses", email_addresses)
         if retention_days is not None:
-            _setter("retention_days", retention_days)
+            pulumi.set(__self__, "retention_days", retention_days)
         if storage_account_access_key is not None:
-            _setter("storage_account_access_key", storage_account_access_key)
+            pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
         if storage_endpoint is not None:
-            _setter("storage_endpoint", storage_endpoint)
+            pulumi.set(__self__, "storage_endpoint", storage_endpoint)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -239,67 +190,24 @@ class _ServerSecurityAlertPolicyState:
                > **NOTE:**  Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `mssql.ServerSecurityAlertPolicy` with `storage_endpoint` for now.
         :param pulumi.Input[str] storage_endpoint: Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
         """
-        _ServerSecurityAlertPolicyState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            disabled_alerts=disabled_alerts,
-            email_account_admins=email_account_admins,
-            email_addresses=email_addresses,
-            resource_group_name=resource_group_name,
-            retention_days=retention_days,
-            server_name=server_name,
-            state=state,
-            storage_account_access_key=storage_account_access_key,
-            storage_endpoint=storage_endpoint,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             disabled_alerts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             email_account_admins: Optional[pulumi.Input[bool]] = None,
-             email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             retention_days: Optional[pulumi.Input[int]] = None,
-             server_name: Optional[pulumi.Input[str]] = None,
-             state: Optional[pulumi.Input[str]] = None,
-             storage_account_access_key: Optional[pulumi.Input[str]] = None,
-             storage_endpoint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if disabled_alerts is None and 'disabledAlerts' in kwargs:
-            disabled_alerts = kwargs['disabledAlerts']
-        if email_account_admins is None and 'emailAccountAdmins' in kwargs:
-            email_account_admins = kwargs['emailAccountAdmins']
-        if email_addresses is None and 'emailAddresses' in kwargs:
-            email_addresses = kwargs['emailAddresses']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if retention_days is None and 'retentionDays' in kwargs:
-            retention_days = kwargs['retentionDays']
-        if server_name is None and 'serverName' in kwargs:
-            server_name = kwargs['serverName']
-        if storage_account_access_key is None and 'storageAccountAccessKey' in kwargs:
-            storage_account_access_key = kwargs['storageAccountAccessKey']
-        if storage_endpoint is None and 'storageEndpoint' in kwargs:
-            storage_endpoint = kwargs['storageEndpoint']
-
         if disabled_alerts is not None:
-            _setter("disabled_alerts", disabled_alerts)
+            pulumi.set(__self__, "disabled_alerts", disabled_alerts)
         if email_account_admins is not None:
-            _setter("email_account_admins", email_account_admins)
+            pulumi.set(__self__, "email_account_admins", email_account_admins)
         if email_addresses is not None:
-            _setter("email_addresses", email_addresses)
+            pulumi.set(__self__, "email_addresses", email_addresses)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if retention_days is not None:
-            _setter("retention_days", retention_days)
+            pulumi.set(__self__, "retention_days", retention_days)
         if server_name is not None:
-            _setter("server_name", server_name)
+            pulumi.set(__self__, "server_name", server_name)
         if state is not None:
-            _setter("state", state)
+            pulumi.set(__self__, "state", state)
         if storage_account_access_key is not None:
-            _setter("storage_account_access_key", storage_account_access_key)
+            pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
         if storage_endpoint is not None:
-            _setter("storage_endpoint", storage_endpoint)
+            pulumi.set(__self__, "storage_endpoint", storage_endpoint)
 
     @property
     @pulumi.getter(name="disabledAlerts")
@@ -545,10 +453,6 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ServerSecurityAlertPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

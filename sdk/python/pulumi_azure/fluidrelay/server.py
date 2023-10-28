@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,44 +31,17 @@ class ServerArgs:
         :param pulumi.Input[str] storage_sku: Sku of the storage associated with the resource, Possible values are `standard` and `basic`. Changing this forces a new Fluid Relay Server to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Fluid Relay Server.
         """
-        ServerArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_group_name=resource_group_name,
-            identity=identity,
-            location=location,
-            name=name,
-            storage_sku=storage_sku,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             identity: Optional[pulumi.Input['ServerIdentityArgs']] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             storage_sku: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if storage_sku is None and 'storageSku' in kwargs:
-            storage_sku = kwargs['storageSku']
-
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if storage_sku is not None:
-            _setter("storage_sku", storage_sku)
+            pulumi.set(__self__, "storage_sku", storage_sku)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -173,79 +146,30 @@ class _ServerState:
         :param pulumi.Input[str] storage_sku: Sku of the storage associated with the resource, Possible values are `standard` and `basic`. Changing this forces a new Fluid Relay Server to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Fluid Relay Server.
         """
-        _ServerState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            frs_tenant_id=frs_tenant_id,
-            identity=identity,
-            location=location,
-            name=name,
-            orderer_endpoints=orderer_endpoints,
-            primary_key=primary_key,
-            resource_group_name=resource_group_name,
-            secondary_key=secondary_key,
-            service_endpoints=service_endpoints,
-            storage_endpoints=storage_endpoints,
-            storage_sku=storage_sku,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             frs_tenant_id: Optional[pulumi.Input[str]] = None,
-             identity: Optional[pulumi.Input['ServerIdentityArgs']] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             orderer_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             primary_key: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             secondary_key: Optional[pulumi.Input[str]] = None,
-             service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             storage_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             storage_sku: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if frs_tenant_id is None and 'frsTenantId' in kwargs:
-            frs_tenant_id = kwargs['frsTenantId']
-        if orderer_endpoints is None and 'ordererEndpoints' in kwargs:
-            orderer_endpoints = kwargs['ordererEndpoints']
-        if primary_key is None and 'primaryKey' in kwargs:
-            primary_key = kwargs['primaryKey']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if secondary_key is None and 'secondaryKey' in kwargs:
-            secondary_key = kwargs['secondaryKey']
-        if service_endpoints is None and 'serviceEndpoints' in kwargs:
-            service_endpoints = kwargs['serviceEndpoints']
-        if storage_endpoints is None and 'storageEndpoints' in kwargs:
-            storage_endpoints = kwargs['storageEndpoints']
-        if storage_sku is None and 'storageSku' in kwargs:
-            storage_sku = kwargs['storageSku']
-
         if frs_tenant_id is not None:
-            _setter("frs_tenant_id", frs_tenant_id)
+            pulumi.set(__self__, "frs_tenant_id", frs_tenant_id)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if orderer_endpoints is not None:
-            _setter("orderer_endpoints", orderer_endpoints)
+            pulumi.set(__self__, "orderer_endpoints", orderer_endpoints)
         if primary_key is not None:
-            _setter("primary_key", primary_key)
+            pulumi.set(__self__, "primary_key", primary_key)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if secondary_key is not None:
-            _setter("secondary_key", secondary_key)
+            pulumi.set(__self__, "secondary_key", secondary_key)
         if service_endpoints is not None:
-            _setter("service_endpoints", service_endpoints)
+            pulumi.set(__self__, "service_endpoints", service_endpoints)
         if storage_endpoints is not None:
-            _setter("storage_endpoints", storage_endpoints)
+            pulumi.set(__self__, "storage_endpoints", storage_endpoints)
         if storage_sku is not None:
-            _setter("storage_sku", storage_sku)
+            pulumi.set(__self__, "storage_sku", storage_sku)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="frsTenantId")
@@ -475,10 +399,6 @@ class Server(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ServerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -499,7 +419,6 @@ class Server(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServerArgs.__new__(ServerArgs)
 
-            identity = _utilities.configure(identity, ServerIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name

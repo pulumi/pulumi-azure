@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SpringCloudGatewayCustomDomainArgs', 'SpringCloudGatewayCustomDomain']
@@ -23,30 +23,11 @@ class SpringCloudGatewayCustomDomainArgs:
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Gateway Custom Domain. Changing this forces a new Spring Cloud Gateway Custom Domain to be created.
         :param pulumi.Input[str] thumbprint: Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Gateway Custom Domain.
         """
-        SpringCloudGatewayCustomDomainArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            spring_cloud_gateway_id=spring_cloud_gateway_id,
-            name=name,
-            thumbprint=thumbprint,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             spring_cloud_gateway_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             thumbprint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if spring_cloud_gateway_id is None and 'springCloudGatewayId' in kwargs:
-            spring_cloud_gateway_id = kwargs['springCloudGatewayId']
-        if spring_cloud_gateway_id is None:
-            raise TypeError("Missing 'spring_cloud_gateway_id' argument")
-
-        _setter("spring_cloud_gateway_id", spring_cloud_gateway_id)
+        pulumi.set(__self__, "spring_cloud_gateway_id", spring_cloud_gateway_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if thumbprint is not None:
-            _setter("thumbprint", thumbprint)
+            pulumi.set(__self__, "thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="springCloudGatewayId")
@@ -97,29 +78,12 @@ class _SpringCloudGatewayCustomDomainState:
         :param pulumi.Input[str] spring_cloud_gateway_id: The ID of the Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway Custom Domain to be created.
         :param pulumi.Input[str] thumbprint: Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Gateway Custom Domain.
         """
-        _SpringCloudGatewayCustomDomainState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            spring_cloud_gateway_id=spring_cloud_gateway_id,
-            thumbprint=thumbprint,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             spring_cloud_gateway_id: Optional[pulumi.Input[str]] = None,
-             thumbprint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if spring_cloud_gateway_id is None and 'springCloudGatewayId' in kwargs:
-            spring_cloud_gateway_id = kwargs['springCloudGatewayId']
-
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if spring_cloud_gateway_id is not None:
-            _setter("spring_cloud_gateway_id", spring_cloud_gateway_id)
+            pulumi.set(__self__, "spring_cloud_gateway_id", spring_cloud_gateway_id)
         if thumbprint is not None:
-            _setter("thumbprint", thumbprint)
+            pulumi.set(__self__, "thumbprint", thumbprint)
 
     @property
     @pulumi.getter
@@ -245,10 +209,6 @@ class SpringCloudGatewayCustomDomain(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SpringCloudGatewayCustomDomainArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['WorkspaceSqlAadAdminInitArgs', 'WorkspaceSqlAadAdmin']
@@ -25,41 +25,10 @@ class WorkspaceSqlAadAdminInitArgs:
         :param pulumi.Input[str] synapse_workspace_id: The ID of the Synapse Workspace where the Azure AD Administrator should be configured.
         :param pulumi.Input[str] tenant_id: The tenant id of the Azure AD Administrator of this Synapse Workspace.
         """
-        WorkspaceSqlAadAdminInitArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            login=login,
-            object_id=object_id,
-            synapse_workspace_id=synapse_workspace_id,
-            tenant_id=tenant_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             login: Optional[pulumi.Input[str]] = None,
-             object_id: Optional[pulumi.Input[str]] = None,
-             synapse_workspace_id: Optional[pulumi.Input[str]] = None,
-             tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if login is None:
-            raise TypeError("Missing 'login' argument")
-        if object_id is None and 'objectId' in kwargs:
-            object_id = kwargs['objectId']
-        if object_id is None:
-            raise TypeError("Missing 'object_id' argument")
-        if synapse_workspace_id is None and 'synapseWorkspaceId' in kwargs:
-            synapse_workspace_id = kwargs['synapseWorkspaceId']
-        if synapse_workspace_id is None:
-            raise TypeError("Missing 'synapse_workspace_id' argument")
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-        if tenant_id is None:
-            raise TypeError("Missing 'tenant_id' argument")
-
-        _setter("login", login)
-        _setter("object_id", object_id)
-        _setter("synapse_workspace_id", synapse_workspace_id)
-        _setter("tenant_id", tenant_id)
+        pulumi.set(__self__, "login", login)
+        pulumi.set(__self__, "object_id", object_id)
+        pulumi.set(__self__, "synapse_workspace_id", synapse_workspace_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -124,37 +93,14 @@ class _WorkspaceSqlAadAdminState:
         :param pulumi.Input[str] synapse_workspace_id: The ID of the Synapse Workspace where the Azure AD Administrator should be configured.
         :param pulumi.Input[str] tenant_id: The tenant id of the Azure AD Administrator of this Synapse Workspace.
         """
-        _WorkspaceSqlAadAdminState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            login=login,
-            object_id=object_id,
-            synapse_workspace_id=synapse_workspace_id,
-            tenant_id=tenant_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             login: Optional[pulumi.Input[str]] = None,
-             object_id: Optional[pulumi.Input[str]] = None,
-             synapse_workspace_id: Optional[pulumi.Input[str]] = None,
-             tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if object_id is None and 'objectId' in kwargs:
-            object_id = kwargs['objectId']
-        if synapse_workspace_id is None and 'synapseWorkspaceId' in kwargs:
-            synapse_workspace_id = kwargs['synapseWorkspaceId']
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-
         if login is not None:
-            _setter("login", login)
+            pulumi.set(__self__, "login", login)
         if object_id is not None:
-            _setter("object_id", object_id)
+            pulumi.set(__self__, "object_id", object_id)
         if synapse_workspace_id is not None:
-            _setter("synapse_workspace_id", synapse_workspace_id)
+            pulumi.set(__self__, "synapse_workspace_id", synapse_workspace_id)
         if tenant_id is not None:
-            _setter("tenant_id", tenant_id)
+            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -382,10 +328,6 @@ class WorkspaceSqlAadAdmin(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            WorkspaceSqlAadAdminInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

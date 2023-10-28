@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ApiTagDescriptionArgs', 'ApiTagDescription']
@@ -25,38 +25,13 @@ class ApiTagDescriptionArgs:
         :param pulumi.Input[str] external_documentation_description: The description of the external documentation resources describing the tag.
         :param pulumi.Input[str] external_documentation_url: The URL of external documentation resources describing the tag.
         """
-        ApiTagDescriptionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_tag_id=api_tag_id,
-            description=description,
-            external_documentation_description=external_documentation_description,
-            external_documentation_url=external_documentation_url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_tag_id: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             external_documentation_description: Optional[pulumi.Input[str]] = None,
-             external_documentation_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_tag_id is None and 'apiTagId' in kwargs:
-            api_tag_id = kwargs['apiTagId']
-        if api_tag_id is None:
-            raise TypeError("Missing 'api_tag_id' argument")
-        if external_documentation_description is None and 'externalDocumentationDescription' in kwargs:
-            external_documentation_description = kwargs['externalDocumentationDescription']
-        if external_documentation_url is None and 'externalDocumentationUrl' in kwargs:
-            external_documentation_url = kwargs['externalDocumentationUrl']
-
-        _setter("api_tag_id", api_tag_id)
+        pulumi.set(__self__, "api_tag_id", api_tag_id)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if external_documentation_description is not None:
-            _setter("external_documentation_description", external_documentation_description)
+            pulumi.set(__self__, "external_documentation_description", external_documentation_description)
         if external_documentation_url is not None:
-            _setter("external_documentation_url", external_documentation_url)
+            pulumi.set(__self__, "external_documentation_url", external_documentation_url)
 
     @property
     @pulumi.getter(name="apiTagId")
@@ -121,37 +96,14 @@ class _ApiTagDescriptionState:
         :param pulumi.Input[str] external_documentation_description: The description of the external documentation resources describing the tag.
         :param pulumi.Input[str] external_documentation_url: The URL of external documentation resources describing the tag.
         """
-        _ApiTagDescriptionState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_tag_id=api_tag_id,
-            description=description,
-            external_documentation_description=external_documentation_description,
-            external_documentation_url=external_documentation_url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_tag_id: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             external_documentation_description: Optional[pulumi.Input[str]] = None,
-             external_documentation_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_tag_id is None and 'apiTagId' in kwargs:
-            api_tag_id = kwargs['apiTagId']
-        if external_documentation_description is None and 'externalDocumentationDescription' in kwargs:
-            external_documentation_description = kwargs['externalDocumentationDescription']
-        if external_documentation_url is None and 'externalDocumentationUrl' in kwargs:
-            external_documentation_url = kwargs['externalDocumentationUrl']
-
         if api_tag_id is not None:
-            _setter("api_tag_id", api_tag_id)
+            pulumi.set(__self__, "api_tag_id", api_tag_id)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if external_documentation_description is not None:
-            _setter("external_documentation_description", external_documentation_description)
+            pulumi.set(__self__, "external_documentation_description", external_documentation_description)
         if external_documentation_url is not None:
-            _setter("external_documentation_url", external_documentation_url)
+            pulumi.set(__self__, "external_documentation_url", external_documentation_url)
 
     @property
     @pulumi.getter(name="apiTagId")
@@ -257,10 +209,6 @@ class ApiTagDescription(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ApiTagDescriptionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

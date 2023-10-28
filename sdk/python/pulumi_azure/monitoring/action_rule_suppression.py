@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,51 +35,20 @@ class ActionRuleSuppressionArgs:
         :param pulumi.Input['ActionRuleSuppressionScopeArgs'] scope: A `scope` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        ActionRuleSuppressionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_group_name=resource_group_name,
-            suppression=suppression,
-            condition=condition,
-            description=description,
-            enabled=enabled,
-            name=name,
-            scope=scope,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             suppression: Optional[pulumi.Input['ActionRuleSuppressionSuppressionArgs']] = None,
-             condition: Optional[pulumi.Input['ActionRuleSuppressionConditionArgs']] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             scope: Optional[pulumi.Input['ActionRuleSuppressionScopeArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if suppression is None:
-            raise TypeError("Missing 'suppression' argument")
-
-        _setter("resource_group_name", resource_group_name)
-        _setter("suppression", suppression)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "suppression", suppression)
         if condition is not None:
-            _setter("condition", condition)
+            pulumi.set(__self__, "condition", condition)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if scope is not None:
-            _setter("scope", scope)
+            pulumi.set(__self__, "scope", scope)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -200,49 +169,22 @@ class _ActionRuleSuppressionState:
         :param pulumi.Input['ActionRuleSuppressionSuppressionArgs'] suppression: A `suppression` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        _ActionRuleSuppressionState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            condition=condition,
-            description=description,
-            enabled=enabled,
-            name=name,
-            resource_group_name=resource_group_name,
-            scope=scope,
-            suppression=suppression,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             condition: Optional[pulumi.Input['ActionRuleSuppressionConditionArgs']] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             scope: Optional[pulumi.Input['ActionRuleSuppressionScopeArgs']] = None,
-             suppression: Optional[pulumi.Input['ActionRuleSuppressionSuppressionArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-
         if condition is not None:
-            _setter("condition", condition)
+            pulumi.set(__self__, "condition", condition)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if scope is not None:
-            _setter("scope", scope)
+            pulumi.set(__self__, "scope", scope)
         if suppression is not None:
-            _setter("suppression", suppression)
+            pulumi.set(__self__, "suppression", suppression)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -470,10 +412,6 @@ class ActionRuleSuppression(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ActionRuleSuppressionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -496,7 +434,6 @@ class ActionRuleSuppression(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ActionRuleSuppressionArgs.__new__(ActionRuleSuppressionArgs)
 
-            condition = _utilities.configure(condition, ActionRuleSuppressionConditionArgs, True)
             __props__.__dict__["condition"] = condition
             __props__.__dict__["description"] = description
             __props__.__dict__["enabled"] = enabled
@@ -504,9 +441,7 @@ class ActionRuleSuppression(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            scope = _utilities.configure(scope, ActionRuleSuppressionScopeArgs, True)
             __props__.__dict__["scope"] = scope
-            suppression = _utilities.configure(suppression, ActionRuleSuppressionSuppressionArgs, True)
             if suppression is None and not opts.urn:
                 raise TypeError("Missing required property 'suppression'")
             __props__.__dict__["suppression"] = suppression

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DateTimeVariableArgs', 'DateTimeVariable']
@@ -29,45 +29,16 @@ class DateTimeVariableArgs:
         :param pulumi.Input[str] name: The name of the Automation Variable. Changing this forces a new resource to be created.
         :param pulumi.Input[str] value: The value of the Automation Variable in the [RFC3339 Section 5.6 Internet Date/Time Format](https://tools.ietf.org/html/rfc3339#section-5.6).
         """
-        DateTimeVariableArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            automation_account_name=automation_account_name,
-            resource_group_name=resource_group_name,
-            description=description,
-            encrypted=encrypted,
-            name=name,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             automation_account_name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             encrypted: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if automation_account_name is None and 'automationAccountName' in kwargs:
-            automation_account_name = kwargs['automationAccountName']
-        if automation_account_name is None:
-            raise TypeError("Missing 'automation_account_name' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-
-        _setter("automation_account_name", automation_account_name)
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "automation_account_name", automation_account_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if encrypted is not None:
-            _setter("encrypted", encrypted)
+            pulumi.set(__self__, "encrypted", encrypted)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter(name="automationAccountName")
@@ -160,43 +131,18 @@ class _DateTimeVariableState:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Automation Variable. Changing this forces a new resource to be created.
         :param pulumi.Input[str] value: The value of the Automation Variable in the [RFC3339 Section 5.6 Internet Date/Time Format](https://tools.ietf.org/html/rfc3339#section-5.6).
         """
-        _DateTimeVariableState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            automation_account_name=automation_account_name,
-            description=description,
-            encrypted=encrypted,
-            name=name,
-            resource_group_name=resource_group_name,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             automation_account_name: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             encrypted: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if automation_account_name is None and 'automationAccountName' in kwargs:
-            automation_account_name = kwargs['automationAccountName']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-
         if automation_account_name is not None:
-            _setter("automation_account_name", automation_account_name)
+            pulumi.set(__self__, "automation_account_name", automation_account_name)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if encrypted is not None:
-            _setter("encrypted", encrypted)
+            pulumi.set(__self__, "encrypted", encrypted)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter(name="automationAccountName")
@@ -364,10 +310,6 @@ class DateTimeVariable(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DateTimeVariableArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

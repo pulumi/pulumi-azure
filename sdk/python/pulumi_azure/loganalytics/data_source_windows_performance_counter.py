@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DataSourceWindowsPerformanceCounterArgs', 'DataSourceWindowsPerformanceCounter']
@@ -31,61 +31,14 @@ class DataSourceWindowsPerformanceCounterArgs:
         :param pulumi.Input[str] workspace_name: The name of the Log Analytics Workspace where the Log Analytics Windows Performance Counter DataSource should exist. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created.
         :param pulumi.Input[str] name: The Name which should be used for this Log Analytics Windows Performance Counter DataSource. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created.
         """
-        DataSourceWindowsPerformanceCounterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            counter_name=counter_name,
-            instance_name=instance_name,
-            interval_seconds=interval_seconds,
-            object_name=object_name,
-            resource_group_name=resource_group_name,
-            workspace_name=workspace_name,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             counter_name: Optional[pulumi.Input[str]] = None,
-             instance_name: Optional[pulumi.Input[str]] = None,
-             interval_seconds: Optional[pulumi.Input[int]] = None,
-             object_name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             workspace_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if counter_name is None and 'counterName' in kwargs:
-            counter_name = kwargs['counterName']
-        if counter_name is None:
-            raise TypeError("Missing 'counter_name' argument")
-        if instance_name is None and 'instanceName' in kwargs:
-            instance_name = kwargs['instanceName']
-        if instance_name is None:
-            raise TypeError("Missing 'instance_name' argument")
-        if interval_seconds is None and 'intervalSeconds' in kwargs:
-            interval_seconds = kwargs['intervalSeconds']
-        if interval_seconds is None:
-            raise TypeError("Missing 'interval_seconds' argument")
-        if object_name is None and 'objectName' in kwargs:
-            object_name = kwargs['objectName']
-        if object_name is None:
-            raise TypeError("Missing 'object_name' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if workspace_name is None and 'workspaceName' in kwargs:
-            workspace_name = kwargs['workspaceName']
-        if workspace_name is None:
-            raise TypeError("Missing 'workspace_name' argument")
-
-        _setter("counter_name", counter_name)
-        _setter("instance_name", instance_name)
-        _setter("interval_seconds", interval_seconds)
-        _setter("object_name", object_name)
-        _setter("resource_group_name", resource_group_name)
-        _setter("workspace_name", workspace_name)
+        pulumi.set(__self__, "counter_name", counter_name)
+        pulumi.set(__self__, "instance_name", instance_name)
+        pulumi.set(__self__, "interval_seconds", interval_seconds)
+        pulumi.set(__self__, "object_name", object_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "workspace_name", workspace_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="counterName")
@@ -192,55 +145,20 @@ class _DataSourceWindowsPerformanceCounterState:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Log Analytics Windows Performance Counter DataSource should exist. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created.
         :param pulumi.Input[str] workspace_name: The name of the Log Analytics Workspace where the Log Analytics Windows Performance Counter DataSource should exist. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created.
         """
-        _DataSourceWindowsPerformanceCounterState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            counter_name=counter_name,
-            instance_name=instance_name,
-            interval_seconds=interval_seconds,
-            name=name,
-            object_name=object_name,
-            resource_group_name=resource_group_name,
-            workspace_name=workspace_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             counter_name: Optional[pulumi.Input[str]] = None,
-             instance_name: Optional[pulumi.Input[str]] = None,
-             interval_seconds: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             object_name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             workspace_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if counter_name is None and 'counterName' in kwargs:
-            counter_name = kwargs['counterName']
-        if instance_name is None and 'instanceName' in kwargs:
-            instance_name = kwargs['instanceName']
-        if interval_seconds is None and 'intervalSeconds' in kwargs:
-            interval_seconds = kwargs['intervalSeconds']
-        if object_name is None and 'objectName' in kwargs:
-            object_name = kwargs['objectName']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if workspace_name is None and 'workspaceName' in kwargs:
-            workspace_name = kwargs['workspaceName']
-
         if counter_name is not None:
-            _setter("counter_name", counter_name)
+            pulumi.set(__self__, "counter_name", counter_name)
         if instance_name is not None:
-            _setter("instance_name", instance_name)
+            pulumi.set(__self__, "instance_name", instance_name)
         if interval_seconds is not None:
-            _setter("interval_seconds", interval_seconds)
+            pulumi.set(__self__, "interval_seconds", interval_seconds)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if object_name is not None:
-            _setter("object_name", object_name)
+            pulumi.set(__self__, "object_name", object_name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if workspace_name is not None:
-            _setter("workspace_name", workspace_name)
+            pulumi.set(__self__, "workspace_name", workspace_name)
 
     @property
     @pulumi.getter(name="counterName")
@@ -428,10 +346,6 @@ class DataSourceWindowsPerformanceCounter(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DataSourceWindowsPerformanceCounterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

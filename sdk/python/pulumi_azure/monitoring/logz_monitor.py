@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,60 +39,21 @@ class LogzMonitorArgs:
         :param pulumi.Input[str] name: The name which should be used for this logz Monitor. Changing this forces a new logz Monitor to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the logz Monitor.
         """
-        LogzMonitorArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            plan=plan,
-            resource_group_name=resource_group_name,
-            user=user,
-            company_name=company_name,
-            enabled=enabled,
-            enterprise_app_id=enterprise_app_id,
-            location=location,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             plan: Optional[pulumi.Input['LogzMonitorPlanArgs']] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             user: Optional[pulumi.Input['LogzMonitorUserArgs']] = None,
-             company_name: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             enterprise_app_id: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if plan is None:
-            raise TypeError("Missing 'plan' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if user is None:
-            raise TypeError("Missing 'user' argument")
-        if company_name is None and 'companyName' in kwargs:
-            company_name = kwargs['companyName']
-        if enterprise_app_id is None and 'enterpriseAppId' in kwargs:
-            enterprise_app_id = kwargs['enterpriseAppId']
-
-        _setter("plan", plan)
-        _setter("resource_group_name", resource_group_name)
-        _setter("user", user)
+        pulumi.set(__self__, "plan", plan)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "user", user)
         if company_name is not None:
-            _setter("company_name", company_name)
+            pulumi.set(__self__, "company_name", company_name)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if enterprise_app_id is not None:
-            _setter("enterprise_app_id", enterprise_app_id)
+            pulumi.set(__self__, "enterprise_app_id", enterprise_app_id)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -235,69 +196,28 @@ class _LogzMonitorState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the logz Monitor.
         :param pulumi.Input['LogzMonitorUserArgs'] user: A `user` block as defined below. Changing this forces a new resource to be created.
         """
-        _LogzMonitorState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            company_name=company_name,
-            enabled=enabled,
-            enterprise_app_id=enterprise_app_id,
-            location=location,
-            logz_organization_id=logz_organization_id,
-            name=name,
-            plan=plan,
-            resource_group_name=resource_group_name,
-            single_sign_on_url=single_sign_on_url,
-            tags=tags,
-            user=user,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             company_name: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             enterprise_app_id: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             logz_organization_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             plan: Optional[pulumi.Input['LogzMonitorPlanArgs']] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             single_sign_on_url: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             user: Optional[pulumi.Input['LogzMonitorUserArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if company_name is None and 'companyName' in kwargs:
-            company_name = kwargs['companyName']
-        if enterprise_app_id is None and 'enterpriseAppId' in kwargs:
-            enterprise_app_id = kwargs['enterpriseAppId']
-        if logz_organization_id is None and 'logzOrganizationId' in kwargs:
-            logz_organization_id = kwargs['logzOrganizationId']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if single_sign_on_url is None and 'singleSignOnUrl' in kwargs:
-            single_sign_on_url = kwargs['singleSignOnUrl']
-
         if company_name is not None:
-            _setter("company_name", company_name)
+            pulumi.set(__self__, "company_name", company_name)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if enterprise_app_id is not None:
-            _setter("enterprise_app_id", enterprise_app_id)
+            pulumi.set(__self__, "enterprise_app_id", enterprise_app_id)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if logz_organization_id is not None:
-            _setter("logz_organization_id", logz_organization_id)
+            pulumi.set(__self__, "logz_organization_id", logz_organization_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if plan is not None:
-            _setter("plan", plan)
+            pulumi.set(__self__, "plan", plan)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if single_sign_on_url is not None:
-            _setter("single_sign_on_url", single_sign_on_url)
+            pulumi.set(__self__, "single_sign_on_url", single_sign_on_url)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if user is not None:
-            _setter("user", user)
+            pulumi.set(__self__, "user", user)
 
     @property
     @pulumi.getter(name="companyName")
@@ -547,10 +467,6 @@ class LogzMonitor(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LogzMonitorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -579,7 +495,6 @@ class LogzMonitor(pulumi.CustomResource):
             __props__.__dict__["enterprise_app_id"] = enterprise_app_id
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
-            plan = _utilities.configure(plan, LogzMonitorPlanArgs, True)
             if plan is None and not opts.urn:
                 raise TypeError("Missing required property 'plan'")
             __props__.__dict__["plan"] = plan
@@ -587,7 +502,6 @@ class LogzMonitor(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
-            user = _utilities.configure(user, LogzMonitorUserArgs, True)
             if user is None and not opts.urn:
                 raise TypeError("Missing required property 'user'")
             __props__.__dict__["user"] = user

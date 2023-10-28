@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -59,114 +59,41 @@ class RegistryTaskArgs:
         :param pulumi.Input[int] timeout_in_seconds: The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
         :param pulumi.Input[Sequence[pulumi.Input['RegistryTaskTimerTriggerArgs']]] timer_triggers: One or more `timer_trigger` blocks as defined below.
         """
-        RegistryTaskArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            container_registry_id=container_registry_id,
-            agent_pool_name=agent_pool_name,
-            agent_setting=agent_setting,
-            base_image_trigger=base_image_trigger,
-            docker_step=docker_step,
-            enabled=enabled,
-            encoded_step=encoded_step,
-            file_step=file_step,
-            identity=identity,
-            is_system_task=is_system_task,
-            log_template=log_template,
-            name=name,
-            platform=platform,
-            registry_credential=registry_credential,
-            source_triggers=source_triggers,
-            tags=tags,
-            timeout_in_seconds=timeout_in_seconds,
-            timer_triggers=timer_triggers,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             container_registry_id: Optional[pulumi.Input[str]] = None,
-             agent_pool_name: Optional[pulumi.Input[str]] = None,
-             agent_setting: Optional[pulumi.Input['RegistryTaskAgentSettingArgs']] = None,
-             base_image_trigger: Optional[pulumi.Input['RegistryTaskBaseImageTriggerArgs']] = None,
-             docker_step: Optional[pulumi.Input['RegistryTaskDockerStepArgs']] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             encoded_step: Optional[pulumi.Input['RegistryTaskEncodedStepArgs']] = None,
-             file_step: Optional[pulumi.Input['RegistryTaskFileStepArgs']] = None,
-             identity: Optional[pulumi.Input['RegistryTaskIdentityArgs']] = None,
-             is_system_task: Optional[pulumi.Input[bool]] = None,
-             log_template: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             platform: Optional[pulumi.Input['RegistryTaskPlatformArgs']] = None,
-             registry_credential: Optional[pulumi.Input['RegistryTaskRegistryCredentialArgs']] = None,
-             source_triggers: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryTaskSourceTriggerArgs']]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             timeout_in_seconds: Optional[pulumi.Input[int]] = None,
-             timer_triggers: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryTaskTimerTriggerArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if container_registry_id is None and 'containerRegistryId' in kwargs:
-            container_registry_id = kwargs['containerRegistryId']
-        if container_registry_id is None:
-            raise TypeError("Missing 'container_registry_id' argument")
-        if agent_pool_name is None and 'agentPoolName' in kwargs:
-            agent_pool_name = kwargs['agentPoolName']
-        if agent_setting is None and 'agentSetting' in kwargs:
-            agent_setting = kwargs['agentSetting']
-        if base_image_trigger is None and 'baseImageTrigger' in kwargs:
-            base_image_trigger = kwargs['baseImageTrigger']
-        if docker_step is None and 'dockerStep' in kwargs:
-            docker_step = kwargs['dockerStep']
-        if encoded_step is None and 'encodedStep' in kwargs:
-            encoded_step = kwargs['encodedStep']
-        if file_step is None and 'fileStep' in kwargs:
-            file_step = kwargs['fileStep']
-        if is_system_task is None and 'isSystemTask' in kwargs:
-            is_system_task = kwargs['isSystemTask']
-        if log_template is None and 'logTemplate' in kwargs:
-            log_template = kwargs['logTemplate']
-        if registry_credential is None and 'registryCredential' in kwargs:
-            registry_credential = kwargs['registryCredential']
-        if source_triggers is None and 'sourceTriggers' in kwargs:
-            source_triggers = kwargs['sourceTriggers']
-        if timeout_in_seconds is None and 'timeoutInSeconds' in kwargs:
-            timeout_in_seconds = kwargs['timeoutInSeconds']
-        if timer_triggers is None and 'timerTriggers' in kwargs:
-            timer_triggers = kwargs['timerTriggers']
-
-        _setter("container_registry_id", container_registry_id)
+        pulumi.set(__self__, "container_registry_id", container_registry_id)
         if agent_pool_name is not None:
-            _setter("agent_pool_name", agent_pool_name)
+            pulumi.set(__self__, "agent_pool_name", agent_pool_name)
         if agent_setting is not None:
-            _setter("agent_setting", agent_setting)
+            pulumi.set(__self__, "agent_setting", agent_setting)
         if base_image_trigger is not None:
-            _setter("base_image_trigger", base_image_trigger)
+            pulumi.set(__self__, "base_image_trigger", base_image_trigger)
         if docker_step is not None:
-            _setter("docker_step", docker_step)
+            pulumi.set(__self__, "docker_step", docker_step)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if encoded_step is not None:
-            _setter("encoded_step", encoded_step)
+            pulumi.set(__self__, "encoded_step", encoded_step)
         if file_step is not None:
-            _setter("file_step", file_step)
+            pulumi.set(__self__, "file_step", file_step)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if is_system_task is not None:
-            _setter("is_system_task", is_system_task)
+            pulumi.set(__self__, "is_system_task", is_system_task)
         if log_template is not None:
-            _setter("log_template", log_template)
+            pulumi.set(__self__, "log_template", log_template)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if platform is not None:
-            _setter("platform", platform)
+            pulumi.set(__self__, "platform", platform)
         if registry_credential is not None:
-            _setter("registry_credential", registry_credential)
+            pulumi.set(__self__, "registry_credential", registry_credential)
         if source_triggers is not None:
-            _setter("source_triggers", source_triggers)
+            pulumi.set(__self__, "source_triggers", source_triggers)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if timeout_in_seconds is not None:
-            _setter("timeout_in_seconds", timeout_in_seconds)
+            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
         if timer_triggers is not None:
-            _setter("timer_triggers", timer_triggers)
+            pulumi.set(__self__, "timer_triggers", timer_triggers)
 
     @property
     @pulumi.getter(name="containerRegistryId")
@@ -435,113 +362,42 @@ class _RegistryTaskState:
         :param pulumi.Input[int] timeout_in_seconds: The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
         :param pulumi.Input[Sequence[pulumi.Input['RegistryTaskTimerTriggerArgs']]] timer_triggers: One or more `timer_trigger` blocks as defined below.
         """
-        _RegistryTaskState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            agent_pool_name=agent_pool_name,
-            agent_setting=agent_setting,
-            base_image_trigger=base_image_trigger,
-            container_registry_id=container_registry_id,
-            docker_step=docker_step,
-            enabled=enabled,
-            encoded_step=encoded_step,
-            file_step=file_step,
-            identity=identity,
-            is_system_task=is_system_task,
-            log_template=log_template,
-            name=name,
-            platform=platform,
-            registry_credential=registry_credential,
-            source_triggers=source_triggers,
-            tags=tags,
-            timeout_in_seconds=timeout_in_seconds,
-            timer_triggers=timer_triggers,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             agent_pool_name: Optional[pulumi.Input[str]] = None,
-             agent_setting: Optional[pulumi.Input['RegistryTaskAgentSettingArgs']] = None,
-             base_image_trigger: Optional[pulumi.Input['RegistryTaskBaseImageTriggerArgs']] = None,
-             container_registry_id: Optional[pulumi.Input[str]] = None,
-             docker_step: Optional[pulumi.Input['RegistryTaskDockerStepArgs']] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             encoded_step: Optional[pulumi.Input['RegistryTaskEncodedStepArgs']] = None,
-             file_step: Optional[pulumi.Input['RegistryTaskFileStepArgs']] = None,
-             identity: Optional[pulumi.Input['RegistryTaskIdentityArgs']] = None,
-             is_system_task: Optional[pulumi.Input[bool]] = None,
-             log_template: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             platform: Optional[pulumi.Input['RegistryTaskPlatformArgs']] = None,
-             registry_credential: Optional[pulumi.Input['RegistryTaskRegistryCredentialArgs']] = None,
-             source_triggers: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryTaskSourceTriggerArgs']]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             timeout_in_seconds: Optional[pulumi.Input[int]] = None,
-             timer_triggers: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryTaskTimerTriggerArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if agent_pool_name is None and 'agentPoolName' in kwargs:
-            agent_pool_name = kwargs['agentPoolName']
-        if agent_setting is None and 'agentSetting' in kwargs:
-            agent_setting = kwargs['agentSetting']
-        if base_image_trigger is None and 'baseImageTrigger' in kwargs:
-            base_image_trigger = kwargs['baseImageTrigger']
-        if container_registry_id is None and 'containerRegistryId' in kwargs:
-            container_registry_id = kwargs['containerRegistryId']
-        if docker_step is None and 'dockerStep' in kwargs:
-            docker_step = kwargs['dockerStep']
-        if encoded_step is None and 'encodedStep' in kwargs:
-            encoded_step = kwargs['encodedStep']
-        if file_step is None and 'fileStep' in kwargs:
-            file_step = kwargs['fileStep']
-        if is_system_task is None and 'isSystemTask' in kwargs:
-            is_system_task = kwargs['isSystemTask']
-        if log_template is None and 'logTemplate' in kwargs:
-            log_template = kwargs['logTemplate']
-        if registry_credential is None and 'registryCredential' in kwargs:
-            registry_credential = kwargs['registryCredential']
-        if source_triggers is None and 'sourceTriggers' in kwargs:
-            source_triggers = kwargs['sourceTriggers']
-        if timeout_in_seconds is None and 'timeoutInSeconds' in kwargs:
-            timeout_in_seconds = kwargs['timeoutInSeconds']
-        if timer_triggers is None and 'timerTriggers' in kwargs:
-            timer_triggers = kwargs['timerTriggers']
-
         if agent_pool_name is not None:
-            _setter("agent_pool_name", agent_pool_name)
+            pulumi.set(__self__, "agent_pool_name", agent_pool_name)
         if agent_setting is not None:
-            _setter("agent_setting", agent_setting)
+            pulumi.set(__self__, "agent_setting", agent_setting)
         if base_image_trigger is not None:
-            _setter("base_image_trigger", base_image_trigger)
+            pulumi.set(__self__, "base_image_trigger", base_image_trigger)
         if container_registry_id is not None:
-            _setter("container_registry_id", container_registry_id)
+            pulumi.set(__self__, "container_registry_id", container_registry_id)
         if docker_step is not None:
-            _setter("docker_step", docker_step)
+            pulumi.set(__self__, "docker_step", docker_step)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if encoded_step is not None:
-            _setter("encoded_step", encoded_step)
+            pulumi.set(__self__, "encoded_step", encoded_step)
         if file_step is not None:
-            _setter("file_step", file_step)
+            pulumi.set(__self__, "file_step", file_step)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if is_system_task is not None:
-            _setter("is_system_task", is_system_task)
+            pulumi.set(__self__, "is_system_task", is_system_task)
         if log_template is not None:
-            _setter("log_template", log_template)
+            pulumi.set(__self__, "log_template", log_template)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if platform is not None:
-            _setter("platform", platform)
+            pulumi.set(__self__, "platform", platform)
         if registry_credential is not None:
-            _setter("registry_credential", registry_credential)
+            pulumi.set(__self__, "registry_credential", registry_credential)
         if source_triggers is not None:
-            _setter("source_triggers", source_triggers)
+            pulumi.set(__self__, "source_triggers", source_triggers)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if timeout_in_seconds is not None:
-            _setter("timeout_in_seconds", timeout_in_seconds)
+            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
         if timer_triggers is not None:
-            _setter("timer_triggers", timer_triggers)
+            pulumi.set(__self__, "timer_triggers", timer_triggers)
 
     @property
     @pulumi.getter(name="agentPoolName")
@@ -899,10 +755,6 @@ class RegistryTask(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            RegistryTaskArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -936,28 +788,20 @@ class RegistryTask(pulumi.CustomResource):
             __props__ = RegistryTaskArgs.__new__(RegistryTaskArgs)
 
             __props__.__dict__["agent_pool_name"] = agent_pool_name
-            agent_setting = _utilities.configure(agent_setting, RegistryTaskAgentSettingArgs, True)
             __props__.__dict__["agent_setting"] = agent_setting
-            base_image_trigger = _utilities.configure(base_image_trigger, RegistryTaskBaseImageTriggerArgs, True)
             __props__.__dict__["base_image_trigger"] = base_image_trigger
             if container_registry_id is None and not opts.urn:
                 raise TypeError("Missing required property 'container_registry_id'")
             __props__.__dict__["container_registry_id"] = container_registry_id
-            docker_step = _utilities.configure(docker_step, RegistryTaskDockerStepArgs, True)
             __props__.__dict__["docker_step"] = docker_step
             __props__.__dict__["enabled"] = enabled
-            encoded_step = _utilities.configure(encoded_step, RegistryTaskEncodedStepArgs, True)
             __props__.__dict__["encoded_step"] = encoded_step
-            file_step = _utilities.configure(file_step, RegistryTaskFileStepArgs, True)
             __props__.__dict__["file_step"] = file_step
-            identity = _utilities.configure(identity, RegistryTaskIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["is_system_task"] = is_system_task
             __props__.__dict__["log_template"] = log_template
             __props__.__dict__["name"] = name
-            platform = _utilities.configure(platform, RegistryTaskPlatformArgs, True)
             __props__.__dict__["platform"] = platform
-            registry_credential = _utilities.configure(registry_credential, RegistryTaskRegistryCredentialArgs, True)
             __props__.__dict__["registry_credential"] = registry_credential
             __props__.__dict__["source_triggers"] = source_triggers
             __props__.__dict__["tags"] = tags

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LinkedStorageAccountArgs', 'LinkedStorageAccount']
@@ -27,43 +27,10 @@ class LinkedStorageAccountArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_account_ids: The storage account resource ids to be linked.
         :param pulumi.Input[str] workspace_resource_id: The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
         """
-        LinkedStorageAccountArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_source_type=data_source_type,
-            resource_group_name=resource_group_name,
-            storage_account_ids=storage_account_ids,
-            workspace_resource_id=workspace_resource_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_source_type: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             storage_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             workspace_resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if data_source_type is None and 'dataSourceType' in kwargs:
-            data_source_type = kwargs['dataSourceType']
-        if data_source_type is None:
-            raise TypeError("Missing 'data_source_type' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if storage_account_ids is None and 'storageAccountIds' in kwargs:
-            storage_account_ids = kwargs['storageAccountIds']
-        if storage_account_ids is None:
-            raise TypeError("Missing 'storage_account_ids' argument")
-        if workspace_resource_id is None and 'workspaceResourceId' in kwargs:
-            workspace_resource_id = kwargs['workspaceResourceId']
-        if workspace_resource_id is None:
-            raise TypeError("Missing 'workspace_resource_id' argument")
-
-        _setter("data_source_type", data_source_type)
-        _setter("resource_group_name", resource_group_name)
-        _setter("storage_account_ids", storage_account_ids)
-        _setter("workspace_resource_id", workspace_resource_id)
+        pulumi.set(__self__, "data_source_type", data_source_type)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "storage_account_ids", storage_account_ids)
+        pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
 
     @property
     @pulumi.getter(name="dataSourceType")
@@ -132,39 +99,14 @@ class _LinkedStorageAccountState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_account_ids: The storage account resource ids to be linked.
         :param pulumi.Input[str] workspace_resource_id: The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
         """
-        _LinkedStorageAccountState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_source_type=data_source_type,
-            resource_group_name=resource_group_name,
-            storage_account_ids=storage_account_ids,
-            workspace_resource_id=workspace_resource_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_source_type: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             storage_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             workspace_resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if data_source_type is None and 'dataSourceType' in kwargs:
-            data_source_type = kwargs['dataSourceType']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if storage_account_ids is None and 'storageAccountIds' in kwargs:
-            storage_account_ids = kwargs['storageAccountIds']
-        if workspace_resource_id is None and 'workspaceResourceId' in kwargs:
-            workspace_resource_id = kwargs['workspaceResourceId']
-
         if data_source_type is not None:
-            _setter("data_source_type", data_source_type)
+            pulumi.set(__self__, "data_source_type", data_source_type)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if storage_account_ids is not None:
-            _setter("storage_account_ids", storage_account_ids)
+            pulumi.set(__self__, "storage_account_ids", storage_account_ids)
         if workspace_resource_id is not None:
-            _setter("workspace_resource_id", workspace_resource_id)
+            pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
 
     @property
     @pulumi.getter(name="dataSourceType")
@@ -320,10 +262,6 @@ class LinkedStorageAccount(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LinkedStorageAccountArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

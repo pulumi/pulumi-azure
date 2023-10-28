@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -87,208 +87,63 @@ class ApplicationGatewayArgs:
                
                > **Please Note**: Availability Zones are not supported in all regions at this time, please check the [official documentation](https://docs.microsoft.com/azure/availability-zones/az-overview) for more information. They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
         """
-        ApplicationGatewayArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            backend_address_pools=backend_address_pools,
-            backend_http_settings=backend_http_settings,
-            frontend_ip_configurations=frontend_ip_configurations,
-            frontend_ports=frontend_ports,
-            gateway_ip_configurations=gateway_ip_configurations,
-            http_listeners=http_listeners,
-            request_routing_rules=request_routing_rules,
-            resource_group_name=resource_group_name,
-            sku=sku,
-            authentication_certificates=authentication_certificates,
-            autoscale_configuration=autoscale_configuration,
-            custom_error_configurations=custom_error_configurations,
-            enable_http2=enable_http2,
-            fips_enabled=fips_enabled,
-            firewall_policy_id=firewall_policy_id,
-            force_firewall_policy_association=force_firewall_policy_association,
-            global_=global_,
-            identity=identity,
-            location=location,
-            name=name,
-            private_link_configurations=private_link_configurations,
-            probes=probes,
-            redirect_configurations=redirect_configurations,
-            rewrite_rule_sets=rewrite_rule_sets,
-            ssl_certificates=ssl_certificates,
-            ssl_policy=ssl_policy,
-            ssl_profiles=ssl_profiles,
-            tags=tags,
-            trusted_client_certificates=trusted_client_certificates,
-            trusted_root_certificates=trusted_root_certificates,
-            url_path_maps=url_path_maps,
-            waf_configuration=waf_configuration,
-            zones=zones,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             backend_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendAddressPoolArgs']]]] = None,
-             backend_http_settings: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingArgs']]]] = None,
-             frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayFrontendIpConfigurationArgs']]]] = None,
-             frontend_ports: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayFrontendPortArgs']]]] = None,
-             gateway_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayGatewayIpConfigurationArgs']]]] = None,
-             http_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayHttpListenerArgs']]]] = None,
-             request_routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRequestRoutingRuleArgs']]]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             sku: Optional[pulumi.Input['ApplicationGatewaySkuArgs']] = None,
-             authentication_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayAuthenticationCertificateArgs']]]] = None,
-             autoscale_configuration: Optional[pulumi.Input['ApplicationGatewayAutoscaleConfigurationArgs']] = None,
-             custom_error_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayCustomErrorConfigurationArgs']]]] = None,
-             enable_http2: Optional[pulumi.Input[bool]] = None,
-             fips_enabled: Optional[pulumi.Input[bool]] = None,
-             firewall_policy_id: Optional[pulumi.Input[str]] = None,
-             force_firewall_policy_association: Optional[pulumi.Input[bool]] = None,
-             global_: Optional[pulumi.Input['ApplicationGatewayGlobalArgs']] = None,
-             identity: Optional[pulumi.Input['ApplicationGatewayIdentityArgs']] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             private_link_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayPrivateLinkConfigurationArgs']]]] = None,
-             probes: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayProbeArgs']]]] = None,
-             redirect_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRedirectConfigurationArgs']]]] = None,
-             rewrite_rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetArgs']]]] = None,
-             ssl_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslCertificateArgs']]]] = None,
-             ssl_policy: Optional[pulumi.Input['ApplicationGatewaySslPolicyArgs']] = None,
-             ssl_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslProfileArgs']]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             trusted_client_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayTrustedClientCertificateArgs']]]] = None,
-             trusted_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayTrustedRootCertificateArgs']]]] = None,
-             url_path_maps: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayUrlPathMapArgs']]]] = None,
-             waf_configuration: Optional[pulumi.Input['ApplicationGatewayWafConfigurationArgs']] = None,
-             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if backend_address_pools is None and 'backendAddressPools' in kwargs:
-            backend_address_pools = kwargs['backendAddressPools']
-        if backend_address_pools is None:
-            raise TypeError("Missing 'backend_address_pools' argument")
-        if backend_http_settings is None and 'backendHttpSettings' in kwargs:
-            backend_http_settings = kwargs['backendHttpSettings']
-        if backend_http_settings is None:
-            raise TypeError("Missing 'backend_http_settings' argument")
-        if frontend_ip_configurations is None and 'frontendIpConfigurations' in kwargs:
-            frontend_ip_configurations = kwargs['frontendIpConfigurations']
-        if frontend_ip_configurations is None:
-            raise TypeError("Missing 'frontend_ip_configurations' argument")
-        if frontend_ports is None and 'frontendPorts' in kwargs:
-            frontend_ports = kwargs['frontendPorts']
-        if frontend_ports is None:
-            raise TypeError("Missing 'frontend_ports' argument")
-        if gateway_ip_configurations is None and 'gatewayIpConfigurations' in kwargs:
-            gateway_ip_configurations = kwargs['gatewayIpConfigurations']
-        if gateway_ip_configurations is None:
-            raise TypeError("Missing 'gateway_ip_configurations' argument")
-        if http_listeners is None and 'httpListeners' in kwargs:
-            http_listeners = kwargs['httpListeners']
-        if http_listeners is None:
-            raise TypeError("Missing 'http_listeners' argument")
-        if request_routing_rules is None and 'requestRoutingRules' in kwargs:
-            request_routing_rules = kwargs['requestRoutingRules']
-        if request_routing_rules is None:
-            raise TypeError("Missing 'request_routing_rules' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if sku is None:
-            raise TypeError("Missing 'sku' argument")
-        if authentication_certificates is None and 'authenticationCertificates' in kwargs:
-            authentication_certificates = kwargs['authenticationCertificates']
-        if autoscale_configuration is None and 'autoscaleConfiguration' in kwargs:
-            autoscale_configuration = kwargs['autoscaleConfiguration']
-        if custom_error_configurations is None and 'customErrorConfigurations' in kwargs:
-            custom_error_configurations = kwargs['customErrorConfigurations']
-        if enable_http2 is None and 'enableHttp2' in kwargs:
-            enable_http2 = kwargs['enableHttp2']
-        if fips_enabled is None and 'fipsEnabled' in kwargs:
-            fips_enabled = kwargs['fipsEnabled']
-        if firewall_policy_id is None and 'firewallPolicyId' in kwargs:
-            firewall_policy_id = kwargs['firewallPolicyId']
-        if force_firewall_policy_association is None and 'forceFirewallPolicyAssociation' in kwargs:
-            force_firewall_policy_association = kwargs['forceFirewallPolicyAssociation']
-        if global_ is None and 'global' in kwargs:
-            global_ = kwargs['global']
-        if private_link_configurations is None and 'privateLinkConfigurations' in kwargs:
-            private_link_configurations = kwargs['privateLinkConfigurations']
-        if redirect_configurations is None and 'redirectConfigurations' in kwargs:
-            redirect_configurations = kwargs['redirectConfigurations']
-        if rewrite_rule_sets is None and 'rewriteRuleSets' in kwargs:
-            rewrite_rule_sets = kwargs['rewriteRuleSets']
-        if ssl_certificates is None and 'sslCertificates' in kwargs:
-            ssl_certificates = kwargs['sslCertificates']
-        if ssl_policy is None and 'sslPolicy' in kwargs:
-            ssl_policy = kwargs['sslPolicy']
-        if ssl_profiles is None and 'sslProfiles' in kwargs:
-            ssl_profiles = kwargs['sslProfiles']
-        if trusted_client_certificates is None and 'trustedClientCertificates' in kwargs:
-            trusted_client_certificates = kwargs['trustedClientCertificates']
-        if trusted_root_certificates is None and 'trustedRootCertificates' in kwargs:
-            trusted_root_certificates = kwargs['trustedRootCertificates']
-        if url_path_maps is None and 'urlPathMaps' in kwargs:
-            url_path_maps = kwargs['urlPathMaps']
-        if waf_configuration is None and 'wafConfiguration' in kwargs:
-            waf_configuration = kwargs['wafConfiguration']
-
-        _setter("backend_address_pools", backend_address_pools)
-        _setter("backend_http_settings", backend_http_settings)
-        _setter("frontend_ip_configurations", frontend_ip_configurations)
-        _setter("frontend_ports", frontend_ports)
-        _setter("gateway_ip_configurations", gateway_ip_configurations)
-        _setter("http_listeners", http_listeners)
-        _setter("request_routing_rules", request_routing_rules)
-        _setter("resource_group_name", resource_group_name)
-        _setter("sku", sku)
+        pulumi.set(__self__, "backend_address_pools", backend_address_pools)
+        pulumi.set(__self__, "backend_http_settings", backend_http_settings)
+        pulumi.set(__self__, "frontend_ip_configurations", frontend_ip_configurations)
+        pulumi.set(__self__, "frontend_ports", frontend_ports)
+        pulumi.set(__self__, "gateway_ip_configurations", gateway_ip_configurations)
+        pulumi.set(__self__, "http_listeners", http_listeners)
+        pulumi.set(__self__, "request_routing_rules", request_routing_rules)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "sku", sku)
         if authentication_certificates is not None:
-            _setter("authentication_certificates", authentication_certificates)
+            pulumi.set(__self__, "authentication_certificates", authentication_certificates)
         if autoscale_configuration is not None:
-            _setter("autoscale_configuration", autoscale_configuration)
+            pulumi.set(__self__, "autoscale_configuration", autoscale_configuration)
         if custom_error_configurations is not None:
-            _setter("custom_error_configurations", custom_error_configurations)
+            pulumi.set(__self__, "custom_error_configurations", custom_error_configurations)
         if enable_http2 is not None:
-            _setter("enable_http2", enable_http2)
+            pulumi.set(__self__, "enable_http2", enable_http2)
         if fips_enabled is not None:
-            _setter("fips_enabled", fips_enabled)
+            pulumi.set(__self__, "fips_enabled", fips_enabled)
         if firewall_policy_id is not None:
-            _setter("firewall_policy_id", firewall_policy_id)
+            pulumi.set(__self__, "firewall_policy_id", firewall_policy_id)
         if force_firewall_policy_association is not None:
-            _setter("force_firewall_policy_association", force_firewall_policy_association)
+            pulumi.set(__self__, "force_firewall_policy_association", force_firewall_policy_association)
         if global_ is not None:
-            _setter("global_", global_)
+            pulumi.set(__self__, "global_", global_)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if private_link_configurations is not None:
-            _setter("private_link_configurations", private_link_configurations)
+            pulumi.set(__self__, "private_link_configurations", private_link_configurations)
         if probes is not None:
-            _setter("probes", probes)
+            pulumi.set(__self__, "probes", probes)
         if redirect_configurations is not None:
-            _setter("redirect_configurations", redirect_configurations)
+            pulumi.set(__self__, "redirect_configurations", redirect_configurations)
         if rewrite_rule_sets is not None:
-            _setter("rewrite_rule_sets", rewrite_rule_sets)
+            pulumi.set(__self__, "rewrite_rule_sets", rewrite_rule_sets)
         if ssl_certificates is not None:
-            _setter("ssl_certificates", ssl_certificates)
+            pulumi.set(__self__, "ssl_certificates", ssl_certificates)
         if ssl_policy is not None:
-            _setter("ssl_policy", ssl_policy)
+            pulumi.set(__self__, "ssl_policy", ssl_policy)
         if ssl_profiles is not None:
-            _setter("ssl_profiles", ssl_profiles)
+            pulumi.set(__self__, "ssl_profiles", ssl_profiles)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if trusted_client_certificates is not None:
-            _setter("trusted_client_certificates", trusted_client_certificates)
+            pulumi.set(__self__, "trusted_client_certificates", trusted_client_certificates)
         if trusted_root_certificates is not None:
-            _setter("trusted_root_certificates", trusted_root_certificates)
+            pulumi.set(__self__, "trusted_root_certificates", trusted_root_certificates)
         if url_path_maps is not None:
-            _setter("url_path_maps", url_path_maps)
+            pulumi.set(__self__, "url_path_maps", url_path_maps)
         if waf_configuration is not None:
-            _setter("waf_configuration", waf_configuration)
+            pulumi.set(__self__, "waf_configuration", waf_configuration)
         if zones is not None:
-            _setter("zones", zones)
+            pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter(name="backendAddressPools")
@@ -765,205 +620,74 @@ class _ApplicationGatewayState:
                
                > **Please Note**: Availability Zones are not supported in all regions at this time, please check the [official documentation](https://docs.microsoft.com/azure/availability-zones/az-overview) for more information. They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
         """
-        _ApplicationGatewayState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            authentication_certificates=authentication_certificates,
-            autoscale_configuration=autoscale_configuration,
-            backend_address_pools=backend_address_pools,
-            backend_http_settings=backend_http_settings,
-            custom_error_configurations=custom_error_configurations,
-            enable_http2=enable_http2,
-            fips_enabled=fips_enabled,
-            firewall_policy_id=firewall_policy_id,
-            force_firewall_policy_association=force_firewall_policy_association,
-            frontend_ip_configurations=frontend_ip_configurations,
-            frontend_ports=frontend_ports,
-            gateway_ip_configurations=gateway_ip_configurations,
-            global_=global_,
-            http_listeners=http_listeners,
-            identity=identity,
-            location=location,
-            name=name,
-            private_endpoint_connections=private_endpoint_connections,
-            private_link_configurations=private_link_configurations,
-            probes=probes,
-            redirect_configurations=redirect_configurations,
-            request_routing_rules=request_routing_rules,
-            resource_group_name=resource_group_name,
-            rewrite_rule_sets=rewrite_rule_sets,
-            sku=sku,
-            ssl_certificates=ssl_certificates,
-            ssl_policy=ssl_policy,
-            ssl_profiles=ssl_profiles,
-            tags=tags,
-            trusted_client_certificates=trusted_client_certificates,
-            trusted_root_certificates=trusted_root_certificates,
-            url_path_maps=url_path_maps,
-            waf_configuration=waf_configuration,
-            zones=zones,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             authentication_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayAuthenticationCertificateArgs']]]] = None,
-             autoscale_configuration: Optional[pulumi.Input['ApplicationGatewayAutoscaleConfigurationArgs']] = None,
-             backend_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendAddressPoolArgs']]]] = None,
-             backend_http_settings: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingArgs']]]] = None,
-             custom_error_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayCustomErrorConfigurationArgs']]]] = None,
-             enable_http2: Optional[pulumi.Input[bool]] = None,
-             fips_enabled: Optional[pulumi.Input[bool]] = None,
-             firewall_policy_id: Optional[pulumi.Input[str]] = None,
-             force_firewall_policy_association: Optional[pulumi.Input[bool]] = None,
-             frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayFrontendIpConfigurationArgs']]]] = None,
-             frontend_ports: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayFrontendPortArgs']]]] = None,
-             gateway_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayGatewayIpConfigurationArgs']]]] = None,
-             global_: Optional[pulumi.Input['ApplicationGatewayGlobalArgs']] = None,
-             http_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayHttpListenerArgs']]]] = None,
-             identity: Optional[pulumi.Input['ApplicationGatewayIdentityArgs']] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayPrivateEndpointConnectionArgs']]]] = None,
-             private_link_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayPrivateLinkConfigurationArgs']]]] = None,
-             probes: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayProbeArgs']]]] = None,
-             redirect_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRedirectConfigurationArgs']]]] = None,
-             request_routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRequestRoutingRuleArgs']]]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             rewrite_rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetArgs']]]] = None,
-             sku: Optional[pulumi.Input['ApplicationGatewaySkuArgs']] = None,
-             ssl_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslCertificateArgs']]]] = None,
-             ssl_policy: Optional[pulumi.Input['ApplicationGatewaySslPolicyArgs']] = None,
-             ssl_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslProfileArgs']]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             trusted_client_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayTrustedClientCertificateArgs']]]] = None,
-             trusted_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayTrustedRootCertificateArgs']]]] = None,
-             url_path_maps: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayUrlPathMapArgs']]]] = None,
-             waf_configuration: Optional[pulumi.Input['ApplicationGatewayWafConfigurationArgs']] = None,
-             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if authentication_certificates is None and 'authenticationCertificates' in kwargs:
-            authentication_certificates = kwargs['authenticationCertificates']
-        if autoscale_configuration is None and 'autoscaleConfiguration' in kwargs:
-            autoscale_configuration = kwargs['autoscaleConfiguration']
-        if backend_address_pools is None and 'backendAddressPools' in kwargs:
-            backend_address_pools = kwargs['backendAddressPools']
-        if backend_http_settings is None and 'backendHttpSettings' in kwargs:
-            backend_http_settings = kwargs['backendHttpSettings']
-        if custom_error_configurations is None and 'customErrorConfigurations' in kwargs:
-            custom_error_configurations = kwargs['customErrorConfigurations']
-        if enable_http2 is None and 'enableHttp2' in kwargs:
-            enable_http2 = kwargs['enableHttp2']
-        if fips_enabled is None and 'fipsEnabled' in kwargs:
-            fips_enabled = kwargs['fipsEnabled']
-        if firewall_policy_id is None and 'firewallPolicyId' in kwargs:
-            firewall_policy_id = kwargs['firewallPolicyId']
-        if force_firewall_policy_association is None and 'forceFirewallPolicyAssociation' in kwargs:
-            force_firewall_policy_association = kwargs['forceFirewallPolicyAssociation']
-        if frontend_ip_configurations is None and 'frontendIpConfigurations' in kwargs:
-            frontend_ip_configurations = kwargs['frontendIpConfigurations']
-        if frontend_ports is None and 'frontendPorts' in kwargs:
-            frontend_ports = kwargs['frontendPorts']
-        if gateway_ip_configurations is None and 'gatewayIpConfigurations' in kwargs:
-            gateway_ip_configurations = kwargs['gatewayIpConfigurations']
-        if global_ is None and 'global' in kwargs:
-            global_ = kwargs['global']
-        if http_listeners is None and 'httpListeners' in kwargs:
-            http_listeners = kwargs['httpListeners']
-        if private_endpoint_connections is None and 'privateEndpointConnections' in kwargs:
-            private_endpoint_connections = kwargs['privateEndpointConnections']
-        if private_link_configurations is None and 'privateLinkConfigurations' in kwargs:
-            private_link_configurations = kwargs['privateLinkConfigurations']
-        if redirect_configurations is None and 'redirectConfigurations' in kwargs:
-            redirect_configurations = kwargs['redirectConfigurations']
-        if request_routing_rules is None and 'requestRoutingRules' in kwargs:
-            request_routing_rules = kwargs['requestRoutingRules']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if rewrite_rule_sets is None and 'rewriteRuleSets' in kwargs:
-            rewrite_rule_sets = kwargs['rewriteRuleSets']
-        if ssl_certificates is None and 'sslCertificates' in kwargs:
-            ssl_certificates = kwargs['sslCertificates']
-        if ssl_policy is None and 'sslPolicy' in kwargs:
-            ssl_policy = kwargs['sslPolicy']
-        if ssl_profiles is None and 'sslProfiles' in kwargs:
-            ssl_profiles = kwargs['sslProfiles']
-        if trusted_client_certificates is None and 'trustedClientCertificates' in kwargs:
-            trusted_client_certificates = kwargs['trustedClientCertificates']
-        if trusted_root_certificates is None and 'trustedRootCertificates' in kwargs:
-            trusted_root_certificates = kwargs['trustedRootCertificates']
-        if url_path_maps is None and 'urlPathMaps' in kwargs:
-            url_path_maps = kwargs['urlPathMaps']
-        if waf_configuration is None and 'wafConfiguration' in kwargs:
-            waf_configuration = kwargs['wafConfiguration']
-
         if authentication_certificates is not None:
-            _setter("authentication_certificates", authentication_certificates)
+            pulumi.set(__self__, "authentication_certificates", authentication_certificates)
         if autoscale_configuration is not None:
-            _setter("autoscale_configuration", autoscale_configuration)
+            pulumi.set(__self__, "autoscale_configuration", autoscale_configuration)
         if backend_address_pools is not None:
-            _setter("backend_address_pools", backend_address_pools)
+            pulumi.set(__self__, "backend_address_pools", backend_address_pools)
         if backend_http_settings is not None:
-            _setter("backend_http_settings", backend_http_settings)
+            pulumi.set(__self__, "backend_http_settings", backend_http_settings)
         if custom_error_configurations is not None:
-            _setter("custom_error_configurations", custom_error_configurations)
+            pulumi.set(__self__, "custom_error_configurations", custom_error_configurations)
         if enable_http2 is not None:
-            _setter("enable_http2", enable_http2)
+            pulumi.set(__self__, "enable_http2", enable_http2)
         if fips_enabled is not None:
-            _setter("fips_enabled", fips_enabled)
+            pulumi.set(__self__, "fips_enabled", fips_enabled)
         if firewall_policy_id is not None:
-            _setter("firewall_policy_id", firewall_policy_id)
+            pulumi.set(__self__, "firewall_policy_id", firewall_policy_id)
         if force_firewall_policy_association is not None:
-            _setter("force_firewall_policy_association", force_firewall_policy_association)
+            pulumi.set(__self__, "force_firewall_policy_association", force_firewall_policy_association)
         if frontend_ip_configurations is not None:
-            _setter("frontend_ip_configurations", frontend_ip_configurations)
+            pulumi.set(__self__, "frontend_ip_configurations", frontend_ip_configurations)
         if frontend_ports is not None:
-            _setter("frontend_ports", frontend_ports)
+            pulumi.set(__self__, "frontend_ports", frontend_ports)
         if gateway_ip_configurations is not None:
-            _setter("gateway_ip_configurations", gateway_ip_configurations)
+            pulumi.set(__self__, "gateway_ip_configurations", gateway_ip_configurations)
         if global_ is not None:
-            _setter("global_", global_)
+            pulumi.set(__self__, "global_", global_)
         if http_listeners is not None:
-            _setter("http_listeners", http_listeners)
+            pulumi.set(__self__, "http_listeners", http_listeners)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if private_endpoint_connections is not None:
-            _setter("private_endpoint_connections", private_endpoint_connections)
+            pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         if private_link_configurations is not None:
-            _setter("private_link_configurations", private_link_configurations)
+            pulumi.set(__self__, "private_link_configurations", private_link_configurations)
         if probes is not None:
-            _setter("probes", probes)
+            pulumi.set(__self__, "probes", probes)
         if redirect_configurations is not None:
-            _setter("redirect_configurations", redirect_configurations)
+            pulumi.set(__self__, "redirect_configurations", redirect_configurations)
         if request_routing_rules is not None:
-            _setter("request_routing_rules", request_routing_rules)
+            pulumi.set(__self__, "request_routing_rules", request_routing_rules)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if rewrite_rule_sets is not None:
-            _setter("rewrite_rule_sets", rewrite_rule_sets)
+            pulumi.set(__self__, "rewrite_rule_sets", rewrite_rule_sets)
         if sku is not None:
-            _setter("sku", sku)
+            pulumi.set(__self__, "sku", sku)
         if ssl_certificates is not None:
-            _setter("ssl_certificates", ssl_certificates)
+            pulumi.set(__self__, "ssl_certificates", ssl_certificates)
         if ssl_policy is not None:
-            _setter("ssl_policy", ssl_policy)
+            pulumi.set(__self__, "ssl_policy", ssl_policy)
         if ssl_profiles is not None:
-            _setter("ssl_profiles", ssl_profiles)
+            pulumi.set(__self__, "ssl_profiles", ssl_profiles)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if trusted_client_certificates is not None:
-            _setter("trusted_client_certificates", trusted_client_certificates)
+            pulumi.set(__self__, "trusted_client_certificates", trusted_client_certificates)
         if trusted_root_certificates is not None:
-            _setter("trusted_root_certificates", trusted_root_certificates)
+            pulumi.set(__self__, "trusted_root_certificates", trusted_root_certificates)
         if url_path_maps is not None:
-            _setter("url_path_maps", url_path_maps)
+            pulumi.set(__self__, "url_path_maps", url_path_maps)
         if waf_configuration is not None:
-            _setter("waf_configuration", waf_configuration)
+            pulumi.set(__self__, "waf_configuration", waf_configuration)
         if zones is not None:
-            _setter("zones", zones)
+            pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter(name="authenticationCertificates")
@@ -1645,10 +1369,6 @@ class ApplicationGateway(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ApplicationGatewayArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1697,7 +1417,6 @@ class ApplicationGateway(pulumi.CustomResource):
             __props__ = ApplicationGatewayArgs.__new__(ApplicationGatewayArgs)
 
             __props__.__dict__["authentication_certificates"] = authentication_certificates
-            autoscale_configuration = _utilities.configure(autoscale_configuration, ApplicationGatewayAutoscaleConfigurationArgs, True)
             __props__.__dict__["autoscale_configuration"] = autoscale_configuration
             if backend_address_pools is None and not opts.urn:
                 raise TypeError("Missing required property 'backend_address_pools'")
@@ -1719,12 +1438,10 @@ class ApplicationGateway(pulumi.CustomResource):
             if gateway_ip_configurations is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway_ip_configurations'")
             __props__.__dict__["gateway_ip_configurations"] = gateway_ip_configurations
-            global_ = _utilities.configure(global_, ApplicationGatewayGlobalArgs, True)
             __props__.__dict__["global_"] = global_
             if http_listeners is None and not opts.urn:
                 raise TypeError("Missing required property 'http_listeners'")
             __props__.__dict__["http_listeners"] = http_listeners
-            identity = _utilities.configure(identity, ApplicationGatewayIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -1738,19 +1455,16 @@ class ApplicationGateway(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["rewrite_rule_sets"] = rewrite_rule_sets
-            sku = _utilities.configure(sku, ApplicationGatewaySkuArgs, True)
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
             __props__.__dict__["ssl_certificates"] = ssl_certificates
-            ssl_policy = _utilities.configure(ssl_policy, ApplicationGatewaySslPolicyArgs, True)
             __props__.__dict__["ssl_policy"] = ssl_policy
             __props__.__dict__["ssl_profiles"] = ssl_profiles
             __props__.__dict__["tags"] = tags
             __props__.__dict__["trusted_client_certificates"] = trusted_client_certificates
             __props__.__dict__["trusted_root_certificates"] = trusted_root_certificates
             __props__.__dict__["url_path_maps"] = url_path_maps
-            waf_configuration = _utilities.configure(waf_configuration, ApplicationGatewayWafConfigurationArgs, True)
             __props__.__dict__["waf_configuration"] = waf_configuration
             __props__.__dict__["zones"] = zones
             __props__.__dict__["private_endpoint_connections"] = None

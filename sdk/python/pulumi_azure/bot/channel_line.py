@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,40 +27,11 @@ class ChannelLineArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the Line Channel should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
-        ChannelLineArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bot_name=bot_name,
-            line_channels=line_channels,
-            resource_group_name=resource_group_name,
-            location=location,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bot_name: Optional[pulumi.Input[str]] = None,
-             line_channels: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelLineLineChannelArgs']]]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if bot_name is None and 'botName' in kwargs:
-            bot_name = kwargs['botName']
-        if bot_name is None:
-            raise TypeError("Missing 'bot_name' argument")
-        if line_channels is None and 'lineChannels' in kwargs:
-            line_channels = kwargs['lineChannels']
-        if line_channels is None:
-            raise TypeError("Missing 'line_channels' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-
-        _setter("bot_name", bot_name)
-        _setter("line_channels", line_channels)
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "bot_name", bot_name)
+        pulumi.set(__self__, "line_channels", line_channels)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
 
     @property
     @pulumi.getter(name="botName")
@@ -125,37 +96,14 @@ class _ChannelLineState:
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the Line Channel should be created. Changing this forces a new resource to be created.
         """
-        _ChannelLineState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bot_name=bot_name,
-            line_channels=line_channels,
-            location=location,
-            resource_group_name=resource_group_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bot_name: Optional[pulumi.Input[str]] = None,
-             line_channels: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelLineLineChannelArgs']]]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if bot_name is None and 'botName' in kwargs:
-            bot_name = kwargs['botName']
-        if line_channels is None and 'lineChannels' in kwargs:
-            line_channels = kwargs['lineChannels']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-
         if bot_name is not None:
-            _setter("bot_name", bot_name)
+            pulumi.set(__self__, "bot_name", bot_name)
         if line_channels is not None:
-            _setter("line_channels", line_channels)
+            pulumi.set(__self__, "line_channels", line_channels)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
 
     @property
     @pulumi.getter(name="botName")
@@ -311,10 +259,6 @@ class ChannelLine(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ChannelLineArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

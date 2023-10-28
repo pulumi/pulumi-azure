@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VirtualNetworkRuleArgs', 'VirtualNetworkRule']
@@ -27,39 +27,12 @@ class VirtualNetworkRuleArgs:
                > **NOTE:** If `ignore_missing_vnet_service_endpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `service_endpoints` array, the deployment will fail when it tries to create the SQL virtual network rule.
         :param pulumi.Input[str] name: The name of the SQL virtual network rule. Changing this forces a new resource to be created.
         """
-        VirtualNetworkRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            server_id=server_id,
-            subnet_id=subnet_id,
-            ignore_missing_vnet_service_endpoint=ignore_missing_vnet_service_endpoint,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             server_id: Optional[pulumi.Input[str]] = None,
-             subnet_id: Optional[pulumi.Input[str]] = None,
-             ignore_missing_vnet_service_endpoint: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if server_id is None and 'serverId' in kwargs:
-            server_id = kwargs['serverId']
-        if server_id is None:
-            raise TypeError("Missing 'server_id' argument")
-        if subnet_id is None and 'subnetId' in kwargs:
-            subnet_id = kwargs['subnetId']
-        if subnet_id is None:
-            raise TypeError("Missing 'subnet_id' argument")
-        if ignore_missing_vnet_service_endpoint is None and 'ignoreMissingVnetServiceEndpoint' in kwargs:
-            ignore_missing_vnet_service_endpoint = kwargs['ignoreMissingVnetServiceEndpoint']
-
-        _setter("server_id", server_id)
-        _setter("subnet_id", subnet_id)
+        pulumi.set(__self__, "server_id", server_id)
+        pulumi.set(__self__, "subnet_id", subnet_id)
         if ignore_missing_vnet_service_endpoint is not None:
-            _setter("ignore_missing_vnet_service_endpoint", ignore_missing_vnet_service_endpoint)
+            pulumi.set(__self__, "ignore_missing_vnet_service_endpoint", ignore_missing_vnet_service_endpoint)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="serverId")
@@ -128,37 +101,14 @@ class _VirtualNetworkRuleState:
         :param pulumi.Input[str] server_id: The resource ID of the SQL Server to which this SQL virtual network rule will be applied. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the subnet from which the SQL server will accept communications.
         """
-        _VirtualNetworkRuleState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ignore_missing_vnet_service_endpoint=ignore_missing_vnet_service_endpoint,
-            name=name,
-            server_id=server_id,
-            subnet_id=subnet_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ignore_missing_vnet_service_endpoint: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             server_id: Optional[pulumi.Input[str]] = None,
-             subnet_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if ignore_missing_vnet_service_endpoint is None and 'ignoreMissingVnetServiceEndpoint' in kwargs:
-            ignore_missing_vnet_service_endpoint = kwargs['ignoreMissingVnetServiceEndpoint']
-        if server_id is None and 'serverId' in kwargs:
-            server_id = kwargs['serverId']
-        if subnet_id is None and 'subnetId' in kwargs:
-            subnet_id = kwargs['subnetId']
-
         if ignore_missing_vnet_service_endpoint is not None:
-            _setter("ignore_missing_vnet_service_endpoint", ignore_missing_vnet_service_endpoint)
+            pulumi.set(__self__, "ignore_missing_vnet_service_endpoint", ignore_missing_vnet_service_endpoint)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if server_id is not None:
-            _setter("server_id", server_id)
+            pulumi.set(__self__, "server_id", server_id)
         if subnet_id is not None:
-            _setter("subnet_id", subnet_id)
+            pulumi.set(__self__, "subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="ignoreMissingVnetServiceEndpoint")
@@ -322,10 +272,6 @@ class VirtualNetworkRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            VirtualNetworkRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

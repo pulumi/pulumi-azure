@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -36,72 +36,15 @@ class GetRecommendationsRecommendationResult(dict):
         :param Sequence[str] suppression_names: A list of Advisor Suppression names of the Advisor Recommendation.
         :param str updated_time: The most recent time that Advisor checked the validity of the recommendation..
         """
-        GetRecommendationsRecommendationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            category=category,
-            description=description,
-            impact=impact,
-            recommendation_name=recommendation_name,
-            recommendation_type_id=recommendation_type_id,
-            resource_name=resource_name,
-            resource_type=resource_type,
-            suppression_names=suppression_names,
-            updated_time=updated_time,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             category: Optional[str] = None,
-             description: Optional[str] = None,
-             impact: Optional[str] = None,
-             recommendation_name: Optional[str] = None,
-             recommendation_type_id: Optional[str] = None,
-             resource_name: Optional[str] = None,
-             resource_type: Optional[str] = None,
-             suppression_names: Optional[Sequence[str]] = None,
-             updated_time: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if category is None:
-            raise TypeError("Missing 'category' argument")
-        if description is None:
-            raise TypeError("Missing 'description' argument")
-        if impact is None:
-            raise TypeError("Missing 'impact' argument")
-        if recommendation_name is None and 'recommendationName' in kwargs:
-            recommendation_name = kwargs['recommendationName']
-        if recommendation_name is None:
-            raise TypeError("Missing 'recommendation_name' argument")
-        if recommendation_type_id is None and 'recommendationTypeId' in kwargs:
-            recommendation_type_id = kwargs['recommendationTypeId']
-        if recommendation_type_id is None:
-            raise TypeError("Missing 'recommendation_type_id' argument")
-        if resource_name is None and 'resourceName' in kwargs:
-            resource_name = kwargs['resourceName']
-        if resource_name is None:
-            raise TypeError("Missing 'resource_name' argument")
-        if resource_type is None and 'resourceType' in kwargs:
-            resource_type = kwargs['resourceType']
-        if resource_type is None:
-            raise TypeError("Missing 'resource_type' argument")
-        if suppression_names is None and 'suppressionNames' in kwargs:
-            suppression_names = kwargs['suppressionNames']
-        if suppression_names is None:
-            raise TypeError("Missing 'suppression_names' argument")
-        if updated_time is None and 'updatedTime' in kwargs:
-            updated_time = kwargs['updatedTime']
-        if updated_time is None:
-            raise TypeError("Missing 'updated_time' argument")
-
-        _setter("category", category)
-        _setter("description", description)
-        _setter("impact", impact)
-        _setter("recommendation_name", recommendation_name)
-        _setter("recommendation_type_id", recommendation_type_id)
-        _setter("resource_name", resource_name)
-        _setter("resource_type", resource_type)
-        _setter("suppression_names", suppression_names)
-        _setter("updated_time", updated_time)
+        pulumi.set(__self__, "category", category)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "impact", impact)
+        pulumi.set(__self__, "recommendation_name", recommendation_name)
+        pulumi.set(__self__, "recommendation_type_id", recommendation_type_id)
+        pulumi.set(__self__, "resource_name", resource_name)
+        pulumi.set(__self__, "resource_type", resource_type)
+        pulumi.set(__self__, "suppression_names", suppression_names)
+        pulumi.set(__self__, "updated_time", updated_time)
 
     @property
     @pulumi.getter

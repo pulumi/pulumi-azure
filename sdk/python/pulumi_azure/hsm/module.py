@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,64 +39,21 @@ class ModuleArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Dedicated Hardware Security Module.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Dedicated Hardware Security Module should be located. Changing this forces a new Dedicated Hardware Security Module to be created.
         """
-        ModuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            network_profile=network_profile,
-            resource_group_name=resource_group_name,
-            sku_name=sku_name,
-            location=location,
-            management_network_profile=management_network_profile,
-            name=name,
-            stamp_id=stamp_id,
-            tags=tags,
-            zones=zones,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             network_profile: Optional[pulumi.Input['ModuleNetworkProfileArgs']] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             sku_name: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             management_network_profile: Optional[pulumi.Input['ModuleManagementNetworkProfileArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             stamp_id: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if network_profile is None and 'networkProfile' in kwargs:
-            network_profile = kwargs['networkProfile']
-        if network_profile is None:
-            raise TypeError("Missing 'network_profile' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if sku_name is None and 'skuName' in kwargs:
-            sku_name = kwargs['skuName']
-        if sku_name is None:
-            raise TypeError("Missing 'sku_name' argument")
-        if management_network_profile is None and 'managementNetworkProfile' in kwargs:
-            management_network_profile = kwargs['managementNetworkProfile']
-        if stamp_id is None and 'stampId' in kwargs:
-            stamp_id = kwargs['stampId']
-
-        _setter("network_profile", network_profile)
-        _setter("resource_group_name", resource_group_name)
-        _setter("sku_name", sku_name)
+        pulumi.set(__self__, "network_profile", network_profile)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "sku_name", sku_name)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if management_network_profile is not None:
-            _setter("management_network_profile", management_network_profile)
+            pulumi.set(__self__, "management_network_profile", management_network_profile)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if stamp_id is not None:
-            _setter("stamp_id", stamp_id)
+            pulumi.set(__self__, "stamp_id", stamp_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if zones is not None:
-            _setter("zones", zones)
+            pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter(name="networkProfile")
@@ -235,61 +192,24 @@ class _ModuleState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Dedicated Hardware Security Module.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Dedicated Hardware Security Module should be located. Changing this forces a new Dedicated Hardware Security Module to be created.
         """
-        _ModuleState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            location=location,
-            management_network_profile=management_network_profile,
-            name=name,
-            network_profile=network_profile,
-            resource_group_name=resource_group_name,
-            sku_name=sku_name,
-            stamp_id=stamp_id,
-            tags=tags,
-            zones=zones,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             location: Optional[pulumi.Input[str]] = None,
-             management_network_profile: Optional[pulumi.Input['ModuleManagementNetworkProfileArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             network_profile: Optional[pulumi.Input['ModuleNetworkProfileArgs']] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             sku_name: Optional[pulumi.Input[str]] = None,
-             stamp_id: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if management_network_profile is None and 'managementNetworkProfile' in kwargs:
-            management_network_profile = kwargs['managementNetworkProfile']
-        if network_profile is None and 'networkProfile' in kwargs:
-            network_profile = kwargs['networkProfile']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if sku_name is None and 'skuName' in kwargs:
-            sku_name = kwargs['skuName']
-        if stamp_id is None and 'stampId' in kwargs:
-            stamp_id = kwargs['stampId']
-
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if management_network_profile is not None:
-            _setter("management_network_profile", management_network_profile)
+            pulumi.set(__self__, "management_network_profile", management_network_profile)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if network_profile is not None:
-            _setter("network_profile", network_profile)
+            pulumi.set(__self__, "network_profile", network_profile)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if sku_name is not None:
-            _setter("sku_name", sku_name)
+            pulumi.set(__self__, "sku_name", sku_name)
         if stamp_id is not None:
-            _setter("stamp_id", stamp_id)
+            pulumi.set(__self__, "stamp_id", stamp_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if zones is not None:
-            _setter("zones", zones)
+            pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter
@@ -611,10 +531,6 @@ class Module(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ModuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -639,10 +555,8 @@ class Module(pulumi.CustomResource):
             __props__ = ModuleArgs.__new__(ModuleArgs)
 
             __props__.__dict__["location"] = location
-            management_network_profile = _utilities.configure(management_network_profile, ModuleManagementNetworkProfileArgs, True)
             __props__.__dict__["management_network_profile"] = management_network_profile
             __props__.__dict__["name"] = name
-            network_profile = _utilities.configure(network_profile, ModuleNetworkProfileArgs, True)
             if network_profile is None and not opts.urn:
                 raise TypeError("Missing required property 'network_profile'")
             __props__.__dict__["network_profile"] = network_profile

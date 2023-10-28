@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -122,218 +122,73 @@ class ManagedDiskArgs:
                
                > **Note:** Availability Zones are [only supported in select regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         """
-        ManagedDiskArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            create_option=create_option,
-            resource_group_name=resource_group_name,
-            storage_account_type=storage_account_type,
-            disk_access_id=disk_access_id,
-            disk_encryption_set_id=disk_encryption_set_id,
-            disk_iops_read_only=disk_iops_read_only,
-            disk_iops_read_write=disk_iops_read_write,
-            disk_mbps_read_only=disk_mbps_read_only,
-            disk_mbps_read_write=disk_mbps_read_write,
-            disk_size_gb=disk_size_gb,
-            edge_zone=edge_zone,
-            encryption_settings=encryption_settings,
-            gallery_image_reference_id=gallery_image_reference_id,
-            hyper_v_generation=hyper_v_generation,
-            image_reference_id=image_reference_id,
-            location=location,
-            logical_sector_size=logical_sector_size,
-            max_shares=max_shares,
-            name=name,
-            network_access_policy=network_access_policy,
-            on_demand_bursting_enabled=on_demand_bursting_enabled,
-            optimized_frequent_attach_enabled=optimized_frequent_attach_enabled,
-            os_type=os_type,
-            performance_plus_enabled=performance_plus_enabled,
-            public_network_access_enabled=public_network_access_enabled,
-            secure_vm_disk_encryption_set_id=secure_vm_disk_encryption_set_id,
-            security_type=security_type,
-            source_resource_id=source_resource_id,
-            source_uri=source_uri,
-            storage_account_id=storage_account_id,
-            tags=tags,
-            tier=tier,
-            trusted_launch_enabled=trusted_launch_enabled,
-            upload_size_bytes=upload_size_bytes,
-            zone=zone,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             create_option: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             storage_account_type: Optional[pulumi.Input[str]] = None,
-             disk_access_id: Optional[pulumi.Input[str]] = None,
-             disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
-             disk_iops_read_only: Optional[pulumi.Input[int]] = None,
-             disk_iops_read_write: Optional[pulumi.Input[int]] = None,
-             disk_mbps_read_only: Optional[pulumi.Input[int]] = None,
-             disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
-             disk_size_gb: Optional[pulumi.Input[int]] = None,
-             edge_zone: Optional[pulumi.Input[str]] = None,
-             encryption_settings: Optional[pulumi.Input['ManagedDiskEncryptionSettingsArgs']] = None,
-             gallery_image_reference_id: Optional[pulumi.Input[str]] = None,
-             hyper_v_generation: Optional[pulumi.Input[str]] = None,
-             image_reference_id: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             logical_sector_size: Optional[pulumi.Input[int]] = None,
-             max_shares: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             network_access_policy: Optional[pulumi.Input[str]] = None,
-             on_demand_bursting_enabled: Optional[pulumi.Input[bool]] = None,
-             optimized_frequent_attach_enabled: Optional[pulumi.Input[bool]] = None,
-             os_type: Optional[pulumi.Input[str]] = None,
-             performance_plus_enabled: Optional[pulumi.Input[bool]] = None,
-             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
-             secure_vm_disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
-             security_type: Optional[pulumi.Input[str]] = None,
-             source_resource_id: Optional[pulumi.Input[str]] = None,
-             source_uri: Optional[pulumi.Input[str]] = None,
-             storage_account_id: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tier: Optional[pulumi.Input[str]] = None,
-             trusted_launch_enabled: Optional[pulumi.Input[bool]] = None,
-             upload_size_bytes: Optional[pulumi.Input[int]] = None,
-             zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if create_option is None and 'createOption' in kwargs:
-            create_option = kwargs['createOption']
-        if create_option is None:
-            raise TypeError("Missing 'create_option' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if storage_account_type is None and 'storageAccountType' in kwargs:
-            storage_account_type = kwargs['storageAccountType']
-        if storage_account_type is None:
-            raise TypeError("Missing 'storage_account_type' argument")
-        if disk_access_id is None and 'diskAccessId' in kwargs:
-            disk_access_id = kwargs['diskAccessId']
-        if disk_encryption_set_id is None and 'diskEncryptionSetId' in kwargs:
-            disk_encryption_set_id = kwargs['diskEncryptionSetId']
-        if disk_iops_read_only is None and 'diskIopsReadOnly' in kwargs:
-            disk_iops_read_only = kwargs['diskIopsReadOnly']
-        if disk_iops_read_write is None and 'diskIopsReadWrite' in kwargs:
-            disk_iops_read_write = kwargs['diskIopsReadWrite']
-        if disk_mbps_read_only is None and 'diskMbpsReadOnly' in kwargs:
-            disk_mbps_read_only = kwargs['diskMbpsReadOnly']
-        if disk_mbps_read_write is None and 'diskMbpsReadWrite' in kwargs:
-            disk_mbps_read_write = kwargs['diskMbpsReadWrite']
-        if disk_size_gb is None and 'diskSizeGb' in kwargs:
-            disk_size_gb = kwargs['diskSizeGb']
-        if edge_zone is None and 'edgeZone' in kwargs:
-            edge_zone = kwargs['edgeZone']
-        if encryption_settings is None and 'encryptionSettings' in kwargs:
-            encryption_settings = kwargs['encryptionSettings']
-        if gallery_image_reference_id is None and 'galleryImageReferenceId' in kwargs:
-            gallery_image_reference_id = kwargs['galleryImageReferenceId']
-        if hyper_v_generation is None and 'hyperVGeneration' in kwargs:
-            hyper_v_generation = kwargs['hyperVGeneration']
-        if image_reference_id is None and 'imageReferenceId' in kwargs:
-            image_reference_id = kwargs['imageReferenceId']
-        if logical_sector_size is None and 'logicalSectorSize' in kwargs:
-            logical_sector_size = kwargs['logicalSectorSize']
-        if max_shares is None and 'maxShares' in kwargs:
-            max_shares = kwargs['maxShares']
-        if network_access_policy is None and 'networkAccessPolicy' in kwargs:
-            network_access_policy = kwargs['networkAccessPolicy']
-        if on_demand_bursting_enabled is None and 'onDemandBurstingEnabled' in kwargs:
-            on_demand_bursting_enabled = kwargs['onDemandBurstingEnabled']
-        if optimized_frequent_attach_enabled is None and 'optimizedFrequentAttachEnabled' in kwargs:
-            optimized_frequent_attach_enabled = kwargs['optimizedFrequentAttachEnabled']
-        if os_type is None and 'osType' in kwargs:
-            os_type = kwargs['osType']
-        if performance_plus_enabled is None and 'performancePlusEnabled' in kwargs:
-            performance_plus_enabled = kwargs['performancePlusEnabled']
-        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
-            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if secure_vm_disk_encryption_set_id is None and 'secureVmDiskEncryptionSetId' in kwargs:
-            secure_vm_disk_encryption_set_id = kwargs['secureVmDiskEncryptionSetId']
-        if security_type is None and 'securityType' in kwargs:
-            security_type = kwargs['securityType']
-        if source_resource_id is None and 'sourceResourceId' in kwargs:
-            source_resource_id = kwargs['sourceResourceId']
-        if source_uri is None and 'sourceUri' in kwargs:
-            source_uri = kwargs['sourceUri']
-        if storage_account_id is None and 'storageAccountId' in kwargs:
-            storage_account_id = kwargs['storageAccountId']
-        if trusted_launch_enabled is None and 'trustedLaunchEnabled' in kwargs:
-            trusted_launch_enabled = kwargs['trustedLaunchEnabled']
-        if upload_size_bytes is None and 'uploadSizeBytes' in kwargs:
-            upload_size_bytes = kwargs['uploadSizeBytes']
-
-        _setter("create_option", create_option)
-        _setter("resource_group_name", resource_group_name)
-        _setter("storage_account_type", storage_account_type)
+        pulumi.set(__self__, "create_option", create_option)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "storage_account_type", storage_account_type)
         if disk_access_id is not None:
-            _setter("disk_access_id", disk_access_id)
+            pulumi.set(__self__, "disk_access_id", disk_access_id)
         if disk_encryption_set_id is not None:
-            _setter("disk_encryption_set_id", disk_encryption_set_id)
+            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
         if disk_iops_read_only is not None:
-            _setter("disk_iops_read_only", disk_iops_read_only)
+            pulumi.set(__self__, "disk_iops_read_only", disk_iops_read_only)
         if disk_iops_read_write is not None:
-            _setter("disk_iops_read_write", disk_iops_read_write)
+            pulumi.set(__self__, "disk_iops_read_write", disk_iops_read_write)
         if disk_mbps_read_only is not None:
-            _setter("disk_mbps_read_only", disk_mbps_read_only)
+            pulumi.set(__self__, "disk_mbps_read_only", disk_mbps_read_only)
         if disk_mbps_read_write is not None:
-            _setter("disk_mbps_read_write", disk_mbps_read_write)
+            pulumi.set(__self__, "disk_mbps_read_write", disk_mbps_read_write)
         if disk_size_gb is not None:
-            _setter("disk_size_gb", disk_size_gb)
+            pulumi.set(__self__, "disk_size_gb", disk_size_gb)
         if edge_zone is not None:
-            _setter("edge_zone", edge_zone)
+            pulumi.set(__self__, "edge_zone", edge_zone)
         if encryption_settings is not None:
-            _setter("encryption_settings", encryption_settings)
+            pulumi.set(__self__, "encryption_settings", encryption_settings)
         if gallery_image_reference_id is not None:
-            _setter("gallery_image_reference_id", gallery_image_reference_id)
+            pulumi.set(__self__, "gallery_image_reference_id", gallery_image_reference_id)
         if hyper_v_generation is not None:
-            _setter("hyper_v_generation", hyper_v_generation)
+            pulumi.set(__self__, "hyper_v_generation", hyper_v_generation)
         if image_reference_id is not None:
-            _setter("image_reference_id", image_reference_id)
+            pulumi.set(__self__, "image_reference_id", image_reference_id)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if logical_sector_size is not None:
-            _setter("logical_sector_size", logical_sector_size)
+            pulumi.set(__self__, "logical_sector_size", logical_sector_size)
         if max_shares is not None:
-            _setter("max_shares", max_shares)
+            pulumi.set(__self__, "max_shares", max_shares)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if network_access_policy is not None:
-            _setter("network_access_policy", network_access_policy)
+            pulumi.set(__self__, "network_access_policy", network_access_policy)
         if on_demand_bursting_enabled is not None:
-            _setter("on_demand_bursting_enabled", on_demand_bursting_enabled)
+            pulumi.set(__self__, "on_demand_bursting_enabled", on_demand_bursting_enabled)
         if optimized_frequent_attach_enabled is not None:
-            _setter("optimized_frequent_attach_enabled", optimized_frequent_attach_enabled)
+            pulumi.set(__self__, "optimized_frequent_attach_enabled", optimized_frequent_attach_enabled)
         if os_type is not None:
-            _setter("os_type", os_type)
+            pulumi.set(__self__, "os_type", os_type)
         if performance_plus_enabled is not None:
-            _setter("performance_plus_enabled", performance_plus_enabled)
+            pulumi.set(__self__, "performance_plus_enabled", performance_plus_enabled)
         if public_network_access_enabled is not None:
-            _setter("public_network_access_enabled", public_network_access_enabled)
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if secure_vm_disk_encryption_set_id is not None:
-            _setter("secure_vm_disk_encryption_set_id", secure_vm_disk_encryption_set_id)
+            pulumi.set(__self__, "secure_vm_disk_encryption_set_id", secure_vm_disk_encryption_set_id)
         if security_type is not None:
-            _setter("security_type", security_type)
+            pulumi.set(__self__, "security_type", security_type)
         if source_resource_id is not None:
-            _setter("source_resource_id", source_resource_id)
+            pulumi.set(__self__, "source_resource_id", source_resource_id)
         if source_uri is not None:
-            _setter("source_uri", source_uri)
+            pulumi.set(__self__, "source_uri", source_uri)
         if storage_account_id is not None:
-            _setter("storage_account_id", storage_account_id)
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tier is not None:
-            _setter("tier", tier)
+            pulumi.set(__self__, "tier", tier)
         if trusted_launch_enabled is not None:
-            _setter("trusted_launch_enabled", trusted_launch_enabled)
+            pulumi.set(__self__, "trusted_launch_enabled", trusted_launch_enabled)
         if upload_size_bytes is not None:
-            _setter("upload_size_bytes", upload_size_bytes)
+            pulumi.set(__self__, "upload_size_bytes", upload_size_bytes)
         if zone is not None:
-            _setter("zone", zone)
+            pulumi.set(__self__, "zone", zone)
 
     @property
     @pulumi.getter(name="createOption")
@@ -894,215 +749,76 @@ class _ManagedDiskState:
                
                > **Note:** Availability Zones are [only supported in select regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         """
-        _ManagedDiskState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            create_option=create_option,
-            disk_access_id=disk_access_id,
-            disk_encryption_set_id=disk_encryption_set_id,
-            disk_iops_read_only=disk_iops_read_only,
-            disk_iops_read_write=disk_iops_read_write,
-            disk_mbps_read_only=disk_mbps_read_only,
-            disk_mbps_read_write=disk_mbps_read_write,
-            disk_size_gb=disk_size_gb,
-            edge_zone=edge_zone,
-            encryption_settings=encryption_settings,
-            gallery_image_reference_id=gallery_image_reference_id,
-            hyper_v_generation=hyper_v_generation,
-            image_reference_id=image_reference_id,
-            location=location,
-            logical_sector_size=logical_sector_size,
-            max_shares=max_shares,
-            name=name,
-            network_access_policy=network_access_policy,
-            on_demand_bursting_enabled=on_demand_bursting_enabled,
-            optimized_frequent_attach_enabled=optimized_frequent_attach_enabled,
-            os_type=os_type,
-            performance_plus_enabled=performance_plus_enabled,
-            public_network_access_enabled=public_network_access_enabled,
-            resource_group_name=resource_group_name,
-            secure_vm_disk_encryption_set_id=secure_vm_disk_encryption_set_id,
-            security_type=security_type,
-            source_resource_id=source_resource_id,
-            source_uri=source_uri,
-            storage_account_id=storage_account_id,
-            storage_account_type=storage_account_type,
-            tags=tags,
-            tier=tier,
-            trusted_launch_enabled=trusted_launch_enabled,
-            upload_size_bytes=upload_size_bytes,
-            zone=zone,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             create_option: Optional[pulumi.Input[str]] = None,
-             disk_access_id: Optional[pulumi.Input[str]] = None,
-             disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
-             disk_iops_read_only: Optional[pulumi.Input[int]] = None,
-             disk_iops_read_write: Optional[pulumi.Input[int]] = None,
-             disk_mbps_read_only: Optional[pulumi.Input[int]] = None,
-             disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
-             disk_size_gb: Optional[pulumi.Input[int]] = None,
-             edge_zone: Optional[pulumi.Input[str]] = None,
-             encryption_settings: Optional[pulumi.Input['ManagedDiskEncryptionSettingsArgs']] = None,
-             gallery_image_reference_id: Optional[pulumi.Input[str]] = None,
-             hyper_v_generation: Optional[pulumi.Input[str]] = None,
-             image_reference_id: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             logical_sector_size: Optional[pulumi.Input[int]] = None,
-             max_shares: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             network_access_policy: Optional[pulumi.Input[str]] = None,
-             on_demand_bursting_enabled: Optional[pulumi.Input[bool]] = None,
-             optimized_frequent_attach_enabled: Optional[pulumi.Input[bool]] = None,
-             os_type: Optional[pulumi.Input[str]] = None,
-             performance_plus_enabled: Optional[pulumi.Input[bool]] = None,
-             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             secure_vm_disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
-             security_type: Optional[pulumi.Input[str]] = None,
-             source_resource_id: Optional[pulumi.Input[str]] = None,
-             source_uri: Optional[pulumi.Input[str]] = None,
-             storage_account_id: Optional[pulumi.Input[str]] = None,
-             storage_account_type: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tier: Optional[pulumi.Input[str]] = None,
-             trusted_launch_enabled: Optional[pulumi.Input[bool]] = None,
-             upload_size_bytes: Optional[pulumi.Input[int]] = None,
-             zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if create_option is None and 'createOption' in kwargs:
-            create_option = kwargs['createOption']
-        if disk_access_id is None and 'diskAccessId' in kwargs:
-            disk_access_id = kwargs['diskAccessId']
-        if disk_encryption_set_id is None and 'diskEncryptionSetId' in kwargs:
-            disk_encryption_set_id = kwargs['diskEncryptionSetId']
-        if disk_iops_read_only is None and 'diskIopsReadOnly' in kwargs:
-            disk_iops_read_only = kwargs['diskIopsReadOnly']
-        if disk_iops_read_write is None and 'diskIopsReadWrite' in kwargs:
-            disk_iops_read_write = kwargs['diskIopsReadWrite']
-        if disk_mbps_read_only is None and 'diskMbpsReadOnly' in kwargs:
-            disk_mbps_read_only = kwargs['diskMbpsReadOnly']
-        if disk_mbps_read_write is None and 'diskMbpsReadWrite' in kwargs:
-            disk_mbps_read_write = kwargs['diskMbpsReadWrite']
-        if disk_size_gb is None and 'diskSizeGb' in kwargs:
-            disk_size_gb = kwargs['diskSizeGb']
-        if edge_zone is None and 'edgeZone' in kwargs:
-            edge_zone = kwargs['edgeZone']
-        if encryption_settings is None and 'encryptionSettings' in kwargs:
-            encryption_settings = kwargs['encryptionSettings']
-        if gallery_image_reference_id is None and 'galleryImageReferenceId' in kwargs:
-            gallery_image_reference_id = kwargs['galleryImageReferenceId']
-        if hyper_v_generation is None and 'hyperVGeneration' in kwargs:
-            hyper_v_generation = kwargs['hyperVGeneration']
-        if image_reference_id is None and 'imageReferenceId' in kwargs:
-            image_reference_id = kwargs['imageReferenceId']
-        if logical_sector_size is None and 'logicalSectorSize' in kwargs:
-            logical_sector_size = kwargs['logicalSectorSize']
-        if max_shares is None and 'maxShares' in kwargs:
-            max_shares = kwargs['maxShares']
-        if network_access_policy is None and 'networkAccessPolicy' in kwargs:
-            network_access_policy = kwargs['networkAccessPolicy']
-        if on_demand_bursting_enabled is None and 'onDemandBurstingEnabled' in kwargs:
-            on_demand_bursting_enabled = kwargs['onDemandBurstingEnabled']
-        if optimized_frequent_attach_enabled is None and 'optimizedFrequentAttachEnabled' in kwargs:
-            optimized_frequent_attach_enabled = kwargs['optimizedFrequentAttachEnabled']
-        if os_type is None and 'osType' in kwargs:
-            os_type = kwargs['osType']
-        if performance_plus_enabled is None and 'performancePlusEnabled' in kwargs:
-            performance_plus_enabled = kwargs['performancePlusEnabled']
-        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
-            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if secure_vm_disk_encryption_set_id is None and 'secureVmDiskEncryptionSetId' in kwargs:
-            secure_vm_disk_encryption_set_id = kwargs['secureVmDiskEncryptionSetId']
-        if security_type is None and 'securityType' in kwargs:
-            security_type = kwargs['securityType']
-        if source_resource_id is None and 'sourceResourceId' in kwargs:
-            source_resource_id = kwargs['sourceResourceId']
-        if source_uri is None and 'sourceUri' in kwargs:
-            source_uri = kwargs['sourceUri']
-        if storage_account_id is None and 'storageAccountId' in kwargs:
-            storage_account_id = kwargs['storageAccountId']
-        if storage_account_type is None and 'storageAccountType' in kwargs:
-            storage_account_type = kwargs['storageAccountType']
-        if trusted_launch_enabled is None and 'trustedLaunchEnabled' in kwargs:
-            trusted_launch_enabled = kwargs['trustedLaunchEnabled']
-        if upload_size_bytes is None and 'uploadSizeBytes' in kwargs:
-            upload_size_bytes = kwargs['uploadSizeBytes']
-
         if create_option is not None:
-            _setter("create_option", create_option)
+            pulumi.set(__self__, "create_option", create_option)
         if disk_access_id is not None:
-            _setter("disk_access_id", disk_access_id)
+            pulumi.set(__self__, "disk_access_id", disk_access_id)
         if disk_encryption_set_id is not None:
-            _setter("disk_encryption_set_id", disk_encryption_set_id)
+            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
         if disk_iops_read_only is not None:
-            _setter("disk_iops_read_only", disk_iops_read_only)
+            pulumi.set(__self__, "disk_iops_read_only", disk_iops_read_only)
         if disk_iops_read_write is not None:
-            _setter("disk_iops_read_write", disk_iops_read_write)
+            pulumi.set(__self__, "disk_iops_read_write", disk_iops_read_write)
         if disk_mbps_read_only is not None:
-            _setter("disk_mbps_read_only", disk_mbps_read_only)
+            pulumi.set(__self__, "disk_mbps_read_only", disk_mbps_read_only)
         if disk_mbps_read_write is not None:
-            _setter("disk_mbps_read_write", disk_mbps_read_write)
+            pulumi.set(__self__, "disk_mbps_read_write", disk_mbps_read_write)
         if disk_size_gb is not None:
-            _setter("disk_size_gb", disk_size_gb)
+            pulumi.set(__self__, "disk_size_gb", disk_size_gb)
         if edge_zone is not None:
-            _setter("edge_zone", edge_zone)
+            pulumi.set(__self__, "edge_zone", edge_zone)
         if encryption_settings is not None:
-            _setter("encryption_settings", encryption_settings)
+            pulumi.set(__self__, "encryption_settings", encryption_settings)
         if gallery_image_reference_id is not None:
-            _setter("gallery_image_reference_id", gallery_image_reference_id)
+            pulumi.set(__self__, "gallery_image_reference_id", gallery_image_reference_id)
         if hyper_v_generation is not None:
-            _setter("hyper_v_generation", hyper_v_generation)
+            pulumi.set(__self__, "hyper_v_generation", hyper_v_generation)
         if image_reference_id is not None:
-            _setter("image_reference_id", image_reference_id)
+            pulumi.set(__self__, "image_reference_id", image_reference_id)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if logical_sector_size is not None:
-            _setter("logical_sector_size", logical_sector_size)
+            pulumi.set(__self__, "logical_sector_size", logical_sector_size)
         if max_shares is not None:
-            _setter("max_shares", max_shares)
+            pulumi.set(__self__, "max_shares", max_shares)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if network_access_policy is not None:
-            _setter("network_access_policy", network_access_policy)
+            pulumi.set(__self__, "network_access_policy", network_access_policy)
         if on_demand_bursting_enabled is not None:
-            _setter("on_demand_bursting_enabled", on_demand_bursting_enabled)
+            pulumi.set(__self__, "on_demand_bursting_enabled", on_demand_bursting_enabled)
         if optimized_frequent_attach_enabled is not None:
-            _setter("optimized_frequent_attach_enabled", optimized_frequent_attach_enabled)
+            pulumi.set(__self__, "optimized_frequent_attach_enabled", optimized_frequent_attach_enabled)
         if os_type is not None:
-            _setter("os_type", os_type)
+            pulumi.set(__self__, "os_type", os_type)
         if performance_plus_enabled is not None:
-            _setter("performance_plus_enabled", performance_plus_enabled)
+            pulumi.set(__self__, "performance_plus_enabled", performance_plus_enabled)
         if public_network_access_enabled is not None:
-            _setter("public_network_access_enabled", public_network_access_enabled)
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if secure_vm_disk_encryption_set_id is not None:
-            _setter("secure_vm_disk_encryption_set_id", secure_vm_disk_encryption_set_id)
+            pulumi.set(__self__, "secure_vm_disk_encryption_set_id", secure_vm_disk_encryption_set_id)
         if security_type is not None:
-            _setter("security_type", security_type)
+            pulumi.set(__self__, "security_type", security_type)
         if source_resource_id is not None:
-            _setter("source_resource_id", source_resource_id)
+            pulumi.set(__self__, "source_resource_id", source_resource_id)
         if source_uri is not None:
-            _setter("source_uri", source_uri)
+            pulumi.set(__self__, "source_uri", source_uri)
         if storage_account_id is not None:
-            _setter("storage_account_id", storage_account_id)
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
         if storage_account_type is not None:
-            _setter("storage_account_type", storage_account_type)
+            pulumi.set(__self__, "storage_account_type", storage_account_type)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tier is not None:
-            _setter("tier", tier)
+            pulumi.set(__self__, "tier", tier)
         if trusted_launch_enabled is not None:
-            _setter("trusted_launch_enabled", trusted_launch_enabled)
+            pulumi.set(__self__, "trusted_launch_enabled", trusted_launch_enabled)
         if upload_size_bytes is not None:
-            _setter("upload_size_bytes", upload_size_bytes)
+            pulumi.set(__self__, "upload_size_bytes", upload_size_bytes)
         if zone is not None:
-            _setter("zone", zone)
+            pulumi.set(__self__, "zone", zone)
 
     @property
     @pulumi.getter(name="createOption")
@@ -1796,10 +1512,6 @@ class ManagedDisk(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ManagedDiskArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1860,7 +1572,6 @@ class ManagedDisk(pulumi.CustomResource):
             __props__.__dict__["disk_mbps_read_write"] = disk_mbps_read_write
             __props__.__dict__["disk_size_gb"] = disk_size_gb
             __props__.__dict__["edge_zone"] = edge_zone
-            encryption_settings = _utilities.configure(encryption_settings, ManagedDiskEncryptionSettingsArgs, True)
             __props__.__dict__["encryption_settings"] = encryption_settings
             __props__.__dict__["gallery_image_reference_id"] = gallery_image_reference_id
             __props__.__dict__["hyper_v_generation"] = hyper_v_generation

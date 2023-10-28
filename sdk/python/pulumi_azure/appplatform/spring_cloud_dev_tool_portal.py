@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,48 +31,17 @@ class SpringCloudDevToolPortalArgs:
         :param pulumi.Input[bool] public_network_access_enabled: Is public network access enabled?
         :param pulumi.Input['SpringCloudDevToolPortalSsoArgs'] sso: A `sso` block as defined below.
         """
-        SpringCloudDevToolPortalArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            spring_cloud_service_id=spring_cloud_service_id,
-            application_accelerator_enabled=application_accelerator_enabled,
-            application_live_view_enabled=application_live_view_enabled,
-            name=name,
-            public_network_access_enabled=public_network_access_enabled,
-            sso=sso,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
-             application_accelerator_enabled: Optional[pulumi.Input[bool]] = None,
-             application_live_view_enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
-             sso: Optional[pulumi.Input['SpringCloudDevToolPortalSsoArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if spring_cloud_service_id is None and 'springCloudServiceId' in kwargs:
-            spring_cloud_service_id = kwargs['springCloudServiceId']
-        if spring_cloud_service_id is None:
-            raise TypeError("Missing 'spring_cloud_service_id' argument")
-        if application_accelerator_enabled is None and 'applicationAcceleratorEnabled' in kwargs:
-            application_accelerator_enabled = kwargs['applicationAcceleratorEnabled']
-        if application_live_view_enabled is None and 'applicationLiveViewEnabled' in kwargs:
-            application_live_view_enabled = kwargs['applicationLiveViewEnabled']
-        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
-            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-
-        _setter("spring_cloud_service_id", spring_cloud_service_id)
+        pulumi.set(__self__, "spring_cloud_service_id", spring_cloud_service_id)
         if application_accelerator_enabled is not None:
-            _setter("application_accelerator_enabled", application_accelerator_enabled)
+            pulumi.set(__self__, "application_accelerator_enabled", application_accelerator_enabled)
         if application_live_view_enabled is not None:
-            _setter("application_live_view_enabled", application_live_view_enabled)
+            pulumi.set(__self__, "application_live_view_enabled", application_live_view_enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if public_network_access_enabled is not None:
-            _setter("public_network_access_enabled", public_network_access_enabled)
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if sso is not None:
-            _setter("sso", sso)
+            pulumi.set(__self__, "sso", sso)
 
     @property
     @pulumi.getter(name="springCloudServiceId")
@@ -165,47 +134,18 @@ class _SpringCloudDevToolPortalState:
         :param pulumi.Input[str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
         :param pulumi.Input['SpringCloudDevToolPortalSsoArgs'] sso: A `sso` block as defined below.
         """
-        _SpringCloudDevToolPortalState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            application_accelerator_enabled=application_accelerator_enabled,
-            application_live_view_enabled=application_live_view_enabled,
-            name=name,
-            public_network_access_enabled=public_network_access_enabled,
-            spring_cloud_service_id=spring_cloud_service_id,
-            sso=sso,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             application_accelerator_enabled: Optional[pulumi.Input[bool]] = None,
-             application_live_view_enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
-             spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
-             sso: Optional[pulumi.Input['SpringCloudDevToolPortalSsoArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if application_accelerator_enabled is None and 'applicationAcceleratorEnabled' in kwargs:
-            application_accelerator_enabled = kwargs['applicationAcceleratorEnabled']
-        if application_live_view_enabled is None and 'applicationLiveViewEnabled' in kwargs:
-            application_live_view_enabled = kwargs['applicationLiveViewEnabled']
-        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
-            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if spring_cloud_service_id is None and 'springCloudServiceId' in kwargs:
-            spring_cloud_service_id = kwargs['springCloudServiceId']
-
         if application_accelerator_enabled is not None:
-            _setter("application_accelerator_enabled", application_accelerator_enabled)
+            pulumi.set(__self__, "application_accelerator_enabled", application_accelerator_enabled)
         if application_live_view_enabled is not None:
-            _setter("application_live_view_enabled", application_live_view_enabled)
+            pulumi.set(__self__, "application_live_view_enabled", application_live_view_enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if public_network_access_enabled is not None:
-            _setter("public_network_access_enabled", public_network_access_enabled)
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if spring_cloud_service_id is not None:
-            _setter("spring_cloud_service_id", spring_cloud_service_id)
+            pulumi.set(__self__, "spring_cloud_service_id", spring_cloud_service_id)
         if sso is not None:
-            _setter("sso", sso)
+            pulumi.set(__self__, "sso", sso)
 
     @property
     @pulumi.getter(name="applicationAcceleratorEnabled")
@@ -401,10 +341,6 @@ class SpringCloudDevToolPortal(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SpringCloudDevToolPortalArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -432,7 +368,6 @@ class SpringCloudDevToolPortal(pulumi.CustomResource):
             if spring_cloud_service_id is None and not opts.urn:
                 raise TypeError("Missing required property 'spring_cloud_service_id'")
             __props__.__dict__["spring_cloud_service_id"] = spring_cloud_service_id
-            sso = _utilities.configure(sso, SpringCloudDevToolPortalSsoArgs, True)
             __props__.__dict__["sso"] = sso
         super(SpringCloudDevToolPortal, __self__).__init__(
             'azure:appplatform/springCloudDevToolPortal:SpringCloudDevToolPortal',

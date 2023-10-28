@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,56 +41,23 @@ class AadDiagnosticSettingArgs:
                
                > **NOTE:** One of `eventhub_authorization_rule_id`, `log_analytics_workspace_id` and `storage_account_id` must be specified.
         """
-        AadDiagnosticSettingArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled_logs=enabled_logs,
-            eventhub_authorization_rule_id=eventhub_authorization_rule_id,
-            eventhub_name=eventhub_name,
-            log_analytics_workspace_id=log_analytics_workspace_id,
-            logs=logs,
-            name=name,
-            storage_account_id=storage_account_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled_logs: Optional[pulumi.Input[Sequence[pulumi.Input['AadDiagnosticSettingEnabledLogArgs']]]] = None,
-             eventhub_authorization_rule_id: Optional[pulumi.Input[str]] = None,
-             eventhub_name: Optional[pulumi.Input[str]] = None,
-             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
-             logs: Optional[pulumi.Input[Sequence[pulumi.Input['AadDiagnosticSettingLogArgs']]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             storage_account_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled_logs is None and 'enabledLogs' in kwargs:
-            enabled_logs = kwargs['enabledLogs']
-        if eventhub_authorization_rule_id is None and 'eventhubAuthorizationRuleId' in kwargs:
-            eventhub_authorization_rule_id = kwargs['eventhubAuthorizationRuleId']
-        if eventhub_name is None and 'eventhubName' in kwargs:
-            eventhub_name = kwargs['eventhubName']
-        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
-            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if storage_account_id is None and 'storageAccountId' in kwargs:
-            storage_account_id = kwargs['storageAccountId']
-
         if enabled_logs is not None:
-            _setter("enabled_logs", enabled_logs)
+            pulumi.set(__self__, "enabled_logs", enabled_logs)
         if eventhub_authorization_rule_id is not None:
-            _setter("eventhub_authorization_rule_id", eventhub_authorization_rule_id)
+            pulumi.set(__self__, "eventhub_authorization_rule_id", eventhub_authorization_rule_id)
         if eventhub_name is not None:
-            _setter("eventhub_name", eventhub_name)
+            pulumi.set(__self__, "eventhub_name", eventhub_name)
         if log_analytics_workspace_id is not None:
-            _setter("log_analytics_workspace_id", log_analytics_workspace_id)
+            pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
         if logs is not None:
             warnings.warn("""`log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
             pulumi.log.warn("""logs is deprecated: `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.""")
         if logs is not None:
-            _setter("logs", logs)
+            pulumi.set(__self__, "logs", logs)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if storage_account_id is not None:
-            _setter("storage_account_id", storage_account_id)
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
 
     @property
     @pulumi.getter(name="enabledLogs")
@@ -216,56 +183,23 @@ class _AadDiagnosticSettingState:
                
                > **NOTE:** One of `eventhub_authorization_rule_id`, `log_analytics_workspace_id` and `storage_account_id` must be specified.
         """
-        _AadDiagnosticSettingState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled_logs=enabled_logs,
-            eventhub_authorization_rule_id=eventhub_authorization_rule_id,
-            eventhub_name=eventhub_name,
-            log_analytics_workspace_id=log_analytics_workspace_id,
-            logs=logs,
-            name=name,
-            storage_account_id=storage_account_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled_logs: Optional[pulumi.Input[Sequence[pulumi.Input['AadDiagnosticSettingEnabledLogArgs']]]] = None,
-             eventhub_authorization_rule_id: Optional[pulumi.Input[str]] = None,
-             eventhub_name: Optional[pulumi.Input[str]] = None,
-             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
-             logs: Optional[pulumi.Input[Sequence[pulumi.Input['AadDiagnosticSettingLogArgs']]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             storage_account_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled_logs is None and 'enabledLogs' in kwargs:
-            enabled_logs = kwargs['enabledLogs']
-        if eventhub_authorization_rule_id is None and 'eventhubAuthorizationRuleId' in kwargs:
-            eventhub_authorization_rule_id = kwargs['eventhubAuthorizationRuleId']
-        if eventhub_name is None and 'eventhubName' in kwargs:
-            eventhub_name = kwargs['eventhubName']
-        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
-            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if storage_account_id is None and 'storageAccountId' in kwargs:
-            storage_account_id = kwargs['storageAccountId']
-
         if enabled_logs is not None:
-            _setter("enabled_logs", enabled_logs)
+            pulumi.set(__self__, "enabled_logs", enabled_logs)
         if eventhub_authorization_rule_id is not None:
-            _setter("eventhub_authorization_rule_id", eventhub_authorization_rule_id)
+            pulumi.set(__self__, "eventhub_authorization_rule_id", eventhub_authorization_rule_id)
         if eventhub_name is not None:
-            _setter("eventhub_name", eventhub_name)
+            pulumi.set(__self__, "eventhub_name", eventhub_name)
         if log_analytics_workspace_id is not None:
-            _setter("log_analytics_workspace_id", log_analytics_workspace_id)
+            pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
         if logs is not None:
             warnings.warn("""`log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
             pulumi.log.warn("""logs is deprecated: `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.""")
         if logs is not None:
-            _setter("logs", logs)
+            pulumi.set(__self__, "logs", logs)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if storage_account_id is not None:
-            _setter("storage_account_id", storage_account_id)
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
 
     @property
     @pulumi.getter(name="enabledLogs")
@@ -530,10 +464,6 @@ class AadDiagnosticSetting(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AadDiagnosticSettingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

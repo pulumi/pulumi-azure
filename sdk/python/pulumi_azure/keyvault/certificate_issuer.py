@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,53 +33,18 @@ class CertificateIssuerArgs:
         :param pulumi.Input[str] org_id: The ID of the organization as provided to the issuer.
         :param pulumi.Input[str] password: The password associated with the account and organization ID at the third-party Certificate Issuer. If not specified, will not overwrite any previous value.
         """
-        CertificateIssuerArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key_vault_id=key_vault_id,
-            provider_name=provider_name,
-            account_id=account_id,
-            admins=admins,
-            name=name,
-            org_id=org_id,
-            password=password,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key_vault_id: Optional[pulumi.Input[str]] = None,
-             provider_name: Optional[pulumi.Input[str]] = None,
-             account_id: Optional[pulumi.Input[str]] = None,
-             admins: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateIssuerAdminArgs']]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             org_id: Optional[pulumi.Input[str]] = None,
-             password: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key_vault_id is None and 'keyVaultId' in kwargs:
-            key_vault_id = kwargs['keyVaultId']
-        if key_vault_id is None:
-            raise TypeError("Missing 'key_vault_id' argument")
-        if provider_name is None and 'providerName' in kwargs:
-            provider_name = kwargs['providerName']
-        if provider_name is None:
-            raise TypeError("Missing 'provider_name' argument")
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-        if org_id is None and 'orgId' in kwargs:
-            org_id = kwargs['orgId']
-
-        _setter("key_vault_id", key_vault_id)
-        _setter("provider_name", provider_name)
+        pulumi.set(__self__, "key_vault_id", key_vault_id)
+        pulumi.set(__self__, "provider_name", provider_name)
         if account_id is not None:
-            _setter("account_id", account_id)
+            pulumi.set(__self__, "account_id", account_id)
         if admins is not None:
-            _setter("admins", admins)
+            pulumi.set(__self__, "admins", admins)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if org_id is not None:
-            _setter("org_id", org_id)
+            pulumi.set(__self__, "org_id", org_id)
         if password is not None:
-            _setter("password", password)
+            pulumi.set(__self__, "password", password)
 
     @property
     @pulumi.getter(name="keyVaultId")
@@ -186,51 +151,20 @@ class _CertificateIssuerState:
         :param pulumi.Input[str] password: The password associated with the account and organization ID at the third-party Certificate Issuer. If not specified, will not overwrite any previous value.
         :param pulumi.Input[str] provider_name: The name of the third-party Certificate Issuer. Possible values are: `DigiCert`, `GlobalSign`, `OneCertV2-PrivateCA`, `OneCertV2-PublicCA` and `SslAdminV2`.
         """
-        _CertificateIssuerState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account_id=account_id,
-            admins=admins,
-            key_vault_id=key_vault_id,
-            name=name,
-            org_id=org_id,
-            password=password,
-            provider_name=provider_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account_id: Optional[pulumi.Input[str]] = None,
-             admins: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateIssuerAdminArgs']]]] = None,
-             key_vault_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             org_id: Optional[pulumi.Input[str]] = None,
-             password: Optional[pulumi.Input[str]] = None,
-             provider_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-        if key_vault_id is None and 'keyVaultId' in kwargs:
-            key_vault_id = kwargs['keyVaultId']
-        if org_id is None and 'orgId' in kwargs:
-            org_id = kwargs['orgId']
-        if provider_name is None and 'providerName' in kwargs:
-            provider_name = kwargs['providerName']
-
         if account_id is not None:
-            _setter("account_id", account_id)
+            pulumi.set(__self__, "account_id", account_id)
         if admins is not None:
-            _setter("admins", admins)
+            pulumi.set(__self__, "admins", admins)
         if key_vault_id is not None:
-            _setter("key_vault_id", key_vault_id)
+            pulumi.set(__self__, "key_vault_id", key_vault_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if org_id is not None:
-            _setter("org_id", org_id)
+            pulumi.set(__self__, "org_id", org_id)
         if password is not None:
-            _setter("password", password)
+            pulumi.set(__self__, "password", password)
         if provider_name is not None:
-            _setter("provider_name", provider_name)
+            pulumi.set(__self__, "provider_name", provider_name)
 
     @property
     @pulumi.getter(name="accountId")
@@ -420,10 +354,6 @@ class CertificateIssuer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            CertificateIssuerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

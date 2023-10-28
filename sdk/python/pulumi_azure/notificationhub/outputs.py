@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -55,48 +55,11 @@ class HubApnsCredential(dict):
         :param str team_id: The ID of the team the Token.
         :param str token: The Push Token associated with the Apple Developer Account. This is the contents of the `key` downloaded from [the Apple Developer Portal](https://developer.apple.com/account/ios/authkey/) between the `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` blocks.
         """
-        HubApnsCredential._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            application_mode=application_mode,
-            bundle_id=bundle_id,
-            key_id=key_id,
-            team_id=team_id,
-            token=token,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             application_mode: Optional[str] = None,
-             bundle_id: Optional[str] = None,
-             key_id: Optional[str] = None,
-             team_id: Optional[str] = None,
-             token: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if application_mode is None and 'applicationMode' in kwargs:
-            application_mode = kwargs['applicationMode']
-        if application_mode is None:
-            raise TypeError("Missing 'application_mode' argument")
-        if bundle_id is None and 'bundleId' in kwargs:
-            bundle_id = kwargs['bundleId']
-        if bundle_id is None:
-            raise TypeError("Missing 'bundle_id' argument")
-        if key_id is None and 'keyId' in kwargs:
-            key_id = kwargs['keyId']
-        if key_id is None:
-            raise TypeError("Missing 'key_id' argument")
-        if team_id is None and 'teamId' in kwargs:
-            team_id = kwargs['teamId']
-        if team_id is None:
-            raise TypeError("Missing 'team_id' argument")
-        if token is None:
-            raise TypeError("Missing 'token' argument")
-
-        _setter("application_mode", application_mode)
-        _setter("bundle_id", bundle_id)
-        _setter("key_id", key_id)
-        _setter("team_id", team_id)
-        _setter("token", token)
+        pulumi.set(__self__, "application_mode", application_mode)
+        pulumi.set(__self__, "bundle_id", bundle_id)
+        pulumi.set(__self__, "key_id", key_id)
+        pulumi.set(__self__, "team_id", team_id)
+        pulumi.set(__self__, "token", token)
 
     @property
     @pulumi.getter(name="applicationMode")
@@ -163,22 +126,7 @@ class HubGcmCredential(dict):
         """
         :param str api_key: The API Key associated with the Google Cloud Messaging service.
         """
-        HubGcmCredential._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_key=api_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_key: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_key is None and 'apiKey' in kwargs:
-            api_key = kwargs['apiKey']
-        if api_key is None:
-            raise TypeError("Missing 'api_key' argument")
-
-        _setter("api_key", api_key)
+        pulumi.set(__self__, "api_key", api_key)
 
     @property
     @pulumi.getter(name="apiKey")
@@ -204,48 +152,11 @@ class GetHubApnsCredentialResult(dict):
         :param str team_id: The ID of the team the Token.
         :param str token: The Push Token associated with the Apple Developer Account.
         """
-        GetHubApnsCredentialResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            application_mode=application_mode,
-            bundle_id=bundle_id,
-            key_id=key_id,
-            team_id=team_id,
-            token=token,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             application_mode: Optional[str] = None,
-             bundle_id: Optional[str] = None,
-             key_id: Optional[str] = None,
-             team_id: Optional[str] = None,
-             token: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if application_mode is None and 'applicationMode' in kwargs:
-            application_mode = kwargs['applicationMode']
-        if application_mode is None:
-            raise TypeError("Missing 'application_mode' argument")
-        if bundle_id is None and 'bundleId' in kwargs:
-            bundle_id = kwargs['bundleId']
-        if bundle_id is None:
-            raise TypeError("Missing 'bundle_id' argument")
-        if key_id is None and 'keyId' in kwargs:
-            key_id = kwargs['keyId']
-        if key_id is None:
-            raise TypeError("Missing 'key_id' argument")
-        if team_id is None and 'teamId' in kwargs:
-            team_id = kwargs['teamId']
-        if team_id is None:
-            raise TypeError("Missing 'team_id' argument")
-        if token is None:
-            raise TypeError("Missing 'token' argument")
-
-        _setter("application_mode", application_mode)
-        _setter("bundle_id", bundle_id)
-        _setter("key_id", key_id)
-        _setter("team_id", team_id)
-        _setter("token", token)
+        pulumi.set(__self__, "application_mode", application_mode)
+        pulumi.set(__self__, "bundle_id", bundle_id)
+        pulumi.set(__self__, "key_id", key_id)
+        pulumi.set(__self__, "team_id", team_id)
+        pulumi.set(__self__, "token", token)
 
     @property
     @pulumi.getter(name="applicationMode")
@@ -295,22 +206,7 @@ class GetHubGcmCredentialResult(dict):
         """
         :param str api_key: The API Key associated with the Google Cloud Messaging service.
         """
-        GetHubGcmCredentialResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_key=api_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_key: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_key is None and 'apiKey' in kwargs:
-            api_key = kwargs['apiKey']
-        if api_key is None:
-            raise TypeError("Missing 'api_key' argument")
-
-        _setter("api_key", api_key)
+        pulumi.set(__self__, "api_key", api_key)
 
     @property
     @pulumi.getter(name="apiKey")
@@ -328,20 +224,7 @@ class GetNamespaceSkuResult(dict):
         """
         :param str name: Specifies the Name of the Notification Hub Namespace.
         """
-        GetNamespaceSkuResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter

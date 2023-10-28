@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,45 +31,16 @@ class NetworkSliceArgs:
         :param pulumi.Input[str] name: Specifies the name which should be used for this Mobile Network Slice. Changing this forces a new Mobile Network Slice to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Mobile Network Slice.
         """
-        NetworkSliceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            mobile_network_id=mobile_network_id,
-            single_network_slice_selection_assistance_information=single_network_slice_selection_assistance_information,
-            description=description,
-            location=location,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             mobile_network_id: Optional[pulumi.Input[str]] = None,
-             single_network_slice_selection_assistance_information: Optional[pulumi.Input['NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs']] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if mobile_network_id is None and 'mobileNetworkId' in kwargs:
-            mobile_network_id = kwargs['mobileNetworkId']
-        if mobile_network_id is None:
-            raise TypeError("Missing 'mobile_network_id' argument")
-        if single_network_slice_selection_assistance_information is None and 'singleNetworkSliceSelectionAssistanceInformation' in kwargs:
-            single_network_slice_selection_assistance_information = kwargs['singleNetworkSliceSelectionAssistanceInformation']
-        if single_network_slice_selection_assistance_information is None:
-            raise TypeError("Missing 'single_network_slice_selection_assistance_information' argument")
-
-        _setter("mobile_network_id", mobile_network_id)
-        _setter("single_network_slice_selection_assistance_information", single_network_slice_selection_assistance_information)
+        pulumi.set(__self__, "mobile_network_id", mobile_network_id)
+        pulumi.set(__self__, "single_network_slice_selection_assistance_information", single_network_slice_selection_assistance_information)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="mobileNetworkId")
@@ -162,43 +133,18 @@ class _NetworkSliceState:
         :param pulumi.Input['NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs'] single_network_slice_selection_assistance_information: A `single_network_slice_selection_assistance_information` block as defined below. Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Mobile Network Slice.
         """
-        _NetworkSliceState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            location=location,
-            mobile_network_id=mobile_network_id,
-            name=name,
-            single_network_slice_selection_assistance_information=single_network_slice_selection_assistance_information,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             mobile_network_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             single_network_slice_selection_assistance_information: Optional[pulumi.Input['NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if mobile_network_id is None and 'mobileNetworkId' in kwargs:
-            mobile_network_id = kwargs['mobileNetworkId']
-        if single_network_slice_selection_assistance_information is None and 'singleNetworkSliceSelectionAssistanceInformation' in kwargs:
-            single_network_slice_selection_assistance_information = kwargs['singleNetworkSliceSelectionAssistanceInformation']
-
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if mobile_network_id is not None:
-            _setter("mobile_network_id", mobile_network_id)
+            pulumi.set(__self__, "mobile_network_id", mobile_network_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if single_network_slice_selection_assistance_information is not None:
-            _setter("single_network_slice_selection_assistance_information", single_network_slice_selection_assistance_information)
+            pulumi.set(__self__, "single_network_slice_selection_assistance_information", single_network_slice_selection_assistance_information)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -380,10 +326,6 @@ class NetworkSlice(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            NetworkSliceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -410,7 +352,6 @@ class NetworkSlice(pulumi.CustomResource):
                 raise TypeError("Missing required property 'mobile_network_id'")
             __props__.__dict__["mobile_network_id"] = mobile_network_id
             __props__.__dict__["name"] = name
-            single_network_slice_selection_assistance_information = _utilities.configure(single_network_slice_selection_assistance_information, NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs, True)
             if single_network_slice_selection_assistance_information is None and not opts.urn:
                 raise TypeError("Missing required property 'single_network_slice_selection_assistance_information'")
             __props__.__dict__["single_network_slice_selection_assistance_information"] = single_network_slice_selection_assistance_information

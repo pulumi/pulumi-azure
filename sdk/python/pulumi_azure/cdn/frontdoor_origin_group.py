@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,51 +33,16 @@ class FrontdoorOriginGroupArgs:
                > **NOTE:** This property is currently not used, but will be in the near future.
         :param pulumi.Input[bool] session_affinity_enabled: Specifies whether session affinity should be enabled on this host. Defaults to `true`.
         """
-        FrontdoorOriginGroupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cdn_frontdoor_profile_id=cdn_frontdoor_profile_id,
-            load_balancing=load_balancing,
-            health_probe=health_probe,
-            name=name,
-            restore_traffic_time_to_healed_or_new_endpoint_in_minutes=restore_traffic_time_to_healed_or_new_endpoint_in_minutes,
-            session_affinity_enabled=session_affinity_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cdn_frontdoor_profile_id: Optional[pulumi.Input[str]] = None,
-             load_balancing: Optional[pulumi.Input['FrontdoorOriginGroupLoadBalancingArgs']] = None,
-             health_probe: Optional[pulumi.Input['FrontdoorOriginGroupHealthProbeArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             restore_traffic_time_to_healed_or_new_endpoint_in_minutes: Optional[pulumi.Input[int]] = None,
-             session_affinity_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cdn_frontdoor_profile_id is None and 'cdnFrontdoorProfileId' in kwargs:
-            cdn_frontdoor_profile_id = kwargs['cdnFrontdoorProfileId']
-        if cdn_frontdoor_profile_id is None:
-            raise TypeError("Missing 'cdn_frontdoor_profile_id' argument")
-        if load_balancing is None and 'loadBalancing' in kwargs:
-            load_balancing = kwargs['loadBalancing']
-        if load_balancing is None:
-            raise TypeError("Missing 'load_balancing' argument")
-        if health_probe is None and 'healthProbe' in kwargs:
-            health_probe = kwargs['healthProbe']
-        if restore_traffic_time_to_healed_or_new_endpoint_in_minutes is None and 'restoreTrafficTimeToHealedOrNewEndpointInMinutes' in kwargs:
-            restore_traffic_time_to_healed_or_new_endpoint_in_minutes = kwargs['restoreTrafficTimeToHealedOrNewEndpointInMinutes']
-        if session_affinity_enabled is None and 'sessionAffinityEnabled' in kwargs:
-            session_affinity_enabled = kwargs['sessionAffinityEnabled']
-
-        _setter("cdn_frontdoor_profile_id", cdn_frontdoor_profile_id)
-        _setter("load_balancing", load_balancing)
+        pulumi.set(__self__, "cdn_frontdoor_profile_id", cdn_frontdoor_profile_id)
+        pulumi.set(__self__, "load_balancing", load_balancing)
         if health_probe is not None:
-            _setter("health_probe", health_probe)
+            pulumi.set(__self__, "health_probe", health_probe)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if restore_traffic_time_to_healed_or_new_endpoint_in_minutes is not None:
-            _setter("restore_traffic_time_to_healed_or_new_endpoint_in_minutes", restore_traffic_time_to_healed_or_new_endpoint_in_minutes)
+            pulumi.set(__self__, "restore_traffic_time_to_healed_or_new_endpoint_in_minutes", restore_traffic_time_to_healed_or_new_endpoint_in_minutes)
         if session_affinity_enabled is not None:
-            _setter("session_affinity_enabled", session_affinity_enabled)
+            pulumi.set(__self__, "session_affinity_enabled", session_affinity_enabled)
 
     @property
     @pulumi.getter(name="cdnFrontdoorProfileId")
@@ -174,49 +139,18 @@ class _FrontdoorOriginGroupState:
                > **NOTE:** This property is currently not used, but will be in the near future.
         :param pulumi.Input[bool] session_affinity_enabled: Specifies whether session affinity should be enabled on this host. Defaults to `true`.
         """
-        _FrontdoorOriginGroupState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cdn_frontdoor_profile_id=cdn_frontdoor_profile_id,
-            health_probe=health_probe,
-            load_balancing=load_balancing,
-            name=name,
-            restore_traffic_time_to_healed_or_new_endpoint_in_minutes=restore_traffic_time_to_healed_or_new_endpoint_in_minutes,
-            session_affinity_enabled=session_affinity_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cdn_frontdoor_profile_id: Optional[pulumi.Input[str]] = None,
-             health_probe: Optional[pulumi.Input['FrontdoorOriginGroupHealthProbeArgs']] = None,
-             load_balancing: Optional[pulumi.Input['FrontdoorOriginGroupLoadBalancingArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             restore_traffic_time_to_healed_or_new_endpoint_in_minutes: Optional[pulumi.Input[int]] = None,
-             session_affinity_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cdn_frontdoor_profile_id is None and 'cdnFrontdoorProfileId' in kwargs:
-            cdn_frontdoor_profile_id = kwargs['cdnFrontdoorProfileId']
-        if health_probe is None and 'healthProbe' in kwargs:
-            health_probe = kwargs['healthProbe']
-        if load_balancing is None and 'loadBalancing' in kwargs:
-            load_balancing = kwargs['loadBalancing']
-        if restore_traffic_time_to_healed_or_new_endpoint_in_minutes is None and 'restoreTrafficTimeToHealedOrNewEndpointInMinutes' in kwargs:
-            restore_traffic_time_to_healed_or_new_endpoint_in_minutes = kwargs['restoreTrafficTimeToHealedOrNewEndpointInMinutes']
-        if session_affinity_enabled is None and 'sessionAffinityEnabled' in kwargs:
-            session_affinity_enabled = kwargs['sessionAffinityEnabled']
-
         if cdn_frontdoor_profile_id is not None:
-            _setter("cdn_frontdoor_profile_id", cdn_frontdoor_profile_id)
+            pulumi.set(__self__, "cdn_frontdoor_profile_id", cdn_frontdoor_profile_id)
         if health_probe is not None:
-            _setter("health_probe", health_probe)
+            pulumi.set(__self__, "health_probe", health_probe)
         if load_balancing is not None:
-            _setter("load_balancing", load_balancing)
+            pulumi.set(__self__, "load_balancing", load_balancing)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if restore_traffic_time_to_healed_or_new_endpoint_in_minutes is not None:
-            _setter("restore_traffic_time_to_healed_or_new_endpoint_in_minutes", restore_traffic_time_to_healed_or_new_endpoint_in_minutes)
+            pulumi.set(__self__, "restore_traffic_time_to_healed_or_new_endpoint_in_minutes", restore_traffic_time_to_healed_or_new_endpoint_in_minutes)
         if session_affinity_enabled is not None:
-            _setter("session_affinity_enabled", session_affinity_enabled)
+            pulumi.set(__self__, "session_affinity_enabled", session_affinity_enabled)
 
     @property
     @pulumi.getter(name="cdnFrontdoorProfileId")
@@ -408,10 +342,6 @@ class FrontdoorOriginGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            FrontdoorOriginGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -435,9 +365,7 @@ class FrontdoorOriginGroup(pulumi.CustomResource):
             if cdn_frontdoor_profile_id is None and not opts.urn:
                 raise TypeError("Missing required property 'cdn_frontdoor_profile_id'")
             __props__.__dict__["cdn_frontdoor_profile_id"] = cdn_frontdoor_profile_id
-            health_probe = _utilities.configure(health_probe, FrontdoorOriginGroupHealthProbeArgs, True)
             __props__.__dict__["health_probe"] = health_probe
-            load_balancing = _utilities.configure(load_balancing, FrontdoorOriginGroupLoadBalancingArgs, True)
             if load_balancing is None and not opts.urn:
                 raise TypeError("Missing required property 'load_balancing'")
             __props__.__dict__["load_balancing"] = load_balancing

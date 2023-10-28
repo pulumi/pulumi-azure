@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,65 +35,16 @@ class AccountCostManagementExportArgs:
         :param pulumi.Input[bool] active: Is the cost management export active? Default is `true`.
         :param pulumi.Input[str] name: Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
         """
-        AccountCostManagementExportArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            billing_account_id=billing_account_id,
-            export_data_options=export_data_options,
-            export_data_storage_location=export_data_storage_location,
-            recurrence_period_end_date=recurrence_period_end_date,
-            recurrence_period_start_date=recurrence_period_start_date,
-            recurrence_type=recurrence_type,
-            active=active,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             billing_account_id: Optional[pulumi.Input[str]] = None,
-             export_data_options: Optional[pulumi.Input['AccountCostManagementExportExportDataOptionsArgs']] = None,
-             export_data_storage_location: Optional[pulumi.Input['AccountCostManagementExportExportDataStorageLocationArgs']] = None,
-             recurrence_period_end_date: Optional[pulumi.Input[str]] = None,
-             recurrence_period_start_date: Optional[pulumi.Input[str]] = None,
-             recurrence_type: Optional[pulumi.Input[str]] = None,
-             active: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if billing_account_id is None and 'billingAccountId' in kwargs:
-            billing_account_id = kwargs['billingAccountId']
-        if billing_account_id is None:
-            raise TypeError("Missing 'billing_account_id' argument")
-        if export_data_options is None and 'exportDataOptions' in kwargs:
-            export_data_options = kwargs['exportDataOptions']
-        if export_data_options is None:
-            raise TypeError("Missing 'export_data_options' argument")
-        if export_data_storage_location is None and 'exportDataStorageLocation' in kwargs:
-            export_data_storage_location = kwargs['exportDataStorageLocation']
-        if export_data_storage_location is None:
-            raise TypeError("Missing 'export_data_storage_location' argument")
-        if recurrence_period_end_date is None and 'recurrencePeriodEndDate' in kwargs:
-            recurrence_period_end_date = kwargs['recurrencePeriodEndDate']
-        if recurrence_period_end_date is None:
-            raise TypeError("Missing 'recurrence_period_end_date' argument")
-        if recurrence_period_start_date is None and 'recurrencePeriodStartDate' in kwargs:
-            recurrence_period_start_date = kwargs['recurrencePeriodStartDate']
-        if recurrence_period_start_date is None:
-            raise TypeError("Missing 'recurrence_period_start_date' argument")
-        if recurrence_type is None and 'recurrenceType' in kwargs:
-            recurrence_type = kwargs['recurrenceType']
-        if recurrence_type is None:
-            raise TypeError("Missing 'recurrence_type' argument")
-
-        _setter("billing_account_id", billing_account_id)
-        _setter("export_data_options", export_data_options)
-        _setter("export_data_storage_location", export_data_storage_location)
-        _setter("recurrence_period_end_date", recurrence_period_end_date)
-        _setter("recurrence_period_start_date", recurrence_period_start_date)
-        _setter("recurrence_type", recurrence_type)
+        pulumi.set(__self__, "billing_account_id", billing_account_id)
+        pulumi.set(__self__, "export_data_options", export_data_options)
+        pulumi.set(__self__, "export_data_storage_location", export_data_storage_location)
+        pulumi.set(__self__, "recurrence_period_end_date", recurrence_period_end_date)
+        pulumi.set(__self__, "recurrence_period_start_date", recurrence_period_start_date)
+        pulumi.set(__self__, "recurrence_type", recurrence_type)
         if active is not None:
-            _setter("active", active)
+            pulumi.set(__self__, "active", active)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="billingAccountId")
@@ -214,59 +165,22 @@ class _AccountCostManagementExportState:
         :param pulumi.Input[str] recurrence_period_start_date: The date the export will start capturing information.
         :param pulumi.Input[str] recurrence_type: How often the requested information will be exported. Valid values include `Annually`, `Daily`, `Monthly`, `Weekly`.
         """
-        _AccountCostManagementExportState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            active=active,
-            billing_account_id=billing_account_id,
-            export_data_options=export_data_options,
-            export_data_storage_location=export_data_storage_location,
-            name=name,
-            recurrence_period_end_date=recurrence_period_end_date,
-            recurrence_period_start_date=recurrence_period_start_date,
-            recurrence_type=recurrence_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             active: Optional[pulumi.Input[bool]] = None,
-             billing_account_id: Optional[pulumi.Input[str]] = None,
-             export_data_options: Optional[pulumi.Input['AccountCostManagementExportExportDataOptionsArgs']] = None,
-             export_data_storage_location: Optional[pulumi.Input['AccountCostManagementExportExportDataStorageLocationArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             recurrence_period_end_date: Optional[pulumi.Input[str]] = None,
-             recurrence_period_start_date: Optional[pulumi.Input[str]] = None,
-             recurrence_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if billing_account_id is None and 'billingAccountId' in kwargs:
-            billing_account_id = kwargs['billingAccountId']
-        if export_data_options is None and 'exportDataOptions' in kwargs:
-            export_data_options = kwargs['exportDataOptions']
-        if export_data_storage_location is None and 'exportDataStorageLocation' in kwargs:
-            export_data_storage_location = kwargs['exportDataStorageLocation']
-        if recurrence_period_end_date is None and 'recurrencePeriodEndDate' in kwargs:
-            recurrence_period_end_date = kwargs['recurrencePeriodEndDate']
-        if recurrence_period_start_date is None and 'recurrencePeriodStartDate' in kwargs:
-            recurrence_period_start_date = kwargs['recurrencePeriodStartDate']
-        if recurrence_type is None and 'recurrenceType' in kwargs:
-            recurrence_type = kwargs['recurrenceType']
-
         if active is not None:
-            _setter("active", active)
+            pulumi.set(__self__, "active", active)
         if billing_account_id is not None:
-            _setter("billing_account_id", billing_account_id)
+            pulumi.set(__self__, "billing_account_id", billing_account_id)
         if export_data_options is not None:
-            _setter("export_data_options", export_data_options)
+            pulumi.set(__self__, "export_data_options", export_data_options)
         if export_data_storage_location is not None:
-            _setter("export_data_storage_location", export_data_storage_location)
+            pulumi.set(__self__, "export_data_storage_location", export_data_storage_location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if recurrence_period_end_date is not None:
-            _setter("recurrence_period_end_date", recurrence_period_end_date)
+            pulumi.set(__self__, "recurrence_period_end_date", recurrence_period_end_date)
         if recurrence_period_start_date is not None:
-            _setter("recurrence_period_start_date", recurrence_period_start_date)
+            pulumi.set(__self__, "recurrence_period_start_date", recurrence_period_start_date)
         if recurrence_type is not None:
-            _setter("recurrence_type", recurrence_type)
+            pulumi.set(__self__, "recurrence_type", recurrence_type)
 
     @property
     @pulumi.getter
@@ -484,10 +398,6 @@ class AccountCostManagementExport(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AccountCostManagementExportArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -514,11 +424,9 @@ class AccountCostManagementExport(pulumi.CustomResource):
             if billing_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'billing_account_id'")
             __props__.__dict__["billing_account_id"] = billing_account_id
-            export_data_options = _utilities.configure(export_data_options, AccountCostManagementExportExportDataOptionsArgs, True)
             if export_data_options is None and not opts.urn:
                 raise TypeError("Missing required property 'export_data_options'")
             __props__.__dict__["export_data_options"] = export_data_options
-            export_data_storage_location = _utilities.configure(export_data_storage_location, AccountCostManagementExportExportDataStorageLocationArgs, True)
             if export_data_storage_location is None and not opts.urn:
                 raise TypeError("Missing required property 'export_data_storage_location'")
             __props__.__dict__["export_data_storage_location"] = export_data_storage_location

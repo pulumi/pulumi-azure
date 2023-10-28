@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,36 +27,13 @@ class IntegrationRuntimeSelfHostedArgs:
         :param pulumi.Input[str] name: The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
         :param pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]] rbac_authorizations: A `rbac_authorization` block as defined below. Changing this forces a new resource to be created.
         """
-        IntegrationRuntimeSelfHostedArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_factory_id=data_factory_id,
-            description=description,
-            name=name,
-            rbac_authorizations=rbac_authorizations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_factory_id: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             rbac_authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if data_factory_id is None and 'dataFactoryId' in kwargs:
-            data_factory_id = kwargs['dataFactoryId']
-        if data_factory_id is None:
-            raise TypeError("Missing 'data_factory_id' argument")
-        if rbac_authorizations is None and 'rbacAuthorizations' in kwargs:
-            rbac_authorizations = kwargs['rbacAuthorizations']
-
-        _setter("data_factory_id", data_factory_id)
+        pulumi.set(__self__, "data_factory_id", data_factory_id)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if rbac_authorizations is not None:
-            _setter("rbac_authorizations", rbac_authorizations)
+            pulumi.set(__self__, "rbac_authorizations", rbac_authorizations)
 
     @property
     @pulumi.getter(name="dataFactoryId")
@@ -125,47 +102,18 @@ class _IntegrationRuntimeSelfHostedState:
         :param pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]] rbac_authorizations: A `rbac_authorization` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secondary_authorization_key: The secondary integration runtime authentication key.
         """
-        _IntegrationRuntimeSelfHostedState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_factory_id=data_factory_id,
-            description=description,
-            name=name,
-            primary_authorization_key=primary_authorization_key,
-            rbac_authorizations=rbac_authorizations,
-            secondary_authorization_key=secondary_authorization_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_factory_id: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             primary_authorization_key: Optional[pulumi.Input[str]] = None,
-             rbac_authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]]] = None,
-             secondary_authorization_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if data_factory_id is None and 'dataFactoryId' in kwargs:
-            data_factory_id = kwargs['dataFactoryId']
-        if primary_authorization_key is None and 'primaryAuthorizationKey' in kwargs:
-            primary_authorization_key = kwargs['primaryAuthorizationKey']
-        if rbac_authorizations is None and 'rbacAuthorizations' in kwargs:
-            rbac_authorizations = kwargs['rbacAuthorizations']
-        if secondary_authorization_key is None and 'secondaryAuthorizationKey' in kwargs:
-            secondary_authorization_key = kwargs['secondaryAuthorizationKey']
-
         if data_factory_id is not None:
-            _setter("data_factory_id", data_factory_id)
+            pulumi.set(__self__, "data_factory_id", data_factory_id)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if primary_authorization_key is not None:
-            _setter("primary_authorization_key", primary_authorization_key)
+            pulumi.set(__self__, "primary_authorization_key", primary_authorization_key)
         if rbac_authorizations is not None:
-            _setter("rbac_authorizations", rbac_authorizations)
+            pulumi.set(__self__, "rbac_authorizations", rbac_authorizations)
         if secondary_authorization_key is not None:
-            _setter("secondary_authorization_key", secondary_authorization_key)
+            pulumi.set(__self__, "secondary_authorization_key", secondary_authorization_key)
 
     @property
     @pulumi.getter(name="dataFactoryId")
@@ -321,10 +269,6 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            IntegrationRuntimeSelfHostedArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

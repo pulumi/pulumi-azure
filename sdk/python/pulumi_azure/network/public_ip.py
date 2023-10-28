@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['PublicIpArgs', 'PublicIp']
@@ -65,109 +65,38 @@ class PublicIpArgs:
                
                > **Note:** Availability Zones are only supported with a [Standard SKU](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#standard) and [in select regions](https://docs.microsoft.com/azure/availability-zones/az-overview) at this time. Standard SKU Public IP Addresses that do not specify a zone are **not** zone-redundant by default.
         """
-        PublicIpArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allocation_method=allocation_method,
-            resource_group_name=resource_group_name,
-            ddos_protection_mode=ddos_protection_mode,
-            ddos_protection_plan_id=ddos_protection_plan_id,
-            domain_name_label=domain_name_label,
-            edge_zone=edge_zone,
-            idle_timeout_in_minutes=idle_timeout_in_minutes,
-            ip_tags=ip_tags,
-            ip_version=ip_version,
-            location=location,
-            name=name,
-            public_ip_prefix_id=public_ip_prefix_id,
-            reverse_fqdn=reverse_fqdn,
-            sku=sku,
-            sku_tier=sku_tier,
-            tags=tags,
-            zones=zones,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allocation_method: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             ddos_protection_mode: Optional[pulumi.Input[str]] = None,
-             ddos_protection_plan_id: Optional[pulumi.Input[str]] = None,
-             domain_name_label: Optional[pulumi.Input[str]] = None,
-             edge_zone: Optional[pulumi.Input[str]] = None,
-             idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
-             ip_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             ip_version: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
-             reverse_fqdn: Optional[pulumi.Input[str]] = None,
-             sku: Optional[pulumi.Input[str]] = None,
-             sku_tier: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if allocation_method is None and 'allocationMethod' in kwargs:
-            allocation_method = kwargs['allocationMethod']
-        if allocation_method is None:
-            raise TypeError("Missing 'allocation_method' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if ddos_protection_mode is None and 'ddosProtectionMode' in kwargs:
-            ddos_protection_mode = kwargs['ddosProtectionMode']
-        if ddos_protection_plan_id is None and 'ddosProtectionPlanId' in kwargs:
-            ddos_protection_plan_id = kwargs['ddosProtectionPlanId']
-        if domain_name_label is None and 'domainNameLabel' in kwargs:
-            domain_name_label = kwargs['domainNameLabel']
-        if edge_zone is None and 'edgeZone' in kwargs:
-            edge_zone = kwargs['edgeZone']
-        if idle_timeout_in_minutes is None and 'idleTimeoutInMinutes' in kwargs:
-            idle_timeout_in_minutes = kwargs['idleTimeoutInMinutes']
-        if ip_tags is None and 'ipTags' in kwargs:
-            ip_tags = kwargs['ipTags']
-        if ip_version is None and 'ipVersion' in kwargs:
-            ip_version = kwargs['ipVersion']
-        if public_ip_prefix_id is None and 'publicIpPrefixId' in kwargs:
-            public_ip_prefix_id = kwargs['publicIpPrefixId']
-        if reverse_fqdn is None and 'reverseFqdn' in kwargs:
-            reverse_fqdn = kwargs['reverseFqdn']
-        if sku_tier is None and 'skuTier' in kwargs:
-            sku_tier = kwargs['skuTier']
-
-        _setter("allocation_method", allocation_method)
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "allocation_method", allocation_method)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if ddos_protection_mode is not None:
-            _setter("ddos_protection_mode", ddos_protection_mode)
+            pulumi.set(__self__, "ddos_protection_mode", ddos_protection_mode)
         if ddos_protection_plan_id is not None:
-            _setter("ddos_protection_plan_id", ddos_protection_plan_id)
+            pulumi.set(__self__, "ddos_protection_plan_id", ddos_protection_plan_id)
         if domain_name_label is not None:
-            _setter("domain_name_label", domain_name_label)
+            pulumi.set(__self__, "domain_name_label", domain_name_label)
         if edge_zone is not None:
-            _setter("edge_zone", edge_zone)
+            pulumi.set(__self__, "edge_zone", edge_zone)
         if idle_timeout_in_minutes is not None:
-            _setter("idle_timeout_in_minutes", idle_timeout_in_minutes)
+            pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
         if ip_tags is not None:
-            _setter("ip_tags", ip_tags)
+            pulumi.set(__self__, "ip_tags", ip_tags)
         if ip_version is not None:
-            _setter("ip_version", ip_version)
+            pulumi.set(__self__, "ip_version", ip_version)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if public_ip_prefix_id is not None:
-            _setter("public_ip_prefix_id", public_ip_prefix_id)
+            pulumi.set(__self__, "public_ip_prefix_id", public_ip_prefix_id)
         if reverse_fqdn is not None:
-            _setter("reverse_fqdn", reverse_fqdn)
+            pulumi.set(__self__, "reverse_fqdn", reverse_fqdn)
         if sku is not None:
-            _setter("sku", sku)
+            pulumi.set(__self__, "sku", sku)
         if sku_tier is not None:
-            _setter("sku_tier", sku_tier)
+            pulumi.set(__self__, "sku_tier", sku_tier)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if zones is not None:
-            _setter("zones", zones)
+            pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter(name="allocationMethod")
@@ -446,117 +375,44 @@ class _PublicIpState:
                
                > **Note:** Availability Zones are only supported with a [Standard SKU](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#standard) and [in select regions](https://docs.microsoft.com/azure/availability-zones/az-overview) at this time. Standard SKU Public IP Addresses that do not specify a zone are **not** zone-redundant by default.
         """
-        _PublicIpState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allocation_method=allocation_method,
-            ddos_protection_mode=ddos_protection_mode,
-            ddos_protection_plan_id=ddos_protection_plan_id,
-            domain_name_label=domain_name_label,
-            edge_zone=edge_zone,
-            fqdn=fqdn,
-            idle_timeout_in_minutes=idle_timeout_in_minutes,
-            ip_address=ip_address,
-            ip_tags=ip_tags,
-            ip_version=ip_version,
-            location=location,
-            name=name,
-            public_ip_prefix_id=public_ip_prefix_id,
-            resource_group_name=resource_group_name,
-            reverse_fqdn=reverse_fqdn,
-            sku=sku,
-            sku_tier=sku_tier,
-            tags=tags,
-            zones=zones,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allocation_method: Optional[pulumi.Input[str]] = None,
-             ddos_protection_mode: Optional[pulumi.Input[str]] = None,
-             ddos_protection_plan_id: Optional[pulumi.Input[str]] = None,
-             domain_name_label: Optional[pulumi.Input[str]] = None,
-             edge_zone: Optional[pulumi.Input[str]] = None,
-             fqdn: Optional[pulumi.Input[str]] = None,
-             idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
-             ip_address: Optional[pulumi.Input[str]] = None,
-             ip_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             ip_version: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             reverse_fqdn: Optional[pulumi.Input[str]] = None,
-             sku: Optional[pulumi.Input[str]] = None,
-             sku_tier: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if allocation_method is None and 'allocationMethod' in kwargs:
-            allocation_method = kwargs['allocationMethod']
-        if ddos_protection_mode is None and 'ddosProtectionMode' in kwargs:
-            ddos_protection_mode = kwargs['ddosProtectionMode']
-        if ddos_protection_plan_id is None and 'ddosProtectionPlanId' in kwargs:
-            ddos_protection_plan_id = kwargs['ddosProtectionPlanId']
-        if domain_name_label is None and 'domainNameLabel' in kwargs:
-            domain_name_label = kwargs['domainNameLabel']
-        if edge_zone is None and 'edgeZone' in kwargs:
-            edge_zone = kwargs['edgeZone']
-        if idle_timeout_in_minutes is None and 'idleTimeoutInMinutes' in kwargs:
-            idle_timeout_in_minutes = kwargs['idleTimeoutInMinutes']
-        if ip_address is None and 'ipAddress' in kwargs:
-            ip_address = kwargs['ipAddress']
-        if ip_tags is None and 'ipTags' in kwargs:
-            ip_tags = kwargs['ipTags']
-        if ip_version is None and 'ipVersion' in kwargs:
-            ip_version = kwargs['ipVersion']
-        if public_ip_prefix_id is None and 'publicIpPrefixId' in kwargs:
-            public_ip_prefix_id = kwargs['publicIpPrefixId']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if reverse_fqdn is None and 'reverseFqdn' in kwargs:
-            reverse_fqdn = kwargs['reverseFqdn']
-        if sku_tier is None and 'skuTier' in kwargs:
-            sku_tier = kwargs['skuTier']
-
         if allocation_method is not None:
-            _setter("allocation_method", allocation_method)
+            pulumi.set(__self__, "allocation_method", allocation_method)
         if ddos_protection_mode is not None:
-            _setter("ddos_protection_mode", ddos_protection_mode)
+            pulumi.set(__self__, "ddos_protection_mode", ddos_protection_mode)
         if ddos_protection_plan_id is not None:
-            _setter("ddos_protection_plan_id", ddos_protection_plan_id)
+            pulumi.set(__self__, "ddos_protection_plan_id", ddos_protection_plan_id)
         if domain_name_label is not None:
-            _setter("domain_name_label", domain_name_label)
+            pulumi.set(__self__, "domain_name_label", domain_name_label)
         if edge_zone is not None:
-            _setter("edge_zone", edge_zone)
+            pulumi.set(__self__, "edge_zone", edge_zone)
         if fqdn is not None:
-            _setter("fqdn", fqdn)
+            pulumi.set(__self__, "fqdn", fqdn)
         if idle_timeout_in_minutes is not None:
-            _setter("idle_timeout_in_minutes", idle_timeout_in_minutes)
+            pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
         if ip_address is not None:
-            _setter("ip_address", ip_address)
+            pulumi.set(__self__, "ip_address", ip_address)
         if ip_tags is not None:
-            _setter("ip_tags", ip_tags)
+            pulumi.set(__self__, "ip_tags", ip_tags)
         if ip_version is not None:
-            _setter("ip_version", ip_version)
+            pulumi.set(__self__, "ip_version", ip_version)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if public_ip_prefix_id is not None:
-            _setter("public_ip_prefix_id", public_ip_prefix_id)
+            pulumi.set(__self__, "public_ip_prefix_id", public_ip_prefix_id)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if reverse_fqdn is not None:
-            _setter("reverse_fqdn", reverse_fqdn)
+            pulumi.set(__self__, "reverse_fqdn", reverse_fqdn)
         if sku is not None:
-            _setter("sku", sku)
+            pulumi.set(__self__, "sku", sku)
         if sku_tier is not None:
-            _setter("sku_tier", sku_tier)
+            pulumi.set(__self__, "sku_tier", sku_tier)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if zones is not None:
-            _setter("zones", zones)
+            pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter(name="allocationMethod")
@@ -932,10 +788,6 @@ class PublicIp(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PublicIpArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

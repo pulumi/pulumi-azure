@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,45 +31,14 @@ class EndpointCustomDomainArgs:
                
                > **NOTE** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
         """
-        EndpointCustomDomainArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cdn_endpoint_id=cdn_endpoint_id,
-            host_name=host_name,
-            cdn_managed_https=cdn_managed_https,
-            name=name,
-            user_managed_https=user_managed_https,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cdn_endpoint_id: Optional[pulumi.Input[str]] = None,
-             host_name: Optional[pulumi.Input[str]] = None,
-             cdn_managed_https: Optional[pulumi.Input['EndpointCustomDomainCdnManagedHttpsArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             user_managed_https: Optional[pulumi.Input['EndpointCustomDomainUserManagedHttpsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cdn_endpoint_id is None and 'cdnEndpointId' in kwargs:
-            cdn_endpoint_id = kwargs['cdnEndpointId']
-        if cdn_endpoint_id is None:
-            raise TypeError("Missing 'cdn_endpoint_id' argument")
-        if host_name is None and 'hostName' in kwargs:
-            host_name = kwargs['hostName']
-        if host_name is None:
-            raise TypeError("Missing 'host_name' argument")
-        if cdn_managed_https is None and 'cdnManagedHttps' in kwargs:
-            cdn_managed_https = kwargs['cdnManagedHttps']
-        if user_managed_https is None and 'userManagedHttps' in kwargs:
-            user_managed_https = kwargs['userManagedHttps']
-
-        _setter("cdn_endpoint_id", cdn_endpoint_id)
-        _setter("host_name", host_name)
+        pulumi.set(__self__, "cdn_endpoint_id", cdn_endpoint_id)
+        pulumi.set(__self__, "host_name", host_name)
         if cdn_managed_https is not None:
-            _setter("cdn_managed_https", cdn_managed_https)
+            pulumi.set(__self__, "cdn_managed_https", cdn_managed_https)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if user_managed_https is not None:
-            _setter("user_managed_https", user_managed_https)
+            pulumi.set(__self__, "user_managed_https", user_managed_https)
 
     @property
     @pulumi.getter(name="cdnEndpointId")
@@ -152,43 +121,16 @@ class _EndpointCustomDomainState:
                
                > **NOTE** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
         """
-        _EndpointCustomDomainState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cdn_endpoint_id=cdn_endpoint_id,
-            cdn_managed_https=cdn_managed_https,
-            host_name=host_name,
-            name=name,
-            user_managed_https=user_managed_https,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cdn_endpoint_id: Optional[pulumi.Input[str]] = None,
-             cdn_managed_https: Optional[pulumi.Input['EndpointCustomDomainCdnManagedHttpsArgs']] = None,
-             host_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             user_managed_https: Optional[pulumi.Input['EndpointCustomDomainUserManagedHttpsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cdn_endpoint_id is None and 'cdnEndpointId' in kwargs:
-            cdn_endpoint_id = kwargs['cdnEndpointId']
-        if cdn_managed_https is None and 'cdnManagedHttps' in kwargs:
-            cdn_managed_https = kwargs['cdnManagedHttps']
-        if host_name is None and 'hostName' in kwargs:
-            host_name = kwargs['hostName']
-        if user_managed_https is None and 'userManagedHttps' in kwargs:
-            user_managed_https = kwargs['userManagedHttps']
-
         if cdn_endpoint_id is not None:
-            _setter("cdn_endpoint_id", cdn_endpoint_id)
+            pulumi.set(__self__, "cdn_endpoint_id", cdn_endpoint_id)
         if cdn_managed_https is not None:
-            _setter("cdn_managed_https", cdn_managed_https)
+            pulumi.set(__self__, "cdn_managed_https", cdn_managed_https)
         if host_name is not None:
-            _setter("host_name", host_name)
+            pulumi.set(__self__, "host_name", host_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if user_managed_https is not None:
-            _setter("user_managed_https", user_managed_https)
+            pulumi.set(__self__, "user_managed_https", user_managed_https)
 
     @property
     @pulumi.getter(name="cdnEndpointId")
@@ -384,10 +326,6 @@ class EndpointCustomDomain(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            EndpointCustomDomainArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -410,13 +348,11 @@ class EndpointCustomDomain(pulumi.CustomResource):
             if cdn_endpoint_id is None and not opts.urn:
                 raise TypeError("Missing required property 'cdn_endpoint_id'")
             __props__.__dict__["cdn_endpoint_id"] = cdn_endpoint_id
-            cdn_managed_https = _utilities.configure(cdn_managed_https, EndpointCustomDomainCdnManagedHttpsArgs, True)
             __props__.__dict__["cdn_managed_https"] = cdn_managed_https
             if host_name is None and not opts.urn:
                 raise TypeError("Missing required property 'host_name'")
             __props__.__dict__["host_name"] = host_name
             __props__.__dict__["name"] = name
-            user_managed_https = _utilities.configure(user_managed_https, EndpointCustomDomainUserManagedHttpsArgs, True)
             __props__.__dict__["user_managed_https"] = user_managed_https
         super(EndpointCustomDomain, __self__).__init__(
             'azure:cdn/endpointCustomDomain:EndpointCustomDomain',

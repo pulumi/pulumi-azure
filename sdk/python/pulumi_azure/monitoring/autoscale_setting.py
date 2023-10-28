@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,58 +37,21 @@ class AutoscaleSettingArgs:
         :param pulumi.Input['AutoscaleSettingPredictiveArgs'] predictive: A `predictive` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        AutoscaleSettingArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            profiles=profiles,
-            resource_group_name=resource_group_name,
-            target_resource_id=target_resource_id,
-            enabled=enabled,
-            location=location,
-            name=name,
-            notification=notification,
-            predictive=predictive,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             profiles: Optional[pulumi.Input[Sequence[pulumi.Input['AutoscaleSettingProfileArgs']]]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             target_resource_id: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             notification: Optional[pulumi.Input['AutoscaleSettingNotificationArgs']] = None,
-             predictive: Optional[pulumi.Input['AutoscaleSettingPredictiveArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if profiles is None:
-            raise TypeError("Missing 'profiles' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if target_resource_id is None and 'targetResourceId' in kwargs:
-            target_resource_id = kwargs['targetResourceId']
-        if target_resource_id is None:
-            raise TypeError("Missing 'target_resource_id' argument")
-
-        _setter("profiles", profiles)
-        _setter("resource_group_name", resource_group_name)
-        _setter("target_resource_id", target_resource_id)
+        pulumi.set(__self__, "profiles", profiles)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "target_resource_id", target_resource_id)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if notification is not None:
-            _setter("notification", notification)
+            pulumi.set(__self__, "notification", notification)
         if predictive is not None:
-            _setter("predictive", predictive)
+            pulumi.set(__self__, "predictive", predictive)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -223,55 +186,24 @@ class _AutoscaleSettingState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] target_resource_id: Specifies the resource ID of the resource that the autoscale setting should be added to. Changing this forces a new resource to be created.
         """
-        _AutoscaleSettingState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            location=location,
-            name=name,
-            notification=notification,
-            predictive=predictive,
-            profiles=profiles,
-            resource_group_name=resource_group_name,
-            tags=tags,
-            target_resource_id=target_resource_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[pulumi.Input[bool]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             notification: Optional[pulumi.Input['AutoscaleSettingNotificationArgs']] = None,
-             predictive: Optional[pulumi.Input['AutoscaleSettingPredictiveArgs']] = None,
-             profiles: Optional[pulumi.Input[Sequence[pulumi.Input['AutoscaleSettingProfileArgs']]]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             target_resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if target_resource_id is None and 'targetResourceId' in kwargs:
-            target_resource_id = kwargs['targetResourceId']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if notification is not None:
-            _setter("notification", notification)
+            pulumi.set(__self__, "notification", notification)
         if predictive is not None:
-            _setter("predictive", predictive)
+            pulumi.set(__self__, "predictive", predictive)
         if profiles is not None:
-            _setter("profiles", profiles)
+            pulumi.set(__self__, "profiles", profiles)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if target_resource_id is not None:
-            _setter("target_resource_id", target_resource_id)
+            pulumi.set(__self__, "target_resource_id", target_resource_id)
 
     @property
     @pulumi.getter
@@ -893,10 +825,6 @@ class AutoscaleSetting(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AutoscaleSettingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -923,9 +851,7 @@ class AutoscaleSetting(pulumi.CustomResource):
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
-            notification = _utilities.configure(notification, AutoscaleSettingNotificationArgs, True)
             __props__.__dict__["notification"] = notification
-            predictive = _utilities.configure(predictive, AutoscaleSettingPredictiveArgs, True)
             __props__.__dict__["predictive"] = predictive
             if profiles is None and not opts.urn:
                 raise TypeError("Missing required property 'profiles'")

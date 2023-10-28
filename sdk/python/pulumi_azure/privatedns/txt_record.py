@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,47 +31,14 @@ class TxtRecordArgs:
         :param pulumi.Input[str] name: The name of the DNS TXT Record. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        TxtRecordArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            records=records,
-            resource_group_name=resource_group_name,
-            ttl=ttl,
-            zone_name=zone_name,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             records: Optional[pulumi.Input[Sequence[pulumi.Input['TxtRecordRecordArgs']]]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             ttl: Optional[pulumi.Input[int]] = None,
-             zone_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if records is None:
-            raise TypeError("Missing 'records' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if ttl is None:
-            raise TypeError("Missing 'ttl' argument")
-        if zone_name is None and 'zoneName' in kwargs:
-            zone_name = kwargs['zoneName']
-        if zone_name is None:
-            raise TypeError("Missing 'zone_name' argument")
-
-        _setter("records", records)
-        _setter("resource_group_name", resource_group_name)
-        _setter("ttl", ttl)
-        _setter("zone_name", zone_name)
+        pulumi.set(__self__, "records", records)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "ttl", ttl)
+        pulumi.set(__self__, "zone_name", zone_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -166,47 +133,20 @@ class _TxtRecordState:
         :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
         :param pulumi.Input[str] zone_name: Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
         """
-        _TxtRecordState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            fqdn=fqdn,
-            name=name,
-            records=records,
-            resource_group_name=resource_group_name,
-            tags=tags,
-            ttl=ttl,
-            zone_name=zone_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             fqdn: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             records: Optional[pulumi.Input[Sequence[pulumi.Input['TxtRecordRecordArgs']]]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             ttl: Optional[pulumi.Input[int]] = None,
-             zone_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if zone_name is None and 'zoneName' in kwargs:
-            zone_name = kwargs['zoneName']
-
         if fqdn is not None:
-            _setter("fqdn", fqdn)
+            pulumi.set(__self__, "fqdn", fqdn)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if records is not None:
-            _setter("records", records)
+            pulumi.set(__self__, "records", records)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if ttl is not None:
-            _setter("ttl", ttl)
+            pulumi.set(__self__, "ttl", ttl)
         if zone_name is not None:
-            _setter("zone_name", zone_name)
+            pulumi.set(__self__, "zone_name", zone_name)
 
     @property
     @pulumi.getter
@@ -386,10 +326,6 @@ class TxtRecord(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            TxtRecordArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

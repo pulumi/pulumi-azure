@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -45,62 +45,21 @@ class LinkedServiceArgs:
         :param pulumi.Input[str] name: The name which should be used for this Synapse Linked Service. Changing this forces a new Synapse Linked Service to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Synapse Linked Service.
         """
-        LinkedServiceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            synapse_workspace_id=synapse_workspace_id,
-            type=type,
-            type_properties_json=type_properties_json,
-            additional_properties=additional_properties,
-            annotations=annotations,
-            description=description,
-            integration_runtime=integration_runtime,
-            name=name,
-            parameters=parameters,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             synapse_workspace_id: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             type_properties_json: Optional[pulumi.Input[str]] = None,
-             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             integration_runtime: Optional[pulumi.Input['LinkedServiceIntegrationRuntimeArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if synapse_workspace_id is None and 'synapseWorkspaceId' in kwargs:
-            synapse_workspace_id = kwargs['synapseWorkspaceId']
-        if synapse_workspace_id is None:
-            raise TypeError("Missing 'synapse_workspace_id' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if type_properties_json is None and 'typePropertiesJson' in kwargs:
-            type_properties_json = kwargs['typePropertiesJson']
-        if type_properties_json is None:
-            raise TypeError("Missing 'type_properties_json' argument")
-        if additional_properties is None and 'additionalProperties' in kwargs:
-            additional_properties = kwargs['additionalProperties']
-        if integration_runtime is None and 'integrationRuntime' in kwargs:
-            integration_runtime = kwargs['integrationRuntime']
-
-        _setter("synapse_workspace_id", synapse_workspace_id)
-        _setter("type", type)
-        _setter("type_properties_json", type_properties_json)
+        pulumi.set(__self__, "synapse_workspace_id", synapse_workspace_id)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "type_properties_json", type_properties_json)
         if additional_properties is not None:
-            _setter("additional_properties", additional_properties)
+            pulumi.set(__self__, "additional_properties", additional_properties)
         if annotations is not None:
-            _setter("annotations", annotations)
+            pulumi.set(__self__, "annotations", annotations)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if integration_runtime is not None:
-            _setter("integration_runtime", integration_runtime)
+            pulumi.set(__self__, "integration_runtime", integration_runtime)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if parameters is not None:
-            _setter("parameters", parameters)
+            pulumi.set(__self__, "parameters", parameters)
 
     @property
     @pulumi.getter(name="synapseWorkspaceId")
@@ -251,59 +210,24 @@ class _LinkedServiceState:
                `SapTable`, `ServiceNow`, `Sftp`, `SharePointOnlineList`, `Shopify`, `Snowflake`, `Spark`, `Square`, `Sybase`, `Teradata`, `Vertica`, `Web`, `Xero`, `Zoho`.
         :param pulumi.Input[str] type_properties_json: A JSON object that contains the properties of the Synapse Linked Service.
         """
-        _LinkedServiceState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            additional_properties=additional_properties,
-            annotations=annotations,
-            description=description,
-            integration_runtime=integration_runtime,
-            name=name,
-            parameters=parameters,
-            synapse_workspace_id=synapse_workspace_id,
-            type=type,
-            type_properties_json=type_properties_json,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             integration_runtime: Optional[pulumi.Input['LinkedServiceIntegrationRuntimeArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             synapse_workspace_id: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             type_properties_json: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if additional_properties is None and 'additionalProperties' in kwargs:
-            additional_properties = kwargs['additionalProperties']
-        if integration_runtime is None and 'integrationRuntime' in kwargs:
-            integration_runtime = kwargs['integrationRuntime']
-        if synapse_workspace_id is None and 'synapseWorkspaceId' in kwargs:
-            synapse_workspace_id = kwargs['synapseWorkspaceId']
-        if type_properties_json is None and 'typePropertiesJson' in kwargs:
-            type_properties_json = kwargs['typePropertiesJson']
-
         if additional_properties is not None:
-            _setter("additional_properties", additional_properties)
+            pulumi.set(__self__, "additional_properties", additional_properties)
         if annotations is not None:
-            _setter("annotations", annotations)
+            pulumi.set(__self__, "annotations", annotations)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if integration_runtime is not None:
-            _setter("integration_runtime", integration_runtime)
+            pulumi.set(__self__, "integration_runtime", integration_runtime)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if parameters is not None:
-            _setter("parameters", parameters)
+            pulumi.set(__self__, "parameters", parameters)
         if synapse_workspace_id is not None:
-            _setter("synapse_workspace_id", synapse_workspace_id)
+            pulumi.set(__self__, "synapse_workspace_id", synapse_workspace_id)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
         if type_properties_json is not None:
-            _setter("type_properties_json", type_properties_json)
+            pulumi.set(__self__, "type_properties_json", type_properties_json)
 
     @property
     @pulumi.getter(name="additionalProperties")
@@ -583,10 +507,6 @@ class LinkedService(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LinkedServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -613,7 +533,6 @@ class LinkedService(pulumi.CustomResource):
             __props__.__dict__["additional_properties"] = additional_properties
             __props__.__dict__["annotations"] = annotations
             __props__.__dict__["description"] = description
-            integration_runtime = _utilities.configure(integration_runtime, LinkedServiceIntegrationRuntimeArgs, True)
             __props__.__dict__["integration_runtime"] = integration_runtime
             __props__.__dict__["name"] = name
             __props__.__dict__["parameters"] = parameters

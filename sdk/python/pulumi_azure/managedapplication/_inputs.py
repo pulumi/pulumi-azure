@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -31,41 +31,12 @@ class ApplicationPlanArgs:
                
                > **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Managed Application. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
         """
-        ApplicationPlanArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            product=product,
-            publisher=publisher,
-            version=version,
-            promotion_code=promotion_code,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             product: Optional[pulumi.Input[str]] = None,
-             publisher: Optional[pulumi.Input[str]] = None,
-             version: Optional[pulumi.Input[str]] = None,
-             promotion_code: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if product is None:
-            raise TypeError("Missing 'product' argument")
-        if publisher is None:
-            raise TypeError("Missing 'publisher' argument")
-        if version is None:
-            raise TypeError("Missing 'version' argument")
-        if promotion_code is None and 'promotionCode' in kwargs:
-            promotion_code = kwargs['promotionCode']
-
-        _setter("name", name)
-        _setter("product", product)
-        _setter("publisher", publisher)
-        _setter("version", version)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "product", product)
+        pulumi.set(__self__, "publisher", publisher)
+        pulumi.set(__self__, "version", version)
         if promotion_code is not None:
-            _setter("promotion_code", promotion_code)
+            pulumi.set(__self__, "promotion_code", promotion_code)
 
     @property
     @pulumi.getter
@@ -139,29 +110,8 @@ class DefinitionAuthorizationArgs:
         :param pulumi.Input[str] role_definition_id: Specifies a role definition identifier for the provider. This role will define all the permissions that the provider must have on the managed application's container resource group. This role definition cannot have permission to delete the resource group.
         :param pulumi.Input[str] service_principal_id: Specifies a service principal identifier for the provider. This is the identity that the provider will use to call ARM to manage the managed application resources.
         """
-        DefinitionAuthorizationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            role_definition_id=role_definition_id,
-            service_principal_id=service_principal_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             role_definition_id: Optional[pulumi.Input[str]] = None,
-             service_principal_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if role_definition_id is None and 'roleDefinitionId' in kwargs:
-            role_definition_id = kwargs['roleDefinitionId']
-        if role_definition_id is None:
-            raise TypeError("Missing 'role_definition_id' argument")
-        if service_principal_id is None and 'servicePrincipalId' in kwargs:
-            service_principal_id = kwargs['servicePrincipalId']
-        if service_principal_id is None:
-            raise TypeError("Missing 'service_principal_id' argument")
-
-        _setter("role_definition_id", role_definition_id)
-        _setter("service_principal_id", service_principal_id)
+        pulumi.set(__self__, "role_definition_id", role_definition_id)
+        pulumi.set(__self__, "service_principal_id", service_principal_id)
 
     @property
     @pulumi.getter(name="roleDefinitionId")

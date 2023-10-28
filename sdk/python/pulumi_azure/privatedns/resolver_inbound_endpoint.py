@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,41 +29,14 @@ class ResolverInboundEndpointArgs:
         :param pulumi.Input[str] name: Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Private DNS Resolver Inbound Endpoint.
         """
-        ResolverInboundEndpointArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ip_configurations=ip_configurations,
-            private_dns_resolver_id=private_dns_resolver_id,
-            location=location,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ResolverInboundEndpointIpConfigurationArgs']]]] = None,
-             private_dns_resolver_id: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if ip_configurations is None and 'ipConfigurations' in kwargs:
-            ip_configurations = kwargs['ipConfigurations']
-        if ip_configurations is None:
-            raise TypeError("Missing 'ip_configurations' argument")
-        if private_dns_resolver_id is None and 'privateDnsResolverId' in kwargs:
-            private_dns_resolver_id = kwargs['privateDnsResolverId']
-        if private_dns_resolver_id is None:
-            raise TypeError("Missing 'private_dns_resolver_id' argument")
-
-        _setter("ip_configurations", ip_configurations)
-        _setter("private_dns_resolver_id", private_dns_resolver_id)
+        pulumi.set(__self__, "ip_configurations", ip_configurations)
+        pulumi.set(__self__, "private_dns_resolver_id", private_dns_resolver_id)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="ipConfigurations")
@@ -142,39 +115,16 @@ class _ResolverInboundEndpointState:
         :param pulumi.Input[str] private_dns_resolver_id: Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Private DNS Resolver Inbound Endpoint.
         """
-        _ResolverInboundEndpointState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ip_configurations=ip_configurations,
-            location=location,
-            name=name,
-            private_dns_resolver_id=private_dns_resolver_id,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ResolverInboundEndpointIpConfigurationArgs']]]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             private_dns_resolver_id: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if ip_configurations is None and 'ipConfigurations' in kwargs:
-            ip_configurations = kwargs['ipConfigurations']
-        if private_dns_resolver_id is None and 'privateDnsResolverId' in kwargs:
-            private_dns_resolver_id = kwargs['privateDnsResolverId']
-
         if ip_configurations is not None:
-            _setter("ip_configurations", ip_configurations)
+            pulumi.set(__self__, "ip_configurations", ip_configurations)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if private_dns_resolver_id is not None:
-            _setter("private_dns_resolver_id", private_dns_resolver_id)
+            pulumi.set(__self__, "private_dns_resolver_id", private_dns_resolver_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="ipConfigurations")
@@ -370,10 +320,6 @@ class ResolverInboundEndpoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ResolverInboundEndpointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

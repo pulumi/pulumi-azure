@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SqlPoolWorkloadGroupArgs', 'SqlPoolWorkloadGroup']
@@ -33,62 +33,19 @@ class SqlPoolWorkloadGroupArgs:
         :param pulumi.Input[str] name: The name which should be used for this Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Group to be created.
         :param pulumi.Input[int] query_execution_timeout_in_seconds: The workload group query execution timeout.
         """
-        SqlPoolWorkloadGroupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            max_resource_percent=max_resource_percent,
-            min_resource_percent=min_resource_percent,
-            sql_pool_id=sql_pool_id,
-            importance=importance,
-            max_resource_percent_per_request=max_resource_percent_per_request,
-            min_resource_percent_per_request=min_resource_percent_per_request,
-            name=name,
-            query_execution_timeout_in_seconds=query_execution_timeout_in_seconds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             max_resource_percent: Optional[pulumi.Input[int]] = None,
-             min_resource_percent: Optional[pulumi.Input[int]] = None,
-             sql_pool_id: Optional[pulumi.Input[str]] = None,
-             importance: Optional[pulumi.Input[str]] = None,
-             max_resource_percent_per_request: Optional[pulumi.Input[float]] = None,
-             min_resource_percent_per_request: Optional[pulumi.Input[float]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             query_execution_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if max_resource_percent is None and 'maxResourcePercent' in kwargs:
-            max_resource_percent = kwargs['maxResourcePercent']
-        if max_resource_percent is None:
-            raise TypeError("Missing 'max_resource_percent' argument")
-        if min_resource_percent is None and 'minResourcePercent' in kwargs:
-            min_resource_percent = kwargs['minResourcePercent']
-        if min_resource_percent is None:
-            raise TypeError("Missing 'min_resource_percent' argument")
-        if sql_pool_id is None and 'sqlPoolId' in kwargs:
-            sql_pool_id = kwargs['sqlPoolId']
-        if sql_pool_id is None:
-            raise TypeError("Missing 'sql_pool_id' argument")
-        if max_resource_percent_per_request is None and 'maxResourcePercentPerRequest' in kwargs:
-            max_resource_percent_per_request = kwargs['maxResourcePercentPerRequest']
-        if min_resource_percent_per_request is None and 'minResourcePercentPerRequest' in kwargs:
-            min_resource_percent_per_request = kwargs['minResourcePercentPerRequest']
-        if query_execution_timeout_in_seconds is None and 'queryExecutionTimeoutInSeconds' in kwargs:
-            query_execution_timeout_in_seconds = kwargs['queryExecutionTimeoutInSeconds']
-
-        _setter("max_resource_percent", max_resource_percent)
-        _setter("min_resource_percent", min_resource_percent)
-        _setter("sql_pool_id", sql_pool_id)
+        pulumi.set(__self__, "max_resource_percent", max_resource_percent)
+        pulumi.set(__self__, "min_resource_percent", min_resource_percent)
+        pulumi.set(__self__, "sql_pool_id", sql_pool_id)
         if importance is not None:
-            _setter("importance", importance)
+            pulumi.set(__self__, "importance", importance)
         if max_resource_percent_per_request is not None:
-            _setter("max_resource_percent_per_request", max_resource_percent_per_request)
+            pulumi.set(__self__, "max_resource_percent_per_request", max_resource_percent_per_request)
         if min_resource_percent_per_request is not None:
-            _setter("min_resource_percent_per_request", min_resource_percent_per_request)
+            pulumi.set(__self__, "min_resource_percent_per_request", min_resource_percent_per_request)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if query_execution_timeout_in_seconds is not None:
-            _setter("query_execution_timeout_in_seconds", query_execution_timeout_in_seconds)
+            pulumi.set(__self__, "query_execution_timeout_in_seconds", query_execution_timeout_in_seconds)
 
     @property
     @pulumi.getter(name="maxResourcePercent")
@@ -209,59 +166,22 @@ class _SqlPoolWorkloadGroupState:
         :param pulumi.Input[int] query_execution_timeout_in_seconds: The workload group query execution timeout.
         :param pulumi.Input[str] sql_pool_id: The ID of the Synapse SQL Pool. Changing this forces a new Synapse SQL Pool Workload Group to be created.
         """
-        _SqlPoolWorkloadGroupState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            importance=importance,
-            max_resource_percent=max_resource_percent,
-            max_resource_percent_per_request=max_resource_percent_per_request,
-            min_resource_percent=min_resource_percent,
-            min_resource_percent_per_request=min_resource_percent_per_request,
-            name=name,
-            query_execution_timeout_in_seconds=query_execution_timeout_in_seconds,
-            sql_pool_id=sql_pool_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             importance: Optional[pulumi.Input[str]] = None,
-             max_resource_percent: Optional[pulumi.Input[int]] = None,
-             max_resource_percent_per_request: Optional[pulumi.Input[float]] = None,
-             min_resource_percent: Optional[pulumi.Input[int]] = None,
-             min_resource_percent_per_request: Optional[pulumi.Input[float]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             query_execution_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
-             sql_pool_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if max_resource_percent is None and 'maxResourcePercent' in kwargs:
-            max_resource_percent = kwargs['maxResourcePercent']
-        if max_resource_percent_per_request is None and 'maxResourcePercentPerRequest' in kwargs:
-            max_resource_percent_per_request = kwargs['maxResourcePercentPerRequest']
-        if min_resource_percent is None and 'minResourcePercent' in kwargs:
-            min_resource_percent = kwargs['minResourcePercent']
-        if min_resource_percent_per_request is None and 'minResourcePercentPerRequest' in kwargs:
-            min_resource_percent_per_request = kwargs['minResourcePercentPerRequest']
-        if query_execution_timeout_in_seconds is None and 'queryExecutionTimeoutInSeconds' in kwargs:
-            query_execution_timeout_in_seconds = kwargs['queryExecutionTimeoutInSeconds']
-        if sql_pool_id is None and 'sqlPoolId' in kwargs:
-            sql_pool_id = kwargs['sqlPoolId']
-
         if importance is not None:
-            _setter("importance", importance)
+            pulumi.set(__self__, "importance", importance)
         if max_resource_percent is not None:
-            _setter("max_resource_percent", max_resource_percent)
+            pulumi.set(__self__, "max_resource_percent", max_resource_percent)
         if max_resource_percent_per_request is not None:
-            _setter("max_resource_percent_per_request", max_resource_percent_per_request)
+            pulumi.set(__self__, "max_resource_percent_per_request", max_resource_percent_per_request)
         if min_resource_percent is not None:
-            _setter("min_resource_percent", min_resource_percent)
+            pulumi.set(__self__, "min_resource_percent", min_resource_percent)
         if min_resource_percent_per_request is not None:
-            _setter("min_resource_percent_per_request", min_resource_percent_per_request)
+            pulumi.set(__self__, "min_resource_percent_per_request", min_resource_percent_per_request)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if query_execution_timeout_in_seconds is not None:
-            _setter("query_execution_timeout_in_seconds", query_execution_timeout_in_seconds)
+            pulumi.set(__self__, "query_execution_timeout_in_seconds", query_execution_timeout_in_seconds)
         if sql_pool_id is not None:
-            _setter("sql_pool_id", sql_pool_id)
+            pulumi.set(__self__, "sql_pool_id", sql_pool_id)
 
     @property
     @pulumi.getter
@@ -497,10 +417,6 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SqlPoolWorkloadGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

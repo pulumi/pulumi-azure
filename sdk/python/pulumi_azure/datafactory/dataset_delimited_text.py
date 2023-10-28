@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -65,131 +65,46 @@ class DatasetDelimitedTextArgs:
         :param pulumi.Input[str] row_delimiter: The row delimiter. Defaults to any of the following values on read: `\\r\\n`, `\\r`, `\\n`, and `\\n` or `\\r\\n` on write by mapping data flow and Copy activity respectively.
         :param pulumi.Input[Sequence[pulumi.Input['DatasetDelimitedTextSchemaColumnArgs']]] schema_columns: A `schema_column` block as defined below.
         """
-        DatasetDelimitedTextArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_factory_id=data_factory_id,
-            linked_service_name=linked_service_name,
-            additional_properties=additional_properties,
-            annotations=annotations,
-            azure_blob_fs_location=azure_blob_fs_location,
-            azure_blob_storage_location=azure_blob_storage_location,
-            column_delimiter=column_delimiter,
-            compression_codec=compression_codec,
-            compression_level=compression_level,
-            description=description,
-            encoding=encoding,
-            escape_character=escape_character,
-            first_row_as_header=first_row_as_header,
-            folder=folder,
-            http_server_location=http_server_location,
-            name=name,
-            null_value=null_value,
-            parameters=parameters,
-            quote_character=quote_character,
-            row_delimiter=row_delimiter,
-            schema_columns=schema_columns,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_factory_id: Optional[pulumi.Input[str]] = None,
-             linked_service_name: Optional[pulumi.Input[str]] = None,
-             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             azure_blob_fs_location: Optional[pulumi.Input['DatasetDelimitedTextAzureBlobFsLocationArgs']] = None,
-             azure_blob_storage_location: Optional[pulumi.Input['DatasetDelimitedTextAzureBlobStorageLocationArgs']] = None,
-             column_delimiter: Optional[pulumi.Input[str]] = None,
-             compression_codec: Optional[pulumi.Input[str]] = None,
-             compression_level: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             encoding: Optional[pulumi.Input[str]] = None,
-             escape_character: Optional[pulumi.Input[str]] = None,
-             first_row_as_header: Optional[pulumi.Input[bool]] = None,
-             folder: Optional[pulumi.Input[str]] = None,
-             http_server_location: Optional[pulumi.Input['DatasetDelimitedTextHttpServerLocationArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             null_value: Optional[pulumi.Input[str]] = None,
-             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             quote_character: Optional[pulumi.Input[str]] = None,
-             row_delimiter: Optional[pulumi.Input[str]] = None,
-             schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetDelimitedTextSchemaColumnArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if data_factory_id is None and 'dataFactoryId' in kwargs:
-            data_factory_id = kwargs['dataFactoryId']
-        if data_factory_id is None:
-            raise TypeError("Missing 'data_factory_id' argument")
-        if linked_service_name is None and 'linkedServiceName' in kwargs:
-            linked_service_name = kwargs['linkedServiceName']
-        if linked_service_name is None:
-            raise TypeError("Missing 'linked_service_name' argument")
-        if additional_properties is None and 'additionalProperties' in kwargs:
-            additional_properties = kwargs['additionalProperties']
-        if azure_blob_fs_location is None and 'azureBlobFsLocation' in kwargs:
-            azure_blob_fs_location = kwargs['azureBlobFsLocation']
-        if azure_blob_storage_location is None and 'azureBlobStorageLocation' in kwargs:
-            azure_blob_storage_location = kwargs['azureBlobStorageLocation']
-        if column_delimiter is None and 'columnDelimiter' in kwargs:
-            column_delimiter = kwargs['columnDelimiter']
-        if compression_codec is None and 'compressionCodec' in kwargs:
-            compression_codec = kwargs['compressionCodec']
-        if compression_level is None and 'compressionLevel' in kwargs:
-            compression_level = kwargs['compressionLevel']
-        if escape_character is None and 'escapeCharacter' in kwargs:
-            escape_character = kwargs['escapeCharacter']
-        if first_row_as_header is None and 'firstRowAsHeader' in kwargs:
-            first_row_as_header = kwargs['firstRowAsHeader']
-        if http_server_location is None and 'httpServerLocation' in kwargs:
-            http_server_location = kwargs['httpServerLocation']
-        if null_value is None and 'nullValue' in kwargs:
-            null_value = kwargs['nullValue']
-        if quote_character is None and 'quoteCharacter' in kwargs:
-            quote_character = kwargs['quoteCharacter']
-        if row_delimiter is None and 'rowDelimiter' in kwargs:
-            row_delimiter = kwargs['rowDelimiter']
-        if schema_columns is None and 'schemaColumns' in kwargs:
-            schema_columns = kwargs['schemaColumns']
-
-        _setter("data_factory_id", data_factory_id)
-        _setter("linked_service_name", linked_service_name)
+        pulumi.set(__self__, "data_factory_id", data_factory_id)
+        pulumi.set(__self__, "linked_service_name", linked_service_name)
         if additional_properties is not None:
-            _setter("additional_properties", additional_properties)
+            pulumi.set(__self__, "additional_properties", additional_properties)
         if annotations is not None:
-            _setter("annotations", annotations)
+            pulumi.set(__self__, "annotations", annotations)
         if azure_blob_fs_location is not None:
-            _setter("azure_blob_fs_location", azure_blob_fs_location)
+            pulumi.set(__self__, "azure_blob_fs_location", azure_blob_fs_location)
         if azure_blob_storage_location is not None:
-            _setter("azure_blob_storage_location", azure_blob_storage_location)
+            pulumi.set(__self__, "azure_blob_storage_location", azure_blob_storage_location)
         if column_delimiter is not None:
-            _setter("column_delimiter", column_delimiter)
+            pulumi.set(__self__, "column_delimiter", column_delimiter)
         if compression_codec is not None:
-            _setter("compression_codec", compression_codec)
+            pulumi.set(__self__, "compression_codec", compression_codec)
         if compression_level is not None:
-            _setter("compression_level", compression_level)
+            pulumi.set(__self__, "compression_level", compression_level)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if encoding is not None:
-            _setter("encoding", encoding)
+            pulumi.set(__self__, "encoding", encoding)
         if escape_character is not None:
-            _setter("escape_character", escape_character)
+            pulumi.set(__self__, "escape_character", escape_character)
         if first_row_as_header is not None:
-            _setter("first_row_as_header", first_row_as_header)
+            pulumi.set(__self__, "first_row_as_header", first_row_as_header)
         if folder is not None:
-            _setter("folder", folder)
+            pulumi.set(__self__, "folder", folder)
         if http_server_location is not None:
-            _setter("http_server_location", http_server_location)
+            pulumi.set(__self__, "http_server_location", http_server_location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if null_value is not None:
-            _setter("null_value", null_value)
+            pulumi.set(__self__, "null_value", null_value)
         if parameters is not None:
-            _setter("parameters", parameters)
+            pulumi.set(__self__, "parameters", parameters)
         if quote_character is not None:
-            _setter("quote_character", quote_character)
+            pulumi.set(__self__, "quote_character", quote_character)
         if row_delimiter is not None:
-            _setter("row_delimiter", row_delimiter)
+            pulumi.set(__self__, "row_delimiter", row_delimiter)
         if schema_columns is not None:
-            _setter("schema_columns", schema_columns)
+            pulumi.set(__self__, "schema_columns", schema_columns)
 
     @property
     @pulumi.getter(name="dataFactoryId")
@@ -500,129 +415,48 @@ class _DatasetDelimitedTextState:
         :param pulumi.Input[str] row_delimiter: The row delimiter. Defaults to any of the following values on read: `\\r\\n`, `\\r`, `\\n`, and `\\n` or `\\r\\n` on write by mapping data flow and Copy activity respectively.
         :param pulumi.Input[Sequence[pulumi.Input['DatasetDelimitedTextSchemaColumnArgs']]] schema_columns: A `schema_column` block as defined below.
         """
-        _DatasetDelimitedTextState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            additional_properties=additional_properties,
-            annotations=annotations,
-            azure_blob_fs_location=azure_blob_fs_location,
-            azure_blob_storage_location=azure_blob_storage_location,
-            column_delimiter=column_delimiter,
-            compression_codec=compression_codec,
-            compression_level=compression_level,
-            data_factory_id=data_factory_id,
-            description=description,
-            encoding=encoding,
-            escape_character=escape_character,
-            first_row_as_header=first_row_as_header,
-            folder=folder,
-            http_server_location=http_server_location,
-            linked_service_name=linked_service_name,
-            name=name,
-            null_value=null_value,
-            parameters=parameters,
-            quote_character=quote_character,
-            row_delimiter=row_delimiter,
-            schema_columns=schema_columns,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             azure_blob_fs_location: Optional[pulumi.Input['DatasetDelimitedTextAzureBlobFsLocationArgs']] = None,
-             azure_blob_storage_location: Optional[pulumi.Input['DatasetDelimitedTextAzureBlobStorageLocationArgs']] = None,
-             column_delimiter: Optional[pulumi.Input[str]] = None,
-             compression_codec: Optional[pulumi.Input[str]] = None,
-             compression_level: Optional[pulumi.Input[str]] = None,
-             data_factory_id: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             encoding: Optional[pulumi.Input[str]] = None,
-             escape_character: Optional[pulumi.Input[str]] = None,
-             first_row_as_header: Optional[pulumi.Input[bool]] = None,
-             folder: Optional[pulumi.Input[str]] = None,
-             http_server_location: Optional[pulumi.Input['DatasetDelimitedTextHttpServerLocationArgs']] = None,
-             linked_service_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             null_value: Optional[pulumi.Input[str]] = None,
-             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             quote_character: Optional[pulumi.Input[str]] = None,
-             row_delimiter: Optional[pulumi.Input[str]] = None,
-             schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetDelimitedTextSchemaColumnArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if additional_properties is None and 'additionalProperties' in kwargs:
-            additional_properties = kwargs['additionalProperties']
-        if azure_blob_fs_location is None and 'azureBlobFsLocation' in kwargs:
-            azure_blob_fs_location = kwargs['azureBlobFsLocation']
-        if azure_blob_storage_location is None and 'azureBlobStorageLocation' in kwargs:
-            azure_blob_storage_location = kwargs['azureBlobStorageLocation']
-        if column_delimiter is None and 'columnDelimiter' in kwargs:
-            column_delimiter = kwargs['columnDelimiter']
-        if compression_codec is None and 'compressionCodec' in kwargs:
-            compression_codec = kwargs['compressionCodec']
-        if compression_level is None and 'compressionLevel' in kwargs:
-            compression_level = kwargs['compressionLevel']
-        if data_factory_id is None and 'dataFactoryId' in kwargs:
-            data_factory_id = kwargs['dataFactoryId']
-        if escape_character is None and 'escapeCharacter' in kwargs:
-            escape_character = kwargs['escapeCharacter']
-        if first_row_as_header is None and 'firstRowAsHeader' in kwargs:
-            first_row_as_header = kwargs['firstRowAsHeader']
-        if http_server_location is None and 'httpServerLocation' in kwargs:
-            http_server_location = kwargs['httpServerLocation']
-        if linked_service_name is None and 'linkedServiceName' in kwargs:
-            linked_service_name = kwargs['linkedServiceName']
-        if null_value is None and 'nullValue' in kwargs:
-            null_value = kwargs['nullValue']
-        if quote_character is None and 'quoteCharacter' in kwargs:
-            quote_character = kwargs['quoteCharacter']
-        if row_delimiter is None and 'rowDelimiter' in kwargs:
-            row_delimiter = kwargs['rowDelimiter']
-        if schema_columns is None and 'schemaColumns' in kwargs:
-            schema_columns = kwargs['schemaColumns']
-
         if additional_properties is not None:
-            _setter("additional_properties", additional_properties)
+            pulumi.set(__self__, "additional_properties", additional_properties)
         if annotations is not None:
-            _setter("annotations", annotations)
+            pulumi.set(__self__, "annotations", annotations)
         if azure_blob_fs_location is not None:
-            _setter("azure_blob_fs_location", azure_blob_fs_location)
+            pulumi.set(__self__, "azure_blob_fs_location", azure_blob_fs_location)
         if azure_blob_storage_location is not None:
-            _setter("azure_blob_storage_location", azure_blob_storage_location)
+            pulumi.set(__self__, "azure_blob_storage_location", azure_blob_storage_location)
         if column_delimiter is not None:
-            _setter("column_delimiter", column_delimiter)
+            pulumi.set(__self__, "column_delimiter", column_delimiter)
         if compression_codec is not None:
-            _setter("compression_codec", compression_codec)
+            pulumi.set(__self__, "compression_codec", compression_codec)
         if compression_level is not None:
-            _setter("compression_level", compression_level)
+            pulumi.set(__self__, "compression_level", compression_level)
         if data_factory_id is not None:
-            _setter("data_factory_id", data_factory_id)
+            pulumi.set(__self__, "data_factory_id", data_factory_id)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if encoding is not None:
-            _setter("encoding", encoding)
+            pulumi.set(__self__, "encoding", encoding)
         if escape_character is not None:
-            _setter("escape_character", escape_character)
+            pulumi.set(__self__, "escape_character", escape_character)
         if first_row_as_header is not None:
-            _setter("first_row_as_header", first_row_as_header)
+            pulumi.set(__self__, "first_row_as_header", first_row_as_header)
         if folder is not None:
-            _setter("folder", folder)
+            pulumi.set(__self__, "folder", folder)
         if http_server_location is not None:
-            _setter("http_server_location", http_server_location)
+            pulumi.set(__self__, "http_server_location", http_server_location)
         if linked_service_name is not None:
-            _setter("linked_service_name", linked_service_name)
+            pulumi.set(__self__, "linked_service_name", linked_service_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if null_value is not None:
-            _setter("null_value", null_value)
+            pulumi.set(__self__, "null_value", null_value)
         if parameters is not None:
-            _setter("parameters", parameters)
+            pulumi.set(__self__, "parameters", parameters)
         if quote_character is not None:
-            _setter("quote_character", quote_character)
+            pulumi.set(__self__, "quote_character", quote_character)
         if row_delimiter is not None:
-            _setter("row_delimiter", row_delimiter)
+            pulumi.set(__self__, "row_delimiter", row_delimiter)
         if schema_columns is not None:
-            _setter("schema_columns", schema_columns)
+            pulumi.set(__self__, "schema_columns", schema_columns)
 
     @property
     @pulumi.getter(name="additionalProperties")
@@ -1036,10 +870,6 @@ class DatasetDelimitedText(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DatasetDelimitedTextArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1077,9 +907,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
 
             __props__.__dict__["additional_properties"] = additional_properties
             __props__.__dict__["annotations"] = annotations
-            azure_blob_fs_location = _utilities.configure(azure_blob_fs_location, DatasetDelimitedTextAzureBlobFsLocationArgs, True)
             __props__.__dict__["azure_blob_fs_location"] = azure_blob_fs_location
-            azure_blob_storage_location = _utilities.configure(azure_blob_storage_location, DatasetDelimitedTextAzureBlobStorageLocationArgs, True)
             __props__.__dict__["azure_blob_storage_location"] = azure_blob_storage_location
             __props__.__dict__["column_delimiter"] = column_delimiter
             __props__.__dict__["compression_codec"] = compression_codec
@@ -1092,7 +920,6 @@ class DatasetDelimitedText(pulumi.CustomResource):
             __props__.__dict__["escape_character"] = escape_character
             __props__.__dict__["first_row_as_header"] = first_row_as_header
             __props__.__dict__["folder"] = folder
-            http_server_location = _utilities.configure(http_server_location, DatasetDelimitedTextHttpServerLocationArgs, True)
             __props__.__dict__["http_server_location"] = http_server_location
             if linked_service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'linked_service_name'")

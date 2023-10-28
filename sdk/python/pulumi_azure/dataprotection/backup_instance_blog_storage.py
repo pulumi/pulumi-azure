@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['BackupInstanceBlogStorageArgs', 'BackupInstanceBlogStorage']
@@ -27,44 +27,13 @@ class BackupInstanceBlogStorageArgs:
         :param pulumi.Input[str] location: The location of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
         :param pulumi.Input[str] name: The name which should be used for this Backup Instance Blob Storage. Changing this forces a new Backup Instance Blob Storage to be created.
         """
-        BackupInstanceBlogStorageArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            backup_policy_id=backup_policy_id,
-            storage_account_id=storage_account_id,
-            vault_id=vault_id,
-            location=location,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             backup_policy_id: Optional[pulumi.Input[str]] = None,
-             storage_account_id: Optional[pulumi.Input[str]] = None,
-             vault_id: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if backup_policy_id is None and 'backupPolicyId' in kwargs:
-            backup_policy_id = kwargs['backupPolicyId']
-        if backup_policy_id is None:
-            raise TypeError("Missing 'backup_policy_id' argument")
-        if storage_account_id is None and 'storageAccountId' in kwargs:
-            storage_account_id = kwargs['storageAccountId']
-        if storage_account_id is None:
-            raise TypeError("Missing 'storage_account_id' argument")
-        if vault_id is None and 'vaultId' in kwargs:
-            vault_id = kwargs['vaultId']
-        if vault_id is None:
-            raise TypeError("Missing 'vault_id' argument")
-
-        _setter("backup_policy_id", backup_policy_id)
-        _setter("storage_account_id", storage_account_id)
-        _setter("vault_id", vault_id)
+        pulumi.set(__self__, "backup_policy_id", backup_policy_id)
+        pulumi.set(__self__, "storage_account_id", storage_account_id)
+        pulumi.set(__self__, "vault_id", vault_id)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="backupPolicyId")
@@ -143,41 +112,16 @@ class _BackupInstanceBlogStorageState:
         :param pulumi.Input[str] storage_account_id: The ID of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
         :param pulumi.Input[str] vault_id: The ID of the Backup Vault within which the Backup Instance Blob Storage should exist. Changing this forces a new Backup Instance Blob Storage to be created.
         """
-        _BackupInstanceBlogStorageState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            backup_policy_id=backup_policy_id,
-            location=location,
-            name=name,
-            storage_account_id=storage_account_id,
-            vault_id=vault_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             backup_policy_id: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             storage_account_id: Optional[pulumi.Input[str]] = None,
-             vault_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if backup_policy_id is None and 'backupPolicyId' in kwargs:
-            backup_policy_id = kwargs['backupPolicyId']
-        if storage_account_id is None and 'storageAccountId' in kwargs:
-            storage_account_id = kwargs['storageAccountId']
-        if vault_id is None and 'vaultId' in kwargs:
-            vault_id = kwargs['vaultId']
-
         if backup_policy_id is not None:
-            _setter("backup_policy_id", backup_policy_id)
+            pulumi.set(__self__, "backup_policy_id", backup_policy_id)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if storage_account_id is not None:
-            _setter("storage_account_id", storage_account_id)
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
         if vault_id is not None:
-            _setter("vault_id", vault_id)
+            pulumi.set(__self__, "vault_id", vault_id)
 
     @property
     @pulumi.getter(name="backupPolicyId")
@@ -367,10 +311,6 @@ class BackupInstanceBlogStorage(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            BackupInstanceBlogStorageArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

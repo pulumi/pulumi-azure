@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -55,41 +55,12 @@ class VaultEncryption(dict):
                !> **Note:** Once `infrastructure_encryption_enabled` has been set it's not possible to change it.
         :param str user_assigned_identity_id: Specifies the user assigned identity ID to be used.
         """
-        VaultEncryption._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            infrastructure_encryption_enabled=infrastructure_encryption_enabled,
-            key_id=key_id,
-            use_system_assigned_identity=use_system_assigned_identity,
-            user_assigned_identity_id=user_assigned_identity_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             infrastructure_encryption_enabled: Optional[bool] = None,
-             key_id: Optional[str] = None,
-             use_system_assigned_identity: Optional[bool] = None,
-             user_assigned_identity_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if infrastructure_encryption_enabled is None and 'infrastructureEncryptionEnabled' in kwargs:
-            infrastructure_encryption_enabled = kwargs['infrastructureEncryptionEnabled']
-        if infrastructure_encryption_enabled is None:
-            raise TypeError("Missing 'infrastructure_encryption_enabled' argument")
-        if key_id is None and 'keyId' in kwargs:
-            key_id = kwargs['keyId']
-        if key_id is None:
-            raise TypeError("Missing 'key_id' argument")
-        if use_system_assigned_identity is None and 'useSystemAssignedIdentity' in kwargs:
-            use_system_assigned_identity = kwargs['useSystemAssignedIdentity']
-        if user_assigned_identity_id is None and 'userAssignedIdentityId' in kwargs:
-            user_assigned_identity_id = kwargs['userAssignedIdentityId']
-
-        _setter("infrastructure_encryption_enabled", infrastructure_encryption_enabled)
-        _setter("key_id", key_id)
+        pulumi.set(__self__, "infrastructure_encryption_enabled", infrastructure_encryption_enabled)
+        pulumi.set(__self__, "key_id", key_id)
         if use_system_assigned_identity is not None:
-            _setter("use_system_assigned_identity", use_system_assigned_identity)
+            pulumi.set(__self__, "use_system_assigned_identity", use_system_assigned_identity)
         if user_assigned_identity_id is not None:
-            _setter("user_assigned_identity_id", user_assigned_identity_id)
+            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
 
     @property
     @pulumi.getter(name="infrastructureEncryptionEnabled")
@@ -164,38 +135,13 @@ class VaultIdentity(dict):
         :param str principal_id: The Principal ID associated with this Managed Service Identity.
         :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
-        VaultIdentity._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            identity_ids=identity_ids,
-            principal_id=principal_id,
-            tenant_id=tenant_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             identity_ids: Optional[Sequence[str]] = None,
-             principal_id: Optional[str] = None,
-             tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if identity_ids is None and 'identityIds' in kwargs:
-            identity_ids = kwargs['identityIds']
-        if principal_id is None and 'principalId' in kwargs:
-            principal_id = kwargs['principalId']
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if identity_ids is not None:
-            _setter("identity_ids", identity_ids)
+            pulumi.set(__self__, "identity_ids", identity_ids)
         if principal_id is not None:
-            _setter("principal_id", principal_id)
+            pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
-            _setter("tenant_id", tenant_id)
+            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -260,27 +206,10 @@ class VaultMonitoring(dict):
         :param bool alerts_for_all_job_failures_enabled: Enabling/Disabling built-in Azure Monitor alerts for security scenarios and job failure scenarios. Defaults to `true`.
         :param bool alerts_for_critical_operation_failures_enabled: Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
         """
-        VaultMonitoring._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            alerts_for_all_job_failures_enabled=alerts_for_all_job_failures_enabled,
-            alerts_for_critical_operation_failures_enabled=alerts_for_critical_operation_failures_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             alerts_for_all_job_failures_enabled: Optional[bool] = None,
-             alerts_for_critical_operation_failures_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if alerts_for_all_job_failures_enabled is None and 'alertsForAllJobFailuresEnabled' in kwargs:
-            alerts_for_all_job_failures_enabled = kwargs['alertsForAllJobFailuresEnabled']
-        if alerts_for_critical_operation_failures_enabled is None and 'alertsForCriticalOperationFailuresEnabled' in kwargs:
-            alerts_for_critical_operation_failures_enabled = kwargs['alertsForCriticalOperationFailuresEnabled']
-
         if alerts_for_all_job_failures_enabled is not None:
-            _setter("alerts_for_all_job_failures_enabled", alerts_for_all_job_failures_enabled)
+            pulumi.set(__self__, "alerts_for_all_job_failures_enabled", alerts_for_all_job_failures_enabled)
         if alerts_for_critical_operation_failures_enabled is not None:
-            _setter("alerts_for_critical_operation_failures_enabled", alerts_for_critical_operation_failures_enabled)
+            pulumi.set(__self__, "alerts_for_critical_operation_failures_enabled", alerts_for_critical_operation_failures_enabled)
 
     @property
     @pulumi.getter(name="alertsForAllJobFailuresEnabled")

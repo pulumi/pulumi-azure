@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,57 +35,18 @@ class BudgetManagementGroupArgs:
         :param pulumi.Input[str] name: The name which should be used for this Management Group Consumption Budget. Changing this forces a new resource to be created.
         :param pulumi.Input[str] time_grain: The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`. Changing this forces a new resource to be created.
         """
-        BudgetManagementGroupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            amount=amount,
-            management_group_id=management_group_id,
-            notifications=notifications,
-            time_period=time_period,
-            etag=etag,
-            filter=filter,
-            name=name,
-            time_grain=time_grain,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             amount: Optional[pulumi.Input[float]] = None,
-             management_group_id: Optional[pulumi.Input[str]] = None,
-             notifications: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupNotificationArgs']]]] = None,
-             time_period: Optional[pulumi.Input['BudgetManagementGroupTimePeriodArgs']] = None,
-             etag: Optional[pulumi.Input[str]] = None,
-             filter: Optional[pulumi.Input['BudgetManagementGroupFilterArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             time_grain: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if amount is None:
-            raise TypeError("Missing 'amount' argument")
-        if management_group_id is None and 'managementGroupId' in kwargs:
-            management_group_id = kwargs['managementGroupId']
-        if management_group_id is None:
-            raise TypeError("Missing 'management_group_id' argument")
-        if notifications is None:
-            raise TypeError("Missing 'notifications' argument")
-        if time_period is None and 'timePeriod' in kwargs:
-            time_period = kwargs['timePeriod']
-        if time_period is None:
-            raise TypeError("Missing 'time_period' argument")
-        if time_grain is None and 'timeGrain' in kwargs:
-            time_grain = kwargs['timeGrain']
-
-        _setter("amount", amount)
-        _setter("management_group_id", management_group_id)
-        _setter("notifications", notifications)
-        _setter("time_period", time_period)
+        pulumi.set(__self__, "amount", amount)
+        pulumi.set(__self__, "management_group_id", management_group_id)
+        pulumi.set(__self__, "notifications", notifications)
+        pulumi.set(__self__, "time_period", time_period)
         if etag is not None:
-            _setter("etag", etag)
+            pulumi.set(__self__, "etag", etag)
         if filter is not None:
-            _setter("filter", filter)
+            pulumi.set(__self__, "filter", filter)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if time_grain is not None:
-            _setter("time_grain", time_grain)
+            pulumi.set(__self__, "time_grain", time_grain)
 
     @property
     @pulumi.getter
@@ -206,53 +167,22 @@ class _BudgetManagementGroupState:
         :param pulumi.Input[str] time_grain: The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`. Changing this forces a new resource to be created.
         :param pulumi.Input['BudgetManagementGroupTimePeriodArgs'] time_period: A `time_period` block as defined below.
         """
-        _BudgetManagementGroupState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            amount=amount,
-            etag=etag,
-            filter=filter,
-            management_group_id=management_group_id,
-            name=name,
-            notifications=notifications,
-            time_grain=time_grain,
-            time_period=time_period,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             amount: Optional[pulumi.Input[float]] = None,
-             etag: Optional[pulumi.Input[str]] = None,
-             filter: Optional[pulumi.Input['BudgetManagementGroupFilterArgs']] = None,
-             management_group_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             notifications: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupNotificationArgs']]]] = None,
-             time_grain: Optional[pulumi.Input[str]] = None,
-             time_period: Optional[pulumi.Input['BudgetManagementGroupTimePeriodArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if management_group_id is None and 'managementGroupId' in kwargs:
-            management_group_id = kwargs['managementGroupId']
-        if time_grain is None and 'timeGrain' in kwargs:
-            time_grain = kwargs['timeGrain']
-        if time_period is None and 'timePeriod' in kwargs:
-            time_period = kwargs['timePeriod']
-
         if amount is not None:
-            _setter("amount", amount)
+            pulumi.set(__self__, "amount", amount)
         if etag is not None:
-            _setter("etag", etag)
+            pulumi.set(__self__, "etag", etag)
         if filter is not None:
-            _setter("filter", filter)
+            pulumi.set(__self__, "filter", filter)
         if management_group_id is not None:
-            _setter("management_group_id", management_group_id)
+            pulumi.set(__self__, "management_group_id", management_group_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if notifications is not None:
-            _setter("notifications", notifications)
+            pulumi.set(__self__, "notifications", notifications)
         if time_grain is not None:
-            _setter("time_grain", time_grain)
+            pulumi.set(__self__, "time_grain", time_grain)
         if time_period is not None:
-            _setter("time_period", time_period)
+            pulumi.set(__self__, "time_period", time_period)
 
     @property
     @pulumi.getter
@@ -518,10 +448,6 @@ class BudgetManagementGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            BudgetManagementGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -548,7 +474,6 @@ class BudgetManagementGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'amount'")
             __props__.__dict__["amount"] = amount
             __props__.__dict__["etag"] = etag
-            filter = _utilities.configure(filter, BudgetManagementGroupFilterArgs, True)
             __props__.__dict__["filter"] = filter
             if management_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'management_group_id'")
@@ -558,7 +483,6 @@ class BudgetManagementGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'notifications'")
             __props__.__dict__["notifications"] = notifications
             __props__.__dict__["time_grain"] = time_grain
-            time_period = _utilities.configure(time_period, BudgetManagementGroupTimePeriodArgs, True)
             if time_period is None and not opts.urn:
                 raise TypeError("Missing required property 'time_period'")
             __props__.__dict__["time_period"] = time_period

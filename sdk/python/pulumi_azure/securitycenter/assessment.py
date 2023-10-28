@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,40 +27,11 @@ class AssessmentArgs:
         :param pulumi.Input[str] target_resource_id: The ID of the target resource. Changing this forces a new security Assessment to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_data: A map of additional data to associate with the assessment.
         """
-        AssessmentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            assessment_policy_id=assessment_policy_id,
-            status=status,
-            target_resource_id=target_resource_id,
-            additional_data=additional_data,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             assessment_policy_id: Optional[pulumi.Input[str]] = None,
-             status: Optional[pulumi.Input['AssessmentStatusArgs']] = None,
-             target_resource_id: Optional[pulumi.Input[str]] = None,
-             additional_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if assessment_policy_id is None and 'assessmentPolicyId' in kwargs:
-            assessment_policy_id = kwargs['assessmentPolicyId']
-        if assessment_policy_id is None:
-            raise TypeError("Missing 'assessment_policy_id' argument")
-        if status is None:
-            raise TypeError("Missing 'status' argument")
-        if target_resource_id is None and 'targetResourceId' in kwargs:
-            target_resource_id = kwargs['targetResourceId']
-        if target_resource_id is None:
-            raise TypeError("Missing 'target_resource_id' argument")
-        if additional_data is None and 'additionalData' in kwargs:
-            additional_data = kwargs['additionalData']
-
-        _setter("assessment_policy_id", assessment_policy_id)
-        _setter("status", status)
-        _setter("target_resource_id", target_resource_id)
+        pulumi.set(__self__, "assessment_policy_id", assessment_policy_id)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "target_resource_id", target_resource_id)
         if additional_data is not None:
-            _setter("additional_data", additional_data)
+            pulumi.set(__self__, "additional_data", additional_data)
 
     @property
     @pulumi.getter(name="assessmentPolicyId")
@@ -125,37 +96,14 @@ class _AssessmentState:
         :param pulumi.Input['AssessmentStatusArgs'] status: A `status` block as defined below.
         :param pulumi.Input[str] target_resource_id: The ID of the target resource. Changing this forces a new security Assessment to be created.
         """
-        _AssessmentState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            additional_data=additional_data,
-            assessment_policy_id=assessment_policy_id,
-            status=status,
-            target_resource_id=target_resource_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             additional_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             assessment_policy_id: Optional[pulumi.Input[str]] = None,
-             status: Optional[pulumi.Input['AssessmentStatusArgs']] = None,
-             target_resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if additional_data is None and 'additionalData' in kwargs:
-            additional_data = kwargs['additionalData']
-        if assessment_policy_id is None and 'assessmentPolicyId' in kwargs:
-            assessment_policy_id = kwargs['assessmentPolicyId']
-        if target_resource_id is None and 'targetResourceId' in kwargs:
-            target_resource_id = kwargs['targetResourceId']
-
         if additional_data is not None:
-            _setter("additional_data", additional_data)
+            pulumi.set(__self__, "additional_data", additional_data)
         if assessment_policy_id is not None:
-            _setter("assessment_policy_id", assessment_policy_id)
+            pulumi.set(__self__, "assessment_policy_id", assessment_policy_id)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if target_resource_id is not None:
-            _setter("target_resource_id", target_resource_id)
+            pulumi.set(__self__, "target_resource_id", target_resource_id)
 
     @property
     @pulumi.getter(name="additionalData")
@@ -373,10 +321,6 @@ class Assessment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AssessmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -399,7 +343,6 @@ class Assessment(pulumi.CustomResource):
             if assessment_policy_id is None and not opts.urn:
                 raise TypeError("Missing required property 'assessment_policy_id'")
             __props__.__dict__["assessment_policy_id"] = assessment_policy_id
-            status = _utilities.configure(status, AssessmentStatusArgs, True)
             if status is None and not opts.urn:
                 raise TypeError("Missing required property 'status'")
             __props__.__dict__["status"] = status

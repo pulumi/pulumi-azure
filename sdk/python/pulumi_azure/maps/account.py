@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AccountArgs', 'Account']
@@ -29,43 +29,14 @@ class AccountArgs:
         :param pulumi.Input[str] name: The name of the Azure Maps Account. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Azure Maps Account.
         """
-        AccountArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_group_name=resource_group_name,
-            sku_name=sku_name,
-            local_authentication_enabled=local_authentication_enabled,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             sku_name: Optional[pulumi.Input[str]] = None,
-             local_authentication_enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if sku_name is None and 'skuName' in kwargs:
-            sku_name = kwargs['skuName']
-        if sku_name is None:
-            raise TypeError("Missing 'sku_name' argument")
-        if local_authentication_enabled is None and 'localAuthenticationEnabled' in kwargs:
-            local_authentication_enabled = kwargs['localAuthenticationEnabled']
-
-        _setter("resource_group_name", resource_group_name)
-        _setter("sku_name", sku_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "sku_name", sku_name)
         if local_authentication_enabled is not None:
-            _setter("local_authentication_enabled", local_authentication_enabled)
+            pulumi.set(__self__, "local_authentication_enabled", local_authentication_enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -154,59 +125,22 @@ class _AccountState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Azure Maps Account.
         :param pulumi.Input[str] x_ms_client_id: A unique identifier for the Maps Account.
         """
-        _AccountState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            local_authentication_enabled=local_authentication_enabled,
-            name=name,
-            primary_access_key=primary_access_key,
-            resource_group_name=resource_group_name,
-            secondary_access_key=secondary_access_key,
-            sku_name=sku_name,
-            tags=tags,
-            x_ms_client_id=x_ms_client_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             local_authentication_enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             primary_access_key: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             secondary_access_key: Optional[pulumi.Input[str]] = None,
-             sku_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             x_ms_client_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if local_authentication_enabled is None and 'localAuthenticationEnabled' in kwargs:
-            local_authentication_enabled = kwargs['localAuthenticationEnabled']
-        if primary_access_key is None and 'primaryAccessKey' in kwargs:
-            primary_access_key = kwargs['primaryAccessKey']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if secondary_access_key is None and 'secondaryAccessKey' in kwargs:
-            secondary_access_key = kwargs['secondaryAccessKey']
-        if sku_name is None and 'skuName' in kwargs:
-            sku_name = kwargs['skuName']
-        if x_ms_client_id is None and 'xMsClientId' in kwargs:
-            x_ms_client_id = kwargs['xMsClientId']
-
         if local_authentication_enabled is not None:
-            _setter("local_authentication_enabled", local_authentication_enabled)
+            pulumi.set(__self__, "local_authentication_enabled", local_authentication_enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if primary_access_key is not None:
-            _setter("primary_access_key", primary_access_key)
+            pulumi.set(__self__, "primary_access_key", primary_access_key)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if secondary_access_key is not None:
-            _setter("secondary_access_key", secondary_access_key)
+            pulumi.set(__self__, "secondary_access_key", secondary_access_key)
         if sku_name is not None:
-            _setter("sku_name", sku_name)
+            pulumi.set(__self__, "sku_name", sku_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if x_ms_client_id is not None:
-            _setter("x_ms_client_id", x_ms_client_id)
+            pulumi.set(__self__, "x_ms_client_id", x_ms_client_id)
 
     @property
     @pulumi.getter(name="localAuthenticationEnabled")
@@ -398,10 +332,6 @@ class Account(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AccountArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

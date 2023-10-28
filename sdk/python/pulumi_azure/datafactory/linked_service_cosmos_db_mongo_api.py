@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LinkedServiceCosmosDbMongoApiArgs', 'LinkedServiceCosmosDbMongoApi']
@@ -39,66 +39,25 @@ class LinkedServiceCosmosDbMongoApiArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         :param pulumi.Input[bool] server_version_is32_or_higher: Whether API server version is 3.2 or higher. Defaults to `false`.
         """
-        LinkedServiceCosmosDbMongoApiArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_factory_id=data_factory_id,
-            additional_properties=additional_properties,
-            annotations=annotations,
-            connection_string=connection_string,
-            database=database,
-            description=description,
-            integration_runtime_name=integration_runtime_name,
-            name=name,
-            parameters=parameters,
-            server_version_is32_or_higher=server_version_is32_or_higher,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_factory_id: Optional[pulumi.Input[str]] = None,
-             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             connection_string: Optional[pulumi.Input[str]] = None,
-             database: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             integration_runtime_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             server_version_is32_or_higher: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if data_factory_id is None and 'dataFactoryId' in kwargs:
-            data_factory_id = kwargs['dataFactoryId']
-        if data_factory_id is None:
-            raise TypeError("Missing 'data_factory_id' argument")
-        if additional_properties is None and 'additionalProperties' in kwargs:
-            additional_properties = kwargs['additionalProperties']
-        if connection_string is None and 'connectionString' in kwargs:
-            connection_string = kwargs['connectionString']
-        if integration_runtime_name is None and 'integrationRuntimeName' in kwargs:
-            integration_runtime_name = kwargs['integrationRuntimeName']
-        if server_version_is32_or_higher is None and 'serverVersionIs32OrHigher' in kwargs:
-            server_version_is32_or_higher = kwargs['serverVersionIs32OrHigher']
-
-        _setter("data_factory_id", data_factory_id)
+        pulumi.set(__self__, "data_factory_id", data_factory_id)
         if additional_properties is not None:
-            _setter("additional_properties", additional_properties)
+            pulumi.set(__self__, "additional_properties", additional_properties)
         if annotations is not None:
-            _setter("annotations", annotations)
+            pulumi.set(__self__, "annotations", annotations)
         if connection_string is not None:
-            _setter("connection_string", connection_string)
+            pulumi.set(__self__, "connection_string", connection_string)
         if database is not None:
-            _setter("database", database)
+            pulumi.set(__self__, "database", database)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if integration_runtime_name is not None:
-            _setter("integration_runtime_name", integration_runtime_name)
+            pulumi.set(__self__, "integration_runtime_name", integration_runtime_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if parameters is not None:
-            _setter("parameters", parameters)
+            pulumi.set(__self__, "parameters", parameters)
         if server_version_is32_or_higher is not None:
-            _setter("server_version_is32_or_higher", server_version_is32_or_higher)
+            pulumi.set(__self__, "server_version_is32_or_higher", server_version_is32_or_higher)
 
     @property
     @pulumi.getter(name="dataFactoryId")
@@ -251,65 +210,26 @@ class _LinkedServiceCosmosDbMongoApiState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         :param pulumi.Input[bool] server_version_is32_or_higher: Whether API server version is 3.2 or higher. Defaults to `false`.
         """
-        _LinkedServiceCosmosDbMongoApiState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            additional_properties=additional_properties,
-            annotations=annotations,
-            connection_string=connection_string,
-            data_factory_id=data_factory_id,
-            database=database,
-            description=description,
-            integration_runtime_name=integration_runtime_name,
-            name=name,
-            parameters=parameters,
-            server_version_is32_or_higher=server_version_is32_or_higher,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             connection_string: Optional[pulumi.Input[str]] = None,
-             data_factory_id: Optional[pulumi.Input[str]] = None,
-             database: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             integration_runtime_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             server_version_is32_or_higher: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if additional_properties is None and 'additionalProperties' in kwargs:
-            additional_properties = kwargs['additionalProperties']
-        if connection_string is None and 'connectionString' in kwargs:
-            connection_string = kwargs['connectionString']
-        if data_factory_id is None and 'dataFactoryId' in kwargs:
-            data_factory_id = kwargs['dataFactoryId']
-        if integration_runtime_name is None and 'integrationRuntimeName' in kwargs:
-            integration_runtime_name = kwargs['integrationRuntimeName']
-        if server_version_is32_or_higher is None and 'serverVersionIs32OrHigher' in kwargs:
-            server_version_is32_or_higher = kwargs['serverVersionIs32OrHigher']
-
         if additional_properties is not None:
-            _setter("additional_properties", additional_properties)
+            pulumi.set(__self__, "additional_properties", additional_properties)
         if annotations is not None:
-            _setter("annotations", annotations)
+            pulumi.set(__self__, "annotations", annotations)
         if connection_string is not None:
-            _setter("connection_string", connection_string)
+            pulumi.set(__self__, "connection_string", connection_string)
         if data_factory_id is not None:
-            _setter("data_factory_id", data_factory_id)
+            pulumi.set(__self__, "data_factory_id", data_factory_id)
         if database is not None:
-            _setter("database", database)
+            pulumi.set(__self__, "database", database)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if integration_runtime_name is not None:
-            _setter("integration_runtime_name", integration_runtime_name)
+            pulumi.set(__self__, "integration_runtime_name", integration_runtime_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if parameters is not None:
-            _setter("parameters", parameters)
+            pulumi.set(__self__, "parameters", parameters)
         if server_version_is32_or_higher is not None:
-            _setter("server_version_is32_or_higher", server_version_is32_or_higher)
+            pulumi.set(__self__, "server_version_is32_or_higher", server_version_is32_or_higher)
 
     @property
     @pulumi.getter(name="additionalProperties")
@@ -539,10 +459,6 @@ class LinkedServiceCosmosDbMongoApi(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LinkedServiceCosmosDbMongoApiArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

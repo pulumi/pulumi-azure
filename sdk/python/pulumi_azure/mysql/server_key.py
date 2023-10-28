@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ServerKeyArgs', 'ServerKey']
@@ -21,29 +21,8 @@ class ServerKeyArgs:
         :param pulumi.Input[str] key_vault_key_id: The URL to a Key Vault Key.
         :param pulumi.Input[str] server_id: The ID of the MySQL Server. Changing this forces a new resource to be created.
         """
-        ServerKeyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key_vault_key_id=key_vault_key_id,
-            server_id=server_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key_vault_key_id: Optional[pulumi.Input[str]] = None,
-             server_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
-            key_vault_key_id = kwargs['keyVaultKeyId']
-        if key_vault_key_id is None:
-            raise TypeError("Missing 'key_vault_key_id' argument")
-        if server_id is None and 'serverId' in kwargs:
-            server_id = kwargs['serverId']
-        if server_id is None:
-            raise TypeError("Missing 'server_id' argument")
-
-        _setter("key_vault_key_id", key_vault_key_id)
-        _setter("server_id", server_id)
+        pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        pulumi.set(__self__, "server_id", server_id)
 
     @property
     @pulumi.getter(name="keyVaultKeyId")
@@ -80,27 +59,10 @@ class _ServerKeyState:
         :param pulumi.Input[str] key_vault_key_id: The URL to a Key Vault Key.
         :param pulumi.Input[str] server_id: The ID of the MySQL Server. Changing this forces a new resource to be created.
         """
-        _ServerKeyState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key_vault_key_id=key_vault_key_id,
-            server_id=server_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key_vault_key_id: Optional[pulumi.Input[str]] = None,
-             server_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
-            key_vault_key_id = kwargs['keyVaultKeyId']
-        if server_id is None and 'serverId' in kwargs:
-            server_id = kwargs['serverId']
-
         if key_vault_key_id is not None:
-            _setter("key_vault_key_id", key_vault_key_id)
+            pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
         if server_id is not None:
-            _setter("server_id", server_id)
+            pulumi.set(__self__, "server_id", server_id)
 
     @property
     @pulumi.getter(name="keyVaultKeyId")
@@ -336,10 +298,6 @@ class ServerKey(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ServerKeyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -42,27 +42,8 @@ class ProfileDnsConfig(dict):
         :param str relative_name: The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
         :param int ttl: The TTL value of the Profile used by Local DNS resolvers and clients.
         """
-        ProfileDnsConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            relative_name=relative_name,
-            ttl=ttl,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             relative_name: Optional[str] = None,
-             ttl: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if relative_name is None and 'relativeName' in kwargs:
-            relative_name = kwargs['relativeName']
-        if relative_name is None:
-            raise TypeError("Missing 'relative_name' argument")
-        if ttl is None:
-            raise TypeError("Missing 'ttl' argument")
-
-        _setter("relative_name", relative_name)
-        _setter("ttl", ttl)
+        pulumi.set(__self__, "relative_name", relative_name)
+        pulumi.set(__self__, "ttl", ttl)
 
     @property
     @pulumi.getter(name="relativeName")
@@ -127,59 +108,20 @@ class ProfileMonitorConfig(dict):
         :param int timeout_in_seconds: The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If `interval_in_seconds` is set to `30`, then `timeout_in_seconds` can be between `5` and `10`. The default value is `10`. If `interval_in_seconds` is set to `10`, then valid values are between `5` and `9` and `timeout_in_seconds` is required.
         :param int tolerated_number_of_failures: The number of failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy. Valid values are between `0` and `9`. The default value is `3`
         """
-        ProfileMonitorConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            port=port,
-            protocol=protocol,
-            custom_headers=custom_headers,
-            expected_status_code_ranges=expected_status_code_ranges,
-            interval_in_seconds=interval_in_seconds,
-            path=path,
-            timeout_in_seconds=timeout_in_seconds,
-            tolerated_number_of_failures=tolerated_number_of_failures,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             port: Optional[int] = None,
-             protocol: Optional[str] = None,
-             custom_headers: Optional[Sequence['outputs.ProfileMonitorConfigCustomHeader']] = None,
-             expected_status_code_ranges: Optional[Sequence[str]] = None,
-             interval_in_seconds: Optional[int] = None,
-             path: Optional[str] = None,
-             timeout_in_seconds: Optional[int] = None,
-             tolerated_number_of_failures: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if port is None:
-            raise TypeError("Missing 'port' argument")
-        if protocol is None:
-            raise TypeError("Missing 'protocol' argument")
-        if custom_headers is None and 'customHeaders' in kwargs:
-            custom_headers = kwargs['customHeaders']
-        if expected_status_code_ranges is None and 'expectedStatusCodeRanges' in kwargs:
-            expected_status_code_ranges = kwargs['expectedStatusCodeRanges']
-        if interval_in_seconds is None and 'intervalInSeconds' in kwargs:
-            interval_in_seconds = kwargs['intervalInSeconds']
-        if timeout_in_seconds is None and 'timeoutInSeconds' in kwargs:
-            timeout_in_seconds = kwargs['timeoutInSeconds']
-        if tolerated_number_of_failures is None and 'toleratedNumberOfFailures' in kwargs:
-            tolerated_number_of_failures = kwargs['toleratedNumberOfFailures']
-
-        _setter("port", port)
-        _setter("protocol", protocol)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "protocol", protocol)
         if custom_headers is not None:
-            _setter("custom_headers", custom_headers)
+            pulumi.set(__self__, "custom_headers", custom_headers)
         if expected_status_code_ranges is not None:
-            _setter("expected_status_code_ranges", expected_status_code_ranges)
+            pulumi.set(__self__, "expected_status_code_ranges", expected_status_code_ranges)
         if interval_in_seconds is not None:
-            _setter("interval_in_seconds", interval_in_seconds)
+            pulumi.set(__self__, "interval_in_seconds", interval_in_seconds)
         if path is not None:
-            _setter("path", path)
+            pulumi.set(__self__, "path", path)
         if timeout_in_seconds is not None:
-            _setter("timeout_in_seconds", timeout_in_seconds)
+            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
         if tolerated_number_of_failures is not None:
-            _setter("tolerated_number_of_failures", tolerated_number_of_failures)
+            pulumi.set(__self__, "tolerated_number_of_failures", tolerated_number_of_failures)
 
     @property
     @pulumi.getter
@@ -255,25 +197,8 @@ class ProfileMonitorConfigCustomHeader(dict):
         :param str name: The name of the custom header.
         :param str value: The value of custom header. Applicable for HTTP and HTTPS protocol.
         """
-        ProfileMonitorConfigCustomHeader._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("name", name)
-        _setter("value", value)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

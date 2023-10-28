@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,47 +29,14 @@ class ConfigurationArgs:
         :param pulumi.Input[str] package_data: Specify the package data for this configuration.
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationProtectedFileArgs']]] protected_files: One or more `protected_file` (Protected File) blocks with sensitive information as defined below. If specified `config_file` must also be specified.
         """
-        ConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            nginx_deployment_id=nginx_deployment_id,
-            root_file=root_file,
-            config_files=config_files,
-            package_data=package_data,
-            protected_files=protected_files,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             nginx_deployment_id: Optional[pulumi.Input[str]] = None,
-             root_file: Optional[pulumi.Input[str]] = None,
-             config_files: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationConfigFileArgs']]]] = None,
-             package_data: Optional[pulumi.Input[str]] = None,
-             protected_files: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationProtectedFileArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if nginx_deployment_id is None and 'nginxDeploymentId' in kwargs:
-            nginx_deployment_id = kwargs['nginxDeploymentId']
-        if nginx_deployment_id is None:
-            raise TypeError("Missing 'nginx_deployment_id' argument")
-        if root_file is None and 'rootFile' in kwargs:
-            root_file = kwargs['rootFile']
-        if root_file is None:
-            raise TypeError("Missing 'root_file' argument")
-        if config_files is None and 'configFiles' in kwargs:
-            config_files = kwargs['configFiles']
-        if package_data is None and 'packageData' in kwargs:
-            package_data = kwargs['packageData']
-        if protected_files is None and 'protectedFiles' in kwargs:
-            protected_files = kwargs['protectedFiles']
-
-        _setter("nginx_deployment_id", nginx_deployment_id)
-        _setter("root_file", root_file)
+        pulumi.set(__self__, "nginx_deployment_id", nginx_deployment_id)
+        pulumi.set(__self__, "root_file", root_file)
         if config_files is not None:
-            _setter("config_files", config_files)
+            pulumi.set(__self__, "config_files", config_files)
         if package_data is not None:
-            _setter("package_data", package_data)
+            pulumi.set(__self__, "package_data", package_data)
         if protected_files is not None:
-            _setter("protected_files", protected_files)
+            pulumi.set(__self__, "protected_files", protected_files)
 
     @property
     @pulumi.getter(name="nginxDeploymentId")
@@ -148,45 +115,16 @@ class _ConfigurationState:
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationProtectedFileArgs']]] protected_files: One or more `protected_file` (Protected File) blocks with sensitive information as defined below. If specified `config_file` must also be specified.
         :param pulumi.Input[str] root_file: Specify the root file path of this Nginx Configuration.
         """
-        _ConfigurationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            config_files=config_files,
-            nginx_deployment_id=nginx_deployment_id,
-            package_data=package_data,
-            protected_files=protected_files,
-            root_file=root_file,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             config_files: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationConfigFileArgs']]]] = None,
-             nginx_deployment_id: Optional[pulumi.Input[str]] = None,
-             package_data: Optional[pulumi.Input[str]] = None,
-             protected_files: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationProtectedFileArgs']]]] = None,
-             root_file: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if config_files is None and 'configFiles' in kwargs:
-            config_files = kwargs['configFiles']
-        if nginx_deployment_id is None and 'nginxDeploymentId' in kwargs:
-            nginx_deployment_id = kwargs['nginxDeploymentId']
-        if package_data is None and 'packageData' in kwargs:
-            package_data = kwargs['packageData']
-        if protected_files is None and 'protectedFiles' in kwargs:
-            protected_files = kwargs['protectedFiles']
-        if root_file is None and 'rootFile' in kwargs:
-            root_file = kwargs['rootFile']
-
         if config_files is not None:
-            _setter("config_files", config_files)
+            pulumi.set(__self__, "config_files", config_files)
         if nginx_deployment_id is not None:
-            _setter("nginx_deployment_id", nginx_deployment_id)
+            pulumi.set(__self__, "nginx_deployment_id", nginx_deployment_id)
         if package_data is not None:
-            _setter("package_data", package_data)
+            pulumi.set(__self__, "package_data", package_data)
         if protected_files is not None:
-            _setter("protected_files", protected_files)
+            pulumi.set(__self__, "protected_files", protected_files)
         if root_file is not None:
-            _setter("root_file", root_file)
+            pulumi.set(__self__, "root_file", root_file)
 
     @property
     @pulumi.getter(name="configFiles")
@@ -306,10 +244,6 @@ class Configuration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

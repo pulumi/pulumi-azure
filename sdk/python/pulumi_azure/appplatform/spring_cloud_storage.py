@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SpringCloudStorageArgs', 'SpringCloudStorage']
@@ -25,40 +25,11 @@ class SpringCloudStorageArgs:
         :param pulumi.Input[str] storage_account_name: The account name of the Azure Storage Account.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Storage. Changing this forces a new Spring Cloud Storage to be created.
         """
-        SpringCloudStorageArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            spring_cloud_service_id=spring_cloud_service_id,
-            storage_account_key=storage_account_key,
-            storage_account_name=storage_account_name,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
-             storage_account_key: Optional[pulumi.Input[str]] = None,
-             storage_account_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if spring_cloud_service_id is None and 'springCloudServiceId' in kwargs:
-            spring_cloud_service_id = kwargs['springCloudServiceId']
-        if spring_cloud_service_id is None:
-            raise TypeError("Missing 'spring_cloud_service_id' argument")
-        if storage_account_key is None and 'storageAccountKey' in kwargs:
-            storage_account_key = kwargs['storageAccountKey']
-        if storage_account_key is None:
-            raise TypeError("Missing 'storage_account_key' argument")
-        if storage_account_name is None and 'storageAccountName' in kwargs:
-            storage_account_name = kwargs['storageAccountName']
-        if storage_account_name is None:
-            raise TypeError("Missing 'storage_account_name' argument")
-
-        _setter("spring_cloud_service_id", spring_cloud_service_id)
-        _setter("storage_account_key", storage_account_key)
-        _setter("storage_account_name", storage_account_name)
+        pulumi.set(__self__, "spring_cloud_service_id", spring_cloud_service_id)
+        pulumi.set(__self__, "storage_account_key", storage_account_key)
+        pulumi.set(__self__, "storage_account_name", storage_account_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="springCloudServiceId")
@@ -123,37 +94,14 @@ class _SpringCloudStorageState:
         :param pulumi.Input[str] storage_account_key: The access key of the Azure Storage Account.
         :param pulumi.Input[str] storage_account_name: The account name of the Azure Storage Account.
         """
-        _SpringCloudStorageState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            spring_cloud_service_id=spring_cloud_service_id,
-            storage_account_key=storage_account_key,
-            storage_account_name=storage_account_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
-             storage_account_key: Optional[pulumi.Input[str]] = None,
-             storage_account_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if spring_cloud_service_id is None and 'springCloudServiceId' in kwargs:
-            spring_cloud_service_id = kwargs['springCloudServiceId']
-        if storage_account_key is None and 'storageAccountKey' in kwargs:
-            storage_account_key = kwargs['storageAccountKey']
-        if storage_account_name is None and 'storageAccountName' in kwargs:
-            storage_account_name = kwargs['storageAccountName']
-
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if spring_cloud_service_id is not None:
-            _setter("spring_cloud_service_id", spring_cloud_service_id)
+            pulumi.set(__self__, "spring_cloud_service_id", spring_cloud_service_id)
         if storage_account_key is not None:
-            _setter("storage_account_key", storage_account_key)
+            pulumi.set(__self__, "storage_account_key", storage_account_key)
         if storage_account_name is not None:
-            _setter("storage_account_name", storage_account_name)
+            pulumi.set(__self__, "storage_account_name", storage_account_name)
 
     @property
     @pulumi.getter
@@ -301,10 +249,6 @@ class SpringCloudStorage(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SpringCloudStorageArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

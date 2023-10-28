@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['CreatorArgs', 'Creator']
@@ -27,41 +27,14 @@ class CreatorArgs:
         :param pulumi.Input[str] name: The name of the Azure Maps Creator. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Azure Maps Creator.
         """
-        CreatorArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            maps_account_id=maps_account_id,
-            storage_units=storage_units,
-            location=location,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             maps_account_id: Optional[pulumi.Input[str]] = None,
-             storage_units: Optional[pulumi.Input[int]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if maps_account_id is None and 'mapsAccountId' in kwargs:
-            maps_account_id = kwargs['mapsAccountId']
-        if maps_account_id is None:
-            raise TypeError("Missing 'maps_account_id' argument")
-        if storage_units is None and 'storageUnits' in kwargs:
-            storage_units = kwargs['storageUnits']
-        if storage_units is None:
-            raise TypeError("Missing 'storage_units' argument")
-
-        _setter("maps_account_id", maps_account_id)
-        _setter("storage_units", storage_units)
+        pulumi.set(__self__, "maps_account_id", maps_account_id)
+        pulumi.set(__self__, "storage_units", storage_units)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="mapsAccountId")
@@ -140,39 +113,16 @@ class _CreatorState:
         :param pulumi.Input[int] storage_units: The storage units to be allocated. Integer values from 1 to 100, inclusive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Azure Maps Creator.
         """
-        _CreatorState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            location=location,
-            maps_account_id=maps_account_id,
-            name=name,
-            storage_units=storage_units,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             location: Optional[pulumi.Input[str]] = None,
-             maps_account_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             storage_units: Optional[pulumi.Input[int]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if maps_account_id is None and 'mapsAccountId' in kwargs:
-            maps_account_id = kwargs['mapsAccountId']
-        if storage_units is None and 'storageUnits' in kwargs:
-            storage_units = kwargs['storageUnits']
-
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if maps_account_id is not None:
-            _setter("maps_account_id", maps_account_id)
+            pulumi.set(__self__, "maps_account_id", maps_account_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if storage_units is not None:
-            _setter("storage_units", storage_units)
+            pulumi.set(__self__, "storage_units", storage_units)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -336,10 +286,6 @@ class Creator(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            CreatorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

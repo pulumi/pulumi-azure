@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -70,137 +70,50 @@ class GroupArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of Availability Zones in which this Container Group is located. Changing this forces a new resource to be created.
         """
-        GroupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            containers=containers,
-            os_type=os_type,
-            resource_group_name=resource_group_name,
-            diagnostics=diagnostics,
-            dns_config=dns_config,
-            dns_name_label=dns_name_label,
-            dns_name_label_reuse_policy=dns_name_label_reuse_policy,
-            exposed_ports=exposed_ports,
-            identity=identity,
-            image_registry_credentials=image_registry_credentials,
-            init_containers=init_containers,
-            ip_address_type=ip_address_type,
-            key_vault_key_id=key_vault_key_id,
-            key_vault_user_assigned_identity_id=key_vault_user_assigned_identity_id,
-            location=location,
-            name=name,
-            network_profile_id=network_profile_id,
-            restart_policy=restart_policy,
-            sku=sku,
-            subnet_ids=subnet_ids,
-            tags=tags,
-            zones=zones,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             containers: Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerArgs']]]] = None,
-             os_type: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             diagnostics: Optional[pulumi.Input['GroupDiagnosticsArgs']] = None,
-             dns_config: Optional[pulumi.Input['GroupDnsConfigArgs']] = None,
-             dns_name_label: Optional[pulumi.Input[str]] = None,
-             dns_name_label_reuse_policy: Optional[pulumi.Input[str]] = None,
-             exposed_ports: Optional[pulumi.Input[Sequence[pulumi.Input['GroupExposedPortArgs']]]] = None,
-             identity: Optional[pulumi.Input['GroupIdentityArgs']] = None,
-             image_registry_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['GroupImageRegistryCredentialArgs']]]] = None,
-             init_containers: Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitContainerArgs']]]] = None,
-             ip_address_type: Optional[pulumi.Input[str]] = None,
-             key_vault_key_id: Optional[pulumi.Input[str]] = None,
-             key_vault_user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             network_profile_id: Optional[pulumi.Input[str]] = None,
-             restart_policy: Optional[pulumi.Input[str]] = None,
-             sku: Optional[pulumi.Input[str]] = None,
-             subnet_ids: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if containers is None:
-            raise TypeError("Missing 'containers' argument")
-        if os_type is None and 'osType' in kwargs:
-            os_type = kwargs['osType']
-        if os_type is None:
-            raise TypeError("Missing 'os_type' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if dns_config is None and 'dnsConfig' in kwargs:
-            dns_config = kwargs['dnsConfig']
-        if dns_name_label is None and 'dnsNameLabel' in kwargs:
-            dns_name_label = kwargs['dnsNameLabel']
-        if dns_name_label_reuse_policy is None and 'dnsNameLabelReusePolicy' in kwargs:
-            dns_name_label_reuse_policy = kwargs['dnsNameLabelReusePolicy']
-        if exposed_ports is None and 'exposedPorts' in kwargs:
-            exposed_ports = kwargs['exposedPorts']
-        if image_registry_credentials is None and 'imageRegistryCredentials' in kwargs:
-            image_registry_credentials = kwargs['imageRegistryCredentials']
-        if init_containers is None and 'initContainers' in kwargs:
-            init_containers = kwargs['initContainers']
-        if ip_address_type is None and 'ipAddressType' in kwargs:
-            ip_address_type = kwargs['ipAddressType']
-        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
-            key_vault_key_id = kwargs['keyVaultKeyId']
-        if key_vault_user_assigned_identity_id is None and 'keyVaultUserAssignedIdentityId' in kwargs:
-            key_vault_user_assigned_identity_id = kwargs['keyVaultUserAssignedIdentityId']
-        if network_profile_id is None and 'networkProfileId' in kwargs:
-            network_profile_id = kwargs['networkProfileId']
-        if restart_policy is None and 'restartPolicy' in kwargs:
-            restart_policy = kwargs['restartPolicy']
-        if subnet_ids is None and 'subnetIds' in kwargs:
-            subnet_ids = kwargs['subnetIds']
-
-        _setter("containers", containers)
-        _setter("os_type", os_type)
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "containers", containers)
+        pulumi.set(__self__, "os_type", os_type)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if diagnostics is not None:
-            _setter("diagnostics", diagnostics)
+            pulumi.set(__self__, "diagnostics", diagnostics)
         if dns_config is not None:
-            _setter("dns_config", dns_config)
+            pulumi.set(__self__, "dns_config", dns_config)
         if dns_name_label is not None:
-            _setter("dns_name_label", dns_name_label)
+            pulumi.set(__self__, "dns_name_label", dns_name_label)
         if dns_name_label_reuse_policy is not None:
-            _setter("dns_name_label_reuse_policy", dns_name_label_reuse_policy)
+            pulumi.set(__self__, "dns_name_label_reuse_policy", dns_name_label_reuse_policy)
         if exposed_ports is not None:
-            _setter("exposed_ports", exposed_ports)
+            pulumi.set(__self__, "exposed_ports", exposed_ports)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if image_registry_credentials is not None:
-            _setter("image_registry_credentials", image_registry_credentials)
+            pulumi.set(__self__, "image_registry_credentials", image_registry_credentials)
         if init_containers is not None:
-            _setter("init_containers", init_containers)
+            pulumi.set(__self__, "init_containers", init_containers)
         if ip_address_type is not None:
-            _setter("ip_address_type", ip_address_type)
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
         if key_vault_key_id is not None:
-            _setter("key_vault_key_id", key_vault_key_id)
+            pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
         if key_vault_user_assigned_identity_id is not None:
-            _setter("key_vault_user_assigned_identity_id", key_vault_user_assigned_identity_id)
+            pulumi.set(__self__, "key_vault_user_assigned_identity_id", key_vault_user_assigned_identity_id)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if network_profile_id is not None:
             warnings.warn("""the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_ids' field instead""", DeprecationWarning)
             pulumi.log.warn("""network_profile_id is deprecated: the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_ids' field instead""")
         if network_profile_id is not None:
-            _setter("network_profile_id", network_profile_id)
+            pulumi.set(__self__, "network_profile_id", network_profile_id)
         if restart_policy is not None:
-            _setter("restart_policy", restart_policy)
+            pulumi.set(__self__, "restart_policy", restart_policy)
         if sku is not None:
-            _setter("sku", sku)
+            pulumi.set(__self__, "sku", sku)
         if subnet_ids is not None:
-            _setter("subnet_ids", subnet_ids)
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if zones is not None:
-            _setter("zones", zones)
+            pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter
@@ -536,144 +449,57 @@ class _GroupState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of Availability Zones in which this Container Group is located. Changing this forces a new resource to be created.
         """
-        _GroupState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            containers=containers,
-            diagnostics=diagnostics,
-            dns_config=dns_config,
-            dns_name_label=dns_name_label,
-            dns_name_label_reuse_policy=dns_name_label_reuse_policy,
-            exposed_ports=exposed_ports,
-            fqdn=fqdn,
-            identity=identity,
-            image_registry_credentials=image_registry_credentials,
-            init_containers=init_containers,
-            ip_address=ip_address,
-            ip_address_type=ip_address_type,
-            key_vault_key_id=key_vault_key_id,
-            key_vault_user_assigned_identity_id=key_vault_user_assigned_identity_id,
-            location=location,
-            name=name,
-            network_profile_id=network_profile_id,
-            os_type=os_type,
-            resource_group_name=resource_group_name,
-            restart_policy=restart_policy,
-            sku=sku,
-            subnet_ids=subnet_ids,
-            tags=tags,
-            zones=zones,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             containers: Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerArgs']]]] = None,
-             diagnostics: Optional[pulumi.Input['GroupDiagnosticsArgs']] = None,
-             dns_config: Optional[pulumi.Input['GroupDnsConfigArgs']] = None,
-             dns_name_label: Optional[pulumi.Input[str]] = None,
-             dns_name_label_reuse_policy: Optional[pulumi.Input[str]] = None,
-             exposed_ports: Optional[pulumi.Input[Sequence[pulumi.Input['GroupExposedPortArgs']]]] = None,
-             fqdn: Optional[pulumi.Input[str]] = None,
-             identity: Optional[pulumi.Input['GroupIdentityArgs']] = None,
-             image_registry_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['GroupImageRegistryCredentialArgs']]]] = None,
-             init_containers: Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitContainerArgs']]]] = None,
-             ip_address: Optional[pulumi.Input[str]] = None,
-             ip_address_type: Optional[pulumi.Input[str]] = None,
-             key_vault_key_id: Optional[pulumi.Input[str]] = None,
-             key_vault_user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             network_profile_id: Optional[pulumi.Input[str]] = None,
-             os_type: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             restart_policy: Optional[pulumi.Input[str]] = None,
-             sku: Optional[pulumi.Input[str]] = None,
-             subnet_ids: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if dns_config is None and 'dnsConfig' in kwargs:
-            dns_config = kwargs['dnsConfig']
-        if dns_name_label is None and 'dnsNameLabel' in kwargs:
-            dns_name_label = kwargs['dnsNameLabel']
-        if dns_name_label_reuse_policy is None and 'dnsNameLabelReusePolicy' in kwargs:
-            dns_name_label_reuse_policy = kwargs['dnsNameLabelReusePolicy']
-        if exposed_ports is None and 'exposedPorts' in kwargs:
-            exposed_ports = kwargs['exposedPorts']
-        if image_registry_credentials is None and 'imageRegistryCredentials' in kwargs:
-            image_registry_credentials = kwargs['imageRegistryCredentials']
-        if init_containers is None and 'initContainers' in kwargs:
-            init_containers = kwargs['initContainers']
-        if ip_address is None and 'ipAddress' in kwargs:
-            ip_address = kwargs['ipAddress']
-        if ip_address_type is None and 'ipAddressType' in kwargs:
-            ip_address_type = kwargs['ipAddressType']
-        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
-            key_vault_key_id = kwargs['keyVaultKeyId']
-        if key_vault_user_assigned_identity_id is None and 'keyVaultUserAssignedIdentityId' in kwargs:
-            key_vault_user_assigned_identity_id = kwargs['keyVaultUserAssignedIdentityId']
-        if network_profile_id is None and 'networkProfileId' in kwargs:
-            network_profile_id = kwargs['networkProfileId']
-        if os_type is None and 'osType' in kwargs:
-            os_type = kwargs['osType']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if restart_policy is None and 'restartPolicy' in kwargs:
-            restart_policy = kwargs['restartPolicy']
-        if subnet_ids is None and 'subnetIds' in kwargs:
-            subnet_ids = kwargs['subnetIds']
-
         if containers is not None:
-            _setter("containers", containers)
+            pulumi.set(__self__, "containers", containers)
         if diagnostics is not None:
-            _setter("diagnostics", diagnostics)
+            pulumi.set(__self__, "diagnostics", diagnostics)
         if dns_config is not None:
-            _setter("dns_config", dns_config)
+            pulumi.set(__self__, "dns_config", dns_config)
         if dns_name_label is not None:
-            _setter("dns_name_label", dns_name_label)
+            pulumi.set(__self__, "dns_name_label", dns_name_label)
         if dns_name_label_reuse_policy is not None:
-            _setter("dns_name_label_reuse_policy", dns_name_label_reuse_policy)
+            pulumi.set(__self__, "dns_name_label_reuse_policy", dns_name_label_reuse_policy)
         if exposed_ports is not None:
-            _setter("exposed_ports", exposed_ports)
+            pulumi.set(__self__, "exposed_ports", exposed_ports)
         if fqdn is not None:
-            _setter("fqdn", fqdn)
+            pulumi.set(__self__, "fqdn", fqdn)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if image_registry_credentials is not None:
-            _setter("image_registry_credentials", image_registry_credentials)
+            pulumi.set(__self__, "image_registry_credentials", image_registry_credentials)
         if init_containers is not None:
-            _setter("init_containers", init_containers)
+            pulumi.set(__self__, "init_containers", init_containers)
         if ip_address is not None:
-            _setter("ip_address", ip_address)
+            pulumi.set(__self__, "ip_address", ip_address)
         if ip_address_type is not None:
-            _setter("ip_address_type", ip_address_type)
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
         if key_vault_key_id is not None:
-            _setter("key_vault_key_id", key_vault_key_id)
+            pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
         if key_vault_user_assigned_identity_id is not None:
-            _setter("key_vault_user_assigned_identity_id", key_vault_user_assigned_identity_id)
+            pulumi.set(__self__, "key_vault_user_assigned_identity_id", key_vault_user_assigned_identity_id)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if network_profile_id is not None:
             warnings.warn("""the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_ids' field instead""", DeprecationWarning)
             pulumi.log.warn("""network_profile_id is deprecated: the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_ids' field instead""")
         if network_profile_id is not None:
-            _setter("network_profile_id", network_profile_id)
+            pulumi.set(__self__, "network_profile_id", network_profile_id)
         if os_type is not None:
-            _setter("os_type", os_type)
+            pulumi.set(__self__, "os_type", os_type)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if restart_policy is not None:
-            _setter("restart_policy", restart_policy)
+            pulumi.set(__self__, "restart_policy", restart_policy)
         if sku is not None:
-            _setter("sku", sku)
+            pulumi.set(__self__, "sku", sku)
         if subnet_ids is not None:
-            _setter("subnet_ids", subnet_ids)
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if zones is not None:
-            _setter("zones", zones)
+            pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter
@@ -1150,10 +976,6 @@ class Group(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            GroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1193,14 +1015,11 @@ class Group(pulumi.CustomResource):
             if containers is None and not opts.urn:
                 raise TypeError("Missing required property 'containers'")
             __props__.__dict__["containers"] = containers
-            diagnostics = _utilities.configure(diagnostics, GroupDiagnosticsArgs, True)
             __props__.__dict__["diagnostics"] = diagnostics
-            dns_config = _utilities.configure(dns_config, GroupDnsConfigArgs, True)
             __props__.__dict__["dns_config"] = dns_config
             __props__.__dict__["dns_name_label"] = dns_name_label
             __props__.__dict__["dns_name_label_reuse_policy"] = dns_name_label_reuse_policy
             __props__.__dict__["exposed_ports"] = exposed_ports
-            identity = _utilities.configure(identity, GroupIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["image_registry_credentials"] = image_registry_credentials
             __props__.__dict__["init_containers"] = init_containers

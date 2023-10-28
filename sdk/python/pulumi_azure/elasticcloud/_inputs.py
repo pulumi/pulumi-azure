@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -29,39 +29,14 @@ class ElasticsearchLogsArgs:
         :param pulumi.Input[bool] send_azuread_logs: Specifies if the AzureAD Logs should be sent to the Elasticsearch cluster. Defaults to `false`.
         :param pulumi.Input[bool] send_subscription_logs: Specifies if the Azure Subscription Logs should be sent to the Elasticsearch cluster. Defaults to `false`.
         """
-        ElasticsearchLogsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            filtering_tags=filtering_tags,
-            send_activity_logs=send_activity_logs,
-            send_azuread_logs=send_azuread_logs,
-            send_subscription_logs=send_subscription_logs,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             filtering_tags: Optional[pulumi.Input[Sequence[pulumi.Input['ElasticsearchLogsFilteringTagArgs']]]] = None,
-             send_activity_logs: Optional[pulumi.Input[bool]] = None,
-             send_azuread_logs: Optional[pulumi.Input[bool]] = None,
-             send_subscription_logs: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if filtering_tags is None and 'filteringTags' in kwargs:
-            filtering_tags = kwargs['filteringTags']
-        if send_activity_logs is None and 'sendActivityLogs' in kwargs:
-            send_activity_logs = kwargs['sendActivityLogs']
-        if send_azuread_logs is None and 'sendAzureadLogs' in kwargs:
-            send_azuread_logs = kwargs['sendAzureadLogs']
-        if send_subscription_logs is None and 'sendSubscriptionLogs' in kwargs:
-            send_subscription_logs = kwargs['sendSubscriptionLogs']
-
         if filtering_tags is not None:
-            _setter("filtering_tags", filtering_tags)
+            pulumi.set(__self__, "filtering_tags", filtering_tags)
         if send_activity_logs is not None:
-            _setter("send_activity_logs", send_activity_logs)
+            pulumi.set(__self__, "send_activity_logs", send_activity_logs)
         if send_azuread_logs is not None:
-            _setter("send_azuread_logs", send_azuread_logs)
+            pulumi.set(__self__, "send_azuread_logs", send_azuread_logs)
         if send_subscription_logs is not None:
-            _setter("send_subscription_logs", send_subscription_logs)
+            pulumi.set(__self__, "send_subscription_logs", send_subscription_logs)
 
     @property
     @pulumi.getter(name="filteringTags")
@@ -123,30 +98,9 @@ class ElasticsearchLogsFilteringTagArgs:
         :param pulumi.Input[str] name: Specifies the name (key) of the Tag which should be filtered.
         :param pulumi.Input[str] value: Specifies the value of the Tag which should be filtered.
         """
-        ElasticsearchLogsFilteringTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action=action,
-            name=name,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if action is None:
-            raise TypeError("Missing 'action' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("action", action)
-        _setter("name", name)
-        _setter("value", value)
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -198,43 +152,10 @@ class GetElasticsearchLogArgs:
         :param bool send_azuread_logs: Should the AzureAD Logs should be sent to the Elasticsearch cluster?
         :param bool send_subscription_logs: Should the Azure Subscription Logs should be sent to the Elasticsearch cluster?
         """
-        GetElasticsearchLogArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            filtering_tags=filtering_tags,
-            send_activity_logs=send_activity_logs,
-            send_azuread_logs=send_azuread_logs,
-            send_subscription_logs=send_subscription_logs,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             filtering_tags: Optional[Sequence['GetElasticsearchLogFilteringTagArgs']] = None,
-             send_activity_logs: Optional[bool] = None,
-             send_azuread_logs: Optional[bool] = None,
-             send_subscription_logs: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if filtering_tags is None and 'filteringTags' in kwargs:
-            filtering_tags = kwargs['filteringTags']
-        if filtering_tags is None:
-            raise TypeError("Missing 'filtering_tags' argument")
-        if send_activity_logs is None and 'sendActivityLogs' in kwargs:
-            send_activity_logs = kwargs['sendActivityLogs']
-        if send_activity_logs is None:
-            raise TypeError("Missing 'send_activity_logs' argument")
-        if send_azuread_logs is None and 'sendAzureadLogs' in kwargs:
-            send_azuread_logs = kwargs['sendAzureadLogs']
-        if send_azuread_logs is None:
-            raise TypeError("Missing 'send_azuread_logs' argument")
-        if send_subscription_logs is None and 'sendSubscriptionLogs' in kwargs:
-            send_subscription_logs = kwargs['sendSubscriptionLogs']
-        if send_subscription_logs is None:
-            raise TypeError("Missing 'send_subscription_logs' argument")
-
-        _setter("filtering_tags", filtering_tags)
-        _setter("send_activity_logs", send_activity_logs)
-        _setter("send_azuread_logs", send_azuread_logs)
-        _setter("send_subscription_logs", send_subscription_logs)
+        pulumi.set(__self__, "filtering_tags", filtering_tags)
+        pulumi.set(__self__, "send_activity_logs", send_activity_logs)
+        pulumi.set(__self__, "send_azuread_logs", send_azuread_logs)
+        pulumi.set(__self__, "send_subscription_logs", send_subscription_logs)
 
     @property
     @pulumi.getter(name="filteringTags")
@@ -296,30 +217,9 @@ class GetElasticsearchLogFilteringTagArgs:
         :param str name: The name of the Elasticsearch resource.
         :param str value: The value of the Tag which should be filtered.
         """
-        GetElasticsearchLogFilteringTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action=action,
-            name=name,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action: Optional[str] = None,
-             name: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if action is None:
-            raise TypeError("Missing 'action' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("action", action)
-        _setter("name", name)
-        _setter("value", value)
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

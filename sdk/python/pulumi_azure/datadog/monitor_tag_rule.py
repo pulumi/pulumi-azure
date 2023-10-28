@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,34 +27,13 @@ class MonitorTagRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleMetricArgs']]] metrics: A `metric` block as defined below.
         :param pulumi.Input[str] name: The name of the Tag Rules configuration. The allowed value is `default`. It defaults to `default`.
         """
-        MonitorTagRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            datadog_monitor_id=datadog_monitor_id,
-            logs=logs,
-            metrics=metrics,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             datadog_monitor_id: Optional[pulumi.Input[str]] = None,
-             logs: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleLogArgs']]]] = None,
-             metrics: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleMetricArgs']]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if datadog_monitor_id is None and 'datadogMonitorId' in kwargs:
-            datadog_monitor_id = kwargs['datadogMonitorId']
-        if datadog_monitor_id is None:
-            raise TypeError("Missing 'datadog_monitor_id' argument")
-
-        _setter("datadog_monitor_id", datadog_monitor_id)
+        pulumi.set(__self__, "datadog_monitor_id", datadog_monitor_id)
         if logs is not None:
-            _setter("logs", logs)
+            pulumi.set(__self__, "logs", logs)
         if metrics is not None:
-            _setter("metrics", metrics)
+            pulumi.set(__self__, "metrics", metrics)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="datadogMonitorId")
@@ -119,33 +98,14 @@ class _MonitorTagRuleState:
         :param pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleMetricArgs']]] metrics: A `metric` block as defined below.
         :param pulumi.Input[str] name: The name of the Tag Rules configuration. The allowed value is `default`. It defaults to `default`.
         """
-        _MonitorTagRuleState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            datadog_monitor_id=datadog_monitor_id,
-            logs=logs,
-            metrics=metrics,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             datadog_monitor_id: Optional[pulumi.Input[str]] = None,
-             logs: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleLogArgs']]]] = None,
-             metrics: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleMetricArgs']]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if datadog_monitor_id is None and 'datadogMonitorId' in kwargs:
-            datadog_monitor_id = kwargs['datadogMonitorId']
-
         if datadog_monitor_id is not None:
-            _setter("datadog_monitor_id", datadog_monitor_id)
+            pulumi.set(__self__, "datadog_monitor_id", datadog_monitor_id)
         if logs is not None:
-            _setter("logs", logs)
+            pulumi.set(__self__, "logs", logs)
         if metrics is not None:
-            _setter("metrics", metrics)
+            pulumi.set(__self__, "metrics", metrics)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="datadogMonitorId")
@@ -323,10 +283,6 @@ class MonitorTagRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            MonitorTagRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

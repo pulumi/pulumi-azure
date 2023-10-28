@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -44,32 +44,11 @@ class ApplicationIdentity(dict):
         :param str principal_id: The Principal ID associated with this Managed Service Identity.
         :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
-        ApplicationIdentity._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            principal_id=principal_id,
-            tenant_id=tenant_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             principal_id: Optional[str] = None,
-             tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if principal_id is None and 'principalId' in kwargs:
-            principal_id = kwargs['principalId']
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if principal_id is not None:
-            _setter("principal_id", principal_id)
+            pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
-            _setter("tenant_id", tenant_id)
+            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -122,27 +101,8 @@ class ApplicationNetworkRuleSetIpRule(dict):
         :param str ip_mask: The IP address range in CIDR notation for the IP Rule.
         :param str name: The name of the IP Rule
         """
-        ApplicationNetworkRuleSetIpRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ip_mask=ip_mask,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ip_mask: Optional[str] = None,
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if ip_mask is None and 'ipMask' in kwargs:
-            ip_mask = kwargs['ipMask']
-        if ip_mask is None:
-            raise TypeError("Missing 'ip_mask' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("ip_mask", ip_mask)
-        _setter("name", name)
+        pulumi.set(__self__, "ip_mask", ip_mask)
+        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="ipMask")

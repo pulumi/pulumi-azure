@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -50,32 +50,11 @@ class AccountIdentity(dict):
         :param str principal_id: The Principal ID for the Service Principal associated with the Identity of this Data Share Account.
         :param str tenant_id: The Tenant ID for the Service Principal associated with the Identity of this Data Share Account.
         """
-        AccountIdentity._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            principal_id=principal_id,
-            tenant_id=tenant_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             principal_id: Optional[str] = None,
-             tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if principal_id is None and 'principalId' in kwargs:
-            principal_id = kwargs['principalId']
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if principal_id is not None:
-            _setter("principal_id", principal_id)
+            pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
-            _setter("tenant_id", tenant_id)
+            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -134,34 +113,9 @@ class DatasetBlobStorageStorageAccount(dict):
         :param str resource_group_name: The resource group name of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
         :param str subscription_id: The subscription id of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
         """
-        DatasetBlobStorageStorageAccount._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            resource_group_name=resource_group_name,
-            subscription_id=subscription_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             resource_group_name: Optional[str] = None,
-             subscription_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if subscription_id is None and 'subscriptionId' in kwargs:
-            subscription_id = kwargs['subscriptionId']
-        if subscription_id is None:
-            raise TypeError("Missing 'subscription_id' argument")
-
-        _setter("name", name)
-        _setter("resource_group_name", resource_group_name)
-        _setter("subscription_id", subscription_id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "subscription_id", subscription_id)
 
     @property
     @pulumi.getter
@@ -216,32 +170,9 @@ class ShareSnapshotSchedule(dict):
         :param str recurrence: The interval of the synchronization with the source data. Possible values are `Hour` and `Day`.
         :param str start_time: The synchronization with the source data's start time.
         """
-        ShareSnapshotSchedule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            recurrence=recurrence,
-            start_time=start_time,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             recurrence: Optional[str] = None,
-             start_time: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if recurrence is None:
-            raise TypeError("Missing 'recurrence' argument")
-        if start_time is None and 'startTime' in kwargs:
-            start_time = kwargs['startTime']
-        if start_time is None:
-            raise TypeError("Missing 'start_time' argument")
-
-        _setter("name", name)
-        _setter("recurrence", recurrence)
-        _setter("start_time", start_time)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "recurrence", recurrence)
+        pulumi.set(__self__, "start_time", start_time)
 
     @property
     @pulumi.getter
@@ -279,34 +210,9 @@ class GetAccountIdentityResult(dict):
         :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
         :param str type: The identity type of this Managed Service Identity.
         """
-        GetAccountIdentityResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            principal_id=principal_id,
-            tenant_id=tenant_id,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             principal_id: Optional[str] = None,
-             tenant_id: Optional[str] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if principal_id is None and 'principalId' in kwargs:
-            principal_id = kwargs['principalId']
-        if principal_id is None:
-            raise TypeError("Missing 'principal_id' argument")
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-        if tenant_id is None:
-            raise TypeError("Missing 'tenant_id' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("principal_id", principal_id)
-        _setter("tenant_id", tenant_id)
-        _setter("type", type)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="principalId")
@@ -344,34 +250,9 @@ class GetDatasetBlobStorageStorageAccountResult(dict):
         :param str resource_group_name: The resource group name of the storage account to be shared with the receiver.
         :param str subscription_id: The subscription id of the storage account to be shared with the receiver.
         """
-        GetDatasetBlobStorageStorageAccountResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            resource_group_name=resource_group_name,
-            subscription_id=subscription_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             resource_group_name: Optional[str] = None,
-             subscription_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if subscription_id is None and 'subscriptionId' in kwargs:
-            subscription_id = kwargs['subscriptionId']
-        if subscription_id is None:
-            raise TypeError("Missing 'subscription_id' argument")
-
-        _setter("name", name)
-        _setter("resource_group_name", resource_group_name)
-        _setter("subscription_id", subscription_id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "subscription_id", subscription_id)
 
     @property
     @pulumi.getter
@@ -409,32 +290,9 @@ class GetShareSnapshotScheduleResult(dict):
         :param str recurrence: The interval of the synchronization with the source data.
         :param str start_time: The synchronization with the source data's start time.
         """
-        GetShareSnapshotScheduleResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            recurrence=recurrence,
-            start_time=start_time,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             recurrence: Optional[str] = None,
-             start_time: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if recurrence is None:
-            raise TypeError("Missing 'recurrence' argument")
-        if start_time is None and 'startTime' in kwargs:
-            start_time = kwargs['startTime']
-        if start_time is None:
-            raise TypeError("Missing 'start_time' argument")
-
-        _setter("name", name)
-        _setter("recurrence", recurrence)
-        _setter("start_time", start_time)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "recurrence", recurrence)
+        pulumi.set(__self__, "start_time", start_time)
 
     @property
     @pulumi.getter

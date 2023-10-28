@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ChannelEmailArgs', 'ChannelEmail']
@@ -27,47 +27,12 @@ class ChannelEmailArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
-        ChannelEmailArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bot_name=bot_name,
-            email_address=email_address,
-            email_password=email_password,
-            resource_group_name=resource_group_name,
-            location=location,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bot_name: Optional[pulumi.Input[str]] = None,
-             email_address: Optional[pulumi.Input[str]] = None,
-             email_password: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if bot_name is None and 'botName' in kwargs:
-            bot_name = kwargs['botName']
-        if bot_name is None:
-            raise TypeError("Missing 'bot_name' argument")
-        if email_address is None and 'emailAddress' in kwargs:
-            email_address = kwargs['emailAddress']
-        if email_address is None:
-            raise TypeError("Missing 'email_address' argument")
-        if email_password is None and 'emailPassword' in kwargs:
-            email_password = kwargs['emailPassword']
-        if email_password is None:
-            raise TypeError("Missing 'email_password' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-
-        _setter("bot_name", bot_name)
-        _setter("email_address", email_address)
-        _setter("email_password", email_password)
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "bot_name", bot_name)
+        pulumi.set(__self__, "email_address", email_address)
+        pulumi.set(__self__, "email_password", email_password)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
 
     @property
     @pulumi.getter(name="botName")
@@ -146,43 +111,16 @@ class _ChannelEmailState:
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
         """
-        _ChannelEmailState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bot_name=bot_name,
-            email_address=email_address,
-            email_password=email_password,
-            location=location,
-            resource_group_name=resource_group_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bot_name: Optional[pulumi.Input[str]] = None,
-             email_address: Optional[pulumi.Input[str]] = None,
-             email_password: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if bot_name is None and 'botName' in kwargs:
-            bot_name = kwargs['botName']
-        if email_address is None and 'emailAddress' in kwargs:
-            email_address = kwargs['emailAddress']
-        if email_password is None and 'emailPassword' in kwargs:
-            email_password = kwargs['emailPassword']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-
         if bot_name is not None:
-            _setter("bot_name", bot_name)
+            pulumi.set(__self__, "bot_name", bot_name)
         if email_address is not None:
-            _setter("email_address", email_address)
+            pulumi.set(__self__, "email_address", email_address)
         if email_password is not None:
-            _setter("email_password", email_password)
+            pulumi.set(__self__, "email_password", email_password)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
 
     @property
     @pulumi.getter(name="botName")
@@ -348,10 +286,6 @@ class ChannelEmail(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ChannelEmailArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

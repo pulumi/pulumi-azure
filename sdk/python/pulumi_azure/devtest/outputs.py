@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -56,36 +56,13 @@ class GlobalVMShutdownScheduleNotificationSettings(dict):
         :param int time_in_minutes: Time in minutes between 15 and 120 before a shutdown event at which a notification will be sent. Defaults to `30`.
         :param str webhook_url: The webhook URL to which the notification will be sent.
         """
-        GlobalVMShutdownScheduleNotificationSettings._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            email=email,
-            time_in_minutes=time_in_minutes,
-            webhook_url=webhook_url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             email: Optional[str] = None,
-             time_in_minutes: Optional[int] = None,
-             webhook_url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if time_in_minutes is None and 'timeInMinutes' in kwargs:
-            time_in_minutes = kwargs['timeInMinutes']
-        if webhook_url is None and 'webhookUrl' in kwargs:
-            webhook_url = kwargs['webhookUrl']
-
-        _setter("enabled", enabled)
+        pulumi.set(__self__, "enabled", enabled)
         if email is not None:
-            _setter("email", email)
+            pulumi.set(__self__, "email", email)
         if time_in_minutes is not None:
-            _setter("time_in_minutes", time_in_minutes)
+            pulumi.set(__self__, "time_in_minutes", time_in_minutes)
         if webhook_url is not None:
-            _setter("webhook_url", webhook_url)
+            pulumi.set(__self__, "webhook_url", webhook_url)
 
     @property
     @pulumi.getter
@@ -133,35 +110,10 @@ class LinuxVirtualMachineGalleryImageReference(dict):
         :param str sku: The SKU of the Gallery Image. Changing this forces a new resource to be created.
         :param str version: The Version of the Gallery Image. Changing this forces a new resource to be created.
         """
-        LinuxVirtualMachineGalleryImageReference._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            offer=offer,
-            publisher=publisher,
-            sku=sku,
-            version=version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             offer: Optional[str] = None,
-             publisher: Optional[str] = None,
-             sku: Optional[str] = None,
-             version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if offer is None:
-            raise TypeError("Missing 'offer' argument")
-        if publisher is None:
-            raise TypeError("Missing 'publisher' argument")
-        if sku is None:
-            raise TypeError("Missing 'sku' argument")
-        if version is None:
-            raise TypeError("Missing 'version' argument")
-
-        _setter("offer", offer)
-        _setter("publisher", publisher)
-        _setter("sku", sku)
-        _setter("version", version)
+        pulumi.set(__self__, "offer", offer)
+        pulumi.set(__self__, "publisher", publisher)
+        pulumi.set(__self__, "sku", sku)
+        pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -226,33 +178,10 @@ class LinuxVirtualMachineInboundNatRule(dict):
         :param str protocol: The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`.
         :param int frontend_port: The frontend port associated with this Inbound NAT Rule.
         """
-        LinuxVirtualMachineInboundNatRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            backend_port=backend_port,
-            protocol=protocol,
-            frontend_port=frontend_port,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             backend_port: Optional[int] = None,
-             protocol: Optional[str] = None,
-             frontend_port: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if backend_port is None and 'backendPort' in kwargs:
-            backend_port = kwargs['backendPort']
-        if backend_port is None:
-            raise TypeError("Missing 'backend_port' argument")
-        if protocol is None:
-            raise TypeError("Missing 'protocol' argument")
-        if frontend_port is None and 'frontendPort' in kwargs:
-            frontend_port = kwargs['frontendPort']
-
-        _setter("backend_port", backend_port)
-        _setter("protocol", protocol)
+        pulumi.set(__self__, "backend_port", backend_port)
+        pulumi.set(__self__, "protocol", protocol)
         if frontend_port is not None:
-            _setter("frontend_port", frontend_port)
+            pulumi.set(__self__, "frontend_port", frontend_port)
 
     @property
     @pulumi.getter(name="backendPort")
@@ -286,20 +215,7 @@ class ScheduleDailyRecurrence(dict):
         """
         :param str time: The time each day when the schedule takes effect.
         """
-        ScheduleDailyRecurrence._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            time=time,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             time: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if time is None:
-            raise TypeError("Missing 'time' argument")
-
-        _setter("time", time)
+        pulumi.set(__self__, "time", time)
 
     @property
     @pulumi.getter
@@ -317,20 +233,7 @@ class ScheduleHourlyRecurrence(dict):
         """
         :param int minute: Minutes of the hour the schedule will run.
         """
-        ScheduleHourlyRecurrence._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            minute=minute,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             minute: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if minute is None:
-            raise TypeError("Missing 'minute' argument")
-
-        _setter("minute", minute)
+        pulumi.set(__self__, "minute", minute)
 
     @property
     @pulumi.getter
@@ -371,31 +274,12 @@ class ScheduleNotificationSettings(dict):
         :param int time_in_minutes: Time in minutes before event at which notification will be sent.
         :param str webhook_url: The webhook URL to which the notification will be sent.
         """
-        ScheduleNotificationSettings._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            status=status,
-            time_in_minutes=time_in_minutes,
-            webhook_url=webhook_url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             status: Optional[str] = None,
-             time_in_minutes: Optional[int] = None,
-             webhook_url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if time_in_minutes is None and 'timeInMinutes' in kwargs:
-            time_in_minutes = kwargs['timeInMinutes']
-        if webhook_url is None and 'webhookUrl' in kwargs:
-            webhook_url = kwargs['webhookUrl']
-
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if time_in_minutes is not None:
-            _setter("time_in_minutes", time_in_minutes)
+            pulumi.set(__self__, "time_in_minutes", time_in_minutes)
         if webhook_url is not None:
-            _setter("webhook_url", webhook_url)
+            pulumi.set(__self__, "webhook_url", webhook_url)
 
     @property
     @pulumi.getter
@@ -448,26 +332,9 @@ class ScheduleWeeklyRecurrence(dict):
         :param str time: The time when the schedule takes effect.
         :param Sequence[str] week_days: A list of days that this schedule takes effect . Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
         """
-        ScheduleWeeklyRecurrence._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            time=time,
-            week_days=week_days,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             time: Optional[str] = None,
-             week_days: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if time is None:
-            raise TypeError("Missing 'time' argument")
-        if week_days is None and 'weekDays' in kwargs:
-            week_days = kwargs['weekDays']
-
-        _setter("time", time)
+        pulumi.set(__self__, "time", time)
         if week_days is not None:
-            _setter("week_days", week_days)
+            pulumi.set(__self__, "week_days", week_days)
 
     @property
     @pulumi.getter
@@ -516,31 +383,12 @@ class VirtualNetworkSubnet(dict):
         :param str use_in_virtual_machine_creation: Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`.
         :param str use_public_ip_address: Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`.
         """
-        VirtualNetworkSubnet._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            use_in_virtual_machine_creation=use_in_virtual_machine_creation,
-            use_public_ip_address=use_public_ip_address,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             use_in_virtual_machine_creation: Optional[str] = None,
-             use_public_ip_address: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if use_in_virtual_machine_creation is None and 'useInVirtualMachineCreation' in kwargs:
-            use_in_virtual_machine_creation = kwargs['useInVirtualMachineCreation']
-        if use_public_ip_address is None and 'usePublicIpAddress' in kwargs:
-            use_public_ip_address = kwargs['usePublicIpAddress']
-
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if use_in_virtual_machine_creation is not None:
-            _setter("use_in_virtual_machine_creation", use_in_virtual_machine_creation)
+            pulumi.set(__self__, "use_in_virtual_machine_creation", use_in_virtual_machine_creation)
         if use_public_ip_address is not None:
-            _setter("use_public_ip_address", use_public_ip_address)
+            pulumi.set(__self__, "use_public_ip_address", use_public_ip_address)
 
     @property
     @pulumi.getter
@@ -580,35 +428,10 @@ class WindowsVirtualMachineGalleryImageReference(dict):
         :param str sku: The SKU of the Gallery Image. Changing this forces a new resource to be created.
         :param str version: The Version of the Gallery Image. Changing this forces a new resource to be created.
         """
-        WindowsVirtualMachineGalleryImageReference._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            offer=offer,
-            publisher=publisher,
-            sku=sku,
-            version=version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             offer: Optional[str] = None,
-             publisher: Optional[str] = None,
-             sku: Optional[str] = None,
-             version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if offer is None:
-            raise TypeError("Missing 'offer' argument")
-        if publisher is None:
-            raise TypeError("Missing 'publisher' argument")
-        if sku is None:
-            raise TypeError("Missing 'sku' argument")
-        if version is None:
-            raise TypeError("Missing 'version' argument")
-
-        _setter("offer", offer)
-        _setter("publisher", publisher)
-        _setter("sku", sku)
-        _setter("version", version)
+        pulumi.set(__self__, "offer", offer)
+        pulumi.set(__self__, "publisher", publisher)
+        pulumi.set(__self__, "sku", sku)
+        pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -673,33 +496,10 @@ class WindowsVirtualMachineInboundNatRule(dict):
         :param str protocol: The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`.
         :param int frontend_port: The frontend port associated with this Inbound NAT Rule.
         """
-        WindowsVirtualMachineInboundNatRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            backend_port=backend_port,
-            protocol=protocol,
-            frontend_port=frontend_port,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             backend_port: Optional[int] = None,
-             protocol: Optional[str] = None,
-             frontend_port: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if backend_port is None and 'backendPort' in kwargs:
-            backend_port = kwargs['backendPort']
-        if backend_port is None:
-            raise TypeError("Missing 'backend_port' argument")
-        if protocol is None:
-            raise TypeError("Missing 'protocol' argument")
-        if frontend_port is None and 'frontendPort' in kwargs:
-            frontend_port = kwargs['frontendPort']
-
-        _setter("backend_port", backend_port)
-        _setter("protocol", protocol)
+        pulumi.set(__self__, "backend_port", backend_port)
+        pulumi.set(__self__, "protocol", protocol)
         if frontend_port is not None:
-            _setter("frontend_port", frontend_port)
+            pulumi.set(__self__, "frontend_port", frontend_port)
 
     @property
     @pulumi.getter(name="backendPort")
@@ -737,36 +537,9 @@ class GetVirtualNetworkAllowedSubnetResult(dict):
         :param str lab_subnet_name: The name of the subnet.
         :param str resource_id: The resource identifier for the subnet.
         """
-        GetVirtualNetworkAllowedSubnetResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allow_public_ip=allow_public_ip,
-            lab_subnet_name=lab_subnet_name,
-            resource_id=resource_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allow_public_ip: Optional[str] = None,
-             lab_subnet_name: Optional[str] = None,
-             resource_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if allow_public_ip is None and 'allowPublicIp' in kwargs:
-            allow_public_ip = kwargs['allowPublicIp']
-        if allow_public_ip is None:
-            raise TypeError("Missing 'allow_public_ip' argument")
-        if lab_subnet_name is None and 'labSubnetName' in kwargs:
-            lab_subnet_name = kwargs['labSubnetName']
-        if lab_subnet_name is None:
-            raise TypeError("Missing 'lab_subnet_name' argument")
-        if resource_id is None and 'resourceId' in kwargs:
-            resource_id = kwargs['resourceId']
-        if resource_id is None:
-            raise TypeError("Missing 'resource_id' argument")
-
-        _setter("allow_public_ip", allow_public_ip)
-        _setter("lab_subnet_name", lab_subnet_name)
-        _setter("resource_id", resource_id)
+        pulumi.set(__self__, "allow_public_ip", allow_public_ip)
+        pulumi.set(__self__, "lab_subnet_name", lab_subnet_name)
+        pulumi.set(__self__, "resource_id", resource_id)
 
     @property
     @pulumi.getter(name="allowPublicIp")
@@ -807,50 +580,11 @@ class GetVirtualNetworkSubnetOverrideResult(dict):
         :param str use_in_vm_creation_permission: Indicates if the subnet can be used for VM creation.  Possible values are `Allow`, `Default` and `Deny`.
         :param str virtual_network_pool_name: The virtual network pool associated with this subnet.
         """
-        GetVirtualNetworkSubnetOverrideResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            lab_subnet_name=lab_subnet_name,
-            resource_id=resource_id,
-            use_in_vm_creation_permission=use_in_vm_creation_permission,
-            use_public_ip_address_permission=use_public_ip_address_permission,
-            virtual_network_pool_name=virtual_network_pool_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             lab_subnet_name: Optional[str] = None,
-             resource_id: Optional[str] = None,
-             use_in_vm_creation_permission: Optional[str] = None,
-             use_public_ip_address_permission: Optional[str] = None,
-             virtual_network_pool_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if lab_subnet_name is None and 'labSubnetName' in kwargs:
-            lab_subnet_name = kwargs['labSubnetName']
-        if lab_subnet_name is None:
-            raise TypeError("Missing 'lab_subnet_name' argument")
-        if resource_id is None and 'resourceId' in kwargs:
-            resource_id = kwargs['resourceId']
-        if resource_id is None:
-            raise TypeError("Missing 'resource_id' argument")
-        if use_in_vm_creation_permission is None and 'useInVmCreationPermission' in kwargs:
-            use_in_vm_creation_permission = kwargs['useInVmCreationPermission']
-        if use_in_vm_creation_permission is None:
-            raise TypeError("Missing 'use_in_vm_creation_permission' argument")
-        if use_public_ip_address_permission is None and 'usePublicIpAddressPermission' in kwargs:
-            use_public_ip_address_permission = kwargs['usePublicIpAddressPermission']
-        if use_public_ip_address_permission is None:
-            raise TypeError("Missing 'use_public_ip_address_permission' argument")
-        if virtual_network_pool_name is None and 'virtualNetworkPoolName' in kwargs:
-            virtual_network_pool_name = kwargs['virtualNetworkPoolName']
-        if virtual_network_pool_name is None:
-            raise TypeError("Missing 'virtual_network_pool_name' argument")
-
-        _setter("lab_subnet_name", lab_subnet_name)
-        _setter("resource_id", resource_id)
-        _setter("use_in_vm_creation_permission", use_in_vm_creation_permission)
-        _setter("use_public_ip_address_permission", use_public_ip_address_permission)
-        _setter("virtual_network_pool_name", virtual_network_pool_name)
+        pulumi.set(__self__, "lab_subnet_name", lab_subnet_name)
+        pulumi.set(__self__, "resource_id", resource_id)
+        pulumi.set(__self__, "use_in_vm_creation_permission", use_in_vm_creation_permission)
+        pulumi.set(__self__, "use_public_ip_address_permission", use_public_ip_address_permission)
+        pulumi.set(__self__, "virtual_network_pool_name", virtual_network_pool_name)
 
     @property
     @pulumi.getter(name="labSubnetName")

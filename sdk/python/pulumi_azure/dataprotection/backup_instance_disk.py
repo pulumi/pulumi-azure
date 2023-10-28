@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['BackupInstanceDiskArgs', 'BackupInstanceDisk']
@@ -29,51 +29,14 @@ class BackupInstanceDiskArgs:
         :param pulumi.Input[str] location: The Azure Region where the Backup Instance Disk should exist. Changing this forces a new Backup Instance Disk to be created.
         :param pulumi.Input[str] name: The name which should be used for this Backup Instance Disk. Changing this forces a new Backup Instance Disk to be created.
         """
-        BackupInstanceDiskArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            backup_policy_id=backup_policy_id,
-            disk_id=disk_id,
-            snapshot_resource_group_name=snapshot_resource_group_name,
-            vault_id=vault_id,
-            location=location,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             backup_policy_id: Optional[pulumi.Input[str]] = None,
-             disk_id: Optional[pulumi.Input[str]] = None,
-             snapshot_resource_group_name: Optional[pulumi.Input[str]] = None,
-             vault_id: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if backup_policy_id is None and 'backupPolicyId' in kwargs:
-            backup_policy_id = kwargs['backupPolicyId']
-        if backup_policy_id is None:
-            raise TypeError("Missing 'backup_policy_id' argument")
-        if disk_id is None and 'diskId' in kwargs:
-            disk_id = kwargs['diskId']
-        if disk_id is None:
-            raise TypeError("Missing 'disk_id' argument")
-        if snapshot_resource_group_name is None and 'snapshotResourceGroupName' in kwargs:
-            snapshot_resource_group_name = kwargs['snapshotResourceGroupName']
-        if snapshot_resource_group_name is None:
-            raise TypeError("Missing 'snapshot_resource_group_name' argument")
-        if vault_id is None and 'vaultId' in kwargs:
-            vault_id = kwargs['vaultId']
-        if vault_id is None:
-            raise TypeError("Missing 'vault_id' argument")
-
-        _setter("backup_policy_id", backup_policy_id)
-        _setter("disk_id", disk_id)
-        _setter("snapshot_resource_group_name", snapshot_resource_group_name)
-        _setter("vault_id", vault_id)
+        pulumi.set(__self__, "backup_policy_id", backup_policy_id)
+        pulumi.set(__self__, "disk_id", disk_id)
+        pulumi.set(__self__, "snapshot_resource_group_name", snapshot_resource_group_name)
+        pulumi.set(__self__, "vault_id", vault_id)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="backupPolicyId")
@@ -166,47 +129,18 @@ class _BackupInstanceDiskState:
         :param pulumi.Input[str] snapshot_resource_group_name: The name of the Resource Group where snapshots are stored. Changing this forces a new Backup Instance Disk to be created.
         :param pulumi.Input[str] vault_id: The ID of the Backup Vault within which the Backup Instance Disk should exist. Changing this forces a new Backup Instance Disk to be created.
         """
-        _BackupInstanceDiskState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            backup_policy_id=backup_policy_id,
-            disk_id=disk_id,
-            location=location,
-            name=name,
-            snapshot_resource_group_name=snapshot_resource_group_name,
-            vault_id=vault_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             backup_policy_id: Optional[pulumi.Input[str]] = None,
-             disk_id: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             snapshot_resource_group_name: Optional[pulumi.Input[str]] = None,
-             vault_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if backup_policy_id is None and 'backupPolicyId' in kwargs:
-            backup_policy_id = kwargs['backupPolicyId']
-        if disk_id is None and 'diskId' in kwargs:
-            disk_id = kwargs['diskId']
-        if snapshot_resource_group_name is None and 'snapshotResourceGroupName' in kwargs:
-            snapshot_resource_group_name = kwargs['snapshotResourceGroupName']
-        if vault_id is None and 'vaultId' in kwargs:
-            vault_id = kwargs['vaultId']
-
         if backup_policy_id is not None:
-            _setter("backup_policy_id", backup_policy_id)
+            pulumi.set(__self__, "backup_policy_id", backup_policy_id)
         if disk_id is not None:
-            _setter("disk_id", disk_id)
+            pulumi.set(__self__, "disk_id", disk_id)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if snapshot_resource_group_name is not None:
-            _setter("snapshot_resource_group_name", snapshot_resource_group_name)
+            pulumi.set(__self__, "snapshot_resource_group_name", snapshot_resource_group_name)
         if vault_id is not None:
-            _setter("vault_id", vault_id)
+            pulumi.set(__self__, "vault_id", vault_id)
 
     @property
     @pulumi.getter(name="backupPolicyId")
@@ -422,10 +356,6 @@ class BackupInstanceDisk(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            BackupInstanceDiskArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

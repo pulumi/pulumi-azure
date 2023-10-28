@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -30,32 +30,11 @@ class ClusterExtensionIdentityArgs:
         :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
         :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
-        ClusterExtensionIdentityArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            principal_id=principal_id,
-            tenant_id=tenant_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[pulumi.Input[str]] = None,
-             principal_id: Optional[pulumi.Input[str]] = None,
-             tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if principal_id is None and 'principalId' in kwargs:
-            principal_id = kwargs['principalId']
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if principal_id is not None:
-            _setter("principal_id", principal_id)
+            pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
-            _setter("tenant_id", tenant_id)
+            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -105,32 +84,11 @@ class ClusterIdentityArgs:
         :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
         :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
-        ClusterIdentityArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            principal_id=principal_id,
-            tenant_id=tenant_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[pulumi.Input[str]] = None,
-             principal_id: Optional[pulumi.Input[str]] = None,
-             tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if principal_id is None and 'principalId' in kwargs:
-            principal_id = kwargs['principalId']
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if principal_id is not None:
-            _setter("principal_id", principal_id)
+            pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
-            _setter("tenant_id", tenant_id)
+            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -188,58 +146,19 @@ class FluxConfigurationBlobStorageArgs:
         :param pulumi.Input[int] sync_interval_in_seconds: Specifies the interval at which to re-reconcile the cluster Azure Blob source with the remote.
         :param pulumi.Input[int] timeout_in_seconds: Specifies the maximum time to attempt to reconcile the cluster Azure Blob source with the remote.
         """
-        FluxConfigurationBlobStorageArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            container_id=container_id,
-            account_key=account_key,
-            local_auth_reference=local_auth_reference,
-            sas_token=sas_token,
-            service_principal=service_principal,
-            sync_interval_in_seconds=sync_interval_in_seconds,
-            timeout_in_seconds=timeout_in_seconds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             container_id: Optional[pulumi.Input[str]] = None,
-             account_key: Optional[pulumi.Input[str]] = None,
-             local_auth_reference: Optional[pulumi.Input[str]] = None,
-             sas_token: Optional[pulumi.Input[str]] = None,
-             service_principal: Optional[pulumi.Input['FluxConfigurationBlobStorageServicePrincipalArgs']] = None,
-             sync_interval_in_seconds: Optional[pulumi.Input[int]] = None,
-             timeout_in_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if container_id is None and 'containerId' in kwargs:
-            container_id = kwargs['containerId']
-        if container_id is None:
-            raise TypeError("Missing 'container_id' argument")
-        if account_key is None and 'accountKey' in kwargs:
-            account_key = kwargs['accountKey']
-        if local_auth_reference is None and 'localAuthReference' in kwargs:
-            local_auth_reference = kwargs['localAuthReference']
-        if sas_token is None and 'sasToken' in kwargs:
-            sas_token = kwargs['sasToken']
-        if service_principal is None and 'servicePrincipal' in kwargs:
-            service_principal = kwargs['servicePrincipal']
-        if sync_interval_in_seconds is None and 'syncIntervalInSeconds' in kwargs:
-            sync_interval_in_seconds = kwargs['syncIntervalInSeconds']
-        if timeout_in_seconds is None and 'timeoutInSeconds' in kwargs:
-            timeout_in_seconds = kwargs['timeoutInSeconds']
-
-        _setter("container_id", container_id)
+        pulumi.set(__self__, "container_id", container_id)
         if account_key is not None:
-            _setter("account_key", account_key)
+            pulumi.set(__self__, "account_key", account_key)
         if local_auth_reference is not None:
-            _setter("local_auth_reference", local_auth_reference)
+            pulumi.set(__self__, "local_auth_reference", local_auth_reference)
         if sas_token is not None:
-            _setter("sas_token", sas_token)
+            pulumi.set(__self__, "sas_token", sas_token)
         if service_principal is not None:
-            _setter("service_principal", service_principal)
+            pulumi.set(__self__, "service_principal", service_principal)
         if sync_interval_in_seconds is not None:
-            _setter("sync_interval_in_seconds", sync_interval_in_seconds)
+            pulumi.set(__self__, "sync_interval_in_seconds", sync_interval_in_seconds)
         if timeout_in_seconds is not None:
-            _setter("timeout_in_seconds", timeout_in_seconds)
+            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
 
     @property
     @pulumi.getter(name="containerId")
@@ -343,53 +262,16 @@ class FluxConfigurationBlobStorageServicePrincipalArgs:
         :param pulumi.Input[bool] client_certificate_send_chain: Specifies whether to include x5c header in client claims when acquiring a token to enable subject name / issuer based authentication for the client certificate.
         :param pulumi.Input[str] client_secret: Specifies the client secret for authenticating a Service Principal.
         """
-        FluxConfigurationBlobStorageServicePrincipalArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            client_id=client_id,
-            tenant_id=tenant_id,
-            client_certificate_base64=client_certificate_base64,
-            client_certificate_password=client_certificate_password,
-            client_certificate_send_chain=client_certificate_send_chain,
-            client_secret=client_secret,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             client_id: Optional[pulumi.Input[str]] = None,
-             tenant_id: Optional[pulumi.Input[str]] = None,
-             client_certificate_base64: Optional[pulumi.Input[str]] = None,
-             client_certificate_password: Optional[pulumi.Input[str]] = None,
-             client_certificate_send_chain: Optional[pulumi.Input[bool]] = None,
-             client_secret: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if client_id is None and 'clientId' in kwargs:
-            client_id = kwargs['clientId']
-        if client_id is None:
-            raise TypeError("Missing 'client_id' argument")
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-        if tenant_id is None:
-            raise TypeError("Missing 'tenant_id' argument")
-        if client_certificate_base64 is None and 'clientCertificateBase64' in kwargs:
-            client_certificate_base64 = kwargs['clientCertificateBase64']
-        if client_certificate_password is None and 'clientCertificatePassword' in kwargs:
-            client_certificate_password = kwargs['clientCertificatePassword']
-        if client_certificate_send_chain is None and 'clientCertificateSendChain' in kwargs:
-            client_certificate_send_chain = kwargs['clientCertificateSendChain']
-        if client_secret is None and 'clientSecret' in kwargs:
-            client_secret = kwargs['clientSecret']
-
-        _setter("client_id", client_id)
-        _setter("tenant_id", tenant_id)
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
         if client_certificate_base64 is not None:
-            _setter("client_certificate_base64", client_certificate_base64)
+            pulumi.set(__self__, "client_certificate_base64", client_certificate_base64)
         if client_certificate_password is not None:
-            _setter("client_certificate_password", client_certificate_password)
+            pulumi.set(__self__, "client_certificate_password", client_certificate_password)
         if client_certificate_send_chain is not None:
-            _setter("client_certificate_send_chain", client_certificate_send_chain)
+            pulumi.set(__self__, "client_certificate_send_chain", client_certificate_send_chain)
         if client_secret is not None:
-            _setter("client_secret", client_secret)
+            pulumi.set(__self__, "client_secret", client_secret)
 
     @property
     @pulumi.getter(name="clientId")
@@ -485,63 +367,20 @@ class FluxConfigurationBucketArgs:
         :param pulumi.Input[int] timeout_in_seconds: Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to `600`.
         :param pulumi.Input[bool] tls_enabled: Specify whether to communicate with a bucket using TLS is enabled. Defaults to `true`.
         """
-        FluxConfigurationBucketArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket_name=bucket_name,
-            url=url,
-            access_key=access_key,
-            local_auth_reference=local_auth_reference,
-            secret_key_base64=secret_key_base64,
-            sync_interval_in_seconds=sync_interval_in_seconds,
-            timeout_in_seconds=timeout_in_seconds,
-            tls_enabled=tls_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket_name: Optional[pulumi.Input[str]] = None,
-             url: Optional[pulumi.Input[str]] = None,
-             access_key: Optional[pulumi.Input[str]] = None,
-             local_auth_reference: Optional[pulumi.Input[str]] = None,
-             secret_key_base64: Optional[pulumi.Input[str]] = None,
-             sync_interval_in_seconds: Optional[pulumi.Input[int]] = None,
-             timeout_in_seconds: Optional[pulumi.Input[int]] = None,
-             tls_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if bucket_name is None and 'bucketName' in kwargs:
-            bucket_name = kwargs['bucketName']
-        if bucket_name is None:
-            raise TypeError("Missing 'bucket_name' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-        if access_key is None and 'accessKey' in kwargs:
-            access_key = kwargs['accessKey']
-        if local_auth_reference is None and 'localAuthReference' in kwargs:
-            local_auth_reference = kwargs['localAuthReference']
-        if secret_key_base64 is None and 'secretKeyBase64' in kwargs:
-            secret_key_base64 = kwargs['secretKeyBase64']
-        if sync_interval_in_seconds is None and 'syncIntervalInSeconds' in kwargs:
-            sync_interval_in_seconds = kwargs['syncIntervalInSeconds']
-        if timeout_in_seconds is None and 'timeoutInSeconds' in kwargs:
-            timeout_in_seconds = kwargs['timeoutInSeconds']
-        if tls_enabled is None and 'tlsEnabled' in kwargs:
-            tls_enabled = kwargs['tlsEnabled']
-
-        _setter("bucket_name", bucket_name)
-        _setter("url", url)
+        pulumi.set(__self__, "bucket_name", bucket_name)
+        pulumi.set(__self__, "url", url)
         if access_key is not None:
-            _setter("access_key", access_key)
+            pulumi.set(__self__, "access_key", access_key)
         if local_auth_reference is not None:
-            _setter("local_auth_reference", local_auth_reference)
+            pulumi.set(__self__, "local_auth_reference", local_auth_reference)
         if secret_key_base64 is not None:
-            _setter("secret_key_base64", secret_key_base64)
+            pulumi.set(__self__, "secret_key_base64", secret_key_base64)
         if sync_interval_in_seconds is not None:
-            _setter("sync_interval_in_seconds", sync_interval_in_seconds)
+            pulumi.set(__self__, "sync_interval_in_seconds", sync_interval_in_seconds)
         if timeout_in_seconds is not None:
-            _setter("timeout_in_seconds", timeout_in_seconds)
+            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
         if tls_enabled is not None:
-            _setter("tls_enabled", tls_enabled)
+            pulumi.set(__self__, "tls_enabled", tls_enabled)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -667,82 +506,25 @@ class FluxConfigurationGitRepositoryArgs:
         :param pulumi.Input[int] sync_interval_in_seconds: Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to `600`.
         :param pulumi.Input[int] timeout_in_seconds: Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to `600`.
         """
-        FluxConfigurationGitRepositoryArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            reference_type=reference_type,
-            reference_value=reference_value,
-            url=url,
-            https_ca_cert_base64=https_ca_cert_base64,
-            https_key_base64=https_key_base64,
-            https_user=https_user,
-            local_auth_reference=local_auth_reference,
-            ssh_known_hosts_base64=ssh_known_hosts_base64,
-            ssh_private_key_base64=ssh_private_key_base64,
-            sync_interval_in_seconds=sync_interval_in_seconds,
-            timeout_in_seconds=timeout_in_seconds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             reference_type: Optional[pulumi.Input[str]] = None,
-             reference_value: Optional[pulumi.Input[str]] = None,
-             url: Optional[pulumi.Input[str]] = None,
-             https_ca_cert_base64: Optional[pulumi.Input[str]] = None,
-             https_key_base64: Optional[pulumi.Input[str]] = None,
-             https_user: Optional[pulumi.Input[str]] = None,
-             local_auth_reference: Optional[pulumi.Input[str]] = None,
-             ssh_known_hosts_base64: Optional[pulumi.Input[str]] = None,
-             ssh_private_key_base64: Optional[pulumi.Input[str]] = None,
-             sync_interval_in_seconds: Optional[pulumi.Input[int]] = None,
-             timeout_in_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if reference_type is None and 'referenceType' in kwargs:
-            reference_type = kwargs['referenceType']
-        if reference_type is None:
-            raise TypeError("Missing 'reference_type' argument")
-        if reference_value is None and 'referenceValue' in kwargs:
-            reference_value = kwargs['referenceValue']
-        if reference_value is None:
-            raise TypeError("Missing 'reference_value' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-        if https_ca_cert_base64 is None and 'httpsCaCertBase64' in kwargs:
-            https_ca_cert_base64 = kwargs['httpsCaCertBase64']
-        if https_key_base64 is None and 'httpsKeyBase64' in kwargs:
-            https_key_base64 = kwargs['httpsKeyBase64']
-        if https_user is None and 'httpsUser' in kwargs:
-            https_user = kwargs['httpsUser']
-        if local_auth_reference is None and 'localAuthReference' in kwargs:
-            local_auth_reference = kwargs['localAuthReference']
-        if ssh_known_hosts_base64 is None and 'sshKnownHostsBase64' in kwargs:
-            ssh_known_hosts_base64 = kwargs['sshKnownHostsBase64']
-        if ssh_private_key_base64 is None and 'sshPrivateKeyBase64' in kwargs:
-            ssh_private_key_base64 = kwargs['sshPrivateKeyBase64']
-        if sync_interval_in_seconds is None and 'syncIntervalInSeconds' in kwargs:
-            sync_interval_in_seconds = kwargs['syncIntervalInSeconds']
-        if timeout_in_seconds is None and 'timeoutInSeconds' in kwargs:
-            timeout_in_seconds = kwargs['timeoutInSeconds']
-
-        _setter("reference_type", reference_type)
-        _setter("reference_value", reference_value)
-        _setter("url", url)
+        pulumi.set(__self__, "reference_type", reference_type)
+        pulumi.set(__self__, "reference_value", reference_value)
+        pulumi.set(__self__, "url", url)
         if https_ca_cert_base64 is not None:
-            _setter("https_ca_cert_base64", https_ca_cert_base64)
+            pulumi.set(__self__, "https_ca_cert_base64", https_ca_cert_base64)
         if https_key_base64 is not None:
-            _setter("https_key_base64", https_key_base64)
+            pulumi.set(__self__, "https_key_base64", https_key_base64)
         if https_user is not None:
-            _setter("https_user", https_user)
+            pulumi.set(__self__, "https_user", https_user)
         if local_auth_reference is not None:
-            _setter("local_auth_reference", local_auth_reference)
+            pulumi.set(__self__, "local_auth_reference", local_auth_reference)
         if ssh_known_hosts_base64 is not None:
-            _setter("ssh_known_hosts_base64", ssh_known_hosts_base64)
+            pulumi.set(__self__, "ssh_known_hosts_base64", ssh_known_hosts_base64)
         if ssh_private_key_base64 is not None:
-            _setter("ssh_private_key_base64", ssh_private_key_base64)
+            pulumi.set(__self__, "ssh_private_key_base64", ssh_private_key_base64)
         if sync_interval_in_seconds is not None:
-            _setter("sync_interval_in_seconds", sync_interval_in_seconds)
+            pulumi.set(__self__, "sync_interval_in_seconds", sync_interval_in_seconds)
         if timeout_in_seconds is not None:
-            _setter("timeout_in_seconds", timeout_in_seconds)
+            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
 
     @property
     @pulumi.getter(name="referenceType")
@@ -898,60 +680,21 @@ class FluxConfigurationKustomizationArgs:
         :param pulumi.Input[int] sync_interval_in_seconds: The interval at which to re-reconcile the kustomization on the cluster. Defaults to `600`.
         :param pulumi.Input[int] timeout_in_seconds: The maximum time to attempt to reconcile the kustomization on the cluster. Defaults to `600`.
         """
-        FluxConfigurationKustomizationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            depends_ons=depends_ons,
-            garbage_collection_enabled=garbage_collection_enabled,
-            path=path,
-            recreating_enabled=recreating_enabled,
-            retry_interval_in_seconds=retry_interval_in_seconds,
-            sync_interval_in_seconds=sync_interval_in_seconds,
-            timeout_in_seconds=timeout_in_seconds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             depends_ons: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             garbage_collection_enabled: Optional[pulumi.Input[bool]] = None,
-             path: Optional[pulumi.Input[str]] = None,
-             recreating_enabled: Optional[pulumi.Input[bool]] = None,
-             retry_interval_in_seconds: Optional[pulumi.Input[int]] = None,
-             sync_interval_in_seconds: Optional[pulumi.Input[int]] = None,
-             timeout_in_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if depends_ons is None and 'dependsOns' in kwargs:
-            depends_ons = kwargs['dependsOns']
-        if garbage_collection_enabled is None and 'garbageCollectionEnabled' in kwargs:
-            garbage_collection_enabled = kwargs['garbageCollectionEnabled']
-        if recreating_enabled is None and 'recreatingEnabled' in kwargs:
-            recreating_enabled = kwargs['recreatingEnabled']
-        if retry_interval_in_seconds is None and 'retryIntervalInSeconds' in kwargs:
-            retry_interval_in_seconds = kwargs['retryIntervalInSeconds']
-        if sync_interval_in_seconds is None and 'syncIntervalInSeconds' in kwargs:
-            sync_interval_in_seconds = kwargs['syncIntervalInSeconds']
-        if timeout_in_seconds is None and 'timeoutInSeconds' in kwargs:
-            timeout_in_seconds = kwargs['timeoutInSeconds']
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if depends_ons is not None:
-            _setter("depends_ons", depends_ons)
+            pulumi.set(__self__, "depends_ons", depends_ons)
         if garbage_collection_enabled is not None:
-            _setter("garbage_collection_enabled", garbage_collection_enabled)
+            pulumi.set(__self__, "garbage_collection_enabled", garbage_collection_enabled)
         if path is not None:
-            _setter("path", path)
+            pulumi.set(__self__, "path", path)
         if recreating_enabled is not None:
-            _setter("recreating_enabled", recreating_enabled)
+            pulumi.set(__self__, "recreating_enabled", recreating_enabled)
         if retry_interval_in_seconds is not None:
-            _setter("retry_interval_in_seconds", retry_interval_in_seconds)
+            pulumi.set(__self__, "retry_interval_in_seconds", retry_interval_in_seconds)
         if sync_interval_in_seconds is not None:
-            _setter("sync_interval_in_seconds", sync_interval_in_seconds)
+            pulumi.set(__self__, "sync_interval_in_seconds", sync_interval_in_seconds)
         if timeout_in_seconds is not None:
-            _setter("timeout_in_seconds", timeout_in_seconds)
+            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
 
     @property
     @pulumi.getter

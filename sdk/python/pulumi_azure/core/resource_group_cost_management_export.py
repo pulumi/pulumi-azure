@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,65 +35,16 @@ class ResourceGroupCostManagementExportArgs:
         :param pulumi.Input[bool] active: Is the cost management export active? Default is `true`.
         :param pulumi.Input[str] name: Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
         """
-        ResourceGroupCostManagementExportArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            export_data_options=export_data_options,
-            export_data_storage_location=export_data_storage_location,
-            recurrence_period_end_date=recurrence_period_end_date,
-            recurrence_period_start_date=recurrence_period_start_date,
-            recurrence_type=recurrence_type,
-            resource_group_id=resource_group_id,
-            active=active,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             export_data_options: Optional[pulumi.Input['ResourceGroupCostManagementExportExportDataOptionsArgs']] = None,
-             export_data_storage_location: Optional[pulumi.Input['ResourceGroupCostManagementExportExportDataStorageLocationArgs']] = None,
-             recurrence_period_end_date: Optional[pulumi.Input[str]] = None,
-             recurrence_period_start_date: Optional[pulumi.Input[str]] = None,
-             recurrence_type: Optional[pulumi.Input[str]] = None,
-             resource_group_id: Optional[pulumi.Input[str]] = None,
-             active: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if export_data_options is None and 'exportDataOptions' in kwargs:
-            export_data_options = kwargs['exportDataOptions']
-        if export_data_options is None:
-            raise TypeError("Missing 'export_data_options' argument")
-        if export_data_storage_location is None and 'exportDataStorageLocation' in kwargs:
-            export_data_storage_location = kwargs['exportDataStorageLocation']
-        if export_data_storage_location is None:
-            raise TypeError("Missing 'export_data_storage_location' argument")
-        if recurrence_period_end_date is None and 'recurrencePeriodEndDate' in kwargs:
-            recurrence_period_end_date = kwargs['recurrencePeriodEndDate']
-        if recurrence_period_end_date is None:
-            raise TypeError("Missing 'recurrence_period_end_date' argument")
-        if recurrence_period_start_date is None and 'recurrencePeriodStartDate' in kwargs:
-            recurrence_period_start_date = kwargs['recurrencePeriodStartDate']
-        if recurrence_period_start_date is None:
-            raise TypeError("Missing 'recurrence_period_start_date' argument")
-        if recurrence_type is None and 'recurrenceType' in kwargs:
-            recurrence_type = kwargs['recurrenceType']
-        if recurrence_type is None:
-            raise TypeError("Missing 'recurrence_type' argument")
-        if resource_group_id is None and 'resourceGroupId' in kwargs:
-            resource_group_id = kwargs['resourceGroupId']
-        if resource_group_id is None:
-            raise TypeError("Missing 'resource_group_id' argument")
-
-        _setter("export_data_options", export_data_options)
-        _setter("export_data_storage_location", export_data_storage_location)
-        _setter("recurrence_period_end_date", recurrence_period_end_date)
-        _setter("recurrence_period_start_date", recurrence_period_start_date)
-        _setter("recurrence_type", recurrence_type)
-        _setter("resource_group_id", resource_group_id)
+        pulumi.set(__self__, "export_data_options", export_data_options)
+        pulumi.set(__self__, "export_data_storage_location", export_data_storage_location)
+        pulumi.set(__self__, "recurrence_period_end_date", recurrence_period_end_date)
+        pulumi.set(__self__, "recurrence_period_start_date", recurrence_period_start_date)
+        pulumi.set(__self__, "recurrence_type", recurrence_type)
+        pulumi.set(__self__, "resource_group_id", resource_group_id)
         if active is not None:
-            _setter("active", active)
+            pulumi.set(__self__, "active", active)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="exportDataOptions")
@@ -214,59 +165,22 @@ class _ResourceGroupCostManagementExportState:
         :param pulumi.Input[str] recurrence_type: How often the requested information will be exported. Valid values include `Annually`, `Daily`, `Monthly`, `Weekly`.
         :param pulumi.Input[str] resource_group_id: The id of the resource group on which to create an export. Changing this forces a new resource to be created.
         """
-        _ResourceGroupCostManagementExportState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            active=active,
-            export_data_options=export_data_options,
-            export_data_storage_location=export_data_storage_location,
-            name=name,
-            recurrence_period_end_date=recurrence_period_end_date,
-            recurrence_period_start_date=recurrence_period_start_date,
-            recurrence_type=recurrence_type,
-            resource_group_id=resource_group_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             active: Optional[pulumi.Input[bool]] = None,
-             export_data_options: Optional[pulumi.Input['ResourceGroupCostManagementExportExportDataOptionsArgs']] = None,
-             export_data_storage_location: Optional[pulumi.Input['ResourceGroupCostManagementExportExportDataStorageLocationArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             recurrence_period_end_date: Optional[pulumi.Input[str]] = None,
-             recurrence_period_start_date: Optional[pulumi.Input[str]] = None,
-             recurrence_type: Optional[pulumi.Input[str]] = None,
-             resource_group_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if export_data_options is None and 'exportDataOptions' in kwargs:
-            export_data_options = kwargs['exportDataOptions']
-        if export_data_storage_location is None and 'exportDataStorageLocation' in kwargs:
-            export_data_storage_location = kwargs['exportDataStorageLocation']
-        if recurrence_period_end_date is None and 'recurrencePeriodEndDate' in kwargs:
-            recurrence_period_end_date = kwargs['recurrencePeriodEndDate']
-        if recurrence_period_start_date is None and 'recurrencePeriodStartDate' in kwargs:
-            recurrence_period_start_date = kwargs['recurrencePeriodStartDate']
-        if recurrence_type is None and 'recurrenceType' in kwargs:
-            recurrence_type = kwargs['recurrenceType']
-        if resource_group_id is None and 'resourceGroupId' in kwargs:
-            resource_group_id = kwargs['resourceGroupId']
-
         if active is not None:
-            _setter("active", active)
+            pulumi.set(__self__, "active", active)
         if export_data_options is not None:
-            _setter("export_data_options", export_data_options)
+            pulumi.set(__self__, "export_data_options", export_data_options)
         if export_data_storage_location is not None:
-            _setter("export_data_storage_location", export_data_storage_location)
+            pulumi.set(__self__, "export_data_storage_location", export_data_storage_location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if recurrence_period_end_date is not None:
-            _setter("recurrence_period_end_date", recurrence_period_end_date)
+            pulumi.set(__self__, "recurrence_period_end_date", recurrence_period_end_date)
         if recurrence_period_start_date is not None:
-            _setter("recurrence_period_start_date", recurrence_period_start_date)
+            pulumi.set(__self__, "recurrence_period_start_date", recurrence_period_start_date)
         if recurrence_type is not None:
-            _setter("recurrence_type", recurrence_type)
+            pulumi.set(__self__, "recurrence_type", recurrence_type)
         if resource_group_id is not None:
-            _setter("resource_group_id", resource_group_id)
+            pulumi.set(__self__, "resource_group_id", resource_group_id)
 
     @property
     @pulumi.getter
@@ -484,10 +398,6 @@ class ResourceGroupCostManagementExport(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ResourceGroupCostManagementExportArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -511,11 +421,9 @@ class ResourceGroupCostManagementExport(pulumi.CustomResource):
             __props__ = ResourceGroupCostManagementExportArgs.__new__(ResourceGroupCostManagementExportArgs)
 
             __props__.__dict__["active"] = active
-            export_data_options = _utilities.configure(export_data_options, ResourceGroupCostManagementExportExportDataOptionsArgs, True)
             if export_data_options is None and not opts.urn:
                 raise TypeError("Missing required property 'export_data_options'")
             __props__.__dict__["export_data_options"] = export_data_options
-            export_data_storage_location = _utilities.configure(export_data_storage_location, ResourceGroupCostManagementExportExportDataStorageLocationArgs, True)
             if export_data_storage_location is None and not opts.urn:
                 raise TypeError("Missing required property 'export_data_storage_location'")
             __props__.__dict__["export_data_storage_location"] = export_data_storage_location

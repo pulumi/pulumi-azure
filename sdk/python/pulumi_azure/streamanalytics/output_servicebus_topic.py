@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -43,82 +43,23 @@ class OutputServicebusTopicArgs:
                
                > **NOTE:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
         """
-        OutputServicebusTopicArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_group_name=resource_group_name,
-            serialization=serialization,
-            servicebus_namespace=servicebus_namespace,
-            stream_analytics_job_name=stream_analytics_job_name,
-            topic_name=topic_name,
-            authentication_mode=authentication_mode,
-            name=name,
-            property_columns=property_columns,
-            shared_access_policy_key=shared_access_policy_key,
-            shared_access_policy_name=shared_access_policy_name,
-            system_property_columns=system_property_columns,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             serialization: Optional[pulumi.Input['OutputServicebusTopicSerializationArgs']] = None,
-             servicebus_namespace: Optional[pulumi.Input[str]] = None,
-             stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
-             topic_name: Optional[pulumi.Input[str]] = None,
-             authentication_mode: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             property_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             shared_access_policy_key: Optional[pulumi.Input[str]] = None,
-             shared_access_policy_name: Optional[pulumi.Input[str]] = None,
-             system_property_columns: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if serialization is None:
-            raise TypeError("Missing 'serialization' argument")
-        if servicebus_namespace is None and 'servicebusNamespace' in kwargs:
-            servicebus_namespace = kwargs['servicebusNamespace']
-        if servicebus_namespace is None:
-            raise TypeError("Missing 'servicebus_namespace' argument")
-        if stream_analytics_job_name is None and 'streamAnalyticsJobName' in kwargs:
-            stream_analytics_job_name = kwargs['streamAnalyticsJobName']
-        if stream_analytics_job_name is None:
-            raise TypeError("Missing 'stream_analytics_job_name' argument")
-        if topic_name is None and 'topicName' in kwargs:
-            topic_name = kwargs['topicName']
-        if topic_name is None:
-            raise TypeError("Missing 'topic_name' argument")
-        if authentication_mode is None and 'authenticationMode' in kwargs:
-            authentication_mode = kwargs['authenticationMode']
-        if property_columns is None and 'propertyColumns' in kwargs:
-            property_columns = kwargs['propertyColumns']
-        if shared_access_policy_key is None and 'sharedAccessPolicyKey' in kwargs:
-            shared_access_policy_key = kwargs['sharedAccessPolicyKey']
-        if shared_access_policy_name is None and 'sharedAccessPolicyName' in kwargs:
-            shared_access_policy_name = kwargs['sharedAccessPolicyName']
-        if system_property_columns is None and 'systemPropertyColumns' in kwargs:
-            system_property_columns = kwargs['systemPropertyColumns']
-
-        _setter("resource_group_name", resource_group_name)
-        _setter("serialization", serialization)
-        _setter("servicebus_namespace", servicebus_namespace)
-        _setter("stream_analytics_job_name", stream_analytics_job_name)
-        _setter("topic_name", topic_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "serialization", serialization)
+        pulumi.set(__self__, "servicebus_namespace", servicebus_namespace)
+        pulumi.set(__self__, "stream_analytics_job_name", stream_analytics_job_name)
+        pulumi.set(__self__, "topic_name", topic_name)
         if authentication_mode is not None:
-            _setter("authentication_mode", authentication_mode)
+            pulumi.set(__self__, "authentication_mode", authentication_mode)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if property_columns is not None:
-            _setter("property_columns", property_columns)
+            pulumi.set(__self__, "property_columns", property_columns)
         if shared_access_policy_key is not None:
-            _setter("shared_access_policy_key", shared_access_policy_key)
+            pulumi.set(__self__, "shared_access_policy_key", shared_access_policy_key)
         if shared_access_policy_name is not None:
-            _setter("shared_access_policy_name", shared_access_policy_name)
+            pulumi.set(__self__, "shared_access_policy_name", shared_access_policy_name)
         if system_property_columns is not None:
-            _setter("system_property_columns", system_property_columns)
+            pulumi.set(__self__, "system_property_columns", system_property_columns)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -285,77 +226,28 @@ class _OutputServicebusTopicState:
                > **NOTE:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
         :param pulumi.Input[str] topic_name: The name of the Service Bus Topic.
         """
-        _OutputServicebusTopicState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            authentication_mode=authentication_mode,
-            name=name,
-            property_columns=property_columns,
-            resource_group_name=resource_group_name,
-            serialization=serialization,
-            servicebus_namespace=servicebus_namespace,
-            shared_access_policy_key=shared_access_policy_key,
-            shared_access_policy_name=shared_access_policy_name,
-            stream_analytics_job_name=stream_analytics_job_name,
-            system_property_columns=system_property_columns,
-            topic_name=topic_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             authentication_mode: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             property_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             serialization: Optional[pulumi.Input['OutputServicebusTopicSerializationArgs']] = None,
-             servicebus_namespace: Optional[pulumi.Input[str]] = None,
-             shared_access_policy_key: Optional[pulumi.Input[str]] = None,
-             shared_access_policy_name: Optional[pulumi.Input[str]] = None,
-             stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
-             system_property_columns: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             topic_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if authentication_mode is None and 'authenticationMode' in kwargs:
-            authentication_mode = kwargs['authenticationMode']
-        if property_columns is None and 'propertyColumns' in kwargs:
-            property_columns = kwargs['propertyColumns']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if servicebus_namespace is None and 'servicebusNamespace' in kwargs:
-            servicebus_namespace = kwargs['servicebusNamespace']
-        if shared_access_policy_key is None and 'sharedAccessPolicyKey' in kwargs:
-            shared_access_policy_key = kwargs['sharedAccessPolicyKey']
-        if shared_access_policy_name is None and 'sharedAccessPolicyName' in kwargs:
-            shared_access_policy_name = kwargs['sharedAccessPolicyName']
-        if stream_analytics_job_name is None and 'streamAnalyticsJobName' in kwargs:
-            stream_analytics_job_name = kwargs['streamAnalyticsJobName']
-        if system_property_columns is None and 'systemPropertyColumns' in kwargs:
-            system_property_columns = kwargs['systemPropertyColumns']
-        if topic_name is None and 'topicName' in kwargs:
-            topic_name = kwargs['topicName']
-
         if authentication_mode is not None:
-            _setter("authentication_mode", authentication_mode)
+            pulumi.set(__self__, "authentication_mode", authentication_mode)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if property_columns is not None:
-            _setter("property_columns", property_columns)
+            pulumi.set(__self__, "property_columns", property_columns)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if serialization is not None:
-            _setter("serialization", serialization)
+            pulumi.set(__self__, "serialization", serialization)
         if servicebus_namespace is not None:
-            _setter("servicebus_namespace", servicebus_namespace)
+            pulumi.set(__self__, "servicebus_namespace", servicebus_namespace)
         if shared_access_policy_key is not None:
-            _setter("shared_access_policy_key", shared_access_policy_key)
+            pulumi.set(__self__, "shared_access_policy_key", shared_access_policy_key)
         if shared_access_policy_name is not None:
-            _setter("shared_access_policy_name", shared_access_policy_name)
+            pulumi.set(__self__, "shared_access_policy_name", shared_access_policy_name)
         if stream_analytics_job_name is not None:
-            _setter("stream_analytics_job_name", stream_analytics_job_name)
+            pulumi.set(__self__, "stream_analytics_job_name", stream_analytics_job_name)
         if system_property_columns is not None:
-            _setter("system_property_columns", system_property_columns)
+            pulumi.set(__self__, "system_property_columns", system_property_columns)
         if topic_name is not None:
-            _setter("topic_name", topic_name)
+            pulumi.set(__self__, "topic_name", topic_name)
 
     @property
     @pulumi.getter(name="authenticationMode")
@@ -629,10 +521,6 @@ class OutputServicebusTopic(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            OutputServicebusTopicArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -664,7 +552,6 @@ class OutputServicebusTopic(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            serialization = _utilities.configure(serialization, OutputServicebusTopicSerializationArgs, True)
             if serialization is None and not opts.urn:
                 raise TypeError("Missing required property 'serialization'")
             __props__.__dict__["serialization"] = serialization

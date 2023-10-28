@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,57 +37,18 @@ class BudgetSubscriptionArgs:
         :param pulumi.Input[str] name: The name which should be used for this Subscription Consumption Budget. Changing this forces a new resource to be created.
         :param pulumi.Input[str] time_grain: The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`. Changing this forces a new resource to be created.
         """
-        BudgetSubscriptionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            amount=amount,
-            notifications=notifications,
-            subscription_id=subscription_id,
-            time_period=time_period,
-            etag=etag,
-            filter=filter,
-            name=name,
-            time_grain=time_grain,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             amount: Optional[pulumi.Input[float]] = None,
-             notifications: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionNotificationArgs']]]] = None,
-             subscription_id: Optional[pulumi.Input[str]] = None,
-             time_period: Optional[pulumi.Input['BudgetSubscriptionTimePeriodArgs']] = None,
-             etag: Optional[pulumi.Input[str]] = None,
-             filter: Optional[pulumi.Input['BudgetSubscriptionFilterArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             time_grain: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if amount is None:
-            raise TypeError("Missing 'amount' argument")
-        if notifications is None:
-            raise TypeError("Missing 'notifications' argument")
-        if subscription_id is None and 'subscriptionId' in kwargs:
-            subscription_id = kwargs['subscriptionId']
-        if subscription_id is None:
-            raise TypeError("Missing 'subscription_id' argument")
-        if time_period is None and 'timePeriod' in kwargs:
-            time_period = kwargs['timePeriod']
-        if time_period is None:
-            raise TypeError("Missing 'time_period' argument")
-        if time_grain is None and 'timeGrain' in kwargs:
-            time_grain = kwargs['timeGrain']
-
-        _setter("amount", amount)
-        _setter("notifications", notifications)
-        _setter("subscription_id", subscription_id)
-        _setter("time_period", time_period)
+        pulumi.set(__self__, "amount", amount)
+        pulumi.set(__self__, "notifications", notifications)
+        pulumi.set(__self__, "subscription_id", subscription_id)
+        pulumi.set(__self__, "time_period", time_period)
         if etag is not None:
-            _setter("etag", etag)
+            pulumi.set(__self__, "etag", etag)
         if filter is not None:
-            _setter("filter", filter)
+            pulumi.set(__self__, "filter", filter)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if time_grain is not None:
-            _setter("time_grain", time_grain)
+            pulumi.set(__self__, "time_grain", time_grain)
 
     @property
     @pulumi.getter
@@ -212,53 +173,22 @@ class _BudgetSubscriptionState:
         :param pulumi.Input[str] time_grain: The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`. Changing this forces a new resource to be created.
         :param pulumi.Input['BudgetSubscriptionTimePeriodArgs'] time_period: A `time_period` block as defined below.
         """
-        _BudgetSubscriptionState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            amount=amount,
-            etag=etag,
-            filter=filter,
-            name=name,
-            notifications=notifications,
-            subscription_id=subscription_id,
-            time_grain=time_grain,
-            time_period=time_period,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             amount: Optional[pulumi.Input[float]] = None,
-             etag: Optional[pulumi.Input[str]] = None,
-             filter: Optional[pulumi.Input['BudgetSubscriptionFilterArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             notifications: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionNotificationArgs']]]] = None,
-             subscription_id: Optional[pulumi.Input[str]] = None,
-             time_grain: Optional[pulumi.Input[str]] = None,
-             time_period: Optional[pulumi.Input['BudgetSubscriptionTimePeriodArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if subscription_id is None and 'subscriptionId' in kwargs:
-            subscription_id = kwargs['subscriptionId']
-        if time_grain is None and 'timeGrain' in kwargs:
-            time_grain = kwargs['timeGrain']
-        if time_period is None and 'timePeriod' in kwargs:
-            time_period = kwargs['timePeriod']
-
         if amount is not None:
-            _setter("amount", amount)
+            pulumi.set(__self__, "amount", amount)
         if etag is not None:
-            _setter("etag", etag)
+            pulumi.set(__self__, "etag", etag)
         if filter is not None:
-            _setter("filter", filter)
+            pulumi.set(__self__, "filter", filter)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if notifications is not None:
-            _setter("notifications", notifications)
+            pulumi.set(__self__, "notifications", notifications)
         if subscription_id is not None:
-            _setter("subscription_id", subscription_id)
+            pulumi.set(__self__, "subscription_id", subscription_id)
         if time_grain is not None:
-            _setter("time_grain", time_grain)
+            pulumi.set(__self__, "time_grain", time_grain)
         if time_period is not None:
-            _setter("time_period", time_period)
+            pulumi.set(__self__, "time_period", time_period)
 
     @property
     @pulumi.getter
@@ -538,10 +468,6 @@ class BudgetSubscription(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            BudgetSubscriptionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -568,7 +494,6 @@ class BudgetSubscription(pulumi.CustomResource):
                 raise TypeError("Missing required property 'amount'")
             __props__.__dict__["amount"] = amount
             __props__.__dict__["etag"] = etag
-            filter = _utilities.configure(filter, BudgetSubscriptionFilterArgs, True)
             __props__.__dict__["filter"] = filter
             __props__.__dict__["name"] = name
             if notifications is None and not opts.urn:
@@ -578,7 +503,6 @@ class BudgetSubscription(pulumi.CustomResource):
                 raise TypeError("Missing required property 'subscription_id'")
             __props__.__dict__["subscription_id"] = subscription_id
             __props__.__dict__["time_grain"] = time_grain
-            time_period = _utilities.configure(time_period, BudgetSubscriptionTimePeriodArgs, True)
             if time_period is None and not opts.urn:
                 raise TypeError("Missing required property 'time_period'")
             __props__.__dict__["time_period"] = time_period

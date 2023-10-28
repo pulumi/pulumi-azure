@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DataConnectorAwsCloudTrailArgs', 'DataConnectorAwsCloudTrail']
@@ -23,33 +23,10 @@ class DataConnectorAwsCloudTrailArgs:
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace that this AWS CloudTrail Data Connector resides in. Changing this forces a new AWS CloudTrail Data Connector to be created.
         :param pulumi.Input[str] name: The name which should be used for this AWS CloudTrail Data Connector. Changing this forces a new AWS CloudTrail Data Connector to be created.
         """
-        DataConnectorAwsCloudTrailArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            aws_role_arn=aws_role_arn,
-            log_analytics_workspace_id=log_analytics_workspace_id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             aws_role_arn: Optional[pulumi.Input[str]] = None,
-             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if aws_role_arn is None and 'awsRoleArn' in kwargs:
-            aws_role_arn = kwargs['awsRoleArn']
-        if aws_role_arn is None:
-            raise TypeError("Missing 'aws_role_arn' argument")
-        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
-            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if log_analytics_workspace_id is None:
-            raise TypeError("Missing 'log_analytics_workspace_id' argument")
-
-        _setter("aws_role_arn", aws_role_arn)
-        _setter("log_analytics_workspace_id", log_analytics_workspace_id)
+        pulumi.set(__self__, "aws_role_arn", aws_role_arn)
+        pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="awsRoleArn")
@@ -100,31 +77,12 @@ class _DataConnectorAwsCloudTrailState:
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace that this AWS CloudTrail Data Connector resides in. Changing this forces a new AWS CloudTrail Data Connector to be created.
         :param pulumi.Input[str] name: The name which should be used for this AWS CloudTrail Data Connector. Changing this forces a new AWS CloudTrail Data Connector to be created.
         """
-        _DataConnectorAwsCloudTrailState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            aws_role_arn=aws_role_arn,
-            log_analytics_workspace_id=log_analytics_workspace_id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             aws_role_arn: Optional[pulumi.Input[str]] = None,
-             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if aws_role_arn is None and 'awsRoleArn' in kwargs:
-            aws_role_arn = kwargs['awsRoleArn']
-        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
-            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-
         if aws_role_arn is not None:
-            _setter("aws_role_arn", aws_role_arn)
+            pulumi.set(__self__, "aws_role_arn", aws_role_arn)
         if log_analytics_workspace_id is not None:
-            _setter("log_analytics_workspace_id", log_analytics_workspace_id)
+            pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="awsRoleArn")
@@ -250,10 +208,6 @@ class DataConnectorAwsCloudTrail(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DataConnectorAwsCloudTrailArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

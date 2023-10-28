@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['PostgresqlRoleArgs', 'PostgresqlRole']
@@ -23,31 +23,10 @@ class PostgresqlRoleArgs:
         :param pulumi.Input[str] password: The password of the Azure Cosmos DB for PostgreSQL Role. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Azure Cosmos DB for PostgreSQL Role. Changing this forces a new resource to be created.
         """
-        PostgresqlRoleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cluster_id=cluster_id,
-            password=password,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cluster_id: Optional[pulumi.Input[str]] = None,
-             password: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cluster_id is None and 'clusterId' in kwargs:
-            cluster_id = kwargs['clusterId']
-        if cluster_id is None:
-            raise TypeError("Missing 'cluster_id' argument")
-        if password is None:
-            raise TypeError("Missing 'password' argument")
-
-        _setter("cluster_id", cluster_id)
-        _setter("password", password)
+        pulumi.set(__self__, "cluster_id", cluster_id)
+        pulumi.set(__self__, "password", password)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="clusterId")
@@ -98,29 +77,12 @@ class _PostgresqlRoleState:
         :param pulumi.Input[str] name: The name which should be used for this Azure Cosmos DB for PostgreSQL Role. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The password of the Azure Cosmos DB for PostgreSQL Role. Changing this forces a new resource to be created.
         """
-        _PostgresqlRoleState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cluster_id=cluster_id,
-            name=name,
-            password=password,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cluster_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             password: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cluster_id is None and 'clusterId' in kwargs:
-            cluster_id = kwargs['clusterId']
-
         if cluster_id is not None:
-            _setter("cluster_id", cluster_id)
+            pulumi.set(__self__, "cluster_id", cluster_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if password is not None:
-            _setter("password", password)
+            pulumi.set(__self__, "password", password)
 
     @property
     @pulumi.getter(name="clusterId")
@@ -250,10 +212,6 @@ class PostgresqlRole(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PostgresqlRoleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

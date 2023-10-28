@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AnomalyAlertArgs', 'AnomalyAlert']
@@ -27,44 +27,13 @@ class AnomalyAlertArgs:
         :param pulumi.Input[str] message: The message of the Cost Anomaly Alert. Maximum length of the message is 250.
         :param pulumi.Input[str] name: The name which should be used for this Cost Anomaly Alert. Changing this forces a new resource to be created. The name can contain only lowercase letters, numbers and hyphens.
         """
-        AnomalyAlertArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            display_name=display_name,
-            email_addresses=email_addresses,
-            email_subject=email_subject,
-            message=message,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             display_name: Optional[pulumi.Input[str]] = None,
-             email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             email_subject: Optional[pulumi.Input[str]] = None,
-             message: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if display_name is None and 'displayName' in kwargs:
-            display_name = kwargs['displayName']
-        if display_name is None:
-            raise TypeError("Missing 'display_name' argument")
-        if email_addresses is None and 'emailAddresses' in kwargs:
-            email_addresses = kwargs['emailAddresses']
-        if email_addresses is None:
-            raise TypeError("Missing 'email_addresses' argument")
-        if email_subject is None and 'emailSubject' in kwargs:
-            email_subject = kwargs['emailSubject']
-        if email_subject is None:
-            raise TypeError("Missing 'email_subject' argument")
-
-        _setter("display_name", display_name)
-        _setter("email_addresses", email_addresses)
-        _setter("email_subject", email_subject)
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "email_addresses", email_addresses)
+        pulumi.set(__self__, "email_subject", email_subject)
         if message is not None:
-            _setter("message", message)
+            pulumi.set(__self__, "message", message)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="displayName")
@@ -143,41 +112,16 @@ class _AnomalyAlertState:
         :param pulumi.Input[str] message: The message of the Cost Anomaly Alert. Maximum length of the message is 250.
         :param pulumi.Input[str] name: The name which should be used for this Cost Anomaly Alert. Changing this forces a new resource to be created. The name can contain only lowercase letters, numbers and hyphens.
         """
-        _AnomalyAlertState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            display_name=display_name,
-            email_addresses=email_addresses,
-            email_subject=email_subject,
-            message=message,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             display_name: Optional[pulumi.Input[str]] = None,
-             email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             email_subject: Optional[pulumi.Input[str]] = None,
-             message: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if display_name is None and 'displayName' in kwargs:
-            display_name = kwargs['displayName']
-        if email_addresses is None and 'emailAddresses' in kwargs:
-            email_addresses = kwargs['emailAddresses']
-        if email_subject is None and 'emailSubject' in kwargs:
-            email_subject = kwargs['emailSubject']
-
         if display_name is not None:
-            _setter("display_name", display_name)
+            pulumi.set(__self__, "display_name", display_name)
         if email_addresses is not None:
-            _setter("email_addresses", email_addresses)
+            pulumi.set(__self__, "email_addresses", email_addresses)
         if email_subject is not None:
-            _setter("email_subject", email_subject)
+            pulumi.set(__self__, "email_subject", email_subject)
         if message is not None:
-            _setter("message", message)
+            pulumi.set(__self__, "message", message)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="displayName")
@@ -321,10 +265,6 @@ class AnomalyAlert(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AnomalyAlertArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

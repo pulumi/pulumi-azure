@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['IntegrationAccountAssemblyArgs', 'IntegrationAccountAssembly']
@@ -33,60 +33,19 @@ class IntegrationAccountAssemblyArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: The metadata of the Logic App Integration Account Assembly.
         :param pulumi.Input[str] name: The name which should be used for this Logic App Integration Account Assembly Artifact. Changing this forces a new resource to be created.
         """
-        IntegrationAccountAssemblyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            assembly_name=assembly_name,
-            integration_account_name=integration_account_name,
-            resource_group_name=resource_group_name,
-            assembly_version=assembly_version,
-            content=content,
-            content_link_uri=content_link_uri,
-            metadata=metadata,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             assembly_name: Optional[pulumi.Input[str]] = None,
-             integration_account_name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             assembly_version: Optional[pulumi.Input[str]] = None,
-             content: Optional[pulumi.Input[str]] = None,
-             content_link_uri: Optional[pulumi.Input[str]] = None,
-             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if assembly_name is None and 'assemblyName' in kwargs:
-            assembly_name = kwargs['assemblyName']
-        if assembly_name is None:
-            raise TypeError("Missing 'assembly_name' argument")
-        if integration_account_name is None and 'integrationAccountName' in kwargs:
-            integration_account_name = kwargs['integrationAccountName']
-        if integration_account_name is None:
-            raise TypeError("Missing 'integration_account_name' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if assembly_version is None and 'assemblyVersion' in kwargs:
-            assembly_version = kwargs['assemblyVersion']
-        if content_link_uri is None and 'contentLinkUri' in kwargs:
-            content_link_uri = kwargs['contentLinkUri']
-
-        _setter("assembly_name", assembly_name)
-        _setter("integration_account_name", integration_account_name)
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "assembly_name", assembly_name)
+        pulumi.set(__self__, "integration_account_name", integration_account_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if assembly_version is not None:
-            _setter("assembly_version", assembly_version)
+            pulumi.set(__self__, "assembly_version", assembly_version)
         if content is not None:
-            _setter("content", content)
+            pulumi.set(__self__, "content", content)
         if content_link_uri is not None:
-            _setter("content_link_uri", content_link_uri)
+            pulumi.set(__self__, "content_link_uri", content_link_uri)
         if metadata is not None:
-            _setter("metadata", metadata)
+            pulumi.set(__self__, "metadata", metadata)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="assemblyName")
@@ -207,57 +166,22 @@ class _IntegrationAccountAssemblyState:
         :param pulumi.Input[str] name: The name which should be used for this Logic App Integration Account Assembly Artifact. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Logic App Integration Account Assembly Artifact should exist. Changing this forces a new resource to be created.
         """
-        _IntegrationAccountAssemblyState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            assembly_name=assembly_name,
-            assembly_version=assembly_version,
-            content=content,
-            content_link_uri=content_link_uri,
-            integration_account_name=integration_account_name,
-            metadata=metadata,
-            name=name,
-            resource_group_name=resource_group_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             assembly_name: Optional[pulumi.Input[str]] = None,
-             assembly_version: Optional[pulumi.Input[str]] = None,
-             content: Optional[pulumi.Input[str]] = None,
-             content_link_uri: Optional[pulumi.Input[str]] = None,
-             integration_account_name: Optional[pulumi.Input[str]] = None,
-             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if assembly_name is None and 'assemblyName' in kwargs:
-            assembly_name = kwargs['assemblyName']
-        if assembly_version is None and 'assemblyVersion' in kwargs:
-            assembly_version = kwargs['assemblyVersion']
-        if content_link_uri is None and 'contentLinkUri' in kwargs:
-            content_link_uri = kwargs['contentLinkUri']
-        if integration_account_name is None and 'integrationAccountName' in kwargs:
-            integration_account_name = kwargs['integrationAccountName']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-
         if assembly_name is not None:
-            _setter("assembly_name", assembly_name)
+            pulumi.set(__self__, "assembly_name", assembly_name)
         if assembly_version is not None:
-            _setter("assembly_version", assembly_version)
+            pulumi.set(__self__, "assembly_version", assembly_version)
         if content is not None:
-            _setter("content", content)
+            pulumi.set(__self__, "content", content)
         if content_link_uri is not None:
-            _setter("content_link_uri", content_link_uri)
+            pulumi.set(__self__, "content_link_uri", content_link_uri)
         if integration_account_name is not None:
-            _setter("integration_account_name", integration_account_name)
+            pulumi.set(__self__, "integration_account_name", integration_account_name)
         if metadata is not None:
-            _setter("metadata", metadata)
+            pulumi.set(__self__, "metadata", metadata)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
 
     @property
     @pulumi.getter(name="assemblyName")
@@ -457,10 +381,6 @@ class IntegrationAccountAssembly(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            IntegrationAccountAssemblyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

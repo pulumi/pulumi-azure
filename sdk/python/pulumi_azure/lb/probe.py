@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ProbeArgs', 'Probe']
@@ -33,59 +33,20 @@ class ProbeArgs:
         :param pulumi.Input[str] protocol: Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If TCP is specified, a received ACK is required for the probe to be successful. If HTTP is specified, a 200 OK response from the specified URI is required for the probe to be successful.
         :param pulumi.Input[str] request_path: The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
         """
-        ProbeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            loadbalancer_id=loadbalancer_id,
-            port=port,
-            interval_in_seconds=interval_in_seconds,
-            name=name,
-            number_of_probes=number_of_probes,
-            probe_threshold=probe_threshold,
-            protocol=protocol,
-            request_path=request_path,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             loadbalancer_id: Optional[pulumi.Input[str]] = None,
-             port: Optional[pulumi.Input[int]] = None,
-             interval_in_seconds: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             number_of_probes: Optional[pulumi.Input[int]] = None,
-             probe_threshold: Optional[pulumi.Input[int]] = None,
-             protocol: Optional[pulumi.Input[str]] = None,
-             request_path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if loadbalancer_id is None and 'loadbalancerId' in kwargs:
-            loadbalancer_id = kwargs['loadbalancerId']
-        if loadbalancer_id is None:
-            raise TypeError("Missing 'loadbalancer_id' argument")
-        if port is None:
-            raise TypeError("Missing 'port' argument")
-        if interval_in_seconds is None and 'intervalInSeconds' in kwargs:
-            interval_in_seconds = kwargs['intervalInSeconds']
-        if number_of_probes is None and 'numberOfProbes' in kwargs:
-            number_of_probes = kwargs['numberOfProbes']
-        if probe_threshold is None and 'probeThreshold' in kwargs:
-            probe_threshold = kwargs['probeThreshold']
-        if request_path is None and 'requestPath' in kwargs:
-            request_path = kwargs['requestPath']
-
-        _setter("loadbalancer_id", loadbalancer_id)
-        _setter("port", port)
+        pulumi.set(__self__, "loadbalancer_id", loadbalancer_id)
+        pulumi.set(__self__, "port", port)
         if interval_in_seconds is not None:
-            _setter("interval_in_seconds", interval_in_seconds)
+            pulumi.set(__self__, "interval_in_seconds", interval_in_seconds)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if number_of_probes is not None:
-            _setter("number_of_probes", number_of_probes)
+            pulumi.set(__self__, "number_of_probes", number_of_probes)
         if probe_threshold is not None:
-            _setter("probe_threshold", probe_threshold)
+            pulumi.set(__self__, "probe_threshold", probe_threshold)
         if protocol is not None:
-            _setter("protocol", protocol)
+            pulumi.set(__self__, "protocol", protocol)
         if request_path is not None:
-            _setter("request_path", request_path)
+            pulumi.set(__self__, "request_path", request_path)
 
     @property
     @pulumi.getter(name="loadbalancerId")
@@ -207,63 +168,24 @@ class _ProbeState:
         :param pulumi.Input[str] protocol: Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If TCP is specified, a received ACK is required for the probe to be successful. If HTTP is specified, a 200 OK response from the specified URI is required for the probe to be successful.
         :param pulumi.Input[str] request_path: The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
         """
-        _ProbeState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            interval_in_seconds=interval_in_seconds,
-            load_balancer_rules=load_balancer_rules,
-            loadbalancer_id=loadbalancer_id,
-            name=name,
-            number_of_probes=number_of_probes,
-            port=port,
-            probe_threshold=probe_threshold,
-            protocol=protocol,
-            request_path=request_path,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             interval_in_seconds: Optional[pulumi.Input[int]] = None,
-             load_balancer_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             loadbalancer_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             number_of_probes: Optional[pulumi.Input[int]] = None,
-             port: Optional[pulumi.Input[int]] = None,
-             probe_threshold: Optional[pulumi.Input[int]] = None,
-             protocol: Optional[pulumi.Input[str]] = None,
-             request_path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if interval_in_seconds is None and 'intervalInSeconds' in kwargs:
-            interval_in_seconds = kwargs['intervalInSeconds']
-        if load_balancer_rules is None and 'loadBalancerRules' in kwargs:
-            load_balancer_rules = kwargs['loadBalancerRules']
-        if loadbalancer_id is None and 'loadbalancerId' in kwargs:
-            loadbalancer_id = kwargs['loadbalancerId']
-        if number_of_probes is None and 'numberOfProbes' in kwargs:
-            number_of_probes = kwargs['numberOfProbes']
-        if probe_threshold is None and 'probeThreshold' in kwargs:
-            probe_threshold = kwargs['probeThreshold']
-        if request_path is None and 'requestPath' in kwargs:
-            request_path = kwargs['requestPath']
-
         if interval_in_seconds is not None:
-            _setter("interval_in_seconds", interval_in_seconds)
+            pulumi.set(__self__, "interval_in_seconds", interval_in_seconds)
         if load_balancer_rules is not None:
-            _setter("load_balancer_rules", load_balancer_rules)
+            pulumi.set(__self__, "load_balancer_rules", load_balancer_rules)
         if loadbalancer_id is not None:
-            _setter("loadbalancer_id", loadbalancer_id)
+            pulumi.set(__self__, "loadbalancer_id", loadbalancer_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if number_of_probes is not None:
-            _setter("number_of_probes", number_of_probes)
+            pulumi.set(__self__, "number_of_probes", number_of_probes)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
         if probe_threshold is not None:
-            _setter("probe_threshold", probe_threshold)
+            pulumi.set(__self__, "probe_threshold", probe_threshold)
         if protocol is not None:
-            _setter("protocol", protocol)
+            pulumi.set(__self__, "protocol", protocol)
         if request_path is not None:
-            _setter("request_path", request_path)
+            pulumi.set(__self__, "request_path", request_path)
 
     @property
     @pulumi.getter(name="intervalInSeconds")
@@ -484,10 +406,6 @@ class Probe(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ProbeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

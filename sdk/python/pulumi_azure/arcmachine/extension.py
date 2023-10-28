@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ExtensionArgs', 'Extension']
@@ -45,72 +45,25 @@ class ExtensionArgs:
                
                **NOTE:** 1. When `automatic_upgrade_enabled` is set to `false` and no `type_handler_version` is specified, the `type_handler_version` change should be manually ignored by `ignore_changes` lifecycle block. This is because the `type_handler_version` is set by the Azure platform when the extension is created. 2. When `automatic_upgrade_enabled` is set to `false` and `type_handler_version` is specified, the provider will check whether the version prefix is aligned with user input. For example, if user specifies `1.24` in `type_handler_version`, `1.24.1` will be considered as no diff.
         """
-        ExtensionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arc_machine_id=arc_machine_id,
-            publisher=publisher,
-            type=type,
-            automatic_upgrade_enabled=automatic_upgrade_enabled,
-            force_update_tag=force_update_tag,
-            location=location,
-            name=name,
-            protected_settings=protected_settings,
-            settings=settings,
-            tags=tags,
-            type_handler_version=type_handler_version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arc_machine_id: Optional[pulumi.Input[str]] = None,
-             publisher: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             automatic_upgrade_enabled: Optional[pulumi.Input[bool]] = None,
-             force_update_tag: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             protected_settings: Optional[pulumi.Input[str]] = None,
-             settings: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             type_handler_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if arc_machine_id is None and 'arcMachineId' in kwargs:
-            arc_machine_id = kwargs['arcMachineId']
-        if arc_machine_id is None:
-            raise TypeError("Missing 'arc_machine_id' argument")
-        if publisher is None:
-            raise TypeError("Missing 'publisher' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if automatic_upgrade_enabled is None and 'automaticUpgradeEnabled' in kwargs:
-            automatic_upgrade_enabled = kwargs['automaticUpgradeEnabled']
-        if force_update_tag is None and 'forceUpdateTag' in kwargs:
-            force_update_tag = kwargs['forceUpdateTag']
-        if protected_settings is None and 'protectedSettings' in kwargs:
-            protected_settings = kwargs['protectedSettings']
-        if type_handler_version is None and 'typeHandlerVersion' in kwargs:
-            type_handler_version = kwargs['typeHandlerVersion']
-
-        _setter("arc_machine_id", arc_machine_id)
-        _setter("publisher", publisher)
-        _setter("type", type)
+        pulumi.set(__self__, "arc_machine_id", arc_machine_id)
+        pulumi.set(__self__, "publisher", publisher)
+        pulumi.set(__self__, "type", type)
         if automatic_upgrade_enabled is not None:
-            _setter("automatic_upgrade_enabled", automatic_upgrade_enabled)
+            pulumi.set(__self__, "automatic_upgrade_enabled", automatic_upgrade_enabled)
         if force_update_tag is not None:
-            _setter("force_update_tag", force_update_tag)
+            pulumi.set(__self__, "force_update_tag", force_update_tag)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if protected_settings is not None:
-            _setter("protected_settings", protected_settings)
+            pulumi.set(__self__, "protected_settings", protected_settings)
         if settings is not None:
-            _setter("settings", settings)
+            pulumi.set(__self__, "settings", settings)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if type_handler_version is not None:
-            _setter("type_handler_version", type_handler_version)
+            pulumi.set(__self__, "type_handler_version", type_handler_version)
 
     @property
     @pulumi.getter(name="arcMachineId")
@@ -285,69 +238,28 @@ class _ExtensionState:
                
                **NOTE:** 1. When `automatic_upgrade_enabled` is set to `false` and no `type_handler_version` is specified, the `type_handler_version` change should be manually ignored by `ignore_changes` lifecycle block. This is because the `type_handler_version` is set by the Azure platform when the extension is created. 2. When `automatic_upgrade_enabled` is set to `false` and `type_handler_version` is specified, the provider will check whether the version prefix is aligned with user input. For example, if user specifies `1.24` in `type_handler_version`, `1.24.1` will be considered as no diff.
         """
-        _ExtensionState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arc_machine_id=arc_machine_id,
-            automatic_upgrade_enabled=automatic_upgrade_enabled,
-            force_update_tag=force_update_tag,
-            location=location,
-            name=name,
-            protected_settings=protected_settings,
-            publisher=publisher,
-            settings=settings,
-            tags=tags,
-            type=type,
-            type_handler_version=type_handler_version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arc_machine_id: Optional[pulumi.Input[str]] = None,
-             automatic_upgrade_enabled: Optional[pulumi.Input[bool]] = None,
-             force_update_tag: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             protected_settings: Optional[pulumi.Input[str]] = None,
-             publisher: Optional[pulumi.Input[str]] = None,
-             settings: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             type_handler_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if arc_machine_id is None and 'arcMachineId' in kwargs:
-            arc_machine_id = kwargs['arcMachineId']
-        if automatic_upgrade_enabled is None and 'automaticUpgradeEnabled' in kwargs:
-            automatic_upgrade_enabled = kwargs['automaticUpgradeEnabled']
-        if force_update_tag is None and 'forceUpdateTag' in kwargs:
-            force_update_tag = kwargs['forceUpdateTag']
-        if protected_settings is None and 'protectedSettings' in kwargs:
-            protected_settings = kwargs['protectedSettings']
-        if type_handler_version is None and 'typeHandlerVersion' in kwargs:
-            type_handler_version = kwargs['typeHandlerVersion']
-
         if arc_machine_id is not None:
-            _setter("arc_machine_id", arc_machine_id)
+            pulumi.set(__self__, "arc_machine_id", arc_machine_id)
         if automatic_upgrade_enabled is not None:
-            _setter("automatic_upgrade_enabled", automatic_upgrade_enabled)
+            pulumi.set(__self__, "automatic_upgrade_enabled", automatic_upgrade_enabled)
         if force_update_tag is not None:
-            _setter("force_update_tag", force_update_tag)
+            pulumi.set(__self__, "force_update_tag", force_update_tag)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if protected_settings is not None:
-            _setter("protected_settings", protected_settings)
+            pulumi.set(__self__, "protected_settings", protected_settings)
         if publisher is not None:
-            _setter("publisher", publisher)
+            pulumi.set(__self__, "publisher", publisher)
         if settings is not None:
-            _setter("settings", settings)
+            pulumi.set(__self__, "settings", settings)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
         if type_handler_version is not None:
-            _setter("type_handler_version", type_handler_version)
+            pulumi.set(__self__, "type_handler_version", type_handler_version)
 
     @property
     @pulumi.getter(name="arcMachineId")
@@ -563,10 +475,6 @@ class Extension(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ExtensionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

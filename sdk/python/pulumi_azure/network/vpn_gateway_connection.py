@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,56 +33,17 @@ class VpnGatewayConnectionArgs:
         :param pulumi.Input['VpnGatewayConnectionRoutingArgs'] routing: A `routing` block as defined below. If this is not specified, there will be a default route table created implicitly.
         :param pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionTrafficSelectorPolicyArgs']]] traffic_selector_policies: One or more `traffic_selector_policy` blocks as defined below.
         """
-        VpnGatewayConnectionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            remote_vpn_site_id=remote_vpn_site_id,
-            vpn_gateway_id=vpn_gateway_id,
-            vpn_links=vpn_links,
-            internet_security_enabled=internet_security_enabled,
-            name=name,
-            routing=routing,
-            traffic_selector_policies=traffic_selector_policies,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             remote_vpn_site_id: Optional[pulumi.Input[str]] = None,
-             vpn_gateway_id: Optional[pulumi.Input[str]] = None,
-             vpn_links: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkArgs']]]] = None,
-             internet_security_enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             routing: Optional[pulumi.Input['VpnGatewayConnectionRoutingArgs']] = None,
-             traffic_selector_policies: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionTrafficSelectorPolicyArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if remote_vpn_site_id is None and 'remoteVpnSiteId' in kwargs:
-            remote_vpn_site_id = kwargs['remoteVpnSiteId']
-        if remote_vpn_site_id is None:
-            raise TypeError("Missing 'remote_vpn_site_id' argument")
-        if vpn_gateway_id is None and 'vpnGatewayId' in kwargs:
-            vpn_gateway_id = kwargs['vpnGatewayId']
-        if vpn_gateway_id is None:
-            raise TypeError("Missing 'vpn_gateway_id' argument")
-        if vpn_links is None and 'vpnLinks' in kwargs:
-            vpn_links = kwargs['vpnLinks']
-        if vpn_links is None:
-            raise TypeError("Missing 'vpn_links' argument")
-        if internet_security_enabled is None and 'internetSecurityEnabled' in kwargs:
-            internet_security_enabled = kwargs['internetSecurityEnabled']
-        if traffic_selector_policies is None and 'trafficSelectorPolicies' in kwargs:
-            traffic_selector_policies = kwargs['trafficSelectorPolicies']
-
-        _setter("remote_vpn_site_id", remote_vpn_site_id)
-        _setter("vpn_gateway_id", vpn_gateway_id)
-        _setter("vpn_links", vpn_links)
+        pulumi.set(__self__, "remote_vpn_site_id", remote_vpn_site_id)
+        pulumi.set(__self__, "vpn_gateway_id", vpn_gateway_id)
+        pulumi.set(__self__, "vpn_links", vpn_links)
         if internet_security_enabled is not None:
-            _setter("internet_security_enabled", internet_security_enabled)
+            pulumi.set(__self__, "internet_security_enabled", internet_security_enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if routing is not None:
-            _setter("routing", routing)
+            pulumi.set(__self__, "routing", routing)
         if traffic_selector_policies is not None:
-            _setter("traffic_selector_policies", traffic_selector_policies)
+            pulumi.set(__self__, "traffic_selector_policies", traffic_selector_policies)
 
     @property
     @pulumi.getter(name="remoteVpnSiteId")
@@ -189,53 +150,20 @@ class _VpnGatewayConnectionState:
         :param pulumi.Input[str] vpn_gateway_id: The ID of the VPN Gateway that this VPN Gateway Connection belongs to. Changing this forces a new VPN Gateway Connection to be created.
         :param pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkArgs']]] vpn_links: One or more `vpn_link` blocks as defined below.
         """
-        _VpnGatewayConnectionState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            internet_security_enabled=internet_security_enabled,
-            name=name,
-            remote_vpn_site_id=remote_vpn_site_id,
-            routing=routing,
-            traffic_selector_policies=traffic_selector_policies,
-            vpn_gateway_id=vpn_gateway_id,
-            vpn_links=vpn_links,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             internet_security_enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             remote_vpn_site_id: Optional[pulumi.Input[str]] = None,
-             routing: Optional[pulumi.Input['VpnGatewayConnectionRoutingArgs']] = None,
-             traffic_selector_policies: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionTrafficSelectorPolicyArgs']]]] = None,
-             vpn_gateway_id: Optional[pulumi.Input[str]] = None,
-             vpn_links: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if internet_security_enabled is None and 'internetSecurityEnabled' in kwargs:
-            internet_security_enabled = kwargs['internetSecurityEnabled']
-        if remote_vpn_site_id is None and 'remoteVpnSiteId' in kwargs:
-            remote_vpn_site_id = kwargs['remoteVpnSiteId']
-        if traffic_selector_policies is None and 'trafficSelectorPolicies' in kwargs:
-            traffic_selector_policies = kwargs['trafficSelectorPolicies']
-        if vpn_gateway_id is None and 'vpnGatewayId' in kwargs:
-            vpn_gateway_id = kwargs['vpnGatewayId']
-        if vpn_links is None and 'vpnLinks' in kwargs:
-            vpn_links = kwargs['vpnLinks']
-
         if internet_security_enabled is not None:
-            _setter("internet_security_enabled", internet_security_enabled)
+            pulumi.set(__self__, "internet_security_enabled", internet_security_enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if remote_vpn_site_id is not None:
-            _setter("remote_vpn_site_id", remote_vpn_site_id)
+            pulumi.set(__self__, "remote_vpn_site_id", remote_vpn_site_id)
         if routing is not None:
-            _setter("routing", routing)
+            pulumi.set(__self__, "routing", routing)
         if traffic_selector_policies is not None:
-            _setter("traffic_selector_policies", traffic_selector_policies)
+            pulumi.set(__self__, "traffic_selector_policies", traffic_selector_policies)
         if vpn_gateway_id is not None:
-            _setter("vpn_gateway_id", vpn_gateway_id)
+            pulumi.set(__self__, "vpn_gateway_id", vpn_gateway_id)
         if vpn_links is not None:
-            _setter("vpn_links", vpn_links)
+            pulumi.set(__self__, "vpn_links", vpn_links)
 
     @property
     @pulumi.getter(name="internetSecurityEnabled")
@@ -479,10 +407,6 @@ class VpnGatewayConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            VpnGatewayConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -509,7 +433,6 @@ class VpnGatewayConnection(pulumi.CustomResource):
             if remote_vpn_site_id is None and not opts.urn:
                 raise TypeError("Missing required property 'remote_vpn_site_id'")
             __props__.__dict__["remote_vpn_site_id"] = remote_vpn_site_id
-            routing = _utilities.configure(routing, VpnGatewayConnectionRoutingArgs, True)
             __props__.__dict__["routing"] = routing
             __props__.__dict__["traffic_selector_policies"] = traffic_selector_policies
             if vpn_gateway_id is None and not opts.urn:

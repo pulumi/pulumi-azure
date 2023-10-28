@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,61 +37,22 @@ class TrafficManagerAzureEndpointArgs:
         :param pulumi.Input[Sequence[pulumi.Input['TrafficManagerAzureEndpointSubnetArgs']]] subnets: One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[int] weight: Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
         """
-        TrafficManagerAzureEndpointArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            profile_id=profile_id,
-            target_resource_id=target_resource_id,
-            custom_headers=custom_headers,
-            enabled=enabled,
-            geo_mappings=geo_mappings,
-            name=name,
-            priority=priority,
-            subnets=subnets,
-            weight=weight,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             profile_id: Optional[pulumi.Input[str]] = None,
-             target_resource_id: Optional[pulumi.Input[str]] = None,
-             custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerAzureEndpointCustomHeaderArgs']]]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             geo_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             priority: Optional[pulumi.Input[int]] = None,
-             subnets: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerAzureEndpointSubnetArgs']]]] = None,
-             weight: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if profile_id is None and 'profileId' in kwargs:
-            profile_id = kwargs['profileId']
-        if profile_id is None:
-            raise TypeError("Missing 'profile_id' argument")
-        if target_resource_id is None and 'targetResourceId' in kwargs:
-            target_resource_id = kwargs['targetResourceId']
-        if target_resource_id is None:
-            raise TypeError("Missing 'target_resource_id' argument")
-        if custom_headers is None and 'customHeaders' in kwargs:
-            custom_headers = kwargs['customHeaders']
-        if geo_mappings is None and 'geoMappings' in kwargs:
-            geo_mappings = kwargs['geoMappings']
-
-        _setter("profile_id", profile_id)
-        _setter("target_resource_id", target_resource_id)
+        pulumi.set(__self__, "profile_id", profile_id)
+        pulumi.set(__self__, "target_resource_id", target_resource_id)
         if custom_headers is not None:
-            _setter("custom_headers", custom_headers)
+            pulumi.set(__self__, "custom_headers", custom_headers)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if geo_mappings is not None:
-            _setter("geo_mappings", geo_mappings)
+            pulumi.set(__self__, "geo_mappings", geo_mappings)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if priority is not None:
-            _setter("priority", priority)
+            pulumi.set(__self__, "priority", priority)
         if subnets is not None:
-            _setter("subnets", subnets)
+            pulumi.set(__self__, "subnets", subnets)
         if weight is not None:
-            _setter("weight", weight)
+            pulumi.set(__self__, "weight", weight)
 
     @property
     @pulumi.getter(name="profileId")
@@ -226,59 +187,24 @@ class _TrafficManagerAzureEndpointState:
         :param pulumi.Input[str] target_resource_id: The ID of the Azure Resource which should be used as a target.
         :param pulumi.Input[int] weight: Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
         """
-        _TrafficManagerAzureEndpointState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            custom_headers=custom_headers,
-            enabled=enabled,
-            geo_mappings=geo_mappings,
-            name=name,
-            priority=priority,
-            profile_id=profile_id,
-            subnets=subnets,
-            target_resource_id=target_resource_id,
-            weight=weight,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerAzureEndpointCustomHeaderArgs']]]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             geo_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             priority: Optional[pulumi.Input[int]] = None,
-             profile_id: Optional[pulumi.Input[str]] = None,
-             subnets: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerAzureEndpointSubnetArgs']]]] = None,
-             target_resource_id: Optional[pulumi.Input[str]] = None,
-             weight: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if custom_headers is None and 'customHeaders' in kwargs:
-            custom_headers = kwargs['customHeaders']
-        if geo_mappings is None and 'geoMappings' in kwargs:
-            geo_mappings = kwargs['geoMappings']
-        if profile_id is None and 'profileId' in kwargs:
-            profile_id = kwargs['profileId']
-        if target_resource_id is None and 'targetResourceId' in kwargs:
-            target_resource_id = kwargs['targetResourceId']
-
         if custom_headers is not None:
-            _setter("custom_headers", custom_headers)
+            pulumi.set(__self__, "custom_headers", custom_headers)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if geo_mappings is not None:
-            _setter("geo_mappings", geo_mappings)
+            pulumi.set(__self__, "geo_mappings", geo_mappings)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if priority is not None:
-            _setter("priority", priority)
+            pulumi.set(__self__, "priority", priority)
         if profile_id is not None:
-            _setter("profile_id", profile_id)
+            pulumi.set(__self__, "profile_id", profile_id)
         if subnets is not None:
-            _setter("subnets", subnets)
+            pulumi.set(__self__, "subnets", subnets)
         if target_resource_id is not None:
-            _setter("target_resource_id", target_resource_id)
+            pulumi.set(__self__, "target_resource_id", target_resource_id)
         if weight is not None:
-            _setter("weight", weight)
+            pulumi.set(__self__, "weight", weight)
 
     @property
     @pulumi.getter(name="customHeaders")
@@ -526,10 +452,6 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            TrafficManagerAzureEndpointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

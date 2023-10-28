@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -67,152 +67,47 @@ class PostgresqlClusterArgs:
         :param pulumi.Input[str] sql_version: The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14`, `15` and `16`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Azure Cosmos DB for PostgreSQL Cluster.
         """
-        PostgresqlClusterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            administrator_login_password=administrator_login_password,
-            coordinator_storage_quota_in_mb=coordinator_storage_quota_in_mb,
-            coordinator_vcore_count=coordinator_vcore_count,
-            node_count=node_count,
-            resource_group_name=resource_group_name,
-            citus_version=citus_version,
-            coordinator_public_ip_access_enabled=coordinator_public_ip_access_enabled,
-            coordinator_server_edition=coordinator_server_edition,
-            ha_enabled=ha_enabled,
-            location=location,
-            maintenance_window=maintenance_window,
-            name=name,
-            node_public_ip_access_enabled=node_public_ip_access_enabled,
-            node_server_edition=node_server_edition,
-            node_storage_quota_in_mb=node_storage_quota_in_mb,
-            node_vcores=node_vcores,
-            point_in_time_in_utc=point_in_time_in_utc,
-            preferred_primary_zone=preferred_primary_zone,
-            shards_on_coordinator_enabled=shards_on_coordinator_enabled,
-            source_location=source_location,
-            source_resource_id=source_resource_id,
-            sql_version=sql_version,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             administrator_login_password: Optional[pulumi.Input[str]] = None,
-             coordinator_storage_quota_in_mb: Optional[pulumi.Input[int]] = None,
-             coordinator_vcore_count: Optional[pulumi.Input[int]] = None,
-             node_count: Optional[pulumi.Input[int]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             citus_version: Optional[pulumi.Input[str]] = None,
-             coordinator_public_ip_access_enabled: Optional[pulumi.Input[bool]] = None,
-             coordinator_server_edition: Optional[pulumi.Input[str]] = None,
-             ha_enabled: Optional[pulumi.Input[bool]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             maintenance_window: Optional[pulumi.Input['PostgresqlClusterMaintenanceWindowArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             node_public_ip_access_enabled: Optional[pulumi.Input[bool]] = None,
-             node_server_edition: Optional[pulumi.Input[str]] = None,
-             node_storage_quota_in_mb: Optional[pulumi.Input[int]] = None,
-             node_vcores: Optional[pulumi.Input[int]] = None,
-             point_in_time_in_utc: Optional[pulumi.Input[str]] = None,
-             preferred_primary_zone: Optional[pulumi.Input[str]] = None,
-             shards_on_coordinator_enabled: Optional[pulumi.Input[bool]] = None,
-             source_location: Optional[pulumi.Input[str]] = None,
-             source_resource_id: Optional[pulumi.Input[str]] = None,
-             sql_version: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if administrator_login_password is None and 'administratorLoginPassword' in kwargs:
-            administrator_login_password = kwargs['administratorLoginPassword']
-        if administrator_login_password is None:
-            raise TypeError("Missing 'administrator_login_password' argument")
-        if coordinator_storage_quota_in_mb is None and 'coordinatorStorageQuotaInMb' in kwargs:
-            coordinator_storage_quota_in_mb = kwargs['coordinatorStorageQuotaInMb']
-        if coordinator_storage_quota_in_mb is None:
-            raise TypeError("Missing 'coordinator_storage_quota_in_mb' argument")
-        if coordinator_vcore_count is None and 'coordinatorVcoreCount' in kwargs:
-            coordinator_vcore_count = kwargs['coordinatorVcoreCount']
-        if coordinator_vcore_count is None:
-            raise TypeError("Missing 'coordinator_vcore_count' argument")
-        if node_count is None and 'nodeCount' in kwargs:
-            node_count = kwargs['nodeCount']
-        if node_count is None:
-            raise TypeError("Missing 'node_count' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if citus_version is None and 'citusVersion' in kwargs:
-            citus_version = kwargs['citusVersion']
-        if coordinator_public_ip_access_enabled is None and 'coordinatorPublicIpAccessEnabled' in kwargs:
-            coordinator_public_ip_access_enabled = kwargs['coordinatorPublicIpAccessEnabled']
-        if coordinator_server_edition is None and 'coordinatorServerEdition' in kwargs:
-            coordinator_server_edition = kwargs['coordinatorServerEdition']
-        if ha_enabled is None and 'haEnabled' in kwargs:
-            ha_enabled = kwargs['haEnabled']
-        if maintenance_window is None and 'maintenanceWindow' in kwargs:
-            maintenance_window = kwargs['maintenanceWindow']
-        if node_public_ip_access_enabled is None and 'nodePublicIpAccessEnabled' in kwargs:
-            node_public_ip_access_enabled = kwargs['nodePublicIpAccessEnabled']
-        if node_server_edition is None and 'nodeServerEdition' in kwargs:
-            node_server_edition = kwargs['nodeServerEdition']
-        if node_storage_quota_in_mb is None and 'nodeStorageQuotaInMb' in kwargs:
-            node_storage_quota_in_mb = kwargs['nodeStorageQuotaInMb']
-        if node_vcores is None and 'nodeVcores' in kwargs:
-            node_vcores = kwargs['nodeVcores']
-        if point_in_time_in_utc is None and 'pointInTimeInUtc' in kwargs:
-            point_in_time_in_utc = kwargs['pointInTimeInUtc']
-        if preferred_primary_zone is None and 'preferredPrimaryZone' in kwargs:
-            preferred_primary_zone = kwargs['preferredPrimaryZone']
-        if shards_on_coordinator_enabled is None and 'shardsOnCoordinatorEnabled' in kwargs:
-            shards_on_coordinator_enabled = kwargs['shardsOnCoordinatorEnabled']
-        if source_location is None and 'sourceLocation' in kwargs:
-            source_location = kwargs['sourceLocation']
-        if source_resource_id is None and 'sourceResourceId' in kwargs:
-            source_resource_id = kwargs['sourceResourceId']
-        if sql_version is None and 'sqlVersion' in kwargs:
-            sql_version = kwargs['sqlVersion']
-
-        _setter("administrator_login_password", administrator_login_password)
-        _setter("coordinator_storage_quota_in_mb", coordinator_storage_quota_in_mb)
-        _setter("coordinator_vcore_count", coordinator_vcore_count)
-        _setter("node_count", node_count)
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "administrator_login_password", administrator_login_password)
+        pulumi.set(__self__, "coordinator_storage_quota_in_mb", coordinator_storage_quota_in_mb)
+        pulumi.set(__self__, "coordinator_vcore_count", coordinator_vcore_count)
+        pulumi.set(__self__, "node_count", node_count)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if citus_version is not None:
-            _setter("citus_version", citus_version)
+            pulumi.set(__self__, "citus_version", citus_version)
         if coordinator_public_ip_access_enabled is not None:
-            _setter("coordinator_public_ip_access_enabled", coordinator_public_ip_access_enabled)
+            pulumi.set(__self__, "coordinator_public_ip_access_enabled", coordinator_public_ip_access_enabled)
         if coordinator_server_edition is not None:
-            _setter("coordinator_server_edition", coordinator_server_edition)
+            pulumi.set(__self__, "coordinator_server_edition", coordinator_server_edition)
         if ha_enabled is not None:
-            _setter("ha_enabled", ha_enabled)
+            pulumi.set(__self__, "ha_enabled", ha_enabled)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if maintenance_window is not None:
-            _setter("maintenance_window", maintenance_window)
+            pulumi.set(__self__, "maintenance_window", maintenance_window)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if node_public_ip_access_enabled is not None:
-            _setter("node_public_ip_access_enabled", node_public_ip_access_enabled)
+            pulumi.set(__self__, "node_public_ip_access_enabled", node_public_ip_access_enabled)
         if node_server_edition is not None:
-            _setter("node_server_edition", node_server_edition)
+            pulumi.set(__self__, "node_server_edition", node_server_edition)
         if node_storage_quota_in_mb is not None:
-            _setter("node_storage_quota_in_mb", node_storage_quota_in_mb)
+            pulumi.set(__self__, "node_storage_quota_in_mb", node_storage_quota_in_mb)
         if node_vcores is not None:
-            _setter("node_vcores", node_vcores)
+            pulumi.set(__self__, "node_vcores", node_vcores)
         if point_in_time_in_utc is not None:
-            _setter("point_in_time_in_utc", point_in_time_in_utc)
+            pulumi.set(__self__, "point_in_time_in_utc", point_in_time_in_utc)
         if preferred_primary_zone is not None:
-            _setter("preferred_primary_zone", preferred_primary_zone)
+            pulumi.set(__self__, "preferred_primary_zone", preferred_primary_zone)
         if shards_on_coordinator_enabled is not None:
-            _setter("shards_on_coordinator_enabled", shards_on_coordinator_enabled)
+            pulumi.set(__self__, "shards_on_coordinator_enabled", shards_on_coordinator_enabled)
         if source_location is not None:
-            _setter("source_location", source_location)
+            pulumi.set(__self__, "source_location", source_location)
         if source_resource_id is not None:
-            _setter("source_resource_id", source_resource_id)
+            pulumi.set(__self__, "source_resource_id", source_resource_id)
         if sql_version is not None:
-            _setter("sql_version", sql_version)
+            pulumi.set(__self__, "sql_version", sql_version)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="administratorLoginPassword")
@@ -549,153 +444,54 @@ class _PostgresqlClusterState:
         :param pulumi.Input[str] sql_version: The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14`, `15` and `16`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Azure Cosmos DB for PostgreSQL Cluster.
         """
-        _PostgresqlClusterState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            administrator_login_password=administrator_login_password,
-            citus_version=citus_version,
-            coordinator_public_ip_access_enabled=coordinator_public_ip_access_enabled,
-            coordinator_server_edition=coordinator_server_edition,
-            coordinator_storage_quota_in_mb=coordinator_storage_quota_in_mb,
-            coordinator_vcore_count=coordinator_vcore_count,
-            earliest_restore_time=earliest_restore_time,
-            ha_enabled=ha_enabled,
-            location=location,
-            maintenance_window=maintenance_window,
-            name=name,
-            node_count=node_count,
-            node_public_ip_access_enabled=node_public_ip_access_enabled,
-            node_server_edition=node_server_edition,
-            node_storage_quota_in_mb=node_storage_quota_in_mb,
-            node_vcores=node_vcores,
-            point_in_time_in_utc=point_in_time_in_utc,
-            preferred_primary_zone=preferred_primary_zone,
-            resource_group_name=resource_group_name,
-            shards_on_coordinator_enabled=shards_on_coordinator_enabled,
-            source_location=source_location,
-            source_resource_id=source_resource_id,
-            sql_version=sql_version,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             administrator_login_password: Optional[pulumi.Input[str]] = None,
-             citus_version: Optional[pulumi.Input[str]] = None,
-             coordinator_public_ip_access_enabled: Optional[pulumi.Input[bool]] = None,
-             coordinator_server_edition: Optional[pulumi.Input[str]] = None,
-             coordinator_storage_quota_in_mb: Optional[pulumi.Input[int]] = None,
-             coordinator_vcore_count: Optional[pulumi.Input[int]] = None,
-             earliest_restore_time: Optional[pulumi.Input[str]] = None,
-             ha_enabled: Optional[pulumi.Input[bool]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             maintenance_window: Optional[pulumi.Input['PostgresqlClusterMaintenanceWindowArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             node_count: Optional[pulumi.Input[int]] = None,
-             node_public_ip_access_enabled: Optional[pulumi.Input[bool]] = None,
-             node_server_edition: Optional[pulumi.Input[str]] = None,
-             node_storage_quota_in_mb: Optional[pulumi.Input[int]] = None,
-             node_vcores: Optional[pulumi.Input[int]] = None,
-             point_in_time_in_utc: Optional[pulumi.Input[str]] = None,
-             preferred_primary_zone: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             shards_on_coordinator_enabled: Optional[pulumi.Input[bool]] = None,
-             source_location: Optional[pulumi.Input[str]] = None,
-             source_resource_id: Optional[pulumi.Input[str]] = None,
-             sql_version: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if administrator_login_password is None and 'administratorLoginPassword' in kwargs:
-            administrator_login_password = kwargs['administratorLoginPassword']
-        if citus_version is None and 'citusVersion' in kwargs:
-            citus_version = kwargs['citusVersion']
-        if coordinator_public_ip_access_enabled is None and 'coordinatorPublicIpAccessEnabled' in kwargs:
-            coordinator_public_ip_access_enabled = kwargs['coordinatorPublicIpAccessEnabled']
-        if coordinator_server_edition is None and 'coordinatorServerEdition' in kwargs:
-            coordinator_server_edition = kwargs['coordinatorServerEdition']
-        if coordinator_storage_quota_in_mb is None and 'coordinatorStorageQuotaInMb' in kwargs:
-            coordinator_storage_quota_in_mb = kwargs['coordinatorStorageQuotaInMb']
-        if coordinator_vcore_count is None and 'coordinatorVcoreCount' in kwargs:
-            coordinator_vcore_count = kwargs['coordinatorVcoreCount']
-        if earliest_restore_time is None and 'earliestRestoreTime' in kwargs:
-            earliest_restore_time = kwargs['earliestRestoreTime']
-        if ha_enabled is None and 'haEnabled' in kwargs:
-            ha_enabled = kwargs['haEnabled']
-        if maintenance_window is None and 'maintenanceWindow' in kwargs:
-            maintenance_window = kwargs['maintenanceWindow']
-        if node_count is None and 'nodeCount' in kwargs:
-            node_count = kwargs['nodeCount']
-        if node_public_ip_access_enabled is None and 'nodePublicIpAccessEnabled' in kwargs:
-            node_public_ip_access_enabled = kwargs['nodePublicIpAccessEnabled']
-        if node_server_edition is None and 'nodeServerEdition' in kwargs:
-            node_server_edition = kwargs['nodeServerEdition']
-        if node_storage_quota_in_mb is None and 'nodeStorageQuotaInMb' in kwargs:
-            node_storage_quota_in_mb = kwargs['nodeStorageQuotaInMb']
-        if node_vcores is None and 'nodeVcores' in kwargs:
-            node_vcores = kwargs['nodeVcores']
-        if point_in_time_in_utc is None and 'pointInTimeInUtc' in kwargs:
-            point_in_time_in_utc = kwargs['pointInTimeInUtc']
-        if preferred_primary_zone is None and 'preferredPrimaryZone' in kwargs:
-            preferred_primary_zone = kwargs['preferredPrimaryZone']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if shards_on_coordinator_enabled is None and 'shardsOnCoordinatorEnabled' in kwargs:
-            shards_on_coordinator_enabled = kwargs['shardsOnCoordinatorEnabled']
-        if source_location is None and 'sourceLocation' in kwargs:
-            source_location = kwargs['sourceLocation']
-        if source_resource_id is None and 'sourceResourceId' in kwargs:
-            source_resource_id = kwargs['sourceResourceId']
-        if sql_version is None and 'sqlVersion' in kwargs:
-            sql_version = kwargs['sqlVersion']
-
         if administrator_login_password is not None:
-            _setter("administrator_login_password", administrator_login_password)
+            pulumi.set(__self__, "administrator_login_password", administrator_login_password)
         if citus_version is not None:
-            _setter("citus_version", citus_version)
+            pulumi.set(__self__, "citus_version", citus_version)
         if coordinator_public_ip_access_enabled is not None:
-            _setter("coordinator_public_ip_access_enabled", coordinator_public_ip_access_enabled)
+            pulumi.set(__self__, "coordinator_public_ip_access_enabled", coordinator_public_ip_access_enabled)
         if coordinator_server_edition is not None:
-            _setter("coordinator_server_edition", coordinator_server_edition)
+            pulumi.set(__self__, "coordinator_server_edition", coordinator_server_edition)
         if coordinator_storage_quota_in_mb is not None:
-            _setter("coordinator_storage_quota_in_mb", coordinator_storage_quota_in_mb)
+            pulumi.set(__self__, "coordinator_storage_quota_in_mb", coordinator_storage_quota_in_mb)
         if coordinator_vcore_count is not None:
-            _setter("coordinator_vcore_count", coordinator_vcore_count)
+            pulumi.set(__self__, "coordinator_vcore_count", coordinator_vcore_count)
         if earliest_restore_time is not None:
-            _setter("earliest_restore_time", earliest_restore_time)
+            pulumi.set(__self__, "earliest_restore_time", earliest_restore_time)
         if ha_enabled is not None:
-            _setter("ha_enabled", ha_enabled)
+            pulumi.set(__self__, "ha_enabled", ha_enabled)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if maintenance_window is not None:
-            _setter("maintenance_window", maintenance_window)
+            pulumi.set(__self__, "maintenance_window", maintenance_window)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if node_count is not None:
-            _setter("node_count", node_count)
+            pulumi.set(__self__, "node_count", node_count)
         if node_public_ip_access_enabled is not None:
-            _setter("node_public_ip_access_enabled", node_public_ip_access_enabled)
+            pulumi.set(__self__, "node_public_ip_access_enabled", node_public_ip_access_enabled)
         if node_server_edition is not None:
-            _setter("node_server_edition", node_server_edition)
+            pulumi.set(__self__, "node_server_edition", node_server_edition)
         if node_storage_quota_in_mb is not None:
-            _setter("node_storage_quota_in_mb", node_storage_quota_in_mb)
+            pulumi.set(__self__, "node_storage_quota_in_mb", node_storage_quota_in_mb)
         if node_vcores is not None:
-            _setter("node_vcores", node_vcores)
+            pulumi.set(__self__, "node_vcores", node_vcores)
         if point_in_time_in_utc is not None:
-            _setter("point_in_time_in_utc", point_in_time_in_utc)
+            pulumi.set(__self__, "point_in_time_in_utc", point_in_time_in_utc)
         if preferred_primary_zone is not None:
-            _setter("preferred_primary_zone", preferred_primary_zone)
+            pulumi.set(__self__, "preferred_primary_zone", preferred_primary_zone)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if shards_on_coordinator_enabled is not None:
-            _setter("shards_on_coordinator_enabled", shards_on_coordinator_enabled)
+            pulumi.set(__self__, "shards_on_coordinator_enabled", shards_on_coordinator_enabled)
         if source_location is not None:
-            _setter("source_location", source_location)
+            pulumi.set(__self__, "source_location", source_location)
         if source_resource_id is not None:
-            _setter("source_resource_id", source_resource_id)
+            pulumi.set(__self__, "source_resource_id", source_resource_id)
         if sql_version is not None:
-            _setter("sql_version", sql_version)
+            pulumi.set(__self__, "sql_version", sql_version)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="administratorLoginPassword")
@@ -1115,10 +911,6 @@ class PostgresqlCluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PostgresqlClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1170,7 +962,6 @@ class PostgresqlCluster(pulumi.CustomResource):
             __props__.__dict__["coordinator_vcore_count"] = coordinator_vcore_count
             __props__.__dict__["ha_enabled"] = ha_enabled
             __props__.__dict__["location"] = location
-            maintenance_window = _utilities.configure(maintenance_window, PostgresqlClusterMaintenanceWindowArgs, True)
             __props__.__dict__["maintenance_window"] = maintenance_window
             __props__.__dict__["name"] = name
             if node_count is None and not opts.urn:

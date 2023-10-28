@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -45,91 +45,28 @@ class ManagedHardwareSecurityModuleArgs:
         :param pulumi.Input[int] soft_delete_retention_days: The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` days. Defaults to `90`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         """
-        ManagedHardwareSecurityModuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            admin_object_ids=admin_object_ids,
-            resource_group_name=resource_group_name,
-            sku_name=sku_name,
-            tenant_id=tenant_id,
-            location=location,
-            name=name,
-            network_acls=network_acls,
-            public_network_access_enabled=public_network_access_enabled,
-            purge_protection_enabled=purge_protection_enabled,
-            security_domain_key_vault_certificate_ids=security_domain_key_vault_certificate_ids,
-            security_domain_quorum=security_domain_quorum,
-            soft_delete_retention_days=soft_delete_retention_days,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             admin_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             sku_name: Optional[pulumi.Input[str]] = None,
-             tenant_id: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             network_acls: Optional[pulumi.Input['ManagedHardwareSecurityModuleNetworkAclsArgs']] = None,
-             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
-             purge_protection_enabled: Optional[pulumi.Input[bool]] = None,
-             security_domain_key_vault_certificate_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             security_domain_quorum: Optional[pulumi.Input[int]] = None,
-             soft_delete_retention_days: Optional[pulumi.Input[int]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if admin_object_ids is None and 'adminObjectIds' in kwargs:
-            admin_object_ids = kwargs['adminObjectIds']
-        if admin_object_ids is None:
-            raise TypeError("Missing 'admin_object_ids' argument")
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if sku_name is None and 'skuName' in kwargs:
-            sku_name = kwargs['skuName']
-        if sku_name is None:
-            raise TypeError("Missing 'sku_name' argument")
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-        if tenant_id is None:
-            raise TypeError("Missing 'tenant_id' argument")
-        if network_acls is None and 'networkAcls' in kwargs:
-            network_acls = kwargs['networkAcls']
-        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
-            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if purge_protection_enabled is None and 'purgeProtectionEnabled' in kwargs:
-            purge_protection_enabled = kwargs['purgeProtectionEnabled']
-        if security_domain_key_vault_certificate_ids is None and 'securityDomainKeyVaultCertificateIds' in kwargs:
-            security_domain_key_vault_certificate_ids = kwargs['securityDomainKeyVaultCertificateIds']
-        if security_domain_quorum is None and 'securityDomainQuorum' in kwargs:
-            security_domain_quorum = kwargs['securityDomainQuorum']
-        if soft_delete_retention_days is None and 'softDeleteRetentionDays' in kwargs:
-            soft_delete_retention_days = kwargs['softDeleteRetentionDays']
-
-        _setter("admin_object_ids", admin_object_ids)
-        _setter("resource_group_name", resource_group_name)
-        _setter("sku_name", sku_name)
-        _setter("tenant_id", tenant_id)
+        pulumi.set(__self__, "admin_object_ids", admin_object_ids)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "sku_name", sku_name)
+        pulumi.set(__self__, "tenant_id", tenant_id)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if network_acls is not None:
-            _setter("network_acls", network_acls)
+            pulumi.set(__self__, "network_acls", network_acls)
         if public_network_access_enabled is not None:
-            _setter("public_network_access_enabled", public_network_access_enabled)
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if purge_protection_enabled is not None:
-            _setter("purge_protection_enabled", purge_protection_enabled)
+            pulumi.set(__self__, "purge_protection_enabled", purge_protection_enabled)
         if security_domain_key_vault_certificate_ids is not None:
-            _setter("security_domain_key_vault_certificate_ids", security_domain_key_vault_certificate_ids)
+            pulumi.set(__self__, "security_domain_key_vault_certificate_ids", security_domain_key_vault_certificate_ids)
         if security_domain_quorum is not None:
-            _setter("security_domain_quorum", security_domain_quorum)
+            pulumi.set(__self__, "security_domain_quorum", security_domain_quorum)
         if soft_delete_retention_days is not None:
-            _setter("soft_delete_retention_days", soft_delete_retention_days)
+            pulumi.set(__self__, "soft_delete_retention_days", soft_delete_retention_days)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="adminObjectIds")
@@ -324,99 +261,36 @@ class _ManagedHardwareSecurityModuleState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] tenant_id: The Azure Active Directory Tenant ID that should be used for authenticating requests to the key vault Managed Hardware Security Module. Changing this forces a new resource to be created.
         """
-        _ManagedHardwareSecurityModuleState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            admin_object_ids=admin_object_ids,
-            hsm_uri=hsm_uri,
-            location=location,
-            name=name,
-            network_acls=network_acls,
-            public_network_access_enabled=public_network_access_enabled,
-            purge_protection_enabled=purge_protection_enabled,
-            resource_group_name=resource_group_name,
-            security_domain_encrypted_data=security_domain_encrypted_data,
-            security_domain_key_vault_certificate_ids=security_domain_key_vault_certificate_ids,
-            security_domain_quorum=security_domain_quorum,
-            sku_name=sku_name,
-            soft_delete_retention_days=soft_delete_retention_days,
-            tags=tags,
-            tenant_id=tenant_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             admin_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             hsm_uri: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             network_acls: Optional[pulumi.Input['ManagedHardwareSecurityModuleNetworkAclsArgs']] = None,
-             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
-             purge_protection_enabled: Optional[pulumi.Input[bool]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             security_domain_encrypted_data: Optional[pulumi.Input[str]] = None,
-             security_domain_key_vault_certificate_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             security_domain_quorum: Optional[pulumi.Input[int]] = None,
-             sku_name: Optional[pulumi.Input[str]] = None,
-             soft_delete_retention_days: Optional[pulumi.Input[int]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if admin_object_ids is None and 'adminObjectIds' in kwargs:
-            admin_object_ids = kwargs['adminObjectIds']
-        if hsm_uri is None and 'hsmUri' in kwargs:
-            hsm_uri = kwargs['hsmUri']
-        if network_acls is None and 'networkAcls' in kwargs:
-            network_acls = kwargs['networkAcls']
-        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
-            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if purge_protection_enabled is None and 'purgeProtectionEnabled' in kwargs:
-            purge_protection_enabled = kwargs['purgeProtectionEnabled']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if security_domain_encrypted_data is None and 'securityDomainEncryptedData' in kwargs:
-            security_domain_encrypted_data = kwargs['securityDomainEncryptedData']
-        if security_domain_key_vault_certificate_ids is None and 'securityDomainKeyVaultCertificateIds' in kwargs:
-            security_domain_key_vault_certificate_ids = kwargs['securityDomainKeyVaultCertificateIds']
-        if security_domain_quorum is None and 'securityDomainQuorum' in kwargs:
-            security_domain_quorum = kwargs['securityDomainQuorum']
-        if sku_name is None and 'skuName' in kwargs:
-            sku_name = kwargs['skuName']
-        if soft_delete_retention_days is None and 'softDeleteRetentionDays' in kwargs:
-            soft_delete_retention_days = kwargs['softDeleteRetentionDays']
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-
         if admin_object_ids is not None:
-            _setter("admin_object_ids", admin_object_ids)
+            pulumi.set(__self__, "admin_object_ids", admin_object_ids)
         if hsm_uri is not None:
-            _setter("hsm_uri", hsm_uri)
+            pulumi.set(__self__, "hsm_uri", hsm_uri)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if network_acls is not None:
-            _setter("network_acls", network_acls)
+            pulumi.set(__self__, "network_acls", network_acls)
         if public_network_access_enabled is not None:
-            _setter("public_network_access_enabled", public_network_access_enabled)
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if purge_protection_enabled is not None:
-            _setter("purge_protection_enabled", purge_protection_enabled)
+            pulumi.set(__self__, "purge_protection_enabled", purge_protection_enabled)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if security_domain_encrypted_data is not None:
-            _setter("security_domain_encrypted_data", security_domain_encrypted_data)
+            pulumi.set(__self__, "security_domain_encrypted_data", security_domain_encrypted_data)
         if security_domain_key_vault_certificate_ids is not None:
-            _setter("security_domain_key_vault_certificate_ids", security_domain_key_vault_certificate_ids)
+            pulumi.set(__self__, "security_domain_key_vault_certificate_ids", security_domain_key_vault_certificate_ids)
         if security_domain_quorum is not None:
-            _setter("security_domain_quorum", security_domain_quorum)
+            pulumi.set(__self__, "security_domain_quorum", security_domain_quorum)
         if sku_name is not None:
-            _setter("sku_name", sku_name)
+            pulumi.set(__self__, "sku_name", sku_name)
         if soft_delete_retention_days is not None:
-            _setter("soft_delete_retention_days", soft_delete_retention_days)
+            pulumi.set(__self__, "soft_delete_retention_days", soft_delete_retention_days)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tenant_id is not None:
-            _setter("tenant_id", tenant_id)
+            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="adminObjectIds")
@@ -718,10 +592,6 @@ class ManagedHardwareSecurityModule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ManagedHardwareSecurityModuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -754,7 +624,6 @@ class ManagedHardwareSecurityModule(pulumi.CustomResource):
             __props__.__dict__["admin_object_ids"] = admin_object_ids
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
-            network_acls = _utilities.configure(network_acls, ManagedHardwareSecurityModuleNetworkAclsArgs, True)
             __props__.__dict__["network_acls"] = network_acls
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             __props__.__dict__["purge_protection_enabled"] = purge_protection_enabled

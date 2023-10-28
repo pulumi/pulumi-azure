@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,34 +27,13 @@ class SubscriptionPricingArgs:
         :param pulumi.Input[str] resource_type: The resource type this setting affects. Possible values are `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
         :param pulumi.Input[str] subplan: Resource type pricing subplan. Contact your MSFT representative for possible values.
         """
-        SubscriptionPricingArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            tier=tier,
-            extensions=extensions,
-            resource_type=resource_type,
-            subplan=subplan,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             tier: Optional[pulumi.Input[str]] = None,
-             extensions: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionPricingExtensionArgs']]]] = None,
-             resource_type: Optional[pulumi.Input[str]] = None,
-             subplan: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if tier is None:
-            raise TypeError("Missing 'tier' argument")
-        if resource_type is None and 'resourceType' in kwargs:
-            resource_type = kwargs['resourceType']
-
-        _setter("tier", tier)
+        pulumi.set(__self__, "tier", tier)
         if extensions is not None:
-            _setter("extensions", extensions)
+            pulumi.set(__self__, "extensions", extensions)
         if resource_type is not None:
-            _setter("resource_type", resource_type)
+            pulumi.set(__self__, "resource_type", resource_type)
         if subplan is not None:
-            _setter("subplan", subplan)
+            pulumi.set(__self__, "subplan", subplan)
 
     @property
     @pulumi.getter
@@ -119,33 +98,14 @@ class _SubscriptionPricingState:
         :param pulumi.Input[str] subplan: Resource type pricing subplan. Contact your MSFT representative for possible values.
         :param pulumi.Input[str] tier: The pricing tier to use. Possible values are `Free` and `Standard`.
         """
-        _SubscriptionPricingState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            extensions=extensions,
-            resource_type=resource_type,
-            subplan=subplan,
-            tier=tier,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             extensions: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionPricingExtensionArgs']]]] = None,
-             resource_type: Optional[pulumi.Input[str]] = None,
-             subplan: Optional[pulumi.Input[str]] = None,
-             tier: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_type is None and 'resourceType' in kwargs:
-            resource_type = kwargs['resourceType']
-
         if extensions is not None:
-            _setter("extensions", extensions)
+            pulumi.set(__self__, "extensions", extensions)
         if resource_type is not None:
-            _setter("resource_type", resource_type)
+            pulumi.set(__self__, "resource_type", resource_type)
         if subplan is not None:
-            _setter("subplan", subplan)
+            pulumi.set(__self__, "subplan", subplan)
         if tier is not None:
-            _setter("tier", tier)
+            pulumi.set(__self__, "tier", tier)
 
     @property
     @pulumi.getter
@@ -333,10 +293,6 @@ class SubscriptionPricing(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SubscriptionPricingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ApiTagArgs', 'ApiTag']
@@ -21,26 +21,9 @@ class ApiTagArgs:
         :param pulumi.Input[str] api_id: The ID of the API Management API. Changing this forces a new API Management API Tag to be created.
         :param pulumi.Input[str] name: The name of the tag. It must be known in the API Management instance. Changing this forces a new API Management API Tag to be created.
         """
-        ApiTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_id=api_id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_id is None and 'apiId' in kwargs:
-            api_id = kwargs['apiId']
-        if api_id is None:
-            raise TypeError("Missing 'api_id' argument")
-
-        _setter("api_id", api_id)
+        pulumi.set(__self__, "api_id", api_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="apiId")
@@ -77,25 +60,10 @@ class _ApiTagState:
         :param pulumi.Input[str] api_id: The ID of the API Management API. Changing this forces a new API Management API Tag to be created.
         :param pulumi.Input[str] name: The name of the tag. It must be known in the API Management instance. Changing this forces a new API Management API Tag to be created.
         """
-        _ApiTagState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_id=api_id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_id is None and 'apiId' in kwargs:
-            api_id = kwargs['apiId']
-
         if api_id is not None:
-            _setter("api_id", api_id)
+            pulumi.set(__self__, "api_id", api_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="apiId")
@@ -207,10 +175,6 @@ class ApiTag(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ApiTagArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

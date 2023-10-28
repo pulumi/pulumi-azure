@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -127,27 +127,12 @@ class ApiContact(dict):
         :param str name: The name of the contact person/organization.
         :param str url: Absolute URL of the contact information.
         """
-        ApiContact._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            email=email,
-            name=name,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             email: Optional[str] = None,
-             name: Optional[str] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if email is not None:
-            _setter("email", email)
+            pulumi.set(__self__, "email", email)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if url is not None:
-            _setter("url", url)
+            pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -206,33 +191,12 @@ class ApiDiagnosticBackendRequest(dict):
         :param 'ApiDiagnosticBackendRequestDataMaskingArgs' data_masking: A `data_masking` block as defined below.
         :param Sequence[str] headers_to_logs: Specifies a list of headers to log.
         """
-        ApiDiagnosticBackendRequest._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            body_bytes=body_bytes,
-            data_masking=data_masking,
-            headers_to_logs=headers_to_logs,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             body_bytes: Optional[int] = None,
-             data_masking: Optional['outputs.ApiDiagnosticBackendRequestDataMasking'] = None,
-             headers_to_logs: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if body_bytes is None and 'bodyBytes' in kwargs:
-            body_bytes = kwargs['bodyBytes']
-        if data_masking is None and 'dataMasking' in kwargs:
-            data_masking = kwargs['dataMasking']
-        if headers_to_logs is None and 'headersToLogs' in kwargs:
-            headers_to_logs = kwargs['headersToLogs']
-
         if body_bytes is not None:
-            _setter("body_bytes", body_bytes)
+            pulumi.set(__self__, "body_bytes", body_bytes)
         if data_masking is not None:
-            _setter("data_masking", data_masking)
+            pulumi.set(__self__, "data_masking", data_masking)
         if headers_to_logs is not None:
-            _setter("headers_to_logs", headers_to_logs)
+            pulumi.set(__self__, "headers_to_logs", headers_to_logs)
 
     @property
     @pulumi.getter(name="bodyBytes")
@@ -285,25 +249,10 @@ class ApiDiagnosticBackendRequestDataMasking(dict):
         :param Sequence['ApiDiagnosticBackendRequestDataMaskingHeaderArgs'] headers: A `headers` block as defined below.
         :param Sequence['ApiDiagnosticBackendRequestDataMaskingQueryParamArgs'] query_params: A `query_params` block as defined below.
         """
-        ApiDiagnosticBackendRequestDataMasking._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            headers=headers,
-            query_params=query_params,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             headers: Optional[Sequence['outputs.ApiDiagnosticBackendRequestDataMaskingHeader']] = None,
-             query_params: Optional[Sequence['outputs.ApiDiagnosticBackendRequestDataMaskingQueryParam']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if query_params is None and 'queryParams' in kwargs:
-            query_params = kwargs['queryParams']
-
         if headers is not None:
-            _setter("headers", headers)
+            pulumi.set(__self__, "headers", headers)
         if query_params is not None:
-            _setter("query_params", query_params)
+            pulumi.set(__self__, "query_params", query_params)
 
     @property
     @pulumi.getter
@@ -331,25 +280,8 @@ class ApiDiagnosticBackendRequestDataMaskingHeader(dict):
         :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
         :param str value: The name of the header or the query parameter to mask.
         """
-        ApiDiagnosticBackendRequestDataMaskingHeader._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            mode=mode,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             mode: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if mode is None:
-            raise TypeError("Missing 'mode' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("mode", mode)
-        _setter("value", value)
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -377,25 +309,8 @@ class ApiDiagnosticBackendRequestDataMaskingQueryParam(dict):
         :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
         :param str value: The name of the header or the query parameter to mask.
         """
-        ApiDiagnosticBackendRequestDataMaskingQueryParam._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            mode=mode,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             mode: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if mode is None:
-            raise TypeError("Missing 'mode' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("mode", mode)
-        _setter("value", value)
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -446,33 +361,12 @@ class ApiDiagnosticBackendResponse(dict):
         :param 'ApiDiagnosticBackendResponseDataMaskingArgs' data_masking: A `data_masking` block as defined below.
         :param Sequence[str] headers_to_logs: Specifies a list of headers to log.
         """
-        ApiDiagnosticBackendResponse._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            body_bytes=body_bytes,
-            data_masking=data_masking,
-            headers_to_logs=headers_to_logs,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             body_bytes: Optional[int] = None,
-             data_masking: Optional['outputs.ApiDiagnosticBackendResponseDataMasking'] = None,
-             headers_to_logs: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if body_bytes is None and 'bodyBytes' in kwargs:
-            body_bytes = kwargs['bodyBytes']
-        if data_masking is None and 'dataMasking' in kwargs:
-            data_masking = kwargs['dataMasking']
-        if headers_to_logs is None and 'headersToLogs' in kwargs:
-            headers_to_logs = kwargs['headersToLogs']
-
         if body_bytes is not None:
-            _setter("body_bytes", body_bytes)
+            pulumi.set(__self__, "body_bytes", body_bytes)
         if data_masking is not None:
-            _setter("data_masking", data_masking)
+            pulumi.set(__self__, "data_masking", data_masking)
         if headers_to_logs is not None:
-            _setter("headers_to_logs", headers_to_logs)
+            pulumi.set(__self__, "headers_to_logs", headers_to_logs)
 
     @property
     @pulumi.getter(name="bodyBytes")
@@ -525,25 +419,10 @@ class ApiDiagnosticBackendResponseDataMasking(dict):
         :param Sequence['ApiDiagnosticBackendResponseDataMaskingHeaderArgs'] headers: A `headers` block as defined below.
         :param Sequence['ApiDiagnosticBackendResponseDataMaskingQueryParamArgs'] query_params: A `query_params` block as defined below.
         """
-        ApiDiagnosticBackendResponseDataMasking._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            headers=headers,
-            query_params=query_params,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             headers: Optional[Sequence['outputs.ApiDiagnosticBackendResponseDataMaskingHeader']] = None,
-             query_params: Optional[Sequence['outputs.ApiDiagnosticBackendResponseDataMaskingQueryParam']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if query_params is None and 'queryParams' in kwargs:
-            query_params = kwargs['queryParams']
-
         if headers is not None:
-            _setter("headers", headers)
+            pulumi.set(__self__, "headers", headers)
         if query_params is not None:
-            _setter("query_params", query_params)
+            pulumi.set(__self__, "query_params", query_params)
 
     @property
     @pulumi.getter
@@ -571,25 +450,8 @@ class ApiDiagnosticBackendResponseDataMaskingHeader(dict):
         :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
         :param str value: The name of the header or the query parameter to mask.
         """
-        ApiDiagnosticBackendResponseDataMaskingHeader._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            mode=mode,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             mode: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if mode is None:
-            raise TypeError("Missing 'mode' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("mode", mode)
-        _setter("value", value)
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -617,25 +479,8 @@ class ApiDiagnosticBackendResponseDataMaskingQueryParam(dict):
         :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
         :param str value: The name of the header or the query parameter to mask.
         """
-        ApiDiagnosticBackendResponseDataMaskingQueryParam._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            mode=mode,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             mode: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if mode is None:
-            raise TypeError("Missing 'mode' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("mode", mode)
-        _setter("value", value)
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -686,33 +531,12 @@ class ApiDiagnosticFrontendRequest(dict):
         :param 'ApiDiagnosticFrontendRequestDataMaskingArgs' data_masking: A `data_masking` block as defined below.
         :param Sequence[str] headers_to_logs: Specifies a list of headers to log.
         """
-        ApiDiagnosticFrontendRequest._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            body_bytes=body_bytes,
-            data_masking=data_masking,
-            headers_to_logs=headers_to_logs,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             body_bytes: Optional[int] = None,
-             data_masking: Optional['outputs.ApiDiagnosticFrontendRequestDataMasking'] = None,
-             headers_to_logs: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if body_bytes is None and 'bodyBytes' in kwargs:
-            body_bytes = kwargs['bodyBytes']
-        if data_masking is None and 'dataMasking' in kwargs:
-            data_masking = kwargs['dataMasking']
-        if headers_to_logs is None and 'headersToLogs' in kwargs:
-            headers_to_logs = kwargs['headersToLogs']
-
         if body_bytes is not None:
-            _setter("body_bytes", body_bytes)
+            pulumi.set(__self__, "body_bytes", body_bytes)
         if data_masking is not None:
-            _setter("data_masking", data_masking)
+            pulumi.set(__self__, "data_masking", data_masking)
         if headers_to_logs is not None:
-            _setter("headers_to_logs", headers_to_logs)
+            pulumi.set(__self__, "headers_to_logs", headers_to_logs)
 
     @property
     @pulumi.getter(name="bodyBytes")
@@ -765,25 +589,10 @@ class ApiDiagnosticFrontendRequestDataMasking(dict):
         :param Sequence['ApiDiagnosticFrontendRequestDataMaskingHeaderArgs'] headers: A `headers` block as defined below.
         :param Sequence['ApiDiagnosticFrontendRequestDataMaskingQueryParamArgs'] query_params: A `query_params` block as defined below.
         """
-        ApiDiagnosticFrontendRequestDataMasking._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            headers=headers,
-            query_params=query_params,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             headers: Optional[Sequence['outputs.ApiDiagnosticFrontendRequestDataMaskingHeader']] = None,
-             query_params: Optional[Sequence['outputs.ApiDiagnosticFrontendRequestDataMaskingQueryParam']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if query_params is None and 'queryParams' in kwargs:
-            query_params = kwargs['queryParams']
-
         if headers is not None:
-            _setter("headers", headers)
+            pulumi.set(__self__, "headers", headers)
         if query_params is not None:
-            _setter("query_params", query_params)
+            pulumi.set(__self__, "query_params", query_params)
 
     @property
     @pulumi.getter
@@ -811,25 +620,8 @@ class ApiDiagnosticFrontendRequestDataMaskingHeader(dict):
         :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
         :param str value: The name of the header or the query parameter to mask.
         """
-        ApiDiagnosticFrontendRequestDataMaskingHeader._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            mode=mode,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             mode: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if mode is None:
-            raise TypeError("Missing 'mode' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("mode", mode)
-        _setter("value", value)
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -857,25 +649,8 @@ class ApiDiagnosticFrontendRequestDataMaskingQueryParam(dict):
         :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
         :param str value: The name of the header or the query parameter to mask.
         """
-        ApiDiagnosticFrontendRequestDataMaskingQueryParam._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            mode=mode,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             mode: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if mode is None:
-            raise TypeError("Missing 'mode' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("mode", mode)
-        _setter("value", value)
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -926,33 +701,12 @@ class ApiDiagnosticFrontendResponse(dict):
         :param 'ApiDiagnosticFrontendResponseDataMaskingArgs' data_masking: A `data_masking` block as defined below.
         :param Sequence[str] headers_to_logs: Specifies a list of headers to log.
         """
-        ApiDiagnosticFrontendResponse._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            body_bytes=body_bytes,
-            data_masking=data_masking,
-            headers_to_logs=headers_to_logs,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             body_bytes: Optional[int] = None,
-             data_masking: Optional['outputs.ApiDiagnosticFrontendResponseDataMasking'] = None,
-             headers_to_logs: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if body_bytes is None and 'bodyBytes' in kwargs:
-            body_bytes = kwargs['bodyBytes']
-        if data_masking is None and 'dataMasking' in kwargs:
-            data_masking = kwargs['dataMasking']
-        if headers_to_logs is None and 'headersToLogs' in kwargs:
-            headers_to_logs = kwargs['headersToLogs']
-
         if body_bytes is not None:
-            _setter("body_bytes", body_bytes)
+            pulumi.set(__self__, "body_bytes", body_bytes)
         if data_masking is not None:
-            _setter("data_masking", data_masking)
+            pulumi.set(__self__, "data_masking", data_masking)
         if headers_to_logs is not None:
-            _setter("headers_to_logs", headers_to_logs)
+            pulumi.set(__self__, "headers_to_logs", headers_to_logs)
 
     @property
     @pulumi.getter(name="bodyBytes")
@@ -1005,25 +759,10 @@ class ApiDiagnosticFrontendResponseDataMasking(dict):
         :param Sequence['ApiDiagnosticFrontendResponseDataMaskingHeaderArgs'] headers: A `headers` block as defined below.
         :param Sequence['ApiDiagnosticFrontendResponseDataMaskingQueryParamArgs'] query_params: A `query_params` block as defined below.
         """
-        ApiDiagnosticFrontendResponseDataMasking._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            headers=headers,
-            query_params=query_params,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             headers: Optional[Sequence['outputs.ApiDiagnosticFrontendResponseDataMaskingHeader']] = None,
-             query_params: Optional[Sequence['outputs.ApiDiagnosticFrontendResponseDataMaskingQueryParam']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if query_params is None and 'queryParams' in kwargs:
-            query_params = kwargs['queryParams']
-
         if headers is not None:
-            _setter("headers", headers)
+            pulumi.set(__self__, "headers", headers)
         if query_params is not None:
-            _setter("query_params", query_params)
+            pulumi.set(__self__, "query_params", query_params)
 
     @property
     @pulumi.getter
@@ -1051,25 +790,8 @@ class ApiDiagnosticFrontendResponseDataMaskingHeader(dict):
         :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
         :param str value: The name of the header or the query parameter to mask.
         """
-        ApiDiagnosticFrontendResponseDataMaskingHeader._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            mode=mode,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             mode: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if mode is None:
-            raise TypeError("Missing 'mode' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("mode", mode)
-        _setter("value", value)
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1097,25 +819,8 @@ class ApiDiagnosticFrontendResponseDataMaskingQueryParam(dict):
         :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
         :param str value: The name of the header or the query parameter to mask.
         """
-        ApiDiagnosticFrontendResponseDataMaskingQueryParam._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            mode=mode,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             mode: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if mode is None:
-            raise TypeError("Missing 'mode' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("mode", mode)
-        _setter("value", value)
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1166,35 +871,10 @@ class ApiImport(dict):
         :param str content_value: The Content from which the API Definition should be imported. When a `content_format` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline.
         :param 'ApiImportWsdlSelectorArgs' wsdl_selector: A `wsdl_selector` block as defined below, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when `content_format` is `wsdl` or `wsdl-link`.
         """
-        ApiImport._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            content_format=content_format,
-            content_value=content_value,
-            wsdl_selector=wsdl_selector,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             content_format: Optional[str] = None,
-             content_value: Optional[str] = None,
-             wsdl_selector: Optional['outputs.ApiImportWsdlSelector'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if content_format is None and 'contentFormat' in kwargs:
-            content_format = kwargs['contentFormat']
-        if content_format is None:
-            raise TypeError("Missing 'content_format' argument")
-        if content_value is None and 'contentValue' in kwargs:
-            content_value = kwargs['contentValue']
-        if content_value is None:
-            raise TypeError("Missing 'content_value' argument")
-        if wsdl_selector is None and 'wsdlSelector' in kwargs:
-            wsdl_selector = kwargs['wsdlSelector']
-
-        _setter("content_format", content_format)
-        _setter("content_value", content_value)
+        pulumi.set(__self__, "content_format", content_format)
+        pulumi.set(__self__, "content_value", content_value)
         if wsdl_selector is not None:
-            _setter("wsdl_selector", wsdl_selector)
+            pulumi.set(__self__, "wsdl_selector", wsdl_selector)
 
     @property
     @pulumi.getter(name="contentFormat")
@@ -1249,29 +929,8 @@ class ApiImportWsdlSelector(dict):
         :param str endpoint_name: The name of endpoint (port) to import from WSDL.
         :param str service_name: The name of service to import from WSDL.
         """
-        ApiImportWsdlSelector._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            endpoint_name=endpoint_name,
-            service_name=service_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             endpoint_name: Optional[str] = None,
-             service_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if endpoint_name is None and 'endpointName' in kwargs:
-            endpoint_name = kwargs['endpointName']
-        if endpoint_name is None:
-            raise TypeError("Missing 'endpoint_name' argument")
-        if service_name is None and 'serviceName' in kwargs:
-            service_name = kwargs['serviceName']
-        if service_name is None:
-            raise TypeError("Missing 'service_name' argument")
-
-        _setter("endpoint_name", endpoint_name)
-        _setter("service_name", service_name)
+        pulumi.set(__self__, "endpoint_name", endpoint_name)
+        pulumi.set(__self__, "service_name", service_name)
 
     @property
     @pulumi.getter(name="endpointName")
@@ -1299,23 +958,10 @@ class ApiLicense(dict):
         :param str name: The name of the license .
         :param str url: Absolute URL of the license.
         """
-        ApiLicense._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if url is not None:
-            _setter("url", url)
+            pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -1360,26 +1006,9 @@ class ApiOauth2Authorization(dict):
         :param str authorization_server_name: OAuth authorization server identifier. The name of an OAuth2 Authorization Server.
         :param str scope: Operations scope.
         """
-        ApiOauth2Authorization._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            authorization_server_name=authorization_server_name,
-            scope=scope,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             authorization_server_name: Optional[str] = None,
-             scope: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if authorization_server_name is None and 'authorizationServerName' in kwargs:
-            authorization_server_name = kwargs['authorizationServerName']
-        if authorization_server_name is None:
-            raise TypeError("Missing 'authorization_server_name' argument")
-
-        _setter("authorization_server_name", authorization_server_name)
+        pulumi.set(__self__, "authorization_server_name", authorization_server_name)
         if scope is not None:
-            _setter("scope", scope)
+            pulumi.set(__self__, "scope", scope)
 
     @property
     @pulumi.getter(name="authorizationServerName")
@@ -1426,28 +1055,9 @@ class ApiOpenidAuthentication(dict):
         :param str openid_provider_name: OpenID Connect provider identifier. The name of an OpenID Connect Provider.
         :param Sequence[str] bearer_token_sending_methods: How to send token to the server. A list of zero or more methods. Valid values are `authorizationHeader` and `query`.
         """
-        ApiOpenidAuthentication._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            openid_provider_name=openid_provider_name,
-            bearer_token_sending_methods=bearer_token_sending_methods,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             openid_provider_name: Optional[str] = None,
-             bearer_token_sending_methods: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if openid_provider_name is None and 'openidProviderName' in kwargs:
-            openid_provider_name = kwargs['openidProviderName']
-        if openid_provider_name is None:
-            raise TypeError("Missing 'openid_provider_name' argument")
-        if bearer_token_sending_methods is None and 'bearerTokenSendingMethods' in kwargs:
-            bearer_token_sending_methods = kwargs['bearerTokenSendingMethods']
-
-        _setter("openid_provider_name", openid_provider_name)
+        pulumi.set(__self__, "openid_provider_name", openid_provider_name)
         if bearer_token_sending_methods is not None:
-            _setter("bearer_token_sending_methods", bearer_token_sending_methods)
+            pulumi.set(__self__, "bearer_token_sending_methods", bearer_token_sending_methods)
 
     @property
     @pulumi.getter(name="openidProviderName")
@@ -1496,33 +1106,14 @@ class ApiOperationRequest(dict):
         :param Sequence['ApiOperationRequestQueryParameterArgs'] query_parameters: One or more `query_parameter` blocks as defined above.
         :param Sequence['ApiOperationRequestRepresentationArgs'] representations: One or more `representation` blocks as defined below.
         """
-        ApiOperationRequest._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            headers=headers,
-            query_parameters=query_parameters,
-            representations=representations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[str] = None,
-             headers: Optional[Sequence['outputs.ApiOperationRequestHeader']] = None,
-             query_parameters: Optional[Sequence['outputs.ApiOperationRequestQueryParameter']] = None,
-             representations: Optional[Sequence['outputs.ApiOperationRequestRepresentation']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if query_parameters is None and 'queryParameters' in kwargs:
-            query_parameters = kwargs['queryParameters']
-
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if headers is not None:
-            _setter("headers", headers)
+            pulumi.set(__self__, "headers", headers)
         if query_parameters is not None:
-            _setter("query_parameters", query_parameters)
+            pulumi.set(__self__, "query_parameters", query_parameters)
         if representations is not None:
-            _setter("representations", representations)
+            pulumi.set(__self__, "representations", representations)
 
     @property
     @pulumi.getter
@@ -1601,60 +1192,21 @@ class ApiOperationRequestHeader(dict):
         :param str type_name: The type name defined by the Schema.
         :param Sequence[str] values: One or more acceptable values for this Header.
         """
-        ApiOperationRequestHeader._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            required=required,
-            type=type,
-            default_value=default_value,
-            description=description,
-            examples=examples,
-            schema_id=schema_id,
-            type_name=type_name,
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             required: Optional[bool] = None,
-             type: Optional[str] = None,
-             default_value: Optional[str] = None,
-             description: Optional[str] = None,
-             examples: Optional[Sequence['outputs.ApiOperationRequestHeaderExample']] = None,
-             schema_id: Optional[str] = None,
-             type_name: Optional[str] = None,
-             values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if required is None:
-            raise TypeError("Missing 'required' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if default_value is None and 'defaultValue' in kwargs:
-            default_value = kwargs['defaultValue']
-        if schema_id is None and 'schemaId' in kwargs:
-            schema_id = kwargs['schemaId']
-        if type_name is None and 'typeName' in kwargs:
-            type_name = kwargs['typeName']
-
-        _setter("name", name)
-        _setter("required", required)
-        _setter("type", type)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "required", required)
+        pulumi.set(__self__, "type", type)
         if default_value is not None:
-            _setter("default_value", default_value)
+            pulumi.set(__self__, "default_value", default_value)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if examples is not None:
-            _setter("examples", examples)
+            pulumi.set(__self__, "examples", examples)
         if schema_id is not None:
-            _setter("schema_id", schema_id)
+            pulumi.set(__self__, "schema_id", schema_id)
         if type_name is not None:
-            _setter("type_name", type_name)
+            pulumi.set(__self__, "type_name", type_name)
         if values is not None:
-            _setter("values", values)
+            pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
@@ -1761,38 +1313,15 @@ class ApiOperationRequestHeaderExample(dict):
         :param str summary: A short description for this example.
         :param str value: The example of the representation.
         """
-        ApiOperationRequestHeaderExample._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            description=description,
-            external_value=external_value,
-            summary=summary,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             description: Optional[str] = None,
-             external_value: Optional[str] = None,
-             summary: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if external_value is None and 'externalValue' in kwargs:
-            external_value = kwargs['externalValue']
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if external_value is not None:
-            _setter("external_value", external_value)
+            pulumi.set(__self__, "external_value", external_value)
         if summary is not None:
-            _setter("summary", summary)
+            pulumi.set(__self__, "summary", summary)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1879,60 +1408,21 @@ class ApiOperationRequestQueryParameter(dict):
         :param str type_name: The type name defined by the Schema.
         :param Sequence[str] values: One or more acceptable values for this Query Parameter.
         """
-        ApiOperationRequestQueryParameter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            required=required,
-            type=type,
-            default_value=default_value,
-            description=description,
-            examples=examples,
-            schema_id=schema_id,
-            type_name=type_name,
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             required: Optional[bool] = None,
-             type: Optional[str] = None,
-             default_value: Optional[str] = None,
-             description: Optional[str] = None,
-             examples: Optional[Sequence['outputs.ApiOperationRequestQueryParameterExample']] = None,
-             schema_id: Optional[str] = None,
-             type_name: Optional[str] = None,
-             values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if required is None:
-            raise TypeError("Missing 'required' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if default_value is None and 'defaultValue' in kwargs:
-            default_value = kwargs['defaultValue']
-        if schema_id is None and 'schemaId' in kwargs:
-            schema_id = kwargs['schemaId']
-        if type_name is None and 'typeName' in kwargs:
-            type_name = kwargs['typeName']
-
-        _setter("name", name)
-        _setter("required", required)
-        _setter("type", type)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "required", required)
+        pulumi.set(__self__, "type", type)
         if default_value is not None:
-            _setter("default_value", default_value)
+            pulumi.set(__self__, "default_value", default_value)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if examples is not None:
-            _setter("examples", examples)
+            pulumi.set(__self__, "examples", examples)
         if schema_id is not None:
-            _setter("schema_id", schema_id)
+            pulumi.set(__self__, "schema_id", schema_id)
         if type_name is not None:
-            _setter("type_name", type_name)
+            pulumi.set(__self__, "type_name", type_name)
         if values is not None:
-            _setter("values", values)
+            pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
@@ -2039,38 +1529,15 @@ class ApiOperationRequestQueryParameterExample(dict):
         :param str summary: A short description for this example.
         :param str value: The example of the representation.
         """
-        ApiOperationRequestQueryParameterExample._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            description=description,
-            external_value=external_value,
-            summary=summary,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             description: Optional[str] = None,
-             external_value: Optional[str] = None,
-             summary: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if external_value is None and 'externalValue' in kwargs:
-            external_value = kwargs['externalValue']
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if external_value is not None:
-            _setter("external_value", external_value)
+            pulumi.set(__self__, "external_value", external_value)
         if summary is not None:
-            _setter("summary", summary)
+            pulumi.set(__self__, "summary", summary)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -2157,44 +1624,15 @@ class ApiOperationRequestRepresentation(dict):
                
                > **NOTE:** This can only be specified when `content_type` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
         """
-        ApiOperationRequestRepresentation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            content_type=content_type,
-            examples=examples,
-            form_parameters=form_parameters,
-            schema_id=schema_id,
-            type_name=type_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             content_type: Optional[str] = None,
-             examples: Optional[Sequence['outputs.ApiOperationRequestRepresentationExample']] = None,
-             form_parameters: Optional[Sequence['outputs.ApiOperationRequestRepresentationFormParameter']] = None,
-             schema_id: Optional[str] = None,
-             type_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if content_type is None and 'contentType' in kwargs:
-            content_type = kwargs['contentType']
-        if content_type is None:
-            raise TypeError("Missing 'content_type' argument")
-        if form_parameters is None and 'formParameters' in kwargs:
-            form_parameters = kwargs['formParameters']
-        if schema_id is None and 'schemaId' in kwargs:
-            schema_id = kwargs['schemaId']
-        if type_name is None and 'typeName' in kwargs:
-            type_name = kwargs['typeName']
-
-        _setter("content_type", content_type)
+        pulumi.set(__self__, "content_type", content_type)
         if examples is not None:
-            _setter("examples", examples)
+            pulumi.set(__self__, "examples", examples)
         if form_parameters is not None:
-            _setter("form_parameters", form_parameters)
+            pulumi.set(__self__, "form_parameters", form_parameters)
         if schema_id is not None:
-            _setter("schema_id", schema_id)
+            pulumi.set(__self__, "schema_id", schema_id)
         if type_name is not None:
-            _setter("type_name", type_name)
+            pulumi.set(__self__, "type_name", type_name)
 
     @property
     @pulumi.getter(name="contentType")
@@ -2275,38 +1713,15 @@ class ApiOperationRequestRepresentationExample(dict):
         :param str summary: A short description for this example.
         :param str value: The example of the representation.
         """
-        ApiOperationRequestRepresentationExample._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            description=description,
-            external_value=external_value,
-            summary=summary,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             description: Optional[str] = None,
-             external_value: Optional[str] = None,
-             summary: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if external_value is None and 'externalValue' in kwargs:
-            external_value = kwargs['externalValue']
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if external_value is not None:
-            _setter("external_value", external_value)
+            pulumi.set(__self__, "external_value", external_value)
         if summary is not None:
-            _setter("summary", summary)
+            pulumi.set(__self__, "summary", summary)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -2393,60 +1808,21 @@ class ApiOperationRequestRepresentationFormParameter(dict):
         :param str type_name: The type name defined by the Schema.
         :param Sequence[str] values: One or more acceptable values for this Form Parameter.
         """
-        ApiOperationRequestRepresentationFormParameter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            required=required,
-            type=type,
-            default_value=default_value,
-            description=description,
-            examples=examples,
-            schema_id=schema_id,
-            type_name=type_name,
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             required: Optional[bool] = None,
-             type: Optional[str] = None,
-             default_value: Optional[str] = None,
-             description: Optional[str] = None,
-             examples: Optional[Sequence['outputs.ApiOperationRequestRepresentationFormParameterExample']] = None,
-             schema_id: Optional[str] = None,
-             type_name: Optional[str] = None,
-             values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if required is None:
-            raise TypeError("Missing 'required' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if default_value is None and 'defaultValue' in kwargs:
-            default_value = kwargs['defaultValue']
-        if schema_id is None and 'schemaId' in kwargs:
-            schema_id = kwargs['schemaId']
-        if type_name is None and 'typeName' in kwargs:
-            type_name = kwargs['typeName']
-
-        _setter("name", name)
-        _setter("required", required)
-        _setter("type", type)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "required", required)
+        pulumi.set(__self__, "type", type)
         if default_value is not None:
-            _setter("default_value", default_value)
+            pulumi.set(__self__, "default_value", default_value)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if examples is not None:
-            _setter("examples", examples)
+            pulumi.set(__self__, "examples", examples)
         if schema_id is not None:
-            _setter("schema_id", schema_id)
+            pulumi.set(__self__, "schema_id", schema_id)
         if type_name is not None:
-            _setter("type_name", type_name)
+            pulumi.set(__self__, "type_name", type_name)
         if values is not None:
-            _setter("values", values)
+            pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
@@ -2553,38 +1929,15 @@ class ApiOperationRequestRepresentationFormParameterExample(dict):
         :param str summary: A short description for this example.
         :param str value: The example of the representation.
         """
-        ApiOperationRequestRepresentationFormParameterExample._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            description=description,
-            external_value=external_value,
-            summary=summary,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             description: Optional[str] = None,
-             external_value: Optional[str] = None,
-             summary: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if external_value is None and 'externalValue' in kwargs:
-            external_value = kwargs['externalValue']
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if external_value is not None:
-            _setter("external_value", external_value)
+            pulumi.set(__self__, "external_value", external_value)
         if summary is not None:
-            _setter("summary", summary)
+            pulumi.set(__self__, "summary", summary)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -2657,34 +2010,13 @@ class ApiOperationResponse(dict):
         :param Sequence['ApiOperationResponseHeaderArgs'] headers: One or more `header` blocks as defined above.
         :param Sequence['ApiOperationResponseRepresentationArgs'] representations: One or more `representation` blocks as defined below.
         """
-        ApiOperationResponse._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            status_code=status_code,
-            description=description,
-            headers=headers,
-            representations=representations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             status_code: Optional[int] = None,
-             description: Optional[str] = None,
-             headers: Optional[Sequence['outputs.ApiOperationResponseHeader']] = None,
-             representations: Optional[Sequence['outputs.ApiOperationResponseRepresentation']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if status_code is None and 'statusCode' in kwargs:
-            status_code = kwargs['statusCode']
-        if status_code is None:
-            raise TypeError("Missing 'status_code' argument")
-
-        _setter("status_code", status_code)
+        pulumi.set(__self__, "status_code", status_code)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if headers is not None:
-            _setter("headers", headers)
+            pulumi.set(__self__, "headers", headers)
         if representations is not None:
-            _setter("representations", representations)
+            pulumi.set(__self__, "representations", representations)
 
     @property
     @pulumi.getter(name="statusCode")
@@ -2763,60 +2095,21 @@ class ApiOperationResponseHeader(dict):
         :param str type_name: The type name defined by the Schema.
         :param Sequence[str] values: One or more acceptable values for this Header.
         """
-        ApiOperationResponseHeader._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            required=required,
-            type=type,
-            default_value=default_value,
-            description=description,
-            examples=examples,
-            schema_id=schema_id,
-            type_name=type_name,
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             required: Optional[bool] = None,
-             type: Optional[str] = None,
-             default_value: Optional[str] = None,
-             description: Optional[str] = None,
-             examples: Optional[Sequence['outputs.ApiOperationResponseHeaderExample']] = None,
-             schema_id: Optional[str] = None,
-             type_name: Optional[str] = None,
-             values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if required is None:
-            raise TypeError("Missing 'required' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if default_value is None and 'defaultValue' in kwargs:
-            default_value = kwargs['defaultValue']
-        if schema_id is None and 'schemaId' in kwargs:
-            schema_id = kwargs['schemaId']
-        if type_name is None and 'typeName' in kwargs:
-            type_name = kwargs['typeName']
-
-        _setter("name", name)
-        _setter("required", required)
-        _setter("type", type)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "required", required)
+        pulumi.set(__self__, "type", type)
         if default_value is not None:
-            _setter("default_value", default_value)
+            pulumi.set(__self__, "default_value", default_value)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if examples is not None:
-            _setter("examples", examples)
+            pulumi.set(__self__, "examples", examples)
         if schema_id is not None:
-            _setter("schema_id", schema_id)
+            pulumi.set(__self__, "schema_id", schema_id)
         if type_name is not None:
-            _setter("type_name", type_name)
+            pulumi.set(__self__, "type_name", type_name)
         if values is not None:
-            _setter("values", values)
+            pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
@@ -2923,38 +2216,15 @@ class ApiOperationResponseHeaderExample(dict):
         :param str summary: A short description for this example.
         :param str value: The example of the representation.
         """
-        ApiOperationResponseHeaderExample._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            description=description,
-            external_value=external_value,
-            summary=summary,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             description: Optional[str] = None,
-             external_value: Optional[str] = None,
-             summary: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if external_value is None and 'externalValue' in kwargs:
-            external_value = kwargs['externalValue']
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if external_value is not None:
-            _setter("external_value", external_value)
+            pulumi.set(__self__, "external_value", external_value)
         if summary is not None:
-            _setter("summary", summary)
+            pulumi.set(__self__, "summary", summary)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -3041,44 +2311,15 @@ class ApiOperationResponseRepresentation(dict):
                
                > **NOTE:** This can only be specified when `content_type` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
         """
-        ApiOperationResponseRepresentation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            content_type=content_type,
-            examples=examples,
-            form_parameters=form_parameters,
-            schema_id=schema_id,
-            type_name=type_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             content_type: Optional[str] = None,
-             examples: Optional[Sequence['outputs.ApiOperationResponseRepresentationExample']] = None,
-             form_parameters: Optional[Sequence['outputs.ApiOperationResponseRepresentationFormParameter']] = None,
-             schema_id: Optional[str] = None,
-             type_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if content_type is None and 'contentType' in kwargs:
-            content_type = kwargs['contentType']
-        if content_type is None:
-            raise TypeError("Missing 'content_type' argument")
-        if form_parameters is None and 'formParameters' in kwargs:
-            form_parameters = kwargs['formParameters']
-        if schema_id is None and 'schemaId' in kwargs:
-            schema_id = kwargs['schemaId']
-        if type_name is None and 'typeName' in kwargs:
-            type_name = kwargs['typeName']
-
-        _setter("content_type", content_type)
+        pulumi.set(__self__, "content_type", content_type)
         if examples is not None:
-            _setter("examples", examples)
+            pulumi.set(__self__, "examples", examples)
         if form_parameters is not None:
-            _setter("form_parameters", form_parameters)
+            pulumi.set(__self__, "form_parameters", form_parameters)
         if schema_id is not None:
-            _setter("schema_id", schema_id)
+            pulumi.set(__self__, "schema_id", schema_id)
         if type_name is not None:
-            _setter("type_name", type_name)
+            pulumi.set(__self__, "type_name", type_name)
 
     @property
     @pulumi.getter(name="contentType")
@@ -3159,38 +2400,15 @@ class ApiOperationResponseRepresentationExample(dict):
         :param str summary: A short description for this example.
         :param str value: The example of the representation.
         """
-        ApiOperationResponseRepresentationExample._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            description=description,
-            external_value=external_value,
-            summary=summary,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             description: Optional[str] = None,
-             external_value: Optional[str] = None,
-             summary: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if external_value is None and 'externalValue' in kwargs:
-            external_value = kwargs['externalValue']
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if external_value is not None:
-            _setter("external_value", external_value)
+            pulumi.set(__self__, "external_value", external_value)
         if summary is not None:
-            _setter("summary", summary)
+            pulumi.set(__self__, "summary", summary)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -3277,60 +2495,21 @@ class ApiOperationResponseRepresentationFormParameter(dict):
         :param str type_name: The type name defined by the Schema.
         :param Sequence[str] values: One or more acceptable values for this Form Parameter.
         """
-        ApiOperationResponseRepresentationFormParameter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            required=required,
-            type=type,
-            default_value=default_value,
-            description=description,
-            examples=examples,
-            schema_id=schema_id,
-            type_name=type_name,
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             required: Optional[bool] = None,
-             type: Optional[str] = None,
-             default_value: Optional[str] = None,
-             description: Optional[str] = None,
-             examples: Optional[Sequence['outputs.ApiOperationResponseRepresentationFormParameterExample']] = None,
-             schema_id: Optional[str] = None,
-             type_name: Optional[str] = None,
-             values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if required is None:
-            raise TypeError("Missing 'required' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if default_value is None and 'defaultValue' in kwargs:
-            default_value = kwargs['defaultValue']
-        if schema_id is None and 'schemaId' in kwargs:
-            schema_id = kwargs['schemaId']
-        if type_name is None and 'typeName' in kwargs:
-            type_name = kwargs['typeName']
-
-        _setter("name", name)
-        _setter("required", required)
-        _setter("type", type)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "required", required)
+        pulumi.set(__self__, "type", type)
         if default_value is not None:
-            _setter("default_value", default_value)
+            pulumi.set(__self__, "default_value", default_value)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if examples is not None:
-            _setter("examples", examples)
+            pulumi.set(__self__, "examples", examples)
         if schema_id is not None:
-            _setter("schema_id", schema_id)
+            pulumi.set(__self__, "schema_id", schema_id)
         if type_name is not None:
-            _setter("type_name", type_name)
+            pulumi.set(__self__, "type_name", type_name)
         if values is not None:
-            _setter("values", values)
+            pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
@@ -3437,38 +2616,15 @@ class ApiOperationResponseRepresentationFormParameterExample(dict):
         :param str summary: A short description for this example.
         :param str value: The example of the representation.
         """
-        ApiOperationResponseRepresentationFormParameterExample._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            description=description,
-            external_value=external_value,
-            summary=summary,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             description: Optional[str] = None,
-             external_value: Optional[str] = None,
-             summary: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if external_value is None and 'externalValue' in kwargs:
-            external_value = kwargs['externalValue']
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if external_value is not None:
-            _setter("external_value", external_value)
+            pulumi.set(__self__, "external_value", external_value)
         if summary is not None:
-            _setter("summary", summary)
+            pulumi.set(__self__, "summary", summary)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -3555,60 +2711,21 @@ class ApiOperationTemplateParameter(dict):
         :param str type_name: The type name defined by the Schema.
         :param Sequence[str] values: One or more acceptable values for this Template Parameter.
         """
-        ApiOperationTemplateParameter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            required=required,
-            type=type,
-            default_value=default_value,
-            description=description,
-            examples=examples,
-            schema_id=schema_id,
-            type_name=type_name,
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             required: Optional[bool] = None,
-             type: Optional[str] = None,
-             default_value: Optional[str] = None,
-             description: Optional[str] = None,
-             examples: Optional[Sequence['outputs.ApiOperationTemplateParameterExample']] = None,
-             schema_id: Optional[str] = None,
-             type_name: Optional[str] = None,
-             values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if required is None:
-            raise TypeError("Missing 'required' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if default_value is None and 'defaultValue' in kwargs:
-            default_value = kwargs['defaultValue']
-        if schema_id is None and 'schemaId' in kwargs:
-            schema_id = kwargs['schemaId']
-        if type_name is None and 'typeName' in kwargs:
-            type_name = kwargs['typeName']
-
-        _setter("name", name)
-        _setter("required", required)
-        _setter("type", type)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "required", required)
+        pulumi.set(__self__, "type", type)
         if default_value is not None:
-            _setter("default_value", default_value)
+            pulumi.set(__self__, "default_value", default_value)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if examples is not None:
-            _setter("examples", examples)
+            pulumi.set(__self__, "examples", examples)
         if schema_id is not None:
-            _setter("schema_id", schema_id)
+            pulumi.set(__self__, "schema_id", schema_id)
         if type_name is not None:
-            _setter("type_name", type_name)
+            pulumi.set(__self__, "type_name", type_name)
         if values is not None:
-            _setter("values", values)
+            pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
@@ -3715,38 +2832,15 @@ class ApiOperationTemplateParameterExample(dict):
         :param str summary: A short description for this example.
         :param str value: The example of the representation.
         """
-        ApiOperationTemplateParameterExample._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            description=description,
-            external_value=external_value,
-            summary=summary,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             description: Optional[str] = None,
-             external_value: Optional[str] = None,
-             summary: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if external_value is None and 'externalValue' in kwargs:
-            external_value = kwargs['externalValue']
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if external_value is not None:
-            _setter("external_value", external_value)
+            pulumi.set(__self__, "external_value", external_value)
         if summary is not None:
-            _setter("summary", summary)
+            pulumi.set(__self__, "summary", summary)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -3798,25 +2892,8 @@ class ApiSubscriptionKeyParameterNames(dict):
         :param str header: The name of the HTTP Header which should be used for the Subscription Key.
         :param str query: The name of the QueryString parameter which should be used for the Subscription Key.
         """
-        ApiSubscriptionKeyParameterNames._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            header=header,
-            query=query,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             header: Optional[str] = None,
-             query: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if header is None:
-            raise TypeError("Missing 'header' argument")
-        if query is None:
-            raise TypeError("Missing 'query' argument")
-
-        _setter("header", header)
-        _setter("query", query)
+        pulumi.set(__self__, "header", header)
+        pulumi.set(__self__, "query", query)
 
     @property
     @pulumi.getter
@@ -3844,25 +2921,8 @@ class AuthorizationServerTokenBodyParameter(dict):
         :param str name: The Name of the Parameter.
         :param str value: The Value of the Parameter.
         """
-        AuthorizationServerTokenBodyParameter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("name", name)
-        _setter("value", value)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -3894,31 +2954,14 @@ class BackendCredentials(dict):
         :param Mapping[str, str] header: A mapping of header parameters to pass to the backend host. The keys are the header names and the values are a comma separated string of header values. This is converted to a list before being passed to the API.
         :param Mapping[str, str] query: A mapping of query parameters to pass to the backend host. The keys are the query names and the values are a comma separated string of query values. This is converted to a list before being passed to the API.
         """
-        BackendCredentials._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            authorization=authorization,
-            certificates=certificates,
-            header=header,
-            query=query,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             authorization: Optional['outputs.BackendCredentialsAuthorization'] = None,
-             certificates: Optional[Sequence[str]] = None,
-             header: Optional[Mapping[str, str]] = None,
-             query: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if authorization is not None:
-            _setter("authorization", authorization)
+            pulumi.set(__self__, "authorization", authorization)
         if certificates is not None:
-            _setter("certificates", certificates)
+            pulumi.set(__self__, "certificates", certificates)
         if header is not None:
-            _setter("header", header)
+            pulumi.set(__self__, "header", header)
         if query is not None:
-            _setter("query", query)
+            pulumi.set(__self__, "query", query)
 
     @property
     @pulumi.getter
@@ -3962,23 +3005,10 @@ class BackendCredentialsAuthorization(dict):
         :param str parameter: The authentication Parameter value.
         :param str scheme: The authentication Scheme name.
         """
-        BackendCredentialsAuthorization._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            parameter=parameter,
-            scheme=scheme,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             parameter: Optional[str] = None,
-             scheme: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if parameter is not None:
-            _setter("parameter", parameter)
+            pulumi.set(__self__, "parameter", parameter)
         if scheme is not None:
-            _setter("scheme", scheme)
+            pulumi.set(__self__, "scheme", scheme)
 
     @property
     @pulumi.getter
@@ -4008,29 +3038,10 @@ class BackendProxy(dict):
         :param str username: The username to connect to the proxy server.
         :param str password: The password to connect to the proxy server.
         """
-        BackendProxy._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            url=url,
-            username=username,
-            password=password,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             url: Optional[str] = None,
-             username: Optional[str] = None,
-             password: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-        if username is None:
-            raise TypeError("Missing 'username' argument")
-
-        _setter("url", url)
-        _setter("username", username)
+        pulumi.set(__self__, "url", url)
+        pulumi.set(__self__, "username", username)
         if password is not None:
-            _setter("password", password)
+            pulumi.set(__self__, "password", password)
 
     @property
     @pulumi.getter
@@ -4104,53 +3115,16 @@ class BackendServiceFabricCluster(dict):
         :param Sequence[str] server_certificate_thumbprints: A list of thumbprints of the server certificates of the Service Fabric cluster.
         :param Sequence['BackendServiceFabricClusterServerX509NameArgs'] server_x509_names: One or more `server_x509_name` blocks as documented below.
         """
-        BackendServiceFabricCluster._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            management_endpoints=management_endpoints,
-            max_partition_resolution_retries=max_partition_resolution_retries,
-            client_certificate_id=client_certificate_id,
-            client_certificate_thumbprint=client_certificate_thumbprint,
-            server_certificate_thumbprints=server_certificate_thumbprints,
-            server_x509_names=server_x509_names,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             management_endpoints: Optional[Sequence[str]] = None,
-             max_partition_resolution_retries: Optional[int] = None,
-             client_certificate_id: Optional[str] = None,
-             client_certificate_thumbprint: Optional[str] = None,
-             server_certificate_thumbprints: Optional[Sequence[str]] = None,
-             server_x509_names: Optional[Sequence['outputs.BackendServiceFabricClusterServerX509Name']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if management_endpoints is None and 'managementEndpoints' in kwargs:
-            management_endpoints = kwargs['managementEndpoints']
-        if management_endpoints is None:
-            raise TypeError("Missing 'management_endpoints' argument")
-        if max_partition_resolution_retries is None and 'maxPartitionResolutionRetries' in kwargs:
-            max_partition_resolution_retries = kwargs['maxPartitionResolutionRetries']
-        if max_partition_resolution_retries is None:
-            raise TypeError("Missing 'max_partition_resolution_retries' argument")
-        if client_certificate_id is None and 'clientCertificateId' in kwargs:
-            client_certificate_id = kwargs['clientCertificateId']
-        if client_certificate_thumbprint is None and 'clientCertificateThumbprint' in kwargs:
-            client_certificate_thumbprint = kwargs['clientCertificateThumbprint']
-        if server_certificate_thumbprints is None and 'serverCertificateThumbprints' in kwargs:
-            server_certificate_thumbprints = kwargs['serverCertificateThumbprints']
-        if server_x509_names is None and 'serverX509Names' in kwargs:
-            server_x509_names = kwargs['serverX509Names']
-
-        _setter("management_endpoints", management_endpoints)
-        _setter("max_partition_resolution_retries", max_partition_resolution_retries)
+        pulumi.set(__self__, "management_endpoints", management_endpoints)
+        pulumi.set(__self__, "max_partition_resolution_retries", max_partition_resolution_retries)
         if client_certificate_id is not None:
-            _setter("client_certificate_id", client_certificate_id)
+            pulumi.set(__self__, "client_certificate_id", client_certificate_id)
         if client_certificate_thumbprint is not None:
-            _setter("client_certificate_thumbprint", client_certificate_thumbprint)
+            pulumi.set(__self__, "client_certificate_thumbprint", client_certificate_thumbprint)
         if server_certificate_thumbprints is not None:
-            _setter("server_certificate_thumbprints", server_certificate_thumbprints)
+            pulumi.set(__self__, "server_certificate_thumbprints", server_certificate_thumbprints)
         if server_x509_names is not None:
-            _setter("server_x509_names", server_x509_names)
+            pulumi.set(__self__, "server_x509_names", server_x509_names)
 
     @property
     @pulumi.getter(name="managementEndpoints")
@@ -4230,27 +3204,8 @@ class BackendServiceFabricClusterServerX509Name(dict):
         :param str issuer_certificate_thumbprint: The thumbprint for the issuer of the certificate.
         :param str name: The name of the API Management backend. Changing this forces a new resource to be created.
         """
-        BackendServiceFabricClusterServerX509Name._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            issuer_certificate_thumbprint=issuer_certificate_thumbprint,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             issuer_certificate_thumbprint: Optional[str] = None,
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if issuer_certificate_thumbprint is None and 'issuerCertificateThumbprint' in kwargs:
-            issuer_certificate_thumbprint = kwargs['issuerCertificateThumbprint']
-        if issuer_certificate_thumbprint is None:
-            raise TypeError("Missing 'issuer_certificate_thumbprint' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("issuer_certificate_thumbprint", issuer_certificate_thumbprint)
-        _setter("name", name)
+        pulumi.set(__self__, "issuer_certificate_thumbprint", issuer_certificate_thumbprint)
+        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="issuerCertificateThumbprint")
@@ -4297,27 +3252,10 @@ class BackendTls(dict):
         :param bool validate_certificate_chain: Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for the backend host.
         :param bool validate_certificate_name: Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for the backend host.
         """
-        BackendTls._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            validate_certificate_chain=validate_certificate_chain,
-            validate_certificate_name=validate_certificate_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             validate_certificate_chain: Optional[bool] = None,
-             validate_certificate_name: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if validate_certificate_chain is None and 'validateCertificateChain' in kwargs:
-            validate_certificate_chain = kwargs['validateCertificateChain']
-        if validate_certificate_name is None and 'validateCertificateName' in kwargs:
-            validate_certificate_name = kwargs['validateCertificateName']
-
         if validate_certificate_chain is not None:
-            _setter("validate_certificate_chain", validate_certificate_chain)
+            pulumi.set(__self__, "validate_certificate_chain", validate_certificate_chain)
         if validate_certificate_name is not None:
-            _setter("validate_certificate_name", validate_certificate_name)
+            pulumi.set(__self__, "validate_certificate_name", validate_certificate_name)
 
     @property
     @pulumi.getter(name="validateCertificateChain")
@@ -4389,74 +3327,27 @@ class CustomDomainDeveloperPortal(dict):
                
                > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
         """
-        CustomDomainDeveloperPortal._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            host_name=host_name,
-            certificate=certificate,
-            certificate_password=certificate_password,
-            certificate_source=certificate_source,
-            certificate_status=certificate_status,
-            expiry=expiry,
-            key_vault_id=key_vault_id,
-            negotiate_client_certificate=negotiate_client_certificate,
-            ssl_keyvault_identity_client_id=ssl_keyvault_identity_client_id,
-            subject=subject,
-            thumbprint=thumbprint,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             host_name: Optional[str] = None,
-             certificate: Optional[str] = None,
-             certificate_password: Optional[str] = None,
-             certificate_source: Optional[str] = None,
-             certificate_status: Optional[str] = None,
-             expiry: Optional[str] = None,
-             key_vault_id: Optional[str] = None,
-             negotiate_client_certificate: Optional[bool] = None,
-             ssl_keyvault_identity_client_id: Optional[str] = None,
-             subject: Optional[str] = None,
-             thumbprint: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if host_name is None and 'hostName' in kwargs:
-            host_name = kwargs['hostName']
-        if host_name is None:
-            raise TypeError("Missing 'host_name' argument")
-        if certificate_password is None and 'certificatePassword' in kwargs:
-            certificate_password = kwargs['certificatePassword']
-        if certificate_source is None and 'certificateSource' in kwargs:
-            certificate_source = kwargs['certificateSource']
-        if certificate_status is None and 'certificateStatus' in kwargs:
-            certificate_status = kwargs['certificateStatus']
-        if key_vault_id is None and 'keyVaultId' in kwargs:
-            key_vault_id = kwargs['keyVaultId']
-        if negotiate_client_certificate is None and 'negotiateClientCertificate' in kwargs:
-            negotiate_client_certificate = kwargs['negotiateClientCertificate']
-        if ssl_keyvault_identity_client_id is None and 'sslKeyvaultIdentityClientId' in kwargs:
-            ssl_keyvault_identity_client_id = kwargs['sslKeyvaultIdentityClientId']
-
-        _setter("host_name", host_name)
+        pulumi.set(__self__, "host_name", host_name)
         if certificate is not None:
-            _setter("certificate", certificate)
+            pulumi.set(__self__, "certificate", certificate)
         if certificate_password is not None:
-            _setter("certificate_password", certificate_password)
+            pulumi.set(__self__, "certificate_password", certificate_password)
         if certificate_source is not None:
-            _setter("certificate_source", certificate_source)
+            pulumi.set(__self__, "certificate_source", certificate_source)
         if certificate_status is not None:
-            _setter("certificate_status", certificate_status)
+            pulumi.set(__self__, "certificate_status", certificate_status)
         if expiry is not None:
-            _setter("expiry", expiry)
+            pulumi.set(__self__, "expiry", expiry)
         if key_vault_id is not None:
-            _setter("key_vault_id", key_vault_id)
+            pulumi.set(__self__, "key_vault_id", key_vault_id)
         if negotiate_client_certificate is not None:
-            _setter("negotiate_client_certificate", negotiate_client_certificate)
+            pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
         if ssl_keyvault_identity_client_id is not None:
-            _setter("ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
+            pulumi.set(__self__, "ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
         if subject is not None:
-            _setter("subject", subject)
+            pulumi.set(__self__, "subject", subject)
         if thumbprint is not None:
-            _setter("thumbprint", thumbprint)
+            pulumi.set(__self__, "thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="hostName")
@@ -4591,80 +3482,29 @@ class CustomDomainGateway(dict):
                
                > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
         """
-        CustomDomainGateway._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            host_name=host_name,
-            certificate=certificate,
-            certificate_password=certificate_password,
-            certificate_source=certificate_source,
-            certificate_status=certificate_status,
-            default_ssl_binding=default_ssl_binding,
-            expiry=expiry,
-            key_vault_id=key_vault_id,
-            negotiate_client_certificate=negotiate_client_certificate,
-            ssl_keyvault_identity_client_id=ssl_keyvault_identity_client_id,
-            subject=subject,
-            thumbprint=thumbprint,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             host_name: Optional[str] = None,
-             certificate: Optional[str] = None,
-             certificate_password: Optional[str] = None,
-             certificate_source: Optional[str] = None,
-             certificate_status: Optional[str] = None,
-             default_ssl_binding: Optional[bool] = None,
-             expiry: Optional[str] = None,
-             key_vault_id: Optional[str] = None,
-             negotiate_client_certificate: Optional[bool] = None,
-             ssl_keyvault_identity_client_id: Optional[str] = None,
-             subject: Optional[str] = None,
-             thumbprint: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if host_name is None and 'hostName' in kwargs:
-            host_name = kwargs['hostName']
-        if host_name is None:
-            raise TypeError("Missing 'host_name' argument")
-        if certificate_password is None and 'certificatePassword' in kwargs:
-            certificate_password = kwargs['certificatePassword']
-        if certificate_source is None and 'certificateSource' in kwargs:
-            certificate_source = kwargs['certificateSource']
-        if certificate_status is None and 'certificateStatus' in kwargs:
-            certificate_status = kwargs['certificateStatus']
-        if default_ssl_binding is None and 'defaultSslBinding' in kwargs:
-            default_ssl_binding = kwargs['defaultSslBinding']
-        if key_vault_id is None and 'keyVaultId' in kwargs:
-            key_vault_id = kwargs['keyVaultId']
-        if negotiate_client_certificate is None and 'negotiateClientCertificate' in kwargs:
-            negotiate_client_certificate = kwargs['negotiateClientCertificate']
-        if ssl_keyvault_identity_client_id is None and 'sslKeyvaultIdentityClientId' in kwargs:
-            ssl_keyvault_identity_client_id = kwargs['sslKeyvaultIdentityClientId']
-
-        _setter("host_name", host_name)
+        pulumi.set(__self__, "host_name", host_name)
         if certificate is not None:
-            _setter("certificate", certificate)
+            pulumi.set(__self__, "certificate", certificate)
         if certificate_password is not None:
-            _setter("certificate_password", certificate_password)
+            pulumi.set(__self__, "certificate_password", certificate_password)
         if certificate_source is not None:
-            _setter("certificate_source", certificate_source)
+            pulumi.set(__self__, "certificate_source", certificate_source)
         if certificate_status is not None:
-            _setter("certificate_status", certificate_status)
+            pulumi.set(__self__, "certificate_status", certificate_status)
         if default_ssl_binding is not None:
-            _setter("default_ssl_binding", default_ssl_binding)
+            pulumi.set(__self__, "default_ssl_binding", default_ssl_binding)
         if expiry is not None:
-            _setter("expiry", expiry)
+            pulumi.set(__self__, "expiry", expiry)
         if key_vault_id is not None:
-            _setter("key_vault_id", key_vault_id)
+            pulumi.set(__self__, "key_vault_id", key_vault_id)
         if negotiate_client_certificate is not None:
-            _setter("negotiate_client_certificate", negotiate_client_certificate)
+            pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
         if ssl_keyvault_identity_client_id is not None:
-            _setter("ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
+            pulumi.set(__self__, "ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
         if subject is not None:
-            _setter("subject", subject)
+            pulumi.set(__self__, "subject", subject)
         if thumbprint is not None:
-            _setter("thumbprint", thumbprint)
+            pulumi.set(__self__, "thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="hostName")
@@ -4803,74 +3643,27 @@ class CustomDomainManagement(dict):
                
                > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
         """
-        CustomDomainManagement._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            host_name=host_name,
-            certificate=certificate,
-            certificate_password=certificate_password,
-            certificate_source=certificate_source,
-            certificate_status=certificate_status,
-            expiry=expiry,
-            key_vault_id=key_vault_id,
-            negotiate_client_certificate=negotiate_client_certificate,
-            ssl_keyvault_identity_client_id=ssl_keyvault_identity_client_id,
-            subject=subject,
-            thumbprint=thumbprint,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             host_name: Optional[str] = None,
-             certificate: Optional[str] = None,
-             certificate_password: Optional[str] = None,
-             certificate_source: Optional[str] = None,
-             certificate_status: Optional[str] = None,
-             expiry: Optional[str] = None,
-             key_vault_id: Optional[str] = None,
-             negotiate_client_certificate: Optional[bool] = None,
-             ssl_keyvault_identity_client_id: Optional[str] = None,
-             subject: Optional[str] = None,
-             thumbprint: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if host_name is None and 'hostName' in kwargs:
-            host_name = kwargs['hostName']
-        if host_name is None:
-            raise TypeError("Missing 'host_name' argument")
-        if certificate_password is None and 'certificatePassword' in kwargs:
-            certificate_password = kwargs['certificatePassword']
-        if certificate_source is None and 'certificateSource' in kwargs:
-            certificate_source = kwargs['certificateSource']
-        if certificate_status is None and 'certificateStatus' in kwargs:
-            certificate_status = kwargs['certificateStatus']
-        if key_vault_id is None and 'keyVaultId' in kwargs:
-            key_vault_id = kwargs['keyVaultId']
-        if negotiate_client_certificate is None and 'negotiateClientCertificate' in kwargs:
-            negotiate_client_certificate = kwargs['negotiateClientCertificate']
-        if ssl_keyvault_identity_client_id is None and 'sslKeyvaultIdentityClientId' in kwargs:
-            ssl_keyvault_identity_client_id = kwargs['sslKeyvaultIdentityClientId']
-
-        _setter("host_name", host_name)
+        pulumi.set(__self__, "host_name", host_name)
         if certificate is not None:
-            _setter("certificate", certificate)
+            pulumi.set(__self__, "certificate", certificate)
         if certificate_password is not None:
-            _setter("certificate_password", certificate_password)
+            pulumi.set(__self__, "certificate_password", certificate_password)
         if certificate_source is not None:
-            _setter("certificate_source", certificate_source)
+            pulumi.set(__self__, "certificate_source", certificate_source)
         if certificate_status is not None:
-            _setter("certificate_status", certificate_status)
+            pulumi.set(__self__, "certificate_status", certificate_status)
         if expiry is not None:
-            _setter("expiry", expiry)
+            pulumi.set(__self__, "expiry", expiry)
         if key_vault_id is not None:
-            _setter("key_vault_id", key_vault_id)
+            pulumi.set(__self__, "key_vault_id", key_vault_id)
         if negotiate_client_certificate is not None:
-            _setter("negotiate_client_certificate", negotiate_client_certificate)
+            pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
         if ssl_keyvault_identity_client_id is not None:
-            _setter("ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
+            pulumi.set(__self__, "ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
         if subject is not None:
-            _setter("subject", subject)
+            pulumi.set(__self__, "subject", subject)
         if thumbprint is not None:
-            _setter("thumbprint", thumbprint)
+            pulumi.set(__self__, "thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="hostName")
@@ -5001,74 +3794,27 @@ class CustomDomainPortal(dict):
                
                > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
         """
-        CustomDomainPortal._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            host_name=host_name,
-            certificate=certificate,
-            certificate_password=certificate_password,
-            certificate_source=certificate_source,
-            certificate_status=certificate_status,
-            expiry=expiry,
-            key_vault_id=key_vault_id,
-            negotiate_client_certificate=negotiate_client_certificate,
-            ssl_keyvault_identity_client_id=ssl_keyvault_identity_client_id,
-            subject=subject,
-            thumbprint=thumbprint,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             host_name: Optional[str] = None,
-             certificate: Optional[str] = None,
-             certificate_password: Optional[str] = None,
-             certificate_source: Optional[str] = None,
-             certificate_status: Optional[str] = None,
-             expiry: Optional[str] = None,
-             key_vault_id: Optional[str] = None,
-             negotiate_client_certificate: Optional[bool] = None,
-             ssl_keyvault_identity_client_id: Optional[str] = None,
-             subject: Optional[str] = None,
-             thumbprint: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if host_name is None and 'hostName' in kwargs:
-            host_name = kwargs['hostName']
-        if host_name is None:
-            raise TypeError("Missing 'host_name' argument")
-        if certificate_password is None and 'certificatePassword' in kwargs:
-            certificate_password = kwargs['certificatePassword']
-        if certificate_source is None and 'certificateSource' in kwargs:
-            certificate_source = kwargs['certificateSource']
-        if certificate_status is None and 'certificateStatus' in kwargs:
-            certificate_status = kwargs['certificateStatus']
-        if key_vault_id is None and 'keyVaultId' in kwargs:
-            key_vault_id = kwargs['keyVaultId']
-        if negotiate_client_certificate is None and 'negotiateClientCertificate' in kwargs:
-            negotiate_client_certificate = kwargs['negotiateClientCertificate']
-        if ssl_keyvault_identity_client_id is None and 'sslKeyvaultIdentityClientId' in kwargs:
-            ssl_keyvault_identity_client_id = kwargs['sslKeyvaultIdentityClientId']
-
-        _setter("host_name", host_name)
+        pulumi.set(__self__, "host_name", host_name)
         if certificate is not None:
-            _setter("certificate", certificate)
+            pulumi.set(__self__, "certificate", certificate)
         if certificate_password is not None:
-            _setter("certificate_password", certificate_password)
+            pulumi.set(__self__, "certificate_password", certificate_password)
         if certificate_source is not None:
-            _setter("certificate_source", certificate_source)
+            pulumi.set(__self__, "certificate_source", certificate_source)
         if certificate_status is not None:
-            _setter("certificate_status", certificate_status)
+            pulumi.set(__self__, "certificate_status", certificate_status)
         if expiry is not None:
-            _setter("expiry", expiry)
+            pulumi.set(__self__, "expiry", expiry)
         if key_vault_id is not None:
-            _setter("key_vault_id", key_vault_id)
+            pulumi.set(__self__, "key_vault_id", key_vault_id)
         if negotiate_client_certificate is not None:
-            _setter("negotiate_client_certificate", negotiate_client_certificate)
+            pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
         if ssl_keyvault_identity_client_id is not None:
-            _setter("ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
+            pulumi.set(__self__, "ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
         if subject is not None:
-            _setter("subject", subject)
+            pulumi.set(__self__, "subject", subject)
         if thumbprint is not None:
-            _setter("thumbprint", thumbprint)
+            pulumi.set(__self__, "thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="hostName")
@@ -5199,74 +3945,27 @@ class CustomDomainScm(dict):
                
                > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
         """
-        CustomDomainScm._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            host_name=host_name,
-            certificate=certificate,
-            certificate_password=certificate_password,
-            certificate_source=certificate_source,
-            certificate_status=certificate_status,
-            expiry=expiry,
-            key_vault_id=key_vault_id,
-            negotiate_client_certificate=negotiate_client_certificate,
-            ssl_keyvault_identity_client_id=ssl_keyvault_identity_client_id,
-            subject=subject,
-            thumbprint=thumbprint,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             host_name: Optional[str] = None,
-             certificate: Optional[str] = None,
-             certificate_password: Optional[str] = None,
-             certificate_source: Optional[str] = None,
-             certificate_status: Optional[str] = None,
-             expiry: Optional[str] = None,
-             key_vault_id: Optional[str] = None,
-             negotiate_client_certificate: Optional[bool] = None,
-             ssl_keyvault_identity_client_id: Optional[str] = None,
-             subject: Optional[str] = None,
-             thumbprint: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if host_name is None and 'hostName' in kwargs:
-            host_name = kwargs['hostName']
-        if host_name is None:
-            raise TypeError("Missing 'host_name' argument")
-        if certificate_password is None and 'certificatePassword' in kwargs:
-            certificate_password = kwargs['certificatePassword']
-        if certificate_source is None and 'certificateSource' in kwargs:
-            certificate_source = kwargs['certificateSource']
-        if certificate_status is None and 'certificateStatus' in kwargs:
-            certificate_status = kwargs['certificateStatus']
-        if key_vault_id is None and 'keyVaultId' in kwargs:
-            key_vault_id = kwargs['keyVaultId']
-        if negotiate_client_certificate is None and 'negotiateClientCertificate' in kwargs:
-            negotiate_client_certificate = kwargs['negotiateClientCertificate']
-        if ssl_keyvault_identity_client_id is None and 'sslKeyvaultIdentityClientId' in kwargs:
-            ssl_keyvault_identity_client_id = kwargs['sslKeyvaultIdentityClientId']
-
-        _setter("host_name", host_name)
+        pulumi.set(__self__, "host_name", host_name)
         if certificate is not None:
-            _setter("certificate", certificate)
+            pulumi.set(__self__, "certificate", certificate)
         if certificate_password is not None:
-            _setter("certificate_password", certificate_password)
+            pulumi.set(__self__, "certificate_password", certificate_password)
         if certificate_source is not None:
-            _setter("certificate_source", certificate_source)
+            pulumi.set(__self__, "certificate_source", certificate_source)
         if certificate_status is not None:
-            _setter("certificate_status", certificate_status)
+            pulumi.set(__self__, "certificate_status", certificate_status)
         if expiry is not None:
-            _setter("expiry", expiry)
+            pulumi.set(__self__, "expiry", expiry)
         if key_vault_id is not None:
-            _setter("key_vault_id", key_vault_id)
+            pulumi.set(__self__, "key_vault_id", key_vault_id)
         if negotiate_client_certificate is not None:
-            _setter("negotiate_client_certificate", negotiate_client_certificate)
+            pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
         if ssl_keyvault_identity_client_id is not None:
-            _setter("ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
+            pulumi.set(__self__, "ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
         if subject is not None:
-            _setter("subject", subject)
+            pulumi.set(__self__, "subject", subject)
         if thumbprint is not None:
-            _setter("thumbprint", thumbprint)
+            pulumi.set(__self__, "thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="hostName")
@@ -5376,33 +4075,12 @@ class DiagnosticBackendRequest(dict):
         :param 'DiagnosticBackendRequestDataMaskingArgs' data_masking: A `data_masking` block as defined below.
         :param Sequence[str] headers_to_logs: Specifies a list of headers to log.
         """
-        DiagnosticBackendRequest._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            body_bytes=body_bytes,
-            data_masking=data_masking,
-            headers_to_logs=headers_to_logs,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             body_bytes: Optional[int] = None,
-             data_masking: Optional['outputs.DiagnosticBackendRequestDataMasking'] = None,
-             headers_to_logs: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if body_bytes is None and 'bodyBytes' in kwargs:
-            body_bytes = kwargs['bodyBytes']
-        if data_masking is None and 'dataMasking' in kwargs:
-            data_masking = kwargs['dataMasking']
-        if headers_to_logs is None and 'headersToLogs' in kwargs:
-            headers_to_logs = kwargs['headersToLogs']
-
         if body_bytes is not None:
-            _setter("body_bytes", body_bytes)
+            pulumi.set(__self__, "body_bytes", body_bytes)
         if data_masking is not None:
-            _setter("data_masking", data_masking)
+            pulumi.set(__self__, "data_masking", data_masking)
         if headers_to_logs is not None:
-            _setter("headers_to_logs", headers_to_logs)
+            pulumi.set(__self__, "headers_to_logs", headers_to_logs)
 
     @property
     @pulumi.getter(name="bodyBytes")
@@ -5455,25 +4133,10 @@ class DiagnosticBackendRequestDataMasking(dict):
         :param Sequence['DiagnosticBackendRequestDataMaskingHeaderArgs'] headers: A `headers` block as defined below.
         :param Sequence['DiagnosticBackendRequestDataMaskingQueryParamArgs'] query_params: A `query_params` block as defined below.
         """
-        DiagnosticBackendRequestDataMasking._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            headers=headers,
-            query_params=query_params,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             headers: Optional[Sequence['outputs.DiagnosticBackendRequestDataMaskingHeader']] = None,
-             query_params: Optional[Sequence['outputs.DiagnosticBackendRequestDataMaskingQueryParam']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if query_params is None and 'queryParams' in kwargs:
-            query_params = kwargs['queryParams']
-
         if headers is not None:
-            _setter("headers", headers)
+            pulumi.set(__self__, "headers", headers)
         if query_params is not None:
-            _setter("query_params", query_params)
+            pulumi.set(__self__, "query_params", query_params)
 
     @property
     @pulumi.getter
@@ -5501,25 +4164,8 @@ class DiagnosticBackendRequestDataMaskingHeader(dict):
         :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
         :param str value: The name of the header or the query parameter to mask.
         """
-        DiagnosticBackendRequestDataMaskingHeader._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            mode=mode,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             mode: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if mode is None:
-            raise TypeError("Missing 'mode' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("mode", mode)
-        _setter("value", value)
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -5547,25 +4193,8 @@ class DiagnosticBackendRequestDataMaskingQueryParam(dict):
         :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
         :param str value: The name of the header or the query parameter to mask.
         """
-        DiagnosticBackendRequestDataMaskingQueryParam._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            mode=mode,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             mode: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if mode is None:
-            raise TypeError("Missing 'mode' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("mode", mode)
-        _setter("value", value)
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -5616,33 +4245,12 @@ class DiagnosticBackendResponse(dict):
         :param 'DiagnosticBackendResponseDataMaskingArgs' data_masking: A `data_masking` block as defined below.
         :param Sequence[str] headers_to_logs: Specifies a list of headers to log.
         """
-        DiagnosticBackendResponse._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            body_bytes=body_bytes,
-            data_masking=data_masking,
-            headers_to_logs=headers_to_logs,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             body_bytes: Optional[int] = None,
-             data_masking: Optional['outputs.DiagnosticBackendResponseDataMasking'] = None,
-             headers_to_logs: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if body_bytes is None and 'bodyBytes' in kwargs:
-            body_bytes = kwargs['bodyBytes']
-        if data_masking is None and 'dataMasking' in kwargs:
-            data_masking = kwargs['dataMasking']
-        if headers_to_logs is None and 'headersToLogs' in kwargs:
-            headers_to_logs = kwargs['headersToLogs']
-
         if body_bytes is not None:
-            _setter("body_bytes", body_bytes)
+            pulumi.set(__self__, "body_bytes", body_bytes)
         if data_masking is not None:
-            _setter("data_masking", data_masking)
+            pulumi.set(__self__, "data_masking", data_masking)
         if headers_to_logs is not None:
-            _setter("headers_to_logs", headers_to_logs)
+            pulumi.set(__self__, "headers_to_logs", headers_to_logs)
 
     @property
     @pulumi.getter(name="bodyBytes")
@@ -5695,25 +4303,10 @@ class DiagnosticBackendResponseDataMasking(dict):
         :param Sequence['DiagnosticBackendResponseDataMaskingHeaderArgs'] headers: A `headers` block as defined below.
         :param Sequence['DiagnosticBackendResponseDataMaskingQueryParamArgs'] query_params: A `query_params` block as defined below.
         """
-        DiagnosticBackendResponseDataMasking._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            headers=headers,
-            query_params=query_params,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             headers: Optional[Sequence['outputs.DiagnosticBackendResponseDataMaskingHeader']] = None,
-             query_params: Optional[Sequence['outputs.DiagnosticBackendResponseDataMaskingQueryParam']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if query_params is None and 'queryParams' in kwargs:
-            query_params = kwargs['queryParams']
-
         if headers is not None:
-            _setter("headers", headers)
+            pulumi.set(__self__, "headers", headers)
         if query_params is not None:
-            _setter("query_params", query_params)
+            pulumi.set(__self__, "query_params", query_params)
 
     @property
     @pulumi.getter
@@ -5741,25 +4334,8 @@ class DiagnosticBackendResponseDataMaskingHeader(dict):
         :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
         :param str value: The name of the header or the query parameter to mask.
         """
-        DiagnosticBackendResponseDataMaskingHeader._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            mode=mode,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             mode: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if mode is None:
-            raise TypeError("Missing 'mode' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("mode", mode)
-        _setter("value", value)
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -5787,25 +4363,8 @@ class DiagnosticBackendResponseDataMaskingQueryParam(dict):
         :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
         :param str value: The name of the header or the query parameter to mask.
         """
-        DiagnosticBackendResponseDataMaskingQueryParam._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            mode=mode,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             mode: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if mode is None:
-            raise TypeError("Missing 'mode' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("mode", mode)
-        _setter("value", value)
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -5856,33 +4415,12 @@ class DiagnosticFrontendRequest(dict):
         :param 'DiagnosticFrontendRequestDataMaskingArgs' data_masking: A `data_masking` block as defined below.
         :param Sequence[str] headers_to_logs: Specifies a list of headers to log.
         """
-        DiagnosticFrontendRequest._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            body_bytes=body_bytes,
-            data_masking=data_masking,
-            headers_to_logs=headers_to_logs,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             body_bytes: Optional[int] = None,
-             data_masking: Optional['outputs.DiagnosticFrontendRequestDataMasking'] = None,
-             headers_to_logs: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if body_bytes is None and 'bodyBytes' in kwargs:
-            body_bytes = kwargs['bodyBytes']
-        if data_masking is None and 'dataMasking' in kwargs:
-            data_masking = kwargs['dataMasking']
-        if headers_to_logs is None and 'headersToLogs' in kwargs:
-            headers_to_logs = kwargs['headersToLogs']
-
         if body_bytes is not None:
-            _setter("body_bytes", body_bytes)
+            pulumi.set(__self__, "body_bytes", body_bytes)
         if data_masking is not None:
-            _setter("data_masking", data_masking)
+            pulumi.set(__self__, "data_masking", data_masking)
         if headers_to_logs is not None:
-            _setter("headers_to_logs", headers_to_logs)
+            pulumi.set(__self__, "headers_to_logs", headers_to_logs)
 
     @property
     @pulumi.getter(name="bodyBytes")
@@ -5935,25 +4473,10 @@ class DiagnosticFrontendRequestDataMasking(dict):
         :param Sequence['DiagnosticFrontendRequestDataMaskingHeaderArgs'] headers: A `headers` block as defined below.
         :param Sequence['DiagnosticFrontendRequestDataMaskingQueryParamArgs'] query_params: A `query_params` block as defined below.
         """
-        DiagnosticFrontendRequestDataMasking._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            headers=headers,
-            query_params=query_params,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             headers: Optional[Sequence['outputs.DiagnosticFrontendRequestDataMaskingHeader']] = None,
-             query_params: Optional[Sequence['outputs.DiagnosticFrontendRequestDataMaskingQueryParam']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if query_params is None and 'queryParams' in kwargs:
-            query_params = kwargs['queryParams']
-
         if headers is not None:
-            _setter("headers", headers)
+            pulumi.set(__self__, "headers", headers)
         if query_params is not None:
-            _setter("query_params", query_params)
+            pulumi.set(__self__, "query_params", query_params)
 
     @property
     @pulumi.getter
@@ -5981,25 +4504,8 @@ class DiagnosticFrontendRequestDataMaskingHeader(dict):
         :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
         :param str value: The name of the header or the query parameter to mask.
         """
-        DiagnosticFrontendRequestDataMaskingHeader._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            mode=mode,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             mode: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if mode is None:
-            raise TypeError("Missing 'mode' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("mode", mode)
-        _setter("value", value)
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -6027,25 +4533,8 @@ class DiagnosticFrontendRequestDataMaskingQueryParam(dict):
         :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
         :param str value: The name of the header or the query parameter to mask.
         """
-        DiagnosticFrontendRequestDataMaskingQueryParam._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            mode=mode,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             mode: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if mode is None:
-            raise TypeError("Missing 'mode' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("mode", mode)
-        _setter("value", value)
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -6096,33 +4585,12 @@ class DiagnosticFrontendResponse(dict):
         :param 'DiagnosticFrontendResponseDataMaskingArgs' data_masking: A `data_masking` block as defined below.
         :param Sequence[str] headers_to_logs: Specifies a list of headers to log.
         """
-        DiagnosticFrontendResponse._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            body_bytes=body_bytes,
-            data_masking=data_masking,
-            headers_to_logs=headers_to_logs,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             body_bytes: Optional[int] = None,
-             data_masking: Optional['outputs.DiagnosticFrontendResponseDataMasking'] = None,
-             headers_to_logs: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if body_bytes is None and 'bodyBytes' in kwargs:
-            body_bytes = kwargs['bodyBytes']
-        if data_masking is None and 'dataMasking' in kwargs:
-            data_masking = kwargs['dataMasking']
-        if headers_to_logs is None and 'headersToLogs' in kwargs:
-            headers_to_logs = kwargs['headersToLogs']
-
         if body_bytes is not None:
-            _setter("body_bytes", body_bytes)
+            pulumi.set(__self__, "body_bytes", body_bytes)
         if data_masking is not None:
-            _setter("data_masking", data_masking)
+            pulumi.set(__self__, "data_masking", data_masking)
         if headers_to_logs is not None:
-            _setter("headers_to_logs", headers_to_logs)
+            pulumi.set(__self__, "headers_to_logs", headers_to_logs)
 
     @property
     @pulumi.getter(name="bodyBytes")
@@ -6175,25 +4643,10 @@ class DiagnosticFrontendResponseDataMasking(dict):
         :param Sequence['DiagnosticFrontendResponseDataMaskingHeaderArgs'] headers: A `headers` block as defined below.
         :param Sequence['DiagnosticFrontendResponseDataMaskingQueryParamArgs'] query_params: A `query_params` block as defined below.
         """
-        DiagnosticFrontendResponseDataMasking._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            headers=headers,
-            query_params=query_params,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             headers: Optional[Sequence['outputs.DiagnosticFrontendResponseDataMaskingHeader']] = None,
-             query_params: Optional[Sequence['outputs.DiagnosticFrontendResponseDataMaskingQueryParam']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if query_params is None and 'queryParams' in kwargs:
-            query_params = kwargs['queryParams']
-
         if headers is not None:
-            _setter("headers", headers)
+            pulumi.set(__self__, "headers", headers)
         if query_params is not None:
-            _setter("query_params", query_params)
+            pulumi.set(__self__, "query_params", query_params)
 
     @property
     @pulumi.getter
@@ -6221,25 +4674,8 @@ class DiagnosticFrontendResponseDataMaskingHeader(dict):
         :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
         :param str value: The name of the header or the query parameter to mask.
         """
-        DiagnosticFrontendResponseDataMaskingHeader._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            mode=mode,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             mode: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if mode is None:
-            raise TypeError("Missing 'mode' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("mode", mode)
-        _setter("value", value)
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -6267,25 +4703,8 @@ class DiagnosticFrontendResponseDataMaskingQueryParam(dict):
         :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
         :param str value: The name of the header or the query parameter to mask.
         """
-        DiagnosticFrontendResponseDataMaskingQueryParam._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            mode=mode,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             mode: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if mode is None:
-            raise TypeError("Missing 'mode' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("mode", mode)
-        _setter("value", value)
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -6317,32 +4736,13 @@ class GatewayLocationData(dict):
         :param str district: The district, state, or province where the resource is located.
         :param str region: The country or region where the resource is located.
         """
-        GatewayLocationData._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            city=city,
-            district=district,
-            region=region,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             city: Optional[str] = None,
-             district: Optional[str] = None,
-             region: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if city is not None:
-            _setter("city", city)
+            pulumi.set(__self__, "city", city)
         if district is not None:
-            _setter("district", district)
+            pulumi.set(__self__, "district", district)
         if region is not None:
-            _setter("region", region)
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -6401,22 +4801,7 @@ class LoggerApplicationInsights(dict):
         """
         :param str instrumentation_key: The instrumentation key used to push data to Application Insights.
         """
-        LoggerApplicationInsights._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            instrumentation_key=instrumentation_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             instrumentation_key: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if instrumentation_key is None and 'instrumentationKey' in kwargs:
-            instrumentation_key = kwargs['instrumentationKey']
-        if instrumentation_key is None:
-            raise TypeError("Missing 'instrumentation_key' argument")
-
-        _setter("instrumentation_key", instrumentation_key)
+        pulumi.set(__self__, "instrumentation_key", instrumentation_key)
 
     @property
     @pulumi.getter(name="instrumentationKey")
@@ -6453,27 +4838,8 @@ class LoggerEventhub(dict):
         :param str connection_string: The connection string of an EventHub Namespace.
         :param str name: The name of an EventHub.
         """
-        LoggerEventhub._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            connection_string=connection_string,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             connection_string: Optional[str] = None,
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if connection_string is None and 'connectionString' in kwargs:
-            connection_string = kwargs['connectionString']
-        if connection_string is None:
-            raise TypeError("Missing 'connection_string' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("connection_string", connection_string)
-        _setter("name", name)
+        pulumi.set(__self__, "connection_string", connection_string)
+        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="connectionString")
@@ -6520,28 +4886,9 @@ class NamedValueValueFromKeyVault(dict):
         :param str secret_id: The resource ID of the Key Vault Secret.
         :param str identity_client_id: The client ID of User Assigned Identity, for the API Management Service, which will be used to access the key vault secret. The System Assigned Identity will be used in absence.
         """
-        NamedValueValueFromKeyVault._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            secret_id=secret_id,
-            identity_client_id=identity_client_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             secret_id: Optional[str] = None,
-             identity_client_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if secret_id is None and 'secretId' in kwargs:
-            secret_id = kwargs['secretId']
-        if secret_id is None:
-            raise TypeError("Missing 'secret_id' argument")
-        if identity_client_id is None and 'identityClientId' in kwargs:
-            identity_client_id = kwargs['identityClientId']
-
-        _setter("secret_id", secret_id)
+        pulumi.set(__self__, "secret_id", secret_id)
         if identity_client_id is not None:
-            _setter("identity_client_id", identity_client_id)
+            pulumi.set(__self__, "identity_client_id", identity_client_id)
 
     @property
     @pulumi.getter(name="secretId")
@@ -6612,64 +4959,23 @@ class ServiceAdditionalLocation(dict):
         :param 'ServiceAdditionalLocationVirtualNetworkConfigurationArgs' virtual_network_configuration: A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
         :param Sequence[str] zones: A list of availability zones. Changing this forces a new resource to be created.
         """
-        ServiceAdditionalLocation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            location=location,
-            capacity=capacity,
-            gateway_disabled=gateway_disabled,
-            gateway_regional_url=gateway_regional_url,
-            private_ip_addresses=private_ip_addresses,
-            public_ip_address_id=public_ip_address_id,
-            public_ip_addresses=public_ip_addresses,
-            virtual_network_configuration=virtual_network_configuration,
-            zones=zones,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             location: Optional[str] = None,
-             capacity: Optional[int] = None,
-             gateway_disabled: Optional[bool] = None,
-             gateway_regional_url: Optional[str] = None,
-             private_ip_addresses: Optional[Sequence[str]] = None,
-             public_ip_address_id: Optional[str] = None,
-             public_ip_addresses: Optional[Sequence[str]] = None,
-             virtual_network_configuration: Optional['outputs.ServiceAdditionalLocationVirtualNetworkConfiguration'] = None,
-             zones: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if location is None:
-            raise TypeError("Missing 'location' argument")
-        if gateway_disabled is None and 'gatewayDisabled' in kwargs:
-            gateway_disabled = kwargs['gatewayDisabled']
-        if gateway_regional_url is None and 'gatewayRegionalUrl' in kwargs:
-            gateway_regional_url = kwargs['gatewayRegionalUrl']
-        if private_ip_addresses is None and 'privateIpAddresses' in kwargs:
-            private_ip_addresses = kwargs['privateIpAddresses']
-        if public_ip_address_id is None and 'publicIpAddressId' in kwargs:
-            public_ip_address_id = kwargs['publicIpAddressId']
-        if public_ip_addresses is None and 'publicIpAddresses' in kwargs:
-            public_ip_addresses = kwargs['publicIpAddresses']
-        if virtual_network_configuration is None and 'virtualNetworkConfiguration' in kwargs:
-            virtual_network_configuration = kwargs['virtualNetworkConfiguration']
-
-        _setter("location", location)
+        pulumi.set(__self__, "location", location)
         if capacity is not None:
-            _setter("capacity", capacity)
+            pulumi.set(__self__, "capacity", capacity)
         if gateway_disabled is not None:
-            _setter("gateway_disabled", gateway_disabled)
+            pulumi.set(__self__, "gateway_disabled", gateway_disabled)
         if gateway_regional_url is not None:
-            _setter("gateway_regional_url", gateway_regional_url)
+            pulumi.set(__self__, "gateway_regional_url", gateway_regional_url)
         if private_ip_addresses is not None:
-            _setter("private_ip_addresses", private_ip_addresses)
+            pulumi.set(__self__, "private_ip_addresses", private_ip_addresses)
         if public_ip_address_id is not None:
-            _setter("public_ip_address_id", public_ip_address_id)
+            pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
         if public_ip_addresses is not None:
-            _setter("public_ip_addresses", public_ip_addresses)
+            pulumi.set(__self__, "public_ip_addresses", public_ip_addresses)
         if virtual_network_configuration is not None:
-            _setter("virtual_network_configuration", virtual_network_configuration)
+            pulumi.set(__self__, "virtual_network_configuration", virtual_network_configuration)
         if zones is not None:
-            _setter("zones", zones)
+            pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter
@@ -6770,22 +5076,7 @@ class ServiceAdditionalLocationVirtualNetworkConfiguration(dict):
         """
         :param str subnet_id: The id of the subnet that will be used for the API Management.
         """
-        ServiceAdditionalLocationVirtualNetworkConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            subnet_id=subnet_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             subnet_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if subnet_id is None and 'subnetId' in kwargs:
-            subnet_id = kwargs['subnetId']
-        if subnet_id is None:
-            raise TypeError("Missing 'subnet_id' argument")
-
-        _setter("subnet_id", subnet_id)
+        pulumi.set(__self__, "subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -6834,47 +5125,16 @@ class ServiceCertificate(dict):
         :param str subject: The subject of the certificate.
         :param str thumbprint: The thumbprint of the certificate.
         """
-        ServiceCertificate._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            encoded_certificate=encoded_certificate,
-            store_name=store_name,
-            certificate_password=certificate_password,
-            expiry=expiry,
-            subject=subject,
-            thumbprint=thumbprint,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             encoded_certificate: Optional[str] = None,
-             store_name: Optional[str] = None,
-             certificate_password: Optional[str] = None,
-             expiry: Optional[str] = None,
-             subject: Optional[str] = None,
-             thumbprint: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if encoded_certificate is None and 'encodedCertificate' in kwargs:
-            encoded_certificate = kwargs['encodedCertificate']
-        if encoded_certificate is None:
-            raise TypeError("Missing 'encoded_certificate' argument")
-        if store_name is None and 'storeName' in kwargs:
-            store_name = kwargs['storeName']
-        if store_name is None:
-            raise TypeError("Missing 'store_name' argument")
-        if certificate_password is None and 'certificatePassword' in kwargs:
-            certificate_password = kwargs['certificatePassword']
-
-        _setter("encoded_certificate", encoded_certificate)
-        _setter("store_name", store_name)
+        pulumi.set(__self__, "encoded_certificate", encoded_certificate)
+        pulumi.set(__self__, "store_name", store_name)
         if certificate_password is not None:
-            _setter("certificate_password", certificate_password)
+            pulumi.set(__self__, "certificate_password", certificate_password)
         if expiry is not None:
-            _setter("expiry", expiry)
+            pulumi.set(__self__, "expiry", expiry)
         if subject is not None:
-            _setter("subject", subject)
+            pulumi.set(__self__, "subject", subject)
         if thumbprint is not None:
-            _setter("thumbprint", thumbprint)
+            pulumi.set(__self__, "thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="encodedCertificate")
@@ -6959,37 +5219,14 @@ class ServiceDelegation(dict):
         :param bool user_registration_enabled: Should user registration requests be delegated to an external url? Defaults to `false`.
         :param str validation_key: A base64-encoded validation key to validate, that a request is coming from Azure API Management.
         """
-        ServiceDelegation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            subscriptions_enabled=subscriptions_enabled,
-            url=url,
-            user_registration_enabled=user_registration_enabled,
-            validation_key=validation_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             subscriptions_enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             user_registration_enabled: Optional[bool] = None,
-             validation_key: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if subscriptions_enabled is None and 'subscriptionsEnabled' in kwargs:
-            subscriptions_enabled = kwargs['subscriptionsEnabled']
-        if user_registration_enabled is None and 'userRegistrationEnabled' in kwargs:
-            user_registration_enabled = kwargs['userRegistrationEnabled']
-        if validation_key is None and 'validationKey' in kwargs:
-            validation_key = kwargs['validationKey']
-
         if subscriptions_enabled is not None:
-            _setter("subscriptions_enabled", subscriptions_enabled)
+            pulumi.set(__self__, "subscriptions_enabled", subscriptions_enabled)
         if url is not None:
-            _setter("url", url)
+            pulumi.set(__self__, "url", url)
         if user_registration_enabled is not None:
-            _setter("user_registration_enabled", user_registration_enabled)
+            pulumi.set(__self__, "user_registration_enabled", user_registration_enabled)
         if validation_key is not None:
-            _setter("validation_key", validation_key)
+            pulumi.set(__self__, "validation_key", validation_key)
 
     @property
     @pulumi.getter(name="subscriptionsEnabled")
@@ -7056,37 +5293,16 @@ class ServiceHostnameConfiguration(dict):
         :param Sequence['ServiceHostnameConfigurationProxyArgs'] proxies: One or more `proxy` blocks as documented below.
         :param Sequence['ServiceHostnameConfigurationScmArgs'] scms: One or more `scm` blocks as documented below.
         """
-        ServiceHostnameConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            developer_portals=developer_portals,
-            managements=managements,
-            portals=portals,
-            proxies=proxies,
-            scms=scms,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             developer_portals: Optional[Sequence['outputs.ServiceHostnameConfigurationDeveloperPortal']] = None,
-             managements: Optional[Sequence['outputs.ServiceHostnameConfigurationManagement']] = None,
-             portals: Optional[Sequence['outputs.ServiceHostnameConfigurationPortal']] = None,
-             proxies: Optional[Sequence['outputs.ServiceHostnameConfigurationProxy']] = None,
-             scms: Optional[Sequence['outputs.ServiceHostnameConfigurationScm']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if developer_portals is None and 'developerPortals' in kwargs:
-            developer_portals = kwargs['developerPortals']
-
         if developer_portals is not None:
-            _setter("developer_portals", developer_portals)
+            pulumi.set(__self__, "developer_portals", developer_portals)
         if managements is not None:
-            _setter("managements", managements)
+            pulumi.set(__self__, "managements", managements)
         if portals is not None:
-            _setter("portals", portals)
+            pulumi.set(__self__, "portals", portals)
         if proxies is not None:
-            _setter("proxies", proxies)
+            pulumi.set(__self__, "proxies", proxies)
         if scms is not None:
-            _setter("scms", scms)
+            pulumi.set(__self__, "scms", scms)
 
     @property
     @pulumi.getter(name="developerPortals")
@@ -7189,74 +5405,27 @@ class ServiceHostnameConfigurationDeveloperPortal(dict):
         :param str subject: The subject of the certificate.
         :param str thumbprint: The thumbprint of the certificate.
         """
-        ServiceHostnameConfigurationDeveloperPortal._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            host_name=host_name,
-            certificate=certificate,
-            certificate_password=certificate_password,
-            certificate_source=certificate_source,
-            certificate_status=certificate_status,
-            expiry=expiry,
-            key_vault_id=key_vault_id,
-            negotiate_client_certificate=negotiate_client_certificate,
-            ssl_keyvault_identity_client_id=ssl_keyvault_identity_client_id,
-            subject=subject,
-            thumbprint=thumbprint,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             host_name: Optional[str] = None,
-             certificate: Optional[str] = None,
-             certificate_password: Optional[str] = None,
-             certificate_source: Optional[str] = None,
-             certificate_status: Optional[str] = None,
-             expiry: Optional[str] = None,
-             key_vault_id: Optional[str] = None,
-             negotiate_client_certificate: Optional[bool] = None,
-             ssl_keyvault_identity_client_id: Optional[str] = None,
-             subject: Optional[str] = None,
-             thumbprint: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if host_name is None and 'hostName' in kwargs:
-            host_name = kwargs['hostName']
-        if host_name is None:
-            raise TypeError("Missing 'host_name' argument")
-        if certificate_password is None and 'certificatePassword' in kwargs:
-            certificate_password = kwargs['certificatePassword']
-        if certificate_source is None and 'certificateSource' in kwargs:
-            certificate_source = kwargs['certificateSource']
-        if certificate_status is None and 'certificateStatus' in kwargs:
-            certificate_status = kwargs['certificateStatus']
-        if key_vault_id is None and 'keyVaultId' in kwargs:
-            key_vault_id = kwargs['keyVaultId']
-        if negotiate_client_certificate is None and 'negotiateClientCertificate' in kwargs:
-            negotiate_client_certificate = kwargs['negotiateClientCertificate']
-        if ssl_keyvault_identity_client_id is None and 'sslKeyvaultIdentityClientId' in kwargs:
-            ssl_keyvault_identity_client_id = kwargs['sslKeyvaultIdentityClientId']
-
-        _setter("host_name", host_name)
+        pulumi.set(__self__, "host_name", host_name)
         if certificate is not None:
-            _setter("certificate", certificate)
+            pulumi.set(__self__, "certificate", certificate)
         if certificate_password is not None:
-            _setter("certificate_password", certificate_password)
+            pulumi.set(__self__, "certificate_password", certificate_password)
         if certificate_source is not None:
-            _setter("certificate_source", certificate_source)
+            pulumi.set(__self__, "certificate_source", certificate_source)
         if certificate_status is not None:
-            _setter("certificate_status", certificate_status)
+            pulumi.set(__self__, "certificate_status", certificate_status)
         if expiry is not None:
-            _setter("expiry", expiry)
+            pulumi.set(__self__, "expiry", expiry)
         if key_vault_id is not None:
-            _setter("key_vault_id", key_vault_id)
+            pulumi.set(__self__, "key_vault_id", key_vault_id)
         if negotiate_client_certificate is not None:
-            _setter("negotiate_client_certificate", negotiate_client_certificate)
+            pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
         if ssl_keyvault_identity_client_id is not None:
-            _setter("ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
+            pulumi.set(__self__, "ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
         if subject is not None:
-            _setter("subject", subject)
+            pulumi.set(__self__, "subject", subject)
         if thumbprint is not None:
-            _setter("thumbprint", thumbprint)
+            pulumi.set(__self__, "thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="hostName")
@@ -7413,74 +5582,27 @@ class ServiceHostnameConfigurationManagement(dict):
         :param str subject: The subject of the certificate.
         :param str thumbprint: The thumbprint of the certificate.
         """
-        ServiceHostnameConfigurationManagement._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            host_name=host_name,
-            certificate=certificate,
-            certificate_password=certificate_password,
-            certificate_source=certificate_source,
-            certificate_status=certificate_status,
-            expiry=expiry,
-            key_vault_id=key_vault_id,
-            negotiate_client_certificate=negotiate_client_certificate,
-            ssl_keyvault_identity_client_id=ssl_keyvault_identity_client_id,
-            subject=subject,
-            thumbprint=thumbprint,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             host_name: Optional[str] = None,
-             certificate: Optional[str] = None,
-             certificate_password: Optional[str] = None,
-             certificate_source: Optional[str] = None,
-             certificate_status: Optional[str] = None,
-             expiry: Optional[str] = None,
-             key_vault_id: Optional[str] = None,
-             negotiate_client_certificate: Optional[bool] = None,
-             ssl_keyvault_identity_client_id: Optional[str] = None,
-             subject: Optional[str] = None,
-             thumbprint: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if host_name is None and 'hostName' in kwargs:
-            host_name = kwargs['hostName']
-        if host_name is None:
-            raise TypeError("Missing 'host_name' argument")
-        if certificate_password is None and 'certificatePassword' in kwargs:
-            certificate_password = kwargs['certificatePassword']
-        if certificate_source is None and 'certificateSource' in kwargs:
-            certificate_source = kwargs['certificateSource']
-        if certificate_status is None and 'certificateStatus' in kwargs:
-            certificate_status = kwargs['certificateStatus']
-        if key_vault_id is None and 'keyVaultId' in kwargs:
-            key_vault_id = kwargs['keyVaultId']
-        if negotiate_client_certificate is None and 'negotiateClientCertificate' in kwargs:
-            negotiate_client_certificate = kwargs['negotiateClientCertificate']
-        if ssl_keyvault_identity_client_id is None and 'sslKeyvaultIdentityClientId' in kwargs:
-            ssl_keyvault_identity_client_id = kwargs['sslKeyvaultIdentityClientId']
-
-        _setter("host_name", host_name)
+        pulumi.set(__self__, "host_name", host_name)
         if certificate is not None:
-            _setter("certificate", certificate)
+            pulumi.set(__self__, "certificate", certificate)
         if certificate_password is not None:
-            _setter("certificate_password", certificate_password)
+            pulumi.set(__self__, "certificate_password", certificate_password)
         if certificate_source is not None:
-            _setter("certificate_source", certificate_source)
+            pulumi.set(__self__, "certificate_source", certificate_source)
         if certificate_status is not None:
-            _setter("certificate_status", certificate_status)
+            pulumi.set(__self__, "certificate_status", certificate_status)
         if expiry is not None:
-            _setter("expiry", expiry)
+            pulumi.set(__self__, "expiry", expiry)
         if key_vault_id is not None:
-            _setter("key_vault_id", key_vault_id)
+            pulumi.set(__self__, "key_vault_id", key_vault_id)
         if negotiate_client_certificate is not None:
-            _setter("negotiate_client_certificate", negotiate_client_certificate)
+            pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
         if ssl_keyvault_identity_client_id is not None:
-            _setter("ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
+            pulumi.set(__self__, "ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
         if subject is not None:
-            _setter("subject", subject)
+            pulumi.set(__self__, "subject", subject)
         if thumbprint is not None:
-            _setter("thumbprint", thumbprint)
+            pulumi.set(__self__, "thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="hostName")
@@ -7637,74 +5759,27 @@ class ServiceHostnameConfigurationPortal(dict):
         :param str subject: The subject of the certificate.
         :param str thumbprint: The thumbprint of the certificate.
         """
-        ServiceHostnameConfigurationPortal._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            host_name=host_name,
-            certificate=certificate,
-            certificate_password=certificate_password,
-            certificate_source=certificate_source,
-            certificate_status=certificate_status,
-            expiry=expiry,
-            key_vault_id=key_vault_id,
-            negotiate_client_certificate=negotiate_client_certificate,
-            ssl_keyvault_identity_client_id=ssl_keyvault_identity_client_id,
-            subject=subject,
-            thumbprint=thumbprint,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             host_name: Optional[str] = None,
-             certificate: Optional[str] = None,
-             certificate_password: Optional[str] = None,
-             certificate_source: Optional[str] = None,
-             certificate_status: Optional[str] = None,
-             expiry: Optional[str] = None,
-             key_vault_id: Optional[str] = None,
-             negotiate_client_certificate: Optional[bool] = None,
-             ssl_keyvault_identity_client_id: Optional[str] = None,
-             subject: Optional[str] = None,
-             thumbprint: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if host_name is None and 'hostName' in kwargs:
-            host_name = kwargs['hostName']
-        if host_name is None:
-            raise TypeError("Missing 'host_name' argument")
-        if certificate_password is None and 'certificatePassword' in kwargs:
-            certificate_password = kwargs['certificatePassword']
-        if certificate_source is None and 'certificateSource' in kwargs:
-            certificate_source = kwargs['certificateSource']
-        if certificate_status is None and 'certificateStatus' in kwargs:
-            certificate_status = kwargs['certificateStatus']
-        if key_vault_id is None and 'keyVaultId' in kwargs:
-            key_vault_id = kwargs['keyVaultId']
-        if negotiate_client_certificate is None and 'negotiateClientCertificate' in kwargs:
-            negotiate_client_certificate = kwargs['negotiateClientCertificate']
-        if ssl_keyvault_identity_client_id is None and 'sslKeyvaultIdentityClientId' in kwargs:
-            ssl_keyvault_identity_client_id = kwargs['sslKeyvaultIdentityClientId']
-
-        _setter("host_name", host_name)
+        pulumi.set(__self__, "host_name", host_name)
         if certificate is not None:
-            _setter("certificate", certificate)
+            pulumi.set(__self__, "certificate", certificate)
         if certificate_password is not None:
-            _setter("certificate_password", certificate_password)
+            pulumi.set(__self__, "certificate_password", certificate_password)
         if certificate_source is not None:
-            _setter("certificate_source", certificate_source)
+            pulumi.set(__self__, "certificate_source", certificate_source)
         if certificate_status is not None:
-            _setter("certificate_status", certificate_status)
+            pulumi.set(__self__, "certificate_status", certificate_status)
         if expiry is not None:
-            _setter("expiry", expiry)
+            pulumi.set(__self__, "expiry", expiry)
         if key_vault_id is not None:
-            _setter("key_vault_id", key_vault_id)
+            pulumi.set(__self__, "key_vault_id", key_vault_id)
         if negotiate_client_certificate is not None:
-            _setter("negotiate_client_certificate", negotiate_client_certificate)
+            pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
         if ssl_keyvault_identity_client_id is not None:
-            _setter("ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
+            pulumi.set(__self__, "ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
         if subject is not None:
-            _setter("subject", subject)
+            pulumi.set(__self__, "subject", subject)
         if thumbprint is not None:
-            _setter("thumbprint", thumbprint)
+            pulumi.set(__self__, "thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="hostName")
@@ -7863,80 +5938,29 @@ class ServiceHostnameConfigurationProxy(dict):
         :param str subject: The subject of the certificate.
         :param str thumbprint: The thumbprint of the certificate.
         """
-        ServiceHostnameConfigurationProxy._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            host_name=host_name,
-            certificate=certificate,
-            certificate_password=certificate_password,
-            certificate_source=certificate_source,
-            certificate_status=certificate_status,
-            default_ssl_binding=default_ssl_binding,
-            expiry=expiry,
-            key_vault_id=key_vault_id,
-            negotiate_client_certificate=negotiate_client_certificate,
-            ssl_keyvault_identity_client_id=ssl_keyvault_identity_client_id,
-            subject=subject,
-            thumbprint=thumbprint,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             host_name: Optional[str] = None,
-             certificate: Optional[str] = None,
-             certificate_password: Optional[str] = None,
-             certificate_source: Optional[str] = None,
-             certificate_status: Optional[str] = None,
-             default_ssl_binding: Optional[bool] = None,
-             expiry: Optional[str] = None,
-             key_vault_id: Optional[str] = None,
-             negotiate_client_certificate: Optional[bool] = None,
-             ssl_keyvault_identity_client_id: Optional[str] = None,
-             subject: Optional[str] = None,
-             thumbprint: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if host_name is None and 'hostName' in kwargs:
-            host_name = kwargs['hostName']
-        if host_name is None:
-            raise TypeError("Missing 'host_name' argument")
-        if certificate_password is None and 'certificatePassword' in kwargs:
-            certificate_password = kwargs['certificatePassword']
-        if certificate_source is None and 'certificateSource' in kwargs:
-            certificate_source = kwargs['certificateSource']
-        if certificate_status is None and 'certificateStatus' in kwargs:
-            certificate_status = kwargs['certificateStatus']
-        if default_ssl_binding is None and 'defaultSslBinding' in kwargs:
-            default_ssl_binding = kwargs['defaultSslBinding']
-        if key_vault_id is None and 'keyVaultId' in kwargs:
-            key_vault_id = kwargs['keyVaultId']
-        if negotiate_client_certificate is None and 'negotiateClientCertificate' in kwargs:
-            negotiate_client_certificate = kwargs['negotiateClientCertificate']
-        if ssl_keyvault_identity_client_id is None and 'sslKeyvaultIdentityClientId' in kwargs:
-            ssl_keyvault_identity_client_id = kwargs['sslKeyvaultIdentityClientId']
-
-        _setter("host_name", host_name)
+        pulumi.set(__self__, "host_name", host_name)
         if certificate is not None:
-            _setter("certificate", certificate)
+            pulumi.set(__self__, "certificate", certificate)
         if certificate_password is not None:
-            _setter("certificate_password", certificate_password)
+            pulumi.set(__self__, "certificate_password", certificate_password)
         if certificate_source is not None:
-            _setter("certificate_source", certificate_source)
+            pulumi.set(__self__, "certificate_source", certificate_source)
         if certificate_status is not None:
-            _setter("certificate_status", certificate_status)
+            pulumi.set(__self__, "certificate_status", certificate_status)
         if default_ssl_binding is not None:
-            _setter("default_ssl_binding", default_ssl_binding)
+            pulumi.set(__self__, "default_ssl_binding", default_ssl_binding)
         if expiry is not None:
-            _setter("expiry", expiry)
+            pulumi.set(__self__, "expiry", expiry)
         if key_vault_id is not None:
-            _setter("key_vault_id", key_vault_id)
+            pulumi.set(__self__, "key_vault_id", key_vault_id)
         if negotiate_client_certificate is not None:
-            _setter("negotiate_client_certificate", negotiate_client_certificate)
+            pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
         if ssl_keyvault_identity_client_id is not None:
-            _setter("ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
+            pulumi.set(__self__, "ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
         if subject is not None:
-            _setter("subject", subject)
+            pulumi.set(__self__, "subject", subject)
         if thumbprint is not None:
-            _setter("thumbprint", thumbprint)
+            pulumi.set(__self__, "thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="hostName")
@@ -8099,74 +6123,27 @@ class ServiceHostnameConfigurationScm(dict):
         :param str subject: The subject of the certificate.
         :param str thumbprint: The thumbprint of the certificate.
         """
-        ServiceHostnameConfigurationScm._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            host_name=host_name,
-            certificate=certificate,
-            certificate_password=certificate_password,
-            certificate_source=certificate_source,
-            certificate_status=certificate_status,
-            expiry=expiry,
-            key_vault_id=key_vault_id,
-            negotiate_client_certificate=negotiate_client_certificate,
-            ssl_keyvault_identity_client_id=ssl_keyvault_identity_client_id,
-            subject=subject,
-            thumbprint=thumbprint,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             host_name: Optional[str] = None,
-             certificate: Optional[str] = None,
-             certificate_password: Optional[str] = None,
-             certificate_source: Optional[str] = None,
-             certificate_status: Optional[str] = None,
-             expiry: Optional[str] = None,
-             key_vault_id: Optional[str] = None,
-             negotiate_client_certificate: Optional[bool] = None,
-             ssl_keyvault_identity_client_id: Optional[str] = None,
-             subject: Optional[str] = None,
-             thumbprint: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if host_name is None and 'hostName' in kwargs:
-            host_name = kwargs['hostName']
-        if host_name is None:
-            raise TypeError("Missing 'host_name' argument")
-        if certificate_password is None and 'certificatePassword' in kwargs:
-            certificate_password = kwargs['certificatePassword']
-        if certificate_source is None and 'certificateSource' in kwargs:
-            certificate_source = kwargs['certificateSource']
-        if certificate_status is None and 'certificateStatus' in kwargs:
-            certificate_status = kwargs['certificateStatus']
-        if key_vault_id is None and 'keyVaultId' in kwargs:
-            key_vault_id = kwargs['keyVaultId']
-        if negotiate_client_certificate is None and 'negotiateClientCertificate' in kwargs:
-            negotiate_client_certificate = kwargs['negotiateClientCertificate']
-        if ssl_keyvault_identity_client_id is None and 'sslKeyvaultIdentityClientId' in kwargs:
-            ssl_keyvault_identity_client_id = kwargs['sslKeyvaultIdentityClientId']
-
-        _setter("host_name", host_name)
+        pulumi.set(__self__, "host_name", host_name)
         if certificate is not None:
-            _setter("certificate", certificate)
+            pulumi.set(__self__, "certificate", certificate)
         if certificate_password is not None:
-            _setter("certificate_password", certificate_password)
+            pulumi.set(__self__, "certificate_password", certificate_password)
         if certificate_source is not None:
-            _setter("certificate_source", certificate_source)
+            pulumi.set(__self__, "certificate_source", certificate_source)
         if certificate_status is not None:
-            _setter("certificate_status", certificate_status)
+            pulumi.set(__self__, "certificate_status", certificate_status)
         if expiry is not None:
-            _setter("expiry", expiry)
+            pulumi.set(__self__, "expiry", expiry)
         if key_vault_id is not None:
-            _setter("key_vault_id", key_vault_id)
+            pulumi.set(__self__, "key_vault_id", key_vault_id)
         if negotiate_client_certificate is not None:
-            _setter("negotiate_client_certificate", negotiate_client_certificate)
+            pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
         if ssl_keyvault_identity_client_id is not None:
-            _setter("ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
+            pulumi.set(__self__, "ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
         if subject is not None:
-            _setter("subject", subject)
+            pulumi.set(__self__, "subject", subject)
         if thumbprint is not None:
-            _setter("thumbprint", thumbprint)
+            pulumi.set(__self__, "thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="hostName")
@@ -8297,38 +6274,13 @@ class ServiceIdentity(dict):
         :param str principal_id: The Principal ID associated with this Managed Service Identity.
         :param str tenant_id: The identifier for the tenant access information contract.
         """
-        ServiceIdentity._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            identity_ids=identity_ids,
-            principal_id=principal_id,
-            tenant_id=tenant_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             identity_ids: Optional[Sequence[str]] = None,
-             principal_id: Optional[str] = None,
-             tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if identity_ids is None and 'identityIds' in kwargs:
-            identity_ids = kwargs['identityIds']
-        if principal_id is None and 'principalId' in kwargs:
-            principal_id = kwargs['principalId']
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if identity_ids is not None:
-            _setter("identity_ids", identity_ids)
+            pulumi.set(__self__, "identity_ids", identity_ids)
         if principal_id is not None:
-            _setter("principal_id", principal_id)
+            pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
-            _setter("tenant_id", tenant_id)
+            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -8393,27 +6345,10 @@ class ServicePolicy(dict):
         :param str xml_content: The XML Content for this Policy.
         :param str xml_link: A link to an API Management Policy XML Document, which must be publicly available.
         """
-        ServicePolicy._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            xml_content=xml_content,
-            xml_link=xml_link,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             xml_content: Optional[str] = None,
-             xml_link: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if xml_content is None and 'xmlContent' in kwargs:
-            xml_content = kwargs['xmlContent']
-        if xml_link is None and 'xmlLink' in kwargs:
-            xml_link = kwargs['xmlLink']
-
         if xml_content is not None:
-            _setter("xml_content", xml_content)
+            pulumi.set(__self__, "xml_content", xml_content)
         if xml_link is not None:
-            _setter("xml_link", xml_link)
+            pulumi.set(__self__, "xml_link", xml_link)
 
     @property
     @pulumi.getter(name="xmlContent")
@@ -8456,21 +6391,8 @@ class ServiceProtocols(dict):
         """
         :param bool enable_http2: Should HTTP/2 be supported by the API Management Service? Defaults to `false`.
         """
-        ServiceProtocols._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enable_http2=enable_http2,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enable_http2: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enable_http2 is None and 'enableHttp2' in kwargs:
-            enable_http2 = kwargs['enableHttp2']
-
         if enable_http2 is not None:
-            _setter("enable_http2", enable_http2)
+            pulumi.set(__self__, "enable_http2", enable_http2)
 
     @property
     @pulumi.getter(name="enableHttp2")
@@ -8603,117 +6525,40 @@ class ServiceSecurity(dict):
                
                > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` field
         """
-        ServiceSecurity._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enable_backend_ssl30=enable_backend_ssl30,
-            enable_backend_tls10=enable_backend_tls10,
-            enable_backend_tls11=enable_backend_tls11,
-            enable_frontend_ssl30=enable_frontend_ssl30,
-            enable_frontend_tls10=enable_frontend_tls10,
-            enable_frontend_tls11=enable_frontend_tls11,
-            tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled=tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled,
-            tls_ecdhe_ecdsa_with_aes256_cbc_sha_ciphers_enabled=tls_ecdhe_ecdsa_with_aes256_cbc_sha_ciphers_enabled,
-            tls_ecdhe_rsa_with_aes128_cbc_sha_ciphers_enabled=tls_ecdhe_rsa_with_aes128_cbc_sha_ciphers_enabled,
-            tls_ecdhe_rsa_with_aes256_cbc_sha_ciphers_enabled=tls_ecdhe_rsa_with_aes256_cbc_sha_ciphers_enabled,
-            tls_rsa_with_aes128_cbc_sha256_ciphers_enabled=tls_rsa_with_aes128_cbc_sha256_ciphers_enabled,
-            tls_rsa_with_aes128_cbc_sha_ciphers_enabled=tls_rsa_with_aes128_cbc_sha_ciphers_enabled,
-            tls_rsa_with_aes128_gcm_sha256_ciphers_enabled=tls_rsa_with_aes128_gcm_sha256_ciphers_enabled,
-            tls_rsa_with_aes256_cbc_sha256_ciphers_enabled=tls_rsa_with_aes256_cbc_sha256_ciphers_enabled,
-            tls_rsa_with_aes256_cbc_sha_ciphers_enabled=tls_rsa_with_aes256_cbc_sha_ciphers_enabled,
-            tls_rsa_with_aes256_gcm_sha384_ciphers_enabled=tls_rsa_with_aes256_gcm_sha384_ciphers_enabled,
-            triple_des_ciphers_enabled=triple_des_ciphers_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enable_backend_ssl30: Optional[bool] = None,
-             enable_backend_tls10: Optional[bool] = None,
-             enable_backend_tls11: Optional[bool] = None,
-             enable_frontend_ssl30: Optional[bool] = None,
-             enable_frontend_tls10: Optional[bool] = None,
-             enable_frontend_tls11: Optional[bool] = None,
-             tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled: Optional[bool] = None,
-             tls_ecdhe_ecdsa_with_aes256_cbc_sha_ciphers_enabled: Optional[bool] = None,
-             tls_ecdhe_rsa_with_aes128_cbc_sha_ciphers_enabled: Optional[bool] = None,
-             tls_ecdhe_rsa_with_aes256_cbc_sha_ciphers_enabled: Optional[bool] = None,
-             tls_rsa_with_aes128_cbc_sha256_ciphers_enabled: Optional[bool] = None,
-             tls_rsa_with_aes128_cbc_sha_ciphers_enabled: Optional[bool] = None,
-             tls_rsa_with_aes128_gcm_sha256_ciphers_enabled: Optional[bool] = None,
-             tls_rsa_with_aes256_cbc_sha256_ciphers_enabled: Optional[bool] = None,
-             tls_rsa_with_aes256_cbc_sha_ciphers_enabled: Optional[bool] = None,
-             tls_rsa_with_aes256_gcm_sha384_ciphers_enabled: Optional[bool] = None,
-             triple_des_ciphers_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enable_backend_ssl30 is None and 'enableBackendSsl30' in kwargs:
-            enable_backend_ssl30 = kwargs['enableBackendSsl30']
-        if enable_backend_tls10 is None and 'enableBackendTls10' in kwargs:
-            enable_backend_tls10 = kwargs['enableBackendTls10']
-        if enable_backend_tls11 is None and 'enableBackendTls11' in kwargs:
-            enable_backend_tls11 = kwargs['enableBackendTls11']
-        if enable_frontend_ssl30 is None and 'enableFrontendSsl30' in kwargs:
-            enable_frontend_ssl30 = kwargs['enableFrontendSsl30']
-        if enable_frontend_tls10 is None and 'enableFrontendTls10' in kwargs:
-            enable_frontend_tls10 = kwargs['enableFrontendTls10']
-        if enable_frontend_tls11 is None and 'enableFrontendTls11' in kwargs:
-            enable_frontend_tls11 = kwargs['enableFrontendTls11']
-        if tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled is None and 'tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled' in kwargs:
-            tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled = kwargs['tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled']
-        if tls_ecdhe_ecdsa_with_aes256_cbc_sha_ciphers_enabled is None and 'tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled' in kwargs:
-            tls_ecdhe_ecdsa_with_aes256_cbc_sha_ciphers_enabled = kwargs['tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled']
-        if tls_ecdhe_rsa_with_aes128_cbc_sha_ciphers_enabled is None and 'tlsEcdheRsaWithAes128CbcShaCiphersEnabled' in kwargs:
-            tls_ecdhe_rsa_with_aes128_cbc_sha_ciphers_enabled = kwargs['tlsEcdheRsaWithAes128CbcShaCiphersEnabled']
-        if tls_ecdhe_rsa_with_aes256_cbc_sha_ciphers_enabled is None and 'tlsEcdheRsaWithAes256CbcShaCiphersEnabled' in kwargs:
-            tls_ecdhe_rsa_with_aes256_cbc_sha_ciphers_enabled = kwargs['tlsEcdheRsaWithAes256CbcShaCiphersEnabled']
-        if tls_rsa_with_aes128_cbc_sha256_ciphers_enabled is None and 'tlsRsaWithAes128CbcSha256CiphersEnabled' in kwargs:
-            tls_rsa_with_aes128_cbc_sha256_ciphers_enabled = kwargs['tlsRsaWithAes128CbcSha256CiphersEnabled']
-        if tls_rsa_with_aes128_cbc_sha_ciphers_enabled is None and 'tlsRsaWithAes128CbcShaCiphersEnabled' in kwargs:
-            tls_rsa_with_aes128_cbc_sha_ciphers_enabled = kwargs['tlsRsaWithAes128CbcShaCiphersEnabled']
-        if tls_rsa_with_aes128_gcm_sha256_ciphers_enabled is None and 'tlsRsaWithAes128GcmSha256CiphersEnabled' in kwargs:
-            tls_rsa_with_aes128_gcm_sha256_ciphers_enabled = kwargs['tlsRsaWithAes128GcmSha256CiphersEnabled']
-        if tls_rsa_with_aes256_cbc_sha256_ciphers_enabled is None and 'tlsRsaWithAes256CbcSha256CiphersEnabled' in kwargs:
-            tls_rsa_with_aes256_cbc_sha256_ciphers_enabled = kwargs['tlsRsaWithAes256CbcSha256CiphersEnabled']
-        if tls_rsa_with_aes256_cbc_sha_ciphers_enabled is None and 'tlsRsaWithAes256CbcShaCiphersEnabled' in kwargs:
-            tls_rsa_with_aes256_cbc_sha_ciphers_enabled = kwargs['tlsRsaWithAes256CbcShaCiphersEnabled']
-        if tls_rsa_with_aes256_gcm_sha384_ciphers_enabled is None and 'tlsRsaWithAes256GcmSha384CiphersEnabled' in kwargs:
-            tls_rsa_with_aes256_gcm_sha384_ciphers_enabled = kwargs['tlsRsaWithAes256GcmSha384CiphersEnabled']
-        if triple_des_ciphers_enabled is None and 'tripleDesCiphersEnabled' in kwargs:
-            triple_des_ciphers_enabled = kwargs['tripleDesCiphersEnabled']
-
         if enable_backend_ssl30 is not None:
-            _setter("enable_backend_ssl30", enable_backend_ssl30)
+            pulumi.set(__self__, "enable_backend_ssl30", enable_backend_ssl30)
         if enable_backend_tls10 is not None:
-            _setter("enable_backend_tls10", enable_backend_tls10)
+            pulumi.set(__self__, "enable_backend_tls10", enable_backend_tls10)
         if enable_backend_tls11 is not None:
-            _setter("enable_backend_tls11", enable_backend_tls11)
+            pulumi.set(__self__, "enable_backend_tls11", enable_backend_tls11)
         if enable_frontend_ssl30 is not None:
-            _setter("enable_frontend_ssl30", enable_frontend_ssl30)
+            pulumi.set(__self__, "enable_frontend_ssl30", enable_frontend_ssl30)
         if enable_frontend_tls10 is not None:
-            _setter("enable_frontend_tls10", enable_frontend_tls10)
+            pulumi.set(__self__, "enable_frontend_tls10", enable_frontend_tls10)
         if enable_frontend_tls11 is not None:
-            _setter("enable_frontend_tls11", enable_frontend_tls11)
+            pulumi.set(__self__, "enable_frontend_tls11", enable_frontend_tls11)
         if tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled is not None:
-            _setter("tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled", tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled)
+            pulumi.set(__self__, "tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled", tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled)
         if tls_ecdhe_ecdsa_with_aes256_cbc_sha_ciphers_enabled is not None:
-            _setter("tls_ecdhe_ecdsa_with_aes256_cbc_sha_ciphers_enabled", tls_ecdhe_ecdsa_with_aes256_cbc_sha_ciphers_enabled)
+            pulumi.set(__self__, "tls_ecdhe_ecdsa_with_aes256_cbc_sha_ciphers_enabled", tls_ecdhe_ecdsa_with_aes256_cbc_sha_ciphers_enabled)
         if tls_ecdhe_rsa_with_aes128_cbc_sha_ciphers_enabled is not None:
-            _setter("tls_ecdhe_rsa_with_aes128_cbc_sha_ciphers_enabled", tls_ecdhe_rsa_with_aes128_cbc_sha_ciphers_enabled)
+            pulumi.set(__self__, "tls_ecdhe_rsa_with_aes128_cbc_sha_ciphers_enabled", tls_ecdhe_rsa_with_aes128_cbc_sha_ciphers_enabled)
         if tls_ecdhe_rsa_with_aes256_cbc_sha_ciphers_enabled is not None:
-            _setter("tls_ecdhe_rsa_with_aes256_cbc_sha_ciphers_enabled", tls_ecdhe_rsa_with_aes256_cbc_sha_ciphers_enabled)
+            pulumi.set(__self__, "tls_ecdhe_rsa_with_aes256_cbc_sha_ciphers_enabled", tls_ecdhe_rsa_with_aes256_cbc_sha_ciphers_enabled)
         if tls_rsa_with_aes128_cbc_sha256_ciphers_enabled is not None:
-            _setter("tls_rsa_with_aes128_cbc_sha256_ciphers_enabled", tls_rsa_with_aes128_cbc_sha256_ciphers_enabled)
+            pulumi.set(__self__, "tls_rsa_with_aes128_cbc_sha256_ciphers_enabled", tls_rsa_with_aes128_cbc_sha256_ciphers_enabled)
         if tls_rsa_with_aes128_cbc_sha_ciphers_enabled is not None:
-            _setter("tls_rsa_with_aes128_cbc_sha_ciphers_enabled", tls_rsa_with_aes128_cbc_sha_ciphers_enabled)
+            pulumi.set(__self__, "tls_rsa_with_aes128_cbc_sha_ciphers_enabled", tls_rsa_with_aes128_cbc_sha_ciphers_enabled)
         if tls_rsa_with_aes128_gcm_sha256_ciphers_enabled is not None:
-            _setter("tls_rsa_with_aes128_gcm_sha256_ciphers_enabled", tls_rsa_with_aes128_gcm_sha256_ciphers_enabled)
+            pulumi.set(__self__, "tls_rsa_with_aes128_gcm_sha256_ciphers_enabled", tls_rsa_with_aes128_gcm_sha256_ciphers_enabled)
         if tls_rsa_with_aes256_cbc_sha256_ciphers_enabled is not None:
-            _setter("tls_rsa_with_aes256_cbc_sha256_ciphers_enabled", tls_rsa_with_aes256_cbc_sha256_ciphers_enabled)
+            pulumi.set(__self__, "tls_rsa_with_aes256_cbc_sha256_ciphers_enabled", tls_rsa_with_aes256_cbc_sha256_ciphers_enabled)
         if tls_rsa_with_aes256_cbc_sha_ciphers_enabled is not None:
-            _setter("tls_rsa_with_aes256_cbc_sha_ciphers_enabled", tls_rsa_with_aes256_cbc_sha_ciphers_enabled)
+            pulumi.set(__self__, "tls_rsa_with_aes256_cbc_sha_ciphers_enabled", tls_rsa_with_aes256_cbc_sha_ciphers_enabled)
         if tls_rsa_with_aes256_gcm_sha384_ciphers_enabled is not None:
-            _setter("tls_rsa_with_aes256_gcm_sha384_ciphers_enabled", tls_rsa_with_aes256_gcm_sha384_ciphers_enabled)
+            pulumi.set(__self__, "tls_rsa_with_aes256_gcm_sha384_ciphers_enabled", tls_rsa_with_aes256_gcm_sha384_ciphers_enabled)
         if triple_des_ciphers_enabled is not None:
-            _setter("triple_des_ciphers_enabled", triple_des_ciphers_enabled)
+            pulumi.set(__self__, "triple_des_ciphers_enabled", triple_des_ciphers_enabled)
 
     @property
     @pulumi.getter(name="enableBackendSsl30")
@@ -8893,20 +6738,7 @@ class ServiceSignIn(dict):
         """
         :param bool enabled: Should anonymous users be redirected to the sign in page?
         """
-        ServiceSignIn._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-
-        _setter("enabled", enabled)
+        pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
@@ -8943,27 +6775,8 @@ class ServiceSignUp(dict):
         :param bool enabled: Can users sign up on the development portal?
         :param 'ServiceSignUpTermsOfServiceArgs' terms_of_service: A `terms_of_service` block as defined below.
         """
-        ServiceSignUp._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            terms_of_service=terms_of_service,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             terms_of_service: Optional['outputs.ServiceSignUpTermsOfService'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if terms_of_service is None and 'termsOfService' in kwargs:
-            terms_of_service = kwargs['termsOfService']
-        if terms_of_service is None:
-            raise TypeError("Missing 'terms_of_service' argument")
-
-        _setter("enabled", enabled)
-        _setter("terms_of_service", terms_of_service)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "terms_of_service", terms_of_service)
 
     @property
     @pulumi.getter
@@ -9010,31 +6823,10 @@ class ServiceSignUpTermsOfService(dict):
         :param bool enabled: Should Terms of Service be displayed during sign up?.
         :param str text: The Terms of Service which users are required to agree to in order to sign up.
         """
-        ServiceSignUpTermsOfService._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            consent_required=consent_required,
-            enabled=enabled,
-            text=text,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             consent_required: Optional[bool] = None,
-             enabled: Optional[bool] = None,
-             text: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if consent_required is None and 'consentRequired' in kwargs:
-            consent_required = kwargs['consentRequired']
-        if consent_required is None:
-            raise TypeError("Missing 'consent_required' argument")
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-
-        _setter("consent_required", consent_required)
-        _setter("enabled", enabled)
+        pulumi.set(__self__, "consent_required", consent_required)
+        pulumi.set(__self__, "enabled", enabled)
         if text is not None:
-            _setter("text", text)
+            pulumi.set(__self__, "text", text)
 
     @property
     @pulumi.getter(name="consentRequired")
@@ -9095,38 +6887,13 @@ class ServiceTenantAccess(dict):
         :param str secondary_key: Secondary access key for the tenant access information contract.
         :param str tenant_id: The identifier for the tenant access information contract.
         """
-        ServiceTenantAccess._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            primary_key=primary_key,
-            secondary_key=secondary_key,
-            tenant_id=tenant_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             primary_key: Optional[str] = None,
-             secondary_key: Optional[str] = None,
-             tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if primary_key is None and 'primaryKey' in kwargs:
-            primary_key = kwargs['primaryKey']
-        if secondary_key is None and 'secondaryKey' in kwargs:
-            secondary_key = kwargs['secondaryKey']
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-
-        _setter("enabled", enabled)
+        pulumi.set(__self__, "enabled", enabled)
         if primary_key is not None:
-            _setter("primary_key", primary_key)
+            pulumi.set(__self__, "primary_key", primary_key)
         if secondary_key is not None:
-            _setter("secondary_key", secondary_key)
+            pulumi.set(__self__, "secondary_key", secondary_key)
         if tenant_id is not None:
-            _setter("tenant_id", tenant_id)
+            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -9185,22 +6952,7 @@ class ServiceVirtualNetworkConfiguration(dict):
         """
         :param str subnet_id: The id of the subnet that will be used for the API Management.
         """
-        ServiceVirtualNetworkConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            subnet_id=subnet_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             subnet_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if subnet_id is None and 'subnetId' in kwargs:
-            subnet_id = kwargs['subnetId']
-        if subnet_id is None:
-            raise TypeError("Missing 'subnet_id' argument")
-
-        _setter("subnet_id", subnet_id)
+        pulumi.set(__self__, "subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -9220,25 +6972,8 @@ class GetApiSubscriptionKeyParameterNameResult(dict):
         :param str header: The name of the HTTP Header which should be used for the Subscription Key.
         :param str query: The name of the QueryString parameter which should be used for the Subscription Key.
         """
-        GetApiSubscriptionKeyParameterNameResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            header=header,
-            query=query,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             header: Optional[str] = None,
-             query: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if header is None:
-            raise TypeError("Missing 'header' argument")
-        if query is None:
-            raise TypeError("Missing 'query' argument")
-
-        _setter("header", header)
-        _setter("query", query)
+        pulumi.set(__self__, "header", header)
+        pulumi.set(__self__, "query", query)
 
     @property
     @pulumi.getter
@@ -9269,35 +7004,10 @@ class GetGatewayLocationDataResult(dict):
         :param str district: The district, state, or province where the resource is located.
         :param str name: The name of the API Management Gateway.
         """
-        GetGatewayLocationDataResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            city=city,
-            district=district,
-            name=name,
-            region=region,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             city: Optional[str] = None,
-             district: Optional[str] = None,
-             name: Optional[str] = None,
-             region: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if city is None:
-            raise TypeError("Missing 'city' argument")
-        if district is None:
-            raise TypeError("Missing 'district' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if region is None:
-            raise TypeError("Missing 'region' argument")
-
-        _setter("city", city)
-        _setter("district", district)
-        _setter("name", name)
-        _setter("region", region)
+        pulumi.set(__self__, "city", city)
+        pulumi.set(__self__, "district", district)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -9348,58 +7058,13 @@ class GetServiceAdditionalLocationResult(dict):
         :param Sequence[str] public_ip_addresses: Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
         :param Sequence[str] zones: List of the availability zones where API Management is deployed in the additional region exists.
         """
-        GetServiceAdditionalLocationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            capacity=capacity,
-            gateway_regional_url=gateway_regional_url,
-            location=location,
-            private_ip_addresses=private_ip_addresses,
-            public_ip_address_id=public_ip_address_id,
-            public_ip_addresses=public_ip_addresses,
-            zones=zones,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             capacity: Optional[int] = None,
-             gateway_regional_url: Optional[str] = None,
-             location: Optional[str] = None,
-             private_ip_addresses: Optional[Sequence[str]] = None,
-             public_ip_address_id: Optional[str] = None,
-             public_ip_addresses: Optional[Sequence[str]] = None,
-             zones: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if capacity is None:
-            raise TypeError("Missing 'capacity' argument")
-        if gateway_regional_url is None and 'gatewayRegionalUrl' in kwargs:
-            gateway_regional_url = kwargs['gatewayRegionalUrl']
-        if gateway_regional_url is None:
-            raise TypeError("Missing 'gateway_regional_url' argument")
-        if location is None:
-            raise TypeError("Missing 'location' argument")
-        if private_ip_addresses is None and 'privateIpAddresses' in kwargs:
-            private_ip_addresses = kwargs['privateIpAddresses']
-        if private_ip_addresses is None:
-            raise TypeError("Missing 'private_ip_addresses' argument")
-        if public_ip_address_id is None and 'publicIpAddressId' in kwargs:
-            public_ip_address_id = kwargs['publicIpAddressId']
-        if public_ip_address_id is None:
-            raise TypeError("Missing 'public_ip_address_id' argument")
-        if public_ip_addresses is None and 'publicIpAddresses' in kwargs:
-            public_ip_addresses = kwargs['publicIpAddresses']
-        if public_ip_addresses is None:
-            raise TypeError("Missing 'public_ip_addresses' argument")
-        if zones is None:
-            raise TypeError("Missing 'zones' argument")
-
-        _setter("capacity", capacity)
-        _setter("gateway_regional_url", gateway_regional_url)
-        _setter("location", location)
-        _setter("private_ip_addresses", private_ip_addresses)
-        _setter("public_ip_address_id", public_ip_address_id)
-        _setter("public_ip_addresses", public_ip_addresses)
-        _setter("zones", zones)
+        pulumi.set(__self__, "capacity", capacity)
+        pulumi.set(__self__, "gateway_regional_url", gateway_regional_url)
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "private_ip_addresses", private_ip_addresses)
+        pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
+        pulumi.set(__self__, "public_ip_addresses", public_ip_addresses)
+        pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter
@@ -9473,42 +7138,11 @@ class GetServiceHostnameConfigurationResult(dict):
         :param Sequence['GetServiceHostnameConfigurationProxyArgs'] proxies: One or more `proxy` blocks as documented below.
         :param Sequence['GetServiceHostnameConfigurationScmArgs'] scms: One or more `scm` blocks as documented below.
         """
-        GetServiceHostnameConfigurationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            developer_portals=developer_portals,
-            managements=managements,
-            portals=portals,
-            proxies=proxies,
-            scms=scms,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             developer_portals: Optional[Sequence['outputs.GetServiceHostnameConfigurationDeveloperPortalResult']] = None,
-             managements: Optional[Sequence['outputs.GetServiceHostnameConfigurationManagementResult']] = None,
-             portals: Optional[Sequence['outputs.GetServiceHostnameConfigurationPortalResult']] = None,
-             proxies: Optional[Sequence['outputs.GetServiceHostnameConfigurationProxyResult']] = None,
-             scms: Optional[Sequence['outputs.GetServiceHostnameConfigurationScmResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if developer_portals is None and 'developerPortals' in kwargs:
-            developer_portals = kwargs['developerPortals']
-        if developer_portals is None:
-            raise TypeError("Missing 'developer_portals' argument")
-        if managements is None:
-            raise TypeError("Missing 'managements' argument")
-        if portals is None:
-            raise TypeError("Missing 'portals' argument")
-        if proxies is None:
-            raise TypeError("Missing 'proxies' argument")
-        if scms is None:
-            raise TypeError("Missing 'scms' argument")
-
-        _setter("developer_portals", developer_portals)
-        _setter("managements", managements)
-        _setter("portals", portals)
-        _setter("proxies", proxies)
-        _setter("scms", scms)
+        pulumi.set(__self__, "developer_portals", developer_portals)
+        pulumi.set(__self__, "managements", managements)
+        pulumi.set(__self__, "portals", portals)
+        pulumi.set(__self__, "proxies", proxies)
+        pulumi.set(__self__, "scms", scms)
 
     @property
     @pulumi.getter(name="developerPortals")
@@ -9562,36 +7196,9 @@ class GetServiceHostnameConfigurationDeveloperPortalResult(dict):
         :param str key_vault_id: The ID of the Key Vault Secret which contains the SSL Certificate.
         :param bool negotiate_client_certificate: Is Client Certificate Negotiation enabled?
         """
-        GetServiceHostnameConfigurationDeveloperPortalResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            host_name=host_name,
-            key_vault_id=key_vault_id,
-            negotiate_client_certificate=negotiate_client_certificate,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             host_name: Optional[str] = None,
-             key_vault_id: Optional[str] = None,
-             negotiate_client_certificate: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if host_name is None and 'hostName' in kwargs:
-            host_name = kwargs['hostName']
-        if host_name is None:
-            raise TypeError("Missing 'host_name' argument")
-        if key_vault_id is None and 'keyVaultId' in kwargs:
-            key_vault_id = kwargs['keyVaultId']
-        if key_vault_id is None:
-            raise TypeError("Missing 'key_vault_id' argument")
-        if negotiate_client_certificate is None and 'negotiateClientCertificate' in kwargs:
-            negotiate_client_certificate = kwargs['negotiateClientCertificate']
-        if negotiate_client_certificate is None:
-            raise TypeError("Missing 'negotiate_client_certificate' argument")
-
-        _setter("host_name", host_name)
-        _setter("key_vault_id", key_vault_id)
-        _setter("negotiate_client_certificate", negotiate_client_certificate)
+        pulumi.set(__self__, "host_name", host_name)
+        pulumi.set(__self__, "key_vault_id", key_vault_id)
+        pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
 
     @property
     @pulumi.getter(name="hostName")
@@ -9629,36 +7236,9 @@ class GetServiceHostnameConfigurationManagementResult(dict):
         :param str key_vault_id: The ID of the Key Vault Secret which contains the SSL Certificate.
         :param bool negotiate_client_certificate: Is Client Certificate Negotiation enabled?
         """
-        GetServiceHostnameConfigurationManagementResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            host_name=host_name,
-            key_vault_id=key_vault_id,
-            negotiate_client_certificate=negotiate_client_certificate,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             host_name: Optional[str] = None,
-             key_vault_id: Optional[str] = None,
-             negotiate_client_certificate: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if host_name is None and 'hostName' in kwargs:
-            host_name = kwargs['hostName']
-        if host_name is None:
-            raise TypeError("Missing 'host_name' argument")
-        if key_vault_id is None and 'keyVaultId' in kwargs:
-            key_vault_id = kwargs['keyVaultId']
-        if key_vault_id is None:
-            raise TypeError("Missing 'key_vault_id' argument")
-        if negotiate_client_certificate is None and 'negotiateClientCertificate' in kwargs:
-            negotiate_client_certificate = kwargs['negotiateClientCertificate']
-        if negotiate_client_certificate is None:
-            raise TypeError("Missing 'negotiate_client_certificate' argument")
-
-        _setter("host_name", host_name)
-        _setter("key_vault_id", key_vault_id)
-        _setter("negotiate_client_certificate", negotiate_client_certificate)
+        pulumi.set(__self__, "host_name", host_name)
+        pulumi.set(__self__, "key_vault_id", key_vault_id)
+        pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
 
     @property
     @pulumi.getter(name="hostName")
@@ -9696,36 +7276,9 @@ class GetServiceHostnameConfigurationPortalResult(dict):
         :param str key_vault_id: The ID of the Key Vault Secret which contains the SSL Certificate.
         :param bool negotiate_client_certificate: Is Client Certificate Negotiation enabled?
         """
-        GetServiceHostnameConfigurationPortalResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            host_name=host_name,
-            key_vault_id=key_vault_id,
-            negotiate_client_certificate=negotiate_client_certificate,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             host_name: Optional[str] = None,
-             key_vault_id: Optional[str] = None,
-             negotiate_client_certificate: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if host_name is None and 'hostName' in kwargs:
-            host_name = kwargs['hostName']
-        if host_name is None:
-            raise TypeError("Missing 'host_name' argument")
-        if key_vault_id is None and 'keyVaultId' in kwargs:
-            key_vault_id = kwargs['keyVaultId']
-        if key_vault_id is None:
-            raise TypeError("Missing 'key_vault_id' argument")
-        if negotiate_client_certificate is None and 'negotiateClientCertificate' in kwargs:
-            negotiate_client_certificate = kwargs['negotiateClientCertificate']
-        if negotiate_client_certificate is None:
-            raise TypeError("Missing 'negotiate_client_certificate' argument")
-
-        _setter("host_name", host_name)
-        _setter("key_vault_id", key_vault_id)
-        _setter("negotiate_client_certificate", negotiate_client_certificate)
+        pulumi.set(__self__, "host_name", host_name)
+        pulumi.set(__self__, "key_vault_id", key_vault_id)
+        pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
 
     @property
     @pulumi.getter(name="hostName")
@@ -9765,43 +7318,10 @@ class GetServiceHostnameConfigurationProxyResult(dict):
         :param str key_vault_id: The ID of the Key Vault Secret which contains the SSL Certificate.
         :param bool negotiate_client_certificate: Is Client Certificate Negotiation enabled?
         """
-        GetServiceHostnameConfigurationProxyResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            default_ssl_binding=default_ssl_binding,
-            host_name=host_name,
-            key_vault_id=key_vault_id,
-            negotiate_client_certificate=negotiate_client_certificate,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             default_ssl_binding: Optional[bool] = None,
-             host_name: Optional[str] = None,
-             key_vault_id: Optional[str] = None,
-             negotiate_client_certificate: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if default_ssl_binding is None and 'defaultSslBinding' in kwargs:
-            default_ssl_binding = kwargs['defaultSslBinding']
-        if default_ssl_binding is None:
-            raise TypeError("Missing 'default_ssl_binding' argument")
-        if host_name is None and 'hostName' in kwargs:
-            host_name = kwargs['hostName']
-        if host_name is None:
-            raise TypeError("Missing 'host_name' argument")
-        if key_vault_id is None and 'keyVaultId' in kwargs:
-            key_vault_id = kwargs['keyVaultId']
-        if key_vault_id is None:
-            raise TypeError("Missing 'key_vault_id' argument")
-        if negotiate_client_certificate is None and 'negotiateClientCertificate' in kwargs:
-            negotiate_client_certificate = kwargs['negotiateClientCertificate']
-        if negotiate_client_certificate is None:
-            raise TypeError("Missing 'negotiate_client_certificate' argument")
-
-        _setter("default_ssl_binding", default_ssl_binding)
-        _setter("host_name", host_name)
-        _setter("key_vault_id", key_vault_id)
-        _setter("negotiate_client_certificate", negotiate_client_certificate)
+        pulumi.set(__self__, "default_ssl_binding", default_ssl_binding)
+        pulumi.set(__self__, "host_name", host_name)
+        pulumi.set(__self__, "key_vault_id", key_vault_id)
+        pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
 
     @property
     @pulumi.getter(name="defaultSslBinding")
@@ -9847,36 +7367,9 @@ class GetServiceHostnameConfigurationScmResult(dict):
         :param str key_vault_id: The ID of the Key Vault Secret which contains the SSL Certificate.
         :param bool negotiate_client_certificate: Is Client Certificate Negotiation enabled?
         """
-        GetServiceHostnameConfigurationScmResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            host_name=host_name,
-            key_vault_id=key_vault_id,
-            negotiate_client_certificate=negotiate_client_certificate,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             host_name: Optional[str] = None,
-             key_vault_id: Optional[str] = None,
-             negotiate_client_certificate: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if host_name is None and 'hostName' in kwargs:
-            host_name = kwargs['hostName']
-        if host_name is None:
-            raise TypeError("Missing 'host_name' argument")
-        if key_vault_id is None and 'keyVaultId' in kwargs:
-            key_vault_id = kwargs['keyVaultId']
-        if key_vault_id is None:
-            raise TypeError("Missing 'key_vault_id' argument")
-        if negotiate_client_certificate is None and 'negotiateClientCertificate' in kwargs:
-            negotiate_client_certificate = kwargs['negotiateClientCertificate']
-        if negotiate_client_certificate is None:
-            raise TypeError("Missing 'negotiate_client_certificate' argument")
-
-        _setter("host_name", host_name)
-        _setter("key_vault_id", key_vault_id)
-        _setter("negotiate_client_certificate", negotiate_client_certificate)
+        pulumi.set(__self__, "host_name", host_name)
+        pulumi.set(__self__, "key_vault_id", key_vault_id)
+        pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
 
     @property
     @pulumi.getter(name="hostName")
@@ -9916,41 +7409,10 @@ class GetServiceIdentityResult(dict):
         :param str tenant_id: The ID of the Tenant which has access to this API Management instance.
         :param str type: The type of Managed Service Identity that is configured on this API Management Service.
         """
-        GetServiceIdentityResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            identity_ids=identity_ids,
-            principal_id=principal_id,
-            tenant_id=tenant_id,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             identity_ids: Optional[Sequence[str]] = None,
-             principal_id: Optional[str] = None,
-             tenant_id: Optional[str] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if identity_ids is None and 'identityIds' in kwargs:
-            identity_ids = kwargs['identityIds']
-        if identity_ids is None:
-            raise TypeError("Missing 'identity_ids' argument")
-        if principal_id is None and 'principalId' in kwargs:
-            principal_id = kwargs['principalId']
-        if principal_id is None:
-            raise TypeError("Missing 'principal_id' argument")
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-        if tenant_id is None:
-            raise TypeError("Missing 'tenant_id' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("identity_ids", identity_ids)
-        _setter("principal_id", principal_id)
-        _setter("tenant_id", tenant_id)
-        _setter("type", type)
+        pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="identityIds")
@@ -9998,41 +7460,10 @@ class GetServiceTenantAccessResult(dict):
         :param str secondary_key: Secondary access key for the tenant access information contract.
         :param str tenant_id: The ID of the Tenant which has access to this API Management instance.
         """
-        GetServiceTenantAccessResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            primary_key=primary_key,
-            secondary_key=secondary_key,
-            tenant_id=tenant_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             primary_key: Optional[str] = None,
-             secondary_key: Optional[str] = None,
-             tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if primary_key is None and 'primaryKey' in kwargs:
-            primary_key = kwargs['primaryKey']
-        if primary_key is None:
-            raise TypeError("Missing 'primary_key' argument")
-        if secondary_key is None and 'secondaryKey' in kwargs:
-            secondary_key = kwargs['secondaryKey']
-        if secondary_key is None:
-            raise TypeError("Missing 'secondary_key' argument")
-        if tenant_id is None and 'tenantId' in kwargs:
-            tenant_id = kwargs['tenantId']
-        if tenant_id is None:
-            raise TypeError("Missing 'tenant_id' argument")
-
-        _setter("enabled", enabled)
-        _setter("primary_key", primary_key)
-        _setter("secondary_key", secondary_key)
-        _setter("tenant_id", tenant_id)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "primary_key", primary_key)
+        pulumi.set(__self__, "secondary_key", secondary_key)
+        pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter

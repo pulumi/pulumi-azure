@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SqlTriggerArgs', 'SqlTrigger']
@@ -27,41 +27,12 @@ class SqlTriggerArgs:
         :param pulumi.Input[str] type: Type of the Trigger. Possible values are `Pre` and `Post`.
         :param pulumi.Input[str] name: The name which should be used for this SQL Trigger. Changing this forces a new SQL Trigger to be created.
         """
-        SqlTriggerArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            body=body,
-            container_id=container_id,
-            operation=operation,
-            type=type,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             body: Optional[pulumi.Input[str]] = None,
-             container_id: Optional[pulumi.Input[str]] = None,
-             operation: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if body is None:
-            raise TypeError("Missing 'body' argument")
-        if container_id is None and 'containerId' in kwargs:
-            container_id = kwargs['containerId']
-        if container_id is None:
-            raise TypeError("Missing 'container_id' argument")
-        if operation is None:
-            raise TypeError("Missing 'operation' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("body", body)
-        _setter("container_id", container_id)
-        _setter("operation", operation)
-        _setter("type", type)
+        pulumi.set(__self__, "body", body)
+        pulumi.set(__self__, "container_id", container_id)
+        pulumi.set(__self__, "operation", operation)
+        pulumi.set(__self__, "type", type)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -140,37 +111,16 @@ class _SqlTriggerState:
         :param pulumi.Input[str] operation: The operation the trigger is associated with. Possible values are `All`, `Create`, `Update`, `Delete` and `Replace`.
         :param pulumi.Input[str] type: Type of the Trigger. Possible values are `Pre` and `Post`.
         """
-        _SqlTriggerState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            body=body,
-            container_id=container_id,
-            name=name,
-            operation=operation,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             body: Optional[pulumi.Input[str]] = None,
-             container_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             operation: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if container_id is None and 'containerId' in kwargs:
-            container_id = kwargs['containerId']
-
         if body is not None:
-            _setter("body", body)
+            pulumi.set(__self__, "body", body)
         if container_id is not None:
-            _setter("container_id", container_id)
+            pulumi.set(__self__, "container_id", container_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if operation is not None:
-            _setter("operation", operation)
+            pulumi.set(__self__, "operation", operation)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -338,10 +288,6 @@ class SqlTrigger(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SqlTriggerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
