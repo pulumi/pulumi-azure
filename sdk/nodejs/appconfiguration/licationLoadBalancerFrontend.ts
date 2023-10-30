@@ -7,6 +7,19 @@ import * as utilities from "../utilities";
 /**
  * Manages an Application Gateway for Containers Frontend.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleLicationLoadBalancer = new azure.appconfiguration.LicationLoadBalancer("exampleLicationLoadBalancer", {
+ *     resourceGroupName: "example",
+ *     location: "West Europe",
+ * });
+ * const exampleLicationLoadBalancerFrontend = new azure.appconfiguration.LicationLoadBalancerFrontend("exampleLicationLoadBalancerFrontend", {applicationLoadBalancerId: exampleLicationLoadBalancer.id});
+ * ```
+ *
  * ## Import
  *
  * Application Gateway for Containers Frontend can be imported using the `resource id`, e.g.

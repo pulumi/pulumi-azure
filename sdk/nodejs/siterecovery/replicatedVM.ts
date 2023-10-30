@@ -49,9 +49,9 @@ import * as utilities from "../utilities";
  *     vmSize: "Standard_B1s",
  *     networkInterfaceIds: [vmNetworkInterface.id],
  *     storageImageReference: {
- *         publisher: "OpenLogic",
- *         offer: "CentOS",
- *         sku: "7.5",
+ *         publisher: "Canonical",
+ *         offer: "0001-com-ubuntu-server-jammy",
+ *         sku: "22_04-lts",
  *         version: "latest",
  *     },
  *     storageOsDisk: {

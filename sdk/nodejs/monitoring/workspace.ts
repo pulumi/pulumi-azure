@@ -72,6 +72,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * The query endpoint for the Azure Monitor Workspace.
+     */
+    public /*out*/ readonly queryEndpoint!: pulumi.Output<string>;
+    /**
      * Specifies the name of the Resource Group where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -96,6 +100,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
+            resourceInputs["queryEndpoint"] = state ? state.queryEndpoint : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
@@ -108,6 +113,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["queryEndpoint"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Workspace.__pulumiType, name, resourceInputs, opts);
@@ -130,6 +136,10 @@ export interface WorkspaceState {
      * Is public network access enabled? Defaults to `true`.
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    /**
+     * The query endpoint for the Azure Monitor Workspace.
+     */
+    queryEndpoint?: pulumi.Input<string>;
     /**
      * Specifies the name of the Resource Group where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
      */

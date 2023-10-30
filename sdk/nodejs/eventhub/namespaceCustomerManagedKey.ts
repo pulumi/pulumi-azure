@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
  * !> **Note:** In 2.x versions of the Azure Provider during deletion this resource will **delete and recreate the parent EventHub Namespace which may involve data loss** as it's not possible to remove the Customer Managed Key from the EventHub Namespace once it's been added. Version 3.0 of the Azure Provider will change this so that the Delete operation is a noop, requiring the parent EventHub Namespace is deleted/recreated to remove the Customer Managed Key.
  *
  * ## Example Usage
+ * ### With System Assigned Identity
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -134,6 +135,14 @@ export class NamespaceCustomerManagedKey extends pulumi.CustomResource {
      * The list of keys of Key Vault.
      */
     public readonly keyVaultKeyIds!: pulumi.Output<string[]>;
+    /**
+     * The ID of a User Managed Identity that will be used to access Key Vaults that contain the encryption keys.
+     *
+     * > **Note:** If using `userAssignedIdentityId`, ensure the User Assigned Identity is also assigned to the parent Event Hub.
+     *
+     * > **Note:** If using `userAssignedIdentityId`, make sure to assign the identity the appropriate permissions to access the Key Vault key. Failure to grant `Get, UnwrapKey, and WrapKey` will cause this resource to fail to apply.
+     */
+    public readonly userAssignedIdentityId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a NamespaceCustomerManagedKey resource with the given unique name, arguments, and options.
@@ -151,6 +160,7 @@ export class NamespaceCustomerManagedKey extends pulumi.CustomResource {
             resourceInputs["eventhubNamespaceId"] = state ? state.eventhubNamespaceId : undefined;
             resourceInputs["infrastructureEncryptionEnabled"] = state ? state.infrastructureEncryptionEnabled : undefined;
             resourceInputs["keyVaultKeyIds"] = state ? state.keyVaultKeyIds : undefined;
+            resourceInputs["userAssignedIdentityId"] = state ? state.userAssignedIdentityId : undefined;
         } else {
             const args = argsOrState as NamespaceCustomerManagedKeyArgs | undefined;
             if ((!args || args.eventhubNamespaceId === undefined) && !opts.urn) {
@@ -162,6 +172,7 @@ export class NamespaceCustomerManagedKey extends pulumi.CustomResource {
             resourceInputs["eventhubNamespaceId"] = args ? args.eventhubNamespaceId : undefined;
             resourceInputs["infrastructureEncryptionEnabled"] = args ? args.infrastructureEncryptionEnabled : undefined;
             resourceInputs["keyVaultKeyIds"] = args ? args.keyVaultKeyIds : undefined;
+            resourceInputs["userAssignedIdentityId"] = args ? args.userAssignedIdentityId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NamespaceCustomerManagedKey.__pulumiType, name, resourceInputs, opts);
@@ -184,6 +195,14 @@ export interface NamespaceCustomerManagedKeyState {
      * The list of keys of Key Vault.
      */
     keyVaultKeyIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The ID of a User Managed Identity that will be used to access Key Vaults that contain the encryption keys.
+     *
+     * > **Note:** If using `userAssignedIdentityId`, ensure the User Assigned Identity is also assigned to the parent Event Hub.
+     *
+     * > **Note:** If using `userAssignedIdentityId`, make sure to assign the identity the appropriate permissions to access the Key Vault key. Failure to grant `Get, UnwrapKey, and WrapKey` will cause this resource to fail to apply.
+     */
+    userAssignedIdentityId?: pulumi.Input<string>;
 }
 
 /**
@@ -202,4 +221,12 @@ export interface NamespaceCustomerManagedKeyArgs {
      * The list of keys of Key Vault.
      */
     keyVaultKeyIds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The ID of a User Managed Identity that will be used to access Key Vaults that contain the encryption keys.
+     *
+     * > **Note:** If using `userAssignedIdentityId`, ensure the User Assigned Identity is also assigned to the parent Event Hub.
+     *
+     * > **Note:** If using `userAssignedIdentityId`, make sure to assign the identity the appropriate permissions to access the Key Vault key. Failure to grant `Get, UnwrapKey, and WrapKey` will cause this resource to fail to apply.
+     */
+    userAssignedIdentityId?: pulumi.Input<string>;
 }

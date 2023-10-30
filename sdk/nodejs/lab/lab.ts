@@ -29,9 +29,9 @@ import * as utilities from "../utilities";
  *             password: "Password1234!",
  *         },
  *         imageReference: {
- *             offer: "0001-com-ubuntu-server-focal",
- *             publisher: "canonical",
- *             sku: "20_04-lts",
+ *             publisher: "Canonical",
+ *             offer: "0001-com-ubuntu-server-jammy",
+ *             sku: "22_04-lts",
  *             version: "latest",
  *         },
  *         sku: {

@@ -55,6 +55,11 @@ export type PrivateLink = import("./privateLink").PrivateLink;
 export const PrivateLink: typeof import("./privateLink").PrivateLink = null as any;
 utilities.lazyLoad(exports, ["PrivateLink"], () => require("./privateLink"));
 
+export { PrivateLinkAssociationArgs, PrivateLinkAssociationState } from "./privateLinkAssociation";
+export type PrivateLinkAssociation = import("./privateLinkAssociation").PrivateLinkAssociation;
+export const PrivateLinkAssociation: typeof import("./privateLinkAssociation").PrivateLinkAssociation = null as any;
+utilities.lazyLoad(exports, ["PrivateLinkAssociation"], () => require("./privateLinkAssociation"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -76,6 +81,8 @@ const _module = {
                 return new Lock(name, <any>undefined, { urn })
             case "azure:management/privateLink:PrivateLink":
                 return new PrivateLink(name, <any>undefined, { urn })
+            case "azure:management/privateLinkAssociation:PrivateLinkAssociation":
+                return new PrivateLinkAssociation(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -89,3 +96,4 @@ pulumi.runtime.registerResourceModule("azure", "management/groupSubscriptionAsso
 pulumi.runtime.registerResourceModule("azure", "management/groupTemplateDeployment", _module)
 pulumi.runtime.registerResourceModule("azure", "management/lock", _module)
 pulumi.runtime.registerResourceModule("azure", "management/privateLink", _module)
+pulumi.runtime.registerResourceModule("azure", "management/privateLinkAssociation", _module)

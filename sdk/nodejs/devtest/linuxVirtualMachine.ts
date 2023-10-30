@@ -44,9 +44,9 @@ import * as utilities from "../utilities";
  *     storageType: "Premium",
  *     notes: "Some notes about this Virtual Machine.",
  *     galleryImageReference: {
- *         offer: "UbuntuServer",
  *         publisher: "Canonical",
- *         sku: "18.04-LTS",
+ *         offer: "0001-com-ubuntu-server-jammy",
+ *         sku: "22_04-lts",
  *         version: "latest",
  *     },
  * });

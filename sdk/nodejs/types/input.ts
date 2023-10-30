@@ -4751,7 +4751,7 @@ export namespace appservice {
          */
         facebookV2?: pulumi.Input<inputs.appservice.LinuxFunctionAppAuthSettingsV2FacebookV2>;
         /**
-         * The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+         * The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
          */
         forwardProxyConvention?: pulumi.Input<string>;
         /**
@@ -5717,7 +5717,7 @@ export namespace appservice {
          */
         facebookV2?: pulumi.Input<inputs.appservice.LinuxFunctionAppSlotAuthSettingsV2FacebookV2>;
         /**
-         * The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+         * The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
          */
         forwardProxyConvention?: pulumi.Input<string>;
         /**
@@ -6760,7 +6760,7 @@ export namespace appservice {
          */
         facebookV2?: pulumi.Input<inputs.appservice.LinuxWebAppAuthSettingsV2FacebookV2>;
         /**
-         * The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+         * The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
          */
         forwardProxyConvention?: pulumi.Input<string>;
         /**
@@ -7867,7 +7867,7 @@ export namespace appservice {
          */
         facebookV2?: pulumi.Input<inputs.appservice.LinuxWebAppSlotAuthSettingsV2FacebookV2>;
         /**
-         * The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+         * The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
          */
         forwardProxyConvention?: pulumi.Input<string>;
         /**
@@ -9705,7 +9705,7 @@ export namespace appservice {
          */
         facebookV2?: pulumi.Input<inputs.appservice.WindowsFunctionAppAuthSettingsV2FacebookV2>;
         /**
-         * The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+         * The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
          */
         forwardProxyConvention?: pulumi.Input<string>;
         /**
@@ -10630,7 +10630,7 @@ export namespace appservice {
          */
         facebookV2?: pulumi.Input<inputs.appservice.WindowsFunctionAppSlotAuthSettingsV2FacebookV2>;
         /**
-         * The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+         * The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
          */
         forwardProxyConvention?: pulumi.Input<string>;
         /**
@@ -11630,7 +11630,7 @@ export namespace appservice {
          */
         facebookV2?: pulumi.Input<inputs.appservice.WindowsWebAppAuthSettingsV2FacebookV2>;
         /**
-         * The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+         * The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
          */
         forwardProxyConvention?: pulumi.Input<string>;
         /**
@@ -12817,7 +12817,7 @@ export namespace appservice {
          */
         facebookV2?: pulumi.Input<inputs.appservice.WindowsWebAppSlotAuthSettingsV2FacebookV2>;
         /**
-         * The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+         * The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
          */
         forwardProxyConvention?: pulumi.Input<string>;
         /**
@@ -42719,8 +42719,6 @@ export namespace network {
         interfaceName?: pulumi.Input<string>;
         /**
          * The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
-         *
-         * > **NOTE** `macsecCknKeyvaultSecretId` and `macsecCakKeyvaultSecretId` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
          */
         macsecCakKeyvaultSecretId?: pulumi.Input<string>;
         /**
@@ -42731,6 +42729,12 @@ export namespace network {
          * The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
          */
         macsecCknKeyvaultSecretId?: pulumi.Input<string>;
+        /**
+         * Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
+         *
+         * > **NOTE** `macsecCknKeyvaultSecretId` and `macsecCakKeyvaultSecretId` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
+         */
+        macsecSciEnabled?: pulumi.Input<boolean>;
         /**
          * The ID that maps from the Express Route Port Link to the patch panel port.
          */
@@ -42764,8 +42768,6 @@ export namespace network {
         interfaceName?: pulumi.Input<string>;
         /**
          * The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
-         *
-         * > **NOTE** `macsecCknKeyvaultSecretId` and `macsecCakKeyvaultSecretId` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
          */
         macsecCakKeyvaultSecretId?: pulumi.Input<string>;
         /**
@@ -42776,6 +42778,12 @@ export namespace network {
          * The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
          */
         macsecCknKeyvaultSecretId?: pulumi.Input<string>;
+        /**
+         * Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
+         *
+         * > **NOTE** `macsecCknKeyvaultSecretId` and `macsecCakKeyvaultSecretId` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
+         */
+        macsecSciEnabled?: pulumi.Input<boolean>;
         /**
          * The ID that maps from the Express Route Port Link to the patch panel port.
          */

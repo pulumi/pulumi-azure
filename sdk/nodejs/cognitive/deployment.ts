@@ -84,7 +84,7 @@ export class Deployment extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The name of RAI policy. Changing this forces a new resource to be created.
+     * The name of RAI policy.
      */
     public readonly raiPolicyName!: pulumi.Output<string | undefined>;
     /**
@@ -149,7 +149,7 @@ export interface DeploymentState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of RAI policy. Changing this forces a new resource to be created.
+     * The name of RAI policy.
      */
     raiPolicyName?: pulumi.Input<string>;
     /**
@@ -175,7 +175,7 @@ export interface DeploymentArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of RAI policy. Changing this forces a new resource to be created.
+     * The name of RAI policy.
      */
     raiPolicyName?: pulumi.Input<string>;
     /**
