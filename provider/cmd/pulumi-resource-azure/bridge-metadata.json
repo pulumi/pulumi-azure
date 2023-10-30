@@ -16908,6 +16908,10 @@
                 "current": "azure:management/privateLink:PrivateLink",
                 "majorVersion": 5
             },
+            "azurerm_resource_management_private_link_association": {
+                "current": "azure:management/privateLinkAssociation:PrivateLinkAssociation",
+                "majorVersion": 5
+            },
             "azurerm_resource_policy_assignment": {
                 "current": "azure:core/resourcePolicyAssignment:ResourcePolicyAssignment",
                 "majorVersion": 5,
@@ -29964,6 +29968,7 @@
             "azure:management/groupTemplateDeployment:GroupTemplateDeployment": "azurerm_management_group_template_deployment",
             "azure:management/lock:Lock": "azurerm_management_lock",
             "azure:management/privateLink:PrivateLink": "azurerm_resource_management_private_link",
+            "azure:management/privateLinkAssociation:PrivateLinkAssociation": "azurerm_resource_management_private_link_association",
             "azure:managementgroups/managementGroup:ManagementGroup": "azurerm_management_group_legacy",
             "azure:managementresource/manangementLock:ManangementLock": "azurerm_management_lock_legacy",
             "azure:maps/account:Account": "azurerm_maps_account",
@@ -44721,7 +44726,8 @@
             "azure:eventhub/namespaceCustomerManagedKey:NamespaceCustomerManagedKey": {
                 "eventhubNamespaceId": "eventhub_namespace_id",
                 "infrastructureEncryptionEnabled": "infrastructure_encryption_enabled",
-                "keyVaultKeyIds": "key_vault_key_ids"
+                "keyVaultKeyIds": "key_vault_key_ids",
+                "userAssignedIdentityId": "user_assigned_identity_id"
             },
             "azure:eventhub/namespaceSchemaGroup:NamespaceSchemaGroup": {
                 "namespaceId": "namespace_id",
@@ -47811,6 +47817,12 @@
             "azure:management/privateLink:PrivateLink": {
                 "resourceGroupName": "resource_group_name"
             },
+            "azure:management/privateLinkAssociation:PrivateLinkAssociation": {
+                "managementGroupId": "management_group_id",
+                "publicNetworkAccessEnabled": "public_network_access_enabled",
+                "resourceManagementPrivateLinkId": "resource_management_private_link_id",
+                "tenantId": "tenant_id"
+            },
             "azure:managementgroups/getManagementGroup:getManagementGroup": {
                 "allManagementGroupIds": "all_management_group_ids",
                 "allSubscriptionIds": "all_subscription_ids",
@@ -49556,6 +49568,7 @@
             },
             "azure:monitoring/workspace:Workspace": {
                 "publicNetworkAccessEnabled": "public_network_access_enabled",
+                "queryEndpoint": "query_endpoint",
                 "resourceGroupName": "resource_group_name"
             },
             "azure:msi/userAssignedIdentity:UserAssignedIdentity": {
@@ -50642,6 +50655,7 @@
                 "macsecCakKeyvaultSecretId": "macsec_cak_keyvault_secret_id",
                 "macsecCipher": "macsec_cipher",
                 "macsecCknKeyvaultSecretId": "macsec_ckn_keyvault_secret_id",
+                "macsecSciEnabled": "macsec_sci_enabled",
                 "patchPanelId": "patch_panel_id",
                 "rackId": "rack_id",
                 "routerName": "router_name"
@@ -50653,6 +50667,7 @@
                 "macsecCakKeyvaultSecretId": "macsec_cak_keyvault_secret_id",
                 "macsecCipher": "macsec_cipher",
                 "macsecCknKeyvaultSecretId": "macsec_ckn_keyvault_secret_id",
+                "macsecSciEnabled": "macsec_sci_enabled",
                 "patchPanelId": "patch_panel_id",
                 "rackId": "rack_id",
                 "routerName": "router_name"
@@ -53579,7 +53594,8 @@
                 "queryKeys": "query_keys",
                 "replicaCount": "replica_count",
                 "resourceGroupName": "resource_group_name",
-                "secondaryKey": "secondary_key"
+                "secondaryKey": "secondary_key",
+                "semanticSearchSku": "semantic_search_sku"
             },
             "azure:search/sharedPrivateLinkService:SharedPrivateLinkService": {
                 "requestMessage": "request_message",
@@ -55973,6 +55989,7 @@
             "azure:synapse/workspace:Workspace": {
                 "aadAdmin": "aad_admin",
                 "azureDevopsRepo": "azure_devops_repo",
+                "azureadAuthenticationOnly": "azuread_authentication_only",
                 "computeSubnetId": "compute_subnet_id",
                 "connectivityEndpoints": "connectivity_endpoints",
                 "customerManagedKey": "customer_managed_key",
