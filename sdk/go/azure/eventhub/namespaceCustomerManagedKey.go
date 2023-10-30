@@ -18,6 +18,7 @@ import (
 // !> **Note:** In 2.x versions of the Azure Provider during deletion this resource will **delete and recreate the parent EventHub Namespace which may involve data loss** as it's not possible to remove the Customer Managed Key from the EventHub Namespace once it's been added. Version 3.0 of the Azure Provider will change this so that the Delete operation is a noop, requiring the parent EventHub Namespace is deleted/recreated to remove the Customer Managed Key.
 //
 // ## Example Usage
+// ### With System Assigned Identity
 //
 // ```go
 // package main
@@ -159,6 +160,12 @@ type NamespaceCustomerManagedKey struct {
 	InfrastructureEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"infrastructureEncryptionEnabled"`
 	// The list of keys of Key Vault.
 	KeyVaultKeyIds pulumi.StringArrayOutput `pulumi:"keyVaultKeyIds"`
+	// The ID of a User Managed Identity that will be used to access Key Vaults that contain the encryption keys.
+	//
+	// > **Note:** If using `userAssignedIdentityId`, ensure the User Assigned Identity is also assigned to the parent Event Hub.
+	//
+	// > **Note:** If using `userAssignedIdentityId`, make sure to assign the identity the appropriate permissions to access the Key Vault key. Failure to grant `Get, UnwrapKey, and WrapKey` will cause this resource to fail to apply.
+	UserAssignedIdentityId pulumi.StringPtrOutput `pulumi:"userAssignedIdentityId"`
 }
 
 // NewNamespaceCustomerManagedKey registers a new resource with the given unique name, arguments, and options.
@@ -203,6 +210,12 @@ type namespaceCustomerManagedKeyState struct {
 	InfrastructureEncryptionEnabled *bool `pulumi:"infrastructureEncryptionEnabled"`
 	// The list of keys of Key Vault.
 	KeyVaultKeyIds []string `pulumi:"keyVaultKeyIds"`
+	// The ID of a User Managed Identity that will be used to access Key Vaults that contain the encryption keys.
+	//
+	// > **Note:** If using `userAssignedIdentityId`, ensure the User Assigned Identity is also assigned to the parent Event Hub.
+	//
+	// > **Note:** If using `userAssignedIdentityId`, make sure to assign the identity the appropriate permissions to access the Key Vault key. Failure to grant `Get, UnwrapKey, and WrapKey` will cause this resource to fail to apply.
+	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
 }
 
 type NamespaceCustomerManagedKeyState struct {
@@ -212,6 +225,12 @@ type NamespaceCustomerManagedKeyState struct {
 	InfrastructureEncryptionEnabled pulumi.BoolPtrInput
 	// The list of keys of Key Vault.
 	KeyVaultKeyIds pulumi.StringArrayInput
+	// The ID of a User Managed Identity that will be used to access Key Vaults that contain the encryption keys.
+	//
+	// > **Note:** If using `userAssignedIdentityId`, ensure the User Assigned Identity is also assigned to the parent Event Hub.
+	//
+	// > **Note:** If using `userAssignedIdentityId`, make sure to assign the identity the appropriate permissions to access the Key Vault key. Failure to grant `Get, UnwrapKey, and WrapKey` will cause this resource to fail to apply.
+	UserAssignedIdentityId pulumi.StringPtrInput
 }
 
 func (NamespaceCustomerManagedKeyState) ElementType() reflect.Type {
@@ -225,6 +244,12 @@ type namespaceCustomerManagedKeyArgs struct {
 	InfrastructureEncryptionEnabled *bool `pulumi:"infrastructureEncryptionEnabled"`
 	// The list of keys of Key Vault.
 	KeyVaultKeyIds []string `pulumi:"keyVaultKeyIds"`
+	// The ID of a User Managed Identity that will be used to access Key Vaults that contain the encryption keys.
+	//
+	// > **Note:** If using `userAssignedIdentityId`, ensure the User Assigned Identity is also assigned to the parent Event Hub.
+	//
+	// > **Note:** If using `userAssignedIdentityId`, make sure to assign the identity the appropriate permissions to access the Key Vault key. Failure to grant `Get, UnwrapKey, and WrapKey` will cause this resource to fail to apply.
+	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
 }
 
 // The set of arguments for constructing a NamespaceCustomerManagedKey resource.
@@ -235,6 +260,12 @@ type NamespaceCustomerManagedKeyArgs struct {
 	InfrastructureEncryptionEnabled pulumi.BoolPtrInput
 	// The list of keys of Key Vault.
 	KeyVaultKeyIds pulumi.StringArrayInput
+	// The ID of a User Managed Identity that will be used to access Key Vaults that contain the encryption keys.
+	//
+	// > **Note:** If using `userAssignedIdentityId`, ensure the User Assigned Identity is also assigned to the parent Event Hub.
+	//
+	// > **Note:** If using `userAssignedIdentityId`, make sure to assign the identity the appropriate permissions to access the Key Vault key. Failure to grant `Get, UnwrapKey, and WrapKey` will cause this resource to fail to apply.
+	UserAssignedIdentityId pulumi.StringPtrInput
 }
 
 func (NamespaceCustomerManagedKeyArgs) ElementType() reflect.Type {
@@ -361,6 +392,15 @@ func (o NamespaceCustomerManagedKeyOutput) InfrastructureEncryptionEnabled() pul
 // The list of keys of Key Vault.
 func (o NamespaceCustomerManagedKeyOutput) KeyVaultKeyIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NamespaceCustomerManagedKey) pulumi.StringArrayOutput { return v.KeyVaultKeyIds }).(pulumi.StringArrayOutput)
+}
+
+// The ID of a User Managed Identity that will be used to access Key Vaults that contain the encryption keys.
+//
+// > **Note:** If using `userAssignedIdentityId`, ensure the User Assigned Identity is also assigned to the parent Event Hub.
+//
+// > **Note:** If using `userAssignedIdentityId`, make sure to assign the identity the appropriate permissions to access the Key Vault key. Failure to grant `Get, UnwrapKey, and WrapKey` will cause this resource to fail to apply.
+func (o NamespaceCustomerManagedKeyOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NamespaceCustomerManagedKey) pulumi.StringPtrOutput { return v.UserAssignedIdentityId }).(pulumi.StringPtrOutput)
 }
 
 type NamespaceCustomerManagedKeyArrayOutput struct{ *pulumi.OutputState }

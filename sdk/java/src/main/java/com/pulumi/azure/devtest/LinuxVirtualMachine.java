@@ -83,9 +83,9 @@ import javax.annotation.Nullable;
  *             .storageType(&#34;Premium&#34;)
  *             .notes(&#34;Some notes about this Virtual Machine.&#34;)
  *             .galleryImageReference(LinuxVirtualMachineGalleryImageReferenceArgs.builder()
- *                 .offer(&#34;UbuntuServer&#34;)
  *                 .publisher(&#34;Canonical&#34;)
- *                 .sku(&#34;18.04-LTS&#34;)
+ *                 .offer(&#34;0001-com-ubuntu-server-jammy&#34;)
+ *                 .sku(&#34;22_04-lts&#34;)
  *                 .version(&#34;latest&#34;)
  *                 .build())
  *             .build());

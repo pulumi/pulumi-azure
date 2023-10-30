@@ -62,12 +62,36 @@ public final class NamespaceCustomerManagedKeyState extends com.pulumi.resources
         return Optional.ofNullable(this.keyVaultKeyIds);
     }
 
+    /**
+     * The ID of a User Managed Identity that will be used to access Key Vaults that contain the encryption keys.
+     * 
+     * &gt; **Note:** If using `user_assigned_identity_id`, ensure the User Assigned Identity is also assigned to the parent Event Hub.
+     * 
+     * &gt; **Note:** If using `user_assigned_identity_id`, make sure to assign the identity the appropriate permissions to access the Key Vault key. Failure to grant `Get, UnwrapKey, and WrapKey` will cause this resource to fail to apply.
+     * 
+     */
+    @Import(name="userAssignedIdentityId")
+    private @Nullable Output<String> userAssignedIdentityId;
+
+    /**
+     * @return The ID of a User Managed Identity that will be used to access Key Vaults that contain the encryption keys.
+     * 
+     * &gt; **Note:** If using `user_assigned_identity_id`, ensure the User Assigned Identity is also assigned to the parent Event Hub.
+     * 
+     * &gt; **Note:** If using `user_assigned_identity_id`, make sure to assign the identity the appropriate permissions to access the Key Vault key. Failure to grant `Get, UnwrapKey, and WrapKey` will cause this resource to fail to apply.
+     * 
+     */
+    public Optional<Output<String>> userAssignedIdentityId() {
+        return Optional.ofNullable(this.userAssignedIdentityId);
+    }
+
     private NamespaceCustomerManagedKeyState() {}
 
     private NamespaceCustomerManagedKeyState(NamespaceCustomerManagedKeyState $) {
         this.eventhubNamespaceId = $.eventhubNamespaceId;
         this.infrastructureEncryptionEnabled = $.infrastructureEncryptionEnabled;
         this.keyVaultKeyIds = $.keyVaultKeyIds;
+        this.userAssignedIdentityId = $.userAssignedIdentityId;
     }
 
     public static Builder builder() {
@@ -159,6 +183,35 @@ public final class NamespaceCustomerManagedKeyState extends com.pulumi.resources
          */
         public Builder keyVaultKeyIds(String... keyVaultKeyIds) {
             return keyVaultKeyIds(List.of(keyVaultKeyIds));
+        }
+
+        /**
+         * @param userAssignedIdentityId The ID of a User Managed Identity that will be used to access Key Vaults that contain the encryption keys.
+         * 
+         * &gt; **Note:** If using `user_assigned_identity_id`, ensure the User Assigned Identity is also assigned to the parent Event Hub.
+         * 
+         * &gt; **Note:** If using `user_assigned_identity_id`, make sure to assign the identity the appropriate permissions to access the Key Vault key. Failure to grant `Get, UnwrapKey, and WrapKey` will cause this resource to fail to apply.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userAssignedIdentityId(@Nullable Output<String> userAssignedIdentityId) {
+            $.userAssignedIdentityId = userAssignedIdentityId;
+            return this;
+        }
+
+        /**
+         * @param userAssignedIdentityId The ID of a User Managed Identity that will be used to access Key Vaults that contain the encryption keys.
+         * 
+         * &gt; **Note:** If using `user_assigned_identity_id`, ensure the User Assigned Identity is also assigned to the parent Event Hub.
+         * 
+         * &gt; **Note:** If using `user_assigned_identity_id`, make sure to assign the identity the appropriate permissions to access the Key Vault key. Failure to grant `Get, UnwrapKey, and WrapKey` will cause this resource to fail to apply.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userAssignedIdentityId(String userAssignedIdentityId) {
+            return userAssignedIdentityId(Output.of(userAssignedIdentityId));
         }
 
         public NamespaceCustomerManagedKeyState build() {

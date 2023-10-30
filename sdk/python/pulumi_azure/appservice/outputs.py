@@ -7083,7 +7083,7 @@ class LinuxFunctionAppAuthSettingsV2(dict):
                
                > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
         :param 'LinuxFunctionAppAuthSettingsV2FacebookV2Args' facebook_v2: A `facebook_v2` block as defined below.
-        :param str forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+        :param str forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
         :param str forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
         :param str forward_proxy_custom_scheme_header_name: The name of the custom header containing the scheme of the request.
         :param 'LinuxFunctionAppAuthSettingsV2GithubV2Args' github_v2: A `github_v2` block as defined below.
@@ -7230,7 +7230,7 @@ class LinuxFunctionAppAuthSettingsV2(dict):
     @pulumi.getter(name="forwardProxyConvention")
     def forward_proxy_convention(self) -> Optional[str]:
         """
-        The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+        The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
         """
         return pulumi.get(self, "forward_proxy_convention")
 
@@ -10663,7 +10663,7 @@ class LinuxFunctionAppSlotAuthSettingsV2(dict):
                
                > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
         :param 'LinuxFunctionAppSlotAuthSettingsV2FacebookV2Args' facebook_v2: A `facebook_v2` block as defined below.
-        :param str forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+        :param str forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
         :param str forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
         :param str forward_proxy_custom_scheme_header_name: The name of the custom header containing the scheme of the request.
         :param 'LinuxFunctionAppSlotAuthSettingsV2GithubV2Args' github_v2: A `github_v2` block as defined below.
@@ -10810,7 +10810,7 @@ class LinuxFunctionAppSlotAuthSettingsV2(dict):
     @pulumi.getter(name="forwardProxyConvention")
     def forward_proxy_convention(self) -> Optional[str]:
         """
-        The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+        The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
         """
         return pulumi.get(self, "forward_proxy_convention")
 
@@ -14509,7 +14509,7 @@ class LinuxWebAppAuthSettingsV2(dict):
                
                > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
         :param 'LinuxWebAppAuthSettingsV2FacebookV2Args' facebook_v2: A `facebook_v2` block as defined below.
-        :param str forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+        :param str forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
         :param str forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
         :param str forward_proxy_custom_scheme_header_name: The name of the custom header containing the scheme of the request.
         :param 'LinuxWebAppAuthSettingsV2GithubV2Args' github_v2: A `github_v2` block as defined below.
@@ -14656,7 +14656,7 @@ class LinuxWebAppAuthSettingsV2(dict):
     @pulumi.getter(name="forwardProxyConvention")
     def forward_proxy_convention(self) -> Optional[str]:
         """
-        The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+        The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
         """
         return pulumi.get(self, "forward_proxy_convention")
 
@@ -18650,7 +18650,7 @@ class LinuxWebAppSlotAuthSettingsV2(dict):
                
                > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
         :param 'LinuxWebAppSlotAuthSettingsV2FacebookV2Args' facebook_v2: A `facebook_v2` block as defined below.
-        :param str forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+        :param str forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
         :param str forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
         :param str forward_proxy_custom_scheme_header_name: The name of the custom header containing the scheme of the request.
         :param 'LinuxWebAppSlotAuthSettingsV2GithubV2Args' github_v2: A `github_v2` block as defined below.
@@ -18797,7 +18797,7 @@ class LinuxWebAppSlotAuthSettingsV2(dict):
     @pulumi.getter(name="forwardProxyConvention")
     def forward_proxy_convention(self) -> Optional[str]:
         """
-        The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+        The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
         """
         return pulumi.get(self, "forward_proxy_convention")
 
@@ -25562,7 +25562,7 @@ class WindowsFunctionAppAuthSettingsV2(dict):
                
                > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
         :param 'WindowsFunctionAppAuthSettingsV2FacebookV2Args' facebook_v2: A `facebook_v2` block as defined below.
-        :param str forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+        :param str forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
         :param str forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
         :param str forward_proxy_custom_scheme_header_name: The name of the custom header containing the scheme of the request.
         :param 'WindowsFunctionAppAuthSettingsV2GithubV2Args' github_v2: A `github_v2` block as defined below.
@@ -25709,7 +25709,7 @@ class WindowsFunctionAppAuthSettingsV2(dict):
     @pulumi.getter(name="forwardProxyConvention")
     def forward_proxy_convention(self) -> Optional[str]:
         """
-        The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+        The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
         """
         return pulumi.get(self, "forward_proxy_convention")
 
@@ -28995,7 +28995,7 @@ class WindowsFunctionAppSlotAuthSettingsV2(dict):
                
                > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
         :param 'WindowsFunctionAppSlotAuthSettingsV2FacebookV2Args' facebook_v2: A `facebook_v2` block as defined below.
-        :param str forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+        :param str forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
         :param str forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
         :param str forward_proxy_custom_scheme_header_name: The name of the custom header containing the scheme of the request.
         :param 'WindowsFunctionAppSlotAuthSettingsV2GithubV2Args' github_v2: A `github_v2` block as defined below.
@@ -29142,7 +29142,7 @@ class WindowsFunctionAppSlotAuthSettingsV2(dict):
     @pulumi.getter(name="forwardProxyConvention")
     def forward_proxy_convention(self) -> Optional[str]:
         """
-        The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+        The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
         """
         return pulumi.get(self, "forward_proxy_convention")
 
@@ -32690,7 +32690,7 @@ class WindowsWebAppAuthSettingsV2(dict):
                
                > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
         :param 'WindowsWebAppAuthSettingsV2FacebookV2Args' facebook_v2: A `facebook_v2` block as defined below.
-        :param str forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+        :param str forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
         :param str forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
         :param str forward_proxy_custom_scheme_header_name: The name of the custom header containing the scheme of the request.
         :param 'WindowsWebAppAuthSettingsV2GithubV2Args' github_v2: A `github_v2` block as defined below.
@@ -32837,7 +32837,7 @@ class WindowsWebAppAuthSettingsV2(dict):
     @pulumi.getter(name="forwardProxyConvention")
     def forward_proxy_convention(self) -> Optional[str]:
         """
-        The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+        The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
         """
         return pulumi.get(self, "forward_proxy_convention")
 
@@ -37106,7 +37106,7 @@ class WindowsWebAppSlotAuthSettingsV2(dict):
                
                > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
         :param 'WindowsWebAppSlotAuthSettingsV2FacebookV2Args' facebook_v2: A `facebook_v2` block as defined below.
-        :param str forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+        :param str forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
         :param str forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
         :param str forward_proxy_custom_scheme_header_name: The name of the custom header containing the scheme of the request.
         :param 'WindowsWebAppSlotAuthSettingsV2GithubV2Args' github_v2: A `github_v2` block as defined below.
@@ -37253,7 +37253,7 @@ class WindowsWebAppSlotAuthSettingsV2(dict):
     @pulumi.getter(name="forwardProxyConvention")
     def forward_proxy_convention(self) -> Optional[str]:
         """
-        The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+        The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
         """
         return pulumi.get(self, "forward_proxy_convention")
 

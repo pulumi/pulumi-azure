@@ -46,8 +46,8 @@ namespace Pulumi.Azure.Batch
     ///         StorageImageReference = new Azure.Batch.Inputs.PoolStorageImageReferenceArgs
     ///         {
     ///             Publisher = "Canonical",
-    ///             Offer = "UbuntuServer",
-    ///             Sku = "16.04.0-LTS",
+    ///             Offer = "0001-com-ubuntu-server-jammy",
+    ///             Sku = "22_04-lts",
     ///             Version = "latest",
     ///         },
     ///     });

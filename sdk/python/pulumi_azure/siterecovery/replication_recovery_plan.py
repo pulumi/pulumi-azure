@@ -412,9 +412,9 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
             vm_size="Standard_B1s",
             network_interface_ids=[vm_network_interface.id],
             storage_image_reference=azure.compute.VirtualMachineStorageImageReferenceArgs(
-                publisher="OpenLogic",
-                offer="CentOS",
-                sku="7.5",
+                publisher="Canonical",
+                offer="0001-com-ubuntu-server-jammy",
+                sku="22_04-lts",
                 version="latest",
             ),
             storage_os_disk=azure.compute.VirtualMachineStorageOsDiskArgs(
@@ -599,9 +599,9 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
             vm_size="Standard_B1s",
             network_interface_ids=[vm_network_interface.id],
             storage_image_reference=azure.compute.VirtualMachineStorageImageReferenceArgs(
-                publisher="OpenLogic",
-                offer="CentOS",
-                sku="7.5",
+                publisher="Canonical",
+                offer="0001-com-ubuntu-server-jammy",
+                sku="22_04-lts",
                 version="latest",
             ),
             storage_os_disk=azure.compute.VirtualMachineStorageOsDiskArgs(

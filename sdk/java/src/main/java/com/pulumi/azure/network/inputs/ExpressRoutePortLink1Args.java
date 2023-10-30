@@ -79,16 +79,12 @@ public final class ExpressRoutePortLink1Args extends com.pulumi.resources.Resour
     /**
      * The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
      * 
-     * &gt; **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
-     * 
      */
     @Import(name="macsecCakKeyvaultSecretId")
     private @Nullable Output<String> macsecCakKeyvaultSecretId;
 
     /**
      * @return The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
-     * 
-     * &gt; **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
      * 
      */
     public Optional<Output<String>> macsecCakKeyvaultSecretId() {
@@ -123,6 +119,25 @@ public final class ExpressRoutePortLink1Args extends com.pulumi.resources.Resour
      */
     public Optional<Output<String>> macsecCknKeyvaultSecretId() {
         return Optional.ofNullable(this.macsecCknKeyvaultSecretId);
+    }
+
+    /**
+     * Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
+     * 
+     * &gt; **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
+     * 
+     */
+    @Import(name="macsecSciEnabled")
+    private @Nullable Output<Boolean> macsecSciEnabled;
+
+    /**
+     * @return Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
+     * 
+     * &gt; **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
+     * 
+     */
+    public Optional<Output<Boolean>> macsecSciEnabled() {
+        return Optional.ofNullable(this.macsecSciEnabled);
     }
 
     /**
@@ -180,6 +195,7 @@ public final class ExpressRoutePortLink1Args extends com.pulumi.resources.Resour
         this.macsecCakKeyvaultSecretId = $.macsecCakKeyvaultSecretId;
         this.macsecCipher = $.macsecCipher;
         this.macsecCknKeyvaultSecretId = $.macsecCknKeyvaultSecretId;
+        this.macsecSciEnabled = $.macsecSciEnabled;
         this.patchPanelId = $.patchPanelId;
         this.rackId = $.rackId;
         this.routerName = $.routerName;
@@ -290,8 +306,6 @@ public final class ExpressRoutePortLink1Args extends com.pulumi.resources.Resour
         /**
          * @param macsecCakKeyvaultSecretId The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
          * 
-         * &gt; **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
-         * 
          * @return builder
          * 
          */
@@ -302,8 +316,6 @@ public final class ExpressRoutePortLink1Args extends com.pulumi.resources.Resour
 
         /**
          * @param macsecCakKeyvaultSecretId The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
-         * 
-         * &gt; **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
          * 
          * @return builder
          * 
@@ -352,6 +364,31 @@ public final class ExpressRoutePortLink1Args extends com.pulumi.resources.Resour
          */
         public Builder macsecCknKeyvaultSecretId(String macsecCknKeyvaultSecretId) {
             return macsecCknKeyvaultSecretId(Output.of(macsecCknKeyvaultSecretId));
+        }
+
+        /**
+         * @param macsecSciEnabled Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
+         * 
+         * &gt; **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder macsecSciEnabled(@Nullable Output<Boolean> macsecSciEnabled) {
+            $.macsecSciEnabled = macsecSciEnabled;
+            return this;
+        }
+
+        /**
+         * @param macsecSciEnabled Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
+         * 
+         * &gt; **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder macsecSciEnabled(Boolean macsecSciEnabled) {
+            return macsecSciEnabled(Output.of(macsecSciEnabled));
         }
 
         /**

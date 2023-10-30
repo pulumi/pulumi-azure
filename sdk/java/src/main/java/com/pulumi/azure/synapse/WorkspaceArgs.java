@@ -55,6 +55,21 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
+     * 
+     */
+    @Import(name="azureadAuthenticationOnly")
+    private @Nullable Output<Boolean> azureadAuthenticationOnly;
+
+    /**
+     * @return Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> azureadAuthenticationOnly() {
+        return Optional.ofNullable(this.azureadAuthenticationOnly);
+    }
+
+    /**
      * Subnet ID used for computes in workspace Changing this forces a new resource to be created.
      * 
      */
@@ -344,6 +359,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     private WorkspaceArgs(WorkspaceArgs $) {
         this.aadAdmin = $.aadAdmin;
         this.azureDevopsRepo = $.azureDevopsRepo;
+        this.azureadAuthenticationOnly = $.azureadAuthenticationOnly;
         this.computeSubnetId = $.computeSubnetId;
         this.customerManagedKey = $.customerManagedKey;
         this.dataExfiltrationProtectionEnabled = $.dataExfiltrationProtectionEnabled;
@@ -423,6 +439,27 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder azureDevopsRepo(WorkspaceAzureDevopsRepoArgs azureDevopsRepo) {
             return azureDevopsRepo(Output.of(azureDevopsRepo));
+        }
+
+        /**
+         * @param azureadAuthenticationOnly Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder azureadAuthenticationOnly(@Nullable Output<Boolean> azureadAuthenticationOnly) {
+            $.azureadAuthenticationOnly = azureadAuthenticationOnly;
+            return this;
+        }
+
+        /**
+         * @param azureadAuthenticationOnly Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder azureadAuthenticationOnly(Boolean azureadAuthenticationOnly) {
+            return azureadAuthenticationOnly(Output.of(azureadAuthenticationOnly));
         }
 
         /**

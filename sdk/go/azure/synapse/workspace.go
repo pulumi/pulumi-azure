@@ -244,6 +244,8 @@ type Workspace struct {
 	AadAdmin WorkspaceAadAdminTypeOutput `pulumi:"aadAdmin"`
 	// An `azureDevopsRepo` block as defined below.
 	AzureDevopsRepo WorkspaceAzureDevopsRepoPtrOutput `pulumi:"azureDevopsRepo"`
+	// Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
+	AzureadAuthenticationOnly pulumi.BoolPtrOutput `pulumi:"azureadAuthenticationOnly"`
 	// Subnet ID used for computes in workspace Changing this forces a new resource to be created.
 	ComputeSubnetId pulumi.StringPtrOutput `pulumi:"computeSubnetId"`
 	// A list of Connectivity endpoints for this Synapse Workspace.
@@ -333,6 +335,8 @@ type workspaceState struct {
 	AadAdmin *WorkspaceAadAdminType `pulumi:"aadAdmin"`
 	// An `azureDevopsRepo` block as defined below.
 	AzureDevopsRepo *WorkspaceAzureDevopsRepo `pulumi:"azureDevopsRepo"`
+	// Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
+	AzureadAuthenticationOnly *bool `pulumi:"azureadAuthenticationOnly"`
 	// Subnet ID used for computes in workspace Changing this forces a new resource to be created.
 	ComputeSubnetId *string `pulumi:"computeSubnetId"`
 	// A list of Connectivity endpoints for this Synapse Workspace.
@@ -380,6 +384,8 @@ type WorkspaceState struct {
 	AadAdmin WorkspaceAadAdminTypePtrInput
 	// An `azureDevopsRepo` block as defined below.
 	AzureDevopsRepo WorkspaceAzureDevopsRepoPtrInput
+	// Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
+	AzureadAuthenticationOnly pulumi.BoolPtrInput
 	// Subnet ID used for computes in workspace Changing this forces a new resource to be created.
 	ComputeSubnetId pulumi.StringPtrInput
 	// A list of Connectivity endpoints for this Synapse Workspace.
@@ -431,6 +437,8 @@ type workspaceArgs struct {
 	AadAdmin *WorkspaceAadAdminType `pulumi:"aadAdmin"`
 	// An `azureDevopsRepo` block as defined below.
 	AzureDevopsRepo *WorkspaceAzureDevopsRepo `pulumi:"azureDevopsRepo"`
+	// Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
+	AzureadAuthenticationOnly *bool `pulumi:"azureadAuthenticationOnly"`
 	// Subnet ID used for computes in workspace Changing this forces a new resource to be created.
 	ComputeSubnetId *string `pulumi:"computeSubnetId"`
 	// A `customerManagedKey` block as defined below. Conflicts with `aadAdmin`.
@@ -477,6 +485,8 @@ type WorkspaceArgs struct {
 	AadAdmin WorkspaceAadAdminTypePtrInput
 	// An `azureDevopsRepo` block as defined below.
 	AzureDevopsRepo WorkspaceAzureDevopsRepoPtrInput
+	// Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
+	AzureadAuthenticationOnly pulumi.BoolPtrInput
 	// Subnet ID used for computes in workspace Changing this forces a new resource to be created.
 	ComputeSubnetId pulumi.StringPtrInput
 	// A `customerManagedKey` block as defined below. Conflicts with `aadAdmin`.
@@ -636,6 +646,11 @@ func (o WorkspaceOutput) AadAdmin() WorkspaceAadAdminTypeOutput {
 // An `azureDevopsRepo` block as defined below.
 func (o WorkspaceOutput) AzureDevopsRepo() WorkspaceAzureDevopsRepoPtrOutput {
 	return o.ApplyT(func(v *Workspace) WorkspaceAzureDevopsRepoPtrOutput { return v.AzureDevopsRepo }).(WorkspaceAzureDevopsRepoPtrOutput)
+}
+
+// Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
+func (o WorkspaceOutput) AzureadAuthenticationOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.BoolPtrOutput { return v.AzureadAuthenticationOnly }).(pulumi.BoolPtrOutput)
 }
 
 // Subnet ID used for computes in workspace Changing this forces a new resource to be created.

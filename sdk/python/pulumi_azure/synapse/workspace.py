@@ -20,6 +20,7 @@ class WorkspaceArgs:
                  storage_data_lake_gen2_filesystem_id: pulumi.Input[str],
                  aad_admin: Optional[pulumi.Input['WorkspaceAadAdminArgs']] = None,
                  azure_devops_repo: Optional[pulumi.Input['WorkspaceAzureDevopsRepoArgs']] = None,
+                 azuread_authentication_only: Optional[pulumi.Input[bool]] = None,
                  compute_subnet_id: Optional[pulumi.Input[str]] = None,
                  customer_managed_key: Optional[pulumi.Input['WorkspaceCustomerManagedKeyArgs']] = None,
                  data_exfiltration_protection_enabled: Optional[pulumi.Input[bool]] = None,
@@ -43,6 +44,7 @@ class WorkspaceArgs:
         :param pulumi.Input[str] storage_data_lake_gen2_filesystem_id: Specifies the ID of storage data lake gen2 filesystem resource. Changing this forces a new resource to be created.
         :param pulumi.Input['WorkspaceAadAdminArgs'] aad_admin: An `aad_admin` block as defined below. Conflicts with `customer_managed_key`.
         :param pulumi.Input['WorkspaceAzureDevopsRepoArgs'] azure_devops_repo: An `azure_devops_repo` block as defined below.
+        :param pulumi.Input[bool] azuread_authentication_only: Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
         :param pulumi.Input[str] compute_subnet_id: Subnet ID used for computes in workspace Changing this forces a new resource to be created.
         :param pulumi.Input['WorkspaceCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as defined below. Conflicts with `aad_admin`.
         :param pulumi.Input[bool] data_exfiltration_protection_enabled: Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
@@ -67,6 +69,8 @@ class WorkspaceArgs:
             pulumi.set(__self__, "aad_admin", aad_admin)
         if azure_devops_repo is not None:
             pulumi.set(__self__, "azure_devops_repo", azure_devops_repo)
+        if azuread_authentication_only is not None:
+            pulumi.set(__self__, "azuread_authentication_only", azuread_authentication_only)
         if compute_subnet_id is not None:
             pulumi.set(__self__, "compute_subnet_id", compute_subnet_id)
         if customer_managed_key is not None:
@@ -149,6 +153,18 @@ class WorkspaceArgs:
     @azure_devops_repo.setter
     def azure_devops_repo(self, value: Optional[pulumi.Input['WorkspaceAzureDevopsRepoArgs']]):
         pulumi.set(self, "azure_devops_repo", value)
+
+    @property
+    @pulumi.getter(name="azureadAuthenticationOnly")
+    def azuread_authentication_only(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
+        """
+        return pulumi.get(self, "azuread_authentication_only")
+
+    @azuread_authentication_only.setter
+    def azuread_authentication_only(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "azuread_authentication_only", value)
 
     @property
     @pulumi.getter(name="computeSubnetId")
@@ -360,6 +376,7 @@ class _WorkspaceState:
     def __init__(__self__, *,
                  aad_admin: Optional[pulumi.Input['WorkspaceAadAdminArgs']] = None,
                  azure_devops_repo: Optional[pulumi.Input['WorkspaceAzureDevopsRepoArgs']] = None,
+                 azuread_authentication_only: Optional[pulumi.Input[bool]] = None,
                  compute_subnet_id: Optional[pulumi.Input[str]] = None,
                  connectivity_endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  customer_managed_key: Optional[pulumi.Input['WorkspaceCustomerManagedKeyArgs']] = None,
@@ -384,6 +401,7 @@ class _WorkspaceState:
         Input properties used for looking up and filtering Workspace resources.
         :param pulumi.Input['WorkspaceAadAdminArgs'] aad_admin: An `aad_admin` block as defined below. Conflicts with `customer_managed_key`.
         :param pulumi.Input['WorkspaceAzureDevopsRepoArgs'] azure_devops_repo: An `azure_devops_repo` block as defined below.
+        :param pulumi.Input[bool] azuread_authentication_only: Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
         :param pulumi.Input[str] compute_subnet_id: Subnet ID used for computes in workspace Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connectivity_endpoints: A list of Connectivity endpoints for this Synapse Workspace.
         :param pulumi.Input['WorkspaceCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as defined below. Conflicts with `aad_admin`.
@@ -409,6 +427,8 @@ class _WorkspaceState:
             pulumi.set(__self__, "aad_admin", aad_admin)
         if azure_devops_repo is not None:
             pulumi.set(__self__, "azure_devops_repo", azure_devops_repo)
+        if azuread_authentication_only is not None:
+            pulumi.set(__self__, "azuread_authentication_only", azuread_authentication_only)
         if compute_subnet_id is not None:
             pulumi.set(__self__, "compute_subnet_id", compute_subnet_id)
         if connectivity_endpoints is not None:
@@ -473,6 +493,18 @@ class _WorkspaceState:
     @azure_devops_repo.setter
     def azure_devops_repo(self, value: Optional[pulumi.Input['WorkspaceAzureDevopsRepoArgs']]):
         pulumi.set(self, "azure_devops_repo", value)
+
+    @property
+    @pulumi.getter(name="azureadAuthenticationOnly")
+    def azuread_authentication_only(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
+        """
+        return pulumi.get(self, "azuread_authentication_only")
+
+    @azuread_authentication_only.setter
+    def azuread_authentication_only(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "azuread_authentication_only", value)
 
     @property
     @pulumi.getter(name="computeSubnetId")
@@ -722,6 +754,7 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aad_admin: Optional[pulumi.Input[pulumi.InputType['WorkspaceAadAdminArgs']]] = None,
                  azure_devops_repo: Optional[pulumi.Input[pulumi.InputType['WorkspaceAzureDevopsRepoArgs']]] = None,
+                 azuread_authentication_only: Optional[pulumi.Input[bool]] = None,
                  compute_subnet_id: Optional[pulumi.Input[str]] = None,
                  customer_managed_key: Optional[pulumi.Input[pulumi.InputType['WorkspaceCustomerManagedKeyArgs']]] = None,
                  data_exfiltration_protection_enabled: Optional[pulumi.Input[bool]] = None,
@@ -871,6 +904,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['WorkspaceAadAdminArgs']] aad_admin: An `aad_admin` block as defined below. Conflicts with `customer_managed_key`.
         :param pulumi.Input[pulumi.InputType['WorkspaceAzureDevopsRepoArgs']] azure_devops_repo: An `azure_devops_repo` block as defined below.
+        :param pulumi.Input[bool] azuread_authentication_only: Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
         :param pulumi.Input[str] compute_subnet_id: Subnet ID used for computes in workspace Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['WorkspaceCustomerManagedKeyArgs']] customer_managed_key: A `customer_managed_key` block as defined below. Conflicts with `aad_admin`.
         :param pulumi.Input[bool] data_exfiltration_protection_enabled: Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
@@ -1039,6 +1073,7 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aad_admin: Optional[pulumi.Input[pulumi.InputType['WorkspaceAadAdminArgs']]] = None,
                  azure_devops_repo: Optional[pulumi.Input[pulumi.InputType['WorkspaceAzureDevopsRepoArgs']]] = None,
+                 azuread_authentication_only: Optional[pulumi.Input[bool]] = None,
                  compute_subnet_id: Optional[pulumi.Input[str]] = None,
                  customer_managed_key: Optional[pulumi.Input[pulumi.InputType['WorkspaceCustomerManagedKeyArgs']]] = None,
                  data_exfiltration_protection_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1069,6 +1104,7 @@ class Workspace(pulumi.CustomResource):
 
             __props__.__dict__["aad_admin"] = aad_admin
             __props__.__dict__["azure_devops_repo"] = azure_devops_repo
+            __props__.__dict__["azuread_authentication_only"] = azuread_authentication_only
             __props__.__dict__["compute_subnet_id"] = compute_subnet_id
             __props__.__dict__["customer_managed_key"] = customer_managed_key
             __props__.__dict__["data_exfiltration_protection_enabled"] = data_exfiltration_protection_enabled
@@ -1107,6 +1143,7 @@ class Workspace(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             aad_admin: Optional[pulumi.Input[pulumi.InputType['WorkspaceAadAdminArgs']]] = None,
             azure_devops_repo: Optional[pulumi.Input[pulumi.InputType['WorkspaceAzureDevopsRepoArgs']]] = None,
+            azuread_authentication_only: Optional[pulumi.Input[bool]] = None,
             compute_subnet_id: Optional[pulumi.Input[str]] = None,
             connectivity_endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             customer_managed_key: Optional[pulumi.Input[pulumi.InputType['WorkspaceCustomerManagedKeyArgs']]] = None,
@@ -1136,6 +1173,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['WorkspaceAadAdminArgs']] aad_admin: An `aad_admin` block as defined below. Conflicts with `customer_managed_key`.
         :param pulumi.Input[pulumi.InputType['WorkspaceAzureDevopsRepoArgs']] azure_devops_repo: An `azure_devops_repo` block as defined below.
+        :param pulumi.Input[bool] azuread_authentication_only: Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
         :param pulumi.Input[str] compute_subnet_id: Subnet ID used for computes in workspace Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connectivity_endpoints: A list of Connectivity endpoints for this Synapse Workspace.
         :param pulumi.Input[pulumi.InputType['WorkspaceCustomerManagedKeyArgs']] customer_managed_key: A `customer_managed_key` block as defined below. Conflicts with `aad_admin`.
@@ -1163,6 +1201,7 @@ class Workspace(pulumi.CustomResource):
 
         __props__.__dict__["aad_admin"] = aad_admin
         __props__.__dict__["azure_devops_repo"] = azure_devops_repo
+        __props__.__dict__["azuread_authentication_only"] = azuread_authentication_only
         __props__.__dict__["compute_subnet_id"] = compute_subnet_id
         __props__.__dict__["connectivity_endpoints"] = connectivity_endpoints
         __props__.__dict__["customer_managed_key"] = customer_managed_key
@@ -1200,6 +1239,14 @@ class Workspace(pulumi.CustomResource):
         An `azure_devops_repo` block as defined below.
         """
         return pulumi.get(self, "azure_devops_repo")
+
+    @property
+    @pulumi.getter(name="azureadAuthenticationOnly")
+    def azuread_authentication_only(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
+        """
+        return pulumi.get(self, "azuread_authentication_only")
 
     @property
     @pulumi.getter(name="computeSubnetId")

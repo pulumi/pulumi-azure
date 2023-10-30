@@ -332,8 +332,8 @@ class PacketCapture(pulumi.CustomResource):
             vm_size="Standard_F2",
             storage_image_reference=azure.compute.VirtualMachineStorageImageReferenceArgs(
                 publisher="Canonical",
-                offer="0001-com-ubuntu-server-focal",
-                sku="20_04-lts",
+                offer="0001-com-ubuntu-server-jammy",
+                sku="22_04-lts",
                 version="latest",
             ),
             storage_os_disk=azure.compute.VirtualMachineStorageOsDiskArgs(
@@ -433,8 +433,8 @@ class PacketCapture(pulumi.CustomResource):
             vm_size="Standard_F2",
             storage_image_reference=azure.compute.VirtualMachineStorageImageReferenceArgs(
                 publisher="Canonical",
-                offer="0001-com-ubuntu-server-focal",
-                sku="20_04-lts",
+                offer="0001-com-ubuntu-server-jammy",
+                sku="22_04-lts",
                 version="latest",
             ),
             storage_os_disk=azure.compute.VirtualMachineStorageOsDiskArgs(

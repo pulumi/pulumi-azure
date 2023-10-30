@@ -38,8 +38,6 @@ namespace Pulumi.Azure.Network.Inputs
 
         /// <summary>
         /// The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
-        /// 
-        /// &gt; **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
         /// </summary>
         [Input("macsecCakKeyvaultSecretId")]
         public Input<string>? MacsecCakKeyvaultSecretId { get; set; }
@@ -55,6 +53,14 @@ namespace Pulumi.Azure.Network.Inputs
         /// </summary>
         [Input("macsecCknKeyvaultSecretId")]
         public Input<string>? MacsecCknKeyvaultSecretId { get; set; }
+
+        /// <summary>
+        /// Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
+        /// 
+        /// &gt; **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
+        /// </summary>
+        [Input("macsecSciEnabled")]
+        public Input<bool>? MacsecSciEnabled { get; set; }
 
         /// <summary>
         /// The ID that maps from the Express Route Port Link to the patch panel port.

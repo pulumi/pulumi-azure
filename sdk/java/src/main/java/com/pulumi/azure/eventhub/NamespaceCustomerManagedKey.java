@@ -22,6 +22,7 @@ import javax.annotation.Nullable;
  * !&gt; **Note:** In 2.x versions of the Azure Provider during deletion this resource will **delete and recreate the parent EventHub Namespace which may involve data loss** as it&#39;s not possible to remove the Customer Managed Key from the EventHub Namespace once it&#39;s been added. Version 3.0 of the Azure Provider will change this so that the Delete operation is a noop, requiring the parent EventHub Namespace is deleted/recreated to remove the Customer Managed Key.
  * 
  * ## Example Usage
+ * ### With System Assigned Identity
  * ```java
  * package generated_program;
  * 
@@ -137,6 +138,132 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### With User Assigned Identity
+ * 
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.eventhub.Cluster;
+ * import com.pulumi.azure.eventhub.ClusterArgs;
+ * import com.pulumi.azure.authorization.UserAssignedIdentity;
+ * import com.pulumi.azure.authorization.UserAssignedIdentityArgs;
+ * import com.pulumi.azure.eventhub.EventHubNamespace;
+ * import com.pulumi.azure.eventhub.EventHubNamespaceArgs;
+ * import com.pulumi.azure.eventhub.inputs.EventHubNamespaceIdentityArgs;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.keyvault.KeyVault;
+ * import com.pulumi.azure.keyvault.KeyVaultArgs;
+ * import com.pulumi.azure.keyvault.AccessPolicy;
+ * import com.pulumi.azure.keyvault.AccessPolicyArgs;
+ * import com.pulumi.azure.keyvault.Key;
+ * import com.pulumi.azure.keyvault.KeyArgs;
+ * import com.pulumi.azure.eventhub.NamespaceCustomerManagedKey;
+ * import com.pulumi.azure.eventhub.NamespaceCustomerManagedKeyArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .skuName(&#34;Dedicated_1&#34;)
+ *             .build());
+ * 
+ *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .build());
+ * 
+ *         var exampleEventHubNamespace = new EventHubNamespace(&#34;exampleEventHubNamespace&#34;, EventHubNamespaceArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .sku(&#34;Standard&#34;)
+ *             .dedicatedClusterId(exampleCluster.id())
+ *             .identity(EventHubNamespaceIdentityArgs.builder()
+ *                 .type(&#34;UserAssigned&#34;)
+ *                 .identityIds(exampleUserAssignedIdentity.id())
+ *                 .build())
+ *             .build());
+ * 
+ *         final var current = CoreFunctions.getClientConfig();
+ * 
+ *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *             .skuName(&#34;standard&#34;)
+ *             .purgeProtectionEnabled(true)
+ *             .build());
+ * 
+ *         var exampleAccessPolicy = new AccessPolicy(&#34;exampleAccessPolicy&#34;, AccessPolicyArgs.builder()        
+ *             .keyVaultId(exampleKeyVault.id())
+ *             .tenantId(azurerm_user_assigned_identity.test().tenant_id())
+ *             .objectId(azurerm_user_assigned_identity.test().principal_id())
+ *             .keyPermissions(            
+ *                 &#34;Get&#34;,
+ *                 &#34;UnwrapKey&#34;,
+ *                 &#34;WrapKey&#34;)
+ *             .build());
+ * 
+ *         var example2 = new AccessPolicy(&#34;example2&#34;, AccessPolicyArgs.builder()        
+ *             .keyVaultId(exampleKeyVault.id())
+ *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *             .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *             .keyPermissions(            
+ *                 &#34;Create&#34;,
+ *                 &#34;Delete&#34;,
+ *                 &#34;Get&#34;,
+ *                 &#34;List&#34;,
+ *                 &#34;Purge&#34;,
+ *                 &#34;Recover&#34;,
+ *                 &#34;GetRotationPolicy&#34;)
+ *             .build());
+ * 
+ *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
+ *             .keyVaultId(exampleKeyVault.id())
+ *             .keyType(&#34;RSA&#34;)
+ *             .keySize(2048)
+ *             .keyOpts(            
+ *                 &#34;decrypt&#34;,
+ *                 &#34;encrypt&#34;,
+ *                 &#34;sign&#34;,
+ *                 &#34;unwrapKey&#34;,
+ *                 &#34;verify&#34;,
+ *                 &#34;wrapKey&#34;)
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     exampleAccessPolicy,
+ *                     example2)
+ *                 .build());
+ * 
+ *         var exampleNamespaceCustomerManagedKey = new NamespaceCustomerManagedKey(&#34;exampleNamespaceCustomerManagedKey&#34;, NamespaceCustomerManagedKeyArgs.builder()        
+ *             .eventhubNamespaceId(exampleEventHubNamespace.id())
+ *             .keyVaultKeyIds(exampleKey.id())
+ *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 
@@ -190,6 +317,28 @@ public class NamespaceCustomerManagedKey extends com.pulumi.resources.CustomReso
      */
     public Output<List<String>> keyVaultKeyIds() {
         return this.keyVaultKeyIds;
+    }
+    /**
+     * The ID of a User Managed Identity that will be used to access Key Vaults that contain the encryption keys.
+     * 
+     * &gt; **Note:** If using `user_assigned_identity_id`, ensure the User Assigned Identity is also assigned to the parent Event Hub.
+     * 
+     * &gt; **Note:** If using `user_assigned_identity_id`, make sure to assign the identity the appropriate permissions to access the Key Vault key. Failure to grant `Get, UnwrapKey, and WrapKey` will cause this resource to fail to apply.
+     * 
+     */
+    @Export(name="userAssignedIdentityId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> userAssignedIdentityId;
+
+    /**
+     * @return The ID of a User Managed Identity that will be used to access Key Vaults that contain the encryption keys.
+     * 
+     * &gt; **Note:** If using `user_assigned_identity_id`, ensure the User Assigned Identity is also assigned to the parent Event Hub.
+     * 
+     * &gt; **Note:** If using `user_assigned_identity_id`, make sure to assign the identity the appropriate permissions to access the Key Vault key. Failure to grant `Get, UnwrapKey, and WrapKey` will cause this resource to fail to apply.
+     * 
+     */
+    public Output<Optional<String>> userAssignedIdentityId() {
+        return Codegen.optional(this.userAssignedIdentityId);
     }
 
     /**

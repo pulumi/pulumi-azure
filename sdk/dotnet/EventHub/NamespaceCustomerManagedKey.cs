@@ -15,6 +15,7 @@ namespace Pulumi.Azure.EventHub
     /// !&gt; **Note:** In 2.x versions of the Azure Provider during deletion this resource will **delete and recreate the parent EventHub Namespace which may involve data loss** as it's not possible to remove the Customer Managed Key from the EventHub Namespace once it's been added. Version 3.0 of the Azure Provider will change this so that the Delete operation is a noop, requiring the parent EventHub Namespace is deleted/recreated to remove the Customer Managed Key.
     /// 
     /// ## Example Usage
+    /// ### With System Assigned Identity
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -153,6 +154,16 @@ namespace Pulumi.Azure.EventHub
         [Output("keyVaultKeyIds")]
         public Output<ImmutableArray<string>> KeyVaultKeyIds { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of a User Managed Identity that will be used to access Key Vaults that contain the encryption keys.
+        /// 
+        /// &gt; **Note:** If using `user_assigned_identity_id`, ensure the User Assigned Identity is also assigned to the parent Event Hub.
+        /// 
+        /// &gt; **Note:** If using `user_assigned_identity_id`, make sure to assign the identity the appropriate permissions to access the Key Vault key. Failure to grant `Get, UnwrapKey, and WrapKey` will cause this resource to fail to apply.
+        /// </summary>
+        [Output("userAssignedIdentityId")]
+        public Output<string?> UserAssignedIdentityId { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a NamespaceCustomerManagedKey resource with the given unique name, arguments, and options.
@@ -223,6 +234,16 @@ namespace Pulumi.Azure.EventHub
             set => _keyVaultKeyIds = value;
         }
 
+        /// <summary>
+        /// The ID of a User Managed Identity that will be used to access Key Vaults that contain the encryption keys.
+        /// 
+        /// &gt; **Note:** If using `user_assigned_identity_id`, ensure the User Assigned Identity is also assigned to the parent Event Hub.
+        /// 
+        /// &gt; **Note:** If using `user_assigned_identity_id`, make sure to assign the identity the appropriate permissions to access the Key Vault key. Failure to grant `Get, UnwrapKey, and WrapKey` will cause this resource to fail to apply.
+        /// </summary>
+        [Input("userAssignedIdentityId")]
+        public Input<string>? UserAssignedIdentityId { get; set; }
+
         public NamespaceCustomerManagedKeyArgs()
         {
         }
@@ -254,6 +275,16 @@ namespace Pulumi.Azure.EventHub
             get => _keyVaultKeyIds ?? (_keyVaultKeyIds = new InputList<string>());
             set => _keyVaultKeyIds = value;
         }
+
+        /// <summary>
+        /// The ID of a User Managed Identity that will be used to access Key Vaults that contain the encryption keys.
+        /// 
+        /// &gt; **Note:** If using `user_assigned_identity_id`, ensure the User Assigned Identity is also assigned to the parent Event Hub.
+        /// 
+        /// &gt; **Note:** If using `user_assigned_identity_id`, make sure to assign the identity the appropriate permissions to access the Key Vault key. Failure to grant `Get, UnwrapKey, and WrapKey` will cause this resource to fail to apply.
+        /// </summary>
+        [Input("userAssignedIdentityId")]
+        public Input<string>? UserAssignedIdentityId { get; set; }
 
         public NamespaceCustomerManagedKeyState()
         {

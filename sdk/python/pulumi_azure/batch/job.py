@@ -253,8 +253,8 @@ class Job(pulumi.CustomResource):
             ),
             storage_image_reference=azure.batch.PoolStorageImageReferenceArgs(
                 publisher="Canonical",
-                offer="UbuntuServer",
-                sku="16.04.0-LTS",
+                offer="0001-com-ubuntu-server-jammy",
+                sku="22_04-lts",
                 version="latest",
             ))
         example_job = azure.batch.Job("exampleJob", batch_pool_id=example_pool.id)
@@ -306,8 +306,8 @@ class Job(pulumi.CustomResource):
             ),
             storage_image_reference=azure.batch.PoolStorageImageReferenceArgs(
                 publisher="Canonical",
-                offer="UbuntuServer",
-                sku="16.04.0-LTS",
+                offer="0001-com-ubuntu-server-jammy",
+                sku="22_04-lts",
                 version="latest",
             ))
         example_job = azure.batch.Job("exampleJob", batch_pool_id=example_pool.id)

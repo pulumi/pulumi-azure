@@ -5289,6 +5289,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "management/privateLinkAssociation",
+  "fqn": "pulumi_azure.management",
+  "classes": {
+   "azure:management/privateLinkAssociation:PrivateLinkAssociation": "PrivateLinkAssociation"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "managementgroups/managementGroup",
   "fqn": "pulumi_azure.managementgroups",
   "classes": {

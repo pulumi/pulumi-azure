@@ -63,6 +63,21 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The query endpoint for the Azure Monitor Workspace.
+     * 
+     */
+    @Import(name="queryEndpoint")
+    private @Nullable Output<String> queryEndpoint;
+
+    /**
+     * @return The query endpoint for the Azure Monitor Workspace.
+     * 
+     */
+    public Optional<Output<String>> queryEndpoint() {
+        return Optional.ofNullable(this.queryEndpoint);
+    }
+
+    /**
      * Specifies the name of the Resource Group where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
      * 
      */
@@ -98,6 +113,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         this.location = $.location;
         this.name = $.name;
         this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
+        this.queryEndpoint = $.queryEndpoint;
         this.resourceGroupName = $.resourceGroupName;
         this.tags = $.tags;
     }
@@ -181,6 +197,27 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
             return publicNetworkAccessEnabled(Output.of(publicNetworkAccessEnabled));
+        }
+
+        /**
+         * @param queryEndpoint The query endpoint for the Azure Monitor Workspace.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder queryEndpoint(@Nullable Output<String> queryEndpoint) {
+            $.queryEndpoint = queryEndpoint;
+            return this;
+        }
+
+        /**
+         * @param queryEndpoint The query endpoint for the Azure Monitor Workspace.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder queryEndpoint(String queryEndpoint) {
+            return queryEndpoint(Output.of(queryEndpoint));
         }
 
         /**

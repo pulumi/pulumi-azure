@@ -151,8 +151,8 @@ namespace Pulumi.Azure.Maintenance
     ///         SourceImageReference = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetSourceImageReferenceArgs
     ///         {
     ///             Publisher = "Canonical",
-    ///             Offer = "0001-com-ubuntu-server-focal",
-    ///             Sku = "20_04-lts",
+    ///             Offer = "0001-com-ubuntu-server-jammy",
+    ///             Sku = "22_04-lts",
     ///             Version = "latest",
     ///         },
     ///         OsDisk = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetOsDiskArgs

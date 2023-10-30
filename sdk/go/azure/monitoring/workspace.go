@@ -70,6 +70,8 @@ type Workspace struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Is public network access enabled? Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
+	// The query endpoint for the Azure Monitor Workspace.
+	QueryEndpoint pulumi.StringOutput `pulumi:"queryEndpoint"`
 	// Specifies the name of the Resource Group where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags which should be assigned to the Azure Monitor Workspace.
@@ -115,6 +117,8 @@ type workspaceState struct {
 	Name *string `pulumi:"name"`
 	// Is public network access enabled? Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
+	// The query endpoint for the Azure Monitor Workspace.
+	QueryEndpoint *string `pulumi:"queryEndpoint"`
 	// Specifies the name of the Resource Group where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags which should be assigned to the Azure Monitor Workspace.
@@ -128,6 +132,8 @@ type WorkspaceState struct {
 	Name pulumi.StringPtrInput
 	// Is public network access enabled? Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
+	// The query endpoint for the Azure Monitor Workspace.
+	QueryEndpoint pulumi.StringPtrInput
 	// Specifies the name of the Resource Group where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Azure Monitor Workspace.
@@ -289,6 +295,11 @@ func (o WorkspaceOutput) Name() pulumi.StringOutput {
 // Is public network access enabled? Defaults to `true`.
 func (o WorkspaceOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The query endpoint for the Azure Monitor Workspace.
+func (o WorkspaceOutput) QueryEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.QueryEndpoint }).(pulumi.StringOutput)
 }
 
 // Specifies the name of the Resource Group where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.

@@ -128,14 +128,14 @@ public class Deployment extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The name of RAI policy. Changing this forces a new resource to be created.
+     * The name of RAI policy.
      * 
      */
     @Export(name="raiPolicyName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> raiPolicyName;
 
     /**
-     * @return The name of RAI policy. Changing this forces a new resource to be created.
+     * @return The name of RAI policy.
      * 
      */
     public Output<Optional<String>> raiPolicyName() {

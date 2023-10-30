@@ -63,9 +63,9 @@ namespace Pulumi.Azure.DevTest
     ///         Notes = "Some notes about this Virtual Machine.",
     ///         GalleryImageReference = new Azure.DevTest.Inputs.LinuxVirtualMachineGalleryImageReferenceArgs
     ///         {
-    ///             Offer = "UbuntuServer",
     ///             Publisher = "Canonical",
-    ///             Sku = "18.04-LTS",
+    ///             Offer = "0001-com-ubuntu-server-jammy",
+    ///             Sku = "22_04-lts",
     ///             Version = "latest",
     ///         },
     ///     });

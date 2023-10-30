@@ -87,9 +87,9 @@ namespace Pulumi.Azure.SiteRecovery
     ///         },
     ///         StorageImageReference = new Azure.Compute.Inputs.VirtualMachineStorageImageReferenceArgs
     ///         {
-    ///             Publisher = "OpenLogic",
-    ///             Offer = "CentOS",
-    ///             Sku = "7.5",
+    ///             Publisher = "Canonical",
+    ///             Offer = "0001-com-ubuntu-server-jammy",
+    ///             Sku = "22_04-lts",
     ///             Version = "latest",
     ///         },
     ///         StorageOsDisk = new Azure.Compute.Inputs.VirtualMachineStorageOsDiskArgs

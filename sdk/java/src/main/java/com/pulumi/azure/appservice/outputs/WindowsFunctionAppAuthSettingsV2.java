@@ -75,7 +75,7 @@ public final class WindowsFunctionAppAuthSettingsV2 {
      */
     private @Nullable WindowsFunctionAppAuthSettingsV2FacebookV2 facebookV2;
     /**
-     * @return The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+     * @return The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
      * 
      */
     private @Nullable String forwardProxyConvention;
@@ -211,7 +211,7 @@ public final class WindowsFunctionAppAuthSettingsV2 {
         return Optional.ofNullable(this.facebookV2);
     }
     /**
-     * @return The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+     * @return The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
      * 
      */
     public Optional<String> forwardProxyConvention() {

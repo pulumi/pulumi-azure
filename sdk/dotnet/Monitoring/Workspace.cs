@@ -70,6 +70,12 @@ namespace Pulumi.Azure.Monitoring
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// The query endpoint for the Azure Monitor Workspace.
+        /// </summary>
+        [Output("queryEndpoint")]
+        public Output<string> QueryEndpoint { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name of the Resource Group where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -188,6 +194,12 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
+
+        /// <summary>
+        /// The query endpoint for the Azure Monitor Workspace.
+        /// </summary>
+        [Input("queryEndpoint")]
+        public Input<string>? QueryEndpoint { get; set; }
 
         /// <summary>
         /// Specifies the name of the Resource Group where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
