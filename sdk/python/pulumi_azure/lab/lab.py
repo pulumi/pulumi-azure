@@ -483,9 +483,9 @@ class Lab(pulumi.CustomResource):
                     password="Password1234!",
                 ),
                 image_reference=azure.lab.LabVirtualMachineImageReferenceArgs(
-                    offer="0001-com-ubuntu-server-focal",
-                    publisher="canonical",
-                    sku="20_04-lts",
+                    publisher="Canonical",
+                    offer="0001-com-ubuntu-server-jammy",
+                    sku="22_04-lts",
                     version="latest",
                 ),
                 sku=azure.lab.LabVirtualMachineSkuArgs(
@@ -548,9 +548,9 @@ class Lab(pulumi.CustomResource):
                     password="Password1234!",
                 ),
                 image_reference=azure.lab.LabVirtualMachineImageReferenceArgs(
-                    offer="0001-com-ubuntu-server-focal",
-                    publisher="canonical",
-                    sku="20_04-lts",
+                    publisher="Canonical",
+                    offer="0001-com-ubuntu-server-jammy",
+                    sku="22_04-lts",
                     version="latest",
                 ),
                 sku=azure.lab.LabVirtualMachineSkuArgs(

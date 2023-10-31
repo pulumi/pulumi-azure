@@ -150,6 +150,18 @@ class LicationLoadBalancerFrontend(pulumi.CustomResource):
         """
         Manages an Application Gateway for Containers Frontend.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_lication_load_balancer = azure.appconfiguration.LicationLoadBalancer("exampleLicationLoadBalancer",
+            resource_group_name="example",
+            location="West Europe")
+        example_lication_load_balancer_frontend = azure.appconfiguration.LicationLoadBalancerFrontend("exampleLicationLoadBalancerFrontend", application_load_balancer_id=example_lication_load_balancer.id)
+        ```
+
         ## Import
 
         Application Gateway for Containers Frontend can be imported using the `resource id`, e.g.
@@ -172,6 +184,18 @@ class LicationLoadBalancerFrontend(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Application Gateway for Containers Frontend.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_lication_load_balancer = azure.appconfiguration.LicationLoadBalancer("exampleLicationLoadBalancer",
+            resource_group_name="example",
+            location="West Europe")
+        example_lication_load_balancer_frontend = azure.appconfiguration.LicationLoadBalancerFrontend("exampleLicationLoadBalancerFrontend", application_load_balancer_id=example_lication_load_balancer.id)
+        ```
 
         ## Import
 

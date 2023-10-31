@@ -273,6 +273,20 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.azureDevopsRepo);
     }
     /**
+     * Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
+     * 
+     */
+    @Export(name="azureadAuthenticationOnly", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> azureadAuthenticationOnly;
+
+    /**
+     * @return Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> azureadAuthenticationOnly() {
+        return Codegen.optional(this.azureadAuthenticationOnly);
+    }
+    /**
      * Subnet ID used for computes in workspace Changing this forces a new resource to be created.
      * 
      */

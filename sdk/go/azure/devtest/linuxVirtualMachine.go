@@ -81,9 +81,9 @@ import (
 //				StorageType: pulumi.String("Premium"),
 //				Notes:       pulumi.String("Some notes about this Virtual Machine."),
 //				GalleryImageReference: &devtest.LinuxVirtualMachineGalleryImageReferenceArgs{
-//					Offer:     pulumi.String("UbuntuServer"),
 //					Publisher: pulumi.String("Canonical"),
-//					Sku:       pulumi.String("18.04-LTS"),
+//					Offer:     pulumi.String("0001-com-ubuntu-server-jammy"),
+//					Sku:       pulumi.String("22_04-lts"),
 //					Version:   pulumi.String("latest"),
 //				},
 //			})

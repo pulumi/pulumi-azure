@@ -263,6 +263,25 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies the Semantic Search SKU which should be used for this Search Service. Possible values include `free` and `standard`.
+     * 
+     * &gt; **NOTE:** The `semantic_search_sku` cannot be defined if your Search Services `sku` is set to `free`. The Semantic Search feature is only available in certain regions, please see the [product documentation](https://learn.microsoft.com/azure/search/semantic-search-overview#availability-and-pricing) for more information.
+     * 
+     */
+    @Import(name="semanticSearchSku")
+    private @Nullable Output<String> semanticSearchSku;
+
+    /**
+     * @return Specifies the Semantic Search SKU which should be used for this Search Service. Possible values include `free` and `standard`.
+     * 
+     * &gt; **NOTE:** The `semantic_search_sku` cannot be defined if your Search Services `sku` is set to `free`. The Semantic Search feature is only available in certain regions, please see the [product documentation](https://learn.microsoft.com/azure/search/semantic-search-overview#availability-and-pricing) for more information.
+     * 
+     */
+    public Optional<Output<String>> semanticSearchSku() {
+        return Optional.ofNullable(this.semanticSearchSku);
+    }
+
+    /**
      * The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2`. Changing this forces a new Search Service to be created.
      * 
      * &gt; The `basic` and `free` SKUs provision the Search Service in a Shared Cluster - the `standard` SKUs use a Dedicated Cluster.
@@ -318,6 +337,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         this.replicaCount = $.replicaCount;
         this.resourceGroupName = $.resourceGroupName;
         this.secondaryKey = $.secondaryKey;
+        this.semanticSearchSku = $.semanticSearchSku;
         this.sku = $.sku;
         this.tags = $.tags;
     }
@@ -691,6 +711,31 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder secondaryKey(String secondaryKey) {
             return secondaryKey(Output.of(secondaryKey));
+        }
+
+        /**
+         * @param semanticSearchSku Specifies the Semantic Search SKU which should be used for this Search Service. Possible values include `free` and `standard`.
+         * 
+         * &gt; **NOTE:** The `semantic_search_sku` cannot be defined if your Search Services `sku` is set to `free`. The Semantic Search feature is only available in certain regions, please see the [product documentation](https://learn.microsoft.com/azure/search/semantic-search-overview#availability-and-pricing) for more information.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder semanticSearchSku(@Nullable Output<String> semanticSearchSku) {
+            $.semanticSearchSku = semanticSearchSku;
+            return this;
+        }
+
+        /**
+         * @param semanticSearchSku Specifies the Semantic Search SKU which should be used for this Search Service. Possible values include `free` and `standard`.
+         * 
+         * &gt; **NOTE:** The `semantic_search_sku` cannot be defined if your Search Services `sku` is set to `free`. The Semantic Search feature is only available in certain regions, please see the [product documentation](https://learn.microsoft.com/azure/search/semantic-search-overview#availability-and-pricing) for more information.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder semanticSearchSku(String semanticSearchSku) {
+            return semanticSearchSku(Output.of(semanticSearchSku));
         }
 
         /**

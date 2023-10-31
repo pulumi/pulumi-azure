@@ -46,8 +46,8 @@ import * as utilities from "../utilities";
  *     vmSize: "Standard_F2",
  *     storageImageReference: {
  *         publisher: "Canonical",
- *         offer: "0001-com-ubuntu-server-focal",
- *         sku: "20_04-lts",
+ *         offer: "0001-com-ubuntu-server-jammy",
+ *         sku: "22_04-lts",
  *         version: "latest",
  *     },
  *     storageOsDisk: {

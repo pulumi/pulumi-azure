@@ -83,7 +83,7 @@ namespace Pulumi.Azure.Cognitive
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The name of RAI policy. Changing this forces a new resource to be created.
+        /// The name of RAI policy.
         /// </summary>
         [Output("raiPolicyName")]
         public Output<string?> RaiPolicyName { get; private set; } = null!;
@@ -159,7 +159,7 @@ namespace Pulumi.Azure.Cognitive
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of RAI policy. Changing this forces a new resource to be created.
+        /// The name of RAI policy.
         /// </summary>
         [Input("raiPolicyName")]
         public Input<string>? RaiPolicyName { get; set; }
@@ -197,7 +197,7 @@ namespace Pulumi.Azure.Cognitive
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of RAI policy. Changing this forces a new resource to be created.
+        /// The name of RAI policy.
         /// </summary>
         [Input("raiPolicyName")]
         public Input<string>? RaiPolicyName { get; set; }

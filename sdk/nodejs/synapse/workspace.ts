@@ -181,6 +181,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly azureDevopsRepo!: pulumi.Output<outputs.synapse.WorkspaceAzureDevopsRepo | undefined>;
     /**
+     * Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
+     */
+    public readonly azureadAuthenticationOnly!: pulumi.Output<boolean | undefined>;
+    /**
      * Subnet ID used for computes in workspace Changing this forces a new resource to be created.
      */
     public readonly computeSubnetId!: pulumi.Output<string | undefined>;
@@ -276,6 +280,7 @@ export class Workspace extends pulumi.CustomResource {
             const state = argsOrState as WorkspaceState | undefined;
             resourceInputs["aadAdmin"] = state ? state.aadAdmin : undefined;
             resourceInputs["azureDevopsRepo"] = state ? state.azureDevopsRepo : undefined;
+            resourceInputs["azureadAuthenticationOnly"] = state ? state.azureadAuthenticationOnly : undefined;
             resourceInputs["computeSubnetId"] = state ? state.computeSubnetId : undefined;
             resourceInputs["connectivityEndpoints"] = state ? state.connectivityEndpoints : undefined;
             resourceInputs["customerManagedKey"] = state ? state.customerManagedKey : undefined;
@@ -306,6 +311,7 @@ export class Workspace extends pulumi.CustomResource {
             }
             resourceInputs["aadAdmin"] = args ? args.aadAdmin : undefined;
             resourceInputs["azureDevopsRepo"] = args ? args.azureDevopsRepo : undefined;
+            resourceInputs["azureadAuthenticationOnly"] = args ? args.azureadAuthenticationOnly : undefined;
             resourceInputs["computeSubnetId"] = args ? args.computeSubnetId : undefined;
             resourceInputs["customerManagedKey"] = args ? args.customerManagedKey : undefined;
             resourceInputs["dataExfiltrationProtectionEnabled"] = args ? args.dataExfiltrationProtectionEnabled : undefined;
@@ -346,6 +352,10 @@ export interface WorkspaceState {
      * An `azureDevopsRepo` block as defined below.
      */
     azureDevopsRepo?: pulumi.Input<inputs.synapse.WorkspaceAzureDevopsRepo>;
+    /**
+     * Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
+     */
+    azureadAuthenticationOnly?: pulumi.Input<boolean>;
     /**
      * Subnet ID used for computes in workspace Changing this forces a new resource to be created.
      */
@@ -440,6 +450,10 @@ export interface WorkspaceArgs {
      * An `azureDevopsRepo` block as defined below.
      */
     azureDevopsRepo?: pulumi.Input<inputs.synapse.WorkspaceAzureDevopsRepo>;
+    /**
+     * Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
+     */
+    azureadAuthenticationOnly?: pulumi.Input<boolean>;
     /**
      * Subnet ID used for computes in workspace Changing this forces a new resource to be created.
      */

@@ -907,6 +907,7 @@
         "management/index.ts",
         "management/lock.ts",
         "management/privateLink.ts",
+        "management/privateLinkAssociation.ts",
         "managementgroups/getManagementGroup.ts",
         "managementgroups/index.ts",
         "managementgroups/managementGroup.ts",

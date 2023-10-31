@@ -85,7 +85,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<Inputs.LinuxWebAppAuthSettingsV2FacebookV2GetArgs>? FacebookV2 { get; set; }
 
         /// <summary>
-        /// The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+        /// The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
         /// </summary>
         [Input("forwardProxyConvention")]
         public Input<string>? ForwardProxyConvention { get; set; }

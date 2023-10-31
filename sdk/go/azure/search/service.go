@@ -172,6 +172,10 @@ type Service struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The Secondary Key used for Search Service Administration.
 	SecondaryKey pulumi.StringOutput `pulumi:"secondaryKey"`
+	// Specifies the Semantic Search SKU which should be used for this Search Service. Possible values include `free` and `standard`.
+	//
+	// > **NOTE:** The `semanticSearchSku` cannot be defined if your Search Services `sku` is set to `free`. The Semantic Search feature is only available in certain regions, please see the [product documentation](https://learn.microsoft.com/azure/search/semantic-search-overview#availability-and-pricing) for more information.
+	SemanticSearchSku pulumi.StringPtrOutput `pulumi:"semanticSearchSku"`
 	// The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2`. Changing this forces a new Search Service to be created.
 	//
 	// > The `basic` and `free` SKUs provision the Search Service in a Shared Cluster - the `standard` SKUs use a Dedicated Cluster.
@@ -261,6 +265,10 @@ type serviceState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The Secondary Key used for Search Service Administration.
 	SecondaryKey *string `pulumi:"secondaryKey"`
+	// Specifies the Semantic Search SKU which should be used for this Search Service. Possible values include `free` and `standard`.
+	//
+	// > **NOTE:** The `semanticSearchSku` cannot be defined if your Search Services `sku` is set to `free`. The Semantic Search feature is only available in certain regions, please see the [product documentation](https://learn.microsoft.com/azure/search/semantic-search-overview#availability-and-pricing) for more information.
+	SemanticSearchSku *string `pulumi:"semanticSearchSku"`
 	// The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2`. Changing this forces a new Search Service to be created.
 	//
 	// > The `basic` and `free` SKUs provision the Search Service in a Shared Cluster - the `standard` SKUs use a Dedicated Cluster.
@@ -310,6 +318,10 @@ type ServiceState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// The Secondary Key used for Search Service Administration.
 	SecondaryKey pulumi.StringPtrInput
+	// Specifies the Semantic Search SKU which should be used for this Search Service. Possible values include `free` and `standard`.
+	//
+	// > **NOTE:** The `semanticSearchSku` cannot be defined if your Search Services `sku` is set to `free`. The Semantic Search feature is only available in certain regions, please see the [product documentation](https://learn.microsoft.com/azure/search/semantic-search-overview#availability-and-pricing) for more information.
+	SemanticSearchSku pulumi.StringPtrInput
 	// The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2`. Changing this forces a new Search Service to be created.
 	//
 	// > The `basic` and `free` SKUs provision the Search Service in a Shared Cluster - the `standard` SKUs use a Dedicated Cluster.
@@ -357,6 +369,10 @@ type serviceArgs struct {
 	ReplicaCount *int `pulumi:"replicaCount"`
 	// The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Specifies the Semantic Search SKU which should be used for this Search Service. Possible values include `free` and `standard`.
+	//
+	// > **NOTE:** The `semanticSearchSku` cannot be defined if your Search Services `sku` is set to `free`. The Semantic Search feature is only available in certain regions, please see the [product documentation](https://learn.microsoft.com/azure/search/semantic-search-overview#availability-and-pricing) for more information.
+	SemanticSearchSku *string `pulumi:"semanticSearchSku"`
 	// The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2`. Changing this forces a new Search Service to be created.
 	//
 	// > The `basic` and `free` SKUs provision the Search Service in a Shared Cluster - the `standard` SKUs use a Dedicated Cluster.
@@ -401,6 +417,10 @@ type ServiceArgs struct {
 	ReplicaCount pulumi.IntPtrInput
 	// The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
 	ResourceGroupName pulumi.StringInput
+	// Specifies the Semantic Search SKU which should be used for this Search Service. Possible values include `free` and `standard`.
+	//
+	// > **NOTE:** The `semanticSearchSku` cannot be defined if your Search Services `sku` is set to `free`. The Semantic Search feature is only available in certain regions, please see the [product documentation](https://learn.microsoft.com/azure/search/semantic-search-overview#availability-and-pricing) for more information.
+	SemanticSearchSku pulumi.StringPtrInput
 	// The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2`. Changing this forces a new Search Service to be created.
 	//
 	// > The `basic` and `free` SKUs provision the Search Service in a Shared Cluster - the `standard` SKUs use a Dedicated Cluster.
@@ -603,6 +623,13 @@ func (o ServiceOutput) ResourceGroupName() pulumi.StringOutput {
 // The Secondary Key used for Search Service Administration.
 func (o ServiceOutput) SecondaryKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.SecondaryKey }).(pulumi.StringOutput)
+}
+
+// Specifies the Semantic Search SKU which should be used for this Search Service. Possible values include `free` and `standard`.
+//
+// > **NOTE:** The `semanticSearchSku` cannot be defined if your Search Services `sku` is set to `free`. The Semantic Search feature is only available in certain regions, please see the [product documentation](https://learn.microsoft.com/azure/search/semantic-search-overview#availability-and-pricing) for more information.
+func (o ServiceOutput) SemanticSearchSku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.SemanticSearchSku }).(pulumi.StringPtrOutput)
 }
 
 // The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2`. Changing this forces a new Search Service to be created.

@@ -45,9 +45,9 @@ namespace Pulumi.Azure.Lab
     ///             },
     ///             ImageReference = new Azure.Lab.Inputs.LabVirtualMachineImageReferenceArgs
     ///             {
-    ///                 Offer = "0001-com-ubuntu-server-focal",
-    ///                 Publisher = "canonical",
-    ///                 Sku = "20_04-lts",
+    ///                 Publisher = "Canonical",
+    ///                 Offer = "0001-com-ubuntu-server-jammy",
+    ///                 Sku = "22_04-lts",
     ///                 Version = "latest",
     ///             },
     ///             Sku = new Azure.Lab.Inputs.LabVirtualMachineSkuArgs

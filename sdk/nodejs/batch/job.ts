@@ -28,8 +28,8 @@ import * as utilities from "../utilities";
  *     },
  *     storageImageReference: {
  *         publisher: "Canonical",
- *         offer: "UbuntuServer",
- *         sku: "16.04.0-LTS",
+ *         offer: "0001-com-ubuntu-server-jammy",
+ *         sku: "22_04-lts",
  *         version: "latest",
  *     },
  * });

@@ -111,6 +111,20 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.publicNetworkAccessEnabled);
     }
     /**
+     * The query endpoint for the Azure Monitor Workspace.
+     * 
+     */
+    @Export(name="queryEndpoint", refs={String.class}, tree="[0]")
+    private Output<String> queryEndpoint;
+
+    /**
+     * @return The query endpoint for the Azure Monitor Workspace.
+     * 
+     */
+    public Output<String> queryEndpoint() {
+        return this.queryEndpoint;
+    }
+    /**
      * Specifies the name of the Resource Group where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
      * 
      */

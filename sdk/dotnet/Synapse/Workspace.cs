@@ -231,6 +231,12 @@ namespace Pulumi.Azure.Synapse
         public Output<Outputs.WorkspaceAzureDevopsRepo?> AzureDevopsRepo { get; private set; } = null!;
 
         /// <summary>
+        /// Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
+        /// </summary>
+        [Output("azureadAuthenticationOnly")]
+        public Output<bool?> AzureadAuthenticationOnly { get; private set; } = null!;
+
+        /// <summary>
         /// Subnet ID used for computes in workspace Changing this forces a new resource to be created.
         /// </summary>
         [Output("computeSubnetId")]
@@ -413,6 +419,12 @@ namespace Pulumi.Azure.Synapse
         public Input<Inputs.WorkspaceAzureDevopsRepoArgs>? AzureDevopsRepo { get; set; }
 
         /// <summary>
+        /// Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
+        /// </summary>
+        [Input("azureadAuthenticationOnly")]
+        public Input<bool>? AzureadAuthenticationOnly { get; set; }
+
+        /// <summary>
         /// Subnet ID used for computes in workspace Changing this forces a new resource to be created.
         /// </summary>
         [Input("computeSubnetId")]
@@ -567,6 +579,12 @@ namespace Pulumi.Azure.Synapse
         /// </summary>
         [Input("azureDevopsRepo")]
         public Input<Inputs.WorkspaceAzureDevopsRepoGetArgs>? AzureDevopsRepo { get; set; }
+
+        /// <summary>
+        /// Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
+        /// </summary>
+        [Input("azureadAuthenticationOnly")]
+        public Input<bool>? AzureadAuthenticationOnly { get; set; }
 
         /// <summary>
         /// Subnet ID used for computes in workspace Changing this forces a new resource to be created.

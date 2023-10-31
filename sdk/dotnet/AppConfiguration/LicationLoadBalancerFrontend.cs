@@ -12,6 +12,30 @@ namespace Pulumi.Azure.AppConfiguration
     /// <summary>
     /// Manages an Application Gateway for Containers Frontend.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleLicationLoadBalancer = new Azure.AppConfiguration.LicationLoadBalancer("exampleLicationLoadBalancer", new()
+    ///     {
+    ///         ResourceGroupName = "example",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleLicationLoadBalancerFrontend = new Azure.AppConfiguration.LicationLoadBalancerFrontend("exampleLicationLoadBalancerFrontend", new()
+    ///     {
+    ///         ApplicationLoadBalancerId = exampleLicationLoadBalancer.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Application Gateway for Containers Frontend can be imported using the `resource id`, e.g.

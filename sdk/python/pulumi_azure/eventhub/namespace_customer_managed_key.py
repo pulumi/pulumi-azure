@@ -16,17 +16,25 @@ class NamespaceCustomerManagedKeyInitArgs:
     def __init__(__self__, *,
                  eventhub_namespace_id: pulumi.Input[str],
                  key_vault_key_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None):
+                 infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+                 user_assigned_identity_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a NamespaceCustomerManagedKey resource.
         :param pulumi.Input[str] eventhub_namespace_id: The ID of the EventHub Namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] key_vault_key_ids: The list of keys of Key Vault.
         :param pulumi.Input[bool] infrastructure_encryption_enabled: Whether to enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
+        :param pulumi.Input[str] user_assigned_identity_id: The ID of a User Managed Identity that will be used to access Key Vaults that contain the encryption keys.
+               
+               > **Note:** If using `user_assigned_identity_id`, ensure the User Assigned Identity is also assigned to the parent Event Hub.
+               
+               > **Note:** If using `user_assigned_identity_id`, make sure to assign the identity the appropriate permissions to access the Key Vault key. Failure to grant `Get, UnwrapKey, and WrapKey` will cause this resource to fail to apply.
         """
         pulumi.set(__self__, "eventhub_namespace_id", eventhub_namespace_id)
         pulumi.set(__self__, "key_vault_key_ids", key_vault_key_ids)
         if infrastructure_encryption_enabled is not None:
             pulumi.set(__self__, "infrastructure_encryption_enabled", infrastructure_encryption_enabled)
+        if user_assigned_identity_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
 
     @property
     @pulumi.getter(name="eventhubNamespaceId")
@@ -64,18 +72,40 @@ class NamespaceCustomerManagedKeyInitArgs:
     def infrastructure_encryption_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "infrastructure_encryption_enabled", value)
 
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of a User Managed Identity that will be used to access Key Vaults that contain the encryption keys.
+
+        > **Note:** If using `user_assigned_identity_id`, ensure the User Assigned Identity is also assigned to the parent Event Hub.
+
+        > **Note:** If using `user_assigned_identity_id`, make sure to assign the identity the appropriate permissions to access the Key Vault key. Failure to grant `Get, UnwrapKey, and WrapKey` will cause this resource to fail to apply.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
+
+    @user_assigned_identity_id.setter
+    def user_assigned_identity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_assigned_identity_id", value)
+
 
 @pulumi.input_type
 class _NamespaceCustomerManagedKeyState:
     def __init__(__self__, *,
                  eventhub_namespace_id: Optional[pulumi.Input[str]] = None,
                  infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
-                 key_vault_key_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 key_vault_key_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 user_assigned_identity_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering NamespaceCustomerManagedKey resources.
         :param pulumi.Input[str] eventhub_namespace_id: The ID of the EventHub Namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] infrastructure_encryption_enabled: Whether to enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] key_vault_key_ids: The list of keys of Key Vault.
+        :param pulumi.Input[str] user_assigned_identity_id: The ID of a User Managed Identity that will be used to access Key Vaults that contain the encryption keys.
+               
+               > **Note:** If using `user_assigned_identity_id`, ensure the User Assigned Identity is also assigned to the parent Event Hub.
+               
+               > **Note:** If using `user_assigned_identity_id`, make sure to assign the identity the appropriate permissions to access the Key Vault key. Failure to grant `Get, UnwrapKey, and WrapKey` will cause this resource to fail to apply.
         """
         if eventhub_namespace_id is not None:
             pulumi.set(__self__, "eventhub_namespace_id", eventhub_namespace_id)
@@ -83,6 +113,8 @@ class _NamespaceCustomerManagedKeyState:
             pulumi.set(__self__, "infrastructure_encryption_enabled", infrastructure_encryption_enabled)
         if key_vault_key_ids is not None:
             pulumi.set(__self__, "key_vault_key_ids", key_vault_key_ids)
+        if user_assigned_identity_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
 
     @property
     @pulumi.getter(name="eventhubNamespaceId")
@@ -120,6 +152,22 @@ class _NamespaceCustomerManagedKeyState:
     def key_vault_key_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "key_vault_key_ids", value)
 
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of a User Managed Identity that will be used to access Key Vaults that contain the encryption keys.
+
+        > **Note:** If using `user_assigned_identity_id`, ensure the User Assigned Identity is also assigned to the parent Event Hub.
+
+        > **Note:** If using `user_assigned_identity_id`, make sure to assign the identity the appropriate permissions to access the Key Vault key. Failure to grant `Get, UnwrapKey, and WrapKey` will cause this resource to fail to apply.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
+
+    @user_assigned_identity_id.setter
+    def user_assigned_identity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_assigned_identity_id", value)
+
 
 class NamespaceCustomerManagedKey(pulumi.CustomResource):
     @overload
@@ -129,6 +177,7 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
                  eventhub_namespace_id: Optional[pulumi.Input[str]] = None,
                  infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  key_vault_key_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Manages a Customer Managed Key for a EventHub Namespace.
@@ -136,6 +185,7 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
         !> **Note:** In 2.x versions of the Azure Provider during deletion this resource will **delete and recreate the parent EventHub Namespace which may involve data loss** as it's not possible to remove the Customer Managed Key from the EventHub Namespace once it's been added. Version 3.0 of the Azure Provider will change this so that the Delete operation is a noop, requiring the parent EventHub Namespace is deleted/recreated to remove the Customer Managed Key.
 
         ## Example Usage
+        ### With System Assigned Identity
 
         ```python
         import pulumi
@@ -217,6 +267,11 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
         :param pulumi.Input[str] eventhub_namespace_id: The ID of the EventHub Namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] infrastructure_encryption_enabled: Whether to enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] key_vault_key_ids: The list of keys of Key Vault.
+        :param pulumi.Input[str] user_assigned_identity_id: The ID of a User Managed Identity that will be used to access Key Vaults that contain the encryption keys.
+               
+               > **Note:** If using `user_assigned_identity_id`, ensure the User Assigned Identity is also assigned to the parent Event Hub.
+               
+               > **Note:** If using `user_assigned_identity_id`, make sure to assign the identity the appropriate permissions to access the Key Vault key. Failure to grant `Get, UnwrapKey, and WrapKey` will cause this resource to fail to apply.
         """
         ...
     @overload
@@ -230,6 +285,7 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
         !> **Note:** In 2.x versions of the Azure Provider during deletion this resource will **delete and recreate the parent EventHub Namespace which may involve data loss** as it's not possible to remove the Customer Managed Key from the EventHub Namespace once it's been added. Version 3.0 of the Azure Provider will change this so that the Delete operation is a noop, requiring the parent EventHub Namespace is deleted/recreated to remove the Customer Managed Key.
 
         ## Example Usage
+        ### With System Assigned Identity
 
         ```python
         import pulumi
@@ -324,6 +380,7 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
                  eventhub_namespace_id: Optional[pulumi.Input[str]] = None,
                  infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  key_vault_key_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -340,6 +397,7 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
             if key_vault_key_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'key_vault_key_ids'")
             __props__.__dict__["key_vault_key_ids"] = key_vault_key_ids
+            __props__.__dict__["user_assigned_identity_id"] = user_assigned_identity_id
         super(NamespaceCustomerManagedKey, __self__).__init__(
             'azure:eventhub/namespaceCustomerManagedKey:NamespaceCustomerManagedKey',
             resource_name,
@@ -352,7 +410,8 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             eventhub_namespace_id: Optional[pulumi.Input[str]] = None,
             infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
-            key_vault_key_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'NamespaceCustomerManagedKey':
+            key_vault_key_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            user_assigned_identity_id: Optional[pulumi.Input[str]] = None) -> 'NamespaceCustomerManagedKey':
         """
         Get an existing NamespaceCustomerManagedKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -363,6 +422,11 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
         :param pulumi.Input[str] eventhub_namespace_id: The ID of the EventHub Namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] infrastructure_encryption_enabled: Whether to enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] key_vault_key_ids: The list of keys of Key Vault.
+        :param pulumi.Input[str] user_assigned_identity_id: The ID of a User Managed Identity that will be used to access Key Vaults that contain the encryption keys.
+               
+               > **Note:** If using `user_assigned_identity_id`, ensure the User Assigned Identity is also assigned to the parent Event Hub.
+               
+               > **Note:** If using `user_assigned_identity_id`, make sure to assign the identity the appropriate permissions to access the Key Vault key. Failure to grant `Get, UnwrapKey, and WrapKey` will cause this resource to fail to apply.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -371,6 +435,7 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
         __props__.__dict__["eventhub_namespace_id"] = eventhub_namespace_id
         __props__.__dict__["infrastructure_encryption_enabled"] = infrastructure_encryption_enabled
         __props__.__dict__["key_vault_key_ids"] = key_vault_key_ids
+        __props__.__dict__["user_assigned_identity_id"] = user_assigned_identity_id
         return NamespaceCustomerManagedKey(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -396,4 +461,16 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
         The list of keys of Key Vault.
         """
         return pulumi.get(self, "key_vault_key_ids")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of a User Managed Identity that will be used to access Key Vaults that contain the encryption keys.
+
+        > **Note:** If using `user_assigned_identity_id`, ensure the User Assigned Identity is also assigned to the parent Event Hub.
+
+        > **Note:** If using `user_assigned_identity_id`, make sure to assign the identity the appropriate permissions to access the Key Vault key. Failure to grant `Get, UnwrapKey, and WrapKey` will cause this resource to fail to apply.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
 

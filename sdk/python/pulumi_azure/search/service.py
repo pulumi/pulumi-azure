@@ -29,6 +29,7 @@ class ServiceArgs:
                  partition_count: Optional[pulumi.Input[int]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  replica_count: Optional[pulumi.Input[int]] = None,
+                 semantic_search_sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Service resource.
@@ -57,6 +58,9 @@ class ServiceArgs:
                > **NOTE:** when `hosting_mode` is set to `highDensity` the maximum number of partitions allowed is `3`.
         :param pulumi.Input[bool] public_network_access_enabled: Specifies whether Public Network Access is allowed for this resource. Defaults to `true`.
         :param pulumi.Input[int] replica_count: Specifies the number of Replica's which should be created for this Search Service. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)).
+        :param pulumi.Input[str] semantic_search_sku: Specifies the Semantic Search SKU which should be used for this Search Service. Possible values include `free` and `standard`.
+               
+               > **NOTE:** The `semantic_search_sku` cannot be defined if your Search Services `sku` is set to `free`. The Semantic Search feature is only available in certain regions, please see the [product documentation](https://learn.microsoft.com/azure/search/semantic-search-overview#availability-and-pricing) for more information.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Specifies a mapping of tags which should be assigned to this Search Service.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -83,6 +87,8 @@ class ServiceArgs:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if replica_count is not None:
             pulumi.set(__self__, "replica_count", replica_count)
+        if semantic_search_sku is not None:
+            pulumi.set(__self__, "semantic_search_sku", semantic_search_sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -255,6 +261,20 @@ class ServiceArgs:
         pulumi.set(self, "replica_count", value)
 
     @property
+    @pulumi.getter(name="semanticSearchSku")
+    def semantic_search_sku(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Semantic Search SKU which should be used for this Search Service. Possible values include `free` and `standard`.
+
+        > **NOTE:** The `semantic_search_sku` cannot be defined if your Search Services `sku` is set to `free`. The Semantic Search feature is only available in certain regions, please see the [product documentation](https://learn.microsoft.com/azure/search/semantic-search-overview#availability-and-pricing) for more information.
+        """
+        return pulumi.get(self, "semantic_search_sku")
+
+    @semantic_search_sku.setter
+    def semantic_search_sku(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "semantic_search_sku", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -285,6 +305,7 @@ class _ServiceState:
                  replica_count: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  secondary_key: Optional[pulumi.Input[str]] = None,
+                 semantic_search_sku: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -312,6 +333,9 @@ class _ServiceState:
         :param pulumi.Input[int] replica_count: Specifies the number of Replica's which should be created for this Search Service. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)).
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
         :param pulumi.Input[str] secondary_key: The Secondary Key used for Search Service Administration.
+        :param pulumi.Input[str] semantic_search_sku: Specifies the Semantic Search SKU which should be used for this Search Service. Possible values include `free` and `standard`.
+               
+               > **NOTE:** The `semantic_search_sku` cannot be defined if your Search Services `sku` is set to `free`. The Semantic Search feature is only available in certain regions, please see the [product documentation](https://learn.microsoft.com/azure/search/semantic-search-overview#availability-and-pricing) for more information.
         :param pulumi.Input[str] sku: The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2`. Changing this forces a new Search Service to be created.
                
                > The `basic` and `free` SKUs provision the Search Service in a Shared Cluster - the `standard` SKUs use a Dedicated Cluster.
@@ -349,6 +373,8 @@ class _ServiceState:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if secondary_key is not None:
             pulumi.set(__self__, "secondary_key", secondary_key)
+        if semantic_search_sku is not None:
+            pulumi.set(__self__, "semantic_search_sku", semantic_search_sku)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
@@ -543,6 +569,20 @@ class _ServiceState:
         pulumi.set(self, "secondary_key", value)
 
     @property
+    @pulumi.getter(name="semanticSearchSku")
+    def semantic_search_sku(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Semantic Search SKU which should be used for this Search Service. Possible values include `free` and `standard`.
+
+        > **NOTE:** The `semantic_search_sku` cannot be defined if your Search Services `sku` is set to `free`. The Semantic Search feature is only available in certain regions, please see the [product documentation](https://learn.microsoft.com/azure/search/semantic-search-overview#availability-and-pricing) for more information.
+        """
+        return pulumi.get(self, "semantic_search_sku")
+
+    @semantic_search_sku.setter
+    def semantic_search_sku(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "semantic_search_sku", value)
+
+    @property
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[str]]:
         """
@@ -588,6 +628,7 @@ class Service(pulumi.CustomResource):
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  replica_count: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 semantic_search_sku: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -665,6 +706,9 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[bool] public_network_access_enabled: Specifies whether Public Network Access is allowed for this resource. Defaults to `true`.
         :param pulumi.Input[int] replica_count: Specifies the number of Replica's which should be created for this Search Service. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)).
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
+        :param pulumi.Input[str] semantic_search_sku: Specifies the Semantic Search SKU which should be used for this Search Service. Possible values include `free` and `standard`.
+               
+               > **NOTE:** The `semantic_search_sku` cannot be defined if your Search Services `sku` is set to `free`. The Semantic Search feature is only available in certain regions, please see the [product documentation](https://learn.microsoft.com/azure/search/semantic-search-overview#availability-and-pricing) for more information.
         :param pulumi.Input[str] sku: The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2`. Changing this forces a new Search Service to be created.
                
                > The `basic` and `free` SKUs provision the Search Service in a Shared Cluster - the `standard` SKUs use a Dedicated Cluster.
@@ -757,6 +801,7 @@ class Service(pulumi.CustomResource):
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  replica_count: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 semantic_search_sku: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -782,6 +827,7 @@ class Service(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["semantic_search_sku"] = semantic_search_sku
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
@@ -816,6 +862,7 @@ class Service(pulumi.CustomResource):
             replica_count: Optional[pulumi.Input[int]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             secondary_key: Optional[pulumi.Input[str]] = None,
+            semantic_search_sku: Optional[pulumi.Input[str]] = None,
             sku: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Service':
         """
@@ -848,6 +895,9 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[int] replica_count: Specifies the number of Replica's which should be created for this Search Service. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)).
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
         :param pulumi.Input[str] secondary_key: The Secondary Key used for Search Service Administration.
+        :param pulumi.Input[str] semantic_search_sku: Specifies the Semantic Search SKU which should be used for this Search Service. Possible values include `free` and `standard`.
+               
+               > **NOTE:** The `semantic_search_sku` cannot be defined if your Search Services `sku` is set to `free`. The Semantic Search feature is only available in certain regions, please see the [product documentation](https://learn.microsoft.com/azure/search/semantic-search-overview#availability-and-pricing) for more information.
         :param pulumi.Input[str] sku: The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2`. Changing this forces a new Search Service to be created.
                
                > The `basic` and `free` SKUs provision the Search Service in a Shared Cluster - the `standard` SKUs use a Dedicated Cluster.
@@ -874,6 +924,7 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["replica_count"] = replica_count
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["secondary_key"] = secondary_key
+        __props__.__dict__["semantic_search_sku"] = semantic_search_sku
         __props__.__dict__["sku"] = sku
         __props__.__dict__["tags"] = tags
         return Service(resource_name, opts=opts, __props__=__props__)
@@ -1005,6 +1056,16 @@ class Service(pulumi.CustomResource):
         The Secondary Key used for Search Service Administration.
         """
         return pulumi.get(self, "secondary_key")
+
+    @property
+    @pulumi.getter(name="semanticSearchSku")
+    def semantic_search_sku(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the Semantic Search SKU which should be used for this Search Service. Possible values include `free` and `standard`.
+
+        > **NOTE:** The `semantic_search_sku` cannot be defined if your Search Services `sku` is set to `free`. The Semantic Search feature is only available in certain regions, please see the [product documentation](https://learn.microsoft.com/azure/search/semantic-search-overview#availability-and-pricing) for more information.
+        """
+        return pulumi.get(self, "semantic_search_sku")
 
     @property
     @pulumi.getter

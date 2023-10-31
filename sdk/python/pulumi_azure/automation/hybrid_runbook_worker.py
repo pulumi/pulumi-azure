@@ -314,9 +314,9 @@ class HybridRunbookWorker(pulumi.CustomResource):
             admin_password="Password1234!",
             disable_password_authentication=False,
             source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
-                publisher="OpenLogic",
-                offer="CentOS",
-                sku="7.5",
+                publisher="Canonical",
+                offer="0001-com-ubuntu-server-jammy",
+                sku="22_04-lts",
                 version="latest",
             ),
             os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
@@ -396,9 +396,9 @@ class HybridRunbookWorker(pulumi.CustomResource):
             admin_password="Password1234!",
             disable_password_authentication=False,
             source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
-                publisher="OpenLogic",
-                offer="CentOS",
-                sku="7.5",
+                publisher="Canonical",
+                offer="0001-com-ubuntu-server-jammy",
+                sku="22_04-lts",
                 version="latest",
             ),
             os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(

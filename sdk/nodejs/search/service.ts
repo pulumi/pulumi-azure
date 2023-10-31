@@ -158,6 +158,12 @@ export class Service extends pulumi.CustomResource {
      */
     public /*out*/ readonly secondaryKey!: pulumi.Output<string>;
     /**
+     * Specifies the Semantic Search SKU which should be used for this Search Service. Possible values include `free` and `standard`.
+     *
+     * > **NOTE:** The `semanticSearchSku` cannot be defined if your Search Services `sku` is set to `free`. The Semantic Search feature is only available in certain regions, please see the [product documentation](https://learn.microsoft.com/azure/search/semantic-search-overview#availability-and-pricing) for more information.
+     */
+    public readonly semanticSearchSku!: pulumi.Output<string | undefined>;
+    /**
      * The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2`. Changing this forces a new Search Service to be created.
      *
      * > The `basic` and `free` SKUs provision the Search Service in a Shared Cluster - the `standard` SKUs use a Dedicated Cluster.
@@ -198,6 +204,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["replicaCount"] = state ? state.replicaCount : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["secondaryKey"] = state ? state.secondaryKey : undefined;
+            resourceInputs["semanticSearchSku"] = state ? state.semanticSearchSku : undefined;
             resourceInputs["sku"] = state ? state.sku : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
@@ -220,6 +227,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["replicaCount"] = args ? args.replicaCount : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["semanticSearchSku"] = args ? args.semanticSearchSku : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["primaryKey"] = undefined /*out*/;
@@ -306,6 +314,12 @@ export interface ServiceState {
      */
     secondaryKey?: pulumi.Input<string>;
     /**
+     * Specifies the Semantic Search SKU which should be used for this Search Service. Possible values include `free` and `standard`.
+     *
+     * > **NOTE:** The `semanticSearchSku` cannot be defined if your Search Services `sku` is set to `free`. The Semantic Search feature is only available in certain regions, please see the [product documentation](https://learn.microsoft.com/azure/search/semantic-search-overview#availability-and-pricing) for more information.
+     */
+    semanticSearchSku?: pulumi.Input<string>;
+    /**
      * The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2`. Changing this forces a new Search Service to be created.
      *
      * > The `basic` and `free` SKUs provision the Search Service in a Shared Cluster - the `standard` SKUs use a Dedicated Cluster.
@@ -379,6 +393,12 @@ export interface ServiceArgs {
      * The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Specifies the Semantic Search SKU which should be used for this Search Service. Possible values include `free` and `standard`.
+     *
+     * > **NOTE:** The `semanticSearchSku` cannot be defined if your Search Services `sku` is set to `free`. The Semantic Search feature is only available in certain regions, please see the [product documentation](https://learn.microsoft.com/azure/search/semantic-search-overview#availability-and-pricing) for more information.
+     */
+    semanticSearchSku?: pulumi.Input<string>;
     /**
      * The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2`. Changing this forces a new Search Service to be created.
      *

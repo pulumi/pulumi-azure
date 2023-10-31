@@ -4166,6 +4166,7 @@ class ExpressRoutePortLink1Args:
                  macsec_cak_keyvault_secret_id: Optional[pulumi.Input[str]] = None,
                  macsec_cipher: Optional[pulumi.Input[str]] = None,
                  macsec_ckn_keyvault_secret_id: Optional[pulumi.Input[str]] = None,
+                 macsec_sci_enabled: Optional[pulumi.Input[bool]] = None,
                  patch_panel_id: Optional[pulumi.Input[str]] = None,
                  rack_id: Optional[pulumi.Input[str]] = None,
                  router_name: Optional[pulumi.Input[str]] = None):
@@ -4175,10 +4176,11 @@ class ExpressRoutePortLink1Args:
         :param pulumi.Input[str] id: The ID of this Express Route Port Link.
         :param pulumi.Input[str] interface_name: The interface name of the Azure router associated with the Express Route Port Link.
         :param pulumi.Input[str] macsec_cak_keyvault_secret_id: The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
-               
-               > **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
         :param pulumi.Input[str] macsec_cipher: The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
         :param pulumi.Input[str] macsec_ckn_keyvault_secret_id: The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
+        :param pulumi.Input[bool] macsec_sci_enabled: Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
+               
+               > **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
         :param pulumi.Input[str] patch_panel_id: The ID that maps from the Express Route Port Link to the patch panel port.
         :param pulumi.Input[str] rack_id: The ID that maps from the patch panel port to the rack.
         :param pulumi.Input[str] router_name: The name of the Azure router associated with the Express Route Port Link.
@@ -4197,6 +4199,8 @@ class ExpressRoutePortLink1Args:
             pulumi.set(__self__, "macsec_cipher", macsec_cipher)
         if macsec_ckn_keyvault_secret_id is not None:
             pulumi.set(__self__, "macsec_ckn_keyvault_secret_id", macsec_ckn_keyvault_secret_id)
+        if macsec_sci_enabled is not None:
+            pulumi.set(__self__, "macsec_sci_enabled", macsec_sci_enabled)
         if patch_panel_id is not None:
             pulumi.set(__self__, "patch_panel_id", patch_panel_id)
         if rack_id is not None:
@@ -4257,8 +4261,6 @@ class ExpressRoutePortLink1Args:
     def macsec_cak_keyvault_secret_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
-
-        > **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
         """
         return pulumi.get(self, "macsec_cak_keyvault_secret_id")
 
@@ -4289,6 +4291,20 @@ class ExpressRoutePortLink1Args:
     @macsec_ckn_keyvault_secret_id.setter
     def macsec_ckn_keyvault_secret_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "macsec_ckn_keyvault_secret_id", value)
+
+    @property
+    @pulumi.getter(name="macsecSciEnabled")
+    def macsec_sci_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
+
+        > **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
+        """
+        return pulumi.get(self, "macsec_sci_enabled")
+
+    @macsec_sci_enabled.setter
+    def macsec_sci_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "macsec_sci_enabled", value)
 
     @property
     @pulumi.getter(name="patchPanelId")
@@ -4337,6 +4353,7 @@ class ExpressRoutePortLink2Args:
                  macsec_cak_keyvault_secret_id: Optional[pulumi.Input[str]] = None,
                  macsec_cipher: Optional[pulumi.Input[str]] = None,
                  macsec_ckn_keyvault_secret_id: Optional[pulumi.Input[str]] = None,
+                 macsec_sci_enabled: Optional[pulumi.Input[bool]] = None,
                  patch_panel_id: Optional[pulumi.Input[str]] = None,
                  rack_id: Optional[pulumi.Input[str]] = None,
                  router_name: Optional[pulumi.Input[str]] = None):
@@ -4346,10 +4363,11 @@ class ExpressRoutePortLink2Args:
         :param pulumi.Input[str] id: The ID of this Express Route Port Link.
         :param pulumi.Input[str] interface_name: The interface name of the Azure router associated with the Express Route Port Link.
         :param pulumi.Input[str] macsec_cak_keyvault_secret_id: The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
-               
-               > **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
         :param pulumi.Input[str] macsec_cipher: The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
         :param pulumi.Input[str] macsec_ckn_keyvault_secret_id: The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
+        :param pulumi.Input[bool] macsec_sci_enabled: Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
+               
+               > **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
         :param pulumi.Input[str] patch_panel_id: The ID that maps from the Express Route Port Link to the patch panel port.
         :param pulumi.Input[str] rack_id: The ID that maps from the patch panel port to the rack.
         :param pulumi.Input[str] router_name: The name of the Azure router associated with the Express Route Port Link.
@@ -4368,6 +4386,8 @@ class ExpressRoutePortLink2Args:
             pulumi.set(__self__, "macsec_cipher", macsec_cipher)
         if macsec_ckn_keyvault_secret_id is not None:
             pulumi.set(__self__, "macsec_ckn_keyvault_secret_id", macsec_ckn_keyvault_secret_id)
+        if macsec_sci_enabled is not None:
+            pulumi.set(__self__, "macsec_sci_enabled", macsec_sci_enabled)
         if patch_panel_id is not None:
             pulumi.set(__self__, "patch_panel_id", patch_panel_id)
         if rack_id is not None:
@@ -4428,8 +4448,6 @@ class ExpressRoutePortLink2Args:
     def macsec_cak_keyvault_secret_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
-
-        > **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
         """
         return pulumi.get(self, "macsec_cak_keyvault_secret_id")
 
@@ -4460,6 +4478,20 @@ class ExpressRoutePortLink2Args:
     @macsec_ckn_keyvault_secret_id.setter
     def macsec_ckn_keyvault_secret_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "macsec_ckn_keyvault_secret_id", value)
+
+    @property
+    @pulumi.getter(name="macsecSciEnabled")
+    def macsec_sci_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
+
+        > **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
+        """
+        return pulumi.get(self, "macsec_sci_enabled")
+
+    @macsec_sci_enabled.setter
+    def macsec_sci_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "macsec_sci_enabled", value)
 
     @property
     @pulumi.getter(name="patchPanelId")

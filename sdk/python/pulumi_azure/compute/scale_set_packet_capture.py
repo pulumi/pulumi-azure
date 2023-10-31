@@ -362,8 +362,8 @@ class ScaleSetPacketCapture(pulumi.CustomResource):
             disable_password_authentication=False,
             source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
                 publisher="Canonical",
-                offer="0001-com-ubuntu-server-focal",
-                sku="20_04-lts",
+                offer="0001-com-ubuntu-server-jammy",
+                sku="22_04-lts",
                 version="latest",
             ),
             os_disk=azure.compute.LinuxVirtualMachineScaleSetOsDiskArgs(
@@ -460,8 +460,8 @@ class ScaleSetPacketCapture(pulumi.CustomResource):
             disable_password_authentication=False,
             source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
                 publisher="Canonical",
-                offer="0001-com-ubuntu-server-focal",
-                sku="20_04-lts",
+                offer="0001-com-ubuntu-server-jammy",
+                sku="22_04-lts",
                 version="latest",
             ),
             os_disk=azure.compute.LinuxVirtualMachineScaleSetOsDiskArgs(

@@ -679,9 +679,9 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             storage_type="Premium",
             notes="Some notes about this Virtual Machine.",
             gallery_image_reference=azure.devtest.LinuxVirtualMachineGalleryImageReferenceArgs(
-                offer="UbuntuServer",
                 publisher="Canonical",
-                sku="18.04-LTS",
+                offer="0001-com-ubuntu-server-jammy",
+                sku="22_04-lts",
                 version="latest",
             ))
         ```
@@ -761,9 +761,9 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             storage_type="Premium",
             notes="Some notes about this Virtual Machine.",
             gallery_image_reference=azure.devtest.LinuxVirtualMachineGalleryImageReferenceArgs(
-                offer="UbuntuServer",
                 publisher="Canonical",
-                sku="18.04-LTS",
+                offer="0001-com-ubuntu-server-jammy",
+                sku="22_04-lts",
                 version="latest",
             ))
         ```

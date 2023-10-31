@@ -98,9 +98,9 @@ import (
 //					vmNetworkInterface.ID(),
 //				},
 //				StorageImageReference: &compute.VirtualMachineStorageImageReferenceArgs{
-//					Publisher: pulumi.String("OpenLogic"),
-//					Offer:     pulumi.String("CentOS"),
-//					Sku:       pulumi.String("7.5"),
+//					Publisher: pulumi.String("Canonical"),
+//					Offer:     pulumi.String("0001-com-ubuntu-server-jammy"),
+//					Sku:       pulumi.String("22_04-lts"),
 //					Version:   pulumi.String("latest"),
 //				},
 //				StorageOsDisk: &compute.VirtualMachineStorageOsDiskArgs{

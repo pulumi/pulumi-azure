@@ -175,14 +175,14 @@ public final class WindowsFunctionAppSlotAuthSettingsV2Args extends com.pulumi.r
     }
 
     /**
-     * The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+     * The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
      * 
      */
     @Import(name="forwardProxyConvention")
     private @Nullable Output<String> forwardProxyConvention;
 
     /**
-     * @return The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+     * @return The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
      * 
      */
     public Optional<Output<String>> forwardProxyConvention() {
@@ -638,7 +638,7 @@ public final class WindowsFunctionAppSlotAuthSettingsV2Args extends com.pulumi.r
         }
 
         /**
-         * @param forwardProxyConvention The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+         * @param forwardProxyConvention The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
          * 
          * @return builder
          * 
@@ -649,7 +649,7 @@ public final class WindowsFunctionAppSlotAuthSettingsV2Args extends com.pulumi.r
         }
 
         /**
-         * @param forwardProxyConvention The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+         * @param forwardProxyConvention The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
          * 
          * @return builder
          * 

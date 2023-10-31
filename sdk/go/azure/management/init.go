@@ -37,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Lock{}
 	case "azure:management/privateLink:PrivateLink":
 		r = &PrivateLink{}
+	case "azure:management/privateLinkAssociation:PrivateLinkAssociation":
+		r = &PrivateLinkAssociation{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -88,6 +90,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"management/privateLink",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"management/privateLinkAssociation",
 		&module{version},
 	)
 }

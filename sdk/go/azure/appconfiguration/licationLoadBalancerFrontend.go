@@ -15,6 +15,39 @@ import (
 
 // Manages an Application Gateway for Containers Frontend.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appconfiguration"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleLicationLoadBalancer, err := appconfiguration.NewLicationLoadBalancer(ctx, "exampleLicationLoadBalancer", &appconfiguration.LicationLoadBalancerArgs{
+//				ResourceGroupName: pulumi.String("example"),
+//				Location:          pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appconfiguration.NewLicationLoadBalancerFrontend(ctx, "exampleLicationLoadBalancerFrontend", &appconfiguration.LicationLoadBalancerFrontendArgs{
+//				ApplicationLoadBalancerId: exampleLicationLoadBalancer.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Application Gateway for Containers Frontend can be imported using the `resource id`, e.g.

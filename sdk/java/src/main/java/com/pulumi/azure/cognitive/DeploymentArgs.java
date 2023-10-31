@@ -63,14 +63,14 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of RAI policy. Changing this forces a new resource to be created.
+     * The name of RAI policy.
      * 
      */
     @Import(name="raiPolicyName")
     private @Nullable Output<String> raiPolicyName;
 
     /**
-     * @return The name of RAI policy. Changing this forces a new resource to be created.
+     * @return The name of RAI policy.
      * 
      */
     public Optional<Output<String>> raiPolicyName() {
@@ -184,7 +184,7 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param raiPolicyName The name of RAI policy. Changing this forces a new resource to be created.
+         * @param raiPolicyName The name of RAI policy.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param raiPolicyName The name of RAI policy. Changing this forces a new resource to be created.
+         * @param raiPolicyName The name of RAI policy.
          * 
          * @return builder
          * 

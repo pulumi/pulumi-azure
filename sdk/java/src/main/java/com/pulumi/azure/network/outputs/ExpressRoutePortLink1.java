@@ -35,8 +35,6 @@ public final class ExpressRoutePortLink1 {
     /**
      * @return The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
      * 
-     * &gt; **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
-     * 
      */
     private @Nullable String macsecCakKeyvaultSecretId;
     /**
@@ -49,6 +47,13 @@ public final class ExpressRoutePortLink1 {
      * 
      */
     private @Nullable String macsecCknKeyvaultSecretId;
+    /**
+     * @return Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
+     * 
+     * &gt; **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
+     * 
+     */
+    private @Nullable Boolean macsecSciEnabled;
     /**
      * @return The ID that maps from the Express Route Port Link to the patch panel port.
      * 
@@ -97,8 +102,6 @@ public final class ExpressRoutePortLink1 {
     /**
      * @return The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
      * 
-     * &gt; **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
-     * 
      */
     public Optional<String> macsecCakKeyvaultSecretId() {
         return Optional.ofNullable(this.macsecCakKeyvaultSecretId);
@@ -116,6 +119,15 @@ public final class ExpressRoutePortLink1 {
      */
     public Optional<String> macsecCknKeyvaultSecretId() {
         return Optional.ofNullable(this.macsecCknKeyvaultSecretId);
+    }
+    /**
+     * @return Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
+     * 
+     * &gt; **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
+     * 
+     */
+    public Optional<Boolean> macsecSciEnabled() {
+        return Optional.ofNullable(this.macsecSciEnabled);
     }
     /**
      * @return The ID that maps from the Express Route Port Link to the patch panel port.
@@ -155,6 +167,7 @@ public final class ExpressRoutePortLink1 {
         private @Nullable String macsecCakKeyvaultSecretId;
         private @Nullable String macsecCipher;
         private @Nullable String macsecCknKeyvaultSecretId;
+        private @Nullable Boolean macsecSciEnabled;
         private @Nullable String patchPanelId;
         private @Nullable String rackId;
         private @Nullable String routerName;
@@ -168,6 +181,7 @@ public final class ExpressRoutePortLink1 {
     	      this.macsecCakKeyvaultSecretId = defaults.macsecCakKeyvaultSecretId;
     	      this.macsecCipher = defaults.macsecCipher;
     	      this.macsecCknKeyvaultSecretId = defaults.macsecCknKeyvaultSecretId;
+    	      this.macsecSciEnabled = defaults.macsecSciEnabled;
     	      this.patchPanelId = defaults.patchPanelId;
     	      this.rackId = defaults.rackId;
     	      this.routerName = defaults.routerName;
@@ -209,6 +223,11 @@ public final class ExpressRoutePortLink1 {
             return this;
         }
         @CustomType.Setter
+        public Builder macsecSciEnabled(@Nullable Boolean macsecSciEnabled) {
+            this.macsecSciEnabled = macsecSciEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder patchPanelId(@Nullable String patchPanelId) {
             this.patchPanelId = patchPanelId;
             return this;
@@ -232,6 +251,7 @@ public final class ExpressRoutePortLink1 {
             _resultValue.macsecCakKeyvaultSecretId = macsecCakKeyvaultSecretId;
             _resultValue.macsecCipher = macsecCipher;
             _resultValue.macsecCknKeyvaultSecretId = macsecCknKeyvaultSecretId;
+            _resultValue.macsecSciEnabled = macsecSciEnabled;
             _resultValue.patchPanelId = patchPanelId;
             _resultValue.rackId = rackId;
             _resultValue.routerName = routerName;

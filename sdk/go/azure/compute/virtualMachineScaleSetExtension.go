@@ -48,8 +48,8 @@ import (
 //				Instances:         pulumi.Int(1),
 //				SourceImageReference: &compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs{
 //					Publisher: pulumi.String("Canonical"),
-//					Offer:     pulumi.String("0001-com-ubuntu-server-focal"),
-//					Sku:       pulumi.String("20_04-lts"),
+//					Offer:     pulumi.String("0001-com-ubuntu-server-jammy"),
+//					Sku:       pulumi.String("22_04-lts"),
 //					Version:   pulumi.String("latest"),
 //				},
 //				NetworkInterfaces: compute.LinuxVirtualMachineScaleSetNetworkInterfaceArray{

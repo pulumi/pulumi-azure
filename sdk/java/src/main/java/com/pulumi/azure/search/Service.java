@@ -377,6 +377,24 @@ public class Service extends com.pulumi.resources.CustomResource {
         return this.secondaryKey;
     }
     /**
+     * Specifies the Semantic Search SKU which should be used for this Search Service. Possible values include `free` and `standard`.
+     * 
+     * &gt; **NOTE:** The `semantic_search_sku` cannot be defined if your Search Services `sku` is set to `free`. The Semantic Search feature is only available in certain regions, please see the [product documentation](https://learn.microsoft.com/azure/search/semantic-search-overview#availability-and-pricing) for more information.
+     * 
+     */
+    @Export(name="semanticSearchSku", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> semanticSearchSku;
+
+    /**
+     * @return Specifies the Semantic Search SKU which should be used for this Search Service. Possible values include `free` and `standard`.
+     * 
+     * &gt; **NOTE:** The `semantic_search_sku` cannot be defined if your Search Services `sku` is set to `free`. The Semantic Search feature is only available in certain regions, please see the [product documentation](https://learn.microsoft.com/azure/search/semantic-search-overview#availability-and-pricing) for more information.
+     * 
+     */
+    public Output<Optional<String>> semanticSearchSku() {
+        return Codegen.optional(this.semanticSearchSku);
+    }
+    /**
      * The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2`. Changing this forces a new Search Service to be created.
      * 
      * &gt; The `basic` and `free` SKUs provision the Search Service in a Shared Cluster - the `standard` SKUs use a Dedicated Cluster.

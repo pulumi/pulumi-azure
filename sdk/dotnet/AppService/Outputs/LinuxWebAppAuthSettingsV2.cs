@@ -56,7 +56,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly Outputs.LinuxWebAppAuthSettingsV2FacebookV2? FacebookV2;
         /// <summary>
-        /// The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+        /// The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
         /// </summary>
         public readonly string? ForwardProxyConvention;
         /// <summary>

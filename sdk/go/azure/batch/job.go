@@ -53,8 +53,8 @@ import (
 //				},
 //				StorageImageReference: &batch.PoolStorageImageReferenceArgs{
 //					Publisher: pulumi.String("Canonical"),
-//					Offer:     pulumi.String("UbuntuServer"),
-//					Sku:       pulumi.String("16.04.0-LTS"),
+//					Offer:     pulumi.String("0001-com-ubuntu-server-jammy"),
+//					Sku:       pulumi.String("22_04-lts"),
 //					Version:   pulumi.String("latest"),
 //				},
 //			})

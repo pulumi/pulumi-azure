@@ -8536,13 +8536,15 @@ type ExpressRoutePortLink1 struct {
 	// The interface name of the Azure router associated with the Express Route Port Link.
 	InterfaceName *string `pulumi:"interfaceName"`
 	// The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
-	//
-	// > **NOTE** `macsecCknKeyvaultSecretId` and `macsecCakKeyvaultSecretId` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
 	MacsecCakKeyvaultSecretId *string `pulumi:"macsecCakKeyvaultSecretId"`
 	// The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
 	MacsecCipher *string `pulumi:"macsecCipher"`
 	// The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
 	MacsecCknKeyvaultSecretId *string `pulumi:"macsecCknKeyvaultSecretId"`
+	// Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
+	//
+	// > **NOTE** `macsecCknKeyvaultSecretId` and `macsecCakKeyvaultSecretId` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
+	MacsecSciEnabled *bool `pulumi:"macsecSciEnabled"`
 	// The ID that maps from the Express Route Port Link to the patch panel port.
 	PatchPanelId *string `pulumi:"patchPanelId"`
 	// The ID that maps from the patch panel port to the rack.
@@ -8572,13 +8574,15 @@ type ExpressRoutePortLink1Args struct {
 	// The interface name of the Azure router associated with the Express Route Port Link.
 	InterfaceName pulumi.StringPtrInput `pulumi:"interfaceName"`
 	// The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
-	//
-	// > **NOTE** `macsecCknKeyvaultSecretId` and `macsecCakKeyvaultSecretId` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
 	MacsecCakKeyvaultSecretId pulumi.StringPtrInput `pulumi:"macsecCakKeyvaultSecretId"`
 	// The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
 	MacsecCipher pulumi.StringPtrInput `pulumi:"macsecCipher"`
 	// The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
 	MacsecCknKeyvaultSecretId pulumi.StringPtrInput `pulumi:"macsecCknKeyvaultSecretId"`
+	// Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
+	//
+	// > **NOTE** `macsecCknKeyvaultSecretId` and `macsecCakKeyvaultSecretId` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
+	MacsecSciEnabled pulumi.BoolPtrInput `pulumi:"macsecSciEnabled"`
 	// The ID that maps from the Express Route Port Link to the patch panel port.
 	PatchPanelId pulumi.StringPtrInput `pulumi:"patchPanelId"`
 	// The ID that maps from the patch panel port to the rack.
@@ -8703,8 +8707,6 @@ func (o ExpressRoutePortLink1Output) InterfaceName() pulumi.StringPtrOutput {
 }
 
 // The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
-//
-// > **NOTE** `macsecCknKeyvaultSecretId` and `macsecCakKeyvaultSecretId` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
 func (o ExpressRoutePortLink1Output) MacsecCakKeyvaultSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRoutePortLink1) *string { return v.MacsecCakKeyvaultSecretId }).(pulumi.StringPtrOutput)
 }
@@ -8717,6 +8719,13 @@ func (o ExpressRoutePortLink1Output) MacsecCipher() pulumi.StringPtrOutput {
 // The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
 func (o ExpressRoutePortLink1Output) MacsecCknKeyvaultSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRoutePortLink1) *string { return v.MacsecCknKeyvaultSecretId }).(pulumi.StringPtrOutput)
+}
+
+// Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
+//
+// > **NOTE** `macsecCknKeyvaultSecretId` and `macsecCakKeyvaultSecretId` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
+func (o ExpressRoutePortLink1Output) MacsecSciEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ExpressRoutePortLink1) *bool { return v.MacsecSciEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The ID that maps from the Express Route Port Link to the patch panel port.
@@ -8805,8 +8814,6 @@ func (o ExpressRoutePortLink1PtrOutput) InterfaceName() pulumi.StringPtrOutput {
 }
 
 // The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
-//
-// > **NOTE** `macsecCknKeyvaultSecretId` and `macsecCakKeyvaultSecretId` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
 func (o ExpressRoutePortLink1PtrOutput) MacsecCakKeyvaultSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExpressRoutePortLink1) *string {
 		if v == nil {
@@ -8834,6 +8841,18 @@ func (o ExpressRoutePortLink1PtrOutput) MacsecCknKeyvaultSecretId() pulumi.Strin
 		}
 		return v.MacsecCknKeyvaultSecretId
 	}).(pulumi.StringPtrOutput)
+}
+
+// Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
+//
+// > **NOTE** `macsecCknKeyvaultSecretId` and `macsecCakKeyvaultSecretId` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
+func (o ExpressRoutePortLink1PtrOutput) MacsecSciEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ExpressRoutePortLink1) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.MacsecSciEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The ID that maps from the Express Route Port Link to the patch panel port.
@@ -8876,13 +8895,15 @@ type ExpressRoutePortLink2 struct {
 	// The interface name of the Azure router associated with the Express Route Port Link.
 	InterfaceName *string `pulumi:"interfaceName"`
 	// The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
-	//
-	// > **NOTE** `macsecCknKeyvaultSecretId` and `macsecCakKeyvaultSecretId` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
 	MacsecCakKeyvaultSecretId *string `pulumi:"macsecCakKeyvaultSecretId"`
 	// The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
 	MacsecCipher *string `pulumi:"macsecCipher"`
 	// The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
 	MacsecCknKeyvaultSecretId *string `pulumi:"macsecCknKeyvaultSecretId"`
+	// Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
+	//
+	// > **NOTE** `macsecCknKeyvaultSecretId` and `macsecCakKeyvaultSecretId` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
+	MacsecSciEnabled *bool `pulumi:"macsecSciEnabled"`
 	// The ID that maps from the Express Route Port Link to the patch panel port.
 	PatchPanelId *string `pulumi:"patchPanelId"`
 	// The ID that maps from the patch panel port to the rack.
@@ -8912,13 +8933,15 @@ type ExpressRoutePortLink2Args struct {
 	// The interface name of the Azure router associated with the Express Route Port Link.
 	InterfaceName pulumi.StringPtrInput `pulumi:"interfaceName"`
 	// The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
-	//
-	// > **NOTE** `macsecCknKeyvaultSecretId` and `macsecCakKeyvaultSecretId` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
 	MacsecCakKeyvaultSecretId pulumi.StringPtrInput `pulumi:"macsecCakKeyvaultSecretId"`
 	// The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
 	MacsecCipher pulumi.StringPtrInput `pulumi:"macsecCipher"`
 	// The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
 	MacsecCknKeyvaultSecretId pulumi.StringPtrInput `pulumi:"macsecCknKeyvaultSecretId"`
+	// Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
+	//
+	// > **NOTE** `macsecCknKeyvaultSecretId` and `macsecCakKeyvaultSecretId` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
+	MacsecSciEnabled pulumi.BoolPtrInput `pulumi:"macsecSciEnabled"`
 	// The ID that maps from the Express Route Port Link to the patch panel port.
 	PatchPanelId pulumi.StringPtrInput `pulumi:"patchPanelId"`
 	// The ID that maps from the patch panel port to the rack.
@@ -9043,8 +9066,6 @@ func (o ExpressRoutePortLink2Output) InterfaceName() pulumi.StringPtrOutput {
 }
 
 // The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
-//
-// > **NOTE** `macsecCknKeyvaultSecretId` and `macsecCakKeyvaultSecretId` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
 func (o ExpressRoutePortLink2Output) MacsecCakKeyvaultSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRoutePortLink2) *string { return v.MacsecCakKeyvaultSecretId }).(pulumi.StringPtrOutput)
 }
@@ -9057,6 +9078,13 @@ func (o ExpressRoutePortLink2Output) MacsecCipher() pulumi.StringPtrOutput {
 // The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
 func (o ExpressRoutePortLink2Output) MacsecCknKeyvaultSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRoutePortLink2) *string { return v.MacsecCknKeyvaultSecretId }).(pulumi.StringPtrOutput)
+}
+
+// Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
+//
+// > **NOTE** `macsecCknKeyvaultSecretId` and `macsecCakKeyvaultSecretId` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
+func (o ExpressRoutePortLink2Output) MacsecSciEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ExpressRoutePortLink2) *bool { return v.MacsecSciEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The ID that maps from the Express Route Port Link to the patch panel port.
@@ -9145,8 +9173,6 @@ func (o ExpressRoutePortLink2PtrOutput) InterfaceName() pulumi.StringPtrOutput {
 }
 
 // The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
-//
-// > **NOTE** `macsecCknKeyvaultSecretId` and `macsecCakKeyvaultSecretId` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
 func (o ExpressRoutePortLink2PtrOutput) MacsecCakKeyvaultSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExpressRoutePortLink2) *string {
 		if v == nil {
@@ -9174,6 +9200,18 @@ func (o ExpressRoutePortLink2PtrOutput) MacsecCknKeyvaultSecretId() pulumi.Strin
 		}
 		return v.MacsecCknKeyvaultSecretId
 	}).(pulumi.StringPtrOutput)
+}
+
+// Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
+//
+// > **NOTE** `macsecCknKeyvaultSecretId` and `macsecCakKeyvaultSecretId` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
+func (o ExpressRoutePortLink2PtrOutput) MacsecSciEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ExpressRoutePortLink2) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.MacsecSciEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The ID that maps from the Express Route Port Link to the patch panel port.

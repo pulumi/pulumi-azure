@@ -19,7 +19,6 @@ import javax.annotation.Nullable;
  * Manages an Application Gateway for Containers Frontend.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -49,7 +48,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLicationLoadBalancerFrontend = new LicationLoadBalancerFrontend(&#34;exampleLicationLoadBalancerFrontend&#34;, LicationLoadBalancerFrontendArgs.builder()        
- *             .location(&#34;West Europe&#34;)
  *             .applicationLoadBalancerId(exampleLicationLoadBalancer.id())
  *             .build());
  * 

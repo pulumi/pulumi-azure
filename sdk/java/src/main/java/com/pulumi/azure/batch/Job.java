@@ -68,8 +68,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .storageImageReference(PoolStorageImageReferenceArgs.builder()
  *                 .publisher(&#34;Canonical&#34;)
- *                 .offer(&#34;UbuntuServer&#34;)
- *                 .sku(&#34;16.04.0-LTS&#34;)
+ *                 .offer(&#34;0001-com-ubuntu-server-jammy&#34;)
+ *                 .sku(&#34;22_04-lts&#34;)
  *                 .version(&#34;latest&#34;)
  *                 .build())
  *             .build());
